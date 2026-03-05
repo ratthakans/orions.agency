@@ -1,4 +1,5 @@
 import AnimatedSection from "./AnimatedSection";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const AboutSection = () => (
   <section id="about" className="py-32 md:py-44 px-6 md:px-12 bg-elevated">

@@ -83,7 +83,7 @@ const Navbar = () => {
                 ))}
                 <button
                   onClick={() => { setIsOpen(false); setDialogOpen(true); }}
-                  className="text-sm bg-foreground text-background px-5 py-3 font-display font-medium text-center mt-2 hover:bg-accent-warm hover:text-accent-warm-foreground transition-colors duration-300"
+                  className="text-sm bg-foreground text-background px-5 py-3 font-display font-medium text-center mt-2 hover:bg-muted-foreground transition-colors duration-300"
                 >
                   Start a Project
                 </button>

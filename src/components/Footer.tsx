@@ -71,7 +71,7 @@ const Footer = () => (
           © {new Date().getFullYear()} ØRIONS. All rights reserved.
         </p>
         <div className="flex items-center gap-6">
-          <a href="https://orions.agency" className="font-body text-xs text-muted-foreground hover:text-accent-warm transition-colors duration-300">
+          <a href="https://orions.agency" className="font-body text-xs text-muted-foreground hover:text-foreground transition-colors duration-300">
             orions.agency
           </a>
         </div>

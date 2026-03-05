@@ -49,7 +49,7 @@ const ProblemSection = () => (
             </AnimatedSection>
 
             <AnimatedSection delay={0.35}>
-              <div className="w-16 h-px bg-accent-warm" />
+              <div className="w-16 h-px bg-foreground/20" />
             </AnimatedSection>
 
             <AnimatedSection delay={0.4}>

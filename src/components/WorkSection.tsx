@@ -197,7 +197,7 @@ const WorkSection = () => {
                     <DialogTitle className="font-display text-2xl md:text-3xl font-bold text-foreground">
                       {selectedWork.title}
                     </DialogTitle>
-                    <span className="text-xs tracking-[0.2em] uppercase text-accent-warm font-body">
+                    <span className="text-xs tracking-[0.2em] uppercase text-muted-foreground font-body">
                       {selectedWork.industry}
                     </span>
                   </div>

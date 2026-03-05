@@ -68,7 +68,7 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => (
           </button>
           <a
             href="/services"
-            className="border border-divider text-foreground px-7 py-3.5 text-sm font-display font-medium tracking-wide hover:border-accent-warm hover:text-accent-warm transition-colors duration-300"
+            className="border border-divider text-foreground px-7 py-3.5 text-sm font-display font-medium tracking-wide hover:border-foreground/50 transition-colors duration-300"
           >
             View Services
           </a>

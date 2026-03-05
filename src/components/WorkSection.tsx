@@ -37,6 +37,7 @@ const works = [
     brief: "Community storytelling and content system for a contemporary arts organization.",
     scope: ["Editorial Content", "Social Content Series", "Community Strategy", "Brand Narrative", "Photography"],
     result: "Built a content ecosystem that grew Koha's community engagement by 3x within six months.",
+    metric: "↑ 3× engagement",
     image: workKoha,
   },
   {

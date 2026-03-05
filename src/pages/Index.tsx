@@ -31,7 +31,7 @@ const Index = () => {
       <SocialProofStrip />
       <ImpactSection />
       <ProcessSection />
-      <TestimonialsSection />
+      
       <FAQSection />
 
       {/* CTA Bridge */}

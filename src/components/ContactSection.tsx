@@ -116,7 +116,7 @@ const ContactSection = () => {
           <AnimatedSection delay={0.2}>
             <div>
               <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-10">
-                Visit Us
+                {t("contact.visit_us")}
               </p>
               <div className="w-full aspect-square border border-divider overflow-hidden mb-8">
                 <iframe

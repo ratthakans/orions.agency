@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import StartProjectDialog from "./StartProjectDialog";
-import { useLanguage } from "@/contexts/LanguageContext";
+
 
 const navLinks = [
   { label: "About", href: "/about" },

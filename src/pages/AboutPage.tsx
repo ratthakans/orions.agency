@@ -54,7 +54,7 @@ const AboutPage = () => {
               </div>
               <div className="flex items-end">
                 <p className="font-body text-muted-foreground text-base md:text-lg max-w-md leading-relaxed">
-                  A small, focused team of strategists, designers, and storytellers building meaningful brands.
+                  {t("about.team_desc")}
                 </p>
               </div>
             </div>

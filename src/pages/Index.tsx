@@ -6,7 +6,7 @@ import ProblemSection from "@/components/ProblemSection";
 import SocialProofStrip from "@/components/SocialProofStrip";
 import ImpactSection from "@/components/ImpactSection";
 import ProcessSection from "@/components/ProcessSection";
-import TestimonialsSection from "@/components/TestimonialsSection";
+
 import FAQSection from "@/components/FAQSection";
 import StartProjectDialog from "@/components/StartProjectDialog";
 import Footer from "@/components/Footer";

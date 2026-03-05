@@ -52,9 +52,14 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => (
         transition={{ duration: 0.8, delay: 0.7 }}
         className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 border-t border-divider pt-8"
       >
-        <p className="font-body text-base md:text-lg text-muted-foreground max-w-md leading-relaxed">
-          We define direction, build authority, and create work that moves markets.
-        </p>
+        <div>
+          <p className="font-body text-base md:text-lg text-muted-foreground max-w-md leading-relaxed">
+            We define direction, build authority, and create work that moves markets.
+          </p>
+          <p className="font-body text-xs tracking-[0.15em] uppercase text-muted-foreground/70 mt-3">
+            Trusted by 50+ brands across Southeast Asia
+          </p>
+        </div>
 
         <div className="flex items-center gap-4">
           <button

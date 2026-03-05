@@ -3,8 +3,13 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import ProblemSection from "@/components/ProblemSection";
+import SocialProofStrip from "@/components/SocialProofStrip";
 import ImpactSection from "@/components/ImpactSection";
+import ProcessSection from "@/components/ProcessSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import FAQSection from "@/components/FAQSection";
 import StartProjectDialog from "@/components/StartProjectDialog";
+import StickyProjectCTA from "@/components/StickyProjectCTA";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 import { Link } from "react-router-dom";
@@ -22,9 +27,13 @@ const Index = () => {
       <Navbar />
       <HeroSection onStartProject={() => setDialogOpen(true)} />
       <ProblemSection />
+      <SocialProofStrip />
       <ImpactSection />
+      <ProcessSection />
+      <TestimonialsSection />
+      <FAQSection />
 
-      {/* CTA Bridge — linking homepage to inner pages */}
+      {/* CTA Bridge */}
       <section className="py-24 md:py-32 px-6 md:px-12 border-t border-divider">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
@@ -32,6 +41,9 @@ const Index = () => {
               <div>
                 <p className="font-display text-3xl md:text-5xl font-bold tracking-tight text-foreground leading-tight">
                   Ready to cut<br />through the noise?
+                </p>
+                <p className="font-body text-sm text-muted-foreground mt-4">
+                  Currently accepting Q2 2026 projects · Join 50+ brands that chose clarity over noise
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -58,6 +70,7 @@ const Index = () => {
 
       <Footer />
       <StartProjectDialog open={dialogOpen} onOpenChange={setDialogOpen} />
+      <StickyProjectCTA onClick={() => setDialogOpen(true)} />
     </main>
   );
 };

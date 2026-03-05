@@ -19,6 +19,7 @@ const works = [
     brief: "Brand repositioning and campaign launch for Southeast Asia's emerging EV market.",
     scope: ["Brand Strategy", "Campaign Concept", "Brand Film", "Digital Experience", "Social Content Series"],
     result: "Repositioned Northwind as the leading sustainable EV brand in Southeast Asia with a 40% increase in brand awareness.",
+    metric: "↑ 40% awareness",
     image: workNorthwind,
   },
   {
@@ -27,6 +28,7 @@ const works = [
     brief: "Narrative website and brand platform for a luxury property developer.",
     scope: ["Brand Direction", "Narrative Website", "UX/UI Direction", "Photography", "Content Strategy"],
     result: "Delivered a premium digital presence that elevated Atlas's positioning in the luxury property market.",
+    metric: "↑ Premium positioning",
     image: workAtlas,
   },
   {
@@ -35,6 +37,7 @@ const works = [
     brief: "Community storytelling and content system for a contemporary arts organization.",
     scope: ["Editorial Content", "Social Content Series", "Community Strategy", "Brand Narrative", "Photography"],
     result: "Built a content ecosystem that grew Koha's community engagement by 3x within six months.",
+    metric: "↑ 3× engagement",
     image: workKoha,
   },
   {
@@ -43,6 +46,7 @@ const works = [
     brief: "Digital experience and search visibility strategy for a digital health platform.",
     scope: ["Digital Experience", "SEO Strategy", "Content Architecture", "Landing Pages", "Performance Analytics"],
     result: "Increased organic search visibility by 200% and established Lumen as a thought leader in digital health.",
+    metric: "↑ 200% search visibility",
     image: workLumen,
   },
   {
@@ -51,6 +55,7 @@ const works = [
     brief: "Brand refresh and digital campaign for a luxury hospitality group.",
     scope: ["Rebranding", "Campaign Concept", "Photography", "Narrative Website", "Social Content"],
     result: "Refreshed Sera's brand identity resulting in a cohesive luxury experience across all touchpoints.",
+    metric: "↑ Unified experience",
     image: workSera,
   },
   {
@@ -59,6 +64,7 @@ const works = [
     brief: "Campaign platform and storytelling for a modern education institution.",
     scope: ["Campaign Strategy", "Brand Film", "Editorial Content", "Digital Platform", "Founder Storytelling"],
     result: "Created a campaign platform that resonated with modern learners and drove enrollment growth.",
+    metric: "↑ Enrollment growth",
     image: workMuse,
   },
   {
@@ -67,6 +73,7 @@ const works = [
     brief: "Authority building and content ecosystem for a fintech startup.",
     scope: ["Content Strategy", "Thought Leadership", "Editorial Series", "Digital Experience", "SEO"],
     result: "Positioned Orbit as a trusted authority in the fintech space through consistent, high-quality content.",
+    metric: "↑ Thought leadership",
     image: workOrbit,
   },
   {
@@ -75,6 +82,7 @@ const works = [
     brief: "Editorial storytelling and creative campaigns for an artisan coffee brand.",
     scope: ["Brand Narrative", "Photography", "Campaign Concept", "Social Content Series", "Editorial Content"],
     result: "Transformed Field Notes from a local roaster into a recognized lifestyle brand across the region.",
+    metric: "↑ Regional recognition",
     image: workField,
   },
   {
@@ -83,6 +91,7 @@ const works = [
     brief: "End-to-end brand identity and e-commerce experience for a contemporary fashion label.",
     scope: ["Brand Identity", "E-commerce UX", "Photography Direction", "Social Strategy", "Campaign Launch"],
     result: "Launched Vela's DTC platform achieving 150% of first-quarter sales targets with a cohesive brand experience.",
+    metric: "↑ 150% sales target",
     image: workVela,
   },
   {
@@ -91,6 +100,7 @@ const works = [
     brief: "Brand positioning and digital platform for a climate-tech startup.",
     scope: ["Brand Strategy", "Digital Platform", "Data Visualization", "Content Ecosystem", "Investor Deck"],
     result: "Helped Terra secure Series A funding with a compelling brand narrative and data-driven digital presence.",
+    metric: "↑ Series A secured",
     image: workTerra,
   },
 ];
@@ -159,6 +169,7 @@ const WorkSection = () => {
                   </span>
                 </div>
                 <p className="font-body text-sm text-muted-foreground max-w-lg">{works[0].brief}</p>
+                <p className="font-display text-sm font-semibold text-accent-gradient mt-2">{works[0].metric}</p>
               </div>
               <div className="flex flex-wrap gap-2 md:justify-end shrink-0">
                 {works[0].scope.slice(0, 3).map((s) => (
@@ -197,6 +208,9 @@ const WorkSection = () => {
                 </div>
                 <p className="font-body text-sm text-muted-foreground leading-relaxed line-clamp-2">
                   {w.brief}
+                </p>
+                <p className="font-display text-xs font-semibold text-accent-gradient mt-2">
+                  {w.metric}
                 </p>
               </div>
             </AnimatedSection>

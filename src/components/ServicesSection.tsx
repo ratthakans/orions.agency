@@ -2,7 +2,6 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "./ui/dialog";
-import { useLanguage } from "@/contexts/LanguageContext";
 
 interface ScopeDetail {
   name: string;
@@ -65,7 +64,6 @@ const services: Service[] = [
 const ServicesSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [selectedScope, setSelectedScope] = useState<{ service: Service; scope: ScopeDetail } | null>(null);
-  const { t } = useLanguage();
 
   return (
     <section id="services" className="py-32 md:py-44 px-6 md:px-12">
@@ -84,7 +82,7 @@ const ServicesSection = () => {
             </div>
             <div className="flex items-end">
               <p className="font-body text-muted-foreground text-base md:text-lg max-w-md leading-relaxed">
-                {t("services.desc")}
+                These services focus on defining direction and building the key communication assets for the brand.
               </p>
             </div>
           </div>

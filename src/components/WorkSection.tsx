@@ -46,6 +46,7 @@ const works = [
     brief: "Digital experience and search visibility strategy for a digital health platform.",
     scope: ["Digital Experience", "SEO Strategy", "Content Architecture", "Landing Pages", "Performance Analytics"],
     result: "Increased organic search visibility by 200% and established Lumen as a thought leader in digital health.",
+    metric: "↑ 200% search visibility",
     image: workLumen,
   },
   {

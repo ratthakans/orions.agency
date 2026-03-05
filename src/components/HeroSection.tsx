@@ -15,7 +15,7 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => (
       >
         <span className="font-display text-xs tracking-wider">(01)</span>
         <span className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block" />
+          <span className="w-2 h-2 rounded-full bg-green-500 inline-block" />
           Bangkok · Available
         </span>
       </motion.div>

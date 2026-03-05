@@ -10,7 +10,7 @@ const ContactSection = () => {
     e.preventDefault();
   };
 
-  const inputClasses = "w-full bg-transparent border-b border-divider py-3 text-sm font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent-warm transition-colors duration-300";
+  const inputClasses = "w-full bg-transparent border-b border-divider py-3 text-sm font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors duration-300";
 
   return (
     <section id="contact" className="py-32 md:py-44 px-6 md:px-12">

@@ -30,7 +30,7 @@ const Footer = () => (
 
         {/* Navigation */}
         <div>
-          <p className="font-display text-xs tracking-[0.3em] uppercase text-muted-foreground mb-6">
+          <p className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mb-6">
             Navigation
           </p>
           <div className="flex flex-col gap-3">

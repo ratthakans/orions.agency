@@ -136,7 +136,7 @@ const WorkSection = () => {
                     {w.industry}
                   </span>
                 </div>
-                <p className="font-body text-sm text-muted-foreground mb-2">{w.brief}</p>
+                
                 <div className="flex flex-wrap gap-2">
                   {w.scope.slice(0, 3).map((s) => (
                     <span key={s} className="text-[10px] tracking-[0.15em] uppercase text-muted-foreground font-body border border-divider px-2 py-0.5 group-hover:border-accent-warm/50 transition-colors duration-500">

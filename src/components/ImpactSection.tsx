@@ -1,56 +1,54 @@
 import { useState } from "react";
 import AnimatedSection from "./AnimatedSection";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "./ui/dialog";
-import { useLanguage } from "@/contexts/LanguageContext";
 
 const impacts = [
   {
     stat: "89%",
     title: "Brand Recall Increase",
-    desc: { en: "Messaging becomes focused and consistent.", th: "ข้อความมีความชัดเจนและสอดคล้องกัน" },
-    detail: { en: "Our brand positioning framework helps clients achieve an average 89% increase in unaided brand recall within the first 6 months. We use structured messaging audits, competitive gap analysis, and narrative alignment workshops to ensure every touchpoint reinforces a single, clear brand story.", th: "กรอบการวาง positioning แบรนด์ของเราช่วยให้ลูกค้าบรรลุการเพิ่มขึ้นเฉลี่ย 89% ในการจดจำแบรนด์โดยไม่ต้องมีตัวช่วยภายใน 6 เดือนแรก" },
+    desc: "Messaging becomes focused and consistent.",
+    detail: "Our brand positioning framework helps clients achieve an average 89% increase in unaided brand recall within the first 6 months. We use structured messaging audits, competitive gap analysis, and narrative alignment workshops to ensure every touchpoint reinforces a single, clear brand story.",
     methodology: "Brand Audit → Positioning Workshop → Message Architecture → Consistency Scorecard",
   },
   {
     stat: "3.2×",
     title: "Campaign Engagement",
-    desc: { en: "Creative work that stands out and converts.", th: "งานสร้างสรรค์ที่โดดเด่นและแปลงผล" },
-    detail: { en: "Campaigns we produce generate 3.2× higher engagement rates compared to industry benchmarks. Our approach combines data-driven creative with culturally relevant storytelling.", th: "แคมเปญที่เราผลิตสร้างอัตราการมีส่วนร่วมสูงกว่า 3.2× เมื่อเทียบกับเกณฑ์มาตรฐานอุตสาหกรรม" },
+    desc: "Creative work that stands out and converts.",
+    detail: "Campaigns we produce generate 3.2× higher engagement rates compared to industry benchmarks. Our approach combines data-driven creative with culturally relevant storytelling.",
     methodology: "Audience Research → Creative Strategy → A/B Testing → Performance Optimization",
   },
   {
     stat: "47%",
     title: "Content Efficiency",
-    desc: { en: "Content that builds brand authority faster.", th: "คอนเทนต์ที่สร้างความน่าเชื่อถือของแบรนด์เร็วขึ้น" },
-    detail: { en: "Our content systems reduce production time by 47% while maintaining premium quality. Through templatized workflows, editorial calendars, and modular content architectures, brands produce more with less.", th: "ระบบคอนเทนต์ของเราลดเวลาการผลิต 47% โดยยังคงคุณภาพระดับพรีเมียม ผ่านระบบเวิร์กโฟลว์และสถาปัตยกรรมคอนเทนต์แบบโมดูลาร์" },
+    desc: "Content that builds brand authority faster.",
+    detail: "Our content systems reduce production time by 47% while maintaining premium quality. Through templatized workflows, editorial calendars, and modular content architectures, brands produce more with less.",
     methodology: "Content Audit → System Design → Template Creation → Team Training",
   },
   {
     stat: "2.8×",
     title: "Digital Conversion",
-    desc: { en: "Digital platforms that perform and represent.", th: "แพลตฟอร์มดิจิทัลที่ทั้งทำผลงานและเป็นตัวแทนแบรนด์" },
-    detail: { en: "Digital experiences we design convert at 2.8× the rate of standard templates. We combine UX research, conversion-centered design, and performance optimization.", th: "ประสบการณ์ดิจิทัลที่เราออกแบบแปลงผลได้ 2.8× เมื่อเทียบกับเทมเพลตมาตรฐาน" },
+    desc: "Digital platforms that perform and represent.",
+    detail: "Digital experiences we design convert at 2.8× the rate of standard templates. We combine UX research, conversion-centered design, and performance optimization.",
     methodology: "UX Research → Wireframing → Visual Design → Performance Testing",
   },
   {
     stat: "156%",
     title: "Search Visibility",
-    desc: { en: "Better reach through search and digital channels.", th: "เข้าถึงได้ดีขึ้นผ่านการค้นหาและช่องทางดิจิทัล" },
-    detail: { en: "Clients see an average 156% increase in organic search visibility within 12 months. Our SEO strategy integrates technical optimization, content architecture, and authority building.", th: "ลูกค้าเห็นการเพิ่มขึ้นเฉลี่ย 156% ในการมองเห็นจากการค้นหาภายใน 12 เดือน" },
+    desc: "Better reach through search and digital channels.",
+    detail: "Clients see an average 156% increase in organic search visibility within 12 months. Our SEO strategy integrates technical optimization, content architecture, and authority building.",
     methodology: "Technical Audit → Keyword Strategy → Content Architecture → Link Building",
   },
   {
     stat: "94%",
     title: "Team Alignment Score",
-    desc: { en: "Teams communicate under one clear direction.", th: "ทีมสื่อสารภายใต้ทิศทางเดียวที่ชัดเจน" },
-    detail: { en: "Post-engagement surveys show 94% of client teams report stronger internal alignment on brand and marketing direction.", th: "แบบสำรวจหลังการทำงานร่วมกันแสดงว่า 94% ของทีมลูกค้ารายงานว่ามีการจัดแนวภายในที่แข็งแกร่งขึ้น" },
+    desc: "Teams communicate under one clear direction.",
+    detail: "Post-engagement surveys show 94% of client teams report stronger internal alignment on brand and marketing direction.",
     methodology: "Stakeholder Interviews → Brand Guidelines → Training Sessions → Alignment Review",
   },
 ];
 
 const ImpactSection = () => {
   const [selectedImpact, setSelectedImpact] = useState<typeof impacts[0] | null>(null);
-  const { lang, t } = useLanguage();
 
   return (
     <section className="py-32 md:py-44 px-6 md:px-12 bg-elevated">
@@ -68,7 +66,7 @@ const ImpactSection = () => {
             </div>
             <div className="flex items-end">
               <p className="font-body text-muted-foreground text-base md:text-lg max-w-md leading-relaxed">
-                {t("impact.desc")}
+                Every service we offer is designed to move a specific metric. Here's what happens when ØRIONS works with a brand.
               </p>
             </div>
           </div>
@@ -92,7 +90,7 @@ const ImpactSection = () => {
                   {item.title}
                 </h3>
                 <p className="font-body text-muted-foreground text-sm md:text-base leading-relaxed mb-4">
-                  {item.desc[lang]}
+                  {item.desc}
                 </p>
                 <span className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground font-body group-hover:text-foreground transition-colors duration-300">
                   Learn more →
@@ -117,7 +115,7 @@ const ImpactSection = () => {
                   {selectedImpact.title}
                 </DialogTitle>
                 <DialogDescription className="font-body text-muted-foreground text-sm mt-1">
-                  {selectedImpact.desc[lang]}
+                  {selectedImpact.desc}
                 </DialogDescription>
               </DialogHeader>
 
@@ -127,7 +125,7 @@ const ImpactSection = () => {
                     How we achieve this
                   </h4>
                   <p className="font-body text-sm text-foreground leading-relaxed">
-                    {selectedImpact.detail[lang]}
+                    {selectedImpact.detail}
                   </p>
                 </div>
 

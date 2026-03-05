@@ -1,16 +1,13 @@
 import AnimatedSection from "./AnimatedSection";
-import { useLanguage } from "@/contexts/LanguageContext";
 
 const steps = [
-  { num: "01", title: "Discovery", descKey: "process.step1" },
-  { num: "02", title: "Strategy", descKey: "process.step2" },
-  { num: "03", title: "Creation", descKey: "process.step3" },
-  { num: "04", title: "Launch & Scale", descKey: "process.step4" },
+  { num: "01", title: "Discovery", desc: "We immerse ourselves in your brand, market, and audience to understand the full landscape before making any decisions." },
+  { num: "02", title: "Strategy", desc: "We define your positioning, messaging architecture, and communication roadmap — the blueprint for everything that follows." },
+  { num: "03", title: "Creation", desc: "Our team builds bespoke creative assets, campaigns, and systems designed to cut through noise and create real impact." },
+  { num: "04", title: "Launch & Scale", desc: "We deploy, measure, and optimize — ensuring your communication compounds over time and delivers lasting ROI." },
 ];
 
 const ProcessSection = () => {
-  const { t } = useLanguage();
-
   return (
     <section className="py-32 md:py-44 px-6 md:px-12 border-t border-divider">
       <div className="max-w-7xl mx-auto">
@@ -27,7 +24,7 @@ const ProcessSection = () => {
             </div>
             <div className="flex items-end">
               <p className="font-body text-muted-foreground text-base md:text-lg max-w-md leading-relaxed">
-                {t("process.desc")}
+                A proven four-step process that takes brands from unclear to unforgettable.
               </p>
             </div>
           </div>
@@ -45,7 +42,7 @@ const ProcessSection = () => {
                   {step.title}
                 </h3>
                 <p className="font-body text-sm text-muted-foreground leading-relaxed">
-                  {t(step.descKey)}
+                  {step.desc}
                 </p>
               </div>
             </AnimatedSection>

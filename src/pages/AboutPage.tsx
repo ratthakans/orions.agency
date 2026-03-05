@@ -1,6 +1,5 @@
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
-import { useLanguage } from "@/contexts/LanguageContext";
 import AboutSection from "@/components/AboutSection";
 import AnimatedSection from "@/components/AnimatedSection";
 import Footer from "@/components/Footer";
@@ -21,7 +20,6 @@ const team = [
 ];
 
 const AboutPage = () => {
-  const { t } = useLanguage();
   return (
     <main className="bg-background min-h-screen">
       <Helmet>
@@ -44,9 +42,7 @@ const AboutPage = () => {
             <AnimatedSection>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-24">
                 <div>
-                  <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-4">
-                    The People
-                  </p>
+                  <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-4">The People</p>
                   <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-foreground">
                     Our<br />
                     <span className="text-accent-gradient">Team</span>
@@ -54,7 +50,7 @@ const AboutPage = () => {
                 </div>
                 <div className="flex items-end">
                   <p className="font-body text-muted-foreground text-base md:text-lg max-w-md leading-relaxed">
-                    {t("about.team_desc")}
+                    A small, focused team of strategists, designers, and storytellers building meaningful brands.
                   </p>
                 </div>
               </div>
@@ -65,17 +61,10 @@ const AboutPage = () => {
                 <AnimatedSection key={member.name} delay={i * 0.08}>
                   <div className="bg-background p-8 md:p-10 group">
                     <div className="w-full aspect-[3/4] bg-secondary mb-6 overflow-hidden relative">
-                      <img
-                        src={member.image}
-                        alt={member.name}
-                        className="w-full h-full object-cover group-hover:scale-[1.03] group-hover:brightness-110 transition-all duration-700"
-                        loading="lazy"
-                      />
+                      <img src={member.image} alt={member.name} className="w-full h-full object-cover group-hover:scale-[1.03] group-hover:brightness-110 transition-all duration-700" loading="lazy" />
                       <div className="absolute inset-0 bg-gradient-to-t from-accent-warm/0 via-transparent to-transparent group-hover:from-accent-warm/15 transition-all duration-700" />
                     </div>
-                    <h3 className="font-display text-lg md:text-xl font-semibold text-foreground mb-1">
-                      {member.name}
-                    </h3>
+                    <h3 className="font-display text-lg md:text-xl font-semibold text-foreground mb-1">{member.name}</h3>
                     <p className="font-body text-sm text-muted-foreground">{member.role}</p>
                   </div>
                 </AnimatedSection>

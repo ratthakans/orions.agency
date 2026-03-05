@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { useLanguage } from "@/contexts/LanguageContext";
 
 const footerLinks = [
   { label: "About", href: "/about" },
@@ -9,9 +8,13 @@ const footerLinks = [
   { label: "Contact", href: "/contact" },
 ];
 
-const Footer = () => {
-  const { t } = useLanguage();
+const socialLinks = [
+  { label: "Instagram", href: "https://instagram.com/orions.agency" },
+  { label: "LinkedIn", href: "https://linkedin.com/company/orions-agency" },
+  { label: "Behance", href: "https://behance.net/orions-agency" },
+];
 
+const Footer = () => {
   return (
     <footer className="border-t border-divider relative overflow-hidden">
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
@@ -25,7 +28,7 @@ const Footer = () => {
           <div>
             <p className="font-logo text-2xl font-medium text-foreground mb-3">ØRIONS</p>
             <p className="font-body text-sm text-muted-foreground leading-relaxed max-w-xs whitespace-pre-line">
-              {t("footer.tagline")}
+              {"Meaning-driven creative agency.\nNoiseless, More Meaning."}
             </p>
           </div>
 
@@ -62,6 +65,23 @@ const Footer = () => {
                 Khlong Chan, Bang Kapi<br />
                 Bangkok 10240, Thailand
               </p>
+            </div>
+
+            <p className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mt-8 mb-4">
+              Follow Us
+            </p>
+            <div className="flex items-center gap-6">
+              {socialLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-body text-sm text-muted-foreground hover:text-accent-warm transition-colors duration-300"
+                >
+                  {link.label}
+                </a>
+              ))}
             </div>
           </div>
         </div>

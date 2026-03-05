@@ -84,7 +84,7 @@ const ImpactSection = () => {
                 <p className="font-body text-muted-foreground text-sm md:text-base leading-relaxed mb-4">
                   {item.desc}
                 </p>
-                <span className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground font-body group-hover:text-accent-warm transition-colors duration-300">
+                <span className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground font-body group-hover:text-foreground transition-colors duration-300">
                   Learn more →
                 </span>
               </div>

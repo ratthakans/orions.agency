@@ -44,11 +44,11 @@ const ProblemSection = () => (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-divider border border-divider mb-20">
           {problems.map((p, i) => (
             <AnimatedSection key={p.title} delay={i * 0.05}>
-              <div className="bg-background p-8 md:p-10">
-                <span className="font-display text-xs text-accent-warm mb-4 block">
+              <div className="bg-background p-8 md:p-10 group/card cursor-default transition-colors duration-300 hover:bg-secondary">
+                <span className="font-display text-xs text-accent-warm mb-4 block transition-transform duration-300 group-hover/card:translate-x-1">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <h4 className="font-display text-base font-semibold text-foreground mb-2">{p.title}</h4>
+                <h4 className="font-display text-base font-semibold text-foreground mb-2 transition-colors duration-300 group-hover/card:text-accent-gradient">{p.title}</h4>
                 <p className="font-body text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
               </div>
             </AnimatedSection>

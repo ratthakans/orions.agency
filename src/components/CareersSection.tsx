@@ -162,7 +162,7 @@ const CareersSection = () => {
         {/* Open Positions */}
         <AnimatedSection delay={0.1}>
           <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-8">
-            Open Positions
+            {t("careers.open_positions")}
           </p>
         </AnimatedSection>
 
@@ -203,7 +203,7 @@ const CareersSection = () => {
         <div className="mt-24">
           <AnimatedSection>
             <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-8">
-              Benefits & Perks
+              {t("careers.benefits")}
             </p>
           </AnimatedSection>
 
@@ -232,7 +232,7 @@ const CareersSection = () => {
               href="mailto:hello@orions.agency"
               className="inline-flex items-center gap-2 bg-foreground text-background px-10 py-4 text-sm font-display font-medium tracking-wide hover:bg-accent-warm hover:text-accent-warm-foreground transition-colors duration-300"
             >
-              Send Your Portfolio
+              {t("careers.send_portfolio")}
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="transition-transform duration-300 group-hover:translate-x-1">
                 <path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" strokeWidth="1.5" />
               </svg>

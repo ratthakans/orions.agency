@@ -6,7 +6,6 @@ const AboutSection = () => {
   return (
   <section id="about" className="py-32 md:py-44 px-6 md:px-12 bg-elevated">
     <div className="max-w-7xl mx-auto">
-      {/* Header — same 2-col layout as Careers */}
       <AnimatedSection>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-24">
           <div>
@@ -15,7 +14,7 @@ const AboutSection = () => {
             </p>
             <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-foreground">
               About<br />
-              <span className="text-accent-gradient">ØRIONS</span>
+              <span className="text-accent-gradient">ORIONS</span>
             </h2>
           </div>
           <div className="flex items-end">
@@ -30,15 +29,12 @@ const AboutSection = () => {
         <div className="space-y-8 font-body text-lg md:text-xl text-muted-foreground leading-relaxed">
           <AnimatedSection delay={0.1}>
             <div className="border-t border-divider pt-10">
-              <p className="text-foreground font-display text-lg md:text-xl mb-6">Our approach is simple</p>
-              <p className="mb-6">
-                Clear thinking.<br />
-                Purposeful creativity.<br />
-                Disciplined execution.
+              <p className="text-foreground font-display text-lg md:text-xl mb-6">{t("about.approach_title")}</p>
+              <p className="mb-6 whitespace-pre-line">
+                {t("about.approach_body")}
               </p>
-              <p className="text-foreground font-display text-lg md:text-xl">
-                Less noise.<br />
-                More meaning.
+              <p className="text-foreground font-display text-lg md:text-xl whitespace-pre-line">
+                {t("about.approach_cta")}
               </p>
             </div>
           </AnimatedSection>

@@ -7,7 +7,7 @@ const ContactSection = () => {
     name: "", email: "", company: "", budget: "", message: "",
   });
   const [submitted, setSubmitted] = useState(false);
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -63,12 +63,12 @@ const ContactSection = () => {
           <AnimatedSection delay={0.1}>
             <div>
               <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-10">
-                Send a Message
+                {t("contact.send_message")}
               </p>
 
               {submitted ? (
                 <div className="border border-divider p-10 text-center">
-                  <p className="font-display text-xl font-semibold text-foreground mb-3">Thank you</p>
+                  <p className="font-display text-xl font-semibold text-foreground mb-3">{t("contact.thank_title")}</p>
                   <p className="font-body text-sm text-muted-foreground">{t("contact.thankyou")}</p>
                 </div>
               ) : (
@@ -116,7 +116,7 @@ const ContactSection = () => {
           <AnimatedSection delay={0.2}>
             <div>
               <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-10">
-                Visit Us
+                {t("contact.visit_us")}
               </p>
               <div className="w-full aspect-square border border-divider overflow-hidden mb-8">
                 <iframe

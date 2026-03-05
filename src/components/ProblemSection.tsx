@@ -104,16 +104,6 @@ const ProblemSection = () => {
             ))}
           </div>
 
-          <AnimatedSection delay={0.4}>
-            <div className="border-t border-divider pt-10 max-w-2xl">
-              <p className="font-logo text-base md:text-lg text-foreground tracking-tight mb-3">
-                {t("problem.solution_title")}
-              </p>
-              <p className="font-body text-muted-foreground leading-relaxed">
-                {t("problem.solution_desc")}
-              </p>
-            </div>
-          </AnimatedSection>
         </div>
       </div>
 

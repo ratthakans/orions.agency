@@ -8,7 +8,7 @@ const translations: Record<string, Record<Lang, string>> = {
   },
   "hero.trust": {
     en: "Trusted by 50+ brands across Southeast Asia",
-    th: "ได้รับความไว้วางใจจากแบรนด์กว่า 50+ ทั่วเอเชียตะวันออกเฉียงใต้",
+    th: "Trusted by 50+ brands across Southeast Asia",
   },
 
   // Problem
@@ -28,7 +28,7 @@ const translations: Record<string, Record<Lang, string>> = {
   // Social Proof
   "social.trusted": {
     en: "Trusted by forward-thinking brands",
-    th: "ได้รับความไว้วางใจจากแบรนด์ที่มองไปข้างหน้า",
+    th: "Trusted by forward-thinking brands",
   },
 
   // Impact
@@ -129,6 +129,46 @@ const translations: Record<string, Record<Lang, string>> = {
   "about.team_desc": {
     en: "A small, focused team of strategists, designers, and storytellers building meaningful brands.",
     th: "ทีมขนาดเล็กที่มุ่งมั่น ประกอบด้วยนักกลยุทธ์ นักออกแบบ และนักเล่าเรื่อง สร้างแบรนด์ที่มีความหมาย",
+  },
+  "about.approach_title": {
+    en: "Our approach is simple",
+    th: "แนวทางของเราเรียบง่าย",
+  },
+  "about.approach_body": {
+    en: "Clear thinking.\nPurposeful creativity.\nDisciplined execution.",
+    th: "คิดอย่างชัดเจน\nสร้างสรรค์อย่างมีจุดมุ่งหมาย\nลงมืออย่างมีวินัย",
+  },
+  "about.approach_cta": {
+    en: "Less noise.\nMore meaning.",
+    th: "ลดเสียงรบกวน\nเพิ่มความหมาย",
+  },
+
+  // Careers labels
+  "careers.open_positions": {
+    en: "Open Positions",
+    th: "ตำแหน่งที่เปิดรับ",
+  },
+  "careers.benefits": {
+    en: "Benefits & Perks",
+    th: "สวัสดิการ",
+  },
+  "careers.send_portfolio": {
+    en: "Send Your Portfolio",
+    th: "ส่งผลงานของคุณ",
+  },
+
+  // Contact labels
+  "contact.send_message": {
+    en: "Send a Message",
+    th: "ส่งข้อความ",
+  },
+  "contact.visit_us": {
+    en: "Visit Us",
+    th: "เยี่ยมชมสำนักงาน",
+  },
+  "contact.thank_title": {
+    en: "Thank you",
+    th: "ขอบคุณ",
   },
 };
 

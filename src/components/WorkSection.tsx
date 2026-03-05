@@ -28,6 +28,7 @@ const works = [
     brief: "Narrative website and brand platform for a luxury property developer.",
     scope: ["Brand Direction", "Narrative Website", "UX/UI Direction", "Photography", "Content Strategy"],
     result: "Delivered a premium digital presence that elevated Atlas's positioning in the luxury property market.",
+    metric: "↑ Premium positioning",
     image: workAtlas,
   },
   {

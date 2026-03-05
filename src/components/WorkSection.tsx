@@ -121,6 +121,7 @@ const clientLogos = [
 
 const WorkSection = () => {
   const [selectedWork, setSelectedWork] = useState<typeof works[0] | null>(null);
+  const { t } = useLanguage();
 
   return (
     <section id="work" className="py-32 md:py-44 px-6 md:px-12">

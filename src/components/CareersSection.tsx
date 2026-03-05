@@ -203,7 +203,7 @@ const CareersSection = () => {
         <div className="mt-24">
           <AnimatedSection>
             <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-8">
-              Benefits & Perks
+              {t("careers.benefits")}
             </p>
           </AnimatedSection>
 

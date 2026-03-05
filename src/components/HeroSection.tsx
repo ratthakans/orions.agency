@@ -20,9 +20,9 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => (
         transition={{ duration: 0.8, delay: 0.2 }}
         className="flex items-center gap-4 text-sm text-muted-foreground font-body mb-12"
       >
-        <span className="font-display text-xs tracking-wider text-accent-warm">(01)</span>
+        <span className="font-display text-xs tracking-wider text-muted-foreground">(01)</span>
         <span className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full inline-block bg-accent-warm" />
+          <span className="w-2 h-2 rounded-full inline-block bg-foreground" />
           Bangkok · Available
         </span>
       </motion.div>
@@ -59,7 +59,7 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => (
         <div className="flex items-center gap-4">
           <button
             onClick={onStartProject}
-            className="group/btn bg-foreground text-background px-7 py-3.5 text-sm font-display font-medium tracking-wide hover:bg-accent-warm hover:text-accent-warm-foreground transition-colors duration-300 flex items-center gap-2"
+            className="group/btn bg-foreground text-background px-7 py-3.5 text-sm font-display font-medium tracking-wide hover:bg-muted-foreground transition-colors duration-300 flex items-center gap-2"
           >
             Start a Project
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="inline-block transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1">
@@ -68,7 +68,7 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => (
           </button>
           <a
             href="/services"
-            className="border border-divider text-foreground px-7 py-3.5 text-sm font-display font-medium tracking-wide hover:border-accent-warm hover:text-accent-warm transition-colors duration-300"
+            className="border border-divider text-foreground px-7 py-3.5 text-sm font-display font-medium tracking-wide hover:border-foreground/50 transition-colors duration-300"
           >
             View Services
           </a>
@@ -86,7 +86,7 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => (
       <div className="animate-marquee whitespace-nowrap flex gap-0">
         {[...Array(4)].map((_, i) => (
           <span key={i} className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mx-0">
-            Brand Direction <span className="text-accent-warm">·</span> Communication Systems <span className="text-accent-warm">·</span> Digital Experience <span className="text-accent-warm">·</span> Creative Expression <span className="text-accent-warm">·</span> Strategy <span className="text-accent-warm">·</span> Authority <span className="text-accent-warm">·</span> Clarity <span className="text-accent-warm">·</span>&nbsp;
+            Brand Direction <span className="text-muted-foreground/50">·</span> Communication Systems <span className="text-muted-foreground/50">·</span> Digital Experience <span className="text-muted-foreground/50">·</span> Creative Expression <span className="text-muted-foreground/50">·</span> Strategy <span className="text-muted-foreground/50">·</span> Authority <span className="text-muted-foreground/50">·</span> Clarity <span className="text-muted-foreground/50">·</span>&nbsp;
           </span>
         ))}
       </div>

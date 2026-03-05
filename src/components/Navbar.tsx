@@ -35,13 +35,13 @@ const Navbar = () => {
               >
                 {link.label}
                 {location.pathname === link.href && (
-                  <span className="absolute -bottom-1 left-0 right-0 h-px bg-accent-warm" />
+                  <span className="absolute -bottom-1 left-0 right-0 h-px bg-foreground" />
                 )}
               </Link>
             ))}
             <button
               onClick={() => setDialogOpen(true)}
-              className="text-sm bg-foreground text-background px-5 py-2.5 font-display font-medium hover:bg-accent-warm hover:text-accent-warm-foreground transition-colors duration-300"
+              className="text-sm bg-foreground text-background px-5 py-2.5 font-display font-medium hover:bg-muted-foreground transition-colors duration-300"
             >
               Start a Project
             </button>
@@ -75,7 +75,7 @@ const Navbar = () => {
                     to={link.href}
                     onClick={() => setIsOpen(false)}
                     className={`text-lg font-display transition-colors ${
-                      location.pathname === link.href ? "text-accent-warm" : "text-muted-foreground hover:text-foreground"
+                      location.pathname === link.href ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                     }`}
                   >
                     {link.label}
@@ -83,7 +83,7 @@ const Navbar = () => {
                 ))}
                 <button
                   onClick={() => { setIsOpen(false); setDialogOpen(true); }}
-                  className="text-sm bg-foreground text-background px-5 py-3 font-display font-medium text-center mt-2 hover:bg-accent-warm hover:text-accent-warm-foreground transition-colors duration-300"
+                  className="text-sm bg-foreground text-background px-5 py-3 font-display font-medium text-center mt-2 hover:bg-muted-foreground transition-colors duration-300"
                 >
                   Start a Project
                 </button>

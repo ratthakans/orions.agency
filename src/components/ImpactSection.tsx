@@ -72,10 +72,10 @@ const ImpactSection = () => {
                 className="bg-elevated p-8 md:p-10 h-full group hover:bg-secondary transition-colors duration-500 cursor-pointer relative overflow-hidden"
                 onClick={() => setSelectedImpact(item)}
               >
-                {/* Accent top border on hover */}
-                <div className="absolute top-0 left-0 right-0 h-[2px] bg-accent-warm scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                {/* Subtle top border on hover */}
+                <div className="absolute top-0 left-0 right-0 h-px bg-foreground/30 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
                 
-                <span className="font-display text-3xl md:text-4xl font-bold text-foreground block mb-3 group-hover:text-accent-warm transition-colors duration-500">
+                <span className="font-display text-3xl md:text-4xl font-bold text-foreground block mb-3 transition-colors duration-500">
                   {item.stat}
                 </span>
                 <h3 className="font-display text-lg md:text-xl font-semibold text-foreground mb-2">
@@ -84,7 +84,7 @@ const ImpactSection = () => {
                 <p className="font-body text-muted-foreground text-sm md:text-base leading-relaxed mb-4">
                   {item.desc}
                 </p>
-                <span className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground font-body group-hover:text-accent-warm transition-colors duration-300">
+                <span className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground font-body group-hover:text-foreground transition-colors duration-300">
                   Learn more →
                 </span>
               </div>
@@ -99,7 +99,7 @@ const ImpactSection = () => {
             <>
               <DialogHeader>
                 <div className="flex items-baseline gap-4 mb-2">
-                  <span className="font-display text-4xl md:text-5xl font-bold text-accent-warm">
+                  <span className="font-display text-4xl md:text-5xl font-bold text-foreground">
                     {selectedImpact.stat}
                   </span>
                 </div>
@@ -125,7 +125,7 @@ const ImpactSection = () => {
                   <h4 className="font-display text-sm tracking-[0.2em] uppercase text-muted-foreground mb-3">
                     Methodology
                   </h4>
-                  <p className="font-body text-xs tracking-wide text-accent-warm">
+                  <p className="font-body text-xs tracking-wide text-muted-foreground">
                     {selectedImpact.methodology}
                   </p>
                 </div>

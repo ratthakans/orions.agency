@@ -55,7 +55,7 @@ const Footer = () => (
             <a href="mailto:hello@orions.agency" className="hover:text-foreground transition-colors duration-300">
               hello@orions.agency
             </a>
-            <a href="tel:+66923905464" className="hover:text-accent-warm transition-colors duration-300">
+            <a href="tel:+66923905464" className="hover:text-foreground transition-colors duration-300">
               +66 92 390 5464
             </a>
             <p className="leading-relaxed">

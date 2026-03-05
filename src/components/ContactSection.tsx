@@ -10,7 +10,7 @@ const ContactSection = () => {
     e.preventDefault();
   };
 
-  const inputClasses = "w-full bg-transparent border-b border-divider py-3 text-sm font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors duration-300";
+  const inputClasses = "w-full bg-transparent border-b border-divider py-3 text-sm font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent-warm transition-colors duration-300";
 
   return (
     <section id="contact" className="py-32 md:py-44 px-6 md:px-12">
@@ -35,7 +35,7 @@ const ContactSection = () => {
               <textarea placeholder="Message" value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} className={`${inputClasses} min-h-[120px] resize-none`} required />
               <button
                 type="submit"
-                className="bg-foreground text-background px-10 py-4 text-sm font-display font-medium tracking-wide hover:bg-muted-foreground transition-colors duration-300 mt-4"
+                className="bg-foreground text-background px-10 py-4 text-sm font-display font-medium tracking-wide hover:bg-accent-warm hover:text-accent-warm-foreground transition-colors duration-300 mt-4"
               >
                 Send Message
               </button>

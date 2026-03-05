@@ -22,7 +22,7 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => (
       >
         <span className="font-display text-xs tracking-wider text-muted-foreground">(01)</span>
         <span className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full inline-block bg-foreground" />
+          <span className="w-2 h-2 rounded-full inline-block bg-accent-warm" />
           Bangkok · Available
         </span>
       </motion.div>
@@ -59,7 +59,7 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => (
         <div className="flex items-center gap-4">
           <button
             onClick={onStartProject}
-            className="group/btn bg-foreground text-background px-7 py-3.5 text-sm font-display font-medium tracking-wide hover:bg-muted-foreground transition-colors duration-300 flex items-center gap-2"
+            className="group/btn bg-foreground text-background px-7 py-3.5 text-sm font-display font-medium tracking-wide hover:bg-accent-warm hover:text-accent-warm-foreground transition-colors duration-300 flex items-center gap-2"
           >
             Start a Project
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="inline-block transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1">

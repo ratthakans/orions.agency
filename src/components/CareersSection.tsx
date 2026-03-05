@@ -162,7 +162,7 @@ const CareersSection = () => {
         {/* Open Positions */}
         <AnimatedSection delay={0.1}>
           <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-8">
-            Open Positions
+            {t("careers.open_positions")}
           </p>
         </AnimatedSection>
 

@@ -8,7 +8,6 @@ import ImpactSection from "@/components/ImpactSection";
 import ProcessSection from "@/components/ProcessSection";
 import FAQSection from "@/components/FAQSection";
 import StartProjectDialog from "@/components/StartProjectDialog";
-import StartProjectDialog from "@/components/StartProjectDialog";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 import { Link } from "react-router-dom";

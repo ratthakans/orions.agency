@@ -99,7 +99,7 @@ const ImpactSection = () => {
             <>
               <DialogHeader>
                 <div className="flex items-baseline gap-4 mb-2">
-                  <span className="font-display text-4xl md:text-5xl font-bold text-accent-warm">
+                  <span className="font-display text-4xl md:text-5xl font-bold text-foreground">
                     {selectedImpact.stat}
                   </span>
                 </div>

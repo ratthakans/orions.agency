@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import AboutSection from "@/components/AboutSection";
 import AnimatedSection from "@/components/AnimatedSection";
@@ -20,13 +21,17 @@ const team = [
 
 const AboutPage = () => (
   <main className="bg-background min-h-screen">
+    <Helmet>
+      <title>About — ØRIONS Creative Agency</title>
+      <meta name="description" content="Meet the team behind ØRIONS. A meaning-driven creative agency in Bangkok helping brands define direction and express it clearly." />
+      <link rel="canonical" href="https://orions.agency/about" />
+    </Helmet>
     <Navbar />
     <div className="pt-20">
       <AboutSection />
 
       {/* Team Section */}
       <section className="py-32 md:py-44 px-6 md:px-12 relative">
-        {/* Subtle grid pattern background */}
         <div className="absolute inset-0 pointer-events-none select-none opacity-[0.03]" style={{
           backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
           backgroundSize: '80px 80px',
@@ -34,12 +39,22 @@ const AboutPage = () => (
         
         <div className="max-w-7xl mx-auto relative z-10">
           <AnimatedSection>
-            <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-4">
-              The people
-            </p>
-            <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-foreground mb-20">
-              Our Team
-            </h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-24">
+              <div>
+                <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-4">
+                  The People
+                </p>
+                <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-foreground">
+                  Our<br />
+                  <span className="text-accent-gradient">Team</span>
+                </h2>
+              </div>
+              <div className="flex items-end">
+                <p className="font-body text-muted-foreground text-base md:text-lg max-w-md leading-relaxed">
+                  A small, focused team of strategists, designers, and storytellers building meaningful brands.
+                </p>
+              </div>
+            </div>
           </AnimatedSection>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-divider">
@@ -53,7 +68,6 @@ const AboutPage = () => (
                       className="w-full h-full object-cover group-hover:scale-[1.03] group-hover:brightness-110 transition-all duration-700"
                       loading="lazy"
                     />
-                    {/* Warm overlay on hover */}
                     <div className="absolute inset-0 bg-gradient-to-t from-accent-warm/0 via-transparent to-transparent group-hover:from-accent-warm/15 transition-all duration-700" />
                   </div>
                   <h3 className="font-display text-lg md:text-xl font-semibold text-foreground mb-1">

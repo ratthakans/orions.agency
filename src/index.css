@@ -27,6 +27,9 @@
     --accent: 0 0% 15%;
     --accent-foreground: 0 0% 96%;
 
+    --accent-warm: 32 95% 55%;
+    --accent-warm-foreground: 0 0% 0%;
+
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
@@ -50,7 +53,7 @@
     --text-secondary: 0 0% 60%;
     --text-tertiary: 0 0% 40%;
     --divider: 0 0% 18%;
-    --status-available: 142 71% 45%;
+    --status-available: 32 95% 55%;
   }
 }
 
@@ -67,6 +70,33 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Instrument Sans', sans-serif;
   }
+}
+
+/* Film grain texture overlay */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+  animation: grain 8s steps(10) infinite;
+}
+
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-5%, -10%); }
+  20% { transform: translate(-15%, 5%); }
+  30% { transform: translate(7%, -15%); }
+  40% { transform: translate(-5%, 15%); }
+  50% { transform: translate(-15%, 10%); }
+  60% { transform: translate(15%, 0%); }
+  70% { transform: translate(0%, 10%); }
+  80% { transform: translate(3%, -15%); }
+  90% { transform: translate(-10%, 10%); }
 }
 
 @layer utilities {
@@ -96,6 +126,16 @@
 
   .divider {
     border-color: hsl(var(--divider));
+  }
+
+  .text-stroke {
+    -webkit-text-stroke: 1.5px hsl(var(--foreground));
+    color: transparent;
+  }
+
+  .text-stroke-lg {
+    -webkit-text-stroke: 2px hsl(var(--foreground));
+    color: transparent;
   }
 }
 
@@ -127,6 +167,6 @@ html {
 
 /* Selection */
 ::selection {
-  background: hsl(0 0% 100% / 0.15);
+  background: hsl(32 95% 55% / 0.25);
   color: hsl(0 0% 100%);
 }

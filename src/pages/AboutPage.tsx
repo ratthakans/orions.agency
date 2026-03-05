@@ -86,6 +86,7 @@ const AboutPage = () => {
     </div>
     <Footer />
   </main>
-);
+  );
+};
 
 export default AboutPage;

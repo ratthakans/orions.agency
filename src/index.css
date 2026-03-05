@@ -142,7 +142,7 @@ html {
 
 /* Selection */
 ::selection {
-  background: hsl(217 91% 60% / 0.25);
+  background: hsl(32 95% 55% / 0.25);
   color: hsl(0 0% 100%);
 }
 

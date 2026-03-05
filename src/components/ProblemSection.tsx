@@ -14,7 +14,7 @@ const ProblemSection = () => (
         {/* Left column */}
         <div>
           <AnimatedSection>
-            <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-6">
+            <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-4">
               The Problem
             </p>
             <h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-[0.95]">

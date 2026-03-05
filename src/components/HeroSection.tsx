@@ -31,7 +31,7 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => (
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.3 }}
-        className="text-xs md:text-sm tracking-[0.3em] uppercase text-muted-foreground font-body mb-6"
+        className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-6"
       >
         Creative Agency
       </motion.p>

@@ -41,6 +41,9 @@ const ContactSection = () => {
                 className="group/btn bg-foreground text-background px-10 py-4 text-sm font-display font-medium tracking-wide hover:bg-accent-warm hover:text-accent-warm-foreground transition-colors duration-300 mt-4 flex items-center gap-2"
               >
                 Send Message
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="inline-block transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1">
+                  <path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" strokeWidth="1.5" />
+                </svg>
               </button>
             </form>
           </AnimatedSection>

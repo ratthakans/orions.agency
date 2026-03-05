@@ -157,7 +157,7 @@ const WorkSection = () => {
         {/* Trusted By */}
         <div className="mt-32 border-t border-divider pt-20">
           <AnimatedSection>
-            <p className="text-sm tracking-[0.3em] uppercase text-muted-foreground font-body mb-4 text-center">
+            <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-4 text-center">
               Trusted By
             </p>
             <h3 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-16 text-center">

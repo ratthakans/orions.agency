@@ -94,7 +94,7 @@ const ImpactSection = () => {
       </div>
 
       <Dialog open={!!selectedImpact} onOpenChange={(open) => !open && setSelectedImpact(null)}>
-        <DialogContent className="max-w-xl bg-background border-divider">
+        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-background border-divider">
           {selectedImpact && (
             <>
               <DialogHeader>

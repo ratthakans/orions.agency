@@ -163,6 +163,7 @@ const programs: Program[] = [
 
 const ProgramsSection = () => {
   const [selectedScope, setSelectedScope] = useState<{ program: Program; scope: ScopeDetail } | null>(null);
+  const { t } = useLanguage();
 
   return (
     <section className="py-32 md:py-44 px-6 md:px-12 bg-elevated">

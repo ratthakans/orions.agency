@@ -73,6 +73,7 @@ const works = [
     brief: "Authority building and content ecosystem for a fintech startup.",
     scope: ["Content Strategy", "Thought Leadership", "Editorial Series", "Digital Experience", "SEO"],
     result: "Positioned Orbit as a trusted authority in the fintech space through consistent, high-quality content.",
+    metric: "↑ Thought leadership",
     image: workOrbit,
   },
   {

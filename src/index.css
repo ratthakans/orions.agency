@@ -96,6 +96,10 @@
     font-family: 'DM Sans', sans-serif;
   }
 
+  body[data-lang="th"] .font-body {
+    font-family: 'Noto Sans Thai', 'DM Sans', sans-serif;
+  }
+
   .font-logo {
     font-family: 'Unbounded', sans-serif;
   }

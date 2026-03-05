@@ -59,6 +59,35 @@ const translations: Record<string, Record<Lang, string>> = {
     th: "เราเปิดตัว วัดผล และปรับปรุง — เพื่อให้แน่ใจว่าการสื่อสารของคุณเติบโตขึ้นเรื่อยๆ และให้ผลตอบแทนที่ยั่งยืน",
   },
 
+  // Process dialog details
+  "process.step1.process_title": { en: "Our Discovery Process", th: "กระบวนการค้นหาของเรา" },
+  "process.step1.process": { en: "We conduct brand audits, competitor analysis, audience research, and stakeholder interviews to build a 360° understanding of your landscape.", th: "เราทำ Brand Audit วิเคราะห์คู่แข่ง วิจัยกลุ่มเป้าหมาย และสัมภาษณ์ผู้มีส่วนได้ส่วนเสีย เพื่อสร้างความเข้าใจแบบ 360°" },
+  "process.step1.different_title": { en: "How We're Different", th: "เราแตกต่างอย่างไร" },
+  "process.step1.different": { en: "We don't skip to tactics. We stay in discovery until we truly understand the brand's truth, market gaps, and audience motivations.", th: "เราไม่กระโดดไปสู่กลยุทธ์ เราอยู่ในขั้นค้นหาจนกว่าจะเข้าใจความจริงของแบรนด์ ช่องว่างในตลาด และแรงจูงใจของผู้ชม" },
+  "process.step1.steps_title": { en: "Key Steps", th: "ขั้นตอนสำคัญ" },
+  "process.step1.steps": { en: "Brand Audit & Analysis|Competitor Landscape Mapping|Audience & Persona Research|Stakeholder Interviews|Insight Synthesis Report|Strategic Brief Creation", th: "วิเคราะห์แบรนด์|แผนที่ภูมิทัศน์คู่แข่ง|วิจัยกลุ่มเป้าหมาย|สัมภาษณ์ผู้มีส่วนได้ส่วนเสีย|รายงานสรุปข้อมูลเชิงลึก|สร้าง Strategic Brief" },
+
+  "process.step2.process_title": { en: "Our Strategy Framework", th: "กรอบกลยุทธ์ของเรา" },
+  "process.step2.process": { en: "We define your brand positioning, messaging hierarchy, and communication roadmap — creating the blueprint that guides every creative decision.", th: "เรากำหนด Brand Positioning ลำดับชั้นข้อความ และแผนการสื่อสาร — สร้างพิมพ์เขียวที่นำทางทุกการตัดสินใจเชิงสร้างสรรค์" },
+  "process.step2.different_title": { en: "How We're Different", th: "เราแตกต่างอย่างไร" },
+  "process.step2.different": { en: "Strategy isn't a document we hand off. It's a living framework we build with you and refine as the market responds.", th: "กลยุทธ์ไม่ใช่เอกสารที่ส่งมอบ แต่เป็นกรอบที่มีชีวิตที่เราสร้างร่วมกับคุณและปรับปรุงตามการตอบสนองของตลาด" },
+  "process.step2.steps_title": { en: "Key Steps", th: "ขั้นตอนสำคัญ" },
+  "process.step2.steps": { en: "Brand Positioning Statement|Messaging Architecture|Communication Roadmap|Channel Strategy|Content Pillars Definition|KPI Framework Setup", th: "กำหนด Brand Positioning|สถาปัตยกรรมข้อความ|แผนการสื่อสาร|กลยุทธ์ช่องทาง|กำหนด Content Pillars|ตั้งค่ากรอบ KPI" },
+
+  "process.step3.process_title": { en: "Our Creative Process", th: "กระบวนการสร้างสรรค์ของเรา" },
+  "process.step3.process": { en: "Our team builds bespoke creative assets, campaigns, and systems designed to cut through noise and create real, measurable impact.", th: "ทีมของเราสร้างสรรค์ผลงาน แคมเปญ และระบบที่ออกแบบมาเพื่อตัดผ่านเสียงรบกวนและสร้างผลกระทบที่วัดผลได้จริง" },
+  "process.step3.different_title": { en: "How We're Different", th: "เราแตกต่างอย่างไร" },
+  "process.step3.different": { en: "Every asset is built from strategy, not trends. We create work that's meaningful first, beautiful second — and always both.", th: "ทุกผลงานสร้างจากกลยุทธ์ ไม่ใช่เทรนด์ เราสร้างงานที่มีความหมายก่อน สวยงามเป็นอันดับสอง — และเป็นทั้งสองอย่างเสมอ" },
+  "process.step3.steps_title": { en: "Key Steps", th: "ขั้นตอนสำคัญ" },
+  "process.step3.steps": { en: "Creative Concept Development|Visual Identity & Design|Campaign Asset Production|Content System Build|Quality Assurance Review|Client Presentation & Refinement", th: "พัฒนาคอนเซ็ปต์ครีเอทีฟ|ออกแบบ Visual Identity|ผลิตแคมเปญ|สร้างระบบคอนเทนต์|ตรวจสอบคุณภาพ|นำเสนอและปรับปรุง" },
+
+  "process.step4.process_title": { en: "Our Launch Strategy", th: "กลยุทธ์การเปิดตัวของเรา" },
+  "process.step4.process": { en: "We deploy, measure, and optimize — ensuring your communication compounds over time and delivers lasting, sustainable ROI.", th: "เราเปิดตัว วัดผล และปรับปรุง — เพื่อให้การสื่อสารของคุณเติบโตขึ้นเรื่อยๆ และให้ผลตอบแทนที่ยั่งยืน" },
+  "process.step4.different_title": { en: "How We're Different", th: "เราแตกต่างอย่างไร" },
+  "process.step4.different": { en: "We don't launch and leave. We stay embedded, tracking performance, iterating creative, and scaling what works.", th: "เราไม่เปิดตัวแล้วจากไป เราอยู่ร่วม ติดตามผล ปรับปรุงครีเอทีฟ และขยายสิ่งที่ได้ผล" },
+  "process.step4.steps_title": { en: "Key Steps", th: "ขั้นตอนสำคัญ" },
+  "process.step4.steps": { en: "Campaign Launch & Deployment|Performance Tracking Setup|Data Analysis & Reporting|Creative Iteration & A/B Testing|Scale & Optimization|Monthly Strategy Reviews", th: "เปิดตัวแคมเปญ|ตั้งค่าติดตามผลลัพธ์|วิเคราะห์ข้อมูลและรายงาน|ปรับปรุงครีเอทีฟและ A/B Testing|ขยายและเพิ่มประสิทธิภาพ|ทบทวนกลยุทธ์รายเดือน" },
+
   // FAQ
   "faq.desc": {
     en: "Everything you need to know before starting a project with us.",

@@ -10,12 +10,15 @@ const ContactSection = () => {
     e.preventDefault();
   };
 
-  const inputClasses = "w-full bg-transparent border-b border-divider py-3 text-sm font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent-warm transition-colors duration-300";
+  const inputClasses = "w-full bg-transparent border-b border-divider py-3 text-sm font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors duration-300";
 
   return (
     <section id="contact" className="py-32 md:py-44 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
         <AnimatedSection>
+          <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-4">
+            Get in touch
+          </p>
           <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-foreground mb-6">
             Start a Project
           </h2>
@@ -35,9 +38,12 @@ const ContactSection = () => {
               <textarea placeholder="Message" value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} className={`${inputClasses} min-h-[120px] resize-none`} required />
               <button
                 type="submit"
-                className="bg-foreground text-background px-10 py-4 text-sm font-display font-medium tracking-wide hover:bg-accent-warm hover:text-accent-warm-foreground transition-colors duration-300 mt-4"
+                className="group/btn bg-foreground text-background px-10 py-4 text-sm font-display font-medium tracking-wide hover:bg-accent-warm hover:text-accent-warm-foreground transition-colors duration-300 mt-4 flex items-center gap-2"
               >
                 Send Message
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="inline-block transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1">
+                  <path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" strokeWidth="1.5" />
+                </svg>
               </button>
             </form>
           </AnimatedSection>

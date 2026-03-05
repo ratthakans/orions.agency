@@ -34,7 +34,7 @@ const AboutPage = () => (
         
         <div className="max-w-7xl mx-auto relative z-10">
           <AnimatedSection>
-            <p className="text-sm tracking-[0.3em] uppercase text-muted-foreground font-body mb-4">
+            <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-4">
               The people
             </p>
             <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-foreground mb-20">
@@ -50,11 +50,11 @@ const AboutPage = () => (
                     <img
                       src={member.image}
                       alt={member.name}
-                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                      className="w-full h-full object-cover group-hover:scale-[1.03] group-hover:brightness-110 transition-all duration-700"
                       loading="lazy"
                     />
-                    {/* Accent tint overlay on hover */}
-                    <div className="absolute inset-0 bg-accent-warm/0 group-hover:bg-accent-warm/10 transition-colors duration-700" />
+                    {/* Warm overlay on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-accent-warm/0 via-transparent to-transparent group-hover:from-accent-warm/15 transition-all duration-700" />
                   </div>
                   <h3 className="font-display text-lg md:text-xl font-semibold text-foreground mb-1">
                     {member.name}

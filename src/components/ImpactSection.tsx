@@ -54,7 +54,7 @@ const ImpactSection = () => {
     <section className="py-32 md:py-44 px-6 md:px-12 bg-elevated">
       <div className="max-w-7xl mx-auto">
         <AnimatedSection>
-          <p className="text-sm tracking-[0.3em] uppercase text-muted-foreground font-body mb-4">
+          <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-4">
             Why it matters
           </p>
           <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-foreground mb-6">
@@ -94,7 +94,7 @@ const ImpactSection = () => {
       </div>
 
       <Dialog open={!!selectedImpact} onOpenChange={(open) => !open && setSelectedImpact(null)}>
-        <DialogContent className="max-w-xl bg-background border-divider">
+        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-background border-divider">
           {selectedImpact && (
             <>
               <DialogHeader>
@@ -111,9 +111,9 @@ const ImpactSection = () => {
                 </DialogDescription>
               </DialogHeader>
 
-              <div className="space-y-6 mt-4">
+              <div className="space-y-8 mt-6">
                 <div>
-                  <h4 className="font-display text-sm tracking-[0.2em] uppercase text-muted-foreground mb-3">
+                  <h4 className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4">
                     How we achieve this
                   </h4>
                   <p className="font-body text-sm text-foreground leading-relaxed">
@@ -121,13 +121,23 @@ const ImpactSection = () => {
                   </p>
                 </div>
 
-                <div className="border-t border-divider pt-6">
-                  <h4 className="font-display text-sm tracking-[0.2em] uppercase text-muted-foreground mb-3">
+                <div className="border-t border-divider pt-8">
+                  <h4 className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4">
                     Methodology
                   </h4>
-                  <p className="font-body text-xs tracking-wide text-muted-foreground">
-                    {selectedImpact.methodology}
-                  </p>
+                  <div className="space-y-3">
+                    {selectedImpact.methodology.split(" → ").map((step, i) => (
+                      <div key={step} className="flex items-center gap-4">
+                        <span className="font-display text-xs text-accent-warm w-6 text-right shrink-0">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                        <div className="h-px flex-1 bg-divider" />
+                        <span className="font-body text-sm text-foreground">
+                          {step}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </>

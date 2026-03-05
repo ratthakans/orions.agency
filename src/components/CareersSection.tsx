@@ -1,6 +1,7 @@
 import { useState } from "react";
 import AnimatedSection from "./AnimatedSection";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "./ui/dialog";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const jobs = [
   {

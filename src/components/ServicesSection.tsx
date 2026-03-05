@@ -2,7 +2,6 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "./ui/dialog";
-import { useLanguage } from "@/contexts/LanguageContext";
 
 interface ScopeDetail {
   name: string;
@@ -65,12 +64,10 @@ const services: Service[] = [
 const ServicesSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [selectedScope, setSelectedScope] = useState<{ service: Service; scope: ScopeDetail } | null>(null);
-  const { t } = useLanguage();
 
   return (
     <section id="services" className="py-32 md:py-44 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
-        {/* Header — same 2-col layout as Careers */}
         <AnimatedSection>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-24">
             <div>
@@ -84,7 +81,7 @@ const ServicesSection = () => {
             </div>
             <div className="flex items-end">
               <p className="font-body text-muted-foreground text-base md:text-lg max-w-md leading-relaxed">
-                {t("services.desc")}
+                These services focus on defining direction and building the key communication assets for the brand.
               </p>
             </div>
           </div>
@@ -152,7 +149,6 @@ const ServicesSection = () => {
         </div>
       </div>
 
-      {/* Scope Detail Dialog */}
       <Dialog open={!!selectedScope} onOpenChange={(open) => !open && setSelectedScope(null)}>
         <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-background border-divider">
           {selectedScope && (
@@ -174,12 +170,10 @@ const ServicesSection = () => {
                   <h4 className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4">Our Process</h4>
                   <p className="font-body text-sm text-foreground leading-relaxed">{selectedScope.scope.process}</p>
                 </div>
-
                 <div className="border-t border-divider pt-8">
                   <h4 className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4">How We're Different</h4>
                   <p className="font-body text-sm text-foreground leading-relaxed">{selectedScope.scope.difference}</p>
                 </div>
-
                 <div className="border-t border-divider pt-8">
                   <h4 className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4">Key Steps</h4>
                   <div className="space-y-3">

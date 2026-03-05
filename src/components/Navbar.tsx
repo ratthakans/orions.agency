@@ -3,7 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import StartProjectDialog from "./StartProjectDialog";
 
-
 const navLinks = [
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
@@ -16,7 +15,6 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
   const location = useLocation();
-  
 
   return (
     <>
@@ -42,8 +40,6 @@ const Navbar = () => {
                 )}
               </Link>
             ))}
-
-
             <button
               onClick={() => setDialogOpen(true)}
               className="text-sm bg-foreground text-background px-5 py-2.5 font-display font-medium hover:bg-accent-warm hover:text-accent-warm-foreground transition-colors duration-300"

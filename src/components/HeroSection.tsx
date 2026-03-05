@@ -1,13 +1,11 @@
 import { motion } from "framer-motion";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { Link } from "react-router-dom";
 
 interface HeroSectionProps {
   onStartProject: () => void;
 }
 
 const HeroSection = ({ onStartProject }: HeroSectionProps) => {
-  const { t } = useLanguage();
-
   return (
     <section className="min-h-screen flex flex-col justify-center px-6 md:px-12 pt-20 relative">
       <div className="max-w-7xl mx-auto w-full">
@@ -57,10 +55,10 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => {
         >
           <div>
             <p className="font-body text-base md:text-lg text-muted-foreground max-w-md leading-relaxed">
-              {t("hero.desc")}
+              We define direction, build authority, and create work that moves markets.
             </p>
             <p className="font-body text-xs tracking-[0.15em] uppercase text-muted-foreground/70 mt-3">
-              {t("hero.trust")}
+              Trusted by 50+ brands across Southeast Asia
             </p>
           </div>
 
@@ -74,12 +72,12 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => {
                 <path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" strokeWidth="1.5" />
               </svg>
             </button>
-            <a
-              href="/services"
+            <Link
+              to="/services"
               className="border border-divider text-foreground px-7 py-3.5 text-sm font-display font-medium tracking-wide hover:border-foreground/50 transition-colors duration-300"
             >
               View Services
-            </a>
+            </Link>
           </div>
         </motion.div>
       </div>

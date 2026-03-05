@@ -1,7 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import AnimatedSection from "./AnimatedSection";
-import { useLanguage } from "@/contexts/LanguageContext";
 
 const stats = [
   { value: 50, suffix: "+", label: "Brands Served" },
@@ -47,8 +46,6 @@ const clientLogos = [
 ];
 
 const SocialProofStrip = () => {
-  const { t } = useLanguage();
-
   return (
     <section className="py-20 md:py-28 px-6 md:px-12 border-t border-divider">
       <div className="max-w-7xl mx-auto">
@@ -69,7 +66,7 @@ const SocialProofStrip = () => {
 
         <AnimatedSection delay={0.1}>
           <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body text-center mb-8">
-            {t("social.trusted")}
+            Trusted by forward-thinking brands
           </p>
           <div className="overflow-hidden">
             <div className="animate-marquee whitespace-nowrap flex items-center gap-0">

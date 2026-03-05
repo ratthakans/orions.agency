@@ -2,14 +2,20 @@ import Navbar from "@/components/Navbar";
 import AboutSection from "@/components/AboutSection";
 import AnimatedSection from "@/components/AnimatedSection";
 import Footer from "@/components/Footer";
+import teamKrit from "@/assets/team-krit.jpg";
+import teamNari from "@/assets/team-nari.jpg";
+import teamTawan from "@/assets/team-tawan.jpg";
+import teamPloy from "@/assets/team-ploy.jpg";
+import teamArun from "@/assets/team-arun.jpg";
+import teamMai from "@/assets/team-mai.jpg";
 
 const team = [
-  { name: "Krit Thanaporn", role: "Founder & Creative Director", initials: "KT" },
-  { name: "Nari Vongsa", role: "Head of Strategy", initials: "NV" },
-  { name: "Tawan Srisai", role: "Design Director", initials: "TS" },
-  { name: "Ploy Charoensuk", role: "Content Lead", initials: "PC" },
-  { name: "Arun Kittisak", role: "Digital Experience Lead", initials: "AK" },
-  { name: "Mai Sutthipong", role: "Campaign Director", initials: "MS" },
+  { name: "Krit Thanaporn", role: "Founder & Creative Director", image: teamKrit },
+  { name: "Nari Vongsa", role: "Head of Strategy", image: teamNari },
+  { name: "Tawan Srisai", role: "Design Director", image: teamTawan },
+  { name: "Ploy Charoensuk", role: "Content Lead", image: teamPloy },
+  { name: "Arun Kittisak", role: "Digital Experience Lead", image: teamArun },
+  { name: "Mai Sutthipong", role: "Campaign Director", image: teamMai },
 ];
 
 const AboutPage = () => (
@@ -34,10 +40,13 @@ const AboutPage = () => (
             {team.map((member, i) => (
               <AnimatedSection key={member.name} delay={i * 0.08}>
                 <div className="bg-background p-8 md:p-10 group">
-                  <div className="w-full aspect-[3/4] bg-secondary mb-6 flex items-center justify-center overflow-hidden">
-                    <span className="font-display text-4xl md:text-5xl font-bold text-muted-foreground group-hover:text-foreground transition-colors duration-500">
-                      {member.initials}
-                    </span>
+                  <div className="w-full aspect-[3/4] bg-secondary mb-6 overflow-hidden">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                      loading="lazy"
+                    />
                   </div>
                   <h3 className="font-display text-lg md:text-xl font-semibold text-foreground mb-1">
                     {member.name}

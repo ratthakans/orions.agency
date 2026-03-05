@@ -91,6 +91,7 @@ const works = [
     brief: "End-to-end brand identity and e-commerce experience for a contemporary fashion label.",
     scope: ["Brand Identity", "E-commerce UX", "Photography Direction", "Social Strategy", "Campaign Launch"],
     result: "Launched Vela's DTC platform achieving 150% of first-quarter sales targets with a cohesive brand experience.",
+    metric: "↑ 150% sales target",
     image: workVela,
   },
   {

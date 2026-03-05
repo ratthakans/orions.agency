@@ -166,7 +166,7 @@ const WorkSection = () => {
                   key={client.name}
                   className="bg-background flex flex-col items-center justify-center py-8 md:py-10 px-4 gap-3 group hover:bg-secondary transition-colors duration-300"
                 >
-                  <span className="text-muted-foreground group-hover:text-accent-warm transition-colors duration-300">
+                  <span className="text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                     {client.icon}
                   </span>
                   <span className="font-display text-[10px] md:text-xs font-medium tracking-[0.15em] uppercase text-muted-foreground group-hover:text-foreground transition-colors duration-300 text-center">

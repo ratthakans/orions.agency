@@ -68,8 +68,21 @@
     font-family: 'DM Sans', sans-serif;
   }
 
+  body[data-lang="th"] {
+    font-family: 'Noto Sans Thai', 'DM Sans', sans-serif;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Instrument Sans', sans-serif;
+  }
+
+  body[data-lang="th"] h1,
+  body[data-lang="th"] h2,
+  body[data-lang="th"] h3,
+  body[data-lang="th"] h4,
+  body[data-lang="th"] h5,
+  body[data-lang="th"] h6 {
+    font-family: 'Instrument Sans', 'Noto Sans Thai', sans-serif;
   }
 }
 

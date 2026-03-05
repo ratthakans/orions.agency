@@ -16,7 +16,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
   const location = useLocation();
-  const { lang, setLang } = useLanguage();
+  
 
   return (
     <>

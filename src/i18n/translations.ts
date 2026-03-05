@@ -59,12 +59,6 @@ const translations: Record<string, Record<Lang, string>> = {
     th: "เราเปิดตัว วัดผล และปรับปรุง — เพื่อให้แน่ใจว่าการสื่อสารของคุณเติบโตขึ้นเรื่อยๆ และให้ผลตอบแทนที่ยั่งยืน",
   },
 
-  // Testimonials
-  "testimonials.desc": {
-    en: "Real results from real partnerships. Here's what our clients have to say about working with us.",
-    th: "ผลลัพธ์จริงจากความร่วมมือที่แท้จริง นี่คือสิ่งที่ลูกค้าพูดถึงการทำงานร่วมกับเรา",
-  },
-
   // FAQ
   "faq.desc": {
     en: "Everything you need to know before starting a project with us.",
@@ -97,6 +91,40 @@ const translations: Record<string, Record<Lang, string>> = {
   "contact.thankyou": {
     en: "We'll be in touch within 24 hours.",
     th: "เราจะติดต่อกลับภายใน 24 ชั่วโมง",
+  },
+
+  // About
+  "about.desc": {
+    en: "A meaning-driven creative agency. We help brands define direction and express it through campaigns, content, and digital experiences.",
+    th: "ครีเอทีฟเอเจนซี่ที่ขับเคลื่อนด้วยความหมาย เราช่วยแบรนด์กำหนดทิศทางและแสดงออกผ่านแคมเปญ คอนเทนต์ และประสบการณ์ดิจิทัล",
+  },
+  "about.approach": {
+    en: "Our approach is simple",
+    th: "แนวทางของเราเรียบง่าย",
+  },
+  "about.team_desc": {
+    en: "A small, focused team of strategists, designers, and storytellers building meaningful brands.",
+    th: "ทีมเล็กๆ ที่มุ่งมั่น ประกอบด้วยนักกลยุทธ์ นักออกแบบ และนักเล่าเรื่อง สร้างสรรค์แบรนด์ที่มีความหมาย",
+  },
+
+  // Services
+  "services.desc": {
+    en: "These services focus on defining direction and building the key communication assets for the brand.",
+    th: "บริการเหล่านี้มุ่งเน้นการกำหนดทิศทางและสร้างสินทรัพย์การสื่อสารหลักสำหรับแบรนด์",
+  },
+  "programs.desc": {
+    en: "These programs help brands maintain consistent communication and long-term digital presence.",
+    th: "โปรแกรมเหล่านี้ช่วยให้แบรนด์รักษาการสื่อสารที่สม่ำเสมอและสร้างตัวตนดิจิทัลในระยะยาว",
+  },
+
+  // Careers
+  "careers.desc": {
+    en: "We're always looking for talented, curious people who want to do meaningful creative work. If that sounds like you, we'd love to hear from you.",
+    th: "เรามองหาคนที่มีความสามารถและอยากรู้อยากเห็น ที่ต้องการทำงานครีเอทีฟที่มีความหมาย ถ้านั่นคือคุณ เราอยากได้ยินจากคุณ",
+  },
+  "careers.norole": {
+    en: "Don't see your role? We're always open to meeting great people.",
+    th: "ไม่เห็นตำแหน่งที่ใช่? เราพร้อมเปิดรับคนเก่งเสมอ",
   },
 };
 

@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import AboutSection from "@/components/AboutSection";
 import AnimatedSection from "@/components/AnimatedSection";
+import { useLanguage } from "@/contexts/LanguageContext";
 import Footer from "@/components/Footer";
 import teamKrit from "@/assets/team-krit.jpg";
 import teamNari from "@/assets/team-nari.jpg";
@@ -19,7 +20,9 @@ const team = [
   { name: "Mai Sutthipong", role: "Campaign Director", image: teamMai },
 ];
 
-const AboutPage = () => (
+const AboutPage = () => {
+  const { t } = useLanguage();
+  return (
   <main className="bg-background min-h-screen">
     <Helmet>
       <title>About — ØRIONS Creative Agency</title>
@@ -51,7 +54,7 @@ const AboutPage = () => (
               </div>
               <div className="flex items-end">
                 <p className="font-body text-muted-foreground text-base md:text-lg max-w-md leading-relaxed">
-                  A small, focused team of strategists, designers, and storytellers building meaningful brands.
+                  {t("about.team_desc")}
                 </p>
               </div>
             </div>
@@ -83,6 +86,7 @@ const AboutPage = () => (
     </div>
     <Footer />
   </main>
-);
+  );
+};
 
 export default AboutPage;

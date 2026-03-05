@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import AnimatedSection from "./AnimatedSection";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const stats = [
   { value: 50, suffix: "+", label: "Brands Served" },
@@ -45,47 +46,49 @@ const clientLogos = [
   { name: "Nimbus", icon: <svg viewBox="0 0 40 40" fill="none" className="w-6 h-6"><circle cx="16" cy="22" r="8" stroke="currentColor" strokeWidth="1.5"/><circle cx="26" cy="22" r="8" stroke="currentColor" strokeWidth="1.5"/></svg> },
 ];
 
-const SocialProofStrip = () => (
-  <section className="py-20 md:py-28 px-6 md:px-12 border-t border-divider">
-    <div className="max-w-7xl mx-auto">
-      {/* Counter stats */}
-      <AnimatedSection>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-divider border border-divider mb-16">
-          {stats.map((stat) => (
-            <div key={stat.label} className="bg-background p-8 md:p-10 text-center">
-              <p className="font-display text-3xl md:text-5xl font-bold text-foreground mb-2">
-                <Counter value={stat.value} suffix={stat.suffix} decimals={stat.decimals} />
-              </p>
-              <p className="font-body text-xs tracking-[0.2em] uppercase text-muted-foreground">
-                {stat.label}
-              </p>
-            </div>
-          ))}
-        </div>
-      </AnimatedSection>
+const SocialProofStrip = () => {
+  const { t } = useLanguage();
 
-      {/* Client logo marquee */}
-      <AnimatedSection delay={0.1}>
-        <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body text-center mb-8">
-          Trusted by forward-thinking brands
-        </p>
-        <div className="overflow-hidden">
-          <div className="animate-marquee whitespace-nowrap flex items-center gap-0">
-            {[...Array(3)].map((_, rep) => (
-              <div key={rep} className="flex items-center gap-0 shrink-0">
-                {clientLogos.map((client) => (
-                  <div key={`${rep}-${client.name}`} className="flex items-center gap-2 px-8 text-muted-foreground">
-                    {client.icon}
-                    <span className="font-display text-xs tracking-[0.15em] uppercase">{client.name}</span>
-                  </div>
-                ))}
+  return (
+    <section className="py-20 md:py-28 px-6 md:px-12 border-t border-divider">
+      <div className="max-w-7xl mx-auto">
+        <AnimatedSection>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-divider border border-divider mb-16">
+            {stats.map((stat) => (
+              <div key={stat.label} className="bg-background p-8 md:p-10 text-center">
+                <p className="font-display text-3xl md:text-5xl font-bold text-foreground mb-2">
+                  <Counter value={stat.value} suffix={stat.suffix} decimals={stat.decimals} />
+                </p>
+                <p className="font-body text-xs tracking-[0.2em] uppercase text-muted-foreground">
+                  {stat.label}
+                </p>
               </div>
             ))}
           </div>
-        </div>
-      </AnimatedSection>
-    </div>
-  </section>
-);
+        </AnimatedSection>
+
+        <AnimatedSection delay={0.1}>
+          <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body text-center mb-8">
+            {t("social.trusted")}
+          </p>
+          <div className="overflow-hidden">
+            <div className="animate-marquee whitespace-nowrap flex items-center gap-0">
+              {[...Array(3)].map((_, rep) => (
+                <div key={rep} className="flex items-center gap-0 shrink-0">
+                  {clientLogos.map((client) => (
+                    <div key={`${rep}-${client.name}`} className="flex items-center gap-2 px-8 text-muted-foreground">
+                      {client.icon}
+                      <span className="font-display text-xs tracking-[0.15em] uppercase">{client.name}</span>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+        </AnimatedSection>
+      </div>
+    </section>
+  );
+};
 
 export default SocialProofStrip;

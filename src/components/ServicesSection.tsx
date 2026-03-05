@@ -63,7 +63,7 @@ const ServicesSection = () => {
                   </div>
                   <span
                     className={`font-display text-2xl mt-1 md:mt-0 transition-all duration-300 ${
-                      openIndex === i ? "text-accent-warm rotate-45" : "text-muted-foreground rotate-0"
+                      openIndex === i ? "text-foreground rotate-45" : "text-muted-foreground group-hover:text-foreground rotate-0"
                     }`}
                   >
                     +

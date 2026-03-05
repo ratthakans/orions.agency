@@ -75,7 +75,7 @@ const Navbar = () => {
                     to={link.href}
                     onClick={() => setIsOpen(false)}
                     className={`text-lg font-display transition-colors ${
-                      location.pathname === link.href ? "text-accent-warm" : "text-muted-foreground hover:text-foreground"
+                      location.pathname === link.href ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                     }`}
                   >
                     {link.label}

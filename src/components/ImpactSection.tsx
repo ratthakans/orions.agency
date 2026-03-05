@@ -125,7 +125,7 @@ const ImpactSection = () => {
                   <h4 className="font-display text-sm tracking-[0.2em] uppercase text-muted-foreground mb-3">
                     Methodology
                   </h4>
-                  <p className="font-body text-xs tracking-wide text-accent-warm">
+                  <p className="font-body text-xs tracking-wide text-muted-foreground">
                     {selectedImpact.methodology}
                   </p>
                 </div>

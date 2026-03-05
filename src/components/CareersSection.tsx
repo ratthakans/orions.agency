@@ -131,7 +131,7 @@ const CareersSection = () => {
             </div>
             <div className="flex items-end">
               <p className="font-body text-muted-foreground text-base md:text-lg max-w-md leading-relaxed">
-                We're always looking for talented, curious people who want to do meaningful creative work. If that sounds like you, we'd love to hear from you.
+                {t("careers.desc")}
               </p>
             </div>
           </div>

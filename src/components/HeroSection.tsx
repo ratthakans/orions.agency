@@ -22,7 +22,7 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => (
       >
         <span className="font-display text-xs tracking-wider text-muted-foreground">(01)</span>
         <span className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full inline-block bg-accent-warm" />
+          <span className="w-2 h-2 rounded-full inline-block bg-foreground" />
           Bangkok · Available
         </span>
       </motion.div>

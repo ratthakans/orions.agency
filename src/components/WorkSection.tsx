@@ -1,7 +1,6 @@
 import { useState } from "react";
 import AnimatedSection from "./AnimatedSection";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "./ui/dialog";
-import { useLanguage } from "@/contexts/LanguageContext";
 import workNorthwind from "@/assets/work-northwind.jpg";
 import workAtlas from "@/assets/work-atlas.jpg";
 import workKoha from "@/assets/work-koha.jpg";
@@ -121,7 +120,6 @@ const clientLogos = [
 
 const WorkSection = () => {
   const [selectedWork, setSelectedWork] = useState<typeof works[0] | null>(null);
-  const { t } = useLanguage();
 
   return (
     <section id="work" className="py-32 md:py-44 px-6 md:px-12">
@@ -140,7 +138,7 @@ const WorkSection = () => {
             </div>
             <div className="flex items-end">
               <p className="font-body text-muted-foreground text-base md:text-lg max-w-md leading-relaxed">
-                {t("work.desc")}
+                A selection of projects where we helped brands find clarity and create impact.
               </p>
             </div>
           </div>

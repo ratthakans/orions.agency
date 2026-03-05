@@ -9,14 +9,13 @@ import ProcessSection from "@/components/ProcessSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import FAQSection from "@/components/FAQSection";
 import StartProjectDialog from "@/components/StartProjectDialog";
+import StickyProjectCTA from "@/components/StickyProjectCTA";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 import { Link } from "react-router-dom";
-import { useLanguage } from "@/contexts/LanguageContext";
 
 const Index = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
-  const { t } = useLanguage();
 
   return (
     <main className="bg-background min-h-screen">
@@ -44,7 +43,7 @@ const Index = () => {
                   Ready to cut<br />through the noise?
                 </p>
                 <p className="font-body text-sm text-muted-foreground mt-4">
-                  {t("cta.availability")}
+                  Currently accepting Q2 2026 projects · Join 50+ brands that chose clarity over noise
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -71,6 +70,7 @@ const Index = () => {
 
       <Footer />
       <StartProjectDialog open={dialogOpen} onOpenChange={setDialogOpen} />
+      <StickyProjectCTA onClick={() => setDialogOpen(true)} />
     </main>
   );
 };

@@ -20,7 +20,7 @@ const AboutSection = () => {
           </div>
           <div className="flex items-end">
             <p className="font-body text-muted-foreground text-base md:text-lg max-w-md leading-relaxed">
-              A meaning-driven creative agency. We help brands define direction and express it through campaigns, content, and digital experiences.
+              {t("about.desc")}
             </p>
           </div>
         </div>

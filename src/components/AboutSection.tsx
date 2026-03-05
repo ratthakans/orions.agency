@@ -18,10 +18,10 @@ const AboutSection = () => {
               <span className="text-accent-gradient">ØRIONS</span>
             </h2>
           </div>
-          <div className="flex items-end">
-            <p className="font-body text-muted-foreground text-base md:text-lg max-w-md leading-relaxed">
-              A meaning-driven creative agency. We help brands define direction and express it through campaigns, content, and digital experiences.
-            </p>
+            <div className="flex items-end">
+              <p className="font-body text-muted-foreground text-base md:text-lg max-w-md leading-relaxed">
+                {t("about.desc")}
+              </p>
           </div>
         </div>
       </AnimatedSection>

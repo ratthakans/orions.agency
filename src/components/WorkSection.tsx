@@ -82,6 +82,7 @@ const works = [
     brief: "Editorial storytelling and creative campaigns for an artisan coffee brand.",
     scope: ["Brand Narrative", "Photography", "Campaign Concept", "Social Content Series", "Editorial Content"],
     result: "Transformed Field Notes from a local roaster into a recognized lifestyle brand across the region.",
+    metric: "↑ Regional recognition",
     image: workField,
   },
   {

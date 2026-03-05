@@ -24,7 +24,7 @@
     <meta name="twitter:description" content="We help brands cut through noise with strategic positioning, campaigns, content systems, and digital experiences.">
     <meta name="twitter:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/2ae6a7d3-3d3d-45be-8b74-ca692993396c/id-preview-cb192ee1--aceb891f-aaa9-483b-b44a-653fb1c51fc6.lovable.app-1772693695721.png">
 
-    <!-- JSON-LD Structured Data -->
+    <!-- JSON-LD: Organization -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -35,18 +35,68 @@
       "description": "ØRIONS is a meaning-driven creative agency in Bangkok helping brands communicate clearly through strategy, campaigns, content, and digital systems.",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Bangkok",
+        "streetAddress": "246/8 Soi Yothinpattana 3",
+        "addressLocality": "Khlong Chan, Bang Kapi",
+        "addressRegion": "Bangkok",
+        "postalCode": "10240",
         "addressCountry": "TH"
       },
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+66-92-390-5464",
         "email": "hello@orions.agency",
-        "contactType": "customer service"
+        "contactType": "customer service",
+        "availableLanguage": ["English", "Thai"]
       },
       "sameAs": []
     }
     </script>
+
+    <!-- JSON-LD: LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "ØRIONS Creative Agency",
+      "image": "https://orions.agency/favicon.ico",
+      "url": "https://orions.agency",
+      "telephone": "+66-92-390-5464",
+      "email": "hello@orions.agency",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "246/8 Soi Yothinpattana 3",
+        "addressLocality": "Khlong Chan, Bang Kapi",
+        "addressRegion": "Bangkok",
+        "postalCode": "10240",
+        "addressCountry": "TH"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 13.7823,
+        "longitude": 100.6425
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "10:00",
+        "closes": "19:00"
+      },
+      "priceRange": "฿฿฿",
+      "areaServed": "Southeast Asia",
+      "knowsLanguage": ["English", "Thai"],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Creative Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Brand Direction" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Campaign & Narrative Content" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Digital Experience" } }
+        ]
+      }
+    }
+    </script>
+
+    <!-- JSON-LD: WebSite -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -60,6 +110,8 @@
       }
     }
     </script>
+
+    <!-- JSON-LD: FAQPage -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -111,6 +163,14 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "We don't chase trends or produce template work. Every engagement starts with strategy and meaning — then we build creative systems that compound over time. Our clients see 3.2× average ROI."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer ongoing retainers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. After the initial project, many clients transition to a monthly retainer for ongoing content, campaigns, and strategic guidance."
           }
         }
       ]

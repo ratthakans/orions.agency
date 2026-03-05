@@ -28,7 +28,7 @@ const translations: Record<string, Record<Lang, string>> = {
   // Social Proof
   "social.trusted": {
     en: "Trusted by forward-thinking brands",
-    th: "ได้รับความไว้วางใจจากแบรนด์ที่มองไปข้างหน้า",
+    th: "Trusted by forward-thinking brands",
   },
 
   // Impact

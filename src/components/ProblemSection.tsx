@@ -35,7 +35,7 @@ const ProblemSection = () => (
             </AnimatedSection>
 
             <AnimatedSection delay={0.2}>
-              <div className="border-l-2 border-accent-warm pl-6">
+              <div className="border-l-2 border-foreground/30 pl-6">
                 <p className="font-display text-xl md:text-2xl text-foreground font-semibold">
                   But meaning is disappearing.
                 </p>

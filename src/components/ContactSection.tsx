@@ -68,7 +68,7 @@ const ContactSection = () => {
 
               {submitted ? (
                 <div className="border border-divider p-10 text-center">
-                  <p className="font-display text-xl font-semibold text-foreground mb-3">Thank you</p>
+                  <p className="font-display text-xl font-semibold text-foreground mb-3">{t("contact.thank_title")}</p>
                   <p className="font-body text-sm text-muted-foreground">{t("contact.thankyou")}</p>
                 </div>
               ) : (

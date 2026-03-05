@@ -35,7 +35,7 @@ const Navbar = () => {
               >
                 {link.label}
                 {location.pathname === link.href && (
-                  <span className="absolute -bottom-1 left-0 right-0 h-px bg-accent-warm" />
+                  <span className="absolute -bottom-1 left-0 right-0 h-px bg-foreground" />
                 )}
               </Link>
             ))}

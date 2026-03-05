@@ -20,7 +20,9 @@ const team = [
   { name: "Mai Sutthipong", role: "Campaign Director", image: teamMai },
 ];
 
-const AboutPage = () => (
+const AboutPage = () => {
+  const { t } = useLanguage();
+  return (
   <main className="bg-background min-h-screen">
     <Helmet>
       <title>About — ØRIONS Creative Agency</title>

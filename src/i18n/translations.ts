@@ -8,7 +8,7 @@ const translations: Record<string, Record<Lang, string>> = {
   },
   "hero.trust": {
     en: "Trusted by 50+ brands across Southeast Asia",
-    th: "ได้รับความไว้วางใจจากแบรนด์กว่า 50+ ทั่วเอเชียตะวันออกเฉียงใต้",
+    th: "Trusted by 50+ brands across Southeast Asia",
   },
 
   // Problem

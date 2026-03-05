@@ -30,7 +30,7 @@ const AboutSection = () => {
         <div className="space-y-8 font-body text-lg md:text-xl text-muted-foreground leading-relaxed">
           <AnimatedSection delay={0.1}>
             <div className="border-t border-divider pt-10">
-              <p className="text-foreground font-display text-lg md:text-xl mb-6">Our approach is simple</p>
+              <p className="text-foreground font-display text-lg md:text-xl mb-6">{t("about.approach")}</p>
               <p className="mb-6">
                 Clear thinking.<br />
                 Purposeful creativity.<br />

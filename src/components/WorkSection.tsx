@@ -208,6 +208,9 @@ const WorkSection = () => {
                 <p className="font-body text-sm text-muted-foreground leading-relaxed line-clamp-2">
                   {w.brief}
                 </p>
+                <p className="font-display text-xs font-semibold text-accent-gradient mt-2">
+                  {w.metric}
+                </p>
               </div>
             </AnimatedSection>
           ))}

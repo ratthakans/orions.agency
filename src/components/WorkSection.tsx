@@ -97,7 +97,7 @@ const WorkSection = () => {
     <section id="work" className="py-32 md:py-44 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
         <AnimatedSection>
-          <p className="text-sm tracking-[0.3em] uppercase text-muted-foreground font-body mb-4">
+          <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-4">
             Portfolio
           </p>
           <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-foreground mb-20">

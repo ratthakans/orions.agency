@@ -20,7 +20,7 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => (
         transition={{ duration: 0.8, delay: 0.2 }}
         className="flex items-center gap-4 text-sm text-muted-foreground font-body mb-12"
       >
-        <span className="font-display text-xs tracking-wider text-muted-foreground">(01)</span>
+        <span className="font-display text-xs tracking-[0.3em] uppercase text-muted-foreground">(01)</span>
         <span className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full inline-block bg-accent-gradient" />
           Bangkok · Available

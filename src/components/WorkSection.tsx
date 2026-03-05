@@ -19,6 +19,12 @@ const works = [
   { title: "Field Notes Coffee", desc: "Editorial storytelling and creative campaigns.", image: workField },
 ];
 
+const clientLogos = [
+  "Meridian", "Voss Studio", "Kova", "Arcline", "Sonder", "Halcyon",
+  "Vektor", "Nimbus", "Stratos", "Pallor", "Aether", "Blkbox",
+  "Rivian Co", "Forma", "Zenith", "Epoch", "Verve", "Luminar",
+];
+
 const WorkSection = () => (
   <section id="work" className="py-32 md:py-44 px-6 md:px-12">
     <div className="max-w-7xl mx-auto">
@@ -50,6 +56,33 @@ const WorkSection = () => (
             </div>
           </AnimatedSection>
         ))}
+      </div>
+
+      {/* And More + Client Logos */}
+      <div className="mt-32 border-t border-divider pt-20">
+        <AnimatedSection>
+          <p className="text-sm tracking-[0.3em] uppercase text-muted-foreground font-body mb-4 text-center">
+            Trusted By
+          </p>
+          <h3 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-16 text-center">
+            And More
+          </h3>
+        </AnimatedSection>
+
+        <AnimatedSection delay={0.1}>
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-px bg-divider border border-divider">
+            {clientLogos.map((name) => (
+              <div
+                key={name}
+                className="bg-background flex items-center justify-center py-8 md:py-10 px-4 group hover:bg-secondary transition-colors duration-300"
+              >
+                <span className="font-display text-sm md:text-base font-semibold tracking-wide text-muted-foreground group-hover:text-foreground transition-colors duration-300 text-center">
+                  {name}
+                </span>
+              </div>
+            ))}
+          </div>
+        </AnimatedSection>
       </div>
     </div>
   </section>

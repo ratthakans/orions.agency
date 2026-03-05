@@ -169,6 +169,7 @@ const WorkSection = () => {
                   </span>
                 </div>
                 <p className="font-body text-sm text-muted-foreground max-w-lg">{works[0].brief}</p>
+                <p className="font-display text-sm font-semibold text-accent-gradient mt-2">{works[0].metric}</p>
               </div>
               <div className="flex flex-wrap gap-2 md:justify-end shrink-0">
                 {works[0].scope.slice(0, 3).map((s) => (

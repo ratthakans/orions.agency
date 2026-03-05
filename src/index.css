@@ -27,8 +27,8 @@
     --accent: 0 0% 15%;
     --accent-foreground: 0 0% 96%;
 
-    --accent-warm: 217 91% 60%;
-    --accent-warm-end: 199 89% 48%;
+    --accent-warm: 32 95% 55%;
+    --accent-warm-end: 25 95% 50%;
     --accent-warm-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -54,7 +54,7 @@
     --text-secondary: 0 0% 60%;
     --text-tertiary: 0 0% 40%;
     --divider: 0 0% 18%;
-    --status-available: 217 91% 60%;
+    --status-available: 32 95% 55%;
   }
 }
 
@@ -142,7 +142,7 @@ html {
 
 /* Selection */
 ::selection {
-  background: hsl(217 91% 60% / 0.25);
+  background: hsl(32 95% 55% / 0.25);
   color: hsl(0 0% 100%);
 }
 

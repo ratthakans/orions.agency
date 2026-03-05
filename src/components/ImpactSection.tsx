@@ -75,7 +75,7 @@ const ImpactSection = () => {
                 {/* Accent top border on hover */}
                 <div className="absolute top-0 left-0 right-0 h-[2px] bg-accent-warm scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
                 
-                <span className="font-display text-3xl md:text-4xl font-bold text-foreground block mb-3 group-hover:text-accent-warm transition-colors duration-500">
+                <span className="font-display text-3xl md:text-4xl font-bold text-foreground block mb-3 transition-colors duration-500">
                   {item.stat}
                 </span>
                 <h3 className="font-display text-lg md:text-xl font-semibold text-foreground mb-2">

@@ -64,6 +64,7 @@ const works = [
     brief: "Campaign platform and storytelling for a modern education institution.",
     scope: ["Campaign Strategy", "Brand Film", "Editorial Content", "Digital Platform", "Founder Storytelling"],
     result: "Created a campaign platform that resonated with modern learners and drove enrollment growth.",
+    metric: "↑ Enrollment growth",
     image: workMuse,
   },
   {

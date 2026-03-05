@@ -153,3 +153,7 @@ html {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+.bg-accent-gradient {
+  background: linear-gradient(135deg, hsl(var(--accent-warm)), hsl(var(--accent-warm-end)));
+}

@@ -101,9 +101,12 @@ const jobs = [
 ];
 
 const benefits = [
-  { icon: "🏢", title: "Social Security", desc: "Full social security coverage as required by law" },
-  { icon: "🏖️", title: "Public Holidays", desc: "All public holidays off as mandated by Thai labor law" },
-  { icon: "🎨", title: "Creative Culture", desc: "Work in a collaborative, creative team environment" },
+  { title: "Social Security", desc: "Full social security coverage as required by Thai labor law" },
+  { title: "Public Holidays", desc: "All public holidays off as mandated by labor regulations" },
+  { title: "Creative Culture", desc: "Work in a collaborative, creative team environment" },
+  { title: "Flexible Hours", desc: "Monday – Friday, 10:00 – 19:00 with flexibility built in" },
+  { title: "Growth Path", desc: "Clear career progression and skill development opportunities" },
+  { title: "Team Activities", desc: "Regular team outings, workshops, and creative retreats" },
 ];
 
 const CareersSection = () => {
@@ -112,7 +115,7 @@ const CareersSection = () => {
   return (
     <section className="py-32 md:py-44 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
+        {/* Header — matches Careers style */}
         <AnimatedSection>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-24">
             <div>
@@ -141,21 +144,13 @@ const CareersSection = () => {
             </div>
             <div className="bg-background p-6 md:p-8">
               <p className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mb-2">Location</p>
-              <a
-                href="https://maps.app.goo.gl/w2vrRH9Y4j1NwS9J8"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-body text-foreground hover:text-accent-warm transition-colors duration-300"
-              >
+              <a href="https://maps.app.goo.gl/w2vrRH9Y4j1NwS9J8" target="_blank" rel="noopener noreferrer" className="font-body text-foreground hover:text-accent-warm transition-colors duration-300">
                 TV Burabha, Ram Inthra Expressway →
               </a>
             </div>
             <div className="bg-background p-6 md:p-8">
               <p className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mb-2">Apply</p>
-              <a
-                href="mailto:hello@orions.agency"
-                className="font-body text-foreground hover:text-accent-warm transition-colors duration-300"
-              >
+              <a href="mailto:hello@orions.agency" className="font-body text-foreground hover:text-accent-warm transition-colors duration-300">
                 hello@orions.agency →
               </a>
             </div>
@@ -202,7 +197,7 @@ const CareersSection = () => {
           ))}
         </div>
 
-        {/* Benefits */}
+        {/* Benefits — NO icons, 6 items */}
         <div className="mt-24">
           <AnimatedSection>
             <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-8">
@@ -210,11 +205,13 @@ const CareersSection = () => {
             </p>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-divider border border-divider">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-divider border border-divider">
             {benefits.map((b, i) => (
               <AnimatedSection key={b.title} delay={i * 0.05}>
                 <div className="bg-background p-8 md:p-10">
-                  <span className="text-2xl mb-4 block">{b.icon}</span>
+                  <span className="font-display text-xs text-accent-warm mb-4 block">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
                   <h4 className="font-display text-base font-semibold text-foreground mb-2">{b.title}</h4>
                   <p className="font-body text-sm text-muted-foreground leading-relaxed">{b.desc}</p>
                 </div>
@@ -262,7 +259,6 @@ const CareersSection = () => {
               </DialogHeader>
 
               <div className="space-y-8">
-                {/* Info bar */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="border border-divider p-4">
                     <p className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mb-1">Working Hours</p>
@@ -276,55 +272,41 @@ const CareersSection = () => {
                   </div>
                 </div>
 
-                {/* Responsibilities */}
                 <div>
-                  <h4 className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4">
-                    Responsibilities
-                  </h4>
+                  <h4 className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4">Responsibilities</h4>
                   <ul className="space-y-3">
                     {selectedJob.responsibilities.map((r, i) => (
                       <li key={i} className="flex gap-3 items-start">
-                        <span className="text-accent-gradient font-display text-xs font-bold mt-0.5">
-                          {String(i + 1).padStart(2, "0")}
-                        </span>
+                        <span className="text-accent-warm font-display text-xs font-bold mt-0.5">{String(i + 1).padStart(2, "0")}</span>
                         <span className="font-body text-sm text-foreground leading-relaxed">{r}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                {/* Qualifications */}
                 <div className="border-t border-divider pt-8">
-                  <h4 className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4">
-                    Qualifications
-                  </h4>
+                  <h4 className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4">Qualifications</h4>
                   <ul className="space-y-3">
                     {selectedJob.qualifications.map((q, i) => (
                       <li key={i} className="flex gap-3 items-start">
-                        <span className="text-accent-gradient font-display text-xs font-bold mt-0.5">
-                          {String(i + 1).padStart(2, "0")}
-                        </span>
+                        <span className="text-accent-warm font-display text-xs font-bold mt-0.5">{String(i + 1).padStart(2, "0")}</span>
                         <span className="font-body text-sm text-foreground leading-relaxed">{q}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                {/* Benefits */}
                 <div className="border-t border-divider pt-8">
-                  <h4 className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4">
-                    Benefits
-                  </h4>
+                  <h4 className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4">Benefits</h4>
                   <div className="flex flex-wrap gap-2">
-                    {["Social Security", "Public Holidays", "Creative Team Culture"].map((b) => (
-                      <span key={b} className="text-xs tracking-[0.1em] uppercase font-body border border-divider px-3 py-1.5 text-foreground">
-                        {b}
+                    {benefits.map((b) => (
+                      <span key={b.title} className="text-xs tracking-[0.1em] uppercase font-body border border-divider px-3 py-1.5 text-foreground">
+                        {b.title}
                       </span>
                     ))}
                   </div>
                 </div>
 
-                {/* Apply CTA */}
                 <div className="border-t border-divider pt-8">
                   <a
                     href="mailto:hello@orions.agency"

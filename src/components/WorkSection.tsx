@@ -114,16 +114,24 @@ const WorkSection = () => {
   return (
     <section id="work" className="py-32 md:py-44 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
+        {/* Header — same 2-col layout as Careers */}
         <AnimatedSection>
-          <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-4">
-            Portfolio
-          </p>
-          <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-foreground mb-6">
-            Selected Work
-          </h2>
-          <p className="font-body text-muted-foreground text-base md:text-lg max-w-2xl mb-20 leading-relaxed">
-            A selection of projects where we helped brands find clarity and create impact.
-          </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-24">
+            <div>
+              <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-4">
+                Portfolio
+              </p>
+              <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-foreground">
+                Selected<br />
+                <span className="text-accent-gradient">Work</span>
+              </h2>
+            </div>
+            <div className="flex items-end">
+              <p className="font-body text-muted-foreground text-base md:text-lg max-w-md leading-relaxed">
+                A selection of projects where we helped brands find clarity and create impact.
+              </p>
+            </div>
+          </div>
         </AnimatedSection>
 
         {/* Featured project */}
@@ -198,12 +206,16 @@ const WorkSection = () => {
         {/* Trusted By */}
         <div className="mt-32 border-t border-divider pt-20">
           <AnimatedSection>
-            <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-4 text-center">
-              Trusted By
-            </p>
-            <h3 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-16 text-center">
-              And More
-            </h3>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+              <div>
+                <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-4">
+                  Trusted By
+                </p>
+                <h3 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-foreground">
+                  And More
+                </h3>
+              </div>
+            </div>
           </AnimatedSection>
 
           <AnimatedSection delay={0.1}>
@@ -232,11 +244,7 @@ const WorkSection = () => {
           {selectedWork && (
             <>
               <div className="w-full aspect-[16/9] overflow-hidden">
-                <img
-                  src={selectedWork.image}
-                  alt={selectedWork.title}
-                  className="w-full h-full object-cover"
-                />
+                <img src={selectedWork.image} alt={selectedWork.title} className="w-full h-full object-cover" />
               </div>
               <div className="p-8 md:p-12">
                 <DialogHeader className="mb-8">

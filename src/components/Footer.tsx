@@ -52,10 +52,10 @@ const Footer = () => (
             Contact
           </p>
           <div className="flex flex-col gap-3 font-body text-sm text-muted-foreground">
-            <a href="mailto:hello@orions.agency" className="hover:text-foreground transition-colors duration-300">
+            <a href="mailto:hello@orions.agency" className="hover:text-accent-warm transition-colors duration-300">
               hello@orions.agency
             </a>
-            <a href="tel:+66923905464" className="hover:text-foreground transition-colors duration-300">
+            <a href="tel:+66923905464" className="hover:text-accent-warm transition-colors duration-300">
               +66 92 390 5464
             </a>
             <p className="leading-relaxed">

@@ -63,7 +63,7 @@ const ContactSection = () => {
           <AnimatedSection delay={0.1}>
             <div>
               <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-10">
-                Send a Message
+                {t("contact.send_message")}
               </p>
 
               {submitted ? (

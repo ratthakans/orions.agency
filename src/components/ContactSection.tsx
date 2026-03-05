@@ -7,7 +7,7 @@ const ContactSection = () => {
     name: "", email: "", company: "", budget: "", message: "",
   });
   const [submitted, setSubmitted] = useState(false);
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

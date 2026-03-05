@@ -53,16 +53,24 @@ const ImpactSection = () => {
   return (
     <section className="py-32 md:py-44 px-6 md:px-12 bg-elevated">
       <div className="max-w-7xl mx-auto">
+        {/* Header — same 2-col layout as Careers */}
         <AnimatedSection>
-          <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-4">
-            Why it matters
-          </p>
-          <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-foreground mb-6">
-            Impact
-          </h2>
-          <p className="font-body text-muted-foreground text-base md:text-lg max-w-2xl mb-20 leading-relaxed">
-            Every service we offer is designed to move a specific metric. Here's what happens when ØRIONS works with a brand.
-          </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-24">
+            <div>
+              <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-4">
+                Why It Matters
+              </p>
+              <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-foreground">
+                Measurable<br />
+                <span className="text-accent-gradient">Impact</span>
+              </h2>
+            </div>
+            <div className="flex items-end">
+              <p className="font-body text-muted-foreground text-base md:text-lg max-w-md leading-relaxed">
+                Every service we offer is designed to move a specific metric. Here's what happens when ØRIONS works with a brand.
+              </p>
+            </div>
+          </div>
         </AnimatedSection>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-divider">
@@ -72,10 +80,12 @@ const ImpactSection = () => {
                 className="bg-elevated p-8 md:p-10 h-full group hover:bg-secondary transition-colors duration-500 cursor-pointer relative overflow-hidden"
                 onClick={() => setSelectedImpact(item)}
               >
-                {/* Subtle top border on hover */}
                 <div className="absolute top-0 left-0 right-0 h-px bg-accent-warm scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
                 
-                <span className="font-display text-3xl md:text-4xl font-bold text-foreground block mb-3 group-hover:text-accent-gradient transition-colors duration-500">
+                <span className="font-display text-xs text-accent-warm mb-6 block">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="font-display text-3xl md:text-4xl font-bold text-foreground block mb-3">
                   {item.stat}
                 </span>
                 <h3 className="font-display text-lg md:text-xl font-semibold text-foreground mb-2">

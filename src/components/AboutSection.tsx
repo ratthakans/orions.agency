@@ -1,7 +1,9 @@
 import AnimatedSection from "./AnimatedSection";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const AboutSection = () => (
+const AboutSection = () => {
+  const { t } = useLanguage();
+  return (
   <section id="about" className="py-32 md:py-44 px-6 md:px-12 bg-elevated">
     <div className="max-w-7xl mx-auto">
       {/* Header — same 2-col layout as Careers */}

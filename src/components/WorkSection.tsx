@@ -100,6 +100,7 @@ const works = [
     brief: "Brand positioning and digital platform for a climate-tech startup.",
     scope: ["Brand Strategy", "Digital Platform", "Data Visualization", "Content Ecosystem", "Investor Deck"],
     result: "Helped Terra secure Series A funding with a compelling brand narrative and data-driven digital presence.",
+    metric: "↑ Series A secured",
     image: workTerra,
   },
 ];

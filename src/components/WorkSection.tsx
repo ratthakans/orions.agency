@@ -19,6 +19,7 @@ const works = [
     brief: "Brand repositioning and campaign launch for Southeast Asia's emerging EV market.",
     scope: ["Brand Strategy", "Campaign Concept", "Brand Film", "Digital Experience", "Social Content Series"],
     result: "Repositioned Northwind as the leading sustainable EV brand in Southeast Asia with a 40% increase in brand awareness.",
+    metric: "↑ 40% awareness",
     image: workNorthwind,
   },
   {

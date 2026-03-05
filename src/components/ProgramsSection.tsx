@@ -176,7 +176,7 @@ const ProgramsSection = () => {
             Ongoing Programs
           </h2>
           <p className="font-body text-muted-foreground text-base md:text-lg max-w-2xl mb-20 leading-relaxed">
-            These programs help brands maintain consistent communication and long-term digital presence.
+            {t("programs.desc")}
           </p>
         </AnimatedSection>
 

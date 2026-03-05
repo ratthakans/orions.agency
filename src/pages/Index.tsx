@@ -32,7 +32,6 @@ const Index = () => {
       <ImpactSection />
       <ProcessSection />
       <FAQSection />
-      <FAQSection />
 
       {/* CTA Bridge */}
       <section className="py-24 md:py-32 px-6 md:px-12 border-t border-divider">

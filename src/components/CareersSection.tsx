@@ -226,7 +226,7 @@ const CareersSection = () => {
         <AnimatedSection delay={0.1}>
           <div className="mt-24 text-center">
             <p className="font-body text-muted-foreground text-base mb-6">
-              Don't see your role? We're always open to meeting great people.
+              {t("careers.norole")}
             </p>
             <a
               href="mailto:hello@orions.agency"

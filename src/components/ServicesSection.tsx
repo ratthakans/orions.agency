@@ -84,7 +84,7 @@ const ServicesSection = () => {
             </div>
             <div className="flex items-end">
               <p className="font-body text-muted-foreground text-base md:text-lg max-w-md leading-relaxed">
-                These services focus on defining direction and building the key communication assets for the brand.
+                {t("services.desc")}
               </p>
             </div>
           </div>

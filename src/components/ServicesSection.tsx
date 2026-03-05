@@ -169,7 +169,7 @@ const ServicesSection = () => {
                   className="w-full py-8 md:py-10 flex items-start md:items-center justify-between text-left group"
                 >
                   <div className="flex items-start md:items-center gap-6 md:gap-10">
-                    <span className="font-display text-sm text-muted-foreground group-hover:text-accent-warm transition-colors duration-300">{s.num}</span>
+                    <span className="font-display text-sm text-muted-foreground group-hover:text-accent-gradient transition-colors duration-300">{s.num}</span>
                     <div>
                       <h3 className="font-display text-2xl md:text-3xl font-semibold text-foreground group-hover:text-muted-foreground transition-colors duration-300">
                         {s.title}
@@ -269,9 +269,9 @@ const ServicesSection = () => {
                   <div className="space-y-3">
                     {selectedScope.scope.steps.map((step, i) => (
                       <div key={step} className="flex items-center gap-4">
-                        <span className="font-display text-xs text-accent-warm w-6 text-right shrink-0">
-                          {String(i + 1).padStart(2, "0")}
-                        </span>
+                         <span className="font-display text-xs text-accent-gradient w-6 text-right shrink-0">
+                           {String(i + 1).padStart(2, "0")}
+                         </span>
                         <div className="h-px flex-1 bg-divider" />
                         <span className="font-body text-sm text-foreground">
                           {step}

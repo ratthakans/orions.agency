@@ -116,11 +116,14 @@ const WorkSection = () => {
                   <img
                     src={w.image}
                     alt={w.title}
-                    className="w-full aspect-[4/3] object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                    className="w-full aspect-[4/3] object-cover group-hover:scale-[1.03] group-hover:brightness-110 transition-all duration-700"
                     loading="lazy"
                   />
                   {/* Accent overlay on hover */}
-                  <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/5 transition-colors duration-700" />
+                   <div className="absolute inset-0 bg-gradient-to-t from-accent-warm/0 via-transparent to-transparent group-hover:from-accent-warm/15 transition-all duration-700" />
+                   <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                     <p className="font-body text-xs text-white/90 leading-relaxed bg-background/60 backdrop-blur-sm px-3 py-2">{w.brief}</p>
+                   </div>
                 </div>
                 <div className="flex items-baseline justify-between mb-1">
                   <h3 className="font-display text-lg md:text-xl font-semibold text-foreground">

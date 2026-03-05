@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import AboutSection from "@/components/AboutSection";
 import AnimatedSection from "@/components/AnimatedSection";
+import { useLanguage } from "@/contexts/LanguageContext";
 import Footer from "@/components/Footer";
 import teamKrit from "@/assets/team-krit.jpg";
 import teamNari from "@/assets/team-nari.jpg";

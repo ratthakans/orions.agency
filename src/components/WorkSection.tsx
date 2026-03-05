@@ -100,9 +100,12 @@ const WorkSection = () => {
           <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-4">
             Portfolio
           </p>
-          <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-foreground mb-20">
+          <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-foreground mb-6">
             Selected Work
           </h2>
+          <p className="font-body text-muted-foreground text-base md:text-lg max-w-2xl mb-20 leading-relaxed">
+            A selection of projects where we helped brands find clarity and create impact.
+          </p>
         </AnimatedSection>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">

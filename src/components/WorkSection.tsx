@@ -55,6 +55,7 @@ const works = [
     brief: "Brand refresh and digital campaign for a luxury hospitality group.",
     scope: ["Rebranding", "Campaign Concept", "Photography", "Narrative Website", "Social Content"],
     result: "Refreshed Sera's brand identity resulting in a cohesive luxury experience across all touchpoints.",
+    metric: "↑ Unified experience",
     image: workSera,
   },
   {

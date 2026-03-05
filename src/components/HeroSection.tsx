@@ -86,7 +86,7 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => (
       <div className="animate-marquee whitespace-nowrap flex gap-0">
         {[...Array(4)].map((_, i) => (
           <span key={i} className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mx-0">
-            Brand Direction <span className="text-accent-warm">·</span> Communication Systems <span className="text-accent-warm">·</span> Digital Experience <span className="text-accent-warm">·</span> Creative Expression <span className="text-accent-warm">·</span> Strategy <span className="text-accent-warm">·</span> Authority <span className="text-accent-warm">·</span> Clarity <span className="text-accent-warm">·</span>&nbsp;
+            Brand Direction <span className="text-muted-foreground/50">·</span> Communication Systems <span className="text-muted-foreground/50">·</span> Digital Experience <span className="text-muted-foreground/50">·</span> Creative Expression <span className="text-muted-foreground/50">·</span> Strategy <span className="text-muted-foreground/50">·</span> Authority <span className="text-muted-foreground/50">·</span> Clarity <span className="text-muted-foreground/50">·</span>&nbsp;
           </span>
         ))}
       </div>

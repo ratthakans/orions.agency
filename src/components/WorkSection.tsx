@@ -89,11 +89,6 @@ const clientLogos = [
   { name: "Nimbus", icon: <svg viewBox="0 0 40 40" fill="none" className="w-8 h-8"><circle cx="16" cy="22" r="8" stroke="currentColor" strokeWidth="1.5"/><circle cx="26" cy="22" r="8" stroke="currentColor" strokeWidth="1.5"/></svg> },
   { name: "Stratos", icon: <svg viewBox="0 0 40 40" fill="none" className="w-8 h-8"><line x1="6" y1="14" x2="34" y2="14" stroke="currentColor" strokeWidth="1.5"/><line x1="6" y1="20" x2="34" y2="20" stroke="currentColor" strokeWidth="1.5"/><line x1="6" y1="26" x2="34" y2="26" stroke="currentColor" strokeWidth="1.5"/></svg> },
   { name: "Pallor", icon: <svg viewBox="0 0 40 40" fill="none" className="w-8 h-8"><rect x="10" y="10" width="20" height="20" stroke="currentColor" strokeWidth="1.5"/><rect x="15" y="15" width="10" height="10" stroke="currentColor" strokeWidth="1.5"/></svg> },
-  { name: "Aether", icon: <svg viewBox="0 0 40 40" fill="none" className="w-8 h-8"><circle cx="20" cy="20" r="14" stroke="currentColor" strokeWidth="1.5"/><circle cx="20" cy="20" r="7" stroke="currentColor" strokeWidth="1.5"/><circle cx="20" cy="20" r="2" fill="currentColor"/></svg> },
-  { name: "Rivian Co", icon: <svg viewBox="0 0 40 40" fill="none" className="w-8 h-8"><path d="M6 20h10l4-12 4 24 4-12h10" stroke="currentColor" strokeWidth="1.5" fill="none"/></svg> },
-  { name: "Forma", icon: <svg viewBox="0 0 40 40" fill="none" className="w-8 h-8"><rect x="8" y="8" width="10" height="10" stroke="currentColor" strokeWidth="1.5"/><circle cx="27" cy="27" r="6" stroke="currentColor" strokeWidth="1.5"/></svg> },
-  { name: "Zenith", icon: <svg viewBox="0 0 40 40" fill="none" className="w-8 h-8"><path d="M8 12h24L8 28h24" stroke="currentColor" strokeWidth="1.5" fill="none"/></svg> },
-  { name: "Epoch", icon: <svg viewBox="0 0 40 40" fill="none" className="w-8 h-8"><circle cx="20" cy="20" r="14" stroke="currentColor" strokeWidth="1.5"/><path d="M20 10v10h8" stroke="currentColor" strokeWidth="1.5"/></svg> },
 ];
 
 const WorkSection = () => {

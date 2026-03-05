@@ -116,7 +116,7 @@ const WorkSection = () => {
                   <img
                     src={w.image}
                     alt={w.title}
-                    className="w-full aspect-[4/3] object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                    className="w-full aspect-[4/3] object-cover group-hover:scale-[1.03] group-hover:brightness-110 transition-all duration-700"
                     loading="lazy"
                   />
                   {/* Accent overlay on hover */}

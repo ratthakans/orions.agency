@@ -35,7 +35,7 @@ const ContactSection = () => {
               <textarea placeholder="Message" value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} className={`${inputClasses} min-h-[120px] resize-none`} required />
               <button
                 type="submit"
-                className="bg-foreground text-background px-10 py-4 text-sm font-display font-medium tracking-wide hover:bg-accent-warm hover:text-accent-warm-foreground transition-colors duration-300 mt-4"
+                className="bg-foreground text-background px-10 py-4 text-sm font-display font-medium tracking-wide hover:bg-muted-foreground transition-colors duration-300 mt-4"
               >
                 Send Message
               </button>

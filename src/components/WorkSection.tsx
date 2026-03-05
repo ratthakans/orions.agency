@@ -120,7 +120,7 @@ const WorkSection = () => {
                     loading="lazy"
                   />
                   {/* Accent overlay on hover */}
-                  <div className="absolute inset-0 bg-accent-warm/0 group-hover:bg-accent-warm/10 transition-colors duration-700 mix-blend-multiply" />
+                  <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/5 transition-colors duration-700" />
                 </div>
                 <div className="flex items-baseline justify-between mb-1">
                   <h3 className="font-display text-lg md:text-xl font-semibold text-foreground">

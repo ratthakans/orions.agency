@@ -139,7 +139,7 @@ const WorkSection = () => {
             </div>
             <div className="flex items-end">
               <p className="font-body text-muted-foreground text-base md:text-lg max-w-md leading-relaxed">
-                A selection of projects where we helped brands find clarity and create impact.
+                {t("work.desc")}
               </p>
             </div>
           </div>

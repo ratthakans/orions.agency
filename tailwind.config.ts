@@ -65,6 +65,7 @@ export default {
       fontFamily: {
         display: ["Instrument Sans", "sans-serif"],
         body: ["DM Sans", "sans-serif"],
+        logo: ["Unbounded", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",

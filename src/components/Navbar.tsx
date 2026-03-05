@@ -19,7 +19,7 @@ const Navbar = () => {
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-divider">
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20">
-          <Link to="/" className="font-display text-xl md:text-2xl font-bold tracking-tight text-foreground">
+          <Link to="/" className="font-logo text-xl md:text-2xl font-medium tracking-tight text-foreground">
             ØRIONS
           </Link>
 

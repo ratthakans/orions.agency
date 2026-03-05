@@ -78,6 +78,10 @@
     font-family: 'DM Sans', sans-serif;
   }
 
+  .font-logo {
+    font-family: 'Unbounded', sans-serif;
+  }
+
   .text-secondary {
     color: hsl(var(--text-secondary));
   }

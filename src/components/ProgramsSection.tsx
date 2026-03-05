@@ -1,6 +1,7 @@
 import { useState } from "react";
 import AnimatedSection from "./AnimatedSection";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "./ui/dialog";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface ScopeDetail {
   name: string;
@@ -162,6 +163,7 @@ const programs: Program[] = [
 
 const ProgramsSection = () => {
   const [selectedScope, setSelectedScope] = useState<{ program: Program; scope: ScopeDetail } | null>(null);
+  const { t } = useLanguage();
 
   return (
     <section className="py-32 md:py-44 px-6 md:px-12 bg-elevated">
@@ -174,7 +176,7 @@ const ProgramsSection = () => {
             Ongoing Programs
           </h2>
           <p className="font-body text-muted-foreground text-base md:text-lg max-w-2xl mb-20 leading-relaxed">
-            These programs help brands maintain consistent communication and long-term digital presence.
+            {t("programs.desc")}
           </p>
         </AnimatedSection>
 

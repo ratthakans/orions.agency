@@ -1,6 +1,7 @@
 import { useState } from "react";
 import AnimatedSection from "./AnimatedSection";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "./ui/dialog";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const jobs = [
   {
@@ -111,6 +112,7 @@ const benefits = [
 
 const CareersSection = () => {
   const [selectedJob, setSelectedJob] = useState<typeof jobs[0] | null>(null);
+  const { t } = useLanguage();
 
   return (
     <section className="py-32 md:py-44 px-6 md:px-12">
@@ -129,7 +131,7 @@ const CareersSection = () => {
             </div>
             <div className="flex items-end">
               <p className="font-body text-muted-foreground text-base md:text-lg max-w-md leading-relaxed">
-                We're always looking for talented, curious people who want to do meaningful creative work. If that sounds like you, we'd love to hear from you.
+                {t("careers.desc")}
               </p>
             </div>
           </div>
@@ -224,7 +226,7 @@ const CareersSection = () => {
         <AnimatedSection delay={0.1}>
           <div className="mt-24 text-center">
             <p className="font-body text-muted-foreground text-base mb-6">
-              Don't see your role? We're always open to meeting great people.
+              {t("careers.norole")}
             </p>
             <a
               href="mailto:hello@orions.agency"

@@ -111,9 +111,9 @@ const ImpactSection = () => {
                 </DialogDescription>
               </DialogHeader>
 
-              <div className="space-y-6 mt-4">
+              <div className="space-y-8 mt-6">
                 <div>
-                  <h4 className="font-display text-sm tracking-[0.2em] uppercase text-muted-foreground mb-3">
+                  <h4 className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4">
                     How we achieve this
                   </h4>
                   <p className="font-body text-sm text-foreground leading-relaxed">
@@ -121,13 +121,23 @@ const ImpactSection = () => {
                   </p>
                 </div>
 
-                <div className="border-t border-divider pt-6">
-                  <h4 className="font-display text-sm tracking-[0.2em] uppercase text-muted-foreground mb-3">
+                <div className="border-t border-divider pt-8">
+                  <h4 className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4">
                     Methodology
                   </h4>
-                  <p className="font-body text-xs tracking-wide text-muted-foreground">
-                    {selectedImpact.methodology}
-                  </p>
+                  <div className="space-y-3">
+                    {selectedImpact.methodology.split(" → ").map((step, i) => (
+                      <div key={step} className="flex items-center gap-4">
+                        <span className="font-display text-xs text-accent-warm w-6 text-right shrink-0">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                        <div className="h-px flex-1 bg-divider" />
+                        <span className="font-body text-sm text-foreground">
+                          {step}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </>

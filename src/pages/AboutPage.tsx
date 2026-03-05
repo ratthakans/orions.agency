@@ -25,8 +25,14 @@ const AboutPage = () => (
       <AboutSection />
 
       {/* Team Section */}
-      <section className="py-32 md:py-44 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-32 md:py-44 px-6 md:px-12 relative">
+        {/* Subtle grid pattern background */}
+        <div className="absolute inset-0 pointer-events-none select-none opacity-[0.03]" style={{
+          backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
+          backgroundSize: '80px 80px',
+        }} />
+        
+        <div className="max-w-7xl mx-auto relative z-10">
           <AnimatedSection>
             <p className="text-sm tracking-[0.3em] uppercase text-muted-foreground font-body mb-4">
               The people
@@ -40,13 +46,15 @@ const AboutPage = () => (
             {team.map((member, i) => (
               <AnimatedSection key={member.name} delay={i * 0.08}>
                 <div className="bg-background p-8 md:p-10 group">
-                  <div className="w-full aspect-[3/4] bg-secondary mb-6 overflow-hidden">
+                  <div className="w-full aspect-[3/4] bg-secondary mb-6 overflow-hidden relative">
                     <img
                       src={member.image}
                       alt={member.name}
                       className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                       loading="lazy"
                     />
+                    {/* Accent tint overlay on hover */}
+                    <div className="absolute inset-0 bg-accent-warm/0 group-hover:bg-accent-warm/10 transition-colors duration-700 mix-blend-multiply" />
                   </div>
                   <h3 className="font-display text-lg md:text-xl font-semibold text-foreground mb-1">
                     {member.name}

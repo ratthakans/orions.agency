@@ -53,7 +53,7 @@ const ServicesSection = () => {
                   className="w-full py-8 md:py-10 flex items-start md:items-center justify-between text-left group"
                 >
                   <div className="flex items-start md:items-center gap-6 md:gap-10">
-                    <span className="font-display text-sm text-muted-foreground">{s.num}</span>
+                    <span className="font-display text-sm text-accent-warm">{s.num}</span>
                     <div>
                       <h3 className="font-display text-2xl md:text-3xl font-semibold text-foreground group-hover:text-muted-foreground transition-colors duration-300">
                         {s.title}
@@ -61,7 +61,11 @@ const ServicesSection = () => {
                       <p className="font-body text-muted-foreground text-sm mt-1">{s.subtitle}</p>
                     </div>
                   </div>
-                  <span className="font-display text-2xl text-muted-foreground mt-1 md:mt-0 transition-transform duration-300" style={{ transform: openIndex === i ? "rotate(45deg)" : "rotate(0deg)" }}>
+                  <span
+                    className={`font-display text-2xl mt-1 md:mt-0 transition-all duration-300 ${
+                      openIndex === i ? "text-accent-warm rotate-45" : "text-muted-foreground rotate-0"
+                    }`}
+                  >
                     +
                   </span>
                 </button>

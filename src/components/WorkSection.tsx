@@ -1,7 +1,6 @@
 import { useState } from "react";
 import AnimatedSection from "./AnimatedSection";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "./ui/dialog";
-import { X } from "lucide-react";
 import workNorthwind from "@/assets/work-northwind.jpg";
 import workAtlas from "@/assets/work-atlas.jpg";
 import workKoha from "@/assets/work-koha.jpg";
@@ -113,13 +112,15 @@ const WorkSection = () => {
                 className="group cursor-pointer"
                 onClick={() => setSelectedWork(w)}
               >
-                <div className="overflow-hidden mb-5">
+                <div className="overflow-hidden mb-5 relative">
                   <img
                     src={w.image}
                     alt={w.title}
                     className="w-full aspect-[4/3] object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
                     loading="lazy"
                   />
+                  {/* Accent overlay on hover */}
+                  <div className="absolute inset-0 bg-accent-warm/0 group-hover:bg-accent-warm/10 transition-colors duration-700 mix-blend-multiply" />
                 </div>
                 <div className="flex items-baseline justify-between mb-1">
                   <h3 className="font-display text-lg md:text-xl font-semibold text-foreground">
@@ -132,7 +133,7 @@ const WorkSection = () => {
                 <p className="font-body text-sm text-muted-foreground mb-2">{w.brief}</p>
                 <div className="flex flex-wrap gap-2">
                   {w.scope.slice(0, 3).map((s) => (
-                    <span key={s} className="text-[10px] tracking-[0.15em] uppercase text-muted-foreground font-body border border-divider px-2 py-0.5">
+                    <span key={s} className="text-[10px] tracking-[0.15em] uppercase text-muted-foreground font-body border border-divider px-2 py-0.5 group-hover:border-accent-warm/40 transition-colors duration-500">
                       {s}
                     </span>
                   ))}
@@ -165,7 +166,7 @@ const WorkSection = () => {
                   key={client.name}
                   className="bg-background flex flex-col items-center justify-center py-8 md:py-10 px-4 gap-3 group hover:bg-secondary transition-colors duration-300"
                 >
-                  <span className="text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+                  <span className="text-muted-foreground group-hover:text-accent-warm transition-colors duration-300">
                     {client.icon}
                   </span>
                   <span className="font-display text-[10px] md:text-xs font-medium tracking-[0.15em] uppercase text-muted-foreground group-hover:text-foreground transition-colors duration-300 text-center">
@@ -196,7 +197,7 @@ const WorkSection = () => {
                     <DialogTitle className="font-display text-2xl md:text-3xl font-bold text-foreground">
                       {selectedWork.title}
                     </DialogTitle>
-                    <span className="text-xs tracking-[0.2em] uppercase text-muted-foreground font-body">
+                    <span className="text-xs tracking-[0.2em] uppercase text-accent-warm font-body">
                       {selectedWork.industry}
                     </span>
                   </div>

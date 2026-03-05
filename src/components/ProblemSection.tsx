@@ -1,12 +1,11 @@
-import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 
 const ProblemSection = () => (
   <section className="py-32 md:py-44 px-6 md:px-12 relative overflow-hidden">
     <div className="max-w-7xl mx-auto">
-      {/* Large background text */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none opacity-[0.03]">
-        <span className="font-display text-[20vw] font-bold tracking-tighter whitespace-nowrap">
+      {/* Large background text — outlined */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+        <span className="font-display text-[20vw] font-bold tracking-tighter whitespace-nowrap text-stroke-lg opacity-[0.04]">
           NOISE
         </span>
       </div>
@@ -36,7 +35,7 @@ const ProblemSection = () => (
             </AnimatedSection>
 
             <AnimatedSection delay={0.2}>
-              <div className="border-l-2 border-foreground pl-6">
+              <div className="border-l-2 border-accent-warm pl-6">
                 <p className="font-display text-xl md:text-2xl text-foreground font-semibold">
                   But meaning is disappearing.
                 </p>
@@ -47,6 +46,10 @@ const ProblemSection = () => (
               <p className="font-body text-lg text-muted-foreground">
                 Brands are visible — but not understood.
               </p>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.35}>
+              <div className="w-16 h-px bg-accent-warm" />
             </AnimatedSection>
 
             <AnimatedSection delay={0.4}>

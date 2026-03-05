@@ -43,13 +43,6 @@ const Navbar = () => {
               </Link>
             ))}
 
-            {/* Language toggle */}
-            <button
-              onClick={() => setLang(lang === "en" ? "th" : "en")}
-              className="text-xs font-display tracking-[0.15em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-300 border border-divider px-3 py-1.5 hover:border-foreground/50"
-            >
-              {lang === "en" ? "TH" : "EN"}
-            </button>
 
             <button
               onClick={() => setDialogOpen(true)}

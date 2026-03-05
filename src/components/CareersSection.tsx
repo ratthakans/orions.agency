@@ -112,6 +112,7 @@ const benefits = [
 
 const CareersSection = () => {
   const [selectedJob, setSelectedJob] = useState<typeof jobs[0] | null>(null);
+  const { t } = useLanguage();
 
   return (
     <section className="py-32 md:py-44 px-6 md:px-12">

@@ -9,6 +9,8 @@ import workSera from "@/assets/work-sera.jpg";
 import workMuse from "@/assets/work-muse.jpg";
 import workOrbit from "@/assets/work-orbit.jpg";
 import workField from "@/assets/work-field.jpg";
+import workVela from "@/assets/work-vela.jpg";
+import workTerra from "@/assets/work-terra.jpg";
 
 const works = [
   {
@@ -75,6 +77,22 @@ const works = [
     result: "Transformed Field Notes from a local roaster into a recognized lifestyle brand across the region.",
     image: workField,
   },
+  {
+    title: "Vela Fashion",
+    industry: "Fashion & E-commerce",
+    brief: "End-to-end brand identity and e-commerce experience for a contemporary fashion label.",
+    scope: ["Brand Identity", "E-commerce UX", "Photography Direction", "Social Strategy", "Campaign Launch"],
+    result: "Launched Vela's DTC platform achieving 150% of first-quarter sales targets with a cohesive brand experience.",
+    image: workVela,
+  },
+  {
+    title: "Terra Sustain",
+    industry: "Sustainability",
+    brief: "Brand positioning and digital platform for a climate-tech startup.",
+    scope: ["Brand Strategy", "Digital Platform", "Data Visualization", "Content Ecosystem", "Investor Deck"],
+    result: "Helped Terra secure Series A funding with a compelling brand narrative and data-driven digital presence.",
+    image: workTerra,
+  },
 ];
 
 const clientLogos = [
@@ -108,17 +126,17 @@ const WorkSection = () => {
           </p>
         </AnimatedSection>
 
-        {/* Featured project — first item large */}
+        {/* Featured project */}
         <AnimatedSection>
           <div
-            className="group cursor-pointer mb-12"
+            className="group cursor-pointer mb-16"
             onClick={() => setSelectedWork(works[0])}
           >
             <div className="overflow-hidden mb-6">
               <img
                 src={works[0].image}
                 alt={works[0].title}
-                className="w-full aspect-[16/9] object-cover group-hover:brightness-125 transition-all duration-500"
+                className="w-full aspect-[16/9] object-cover group-hover:brightness-110 transition-all duration-500"
                 loading="lazy"
               />
             </div>
@@ -146,9 +164,9 @@ const WorkSection = () => {
         </AnimatedSection>
 
         {/* Grid of remaining projects */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
           {works.slice(1).map((w, i) => (
-            <AnimatedSection key={w.title} delay={i * 0.06}>
+            <AnimatedSection key={w.title} delay={i * 0.05}>
               <div
                 className="group cursor-pointer"
                 onClick={() => setSelectedWork(w)}
@@ -157,7 +175,7 @@ const WorkSection = () => {
                   <img
                     src={w.image}
                     alt={w.title}
-                    className="w-full aspect-[4/3] object-cover group-hover:brightness-125 transition-all duration-500"
+                    className="w-full aspect-[4/3] object-cover group-hover:brightness-110 transition-all duration-500"
                     loading="lazy"
                   />
                 </div>

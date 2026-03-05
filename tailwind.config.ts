@@ -63,7 +63,7 @@ export default {
         },
       },
       fontFamily: {
-        display: ["Space Grotesk", "sans-serif"],
+        display: ["Instrument Sans", "sans-serif"],
         body: ["DM Sans", "sans-serif"],
       },
       borderRadius: {

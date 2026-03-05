@@ -65,6 +65,7 @@ const services: Service[] = [
 const ServicesSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [selectedScope, setSelectedScope] = useState<{ service: Service; scope: ScopeDetail } | null>(null);
+  const { t } = useLanguage();
 
   return (
     <section id="services" className="py-32 md:py-44 px-6 md:px-12">

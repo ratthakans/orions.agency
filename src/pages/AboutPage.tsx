@@ -34,7 +34,7 @@ const AboutPage = () => (
         
         <div className="max-w-7xl mx-auto relative z-10">
           <AnimatedSection>
-            <p className="text-sm tracking-[0.3em] uppercase text-muted-foreground font-body mb-4">
+            <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-4">
               The people
             </p>
             <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-foreground mb-20">

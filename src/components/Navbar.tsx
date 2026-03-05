@@ -87,12 +87,6 @@ const Navbar = () => {
                   </Link>
                 ))}
                 <button
-                  onClick={() => setLang(lang === "en" ? "th" : "en")}
-                  className="text-sm font-display tracking-[0.15em] uppercase text-muted-foreground hover:text-foreground transition-colors border border-divider px-4 py-2 w-fit"
-                >
-                  {lang === "en" ? "ภาษาไทย" : "English"}
-                </button>
-                <button
                   onClick={() => { setIsOpen(false); setDialogOpen(true); }}
                   className="text-sm bg-foreground text-background px-5 py-3 font-display font-medium text-center mt-2 hover:bg-accent-warm hover:text-accent-warm-foreground transition-colors duration-300"
                 >

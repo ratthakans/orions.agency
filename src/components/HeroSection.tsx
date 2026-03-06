@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import textureGrain from "@/assets/texture-grain.jpg";
 
 interface HeroSectionProps {
   onStartProject: () => void;
@@ -7,7 +8,12 @@ interface HeroSectionProps {
 
 const HeroSection = ({ onStartProject }: HeroSectionProps) => {
   return (
-    <section className="min-h-screen flex flex-col justify-center px-6 md:px-12 pt-20 relative">
+    <section className="min-h-screen flex flex-col justify-center px-6 md:px-12 pt-20 relative overflow-hidden">
+      {/* Texture overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none select-none z-0 opacity-[0.04] mix-blend-multiply"
+        style={{ backgroundImage: `url(${textureGrain})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+      />
       <div className="max-w-7xl mx-auto w-full">
         <div className="absolute top-32 right-8 md:right-16 pointer-events-none select-none hidden md:block">
           <span className="font-display text-[12rem] lg:text-[16rem] font-bold tracking-tighter text-stroke-lg opacity-[0.07]">

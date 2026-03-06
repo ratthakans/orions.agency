@@ -24,12 +24,12 @@ const App = () => (
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/services" element={<ServicesPage />} />
-          <Route path="/work" element={<WorkPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/careers" element={<CareersPage />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/services" element={<Suspense fallback={null}><ServicesPage /></Suspense>} />
+          <Route path="/work" element={<Suspense fallback={null}><WorkPage /></Suspense>} />
+          <Route path="/about" element={<Suspense fallback={null}><AboutPage /></Suspense>} />
+          <Route path="/contact" element={<Suspense fallback={null}><ContactPage /></Suspense>} />
+          <Route path="/careers" element={<Suspense fallback={null}><CareersPage /></Suspense>} />
+          <Route path="*" element={<Suspense fallback={null}><NotFound /></Suspense>} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

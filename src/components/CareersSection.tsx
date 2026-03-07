@@ -27,7 +27,8 @@ const CareersSection = () => {
   const { lang, t } = useLanguage();
 
   return (
-    <section className="py-28 md:py-40 px-6 md:px-12">
+    <section className="py-28 md:py-40 px-6 md:px-12 relative overflow-hidden">
+      <StarField count={40} />
       <div className="max-w-7xl mx-auto">
         {/* Hero */}
         <AnimatedSection>

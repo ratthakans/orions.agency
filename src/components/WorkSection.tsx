@@ -80,7 +80,7 @@ const WorkSection = () => {
         </AnimatedSection>
 
         {/* 3×3 Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-divider border border-divider">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
           {filteredWorks.map((w, i) => (
             <AnimatedSection key={w.title} delay={i * 0.04}>
               <div

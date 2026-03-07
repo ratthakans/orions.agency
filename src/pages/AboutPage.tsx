@@ -5,6 +5,7 @@ import AnimatedSection from "@/components/AnimatedSection";
 import Footer from "@/components/Footer";
 import ConstellationDivider from "@/components/ConstellationDivider";
 import StarField from "@/components/StarField";
+import OrionConstellation from "@/components/OrionConstellation";
 import { useLanguage } from "@/contexts/LanguageContext";
 import teamKrit from "@/assets/team-krit.jpg";
 import teamNari from "@/assets/team-nari.jpg";
@@ -14,16 +15,23 @@ import teamArun from "@/assets/team-arun.jpg";
 import teamMai from "@/assets/team-mai.jpg";
 
 const team = [
-  { name: "Krit Thanaporn", role: "Founder & Creative Director", image: teamKrit },
-  { name: "Nari Vongsa", role: "Head of Strategy", image: teamNari },
-  { name: "Tawan Srisai", role: "Design Director", image: teamTawan },
-  { name: "Ploy Charoensuk", role: "Content Lead", image: teamPloy },
-  { name: "Arun Kittisak", role: "Digital Experience Lead", image: teamArun },
-  { name: "Mai Sutthipong", role: "Campaign Director", image: teamMai },
+  { name: "Krit Thanaporn", role: "Founder & Creative Director", star: "Betelgeuse", image: teamKrit },
+  { name: "Nari Vongsa", role: "Head of Strategy", star: "Bellatrix", image: teamNari },
+  { name: "Tawan Srisai", role: "Design Director", star: "Rigel", image: teamTawan },
+  { name: "Ploy Charoensuk", role: "Content Lead", star: "Saiph", image: teamPloy },
+  { name: "Arun Kittisak", role: "Digital Experience Lead", star: "Mintaka", image: teamArun },
+  { name: "Mai Sutthipong", role: "Campaign Director", star: "Alnilam", image: teamMai },
+];
+
+const values = [
+  { title: { en: "Strategy First", th: "Strategy ก่อน" }, desc: { en: "Every project begins with deep understanding. We don't decorate — we direct.", th: "ทุกโปรเจกต์เริ่มจากความเข้าใจเชิงลึก เราไม่ตกแต่ง — เรากำหนดทิศทาง" } },
+  { title: { en: "AI-Augmented", th: "เสริมด้วย AI" }, desc: { en: "AI handles production velocity. Humans handle meaning and judgment.", th: "AI จัดการความเร็วในการผลิต มนุษย์จัดการความหมายและวิจารณญาณ" } },
+  { title: { en: "Craft Matters", th: "คุณภาพสำคัญ" }, desc: { en: "Every deliverable passes a senior creative review. Speed without compromise.", th: "ทุกชิ้นงานผ่าน senior creative review ความเร็วที่ไม่ลดคุณภาพ" } },
+  { title: { en: "Always On", th: "พร้อมเสมอ" }, desc: { en: "We're not a one-off vendor. We become your brand's creative partner.", th: "เราไม่ใช่ vendor ครั้งเดียว เราเป็น creative partner ของแบรนด์คุณ" } },
 ];
 
 const AboutPage = () => {
-  const { t } = useLanguage();
+  const { lang, t } = useLanguage();
   const [formData, setFormData] = useState({
     name: "", email: "", company: "", budget: "", message: "",
   });
@@ -44,66 +52,100 @@ const AboutPage = () => {
       <Navbar />
       <div className="pt-20">
 
-        {/* About Hero */}
-        <section className="py-24 md:py-32 px-6 md:px-12 relative overflow-hidden">
-          <StarField count={40} />
-          <div className="max-w-7xl mx-auto">
+        {/* Hero */}
+        <section className="py-28 md:py-40 px-6 md:px-12 relative overflow-hidden">
+          <StarField count={50} />
+          <div className="absolute top-1/2 right-[5%] -translate-y-1/2 pointer-events-none hidden lg:block">
+            <OrionConstellation size="xl" opacity={0.08} animate={true} />
+          </div>
+          <div className="max-w-7xl mx-auto relative z-10">
             <AnimatedSection>
-              <div className="flex items-center gap-3.5 mb-12">
+              <div className="flex items-center gap-3.5 mb-10">
                 <span className="w-[22px] h-px bg-accent-gradient" />
                 <span className="font-mono text-[10px] tracking-[0.28em] uppercase text-foreground/50">
                   Who We Are
                 </span>
               </div>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-end mb-16">
-                <h2 className="font-display text-[clamp(42px,5.5vw,84px)] leading-[0.94] tracking-[0.02em] text-foreground">
-                  {t(<>About<br /><span className="text-accent-gradient">ØRIONS</span></>, <>เกี่ยวกับ<br /><span className="text-accent-gradient">ØRIONS</span></>)}
-                </h2>
-                <p className="font-body text-[15px] leading-[1.8] text-muted-foreground">
-                  {t(
-                    "A meaning-driven creative agency. We help brands define direction and express it through campaigns, content, and digital experiences.",
-                    "Creative agency ที่ขับเคลื่อนด้วยความหมาย เราช่วยแบรนด์กำหนดทิศทางและแสดงออกผ่าน campaign, content และ digital experience"
-                  )}
-                </p>
-              </div>
+              <h1 className="font-display text-[clamp(52px,7vw,120px)] leading-[0.88] tracking-[0.02em] text-foreground mb-8 max-w-4xl">
+                {t(<>Named after the<br />brightest <span className="text-accent-gradient">constellation.</span></>, <>ตั้งชื่อตามกลุ่มดาว<br />ที่สว่าง<span className="text-accent-gradient">ที่สุด</span></>)}
+              </h1>
+              <p className="font-body text-[16px] leading-[1.8] text-muted-foreground max-w-xl">
+                {t(
+                  "ØRIONS is a meaning-driven, AI-native creative agency in Bangkok. We help brands define direction and express it through campaigns, content, and digital experiences.",
+                  "ØRIONS คือ creative agency ที่ขับเคลื่อนด้วยความหมายและ AI ในกรุงเทพฯ เราช่วยแบรนด์กำหนดทิศทางและแสดงออกผ่าน campaign, content และ digital experience"
+                )}
+              </p>
             </AnimatedSection>
+          </div>
+        </section>
 
-            <AnimatedSection delay={0.1}>
-              <div className="max-w-4xl border-t border-divider pt-10">
-                <p className="font-body text-[15px] font-medium text-foreground mb-6">{t("Our approach is simple", "แนวทางของเราเรียบง่าย")}</p>
-                <p className="font-body text-[15px] leading-[1.8] text-muted-foreground mb-6 whitespace-pre-line">
-                  {t(
-                    "Human thinking sets the direction.\nAI accelerates the execution.\nCraft ensures the quality.",
-                    "Human thinking กำหนดทิศทาง\nAI เร่งการ execution\nCraft รักษาคุณภาพ"
-                  )}
-                </p>
-                <p className="font-body text-[15px] font-medium text-foreground whitespace-pre-line">
-                  {t("Strategy first.\nSpeed second.\nAlways both.", "Strategy ก่อน\nSpeed ตามมา\nได้ทั้งสอง")}
-                </p>
-              </div>
-            </AnimatedSection>
+        <ConstellationDivider />
 
-            {/* Why Orion? Origin Story */}
-            <AnimatedSection delay={0.2}>
-              <div className="max-w-4xl border-t border-divider pt-10 mt-10">
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="text-[20px] animate-twinkle">✧</span>
-                  <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-accent-gradient">{t("Why Orion?", "ทำไม Orion?")}</p>
+        {/* Why Orion? */}
+        <section className="py-24 md:py-32 px-6 md:px-12 bg-card">
+          <div className="max-w-7xl mx-auto">
+            <AnimatedSection>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                <div>
+                  <div className="flex items-center gap-3 mb-8">
+                    <span className="text-[20px] animate-twinkle">✧</span>
+                    <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-accent-gradient">{t("Why Orion?", "ทำไม Orion?")}</p>
+                  </div>
+                  <h2 className="font-display text-[clamp(36px,4.5vw,68px)] leading-[0.94] tracking-[0.02em] text-foreground mb-8">
+                    {t(<>The hunter who<br />never loses <span className="text-accent-gradient">direction.</span></>, <>นายพรานที่ไม่เคย<br />หลง<span className="text-accent-gradient">ทิศทาง</span></>)}
+                  </h2>
+                  <div className="space-y-5">
+                    <p className="font-body text-[15px] leading-[1.8] text-muted-foreground">
+                      {t(
+                        "Named after the hunter constellation — the brightest, most recognizable pattern in the night sky. For thousands of years, travelers have used Orion to find their way.",
+                        "ตั้งชื่อตามกลุ่มดาวนายพราน — กลุ่มดาวที่สว่างและจดจำได้ง่ายที่สุดบนท้องฟ้า มานับพันปีที่นักเดินทางใช้กลุ่มดาว Orion เพื่อหาทิศทาง"
+                      )}
+                    </p>
+                    <p className="font-body text-[15px] leading-[1.8] text-foreground/80 italic">
+                      {t(
+                        "That's what we do for brands — make them visible, precise, and unforgettable. Like Orion in the night sky.",
+                        "นั่นคือสิ่งที่เราทำให้แบรนด์ — ทำให้โดดเด่น แม่นยำ และจดจำไม่มีวันลืม เหมือนกลุ่มดาว Orion บนท้องฟ้า"
+                      )}
+                    </p>
+                  </div>
                 </div>
-                <p className="font-body text-[15px] leading-[1.8] text-muted-foreground mb-4">
-                  {t(
-                    "Named after the hunter constellation — the brightest, most recognizable pattern in the night sky. For thousands of years, travelers have used Orion to find their way. That's what we do for brands.",
-                    "ตั้งชื่อตามกลุ่มดาวนายพราน — กลุ่มดาวที่สว่างและจดจำได้ง่ายที่สุดบนท้องฟ้า มานับพันปีที่นักเดินทางใช้กลุ่มดาว Orion เพื่อหาทิศทาง นั่นคือสิ่งที่เราทำให้แบรนด์"
-                  )}
-                </p>
-                <p className="font-body text-[15px] leading-[1.8] text-foreground/80 italic">
-                  {t(
-                    "We help brands become unmistakable — visible, precise, and unforgettable. Like Orion in the night sky.",
-                    "เราช่วยให้แบรนด์โดดเด่นจนแทนที่ไม่ได้ — เหมือนกลุ่มดาว Orion บนท้องฟ้ายามค่ำคืน"
-                  )}
-                </p>
+                <div className="flex items-center justify-center">
+                  <OrionConstellation size="lg" opacity={0.3} animate={true} showStars={true} />
+                </div>
               </div>
             </AnimatedSection>
+          </div>
+        </section>
+
+        <ConstellationDivider />
+
+        {/* Our Values */}
+        <section className="py-24 md:py-32 px-6 md:px-12">
+          <div className="max-w-7xl mx-auto">
+            <AnimatedSection>
+              <div className="flex items-center gap-3.5 mb-12">
+                <span className="w-[22px] h-px bg-accent-gradient" />
+                <span className="font-mono text-[10px] tracking-[0.28em] uppercase text-foreground/50">
+                  {t("How We Think", "วิธีคิดของเรา")}
+                </span>
+              </div>
+              <h2 className="font-display text-[clamp(42px,5.5vw,84px)] leading-[0.94] tracking-[0.02em] text-foreground mb-12">
+                {t(<>Our <span className="text-accent-gradient">Principles</span></>, <><span className="text-accent-gradient">หลักการ</span>ของเรา</>)}
+              </h2>
+            </AnimatedSection>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-divider border border-divider">
+              {values.map((v, i) => (
+                <AnimatedSection key={i} delay={i * 0.08}>
+                  <div className="bg-background p-10 md:p-12 group hover:bg-secondary transition-colors duration-300 relative">
+                    <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-accent-gradient scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-bottom" />
+                    <span className="font-mono text-[10px] tracking-[0.22em] text-foreground/40 mb-4 block">{String(i + 1).padStart(2, "0")}</span>
+                    <h3 className="font-display text-[30px] tracking-[0.04em] leading-none text-foreground mb-3">{v.title[lang]}</h3>
+                    <p className="font-body text-[14px] leading-[1.75] text-muted-foreground">{v.desc[lang]}</p>
+                  </div>
+                </AnimatedSection>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -125,21 +167,22 @@ const AboutPage = () => {
                 </h2>
                 <p className="font-body text-[15px] leading-[1.8] text-muted-foreground">
                   {t(
-                    "A small, focused team of strategists, designers, and storytellers building meaningful brands.",
-                    "ทีมเล็กๆ ที่โฟกัส ประกอบด้วย strategist, designer และ storyteller ที่สร้างแบรนด์อย่างมีความหมาย"
+                    "A small, focused team of strategists, designers, and storytellers — each one a star in the constellation.",
+                    "ทีมเล็กๆ ที่โฟกัส ประกอบด้วย strategist, designer และ storyteller — แต่ละคนเป็นดาวในกลุ่มดาว"
                   )}
                 </p>
               </div>
             </AnimatedSection>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-divider border border-divider">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {team.map((member, i) => (
                 <AnimatedSection key={member.name} delay={i * 0.08}>
-                  <div className="bg-background p-0 group">
+                  <div className="bg-card border border-divider group overflow-hidden">
                     <div className="w-full aspect-[3/4] overflow-hidden relative">
                       <img src={member.image} alt={member.name} className="w-full h-full object-cover group-hover:scale-[1.03] group-hover:brightness-110 transition-all duration-700" loading="lazy" />
                     </div>
-                    <div className="p-6 md:p-8">
+                    <div className="p-6 md:p-7">
+                      <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-accent-gradient block mb-2">{member.star}</span>
                       <h3 className="font-body text-[15px] font-medium text-foreground mb-1">{member.name}</h3>
                       <p className="font-body text-[13px] text-muted-foreground">{member.role}</p>
                     </div>
@@ -266,6 +309,7 @@ const AboutPage = () => {
             </div>
           </div>
         </section>
+
       </div>
       <Footer />
     </main>

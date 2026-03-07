@@ -2,7 +2,6 @@ import { useState } from "react";
 import AnimatedSection from "./AnimatedSection";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { X } from "lucide-react";
 
 interface StepDetail {
   num: string;
@@ -36,8 +35,8 @@ const steps: StepDetail[] = [
         ]
       },
       different: {
-        en: "Most agencies spend 3-4 weeks on discovery. We compress this to 3-5 days using AI-powered research synthesis — without sacrificing depth. Every insight is validated by our senior strategists.",
-        th: "Agency ส่วนใหญ่ใช้เวลา 3-4 สัปดาห์ในขั้น discovery เราบีบอัดเหลือ 3-5 วันด้วย AI-powered research — โดยไม่ลดความลึก ทุก insight ผ่านการ validate จาก senior strategist"
+        en: "Most agencies spend 3-4 weeks on discovery. We compress this to 3-5 days using AI-powered research synthesis — without sacrificing depth.",
+        th: "Agency ส่วนใหญ่ใช้เวลา 3-4 สัปดาห์ในขั้น discovery เราบีบอัดเหลือ 3-5 วันด้วย AI-powered research"
       },
       keySteps: [
         { label: "Brand Interview", desc: { en: "60-min deep-dive session with stakeholders", th: "Session deep-dive 60 นาทีกับ stakeholder" } },
@@ -67,8 +66,8 @@ const steps: StepDetail[] = [
         ]
       },
       different: {
-        en: "We don't just hand you a strategy deck. We pressure-test every positioning concept with AI-generated market simulations and audience response modeling before committing.",
-        th: "เราไม่ได้แค่ส่ง strategy deck เราทดสอบทุก positioning concept ด้วย AI-generated market simulation และ audience response modeling ก่อนตัดสินใจ"
+        en: "We pressure-test every positioning concept with AI-generated market simulations before committing.",
+        th: "เราทดสอบทุก positioning concept ด้วย AI-generated market simulation ก่อนตัดสินใจ"
       },
       keySteps: [
         { label: "Positioning Workshop", desc: { en: "Define where you stand in the market", th: "กำหนดตำแหน่งของคุณในตลาด" } },
@@ -89,17 +88,17 @@ const steps: StepDetail[] = [
       subtitle: { en: "Build everything at once.", th: "สร้างทุกอย่างพร้อมกัน" },
       process: {
         en: [
-          "Traditional agencies work sequentially: copy → design → production. We work in parallel. AI handles the heavy lifting of content generation while our creative team focuses on craft and quality control.",
-          "Every asset passes through a human review gate before delivery. AI produces the volume; humans ensure the quality."
+          "Traditional agencies work sequentially: copy → design → production. We work in parallel. AI handles the heavy lifting while our creative team focuses on craft and quality control.",
+          "Every asset passes through a human review gate before delivery."
         ],
         th: [
-          "Agency แบบเดิมทำงานเป็นลำดับ: copy → design → production เราทำแบบขนาน AI จัดการงานหนักของ content generation ขณะที่ creative team โฟกัสที่ craft และ quality control",
-          "ทุก asset ผ่าน human review gate ก่อนส่งมอบ AI ผลิต volume; มนุษย์รับประกัน quality"
+          "Agency แบบเดิมทำงานเป็นลำดับ: copy → design → production เราทำแบบขนาน AI จัดการงานหนัก ขณะที่ creative team โฟกัสที่ craft และ quality control",
+          "ทุก asset ผ่าน human review gate ก่อนส่งมอบ"
         ]
       },
       different: {
-        en: "Our parallel production model means a full brand identity that takes 8-12 weeks elsewhere gets delivered in 3-4 weeks — with the same depth of craft.",
-        th: "Production model แบบขนานของเราหมายความว่า brand identity เต็มรูปแบบที่ที่อื่นใช้ 8-12 สัปดาห์ เราส่งมอบใน 3-4 สัปดาห์ — ด้วย craft ระดับเดียวกัน"
+        en: "Our parallel production model means a full brand identity that takes 8-12 weeks elsewhere gets delivered in 3-4 weeks.",
+        th: "Production model แบบขนานของเราหมายความว่า brand identity เต็มรูปแบบที่ที่อื่นใช้ 8-12 สัปดาห์ เราส่งมอบใน 3-4 สัปดาห์"
       },
       keySteps: [
         { label: "Design System", desc: { en: "Colors, typography, components in Figma", th: "Colors, typography, components ใน Figma" } },
@@ -121,11 +120,11 @@ const steps: StepDetail[] = [
       process: {
         en: [
           "We don't disappear after delivery. Launch & Scale is about ensuring your brand system works in the real world — and continues to grow.",
-          "From launch day support to ongoing optimization, we build systems that compound over time. Your brand gets stronger with every touchpoint."
+          "From launch day support to ongoing optimization, we build systems that compound over time."
         ],
         th: [
           "เราไม่หายไปหลังส่งมอบ Launch & Scale คือการทำให้ brand system ทำงานได้ในโลกจริง — และเติบโตต่อไป",
-          "ตั้งแต่ launch day support ถึง ongoing optimization เราสร้างระบบที่สะสมผลลัพธ์ตามเวลา แบรนด์ของคุณแข็งแกร่งขึ้นกับทุก touchpoint"
+          "ตั้งแต่ launch day support ถึง ongoing optimization เราสร้างระบบที่สะสมผลลัพธ์ตามเวลา"
         ]
       },
       different: {
@@ -154,7 +153,7 @@ const ProcessSection = () => {
         <AnimatedSection>
           <div className="flex items-center gap-3.5 mb-12">
             <span className="w-[22px] h-px bg-accent-gradient" />
-            <span className="font-mono text-[10px] tracking-[0.28em] uppercase text-accent-violet">
+            <span className="font-mono text-[10px] tracking-[0.28em] uppercase text-foreground">
               {t("How We Work", "วิธีการทำงาน")}
             </span>
           </div>
@@ -182,7 +181,7 @@ const ProcessSection = () => {
                 <span className="font-display text-[88px] text-stroke-dim leading-none block mb-5">{step.num}</span>
                 <h3 className="font-body text-[15px] font-medium text-foreground mb-2.5">{step.title[lang]}</h3>
                 <p className="font-body text-[13px] leading-[1.72] text-muted-foreground">{step.desc[lang]}</p>
-                <span className="absolute top-5 right-5 font-mono text-[9px] tracking-[0.18em] uppercase px-2.5 py-1 bg-accent-violet/10 text-accent-violet border border-accent-violet/20">
+                <span className="absolute top-5 right-5 font-mono text-[9px] tracking-[0.18em] uppercase px-2.5 py-1 bg-foreground/5 text-foreground/60 border border-foreground/10">
                   {step.badge}
                 </span>
               </div>
@@ -193,12 +192,12 @@ const ProcessSection = () => {
 
       {/* Dialog */}
       <Dialog open={!!selectedStep} onOpenChange={() => setSelectedStep(null)}>
-        <DialogContent className="max-w-2xl bg-card border-divider p-0 gap-0">
+        <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto bg-background border-divider p-0 gap-0">
           {selectedStep && (
             <>
               <DialogHeader className="p-8 pb-0">
                 <div className="flex items-center justify-between mb-4">
-                  <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-accent-violet">{selectedStep.badge}</span>
+                  <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-muted-foreground">{selectedStep.badge}</span>
                 </div>
                 <DialogTitle className="font-display text-[40px] tracking-[0.03em] leading-none text-foreground mb-2">
                   {selectedStep.title[lang]}
@@ -207,9 +206,8 @@ const ProcessSection = () => {
               </DialogHeader>
 
               <div className="p-8 space-y-8">
-                {/* Our Process */}
                 <div>
-                  <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-violet mb-4">{t("Our Process", "กระบวนการของเรา")}</h4>
+                  <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/60 mb-4">{t("Our Process", "กระบวนการของเรา")}</h4>
                   <div className="space-y-3">
                     {selectedStep.dialog.process[lang].map((p, i) => (
                       <p key={i} className="font-body text-[14px] leading-[1.75] text-muted-foreground">{p}</p>
@@ -217,18 +215,16 @@ const ProcessSection = () => {
                   </div>
                 </div>
 
-                {/* How We're Different */}
-                <div className="border border-divider bg-background p-6">
-                  <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-violet mb-3">{t("How We're Different", "สิ่งที่เราต่าง")}</h4>
+                <div className="border border-divider bg-card p-6">
+                  <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/60 mb-3">{t("How We're Different", "สิ่งที่เราต่าง")}</h4>
                   <p className="font-body text-[14px] leading-[1.75] text-muted-foreground">{selectedStep.dialog.different[lang]}</p>
                 </div>
 
-                {/* Key Steps */}
                 <div>
-                  <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-violet mb-4">{t("Key Steps", "ขั้นตอนสำคัญ")}</h4>
+                  <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/60 mb-4">{t("Key Steps", "ขั้นตอนสำคัญ")}</h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-divider border border-divider">
                     {selectedStep.dialog.keySteps.map((ks, i) => (
-                      <div key={i} className="bg-card p-4 hover:bg-secondary transition-colors duration-300">
+                      <div key={i} className="bg-background p-4 hover:bg-secondary transition-colors duration-300">
                         <span className="font-mono text-[10px] tracking-[0.1em] text-foreground block mb-1">{ks.label}</span>
                         <span className="font-body text-[13px] text-muted-foreground leading-snug">{ks.desc[lang]}</span>
                       </div>

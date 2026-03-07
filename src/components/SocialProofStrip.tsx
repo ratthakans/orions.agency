@@ -40,7 +40,7 @@ const SocialProofStrip = () => {
         <AnimatedSection>
           <div className="flex items-center gap-3.5 mb-12">
             <span className="w-[22px] h-px bg-accent-gradient" />
-            <span className="font-mono text-[9.5px] tracking-[0.28em] uppercase text-accent-violet">
+            <span className="font-mono text-[9.5px] tracking-[0.28em] uppercase text-foreground">
               {t("Measurable Impact", "ผลลัพธ์ที่วัดได้")}
             </span>
           </div>

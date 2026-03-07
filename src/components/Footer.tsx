@@ -14,13 +14,13 @@ const Footer = () => {
               {t("AI-Native Creative Agency.\nHuman craft. AI velocity.", "AI-Native Creative Agency\nHuman craft. AI velocity.")}
             </p>
             <div className="space-y-1.5">
-              <a href="mailto:hello@orions.agency" className="font-mono text-[11px] tracking-[0.06em] text-accent-violet block transition-colors">hello@orions.agency</a>
-              <a href="tel:+66923905464" className="font-mono text-[11px] tracking-[0.06em] text-accent-violet block transition-colors">+66 92 390 5464</a>
+              <a href="mailto:hello@orions.agency" className="font-mono text-[11px] tracking-[0.06em] text-muted-foreground block hover:text-foreground transition-colors">hello@orions.agency</a>
+              <a href="tel:+66923905464" className="font-mono text-[11px] tracking-[0.06em] text-muted-foreground block hover:text-foreground transition-colors">+66 92 390 5464</a>
             </div>
           </div>
 
           <div>
-            <p className="font-mono text-[9px] tracking-[0.25em] uppercase text-accent-violet mb-5">Services</p>
+            <p className="font-mono text-[9px] tracking-[0.25em] uppercase text-foreground/50 mb-5">Services</p>
             <div className="flex flex-col gap-2.5">
               {["Brand Strategy", "Visual Identity", "Content Production", "Social Media", "Monthly Retainer"].map((item) => (
                 <Link key={item} to="/services" className="font-body text-[13px] text-muted-foreground hover:text-foreground transition-colors">{item}</Link>
@@ -29,17 +29,17 @@ const Footer = () => {
           </div>
 
           <div>
-            <p className="font-mono text-[9px] tracking-[0.25em] uppercase text-accent-violet mb-5">Company</p>
+            <p className="font-mono text-[9px] tracking-[0.25em] uppercase text-foreground/50 mb-5">Company</p>
             <div className="flex flex-col gap-2.5">
-              <Link to="/about" className="font-body text-[13px] text-muted-foreground hover:text-foreground transition-colors">{t("About", "About")}</Link>
+              <Link to="/about" className="font-body text-[13px] text-muted-foreground hover:text-foreground transition-colors">About</Link>
               <Link to="/ai-stack" className="font-body text-[13px] text-muted-foreground hover:text-foreground transition-colors">AI Stack</Link>
-              <Link to="/work" className="font-body text-[13px] text-muted-foreground hover:text-foreground transition-colors">{t("Work", "ผลงาน")}</Link>
-              <Link to="/careers" className="font-body text-[13px] text-muted-foreground hover:text-foreground transition-colors">{t("Careers", "ร่วมงาน")}</Link>
+              <Link to="/work" className="font-body text-[13px] text-muted-foreground hover:text-foreground transition-colors">Work</Link>
+              <Link to="/careers" className="font-body text-[13px] text-muted-foreground hover:text-foreground transition-colors">Careers</Link>
             </div>
           </div>
 
           <div>
-            <p className="font-mono text-[9px] tracking-[0.25em] uppercase text-accent-violet mb-5">Connect</p>
+            <p className="font-mono text-[9px] tracking-[0.25em] uppercase text-foreground/50 mb-5">Connect</p>
             <div className="flex flex-col gap-2.5">
               <a href="https://instagram.com/orions.agency" target="_blank" rel="noopener noreferrer" className="font-body text-[13px] text-muted-foreground hover:text-foreground transition-colors">Instagram</a>
               <a href="https://linkedin.com/company/orions-agency" target="_blank" rel="noopener noreferrer" className="font-body text-[13px] text-muted-foreground hover:text-foreground transition-colors">LinkedIn</a>
@@ -53,7 +53,7 @@ const Footer = () => {
             © {new Date().getFullYear()} ØRIONS. All rights reserved.
           </p>
           <p className="font-mono text-[9px] tracking-[0.14em] text-muted-foreground">
-            <span className="text-accent-violet">◎</span> Bangkok, Thailand
+            Bangkok, Thailand
           </p>
         </div>
       </div>

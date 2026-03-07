@@ -178,7 +178,7 @@ const CareersSection = () => {
                   </ul>
                 </div>
                 <div className="border-t border-divider pt-8">
-                  <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-violet mb-4">Qualifications</h4>
+                  <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/60 mb-4">Qualifications</h4>
                   <ul className="space-y-3">
                     {selectedJob.qualifications.map((q, i) => (
                       <li key={i} className="flex gap-3 items-start">

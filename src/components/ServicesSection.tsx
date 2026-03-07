@@ -359,7 +359,7 @@ const ServicesSection = () => {
                activeTab === "proj" ? "text-foreground border-foreground" : "text-muted-foreground border-transparent hover:text-foreground"
             }`}
           >
-            {t("Project Work", "Project Work")}
+            {t("✧ Navigational Stars", "✧ Navigational Stars")}
           </button>
           <button
             onClick={() => setActiveTab("ret")}

@@ -46,7 +46,7 @@ const SocialProofStrip = () => {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-divider border border-divider mb-16">
             {stats.map((stat) => (
-              <div key={stat.label} className="bg-background p-8 md:p-10 text-center">
+              <div key={String(stat.label)} className="bg-background p-8 md:p-10 text-center">
                 <p className="font-display text-[80px] leading-none text-accent-gradient mb-2">
                   <Counter value={stat.value} suffix={stat.suffix} decimals={stat.decimals} />
                 </p>

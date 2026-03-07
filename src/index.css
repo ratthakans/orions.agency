@@ -164,7 +164,7 @@ html {
 
 /* Selection */
 ::selection {
-  background: hsl(265 85% 60% / 0.25);
+  background: hsl(215 85% 55% / 0.25);
   color: hsl(40 10% 95%);
 }
 

@@ -34,8 +34,8 @@ const Index = () => {
 
       {/* CTA Bridge */}
       <section className="py-32 md:py-40 px-6 md:px-12 border-t border-divider text-center relative overflow-hidden">
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-          <span className="font-display text-[clamp(120px,18vw,260px)] text-stroke-dim whitespace-nowrap tracking-[0.1em]">ØRIONS</span>
+         <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+          <OrionConstellation size="xl" opacity={0.06} animate={false} className="scale-150" />
         </div>
         <div className="max-w-7xl mx-auto relative z-10">
           <AnimatedSection>

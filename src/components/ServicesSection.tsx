@@ -2,6 +2,7 @@ import { useState } from "react";
 import AnimatedSection from "./AnimatedSection";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import StarField from "./StarField";
 
 interface ServiceItem {
   num: string;

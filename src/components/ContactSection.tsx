@@ -66,7 +66,7 @@ const ContactSection = () => {
                   </div>
                   <div className="border-t border-divider py-5">
                     <label className="font-display text-[10px] tracking-[0.2em] uppercase text-muted-foreground mb-2 block">Email *</label>
-                    <input type="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="w-full bg-transparent text-sm font-body text-foreground placeholder:text-muted-foreground/50 focus:outline-none border-b border-transparent focus:border-accent-warm transition-colors duration-300 pb-1" placeholder="your@email.com" required />
+                    <input type="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="w-full bg-transparent text-sm font-body text-foreground placeholder:text-muted-foreground/50 focus:outline-none border-b border-transparent focus:border-accent-violet transition-colors duration-300 pb-1" placeholder="your@email.com" required />
                   </div>
                   <div className="border-t border-divider py-5">
                     <label className="font-display text-[10px] tracking-[0.2em] uppercase text-muted-foreground mb-2 block">Company</label>

@@ -95,7 +95,7 @@ const CareersSection = () => {
                   <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground border border-divider px-3 py-1 shrink-0 mt-6">{job.type}</span>
                 </div>
                 <p className="font-body text-[14px] text-muted-foreground leading-[1.7] line-clamp-2">{job.description[lang]}</p>
-                <div className="mt-4 flex items-center gap-2 text-accent-violet opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="mt-4 flex items-center gap-2 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <span className="font-mono text-[10px] tracking-[0.15em] uppercase">{t("View Details", "ดูรายละเอียด")}</span>
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" strokeWidth="1.5" /></svg>
                 </div>

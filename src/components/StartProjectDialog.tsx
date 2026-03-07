@@ -30,7 +30,7 @@ const StartProjectDialog = ({ open, onOpenChange }: StartProjectDialogProps) => 
     onOpenChange(open);
   };
 
-  const inputClasses = "w-full bg-transparent border-b border-divider py-3 text-sm font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors duration-300";
+  const inputClasses = "w-full bg-transparent border-b border-divider py-3 text-sm font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent-violet transition-colors duration-300";
 
   return (
     <Dialog open={open} onOpenChange={handleClose}>

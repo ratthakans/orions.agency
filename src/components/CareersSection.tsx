@@ -97,7 +97,7 @@ const CareersSection = () => {
             {benefits.map((b, i) => (
               <AnimatedSection key={b.title} delay={i * 0.05}>
                 <div className="bg-background p-8 md:p-10">
-                  <span className="font-display text-xs text-accent-warm mb-4 block">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="font-display text-xs text-accent-violet mb-4 block">{String(i + 1).padStart(2, "0")}</span>
                   <h4 className="font-display text-base font-semibold text-foreground mb-2">{b.title}</h4>
                   <p className="font-body text-sm text-muted-foreground leading-relaxed">{b.desc}</p>
                 </div>

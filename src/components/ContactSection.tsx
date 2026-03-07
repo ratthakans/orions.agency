@@ -70,7 +70,7 @@ const ContactSection = () => {
                   </div>
                   <div className="border-t border-divider py-5">
                     <label className="font-display text-[10px] tracking-[0.2em] uppercase text-muted-foreground mb-2 block">Company</label>
-                    <input type="text" value={formData.company} onChange={(e) => setFormData({ ...formData, company: e.target.value })} className="w-full bg-transparent text-sm font-body text-foreground placeholder:text-muted-foreground/50 focus:outline-none border-b border-transparent focus:border-accent-warm transition-colors duration-300 pb-1" placeholder="Your company name" />
+                    <input type="text" value={formData.company} onChange={(e) => setFormData({ ...formData, company: e.target.value })} className="w-full bg-transparent text-sm font-body text-foreground placeholder:text-muted-foreground/50 focus:outline-none border-b border-transparent focus:border-accent-violet transition-colors duration-300 pb-1" placeholder="Your company name" />
                   </div>
                   <div className="border-t border-divider py-5">
                     <label className="font-display text-[10px] tracking-[0.2em] uppercase text-muted-foreground mb-2 block">Budget Range</label>

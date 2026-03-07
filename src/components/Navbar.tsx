@@ -24,7 +24,7 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-[62px]">
           <Link to="/" className="flex items-center gap-2.5">
             <span className="w-1.5 h-1.5 rounded-full bg-accent-gradient" />
-            <span className="font-display text-[22px] tracking-[0.18em] text-foreground">ØRIONS</span>
+            <span className="font-logo text-[16px] tracking-[0.22em] text-foreground uppercase">ØRIONS</span>
           </Link>
 
           {/* Desktop */}

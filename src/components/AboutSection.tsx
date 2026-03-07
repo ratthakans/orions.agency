@@ -36,12 +36,12 @@ const AboutSection = () => {
                 <p className="text-foreground font-display text-lg md:text-xl mb-6">{t("Our approach is simple", "แนวทางของเราเรียบง่าย")}</p>
                 <p className="mb-6 whitespace-pre-line">
                   {t(
-                    "Clear thinking.\nPurposeful creativity.\nDisciplined execution.",
-                    "Clear thinking.\nPurposeful creativity.\nDisciplined execution."
+                    "Human thinking sets the direction.\nAI accelerates the execution.\nCraft ensures the quality.",
+                    "Human thinking กำหนดทิศทาง\nAI เร่งการ execution\nCraft รักษาคุณภาพ"
                   )}
                 </p>
                 <p className="text-foreground font-display text-lg md:text-xl whitespace-pre-line">
-                  {t("Less noise.\nMore meaning.", "Less noise.\nMore meaning.")}
+                  {t("Strategy first.\nSpeed second.\nAlways both.", "Strategy ก่อน\nSpeed ตามมา\nได้ทั้งสอง")}
                 </p>
               </div>
             </AnimatedSection>

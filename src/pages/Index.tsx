@@ -28,7 +28,7 @@ const Index = () => {
       <HeroSection onStartProject={() => setDialogOpen(true)} />
       <ProblemSection />
       <SocialProofStrip />
-      <ImpactSection />
+      {/* ImpactSection removed */}
       <ProcessSection />
       <FAQSection />
 

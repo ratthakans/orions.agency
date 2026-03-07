@@ -74,7 +74,7 @@ const ContactSection = () => {
                   </div>
                   <div className="border-t border-divider py-5">
                     <label className="font-display text-[10px] tracking-[0.2em] uppercase text-muted-foreground mb-2 block">Budget Range</label>
-                    <select value={formData.budget} onChange={(e) => setFormData({ ...formData, budget: e.target.value })} className="w-full bg-transparent text-sm font-body text-foreground focus:outline-none border-b border-transparent focus:border-accent-warm transition-colors duration-300 pb-1 appearance-none cursor-pointer">
+                    <select value={formData.budget} onChange={(e) => setFormData({ ...formData, budget: e.target.value })} className="w-full bg-transparent text-sm font-body text-foreground focus:outline-none border-b border-transparent focus:border-accent-violet transition-colors duration-300 pb-1 appearance-none cursor-pointer">
                       <option value="" className="bg-background">Select a range</option>
                       <option value="< ฿100K" className="bg-background">Under ฿100,000</option>
                       <option value="฿100K–300K" className="bg-background">฿100,000 – ฿300,000</option>

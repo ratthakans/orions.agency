@@ -50,7 +50,7 @@ const CareersSection = () => {
             </div>
             <div className="bg-background p-6 md:p-8">
               <p className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mb-2">Location</p>
-              <a href="https://maps.app.goo.gl/MCY3ywNZBYofY49Q9" target="_blank" rel="noopener noreferrer" className="font-body text-foreground hover:text-accent-warm transition-colors duration-300">
+              <a href="https://maps.app.goo.gl/MCY3ywNZBYofY49Q9" target="_blank" rel="noopener noreferrer" className="font-body text-foreground hover:text-accent-violet transition-colors duration-300">
                 246/8 Soi Yothinpattana 3, Bang Kapi →
               </a>
             </div>

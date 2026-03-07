@@ -355,8 +355,8 @@ const ServicesSection = () => {
         <div className="flex border-b border-divider mb-12 gap-0">
           <button
             onClick={() => setActiveTab("proj")}
-            className={`font-mono text-[11px] tracking-[0.15em] uppercase px-7 py-4 border-b-2 transition-all duration-300 ${
-              activeTab === "proj" ? "text-foreground border-accent-violet" : "text-muted-foreground border-transparent hover:text-foreground"
+             className={`font-mono text-[11px] tracking-[0.15em] uppercase px-7 py-4 border-b-2 transition-all duration-300 ${
+               activeTab === "proj" ? "text-foreground border-foreground" : "text-muted-foreground border-transparent hover:text-foreground"
             }`}
           >
             {t("Project Work", "Project Work")}

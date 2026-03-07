@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import ProblemSection from "@/components/ProblemSection";
 import SocialProofStrip from "@/components/SocialProofStrip";
-import ImpactSection from "@/components/ImpactSection";
+// ImpactSection removed
 import ProcessSection from "@/components/ProcessSection";
 import FAQSection from "@/components/FAQSection";
 import StartProjectDialog from "@/components/StartProjectDialog";
@@ -28,7 +28,7 @@ const Index = () => {
       <HeroSection onStartProject={() => setDialogOpen(true)} />
       <ProblemSection />
       <SocialProofStrip />
-      <ImpactSection />
+      {/* ImpactSection removed */}
       <ProcessSection />
       <FAQSection />
 

@@ -21,8 +21,8 @@ const projectServices: ServiceItem[] = [
     num: "01",
     name: { en: "Brand Strategy & Identity", th: "Brand Strategy & Identity" },
     desc: {
-      en: "We find what makes your brand impossible to replace — then express it in a visual and verbal system that works across every channel and market.",
-      th: "เราค้นหาสิ่งที่ทำให้แบรนด์คุณแทนที่ไม่ได้ แล้วแสดงออกเป็นระบบ visual และ verbal ที่ทำงานได้ทุกช่องทาง",
+      en: "We find what makes your brand impossible to replace — then express it in a visual and verbal system that works across every channel and market you operate in.",
+      th: "เราค้นหาสิ่งที่ทำให้แบรนด์คุณแทนที่ไม่ได้ แล้วแสดงออกเป็นระบบ visual และ verbal ที่ทำงานได้ทุกช่องทางและตลาดที่คุณอยู่",
     },
     tags: [{ label: "Brand Audit", type: "craft" }, { label: "Naming", type: "craft" }, { label: "Logo System" }, { label: "Brand Guidelines" }, { label: "AI Concepting", type: "ai" }],
     dialog: {
@@ -114,8 +114,8 @@ const projectServices: ServiceItem[] = [
     num: "04",
     name: { en: "Digital Experience", th: "Digital Experience" },
     desc: {
-      en: "Websites and landing pages that convert visitors into customers. Built with performance, brand consistency, and conversion rate as the non-negotiables.",
-      th: "เว็บไซต์และ landing page ที่แปลงผู้เยี่ยมชมเป็นลูกค้า สร้างด้วย performance, brand consistency และ conversion rate",
+      en: "Websites and landing pages that convert visitors into customers. Built with performance, brand consistency, and conversion rate optimization as the non-negotiable priorities.",
+      th: "เว็บไซต์และ landing page ที่แปลงผู้เยี่ยมชมเป็นลูกค้า สร้างด้วย performance, brand consistency และ conversion rate optimization เป็นสิ่งที่ต้องมี",
     },
     tags: [{ label: "Web Design" }, { label: "UX Strategy", type: "ai" }, { label: "UI Polish", type: "craft" }, { label: "CRO" }],
     dialog: {
@@ -445,7 +445,7 @@ const ServicesSection = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-divider border border-divider">
             {retainerPlans.map((plan, i) => (
               <AnimatedSection key={plan.name} delay={i * 0.1}>
-                <div className={`bg-background p-10 md:p-12 relative transition-colors duration-300 hover:bg-secondary ${plan.best ? "bg-card outline outline-1 outline-foreground/20" : ""}`}>
+                <div className={`bg-background p-10 md:p-12 relative transition-colors duration-300 hover:bg-secondary ${plan.best ? "outline outline-1 outline-foreground/20" : ""}`}>
                   {plan.best && plan.badge && (
                     <div className="absolute top-0 left-10 font-mono text-[9px] tracking-[0.2em] uppercase bg-accent-gradient text-white px-3 py-1.5">
                       {plan.badge[lang]}

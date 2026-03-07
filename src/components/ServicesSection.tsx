@@ -363,8 +363,8 @@ const ServicesSection = () => {
           </button>
           <button
             onClick={() => setActiveTab("ret")}
-            className={`font-mono text-[11px] tracking-[0.15em] uppercase px-7 py-4 border-b-2 transition-all duration-300 ${
-              activeTab === "ret" ? "text-foreground border-accent-violet" : "text-muted-foreground border-transparent hover:text-foreground"
+             className={`font-mono text-[11px] tracking-[0.15em] uppercase px-7 py-4 border-b-2 transition-all duration-300 ${
+               activeTab === "ret" ? "text-foreground border-foreground" : "text-muted-foreground border-transparent hover:text-foreground"
             }`}
           >
             {t("Monthly Retainer", "Monthly Retainer")}

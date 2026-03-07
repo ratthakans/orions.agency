@@ -56,7 +56,7 @@ const CareersSection = () => {
             </div>
             <div className="bg-background p-6 md:p-8">
               <p className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mb-2">Apply</p>
-              <a href="mailto:hello@orions.agency" className="font-body text-foreground hover:text-accent-warm transition-colors duration-300">
+              <a href="mailto:hello@orions.agency" className="font-body text-foreground hover:text-accent-violet transition-colors duration-300">
                 hello@orions.agency →
               </a>
             </div>

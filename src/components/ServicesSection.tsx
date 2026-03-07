@@ -490,7 +490,7 @@ const ServicesSection = () => {
 
       {/* Service Detail Dialog */}
       <Dialog open={!!selectedService} onOpenChange={() => setSelectedService(null)}>
-        <DialogContent className="max-w-2xl bg-card border-divider p-0 gap-0">
+        <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto bg-background border-divider p-0 gap-0">
           {selectedService && (
             <>
               <DialogHeader className="p-8 pb-0">

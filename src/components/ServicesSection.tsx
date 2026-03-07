@@ -334,7 +334,7 @@ const ServicesSection = () => {
         <AnimatedSection>
           <div className="flex items-center gap-3.5 mb-12">
             <span className="w-[22px] h-px bg-accent-gradient" />
-            <span className="font-mono text-[10px] tracking-[0.28em] uppercase text-accent-violet">
+            <span className="font-mono text-[11px] tracking-[0.28em] uppercase text-accent-violet">
               {t("What We Do", "สิ่งที่เราทำ")}
             </span>
           </div>
@@ -342,7 +342,7 @@ const ServicesSection = () => {
             <h2 className="font-display text-[clamp(42px,5.5vw,84px)] leading-[0.94] tracking-[0.02em] text-foreground">
               {t(<>Full-service.<br /><span className="text-accent-gradient">Full commitment.</span></>, <>Full-service.<br /><span className="text-accent-gradient">มุ่งมั่นเต็มที่</span></>)}
             </h2>
-            <p className="font-body text-[15px] leading-[1.8] text-muted-foreground">
+            <p className="font-body text-[16px] leading-[1.8] text-muted-foreground">
               {t(
                 "From brand foundation to live campaign. AI-accelerated production, human-led strategy. We work across both project briefs and ongoing retainers.",
                 "ตั้งแต่รากฐานแบรนด์ถึง live campaign — production เร่งด้วย AI, strategy นำโดยมนุษย์ ทำได้ทั้งแบบ project และ retainer รายเดือน"
@@ -384,7 +384,7 @@ const ServicesSection = () => {
                 <h3 className="font-display text-[30px] tracking-[0.04em] leading-none text-foreground mb-3">
                   {s.name[lang]}
                 </h3>
-                <p className="font-body text-[14px] leading-[1.75] text-muted-foreground mb-5">{s.desc[lang]}</p>
+                <p className="font-body text-[14.5px] leading-[1.75] text-muted-foreground mb-5">{s.desc[lang]}</p>
                 <div className="flex flex-wrap gap-1.5">
                   {s.tags.map((tag) => (
                     <span

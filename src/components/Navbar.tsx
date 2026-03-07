@@ -11,17 +11,17 @@ const Navbar = () => {
   const { lang, setLang, t } = useLanguage();
 
   const navLinks = [
+    { label: "About", href: "/about" },
     { label: "Services", href: "/services" },
-    { label: t("Work", "ผลงาน"), href: "/work" },
+    { label: "Work", href: "/work" },
     { label: "AI Stack", href: "/ai-stack" },
-    { label: t("About", "เกี่ยวกับเรา"), href: "/about" },
-    { label: t("Contact", "ติดต่อ"), href: "/contact" },
-    { label: t("Careers", "ร่วมงาน"), href: "/careers" },
+    { label: "Careers", href: "/careers" },
+    { label: "Contact", href: "/contact" },
   ];
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-xl border-b border-divider">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-xl border-b border-divider">
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-[62px]">
           <Link to="/" className="flex items-center gap-2.5">
             <span className="w-1.5 h-1.5 rounded-full bg-accent-gradient" />
@@ -29,12 +29,12 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop */}
-          <div className="hidden md:flex items-center gap-10">
+          <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
-                className={`font-mono text-[10.5px] tracking-[0.14em] uppercase transition-colors duration-300 ${
+                className={`font-mono text-[11px] tracking-[0.12em] uppercase transition-colors duration-300 ${
                   location.pathname === link.href ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                 }`}
               >
@@ -65,9 +65,9 @@ const Navbar = () => {
             </div>
             <button
               onClick={() => setDialogOpen(true)}
-              className="font-mono text-[10.5px] tracking-[0.1em] uppercase text-foreground border border-foreground/20 px-5 py-2.5 hover:bg-accent-gradient hover:border-transparent hover:text-white transition-all duration-300 rounded-sm"
+              className="font-mono text-[11px] tracking-[0.1em] uppercase text-foreground border border-foreground/20 px-5 py-2.5 hover:bg-accent-gradient hover:border-transparent hover:text-white transition-all duration-300 rounded-sm"
             >
-              {t("Start a Project", "เริ่ม Project")}
+              Start a Project
             </button>
           </div>
 
@@ -129,7 +129,7 @@ const Navbar = () => {
                   onClick={() => { setIsOpen(false); setDialogOpen(true); }}
                   className="font-mono text-sm tracking-[0.1em] uppercase bg-accent-gradient text-white px-5 py-3 text-center mt-2 rounded-sm"
                 >
-                  {t("Start a Project", "เริ่ม Project")}
+                  Start a Project
                 </button>
               </div>
             </motion.div>

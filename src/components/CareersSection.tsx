@@ -33,7 +33,7 @@ const CareersSection = () => {
           <div className="mb-20 max-w-3xl">
             <div className="flex items-center gap-3.5 mb-8">
               <span className="w-[22px] h-px bg-accent-gradient" />
-              <span className="font-mono text-[11px] tracking-[0.28em] uppercase text-accent-violet">Careers</span>
+              <span className="font-mono text-[11px] tracking-[0.28em] uppercase text-foreground">Careers</span>
             </div>
             <h2 className="font-display text-[clamp(48px,7vw,100px)] leading-[0.9] tracking-[0.02em] text-foreground mb-6">
               {t(<>Join Our <span className="text-accent-gradient">Creative Team</span></>, <>ร่วมงานกับ <span className="text-accent-gradient">Creative Team</span></>)}
@@ -73,7 +73,7 @@ const CareersSection = () => {
         <AnimatedSection delay={0.1}>
           <div className="flex items-center gap-3.5 mb-10">
             <span className="w-[22px] h-px bg-accent-gradient" />
-            <span className="font-mono text-[11px] tracking-[0.28em] uppercase text-accent-violet">
+            <span className="font-mono text-[11px] tracking-[0.28em] uppercase text-foreground">
               {t("Open Positions", "ตำแหน่งที่เปิดรับ")}
             </span>
           </div>
@@ -89,13 +89,13 @@ const CareersSection = () => {
                 <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-accent-gradient scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-bottom" />
                 <div className="flex items-start justify-between gap-4 mb-3">
                   <div>
-                    <span className="font-mono text-[10px] tracking-[0.22em] text-accent-violet mb-3 block">{String(i + 1).padStart(2, "0")}</span>
+                     <span className="font-mono text-[10px] tracking-[0.22em] text-foreground/40 mb-3 block">{String(i + 1).padStart(2, "0")}</span>
                     <h3 className="font-display text-[26px] tracking-[0.04em] leading-none text-foreground">{job.title}</h3>
                   </div>
                   <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground border border-divider px-3 py-1 shrink-0 mt-6">{job.type}</span>
                 </div>
                 <p className="font-body text-[14px] text-muted-foreground leading-[1.7] line-clamp-2">{job.description[lang]}</p>
-                <div className="mt-4 flex items-center gap-2 text-accent-violet opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="mt-4 flex items-center gap-2 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <span className="font-mono text-[10px] tracking-[0.15em] uppercase">{t("View Details", "ดูรายละเอียด")}</span>
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" strokeWidth="1.5" /></svg>
                 </div>
@@ -108,7 +108,7 @@ const CareersSection = () => {
         <AnimatedSection>
           <div className="flex items-center gap-3.5 mb-10">
             <span className="w-[22px] h-px bg-accent-gradient" />
-            <span className="font-mono text-[11px] tracking-[0.28em] uppercase text-accent-violet">
+            <span className="font-mono text-[11px] tracking-[0.28em] uppercase text-foreground">
               {t("Benefits & Perks", "สวัสดิการ")}
             </span>
           </div>
@@ -118,7 +118,7 @@ const CareersSection = () => {
           {benefits.map((b, i) => (
             <AnimatedSection key={b.title} delay={i * 0.05}>
               <div className="bg-background p-8 md:p-9 group hover:bg-secondary transition-colors duration-300">
-                <span className="font-mono text-[10px] tracking-[0.22em] text-accent-violet mb-3 block">{String(i + 1).padStart(2, "0")}</span>
+                <span className="font-mono text-[10px] tracking-[0.22em] text-foreground/40 mb-3 block">{String(i + 1).padStart(2, "0")}</span>
                 <h4 className="font-body text-[15px] font-medium text-foreground mb-2">{b.title}</h4>
                 <p className="font-body text-[14px] text-muted-foreground leading-[1.65]">{b.desc[lang]}</p>
               </div>
@@ -145,7 +145,7 @@ const CareersSection = () => {
 
       {/* Job Detail Dialog */}
       <Dialog open={!!selectedJob} onOpenChange={(open) => !open && setSelectedJob(null)}>
-        <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto bg-background border-divider p-0">
+        <DialogContent className="max-w-3xl max-h-[85vh] overflow-y-auto bg-background border-divider p-0">
           {selectedJob && (
             <div className="p-8 md:p-12">
               <DialogHeader className="mb-8">
@@ -167,29 +167,29 @@ const CareersSection = () => {
                   </div>
                 </div>
                 <div>
-                  <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-violet mb-4">Responsibilities</h4>
+                  <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/60 mb-4">Responsibilities</h4>
                   <ul className="space-y-3">
                     {selectedJob.responsibilities.map((r, i) => (
                       <li key={i} className="flex gap-3 items-start">
-                        <span className="text-accent-violet font-mono text-[10px] mt-1">{String(i + 1).padStart(2, "0")}</span>
+                         <span className="text-foreground/40 font-mono text-[10px] mt-1">{String(i + 1).padStart(2, "0")}</span>
                         <span className="font-body text-[14px] text-foreground leading-[1.65]">{r}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
                 <div className="border-t border-divider pt-8">
-                  <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-violet mb-4">Qualifications</h4>
+                  <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/60 mb-4">Qualifications</h4>
                   <ul className="space-y-3">
                     {selectedJob.qualifications.map((q, i) => (
                       <li key={i} className="flex gap-3 items-start">
-                        <span className="text-accent-violet font-mono text-[10px] mt-1">{String(i + 1).padStart(2, "0")}</span>
+                        <span className="text-foreground/40 font-mono text-[10px] mt-1">{String(i + 1).padStart(2, "0")}</span>
                         <span className="font-body text-[14px] text-foreground leading-[1.65]">{q}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
                 <div className="border-t border-divider pt-8">
-                  <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-violet mb-4">{t("Benefits", "สวัสดิการ")}</h4>
+                  <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/60 mb-4">{t("Benefits", "สวัสดิการ")}</h4>
                   <div className="flex flex-wrap gap-2">
                     {benefits.map((b) => (
                       <span key={b.title} className="font-mono text-[10px] tracking-[0.1em] uppercase border border-divider px-3 py-1.5 text-foreground">{b.title}</span>

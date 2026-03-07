@@ -10,78 +10,92 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => {
   const { t } = useLanguage();
 
   return (
-    <section className="min-h-[85vh] flex flex-col justify-end px-6 md:px-12 pt-20 pb-20 relative overflow-hidden">
+    <section className="min-h-[90vh] flex items-center px-6 md:px-12 pt-[62px] relative overflow-hidden">
       {/* Subtle gradient glow */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 right-1/4 w-[600px] h-[600px] rounded-full opacity-[0.06] bg-accent-gradient blur-[120px]" />
+        <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] rounded-full opacity-[0.04] bg-accent-gradient blur-[120px]" />
       </div>
 
       <div className="max-w-7xl mx-auto w-full relative z-10">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="font-mono text-[11px] tracking-[0.28em] uppercase text-accent-violet mb-6"
-        >
-          AI-Native Creative Agency · Bangkok
-        </motion.div>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.2 }}
-          className="font-display text-[clamp(52px,9vw,140px)] leading-[0.88] tracking-[0.02em] text-foreground mb-0"
-        >
-          Human Thinking.
-          <br />
-          <span className="text-accent-gradient italic">
-            AI Speed.
-          </span>
-        </motion.h1>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="flex flex-col md:flex-row items-start md:items-end justify-between gap-8 mt-14 pt-8 border-t border-divider"
-        >
-          <p className="font-body text-[16px] text-muted-foreground max-w-[380px] leading-[1.75]">
-            {t(
-              <>We build brands that cut through — with the <strong className="text-foreground font-normal">strategic depth</strong> no AI can replicate, and the <strong className="text-foreground font-normal">production velocity</strong> no traditional agency can match.</>,
-              <>เราสร้างแบรนด์ที่ตัดผ่านทุก noise — ด้วย<strong className="text-foreground font-normal">กลยุทธ์เชิงลึก</strong>ที่ AI ทำแทนไม่ได้ และ<strong className="text-foreground font-normal">ความเร็วในการผลิต</strong>ที่เอเจนซี่ทั่วไปตามไม่ทัน</>
-            )}
-          </p>
-
-          <div className="flex flex-col gap-3.5">
-            <button
-              onClick={onStartProject}
-              className="group/btn bg-accent-gradient text-white px-7 py-3.5 font-mono text-[11px] tracking-[0.1em] uppercase flex items-center gap-2.5 rounded-sm hover:opacity-90 transition-opacity"
+        <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-16 items-center">
+          {/* Left */}
+          <div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="font-mono text-[11px] tracking-[0.28em] uppercase text-foreground/50 mb-8"
             >
-              {t("Start a Project →", "เริ่ม Project →")}
-            </button>
-            <Link
-              to="/services"
-              className="text-muted-foreground font-mono text-[11px] tracking-[0.1em] uppercase py-3.5 border-b border-divider hover:text-foreground hover:border-muted-foreground transition-all duration-300"
+              AI-Native Creative Agency · Bangkok
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.2 }}
+              className="font-display text-[clamp(48px,7vw,110px)] leading-[0.9] tracking-[0.02em] text-foreground mb-8"
             >
-              {t("View Services", "ดู Services")}
-            </Link>
+              Human Thinking.
+              <br />
+              <span className="text-accent-gradient italic">
+                AI Speed.
+              </span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="font-body text-[16px] text-muted-foreground max-w-[420px] leading-[1.75] mb-10"
+            >
+              {t(
+                <>We build brands that cut through — with the <strong className="text-foreground font-normal">strategic depth</strong> no AI can replicate, and the <strong className="text-foreground font-normal">production velocity</strong> no traditional agency can match.</>,
+                <>เราสร้างแบรนด์ที่ตัดผ่านทุก noise — ด้วย<strong className="text-foreground font-normal">กลยุทธ์เชิงลึก</strong>ที่ AI ทำแทนไม่ได้ และ<strong className="text-foreground font-normal">ความเร็วในการผลิต</strong>ที่เอเจนซี่ทั่วไปตามไม่ทัน</>
+              )}
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="flex flex-wrap gap-4"
+            >
+              <button
+                onClick={onStartProject}
+                className="bg-accent-gradient text-white px-7 py-3.5 font-mono text-[11px] tracking-[0.1em] uppercase flex items-center gap-2.5 rounded-sm hover:opacity-90 transition-opacity"
+              >
+                {t("Start a Project →", "เริ่ม Project →")}
+              </button>
+              <Link
+                to="/services"
+                className="text-muted-foreground font-mono text-[11px] tracking-[0.1em] uppercase py-3.5 px-4 border-b border-divider hover:text-foreground hover:border-foreground/30 transition-all duration-300"
+              >
+                {t("View Services", "ดู Services")}
+              </Link>
+            </motion.div>
           </div>
 
-          <div className="flex flex-row md:flex-col gap-5 md:items-end">
-            <div className="text-right">
-              <span className="font-display text-[40px] leading-none text-foreground">14+</span>
-              <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground block">Clients</span>
+          {/* Right - Stats */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="hidden lg:flex flex-col gap-px bg-divider border border-divider"
+          >
+            <div className="bg-background p-8 text-center">
+              <span className="font-display text-[56px] leading-none text-foreground block mb-1">14+</span>
+              <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">Clients</span>
             </div>
-            <div className="text-right">
-              <span className="font-display text-[40px] leading-none text-foreground">3.2×</span>
-              <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground block">Avg Engagement</span>
+            <div className="bg-background p-8 text-center">
+              <span className="font-display text-[56px] leading-none text-foreground block mb-1">3.2×</span>
+              <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">Avg Engagement</span>
             </div>
-            <div className="text-right">
-              <span className="font-display text-[40px] leading-none text-foreground">25%</span>
-              <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground block">Revenue Uplift</span>
+            <div className="bg-background p-8 text-center">
+              <span className="font-display text-[56px] leading-none text-foreground block mb-1">25%</span>
+              <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">Revenue Uplift</span>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
 
       {/* Ticker */}

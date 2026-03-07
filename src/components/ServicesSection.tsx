@@ -334,7 +334,7 @@ const ServicesSection = () => {
         <AnimatedSection>
           <div className="flex items-center gap-3.5 mb-12">
             <span className="w-[22px] h-px bg-accent-gradient" />
-            <span className="font-mono text-[11px] tracking-[0.28em] uppercase text-accent-violet">
+      <span className="font-mono text-[11px] tracking-[0.28em] uppercase text-foreground">
               {t("What We Do", "สิ่งที่เราทำ")}
             </span>
           </div>
@@ -355,16 +355,16 @@ const ServicesSection = () => {
         <div className="flex border-b border-divider mb-12 gap-0">
           <button
             onClick={() => setActiveTab("proj")}
-            className={`font-mono text-[11px] tracking-[0.15em] uppercase px-7 py-4 border-b-2 transition-all duration-300 ${
-              activeTab === "proj" ? "text-foreground border-accent-violet" : "text-muted-foreground border-transparent hover:text-foreground"
+             className={`font-mono text-[11px] tracking-[0.15em] uppercase px-7 py-4 border-b-2 transition-all duration-300 ${
+               activeTab === "proj" ? "text-foreground border-foreground" : "text-muted-foreground border-transparent hover:text-foreground"
             }`}
           >
             {t("Project Work", "Project Work")}
           </button>
           <button
             onClick={() => setActiveTab("ret")}
-            className={`font-mono text-[11px] tracking-[0.15em] uppercase px-7 py-4 border-b-2 transition-all duration-300 ${
-              activeTab === "ret" ? "text-foreground border-accent-violet" : "text-muted-foreground border-transparent hover:text-foreground"
+             className={`font-mono text-[11px] tracking-[0.15em] uppercase px-7 py-4 border-b-2 transition-all duration-300 ${
+               activeTab === "ret" ? "text-foreground border-foreground" : "text-muted-foreground border-transparent hover:text-foreground"
             }`}
           >
             {t("Monthly Retainer", "Monthly Retainer")}
@@ -380,7 +380,7 @@ const ServicesSection = () => {
                 className="bg-background p-10 md:p-11 relative overflow-hidden group hover:bg-secondary transition-colors duration-300 cursor-pointer"
               >
                 <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-accent-gradient scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-bottom" />
-                <span className="font-mono text-[10px] tracking-[0.22em] text-accent-violet mb-5 block">{s.num}</span>
+                <span className="font-mono text-[10px] tracking-[0.22em] text-foreground/40 mb-5 block">{s.num}</span>
                 <h3 className="font-display text-[30px] tracking-[0.04em] leading-none text-foreground mb-3">
                   {s.name[lang]}
                 </h3>
@@ -390,8 +390,8 @@ const ServicesSection = () => {
                     <span
                       key={tag.label}
                       className={`font-mono text-[9px] tracking-[0.12em] uppercase px-2.5 py-1 border ${
-                        tag.type === "ai"
-                          ? "border-accent-violet/30 text-accent-violet"
+                         tag.type === "ai"
+                           ? "border-foreground/15 text-foreground/60"
                           : tag.type === "craft"
                           ? "border-foreground/15 text-muted-foreground"
                           : "border-divider text-muted-foreground"
@@ -408,9 +408,9 @@ const ServicesSection = () => {
 
         {/* Retainer callout */}
         <AnimatedSection delay={0.1}>
-          <div className="mt-7 bg-card border border-divider border-l-2 border-l-accent-violet p-9 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 items-center">
+          <div className="mt-7 bg-card border border-divider border-l-2 border-l-foreground/20 p-9 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 items-center">
             <div>
-              <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-accent-violet block mb-2.5">
+              <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-foreground/50 block mb-2.5">
                 Monthly Retainer
               </span>
               <h3 className="font-display text-[34px] tracking-[0.04em] leading-none text-foreground mb-2.5">
@@ -436,7 +436,7 @@ const ServicesSection = () => {
           <AnimatedSection>
             <div className="flex items-center gap-3.5 mb-12">
               <span className="w-[22px] h-px bg-accent-gradient" />
-              <span className="font-mono text-[10px] tracking-[0.28em] uppercase text-accent-violet">
+              <span className="font-mono text-[10px] tracking-[0.28em] uppercase text-foreground">
                 Retainer Plans
               </span>
             </div>
@@ -445,13 +445,13 @@ const ServicesSection = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-divider border border-divider">
             {retainerPlans.map((plan, i) => (
               <AnimatedSection key={plan.name} delay={i * 0.1}>
-                <div className={`bg-background p-10 md:p-12 relative transition-colors duration-300 hover:bg-secondary ${plan.best ? "bg-card outline outline-1 outline-accent-violet" : ""}`}>
+                <div className={`bg-background p-10 md:p-12 relative transition-colors duration-300 hover:bg-secondary ${plan.best ? "bg-card outline outline-1 outline-foreground/20" : ""}`}>
                   {plan.best && plan.badge && (
                     <div className="absolute top-0 left-10 font-mono text-[9px] tracking-[0.2em] uppercase bg-accent-gradient text-white px-3 py-1.5">
                       {plan.badge[lang]}
                     </div>
                   )}
-                  <span className={`font-mono text-[10px] tracking-[0.25em] uppercase text-accent-violet block ${plan.best ? "mt-7" : ""} mb-4`}>
+                  <span className={`font-mono text-[10px] tracking-[0.25em] uppercase text-foreground/50 block ${plan.best ? "mt-7" : ""} mb-4`}>
                     {plan.tier}
                   </span>
                   <h3 className="font-display text-[40px] tracking-[0.04em] leading-none text-foreground mb-1.5">{plan.name}</h3>
@@ -466,7 +466,7 @@ const ServicesSection = () => {
                   <ul className="space-y-2.5 mb-9">
                     {plan.features.map((f, fi) => (
                       <li key={fi} className="font-body text-[14px] leading-[1.55] text-muted-foreground flex gap-3 items-baseline">
-                        <span className="font-mono text-[10px] text-accent-violet shrink-0">—</span>
+                        <span className="font-mono text-[10px] text-foreground/40 shrink-0">—</span>
                         {f[lang]}
                       </li>
                     ))}
@@ -490,15 +490,15 @@ const ServicesSection = () => {
 
       {/* Service Detail Dialog */}
       <Dialog open={!!selectedService} onOpenChange={() => setSelectedService(null)}>
-        <DialogContent className="max-w-2xl bg-card border-divider p-0 gap-0">
+        <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto bg-background border-divider p-0 gap-0">
           {selectedService && (
             <>
               <DialogHeader className="p-8 pb-0">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex gap-2">
                     {selectedService.tags.slice(0, 3).map((tag) => (
-                      <span key={tag.label} className={`font-mono text-[9px] tracking-[0.18em] uppercase px-2 py-[3px] border ${
-                        tag.type === "ai" ? "border-accent-violet/30 text-accent-violet" : "border-divider text-muted-foreground"
+                       <span key={tag.label} className={`font-mono text-[9px] tracking-[0.18em] uppercase px-2 py-[3px] border ${
+                         tag.type === "ai" ? "border-foreground/15 text-foreground/60" : "border-divider text-muted-foreground"
                       }`}>{tag.label}</span>
                     ))}
                   </div>
@@ -512,7 +512,7 @@ const ServicesSection = () => {
               <div className="p-8 space-y-8">
                 {/* Our Process */}
                 <div>
-                  <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-violet mb-4">{t("Our Process", "กระบวนการของเรา")}</h4>
+                  <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/60 mb-4">{t("Our Process", "กระบวนการของเรา")}</h4>
                   <div className="space-y-3">
                     {selectedService.dialog.process[lang].map((p, i) => (
                       <p key={i} className="font-body text-[14px] leading-[1.75] text-muted-foreground">{p}</p>
@@ -521,17 +521,17 @@ const ServicesSection = () => {
                 </div>
 
                 {/* How We're Different */}
-                <div className="border border-divider bg-background p-6">
-                  <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-violet mb-3">{t("How We're Different", "สิ่งที่เราต่าง")}</h4>
+                <div className="border border-divider bg-card p-6">
+                  <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/60 mb-3">{t("How We're Different", "สิ่งที่เราต่าง")}</h4>
                   <p className="font-body text-[14px] leading-[1.75] text-muted-foreground">{selectedService.dialog.different[lang]}</p>
                 </div>
 
                 {/* Key Steps */}
                 <div>
-                  <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-violet mb-4">{t("Key Steps", "ขั้นตอนสำคัญ")}</h4>
+                  <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/60 mb-4">{t("Key Steps", "ขั้นตอนสำคัญ")}</h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-divider border border-divider">
                     {selectedService.dialog.keySteps.map((ks, i) => (
-                      <div key={i} className="bg-card p-4 hover:bg-secondary transition-colors duration-300">
+                      <div key={i} className="bg-background p-4 hover:bg-secondary transition-colors duration-300">
                         <span className="font-mono text-[10px] tracking-[0.1em] text-foreground block mb-1">{ks.label}</span>
                         <span className="font-body text-[13px] text-muted-foreground leading-snug">{ks.desc[lang]}</span>
                       </div>

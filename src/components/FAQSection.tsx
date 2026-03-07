@@ -35,7 +35,7 @@ const FAQSection = () => {
         <AnimatedSection>
           <div className="flex items-center gap-3.5 mb-12">
             <span className="w-[22px] h-px bg-accent-gradient" />
-            <span className="font-mono text-[9.5px] tracking-[0.28em] uppercase text-accent-violet">
+            <span className="font-mono text-[9.5px] tracking-[0.28em] uppercase text-foreground">
               FAQ
             </span>
           </div>
@@ -56,7 +56,7 @@ const FAQSection = () => {
                   className="w-full flex items-center justify-between py-5 text-left group"
                 >
                   <span className="font-body text-[14.5px] text-foreground pr-6">{faq.q[lang]}</span>
-                  <div className={`w-[26px] h-[26px] border border-divider flex items-center justify-center shrink-0 text-accent-violet transition-all duration-300 ${openIndex === i ? "bg-accent-gradient text-white rotate-45 border-transparent" : ""}`}>
+                  <div className={`w-[26px] h-[26px] border border-divider flex items-center justify-center shrink-0 text-muted-foreground transition-all duration-300 ${openIndex === i ? "bg-accent-gradient text-white rotate-45 border-transparent" : ""}`}>
                     +
                   </div>
                 </button>

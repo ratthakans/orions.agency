@@ -62,7 +62,7 @@ const ContactSection = () => {
                 <form onSubmit={handleSubmit} className="space-y-0">
                   <div className="border-t border-divider py-5">
                     <label className="font-display text-[10px] tracking-[0.2em] uppercase text-muted-foreground mb-2 block">Name *</label>
-                    <input type="text" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="w-full bg-transparent text-sm font-body text-foreground placeholder:text-muted-foreground/50 focus:outline-none border-b border-transparent focus:border-accent-warm transition-colors duration-300 pb-1" placeholder="Your full name" required />
+                    <input type="text" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="w-full bg-transparent text-sm font-body text-foreground placeholder:text-muted-foreground/50 focus:outline-none border-b border-transparent focus:border-accent-violet transition-colors duration-300 pb-1" placeholder="Your full name" required />
                   </div>
                   <div className="border-t border-divider py-5">
                     <label className="font-display text-[10px] tracking-[0.2em] uppercase text-muted-foreground mb-2 block">Email *</label>

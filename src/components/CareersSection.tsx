@@ -189,7 +189,7 @@ const CareersSection = () => {
                   </ul>
                 </div>
                 <div className="border-t border-divider pt-8">
-                  <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-violet mb-4">{t("Benefits", "สวัสดิการ")}</h4>
+                  <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/60 mb-4">{t("Benefits", "สวัสดิการ")}</h4>
                   <div className="flex flex-wrap gap-2">
                     {benefits.map((b) => (
                       <span key={b.title} className="font-mono text-[10px] tracking-[0.1em] uppercase border border-divider px-3 py-1.5 text-foreground">{b.title}</span>

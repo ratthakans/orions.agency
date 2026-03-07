@@ -147,15 +147,17 @@ const CareersSection = () => {
 
       {/* Job Detail Dialog */}
       <Dialog open={!!selectedJob} onOpenChange={(open) => !open && setSelectedJob(null)}>
-        <DialogContent className="max-w-3xl max-h-[85vh] overflow-y-auto bg-background border-divider p-0">
+         <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto bg-background border-divider p-0 gap-0">
           {selectedJob && (
-            <div className="p-8 md:p-12">
-              <DialogHeader className="mb-8">
-                <div className="flex items-center gap-3 mb-2">
-                  <DialogTitle className="font-display text-2xl md:text-3xl text-foreground">{selectedJob.title}</DialogTitle>
-                  <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground border border-divider px-2 py-0.5">{selectedJob.type}</span>
+            <>
+              <DialogHeader className="p-8 pb-0">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-muted-foreground">{selectedJob.type}</span>
                 </div>
-                <DialogDescription className="font-body text-[15px] text-muted-foreground leading-[1.7]">{selectedJob.description[lang]}</DialogDescription>
+                <DialogTitle className="font-display text-[40px] tracking-[0.03em] leading-none text-foreground mb-2">
+                  {selectedJob.title}
+                </DialogTitle>
+                <DialogDescription className="font-body text-[15px] text-muted-foreground leading-relaxed">{selectedJob.description[lang]}</DialogDescription>
               </DialogHeader>
               <div className="space-y-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

@@ -85,7 +85,7 @@ const ContactSection = () => {
                   </div>
                   <div className="border-t border-divider py-5">
                     <label className="font-display text-[10px] tracking-[0.2em] uppercase text-muted-foreground mb-2 block">Message *</label>
-                    <textarea value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} className="w-full bg-transparent text-sm font-body text-foreground placeholder:text-muted-foreground/50 focus:outline-none min-h-[100px] resize-none border-b border-transparent focus:border-accent-warm transition-colors duration-300 pb-1" placeholder="Tell us about your project, goals, and timeline..." required />
+                    <textarea value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} className="w-full bg-transparent text-sm font-body text-foreground placeholder:text-muted-foreground/50 focus:outline-none min-h-[100px] resize-none border-b border-transparent focus:border-accent-violet transition-colors duration-300 pb-1" placeholder="Tell us about your project, goals, and timeline..." required />
                   </div>
                   <div className="border-t border-divider pt-8">
                     <button type="submit" className="group/btn bg-foreground text-background px-10 py-4 text-sm font-display font-medium tracking-wide hover:bg-accent-warm hover:text-accent-warm-foreground transition-colors duration-300 flex items-center gap-2">

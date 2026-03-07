@@ -80,11 +80,11 @@ const WorkSection = () => {
         </AnimatedSection>
 
         {/* 3×3 Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-divider border border-divider">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
           {filteredWorks.map((w, i) => (
             <AnimatedSection key={w.title} delay={i * 0.04}>
               <div
-                className="bg-background group cursor-pointer relative hover:bg-secondary transition-colors duration-300"
+                className="bg-background border border-divider group cursor-pointer relative hover:bg-secondary transition-colors duration-300 overflow-hidden"
                 onClick={() => setSelectedWork(w)}
               >
                 <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-accent-gradient scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-bottom z-10" />

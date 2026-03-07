@@ -101,6 +101,22 @@ const WorkSection = () => {
             </AnimatedSection>
           ))}
         </div>
+
+        {/* Trusted By */}
+        <AnimatedSection delay={0.15}>
+          <div className="mt-16 border-t border-divider pt-10">
+            <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-foreground/40 text-center mb-8">
+              {t("Trusted by brands across industries", "ได้รับความไว้วางใจจากแบรนด์หลากหลายอุตสาหกรรม")}
+            </p>
+            <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-4">
+              {works.slice(0, 6).map((w) => (
+                <span key={w.title} className="font-display text-[22px] tracking-[0.06em] text-foreground/20 hover:text-foreground/40 transition-colors duration-300">
+                  {w.title}
+                </span>
+              ))}
+            </div>
+          </div>
+        </AnimatedSection>
       </div>
 
       {/* Project Detail Dialog */}

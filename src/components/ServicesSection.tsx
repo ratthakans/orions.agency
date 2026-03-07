@@ -330,7 +330,8 @@ const ServicesSection = () => {
   const services = activeTab === "proj" ? projectServices : retainerServices;
 
   return (
-    <section id="services" className="py-24 md:py-32 px-6 md:px-12 border-t border-divider">
+    <section id="services" className="py-24 md:py-32 px-6 md:px-12 relative overflow-hidden">
+      <StarField count={40} />
       <div className="max-w-7xl mx-auto">
         <AnimatedSection>
           <div className="flex items-center gap-3.5 mb-12">

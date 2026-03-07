@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import AnimatedSection from "@/components/AnimatedSection";
 import Footer from "@/components/Footer";
+import ConstellationDivider from "@/components/ConstellationDivider";
 import { useLanguage } from "@/contexts/LanguageContext";
 import teamKrit from "@/assets/team-krit.jpg";
 import teamNari from "@/assets/team-nari.jpg";
@@ -43,7 +44,7 @@ const AboutPage = () => {
       <div className="pt-20">
 
         {/* About Hero */}
-        <section className="py-24 md:py-32 px-6 md:px-12 border-b border-divider">
+        <section className="py-24 md:py-32 px-6 md:px-12">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
               <div className="flex items-center gap-3.5 mb-12">
@@ -104,8 +105,10 @@ const AboutPage = () => {
           </div>
         </section>
 
+        <ConstellationDivider />
+
         {/* Team Section */}
-        <section className="py-24 md:py-32 px-6 md:px-12 border-b border-divider">
+        <section className="py-24 md:py-32 px-6 md:px-12">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
               <div className="flex items-center gap-3.5 mb-12">
@@ -144,6 +147,8 @@ const AboutPage = () => {
             </div>
           </div>
         </section>
+
+        <ConstellationDivider />
 
         {/* Contact Section */}
         <section id="contact" className="py-24 md:py-32 px-6 md:px-12">

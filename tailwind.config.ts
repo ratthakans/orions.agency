@@ -76,7 +76,7 @@ export default {
         body: ["DM Sans", "sans-serif"],
         mono: ["DM Mono", "monospace"],
         logo: ["Unbounded", "sans-serif"],
-        thai: ["Sarabun", "sans-serif"],
+        thai: ["Noto Sans Thai", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",

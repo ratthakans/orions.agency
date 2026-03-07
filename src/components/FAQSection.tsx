@@ -30,7 +30,7 @@ const FAQSection = () => {
   ];
 
   return (
-    <section className="py-24 md:py-32 px-6 md:px-12 bg-card border-t border-divider">
+    <section className="py-24 md:py-32 px-6 md:px-12 bg-card">
       <div className="max-w-7xl mx-auto">
         <AnimatedSection>
           <div className="flex items-center gap-3.5 mb-12">

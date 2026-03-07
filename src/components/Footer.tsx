@@ -1,21 +1,19 @@
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
-import OrionConstellation from "./OrionConstellation";
+import ConstellationDivider from "./ConstellationDivider";
 
 const Footer = () => {
   const { t } = useLanguage();
 
   return (
-    <footer className="border-t-2 glow-border px-6 md:px-12 pt-16 pb-10">
+    <footer className="px-6 md:px-12 pt-0 pb-10">
+      <ConstellationDivider className="mb-16" />
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-[1.6fr_1fr_1fr_1fr] gap-12 md:gap-16 pb-12 border-b border-divider mb-8">
           <div>
-            <div className="flex items-center gap-3 mb-3">
-              <OrionConstellation size="sm" opacity={0.4} animate={false} showStars={true} />
-              <p className="font-logo font-medium text-[18px] tracking-[0.08em] text-foreground uppercase">ØRIONS</p>
-            </div>
+            <p className="font-logo font-medium text-[18px] tracking-[0.08em] text-foreground uppercase mb-3">ØRIONS</p>
             <p className="font-body text-[13px] leading-[1.72] text-muted-foreground max-w-[220px] mb-5">
-              {t("Guiding brands through the noise. ✧", "นำทางแบรนด์ผ่านทุก noise ✧")}
+              {t("Guiding brands through the noise.", "นำทางแบรนด์ผ่านทุก noise")}
             </p>
             <div className="space-y-1.5">
               <a href="mailto:hello@orions.agency" className="font-mono text-[11px] tracking-[0.06em] text-muted-foreground block hover:text-foreground transition-colors">hello@orions.agency</a>
@@ -45,9 +43,9 @@ const Footer = () => {
           <div>
             <p className="font-mono text-[9px] tracking-[0.25em] uppercase text-foreground/50 mb-5">Connect</p>
             <div className="flex flex-col gap-2.5">
+              <a href="https://facebook.com/orions.agency" target="_blank" rel="noopener noreferrer" className="font-body text-[13px] text-muted-foreground hover:text-foreground transition-colors">Facebook</a>
               <a href="https://instagram.com/orions.agency" target="_blank" rel="noopener noreferrer" className="font-body text-[13px] text-muted-foreground hover:text-foreground transition-colors">Instagram</a>
-              <a href="https://linkedin.com/company/orions-agency" target="_blank" rel="noopener noreferrer" className="font-body text-[13px] text-muted-foreground hover:text-foreground transition-colors">LinkedIn</a>
-              <a href="https://behance.net/orions-agency" target="_blank" rel="noopener noreferrer" className="font-body text-[13px] text-muted-foreground hover:text-foreground transition-colors">Behance</a>
+              <a href="https://youtube.com/@orions-agency" target="_blank" rel="noopener noreferrer" className="font-body text-[13px] text-muted-foreground hover:text-foreground transition-colors">YouTube</a>
             </div>
           </div>
         </div>
@@ -57,7 +55,7 @@ const Footer = () => {
             © {new Date().getFullYear()} ØRIONS. All rights reserved.
           </p>
           <p className="font-mono text-[9px] tracking-[0.14em] text-muted-foreground">
-            Bangkok, Thailand ✧
+            Bangkok, Thailand
           </p>
         </div>
       </div>

@@ -35,7 +35,7 @@ const SocialProofStrip = () => {
   ];
 
   return (
-    <section className="py-20 md:py-28 px-6 md:px-12 border-t border-divider">
+    <section className="py-20 md:py-28 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
         <AnimatedSection>
           <div className="flex items-center gap-3.5 mb-12">

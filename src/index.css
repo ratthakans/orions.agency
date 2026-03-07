@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=Unbounded:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=DM+Mono:wght@300;400;500&family=Sarabun:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Unbounded:wght@500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,55 +6,60 @@
 
 @layer base {
   :root {
-    --background: 0 0% 0%;
-    --foreground: 0 0% 100%;
+    --background: 50 10% 4%;
+    --foreground: 40 10% 90%;
 
-    --card: 0 0% 7%;
-    --card-foreground: 0 0% 100%;
+    --card: 50 8% 7%;
+    --card-foreground: 40 10% 90%;
 
-    --popover: 0 0% 7%;
-    --popover-foreground: 0 0% 100%;
+    --popover: 50 8% 7%;
+    --popover-foreground: 40 10% 90%;
 
-    --primary: 0 0% 100%;
-    --primary-foreground: 0 0% 0%;
+    --primary: 40 10% 90%;
+    --primary-foreground: 50 10% 4%;
 
-    --secondary: 0 0% 7%;
-    --secondary-foreground: 0 0% 96%;
+    --secondary: 50 8% 7%;
+    --secondary-foreground: 40 10% 96%;
 
-    --muted: 0 0% 11%;
-    --muted-foreground: 0 0% 60%;
+    --muted: 50 5% 11%;
+    --muted-foreground: 45 5% 45%;
 
-    --accent: 0 0% 15%;
-    --accent-foreground: 0 0% 96%;
+    --accent: 50 5% 15%;
+    --accent-foreground: 40 10% 96%;
 
-    --accent-warm: 32 95% 55%;
-    --accent-warm-end: 25 95% 50%;
+    /* Multi-color gradient accents */
+    --accent-violet: 265 85% 60%;
+    --accent-blue: 215 90% 58%;
+    --accent-rose: 350 85% 55%;
+    --accent-amber: 35 95% 55%;
+    --accent-warm: 265 85% 60%;
+    --accent-warm-end: 215 90% 58%;
     --accent-warm-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 18%;
-    --input: 0 0% 15%;
-    --ring: 0 0% 40%;
+    --border: 45 5% 12%;
+    --input: 50 5% 15%;
+    --ring: 265 60% 50%;
 
-    --radius: 0px;
+    --radius: 2px;
 
-    --sidebar-background: 0 0% 4%;
-    --sidebar-foreground: 0 0% 96%;
-    --sidebar-primary: 0 0% 100%;
-    --sidebar-primary-foreground: 0 0% 0%;
-    --sidebar-accent: 0 0% 11%;
-    --sidebar-accent-foreground: 0 0% 96%;
-    --sidebar-border: 0 0% 18%;
-    --sidebar-ring: 0 0% 40%;
+    --sidebar-background: 50 10% 3%;
+    --sidebar-foreground: 40 10% 96%;
+    --sidebar-primary: 40 10% 90%;
+    --sidebar-primary-foreground: 50 10% 4%;
+    --sidebar-accent: 50 5% 11%;
+    --sidebar-accent-foreground: 40 10% 96%;
+    --sidebar-border: 45 5% 12%;
+    --sidebar-ring: 265 60% 50%;
 
     /* Custom tokens */
-    --surface-elevated: 0 0% 4%;
-    --text-secondary: 0 0% 60%;
-    --text-tertiary: 0 0% 40%;
-    --divider: 0 0% 18%;
-    --status-available: 32 95% 55%;
+    --surface-elevated: 50 8% 4%;
+    --text-secondary: 45 5% 45%;
+    --text-tertiary: 45 5% 30%;
+    --divider: 45 5% 12%;
+    --status-available: 265 85% 60%;
   }
 }
 
@@ -69,22 +74,29 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Instrument Sans', sans-serif;
+    font-family: 'Bebas Neue', sans-serif;
   }
 }
 
-
 @layer utilities {
   .font-display {
-    font-family: 'Instrument Sans', sans-serif;
+    font-family: 'Bebas Neue', sans-serif;
   }
 
   .font-body {
     font-family: 'DM Sans', sans-serif;
   }
 
+  .font-mono {
+    font-family: 'DM Mono', monospace;
+  }
+
   .font-logo {
     font-family: 'Unbounded', sans-serif;
+  }
+
+  .font-thai {
+    font-family: 'Sarabun', sans-serif;
   }
 
   .text-secondary {
@@ -112,6 +124,11 @@
     -webkit-text-stroke: 2px hsl(var(--foreground));
     color: transparent;
   }
+
+  .text-stroke-dim {
+    -webkit-text-stroke: 1px rgba(255,255,255,0.06);
+    color: transparent;
+  }
 }
 
 /* Smooth scrolling */
@@ -134,26 +151,43 @@ html {
   width: 4px;
 }
 ::-webkit-scrollbar-track {
-  background: hsl(0 0% 0%);
+  background: hsl(50 10% 4%);
 }
 ::-webkit-scrollbar-thumb {
-  background: hsl(0 0% 20%);
+  background: hsl(45 5% 20%);
 }
 
 /* Selection */
 ::selection {
-  background: hsl(32 95% 55% / 0.25);
-  color: hsl(0 0% 100%);
+  background: hsl(265 85% 60% / 0.25);
+  color: hsl(40 10% 95%);
 }
 
-/* Accent gradient utility */
+/* Multi-color accent gradient */
 .text-accent-gradient {
-  background: linear-gradient(135deg, hsl(var(--accent-warm)), hsl(var(--accent-warm-end)));
+  background: linear-gradient(135deg, hsl(var(--accent-violet)), hsl(var(--accent-blue)), hsl(var(--accent-rose)), hsl(var(--accent-amber)));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .bg-accent-gradient {
-  background: linear-gradient(135deg, hsl(var(--accent-warm)), hsl(var(--accent-warm-end)));
+  background: linear-gradient(135deg, hsl(var(--accent-violet)), hsl(var(--accent-blue)), hsl(var(--accent-rose)), hsl(var(--accent-amber)));
+}
+
+/* Glowing border effect */
+.glow-border {
+  border-image: linear-gradient(135deg, hsl(var(--accent-violet)), hsl(var(--accent-blue)), hsl(var(--accent-rose)), hsl(var(--accent-amber))) 1;
+}
+
+/* Animated gradient background */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  background-size: 300% 300%;
+  animation: gradient-shift 8s ease infinite;
 }

@@ -38,6 +38,10 @@ export default {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
+          violet: "hsl(var(--accent-violet))",
+          blue: "hsl(var(--accent-blue))",
+          rose: "hsl(var(--accent-rose))",
+          amber: "hsl(var(--accent-amber))",
         },
         "accent-warm": {
           DEFAULT: "hsl(var(--accent-warm))",
@@ -68,9 +72,11 @@ export default {
         },
       },
       fontFamily: {
-        display: ["Instrument Sans", "sans-serif"],
+        display: ["Bebas Neue", "sans-serif"],
         body: ["DM Sans", "sans-serif"],
+        mono: ["DM Mono", "monospace"],
         logo: ["Unbounded", "sans-serif"],
+        thai: ["Sarabun", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",

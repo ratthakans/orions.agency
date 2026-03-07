@@ -22,7 +22,7 @@
     --secondary-foreground: 40 10% 96%;
 
     --muted: 50 5% 11%;
-    --muted-foreground: 45 5% 45%;
+    --muted-foreground: 45 5% 50%;
 
     --accent: 50 5% 15%;
     --accent-foreground: 40 10% 96%;
@@ -56,8 +56,8 @@
 
     /* Custom tokens */
     --surface-elevated: 50 8% 4%;
-    --text-secondary: 45 5% 45%;
-    --text-tertiary: 45 5% 30%;
+    --text-secondary: 45 5% 50%;
+    --text-tertiary: 45 5% 35%;
     --divider: 45 5% 12%;
     --status-available: 265 85% 60%;
   }
@@ -71,6 +71,10 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {

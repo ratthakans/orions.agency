@@ -5,14 +5,14 @@ type Language = "en" | "th";
 interface LanguageContextType {
   lang: Language;
   setLang: (lang: Language) => void;
-  t: (en: string, th: string) => string;
+  t: (en: ReactNode, th: ReactNode) => ReactNode;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [lang, setLang] = useState<Language>("en");
-  const t = (en: string, th: string) => (lang === "en" ? en : th);
+  const t = (en: ReactNode, th: ReactNode): ReactNode => (lang === "en" ? en : th);
   return (
     <LanguageContext.Provider value={{ lang, setLang, t }}>
       {children}

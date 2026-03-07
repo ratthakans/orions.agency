@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import AnimatedSection from "@/components/AnimatedSection";
 import Footer from "@/components/Footer";
 import ConstellationDivider from "@/components/ConstellationDivider";
+import StarField from "@/components/StarField";
 import { useLanguage } from "@/contexts/LanguageContext";
 import teamKrit from "@/assets/team-krit.jpg";
 import teamNari from "@/assets/team-nari.jpg";
@@ -44,7 +45,8 @@ const AboutPage = () => {
       <div className="pt-20">
 
         {/* About Hero */}
-        <section className="py-24 md:py-32 px-6 md:px-12">
+        <section className="py-24 md:py-32 px-6 md:px-12 relative overflow-hidden">
+          <StarField count={40} />
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
               <div className="flex items-center gap-3.5 mb-12">

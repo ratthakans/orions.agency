@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import AnimatedSection from "./AnimatedSection";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "./ui/dialog";
 import { useLanguage } from "@/contexts/LanguageContext";
+import StarField from "./StarField";
 import workNorthwind from "@/assets/work-northwind.jpg";
 import workAtlas from "@/assets/work-atlas.jpg";
 import workKoha from "@/assets/work-koha.jpg";
@@ -37,7 +38,8 @@ const WorkSection = () => {
   }, [activeFilter]);
 
   return (
-    <section id="work" className="py-24 md:py-32 px-6 md:px-12">
+    <section id="work" className="py-24 md:py-32 px-6 md:px-12 relative overflow-hidden">
+      <StarField count={40} />
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <AnimatedSection>
@@ -103,7 +105,7 @@ const WorkSection = () => {
 
       {/* Project Detail Dialog */}
       <Dialog open={!!selectedWork} onOpenChange={(open) => !open && setSelectedWork(null)}>
-        <DialogContent className="sm:max-w-[600px] max-h-[85vh] overflow-y-auto bg-background border-divider p-0 gap-0">
+        <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto bg-background border-divider p-0 gap-0">
           {selectedWork && (
             <>
               <div className="w-full aspect-[16/9] overflow-hidden">
@@ -111,35 +113,35 @@ const WorkSection = () => {
               </div>
 
               <div className="p-8 md:p-10">
-                <DialogHeader className="mb-6">
-                  <div className="flex items-center justify-between mb-3">
+                <DialogHeader className="mb-0 pb-0">
+                  <div className="flex items-center justify-between mb-4">
                     <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-muted-foreground">{selectedWork.industry}</span>
                     <span className="font-mono text-[10px] tracking-[0.1em] text-accent-gradient">{selectedWork.metric}</span>
                   </div>
-                  <DialogTitle className="font-display text-2xl md:text-3xl tracking-tight text-foreground">
+                  <DialogTitle className="font-display text-[40px] tracking-[0.03em] leading-none text-foreground mb-2">
                     {selectedWork.title}
                   </DialogTitle>
-                  <DialogDescription className="font-body text-sm text-muted-foreground mt-2">
-                    {selectedWork.brief[lang]}
-                  </DialogDescription>
+                  <p className="font-body text-[15px] text-muted-foreground leading-relaxed">{selectedWork.brief[lang]}</p>
                 </DialogHeader>
 
-                {/* Scope of Work */}
-                <div className="mb-6">
-                  <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/60 mb-3">{t("Scope of Work", "ขอบเขตงาน")}</h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-divider border border-divider">
-                    {selectedWork.scope.map((s, i) => (
-                      <div key={i} className="bg-background p-3.5 hover:bg-secondary transition-colors duration-300">
-                        <span className="font-mono text-[10px] tracking-[0.1em] text-foreground">{s}</span>
-                      </div>
-                    ))}
+                <div className="mt-8 space-y-8">
+                  {/* Scope of Work */}
+                  <div>
+                    <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/60 mb-4">{t("Scope of Work", "ขอบเขตงาน")}</h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-divider border border-divider">
+                      {selectedWork.scope.map((s, i) => (
+                        <div key={i} className="bg-background p-4 hover:bg-secondary transition-colors duration-300">
+                          <span className="font-mono text-[10px] tracking-[0.1em] text-foreground">{s}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                </div>
 
-                {/* Result */}
-                <div className="border border-divider bg-card p-6">
-                  <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/60 mb-2">{t("Result", "ผลลัพธ์")}</h4>
-                  <p className="font-body text-[14px] leading-[1.75] text-muted-foreground">{selectedWork.result[lang]}</p>
+                  {/* Result */}
+                  <div className="border border-divider bg-card p-6">
+                    <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/60 mb-3">{t("Result", "ผลลัพธ์")}</h4>
+                    <p className="font-body text-[14px] leading-[1.75] text-muted-foreground">{selectedWork.result[lang]}</p>
+                  </div>
                 </div>
               </div>
             </>

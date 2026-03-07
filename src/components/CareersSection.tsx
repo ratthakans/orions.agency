@@ -2,6 +2,7 @@ import { useState } from "react";
 import AnimatedSection from "./AnimatedSection";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "./ui/dialog";
 import { useLanguage } from "@/contexts/LanguageContext";
+import StarField from "./StarField";
 
 const jobs = [
   { title: "Video Editor", type: "Full-time", description: { en: "Craft compelling visual stories for brands across Southeast Asia. You'll own the full post-production pipeline.", th: "สร้าง visual story ที่ทรงพลังสำหรับแบรนด์ใน Southeast Asia คุณจะดูแล post-production pipeline ทั้งหมด" }, responsibilities: ["Edit and produce high-quality video content for brand campaigns, social media, and digital platforms", "Collaborate with the creative director and strategists to translate briefs into visual narratives", "Manage post-production workflow including color grading, sound design, and motion graphics", "Stay current with video trends, editing techniques, and platform-specific formats", "Ensure all deliverables meet brand guidelines and quality standards"], qualifications: ["2+ years of professional video editing experience", "Proficiency in Adobe Premiere Pro, After Effects, and DaVinci Resolve", "Strong storytelling sense and attention to detail", "Experience with motion graphics is a plus", "Portfolio showcasing previous work required"] },
@@ -26,7 +27,8 @@ const CareersSection = () => {
   const { lang, t } = useLanguage();
 
   return (
-    <section className="py-28 md:py-40 px-6 md:px-12">
+    <section className="py-28 md:py-40 px-6 md:px-12 relative overflow-hidden">
+      <StarField count={40} />
       <div className="max-w-7xl mx-auto">
         {/* Hero */}
         <AnimatedSection>
@@ -145,65 +147,75 @@ const CareersSection = () => {
 
       {/* Job Detail Dialog */}
       <Dialog open={!!selectedJob} onOpenChange={(open) => !open && setSelectedJob(null)}>
-        <DialogContent className="max-w-3xl max-h-[85vh] overflow-y-auto bg-background border-divider p-0">
+         <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto bg-background border-divider p-0 gap-0">
           {selectedJob && (
-            <div className="p-8 md:p-12">
-              <DialogHeader className="mb-8">
-                <div className="flex items-center gap-3 mb-2">
-                  <DialogTitle className="font-display text-2xl md:text-3xl text-foreground">{selectedJob.title}</DialogTitle>
-                  <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground border border-divider px-2 py-0.5">{selectedJob.type}</span>
+            <>
+              <DialogHeader className="p-8 pb-0">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-muted-foreground">{selectedJob.type}</span>
                 </div>
-                <DialogDescription className="font-body text-[15px] text-muted-foreground leading-[1.7]">{selectedJob.description[lang]}</DialogDescription>
+                <DialogTitle className="font-display text-[40px] tracking-[0.03em] leading-none text-foreground mb-2">
+                  {selectedJob.title}
+                </DialogTitle>
+                <DialogDescription className="font-body text-[15px] text-muted-foreground leading-relaxed">{selectedJob.description[lang]}</DialogDescription>
               </DialogHeader>
-              <div className="space-y-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="border border-divider p-5">
-                    <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground mb-1">{t("Working Hours", "เวลาทำงาน")}</p>
-                    <p className="font-body text-[14px] text-foreground">Mon – Fri, 10:00 – 19:00</p>
+
+              <div className="p-8 space-y-8">
+                {/* Info strip */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-divider border border-divider">
+                  <div className="bg-background p-4 hover:bg-secondary transition-colors duration-300">
+                    <span className="font-mono text-[10px] tracking-[0.1em] text-foreground block mb-1">{t("Working Hours", "เวลาทำงาน")}</span>
+                    <span className="font-body text-[13px] text-muted-foreground leading-snug">Mon – Fri, 10:00 – 19:00</span>
                   </div>
-                  <div className="border border-divider p-5">
-                    <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground mb-1">Location</p>
-                    <p className="font-body text-[14px] text-foreground">246/8 Soi Yothinpattana 3, Bang Kapi</p>
+                  <div className="bg-background p-4 hover:bg-secondary transition-colors duration-300">
+                    <span className="font-mono text-[10px] tracking-[0.1em] text-foreground block mb-1">Location</span>
+                    <span className="font-body text-[13px] text-muted-foreground leading-snug">246/8 Soi Yothinpattana 3, Bang Kapi</span>
                   </div>
                 </div>
+
+                {/* Responsibilities */}
                 <div>
                   <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/60 mb-4">Responsibilities</h4>
-                  <ul className="space-y-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-divider border border-divider">
                     {selectedJob.responsibilities.map((r, i) => (
-                      <li key={i} className="flex gap-3 items-start">
-                         <span className="text-foreground/40 font-mono text-[10px] mt-1">{String(i + 1).padStart(2, "0")}</span>
-                        <span className="font-body text-[14px] text-foreground leading-[1.65]">{r}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="border-t border-divider pt-8">
-                  <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/60 mb-4">Qualifications</h4>
-                  <ul className="space-y-3">
-                    {selectedJob.qualifications.map((q, i) => (
-                      <li key={i} className="flex gap-3 items-start">
-                        <span className="text-foreground/40 font-mono text-[10px] mt-1">{String(i + 1).padStart(2, "0")}</span>
-                        <span className="font-body text-[14px] text-foreground leading-[1.65]">{q}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="border-t border-divider pt-8">
-                  <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/60 mb-4">{t("Benefits", "สวัสดิการ")}</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {benefits.map((b) => (
-                      <span key={b.title} className="font-mono text-[10px] tracking-[0.1em] uppercase border border-divider px-3 py-1.5 text-foreground">{b.title}</span>
+                      <div key={i} className="bg-background p-4 hover:bg-secondary transition-colors duration-300">
+                        <span className="font-mono text-[10px] tracking-[0.1em] text-foreground block mb-1">{String(i + 1).padStart(2, "0")}</span>
+                        <span className="font-body text-[13px] text-muted-foreground leading-snug">{r}</span>
+                      </div>
                     ))}
                   </div>
                 </div>
-                <div className="border-t border-divider pt-8">
-                  <a href="mailto:hello@orions.agency" className="inline-flex items-center gap-2 bg-accent-gradient text-white px-8 py-3.5 font-mono text-[11px] tracking-[0.15em] uppercase hover:opacity-90 transition-all duration-300 rounded-sm">
-                    {t("Apply Now", "สมัครเลย")}
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" strokeWidth="1.5" /></svg>
-                  </a>
+
+                {/* Qualifications */}
+                <div className="border border-divider bg-card p-6">
+                  <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/60 mb-3">Qualifications</h4>
+                  <ul className="space-y-2.5">
+                    {selectedJob.qualifications.map((q, i) => (
+                      <li key={i} className="flex gap-3 items-start">
+                        <span className="text-foreground/40 font-mono text-[10px] mt-0.5">—</span>
+                        <span className="font-body text-[14px] text-muted-foreground leading-[1.65]">{q}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
+
+                {/* Benefits */}
+                <div>
+                  <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/60 mb-4">{t("Benefits", "สวัสดิการ")}</h4>
+                  <div className="flex flex-wrap gap-1.5">
+                    {benefits.map((b) => (
+                      <span key={b.title} className="font-mono text-[9px] tracking-[0.12em] uppercase border border-divider px-2.5 py-1 text-foreground/60">{b.title}</span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Apply CTA */}
+                <a href="mailto:hello@orions.agency" className="inline-flex items-center gap-2 bg-accent-gradient text-white px-8 py-3.5 font-mono text-[11px] tracking-[0.15em] uppercase hover:opacity-90 transition-all duration-300 rounded-sm">
+                  {t("Apply Now", "สมัครเลย")}
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" strokeWidth="1.5" /></svg>
+                </a>
               </div>
-            </div>
+            </>
           )}
         </DialogContent>
       </Dialog>

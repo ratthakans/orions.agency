@@ -21,8 +21,8 @@ const projectServices: ServiceItem[] = [
     num: "01",
     name: { en: "Brand Strategy & Identity", th: "Brand Strategy & Identity" },
     desc: {
-      en: "We find what makes your brand impossible to replace — then express it in a visual and verbal system that works across every channel and market.",
-      th: "เราค้นหาสิ่งที่ทำให้แบรนด์คุณแทนที่ไม่ได้ แล้วแสดงออกเป็นระบบ visual และ verbal ที่ทำงานได้ทุกช่องทาง",
+      en: "We find what makes your brand impossible to replace — then express it in a visual and verbal system that works across every channel and market you operate in.",
+      th: "เราค้นหาสิ่งที่ทำให้แบรนด์คุณแทนที่ไม่ได้ แล้วแสดงออกเป็นระบบ visual และ verbal ที่ทำงานได้ทุกช่องทางและตลาดที่คุณอยู่",
     },
     tags: [{ label: "Brand Audit", type: "craft" }, { label: "Naming", type: "craft" }, { label: "Logo System" }, { label: "Brand Guidelines" }, { label: "AI Concepting", type: "ai" }],
     dialog: {

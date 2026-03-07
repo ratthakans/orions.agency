@@ -84,7 +84,7 @@ const WorkSection = () => {
           {filteredWorks.map((w, i) => (
             <AnimatedSection key={w.title} delay={i * 0.04}>
               <div
-                className="bg-background group cursor-pointer relative hover:bg-secondary transition-colors duration-300"
+                className="bg-background border border-divider group cursor-pointer relative hover:bg-secondary transition-colors duration-300 overflow-hidden">
                 onClick={() => setSelectedWork(w)}
               >
                 <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-accent-gradient scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-bottom z-10" />

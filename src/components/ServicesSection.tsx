@@ -531,7 +531,7 @@ const ServicesSection = () => {
                   <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/60 mb-4">{t("Key Steps", "ขั้นตอนสำคัญ")}</h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-divider border border-divider">
                     {selectedService.dialog.keySteps.map((ks, i) => (
-                      <div key={i} className="bg-card p-4 hover:bg-secondary transition-colors duration-300">
+                      <div key={i} className="bg-background p-4 hover:bg-secondary transition-colors duration-300">
                         <span className="font-mono text-[10px] tracking-[0.1em] text-foreground block mb-1">{ks.label}</span>
                         <span className="font-body text-[13px] text-muted-foreground leading-snug">{ks.desc[lang]}</span>
                       </div>

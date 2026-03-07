@@ -10,7 +10,7 @@ const AboutSection = () => {
         <AnimatedSection>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-24">
             <div>
-              <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-4">
+              <p className="font-mono text-[10px] tracking-[0.28em] uppercase text-foreground/50 mb-4">
                 Who We Are
               </p>
               <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-foreground">

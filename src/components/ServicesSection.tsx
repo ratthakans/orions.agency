@@ -451,7 +451,7 @@ const ServicesSection = () => {
                       {plan.badge[lang]}
                     </div>
                   )}
-                  <span className={`font-mono text-[10px] tracking-[0.25em] uppercase text-accent-violet block ${plan.best ? "mt-7" : ""} mb-4`}>
+                  <span className={`font-mono text-[10px] tracking-[0.25em] uppercase text-foreground/50 block ${plan.best ? "mt-7" : ""} mb-4`}>
                     {plan.tier}
                   </span>
                   <h3 className="font-display text-[40px] tracking-[0.04em] leading-none text-foreground mb-1.5">{plan.name}</h3>

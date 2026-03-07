@@ -39,7 +39,7 @@ const Index = () => {
         </div>
         <div className="max-w-7xl mx-auto relative z-10">
           <AnimatedSection>
-            <span className="font-mono text-[9.5px] tracking-[0.28em] uppercase text-accent-violet block mb-6">
+            <span className="font-mono text-[9.5px] tracking-[0.28em] uppercase text-foreground/50 block mb-6">
               {t("Ready when you are", "พร้อมเมื่อคุณพร้อม")}
             </span>
             <h2 className="font-display text-[clamp(56px,8.5vw,130px)] leading-[0.88] tracking-[0.02em] text-foreground mb-6">

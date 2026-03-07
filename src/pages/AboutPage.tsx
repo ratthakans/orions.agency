@@ -148,6 +148,8 @@ const AboutPage = () => {
           </div>
         </section>
 
+        <ConstellationDivider />
+
         {/* Contact Section */}
         <section id="contact" className="py-24 md:py-32 px-6 md:px-12">
           <div className="max-w-7xl mx-auto">

@@ -466,7 +466,7 @@ const ServicesSection = () => {
                   <ul className="space-y-2.5 mb-9">
                     {plan.features.map((f, fi) => (
                       <li key={fi} className="font-body text-[14px] leading-[1.55] text-muted-foreground flex gap-3 items-baseline">
-                        <span className="font-mono text-[10px] text-accent-violet shrink-0">—</span>
+                        <span className="font-mono text-[10px] text-foreground/40 shrink-0">—</span>
                         {f[lang]}
                       </li>
                     ))}

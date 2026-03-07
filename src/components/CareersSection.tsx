@@ -111,7 +111,7 @@ const CareersSection = () => {
             <p className="font-body text-muted-foreground text-base mb-6">
               Don't see your role? We're always open to meeting great people.
             </p>
-            <a href="mailto:hello@orions.agency" className="inline-flex items-center gap-2 bg-foreground text-background px-10 py-4 text-sm font-display font-medium tracking-wide hover:bg-accent-warm hover:text-accent-warm-foreground transition-colors duration-300">
+            <a href="mailto:hello@orions.agency" className="inline-flex items-center gap-2 bg-accent-gradient text-white px-10 py-4 text-sm font-display font-medium tracking-wide hover:opacity-90 transition-all duration-300">
               Send Your Portfolio
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="transition-transform duration-300 group-hover:translate-x-1">
                 <path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" strokeWidth="1.5" />

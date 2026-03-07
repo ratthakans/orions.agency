@@ -2,6 +2,7 @@ import { useState } from "react";
 import AnimatedSection from "./AnimatedSection";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "./ui/dialog";
 import { useLanguage } from "@/contexts/LanguageContext";
+import StarField from "./StarField";
 
 const jobs = [
   { title: "Video Editor", type: "Full-time", description: { en: "Craft compelling visual stories for brands across Southeast Asia. You'll own the full post-production pipeline.", th: "สร้าง visual story ที่ทรงพลังสำหรับแบรนด์ใน Southeast Asia คุณจะดูแล post-production pipeline ทั้งหมด" }, responsibilities: ["Edit and produce high-quality video content for brand campaigns, social media, and digital platforms", "Collaborate with the creative director and strategists to translate briefs into visual narratives", "Manage post-production workflow including color grading, sound design, and motion graphics", "Stay current with video trends, editing techniques, and platform-specific formats", "Ensure all deliverables meet brand guidelines and quality standards"], qualifications: ["2+ years of professional video editing experience", "Proficiency in Adobe Premiere Pro, After Effects, and DaVinci Resolve", "Strong storytelling sense and attention to detail", "Experience with motion graphics is a plus", "Portfolio showcasing previous work required"] },

@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-[1.6fr_1fr_1fr_1fr] gap-12 md:gap-16 pb-12 border-b border-divider mb-8">
           <div>
-            <p className="font-display text-[26px] tracking-[0.18em] text-foreground mb-3">ØRIONS</p>
+            <p className="font-logo text-[18px] tracking-[0.22em] text-foreground mb-3 uppercase">ØRIONS</p>
             <p className="font-body text-[13px] leading-[1.72] text-muted-foreground max-w-[220px] mb-5">
               {t("AI-Native Creative Agency.\nHuman craft. Machine velocity.", "เอเจนซี่ครีเอทีฟ AI-Native\nงานฝีมือมนุษย์ ความเร็วเครื่องจักร")}
             </p>

@@ -50,13 +50,13 @@ const CareersSection = () => {
             </div>
             <div className="bg-background p-6 md:p-8">
               <p className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mb-2">Location</p>
-              <a href="https://maps.app.goo.gl/MCY3ywNZBYofY49Q9" target="_blank" rel="noopener noreferrer" className="font-body text-foreground hover:text-accent-warm transition-colors duration-300">
+              <a href="https://maps.app.goo.gl/MCY3ywNZBYofY49Q9" target="_blank" rel="noopener noreferrer" className="font-body text-foreground hover:text-accent-violet transition-colors duration-300">
                 246/8 Soi Yothinpattana 3, Bang Kapi →
               </a>
             </div>
             <div className="bg-background p-6 md:p-8">
               <p className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mb-2">Apply</p>
-              <a href="mailto:hello@orions.agency" className="font-body text-foreground hover:text-accent-warm transition-colors duration-300">
+              <a href="mailto:hello@orions.agency" className="font-body text-foreground hover:text-accent-violet transition-colors duration-300">
                 hello@orions.agency →
               </a>
             </div>
@@ -74,11 +74,11 @@ const CareersSection = () => {
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                   <div className="flex items-center gap-4">
                     <span className="text-accent-gradient font-display text-sm font-bold tracking-wide">{String(i + 1).padStart(2, "0")}</span>
-                    <h3 className="font-display text-xl md:text-2xl font-semibold text-foreground group-hover:text-accent-warm transition-colors duration-300">{job.title}</h3>
+                    <h3 className="font-display text-xl md:text-2xl font-semibold text-foreground group-hover:text-accent-violet transition-colors duration-300">{job.title}</h3>
                   </div>
                   <div className="flex items-center gap-4">
                     <span className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground font-body border border-divider px-3 py-1">{job.type}</span>
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="text-muted-foreground group-hover:text-accent-warm group-hover:translate-x-1 transition-all duration-300">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="text-muted-foreground group-hover:text-accent-violet group-hover:translate-x-1 transition-all duration-300">
                       <path d="M4 16L16 4M16 4H6M16 4V14" stroke="currentColor" strokeWidth="1.5" />
                     </svg>
                   </div>
@@ -97,7 +97,7 @@ const CareersSection = () => {
             {benefits.map((b, i) => (
               <AnimatedSection key={b.title} delay={i * 0.05}>
                 <div className="bg-background p-8 md:p-10">
-                  <span className="font-display text-xs text-accent-warm mb-4 block">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="font-display text-xs text-accent-violet mb-4 block">{String(i + 1).padStart(2, "0")}</span>
                   <h4 className="font-display text-base font-semibold text-foreground mb-2">{b.title}</h4>
                   <p className="font-body text-sm text-muted-foreground leading-relaxed">{b.desc}</p>
                 </div>
@@ -111,7 +111,7 @@ const CareersSection = () => {
             <p className="font-body text-muted-foreground text-base mb-6">
               Don't see your role? We're always open to meeting great people.
             </p>
-            <a href="mailto:hello@orions.agency" className="inline-flex items-center gap-2 bg-foreground text-background px-10 py-4 text-sm font-display font-medium tracking-wide hover:bg-accent-warm hover:text-accent-warm-foreground transition-colors duration-300">
+            <a href="mailto:hello@orions.agency" className="inline-flex items-center gap-2 bg-accent-gradient text-white px-10 py-4 text-sm font-display font-medium tracking-wide hover:opacity-90 transition-all duration-300">
               Send Your Portfolio
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="transition-transform duration-300 group-hover:translate-x-1">
                 <path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" strokeWidth="1.5" />
@@ -140,7 +140,7 @@ const CareersSection = () => {
                   </div>
                   <div className="border border-divider p-4">
                     <p className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mb-1">Location</p>
-                    <a href="https://maps.app.goo.gl/MCY3ywNZBYofY49Q9" target="_blank" rel="noopener noreferrer" className="font-body text-sm text-foreground hover:text-accent-warm transition-colors">246/8 Soi Yothinpattana 3, Bang Kapi</a>
+                    <a href="https://maps.app.goo.gl/MCY3ywNZBYofY49Q9" target="_blank" rel="noopener noreferrer" className="font-body text-sm text-foreground hover:text-accent-violet transition-colors">246/8 Soi Yothinpattana 3, Bang Kapi</a>
                   </div>
                 </div>
                 <div>
@@ -148,7 +148,7 @@ const CareersSection = () => {
                   <ul className="space-y-3">
                     {selectedJob.responsibilities.map((r, i) => (
                       <li key={i} className="flex gap-3 items-start">
-                        <span className="text-accent-warm font-display text-xs font-bold mt-0.5">{String(i + 1).padStart(2, "0")}</span>
+                      <span className="text-accent-violet font-display text-xs font-bold mt-0.5">{String(i + 1).padStart(2, "0")}</span>
                         <span className="font-body text-sm text-foreground leading-relaxed">{r}</span>
                       </li>
                     ))}
@@ -159,7 +159,7 @@ const CareersSection = () => {
                   <ul className="space-y-3">
                     {selectedJob.qualifications.map((q, i) => (
                       <li key={i} className="flex gap-3 items-start">
-                        <span className="text-accent-warm font-display text-xs font-bold mt-0.5">{String(i + 1).padStart(2, "0")}</span>
+                        <span className="text-accent-violet font-display text-xs font-bold mt-0.5">{String(i + 1).padStart(2, "0")}</span>
                         <span className="font-body text-sm text-foreground leading-relaxed">{q}</span>
                       </li>
                     ))}
@@ -174,7 +174,7 @@ const CareersSection = () => {
                   </div>
                 </div>
                 <div className="border-t border-divider pt-8">
-                  <a href="mailto:hello@orions.agency" className="inline-flex items-center gap-2 bg-foreground text-background px-8 py-3.5 text-sm font-display font-medium tracking-wide hover:bg-accent-warm hover:text-accent-warm-foreground transition-colors duration-300">
+                  <a href="mailto:hello@orions.agency" className="inline-flex items-center gap-2 bg-accent-gradient text-white px-8 py-3.5 text-sm font-display font-medium tracking-wide hover:opacity-90 transition-all duration-300">
                     Apply Now
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" strokeWidth="1.5" /></svg>
                   </a>

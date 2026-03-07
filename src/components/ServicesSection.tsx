@@ -114,8 +114,8 @@ const projectServices: ServiceItem[] = [
     num: "04",
     name: { en: "Digital Experience", th: "Digital Experience" },
     desc: {
-      en: "Websites and landing pages that convert visitors into customers. Built with performance, brand consistency, and conversion rate as the non-negotiables.",
-      th: "เว็บไซต์และ landing page ที่แปลงผู้เยี่ยมชมเป็นลูกค้า สร้างด้วย performance, brand consistency และ conversion rate",
+      en: "Websites and landing pages that convert visitors into customers. Built with performance, brand consistency, and conversion rate optimization as the non-negotiable priorities.",
+      th: "เว็บไซต์และ landing page ที่แปลงผู้เยี่ยมชมเป็นลูกค้า สร้างด้วย performance, brand consistency และ conversion rate optimization เป็นสิ่งที่ต้องมี",
     },
     tags: [{ label: "Web Design" }, { label: "UX Strategy", type: "ai" }, { label: "UI Polish", type: "craft" }, { label: "CRO" }],
     dialog: {

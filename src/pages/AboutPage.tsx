@@ -117,6 +117,36 @@ const AboutPage = () => {
           </div>
         </section>
 
+        {/* Timeline */}
+        <section className="py-20 md:py-28 px-6 md:px-12">
+          <div className="max-w-7xl mx-auto">
+            <AnimatedSection>
+              <div className="flex items-center gap-3.5 mb-12">
+                <span className="w-[22px] h-px bg-accent-gradient" />
+                <span className="font-mono text-[10px] tracking-[0.28em] uppercase text-foreground/50">
+                  {t("Our Journey", "เส้นทางของเรา")}
+                </span>
+              </div>
+            </AnimatedSection>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-divider border border-divider">
+              {[
+                { year: "2024", title: { en: "Founded", th: "ก่อตั้ง" }, desc: { en: "Started in Bangkok with a vision: meaning-driven branding powered by AI.", th: "เริ่มต้นในกรุงเทพฯ ด้วยวิสัยทัศน์: branding ที่ขับเคลื่อนด้วยความหมายและ AI" } },
+                { year: "2025", title: { en: "First 10 Clients", th: "ลูกค้า 10 รายแรก" }, desc: { en: "Delivered brand systems, campaigns, and digital experiences across 5 industries.", th: "ส่งมอบ brand system, campaign และ digital experience ใน 5 อุตสาหกรรม" } },
+                { year: "2026", title: { en: "Regional Expansion", th: "ขยายสู่ภูมิภาค" }, desc: { en: "Serving clients across Southeast Asia with a growing team of specialists.", th: "ให้บริการลูกค้าทั่ว Southeast Asia ด้วยทีม specialist ที่เติบโต" } },
+              ].map((m, i) => (
+                <AnimatedSection key={m.year} delay={i * 0.12} direction={i === 0 ? "left" : i === 2 ? "right" : "up"}>
+                  <div className="bg-background p-8 md:p-10 group hover:bg-secondary transition-colors duration-300 relative">
+                    <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-accent-gradient scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-bottom" />
+                    <span className="font-display text-[48px] leading-none text-accent-gradient block mb-3">{m.year}</span>
+                    <h3 className="font-body text-[16px] font-medium text-foreground mb-2">{m.title[lang]}</h3>
+                    <p className="font-body text-[14px] leading-[1.75] text-muted-foreground">{m.desc[lang]}</p>
+                  </div>
+                </AnimatedSection>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <ConstellationDivider />
 
         {/* Our Values */}

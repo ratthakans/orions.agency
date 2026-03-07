@@ -1,7 +1,9 @@
 import { useState } from "react";
 import AnimatedSection from "./AnimatedSection";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ContactSection = () => {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: "", email: "", company: "", budget: "", message: "",
   });
@@ -18,15 +20,17 @@ const ContactSection = () => {
         <AnimatedSection>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-24">
             <div>
-              <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-4">Get in Touch</p>
+              <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-4">{t("Get in Touch", "ติดต่อเรา")}</p>
               <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-foreground">
-                Let's Build<br />
-                <span className="text-accent-gradient">Something Great</span>
+                {t(<>Let's Build<br /><span className="text-accent-gradient">Something Great</span></>, <>มาสร้าง<br /><span className="text-accent-gradient">สิ่งดีๆ ด้วยกัน</span></>)}
               </h2>
             </div>
             <div className="flex items-end">
               <p className="font-body text-muted-foreground text-base md:text-lg max-w-md leading-relaxed">
-                Tell us about your brand and what you're trying to build. We'll get back to you within 24 hours.
+                {t(
+                  "Tell us about your brand and what you're trying to build. We'll get back to you within 24 hours.",
+                  "เล่าให้เราฟังเกี่ยวกับแบรนด์ของคุณและสิ่งที่อยากสร้าง เราจะติดต่อกลับภายใน 24 ชั่วโมง"
+                )}
               </p>
             </div>
           </div>
@@ -39,7 +43,7 @@ const ContactSection = () => {
               <a href="mailto:hello@orions.agency" className="font-body text-foreground group-hover:text-accent-violet transition-colors duration-300">hello@orions.agency →</a>
             </div>
             <div className="bg-background p-6 md:p-8 group hover:bg-secondary transition-colors duration-300">
-              <p className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mb-2">Phone</p>
+              <p className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mb-2">{t("Phone", "โทรศัพท์")}</p>
               <a href="tel:+66923905464" className="font-body text-foreground group-hover:text-accent-violet transition-colors duration-300">+66 92 390 5464 →</a>
             </div>
             <div className="bg-background p-6 md:p-8 group hover:bg-secondary transition-colors duration-300">
@@ -52,30 +56,30 @@ const ContactSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <AnimatedSection delay={0.1}>
             <div>
-              <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-10">Send a Message</p>
+              <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-10">{t("Send a Message", "ส่งข้อความ")}</p>
               {submitted ? (
                 <div className="border border-divider p-10 text-center">
-                  <p className="font-display text-xl font-semibold text-foreground mb-3">Thank you</p>
-                  <p className="font-body text-sm text-muted-foreground">We'll be in touch within 24 hours.</p>
+                  <p className="font-display text-xl font-semibold text-foreground mb-3">{t("Thank you", "ขอบคุณครับ")}</p>
+                  <p className="font-body text-sm text-muted-foreground">{t("We'll be in touch within 24 hours.", "เราจะติดต่อกลับภายใน 24 ชั่วโมง")}</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-0">
                   <div className="border-t border-divider py-5">
-                    <label className="font-display text-[10px] tracking-[0.2em] uppercase text-muted-foreground mb-2 block">Name *</label>
-                    <input type="text" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="w-full bg-transparent text-sm font-body text-foreground placeholder:text-muted-foreground/50 focus:outline-none border-b border-transparent focus:border-accent-violet transition-colors duration-300 pb-1" placeholder="Your full name" required />
+                    <label className="font-display text-[10px] tracking-[0.2em] uppercase text-muted-foreground mb-2 block">{t("Name *", "ชื่อ *")}</label>
+                    <input type="text" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="w-full bg-transparent text-sm font-body text-foreground placeholder:text-muted-foreground/50 focus:outline-none border-b border-transparent focus:border-accent-violet transition-colors duration-300 pb-1" placeholder={t("Your full name", "ชื่อ-นามสกุล") as string} required />
                   </div>
                   <div className="border-t border-divider py-5">
                     <label className="font-display text-[10px] tracking-[0.2em] uppercase text-muted-foreground mb-2 block">Email *</label>
                     <input type="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="w-full bg-transparent text-sm font-body text-foreground placeholder:text-muted-foreground/50 focus:outline-none border-b border-transparent focus:border-accent-violet transition-colors duration-300 pb-1" placeholder="your@email.com" required />
                   </div>
                   <div className="border-t border-divider py-5">
-                    <label className="font-display text-[10px] tracking-[0.2em] uppercase text-muted-foreground mb-2 block">Company</label>
-                    <input type="text" value={formData.company} onChange={(e) => setFormData({ ...formData, company: e.target.value })} className="w-full bg-transparent text-sm font-body text-foreground placeholder:text-muted-foreground/50 focus:outline-none border-b border-transparent focus:border-accent-violet transition-colors duration-300 pb-1" placeholder="Your company name" />
+                    <label className="font-display text-[10px] tracking-[0.2em] uppercase text-muted-foreground mb-2 block">{t("Company", "บริษัท")}</label>
+                    <input type="text" value={formData.company} onChange={(e) => setFormData({ ...formData, company: e.target.value })} className="w-full bg-transparent text-sm font-body text-foreground placeholder:text-muted-foreground/50 focus:outline-none border-b border-transparent focus:border-accent-violet transition-colors duration-300 pb-1" placeholder={t("Your company name", "ชื่อบริษัท") as string} />
                   </div>
                   <div className="border-t border-divider py-5">
                     <label className="font-display text-[10px] tracking-[0.2em] uppercase text-muted-foreground mb-2 block">Budget Range</label>
                     <select value={formData.budget} onChange={(e) => setFormData({ ...formData, budget: e.target.value })} className="w-full bg-transparent text-sm font-body text-foreground focus:outline-none border-b border-transparent focus:border-accent-violet transition-colors duration-300 pb-1 appearance-none cursor-pointer">
-                      <option value="" className="bg-background">Select a range</option>
+                      <option value="" className="bg-background">{t("Select a range", "เลือกช่วงงบประมาณ")}</option>
                       <option value="< ฿100K" className="bg-background">Under ฿100,000</option>
                       <option value="฿100K–300K" className="bg-background">฿100,000 – ฿300,000</option>
                       <option value="฿300K–500K" className="bg-background">฿300,000 – ฿500,000</option>
@@ -84,12 +88,12 @@ const ContactSection = () => {
                     </select>
                   </div>
                   <div className="border-t border-divider py-5">
-                    <label className="font-display text-[10px] tracking-[0.2em] uppercase text-muted-foreground mb-2 block">Message *</label>
-                    <textarea value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} className="w-full bg-transparent text-sm font-body text-foreground placeholder:text-muted-foreground/50 focus:outline-none min-h-[100px] resize-none border-b border-transparent focus:border-accent-violet transition-colors duration-300 pb-1" placeholder="Tell us about your project, goals, and timeline..." required />
+                    <label className="font-display text-[10px] tracking-[0.2em] uppercase text-muted-foreground mb-2 block">{t("Message *", "ข้อความ *")}</label>
+                    <textarea value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} className="w-full bg-transparent text-sm font-body text-foreground placeholder:text-muted-foreground/50 focus:outline-none min-h-[100px] resize-none border-b border-transparent focus:border-accent-violet transition-colors duration-300 pb-1" placeholder={t("Tell us about your project, goals, and timeline...", "เล่าเกี่ยวกับ project เป้าหมาย และ timeline ของคุณ...") as string} required />
                   </div>
                   <div className="border-t border-divider pt-8">
                     <button type="submit" className="group/btn bg-accent-gradient text-white px-10 py-4 text-sm font-display font-medium tracking-wide hover:opacity-90 transition-all duration-300 flex items-center gap-2">
-                      Send Message
+                      {t("Send Message", "ส่งข้อความ")}
                       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="inline-block transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1">
                         <path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" strokeWidth="1.5" />
                       </svg>
@@ -102,7 +106,7 @@ const ContactSection = () => {
 
           <AnimatedSection delay={0.2}>
             <div>
-              <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-10">Visit Us</p>
+              <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-10">{t("Visit Us", "มาเยี่ยมเรา")}</p>
               <div className="w-full aspect-square border border-divider overflow-hidden mb-8">
                 <iframe
                   src="https://maps.google.com/maps?q=246/8+Soi+Yothinpattana+3+Khlong+Chan+Bang+Kapi+Bangkok+10240&output=embed"
@@ -115,7 +119,7 @@ const ContactSection = () => {
                 <p className="font-body text-foreground leading-relaxed">
                   246/8 Soi Yothinpattana 3<br />Khlong Chan, Bang Kapi<br />Bangkok 10240, Thailand
                 </p>
-                <p className="font-body text-muted-foreground text-sm">Monday – Friday, 10:00 – 19:00</p>
+                <p className="font-body text-muted-foreground text-sm">{t("Monday – Friday, 10:00 – 19:00", "จันทร์ – ศุกร์ 10:00 – 19:00")}</p>
               </div>
             </div>
           </AnimatedSection>

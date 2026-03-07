@@ -8,24 +8,24 @@ const FAQSection = () => {
 
   const faqs = [
     {
-      q: { en: "How is ØRIONS different from other agencies?", th: "ØRIONS แตกต่างจากเอเจนซี่อื่นอย่างไร?" },
-      a: { en: "We use AI across every stage of production — which means faster delivery, more iterations, and lower overhead. But every strategic decision is human-led. You get boutique-agency depth at tech-company speed.", th: "เราใช้ AI ในทุกขั้นตอนของการผลิต ซึ่งหมายถึงการส่งงานที่เร็วขึ้น การปรับแก้มากขึ้น แต่ทุกการตัดสินใจเชิงกลยุทธ์นำโดยมนุษย์" },
+      q: { en: "How is ØRIONS different from other agencies?", th: "ØRIONS ต่างจากเอเจนซี่อื่นยังไง?" },
+      a: { en: "We use AI across every stage of production — which means faster delivery, more iterations, and lower overhead. But every strategic decision is human-led. You get boutique-agency depth at tech-company speed.", th: "เราใช้ AI ในทุกขั้นตอนของการผลิต — ส่งงานเร็วขึ้น ทำ iteration ได้มากขึ้น overhead ต่ำลง แต่ทุกการตัดสินใจเชิงกลยุทธ์นำโดยมนุษย์ คุณจะได้ความลึกแบบ boutique agency ในความเร็วแบบ tech company" },
     },
     {
-      q: { en: "Do you offer monthly retainers?", th: "มีแพ็กเกจรายเดือนไหม?" },
-      a: { en: "Yes. Retainer plans start at ฿18,000/month and include social media, content production, SEO, and email/LINE. All plans run on a 3-month minimum with flexible upgrade or pause options.", th: "มีครับ แผน retainer เริ่มที่ ฿18,000/เดือน รวมโซเชียลมีเดีย การผลิตคอนเทนต์ SEO และ email/LINE ทุกแผนมีขั้นต่ำ 3 เดือน" },
+      q: { en: "Do you offer monthly retainers?", th: "มี monthly retainer ไหม?" },
+      a: { en: "Yes. Retainer plans start at ฿18,000/month and include social media, content production, SEO, and email/LINE. All plans run on a 3-month minimum with flexible upgrade or pause options.", th: "มีครับ Retainer plan เริ่มที่ ฿18,000/เดือน รวม social media, content production, SEO และ email/LINE ทุกแผนขั้นต่ำ 3 เดือน ปรับหรือ pause ได้" },
     },
     {
       q: { en: "How fast do you deliver?", th: "ส่งงานเร็วแค่ไหน?" },
-      a: { en: "Brand identity: 3–4 weeks. Campaign concepts: 1–2 weeks. Monthly content: delivered in the first week of each cycle. Our AI-augmented workflow moves 60% faster than a traditional agency.", th: "Brand identity: 3–4 สัปดาห์ Campaign concept: 1–2 สัปดาห์ คอนเทนต์รายเดือน: ส่งในสัปดาห์แรก workflow ที่ขับเคลื่อนด้วย AI เราเร็วกว่าเอเจนซี่ทั่วไป 60%" },
+      a: { en: "Brand identity: 3–4 weeks. Campaign concepts: 1–2 weeks. Monthly content: delivered in the first week of each cycle. Our AI-augmented workflow moves 60% faster than a traditional agency.", th: "Brand identity: 3–4 สัปดาห์ Campaign concepts: 1–2 สัปดาห์ Monthly content: ส่งภายในสัปดาห์แรกของแต่ละรอบ AI workflow ของเราเร็วกว่าเอเจนซี่ทั่วไป 60%" },
     },
     {
       q: { en: "Do you work with international brands?", th: "ทำงานกับแบรนด์ต่างประเทศได้ไหม?" },
-      a: { en: "Yes — we work with Thai brands, regional companies, and international brands entering Southeast Asia. All deliverables available in Thai and English.", th: "ได้ครับ เราทำงานกับแบรนด์ไทย บริษัทระดับภูมิภาค และแบรนด์ต่างประเทศ deliverable ทั้งหมดมีให้ทั้งภาษาไทยและอังกฤษ" },
+      a: { en: "Yes — we work with Thai brands, regional companies, and international brands entering Southeast Asia. All deliverables available in Thai and English.", th: "ได้ครับ เราทำงานกับแบรนด์ไทย บริษัทระดับภูมิภาค และแบรนด์ต่างประเทศที่เข้า Southeast Asia — deliverable ทั้งหมดมีทั้งไทยและอังกฤษ" },
     },
     {
-      q: { en: "Is the work actually made by humans?", th: "งานทำโดยมนุษย์จริงๆ ไหม?" },
-      a: { en: "Every strategy is human-crafted. Every concept is human-approved. AI handles production speed — research synthesis, draft generation, asset variation. But the thinking and creative direction? That's always us.", th: "ทุกกลยุทธ์สร้างโดยมนุษย์ ทุก concept ผ่านการอนุมัติจากมนุษย์ AI จัดการความเร็วในการผลิต แต่การคิดและทิศทางครีเอทีฟ? นั่นคือเราเสมอ" },
+      q: { en: "Is the work actually made by humans?", th: "งานทำโดยคนจริงๆ ไหม?" },
+      a: { en: "Every strategy is human-crafted. Every concept is human-approved. AI handles production speed — research synthesis, draft generation, asset variation. But the thinking and creative direction? That's always us.", th: "ทุก strategy คนคิด ทุก concept คนอนุมัติ AI ช่วยเรื่องความเร็วในการผลิต — สังเคราะห์ research, สร้าง draft, ทำ asset variation แต่การคิดและ creative direction? นั่นคือเราเสมอ" },
     },
   ];
 
@@ -36,7 +36,7 @@ const FAQSection = () => {
           <div className="flex items-center gap-3.5 mb-12">
             <span className="w-[22px] h-px bg-accent-gradient" />
             <span className="font-mono text-[9.5px] tracking-[0.28em] uppercase text-accent-violet">
-              {t("Common Questions", "คำถามที่พบบ่อย")}
+              FAQ
             </span>
           </div>
         </AnimatedSection>
@@ -44,7 +44,7 @@ const FAQSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-16 items-start">
           <AnimatedSection>
             <h2 className="font-display text-[clamp(36px,4.5vw,68px)] leading-[0.94] tracking-[0.02em] text-foreground">
-              {t(<>Everything<br />you need<br />to <span className="text-accent-gradient">know.</span></>, <>ทุกอย่างที่คุณ<br />ต้องการ<br /><span className="text-accent-gradient">รู้</span></>)}
+              {t(<>Everything<br />you need<br />to <span className="text-accent-gradient">know.</span></>, <>ทุกอย่าง<br />ที่คุณอยาก<br /><span className="text-accent-gradient">รู้</span></>)}
             </h2>
           </AnimatedSection>
 

@@ -1,5 +1,6 @@
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { useState } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface StickyProjectCTAProps {
   onClick: () => void;
@@ -8,6 +9,7 @@ interface StickyProjectCTAProps {
 const StickyProjectCTA = ({ onClick }: StickyProjectCTAProps) => {
   const [visible, setVisible] = useState(false);
   const { scrollY } = useScroll();
+  const { t } = useLanguage();
 
   useMotionValueEvent(scrollY, "change", (y) => {
     setVisible(y > window.innerHeight);
@@ -22,7 +24,7 @@ const StickyProjectCTA = ({ onClick }: StickyProjectCTAProps) => {
       className="fixed bottom-6 right-6 z-50 bg-accent-gradient text-white px-6 py-3 text-sm font-mono tracking-[0.1em] uppercase shadow-lg hover:opacity-90 hover:shadow-xl transition-all duration-300 flex items-center gap-2 rounded-sm"
       style={{ pointerEvents: visible ? "auto" : "none" }}
     >
-      Start a Project
+      {t("Start a Project", "เริ่ม Project")}
       <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
         <path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" strokeWidth="1.5" />
       </svg>

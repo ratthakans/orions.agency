@@ -23,7 +23,7 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="font-mono text-[10px] tracking-[0.28em] uppercase text-accent-violet mb-8"
         >
-          {t("Creative Agency · Bangkok · Est. 2020", "เอเจนซี่สร้างสรรค์ · กรุงเทพฯ · ก่อตั้ง 2020")}
+          AI-Native Creative Agency · Bangkok
         </motion.div>
 
         <motion.h1
@@ -32,10 +32,10 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => {
           transition={{ duration: 0.9, delay: 0.2 }}
           className="font-display text-[clamp(72px,11.5vw,190px)] leading-[0.88] tracking-[0.02em] text-foreground mb-0"
         >
-          {t("Human Thinking.", "คิดอย่างมนุษย์")}
+          Human Thinking.
           <br />
           <span className="text-muted-foreground italic">
-            {t("Machine Speed.", "เร็วอย่างเครื่องจักร")}
+            Machine Speed.
           </span>
         </motion.h1>
 
@@ -48,7 +48,7 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => {
           <p className="font-body text-base text-muted-foreground max-w-[360px] leading-[1.78]">
             {t(
               <>We build brands that cut through — with the <strong className="text-foreground font-normal">strategic depth</strong> no AI can replicate, and the <strong className="text-foreground font-normal">production velocity</strong> no traditional agency can match.</>,
-              <>เราสร้างแบรนด์ที่เจาะทะลุผ่านทุกเสียงรบกวน ด้วย<strong className="text-foreground font-normal">กลยุทธ์เชิงลึก</strong>ที่ AI ไม่สามารถลอกเลียนได้ และ<strong className="text-foreground font-normal">ความเร็วในการผลิต</strong>ที่เอเจนซี่ทั่วไปตามไม่ทัน</>
+              <>เราสร้างแบรนด์ที่ตัดผ่านทุก noise — ด้วย<strong className="text-foreground font-normal">กลยุทธ์เชิงลึก</strong>ที่ AI ทำแทนไม่ได้ และ<strong className="text-foreground font-normal">ความเร็วในการผลิต</strong>ที่เอเจนซี่ทั่วไปตามไม่ทัน</>
             )}
           </p>
 
@@ -57,28 +57,28 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => {
               onClick={onStartProject}
               className="group/btn bg-accent-gradient text-white px-7 py-3.5 font-mono text-[11px] tracking-[0.1em] uppercase flex items-center gap-2.5 rounded-sm hover:opacity-90 transition-opacity"
             >
-              {t("Start a Project →", "เริ่มโปรเจกต์ →")}
+              {t("Start a Project →", "เริ่ม Project →")}
             </button>
             <Link
               to="/services"
               className="text-muted-foreground font-mono text-[11px] tracking-[0.1em] uppercase py-3.5 border-b border-divider hover:text-foreground hover:border-muted-foreground transition-all duration-300"
             >
-              {t("View Services", "ดูบริการทั้งหมด")}
+              {t("View Services", "ดู Services")}
             </Link>
           </div>
 
           <div className="flex flex-row md:flex-col gap-5 md:items-end">
             <div className="text-right">
               <span className="font-display text-[44px] leading-none text-foreground">14+</span>
-              <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-muted-foreground block">{t("Clients", "ลูกค้า")}</span>
+              <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-muted-foreground block">Clients</span>
             </div>
             <div className="text-right">
               <span className="font-display text-[44px] leading-none text-foreground">3.2×</span>
-              <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-muted-foreground block">{t("Avg Engagement", "Engagement เฉลี่ย")}</span>
+              <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-muted-foreground block">Avg Engagement</span>
             </div>
             <div className="text-right">
               <span className="font-display text-[44px] leading-none text-foreground">25%</span>
-              <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-muted-foreground block">{t("Revenue Uplift", "รายได้เพิ่มขึ้น")}</span>
+              <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-muted-foreground block">Revenue Uplift</span>
             </div>
           </div>
         </motion.div>

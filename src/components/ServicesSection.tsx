@@ -12,37 +12,37 @@ interface ServiceItem {
 const projectServices: ServiceItem[] = [
   {
     num: "01",
-    name: { en: "Brand Strategy & Identity", th: "กลยุทธ์และเอกลักษณ์แบรนด์" },
+    name: { en: "Brand Strategy & Identity", th: "Brand Strategy & Identity" },
     desc: {
       en: "We find what makes your brand impossible to replace — then express it in a visual and verbal system that works across every channel and market.",
-      th: "เราค้นหาสิ่งที่ทำให้แบรนด์ของคุณไม่สามารถถูกแทนที่ได้ แล้วแสดงออกในระบบ visual และ verbal ที่ทำงานได้ทุกช่องทาง",
+      th: "เราค้นหาสิ่งที่ทำให้แบรนด์คุณแทนที่ไม่ได้ แล้วแสดงออกเป็นระบบ visual และ verbal ที่ทำงานได้ทุกช่องทาง",
     },
     tags: [{ label: "Brand Audit", type: "craft" }, { label: "Naming", type: "craft" }, { label: "Logo System" }, { label: "Brand Guidelines" }, { label: "AI Concepting", type: "ai" }],
   },
   {
     num: "02",
-    name: { en: "Campaign Development", th: "พัฒนาแคมเปญ" },
+    name: { en: "Campaign Development", th: "Campaign Development" },
     desc: {
       en: "Full-funnel campaigns from insight to execution. We combine data intelligence with narrative craft — campaigns that convert and get remembered.",
-      th: "แคมเปญ full-funnel จาก insight ถึงการดำเนินการ เราผสมผสานข้อมูลเชิงลึกกับงานเล่าเรื่อง",
+      th: "แคมเปญ full-funnel จาก insight ถึง execution ผสมผสาน data intelligence กับ narrative craft — แคมเปญที่ convert และถูกจดจำ",
     },
     tags: [{ label: "Data Insights", type: "ai" }, { label: "Concept Dev", type: "craft" }, { label: "Media Planning" }, { label: "Launch Strategy" }],
   },
   {
     num: "03",
-    name: { en: "Content Production", th: "ผลิตคอนเทนต์" },
+    name: { en: "Content Production", th: "Content Production" },
     desc: {
       en: "From a single launch to a 12-month content system. AI-scale output with the editorial judgment of a senior creative director on every piece.",
-      th: "ตั้งแต่การเปิดตัวครั้งเดียวถึงระบบคอนเทนต์ 12 เดือน ผลลัพธ์ระดับ AI พร้อมวิจารณญาณของ Creative Director",
+      th: "ตั้งแต่ launch ครั้งเดียวถึง content system 12 เดือน — output ระดับ AI พร้อมวิจารณญาณ Creative Director ในทุกชิ้นงาน",
     },
     tags: [{ label: "AI-Assisted Writing", type: "ai" }, { label: "Art Direction", type: "craft" }, { label: "Photo Direction" }, { label: "Video Scripts" }],
   },
   {
     num: "04",
-    name: { en: "Digital Experience", th: "ประสบการณ์ดิจิทัล" },
+    name: { en: "Digital Experience", th: "Digital Experience" },
     desc: {
       en: "Websites and landing pages that convert visitors into customers. Built with performance, brand consistency, and conversion rate as the non-negotiables.",
-      th: "เว็บไซต์และหน้า landing ที่แปลงผู้เยี่ยมชมให้เป็นลูกค้า สร้างด้วยประสิทธิภาพและ conversion rate",
+      th: "เว็บไซต์และ landing page ที่แปลงผู้เยี่ยมชมเป็นลูกค้า สร้างด้วย performance, brand consistency และ conversion rate",
     },
     tags: [{ label: "Web Design" }, { label: "UX Strategy", type: "ai" }, { label: "UI Polish", type: "craft" }, { label: "CRO" }],
   },
@@ -51,37 +51,37 @@ const projectServices: ServiceItem[] = [
 const retainerServices: ServiceItem[] = [
   {
     num: "R01",
-    name: { en: "Social Media Management", th: "จัดการโซเชียลมีเดีย" },
+    name: { en: "Social Media Management", th: "Social Media Management" },
     desc: {
       en: "We run your social presence as a living brand asset — strategy, creation, community, and analytics. Not just a content queue.",
-      th: "เราดูแลการปรากฏตัวบนโซเชียลของคุณในฐานะ brand asset ที่มีชีวิต ไม่ใช่แค่คิวคอนเทนต์",
+      th: "เราดูแล social presence ของคุณให้เป็น brand asset ที่มีชีวิต — strategy, creation, community และ analytics ไม่ใช่แค่คิว content",
     },
     tags: [{ label: "IG · TikTok · LINE" }, { label: "Analytics Dashboard", type: "ai" }, { label: "Community Strategy", type: "craft" }],
   },
   {
     num: "R02",
-    name: { en: "Monthly Content Production", th: "ผลิตคอนเทนต์รายเดือน" },
+    name: { en: "Monthly Content Production", th: "Monthly Content Production" },
     desc: {
       en: "A consistent, on-brand content pipeline delivered every month. AI-produced at speed, craft-reviewed before it reaches your audience.",
-      th: "pipeline คอนเทนต์ที่สม่ำเสมอและสอดคล้องกับแบรนด์ ส่งทุกเดือน ผลิตด้วย AI อย่างรวดเร็ว",
+      th: "Content pipeline ที่ consistent และ on-brand ส่งทุกเดือน ผลิตด้วย AI อย่างรวดเร็ว ผ่าน craft review ก่อนถึง audience",
     },
     tags: [{ label: "AI Production", type: "ai" }, { label: "Editorial Review", type: "craft" }, { label: "Copy + Visuals" }, { label: "Content Calendar" }],
   },
   {
     num: "R03",
-    name: { en: "SEO & Performance Marketing", th: "SEO และการตลาดประสิทธิภาพ" },
+    name: { en: "SEO & Performance Marketing", th: "SEO & Performance Marketing" },
     desc: {
       en: "Organic growth that compounds over time. We build the search presence your brand deserves.",
-      th: "การเติบโต organic ที่สะสมตามเวลา เราสร้างการปรากฏตัวในการค้นหาที่แบรนด์ของคุณสมควรได้รับ",
+      th: "Organic growth ที่สะสมตามเวลา เราสร้าง search presence ที่แบรนด์คุณสมควรได้รับ",
     },
     tags: [{ label: "Keyword Research", type: "ai" }, { label: "On-page SEO" }, { label: "Link Building" }, { label: "Performance Tracking", type: "ai" }],
   },
   {
     num: "R04",
-    name: { en: "Email & LINE Marketing", th: "Email และ LINE Marketing" },
+    name: { en: "Email & LINE Marketing", th: "Email & LINE Marketing" },
     desc: {
       en: "Owned channels are your highest-ROI asset. We build sequences, newsletters, and LINE campaigns that turn subscribers into loyal customers.",
-      th: "ช่องทางที่เป็นของคุณคือทรัพย์สิน ROI สูงสุด เราสร้าง sequence, newsletter และแคมเปญ LINE",
+      th: "Owned channels คือ asset ที่ ROI สูงสุดของคุณ เราสร้าง sequence, newsletter และ LINE campaign ที่เปลี่ยน subscriber เป็นลูกค้าประจำ",
     },
     tags: [{ label: "Email Flows" }, { label: "LINE OA" }, { label: "Automation", type: "ai" }, { label: "Copywriting", type: "craft" }],
   },
@@ -89,52 +89,52 @@ const retainerServices: ServiceItem[] = [
 
 const retainerPlans = [
   {
-    tier: { en: "Starter", th: "สตาร์ทเตอร์" },
+    tier: "Starter",
     name: "Signal",
     price: "18,000",
     per: { en: "/ month · 3-month minimum", th: "/ เดือน · ขั้นต่ำ 3 เดือน" },
     features: [
-      { en: "8 social posts / month", th: "8 โพสต์โซเชียล / เดือน" },
-      { en: "Monthly content calendar", th: "ปฏิทินคอนเทนต์รายเดือน" },
-      { en: "Basic SEO monitoring", th: "ติดตาม SEO เบื้องต้น" },
-      { en: "Monthly performance report", th: "รายงานประสิทธิภาพรายเดือน" },
-      { en: "1 email / LINE campaign", th: "1 แคมเปญ email / LINE" },
+      { en: "8 social posts / month", th: "8 social posts / เดือน" },
+      { en: "Monthly content calendar", th: "Content calendar รายเดือน" },
+      { en: "Basic SEO monitoring", th: "SEO monitoring เบื้องต้น" },
+      { en: "Monthly performance report", th: "Performance report รายเดือน" },
+      { en: "1 email / LINE campaign", th: "1 email / LINE campaign" },
     ],
     cta: { en: "Get Started", th: "เริ่มต้น" },
     best: false,
   },
   {
-    tier: { en: "Growth", th: "เติบโต" },
+    tier: "Growth",
     name: "Orbit",
     price: "25,000",
     per: { en: "/ month · 3-month minimum", th: "/ เดือน · ขั้นต่ำ 3 เดือน" },
     features: [
-      { en: "16 social posts / month", th: "16 โพสต์โซเชียล / เดือน" },
-      { en: "Full social media management", th: "จัดการโซเชียลมีเดียครบวงจร" },
-      { en: "SEO content + keyword strategy", th: "คอนเทนต์ SEO + กลยุทธ์คีย์เวิร์ด" },
-      { en: "2 email / LINE campaigns / month", th: "2 แคมเปญ email / LINE / เดือน" },
+      { en: "16 social posts / month", th: "16 social posts / เดือน" },
+      { en: "Full social media management", th: "Social media management ครบวงจร" },
+      { en: "SEO content + keyword strategy", th: "SEO content + keyword strategy" },
+      { en: "2 email / LINE campaigns / month", th: "2 email / LINE campaigns / เดือน" },
       { en: "Dedicated creative lead", th: "Creative Lead เฉพาะของคุณ" },
-      { en: "Bi-weekly strategy calls", th: "ประชุมกลยุทธ์ทุก 2 สัปดาห์" },
+      { en: "Bi-weekly strategy calls", th: "Strategy call ทุก 2 สัปดาห์" },
     ],
     cta: { en: "Start Orbiting", th: "เริ่ม Orbit" },
     best: true,
     badge: { en: "Most Popular", th: "ยอดนิยม" },
   },
   {
-    tier: { en: "Full Service", th: "บริการเต็มรูปแบบ" },
+    tier: "Full Service",
     name: "Constellation",
     price: "35,000",
     priceSuffix: "+",
-    per: { en: "/ month · custom scope", th: "/ เดือน · กำหนดขอบเขตเอง" },
+    per: { en: "/ month · custom scope", th: "/ เดือน · กำหนด scope เอง" },
     features: [
       { en: "Everything in Orbit", th: "ทุกอย่างใน Orbit" },
-      { en: "Paid ads management (Meta / Google)", th: "จัดการโฆษณา paid (Meta / Google)" },
-      { en: "Full content production team", th: "ทีมผลิตคอนเทนต์ครบวงจร" },
-      { en: "Quarterly brand audit", th: "ตรวจสอบแบรนด์รายไตรมาส" },
-      { en: "Priority 24hr response SLA", th: "ตอบสนองด่วน SLA 24 ชม." },
-      { en: "Regional market strategy", th: "กลยุทธ์ตลาดระดับภูมิภาค" },
+      { en: "Paid ads management (Meta / Google)", th: "Paid ads management (Meta / Google)" },
+      { en: "Full content production team", th: "Content production team ครบทีม" },
+      { en: "Quarterly brand audit", th: "Brand audit รายไตรมาส" },
+      { en: "Priority 24hr response SLA", th: "Priority SLA ตอบภายใน 24 ชม." },
+      { en: "Regional market strategy", th: "Regional market strategy" },
     ],
-    cta: { en: "Let's Talk Scope", th: "คุยเรื่องขอบเขต" },
+    cta: { en: "Let's Talk Scope", th: "คุยเรื่อง Scope" },
     best: false,
   },
 ];
@@ -156,12 +156,12 @@ const ServicesSection = () => {
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-end mb-12">
             <h2 className="font-display text-[clamp(42px,5.5vw,84px)] leading-[0.94] tracking-[0.02em] text-foreground">
-              {t(<>Full-service.<br /><span className="text-accent-gradient">Full commitment.</span></>, <>ครบวงจร<br /><span className="text-accent-gradient">มุ่งมั่นเต็มที่</span></>)}
+              {t(<>Full-service.<br /><span className="text-accent-gradient">Full commitment.</span></>, <>Full-service.<br /><span className="text-accent-gradient">มุ่งมั่นเต็มที่</span></>)}
             </h2>
             <p className="font-body text-[15px] leading-[1.8] text-muted-foreground">
               {t(
                 "From brand foundation to live campaign. AI-accelerated production, human-led strategy. We work across both project briefs and ongoing retainers.",
-                "ตั้งแต่รากฐานแบรนด์ถึงแคมเปญที่ออนแอร์ การผลิตด้วย AI กลยุทธ์นำโดยมนุษย์ เราทำงานทั้งแบบโปรเจกต์และ retainer รายเดือน"
+                "ตั้งแต่รากฐานแบรนด์ถึง live campaign — production เร่งด้วย AI, strategy นำโดยมนุษย์ ทำได้ทั้งแบบ project และ retainer รายเดือน"
               )}
             </p>
           </div>
@@ -175,7 +175,7 @@ const ServicesSection = () => {
               activeTab === "proj" ? "text-foreground border-accent-violet" : "text-muted-foreground border-transparent hover:text-foreground"
             }`}
           >
-            {t("Project Work", "งานโปรเจกต์")}
+            {t("Project Work", "Project Work")}
           </button>
           <button
             onClick={() => setActiveTab("ret")}
@@ -183,7 +183,7 @@ const ServicesSection = () => {
               activeTab === "ret" ? "text-foreground border-accent-violet" : "text-muted-foreground border-transparent hover:text-foreground"
             }`}
           >
-            {t("Monthly Retainer", "บริการรายเดือน")}
+            {t("Monthly Retainer", "Monthly Retainer")}
           </button>
         </div>
 
@@ -192,7 +192,6 @@ const ServicesSection = () => {
           {services.map((s, i) => (
             <AnimatedSection key={s.num} delay={i * 0.08}>
               <div className="bg-background p-10 md:p-11 relative overflow-hidden group hover:bg-secondary transition-colors duration-300">
-                {/* Left accent bar */}
                 <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-accent-gradient scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-bottom" />
                 <span className="font-mono text-[9px] tracking-[0.22em] text-accent-violet mb-5 block">{s.num}</span>
                 <h3 className="font-display text-[30px] tracking-[0.04em] leading-none text-foreground mb-3">
@@ -225,7 +224,7 @@ const ServicesSection = () => {
           <div className="mt-7 bg-card border border-divider border-l-2 border-l-accent-violet p-9 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 items-center">
             <div>
               <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-accent-violet block mb-2.5">
-                {t("Monthly Retainer", "แพ็กเกจรายเดือน")}
+                Monthly Retainer
               </span>
               <h3 className="font-display text-[34px] tracking-[0.04em] leading-none text-foreground mb-2.5">
                 {t("Need consistent growth?", "ต้องการเติบโตอย่างต่อเนื่อง?")}
@@ -233,14 +232,14 @@ const ServicesSection = () => {
               <p className="font-body text-[13.5px] leading-[1.75] text-muted-foreground max-w-[520px]">
                 {t(
                   "Our retainer plans start at ฿18,000/month — social media, content, SEO, and email marketing with a dedicated creative lead.",
-                  "แผน retainer เริ่มต้นที่ ฿18,000/เดือน — โซเชียลมีเดีย คอนเทนต์ SEO และ email marketing พร้อม creative lead เฉพาะ"
+                  "Retainer plan เริ่มต้นที่ ฿18,000/เดือน — social media, content, SEO และ email marketing พร้อม creative lead เฉพาะ"
                 )}
               </p>
             </div>
             <div className="text-left md:text-right">
               <span className="font-mono text-[9px] tracking-[0.2em] text-muted-foreground block mb-1">{t("Starting from", "เริ่มต้นที่")}</span>
               <span className="font-display text-[56px] leading-none text-foreground">฿18K</span>
-              <span className="font-mono text-[9px] tracking-[0.12em] text-muted-foreground block mt-1">{t("/ month", "/ เดือน")}</span>
+              <span className="font-mono text-[9px] tracking-[0.12em] text-muted-foreground block mt-1">/ {t("month", "เดือน")}</span>
             </div>
           </div>
         </AnimatedSection>
@@ -251,7 +250,7 @@ const ServicesSection = () => {
             <div className="flex items-center gap-3.5 mb-12">
               <span className="w-[22px] h-px bg-accent-gradient" />
               <span className="font-mono text-[9.5px] tracking-[0.28em] uppercase text-accent-violet">
-                {t("Retainer Plans", "แผนรายเดือน")}
+                Retainer Plans
               </span>
             </div>
           </AnimatedSection>
@@ -266,7 +265,7 @@ const ServicesSection = () => {
                     </div>
                   )}
                   <span className={`font-mono text-[9px] tracking-[0.25em] uppercase text-accent-violet block ${plan.best ? "mt-7" : ""} mb-4`}>
-                    {plan.tier[lang]}
+                    {plan.tier}
                   </span>
                   <h3 className="font-display text-[40px] tracking-[0.04em] leading-none text-foreground mb-1.5">{plan.name}</h3>
                   <div className="mb-1">
@@ -290,7 +289,7 @@ const ServicesSection = () => {
                     className={`block text-center font-mono text-[10px] tracking-[0.15em] uppercase py-3.5 border transition-all duration-300 rounded-sm ${
                       plan.best
                         ? "bg-accent-gradient border-transparent text-white hover:opacity-90"
-                        : "border-divider text-muted-foreground hover:bg-accent-gradient hover:border-transparent hover:text-white"
+                        : "border-divider text-muted-foreground hover:text-foreground hover:border-foreground/30"
                     }`}
                   >
                     {plan.cta[lang]}
@@ -299,21 +298,6 @@ const ServicesSection = () => {
               </AnimatedSection>
             ))}
           </div>
-
-          {/* Bottom note */}
-          <AnimatedSection delay={0.1}>
-            <div className="mt-5 p-5 border border-divider flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-              <span className="font-mono text-[9.5px] tracking-[0.12em] text-muted-foreground">
-                {t(
-                  "All plans include: AI production pipeline · Dedicated creative lead · Monthly strategy session · Cancel or upgrade anytime",
-                  "ทุกแผนรวม: AI production pipeline · Creative Lead เฉพาะ · ประชุมกลยุทธ์รายเดือน · ยกเลิกหรืออัพเกรดได้ตลอดเวลา"
-                )}
-              </span>
-              <a href="/contact" className="bg-accent-gradient text-white font-mono text-[10px] tracking-[0.1em] uppercase px-6 py-2.5 rounded-sm shrink-0 hover:opacity-90 transition-opacity">
-                {t("Start Today →", "เริ่มเลย →")}
-              </a>
-            </div>
-          </AnimatedSection>
         </div>
       </div>
     </section>

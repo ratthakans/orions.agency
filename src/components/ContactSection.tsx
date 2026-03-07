@@ -36,7 +36,7 @@ const ContactSection = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-divider border border-divider mb-20">
             <div className="bg-background p-6 md:p-8 group hover:bg-secondary transition-colors duration-300">
               <p className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mb-2">Email</p>
-              <a href="mailto:hello@orions.agency" className="font-body text-foreground group-hover:text-accent-warm transition-colors duration-300">hello@orions.agency →</a>
+              <a href="mailto:hello@orions.agency" className="font-body text-foreground group-hover:text-accent-violet transition-colors duration-300">hello@orions.agency →</a>
             </div>
             <div className="bg-background p-6 md:p-8 group hover:bg-secondary transition-colors duration-300">
               <p className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mb-2">Phone</p>

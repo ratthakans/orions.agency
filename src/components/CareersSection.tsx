@@ -73,7 +73,7 @@ const CareersSection = () => {
         <AnimatedSection delay={0.1}>
           <div className="flex items-center gap-3.5 mb-10">
             <span className="w-[22px] h-px bg-accent-gradient" />
-            <span className="font-mono text-[11px] tracking-[0.28em] uppercase text-accent-violet">
+            <span className="font-mono text-[11px] tracking-[0.28em] uppercase text-foreground">
               {t("Open Positions", "ตำแหน่งที่เปิดรับ")}
             </span>
           </div>

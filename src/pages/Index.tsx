@@ -4,11 +4,11 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import ProblemSection from "@/components/ProblemSection";
 import SocialProofStrip from "@/components/SocialProofStrip";
-// ImpactSection removed
 import ProcessSection from "@/components/ProcessSection";
 import FAQSection from "@/components/FAQSection";
 import StartProjectDialog from "@/components/StartProjectDialog";
 import Footer from "@/components/Footer";
+import ConstellationDivider from "@/components/ConstellationDivider";
 import { Link } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
 import OrionConstellation from "@/components/OrionConstellation";
@@ -27,14 +27,18 @@ const Index = () => {
       </Helmet>
       <Navbar />
       <HeroSection onStartProject={() => setDialogOpen(true)} />
+      <ConstellationDivider />
       <ProblemSection />
+      <ConstellationDivider />
       <SocialProofStrip />
-      {/* ImpactSection removed */}
+      <ConstellationDivider />
       <ProcessSection />
+      <ConstellationDivider />
       <FAQSection />
+      <ConstellationDivider />
 
       {/* CTA Bridge */}
-      <section className="py-32 md:py-40 px-6 md:px-12 border-t border-divider text-center relative overflow-hidden">
+      <section className="py-32 md:py-40 px-6 md:px-12 text-center relative overflow-hidden">
          <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
           <OrionConstellation size="xl" opacity={0.06} animate={false} className="scale-150" />
         </div>

@@ -521,8 +521,8 @@ const ServicesSection = () => {
                 </div>
 
                 {/* How We're Different */}
-                <div className="border border-divider bg-background p-6">
-                  <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-violet mb-3">{t("How We're Different", "สิ่งที่เราต่าง")}</h4>
+                <div className="border border-divider bg-card p-6">
+                  <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/60 mb-3">{t("How We're Different", "สิ่งที่เราต่าง")}</h4>
                   <p className="font-body text-[14px] leading-[1.75] text-muted-foreground">{selectedService.dialog.different[lang]}</p>
                 </div>
 

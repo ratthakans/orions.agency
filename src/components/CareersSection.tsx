@@ -145,7 +145,7 @@ const CareersSection = () => {
 
       {/* Job Detail Dialog */}
       <Dialog open={!!selectedJob} onOpenChange={(open) => !open && setSelectedJob(null)}>
-        <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto bg-background border-divider p-0">
+        <DialogContent className="max-w-3xl max-h-[85vh] overflow-y-auto bg-background border-divider p-0">
           {selectedJob && (
             <div className="p-8 md:p-12">
               <DialogHeader className="mb-8">

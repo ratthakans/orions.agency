@@ -78,7 +78,7 @@ const CareersSection = () => {
                   </div>
                   <div className="flex items-center gap-4">
                     <span className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground font-body border border-divider px-3 py-1">{job.type}</span>
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="text-muted-foreground group-hover:text-accent-warm group-hover:translate-x-1 transition-all duration-300">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="text-muted-foreground group-hover:text-accent-violet group-hover:translate-x-1 transition-all duration-300">
                       <path d="M4 16L16 4M16 4H6M16 4V14" stroke="currentColor" strokeWidth="1.5" />
                     </svg>
                   </div>

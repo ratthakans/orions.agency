@@ -33,7 +33,7 @@ const CareersSection = () => {
           <div className="mb-20 max-w-3xl">
             <div className="flex items-center gap-3.5 mb-8">
               <span className="w-[22px] h-px bg-accent-gradient" />
-              <span className="font-mono text-[11px] tracking-[0.28em] uppercase text-accent-violet">Careers</span>
+              <span className="font-mono text-[11px] tracking-[0.28em] uppercase text-foreground">Careers</span>
             </div>
             <h2 className="font-display text-[clamp(48px,7vw,100px)] leading-[0.9] tracking-[0.02em] text-foreground mb-6">
               {t(<>Join Our <span className="text-accent-gradient">Creative Team</span></>, <>ร่วมงานกับ <span className="text-accent-gradient">Creative Team</span></>)}

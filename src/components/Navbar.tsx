@@ -2,62 +2,104 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import StartProjectDialog from "./StartProjectDialog";
-
-const navLinks = [
-  { label: "About", href: "/about" },
-  { label: "Services", href: "/services" },
-  { label: "Work", href: "/work" },
-  { label: "Careers", href: "/careers" },
-  { label: "Contact", href: "/contact" },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
   const location = useLocation();
+  const { lang, setLang, t } = useLanguage();
+
+  const navLinks = [
+    { label: t("Services", "บริการ"), href: "/services" },
+    { label: t("Work", "ผลงาน"), href: "/work" },
+    { label: t("AI Stack", "เครื่องมือ AI"), href: "/ai-stack" },
+    { label: t("About", "เกี่ยวกับ"), href: "/about" },
+    { label: t("Contact", "ติดต่อ"), href: "/contact" },
+  ];
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-divider">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20">
-          <Link to="/" className="font-logo text-xl md:text-2xl font-medium tracking-tight text-foreground">
-            ØRIONS
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-xl border-b border-divider">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-[62px]">
+          <Link to="/" className="flex items-center gap-2.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-accent-gradient" />
+            <span className="font-display text-[22px] tracking-[0.18em] text-foreground">ØRIONS</span>
           </Link>
 
           {/* Desktop */}
           <div className="hidden md:flex items-center gap-10">
             {navLinks.map((link) => (
               <Link
-                key={link.label}
+                key={link.href}
                 to={link.href}
-                className={`relative text-sm transition-colors duration-300 font-body tracking-wide ${
+                className={`font-mono text-[10.5px] tracking-[0.14em] uppercase transition-colors duration-300 ${
                   location.pathname === link.href ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                 }`}
               >
                 {link.label}
-                {location.pathname === link.href && (
-                  <span className="absolute -bottom-1 left-0 right-0 h-px bg-accent-warm" />
-                )}
               </Link>
             ))}
+          </div>
+
+          <div className="hidden md:flex items-center gap-4">
+            {/* Language Toggle */}
+            <div className="flex border border-divider overflow-hidden rounded-sm">
+              <button
+                onClick={() => setLang("en")}
+                className={`font-mono text-[10px] tracking-[0.14em] uppercase px-4 py-[7px] transition-all duration-200 ${
+                  lang === "en" ? "bg-accent-gradient text-white" : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                EN
+              </button>
+              <button
+                onClick={() => setLang("th")}
+                className={`font-mono text-[10px] tracking-[0.14em] uppercase px-4 py-[7px] transition-all duration-200 ${
+                  lang === "th" ? "bg-accent-gradient text-white" : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                TH
+              </button>
+            </div>
             <button
               onClick={() => setDialogOpen(true)}
-              className="text-sm bg-foreground text-background px-5 py-2.5 font-display font-medium hover:bg-accent-warm hover:text-accent-warm-foreground transition-colors duration-300"
+              className="font-mono text-[10.5px] tracking-[0.1em] uppercase text-foreground border border-foreground/20 px-5 py-2.5 hover:bg-accent-gradient hover:border-transparent hover:text-white transition-all duration-300 rounded-sm"
             >
-              Start a Project
+              {t("Start a Project", "เริ่มโปรเจกต์")}
             </button>
           </div>
 
           {/* Mobile toggle */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden flex flex-col gap-1.5 p-2"
-            aria-label="Toggle menu"
-          >
-            <span className={`block w-6 h-px bg-foreground transition-transform duration-300 ${isOpen ? "rotate-45 translate-y-[3.5px]" : ""}`} />
-            <span className={`block w-6 h-px bg-foreground transition-opacity duration-300 ${isOpen ? "opacity-0" : ""}`} />
-            <span className={`block w-6 h-px bg-foreground transition-transform duration-300 ${isOpen ? "-rotate-45 -translate-y-[3.5px]" : ""}`} />
-          </button>
+          <div className="md:hidden flex items-center gap-3">
+            <div className="flex border border-divider overflow-hidden rounded-sm">
+              <button
+                onClick={() => setLang("en")}
+                className={`font-mono text-[9px] tracking-[0.14em] uppercase px-3 py-1.5 transition-all duration-200 ${
+                  lang === "en" ? "bg-accent-gradient text-white" : "text-muted-foreground"
+                }`}
+              >
+                EN
+              </button>
+              <button
+                onClick={() => setLang("th")}
+                className={`font-mono text-[9px] tracking-[0.14em] uppercase px-3 py-1.5 transition-all duration-200 ${
+                  lang === "th" ? "bg-accent-gradient text-white" : "text-muted-foreground"
+                }`}
+              >
+                TH
+              </button>
+            </div>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="flex flex-col gap-1.5 p-2"
+              aria-label="Toggle menu"
+            >
+              <span className={`block w-6 h-px bg-foreground transition-transform duration-300 ${isOpen ? "rotate-45 translate-y-[3.5px]" : ""}`} />
+              <span className={`block w-6 h-px bg-foreground transition-opacity duration-300 ${isOpen ? "opacity-0" : ""}`} />
+              <span className={`block w-6 h-px bg-foreground transition-transform duration-300 ${isOpen ? "-rotate-45 -translate-y-[3.5px]" : ""}`} />
+            </button>
+          </div>
         </div>
 
         {/* Mobile menu */}
@@ -72,10 +114,10 @@ const Navbar = () => {
               <div className="px-6 py-8 flex flex-col gap-6">
                 {navLinks.map((link) => (
                   <Link
-                    key={link.label}
+                    key={link.href}
                     to={link.href}
                     onClick={() => setIsOpen(false)}
-                    className={`text-lg font-display transition-colors ${
+                    className={`font-mono text-sm tracking-[0.1em] uppercase transition-colors ${
                       location.pathname === link.href ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                     }`}
                   >
@@ -84,9 +126,9 @@ const Navbar = () => {
                 ))}
                 <button
                   onClick={() => { setIsOpen(false); setDialogOpen(true); }}
-                  className="text-sm bg-foreground text-background px-5 py-3 font-display font-medium text-center mt-2 hover:bg-accent-warm hover:text-accent-warm-foreground transition-colors duration-300"
+                  className="font-mono text-sm tracking-[0.1em] uppercase bg-accent-gradient text-white px-5 py-3 text-center mt-2 rounded-sm"
                 >
-                  Start a Project
+                  {t("Start a Project", "เริ่มโปรเจกต์")}
                 </button>
               </div>
             </motion.div>

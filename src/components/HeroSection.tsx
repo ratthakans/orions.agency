@@ -1,97 +1,100 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface HeroSectionProps {
   onStartProject: () => void;
 }
 
 const HeroSection = ({ onStartProject }: HeroSectionProps) => {
-  return (
-    <section className="min-h-screen flex flex-col justify-center px-6 md:px-12 pt-20 relative">
-      <div className="max-w-7xl mx-auto w-full">
-        <div className="absolute top-32 right-8 md:right-16 pointer-events-none select-none hidden md:block">
-          <span className="font-display text-[12rem] lg:text-[16rem] font-bold tracking-tighter text-stroke-lg opacity-[0.07]">
-            01
-          </span>
-        </div>
+  const { t } = useLanguage();
 
+  return (
+    <section className="min-h-screen flex flex-col justify-end px-6 md:px-12 pt-20 pb-20 relative overflow-hidden">
+      {/* Subtle gradient glow */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/4 right-1/4 w-[600px] h-[600px] rounded-full opacity-[0.04] bg-accent-gradient blur-[120px]" />
+      </div>
+
+      <div className="max-w-7xl mx-auto w-full relative z-10">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="flex items-center gap-4 text-sm text-muted-foreground font-body mb-12"
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="font-mono text-[10px] tracking-[0.28em] uppercase text-accent-violet mb-8"
         >
-          <span className="font-display text-xs tracking-[0.3em] uppercase text-muted-foreground">(01)</span>
-          <span className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full inline-block bg-accent-gradient" />
-            Bangkok · Available
-          </span>
+          {t("Creative Agency · Bangkok · Est. 2020", "เอเจนซี่สร้างสรรค์ · กรุงเทพฯ · ก่อตั้ง 2020")}
         </motion.div>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-6"
-        >
-          Creative Agency
-        </motion.p>
 
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.4 }}
-          className="font-display text-6xl sm:text-7xl md:text-8xl lg:text-[9rem] xl:text-[10rem] font-bold tracking-tighter leading-[0.9] text-foreground mb-16"
+          transition={{ duration: 0.9, delay: 0.2 }}
+          className="font-display text-[clamp(72px,11.5vw,190px)] leading-[0.88] tracking-[0.02em] text-foreground mb-0"
         >
-          <span className="text-stroke">Noiseless,</span><br />
-          More Meaning.
+          {t("Human Thinking.", "คิดอย่างมนุษย์")}
+          <br />
+          <span className="text-muted-foreground italic">
+            {t("Machine Speed.", "เร็วอย่างเครื่องจักร")}
+          </span>
         </motion.h1>
 
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.7 }}
-          className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 border-t border-divider pt-8"
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="flex flex-col md:flex-row items-start md:items-end justify-between gap-8 mt-16 pt-10 border-t border-divider"
         >
-          <div>
-            <p className="font-body text-base md:text-lg text-muted-foreground max-w-md leading-relaxed">
-              We define direction, build authority, and create work that moves markets.
-            </p>
-            <p className="font-body text-xs tracking-[0.15em] uppercase text-muted-foreground/70 mt-3">
-              Trusted by 50+ brands across Southeast Asia
-            </p>
-          </div>
+          <p className="font-body text-base text-muted-foreground max-w-[360px] leading-[1.78]">
+            {t(
+              <>We build brands that cut through — with the <strong className="text-foreground font-normal">strategic depth</strong> no AI can replicate, and the <strong className="text-foreground font-normal">production velocity</strong> no traditional agency can match.</>,
+              <>เราสร้างแบรนด์ที่เจาะทะลุผ่านทุกเสียงรบกวน ด้วย<strong className="text-foreground font-normal">กลยุทธ์เชิงลึก</strong>ที่ AI ไม่สามารถลอกเลียนได้ และ<strong className="text-foreground font-normal">ความเร็วในการผลิต</strong>ที่เอเจนซี่ทั่วไปตามไม่ทัน</>
+            )}
+          </p>
 
-          <div className="flex items-center gap-4">
+          <div className="flex flex-col gap-3.5">
             <button
               onClick={onStartProject}
-              className="group/btn bg-foreground text-background px-7 py-3.5 text-sm font-display font-medium tracking-wide hover:bg-accent-warm hover:text-accent-warm-foreground transition-colors duration-300 flex items-center gap-2"
+              className="group/btn bg-accent-gradient text-white px-7 py-3.5 font-mono text-[11px] tracking-[0.1em] uppercase flex items-center gap-2.5 rounded-sm hover:opacity-90 transition-opacity"
             >
-              Start a Project
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="inline-block transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1">
-                <path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" strokeWidth="1.5" />
-              </svg>
+              {t("Start a Project →", "เริ่มโปรเจกต์ →")}
             </button>
             <Link
               to="/services"
-              className="border border-divider text-foreground px-7 py-3.5 text-sm font-display font-medium tracking-wide hover:border-foreground/50 transition-colors duration-300"
+              className="text-muted-foreground font-mono text-[11px] tracking-[0.1em] uppercase py-3.5 border-b border-divider hover:text-foreground hover:border-muted-foreground transition-all duration-300"
             >
-              View Services
+              {t("View Services", "ดูบริการทั้งหมด")}
             </Link>
+          </div>
+
+          <div className="flex flex-row md:flex-col gap-5 md:items-end">
+            <div className="text-right">
+              <span className="font-display text-[44px] leading-none text-foreground">14+</span>
+              <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-muted-foreground block">{t("Clients", "ลูกค้า")}</span>
+            </div>
+            <div className="text-right">
+              <span className="font-display text-[44px] leading-none text-foreground">3.2×</span>
+              <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-muted-foreground block">{t("Avg Engagement", "Engagement เฉลี่ย")}</span>
+            </div>
+            <div className="text-right">
+              <span className="font-display text-[44px] leading-none text-foreground">25%</span>
+              <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-muted-foreground block">{t("Revenue Uplift", "รายได้เพิ่มขึ้น")}</span>
+            </div>
           </div>
         </motion.div>
       </div>
 
+      {/* Ticker */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 1.0 }}
-        className="absolute bottom-0 left-0 right-0 border-t border-divider overflow-hidden py-4"
+        transition={{ duration: 0.8, delay: 0.8 }}
+        className="absolute bottom-0 left-0 right-0 bg-accent-gradient overflow-hidden py-3"
       >
         <div className="animate-marquee whitespace-nowrap flex gap-0">
           {[...Array(4)].map((_, i) => (
-            <span key={i} className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mx-0">
-              Brand Direction <span className="text-muted-foreground/50">·</span> Communication Systems <span className="text-muted-foreground/50">·</span> Digital Experience <span className="text-muted-foreground/50">·</span> Creative Expression <span className="text-muted-foreground/50">·</span> Strategy <span className="text-muted-foreground/50">·</span> Authority <span className="text-muted-foreground/50">·</span> Clarity <span className="text-muted-foreground/50">·</span>&nbsp;
+            <span key={i} className="font-mono text-[10px] tracking-[0.22em] uppercase text-white/90 mx-0">
+              Brand Strategy <span className="opacity-45">✦</span> AI-Augmented Creative <span className="opacity-45">✦</span> Visual Identity <span className="opacity-45">✦</span> Social Media Management <span className="opacity-45">✦</span> SEO & Performance <span className="opacity-45">✦</span> Content Production <span className="opacity-45">✦</span> LINE & Email Marketing <span className="opacity-45">✦</span> Bangkok · Southeast Asia <span className="opacity-45">✦</span>&nbsp;
             </span>
           ))}
         </div>

@@ -105,7 +105,7 @@ const WorkSection = () => {
 
       {/* Project Detail Dialog */}
       <Dialog open={!!selectedWork} onOpenChange={(open) => !open && setSelectedWork(null)}>
-        <DialogContent className="sm:max-w-[600px] max-h-[85vh] overflow-y-auto bg-background border-divider p-0 gap-0">
+        <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto bg-background border-divider p-0 gap-0">
           {selectedWork && (
             <>
               <div className="w-full aspect-[16/9] overflow-hidden">

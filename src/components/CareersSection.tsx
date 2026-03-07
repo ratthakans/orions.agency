@@ -74,7 +74,7 @@ const CareersSection = () => {
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                   <div className="flex items-center gap-4">
                     <span className="text-accent-gradient font-display text-sm font-bold tracking-wide">{String(i + 1).padStart(2, "0")}</span>
-                    <h3 className="font-display text-xl md:text-2xl font-semibold text-foreground group-hover:text-accent-warm transition-colors duration-300">{job.title}</h3>
+                    <h3 className="font-display text-xl md:text-2xl font-semibold text-foreground group-hover:text-accent-violet transition-colors duration-300">{job.title}</h3>
                   </div>
                   <div className="flex items-center gap-4">
                     <span className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground font-body border border-divider px-3 py-1">{job.type}</span>

@@ -113,17 +113,15 @@ const WorkSection = () => {
               </div>
 
               <div className="p-8 md:p-10">
-                <DialogHeader className="mb-6">
-                  <div className="flex items-center justify-between mb-3">
+                <DialogHeader className="mb-0 pb-0">
+                  <div className="flex items-center justify-between mb-4">
                     <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-muted-foreground">{selectedWork.industry}</span>
                     <span className="font-mono text-[10px] tracking-[0.1em] text-accent-gradient">{selectedWork.metric}</span>
                   </div>
-                  <DialogTitle className="font-display text-2xl md:text-3xl tracking-tight text-foreground">
+                  <DialogTitle className="font-display text-[40px] tracking-[0.03em] leading-none text-foreground mb-2">
                     {selectedWork.title}
                   </DialogTitle>
-                  <DialogDescription className="font-body text-sm text-muted-foreground mt-2">
-                    {selectedWork.brief[lang]}
-                  </DialogDescription>
+                  <p className="font-body text-[15px] text-muted-foreground leading-relaxed">{selectedWork.brief[lang]}</p>
                 </DialogHeader>
 
                 {/* Scope of Work */}

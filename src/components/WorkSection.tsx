@@ -1,6 +1,6 @@
 import { useState } from "react";
 import AnimatedSection from "./AnimatedSection";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "./ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "./ui/dialog";
 import { useLanguage } from "@/contexts/LanguageContext";
 import workNorthwind from "@/assets/work-northwind.jpg";
 import workAtlas from "@/assets/work-atlas.jpg";
@@ -44,48 +44,47 @@ const WorkSection = () => {
   const { lang, t } = useLanguage();
 
   return (
-    <section id="work" className="py-32 md:py-44 px-6 md:px-12">
+    <section id="work" className="py-24 md:py-32 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
         <AnimatedSection>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-24">
-            <div>
-              <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-4">
-                Portfolio
-              </p>
-              <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-foreground">
-                Selected<br />
-                <span className="text-accent-gradient">Work</span>
-              </h2>
-            </div>
-            <div className="flex items-end">
-              <p className="font-body text-muted-foreground text-base md:text-lg max-w-md leading-relaxed">
-                {t(
-                  "A selection of projects where we helped brands find clarity and create impact.",
-                  "ผลงานที่เราช่วยแบรนด์ค้นพบความชัดเจนและสร้าง impact"
-                )}
-              </p>
-            </div>
+          <div className="flex items-center gap-3.5 mb-12">
+            <span className="w-[22px] h-px bg-accent-gradient" />
+            <span className="font-mono text-[10px] tracking-[0.28em] uppercase text-foreground/50">
+              Portfolio
+            </span>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-end mb-12">
+            <h2 className="font-display text-[clamp(42px,5.5vw,84px)] leading-[0.94] tracking-[0.02em] text-foreground">
+              {t(<>Selected<br /><span className="text-accent-gradient">Work</span></>, <>ผลงาน<br /><span className="text-accent-gradient">คัดสรร</span></>)}
+            </h2>
+            <p className="font-body text-[15px] leading-[1.8] text-muted-foreground">
+              {t(
+                "A selection of projects where we helped brands find clarity and create impact.",
+                "ผลงานที่เราช่วยแบรนด์ค้นพบความชัดเจนและสร้าง impact"
+              )}
+            </p>
           </div>
         </AnimatedSection>
 
         {/* Featured project */}
         <AnimatedSection>
-          <div className="group cursor-pointer mb-16" onClick={() => setSelectedWork(works[0])}>
+          <div className="group cursor-pointer mb-16 relative overflow-hidden" onClick={() => setSelectedWork(works[0])}>
+            <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-accent-gradient scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-bottom z-10" />
             <div className="overflow-hidden mb-6">
               <img src={works[0].image} alt={works[0].title} className="w-full aspect-[16/9] object-cover group-hover:scale-[1.03] group-hover:brightness-110 transition-all duration-500" loading="lazy" />
             </div>
             <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
               <div>
                 <div className="flex items-center gap-3 mb-2">
-                  <h3 className="font-display text-2xl md:text-3xl font-semibold text-foreground">{works[0].title}</h3>
-                  <span className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground font-body border border-divider px-2 py-0.5">{works[0].industry}</span>
+                  <h3 className="font-display text-[30px] tracking-[0.04em] leading-none text-foreground">{works[0].title}</h3>
+                  <span className="font-mono text-[9px] tracking-[0.18em] uppercase px-2.5 py-1 bg-foreground/5 text-foreground/60 border border-foreground/10">{works[0].industry}</span>
                 </div>
-                <p className="font-body text-sm text-muted-foreground max-w-lg">{works[0].brief[lang]}</p>
-                <p className="font-display text-sm font-semibold text-accent-gradient mt-2">{works[0].metric}</p>
+                <p className="font-body text-[14px] leading-[1.75] text-muted-foreground max-w-lg">{works[0].brief[lang]}</p>
+                <p className="font-mono text-[11px] tracking-[0.1em] text-accent-gradient mt-2">{works[0].metric}</p>
               </div>
-              <div className="flex flex-wrap gap-2 md:justify-end shrink-0">
+              <div className="flex flex-wrap gap-1.5 md:justify-end shrink-0">
                 {works[0].scope.slice(0, 3).map((s) => (
-                  <span key={s} className="text-[10px] tracking-[0.15em] uppercase text-muted-foreground font-body border border-divider px-2 py-0.5">{s}</span>
+                  <span key={s} className="font-mono text-[9px] tracking-[0.12em] uppercase px-2.5 py-1 border border-divider text-muted-foreground">{s}</span>
                 ))}
               </div>
             </div>
@@ -93,40 +92,43 @@ const WorkSection = () => {
         </AnimatedSection>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-divider border border-divider">
           {works.slice(1).map((w, i) => (
             <AnimatedSection key={w.title} delay={i * 0.05}>
-              <div className="group cursor-pointer" onClick={() => setSelectedWork(w)}>
-                <div className="overflow-hidden mb-4">
+              <div className="bg-background p-0 group cursor-pointer relative hover:bg-secondary transition-colors duration-300" onClick={() => setSelectedWork(w)}>
+                <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-accent-gradient scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-bottom z-10" />
+                <div className="overflow-hidden">
                   <img src={w.image} alt={w.title} className="w-full aspect-[4/3] object-cover group-hover:scale-[1.03] group-hover:brightness-110 transition-all duration-500" loading="lazy" />
                 </div>
-                <div className="flex items-center gap-2 mb-1.5">
-                  <h3 className="font-display text-lg font-semibold text-foreground">{w.title}</h3>
-                  <span className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground font-body">{w.industry}</span>
+                <div className="p-6 md:p-8">
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <h3 className="font-body text-[15px] font-medium text-foreground">{w.title}</h3>
+                    <span className="font-mono text-[9px] tracking-[0.18em] uppercase text-foreground/40">{w.industry}</span>
+                  </div>
+                  <p className="font-body text-[13px] leading-[1.72] text-muted-foreground line-clamp-2">{w.brief[lang]}</p>
+                  <p className="font-mono text-[10px] tracking-[0.1em] text-accent-gradient mt-2">{w.metric}</p>
                 </div>
-                <p className="font-body text-sm text-muted-foreground leading-relaxed line-clamp-2">{w.brief[lang]}</p>
-                <p className="font-display text-xs font-semibold text-accent-gradient mt-2">{w.metric}</p>
               </div>
             </AnimatedSection>
           ))}
         </div>
 
         {/* Trusted By */}
-        <div className="mt-32 border-t border-divider pt-20">
+        <div className="mt-20 border-t border-divider pt-16">
           <AnimatedSection>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-              <div>
-                <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-4">Trusted By</p>
-                <h3 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-foreground">And More</h3>
-              </div>
+            <div className="flex items-center gap-3.5 mb-12">
+              <span className="w-[22px] h-px bg-accent-gradient" />
+              <span className="font-mono text-[10px] tracking-[0.28em] uppercase text-foreground/50">
+                Trusted By
+              </span>
             </div>
           </AnimatedSection>
           <AnimatedSection delay={0.1}>
             <div className="grid grid-cols-3 md:grid-cols-5 gap-px bg-divider border border-divider">
               {clientLogos.map((client) => (
                 <div key={client.name} className="bg-background flex flex-col items-center justify-center py-8 md:py-10 px-4 gap-3 group hover:bg-secondary transition-colors duration-300">
-                  <span className="text-muted-foreground group-hover:text-foreground transition-colors duration-300">{client.icon}</span>
-                  <span className="font-display text-[10px] md:text-xs font-medium tracking-[0.15em] uppercase text-muted-foreground group-hover:text-foreground transition-colors duration-300 text-center">{client.name}</span>
+                  <span className="text-muted-foreground transition-colors duration-300">{client.icon}</span>
+                  <span className="font-mono text-[9px] tracking-[0.15em] uppercase text-muted-foreground transition-colors duration-300 text-center">{client.name}</span>
                 </div>
               ))}
             </div>
@@ -134,34 +136,43 @@ const WorkSection = () => {
         </div>
       </div>
 
+      {/* Unified Dialog */}
       <Dialog open={!!selectedWork} onOpenChange={(open) => !open && setSelectedWork(null)}>
-        <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto bg-background border-divider p-0">
+        <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto bg-background border-divider p-0 gap-0">
           {selectedWork && (
             <>
               <div className="w-full aspect-[16/9] overflow-hidden">
                 <img src={selectedWork.image} alt={selectedWork.title} className="w-full h-full object-cover" />
               </div>
-              <div className="p-8 md:p-12">
-                <DialogHeader className="mb-8">
-                  <div className="flex items-center gap-3 mb-2">
-                    <DialogTitle className="font-display text-2xl md:text-3xl font-bold text-foreground">{selectedWork.title}</DialogTitle>
-                    <span className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground font-body border border-divider px-2 py-0.5">{selectedWork.industry}</span>
+
+              <DialogHeader className="p-8 pb-0">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-muted-foreground">{selectedWork.industry}</span>
+                  <span className="font-mono text-[10px] tracking-[0.1em] text-accent-gradient">{selectedWork.metric}</span>
+                </div>
+                <DialogTitle className="font-display text-[40px] tracking-[0.03em] leading-none text-foreground mb-2">
+                  {selectedWork.title}
+                </DialogTitle>
+                <p className="font-body text-[15px] text-muted-foreground leading-relaxed">{selectedWork.brief[lang]}</p>
+              </DialogHeader>
+
+              <div className="p-8 space-y-8">
+                {/* Scope of Work */}
+                <div>
+                  <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/60 mb-4">{t("Scope of Work", "ขอบเขตงาน")}</h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-divider border border-divider">
+                    {selectedWork.scope.map((s, i) => (
+                      <div key={i} className="bg-background p-4 hover:bg-secondary transition-colors duration-300">
+                        <span className="font-mono text-[10px] tracking-[0.1em] text-foreground">{s}</span>
+                      </div>
+                    ))}
                   </div>
-                  <DialogDescription className="font-body text-base text-muted-foreground">{selectedWork.brief[lang]}</DialogDescription>
-                </DialogHeader>
-                <div className="space-y-8">
-                  <div>
-                    <h4 className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4">Scope of Work</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {selectedWork.scope.map((s) => (
-                        <span key={s} className="text-xs tracking-[0.1em] uppercase font-body border border-divider px-3 py-1.5 text-foreground">{s}</span>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="border-t border-divider pt-8">
-                    <h4 className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4">Result</h4>
-                    <p className="font-body text-sm text-foreground leading-relaxed">{selectedWork.result[lang]}</p>
-                  </div>
+                </div>
+
+                {/* Result */}
+                <div className="border border-divider bg-card p-6">
+                  <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/60 mb-3">{t("Result", "ผลลัพธ์")}</h4>
+                  <p className="font-body text-[14px] leading-[1.75] text-muted-foreground">{selectedWork.result[lang]}</p>
                 </div>
               </div>
             </>

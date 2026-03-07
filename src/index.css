@@ -28,11 +28,11 @@
     --accent-foreground: 40 10% 96%;
 
     /* Lava gradient accents */
-    --accent-violet: 270 80% 55%;
+    --accent-violet: 215 85% 55%;
     --accent-blue: 215 90% 58%;
     --accent-rose: 350 85% 58%;
     --accent-amber: 35 95% 55%;
-    --accent-warm: 270 80% 55%;
+    --accent-warm: 215 85% 55%;
     --accent-warm-end: 35 95% 55%;
     --accent-warm-foreground: 0 0% 100%;
 
@@ -41,7 +41,7 @@
 
     --border: 45 5% 12%;
     --input: 50 5% 15%;
-    --ring: 265 60% 50%;
+    --ring: 215 60% 50%;
 
     --radius: 2px;
 
@@ -52,14 +52,14 @@
     --sidebar-accent: 50 5% 11%;
     --sidebar-accent-foreground: 40 10% 96%;
     --sidebar-border: 45 5% 12%;
-    --sidebar-ring: 265 60% 50%;
+    --sidebar-ring: 215 60% 50%;
 
     /* Custom tokens */
     --surface-elevated: 50 8% 4%;
     --text-secondary: 45 5% 50%;
     --text-tertiary: 45 5% 35%;
     --divider: 45 5% 12%;
-    --status-available: 265 85% 60%;
+    --status-available: 215 85% 55%;
   }
 }
 
@@ -164,7 +164,7 @@ html {
 
 /* Selection */
 ::selection {
-  background: hsl(265 85% 60% / 0.25);
+  background: hsl(215 85% 55% / 0.25);
   color: hsl(40 10% 95%);
 }
 

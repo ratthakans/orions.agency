@@ -11,11 +11,11 @@ const Footer = () => {
           <div>
             <p className="font-logo text-[18px] tracking-[0.22em] text-foreground mb-3 uppercase">ØRIONS</p>
             <p className="font-body text-[13px] leading-[1.72] text-muted-foreground max-w-[220px] mb-5">
-              {t("AI-Native Creative Agency.\nHuman craft. Machine velocity.", "AI-Native Creative Agency\nHuman craft. Machine velocity.")}
+              {t("AI-Native Creative Agency.\nHuman craft. AI velocity.", "AI-Native Creative Agency\nHuman craft. AI velocity.")}
             </p>
             <div className="space-y-1.5">
-              <a href="mailto:hello@orions.agency" className="font-mono text-[11px] tracking-[0.06em] text-accent-violet block hover:text-foreground transition-colors">hello@orions.agency</a>
-              <a href="tel:+66923905464" className="font-mono text-[11px] tracking-[0.06em] text-accent-violet block hover:text-foreground transition-colors">+66 92 390 5464</a>
+              <a href="mailto:hello@orions.agency" className="font-mono text-[11px] tracking-[0.06em] text-accent-violet block transition-colors">hello@orions.agency</a>
+              <a href="tel:+66923905464" className="font-mono text-[11px] tracking-[0.06em] text-accent-violet block transition-colors">+66 92 390 5464</a>
             </div>
           </div>
 

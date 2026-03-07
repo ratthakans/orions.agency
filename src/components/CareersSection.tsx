@@ -89,7 +89,7 @@ const CareersSection = () => {
                 <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-accent-gradient scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-bottom" />
                 <div className="flex items-start justify-between gap-4 mb-3">
                   <div>
-                    <span className="font-mono text-[10px] tracking-[0.22em] text-accent-violet mb-3 block">{String(i + 1).padStart(2, "0")}</span>
+                     <span className="font-mono text-[10px] tracking-[0.22em] text-foreground/40 mb-3 block">{String(i + 1).padStart(2, "0")}</span>
                     <h3 className="font-display text-[26px] tracking-[0.04em] leading-none text-foreground">{job.title}</h3>
                   </div>
                   <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground border border-divider px-3 py-1 shrink-0 mt-6">{job.type}</span>

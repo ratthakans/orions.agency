@@ -37,7 +37,8 @@ const WorkSection = () => {
   }, [activeFilter]);
 
   return (
-    <section id="work" className="py-24 md:py-32 px-6 md:px-12">
+    <section id="work" className="py-24 md:py-32 px-6 md:px-12 relative overflow-hidden">
+      <StarField count={40} />
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <AnimatedSection>

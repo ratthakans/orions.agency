@@ -497,8 +497,8 @@ const ServicesSection = () => {
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex gap-2">
                     {selectedService.tags.slice(0, 3).map((tag) => (
-                      <span key={tag.label} className={`font-mono text-[9px] tracking-[0.18em] uppercase px-2 py-[3px] border ${
-                        tag.type === "ai" ? "border-accent-violet/30 text-accent-violet" : "border-divider text-muted-foreground"
+                       <span key={tag.label} className={`font-mono text-[9px] tracking-[0.18em] uppercase px-2 py-[3px] border ${
+                         tag.type === "ai" ? "border-foreground/15 text-foreground/60" : "border-divider text-muted-foreground"
                       }`}>{tag.label}</span>
                     ))}
                   </div>

@@ -11,6 +11,7 @@ import StartProjectDialog from "@/components/StartProjectDialog";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
+import OrionConstellation from "@/components/OrionConstellation";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Index = () => {

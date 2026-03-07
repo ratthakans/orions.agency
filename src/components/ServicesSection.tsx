@@ -344,8 +344,8 @@ const ServicesSection = () => {
             </h2>
             <p className="font-body text-[16px] leading-[1.8] text-muted-foreground">
               {t(
-                "From brand foundation to live campaign. AI-accelerated production, human-led strategy. We work across both project briefs and ongoing retainers.",
-                "ตั้งแต่รากฐานแบรนด์ถึง live campaign — production เร่งด้วย AI, strategy นำโดยมนุษย์ ทำได้ทั้งแบบ project และ retainer รายเดือน"
+                "From brand foundation to live campaign. AI-accelerated production, human-led strategy. Choose your path: Navigational Stars for one-time projects, or Orbital Systems for ongoing growth.",
+                "ตั้งแต่รากฐานแบรนด์ถึง live campaign — production เร่งด้วย AI, strategy นำโดยมนุษย์ เลือกเส้นทาง: Navigational Stars สำหรับ project หรือ Orbital Systems สำหรับการเติบโตต่อเนื่อง"
               )}
             </p>
           </div>

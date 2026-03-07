@@ -40,7 +40,7 @@ const ContactSection = () => {
             </div>
             <div className="bg-background p-6 md:p-8 group hover:bg-secondary transition-colors duration-300">
               <p className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mb-2">Phone</p>
-              <a href="tel:+66923905464" className="font-body text-foreground group-hover:text-accent-warm transition-colors duration-300">+66 92 390 5464 →</a>
+              <a href="tel:+66923905464" className="font-body text-foreground group-hover:text-accent-violet transition-colors duration-300">+66 92 390 5464 →</a>
             </div>
             <div className="bg-background p-6 md:p-8 group hover:bg-secondary transition-colors duration-300">
               <p className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mb-2">Location</p>

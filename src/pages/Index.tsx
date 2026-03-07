@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import ProblemSection from "@/components/ProblemSection";
 import SocialProofStrip from "@/components/SocialProofStrip";
+import TestimonialsSection from "@/components/TestimonialsSection";
 import ProcessSection from "@/components/ProcessSection";
 import FAQSection from "@/components/FAQSection";
 import StartProjectDialog from "@/components/StartProjectDialog";
@@ -29,16 +30,14 @@ const Index = () => {
       <HeroSection onStartProject={() => setDialogOpen(true)} />
       <ConstellationDivider />
       <ProblemSection />
-      <ConstellationDivider />
       <SocialProofStrip />
+      <TestimonialsSection />
       <ConstellationDivider />
       <ProcessSection />
-      <ConstellationDivider />
       <FAQSection />
-      <ConstellationDivider />
 
       {/* CTA Bridge */}
-      <section className="py-32 md:py-40 px-6 md:px-12 text-center relative overflow-hidden">
+      <section className="py-32 md:py-40 px-6 md:px-12 text-center relative overflow-hidden bg-card">
          <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
           <OrionConstellation size="xl" opacity={0.06} animate={false} className="scale-150" />
         </div>
@@ -50,11 +49,15 @@ const Index = () => {
             <h2 className="font-display text-[clamp(56px,8.5vw,130px)] leading-[0.88] tracking-[0.02em] text-foreground mb-6">
               {t(<>Ready to navigate<br />through the <span className="text-accent-gradient">noise?</span></>, <>พร้อมจะนำทางผ่าน<br />ทุก <span className="text-accent-gradient">noise?</span></>)}
             </h2>
-            <p className="font-body text-base leading-[1.78] text-muted-foreground max-w-[420px] mx-auto mb-10">
+            <p className="font-body text-base leading-[1.78] text-muted-foreground max-w-[420px] mx-auto mb-4">
               {t(
                 "Tell us about your brand. We'll tell you exactly what it needs — and how fast we can build it.",
                 "เล่าให้เราฟังเกี่ยวกับแบรนด์ของคุณ เราจะบอกว่ามันต้องการอะไร — และเราสร้างได้เร็วแค่ไหน"
               )}
+            </p>
+            {/* Urgency line */}
+            <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-accent-gradient mb-10">
+              {t("Currently accepting 2 new clients for Q2 2026", "รับลูกค้าใหม่ 2 รายสำหรับ Q2 2026")}
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <button

@@ -178,7 +178,7 @@ const ProcessSection = () => {
                 className="p-10 md:p-9 border-r border-b border-divider last:border-r-0 relative group hover:bg-secondary transition-colors duration-300 cursor-pointer"
               >
                 <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-accent-gradient scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-bottom" />
-                <span className="font-display text-[88px] leading-none block mb-5 text-foreground/10">{step.num}</span>
+                <span className="font-display text-[88px] leading-none block mb-5 text-foreground/10 group-hover:text-accent-gradient transition-all duration-500">{step.num}</span>
                 <h3 className="font-body text-[15px] font-medium text-foreground mb-2.5">{step.title[lang]}</h3>
                 <p className="font-body text-[13px] leading-[1.72] text-muted-foreground">{step.desc[lang]}</p>
                 <span className="absolute top-5 right-5 font-mono text-[9px] tracking-[0.18em] uppercase px-2.5 py-1 bg-foreground/5 text-foreground/60 border border-foreground/10">

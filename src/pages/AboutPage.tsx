@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import AnimatedSection from "@/components/AnimatedSection";
 import Footer from "@/components/Footer";
 import ConstellationDivider from "@/components/ConstellationDivider";
+import StarField from "@/components/StarField";
 import { useLanguage } from "@/contexts/LanguageContext";
 import teamKrit from "@/assets/team-krit.jpg";
 import teamNari from "@/assets/team-nari.jpg";

@@ -19,7 +19,7 @@ const StickyProjectCTA = ({ onClick }: StickyProjectCTAProps) => {
       initial={{ opacity: 0, y: 20 }}
       animate={visible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.3 }}
-      className="fixed bottom-6 right-6 z-50 bg-accent-gradient text-background px-6 py-3 text-sm font-display font-medium tracking-wide shadow-lg hover:shadow-xl transition-shadow duration-300 flex items-center gap-2"
+      className="fixed bottom-6 right-6 z-50 bg-accent-gradient text-white px-6 py-3 text-sm font-mono tracking-[0.1em] uppercase shadow-lg hover:opacity-90 hover:shadow-xl transition-all duration-300 flex items-center gap-2 rounded-sm"
       style={{ pointerEvents: visible ? "auto" : "none" }}
     >
       Start a Project

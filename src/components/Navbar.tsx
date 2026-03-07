@@ -16,6 +16,7 @@ const Navbar = () => {
     { label: t("AI Stack", "เครื่องมือ AI"), href: "/ai-stack" },
     { label: t("About", "เกี่ยวกับ"), href: "/about" },
     { label: t("Contact", "ติดต่อ"), href: "/contact" },
+    { label: t("Careers", "ร่วมงาน"), href: "/careers" },
   ];
 
   return (

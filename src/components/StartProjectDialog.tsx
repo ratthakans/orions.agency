@@ -64,7 +64,7 @@ const StartProjectDialog = ({ open, onOpenChange }: StartProjectDialogProps) => 
               <option value="> ฿1M" className="bg-background">฿1,000,000+</option>
             </select>
             <textarea placeholder="Message" value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} className={`${inputClasses} min-h-[100px] resize-none`} required />
-            <button type="submit" className="w-full bg-foreground text-background py-4 text-sm font-display font-medium tracking-wide hover:bg-accent-warm hover:text-accent-warm-foreground transition-colors duration-300">
+            <button type="submit" className="w-full bg-accent-gradient text-white py-4 text-sm font-display font-medium tracking-wide hover:opacity-90 transition-all duration-300">
               Send Message
             </button>
           </form>

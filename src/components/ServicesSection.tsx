@@ -342,7 +342,7 @@ const ServicesSection = () => {
             <h2 className="font-display text-[clamp(42px,5.5vw,84px)] leading-[0.94] tracking-[0.02em] text-foreground">
               {t(<>Full-service.<br /><span className="text-accent-gradient">Full commitment.</span></>, <>Full-service.<br /><span className="text-accent-gradient">มุ่งมั่นเต็มที่</span></>)}
             </h2>
-            <p className="font-body text-[15px] leading-[1.8] text-muted-foreground">
+            <p className="font-body text-[16px] leading-[1.8] text-muted-foreground">
               {t(
                 "From brand foundation to live campaign. AI-accelerated production, human-led strategy. We work across both project briefs and ongoing retainers.",
                 "ตั้งแต่รากฐานแบรนด์ถึง live campaign — production เร่งด้วย AI, strategy นำโดยมนุษย์ ทำได้ทั้งแบบ project และ retainer รายเดือน"

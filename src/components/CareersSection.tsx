@@ -148,7 +148,7 @@ const CareersSection = () => {
                   <ul className="space-y-3">
                     {selectedJob.responsibilities.map((r, i) => (
                       <li key={i} className="flex gap-3 items-start">
-                        <span className="text-accent-warm font-display text-xs font-bold mt-0.5">{String(i + 1).padStart(2, "0")}</span>
+                      <span className="text-accent-violet font-display text-xs font-bold mt-0.5">{String(i + 1).padStart(2, "0")}</span>
                         <span className="font-body text-sm text-foreground leading-relaxed">{r}</span>
                       </li>
                     ))}

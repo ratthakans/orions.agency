@@ -9,17 +9,19 @@ import ProcessSection from "@/components/ProcessSection";
 import FAQSection from "@/components/FAQSection";
 import StartProjectDialog from "@/components/StartProjectDialog";
 import Footer from "@/components/Footer";
-import AnimatedSection from "@/components/AnimatedSection";
 import { Link } from "react-router-dom";
+import AnimatedSection from "@/components/AnimatedSection";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Index = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
+  const { t } = useLanguage();
 
   return (
     <main className="bg-background min-h-screen">
       <Helmet>
-        <title>ØRIONS — Meaning-Driven Creative Agency | Bangkok</title>
-        <meta name="description" content="ØRIONS is a meaning-driven creative agency in Bangkok. We help brands cut through noise with strategic positioning, campaigns, content systems, and digital experiences." />
+        <title>ØRIONS — AI-Native Creative Agency | Human Thinking. Machine Speed. | Bangkok</title>
+        <meta name="description" content="ØRIONS is an AI-native creative agency in Bangkok. Human thinking, machine speed. We help brands cut through noise with strategic depth and production velocity." />
         <link rel="canonical" href="https://orions.agency/" />
       </Helmet>
       <Navbar />
@@ -31,36 +33,41 @@ const Index = () => {
       <FAQSection />
 
       {/* CTA Bridge */}
-      <section className="py-24 md:py-32 px-6 md:px-12 border-t border-divider">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-32 md:py-40 px-6 md:px-12 border-t border-divider text-center relative overflow-hidden">
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+          <span className="font-display text-[clamp(120px,18vw,260px)] text-stroke-dim whitespace-nowrap tracking-[0.1em]">ØRIONS</span>
+        </div>
+        <div className="max-w-7xl mx-auto relative z-10">
           <AnimatedSection>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <p className="font-display text-3xl md:text-5xl font-bold tracking-tight text-foreground leading-tight">
-                  Ready to cut<br />through the noise?
-                </p>
-                <p className="font-body text-sm text-muted-foreground mt-4">
-                  Currently accepting Q2 2026 projects · Join 50+ brands that chose clarity over noise
-                </p>
-              </div>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button
-                  onClick={() => setDialogOpen(true)}
-                  className="group/btn bg-foreground text-background px-8 py-4 text-sm font-display font-medium tracking-wide hover:bg-accent-warm hover:text-accent-warm-foreground transition-colors duration-300 flex items-center justify-center gap-2"
-                >
-                  Start a Project
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="inline-block transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1">
-                    <path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" strokeWidth="1.5" />
-                  </svg>
-                </button>
-                <Link
-                  to="/work"
-                  className="border border-divider text-foreground px-8 py-4 text-sm font-display font-medium tracking-wide hover:border-foreground/50 transition-colors duration-300 text-center"
-                >
-                  View Our Work
-                </Link>
-              </div>
+            <span className="font-mono text-[9.5px] tracking-[0.28em] uppercase text-accent-violet block mb-6">
+              {t("Ready when you are", "พร้อมเมื่อคุณพร้อม")}
+            </span>
+            <h2 className="font-display text-[clamp(56px,8.5vw,130px)] leading-[0.88] tracking-[0.02em] text-foreground mb-6">
+              {t(<>Ready to cut<br />through the <span className="text-accent-gradient">noise?</span></>, <>พร้อมที่จะ<br />เจาะทะลุ<span className="text-accent-gradient">ทุกเสียง?</span></>)}
+            </h2>
+            <p className="font-body text-base leading-[1.78] text-muted-foreground max-w-[420px] mx-auto mb-10">
+              {t(
+                "Tell us about your brand. We'll tell you exactly what it needs — and how fast we can build it.",
+                "เล่าให้เราฟังเกี่ยวกับแบรนด์ของคุณ เราจะบอกว่ามันต้องการอะไร และเราสร้างมันได้เร็วแค่ไหน"
+              )}
+            </p>
+            <div className="flex gap-4 justify-center flex-wrap">
+              <button
+                onClick={() => setDialogOpen(true)}
+                className="bg-accent-gradient text-white font-mono text-[11px] tracking-[0.1em] uppercase px-7 py-3.5 rounded-sm hover:opacity-90 transition-opacity"
+              >
+                {t("Start a Project →", "เริ่มโปรเจกต์ →")}
+              </button>
+              <Link
+                to="/contact"
+                className="text-muted-foreground border-b border-divider font-mono text-[11px] tracking-[0.1em] uppercase px-4 py-3.5 hover:text-foreground hover:border-muted-foreground transition-all duration-300"
+              >
+                {t("Book a 30-min Call", "นัดคุย 30 นาที")}
+              </Link>
             </div>
+            <a href="mailto:hello@orions.agency" className="inline-block mt-7 font-mono text-[12px] tracking-[0.08em] text-muted-foreground border-b border-divider pb-0.5 hover:text-foreground transition-colors">
+              hello@orions.agency
+            </a>
           </AnimatedSection>
         </div>
       </section>

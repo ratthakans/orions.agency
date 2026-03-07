@@ -7,11 +7,11 @@ const ContactPage = () => (
   <main className="bg-background min-h-screen">
     <Helmet>
       <title>Contact — ØRIONS Creative Agency</title>
-      <meta name="description" content="Get in touch with ØRIONS. Start a project, ask a question, or visit our office at TV Burabha, Bangkok." />
+      <meta name="description" content="Get in touch with ØRIONS. Start a project, ask a question, or visit our office in Bangkok." />
       <link rel="canonical" href="https://orions.agency/contact" />
     </Helmet>
     <Navbar />
-    <div className="pt-20">
+    <div className="pt-[62px]">
       <ContactSection />
     </div>
     <Footer />

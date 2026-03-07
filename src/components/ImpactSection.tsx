@@ -1,157 +1,44 @@
-import { useState } from "react";
 import AnimatedSection from "./AnimatedSection";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "./ui/dialog";
-
-const impacts = [
-  {
-    stat: "89%",
-    title: "Brand Recall Increase",
-    desc: "Messaging becomes focused and consistent.",
-    detail: "Our brand positioning framework helps clients achieve an average 89% increase in unaided brand recall within the first 6 months. We use structured messaging audits, competitive gap analysis, and narrative alignment workshops to ensure every touchpoint reinforces a single, clear brand story.",
-    methodology: "Brand Audit → Positioning Workshop → Message Architecture → Consistency Scorecard",
-  },
-  {
-    stat: "3.2×",
-    title: "Campaign Engagement",
-    desc: "Creative work that stands out and converts.",
-    detail: "Campaigns we produce generate 3.2× higher engagement rates compared to industry benchmarks. Our approach combines data-driven creative with culturally relevant storytelling.",
-    methodology: "Audience Research → Creative Strategy → A/B Testing → Performance Optimization",
-  },
-  {
-    stat: "47%",
-    title: "Content Efficiency",
-    desc: "Content that builds brand authority faster.",
-    detail: "Our content systems reduce production time by 47% while maintaining premium quality. Through templatized workflows, editorial calendars, and modular content architectures, brands produce more with less.",
-    methodology: "Content Audit → System Design → Template Creation → Team Training",
-  },
-  {
-    stat: "2.8×",
-    title: "Digital Conversion",
-    desc: "Digital platforms that perform and represent.",
-    detail: "Digital experiences we design convert at 2.8× the rate of standard templates. We combine UX research, conversion-centered design, and performance optimization.",
-    methodology: "UX Research → Wireframing → Visual Design → Performance Testing",
-  },
-  {
-    stat: "156%",
-    title: "Search Visibility",
-    desc: "Better reach through search and digital channels.",
-    detail: "Clients see an average 156% increase in organic search visibility within 12 months. Our SEO strategy integrates technical optimization, content architecture, and authority building.",
-    methodology: "Technical Audit → Keyword Strategy → Content Architecture → Link Building",
-  },
-  {
-    stat: "94%",
-    title: "Team Alignment Score",
-    desc: "Teams communicate under one clear direction.",
-    detail: "Post-engagement surveys show 94% of client teams report stronger internal alignment on brand and marketing direction.",
-    methodology: "Stakeholder Interviews → Brand Guidelines → Training Sessions → Alignment Review",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ImpactSection = () => {
-  const [selectedImpact, setSelectedImpact] = useState<typeof impacts[0] | null>(null);
+  const { lang, t } = useLanguage();
+
+  const metrics = [
+    { stat: "2.8×", desc: { en: "Digital Conversion", th: "การแปลงลูกค้าออนไลน์" }, sub: { en: "Landing pages and digital assets built to convert, not just impress.", th: "หน้า landing และ digital assets ที่สร้างมาเพื่อแปลง ไม่ใช่แค่สร้างความประทับใจ" } },
+    { stat: "94%", desc: { en: "Team Alignment", th: "ความสอดคล้องของทีม" }, sub: { en: "Brand guidelines so clear that every vendor speaks the same language.", th: "Brand guidelines ที่ชัดเจนมากจนทุกเวนเดอร์พูดภาษาเดียวกัน" } },
+    { stat: "25%", desc: { en: "Revenue Contribution", th: "ส่วนแบ่งรายได้" }, sub: { en: "Marketing initiatives with a direct, traceable line to revenue growth.", th: "กิจกรรมการตลาดที่มีเส้นตรงที่ติดตามได้ถึงการเติบโตของรายได้" } },
+  ];
 
   return (
-    <section className="py-32 md:py-44 px-6 md:px-12 bg-elevated">
+    <section className="py-24 md:py-32 px-6 md:px-12 border-t border-divider">
       <div className="max-w-7xl mx-auto">
         <AnimatedSection>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-24">
-            <div>
-              <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-4">
-                Why It Matters
-              </p>
-              <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-foreground">
-                Measurable<br />
-                <span className="text-accent-gradient">Impact</span>
-              </h2>
-            </div>
-            <div className="flex items-end">
-              <p className="font-body text-muted-foreground text-base md:text-lg max-w-md leading-relaxed">
-                Every service we offer is designed to move a specific metric. Here's what happens when ØRIONS works with a brand.
-              </p>
-            </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-end mb-12">
+            <h2 className="font-display text-[clamp(42px,5.5vw,84px)] leading-[0.94] tracking-[0.02em] text-foreground">
+              {t(<>Every service<br />moves a <span className="text-accent-gradient">metric.</span></>, <>ทุกบริการ<br /><span className="text-accent-gradient">ขับเคลื่อนตัวเลข</span></>)}
+            </h2>
+            <p className="font-body text-[15px] leading-[1.8] text-muted-foreground">
+              {t(
+                "We don't sell creative work. We sell outcomes. Every brief we take has a number attached to it — and we don't stop until we hit it.",
+                "เราไม่ขายงานครีเอทีฟ เราขายผลลัพธ์ ทุก brief ที่เรารับมีตัวเลขผูกติดอยู่ด้วย"
+              )}
+            </p>
           </div>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-divider">
-          {impacts.map((item, i) => (
-            <AnimatedSection key={item.title} delay={i * 0.08}>
-              <div
-                className="bg-elevated p-8 md:p-10 h-full group hover:bg-secondary transition-colors duration-500 cursor-pointer relative overflow-hidden"
-                onClick={() => setSelectedImpact(item)}
-              >
-                <div className="absolute top-0 left-0 right-0 h-px bg-accent-warm scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-                <span className="font-display text-xs text-accent-warm mb-6 block">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span className="font-display text-3xl md:text-4xl font-bold text-foreground block mb-3">
-                  {item.stat}
-                </span>
-                <h3 className="font-display text-lg md:text-xl font-semibold text-foreground mb-2">
-                  {item.title}
-                </h3>
-                <p className="font-body text-muted-foreground text-sm md:text-base leading-relaxed mb-4">
-                  {item.desc}
-                </p>
-                <span className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground font-body group-hover:text-foreground transition-colors duration-300">
-                  Learn more →
-                </span>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-divider border border-divider">
+          {metrics.map((m, i) => (
+            <AnimatedSection key={m.stat} delay={i * 0.1}>
+              <div className="bg-background p-8 md:p-10 group hover:bg-secondary transition-colors duration-300">
+                <span className="font-display text-[52px] leading-none text-foreground block mb-1.5">{m.stat}</span>
+                <h3 className="font-body text-[14px] font-medium text-foreground mb-2">{m.desc[lang]}</h3>
+                <p className="font-body text-[12.5px] leading-[1.65] text-muted-foreground">{m.sub[lang]}</p>
               </div>
             </AnimatedSection>
           ))}
         </div>
       </div>
-
-      <Dialog open={!!selectedImpact} onOpenChange={(open) => !open && setSelectedImpact(null)}>
-        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-background border-divider">
-          {selectedImpact && (
-            <>
-              <DialogHeader>
-                <div className="flex items-baseline gap-4 mb-2">
-                  <span className="font-display text-4xl md:text-5xl font-bold text-foreground">
-                    {selectedImpact.stat}
-                  </span>
-                </div>
-                <DialogTitle className="font-display text-xl md:text-2xl font-bold text-foreground">
-                  {selectedImpact.title}
-                </DialogTitle>
-                <DialogDescription className="font-body text-muted-foreground text-sm mt-1">
-                  {selectedImpact.desc}
-                </DialogDescription>
-              </DialogHeader>
-
-              <div className="space-y-8 mt-6">
-                <div>
-                  <h4 className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4">
-                    How we achieve this
-                  </h4>
-                  <p className="font-body text-sm text-foreground leading-relaxed">
-                    {selectedImpact.detail}
-                  </p>
-                </div>
-
-                <div className="border-t border-divider pt-8">
-                  <h4 className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4">
-                    Methodology
-                  </h4>
-                  <div className="space-y-3">
-                    {selectedImpact.methodology.split(" → ").map((step, i) => (
-                      <div key={step} className="flex items-center gap-4">
-                        <span className="font-display text-xs text-accent-warm w-6 text-right shrink-0">
-                          {String(i + 1).padStart(2, "0")}
-                        </span>
-                        <div className="h-px flex-1 bg-divider" />
-                        <span className="font-body text-sm text-foreground">
-                          {step}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </>
-          )}
-        </DialogContent>
-      </Dialog>
     </section>
   );
 };

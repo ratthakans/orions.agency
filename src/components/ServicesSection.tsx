@@ -445,7 +445,7 @@ const ServicesSection = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-divider border border-divider">
             {retainerPlans.map((plan, i) => (
               <AnimatedSection key={plan.name} delay={i * 0.1}>
-                <div className={`bg-background p-10 md:p-12 relative transition-colors duration-300 hover:bg-secondary ${plan.best ? "bg-card outline outline-1 outline-foreground/20" : ""}`}>
+                <div className={`bg-background p-10 md:p-12 relative transition-colors duration-300 hover:bg-secondary ${plan.best ? "outline outline-1 outline-foreground/20" : ""}`}>
                   {plan.best && plan.badge && (
                     <div className="absolute top-0 left-10 font-mono text-[9px] tracking-[0.2em] uppercase bg-accent-gradient text-white px-3 py-1.5">
                       {plan.badge[lang]}

@@ -408,7 +408,7 @@ const ServicesSection = () => {
 
         {/* Retainer callout */}
         <AnimatedSection delay={0.1}>
-          <div className="mt-7 bg-card border border-divider border-l-2 border-l-accent-violet p-9 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 items-center">
+          <div className="mt-7 bg-card border border-divider border-l-2 border-l-foreground/20 p-9 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 items-center">
             <div>
               <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-foreground/50 block mb-2.5">
                 Monthly Retainer

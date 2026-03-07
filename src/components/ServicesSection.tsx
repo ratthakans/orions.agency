@@ -390,8 +390,8 @@ const ServicesSection = () => {
                     <span
                       key={tag.label}
                       className={`font-mono text-[9px] tracking-[0.12em] uppercase px-2.5 py-1 border ${
-                        tag.type === "ai"
-                          ? "border-accent-violet/30 text-accent-violet"
+                         tag.type === "ai"
+                           ? "border-foreground/15 text-foreground/60"
                           : tag.type === "craft"
                           ? "border-foreground/15 text-muted-foreground"
                           : "border-divider text-muted-foreground"

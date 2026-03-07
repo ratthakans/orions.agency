@@ -5,6 +5,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 
 interface StepDetail {
   num: string;
+  starName: string;
   title: { en: string; th: string };
   desc: { en: string; th: string };
   badge: string;
@@ -19,6 +20,7 @@ interface StepDetail {
 const steps: StepDetail[] = [
   {
     num: "01",
+    starName: "Betelgeuse",
     title: { en: "Discovery", th: "Discovery" },
     desc: { en: "Deep brand interviews, competitor mapping, and audience analysis — AI-synthesized in days, not weeks.", th: "สัมภาษณ์แบรนด์เชิงลึก วิเคราะห์คู่แข่ง และ audience — สังเคราะห์ด้วย AI ในไม่กี่วัน" },
     badge: "Strategy",
@@ -50,6 +52,7 @@ const steps: StepDetail[] = [
   },
   {
     num: "02",
+    starName: "Bellatrix",
     title: { en: "Strategy", th: "Strategy" },
     desc: { en: "Humans set the direction. AI accelerates production. Every concept passes a craft review before you see it.", th: "มนุษย์กำหนดทิศทาง AI เร่งการผลิต ทุก concept ผ่าน craft review ก่อนถึงมือคุณ" },
     badge: "Creative",
@@ -81,6 +84,7 @@ const steps: StepDetail[] = [
   },
   {
     num: "03",
+    starName: "Saiph",
     title: { en: "Creation", th: "Creation" },
     desc: { en: "Design, copy, and assets built in parallel — not sequentially. AI compresses timelines without compressing quality.", th: "Design, copy และ assets สร้างพร้อมกัน — AI บีบอัด timeline โดยไม่ลดคุณภาพ" },
     badge: "Build",
@@ -112,6 +116,7 @@ const steps: StepDetail[] = [
   },
   {
     num: "04",
+    starName: "Rigel",
     title: { en: "Launch & Scale", th: "Launch & Scale" },
     desc: { en: "We don't hand over files. We hand over a living brand system — with the documentation and support to grow it.", th: "เราไม่ส่งแค่ไฟล์ เราส่ง brand system ที่มีชีวิต — พร้อม documentation และ support เพื่อการเติบโต" },
     badge: "Growth",
@@ -159,16 +164,28 @@ const ProcessSection = () => {
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-end mb-12">
             <h2 className="font-display text-[clamp(42px,5.5vw,84px)] leading-[0.94] tracking-[0.02em] text-foreground">
-              {t(<>A framework<br />that <span className="text-accent-gradient">compounds.</span></>, <>Framework<br />ที่<span className="text-accent-gradient">สะสมผลลัพธ์</span></>)}
+              {t(<>Four stars.<br />One <span className="text-accent-gradient">constellation.</span></>, <>สี่ดวงดาว<br />หนึ่ง<span className="text-accent-gradient">กลุ่มดาว</span></>)}
             </h2>
             <p className="font-body text-[15px] leading-[1.8] text-muted-foreground">
               {t(
-                "Every engagement follows the same four stages. Where we differ is the depth at each step — and how much faster AI lets us move through them.",
-                "ทุกโปรเจกต์ผ่าน 4 ขั้นตอนเดียวกัน สิ่งที่ต่างคือความลึกในแต่ละขั้น — และความเร็วที่ AI ช่วยให้เราเคลื่อนไหวได้"
+                "Like the four corner stars of Orion, every engagement follows four stages. Each star illuminates a different phase — together, they form an unmistakable pattern.",
+                "เหมือนดาว 4 ดวงหลักของกลุ่มดาว Orion ทุกโปรเจกต์ผ่าน 4 ขั้นตอน แต่ละดวงส่องสว่างคนละเฟส — รวมกันเป็นรูปแบบที่จำไม่มีวันลืม"
               )}
             </p>
           </div>
         </AnimatedSection>
+
+        {/* Constellation visual connector (desktop only) */}
+        <div className="hidden lg:block relative mb-4">
+          <svg viewBox="0 0 1000 40" className="w-full h-[40px] opacity-20">
+            <line x1="125" y1="20" x2="375" y2="20" stroke="hsl(var(--foreground))" strokeWidth="0.5" strokeDasharray="4 4" />
+            <line x1="375" y1="20" x2="625" y2="20" stroke="hsl(var(--foreground))" strokeWidth="0.5" strokeDasharray="4 4" />
+            <line x1="625" y1="20" x2="875" y2="20" stroke="hsl(var(--foreground))" strokeWidth="0.5" strokeDasharray="4 4" />
+            {[125, 375, 625, 875].map((cx, i) => (
+              <circle key={i} cx={cx} cy={20} r={3} fill="hsl(var(--foreground))" className="animate-twinkle" style={{ animationDelay: `${i * 0.5}s` }} />
+            ))}
+          </svg>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 border border-divider">
           {steps.map((step, i) => (
@@ -178,7 +195,13 @@ const ProcessSection = () => {
                 className="p-10 md:p-9 border-r border-b border-divider last:border-r-0 relative group hover:bg-secondary transition-colors duration-300 cursor-pointer"
               >
                 <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-accent-gradient scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-bottom" />
-                <span className="font-display text-[88px] leading-none block mb-5 text-foreground/10 group-hover:text-accent-gradient transition-all duration-500">{step.num}</span>
+                
+                {/* Star icon replacing number */}
+                <div className="mb-5 flex items-center gap-3">
+                  <span className="text-[20px] animate-twinkle" style={{ animationDelay: `${i * 0.7}s` }}>✧</span>
+                  <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-accent-gradient">{step.starName}</span>
+                </div>
+                
                 <h3 className="font-body text-[15px] font-medium text-foreground mb-2.5">{step.title[lang]}</h3>
                 <p className="font-body text-[13px] leading-[1.72] text-muted-foreground">{step.desc[lang]}</p>
                 <span className="absolute top-5 right-5 font-mono text-[9px] tracking-[0.18em] uppercase px-2.5 py-1 bg-foreground/5 text-foreground/60 border border-foreground/10">
@@ -197,7 +220,11 @@ const ProcessSection = () => {
             <>
               <DialogHeader className="p-8 pb-0">
                 <div className="flex items-center justify-between mb-4">
-                  <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-muted-foreground">{selectedStep.badge}</span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[16px]">✧</span>
+                    <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-accent-gradient">{selectedStep.starName}</span>
+                    <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-muted-foreground ml-2">{selectedStep.badge}</span>
+                  </div>
                 </div>
                 <DialogTitle className="font-display text-[40px] tracking-[0.03em] leading-none text-foreground mb-2">
                   {selectedStep.title[lang]}

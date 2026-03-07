@@ -11,6 +11,7 @@ import StartProjectDialog from "@/components/StartProjectDialog";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
+import OrionConstellation from "@/components/OrionConstellation";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Index = () => {
@@ -34,8 +35,8 @@ const Index = () => {
 
       {/* CTA Bridge */}
       <section className="py-32 md:py-40 px-6 md:px-12 border-t border-divider text-center relative overflow-hidden">
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-          <span className="font-display text-[clamp(120px,18vw,260px)] text-stroke-dim whitespace-nowrap tracking-[0.1em]">ØRIONS</span>
+         <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+          <OrionConstellation size="xl" opacity={0.06} animate={false} className="scale-150" />
         </div>
         <div className="max-w-7xl mx-auto relative z-10">
           <AnimatedSection>
@@ -43,7 +44,7 @@ const Index = () => {
               {t("Ready when you are", "พร้อมเมื่อคุณพร้อม")}
             </span>
             <h2 className="font-display text-[clamp(56px,8.5vw,130px)] leading-[0.88] tracking-[0.02em] text-foreground mb-6">
-              {t(<>Ready to cut<br />through the <span className="text-accent-gradient">noise?</span></>, <>พร้อมจะตัดผ่าน<br />ทุก <span className="text-accent-gradient">noise?</span></>)}
+              {t(<>Ready to navigate<br />through the <span className="text-accent-gradient">noise?</span></>, <>พร้อมจะนำทางผ่าน<br />ทุก <span className="text-accent-gradient">noise?</span></>)}
             </h2>
             <p className="font-body text-base leading-[1.78] text-muted-foreground max-w-[420px] mx-auto mb-10">
               {t(

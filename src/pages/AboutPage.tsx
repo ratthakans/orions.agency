@@ -79,6 +79,28 @@ const AboutPage = () => {
                 </p>
               </div>
             </AnimatedSection>
+
+            {/* Why Orion? Origin Story */}
+            <AnimatedSection delay={0.2}>
+              <div className="max-w-4xl border-t border-divider pt-10 mt-10">
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="text-[20px] animate-twinkle">✧</span>
+                  <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-accent-gradient">{t("Why Orion?", "ทำไม Orion?")}</p>
+                </div>
+                <p className="font-body text-[15px] leading-[1.8] text-muted-foreground mb-4">
+                  {t(
+                    "Named after the hunter constellation — the brightest, most recognizable pattern in the night sky. For thousands of years, travelers have used Orion to find their way. That's what we do for brands.",
+                    "ตั้งชื่อตามกลุ่มดาวนายพราน — กลุ่มดาวที่สว่างและจดจำได้ง่ายที่สุดบนท้องฟ้า มานับพันปีที่นักเดินทางใช้กลุ่มดาว Orion เพื่อหาทิศทาง นั่นคือสิ่งที่เราทำให้แบรนด์"
+                  )}
+                </p>
+                <p className="font-body text-[15px] leading-[1.8] text-foreground/80 italic">
+                  {t(
+                    "We help brands become unmistakable — visible, precise, and unforgettable. Like Orion in the night sky.",
+                    "เราช่วยให้แบรนด์โดดเด่นจนแทนที่ไม่ได้ — เหมือนกลุ่มดาว Orion บนท้องฟ้ายามค่ำคืน"
+                  )}
+                </p>
+              </div>
+            </AnimatedSection>
           </div>
         </section>
 

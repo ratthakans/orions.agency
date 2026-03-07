@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
+import OrionConstellation from "./OrionConstellation";
+import StarField from "./StarField";
 
 interface HeroSectionProps {
   onStartProject: () => void;
@@ -11,6 +13,14 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => {
 
   return (
     <section className="min-h-[90vh] flex items-center px-6 md:px-12 pt-[62px] relative overflow-hidden">
+      {/* Star field background */}
+      <StarField count={80} />
+
+      {/* Orion constellation in background */}
+      <div className="absolute top-1/2 right-[10%] -translate-y-1/2 pointer-events-none hidden lg:block">
+        <OrionConstellation size="xl" opacity={0.12} animate={true} />
+      </div>
+
       {/* Subtle gradient glow */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] rounded-full opacity-[0.04] bg-accent-gradient blur-[120px]" />
@@ -26,14 +36,14 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="font-mono text-[11px] tracking-[0.28em] uppercase text-foreground/50 mb-8"
             >
-              AI-Native Creative Agency · Bangkok
+              Navigating brands by the stars · Bangkok
             </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.2 }}
-              className="font-display text-[clamp(48px,7vw,110px)] leading-[0.9] tracking-[0.02em] text-foreground mb-8"
+              className="font-display text-[clamp(48px,7vw,110px)] leading-[0.9] tracking-[0.02em] text-foreground mb-4"
             >
               Human Thinking.
               <br />
@@ -45,12 +55,21 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => {
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.35 }}
+              className="font-mono text-[11px] tracking-[0.15em] uppercase text-foreground/40 mb-8"
+            >
+              {t("Like Orion — visible, precise, unforgettable.", "เหมือนกลุ่มดาว Orion — โดดเด่น แม่นยำ จดจำไม่มีวันลืม")}
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               className="font-body text-[16px] text-muted-foreground max-w-[420px] leading-[1.75] mb-10"
             >
               {t(
-                <>We build brands that cut through — with the <strong className="text-foreground font-normal">strategic depth</strong> no AI can replicate, and the <strong className="text-foreground font-normal">production velocity</strong> no traditional agency can match.</>,
-                <>เราสร้างแบรนด์ที่ตัดผ่านทุก noise — ด้วย<strong className="text-foreground font-normal">กลยุทธ์เชิงลึก</strong>ที่ AI ทำแทนไม่ได้ และ<strong className="text-foreground font-normal">ความเร็วในการผลิต</strong>ที่เอเจนซี่ทั่วไปตามไม่ทัน</>
+                <>We build brands that navigate through the noise — with the <strong className="text-foreground font-normal">strategic depth</strong> no AI can replicate, and the <strong className="text-foreground font-normal">production velocity</strong> no traditional agency can match.</>,
+                <>เราสร้างแบรนด์ที่นำทางผ่านทุก noise — ด้วย<strong className="text-foreground font-normal">กลยุทธ์เชิงลึก</strong>ที่ AI ทำแทนไม่ได้ และ<strong className="text-foreground font-normal">ความเร็วในการผลิต</strong>ที่เอเจนซี่ทั่วไปตามไม่ทัน</>
               )}
             </motion.p>
 
@@ -108,7 +127,7 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => {
         <div className="animate-marquee whitespace-nowrap flex gap-0">
           {[...Array(4)].map((_, i) => (
             <span key={i} className="font-mono text-[10px] tracking-[0.22em] uppercase text-white/90 mx-0">
-              Brand Strategy <span className="opacity-45">✦</span> AI-Augmented Creative <span className="opacity-45">✦</span> Visual Identity <span className="opacity-45">✦</span> Social Media Management <span className="opacity-45">✦</span> SEO & Performance <span className="opacity-45">✦</span> Content Production <span className="opacity-45">✦</span> LINE & Email Marketing <span className="opacity-45">✦</span> Bangkok · Southeast Asia <span className="opacity-45">✦</span>&nbsp;
+              Brand Strategy <span className="opacity-45">✧</span> AI-Augmented Creative <span className="opacity-45">✧</span> Visual Identity <span className="opacity-45">✧</span> Social Media Management <span className="opacity-45">✧</span> SEO & Performance <span className="opacity-45">✧</span> Content Production <span className="opacity-45">✧</span> LINE & Email Marketing <span className="opacity-45">✧</span> Bangkok · Southeast Asia <span className="opacity-45">✧</span>&nbsp;
             </span>
           ))}
         </div>

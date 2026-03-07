@@ -159,55 +159,63 @@ const CareersSection = () => {
                 </DialogTitle>
                 <DialogDescription className="font-body text-[15px] text-muted-foreground leading-relaxed">{selectedJob.description[lang]}</DialogDescription>
               </DialogHeader>
-              <div className="space-y-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="border border-divider p-5">
-                    <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground mb-1">{t("Working Hours", "เวลาทำงาน")}</p>
-                    <p className="font-body text-[14px] text-foreground">Mon – Fri, 10:00 – 19:00</p>
+
+              <div className="p-8 space-y-8">
+                {/* Info strip */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-divider border border-divider">
+                  <div className="bg-background p-4 hover:bg-secondary transition-colors duration-300">
+                    <span className="font-mono text-[10px] tracking-[0.1em] text-foreground block mb-1">{t("Working Hours", "เวลาทำงาน")}</span>
+                    <span className="font-body text-[13px] text-muted-foreground leading-snug">Mon – Fri, 10:00 – 19:00</span>
                   </div>
-                  <div className="border border-divider p-5">
-                    <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground mb-1">Location</p>
-                    <p className="font-body text-[14px] text-foreground">246/8 Soi Yothinpattana 3, Bang Kapi</p>
+                  <div className="bg-background p-4 hover:bg-secondary transition-colors duration-300">
+                    <span className="font-mono text-[10px] tracking-[0.1em] text-foreground block mb-1">Location</span>
+                    <span className="font-body text-[13px] text-muted-foreground leading-snug">246/8 Soi Yothinpattana 3, Bang Kapi</span>
                   </div>
                 </div>
+
+                {/* Responsibilities */}
                 <div>
                   <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/60 mb-4">Responsibilities</h4>
-                  <ul className="space-y-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-divider border border-divider">
                     {selectedJob.responsibilities.map((r, i) => (
-                      <li key={i} className="flex gap-3 items-start">
-                         <span className="text-foreground/40 font-mono text-[10px] mt-1">{String(i + 1).padStart(2, "0")}</span>
-                        <span className="font-body text-[14px] text-foreground leading-[1.65]">{r}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="border-t border-divider pt-8">
-                  <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/60 mb-4">Qualifications</h4>
-                  <ul className="space-y-3">
-                    {selectedJob.qualifications.map((q, i) => (
-                      <li key={i} className="flex gap-3 items-start">
-                        <span className="text-foreground/40 font-mono text-[10px] mt-1">{String(i + 1).padStart(2, "0")}</span>
-                        <span className="font-body text-[14px] text-foreground leading-[1.65]">{q}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="border-t border-divider pt-8">
-                  <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/60 mb-4">{t("Benefits", "สวัสดิการ")}</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {benefits.map((b) => (
-                      <span key={b.title} className="font-mono text-[10px] tracking-[0.1em] uppercase border border-divider px-3 py-1.5 text-foreground">{b.title}</span>
+                      <div key={i} className="bg-background p-4 hover:bg-secondary transition-colors duration-300">
+                        <span className="font-mono text-[10px] tracking-[0.1em] text-foreground block mb-1">{String(i + 1).padStart(2, "0")}</span>
+                        <span className="font-body text-[13px] text-muted-foreground leading-snug">{r}</span>
+                      </div>
                     ))}
                   </div>
                 </div>
-                <div className="border-t border-divider pt-8">
-                  <a href="mailto:hello@orions.agency" className="inline-flex items-center gap-2 bg-accent-gradient text-white px-8 py-3.5 font-mono text-[11px] tracking-[0.15em] uppercase hover:opacity-90 transition-all duration-300 rounded-sm">
-                    {t("Apply Now", "สมัครเลย")}
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" strokeWidth="1.5" /></svg>
-                  </a>
+
+                {/* Qualifications */}
+                <div className="border border-divider bg-card p-6">
+                  <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/60 mb-3">Qualifications</h4>
+                  <ul className="space-y-2.5">
+                    {selectedJob.qualifications.map((q, i) => (
+                      <li key={i} className="flex gap-3 items-start">
+                        <span className="text-foreground/40 font-mono text-[10px] mt-0.5">—</span>
+                        <span className="font-body text-[14px] text-muted-foreground leading-[1.65]">{q}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
+
+                {/* Benefits */}
+                <div>
+                  <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/60 mb-4">{t("Benefits", "สวัสดิการ")}</h4>
+                  <div className="flex flex-wrap gap-1.5">
+                    {benefits.map((b) => (
+                      <span key={b.title} className="font-mono text-[9px] tracking-[0.12em] uppercase border border-divider px-2.5 py-1 text-foreground/60">{b.title}</span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Apply CTA */}
+                <a href="mailto:hello@orions.agency" className="inline-flex items-center gap-2 bg-accent-gradient text-white px-8 py-3.5 font-mono text-[11px] tracking-[0.15em] uppercase hover:opacity-90 transition-all duration-300 rounded-sm">
+                  {t("Apply Now", "สมัครเลย")}
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" strokeWidth="1.5" /></svg>
+                </a>
               </div>
-            </div>
+            </>
           )}
         </DialogContent>
       </Dialog>

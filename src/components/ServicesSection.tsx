@@ -367,7 +367,7 @@ const ServicesSection = () => {
                activeTab === "ret" ? "text-foreground border-foreground" : "text-muted-foreground border-transparent hover:text-foreground"
             }`}
           >
-            {t("Monthly Retainer", "Monthly Retainer")}
+            {t("☽ Orbital Systems", "☽ Orbital Systems")}
           </button>
         </div>
 

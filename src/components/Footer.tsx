@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
+import OrionConstellation from "./OrionConstellation";
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -9,9 +10,12 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-[1.6fr_1fr_1fr_1fr] gap-12 md:gap-16 pb-12 border-b border-divider mb-8">
           <div>
-            <p className="font-logo font-medium text-[18px] tracking-[0.08em] text-foreground mb-3 uppercase">ØRIONS</p>
+            <div className="flex items-center gap-3 mb-3">
+              <OrionConstellation size="sm" opacity={0.4} animate={false} showStars={true} />
+              <p className="font-logo font-medium text-[18px] tracking-[0.08em] text-foreground uppercase">ØRIONS</p>
+            </div>
             <p className="font-body text-[13px] leading-[1.72] text-muted-foreground max-w-[220px] mb-5">
-              {t("AI-Native Creative Agency.\nHuman craft. AI velocity.", "AI-Native Creative Agency\nHuman craft. AI velocity.")}
+              {t("Guiding brands through the noise. ✧", "นำทางแบรนด์ผ่านทุก noise ✧")}
             </p>
             <div className="space-y-1.5">
               <a href="mailto:hello@orions.agency" className="font-mono text-[11px] tracking-[0.06em] text-muted-foreground block hover:text-foreground transition-colors">hello@orions.agency</a>
@@ -53,7 +57,7 @@ const Footer = () => {
             © {new Date().getFullYear()} ØRIONS. All rights reserved.
           </p>
           <p className="font-mono text-[9px] tracking-[0.14em] text-muted-foreground">
-            Bangkok, Thailand
+            Bangkok, Thailand ✧
           </p>
         </div>
       </div>

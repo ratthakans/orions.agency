@@ -44,7 +44,7 @@ const Index = () => {
               {t("Ready when you are", "พร้อมเมื่อคุณพร้อม")}
             </span>
             <h2 className="font-display text-[clamp(56px,8.5vw,130px)] leading-[0.88] tracking-[0.02em] text-foreground mb-6">
-              {t(<>Ready to cut<br />through the <span className="text-accent-gradient">noise?</span></>, <>พร้อมจะตัดผ่าน<br />ทุก <span className="text-accent-gradient">noise?</span></>)}
+              {t(<>Ready to navigate<br />through the <span className="text-accent-gradient">noise?</span></>, <>พร้อมจะนำทางผ่าน<br />ทุก <span className="text-accent-gradient">noise?</span></>)}
             </h2>
             <p className="font-body text-base leading-[1.78] text-muted-foreground max-w-[420px] mx-auto mb-10">
               {t(

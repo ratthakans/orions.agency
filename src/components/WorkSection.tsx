@@ -124,22 +124,24 @@ const WorkSection = () => {
                   <p className="font-body text-[15px] text-muted-foreground leading-relaxed">{selectedWork.brief[lang]}</p>
                 </DialogHeader>
 
-                {/* Scope of Work */}
-                <div className="mb-6">
-                  <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/60 mb-3">{t("Scope of Work", "ขอบเขตงาน")}</h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-divider border border-divider">
-                    {selectedWork.scope.map((s, i) => (
-                      <div key={i} className="bg-background p-3.5 hover:bg-secondary transition-colors duration-300">
-                        <span className="font-mono text-[10px] tracking-[0.1em] text-foreground">{s}</span>
-                      </div>
-                    ))}
+                <div className="mt-8 space-y-8">
+                  {/* Scope of Work */}
+                  <div>
+                    <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/60 mb-4">{t("Scope of Work", "ขอบเขตงาน")}</h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-divider border border-divider">
+                      {selectedWork.scope.map((s, i) => (
+                        <div key={i} className="bg-background p-4 hover:bg-secondary transition-colors duration-300">
+                          <span className="font-mono text-[10px] tracking-[0.1em] text-foreground">{s}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                </div>
 
-                {/* Result */}
-                <div className="border border-divider bg-card p-6">
-                  <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/60 mb-2">{t("Result", "ผลลัพธ์")}</h4>
-                  <p className="font-body text-[14px] leading-[1.75] text-muted-foreground">{selectedWork.result[lang]}</p>
+                  {/* Result */}
+                  <div className="border border-divider bg-card p-6">
+                    <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/60 mb-3">{t("Result", "ผลลัพธ์")}</h4>
+                    <p className="font-body text-[14px] leading-[1.75] text-muted-foreground">{selectedWork.result[lang]}</p>
+                  </div>
                 </div>
               </div>
             </>

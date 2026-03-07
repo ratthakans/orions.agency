@@ -384,7 +384,7 @@ const ServicesSection = () => {
                 <h3 className="font-display text-[30px] tracking-[0.04em] leading-none text-foreground mb-3">
                   {s.name[lang]}
                 </h3>
-                <p className="font-body text-[14px] leading-[1.75] text-muted-foreground mb-5">{s.desc[lang]}</p>
+                <p className="font-body text-[14.5px] leading-[1.75] text-muted-foreground mb-5">{s.desc[lang]}</p>
                 <div className="flex flex-wrap gap-1.5">
                   {s.tags.map((tag) => (
                     <span

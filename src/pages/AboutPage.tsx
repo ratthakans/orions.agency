@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import AboutSection from "@/components/AboutSection";
 import AnimatedSection from "@/components/AnimatedSection";
 import Footer from "@/components/Footer";
+import { useLanguage } from "@/contexts/LanguageContext";
 import teamKrit from "@/assets/team-krit.jpg";
 import teamNari from "@/assets/team-nari.jpg";
 import teamTawan from "@/assets/team-tawan.jpg";
@@ -20,6 +21,8 @@ const team = [
 ];
 
 const AboutPage = () => {
+  const { t } = useLanguage();
+
   return (
     <main className="bg-background min-h-screen">
       <Helmet>
@@ -44,13 +47,15 @@ const AboutPage = () => {
                 <div>
                   <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-4">The People</p>
                   <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-foreground">
-                    Our<br />
-                    <span className="text-accent-gradient">Team</span>
+                    {t(<>Our<br /><span className="text-accent-gradient">Team</span></>, <>ทีม<br /><span className="text-accent-gradient">ของเรา</span></>)}
                   </h2>
                 </div>
                 <div className="flex items-end">
                   <p className="font-body text-muted-foreground text-base md:text-lg max-w-md leading-relaxed">
-                    A small, focused team of strategists, designers, and storytellers building meaningful brands.
+                    {t(
+                      "A small, focused team of strategists, designers, and storytellers building meaningful brands.",
+                      "ทีมเล็กๆ ที่โฟกัส ประกอบด้วย strategist, designer และ storyteller ที่สร้างแบรนด์อย่างมีความหมาย"
+                    )}
                   </p>
                 </div>
               </div>
@@ -62,7 +67,7 @@ const AboutPage = () => {
                   <div className="bg-background p-8 md:p-10 group">
                     <div className="w-full aspect-[3/4] bg-secondary mb-6 overflow-hidden relative">
                       <img src={member.image} alt={member.name} className="w-full h-full object-cover group-hover:scale-[1.03] group-hover:brightness-110 transition-all duration-700" loading="lazy" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-accent-warm/0 via-transparent to-transparent group-hover:from-accent-warm/15 transition-all duration-700" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-accent-violet/0 via-transparent to-transparent group-hover:from-accent-violet/15 transition-all duration-700" />
                     </div>
                     <h3 className="font-display text-lg md:text-xl font-semibold text-foreground mb-1">{member.name}</h3>
                     <p className="font-body text-sm text-muted-foreground">{member.role}</p>

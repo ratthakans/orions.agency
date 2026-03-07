@@ -28,10 +28,10 @@ const SocialProofStrip = () => {
   const { t } = useLanguage();
 
   const stats = [
-    { value: 89, suffix: "%", label: t("Brand Recall Increase", "การจดจำแบรนด์เพิ่มขึ้น") },
-    { value: 3.2, suffix: "×", label: t("Campaign Engagement", "Engagement ของแคมเปญ"), decimals: 1 },
-    { value: 47, suffix: "%", label: t("Content Efficiency", "ประสิทธิภาพคอนเทนต์") },
-    { value: 156, suffix: "%", label: t("Search Visibility", "การมองเห็นในการค้นหา") },
+    { value: 89, suffix: "%", label: t("Brand Recall Increase", "Brand Recall เพิ่มขึ้น") },
+    { value: 3.2, suffix: "×", label: t("Campaign Engagement", "Campaign Engagement"), decimals: 1 },
+    { value: 47, suffix: "%", label: t("Content Efficiency", "Content Efficiency") },
+    { value: 156, suffix: "%", label: t("Search Visibility", "Search Visibility") },
   ];
 
   return (
@@ -41,7 +41,7 @@ const SocialProofStrip = () => {
           <div className="flex items-center gap-3.5 mb-12">
             <span className="w-[22px] h-px bg-accent-gradient" />
             <span className="font-mono text-[9.5px] tracking-[0.28em] uppercase text-accent-violet">
-              {t("Measurable Impact", "ผลลัพธ์ที่วัดได้จริง")}
+              {t("Measurable Impact", "ผลลัพธ์ที่วัดได้")}
             </span>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-divider border border-divider mb-16">

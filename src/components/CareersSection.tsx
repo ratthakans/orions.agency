@@ -1,26 +1,28 @@
 import { useState } from "react";
 import AnimatedSection from "./AnimatedSection";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "./ui/dialog";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const jobs = [
-  { title: "Video Editor", type: "Full-time", description: "We're looking for a skilled Video Editor to craft compelling visual stories for brands across Southeast Asia. You'll work closely with our creative team to produce brand films, social content, and campaign videos that captivate audiences.", responsibilities: ["Edit and produce high-quality video content for brand campaigns, social media, and digital platforms", "Collaborate with the creative director and strategists to translate briefs into visual narratives", "Manage post-production workflow including color grading, sound design, and motion graphics", "Stay current with video trends, editing techniques, and platform-specific formats", "Ensure all deliverables meet brand guidelines and quality standards"], qualifications: ["2+ years of professional video editing experience", "Proficiency in Adobe Premiere Pro, After Effects, and DaVinci Resolve", "Strong storytelling sense and attention to detail", "Experience with motion graphics is a plus", "Portfolio showcasing previous work required"] },
-  { title: "Graphic Designer", type: "Full-time", description: "Join our design team to create impactful visual identities, marketing collateral, and digital assets. You'll bring brand strategies to life through thoughtful, beautiful design across multiple touchpoints.", responsibilities: ["Design brand identities, marketing materials, and digital assets", "Create layouts for social media, websites, presentations, and print", "Collaborate with strategists and copywriters to develop creative concepts", "Maintain design consistency across all brand touchpoints", "Prepare production-ready files and manage design asset libraries"], qualifications: ["2+ years of graphic design experience in agency or in-house setting", "Expert proficiency in Figma, Adobe Illustrator, and Photoshop", "Strong typography and layout skills", "Understanding of brand systems and design thinking", "Portfolio demonstrating range and craft required"] },
-  { title: "Digital Marketing Specialist", type: "Full-time", description: "We need a data-driven Digital Marketing Specialist to plan, execute, and optimize campaigns across paid and organic channels. You'll help our clients grow their digital presence with measurable results.", responsibilities: ["Plan and manage digital advertising campaigns across Meta, Google, TikTok, and LINE", "Analyze campaign performance and provide actionable insights and reports", "Develop SEO strategies and oversee content optimization", "Manage marketing budgets and optimize for ROI", "Collaborate with the creative team on ad creatives and landing pages"], qualifications: ["2+ years of experience in digital marketing or performance marketing", "Proficiency with Google Analytics, Meta Business Suite, and Google Ads", "Strong analytical skills and data-driven mindset", "Experience with SEO tools (Ahrefs, SEMrush) is a plus", "Understanding of the Thai digital landscape preferred"] },
-  { title: "Social Media Manager", type: "Full-time", description: "We're seeking a Social Media Manager to own our clients' social presence from strategy to execution. You'll build communities, drive engagement, and create content calendars that align with brand goals.", responsibilities: ["Develop and execute social media strategies across Instagram, Facebook, TikTok, X, and LINE", "Create, schedule, and publish engaging content aligned with brand voice", "Monitor trends, conversations, and competitor activity", "Manage community engagement and respond to audience interactions", "Track KPIs and deliver monthly performance reports"], qualifications: ["2+ years managing social media for brands or agencies", "Strong copywriting skills in both Thai and English", "Experience with social management tools (Hootsuite, Buffer, or similar)", "Understanding of social algorithms and content best practices", "Creative mindset with a pulse on culture and trends"] },
-  { title: "Creative Strategist", type: "Full-time", description: "As a Creative Strategist, you'll bridge the gap between insight and execution. You'll develop brand narratives, campaign concepts, and content strategies that resonate with audiences and drive business outcomes.", responsibilities: ["Develop brand strategies, creative concepts, and campaign narratives", "Conduct research and audience analysis to inform creative direction", "Write creative briefs and present strategic recommendations to clients", "Collaborate with designers, editors, and marketers to bring ideas to life", "Identify emerging trends and opportunities for brand storytelling"], qualifications: ["3+ years in creative strategy, brand planning, or advertising", "Exceptional storytelling and presentation skills", "Ability to think both creatively and analytically", "Experience working with cross-functional creative teams", "Strong command of English; Thai proficiency is a plus"] },
+  { title: "Video Editor", type: "Full-time", description: { en: "We're looking for a skilled Video Editor to craft compelling visual stories for brands across Southeast Asia.", th: "เรากำลังหา Video Editor ที่มีฝีมือมาสร้าง visual story ที่ทรงพลังสำหรับแบรนด์ใน Southeast Asia" }, responsibilities: ["Edit and produce high-quality video content for brand campaigns, social media, and digital platforms", "Collaborate with the creative director and strategists to translate briefs into visual narratives", "Manage post-production workflow including color grading, sound design, and motion graphics", "Stay current with video trends, editing techniques, and platform-specific formats", "Ensure all deliverables meet brand guidelines and quality standards"], qualifications: ["2+ years of professional video editing experience", "Proficiency in Adobe Premiere Pro, After Effects, and DaVinci Resolve", "Strong storytelling sense and attention to detail", "Experience with motion graphics is a plus", "Portfolio showcasing previous work required"] },
+  { title: "Graphic Designer", type: "Full-time", description: { en: "Join our design team to create impactful visual identities, marketing collateral, and digital assets.", th: "มาร่วมทีม design สร้าง visual identity, marketing collateral และ digital asset ที่มี impact" }, responsibilities: ["Design brand identities, marketing materials, and digital assets", "Create layouts for social media, websites, presentations, and print", "Collaborate with strategists and copywriters to develop creative concepts", "Maintain design consistency across all brand touchpoints", "Prepare production-ready files and manage design asset libraries"], qualifications: ["2+ years of graphic design experience in agency or in-house setting", "Expert proficiency in Figma, Adobe Illustrator, and Photoshop", "Strong typography and layout skills", "Understanding of brand systems and design thinking", "Portfolio demonstrating range and craft required"] },
+  { title: "Digital Marketing Specialist", type: "Full-time", description: { en: "We need a data-driven Digital Marketing Specialist to plan, execute, and optimize campaigns across paid and organic channels.", th: "เราต้องการ Digital Marketing Specialist ที่ data-driven มาวางแผน execute และ optimize campaign ทั้ง paid และ organic" }, responsibilities: ["Plan and manage digital advertising campaigns across Meta, Google, TikTok, and LINE", "Analyze campaign performance and provide actionable insights and reports", "Develop SEO strategies and oversee content optimization", "Manage marketing budgets and optimize for ROI", "Collaborate with the creative team on ad creatives and landing pages"], qualifications: ["2+ years of experience in digital marketing or performance marketing", "Proficiency with Google Analytics, Meta Business Suite, and Google Ads", "Strong analytical skills and data-driven mindset", "Experience with SEO tools (Ahrefs, SEMrush) is a plus", "Understanding of the Thai digital landscape preferred"] },
+  { title: "Social Media Manager", type: "Full-time", description: { en: "We're seeking a Social Media Manager to own our clients' social presence from strategy to execution.", th: "เราต้องการ Social Media Manager ที่ดูแล social presence ของลูกค้าตั้งแต่ strategy ถึง execution" }, responsibilities: ["Develop and execute social media strategies across Instagram, Facebook, TikTok, X, and LINE", "Create, schedule, and publish engaging content aligned with brand voice", "Monitor trends, conversations, and competitor activity", "Manage community engagement and respond to audience interactions", "Track KPIs and deliver monthly performance reports"], qualifications: ["2+ years managing social media for brands or agencies", "Strong copywriting skills in both Thai and English", "Experience with social management tools (Hootsuite, Buffer, or similar)", "Understanding of social algorithms and content best practices", "Creative mindset with a pulse on culture and trends"] },
+  { title: "Creative Strategist", type: "Full-time", description: { en: "As a Creative Strategist, you'll bridge the gap between insight and execution.", th: "ในฐานะ Creative Strategist คุณจะเชื่อมช่องว่างระหว่าง insight และ execution" }, responsibilities: ["Develop brand strategies, creative concepts, and campaign narratives", "Conduct research and audience analysis to inform creative direction", "Write creative briefs and present strategic recommendations to clients", "Collaborate with designers, editors, and marketers to bring ideas to life", "Identify emerging trends and opportunities for brand storytelling"], qualifications: ["3+ years in creative strategy, brand planning, or advertising", "Exceptional storytelling and presentation skills", "Ability to think both creatively and analytically", "Experience working with cross-functional creative teams", "Strong command of English; Thai proficiency is a plus"] },
 ];
 
 const benefits = [
-  { title: "Social Security", desc: "Full social security coverage as required by Thai labor law" },
-  { title: "Public Holidays", desc: "All public holidays off as mandated by labor regulations" },
-  { title: "Creative Culture", desc: "Work in a collaborative, creative team environment" },
-  { title: "Flexible Hours", desc: "Monday – Friday, 10:00 – 19:00 with flexibility built in" },
-  { title: "Growth Path", desc: "Clear career progression and skill development opportunities" },
-  { title: "Team Activities", desc: "Regular team outings, workshops, and creative retreats" },
+  { title: "Social Security", desc: { en: "Full social security coverage as required by Thai labor law", th: "ประกันสังคมครบตามกฎหมายแรงงาน" } },
+  { title: "Public Holidays", desc: { en: "All public holidays off as mandated by labor regulations", th: "หยุดวันหยุดนักขัตฤกษ์ตามกฎหมาย" } },
+  { title: "Creative Culture", desc: { en: "Work in a collaborative, creative team environment", th: "ทำงานในทีม creative ที่ collaborative" } },
+  { title: "Flexible Hours", desc: { en: "Monday – Friday, 10:00 – 19:00 with flexibility built in", th: "จันทร์ – ศุกร์ 10:00 – 19:00 มีความยืดหยุ่น" } },
+  { title: "Growth Path", desc: { en: "Clear career progression and skill development opportunities", th: "Career path ชัดเจนและมีโอกาสพัฒนา skill" } },
+  { title: "Team Activities", desc: { en: "Regular team outings, workshops, and creative retreats", th: "Team outing, workshop และ creative retreat เป็นประจำ" } },
 ];
 
 const CareersSection = () => {
   const [selectedJob, setSelectedJob] = useState<typeof jobs[0] | null>(null);
+  const { lang, t } = useLanguage();
 
   return (
     <section className="py-32 md:py-44 px-6 md:px-12">
@@ -30,13 +32,15 @@ const CareersSection = () => {
             <div>
               <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-4">Careers</p>
               <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-foreground">
-                Join Our<br />
-                <span className="text-accent-gradient">Creative Team</span>
+                {t(<>Join Our<br /><span className="text-accent-gradient">Creative Team</span></>, <>ร่วมงานกับ<br /><span className="text-accent-gradient">Creative Team</span></>)}
               </h2>
             </div>
             <div className="flex items-end">
               <p className="font-body text-muted-foreground text-base md:text-lg max-w-md leading-relaxed">
-                We're always looking for talented, curious people who want to do meaningful creative work. If that sounds like you, we'd love to hear from you.
+                {t(
+                  "We're always looking for talented, curious people who want to do meaningful creative work. If that sounds like you, we'd love to hear from you.",
+                  "เรามองหาคนที่มีความสามารถและอยากรู้อยากเห็น ที่อยากทำงาน creative ที่มีความหมาย ถ้าคุณเป็นแบบนั้น เราอยากรู้จักคุณ"
+                )}
               </p>
             </div>
           </div>
@@ -45,8 +49,8 @@ const CareersSection = () => {
         <AnimatedSection delay={0.05}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-divider border border-divider mb-20">
             <div className="bg-background p-6 md:p-8">
-              <p className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mb-2">Working Hours</p>
-              <p className="font-body text-foreground">Monday – Friday, 10:00 – 19:00</p>
+              <p className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mb-2">{t("Working Hours", "เวลาทำงาน")}</p>
+              <p className="font-body text-foreground">{t("Monday – Friday, 10:00 – 19:00", "จันทร์ – ศุกร์ 10:00 – 19:00")}</p>
             </div>
             <div className="bg-background p-6 md:p-8">
               <p className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mb-2">Location</p>
@@ -55,7 +59,7 @@ const CareersSection = () => {
               </a>
             </div>
             <div className="bg-background p-6 md:p-8">
-              <p className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mb-2">Apply</p>
+              <p className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mb-2">{t("Apply", "สมัครงาน")}</p>
               <a href="mailto:hello@orions.agency" className="font-body text-foreground hover:text-accent-violet transition-colors duration-300">
                 hello@orions.agency →
               </a>
@@ -64,7 +68,7 @@ const CareersSection = () => {
         </AnimatedSection>
 
         <AnimatedSection delay={0.1}>
-          <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-8">Open Positions</p>
+          <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-8">{t("Open Positions", "ตำแหน่งที่เปิดรับ")}</p>
         </AnimatedSection>
 
         <div className="border-t border-divider">
@@ -83,7 +87,7 @@ const CareersSection = () => {
                     </svg>
                   </div>
                 </div>
-                <p className="font-body text-sm text-muted-foreground mt-3 md:ml-10 max-w-2xl line-clamp-2">{job.description}</p>
+                <p className="font-body text-sm text-muted-foreground mt-3 md:ml-10 max-w-2xl line-clamp-2">{job.description[lang]}</p>
               </div>
             </AnimatedSection>
           ))}
@@ -91,15 +95,15 @@ const CareersSection = () => {
 
         <div className="mt-24">
           <AnimatedSection>
-            <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-8">Benefits & Perks</p>
+            <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-8">{t("Benefits & Perks", "สวัสดิการ")}</p>
           </AnimatedSection>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-divider border border-divider">
             {benefits.map((b, i) => (
               <AnimatedSection key={b.title} delay={i * 0.05}>
-                <div className="bg-background p-8 md:p-10">
+                <div className="bg-background p-8 md:p-10 group hover:bg-secondary transition-colors duration-300">
                   <span className="font-display text-xs text-accent-violet mb-4 block">{String(i + 1).padStart(2, "0")}</span>
                   <h4 className="font-display text-base font-semibold text-foreground mb-2">{b.title}</h4>
-                  <p className="font-body text-sm text-muted-foreground leading-relaxed">{b.desc}</p>
+                  <p className="font-body text-sm text-muted-foreground leading-relaxed">{b.desc[lang]}</p>
                 </div>
               </AnimatedSection>
             ))}
@@ -109,10 +113,10 @@ const CareersSection = () => {
         <AnimatedSection delay={0.1}>
           <div className="mt-24 text-center">
             <p className="font-body text-muted-foreground text-base mb-6">
-              Don't see your role? We're always open to meeting great people.
+              {t("Don't see your role? We're always open to meeting great people.", "ไม่เห็นตำแหน่งที่ใช่? เราเปิดรับคนเก่งเสมอ")}
             </p>
             <a href="mailto:hello@orions.agency" className="inline-flex items-center gap-2 bg-accent-gradient text-white px-10 py-4 text-sm font-display font-medium tracking-wide hover:opacity-90 transition-all duration-300">
-              Send Your Portfolio
+              {t("Send Your Portfolio", "ส่ง Portfolio")}
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="transition-transform duration-300 group-hover:translate-x-1">
                 <path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" strokeWidth="1.5" />
               </svg>
@@ -130,12 +134,12 @@ const CareersSection = () => {
                   <DialogTitle className="font-display text-2xl md:text-3xl font-bold text-foreground">{selectedJob.title}</DialogTitle>
                   <span className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground font-body border border-divider px-2 py-0.5">{selectedJob.type}</span>
                 </div>
-                <DialogDescription className="font-body text-base text-muted-foreground">{selectedJob.description}</DialogDescription>
+                <DialogDescription className="font-body text-base text-muted-foreground">{selectedJob.description[lang]}</DialogDescription>
               </DialogHeader>
               <div className="space-y-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="border border-divider p-4">
-                    <p className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mb-1">Working Hours</p>
+                    <p className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mb-1">{t("Working Hours", "เวลาทำงาน")}</p>
                     <p className="font-body text-sm text-foreground">Mon – Fri, 10:00 – 19:00</p>
                   </div>
                   <div className="border border-divider p-4">
@@ -148,7 +152,7 @@ const CareersSection = () => {
                   <ul className="space-y-3">
                     {selectedJob.responsibilities.map((r, i) => (
                       <li key={i} className="flex gap-3 items-start">
-                      <span className="text-accent-violet font-display text-xs font-bold mt-0.5">{String(i + 1).padStart(2, "0")}</span>
+                        <span className="text-accent-violet font-display text-xs font-bold mt-0.5">{String(i + 1).padStart(2, "0")}</span>
                         <span className="font-body text-sm text-foreground leading-relaxed">{r}</span>
                       </li>
                     ))}
@@ -166,7 +170,7 @@ const CareersSection = () => {
                   </ul>
                 </div>
                 <div className="border-t border-divider pt-8">
-                  <h4 className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4">Benefits</h4>
+                  <h4 className="font-display text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4">{t("Benefits", "สวัสดิการ")}</h4>
                   <div className="flex flex-wrap gap-2">
                     {benefits.map((b) => (
                       <span key={b.title} className="text-xs tracking-[0.1em] uppercase font-body border border-divider px-3 py-1.5 text-foreground">{b.title}</span>
@@ -175,7 +179,7 @@ const CareersSection = () => {
                 </div>
                 <div className="border-t border-divider pt-8">
                   <a href="mailto:hello@orions.agency" className="inline-flex items-center gap-2 bg-accent-gradient text-white px-8 py-3.5 text-sm font-display font-medium tracking-wide hover:opacity-90 transition-all duration-300">
-                    Apply Now
+                    {t("Apply Now", "สมัครเลย")}
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" strokeWidth="1.5" /></svg>
                   </a>
                 </div>

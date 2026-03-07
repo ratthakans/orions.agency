@@ -11,10 +11,10 @@ const Navbar = () => {
   const { lang, setLang, t } = useLanguage();
 
   const navLinks = [
-    { label: t("Services", "บริการ"), href: "/services" },
+    { label: "Services", href: "/services" },
     { label: t("Work", "ผลงาน"), href: "/work" },
-    { label: t("AI Stack", "เครื่องมือ AI"), href: "/ai-stack" },
-    { label: t("About", "เกี่ยวกับ"), href: "/about" },
+    { label: "AI Stack", href: "/ai-stack" },
+    { label: t("About", "เกี่ยวกับเรา"), href: "/about" },
     { label: t("Contact", "ติดต่อ"), href: "/contact" },
     { label: t("Careers", "ร่วมงาน"), href: "/careers" },
   ];
@@ -67,7 +67,7 @@ const Navbar = () => {
               onClick={() => setDialogOpen(true)}
               className="font-mono text-[10.5px] tracking-[0.1em] uppercase text-foreground border border-foreground/20 px-5 py-2.5 hover:bg-accent-gradient hover:border-transparent hover:text-white transition-all duration-300 rounded-sm"
             >
-              {t("Start a Project", "เริ่มโปรเจกต์")}
+              {t("Start a Project", "เริ่ม Project")}
             </button>
           </div>
 
@@ -129,7 +129,7 @@ const Navbar = () => {
                   onClick={() => { setIsOpen(false); setDialogOpen(true); }}
                   className="font-mono text-sm tracking-[0.1em] uppercase bg-accent-gradient text-white px-5 py-3 text-center mt-2 rounded-sm"
                 >
-                  {t("Start a Project", "เริ่มโปรเจกต์")}
+                  {t("Start a Project", "เริ่ม Project")}
                 </button>
               </div>
             </motion.div>

@@ -43,12 +43,12 @@ const Index = () => {
               {t("Ready when you are", "พร้อมเมื่อคุณพร้อม")}
             </span>
             <h2 className="font-display text-[clamp(56px,8.5vw,130px)] leading-[0.88] tracking-[0.02em] text-foreground mb-6">
-              {t(<>Ready to cut<br />through the <span className="text-accent-gradient">noise?</span></>, <>พร้อมที่จะ<br />เจาะทะลุ<span className="text-accent-gradient">ทุกเสียง?</span></>)}
+              {t(<>Ready to cut<br />through the <span className="text-accent-gradient">noise?</span></>, <>พร้อมจะตัดผ่าน<br />ทุก <span className="text-accent-gradient">noise?</span></>)}
             </h2>
             <p className="font-body text-base leading-[1.78] text-muted-foreground max-w-[420px] mx-auto mb-10">
               {t(
                 "Tell us about your brand. We'll tell you exactly what it needs — and how fast we can build it.",
-                "เล่าให้เราฟังเกี่ยวกับแบรนด์ของคุณ เราจะบอกว่ามันต้องการอะไร และเราสร้างมันได้เร็วแค่ไหน"
+                "เล่าให้เราฟังเกี่ยวกับแบรนด์ของคุณ เราจะบอกว่ามันต้องการอะไร — และเราสร้างได้เร็วแค่ไหน"
               )}
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
@@ -56,7 +56,7 @@ const Index = () => {
                 onClick={() => setDialogOpen(true)}
                 className="bg-accent-gradient text-white font-mono text-[11px] tracking-[0.1em] uppercase px-7 py-3.5 rounded-sm hover:opacity-90 transition-opacity"
               >
-                {t("Start a Project →", "เริ่มโปรเจกต์ →")}
+                {t("Start a Project →", "เริ่ม Project →")}
               </button>
               <Link
                 to="/contact"

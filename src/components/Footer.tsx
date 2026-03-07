@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
-  const { lang, t } = useLanguage();
+  const { t } = useLanguage();
 
   return (
     <footer className="border-t-2 glow-border px-6 md:px-12 pt-16 pb-10">
@@ -11,7 +11,7 @@ const Footer = () => {
           <div>
             <p className="font-logo text-[18px] tracking-[0.22em] text-foreground mb-3 uppercase">ØRIONS</p>
             <p className="font-body text-[13px] leading-[1.72] text-muted-foreground max-w-[220px] mb-5">
-              {t("AI-Native Creative Agency.\nHuman craft. Machine velocity.", "เอเจนซี่ครีเอทีฟ AI-Native\nงานฝีมือมนุษย์ ความเร็วเครื่องจักร")}
+              {t("AI-Native Creative Agency.\nHuman craft. Machine velocity.", "AI-Native Creative Agency\nHuman craft. Machine velocity.")}
             </p>
             <div className="space-y-1.5">
               <a href="mailto:hello@orions.agency" className="font-mono text-[11px] tracking-[0.06em] text-accent-violet block hover:text-foreground transition-colors">hello@orions.agency</a>
@@ -20,32 +20,26 @@ const Footer = () => {
           </div>
 
           <div>
-            <p className="font-mono text-[9px] tracking-[0.25em] uppercase text-accent-violet mb-5">{t("Services", "บริการ")}</p>
+            <p className="font-mono text-[9px] tracking-[0.25em] uppercase text-accent-violet mb-5">Services</p>
             <div className="flex flex-col gap-2.5">
-              {[
-                { en: "Brand Strategy", th: "กลยุทธ์แบรนด์" },
-                { en: "Visual Identity", th: "เอกลักษณ์ภาพ" },
-                { en: "Content Production", th: "ผลิตคอนเทนต์" },
-                { en: "Social Media", th: "โซเชียลมีเดีย" },
-                { en: "Monthly Retainer", th: "แพ็กเกจรายเดือน" },
-              ].map((item) => (
-                <Link key={item.en} to="/services" className="font-body text-[13px] text-muted-foreground hover:text-foreground transition-colors">{item[lang]}</Link>
+              {["Brand Strategy", "Visual Identity", "Content Production", "Social Media", "Monthly Retainer"].map((item) => (
+                <Link key={item} to="/services" className="font-body text-[13px] text-muted-foreground hover:text-foreground transition-colors">{item}</Link>
               ))}
             </div>
           </div>
 
           <div>
-            <p className="font-mono text-[9px] tracking-[0.25em] uppercase text-accent-violet mb-5">{t("Company", "บริษัท")}</p>
+            <p className="font-mono text-[9px] tracking-[0.25em] uppercase text-accent-violet mb-5">Company</p>
             <div className="flex flex-col gap-2.5">
-              <Link to="/about" className="font-body text-[13px] text-muted-foreground hover:text-foreground transition-colors">{t("About", "เกี่ยวกับเรา")}</Link>
-              <Link to="/ai-stack" className="font-body text-[13px] text-muted-foreground hover:text-foreground transition-colors">{t("AI Stack", "เครื่องมือ AI")}</Link>
+              <Link to="/about" className="font-body text-[13px] text-muted-foreground hover:text-foreground transition-colors">{t("About", "About")}</Link>
+              <Link to="/ai-stack" className="font-body text-[13px] text-muted-foreground hover:text-foreground transition-colors">AI Stack</Link>
               <Link to="/work" className="font-body text-[13px] text-muted-foreground hover:text-foreground transition-colors">{t("Work", "ผลงาน")}</Link>
               <Link to="/careers" className="font-body text-[13px] text-muted-foreground hover:text-foreground transition-colors">{t("Careers", "ร่วมงาน")}</Link>
             </div>
           </div>
 
           <div>
-            <p className="font-mono text-[9px] tracking-[0.25em] uppercase text-accent-violet mb-5">{t("Connect", "ติดต่อ")}</p>
+            <p className="font-mono text-[9px] tracking-[0.25em] uppercase text-accent-violet mb-5">Connect</p>
             <div className="flex flex-col gap-2.5">
               <a href="https://instagram.com/orions.agency" target="_blank" rel="noopener noreferrer" className="font-body text-[13px] text-muted-foreground hover:text-foreground transition-colors">Instagram</a>
               <a href="https://linkedin.com/company/orions-agency" target="_blank" rel="noopener noreferrer" className="font-body text-[13px] text-muted-foreground hover:text-foreground transition-colors">LinkedIn</a>
@@ -59,7 +53,7 @@ const Footer = () => {
             © {new Date().getFullYear()} ØRIONS. All rights reserved.
           </p>
           <p className="font-mono text-[9px] tracking-[0.14em] text-muted-foreground">
-            <span className="text-accent-violet">◎</span> {t("Bangkok, Thailand", "กรุงเทพฯ ประเทศไทย")}
+            <span className="text-accent-violet">◎</span> Bangkok, Thailand
           </p>
         </div>
       </div>

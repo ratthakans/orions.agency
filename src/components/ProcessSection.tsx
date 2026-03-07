@@ -5,10 +5,10 @@ const ProcessSection = () => {
   const { lang, t } = useLanguage();
 
   const steps = [
-    { num: "01", title: { en: "Discovery", th: "ค้นพบ" }, desc: { en: "Deep brand interviews, competitor mapping, and audience analysis — AI-synthesized in days, not weeks.", th: "การสัมภาษณ์แบรนด์เชิงลึก การทำแผนที่คู่แข่ง และการวิเคราะห์ผู้ชม สังเคราะห์ด้วย AI ในไม่กี่วัน" }, badge: { en: "Strategy", th: "กลยุทธ์" } },
-    { num: "02", title: { en: "Strategy", th: "กลยุทธ์" }, desc: { en: "Humans set the direction. AI accelerates production. Every concept passes a craft review before you see it.", th: "มนุษย์กำหนดทิศทาง AI เร่งการผลิต ทุก concept ผ่านการตรวจสอบก่อนที่คุณจะเห็น" }, badge: { en: "Creative", th: "สร้างสรรค์" } },
-    { num: "03", title: { en: "Creation", th: "สร้างสรรค์" }, desc: { en: "Design, copy, and assets built in parallel — not sequentially. AI compresses timelines without compressing quality.", th: "Design, copy และ assets สร้างพร้อมกัน AI บีบอัดระยะเวลาโดยไม่บีบอัดคุณภาพ" }, badge: { en: "Build", th: "สร้าง" } },
-    { num: "04", title: { en: "Launch & Scale", th: "เปิดตัวและขยาย" }, desc: { en: "We don't hand over files. We hand over a living brand system — with the documentation and support to grow it.", th: "เราไม่ส่งแค่ไฟล์ เราส่งระบบแบรนด์ที่มีชีวิต พร้อมเอกสารและการสนับสนุนเพื่อการเติบโต" }, badge: { en: "Growth", th: "เติบโต" } },
+    { num: "01", title: { en: "Discovery", th: "Discovery" }, desc: { en: "Deep brand interviews, competitor mapping, and audience analysis — AI-synthesized in days, not weeks.", th: "สัมภาษณ์แบรนด์เชิงลึก วิเคราะห์คู่แข่ง และ audience — สังเคราะห์ด้วย AI ในไม่กี่วัน" }, badge: "Strategy" },
+    { num: "02", title: { en: "Strategy", th: "Strategy" }, desc: { en: "Humans set the direction. AI accelerates production. Every concept passes a craft review before you see it.", th: "มนุษย์กำหนดทิศทาง AI เร่งการผลิต ทุก concept ผ่าน craft review ก่อนถึงมือคุณ" }, badge: "Creative" },
+    { num: "03", title: { en: "Creation", th: "Creation" }, desc: { en: "Design, copy, and assets built in parallel — not sequentially. AI compresses timelines without compressing quality.", th: "Design, copy และ assets สร้างพร้อมกัน — AI บีบอัด timeline โดยไม่ลดคุณภาพ" }, badge: "Build" },
+    { num: "04", title: { en: "Launch & Scale", th: "Launch & Scale" }, desc: { en: "We don't hand over files. We hand over a living brand system — with the documentation and support to grow it.", th: "เราไม่ส่งแค่ไฟล์ เราส่ง brand system ที่มีชีวิต — พร้อม documentation และ support เพื่อการเติบโต" }, badge: "Growth" },
   ];
 
   return (
@@ -18,17 +18,17 @@ const ProcessSection = () => {
           <div className="flex items-center gap-3.5 mb-12">
             <span className="w-[22px] h-px bg-accent-gradient" />
             <span className="font-mono text-[9.5px] tracking-[0.28em] uppercase text-accent-violet">
-              {t("How We Work", "กระบวนการทำงาน")}
+              {t("How We Work", "วิธีการทำงาน")}
             </span>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-end mb-12">
             <h2 className="font-display text-[clamp(42px,5.5vw,84px)] leading-[0.94] tracking-[0.02em] text-foreground">
-              {t(<>A framework<br />that <span className="text-accent-gradient">compounds.</span></>, <>กรอบการทำงาน<br />ที่<span className="text-accent-gradient">สะสมผลลัพธ์</span></>)}
+              {t(<>A framework<br />that <span className="text-accent-gradient">compounds.</span></>, <>Framework<br />ที่<span className="text-accent-gradient">สะสมผลลัพธ์</span></>)}
             </h2>
             <p className="font-body text-[15px] leading-[1.8] text-muted-foreground">
               {t(
                 "Every engagement follows the same four stages. Where we differ is the depth at each step — and how much faster AI lets us move through them.",
-                "ทุกการทำงานตามสี่ขั้นตอนเดียวกัน สิ่งที่เราแตกต่างคือความลึกในแต่ละขั้นตอน และความเร็วที่ AI ช่วยให้เราผ่านขั้นตอนเหล่านั้นได้"
+                "ทุกโปรเจกต์ผ่าน 4 ขั้นตอนเดียวกัน สิ่งที่ต่างคือความลึกในแต่ละขั้น — และความเร็วที่ AI ช่วยให้เราเคลื่อนไหวได้"
               )}
             </p>
           </div>
@@ -42,7 +42,7 @@ const ProcessSection = () => {
                 <h3 className="font-body text-[15px] font-medium text-foreground mb-2.5">{step.title[lang]}</h3>
                 <p className="font-body text-[12.5px] leading-[1.72] text-muted-foreground">{step.desc[lang]}</p>
                 <span className="absolute top-5 right-5 font-mono text-[8px] tracking-[0.18em] uppercase px-2.5 py-1 bg-accent-violet/10 text-accent-violet border border-accent-violet/20">
-                  {step.badge[lang]}
+                  {step.badge}
                 </span>
               </div>
             </AnimatedSection>

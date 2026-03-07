@@ -1,6 +1,9 @@
 import AnimatedSection from "./AnimatedSection";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const AboutSection = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="about" className="py-32 md:py-44 px-6 md:px-12 bg-elevated">
       <div className="max-w-7xl mx-auto">
@@ -12,12 +15,15 @@ const AboutSection = () => {
               </p>
               <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-foreground">
                 About<br />
-                <span className="text-accent-gradient">ORIONS</span>
+                <span className="text-accent-gradient">ØRIONS</span>
               </h2>
             </div>
             <div className="flex items-end">
               <p className="font-body text-muted-foreground text-base md:text-lg max-w-md leading-relaxed">
-                A meaning-driven creative agency. We help brands define direction and express it through campaigns, content, and digital experiences.
+                {t(
+                  "A meaning-driven creative agency. We help brands define direction and express it through campaigns, content, and digital experiences.",
+                  "Creative agency ที่ขับเคลื่อนด้วยความหมาย เราช่วยแบรนด์กำหนดทิศทางและแสดงออกผ่าน campaign, content และ digital experience"
+                )}
               </p>
             </div>
           </div>
@@ -27,12 +33,15 @@ const AboutSection = () => {
           <div className="space-y-8 font-body text-lg md:text-xl text-muted-foreground leading-relaxed">
             <AnimatedSection delay={0.1}>
               <div className="border-t border-divider pt-10">
-                <p className="text-foreground font-display text-lg md:text-xl mb-6">Our approach is simple</p>
+                <p className="text-foreground font-display text-lg md:text-xl mb-6">{t("Our approach is simple", "แนวทางของเราเรียบง่าย")}</p>
                 <p className="mb-6 whitespace-pre-line">
-                  {"Clear thinking.\nPurposeful creativity.\nDisciplined execution."}
+                  {t(
+                    "Clear thinking.\nPurposeful creativity.\nDisciplined execution.",
+                    "Clear thinking.\nPurposeful creativity.\nDisciplined execution."
+                  )}
                 </p>
                 <p className="text-foreground font-display text-lg md:text-xl whitespace-pre-line">
-                  {"Less noise.\nMore meaning."}
+                  {t("Less noise.\nMore meaning.", "Less noise.\nMore meaning.")}
                 </p>
               </div>
             </AnimatedSection>

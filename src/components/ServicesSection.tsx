@@ -512,7 +512,7 @@ const ServicesSection = () => {
               <div className="p-8 space-y-8">
                 {/* Our Process */}
                 <div>
-                  <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-violet mb-4">{t("Our Process", "กระบวนการของเรา")}</h4>
+                  <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/60 mb-4">{t("Our Process", "กระบวนการของเรา")}</h4>
                   <div className="space-y-3">
                     {selectedService.dialog.process[lang].map((p, i) => (
                       <p key={i} className="font-body text-[14px] leading-[1.75] text-muted-foreground">{p}</p>

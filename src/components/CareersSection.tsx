@@ -167,7 +167,7 @@ const CareersSection = () => {
                   </div>
                 </div>
                 <div>
-                  <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-violet mb-4">Responsibilities</h4>
+                  <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/60 mb-4">Responsibilities</h4>
                   <ul className="space-y-3">
                     {selectedJob.responsibilities.map((r, i) => (
                       <li key={i} className="flex gap-3 items-start">

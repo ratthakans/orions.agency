@@ -376,10 +376,10 @@ const ServicesSection = () => {
         {/* Service Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-divider border border-divider">
           {services.map((s, i) => (
-            <AnimatedSection key={s.num} delay={i * 0.08}>
+            <AnimatedSection key={s.num} delay={i * 0.08} className="h-full">
               <div
                 onClick={() => setSelectedService(s)}
-                className="bg-background p-10 md:p-11 relative overflow-hidden group hover:bg-secondary transition-colors duration-300 cursor-pointer"
+                className="bg-background p-10 md:p-11 relative overflow-hidden group hover:bg-secondary transition-colors duration-300 cursor-pointer h-full"
               >
                 <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-accent-gradient scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-bottom" />
                 <span className="font-mono text-[10px] tracking-[0.22em] text-foreground/40 mb-5 block">{s.num}</span>
@@ -446,8 +446,8 @@ const ServicesSection = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-divider border border-divider">
             {retainerPlans.map((plan, i) => (
-              <AnimatedSection key={plan.name} delay={i * 0.1}>
-                <div className={`bg-background p-10 md:p-12 relative transition-colors duration-300 hover:bg-secondary ${plan.best ? "outline outline-1 outline-foreground/20" : ""}`}>
+              <AnimatedSection key={plan.name} delay={i * 0.1} className="h-full">
+                <div className={`bg-background p-10 md:p-12 relative transition-colors duration-300 hover:bg-secondary h-full ${plan.best ? "outline outline-1 outline-foreground/20" : ""}`}>
                   {plan.best && plan.badge && (
                     <div className="absolute top-0 left-10 font-mono text-[9px] tracking-[0.2em] uppercase bg-accent-gradient text-white px-3 py-1.5">
                       {plan.badge[lang]}

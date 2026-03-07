@@ -10,10 +10,10 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => {
   const { t } = useLanguage();
 
   return (
-    <section className="min-h-screen flex flex-col justify-end px-6 md:px-12 pt-20 pb-20 relative overflow-hidden">
+    <section className="min-h-[85vh] flex flex-col justify-end px-6 md:px-12 pt-20 pb-20 relative overflow-hidden">
       {/* Subtle gradient glow */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 right-1/4 w-[600px] h-[600px] rounded-full opacity-[0.04] bg-accent-gradient blur-[120px]" />
+        <div className="absolute top-1/4 right-1/4 w-[600px] h-[600px] rounded-full opacity-[0.06] bg-accent-gradient blur-[120px]" />
       </div>
 
       <div className="max-w-7xl mx-auto w-full relative z-10">
@@ -21,21 +21,21 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="font-mono text-[10px] tracking-[0.28em] uppercase text-accent-violet mb-8"
+          className="font-mono text-[11px] tracking-[0.28em] uppercase text-accent-violet mb-6"
         >
           AI-Native Creative Agency · Bangkok
         </motion.div>
 
         <motion.h1
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.2 }}
-          className="font-display text-[clamp(72px,11.5vw,190px)] leading-[0.88] tracking-[0.02em] text-foreground mb-0"
+          className="font-display text-[clamp(52px,9vw,140px)] leading-[0.88] tracking-[0.02em] text-foreground mb-0"
         >
           Human Thinking.
           <br />
-          <span className="text-muted-foreground italic">
-            Machine Speed.
+          <span className="text-accent-gradient italic">
+            AI Speed.
           </span>
         </motion.h1>
 
@@ -43,9 +43,9 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="flex flex-col md:flex-row items-start md:items-end justify-between gap-8 mt-16 pt-10 border-t border-divider"
+          className="flex flex-col md:flex-row items-start md:items-end justify-between gap-8 mt-14 pt-8 border-t border-divider"
         >
-          <p className="font-body text-base text-muted-foreground max-w-[360px] leading-[1.78]">
+          <p className="font-body text-[16px] text-muted-foreground max-w-[380px] leading-[1.75]">
             {t(
               <>We build brands that cut through — with the <strong className="text-foreground font-normal">strategic depth</strong> no AI can replicate, and the <strong className="text-foreground font-normal">production velocity</strong> no traditional agency can match.</>,
               <>เราสร้างแบรนด์ที่ตัดผ่านทุก noise — ด้วย<strong className="text-foreground font-normal">กลยุทธ์เชิงลึก</strong>ที่ AI ทำแทนไม่ได้ และ<strong className="text-foreground font-normal">ความเร็วในการผลิต</strong>ที่เอเจนซี่ทั่วไปตามไม่ทัน</>
@@ -69,16 +69,16 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => {
 
           <div className="flex flex-row md:flex-col gap-5 md:items-end">
             <div className="text-right">
-              <span className="font-display text-[44px] leading-none text-foreground">14+</span>
-              <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-muted-foreground block">Clients</span>
+              <span className="font-display text-[40px] leading-none text-foreground">14+</span>
+              <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground block">Clients</span>
             </div>
             <div className="text-right">
-              <span className="font-display text-[44px] leading-none text-foreground">3.2×</span>
-              <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-muted-foreground block">Avg Engagement</span>
+              <span className="font-display text-[40px] leading-none text-foreground">3.2×</span>
+              <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground block">Avg Engagement</span>
             </div>
             <div className="text-right">
-              <span className="font-display text-[44px] leading-none text-foreground">25%</span>
-              <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-muted-foreground block">Revenue Uplift</span>
+              <span className="font-display text-[40px] leading-none text-foreground">25%</span>
+              <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground block">Revenue Uplift</span>
             </div>
           </div>
         </motion.div>

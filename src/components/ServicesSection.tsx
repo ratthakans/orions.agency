@@ -570,10 +570,10 @@ const ServicesSection = () => {
                       <span className="text-[14px] opacity-45">฿</span>18K
                     </td>
                     <td className="text-center font-display text-[24px] text-foreground p-5 border-l border-divider bg-card/30">
-                      <span className="text-[14px] opacity-45">฿</span>25K
+                      <span className="text-[14px] opacity-45">฿</span>30K
                     </td>
                     <td className="text-center font-display text-[24px] text-foreground p-5 border-l border-divider">
-                      <span className="text-[14px] opacity-45">฿</span>35K<span className="text-[14px] opacity-35">+</span>
+                      <span className="text-[14px] opacity-45">฿</span>45K<span className="text-[14px] opacity-35">+</span>
                     </td>
                   </tr>
                 </tfoot>

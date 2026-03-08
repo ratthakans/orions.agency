@@ -79,7 +79,6 @@ const Index = () => {
           </AnimatedSection>
         </div>
       </section>
-
       <Footer />
       <StartProjectDialog open={dialogOpen} onOpenChange={setDialogOpen} />
     </main>

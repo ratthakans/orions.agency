@@ -226,36 +226,8 @@ const AIStackPage = () => {
               </div>
             </AnimatedSection>
 
-            {/* Workflow Diagram */}
-            <AnimatedSection delay={0.1}>
-              <div className="mb-16 border border-divider bg-card p-8 md:p-10">
-                <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-foreground/50 mb-6 text-center">
-                  {t("How Our Stack Works Together", "Stack ของเราทำงานร่วมกันอย่างไร")}
-                </p>
-                <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4">
-                  {[
-                    { step: "Brief", icon: "📋" },
-                    { step: "Claude", icon: "🧠", sub: "Strategy" },
-                    { step: "ChatGPT", icon: "✍️", sub: "Copy" },
-                    { step: "Midjourney", icon: "🎨", sub: "Visuals" },
-                    { step: "Runway", icon: "🎬", sub: "Video" },
-                    { step: "Lovable", icon: "🚀", sub: "Web" },
-                    { step: "Delivery", icon: "✧" },
-                  ].map((s, i, arr) => (
-                    <div key={s.step} className="flex items-center gap-3 md:gap-4">
-                      <div className="text-center">
-                        <span className="text-[20px] block mb-1">{s.icon}</span>
-                        <span className="font-mono text-[10px] tracking-[0.12em] uppercase text-foreground block">{s.step}</span>
-                        {s.sub && <span className="font-mono text-[8px] tracking-[0.1em] text-muted-foreground">{s.sub}</span>}
-                      </div>
-                      {i < arr.length - 1 && (
-                        <span className="font-mono text-[12px] text-foreground/30">→</span>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </AnimatedSection>
+
+
 
             {/* Tool Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-divider border border-divider">

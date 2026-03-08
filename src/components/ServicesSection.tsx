@@ -25,7 +25,7 @@ const projectServices: ServiceItem[] = [
       en: "We find what makes your brand impossible to replace — then express it in a visual and verbal system that works across every channel and market you operate in.",
       th: "เราค้นหาสิ่งที่ทำให้แบรนด์คุณแทนที่ไม่ได้ แล้วแสดงออกเป็นระบบ visual และ verbal ที่ทำงานได้ทุกช่องทางและตลาดที่คุณอยู่",
     },
-    tags: [{ label: "Brand Audit", type: "craft" }, { label: "Naming", type: "craft" }, { label: "Logo System" }, { label: "Brand Guidelines" }, { label: "AI Concepting", type: "ai" }],
+    tags: [{ label: "Brand Audit", type: "craft" }, { label: "Naming", type: "craft" }, { label: "Logo System" }, { label: "Brand Guidelines" }, { label: "AI Concepting", type: "ai" }, { label: "From ฿45,000" }],
     dialog: {
       subtitle: { en: "Your brand's foundation, built to last.", th: "รากฐานแบรนด์ของคุณ สร้างให้ยั่งยืน" },
       process: {
@@ -56,7 +56,7 @@ const projectServices: ServiceItem[] = [
       en: "Full-funnel campaigns from insight to execution. We combine data intelligence with narrative craft — campaigns that convert and get remembered.",
       th: "แคมเปญ full-funnel จาก insight ถึง execution ผสมผสาน data intelligence กับ narrative craft — แคมเปญที่ convert และถูกจดจำ",
     },
-    tags: [{ label: "Data Insights", type: "ai" }, { label: "Concept Dev", type: "craft" }, { label: "Media Planning" }, { label: "Launch Strategy" }],
+    tags: [{ label: "Data Insights", type: "ai" }, { label: "Concept Dev", type: "craft" }, { label: "Media Planning" }, { label: "Launch Strategy" }, { label: "From ฿35,000" }],
     dialog: {
       subtitle: { en: "Campaigns that convert and get remembered.", th: "แคมเปญที่ convert และถูกจดจำ" },
       process: {
@@ -87,7 +87,7 @@ const projectServices: ServiceItem[] = [
       en: "From a single launch to a 12-month content system. AI-scale output with the editorial judgment of a senior creative director on every piece.",
       th: "ตั้งแต่ launch ครั้งเดียวถึง content system 12 เดือน — output ระดับ AI พร้อมวิจารณญาณ Creative Director ในทุกชิ้นงาน",
     },
-    tags: [{ label: "AI-Assisted Writing", type: "ai" }, { label: "Art Direction", type: "craft" }, { label: "Photo Direction" }, { label: "Video Scripts" }],
+    tags: [{ label: "AI-Assisted Writing", type: "ai" }, { label: "Art Direction", type: "craft" }, { label: "Photo Direction" }, { label: "Video Scripts" }, { label: "From ฿25,000" }],
     dialog: {
       subtitle: { en: "Volume meets quality. Every single piece.", th: "ปริมาณที่มาพร้อมคุณภาพ ทุกชิ้นงาน" },
       process: {
@@ -118,7 +118,7 @@ const projectServices: ServiceItem[] = [
       en: "Websites and landing pages that convert visitors into customers. Built with performance, brand consistency, and conversion rate optimization as the non-negotiable priorities.",
       th: "เว็บไซต์และ landing page ที่แปลงผู้เยี่ยมชมเป็นลูกค้า สร้างด้วย performance, brand consistency และ conversion rate optimization เป็นสิ่งที่ต้องมี",
     },
-    tags: [{ label: "Web Design" }, { label: "UX Strategy", type: "ai" }, { label: "UI Polish", type: "craft" }, { label: "CRO" }],
+    tags: [{ label: "Web Design" }, { label: "UX Strategy", type: "ai" }, { label: "UI Polish", type: "craft" }, { label: "CRO" }, { label: "From ฿30,000" }],
     dialog: {
       subtitle: { en: "Every pixel earns its place.", th: "ทุก pixel มีค่า" },
       process: {
@@ -143,7 +143,6 @@ const projectServices: ServiceItem[] = [
     }
   },
 ];
-
 const retainerServices: ServiceItem[] = [
   {
     num: "R01",

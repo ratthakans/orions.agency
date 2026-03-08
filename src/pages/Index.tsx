@@ -35,7 +35,7 @@ const Index = () => {
       <ConstellationDivider />
       <ProcessSection />
       <FAQSection />
-
+      <ConstellationDivider />
       {/* CTA Bridge */}
       <section className="py-32 md:py-40 px-6 md:px-12 text-center relative overflow-hidden bg-card">
          <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">

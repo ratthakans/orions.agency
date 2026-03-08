@@ -11,12 +11,11 @@ const Navbar = () => {
   const { lang, setLang, t } = useLanguage();
 
   const navLinks = [
-    { label: "About", href: "/about" },
     { label: "Services", href: "/services" },
     { label: "Work", href: "/work" },
     { label: "AI Stack", href: "/ai-stack" },
     { label: "Careers", href: "/careers" },
-    { label: "Contact", href: "/about#contact" },
+    { label: "About", href: "/about" },
   ];
 
   return (

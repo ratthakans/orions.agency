@@ -4,7 +4,6 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import ProblemSection from "@/components/ProblemSection";
 import SocialProofStrip from "@/components/SocialProofStrip";
-import TestimonialsSection from "@/components/TestimonialsSection";
 import ProcessSection from "@/components/ProcessSection";
 import FAQSection from "@/components/FAQSection";
 import StartProjectDialog from "@/components/StartProjectDialog";

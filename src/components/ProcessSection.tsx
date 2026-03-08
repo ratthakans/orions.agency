@@ -175,18 +175,6 @@ const ProcessSection = () => {
           </div>
         </AnimatedSection>
 
-        {/* Constellation visual connector (desktop only) */}
-        <div className="hidden lg:block relative mb-4">
-          <svg viewBox="0 0 1000 40" className="w-full h-[40px] opacity-20">
-            <line x1="125" y1="20" x2="375" y2="20" stroke="hsl(var(--foreground))" strokeWidth="0.5" strokeDasharray="4 4" />
-            <line x1="375" y1="20" x2="625" y2="20" stroke="hsl(var(--foreground))" strokeWidth="0.5" strokeDasharray="4 4" />
-            <line x1="625" y1="20" x2="875" y2="20" stroke="hsl(var(--foreground))" strokeWidth="0.5" strokeDasharray="4 4" />
-            {[125, 375, 625, 875].map((cx, i) => (
-              <circle key={i} cx={cx} cy={20} r={3} fill="hsl(var(--foreground))" className="animate-twinkle" style={{ animationDelay: `${i * 0.5}s` }} />
-            ))}
-          </svg>
-        </div>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 border border-divider">
           {steps.map((step, i) => (
             <AnimatedSection key={step.num} delay={i * 0.1}>

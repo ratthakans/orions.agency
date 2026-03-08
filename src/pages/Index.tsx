@@ -35,7 +35,7 @@ const Index = () => {
       <ConstellationDivider />
       <ProcessSection />
       <FAQSection />
-
+      <ConstellationDivider />
       {/* CTA Bridge */}
       <section className="py-32 md:py-40 px-6 md:px-12 text-center relative overflow-hidden bg-card">
          <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
@@ -67,7 +67,7 @@ const Index = () => {
                 {t("Start a Project →", "เริ่ม Project →")}
               </button>
               <Link
-                to="/contact"
+                to="/about#contact"
                 className="text-muted-foreground border-b border-divider font-mono text-[11px] tracking-[0.1em] uppercase px-4 py-3.5 hover:text-foreground hover:border-muted-foreground transition-all duration-300"
               >
                 {t("Book a 30-min Call", "นัดคุย 30 นาที")}
@@ -79,7 +79,6 @@ const Index = () => {
           </AnimatedSection>
         </div>
       </section>
-
       <Footer />
       <StartProjectDialog open={dialogOpen} onOpenChange={setDialogOpen} />
     </main>

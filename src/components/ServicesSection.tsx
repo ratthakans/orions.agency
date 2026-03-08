@@ -25,7 +25,7 @@ const projectServices: ServiceItem[] = [
       en: "We find what makes your brand impossible to replace — then express it in a visual and verbal system that works across every channel and market you operate in.",
       th: "เราค้นหาสิ่งที่ทำให้แบรนด์คุณแทนที่ไม่ได้ แล้วแสดงออกเป็นระบบ visual และ verbal ที่ทำงานได้ทุกช่องทางและตลาดที่คุณอยู่",
     },
-    tags: [{ label: "Brand Audit", type: "craft" }, { label: "Naming", type: "craft" }, { label: "Logo System" }, { label: "Brand Guidelines" }, { label: "AI Concepting", type: "ai" }],
+    tags: [{ label: "Brand Audit", type: "craft" }, { label: "Naming", type: "craft" }, { label: "Logo System" }, { label: "Brand Guidelines" }, { label: "AI Concepting", type: "ai" }, { label: "From ฿45,000" }],
     dialog: {
       subtitle: { en: "Your brand's foundation, built to last.", th: "รากฐานแบรนด์ของคุณ สร้างให้ยั่งยืน" },
       process: {
@@ -56,7 +56,7 @@ const projectServices: ServiceItem[] = [
       en: "Full-funnel campaigns from insight to execution. We combine data intelligence with narrative craft — campaigns that convert and get remembered.",
       th: "แคมเปญ full-funnel จาก insight ถึง execution ผสมผสาน data intelligence กับ narrative craft — แคมเปญที่ convert และถูกจดจำ",
     },
-    tags: [{ label: "Data Insights", type: "ai" }, { label: "Concept Dev", type: "craft" }, { label: "Media Planning" }, { label: "Launch Strategy" }],
+    tags: [{ label: "Data Insights", type: "ai" }, { label: "Concept Dev", type: "craft" }, { label: "Media Planning" }, { label: "Launch Strategy" }, { label: "From ฿35,000" }],
     dialog: {
       subtitle: { en: "Campaigns that convert and get remembered.", th: "แคมเปญที่ convert และถูกจดจำ" },
       process: {
@@ -87,7 +87,7 @@ const projectServices: ServiceItem[] = [
       en: "From a single launch to a 12-month content system. AI-scale output with the editorial judgment of a senior creative director on every piece.",
       th: "ตั้งแต่ launch ครั้งเดียวถึง content system 12 เดือน — output ระดับ AI พร้อมวิจารณญาณ Creative Director ในทุกชิ้นงาน",
     },
-    tags: [{ label: "AI-Assisted Writing", type: "ai" }, { label: "Art Direction", type: "craft" }, { label: "Photo Direction" }, { label: "Video Scripts" }],
+    tags: [{ label: "AI-Assisted Writing", type: "ai" }, { label: "Art Direction", type: "craft" }, { label: "Photo Direction" }, { label: "Video Scripts" }, { label: "From ฿25,000" }],
     dialog: {
       subtitle: { en: "Volume meets quality. Every single piece.", th: "ปริมาณที่มาพร้อมคุณภาพ ทุกชิ้นงาน" },
       process: {
@@ -118,7 +118,7 @@ const projectServices: ServiceItem[] = [
       en: "Websites and landing pages that convert visitors into customers. Built with performance, brand consistency, and conversion rate optimization as the non-negotiable priorities.",
       th: "เว็บไซต์และ landing page ที่แปลงผู้เยี่ยมชมเป็นลูกค้า สร้างด้วย performance, brand consistency และ conversion rate optimization เป็นสิ่งที่ต้องมี",
     },
-    tags: [{ label: "Web Design" }, { label: "UX Strategy", type: "ai" }, { label: "UI Polish", type: "craft" }, { label: "CRO" }],
+    tags: [{ label: "Web Design" }, { label: "UX Strategy", type: "ai" }, { label: "UI Polish", type: "craft" }, { label: "CRO" }, { label: "From ฿30,000" }],
     dialog: {
       subtitle: { en: "Every pixel earns its place.", th: "ทุก pixel มีค่า" },
       process: {
@@ -143,7 +143,6 @@ const projectServices: ServiceItem[] = [
     }
   },
 ];
-
 const retainerServices: ServiceItem[] = [
   {
     num: "R01",
@@ -278,7 +277,7 @@ const retainerPlans = [
     price: "18,000",
     per: { en: "/ month · 3-month minimum", th: "/ เดือน · ขั้นต่ำ 3 เดือน" },
     features: [
-      { en: "8 social posts / month", th: "8 social posts / เดือน" },
+      { en: "10 posts / month (4 album photos · 3 reels · 2 articles · 1 video)", th: "10 โพสต์ / เดือน (4 album photos · 3 reels · 2 articles · 1 video)" },
       { en: "Monthly content calendar", th: "Content calendar รายเดือน" },
       { en: "Basic SEO monitoring", th: "SEO monitoring เบื้องต้น" },
       { en: "Monthly performance report", th: "Performance report รายเดือน" },
@@ -290,10 +289,10 @@ const retainerPlans = [
   {
     tier: "Growth",
     name: "Orbit",
-    price: "25,000",
+    price: "30,000",
     per: { en: "/ month · 3-month minimum", th: "/ เดือน · ขั้นต่ำ 3 เดือน" },
     features: [
-      { en: "16 social posts / month", th: "16 social posts / เดือน" },
+      { en: "20 posts / month (8 album photos · 5 reels · 4 articles · 3 videos)", th: "20 โพสต์ / เดือน (8 album photos · 5 reels · 4 articles · 3 videos)" },
       { en: "Full social media management", th: "Social media management ครบวงจร" },
       { en: "SEO content + keyword strategy", th: "SEO content + keyword strategy" },
       { en: "2 email / LINE campaigns / month", th: "2 email / LINE campaigns / เดือน" },
@@ -307,16 +306,17 @@ const retainerPlans = [
   {
     tier: "Full Service",
     name: "Constellation",
-    price: "35,000",
+    price: "45,000",
     priceSuffix: "+",
     per: { en: "/ month · custom scope", th: "/ เดือน · กำหนด scope เอง" },
     features: [
+      { en: "30+ posts / month (12 album photos · 8 reels · 6 articles · 4 videos)", th: "30+ โพสต์ / เดือน (12 album photos · 8 reels · 6 articles · 4 videos)" },
       { en: "Everything in Orbit", th: "ทุกอย่างใน Orbit" },
       { en: "Paid ads management (Meta / Google)", th: "Paid ads management (Meta / Google)" },
       { en: "Full content production team", th: "Content production team ครบทีม" },
       { en: "Quarterly brand audit", th: "Brand audit รายไตรมาส" },
       { en: "Priority 24hr response SLA", th: "Priority SLA ตอบภายใน 24 ชม." },
-      { en: "Regional market strategy", th: "Regional market strategy" },
+      { en: "Weekly strategy calls", th: "Strategy call รายสัปดาห์" },
     ],
     cta: { en: "Let's Talk Scope", th: "คุยเรื่อง Scope" },
     best: false,
@@ -330,7 +330,11 @@ const ServicesSection = () => {
   const services = activeTab === "proj" ? projectServices : retainerServices;
 
   const comparisonFeatures = [
-    { label: { en: "Social posts / month", th: "Social posts / เดือน" }, signal: "8", orbit: "16", constellation: "30+" },
+    { label: { en: "Posts / month", th: "โพสต์ / เดือน" }, signal: "10", orbit: "20", constellation: "30+" },
+    { label: { en: "Album photos", th: "Album photos" }, signal: "4", orbit: "8", constellation: "12" },
+    { label: { en: "Reels", th: "Reels" }, signal: "3", orbit: "5", constellation: "8" },
+    { label: { en: "Articles", th: "Articles" }, signal: "2", orbit: "4", constellation: "6" },
+    { label: { en: "Videos", th: "Videos" }, signal: "1", orbit: "3", constellation: "4" },
     { label: { en: "Content calendar", th: "Content calendar" }, signal: "✓", orbit: "✓", constellation: "✓" },
     { label: { en: "Social media management", th: "Social media management" }, signal: "—", orbit: "✓", constellation: "✓" },
     { label: { en: "SEO monitoring & strategy", th: "SEO monitoring & strategy" }, signal: t("Basic", "เบื้องต้น"), orbit: t("Full", "ครบวงจร"), constellation: t("Full + Ads", "ครบ + Ads") },
@@ -488,7 +492,7 @@ const ServicesSection = () => {
                     ))}
                   </ul>
                   <a
-                    href="/contact"
+                    href="/about#contact"
                     className={`block text-center font-mono text-[11px] tracking-[0.15em] uppercase py-3.5 border transition-all duration-300 rounded-sm mt-auto ${
                       plan.best
                         ? "bg-accent-gradient border-transparent text-white hover:opacity-90"
@@ -566,10 +570,10 @@ const ServicesSection = () => {
                       <span className="text-[14px] opacity-45">฿</span>18K
                     </td>
                     <td className="text-center font-display text-[24px] text-foreground p-5 border-l border-divider bg-card/30">
-                      <span className="text-[14px] opacity-45">฿</span>25K
+                      <span className="text-[14px] opacity-45">฿</span>30K
                     </td>
                     <td className="text-center font-display text-[24px] text-foreground p-5 border-l border-divider">
-                      <span className="text-[14px] opacity-45">฿</span>35K<span className="text-[14px] opacity-35">+</span>
+                      <span className="text-[14px] opacity-45">฿</span>45K<span className="text-[14px] opacity-35">+</span>
                     </td>
                   </tr>
                 </tfoot>
@@ -613,7 +617,7 @@ const ServicesSection = () => {
                   })}
                 </div>
                 <a
-                  href="/contact"
+                  href="/about#contact"
                   className={`block text-center font-mono text-[11px] tracking-[0.15em] uppercase py-3 border transition-all duration-300 rounded-sm mt-5 ${
                     plan.best
                       ? "bg-accent-gradient border-transparent text-white hover:opacity-90"

@@ -330,7 +330,11 @@ const ServicesSection = () => {
   const services = activeTab === "proj" ? projectServices : retainerServices;
 
   const comparisonFeatures = [
-    { label: { en: "Social posts / month", th: "Social posts / เดือน" }, signal: "8", orbit: "16", constellation: "30+" },
+    { label: { en: "Posts / month", th: "โพสต์ / เดือน" }, signal: "10", orbit: "20", constellation: "30+" },
+    { label: { en: "Album photos", th: "Album photos" }, signal: "4", orbit: "8", constellation: "12" },
+    { label: { en: "Reels", th: "Reels" }, signal: "3", orbit: "5", constellation: "8" },
+    { label: { en: "Articles", th: "Articles" }, signal: "2", orbit: "4", constellation: "6" },
+    { label: { en: "Videos", th: "Videos" }, signal: "1", orbit: "3", constellation: "4" },
     { label: { en: "Content calendar", th: "Content calendar" }, signal: "✓", orbit: "✓", constellation: "✓" },
     { label: { en: "Social media management", th: "Social media management" }, signal: "—", orbit: "✓", constellation: "✓" },
     { label: { en: "SEO monitoring & strategy", th: "SEO monitoring & strategy" }, signal: t("Basic", "เบื้องต้น"), orbit: t("Full", "ครบวงจร"), constellation: t("Full + Ads", "ครบ + Ads") },

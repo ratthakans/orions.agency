@@ -27,10 +27,8 @@ const Index = () => {
       </Helmet>
       <Navbar />
       <HeroSection onStartProject={() => setDialogOpen(true)} />
-      <ConstellationDivider />
       <ProblemSection />
       <SocialProofStrip />
-      <TestimonialsSection />
       <ConstellationDivider />
       <ProcessSection />
       <FAQSection />

@@ -3,7 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { AnimatePresence } from "framer-motion";
 import Index from "./pages/Index";
@@ -31,6 +31,7 @@ const AnimatedRoutes = () => {
         
         <Route path="/careers" element={<Suspense fallback={null}><PageTransition><CareersPage /></PageTransition></Suspense>} />
         <Route path="/ai-stack" element={<Suspense fallback={null}><PageTransition><AIStackPage /></PageTransition></Suspense>} />
+        <Route path="/contact" element={<Navigate to="/about#contact" replace />} />
         <Route path="*" element={<Suspense fallback={null}><PageTransition><NotFound /></PageTransition></Suspense>} />
       </Routes>
     </AnimatePresence>

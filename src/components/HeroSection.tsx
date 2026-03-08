@@ -12,7 +12,7 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => {
   const { t } = useLanguage();
 
   return (
-    <section className="min-h-[90vh] flex items-center px-6 md:px-12 pt-[62px] relative overflow-hidden">
+    <section className="h-screen flex items-center px-6 md:px-12 pt-[62px] relative overflow-hidden">
       <StarField count={80} />
       <div className="absolute top-1/2 right-[10%] -translate-y-1/2 pointer-events-none hidden lg:block">
         <OrionConstellation size="xl" opacity={0.12} animate={true} />

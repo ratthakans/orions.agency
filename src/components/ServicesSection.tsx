@@ -277,7 +277,7 @@ const retainerPlans = [
     price: "18,000",
     per: { en: "/ month · 3-month minimum", th: "/ เดือน · ขั้นต่ำ 3 เดือน" },
     features: [
-      { en: "8 social posts / month", th: "8 social posts / เดือน" },
+      { en: "10 posts / month (4 album photos · 3 reels · 2 articles · 1 video)", th: "10 โพสต์ / เดือน (4 album photos · 3 reels · 2 articles · 1 video)" },
       { en: "Monthly content calendar", th: "Content calendar รายเดือน" },
       { en: "Basic SEO monitoring", th: "SEO monitoring เบื้องต้น" },
       { en: "Monthly performance report", th: "Performance report รายเดือน" },
@@ -289,10 +289,10 @@ const retainerPlans = [
   {
     tier: "Growth",
     name: "Orbit",
-    price: "25,000",
+    price: "30,000",
     per: { en: "/ month · 3-month minimum", th: "/ เดือน · ขั้นต่ำ 3 เดือน" },
     features: [
-      { en: "16 social posts / month", th: "16 social posts / เดือน" },
+      { en: "20 posts / month (8 album photos · 5 reels · 4 articles · 3 videos)", th: "20 โพสต์ / เดือน (8 album photos · 5 reels · 4 articles · 3 videos)" },
       { en: "Full social media management", th: "Social media management ครบวงจร" },
       { en: "SEO content + keyword strategy", th: "SEO content + keyword strategy" },
       { en: "2 email / LINE campaigns / month", th: "2 email / LINE campaigns / เดือน" },
@@ -306,16 +306,17 @@ const retainerPlans = [
   {
     tier: "Full Service",
     name: "Constellation",
-    price: "35,000",
+    price: "45,000",
     priceSuffix: "+",
     per: { en: "/ month · custom scope", th: "/ เดือน · กำหนด scope เอง" },
     features: [
+      { en: "30+ posts / month (12 album photos · 8 reels · 6 articles · 4 videos)", th: "30+ โพสต์ / เดือน (12 album photos · 8 reels · 6 articles · 4 videos)" },
       { en: "Everything in Orbit", th: "ทุกอย่างใน Orbit" },
       { en: "Paid ads management (Meta / Google)", th: "Paid ads management (Meta / Google)" },
       { en: "Full content production team", th: "Content production team ครบทีม" },
       { en: "Quarterly brand audit", th: "Brand audit รายไตรมาส" },
       { en: "Priority 24hr response SLA", th: "Priority SLA ตอบภายใน 24 ชม." },
-      { en: "Regional market strategy", th: "Regional market strategy" },
+      { en: "Weekly strategy calls", th: "Strategy call รายสัปดาห์" },
     ],
     cta: { en: "Let's Talk Scope", th: "คุยเรื่อง Scope" },
     best: false,

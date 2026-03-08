@@ -67,7 +67,7 @@ const Index = () => {
                 {t("Start a Project →", "เริ่ม Project →")}
               </button>
               <Link
-                to="/contact"
+                to="/about#contact"
                 className="text-muted-foreground border-b border-divider font-mono text-[11px] tracking-[0.1em] uppercase px-4 py-3.5 hover:text-foreground hover:border-muted-foreground transition-all duration-300"
               >
                 {t("Book a 30-min Call", "นัดคุย 30 นาที")}

@@ -333,6 +333,12 @@ const AboutPage = () => {
                       246/8 Soi Yothinpattana 3<br />Khlong Chan, Bang Kapi<br />Bangkok 10240, Thailand
                     </p>
                     <p className="font-body text-[13px] text-muted-foreground">{t("Monday – Friday, 10:00 – 19:00", "จันทร์ – ศุกร์ 10:00 – 19:00")}</p>
+                    <div className="h-px bg-divider my-4" />
+                    <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-foreground/50 mb-1">{t("Legal Entity", "นิติบุคคล")}</p>
+                    <p className="font-body text-[13.5px] text-foreground leading-relaxed">ORIONS CREATIVE CO., LTD.</p>
+                    <p className="font-mono text-[10px] tracking-[0.15em] text-muted-foreground">
+                      {t("Tax ID", "เลขประจำตัวผู้เสียภาษี")}: 0105568063442
+                    </p>
                   </div>
                 </div>
               </AnimatedSection>

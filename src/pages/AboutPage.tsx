@@ -166,8 +166,8 @@ const AboutPage = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-divider border border-divider">
               {values.map((v, i) => (
-                <AnimatedSection key={i} delay={i * 0.08}>
-                  <div className="bg-background p-10 md:p-12 group hover:bg-secondary transition-colors duration-300 relative">
+                <AnimatedSection key={i} delay={i * 0.08} className="h-full">
+                  <div className="bg-background p-10 md:p-12 group hover:bg-secondary transition-colors duration-300 relative h-full">
                     <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-accent-gradient scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-bottom" />
                     <span className="font-mono text-[10px] tracking-[0.22em] text-foreground/40 mb-4 block">{String(i + 1).padStart(2, "0")}</span>
                     <h3 className="font-display text-[30px] tracking-[0.04em] leading-none text-foreground mb-3">{v.title[lang]}</h3>

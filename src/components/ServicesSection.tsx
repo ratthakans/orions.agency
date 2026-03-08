@@ -492,7 +492,7 @@ const ServicesSection = () => {
                     ))}
                   </ul>
                   <a
-                    href="/contact"
+                    href="/about#contact"
                     className={`block text-center font-mono text-[11px] tracking-[0.15em] uppercase py-3.5 border transition-all duration-300 rounded-sm mt-auto ${
                       plan.best
                         ? "bg-accent-gradient border-transparent text-white hover:opacity-90"

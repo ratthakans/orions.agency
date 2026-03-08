@@ -329,22 +329,36 @@ const ServicesSection = () => {
   const { lang, t } = useLanguage();
   const services = activeTab === "proj" ? projectServices : retainerServices;
 
+  const comparisonFeatures = [
+    { label: { en: "Social posts / month", th: "Social posts / เดือน" }, signal: "8", orbit: "16", constellation: "30+" },
+    { label: { en: "Content calendar", th: "Content calendar" }, signal: "✓", orbit: "✓", constellation: "✓" },
+    { label: { en: "Social media management", th: "Social media management" }, signal: "—", orbit: "✓", constellation: "✓" },
+    { label: { en: "SEO monitoring & strategy", th: "SEO monitoring & strategy" }, signal: t("Basic", "เบื้องต้น"), orbit: t("Full", "ครบวงจร"), constellation: t("Full + Ads", "ครบ + Ads") },
+    { label: { en: "Email / LINE campaigns", th: "Email / LINE campaigns" }, signal: "1", orbit: "2", constellation: t("Unlimited", "ไม่จำกัด") },
+    { label: { en: "Dedicated creative lead", th: "Creative Lead เฉพาะ" }, signal: "—", orbit: "✓", constellation: "✓" },
+    { label: { en: "Strategy calls", th: "Strategy calls" }, signal: "—", orbit: t("Bi-weekly", "ทุก 2 สัปดาห์"), constellation: t("Weekly", "รายสัปดาห์") },
+    { label: { en: "Paid ads management", th: "Paid ads management" }, signal: "—", orbit: "—", constellation: "✓" },
+    { label: { en: "Quarterly brand audit", th: "Brand audit รายไตรมาส" }, signal: "—", orbit: "—", constellation: "✓" },
+    { label: { en: "Priority SLA (24hr)", th: "Priority SLA (24 ชม.)" }, signal: "—", orbit: "—", constellation: "✓" },
+    { label: { en: "Performance reports", th: "Performance reports" }, signal: t("Monthly", "รายเดือน"), orbit: t("Bi-weekly", "ทุก 2 สัปดาห์"), constellation: t("Weekly", "รายสัปดาห์") },
+  ];
+
   return (
-    <section id="services" className="py-24 md:py-32 px-6 md:px-12 relative overflow-hidden">
+    <section id="services" className="py-16 md:py-32 px-4 sm:px-6 md:px-12 relative overflow-hidden">
       <StarField count={40} />
       <div className="max-w-7xl mx-auto">
         <AnimatedSection>
-          <div className="flex items-center gap-3.5 mb-12">
+          <div className="flex items-center gap-3.5 mb-8 md:mb-12">
             <span className="w-[22px] h-px bg-accent-gradient" />
-      <span className="font-mono text-[11px] tracking-[0.28em] uppercase text-foreground">
+            <span className="font-mono text-[11px] tracking-[0.28em] uppercase text-foreground">
               {t("What We Do", "สิ่งที่เราทำ")}
             </span>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-end mb-12">
-            <h2 className="font-display text-[clamp(42px,5.5vw,84px)] leading-[0.94] tracking-[0.02em] text-foreground">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-end mb-8 md:mb-12">
+            <h2 className="font-display text-[clamp(36px,5.5vw,84px)] leading-[0.94] tracking-[0.02em] text-foreground">
               {t(<>Full-service.<br /><span className="text-accent-gradient">Full commitment.</span></>, <>Full-service.<br /><span className="text-accent-gradient">มุ่งมั่นเต็มที่</span></>)}
             </h2>
-            <p className="font-body text-[16px] leading-[1.8] text-muted-foreground">
+            <p className="font-body text-[15px] md:text-[16px] leading-[1.8] text-muted-foreground">
               {t(
                 "From brand foundation to live campaign. AI-accelerated production, human-led strategy. Choose your path: Navigational Stars for one-time projects, or Orbital Systems for ongoing growth.",
                 "ตั้งแต่รากฐานแบรนด์ถึง live campaign — production เร่งด้วย AI, strategy นำโดยมนุษย์ เลือกเส้นทาง: Navigational Stars สำหรับ project หรือ Orbital Systems สำหรับการเติบโตต่อเนื่อง"
@@ -354,19 +368,19 @@ const ServicesSection = () => {
         </AnimatedSection>
 
         {/* Tabs */}
-        <div className="flex border-b border-divider mb-12 gap-0">
+        <div className="flex border-b border-divider mb-8 md:mb-12 gap-0 overflow-x-auto">
           <button
             onClick={() => setActiveTab("proj")}
-             className={`font-mono text-[11px] tracking-[0.15em] uppercase px-7 py-4 border-b-2 transition-all duration-300 ${
-               activeTab === "proj" ? "text-foreground border-foreground" : "text-muted-foreground border-transparent hover:text-foreground"
+            className={`font-mono text-[10px] sm:text-[11px] tracking-[0.15em] uppercase px-4 sm:px-7 py-3.5 sm:py-4 border-b-2 transition-all duration-300 whitespace-nowrap ${
+              activeTab === "proj" ? "text-foreground border-foreground" : "text-muted-foreground border-transparent hover:text-foreground"
             }`}
           >
             {t("✧ Navigational Stars", "✧ Navigational Stars")}
           </button>
           <button
             onClick={() => setActiveTab("ret")}
-             className={`font-mono text-[11px] tracking-[0.15em] uppercase px-7 py-4 border-b-2 transition-all duration-300 ${
-               activeTab === "ret" ? "text-foreground border-foreground" : "text-muted-foreground border-transparent hover:text-foreground"
+            className={`font-mono text-[10px] sm:text-[11px] tracking-[0.15em] uppercase px-4 sm:px-7 py-3.5 sm:py-4 border-b-2 transition-all duration-300 whitespace-nowrap ${
+              activeTab === "ret" ? "text-foreground border-foreground" : "text-muted-foreground border-transparent hover:text-foreground"
             }`}
           >
             {t("☽ Orbital Systems", "☽ Orbital Systems")}
@@ -379,21 +393,21 @@ const ServicesSection = () => {
             <AnimatedSection key={s.num} delay={i * 0.08} className="h-full">
               <div
                 onClick={() => setSelectedService(s)}
-                className="bg-background p-10 md:p-11 relative overflow-hidden group hover:bg-secondary transition-colors duration-300 cursor-pointer h-full"
+                className="bg-background p-6 sm:p-8 md:p-11 relative overflow-hidden group hover:bg-secondary transition-colors duration-300 cursor-pointer h-full"
               >
                 <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-accent-gradient scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-bottom" />
-                <span className="font-mono text-[10px] tracking-[0.22em] text-foreground/40 mb-5 block">{s.num}</span>
-                <h3 className="font-display text-[30px] tracking-[0.04em] leading-none text-foreground mb-3">
+                <span className="font-mono text-[10px] tracking-[0.22em] text-foreground/40 mb-3 sm:mb-5 block">{s.num}</span>
+                <h3 className="font-display text-[24px] sm:text-[30px] tracking-[0.04em] leading-none text-foreground mb-2 sm:mb-3">
                   {s.name[lang]}
                 </h3>
-                <p className="font-body text-[14.5px] leading-[1.75] text-muted-foreground mb-5">{s.desc[lang]}</p>
+                <p className="font-body text-[13.5px] sm:text-[14.5px] leading-[1.75] text-muted-foreground mb-4 sm:mb-5">{s.desc[lang]}</p>
                 <div className="flex flex-wrap gap-1.5">
                   {s.tags.map((tag) => (
                     <span
                       key={tag.label}
                       className={`font-mono text-[9px] tracking-[0.12em] uppercase px-2.5 py-1 border ${
-                         tag.type === "ai"
-                           ? "border-foreground/15 text-foreground/60"
+                        tag.type === "ai"
+                          ? "border-foreground/15 text-foreground/60"
                           : tag.type === "craft"
                           ? "border-foreground/15 text-muted-foreground"
                           : "border-divider text-muted-foreground"
@@ -410,15 +424,15 @@ const ServicesSection = () => {
 
         {/* Retainer callout */}
         <AnimatedSection delay={0.1}>
-          <div className="mt-7 bg-card border border-divider border-l-2 border-l-foreground/20 p-9 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 items-center">
+          <div className="mt-5 sm:mt-7 bg-card border border-divider border-l-2 border-l-foreground/20 p-6 sm:p-9 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 sm:gap-8 items-center">
             <div>
               <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-foreground/50 block mb-2.5">
                 Monthly Retainer
               </span>
-              <h3 className="font-display text-[34px] tracking-[0.04em] leading-none text-foreground mb-2.5">
+              <h3 className="font-display text-[28px] sm:text-[34px] tracking-[0.04em] leading-none text-foreground mb-2.5">
                 {t("Need consistent growth?", "ต้องการเติบโตอย่างต่อเนื่อง?")}
               </h3>
-              <p className="font-body text-[14px] leading-[1.75] text-muted-foreground max-w-[520px]">
+              <p className="font-body text-[13.5px] sm:text-[14px] leading-[1.75] text-muted-foreground max-w-[520px]">
                 {t(
                   "Our retainer plans start at ฿18,000/month — social media, content, SEO, and email marketing with a dedicated creative lead.",
                   "Retainer plan เริ่มต้นที่ ฿18,000/เดือน — social media, content, SEO และ email marketing พร้อม creative lead เฉพาะ"
@@ -427,16 +441,16 @@ const ServicesSection = () => {
             </div>
             <div className="text-left md:text-right">
               <span className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground block mb-1">{t("Starting from", "เริ่มต้นที่")}</span>
-              <span className="font-display text-[56px] leading-none text-foreground">฿18K</span>
+              <span className="font-display text-[48px] sm:text-[56px] leading-none text-foreground">฿18K</span>
               <span className="font-mono text-[10px] tracking-[0.12em] text-muted-foreground block mt-1">/ {t("month", "เดือน")}</span>
             </div>
           </div>
         </AnimatedSection>
 
         {/* Retainer Plans */}
-        <div className="mt-20">
+        <div className="mt-14 sm:mt-20">
           <AnimatedSection>
-            <div className="flex items-center gap-3.5 mb-12">
+            <div className="flex items-center gap-3.5 mb-8 md:mb-12">
               <span className="w-[22px] h-px bg-accent-gradient" />
               <span className="font-mono text-[10px] tracking-[0.28em] uppercase text-foreground">
                 Retainer Plans
@@ -447,27 +461,27 @@ const ServicesSection = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-divider border border-divider">
             {retainerPlans.map((plan, i) => (
               <AnimatedSection key={plan.name} delay={i * 0.1} className="h-full">
-                <div className={`bg-background p-10 md:p-12 relative transition-colors duration-300 hover:bg-secondary h-full ${plan.best ? "outline outline-1 outline-foreground/20" : ""}`}>
+                <div className={`bg-background p-7 sm:p-10 md:p-12 relative transition-colors duration-300 hover:bg-secondary h-full flex flex-col ${plan.best ? "outline outline-1 outline-foreground/20" : ""}`}>
                   {plan.best && plan.badge && (
-                    <div className="absolute top-0 left-10 font-mono text-[9px] tracking-[0.2em] uppercase bg-accent-gradient text-white px-3 py-1.5">
+                    <div className="absolute top-0 left-7 sm:left-10 font-mono text-[9px] tracking-[0.2em] uppercase bg-accent-gradient text-white px-3 py-1.5">
                       {plan.badge[lang]}
                     </div>
                   )}
                   <span className={`font-mono text-[10px] tracking-[0.25em] uppercase text-foreground/50 block ${plan.best ? "mt-7" : ""} mb-4`}>
                     {plan.tier}
                   </span>
-                  <h3 className="font-display text-[40px] tracking-[0.04em] leading-none text-foreground mb-1.5">{plan.name}</h3>
+                  <h3 className="font-display text-[34px] sm:text-[40px] tracking-[0.04em] leading-none text-foreground mb-1.5">{plan.name}</h3>
                   <div className="mb-1">
-                    <span className="font-display text-[60px] leading-none text-foreground">
-                      <span className="text-[22px] opacity-45">฿</span>{plan.price}
+                    <span className="font-display text-[48px] sm:text-[60px] leading-none text-foreground">
+                      <span className="text-[20px] sm:text-[22px] opacity-45">฿</span>{plan.price}
                     </span>
-                    {plan.priceSuffix && <span className="font-display text-[24px] opacity-35">{plan.priceSuffix}</span>}
+                    {plan.priceSuffix && <span className="font-display text-[20px] sm:text-[24px] opacity-35">{plan.priceSuffix}</span>}
                   </div>
-                  <span className="font-mono text-[10px] tracking-[0.12em] text-muted-foreground block mb-8">{plan.per[lang]}</span>
-                  <div className="h-px bg-divider mb-7" />
-                  <ul className="space-y-2.5 mb-9">
+                  <span className="font-mono text-[10px] tracking-[0.12em] text-muted-foreground block mb-6 sm:mb-8">{plan.per[lang]}</span>
+                  <div className="h-px bg-divider mb-5 sm:mb-7" />
+                  <ul className="space-y-2.5 mb-7 sm:mb-9 flex-1">
                     {plan.features.map((f, fi) => (
-                      <li key={fi} className="font-body text-[14px] leading-[1.55] text-muted-foreground flex gap-3 items-baseline">
+                      <li key={fi} className="font-body text-[13.5px] sm:text-[14px] leading-[1.55] text-muted-foreground flex gap-3 items-baseline">
                         <span className="font-mono text-[10px] text-foreground/40 shrink-0">—</span>
                         {f[lang]}
                       </li>
@@ -475,7 +489,7 @@ const ServicesSection = () => {
                   </ul>
                   <a
                     href="/contact"
-                    className={`block text-center font-mono text-[11px] tracking-[0.15em] uppercase py-3.5 border transition-all duration-300 rounded-sm ${
+                    className={`block text-center font-mono text-[11px] tracking-[0.15em] uppercase py-3.5 border transition-all duration-300 rounded-sm mt-auto ${
                       plan.best
                         ? "bg-accent-gradient border-transparent text-white hover:opacity-90"
                         : "border-divider text-muted-foreground hover:text-foreground hover:border-foreground/30"
@@ -487,6 +501,130 @@ const ServicesSection = () => {
               </AnimatedSection>
             ))}
           </div>
+        </div>
+
+        {/* Comparison Table */}
+        <div className="mt-14 sm:mt-20">
+          <AnimatedSection>
+            <div className="flex items-center gap-3.5 mb-8 md:mb-12">
+              <span className="w-[22px] h-px bg-accent-gradient" />
+              <span className="font-mono text-[10px] tracking-[0.28em] uppercase text-foreground">
+                {t("Compare Plans", "เปรียบเทียบแพลน")}
+              </span>
+            </div>
+          </AnimatedSection>
+
+          {/* Desktop table */}
+          <AnimatedSection delay={0.1} className="hidden md:block">
+            <div className="border border-divider overflow-hidden">
+              <table className="w-full">
+                <thead>
+                  <tr className="bg-card">
+                    <th className="text-left font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/50 p-5 border-b border-divider w-[40%]">
+                      {t("Feature", "ฟีเจอร์")}
+                    </th>
+                    <th className="text-center font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/50 p-5 border-b border-l border-divider">
+                      Signal
+                    </th>
+                    <th className="text-center font-mono text-[10px] tracking-[0.2em] uppercase p-5 border-b border-l border-divider">
+                      <span className="text-foreground">Orbit</span>
+                      <span className="block text-[8px] tracking-[0.15em] text-accent-violet mt-0.5">{t("POPULAR", "ยอดนิยม")}</span>
+                    </th>
+                    <th className="text-center font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/50 p-5 border-b border-l border-divider">
+                      Constellation
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {comparisonFeatures.map((feat, i) => (
+                    <tr key={i} className="hover:bg-secondary/50 transition-colors duration-200">
+                      <td className="font-body text-[13.5px] text-muted-foreground p-4 px-5 border-b border-divider">
+                        {feat.label[lang]}
+                      </td>
+                      <td className="text-center font-mono text-[12px] text-muted-foreground p-4 border-b border-l border-divider">
+                        <span className={feat.signal === "—" ? "opacity-30" : feat.signal === "✓" ? "text-foreground" : ""}>
+                          {feat.signal}
+                        </span>
+                      </td>
+                      <td className="text-center font-mono text-[12px] text-muted-foreground p-4 border-b border-l border-divider bg-card/30">
+                        <span className={feat.orbit === "—" ? "opacity-30" : feat.orbit === "✓" ? "text-foreground" : ""}>
+                          {feat.orbit}
+                        </span>
+                      </td>
+                      <td className="text-center font-mono text-[12px] text-muted-foreground p-4 border-b border-l border-divider">
+                        <span className={feat.constellation === "—" ? "opacity-30" : feat.constellation === "✓" ? "text-foreground" : ""}>
+                          {feat.constellation}
+                        </span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+                <tfoot>
+                  <tr className="bg-card">
+                    <td className="font-mono text-[10px] tracking-[0.15em] uppercase text-foreground/50 p-5">{t("Monthly price", "ราคา / เดือน")}</td>
+                    <td className="text-center font-display text-[24px] text-foreground p-5 border-l border-divider">
+                      <span className="text-[14px] opacity-45">฿</span>18K
+                    </td>
+                    <td className="text-center font-display text-[24px] text-foreground p-5 border-l border-divider bg-card/30">
+                      <span className="text-[14px] opacity-45">฿</span>25K
+                    </td>
+                    <td className="text-center font-display text-[24px] text-foreground p-5 border-l border-divider">
+                      <span className="text-[14px] opacity-45">฿</span>35K<span className="text-[14px] opacity-35">+</span>
+                    </td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </AnimatedSection>
+
+          {/* Mobile comparison - stacked cards */}
+          <AnimatedSection delay={0.1} className="md:hidden space-y-4">
+            {retainerPlans.map((plan) => (
+              <div key={plan.name} className={`border border-divider bg-background p-5 ${plan.best ? "border-foreground/20" : ""}`}>
+                <div className="flex items-center justify-between mb-4">
+                  <div>
+                    <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-foreground/50 block">{plan.tier}</span>
+                    <h4 className="font-display text-[28px] leading-none text-foreground">{plan.name}</h4>
+                  </div>
+                  <div className="text-right">
+                    <span className="font-display text-[28px] leading-none text-foreground">
+                      <span className="text-[14px] opacity-45">฿</span>{plan.price}
+                    </span>
+                    {plan.priceSuffix && <span className="font-display text-[14px] opacity-35">{plan.priceSuffix}</span>}
+                    <span className="font-mono text-[9px] text-muted-foreground block">/ {t("mo", "เดือน")}</span>
+                  </div>
+                </div>
+                {plan.best && plan.badge && (
+                  <div className="inline-block font-mono text-[9px] tracking-[0.2em] uppercase bg-accent-gradient text-white px-2.5 py-1 mb-4">
+                    {plan.badge[lang]}
+                  </div>
+                )}
+                <div className="h-px bg-divider mb-4" />
+                <div className="space-y-2">
+                  {comparisonFeatures.map((feat, fi) => {
+                    const val = plan.name === "Signal" ? feat.signal : plan.name === "Orbit" ? feat.orbit : feat.constellation;
+                    if (val === "—") return null;
+                    return (
+                      <div key={fi} className="flex justify-between items-baseline gap-3">
+                        <span className="font-body text-[13px] text-muted-foreground">{feat.label[lang]}</span>
+                        <span className={`font-mono text-[11px] shrink-0 ${val === "✓" ? "text-foreground" : "text-muted-foreground"}`}>{val}</span>
+                      </div>
+                    );
+                  })}
+                </div>
+                <a
+                  href="/contact"
+                  className={`block text-center font-mono text-[11px] tracking-[0.15em] uppercase py-3 border transition-all duration-300 rounded-sm mt-5 ${
+                    plan.best
+                      ? "bg-accent-gradient border-transparent text-white hover:opacity-90"
+                      : "border-divider text-muted-foreground hover:text-foreground hover:border-foreground/30"
+                  }`}
+                >
+                  {plan.cta[lang]}
+                </a>
+              </div>
+            ))}
+          </AnimatedSection>
         </div>
       </div>
 

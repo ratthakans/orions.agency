@@ -161,7 +161,7 @@ const Index = () => {
                               {s.includes.map((item) => (
                                 <span
                                   key={item}
-                                  className="font-mono text-[10px] tracking-[0.1em] uppercase text-muted-foreground/60 border border-border/60 px-3 py-1.5 hover:text-foreground/80 hover:border-accent-warm/30 transition-all duration-300"
+                                  className="font-mono text-[10px] tracking-[0.1em] uppercase text-muted-foreground/60 border border-border/60 px-3 py-1.5 hover:text-foreground/80 hover:border-accent-blue/40 transition-all duration-300"
                                 >
                                   {item}
                                 </span>

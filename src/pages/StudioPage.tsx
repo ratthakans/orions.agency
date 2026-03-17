@@ -25,11 +25,11 @@ const StudioPage = () => {
         <section className="py-32 md:py-48 px-6 md:px-12">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
-              <p className="font-mono text-[9px] tracking-[0.4em] uppercase text-muted-foreground/50 mb-10">Studio</p>
-              <h1 className="font-display text-[clamp(48px,6.5vw,110px)] leading-[0.9] tracking-[0.01em] text-foreground mb-10 max-w-3xl">
-                {t(<>Original<br /><span className="text-accent-gradient">content.</span></>, <><span className="text-accent-gradient">ผลงาน</span><br />ต้นฉบับ</>)}
+              <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground/40 mb-10">Studio</p>
+              <h1 className="font-display text-[clamp(48px,6.5vw,110px)] leading-[0.9] tracking-[0.02em] text-foreground mb-10 max-w-3xl">
+                Original<br /><span className="text-accent-gradient">content.</span>
               </h1>
-              <p className="font-body text-[14px] leading-[1.9] text-muted-foreground/60 max-w-lg">
+              <p className="font-body text-[15px] leading-[1.8] text-muted-foreground/50 max-w-lg">
                 {t("Beyond client work, we create original content that shows our taste, capability, and point of view.", "นอกเหนือจากงานลูกค้า เราสร้างผลงานต้นฉบับที่แสดงรสนิยมและความสามารถ")}
               </p>
             </AnimatedSection>
@@ -44,16 +44,16 @@ const StudioPage = () => {
                   <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-12 lg:gap-24 items-start">
                     <div>
                       <div className="flex items-baseline gap-5 mb-5">
-                        <span className="font-mono text-[9px] tracking-[0.3em] uppercase text-muted-foreground/20">{p.num}</span>
-                        <span className="font-mono text-[9px] tracking-[0.3em] uppercase text-muted-foreground/30">{p.type}</span>
+                        <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/15">{p.num}</span>
+                        <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/25">{p.type}</span>
                       </div>
-                      <h2 className="font-display text-[clamp(36px,4.5vw,64px)] leading-[0.9] tracking-[0.01em] text-foreground">{p.title}</h2>
+                      <h2 className="font-display text-[clamp(36px,4.5vw,64px)] leading-[0.9] tracking-[0.02em] text-foreground">{p.title}</h2>
                     </div>
                     <div className="space-y-10">
-                      <p className="font-body text-[14px] leading-[1.9] text-muted-foreground/60 max-w-xl">{p.desc[lang]}</p>
+                      <p className="font-body text-[15px] leading-[1.8] text-muted-foreground/50 max-w-xl">{p.desc[lang]}</p>
                       <div>
-                        <h4 className="font-mono text-[9px] tracking-[0.35em] uppercase text-muted-foreground/25 mb-4">{t("Purpose", "จุดประสงค์")}</h4>
-                        <p className="font-body text-[13px] leading-[1.8] text-muted-foreground/35">{p.purpose[lang]}</p>
+                        <h4 className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground/20 mb-4">Purpose</h4>
+                        <p className="font-body text-[14px] leading-[1.8] text-muted-foreground/30">{p.purpose[lang]}</p>
                       </div>
                     </div>
                   </div>

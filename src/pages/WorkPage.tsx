@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
+import Marquee from "@/components/Marquee";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useLanguage } from "@/contexts/LanguageContext";
 import workNorthwind from "@/assets/work-northwind.jpg";
@@ -53,18 +54,20 @@ const WorkPage = () => {
         <section className="py-32 md:py-48 px-6 md:px-12">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
-              <p className="font-mono text-[9px] tracking-[0.4em] uppercase text-muted-foreground/50 mb-10">Portfolio</p>
-              <h1 className="font-display text-[clamp(48px,6.5vw,110px)] leading-[0.9] tracking-[0.01em] text-foreground mb-10 max-w-3xl">
-                {t(<>Selected <span className="text-accent-gradient">Work.</span></>, <>ผลงาน<span className="text-accent-gradient">คัดสรร</span></>)}
+              <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground/40 mb-10">Portfolio</p>
+              <h1 className="font-display text-[clamp(48px,6.5vw,110px)] leading-[0.9] tracking-[0.02em] text-foreground mb-10 max-w-3xl">
+                Selected <span className="text-accent-gradient">Work.</span>
               </h1>
-              <p className="font-body text-[14px] leading-[1.9] text-muted-foreground/60 max-w-lg">
+              <p className="font-body text-[15px] leading-[1.8] text-muted-foreground/50 max-w-lg">
                 {t("Quality over quantity. Every project here represents a brand we helped think, shape, and produce.", "คุณภาพเหนือปริมาณ")}
               </p>
             </AnimatedSection>
           </div>
         </section>
 
-        <section className="px-6 md:px-12 pb-32 md:pb-48">
+        <Marquee items={["Campaign Film", "Brand Documentary", "Brand Story", "Content System"]} />
+
+        <section className="px-6 md:px-12 py-20 pb-32 md:pb-48">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection delay={0.04}>
               <div className="flex items-center gap-8 mb-20 flex-wrap">
@@ -72,8 +75,8 @@ const WorkPage = () => {
                   <button
                     key={cat}
                     onClick={() => setActiveFilter(cat)}
-                    className={`font-mono text-[9px] tracking-[0.25em] uppercase transition-all duration-500 pb-0.5 ${
-                      activeFilter === cat ? "text-foreground border-b border-foreground/40" : "text-muted-foreground/30 hover:text-muted-foreground/60"
+                    className={`font-mono text-[10px] tracking-[0.2em] uppercase transition-all duration-500 pb-0.5 ${
+                      activeFilter === cat ? "text-foreground border-b border-foreground/40" : "text-muted-foreground/25 hover:text-muted-foreground/50"
                     }`}
                   >
                     {cat}
@@ -89,9 +92,9 @@ const WorkPage = () => {
                     <div className="overflow-hidden mb-5">
                       <img src={w.image} alt={w.title} className="w-full aspect-[4/3] object-cover grayscale group-hover:grayscale-0 group-hover:scale-[1.015] transition-all duration-[900ms]" loading="lazy" />
                     </div>
-                    <span className="font-mono text-[9px] tracking-[0.3em] uppercase text-muted-foreground/25 block mb-1.5">{w.category}</span>
-                    <h3 className="font-body text-[14px] text-foreground/70 group-hover:text-foreground transition-colors duration-500 mb-1">{w.title}</h3>
-                    <p className="font-body text-[12px] leading-[1.7] text-muted-foreground/30 line-clamp-2">{w.brief[lang]}</p>
+                    <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/20 block mb-1.5">{w.category}</span>
+                    <h3 className="font-body text-[15px] text-foreground/70 group-hover:text-foreground transition-colors duration-500 mb-1">{w.title}</h3>
+                    <p className="font-body text-[13px] leading-[1.7] text-muted-foreground/25 line-clamp-2">{w.brief[lang]}</p>
                   </div>
                 </AnimatedSection>
               ))}
@@ -109,16 +112,16 @@ const WorkPage = () => {
               </div>
               <div className="p-8 md:p-12">
                 <DialogHeader className="mb-0 pb-0">
-                  <span className="font-mono text-[9px] tracking-[0.35em] uppercase text-muted-foreground/25 block mb-4">{selectedWork.category}</span>
+                  <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground/20 block mb-4">{selectedWork.category}</span>
                   <DialogTitle className="font-display text-[36px] tracking-[0.02em] leading-none text-foreground mb-4">{selectedWork.title}</DialogTitle>
-                  <p className="font-body text-[13px] text-muted-foreground/50 leading-relaxed">{selectedWork.brief[lang]}</p>
+                  <p className="font-body text-[14px] text-muted-foreground/45 leading-relaxed">{selectedWork.brief[lang]}</p>
                 </DialogHeader>
                 <div className="mt-12">
-                  <h4 className="font-mono text-[9px] tracking-[0.35em] uppercase text-muted-foreground/25 mb-5">{t("Deliverables", "สิ่งที่ส่งมอบ")}</h4>
+                  <h4 className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground/20 mb-5">{t("Deliverables", "สิ่งที่ส่งมอบ")}</h4>
                   <div className="space-y-0">
                     {selectedWork.deliverables.map((d, i) => (
                       <div key={i} className="py-3.5 border-b border-divider/30 last:border-b-0">
-                        <span className="font-body text-[13px] text-foreground/50">{d}</span>
+                        <span className="font-body text-[14px] text-foreground/45">{d}</span>
                       </div>
                     ))}
                   </div>

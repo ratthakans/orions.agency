@@ -70,8 +70,8 @@ const StartProjectDialog = ({ open, onOpenChange }: StartProjectDialogProps) => 
                 </select>
               </div>
               <div>
-                <label className="font-mono text-[9px] tracking-[0.3em] uppercase text-muted-foreground/50 mb-3 block">{t("Message *", "ข้อความ *")}</label>
-                <textarea value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} className="w-full bg-transparent text-[14px] font-body text-foreground placeholder:text-muted-foreground/30 focus:outline-none min-h-[80px] resize-none border-b border-divider focus:border-foreground/30 transition-colors duration-500 pb-2" placeholder={t("Tell us about your project...", "เล่าเกี่ยวกับ project ของคุณ...") as string} required />
+                <label className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4 block">{t("Message *", "ข้อความ *")}</label>
+                <textarea value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} className="w-full bg-transparent text-[14px] font-body text-foreground placeholder:text-muted-foreground/30 focus:outline-none min-h-[100px] resize-none border-b border-border focus:border-foreground/50 transition-colors duration-300 pb-3" placeholder={t("Tell us about your project...", "เล่าเกี่ยวกับ project ของคุณ...") as string} required />
               </div>
               <button type="submit" className="bg-foreground text-background px-8 py-3 font-mono text-[10px] tracking-[0.16em] uppercase hover:opacity-85 transition-opacity">
                 {t("Send", "ส่ง")}

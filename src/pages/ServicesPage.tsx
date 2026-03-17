@@ -39,6 +39,11 @@ const services = [
   },
 ];
 
+const industries = [
+  "Hospitality", "Lifestyle Brands", "Restaurant & Cafe", "Beauty & Wellness",
+  "Real Estate", "Startups", "Automotive", "Government",
+];
+
 const ServicesPage = () => {
   const { lang, t } = useLanguage();
 
@@ -46,7 +51,7 @@ const ServicesPage = () => {
     <main className="bg-background min-h-screen grain-overlay">
       <Helmet>
         <title>Services — ØRIONS Creative Agency</title>
-        <meta name="description" content="Creative services: Content, Think, Produce, Develop." />
+        <meta name="description" content="Creative services: Content, Think, Produce, Develop. We work across hospitality, lifestyle, beauty, real estate, and more." />
         <link rel="canonical" href="https://orions.agency/services" />
       </Helmet>
       <Navbar />
@@ -100,6 +105,29 @@ const ServicesPage = () => {
                 </div>
               </AnimatedSection>
             ))}
+          </div>
+        </section>
+
+        {/* Industries - subtle section */}
+        <section className="px-6 md:px-12 pb-32 md:pb-48">
+          <div className="max-w-7xl mx-auto">
+            <AnimatedSection>
+              <div className="border-t border-border pt-20">
+                <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-10">
+                  <span className="text-accent-warm/50 mr-2">⬡</span> {t("Industries We Work With", "อุตสาหกรรมที่เราทำงานด้วย")}
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  {industries.map((ind) => (
+                    <span
+                      key={ind}
+                      className="font-mono text-[11px] tracking-[0.1em] uppercase text-muted-foreground/60 border border-border/60 px-4 py-2 hover:text-foreground/80 hover:border-accent-warm/30 transition-all duration-300"
+                    >
+                      {ind}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </AnimatedSection>
           </div>
         </section>
       </div>

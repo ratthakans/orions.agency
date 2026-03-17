@@ -56,8 +56,10 @@ const ContactPage = () => {
                   <a href="tel:+66923905464" className="font-body text-[15px] text-foreground/70 hover:text-foreground transition-colors duration-300">+66 92 390 5464</a>
                 </div>
                 <div>
-                  <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-3">Location</p>
-                  <span className="font-body text-[15px] text-foreground/70">Bangkok, Thailand</span>
+                  <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-3">{t("Address", "ที่อยู่")}</p>
+                  <span className="font-body text-[15px] text-foreground/70 leading-[1.7] block max-w-[260px]">
+                    246/8 Soi Yothinpattana, Khlong Chan, Bang Kapi, Bangkok 10240
+                  </span>
                 </div>
               </div>
             </AnimatedSection>

@@ -119,7 +119,7 @@ const Navbar = () => {
                     key={link.href}
                     to={link.href}
                     onClick={() => setIsOpen(false)}
-                    className={`font-mono text-[12px] tracking-[0.12em] uppercase transition-colors duration-300 ${
+                    className={`font-mono text-[11px] tracking-[0.12em] uppercase transition-colors duration-300 ${
                       location.pathname === link.href ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                     }`}
                   >

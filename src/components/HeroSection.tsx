@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import MagneticButton from "./MagneticButton";
@@ -24,37 +24,26 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => {
 
   const currentPhrase = phrases[currentIndex];
 
-  // Typewriter effect
-  useState(() => {
+  useEffect(() => {
     let timeout: ReturnType<typeof setTimeout>;
-    const tick = () => {
-      // handled by useEffect below
-    };
-  });
 
-  // Keep original typewriter via useEffect
-  const _ = (() => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const { useEffect } = require("react");
-    useEffect(() => {
-      let timeout: ReturnType<typeof setTimeout>;
-      if (!isDeleting && displayText === currentPhrase) {
-        timeout = setTimeout(() => setIsDeleting(true), 2000);
-      } else if (isDeleting && displayText === "") {
-        setIsDeleting(false);
-        setCurrentIndex((prev: number) => (prev + 1) % phrases.length);
-      } else if (isDeleting) {
-        timeout = setTimeout(() => {
-          setDisplayText(currentPhrase.slice(0, displayText.length - 1));
-        }, 30);
-      } else {
-        timeout = setTimeout(() => {
-          setDisplayText(currentPhrase.slice(0, displayText.length + 1));
-        }, 60);
-      }
-      return () => clearTimeout(timeout);
-    }, [displayText, isDeleting, currentPhrase]);
-  })();
+    if (!isDeleting && displayText === currentPhrase) {
+      timeout = setTimeout(() => setIsDeleting(true), 2000);
+    } else if (isDeleting && displayText === "") {
+      setIsDeleting(false);
+      setCurrentIndex((prev) => (prev + 1) % phrases.length);
+    } else if (isDeleting) {
+      timeout = setTimeout(() => {
+        setDisplayText(currentPhrase.slice(0, displayText.length - 1));
+      }, 30);
+    } else {
+      timeout = setTimeout(() => {
+        setDisplayText(currentPhrase.slice(0, displayText.length + 1));
+      }, 60);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [displayText, isDeleting, currentPhrase]);
 
   return (
     <section className="min-h-[85vh] flex items-end px-6 md:px-12 pb-20 md:pb-28 relative overflow-hidden">

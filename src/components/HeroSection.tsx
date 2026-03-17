@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
-import MagneticButton from "./MagneticButton";
 import TextReveal from "./TextReveal";
 
 interface HeroSectionProps {

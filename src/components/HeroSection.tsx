@@ -84,7 +84,7 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => {
                 </button>
               <a
                 href="/work"
-                className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300"
+                className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-blue transition-colors duration-300"
               >
                 View Work <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
               </a>

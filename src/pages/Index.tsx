@@ -188,7 +188,7 @@ const Index = () => {
         </div>
       </section>
 
-      <Marquee items={["Content Systems", "Creative & Campaign", "Film & Production", "Brand Development"]} speed="slow" />
+      <Marquee items={["Content Systems", "Creative & Campaign", "Film & Production", "Brand Development"]} speed="slow" color="blue" />
 
       {/* Selected Work — Horizontal Scroll */}
       <section className="py-24 md:py-40 px-6 md:px-12">

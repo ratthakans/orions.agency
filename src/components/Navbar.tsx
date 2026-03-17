@@ -11,7 +11,8 @@ const Navbar = () => {
   const [hidden, setHidden] = useState(false);
   const location = useLocation();
   const { lang, setLang } = useLanguage();
-  const { scrollY } = useScroll();
+  const { scrollY, scrollYProgress } = useScroll();
+  const smoothProgress = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() ?? 0;

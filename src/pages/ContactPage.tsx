@@ -17,8 +17,8 @@ const ContactPage = () => {
     setSubmitted(true);
   };
 
-  const inputClass = "w-full bg-transparent text-[15px] font-body text-foreground placeholder:text-muted-foreground/30 focus:outline-none border-b border-border focus:border-foreground/50 transition-colors duration-300 pb-3";
-  const selectClass = "w-full bg-transparent text-[15px] font-body text-foreground focus:outline-none border-b border-border focus:border-foreground/50 transition-colors duration-300 pb-3 appearance-none cursor-pointer";
+  const inputClass = "w-full bg-transparent text-[14px] font-body text-foreground placeholder:text-muted-foreground/30 focus:outline-none border-b border-border focus:border-foreground/50 transition-colors duration-300 pb-3";
+  const selectClass = "w-full bg-transparent text-[14px] font-body text-foreground focus:outline-none border-b border-border focus:border-foreground/50 transition-colors duration-300 pb-3 appearance-none cursor-pointer";
 
   return (
     <main className="bg-background min-h-screen grain-overlay">

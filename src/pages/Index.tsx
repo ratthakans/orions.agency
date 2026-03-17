@@ -232,36 +232,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Why ORIONS */}
-      <section className="py-24 md:py-40 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto">
-          <AnimatedSection>
-            <div className="max-w-3xl">
-              <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">
-                <span className="text-accent-warm mr-2">△</span> Why ORIONS
-              </p>
-            </div>
-          </AnimatedSection>
-          <div className="max-w-3xl">
-            <TextReveal className="font-display text-[clamp(48px,6vw,100px)] leading-[0.9] tracking-[0.01em] text-foreground mb-10">
-              NOT JUST PRODUCTION.
-            </TextReveal>
-            <AnimatedSection delay={0.3}>
-              <p className="font-body text-[16px] leading-[1.7] text-muted-foreground mb-8 max-w-lg">
-                {t(
-                  "We're a creative agency that helps brands think, shape stories, and execute them with cinematic quality.",
-                  "เราคือ creative agency ที่ช่วยแบรนด์คิด หล่อหลอมเรื่องราว และผลิตออกมาด้วยคุณภาพระดับภาพยนตร์"
-                )}
-              </p>
-              <p className="font-mono text-[13px] leading-[1.7] text-accent-warm/60 italic border-l-2 border-accent-warm/30 pl-6">
-                "Every dot has meaning. We just know how to connect them."
-              </p>
-            </AnimatedSection>
-          </div>
-        </div>
-      </section>
-
-      <Marquee items={["Content Systems", "Creative & Campaign", "Film & Production", "Brand Development"]} />
 
       {/* Final CTA */}
       <section className="py-40 md:py-56 px-6 md:px-12 text-center">

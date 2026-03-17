@@ -8,7 +8,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
   const location = useLocation();
-  const { lang, setLang, t } = useLanguage();
+  const { lang, setLang } = useLanguage();
 
   const navLinks = [
     { label: "About", href: "/about" },
@@ -22,20 +22,19 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-xl border-b border-divider">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-[62px]">
-          <Link to="/" className="flex items-center gap-2.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-accent-gradient" />
-            <span className="font-logo text-[16px] font-medium tracking-[0.08em] text-foreground uppercase">ØRIONS</span>
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-xl border-b border-divider">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-[56px]">
+          <Link to="/" className="flex items-center gap-2">
+            <span className="font-logo text-[14px] font-medium tracking-[0.12em] text-foreground uppercase">ØRIONS</span>
           </Link>
 
           {/* Desktop */}
-          <div className="hidden lg:flex items-center gap-7">
+          <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
-                className={`font-mono text-[10.5px] tracking-[0.12em] uppercase transition-colors duration-300 ${
+                className={`font-mono text-[9.5px] tracking-[0.16em] uppercase transition-colors duration-500 ${
                   location.pathname === link.href ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                 }`}
               >
@@ -44,20 +43,21 @@ const Navbar = () => {
             ))}
           </div>
 
-          <div className="hidden lg:flex items-center gap-4">
-            <div className="flex border border-divider overflow-hidden rounded-sm">
+          <div className="hidden lg:flex items-center gap-5">
+            <div className="flex gap-0">
               <button
                 onClick={() => setLang("en")}
-                className={`font-mono text-[10px] tracking-[0.14em] uppercase px-4 py-[7px] transition-all duration-200 ${
-                  lang === "en" ? "bg-accent-gradient text-white" : "text-muted-foreground hover:text-foreground"
+                className={`font-mono text-[9px] tracking-[0.16em] uppercase px-3 py-1.5 transition-all duration-300 ${
+                  lang === "en" ? "text-foreground" : "text-muted-foreground/50 hover:text-muted-foreground"
                 }`}
               >
                 EN
               </button>
+              <span className="text-divider self-center">/</span>
               <button
                 onClick={() => setLang("th")}
-                className={`font-mono text-[10px] tracking-[0.14em] uppercase px-4 py-[7px] transition-all duration-200 ${
-                  lang === "th" ? "bg-accent-gradient text-white" : "text-muted-foreground hover:text-foreground"
+                className={`font-mono text-[9px] tracking-[0.16em] uppercase px-3 py-1.5 transition-all duration-300 ${
+                  lang === "th" ? "text-foreground" : "text-muted-foreground/50 hover:text-muted-foreground"
                 }`}
               >
                 TH
@@ -65,7 +65,7 @@ const Navbar = () => {
             </div>
             <button
               onClick={() => setDialogOpen(true)}
-              className="font-mono text-[11px] tracking-[0.1em] uppercase text-foreground border border-foreground/20 px-5 py-2.5 hover:bg-accent-gradient hover:border-transparent hover:text-white transition-all duration-300 rounded-sm"
+              className="font-mono text-[9.5px] tracking-[0.14em] uppercase text-foreground border-b border-foreground/30 pb-0.5 hover:border-foreground transition-all duration-500"
             >
               Start a Project
             </button>
@@ -73,19 +73,20 @@ const Navbar = () => {
 
           {/* Mobile toggle */}
           <div className="lg:hidden flex items-center gap-3">
-            <div className="flex border border-divider overflow-hidden rounded-sm">
+            <div className="flex gap-0">
               <button
                 onClick={() => setLang("en")}
-                className={`font-mono text-[9px] tracking-[0.14em] uppercase px-3 py-1.5 transition-all duration-200 ${
-                  lang === "en" ? "bg-accent-gradient text-white" : "text-muted-foreground"
+                className={`font-mono text-[9px] tracking-[0.14em] uppercase px-2 py-1 transition-all duration-300 ${
+                  lang === "en" ? "text-foreground" : "text-muted-foreground/50"
                 }`}
               >
                 EN
               </button>
+              <span className="text-divider self-center text-[9px]">/</span>
               <button
                 onClick={() => setLang("th")}
-                className={`font-mono text-[9px] tracking-[0.14em] uppercase px-3 py-1.5 transition-all duration-200 ${
-                  lang === "th" ? "bg-accent-gradient text-white" : "text-muted-foreground"
+                className={`font-mono text-[9px] tracking-[0.14em] uppercase px-2 py-1 transition-all duration-300 ${
+                  lang === "th" ? "text-foreground" : "text-muted-foreground/50"
                 }`}
               >
                 TH
@@ -96,9 +97,9 @@ const Navbar = () => {
               className="flex flex-col gap-1.5 p-2"
               aria-label="Toggle menu"
             >
-              <span className={`block w-6 h-px bg-foreground transition-transform duration-300 ${isOpen ? "rotate-45 translate-y-[3.5px]" : ""}`} />
-              <span className={`block w-6 h-px bg-foreground transition-opacity duration-300 ${isOpen ? "opacity-0" : ""}`} />
-              <span className={`block w-6 h-px bg-foreground transition-transform duration-300 ${isOpen ? "-rotate-45 -translate-y-[3.5px]" : ""}`} />
+              <span className={`block w-5 h-px bg-foreground transition-transform duration-300 ${isOpen ? "rotate-45 translate-y-[3px]" : ""}`} />
+              <span className={`block w-5 h-px bg-foreground transition-opacity duration-300 ${isOpen ? "opacity-0" : ""}`} />
+              <span className={`block w-5 h-px bg-foreground transition-transform duration-300 ${isOpen ? "-rotate-45 -translate-y-[3px]" : ""}`} />
             </button>
           </div>
         </div>
@@ -112,13 +113,13 @@ const Navbar = () => {
               exit={{ opacity: 0, height: 0 }}
               className="lg:hidden border-t border-divider bg-background overflow-hidden"
             >
-              <div className="px-6 py-8 flex flex-col gap-6">
+              <div className="px-6 py-8 flex flex-col gap-5">
                 {navLinks.map((link) => (
                   <Link
                     key={link.href}
                     to={link.href}
                     onClick={() => setIsOpen(false)}
-                    className={`font-mono text-sm tracking-[0.1em] uppercase transition-colors ${
+                    className={`font-mono text-[11px] tracking-[0.12em] uppercase transition-colors duration-500 ${
                       location.pathname === link.href ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                     }`}
                   >
@@ -127,7 +128,7 @@ const Navbar = () => {
                 ))}
                 <button
                   onClick={() => { setIsOpen(false); setDialogOpen(true); }}
-                  className="font-mono text-sm tracking-[0.1em] uppercase bg-accent-gradient text-white px-5 py-3 text-center mt-2 rounded-sm"
+                  className="font-mono text-[11px] tracking-[0.12em] uppercase text-background bg-foreground px-5 py-3 text-center mt-2"
                 >
                   Start a Project
                 </button>

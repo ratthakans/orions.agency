@@ -5,15 +5,15 @@ interface StarFieldProps {
   className?: string;
 }
 
-const StarField = ({ count = 60, className = "" }: StarFieldProps) => {
+const StarField = ({ count = 30, className = "" }: StarFieldProps) => {
   const stars = useMemo(() => {
     return Array.from({ length: count }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
       y: Math.random() * 100,
-      size: Math.random() * 2 + 0.5,
-      delay: Math.random() * 5,
-      duration: Math.random() * 3 + 2,
+      size: Math.random() * 1.2 + 0.3,
+      delay: Math.random() * 6,
+      duration: Math.random() * 4 + 3,
     }));
   }, [count]);
 
@@ -22,7 +22,7 @@ const StarField = ({ count = 60, className = "" }: StarFieldProps) => {
       {stars.map((star) => (
         <div
           key={star.id}
-          className="absolute rounded-full bg-foreground animate-twinkle"
+          className="absolute rounded-full bg-foreground/40 animate-twinkle"
           style={{
             left: `${star.x}%`,
             top: `${star.y}%`,

@@ -1,75 +1,200 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 import StartProjectDialog from "@/components/StartProjectDialog";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const services = [
+interface Package {
+  name: { en: string; th: string };
+  price: string;
+  details: { en: string; th: string };
+  deliverables: string[];
+}
+
+interface Service {
+  num: string;
+  title: string;
+  desc: { en: string; th: string };
+  type: "retainer" | "project";
+  ideal: { en: string; th: string };
+  process: { en: string[]; th: string[] };
+  packages: Package[];
+  note?: { en: string; th: string };
+}
+
+const services: Service[] = [
   {
     num: "01",
     title: "Content Systems",
     desc: {
-      en: "Ongoing content for brands that need consistency and quality.",
-      th: "Content ต่อเนื่องสำหรับแบรนด์ที่ต้องการความสม่ำเสมอและคุณภาพ",
+      en: "Ongoing content for brands that need consistency and quality — without building an in-house team.",
+      th: "Content ต่อเนื่องสำหรับแบรนด์ที่ต้องการความสม่ำเสมอและคุณภาพ — โดยไม่ต้องสร้างทีมภายใน",
     },
-    includes: ["Content Strategy", "Social Content", "Short-form Video", "Content Shooting"],
-    when: {
-      en: "For brands that want consistent content but don't have an in-house team.",
-      th: "สำหรับแบรนด์ที่ต้องการ content สม่ำเสมอแต่ไม่มีทีมภายใน",
+    type: "retainer",
+    ideal: {
+      en: "Brands that need consistent content every month but don't have an in-house creative team.",
+      th: "แบรนด์ที่ต้องการ content สม่ำเสมอทุกเดือนแต่ไม่มีทีมครีเอทีฟภายใน",
     },
-    price: "60,000 – 200,000 THB / month",
+    process: {
+      en: ["Brand & content audit", "Monthly content calendar", "Shoot & produce", "Publish & optimize"],
+      th: ["ตรวจสอบแบรนด์และ content", "วางแผน content รายเดือน", "ถ่ายทำและผลิต", "เผยแพร่และปรับปรุง"],
+    },
+    packages: [
+      {
+        name: { en: "Starter", th: "Starter" },
+        price: "60,000 THB/mo",
+        details: {
+          en: "Essential monthly content for brands starting out.",
+          th: "Content รายเดือนพื้นฐานสำหรับแบรนด์ที่เริ่มต้น",
+        },
+        deliverables: ["Content strategy", "12 social posts/mo", "4 short-form videos/mo", "1 shoot day/mo"],
+      },
+      {
+        name: { en: "Growth", th: "Growth" },
+        price: "120,000 THB/mo",
+        details: {
+          en: "Scaled content with more depth and variety.",
+          th: "Content ที่ครอบคลุมมากขึ้นทั้งความลึกและความหลากหลาย",
+        },
+        deliverables: ["Content strategy & calendar", "20 social posts/mo", "8 short-form videos/mo", "2 shoot days/mo", "Monthly performance report"],
+      },
+      {
+        name: { en: "Premium", th: "Premium" },
+        price: "200,000 THB/mo",
+        details: {
+          en: "Full content department — strategy, production, and optimization.",
+          th: "ทีม content เต็มรูปแบบ — กลยุทธ์ การผลิต และการปรับปรุง",
+        },
+        deliverables: ["Full content strategy", "30+ social posts/mo", "12 short-form videos/mo", "3 shoot days/mo", "Dedicated content manager", "Monthly report & optimization"],
+      },
+    ],
     note: {
       en: "We work with a limited number of monthly clients to ensure quality.",
       th: "เรารับลูกค้ารายเดือนจำนวนจำกัดเพื่อรักษาคุณภาพ",
     },
-    type: "retainer",
   },
   {
     num: "02",
     title: "Creative & Campaign",
     desc: {
-      en: "Ideas and campaigns that define how brands are seen.",
-      th: "ไอเดียและแคมเปญที่กำหนดว่าแบรนด์ถูกมองอย่างไร",
+      en: "Ideas and campaigns that define how brands are seen — from concept to execution.",
+      th: "ไอเดียและแคมเปญที่กำหนดว่าแบรนด์ถูกมองอย่างไร — ตั้งแต่คอนเซปต์ถึงการลงมือทำ",
     },
-    includes: ["Campaign Concept", "Brand Storytelling", "Creative Direction", "Communication Strategy"],
-    when: {
-      en: "For product launches, rebranding, or when a brand needs a strong campaign idea.",
-      th: "สำหรับเปิดตัวผลิตภัณฑ์ รีแบรนด์ หรือเมื่อแบรนด์ต้องการไอเดียแคมเปญที่แข็งแกร่ง",
-    },
-    price: "250,000 – 500,000 THB per project",
     type: "project",
+    ideal: {
+      en: "Product launches, rebranding, seasonal campaigns, or when a brand needs a strong creative idea.",
+      th: "เปิดตัวผลิตภัณฑ์ รีแบรนด์ แคมเปญตามฤดูกาล หรือเมื่อแบรนด์ต้องการไอเดียครีเอทีฟที่แข็งแกร่ง",
+    },
+    process: {
+      en: ["Brief & research", "Concept development", "Creative direction & production", "Launch & measure"],
+      th: ["บรีฟและวิจัย", "พัฒนาคอนเซปต์", "ครีเอทีฟไดเรกชันและผลิต", "เปิดตัวและวัดผล"],
+    },
+    packages: [
+      {
+        name: { en: "Campaign Concept", th: "Campaign Concept" },
+        price: "250,000 THB",
+        details: {
+          en: "A single campaign idea with creative direction and key visuals.",
+          th: "ไอเดียแคมเปญเดียวพร้อมครีเอทีฟไดเรกชันและ key visuals",
+        },
+        deliverables: ["Campaign concept & story", "Creative direction deck", "Key visual design", "Copywriting & messaging"],
+      },
+      {
+        name: { en: "Full Campaign", th: "Full Campaign" },
+        price: "350,000 – 500,000 THB",
+        details: {
+          en: "End-to-end campaign — from idea to production and launch assets.",
+          th: "แคมเปญครบวงจร — ตั้งแต่ไอเดียถึงการผลิตและ assets สำหรับเปิดตัว",
+        },
+        deliverables: ["Campaign concept & story", "Creative direction", "Hero visual production", "Social & digital assets", "Launch strategy"],
+      },
+    ],
   },
   {
     num: "03",
     title: "Film & Production",
     desc: {
-      en: "High-quality films and visual storytelling.",
-      th: "ภาพยนตร์คุณภาพสูงและการเล่าเรื่องด้วยภาพ",
+      en: "High-quality films and visual storytelling — from brand videos to full documentaries.",
+      th: "ภาพยนตร์คุณภาพสูงและการเล่าเรื่องด้วยภาพ — จาก brand video ถึงสารคดีเต็มรูปแบบ",
     },
-    includes: ["Campaign Film", "Brand Video", "Documentary", "Commercial Video"],
-    when: {
-      en: "For brands that need high-quality visual execution.",
-      th: "สำหรับแบรนด์ที่ต้องการงานภาพคุณภาพสูง",
-    },
-    price: "120,000 – 700,000 THB per project",
     type: "project",
+    ideal: {
+      en: "Brands that need cinematic-quality visual content to tell their story.",
+      th: "แบรนด์ที่ต้องการ visual content ระดับภาพยนตร์เพื่อเล่าเรื่องราว",
+    },
+    process: {
+      en: ["Pre-production & scripting", "Production & filming", "Post-production & editing", "Delivery & cutdowns"],
+      th: ["Pre-production และเขียนบท", "ถ่ายทำ", "Post-production และตัดต่อ", "ส่งมอบและตัด cutdowns"],
+    },
+    packages: [
+      {
+        name: { en: "Brand Video", th: "Brand Video" },
+        price: "120,000 – 200,000 THB",
+        details: {
+          en: "A single brand or product video with full production.",
+          th: "วิดีโอแบรนด์หรือผลิตภัณฑ์ชิ้นเดียวพร้อมการผลิตเต็มรูปแบบ",
+        },
+        deliverables: ["1 hero video (60–90s)", "Script & storyboard", "1-day shoot", "3 social cutdowns"],
+      },
+      {
+        name: { en: "Campaign Film", th: "Campaign Film" },
+        price: "300,000 – 500,000 THB",
+        details: {
+          en: "A cinematic campaign film with full pre- and post-production.",
+          th: "Campaign film ระดับภาพยนตร์พร้อม pre- และ post-production เต็มรูปแบบ",
+        },
+        deliverables: ["1 hero film (2–3 min)", "Director's treatment", "2-day shoot", "Color grading & sound design", "6 social cutdowns"],
+      },
+      {
+        name: { en: "Documentary / Series", th: "Documentary / Series" },
+        price: "500,000 – 700,000 THB",
+        details: {
+          en: "Multi-episode documentary or branded content series.",
+          th: "สารคดีหลายตอนหรือซีรีส์ branded content",
+        },
+        deliverables: ["3–5 episodes", "Full scripting & research", "Multi-day shoots", "Post-production suite", "Behind the scenes content"],
+      },
+    ],
   },
   {
     num: "04",
     title: "Brand Development",
     desc: {
-      en: "Building new ideas, products, and brand directions.",
-      th: "สร้างไอเดียใหม่ ผลิตภัณฑ์ และทิศทางแบรนด์",
+      en: "Building new ideas, products, and brand directions from the ground up.",
+      th: "สร้างไอเดียใหม่ ผลิตภัณฑ์ และทิศทางแบรนด์ตั้งแต่เริ่มต้น",
     },
-    includes: ["New Brand Concepts", "Product Ideas", "Sub-brand Development", "Creative Project Direction"],
-    when: {
-      en: "For founders or companies exploring new opportunities.",
-      th: "สำหรับผู้ก่อตั้งหรือบริษัทที่กำลังสำรวจโอกาสใหม่",
-    },
-    price: "200,000 – 1,000,000+ THB",
     type: "project",
+    ideal: {
+      en: "Founders, startups, or established companies exploring new brands, products, or sub-brands.",
+      th: "ผู้ก่อตั้ง สตาร์ทอัพ หรือบริษัทที่กำลังสำรวจแบรนด์ ผลิตภัณฑ์ หรือ sub-brand ใหม่",
+    },
+    process: {
+      en: ["Discovery & research", "Brand strategy", "Identity design", "Launch preparation"],
+      th: ["ค้นหาและวิจัย", "กลยุทธ์แบรนด์", "ออกแบบ identity", "เตรียมเปิดตัว"],
+    },
+    packages: [
+      {
+        name: { en: "Brand Strategy", th: "Brand Strategy" },
+        price: "200,000 – 350,000 THB",
+        details: {
+          en: "Strategic foundation — positioning, story, and direction.",
+          th: "รากฐานเชิงกลยุทธ์ — positioning, เรื่องราว และทิศทาง",
+        },
+        deliverables: ["Brand positioning", "Brand story & narrative", "Audience & market analysis", "Communication framework"],
+      },
+      {
+        name: { en: "Full Brand Build", th: "Full Brand Build" },
+        price: "500,000 – 1,000,000+ THB",
+        details: {
+          en: "Complete brand creation — from strategy to identity to launch-ready assets.",
+          th: "สร้างแบรนด์ครบวงจร — จากกลยุทธ์ถึง identity จนถึง assets พร้อมเปิดตัว",
+        },
+        deliverables: ["Brand strategy & positioning", "Visual identity system", "Brand guidelines", "Launch content & assets", "Website direction"],
+      },
+    ],
   },
 ];
 
@@ -81,12 +206,13 @@ const industries = [
 const ServicesPage = () => {
   const { lang, t } = useLanguage();
   const [dialogOpen, setDialogOpen] = useState(false);
+  const [expandedService, setExpandedService] = useState<string | null>(null);
 
   return (
     <main className="bg-background min-h-screen grain-overlay">
       <Helmet>
         <title>Services — ØRIONS Creative Agency</title>
-        <meta name="description" content="Creative services: Content Systems, Creative & Campaign, Film & Production, Brand Development. We work across hospitality, lifestyle, beauty, real estate, and more." />
+        <meta name="description" content="Creative services: Content Systems, Creative & Campaign, Film & Production, Brand Development. Clear packages, transparent pricing." />
         <link rel="canonical" href="https://orions.agency/services" />
       </Helmet>
       <Navbar />
@@ -103,78 +229,152 @@ const ServicesPage = () => {
               </h1>
               <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-lg">
                 {t(
-                  "From monthly content to full brand builds — choose the way that fits your needs.",
-                  "ตั้งแต่ content รายเดือนไปจนถึงการสร้างแบรนด์เต็มรูปแบบ — เลือกแบบที่เหมาะกับคุณ"
+                  "From monthly content to full brand builds — choose the way that fits your needs. Each service comes with clear packages and transparent pricing.",
+                  "ตั้งแต่ content รายเดือนไปจนถึงการสร้างแบรนด์เต็มรูปแบบ — เลือกแบบที่เหมาะกับคุณ แต่ละบริการมี package ชัดเจนและราคาโปร่งใส"
                 )}
               </p>
             </AnimatedSection>
           </div>
         </section>
 
-        {/* Services grid */}
+        {/* Services — full-width stacked sections */}
         <section className="px-6 md:px-12 py-8 md:py-12">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-              {services.map((s, i) => (
+          <div className="max-w-7xl mx-auto space-y-8">
+            {services.map((s, i) => {
+              const isExpanded = expandedService === s.num;
+              return (
                 <AnimatedSection key={s.num} delay={i * 0.06}>
-                  <div className="group relative border border-border p-8 md:p-10 hover:border-accent-warm/30 transition-all duration-500 h-full flex flex-col">
+                  <div className="group relative border border-border hover:border-accent-warm/30 transition-all duration-500">
                     {/* Da Vinci corners */}
                     <div className="absolute top-3 left-3 w-4 h-4 border-t border-l border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500" />
                     <div className="absolute top-3 right-3 w-4 h-4 border-t border-r border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500" />
                     <div className="absolute bottom-3 left-3 w-4 h-4 border-b border-l border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500" />
                     <div className="absolute bottom-3 right-3 w-4 h-4 border-b border-r border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500" />
 
-                    {/* Header */}
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground/40">{s.num}</span>
-                      <span className="font-mono text-[10px] tracking-[0.1em] uppercase text-accent-warm/60 border border-accent-warm/20 px-2.5 py-1">
-                        {s.type === "retainer" ? t("Monthly", "รายเดือน") : t("Per Project", "ต่อโปรเจกต์")}
-                      </span>
-                    </div>
+                    {/* Main card header — always visible */}
+                    <div
+                      className="p-8 md:p-10 cursor-pointer"
+                      onClick={() => setExpandedService(isExpanded ? null : s.num)}
+                    >
+                      <div className="flex items-center justify-between mb-4">
+                        <span className="font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground/40">{s.num}</span>
+                        <div className="flex items-center gap-3">
+                          <span className="font-mono text-[10px] tracking-[0.1em] uppercase text-accent-warm/60 border border-accent-warm/20 px-2.5 py-1">
+                            {s.type === "retainer" ? t("Monthly Retainer", "รายเดือน") : t("Per Project", "ต่อโปรเจกต์")}
+                          </span>
+                          <span className={`font-mono text-[11px] text-muted-foreground/50 transition-transform duration-300 ${isExpanded ? "rotate-45" : ""}`}>
+                            +
+                          </span>
+                        </div>
+                      </div>
 
-                    {/* Title & desc */}
-                    <h2 className="font-display text-[clamp(36px,4.5vw,56px)] leading-[0.9] tracking-[0.01em] text-foreground mb-2 group-hover:text-accent-warm transition-colors duration-500">
-                      {s.title}
-                    </h2>
-                    <p className="font-body text-[14px] leading-[1.7] text-foreground/70 mb-6">
-                      {s.desc[lang]}
-                    </p>
-
-                    {/* Includes */}
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {s.includes.map((item) => (
-                        <span
-                          key={item}
-                          className="font-mono text-[10px] tracking-[0.1em] uppercase text-muted-foreground/60 border border-border/60 px-3 py-1.5"
-                        >
-                          {item}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* When */}
-                    <div className="mb-6">
-                      <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/50 mb-2">
-                        {t("When to use", "เมื่อไหร่ควรใช้")}
-                      </h4>
-                      <p className="font-body text-[13px] leading-[1.7] text-muted-foreground">{s.when[lang]}</p>
-                    </div>
-
-                    {/* Price + note */}
-                    <div className="border-t border-border/50 pt-5 mt-auto">
-                      <p className="font-mono text-[13px] tracking-[0.05em] text-accent-warm font-medium">
-                        ฿{s.price}
-                      </p>
-                      {s.note && (
-                        <p className="font-mono text-[10px] tracking-[0.05em] text-muted-foreground/40 mt-2 italic">
-                          {s.note[lang]}
+                      <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
+                        <div>
+                          <h2 className="font-display text-[clamp(36px,4.5vw,56px)] leading-[0.9] tracking-[0.01em] text-foreground mb-3 group-hover:text-accent-warm transition-colors duration-500">
+                            {s.title}
+                          </h2>
+                          <p className="font-body text-[14px] leading-[1.7] text-foreground/70 max-w-xl">
+                            {s.desc[lang]}
+                          </p>
+                        </div>
+                        <p className="font-mono text-[12px] tracking-[0.05em] text-muted-foreground/50 lg:text-right shrink-0">
+                          {s.packages.length} {t("packages available", "แพ็กเกจ")}
                         </p>
-                      )}
+                      </div>
+                    </div>
+
+                    {/* Expanded detail */}
+                    <div className={`overflow-hidden transition-all duration-500 ${isExpanded ? "max-h-[3000px] opacity-100" : "max-h-0 opacity-0"}`}>
+                      <div className="border-t border-border/50 p-8 md:p-10">
+                        {/* Ideal for + Process */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                          <div>
+                            <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/50 mb-3">
+                              {t("Ideal for", "เหมาะสำหรับ")}
+                            </h4>
+                            <p className="font-body text-[13px] leading-[1.7] text-muted-foreground">{s.ideal[lang]}</p>
+                          </div>
+                          <div>
+                            <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/50 mb-3">
+                              {t("How we work", "วิธีการทำงาน")}
+                            </h4>
+                            <div className="flex flex-wrap gap-x-6 gap-y-1.5">
+                              {s.process[lang].map((step, idx) => (
+                                <span key={idx} className="font-mono text-[11px] text-muted-foreground/70">
+                                  <span className="text-accent-warm/40 mr-1.5">{String(idx + 1).padStart(2, "0")}</span>
+                                  {step}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Packages */}
+                        <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/50 mb-5">
+                          {t("Packages", "แพ็กเกจ")}
+                        </h4>
+                        <div className={`grid grid-cols-1 ${s.packages.length === 3 ? "md:grid-cols-3" : "md:grid-cols-2"} gap-4`}>
+                          {s.packages.map((pkg) => (
+                            <div
+                              key={pkg.name.en}
+                              className="border border-border/60 p-6 hover:border-accent-warm/20 transition-all duration-300"
+                            >
+                              <div className="flex items-center justify-between mb-3">
+                                <h5 className="font-display text-[18px] tracking-[0.01em] text-foreground">
+                                  {pkg.name[lang]}
+                                </h5>
+                              </div>
+                              <p className="font-mono text-[13px] tracking-[0.03em] text-accent-warm font-medium mb-3">
+                                ฿{pkg.price}
+                              </p>
+                              <p className="font-body text-[12px] leading-[1.6] text-muted-foreground mb-4">
+                                {pkg.details[lang]}
+                              </p>
+                              <div className="border-t border-border/40 pt-3">
+                                <p className="font-mono text-[9px] tracking-[0.15em] uppercase text-muted-foreground/40 mb-2">
+                                  {t("What you get", "สิ่งที่คุณได้รับ")}
+                                </p>
+                                <ul className="space-y-1.5">
+                                  {pkg.deliverables.map((d) => (
+                                    <li key={d} className="font-body text-[12px] text-foreground/60 flex items-start gap-2">
+                                      <span className="text-accent-warm/40 mt-0.5 text-[8px]">◆</span>
+                                      {d}
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Note */}
+                        {s.note && (
+                          <p className="font-mono text-[10px] tracking-[0.05em] text-muted-foreground/40 mt-5 italic">
+                            {s.note[lang]}
+                          </p>
+                        )}
+
+                        {/* Service CTA */}
+                        <div className="mt-8 flex items-center gap-6">
+                          <button
+                            onClick={() => setDialogOpen(true)}
+                            className="font-mono text-[11px] tracking-[0.12em] uppercase text-background bg-foreground px-6 py-2.5 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300"
+                          >
+                            {t("Start this service", "เริ่มบริการนี้")}
+                          </button>
+                          <Link
+                            to={`/work?service=${encodeURIComponent(s.title)}`}
+                            className="font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300"
+                          >
+                            {t("View related work →", "ดูผลงานที่เกี่ยวข้อง →")}
+                          </Link>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </AnimatedSection>
-              ))}
-            </div>
+              );
+            })}
           </div>
         </section>
 

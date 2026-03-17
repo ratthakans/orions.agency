@@ -38,10 +38,7 @@ export default {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
-          violet: "hsl(var(--accent-violet))",
-          blue: "hsl(var(--accent-blue))",
-          rose: "hsl(var(--accent-rose))",
-          amber: "hsl(var(--accent-amber))",
+          warm: "hsl(var(--accent-warm))",
         },
         "accent-warm": {
           DEFAULT: "hsl(var(--accent-warm))",

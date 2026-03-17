@@ -9,7 +9,7 @@ import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 import Marquee from "@/components/Marquee";
 import TextReveal from "@/components/TextReveal";
-import MagneticButton from "@/components/MagneticButton";
+import HorizontalScroll from "@/components/HorizontalScroll";
 import HorizontalScroll from "@/components/HorizontalScroll";
 import { useLanguage } from "@/contexts/LanguageContext";
 

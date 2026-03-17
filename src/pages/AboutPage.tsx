@@ -10,23 +10,36 @@ import teamPloy from "@/assets/team-ploy.jpg";
 import teamArun from "@/assets/team-arun.jpg";
 import teamMai from "@/assets/team-mai.jpg";
 
-const team = [
+const managementTeam = [
   { name: "Krit Thanaporn", role: "Founder", image: teamKrit },
   { name: "Nari Vongsa", role: "CEO", image: teamNari },
   { name: "Tawan Srisai", role: "CFO", image: teamTawan },
-  { name: "Ploy Charoensuk", role: "Creative Director", image: teamPloy },
-  { name: "Arun Kittisak", role: "Creative Marketing", image: teamArun },
-  { name: "Mai Sutthipong", role: "Creative Junior", image: teamMai },
 ];
 
-const team2 = [
+const creativeTeam = [
+  { name: "Ploy Charoensuk", role: "Creative Director", image: teamPloy },
+  { name: "Arun Kittisak", role: "Creative Marketing", image: teamArun },
+  { name: "Mai Sutthipong", role: "Creative Senior", image: teamMai },
+];
+
+const productionTeam = [
   { name: "Somchai Rattana", role: "Editor / DOP" },
   { name: "Pim Wattana", role: "Editor Senior" },
   { name: "Dao Siriporn", role: "Graphic Designer" },
+];
+
+const socialTeam = [
   { name: "Nat Prasert", role: "Account Executive" },
   { name: "Joy Supatra", role: "Account Executive" },
   { name: "Lin Thongchai", role: "Project Manager" },
   { name: "Fern Kamonpat", role: "Social Media Manager" },
+];
+
+const teamGroups = [
+  { label: "Management", members: managementTeam, hasPhotos: true },
+  { label: "Creative", members: creativeTeam, hasPhotos: true },
+  { label: "Production", members: productionTeam, hasPhotos: false },
+  { label: "Social & Account", members: socialTeam, hasPhotos: false },
 ];
 
 const AboutPage = () => {
@@ -105,7 +118,6 @@ const AboutPage = () => {
               ].map((v, i) => (
                 <AnimatedSection key={i} delay={i * 0.08}>
                   <div className="group relative p-6 -m-6 hover:bg-foreground/[0.02] transition-all duration-500">
-                    {/* Da Vinci corner marks */}
                     <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-accent-warm/0 group-hover:border-accent-warm/40 transition-all duration-500" />
                     <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-accent-warm/0 group-hover:border-accent-warm/40 transition-all duration-500" />
                     <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-accent-warm/0 group-hover:border-accent-warm/40 transition-all duration-500" />
@@ -121,7 +133,7 @@ const AboutPage = () => {
           </div>
         </section>
 
-        {/* Team — Core */}
+        {/* Team — 4 Column Groups */}
         <section className="py-32 md:py-48 px-6 md:px-12">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
@@ -133,45 +145,40 @@ const AboutPage = () => {
               </h2>
             </AnimatedSection>
 
-            {/* Core team with photos */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-6 md:gap-10 mb-24">
-              {team.map((member, i) => (
-                <AnimatedSection key={member.name} delay={i * 0.06}>
-                  <div className="group relative">
-                    <div className="w-full aspect-[3/4] overflow-hidden mb-5 relative">
-                      <img
-                        src={member.image}
-                        alt={member.name}
-                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-[1.03] transition-all duration-700"
-                        loading="lazy"
-                      />
-                      {/* Hover overlay with role */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                      <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500">
-                        <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm">{member.role}</span>
-                      </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+              {teamGroups.map((group, gi) => (
+                <AnimatedSection key={group.label} delay={gi * 0.08}>
+                  <div>
+                    <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-warm/60 mb-8 pb-3 border-b border-border">
+                      {group.label}
+                    </p>
+                    <div className="space-y-6">
+                      {group.members.map((member, mi) => (
+                        <div key={member.name} className="group">
+                          {group.hasPhotos && 'image' in member && (
+                            <div className="w-full aspect-[3/4] overflow-hidden mb-4 relative">
+                              <img
+                                src={(member as any).image}
+                                alt={member.name}
+                                className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-[1.03] transition-all duration-700"
+                                loading="lazy"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            </div>
+                          )}
+                          <h3 className="font-body text-[15px] text-foreground mb-0.5 group-hover:text-accent-warm transition-colors duration-300">
+                            {member.name}
+                          </h3>
+                          <p className="font-mono text-[10px] tracking-[0.08em] text-muted-foreground/60">
+                            {member.role}
+                          </p>
+                        </div>
+                      ))}
                     </div>
-                    <h3 className="font-body text-[15px] text-foreground mb-0.5 group-hover:text-accent-warm transition-colors duration-300">{member.name}</h3>
-                    <p className="font-mono text-[11px] tracking-[0.08em] text-muted-foreground">{member.role}</p>
                   </div>
                 </AnimatedSection>
               ))}
             </div>
-
-            {/* Extended team — list format */}
-            <AnimatedSection delay={0.2}>
-              <div className="border-t border-border pt-16">
-                <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-10">Extended Team</p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-6">
-                  {team2.map((member, i) => (
-                    <div key={i} className="group flex items-baseline justify-between py-3 border-b border-border/50 hover:border-accent-warm/30 transition-colors duration-300">
-                      <span className="font-body text-[15px] text-foreground/70 group-hover:text-foreground transition-colors duration-300">{member.name}</span>
-                      <span className="font-mono text-[10px] tracking-[0.1em] text-muted-foreground/50 group-hover:text-accent-warm/70 transition-colors duration-300">{member.role}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </AnimatedSection>
           </div>
         </section>
       </div>

@@ -2,7 +2,6 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
-import StarField from "@/components/StarField";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const services = [
@@ -51,20 +50,19 @@ const ServicesPage = () => {
     <main className="bg-background min-h-screen grain-overlay">
       <Helmet>
         <title>Services — ØRIONS Creative Agency</title>
-        <meta name="description" content="Creative services: Content, Think, Produce, Develop. From social content to brand development." />
+        <meta name="description" content="Creative services: Content, Think, Produce, Develop." />
         <link rel="canonical" href="https://orions.agency/services" />
       </Helmet>
       <Navbar />
       <div className="pt-20">
-        <section className="py-28 md:py-40 px-6 md:px-12 relative overflow-hidden">
-          <StarField count={20} />
-          <div className="max-w-7xl mx-auto relative z-10">
+        <section className="py-32 md:py-48 px-6 md:px-12">
+          <div className="max-w-7xl mx-auto">
             <AnimatedSection>
-              <p className="font-mono text-[9px] tracking-[0.35em] uppercase text-muted-foreground mb-8">Services</p>
-              <h1 className="font-display text-[clamp(52px,7vw,120px)] leading-[0.88] tracking-[0.02em] text-foreground mb-8 max-w-3xl">
+              <p className="font-mono text-[9px] tracking-[0.4em] uppercase text-muted-foreground/50 mb-10">Services</p>
+              <h1 className="font-display text-[clamp(48px,6.5vw,110px)] leading-[0.9] tracking-[0.01em] text-foreground mb-10 max-w-3xl">
                 {t(<>Four ways to<br />work with <span className="text-accent-gradient">ORIONS.</span></>, <>สี่วิธีทำงาน<br />กับ <span className="text-accent-gradient">ORIONS</span></>)}
               </h1>
-              <p className="font-body text-[15px] leading-[1.8] text-muted-foreground max-w-lg">
+              <p className="font-body text-[14px] leading-[1.9] text-muted-foreground/60 max-w-lg">
                 {t(
                   "From monthly content to full brand development. Choose the service that matches where your brand is right now.",
                   "ตั้งแต่ content รายเดือนไปจนถึงการพัฒนาแบรนด์เต็มรูปแบบ"
@@ -74,30 +72,30 @@ const ServicesPage = () => {
           </div>
         </section>
 
-        <section className="px-6 md:px-12 pb-28 md:pb-40">
+        <section className="px-6 md:px-12 pb-32 md:pb-48">
           <div className="max-w-7xl mx-auto">
             {services.map((s, i) => (
-              <AnimatedSection key={s.num} delay={i * 0.05}>
-                <div className="border-t border-divider py-20 md:py-24">
-                  <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 lg:gap-20 items-start">
+              <AnimatedSection key={s.num} delay={i * 0.04}>
+                <div className="border-t border-divider/50 py-24 md:py-28">
+                  <div className="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-12 lg:gap-24 items-start">
                     <div>
-                      <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-accent-gradient block mb-4">{s.num}</span>
-                      <h2 className="font-display text-[clamp(56px,7vw,96px)] leading-[0.85] tracking-[0.02em] text-foreground mb-3">{s.title}</h2>
-                      <p className="font-body text-[13px] text-muted-foreground/70 mb-4">{s.subtitle[lang]}</p>
-                      <span className="font-mono text-[10px] tracking-[0.12em] text-accent-gradient">฿{s.price}</span>
+                      <span className="font-mono text-[9px] tracking-[0.3em] uppercase text-muted-foreground/25 block mb-5">{s.num}</span>
+                      <h2 className="font-display text-[clamp(52px,6vw,88px)] leading-[0.88] tracking-[0.01em] text-foreground mb-4">{s.title}</h2>
+                      <p className="font-body text-[12px] text-muted-foreground/40 mb-5">{s.subtitle[lang]}</p>
+                      <span className="font-mono text-[10px] tracking-[0.14em] text-accent-gradient">฿{s.price}</span>
                     </div>
-                    <div className="space-y-10">
+                    <div className="space-y-12">
                       <div>
-                        <h4 className="font-mono text-[9px] tracking-[0.3em] uppercase text-muted-foreground/50 mb-4">{t("What it is", "คืออะไร")}</h4>
-                        <p className="font-body text-[15px] leading-[1.8] text-muted-foreground">{s.what[lang]}</p>
+                        <h4 className="font-mono text-[9px] tracking-[0.35em] uppercase text-muted-foreground/25 mb-5">{t("What it is", "คืออะไร")}</h4>
+                        <p className="font-body text-[14px] leading-[1.9] text-muted-foreground/60">{s.what[lang]}</p>
                       </div>
                       <div>
-                        <h4 className="font-mono text-[9px] tracking-[0.3em] uppercase text-muted-foreground/50 mb-4">{t("When to use it", "เมื่อไหร่ควรใช้")}</h4>
-                        <p className="font-body text-[15px] leading-[1.8] text-muted-foreground">{s.when[lang]}</p>
+                        <h4 className="font-mono text-[9px] tracking-[0.35em] uppercase text-muted-foreground/25 mb-5">{t("When to use it", "เมื่อไหร่ควรใช้")}</h4>
+                        <p className="font-body text-[14px] leading-[1.9] text-muted-foreground/60">{s.when[lang]}</p>
                       </div>
                       <div>
-                        <h4 className="font-mono text-[9px] tracking-[0.3em] uppercase text-muted-foreground/50 mb-4">{t("What clients get", "ลูกค้าได้อะไร")}</h4>
-                        <p className="font-body text-[15px] leading-[1.8] text-foreground/60">{s.get[lang]}</p>
+                        <h4 className="font-mono text-[9px] tracking-[0.35em] uppercase text-muted-foreground/25 mb-5">{t("What clients get", "ลูกค้าได้อะไร")}</h4>
+                        <p className="font-body text-[14px] leading-[1.9] text-muted-foreground/40">{s.get[lang]}</p>
                       </div>
                     </div>
                   </div>

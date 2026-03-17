@@ -2,7 +2,6 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
-import StarField from "@/components/StarField";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const industries = [
@@ -28,35 +27,34 @@ const IndustriesPage = () => {
       </Helmet>
       <Navbar />
       <div className="pt-20">
-        <section className="py-28 md:py-40 px-6 md:px-12 relative overflow-hidden">
-          <StarField count={20} />
-          <div className="max-w-7xl mx-auto relative z-10">
+        <section className="py-32 md:py-48 px-6 md:px-12">
+          <div className="max-w-7xl mx-auto">
             <AnimatedSection>
-              <p className="font-mono text-[9px] tracking-[0.35em] uppercase text-muted-foreground mb-8">Industries</p>
-              <h1 className="font-display text-[clamp(52px,7vw,120px)] leading-[0.88] tracking-[0.02em] text-foreground mb-8 max-w-3xl">
+              <p className="font-mono text-[9px] tracking-[0.4em] uppercase text-muted-foreground/50 mb-10">Industries</p>
+              <h1 className="font-display text-[clamp(48px,6.5vw,110px)] leading-[0.9] tracking-[0.01em] text-foreground mb-10 max-w-3xl">
                 {t(<>Every industry<br />has a <span className="text-accent-gradient">story.</span></>, <>ทุกอุตสาหกรรม<br />มี<span className="text-accent-gradient">เรื่องราว</span></>)}
               </h1>
             </AnimatedSection>
           </div>
         </section>
 
-        <section className="px-6 md:px-12 pb-28 md:pb-40">
+        <section className="px-6 md:px-12 pb-32 md:pb-48">
           <div className="max-w-7xl mx-auto">
             {industries.map((ind, i) => (
-              <AnimatedSection key={ind.title.en} delay={i * 0.04}>
-                <div className="border-t border-divider py-14 md:py-16">
-                  <div className="grid grid-cols-1 lg:grid-cols-[240px_1fr_1fr] gap-8 lg:gap-16 items-start">
+              <AnimatedSection key={ind.title.en} delay={i * 0.03}>
+                <div className="border-t border-divider/40 py-16 md:py-20">
+                  <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr_1fr] gap-8 lg:gap-20 items-start">
                     <div>
-                      <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-accent-gradient block mb-3">{String(i + 1).padStart(2, "0")}</span>
-                      <h2 className="font-display text-[32px] leading-[0.94] tracking-[0.02em] text-foreground">{ind.title[lang]}</h2>
+                      <span className="font-mono text-[9px] tracking-[0.3em] uppercase text-muted-foreground/20 block mb-4">{String(i + 1).padStart(2, "0")}</span>
+                      <h2 className="font-display text-[28px] leading-[0.95] tracking-[0.02em] text-foreground">{ind.title[lang]}</h2>
                     </div>
                     <div>
-                      <h4 className="font-mono text-[9px] tracking-[0.3em] uppercase text-muted-foreground/50 mb-3">{t("What they need", "สิ่งที่ต้องการ")}</h4>
-                      <p className="font-body text-[14px] leading-[1.8] text-muted-foreground">{ind.need[lang]}</p>
+                      <h4 className="font-mono text-[9px] tracking-[0.35em] uppercase text-muted-foreground/25 mb-4">{t("What they need", "สิ่งที่ต้องการ")}</h4>
+                      <p className="font-body text-[13px] leading-[1.9] text-muted-foreground/50">{ind.need[lang]}</p>
                     </div>
                     <div>
-                      <h4 className="font-mono text-[9px] tracking-[0.3em] uppercase text-muted-foreground/50 mb-3">{t("How we help", "เราช่วยอย่างไร")}</h4>
-                      <p className="font-body text-[14px] leading-[1.8] text-muted-foreground">{ind.help[lang]}</p>
+                      <h4 className="font-mono text-[9px] tracking-[0.35em] uppercase text-muted-foreground/25 mb-4">{t("How we help", "เราช่วยอย่างไร")}</h4>
+                      <p className="font-body text-[13px] leading-[1.9] text-muted-foreground/50">{ind.help[lang]}</p>
                     </div>
                   </div>
                 </div>

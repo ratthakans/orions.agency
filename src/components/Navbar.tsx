@@ -15,27 +15,26 @@ const Navbar = () => {
     { label: "Services", href: "/services" },
     { label: "Work", href: "/work" },
     { label: "Industries", href: "/industries" },
-    { label: "Process", href: "/process" },
     { label: "Studio", href: "/studio" },
     { label: "Contact", href: "/contact" },
   ];
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-xl border-b border-divider">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-[56px]">
-          <Link to="/" className="flex items-center gap-2">
-            <span className="font-logo text-[14px] font-medium tracking-[0.12em] text-foreground uppercase">ØRIONS</span>
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-[60px]">
+          <Link to="/" className="flex items-center">
+            <span className="font-logo text-[13px] font-medium tracking-[0.18em] text-foreground uppercase">ØRIONS</span>
           </Link>
 
           {/* Desktop */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-10">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
-                className={`font-mono text-[9.5px] tracking-[0.16em] uppercase transition-colors duration-500 ${
-                  location.pathname === link.href ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                className={`font-mono text-[9px] tracking-[0.2em] uppercase transition-colors duration-500 ${
+                  location.pathname === link.href ? "text-foreground" : "text-muted-foreground/60 hover:text-foreground"
                 }`}
               >
                 {link.label}
@@ -43,21 +42,21 @@ const Navbar = () => {
             ))}
           </div>
 
-          <div className="hidden lg:flex items-center gap-5">
+          <div className="hidden lg:flex items-center gap-6">
             <div className="flex gap-0">
               <button
                 onClick={() => setLang("en")}
-                className={`font-mono text-[9px] tracking-[0.16em] uppercase px-3 py-1.5 transition-all duration-300 ${
-                  lang === "en" ? "text-foreground" : "text-muted-foreground/50 hover:text-muted-foreground"
+                className={`font-mono text-[9px] tracking-[0.2em] uppercase px-2 py-1 transition-all duration-300 ${
+                  lang === "en" ? "text-foreground" : "text-muted-foreground/40 hover:text-muted-foreground"
                 }`}
               >
                 EN
               </button>
-              <span className="text-divider self-center">/</span>
+              <span className="text-muted-foreground/20 self-center text-[9px]">/</span>
               <button
                 onClick={() => setLang("th")}
-                className={`font-mono text-[9px] tracking-[0.16em] uppercase px-3 py-1.5 transition-all duration-300 ${
-                  lang === "th" ? "text-foreground" : "text-muted-foreground/50 hover:text-muted-foreground"
+                className={`font-mono text-[9px] tracking-[0.2em] uppercase px-2 py-1 transition-all duration-300 ${
+                  lang === "th" ? "text-foreground" : "text-muted-foreground/40 hover:text-muted-foreground"
                 }`}
               >
                 TH
@@ -65,9 +64,9 @@ const Navbar = () => {
             </div>
             <button
               onClick={() => setDialogOpen(true)}
-              className="font-mono text-[9.5px] tracking-[0.14em] uppercase text-foreground border-b border-foreground/30 pb-0.5 hover:border-foreground transition-all duration-500"
+              className="font-mono text-[9px] tracking-[0.18em] uppercase text-foreground border-b border-foreground/25 pb-0.5 hover:border-foreground/60 transition-all duration-500"
             >
-              Start a Project
+              Inquiry
             </button>
           </div>
 
@@ -77,16 +76,16 @@ const Navbar = () => {
               <button
                 onClick={() => setLang("en")}
                 className={`font-mono text-[9px] tracking-[0.14em] uppercase px-2 py-1 transition-all duration-300 ${
-                  lang === "en" ? "text-foreground" : "text-muted-foreground/50"
+                  lang === "en" ? "text-foreground" : "text-muted-foreground/40"
                 }`}
               >
                 EN
               </button>
-              <span className="text-divider self-center text-[9px]">/</span>
+              <span className="text-muted-foreground/20 self-center text-[9px]">/</span>
               <button
                 onClick={() => setLang("th")}
                 className={`font-mono text-[9px] tracking-[0.14em] uppercase px-2 py-1 transition-all duration-300 ${
-                  lang === "th" ? "text-foreground" : "text-muted-foreground/50"
+                  lang === "th" ? "text-foreground" : "text-muted-foreground/40"
                 }`}
               >
                 TH
@@ -113,14 +112,14 @@ const Navbar = () => {
               exit={{ opacity: 0, height: 0 }}
               className="lg:hidden border-t border-divider bg-background overflow-hidden"
             >
-              <div className="px-6 py-8 flex flex-col gap-5">
+              <div className="px-6 py-10 flex flex-col gap-6">
                 {navLinks.map((link) => (
                   <Link
                     key={link.href}
                     to={link.href}
                     onClick={() => setIsOpen(false)}
-                    className={`font-mono text-[11px] tracking-[0.12em] uppercase transition-colors duration-500 ${
-                      location.pathname === link.href ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                    className={`font-mono text-[10px] tracking-[0.16em] uppercase transition-colors duration-500 ${
+                      location.pathname === link.href ? "text-foreground" : "text-muted-foreground/60 hover:text-foreground"
                     }`}
                   >
                     {link.label}
@@ -128,9 +127,9 @@ const Navbar = () => {
                 ))}
                 <button
                   onClick={() => { setIsOpen(false); setDialogOpen(true); }}
-                  className="font-mono text-[11px] tracking-[0.12em] uppercase text-background bg-foreground px-5 py-3 text-center mt-2"
+                  className="font-mono text-[10px] tracking-[0.16em] uppercase text-background bg-foreground px-5 py-3 text-center mt-4"
                 >
-                  Start a Project
+                  Inquiry
                 </button>
               </div>
             </motion.div>

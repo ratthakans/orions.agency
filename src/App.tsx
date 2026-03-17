@@ -14,7 +14,6 @@ const AboutPage = lazy(() => import("./pages/AboutPage"));
 const ServicesPage = lazy(() => import("./pages/ServicesPage"));
 const WorkPage = lazy(() => import("./pages/WorkPage"));
 const IndustriesPage = lazy(() => import("./pages/IndustriesPage"));
-const ProcessPage = lazy(() => import("./pages/ProcessPage"));
 const StudioPage = lazy(() => import("./pages/StudioPage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -30,7 +29,6 @@ const AnimatedRoutes = () => {
         <Route path="/services" element={<Suspense fallback={null}><PageTransition><ServicesPage /></PageTransition></Suspense>} />
         <Route path="/work" element={<Suspense fallback={null}><PageTransition><WorkPage /></PageTransition></Suspense>} />
         <Route path="/industries" element={<Suspense fallback={null}><PageTransition><IndustriesPage /></PageTransition></Suspense>} />
-        <Route path="/process" element={<Suspense fallback={null}><PageTransition><ProcessPage /></PageTransition></Suspense>} />
         <Route path="/studio" element={<Suspense fallback={null}><PageTransition><StudioPage /></PageTransition></Suspense>} />
         <Route path="/contact" element={<Suspense fallback={null}><PageTransition><ContactPage /></PageTransition></Suspense>} />
         <Route path="*" element={<Suspense fallback={null}><PageTransition><NotFound /></PageTransition></Suspense>} />

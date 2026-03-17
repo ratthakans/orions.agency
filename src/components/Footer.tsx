@@ -47,9 +47,9 @@ const Footer = () => {
           <div>
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-7">Connect</p>
             <div className="flex flex-col gap-3.5">
-              <a href="https://facebook.com/orions.agency" target="_blank" rel="noopener noreferrer" className="font-body text-[15px] text-foreground/60 hover:text-accent-blue transition-colors duration-300">Facebook</a>
-              <a href="https://instagram.com/orions.agency" target="_blank" rel="noopener noreferrer" className="font-body text-[15px] text-foreground/60 hover:text-accent-blue transition-colors duration-300">Instagram</a>
-              <a href="https://youtube.com/@orions-agency" target="_blank" rel="noopener noreferrer" className="font-body text-[15px] text-foreground/60 hover:text-accent-blue transition-colors duration-300">YouTube</a>
+              <a href="https://facebook.com/orions.agency" target="_blank" rel="noopener noreferrer" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Facebook</a>
+              <a href="https://instagram.com/orions.agency" target="_blank" rel="noopener noreferrer" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Instagram</a>
+              <a href="https://youtube.com/@orions-agency" target="_blank" rel="noopener noreferrer" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">YouTube</a>
             </div>
           </div>
         </div>

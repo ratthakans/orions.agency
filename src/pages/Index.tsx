@@ -132,7 +132,7 @@ const Index = () => {
                   >
                     <div className="flex items-center justify-between py-8 md:py-10">
                       <div className="flex items-baseline gap-6 md:gap-10">
-                        <span className="font-mono text-[11px] tracking-[0.15em] uppercase text-accent-blue">{String(i + 1).padStart(2, "0")}</span>
+                        <span className="font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground/40">{String(i + 1).padStart(2, "0")}</span>
                         <h3 className="font-display text-[clamp(32px,4vw,56px)] tracking-[0.03em] text-foreground group-hover:text-accent-warm transition-colors duration-500">{s.title}</h3>
                       </div>
                       <motion.span
@@ -161,7 +161,7 @@ const Index = () => {
                               {s.includes.map((item) => (
                                 <span
                                   key={item}
-                                  className="font-mono text-[10px] tracking-[0.1em] uppercase text-muted-foreground/60 border border-border/60 px-3 py-1.5 hover:text-foreground/80 hover:border-accent-blue/40 transition-all duration-300"
+                                  className="font-mono text-[10px] tracking-[0.1em] uppercase text-muted-foreground/60 border border-border/60 px-3 py-1.5 hover:text-foreground/80 hover:border-accent-warm/30 transition-all duration-300"
                                 >
                                   {item}
                                 </span>
@@ -180,7 +180,7 @@ const Index = () => {
 
           <AnimatedSection delay={0.3}>
             <div className="mt-20">
-              <Link to="/services" className="group inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.12em] uppercase text-foreground border-b border-foreground/40 pb-1 hover:border-accent-blue hover:text-accent-blue transition-all duration-300">
+              <Link to="/services" className="group inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.12em] uppercase text-foreground border-b border-foreground/40 pb-1 hover:border-accent-warm hover:text-accent-warm transition-all duration-300">
                 All Services <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
               </Link>
             </div>
@@ -188,7 +188,7 @@ const Index = () => {
         </div>
       </section>
 
-      <Marquee items={["Content Systems", "Creative & Campaign", "Film & Production", "Brand Development"]} speed="slow" color="blue" />
+      <Marquee items={["Content Systems", "Creative & Campaign", "Film & Production", "Brand Development"]} speed="slow" />
 
       {/* Selected Work — Horizontal Scroll */}
       <section className="py-24 md:py-40 px-6 md:px-12">
@@ -223,7 +223,7 @@ const Index = () => {
 
           <AnimatedSection delay={0.2}>
             <div className="mt-20">
-              <Link to="/work" className="group inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.12em] uppercase text-foreground border-b border-foreground/40 pb-1 hover:border-accent-blue hover:text-accent-blue transition-all duration-300">
+              <Link to="/work" className="group inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.12em] uppercase text-foreground border-b border-foreground/40 pb-1 hover:border-accent-warm hover:text-accent-warm transition-all duration-300">
                 All Work <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
               </Link>
             </div>
@@ -248,7 +248,7 @@ const Index = () => {
                 </button>
               <Link
                 to="/contact"
-                className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-blue transition-colors duration-300"
+                className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300"
               >
                 Contact <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
               </Link>

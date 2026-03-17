@@ -55,11 +55,11 @@ const ServicesPage = () => {
         <section className="py-32 md:py-48 px-6 md:px-12">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
-              <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground/40 mb-10">Services</p>
-              <h1 className="font-display text-[clamp(48px,6.5vw,110px)] leading-[0.9] tracking-[0.02em] text-foreground mb-10 max-w-3xl">
-                Four ways to<br />work with <span className="text-accent-gradient">ORIONS.</span>
+              <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">Services</p>
+              <h1 className="font-display text-[clamp(52px,7vw,120px)] leading-[0.9] tracking-[0.01em] text-foreground mb-10 max-w-4xl">
+                FOUR WAYS TO<br />WORK WITH <span className="text-accent-gradient">ORIONS.</span>
               </h1>
-              <p className="font-body text-[15px] leading-[1.8] text-muted-foreground/50 max-w-lg">
+              <p className="font-body text-[16px] leading-[1.7] text-muted-foreground max-w-lg">
                 {t(
                   "From monthly content to full brand development. Choose the service that matches where your brand is right now.",
                   "ตั้งแต่ content รายเดือนไปจนถึงการพัฒนาแบรนด์เต็มรูปแบบ"
@@ -75,26 +75,26 @@ const ServicesPage = () => {
           <div className="max-w-7xl mx-auto">
             {services.map((s, i) => (
               <AnimatedSection key={s.num} delay={i * 0.04}>
-                <div className="border-t border-divider/50 py-24 md:py-28">
-                  <div className="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-12 lg:gap-24 items-start">
+                <div className="border-t border-border py-24 md:py-28">
+                  <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 lg:gap-24 items-start">
                     <div>
-                      <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/20 block mb-5">{s.num}</span>
-                      <h2 className="font-display text-[clamp(52px,6vw,88px)] leading-[0.88] tracking-[0.02em] text-foreground mb-4">{s.title}</h2>
-                      <p className="font-body text-[13px] text-muted-foreground/35 mb-5">{s.subtitle}</p>
-                      <span className="font-mono text-[11px] tracking-[0.1em] text-accent-gradient">฿{s.price}</span>
+                      <span className="font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground/40 block mb-5">{s.num}</span>
+                      <h2 className="font-display text-[clamp(56px,7vw,96px)] leading-[0.88] tracking-[0.01em] text-foreground mb-4">{s.title}</h2>
+                      <p className="font-body text-[14px] text-muted-foreground mb-5">{s.subtitle}</p>
+                      <span className="font-mono text-[12px] tracking-[0.08em] text-accent-gradient font-medium">฿{s.price}</span>
                     </div>
                     <div className="space-y-12">
                       <div>
-                        <h4 className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground/20 mb-5">{t("What it is", "คืออะไร")}</h4>
-                        <p className="font-body text-[15px] leading-[1.8] text-muted-foreground/50">{s.what[lang]}</p>
+                        <h4 className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-5">{t("What it is", "คืออะไร")}</h4>
+                        <p className="font-body text-[15px] leading-[1.7] text-foreground/70">{s.what[lang]}</p>
                       </div>
                       <div>
-                        <h4 className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground/20 mb-5">{t("When to use it", "เมื่อไหร่ควรใช้")}</h4>
-                        <p className="font-body text-[15px] leading-[1.8] text-muted-foreground/50">{s.when[lang]}</p>
+                        <h4 className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-5">{t("When to use it", "เมื่อไหร่ควรใช้")}</h4>
+                        <p className="font-body text-[15px] leading-[1.7] text-foreground/70">{s.when[lang]}</p>
                       </div>
                       <div>
-                        <h4 className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground/20 mb-5">{t("What clients get", "ลูกค้าได้อะไร")}</h4>
-                        <p className="font-body text-[15px] leading-[1.8] text-muted-foreground/35">{s.get[lang]}</p>
+                        <h4 className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-5">{t("What clients get", "ลูกค้าได้อะไร")}</h4>
+                        <p className="font-body text-[15px] leading-[1.7] text-muted-foreground">{s.get[lang]}</p>
                       </div>
                     </div>
                   </div>

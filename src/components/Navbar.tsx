@@ -27,7 +27,7 @@ const Navbar = () => {
         {/* Scroll progress bar */}
         <motion.div
           style={{ scaleX: smoothProgress }}
-          className="absolute bottom-0 left-0 right-0 h-[2px] bg-accent-warm origin-left z-10"
+          className="absolute bottom-0 left-0 right-0 h-[2px] bg-accent-blue origin-left z-10"
         />
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-[60px]">
           <Link to="/" className="flex items-center">
@@ -40,8 +40,8 @@ const Navbar = () => {
               <Link
                 key={link.href}
                 to={link.href}
-                className={`font-mono text-[11px] tracking-[0.12em] uppercase transition-colors duration-300 ${
-                  location.pathname === link.href ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                className={`font-mono text-[11px] tracking-[0.12em] uppercase transition-colors duration-300 pb-1 ${
+                  location.pathname === link.href ? "text-foreground border-b border-accent-blue" : "text-muted-foreground hover:text-foreground"
                 }`}
               >
                 {link.label}

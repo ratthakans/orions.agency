@@ -24,7 +24,7 @@ const StartProjectDialog = ({ open, onOpenChange }: StartProjectDialogProps) => 
     onOpenChange(open);
   };
 
-  const inputClass = "w-full bg-transparent text-[14px] font-body text-foreground placeholder:text-muted-foreground/30 focus:outline-none border-b border-divider focus:border-foreground/30 transition-colors duration-500 pb-2";
+  const inputClass = "w-full bg-transparent text-[14px] font-body text-foreground placeholder:text-muted-foreground/30 focus:outline-none border-b border-border focus:border-foreground/50 transition-colors duration-300 pb-3";
 
   return (
     <Dialog open={open} onOpenChange={handleClose}>

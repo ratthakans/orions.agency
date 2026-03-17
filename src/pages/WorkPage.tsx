@@ -3,7 +3,6 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
-import Marquee from "@/components/Marquee";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useLanguage } from "@/contexts/LanguageContext";
 import workNorthwind from "@/assets/work-northwind.jpg";
@@ -54,7 +53,9 @@ const WorkPage = () => {
         <section className="py-32 md:py-48 px-6 md:px-12">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
-              <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">Portfolio</p>
+              <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">
+                <span className="text-accent-warm mr-2">◎</span> Portfolio
+              </p>
               <h1 className="font-display text-[clamp(52px,7vw,120px)] leading-[0.9] tracking-[0.01em] text-foreground mb-10 max-w-4xl">
                 SELECTED <span className="text-accent-gradient">WORK.</span>
               </h1>
@@ -65,8 +66,6 @@ const WorkPage = () => {
           </div>
         </section>
 
-        <Marquee items={["Campaign Film", "Brand Documentary", "Brand Story", "Content System"]} />
-
         <section className="px-6 md:px-12 py-20 pb-32 md:pb-48">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection delay={0.04}>
@@ -76,7 +75,7 @@ const WorkPage = () => {
                     key={cat}
                     onClick={() => setActiveFilter(cat)}
                     className={`font-mono text-[11px] tracking-[0.15em] uppercase transition-all duration-300 pb-0.5 ${
-                      activeFilter === cat ? "text-foreground border-b border-foreground" : "text-muted-foreground hover:text-foreground"
+                      activeFilter === cat ? "text-accent-warm border-b border-accent-warm" : "text-muted-foreground hover:text-foreground"
                     }`}
                   >
                     {cat}
@@ -89,11 +88,14 @@ const WorkPage = () => {
               {filteredWorks.map((w, i) => (
                 <AnimatedSection key={w.title} delay={i * 0.03}>
                   <div className="group cursor-pointer" onClick={() => setSelectedWork(w)}>
-                    <div className="overflow-hidden mb-5">
-                      <img src={w.image} alt={w.title} className="w-full aspect-[4/3] object-cover grayscale group-hover:grayscale-0 group-hover:scale-[1.02] transition-all duration-700" loading="lazy" />
+                    <div className="overflow-hidden mb-5 relative">
+                      <img src={w.image} alt={w.title} className="w-full aspect-[4/3] object-cover grayscale group-hover:grayscale-0 group-hover:scale-[1.03] transition-all duration-700" loading="lazy" />
+                      <div className="absolute inset-0 bg-accent-warm/0 group-hover:bg-accent-warm/5 transition-all duration-500" />
+                      <div className="absolute top-3 left-3 w-4 h-4 border-t border-l border-accent-warm/0 group-hover:border-accent-warm/50 transition-all duration-500" />
+                      <div className="absolute bottom-3 right-3 w-4 h-4 border-b border-r border-accent-warm/0 group-hover:border-accent-warm/50 transition-all duration-500" />
                     </div>
                     <span className="font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground block mb-1.5">{w.category}</span>
-                    <h3 className="font-body text-[16px] text-foreground/80 group-hover:text-foreground transition-colors duration-300 mb-1">{w.title}</h3>
+                    <h3 className="font-body text-[16px] text-foreground/80 group-hover:text-accent-warm transition-colors duration-300 mb-1">{w.title}</h3>
                     <p className="font-body text-[14px] leading-[1.6] text-muted-foreground line-clamp-2">{w.brief[lang]}</p>
                   </div>
                 </AnimatedSection>

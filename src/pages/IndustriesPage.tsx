@@ -2,7 +2,6 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
-import Marquee from "@/components/Marquee";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const industries = [
@@ -31,7 +30,9 @@ const IndustriesPage = () => {
         <section className="py-32 md:py-48 px-6 md:px-12">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
-              <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">Industries</p>
+              <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">
+                <span className="text-accent-warm mr-2">⬡</span> Industries
+              </p>
               <h1 className="font-display text-[clamp(52px,7vw,120px)] leading-[0.9] tracking-[0.01em] text-foreground mb-10 max-w-4xl">
                 EVERY INDUSTRY<br />HAS A <span className="text-accent-gradient">STORY.</span>
               </h1>
@@ -39,17 +40,15 @@ const IndustriesPage = () => {
           </div>
         </section>
 
-        <Marquee items={industries.map(i => i.title)} />
-
         <section className="px-6 md:px-12 py-20 pb-32 md:pb-48">
           <div className="max-w-7xl mx-auto">
             {industries.map((ind, i) => (
               <AnimatedSection key={ind.title} delay={i * 0.03}>
-                <div className="border-t border-border py-16 md:py-20">
+                <div className="group border-t border-border py-16 md:py-20 hover:border-accent-warm/30 transition-colors duration-500">
                   <div className="grid grid-cols-1 lg:grid-cols-[240px_1fr_1fr] gap-8 lg:gap-20 items-start">
                     <div>
                       <span className="font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground/40 block mb-4">{String(i + 1).padStart(2, "0")}</span>
-                      <h2 className="font-display text-[32px] leading-[0.95] tracking-[0.01em] text-foreground">{ind.title}</h2>
+                      <h2 className="font-display text-[32px] leading-[0.95] tracking-[0.01em] text-foreground group-hover:text-accent-warm transition-colors duration-500">{ind.title}</h2>
                     </div>
                     <div>
                       <h4 className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4">{t("What they need", "สิ่งที่ต้องการ")}</h4>

@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
-import Marquee from "@/components/Marquee";
+import ConstellationBackground from "@/components/ConstellationBackground";
 import { useLanguage } from "@/contexts/LanguageContext";
 import teamKrit from "@/assets/team-krit.jpg";
 import teamNari from "@/assets/team-nari.jpg";
@@ -12,12 +12,22 @@ import teamArun from "@/assets/team-arun.jpg";
 import teamMai from "@/assets/team-mai.jpg";
 
 const team = [
-  { name: "Krit Thanaporn", role: "Founder & Creative Director", image: teamKrit },
-  { name: "Nari Vongsa", role: "Head of Strategy", image: teamNari },
-  { name: "Tawan Srisai", role: "Film Director", image: teamTawan },
-  { name: "Ploy Charoensuk", role: "Content Lead", image: teamPloy },
-  { name: "Arun Kittisak", role: "Producer", image: teamArun },
-  { name: "Mai Sutthipong", role: "Campaign Director", image: teamMai },
+  { name: "Krit Thanaporn", role: "Founder", image: teamKrit },
+  { name: "Nari Vongsa", role: "CEO", image: teamNari },
+  { name: "Tawan Srisai", role: "CFO", image: teamTawan },
+  { name: "Ploy Charoensuk", role: "Creative Director", image: teamPloy },
+  { name: "Arun Kittisak", role: "Creative Marketing", image: teamArun },
+  { name: "Mai Sutthipong", role: "Creative Junior", image: teamMai },
+];
+
+const team2 = [
+  { name: "Somchai Rattana", role: "Editor / DOP" },
+  { name: "Pim Wattana", role: "Editor Senior" },
+  { name: "Dao Siriporn", role: "Graphic Designer" },
+  { name: "Nat Prasert", role: "Account Executive" },
+  { name: "Joy Supatra", role: "Account Executive" },
+  { name: "Lin Thongchai", role: "Project Manager" },
+  { name: "Fern Kamonpat", role: "Social Media Manager" },
 ];
 
 const AboutPage = () => {
@@ -32,10 +42,13 @@ const AboutPage = () => {
       </Helmet>
       <Navbar />
       <div className="pt-20">
+        {/* Hero */}
         <section className="py-32 md:py-48 px-6 md:px-12">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
-              <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">Who We Are</p>
+              <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">
+                <span className="text-accent-warm mr-2">✦</span> Who We Are
+              </p>
               <h1 className="font-display text-[clamp(52px,7vw,120px)] leading-[0.9] tracking-[0.01em] text-foreground mb-10 max-w-4xl">
                 A CREATIVE AGENCY<br />FOCUSED ON <span className="text-accent-gradient">STORYTELLING.</span>
               </h1>
@@ -49,14 +62,24 @@ const AboutPage = () => {
           </div>
         </section>
 
-        <Marquee items={["Story", "Strategy", "Campaign", "Film", "Meaning"]} />
+        {/* Constellation Thinking — with animated background */}
+        <section className="py-32 md:py-48 px-6 md:px-12 relative overflow-hidden">
+          <ConstellationBackground />
+          
+          {/* Da Vinci grid overlay */}
+          <div className="absolute inset-0 pointer-events-none opacity-[0.03]"
+            style={{
+              backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
+              backgroundSize: '60px 60px',
+            }}
+          />
 
-        {/* Constellation Thinking */}
-        <section className="py-32 md:py-48 px-6 md:px-12">
-          <div className="max-w-7xl mx-auto">
+          <div className="max-w-7xl mx-auto relative z-10">
             <AnimatedSection>
               <div className="max-w-3xl">
-                <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-gradient mb-8">How We Think</p>
+                <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-gradient mb-8">
+                  ◎ How We Think
+                </p>
                 <h2 className="font-display text-[clamp(44px,5.5vw,88px)] leading-[0.9] tracking-[0.01em] text-foreground mb-10">
                   CONSTELLATION<br /><span className="text-accent-gradient">THINKING.</span>
                 </h2>
@@ -66,7 +89,7 @@ const AboutPage = () => {
                     "ทุกแบรนด์มีจุด — ไอเดีย เรื่องราว คุณค่า ช่วงเวลา แบรนด์ส่วนใหญ่กระจัดกระจาย เราเชื่อมต่อให้เป็นสิ่งที่ชัดเจนและลืมไม่ลง"
                   )}
                 </p>
-                <p className="font-body text-[15px] leading-[1.7] text-muted-foreground/50 italic">
+                <p className="font-mono text-[13px] leading-[1.7] text-accent-warm/60 italic border-l-2 border-accent-warm/30 pl-6">
                   "Every dot has meaning. We just know how to connect them."
                 </p>
               </div>
@@ -78,7 +101,9 @@ const AboutPage = () => {
         <section className="py-32 md:py-48 px-6 md:px-12">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
-              <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">Why ORIONS</p>
+              <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">
+                <span className="text-accent-warm mr-2">△</span> Why ORIONS
+              </p>
               <h2 className="font-display text-[clamp(48px,6vw,96px)] leading-[0.9] tracking-[0.01em] text-foreground mb-20">
                 WE DON'T JUST EXECUTE.<br />WE <span className="text-accent-gradient">THINK.</span>
               </h2>
@@ -90,9 +115,15 @@ const AboutPage = () => {
                 { title: "Produce", desc: { en: "We execute with cinematic quality — every frame, every word, every detail considered.", th: "เราผลิตด้วยคุณภาพระดับภาพยนตร์ — ทุกเฟรม ทุกคำ ทุกรายละเอียด" } },
               ].map((v, i) => (
                 <AnimatedSection key={i} delay={i * 0.08}>
-                  <div>
+                  <div className="group relative p-6 -m-6 hover:bg-foreground/[0.02] transition-all duration-500">
+                    {/* Da Vinci corner marks */}
+                    <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-accent-warm/0 group-hover:border-accent-warm/40 transition-all duration-500" />
+                    <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-accent-warm/0 group-hover:border-accent-warm/40 transition-all duration-500" />
+                    <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-accent-warm/0 group-hover:border-accent-warm/40 transition-all duration-500" />
+                    <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-accent-warm/0 group-hover:border-accent-warm/40 transition-all duration-500" />
+                    
                     <span className="font-mono text-[11px] tracking-[0.15em] text-muted-foreground/40 block mb-5">{String(i + 1).padStart(2, "0")}</span>
-                    <h3 className="font-display text-[32px] tracking-[0.03em] text-foreground mb-4">{v.title}</h3>
+                    <h3 className="font-display text-[32px] tracking-[0.03em] text-foreground mb-4 group-hover:text-accent-warm transition-colors duration-500">{v.title}</h3>
                     <p className="font-body text-[15px] leading-[1.7] text-muted-foreground">{v.desc[lang]}</p>
                   </div>
                 </AnimatedSection>
@@ -101,29 +132,57 @@ const AboutPage = () => {
           </div>
         </section>
 
-        {/* Team */}
+        {/* Team — Core */}
         <section className="py-32 md:py-48 px-6 md:px-12">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
-              <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">The People</p>
+              <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">
+                <span className="text-accent-warm mr-2">⬡</span> The People
+              </p>
               <h2 className="font-display text-[clamp(48px,6vw,96px)] leading-[0.9] tracking-[0.01em] text-foreground mb-20">
                 OUR <span className="text-accent-gradient">TEAM</span>
               </h2>
             </AnimatedSection>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+            {/* Core team with photos */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-6 md:gap-10 mb-24">
               {team.map((member, i) => (
                 <AnimatedSection key={member.name} delay={i * 0.06}>
-                  <div className="group">
-                    <div className="w-full aspect-[3/4] overflow-hidden mb-5">
-                      <img src={member.image} alt={member.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" />
+                  <div className="group relative">
+                    <div className="w-full aspect-[3/4] overflow-hidden mb-5 relative">
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-[1.03] transition-all duration-700"
+                        loading="lazy"
+                      />
+                      {/* Hover overlay with role */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500">
+                        <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm">{member.role}</span>
+                      </div>
                     </div>
-                    <h3 className="font-body text-[15px] text-foreground mb-0.5">{member.name}</h3>
+                    <h3 className="font-body text-[15px] text-foreground mb-0.5 group-hover:text-accent-warm transition-colors duration-300">{member.name}</h3>
                     <p className="font-mono text-[11px] tracking-[0.08em] text-muted-foreground">{member.role}</p>
                   </div>
                 </AnimatedSection>
               ))}
             </div>
+
+            {/* Extended team — list format */}
+            <AnimatedSection delay={0.2}>
+              <div className="border-t border-border pt-16">
+                <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-10">Extended Team</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-6">
+                  {team2.map((member, i) => (
+                    <div key={i} className="group flex items-baseline justify-between py-3 border-b border-border/50 hover:border-accent-warm/30 transition-colors duration-300">
+                      <span className="font-body text-[15px] text-foreground/70 group-hover:text-foreground transition-colors duration-300">{member.name}</span>
+                      <span className="font-mono text-[10px] tracking-[0.1em] text-muted-foreground/50 group-hover:text-accent-warm/70 transition-colors duration-300">{member.role}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </AnimatedSection>
           </div>
         </section>
       </div>

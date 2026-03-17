@@ -2,7 +2,6 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
-import Marquee from "@/components/Marquee";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const services = [
@@ -55,7 +54,9 @@ const ServicesPage = () => {
         <section className="py-32 md:py-48 px-6 md:px-12">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
-              <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">Services</p>
+              <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">
+                <span className="text-accent-warm mr-2">✦</span> Services
+              </p>
               <h1 className="font-display text-[clamp(52px,7vw,120px)] leading-[0.9] tracking-[0.01em] text-foreground mb-10 max-w-4xl">
                 FOUR WAYS TO<br />WORK WITH <span className="text-accent-gradient">ORIONS.</span>
               </h1>
@@ -69,17 +70,15 @@ const ServicesPage = () => {
           </div>
         </section>
 
-        <Marquee items={["Content", "Think", "Produce", "Develop"]} />
-
         <section className="px-6 md:px-12 pb-32 md:pb-48">
           <div className="max-w-7xl mx-auto">
             {services.map((s, i) => (
               <AnimatedSection key={s.num} delay={i * 0.04}>
-                <div className="border-t border-border py-24 md:py-28">
+                <div className="group border-t border-border py-24 md:py-28 hover:border-accent-warm/30 transition-colors duration-500">
                   <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 lg:gap-24 items-start">
                     <div>
                       <span className="font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground/40 block mb-5">{s.num}</span>
-                      <h2 className="font-display text-[clamp(56px,7vw,96px)] leading-[0.88] tracking-[0.01em] text-foreground mb-4">{s.title}</h2>
+                      <h2 className="font-display text-[clamp(56px,7vw,96px)] leading-[0.88] tracking-[0.01em] text-foreground mb-4 group-hover:text-accent-warm transition-colors duration-500">{s.title}</h2>
                       <p className="font-body text-[14px] text-muted-foreground mb-5">{s.subtitle}</p>
                       <span className="font-mono text-[12px] tracking-[0.08em] text-accent-gradient font-medium">฿{s.price}</span>
                     </div>

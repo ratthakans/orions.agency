@@ -78,9 +78,9 @@ const AboutPage = () => {
             </AnimatedSection>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
               {[
-                { title: "Think", desc: { en: "We start with strategy and narrative — understanding the brand before producing anything.", th: "เราเริ่มด้วย strategy และ narrative — เข้าใจแบรนด์ก่อนผลิตอะไร" } },
-                { title: "Develop", desc: { en: "We shape ideas into clear concepts — campaign directions, film treatments, content systems.", th: "เราหล่อหลอมไอเดียเป็นคอนเซ็ปต์ที่ชัดเจน" } },
-                { title: "Produce", desc: { en: "We execute with cinematic quality — every frame, every word, every detail considered.", th: "เราผลิตด้วยคุณภาพระดับภาพยนตร์ — ทุกเฟรม ทุกคำ ทุกรายละเอียด" } },
+                { title: "Content & Campaign", desc: { en: "We build content systems and campaign ideas — strategy first, then execution.", th: "เราสร้างระบบ content และไอเดียแคมเปญ — strategy ก่อน แล้วจึง execution" } },
+                { title: "Film & Production", desc: { en: "We produce with cinematic quality — every frame, every word, every detail considered.", th: "เราผลิตด้วยคุณภาพระดับภาพยนตร์ — ทุกเฟรม ทุกคำ ทุกรายละเอียด" } },
+                { title: "Brand Development", desc: { en: "We shape new ideas into clear brand directions — from concept to launch.", th: "เราหล่อหลอมไอเดียใหม่เป็นทิศทางแบรนด์ที่ชัดเจน — จาก concept ถึง launch" } },
               ].map((v, i) => (
                 <AnimatedSection key={i} delay={i * 0.08}>
                   <div className="group relative border border-border p-8 md:p-10 hover:border-accent-warm/30 transition-all duration-500 h-full">

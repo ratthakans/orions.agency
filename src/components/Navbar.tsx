@@ -11,11 +11,13 @@ const Navbar = () => {
   const { lang, setLang, t } = useLanguage();
 
   const navLinks = [
+    { label: "About", href: "/about" },
     { label: "Services", href: "/services" },
     { label: "Work", href: "/work" },
-    { label: "AI Stack", href: "/ai-stack" },
-    { label: "Careers", href: "/careers" },
-    { label: "About", href: "/about" },
+    { label: "Industries", href: "/industries" },
+    { label: "Process", href: "/process" },
+    { label: "Studio", href: "/studio" },
+    { label: "Contact", href: "/contact" },
   ];
 
   return (
@@ -28,13 +30,13 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-7">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
-                className={`font-mono text-[11px] tracking-[0.12em] uppercase transition-colors duration-300 ${
-                  location.pathname === link.href || (link.href === "/about#contact" && location.pathname === "/about" && location.hash === "#contact") ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                className={`font-mono text-[10.5px] tracking-[0.12em] uppercase transition-colors duration-300 ${
+                  location.pathname === link.href ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                 }`}
               >
                 {link.label}
@@ -42,8 +44,7 @@ const Navbar = () => {
             ))}
           </div>
 
-          <div className="hidden md:flex items-center gap-4">
-            {/* Language Toggle */}
+          <div className="hidden lg:flex items-center gap-4">
             <div className="flex border border-divider overflow-hidden rounded-sm">
               <button
                 onClick={() => setLang("en")}
@@ -71,7 +72,7 @@ const Navbar = () => {
           </div>
 
           {/* Mobile toggle */}
-          <div className="md:hidden flex items-center gap-3">
+          <div className="lg:hidden flex items-center gap-3">
             <div className="flex border border-divider overflow-hidden rounded-sm">
               <button
                 onClick={() => setLang("en")}
@@ -109,7 +110,7 @@ const Navbar = () => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden border-t border-divider bg-background overflow-hidden"
+              className="lg:hidden border-t border-divider bg-background overflow-hidden"
             >
               <div className="px-6 py-8 flex flex-col gap-6">
                 {navLinks.map((link) => (

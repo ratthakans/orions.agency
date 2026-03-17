@@ -109,7 +109,11 @@ const WorkPage = () => {
       </div>
 
       <Dialog open={!!selectedWork} onOpenChange={(open) => !open && setSelectedWork(null)}>
-        <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto bg-background border-border p-0 gap-0">
+        <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto bg-background border-border p-0 gap-0 relative">
+          <div className="absolute top-3 left-3 w-5 h-5 border-t border-l border-accent-warm/30 z-10" />
+          <div className="absolute top-3 right-3 w-5 h-5 border-t border-r border-accent-warm/30 z-10" />
+          <div className="absolute bottom-3 left-3 w-5 h-5 border-b border-l border-accent-warm/30 z-10" />
+          <div className="absolute bottom-3 right-3 w-5 h-5 border-b border-r border-accent-warm/30 z-10" />
           {selectedWork && (
             <>
               <div className="w-full aspect-[16/9] overflow-hidden">

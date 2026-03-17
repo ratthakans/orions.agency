@@ -118,7 +118,7 @@ const ContactPage = () => {
                       </div>
                       <div>
                         <label className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4 block">{t("Message", "ข้อความ")}</label>
-                        <textarea value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} className="w-full bg-transparent text-[15px] font-body text-foreground placeholder:text-muted-foreground/30 focus:outline-none min-h-[100px] resize-none border-b border-border focus:border-foreground/50 transition-colors duration-300 pb-3" placeholder={t("Tell us about your project...", "เล่าเกี่ยวกับโปรเจกต์ของคุณ...") as string} />
+                        <textarea value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} className="w-full bg-transparent text-[14px] font-body text-foreground placeholder:text-muted-foreground/30 focus:outline-none min-h-[100px] resize-none border-b border-border focus:border-foreground/50 transition-colors duration-300 pb-3" placeholder={t("Tell us about your project...", "เล่าเกี่ยวกับโปรเจกต์ของคุณ...") as string} />
                       </div>
                       <div className="pt-4">
                         <button type="submit" className="font-mono text-[11px] tracking-[0.12em] uppercase text-background bg-foreground px-8 py-3 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300">

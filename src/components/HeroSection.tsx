@@ -68,8 +68,22 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex justify-end max-w-5xl"
+            className="flex flex-col md:flex-row md:items-end md:justify-between max-w-5xl gap-8"
           >
+            <div className="flex items-center gap-6 flex-wrap">
+              <button
+                onClick={onStartProject}
+                className="font-mono text-[11px] tracking-[0.12em] uppercase text-background bg-foreground px-8 py-3 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300"
+              >
+                Start a Project
+              </button>
+              <a
+                href="/work"
+                className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300"
+              >
+                View Work <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+              </a>
+            </div>
             <p className="font-body text-[16px] text-muted-foreground max-w-[400px] leading-[1.7]">
               {t(
                 "We help brands develop narratives, campaigns, and films with clarity and impact.",

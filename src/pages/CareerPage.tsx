@@ -261,7 +261,7 @@ const CareerPage = () => {
               </p>
               <a
                 href="mailto:career@orions.agency"
-                className="inline-block font-mono text-[12px] tracking-[0.12em] uppercase text-background bg-foreground px-8 py-4 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300"
+                className="inline-block font-mono text-[11px] tracking-[0.12em] uppercase text-background bg-foreground px-8 py-4 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300"
               >
                 career@orions.agency
               </a>

@@ -60,8 +60,8 @@ const StartProjectDialog = ({ open, onOpenChange }: StartProjectDialogProps) => 
                 <input type="text" value={formData.company} onChange={(e) => setFormData({ ...formData, company: e.target.value })} className={inputClass} placeholder={t("Your company name", "ชื่อบริษัท") as string} />
               </div>
               <div>
-                <label className="font-mono text-[9px] tracking-[0.3em] uppercase text-muted-foreground/50 mb-3 block">{t("Project Type", "ประเภท Project")}</label>
-                <select value={formData.projectType} onChange={(e) => setFormData({ ...formData, projectType: e.target.value })} className="w-full bg-transparent text-[14px] font-body text-foreground focus:outline-none border-b border-divider focus:border-foreground/30 transition-colors duration-500 pb-2 appearance-none cursor-pointer">
+                <label className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4 block">{t("Project Type", "ประเภท Project")}</label>
+                <select value={formData.projectType} onChange={(e) => setFormData({ ...formData, projectType: e.target.value })} className="w-full bg-transparent text-[14px] font-body text-foreground focus:outline-none border-b border-border focus:border-foreground/50 transition-colors duration-300 pb-3 appearance-none cursor-pointer">
                   <option value="" className="bg-background">{t("Select", "เลือก")}</option>
                   <option value="content" className="bg-background">Content</option>
                   <option value="think" className="bg-background">Think (Strategy)</option>

@@ -6,8 +6,6 @@ import HeroSection from "@/components/HeroSection";
 import StartProjectDialog from "@/components/StartProjectDialog";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
-import OrionConstellation from "@/components/OrionConstellation";
-import StarField from "@/components/StarField";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 import workNorthwind from "@/assets/work-northwind.jpg";
@@ -33,23 +31,6 @@ const Index = () => {
     { title: "Sera Hospitality", category: { en: "Content System", th: "Content System" }, image: workSera },
   ];
 
-  const industries = [
-    { en: "Hospitality", th: "การโรงแรม" },
-    { en: "Lifestyle", th: "ไลฟ์สไตล์" },
-    { en: "Beauty", th: "ความงาม" },
-    { en: "Real Estate", th: "อสังหาริมทรัพย์" },
-    { en: "Startups", th: "สตาร์ทอัพ" },
-    { en: "Automotive", th: "ยานยนต์" },
-  ];
-
-  const processSteps = [
-    { num: "01", title: "Discover" },
-    { num: "02", title: "Define" },
-    { num: "03", title: "Create" },
-    { num: "04", title: "Produce" },
-    { num: "05", title: "Launch" },
-  ];
-
   const studioProjects = [
     { title: "ORIONS Dialogue", type: "Podcast" },
     { title: "No Signal", type: "Documentary" },
@@ -60,23 +41,23 @@ const Index = () => {
     <main className="bg-background min-h-screen grain-overlay">
       <Helmet>
         <title>ØRIONS — Creative Agency for Brands That Need Stronger Stories | Bangkok</title>
-        <meta name="description" content="ORIONS is a creative agency helping brands connect their ideas into meaningful stories, campaigns, and films. Every dot has meaning — we just know how to connect them." />
+        <meta name="description" content="ORIONS is a creative agency helping brands connect their ideas into meaningful stories, campaigns, and films." />
         <link rel="canonical" href="https://orions.agency/" />
       </Helmet>
       <Navbar />
       <HeroSection onStartProject={() => setDialogOpen(true)} />
 
       {/* What We Do */}
-      <section className="py-28 md:py-40 px-6 md:px-12">
+      <section className="py-32 md:py-48 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
-            <p className="font-mono text-[9px] tracking-[0.35em] uppercase text-muted-foreground mb-8">
+            <p className="font-mono text-[9px] tracking-[0.4em] uppercase text-muted-foreground/50 mb-10">
               {t("What We Do", "สิ่งที่เราทำ")}
             </p>
-            <h2 className="font-display text-[clamp(48px,6vw,96px)] leading-[0.88] tracking-[0.02em] text-foreground mb-6 max-w-3xl">
+            <h2 className="font-display text-[clamp(44px,5.5vw,88px)] leading-[0.9] tracking-[0.01em] text-foreground mb-6 max-w-3xl">
               {t(<>Stories, campaigns,<br />and <span className="text-accent-gradient">films.</span></>, <>เรื่องราว, แคมเปญ<br />และ<span className="text-accent-gradient">ภาพยนตร์</span></>)}
             </h2>
-            <p className="font-body text-[15px] leading-[1.8] text-muted-foreground max-w-lg mb-20">
+            <p className="font-body text-[14px] leading-[1.9] text-muted-foreground/60 max-w-md mb-24">
               {t(
                 "We help brands think clearly, tell better stories, and produce work that people actually remember.",
                 "เราช่วยแบรนด์คิดอย่างชัดเจน เล่าเรื่องได้ดีขึ้น และผลิตงานที่คนจดจำได้จริง"
@@ -84,22 +65,22 @@ const Index = () => {
             </p>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-12">
             {services.map((s, i) => (
-              <AnimatedSection key={s.title} delay={i * 0.1}>
+              <AnimatedSection key={s.title} delay={i * 0.08}>
                 <div>
-                  <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-accent-gradient block mb-4">{String(i + 1).padStart(2, "0")}</span>
-                  <h3 className="font-display text-[32px] tracking-[0.04em] text-foreground mb-3">{s.title}</h3>
-                  <p className="font-body text-[13px] leading-[1.75] text-muted-foreground">{s.desc[lang]}</p>
+                  <span className="font-mono text-[9px] tracking-[0.3em] uppercase text-muted-foreground/30 block mb-5">{String(i + 1).padStart(2, "0")}</span>
+                  <h3 className="font-display text-[28px] tracking-[0.04em] text-foreground mb-3">{s.title}</h3>
+                  <p className="font-body text-[13px] leading-[1.8] text-muted-foreground/50">{s.desc[lang]}</p>
                 </div>
               </AnimatedSection>
             ))}
           </div>
 
-          <AnimatedSection delay={0.4}>
-            <div className="mt-16">
-              <Link to="/services" className="font-mono text-[10px] tracking-[0.16em] uppercase text-muted-foreground border-b border-foreground/15 pb-1 hover:text-foreground hover:border-foreground/40 transition-all duration-500">
-                {t("View All Services →", "ดู Services ทั้งหมด →")}
+          <AnimatedSection delay={0.3}>
+            <div className="mt-20">
+              <Link to="/services" className="font-mono text-[9px] tracking-[0.2em] uppercase text-muted-foreground/40 border-b border-foreground/10 pb-1 hover:text-foreground hover:border-foreground/30 transition-all duration-500">
+                {t("All Services →", "ดู Services ทั้งหมด →")}
               </Link>
             </div>
           </AnimatedSection>
@@ -107,35 +88,35 @@ const Index = () => {
       </section>
 
       {/* Selected Work */}
-      <section className="py-28 md:py-40 px-6 md:px-12 border-t border-divider">
+      <section className="py-32 md:py-48 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
-            <p className="font-mono text-[9px] tracking-[0.35em] uppercase text-muted-foreground mb-8">
+            <p className="font-mono text-[9px] tracking-[0.4em] uppercase text-muted-foreground/50 mb-10">
               {t("Selected Work", "ผลงานคัดสรร")}
             </p>
-            <h2 className="font-display text-[clamp(48px,6vw,96px)] leading-[0.88] tracking-[0.02em] text-foreground mb-16">
+            <h2 className="font-display text-[clamp(44px,5.5vw,88px)] leading-[0.9] tracking-[0.01em] text-foreground mb-20">
               {t(<>Work that <span className="text-accent-gradient">speaks.</span></>, <>ผลงานที่<span className="text-accent-gradient">สื่อสาร</span></>)}
             </h2>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {featuredWork.map((w, i) => (
-              <AnimatedSection key={w.title} delay={i * 0.08}>
-                <Link to="/work" className="group block overflow-hidden">
-                  <div className="overflow-hidden mb-4">
-                    <img src={w.image} alt={w.title} className="w-full aspect-[16/9] object-cover grayscale group-hover:grayscale-0 group-hover:scale-[1.02] transition-all duration-700" loading="lazy" />
+              <AnimatedSection key={w.title} delay={i * 0.06}>
+                <Link to="/work" className="group block">
+                  <div className="overflow-hidden mb-5">
+                    <img src={w.image} alt={w.title} className="w-full aspect-[16/10] object-cover grayscale group-hover:grayscale-0 group-hover:scale-[1.015] transition-all duration-[900ms]" loading="lazy" />
                   </div>
-                  <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-muted-foreground/60 block mb-1">{w.category[lang]}</span>
-                  <h3 className="font-body text-[15px] text-foreground group-hover:text-accent-gradient transition-colors duration-500">{w.title}</h3>
+                  <span className="font-mono text-[9px] tracking-[0.3em] uppercase text-muted-foreground/30 block mb-1.5">{w.category[lang]}</span>
+                  <h3 className="font-body text-[14px] text-foreground/80 group-hover:text-foreground transition-colors duration-500">{w.title}</h3>
                 </Link>
               </AnimatedSection>
             ))}
           </div>
 
-          <AnimatedSection delay={0.3}>
-            <div className="mt-16">
-              <Link to="/work" className="font-mono text-[10px] tracking-[0.16em] uppercase text-muted-foreground border-b border-foreground/15 pb-1 hover:text-foreground hover:border-foreground/40 transition-all duration-500">
-                {t("View All Work →", "ดูผลงานทั้งหมด →")}
+          <AnimatedSection delay={0.2}>
+            <div className="mt-20">
+              <Link to="/work" className="font-mono text-[9px] tracking-[0.2em] uppercase text-muted-foreground/40 border-b border-foreground/10 pb-1 hover:text-foreground hover:border-foreground/30 transition-all duration-500">
+                {t("All Work →", "ดูผลงานทั้งหมด →")}
               </Link>
             </div>
           </AnimatedSection>
@@ -143,104 +124,54 @@ const Index = () => {
       </section>
 
       {/* Why ORIONS */}
-      <section className="py-28 md:py-40 px-6 md:px-12 border-t border-divider relative overflow-hidden">
-        <StarField count={20} />
-        <div className="max-w-7xl mx-auto relative z-10">
-          <AnimatedSection>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-              <div>
-                <p className="font-mono text-[9px] tracking-[0.35em] uppercase text-muted-foreground mb-8">
-                  {t("Why ORIONS", "ทำไม ORIONS")}
-                </p>
-                <h2 className="font-display text-[clamp(48px,6vw,96px)] leading-[0.88] tracking-[0.02em] text-foreground mb-8">
-                  {t(<>Not just<br /><span className="text-accent-gradient">production.</span></>, <>ไม่ใช่แค่<br /><span className="text-accent-gradient">โปรดักชั่น</span></>)}
-                </h2>
-                <p className="font-body text-[15px] leading-[1.8] text-muted-foreground mb-6 max-w-md">
-                  {t(
-                    "We're a creative agency that helps brands think, shape stories, and execute them with cinematic quality.",
-                    "เราคือ creative agency ที่ช่วยแบรนด์คิด หล่อหลอมเรื่องราว และผลิตออกมาด้วยคุณภาพระดับภาพยนตร์"
-                  )}
-                </p>
-                <p className="font-body text-[14px] leading-[1.8] text-foreground/60 italic">
-                  {t(
-                    '"Every dot has meaning. We just know how to connect them."',
-                    '"ทุกจุดมีความหมาย เราแค่รู้วิธีเชื่อมต่อมัน"'
-                  )}
-                </p>
-              </div>
-              <div className="flex items-center justify-center opacity-60">
-                <OrionConstellation size="lg" opacity={0.2} animate={true} showStars={true} />
-              </div>
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* Industries */}
-      <section className="py-28 md:py-40 px-6 md:px-12 border-t border-divider">
+      <section className="py-32 md:py-48 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
-            <p className="font-mono text-[9px] tracking-[0.35em] uppercase text-muted-foreground mb-8">
-              {t("Industries", "อุตสาหกรรม")}
-            </p>
-            <div className="flex flex-wrap gap-x-10 gap-y-4 mb-10">
-              {industries.map((ind, i) => (
-                <span key={ind.en} className="font-display text-[clamp(28px,3.5vw,48px)] tracking-[0.04em] text-foreground/25 hover:text-foreground transition-colors duration-500 cursor-default">
-                  {ind[lang]}
-                </span>
-              ))}
+            <div className="max-w-2xl">
+              <p className="font-mono text-[9px] tracking-[0.4em] uppercase text-muted-foreground/50 mb-10">
+                {t("Why ORIONS", "ทำไม ORIONS")}
+              </p>
+              <h2 className="font-display text-[clamp(44px,5.5vw,88px)] leading-[0.9] tracking-[0.01em] text-foreground mb-10">
+                {t(<>Not just<br /><span className="text-accent-gradient">production.</span></>, <>ไม่ใช่แค่<br /><span className="text-accent-gradient">โปรดักชั่น</span></>)}
+              </h2>
+              <p className="font-body text-[14px] leading-[1.9] text-muted-foreground/60 mb-8 max-w-lg">
+                {t(
+                  "We're a creative agency that helps brands think, shape stories, and execute them with cinematic quality.",
+                  "เราคือ creative agency ที่ช่วยแบรนด์คิด หล่อหลอมเรื่องราว และผลิตออกมาด้วยคุณภาพระดับภาพยนตร์"
+                )}
+              </p>
+              <p className="font-body text-[13px] leading-[1.9] text-muted-foreground/30 italic">
+                {t(
+                  '"Every dot has meaning. We just know how to connect them."',
+                  '"ทุกจุดมีความหมาย เราแค่รู้วิธีเชื่อมต่อมัน"'
+                )}
+              </p>
             </div>
-            <Link to="/industries" className="font-mono text-[10px] tracking-[0.16em] uppercase text-muted-foreground border-b border-foreground/15 pb-1 hover:text-foreground hover:border-foreground/40 transition-all duration-500">
-              {t("View All Industries →", "ดูอุตสาหกรรมทั้งหมด →")}
-            </Link>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* Process */}
-      <section className="py-28 md:py-40 px-6 md:px-12 border-t border-divider">
-        <div className="max-w-7xl mx-auto">
-          <AnimatedSection>
-            <p className="font-mono text-[9px] tracking-[0.35em] uppercase text-muted-foreground mb-8">
-              {t("Process", "กระบวนการ")}
-            </p>
-            <div className="flex flex-wrap items-baseline gap-x-6 gap-y-2 mb-10">
-              {processSteps.map((step, i) => (
-                <div key={step.num} className="flex items-baseline gap-2">
-                  <span className="font-mono text-[9px] tracking-[0.2em] text-accent-gradient">{step.num}</span>
-                  <span className="font-display text-[clamp(28px,3.5vw,48px)] tracking-[0.04em] text-foreground">{step.title}</span>
-                  {i < processSteps.length - 1 && <span className="font-body text-foreground/15 ml-4">—</span>}
-                </div>
-              ))}
-            </div>
-            <Link to="/process" className="font-mono text-[10px] tracking-[0.16em] uppercase text-muted-foreground border-b border-foreground/15 pb-1 hover:text-foreground hover:border-foreground/40 transition-all duration-500">
-              {t("Learn More →", "เรียนรู้เพิ่มเติม →")}
-            </Link>
           </AnimatedSection>
         </div>
       </section>
 
       {/* Studio */}
-      <section className="py-28 md:py-40 px-6 md:px-12 border-t border-divider">
+      <section className="py-32 md:py-48 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
-            <p className="font-mono text-[9px] tracking-[0.35em] uppercase text-muted-foreground mb-8">
+            <p className="font-mono text-[9px] tracking-[0.4em] uppercase text-muted-foreground/50 mb-10">
               {t("Studio", "สตูดิโอ")}
             </p>
-            <h2 className="font-display text-[clamp(48px,6vw,96px)] leading-[0.88] tracking-[0.02em] text-foreground mb-16">
+            <h2 className="font-display text-[clamp(44px,5.5vw,88px)] leading-[0.9] tracking-[0.01em] text-foreground mb-20">
               {t(<>Original <span className="text-accent-gradient">content.</span></>, <><span className="text-accent-gradient">ผลงาน</span>ต้นฉบับ</>)}
             </h2>
           </AnimatedSection>
 
           <div className="space-y-0">
             {studioProjects.map((p, i) => (
-              <AnimatedSection key={p.title} delay={i * 0.08}>
-                <Link to="/studio" className="flex items-baseline justify-between py-6 border-b border-divider group">
-                  <div className="flex items-baseline gap-4">
-                    <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-muted-foreground/50">{p.type}</span>
-                    <span className="font-display text-[clamp(24px,3vw,40px)] tracking-[0.04em] text-foreground group-hover:text-accent-gradient transition-colors duration-500">{p.title}</span>
+              <AnimatedSection key={p.title} delay={i * 0.06}>
+                <Link to="/studio" className="flex items-baseline justify-between py-7 border-b border-divider/50 group">
+                  <div className="flex items-baseline gap-5">
+                    <span className="font-mono text-[9px] tracking-[0.3em] uppercase text-muted-foreground/25">{p.type}</span>
+                    <span className="font-display text-[clamp(22px,2.5vw,36px)] tracking-[0.03em] text-foreground/70 group-hover:text-foreground transition-colors duration-500">{p.title}</span>
                   </div>
-                  <span className="font-mono text-[10px] text-muted-foreground/30 group-hover:text-muted-foreground transition-colors duration-500">→</span>
+                  <span className="font-mono text-[10px] text-muted-foreground/15 group-hover:text-muted-foreground/50 transition-colors duration-500">→</span>
                 </Link>
               </AnimatedSection>
             ))}
@@ -249,28 +180,27 @@ const Index = () => {
       </section>
 
       {/* Final CTA */}
-      <section className="py-40 md:py-56 px-6 md:px-12 text-center border-t border-divider relative overflow-hidden">
-        <StarField count={15} />
-        <div className="max-w-7xl mx-auto relative z-10">
+      <section className="py-48 md:py-64 px-6 md:px-12 text-center">
+        <div className="max-w-7xl mx-auto">
           <AnimatedSection>
-            <h2 className="font-display text-[clamp(64px,10vw,160px)] leading-[0.85] tracking-[0.02em] text-foreground mb-10">
+            <h2 className="font-display text-[clamp(56px,9vw,140px)] leading-[0.88] tracking-[0.01em] text-foreground mb-12">
               {t(<>Start a<br /><span className="text-accent-gradient">project.</span></>, <>เริ่ม<br /><span className="text-accent-gradient">โปรเจกต์</span></>)}
             </h2>
-            <div className="flex gap-6 justify-center flex-wrap">
+            <div className="flex gap-10 justify-center items-center flex-wrap">
               <button
                 onClick={() => setDialogOpen(true)}
-                className="bg-foreground text-background font-mono text-[10px] tracking-[0.16em] uppercase px-8 py-3.5 hover:opacity-85 transition-opacity"
+                className="font-mono text-[9px] tracking-[0.2em] uppercase text-foreground border-b border-foreground/30 pb-1 hover:border-foreground transition-all duration-500"
               >
                 {t("Start a Project", "เริ่ม Project")}
               </button>
               <Link
                 to="/contact"
-                className="text-muted-foreground font-mono text-[10px] tracking-[0.16em] uppercase py-3.5 px-1 border-b border-foreground/20 hover:text-foreground hover:border-foreground/50 transition-all duration-500"
+                className="font-mono text-[9px] tracking-[0.2em] uppercase text-muted-foreground/40 hover:text-foreground transition-colors duration-500"
               >
-                {t("Contact Us", "ติดต่อเรา")}
+                {t("Contact", "ติดต่อเรา")}
               </Link>
             </div>
-            <a href="mailto:hello@orions.agency" className="inline-block mt-10 font-mono text-[11px] tracking-[0.1em] text-muted-foreground/40 hover:text-muted-foreground transition-colors duration-500">
+            <a href="mailto:hello@orions.agency" className="inline-block mt-16 font-mono text-[10px] tracking-[0.12em] text-muted-foreground/20 hover:text-muted-foreground/50 transition-colors duration-500">
               hello@orions.agency
             </a>
           </AnimatedSection>

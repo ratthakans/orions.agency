@@ -69,17 +69,23 @@ const StartProjectDialog = ({ open, onOpenChange }: StartProjectDialogProps) => 
               </div>
               <div className="border-t border-divider py-5">
                 <label className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/60 mb-2 block">{t("Project Type", "ประเภท Project")}</label>
-                <input type="text" value={formData.projectType} onChange={(e) => setFormData({ ...formData, projectType: e.target.value })} className="w-full bg-transparent text-[14px] font-body text-foreground placeholder:text-muted-foreground/50 focus:outline-none border-b border-transparent focus:border-foreground/30 transition-colors duration-300 pb-1" placeholder={t("e.g. Brand Identity, Campaign, Content", "เช่น Brand Identity, Campaign, Content") as string} />
+                <select value={formData.projectType} onChange={(e) => setFormData({ ...formData, projectType: e.target.value })} className="w-full bg-transparent text-[14px] font-body text-foreground focus:outline-none border-b border-transparent focus:border-foreground/30 transition-colors duration-300 pb-1 appearance-none cursor-pointer">
+                  <option value="" className="bg-background">{t("Select project type", "เลือกประเภทโปรเจกต์")}</option>
+                  <option value="content" className="bg-background">Content</option>
+                  <option value="think" className="bg-background">Think (Strategy)</option>
+                  <option value="produce" className="bg-background">Produce (Film)</option>
+                  <option value="develop" className="bg-background">Develop (Brand)</option>
+                </select>
               </div>
               <div className="border-t border-divider py-5">
                 <label className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/60 mb-2 block">Budget Range</label>
                 <select value={formData.budget} onChange={(e) => setFormData({ ...formData, budget: e.target.value })} className="w-full bg-transparent text-[14px] font-body text-foreground focus:outline-none border-b border-transparent focus:border-foreground/30 transition-colors duration-300 pb-1 appearance-none cursor-pointer">
                   <option value="" className="bg-background">{t("Select a range", "เลือกช่วงงบประมาณ")}</option>
-                  <option value="< ฿100K" className="bg-background">Under ฿100,000</option>
-                  <option value="฿100K–300K" className="bg-background">฿100,000 – ฿300,000</option>
-                  <option value="฿300K–500K" className="bg-background">฿300,000 – ฿500,000</option>
-                  <option value="฿500K–1M" className="bg-background">฿500,000 – ฿1,000,000</option>
-                  <option value="> ฿1M" className="bg-background">฿1,000,000+</option>
+                  <option value="50k-150k" className="bg-background">฿50,000 – ฿150,000</option>
+                  <option value="150k-350k" className="bg-background">฿150,000 – ฿350,000</option>
+                  <option value="350k-600k" className="bg-background">฿350,000 – ฿600,000</option>
+                  <option value="600k-1m" className="bg-background">฿600,000 – ฿1,000,000</option>
+                  <option value="1m+" className="bg-background">฿1,000,000+</option>
                 </select>
               </div>
               <div className="border-t border-divider py-5">

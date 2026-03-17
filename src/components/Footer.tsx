@@ -13,7 +13,7 @@ const Footer = () => {
           <div>
             <p className="font-logo font-medium text-[18px] tracking-[0.08em] text-foreground uppercase mb-3">ØRIONS</p>
             <p className="font-body text-[13px] leading-[1.72] text-muted-foreground max-w-[220px] mb-5">
-              {t("Guiding brands through the noise.", "นำทางแบรนด์ผ่านทุก noise")}
+              {t("Creative agency for brands that need stronger stories.", "Creative agency สำหรับแบรนด์ที่ต้องการเรื่องราวที่แข็งแกร่ง")}
             </p>
             <div className="space-y-1.5">
               <a href="mailto:hello@orions.agency" className="font-mono text-[11px] tracking-[0.06em] text-muted-foreground block hover:text-foreground transition-colors">hello@orions.agency</a>
@@ -24,7 +24,7 @@ const Footer = () => {
           <div>
             <p className="font-mono text-[9px] tracking-[0.25em] uppercase text-foreground/50 mb-5">Services</p>
             <div className="flex flex-col gap-2.5">
-              {["Brand Strategy", "Visual Identity", "Content Production", "Social Media", "Monthly Retainer"].map((item) => (
+              {["Content", "Think", "Produce", "Develop"].map((item) => (
                 <Link key={item} to="/services" className="font-body text-[13px] text-muted-foreground hover:text-foreground transition-colors">{item}</Link>
               ))}
             </div>
@@ -34,9 +34,10 @@ const Footer = () => {
             <p className="font-mono text-[9px] tracking-[0.25em] uppercase text-foreground/50 mb-5">Company</p>
             <div className="flex flex-col gap-2.5">
               <Link to="/about" className="font-body text-[13px] text-muted-foreground hover:text-foreground transition-colors">About</Link>
-              <Link to="/ai-stack" className="font-body text-[13px] text-muted-foreground hover:text-foreground transition-colors">AI Stack</Link>
               <Link to="/work" className="font-body text-[13px] text-muted-foreground hover:text-foreground transition-colors">Work</Link>
-              <Link to="/careers" className="font-body text-[13px] text-muted-foreground hover:text-foreground transition-colors">Careers</Link>
+              <Link to="/industries" className="font-body text-[13px] text-muted-foreground hover:text-foreground transition-colors">Industries</Link>
+              <Link to="/studio" className="font-body text-[13px] text-muted-foreground hover:text-foreground transition-colors">Studio</Link>
+              <Link to="/process" className="font-body text-[13px] text-muted-foreground hover:text-foreground transition-colors">Process</Link>
             </div>
           </div>
 

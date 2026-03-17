@@ -56,66 +56,73 @@ const ServicesPage = () => {
       </Helmet>
       <Navbar />
       <div className="pt-20">
-        <section className="py-32 md:py-48 px-6 md:px-12">
+        {/* Compact hero */}
+        <section className="pt-16 md:pt-24 pb-8 md:pb-12 px-6 md:px-12">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
-              <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">
+              <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
                 <span className="text-accent-warm mr-2">✦</span> Services
               </p>
-              <h1 className="font-display text-[clamp(52px,7vw,120px)] leading-[0.9] tracking-[0.01em] text-foreground mb-10 max-w-4xl">
-                FOUR WAYS TO<br />WORK WITH <span className="text-accent-gradient">ORIONS.</span>
+              <h1 className="font-display text-[clamp(44px,6vw,96px)] leading-[0.9] tracking-[0.01em] text-foreground mb-6 max-w-4xl">
+                FOUR WAYS TO WORK<br />WITH <span className="text-accent-gradient">ORIONS.</span>
               </h1>
-              <p className="font-body text-[16px] leading-[1.7] text-muted-foreground max-w-lg">
-                {t(
-                  "From monthly content to full brand development. Choose the service that matches where your brand is right now.",
-                  "ตั้งแต่ content รายเดือนไปจนถึงการพัฒนาแบรนด์เต็มรูปแบบ"
-                )}
-              </p>
             </AnimatedSection>
           </div>
         </section>
 
-        <section className="px-6 md:px-12 pb-32 md:pb-48">
+        {/* Services grid — visible immediately */}
+        <section className="px-6 md:px-12 py-8 md:py-12">
           <div className="max-w-7xl mx-auto">
-            {services.map((s, i) => (
-              <AnimatedSection key={s.num} delay={i * 0.04}>
-                 <div className="group relative border-t border-border py-24 md:py-28 hover:border-accent-warm/30 transition-colors duration-500">
-                   <div className="absolute top-4 left-4 w-4 h-4 border-t border-l border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500" />
-                   <div className="absolute bottom-4 right-4 w-4 h-4 border-b border-r border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500" />
-                  <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 lg:gap-24 items-start">
-                    <div>
-                      <span className="font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground/40 block mb-5">{s.num}</span>
-                      <h2 className="font-display text-[clamp(56px,7vw,96px)] leading-[0.88] tracking-[0.01em] text-foreground mb-4 group-hover:text-accent-warm transition-colors duration-500">{s.title}</h2>
-                      <p className="font-body text-[14px] text-muted-foreground mb-5">{s.subtitle}</p>
-                      <span className="font-mono text-[12px] tracking-[0.08em] text-accent-gradient font-medium">฿{s.price}</span>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+              {services.map((s, i) => (
+                <AnimatedSection key={s.num} delay={i * 0.06}>
+                  <div className="group relative border border-border p-8 md:p-10 hover:border-accent-warm/30 transition-all duration-500 h-full">
+                    <div className="absolute top-3 left-3 w-4 h-4 border-t border-l border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500" />
+                    <div className="absolute top-3 right-3 w-4 h-4 border-t border-r border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500" />
+                    <div className="absolute bottom-3 left-3 w-4 h-4 border-b border-l border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500" />
+                    <div className="absolute bottom-3 right-3 w-4 h-4 border-b border-r border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500" />
+
+                    {/* Header row */}
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground/40">{s.num}</span>
+                      <span className="font-mono text-[12px] tracking-[0.08em] text-accent-warm font-medium">฿{s.price}</span>
                     </div>
-                    <div className="space-y-12">
-                      <div>
-                        <h4 className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-5">{t("What it is", "คืออะไร")}</h4>
-                        <p className="font-body text-[15px] leading-[1.7] text-foreground/70">{s.what[lang]}</p>
-                      </div>
-                      <div>
-                        <h4 className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-5">{t("When to use it", "เมื่อไหร่ควรใช้")}</h4>
-                        <p className="font-body text-[15px] leading-[1.7] text-foreground/70">{s.when[lang]}</p>
-                      </div>
-                      <div>
-                        <h4 className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-5">{t("What clients get", "ลูกค้าได้อะไร")}</h4>
-                        <p className="font-body text-[15px] leading-[1.7] text-muted-foreground">{s.get[lang]}</p>
-                      </div>
+
+                    {/* Title */}
+                    <h2 className="font-display text-[clamp(40px,5vw,64px)] leading-[0.9] tracking-[0.01em] text-foreground mb-2 group-hover:text-accent-warm transition-colors duration-500">
+                      {s.title}
+                    </h2>
+                    <p className="font-mono text-[11px] tracking-[0.1em] text-muted-foreground/60 mb-6">{s.subtitle}</p>
+
+                    {/* What */}
+                    <p className="font-body text-[14px] leading-[1.7] text-foreground/70 mb-6">
+                      {s.what[lang]}
+                    </p>
+
+                    {/* When */}
+                    <div className="mb-6">
+                      <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/50 mb-2">{t("When to use", "เมื่อไหร่ควรใช้")}</h4>
+                      <p className="font-body text-[13px] leading-[1.7] text-muted-foreground">{s.when[lang]}</p>
+                    </div>
+
+                    {/* Deliverables */}
+                    <div className="border-t border-border/50 pt-5">
+                      <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/50 mb-2">{t("Deliverables", "สิ่งที่ลูกค้าได้รับ")}</h4>
+                      <p className="font-mono text-[11px] leading-[1.8] text-foreground/50">{s.get[lang]}</p>
                     </div>
                   </div>
-                </div>
-              </AnimatedSection>
-            ))}
+                </AnimatedSection>
+              ))}
+            </div>
           </div>
         </section>
 
-        {/* Industries - subtle section */}
-        <section className="px-6 md:px-12 pb-32 md:pb-48">
+        {/* Industries */}
+        <section className="px-6 md:px-12 py-20 md:py-32 pb-32 md:pb-48">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
-              <div className="border-t border-border pt-20">
-                <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-10">
+              <div className="border-t border-border pt-16">
+                <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">
                   <span className="text-accent-warm/50 mr-2">⬡</span> {t("Industries We Work With", "อุตสาหกรรมที่เราทำงานด้วย")}
                 </p>
                 <div className="flex flex-wrap gap-3">

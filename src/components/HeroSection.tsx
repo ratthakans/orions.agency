@@ -1,5 +1,5 @@
-import { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 interface HeroSectionProps {
@@ -26,10 +26,8 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => {
     let timeout: ReturnType<typeof setTimeout>;
 
     if (!isDeleting && displayText === currentPhrase) {
-      // Pause before deleting
       timeout = setTimeout(() => setIsDeleting(true), 2000);
     } else if (isDeleting && displayText === "") {
-      // Move to next phrase
       setIsDeleting(false);
       setCurrentIndex((prev) => (prev + 1) % phrases.length);
     } else if (isDeleting) {
@@ -46,14 +44,14 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => {
   }, [displayText, isDeleting, currentPhrase]);
 
   return (
-    <section className="min-h-screen flex items-end px-6 md:px-12 pb-24 md:pb-32 relative overflow-hidden">
+    <section className="min-h-[85vh] flex items-end px-6 md:px-12 pb-20 md:pb-28 relative overflow-hidden">
       <div className="max-w-7xl mx-auto w-full relative z-10">
-        <div className="max-w-6xl">
+        <div className="max-w-5xl">
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="font-display text-[clamp(56px,9vw,160px)] leading-[0.9] tracking-[0.01em] text-foreground mb-16"
+            className="font-display text-[clamp(48px,8vw,130px)] leading-[0.9] tracking-[0.01em] text-foreground mb-12"
           >
             A CREATIVE AGENCY<br />
             FOR BRANDS THAT NEED<br />
@@ -70,7 +68,7 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex justify-end max-w-6xl"
+            className="flex justify-end max-w-5xl"
           >
             <p className="font-body text-[16px] text-muted-foreground max-w-[400px] leading-[1.7]">
               {t(

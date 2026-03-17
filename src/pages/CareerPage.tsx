@@ -115,7 +115,7 @@ const CareerPage = () => {
                   <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4">
                     <span className="text-accent-warm mr-2">✦</span> {t("Open Positions", "ตำแหน่งงาน")}
                   </p>
-                  <h1 className="font-display text-[clamp(40px,5vw,80px)] leading-[0.9] tracking-[0.01em] text-foreground">
+                  <h1 className="font-display text-[clamp(44px,6vw,96px)] leading-[0.9] tracking-[0.01em] text-foreground">
                     WE'RE <span className="text-accent-gradient">HIRING.</span>
                   </h1>
                 </div>

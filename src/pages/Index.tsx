@@ -241,14 +241,12 @@ const Index = () => {
           </TextReveal>
           <AnimatedSection delay={0.3}>
             <div className="flex gap-10 justify-center items-center flex-wrap">
-              <MagneticButton strength={0.3}>
-                <button
+              <button
                   onClick={() => setDialogOpen(true)}
                   className="group font-mono text-[11px] tracking-[0.12em] uppercase text-background bg-foreground px-8 py-3 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300 relative overflow-hidden"
                 >
                   <span className="relative z-10">Start a Project</span>
                 </button>
-              </MagneticButton>
               <Link
                 to="/contact"
                 className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300"

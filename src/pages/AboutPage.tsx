@@ -2,7 +2,6 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
-import ConstellationBackground from "@/components/ConstellationBackground";
 import { useLanguage } from "@/contexts/LanguageContext";
 import teamKrit from "@/assets/team-krit.jpg";
 import teamNari from "@/assets/team-nari.jpg";
@@ -62,19 +61,9 @@ const AboutPage = () => {
           </div>
         </section>
 
-        {/* Constellation Thinking — with animated background */}
-        <section className="py-32 md:py-48 px-6 md:px-12 relative overflow-hidden">
-          <ConstellationBackground />
-          
-          {/* Da Vinci grid overlay */}
-          <div className="absolute inset-0 pointer-events-none opacity-[0.03]"
-            style={{
-              backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
-              backgroundSize: '60px 60px',
-            }}
-          />
-
-          <div className="max-w-7xl mx-auto relative z-10">
+        {/* Constellation Thinking */}
+        <section className="py-32 md:py-48 px-6 md:px-12">
+          <div className="max-w-7xl mx-auto">
             <AnimatedSection>
               <div className="max-w-3xl">
                 <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-gradient mb-8">

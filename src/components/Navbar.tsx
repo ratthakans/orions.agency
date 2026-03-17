@@ -1,20 +1,36 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import StartProjectDialog from "./StartProjectDialog";
+import MagneticButton from "./MagneticButton";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const location = useLocation();
   const { lang, setLang } = useLanguage();
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious() ?? 0;
+    if (latest > 80 && latest > previous) {
+      setHidden(true);
+    } else {
+      setHidden(false);
+    }
+  });
+
+  // Always show navbar when mobile menu is open
+  useEffect(() => {
+    if (isOpen) setHidden(false);
+  }, [isOpen]);
 
   const navLinks = [
     { label: "About", href: "/about" },
     { label: "Services", href: "/services" },
     { label: "Work", href: "/work" },
-    
     { label: "Studio", href: "/studio" },
     { label: "Career", href: "/career" },
     { label: "Contact", href: "/contact" },
@@ -22,7 +38,11 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-xl border-b border-border/50">
+      <motion.nav
+        animate={{ y: hidden ? "-100%" : "0%" }}
+        transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
+        className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-xl border-b border-border/50"
+      >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-[60px]">
           <Link to="/" className="flex items-center">
             <span className="font-logo text-[13px] font-medium tracking-[0.08em] text-foreground uppercase">ØRIONS</span>
@@ -63,12 +83,14 @@ const Navbar = () => {
                 TH
               </button>
             </div>
-            <button
-              onClick={() => setDialogOpen(true)}
-              className="font-mono text-[11px] tracking-[0.12em] uppercase text-background bg-foreground px-5 py-2 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300"
-            >
-              Inquiry
-            </button>
+            <MagneticButton strength={0.25}>
+              <button
+                onClick={() => setDialogOpen(true)}
+                className="font-mono text-[11px] tracking-[0.12em] uppercase text-background bg-foreground px-5 py-2 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300"
+              >
+                Inquiry
+              </button>
+            </MagneticButton>
           </div>
 
           {/* Mobile toggle */}
@@ -136,7 +158,7 @@ const Navbar = () => {
             </motion.div>
           )}
         </AnimatePresence>
-      </nav>
+      </motion.nav>
 
       <StartProjectDialog open={dialogOpen} onOpenChange={setDialogOpen} />
     </>

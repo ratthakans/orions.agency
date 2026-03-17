@@ -22,40 +22,40 @@ const Index = () => {
 
   const services = [
     {
-      title: "Content",
-      desc: { en: "Consistent, meaningful content systems that scale.", th: "ระบบ content ที่สม่ำเสมอ มีความหมาย และขยายได้" },
+      title: "Content Systems",
+      desc: { en: "Ongoing content for brands that need consistency and quality.", th: "Content ต่อเนื่องสำหรับแบรนด์ที่ต้องการความสม่ำเสมอและคุณภาพ" },
       details: {
-        en: "We build content engines — not just posts. From monthly social calendars to short-form video production, we create systems that keep your brand active, consistent, and growing.",
-        th: "เราสร้าง content engine — ไม่ใช่แค่โพสต์ ตั้งแต่ social calendar รายเดือนไปจนถึงการผลิตวิดีโอสั้น เราสร้างระบบที่ทำให้แบรนด์ active และเติบโต"
+        en: "We build and manage your brand's content engine — from social posts and short-form videos to full content calendars and production systems.",
+        th: "เราสร้างและบริหาร content engine ของแบรนด์คุณ — ตั้งแต่ social posts, วิดีโอสั้น ไปจนถึง content calendar และระบบการผลิต"
       },
-      includes: ["Content Calendar", "Short-form Video", "Social Media Management", "Monthly Reports"]
+      includes: ["Content Strategy", "Social Content", "Short-form Video", "Content Shooting"]
     },
     {
-      title: "Think",
-      desc: { en: "Strategic thinking and creative direction for brands that need clarity.", th: "การคิดเชิงกลยุทธ์และ creative direction สำหรับแบรนด์ที่ต้องการความชัดเจน" },
+      title: "Creative & Campaign",
+      desc: { en: "Ideas and campaigns that define how brands are seen.", th: "ไอเดียและแคมเปญที่กำหนดว่าแบรนด์ถูกมองอย่างไร" },
       details: {
-        en: "We craft brand narratives, positioning statements, and messaging frameworks that give your brand a clear voice. From founding stories to campaign themes — we make sure every word counts.",
-        th: "เราสร้าง brand narrative, positioning statement และ messaging framework ที่ให้แบรนด์ของคุณมีเสียงที่ชัดเจน ตั้งแต่เรื่องราวการก่อตั้งจนถึงธีมแคมเปญ"
+        en: "Strategic thinking and creative direction for brands that need clarity before content. We define who you are, what you stand for, and how you should communicate.",
+        th: "การคิดเชิงกลยุทธ์และ creative direction สำหรับแบรนด์ที่ต้องการความชัดเจนก่อน content"
       },
-      includes: ["Brand Narrative", "Creative Brief", "Campaign Concept", "Messaging Architecture"]
+      includes: ["Campaign Concept", "Brand Storytelling", "Creative Direction", "Communication Strategy"]
     },
     {
-      title: "Produce",
-      desc: { en: "Cinematic production from concept to final cut.", th: "งานภาพยนตร์ตั้งแต่คอนเซ็ปต์จนถึงตัดต่อเสร็จ" },
+      title: "Film & Production",
+      desc: { en: "High-quality films and visual storytelling.", th: "ภาพยนตร์คุณภาพสูงและการเล่าเรื่องด้วยภาพ" },
       details: {
-        en: "Full-service film production with the storytelling depth of an agency. We handle scripts, direction, cinematography, and post-production for campaign films, brand documentaries, and commercial content.",
-        th: "งานผลิตภาพยนตร์ครบวงจรด้วยความลึกของการเล่าเรื่องระดับ agency เราดูแลบท กำกับ ถ่ายภาพ และ post-production"
+        en: "Cinematic production from script to screen. We produce campaign films, brand videos, documentaries, and commercial content with the quality of a production house and the clarity of an agency.",
+        th: "งานผลิตระดับภาพยนตร์ตั้งแต่บทจนถึงหน้าจอ เราผลิต campaign film, brand video, documentary และ commercial content"
       },
-      includes: ["Script Development", "Direction & DOP", "Post-production", "Color Grading & Sound"]
+      includes: ["Campaign Film", "Brand Video", "Documentary", "Commercial Video"]
     },
     {
-      title: "Develop",
-      desc: { en: "Full brand development from zero — identity, narrative, and IP.", th: "การพัฒนาแบรนด์เต็มรูปแบบตั้งแต่ศูนย์ — identity, narrative และ IP" },
+      title: "Brand Development",
+      desc: { en: "Building new ideas, products, and brand directions.", th: "สร้างไอเดียใหม่ ผลิตภัณฑ์ และทิศทางแบรนด์" },
       details: {
-        en: "End-to-end brand creation — from naming and identity to product concept and launch strategy. We design brands that are built to last and scale.",
-        th: "การสร้างแบรนด์ครบวงจร — ตั้งแต่ naming และ identity ไปจนถึง product concept และ launch strategy"
+        en: "Full brand development from zero — identity, narrative, product concept, and intellectual property creation for founders and companies exploring new opportunities.",
+        th: "การพัฒนาแบรนด์เต็มรูปแบบตั้งแต่ศูนย์ — identity, narrative, product concept และการสร้าง IP"
       },
-      includes: ["Brand Identity", "Naming & Positioning", "Product Concept", "Launch Strategy"]
+      includes: ["New Brand Concepts", "Product Ideas", "Sub-brand Development", "Creative Project Direction"]
     },
   ];
 
@@ -76,7 +76,7 @@ const Index = () => {
       <Navbar />
       <HeroSection onStartProject={() => setDialogOpen(true)} />
 
-      <Marquee items={["Content", "Think", "Produce", "Develop", "Story", "Film", "Strategy"]} />
+      <Marquee items={["Content Systems", "Creative & Campaign", "Film & Production", "Brand Development", "Story", "Strategy"]} />
 
       {/* What We Do */}
       <section className="py-24 md:py-40 px-6 md:px-12">
@@ -163,7 +163,7 @@ const Index = () => {
         </div>
       </section>
 
-      <Marquee items={["Think", "Develop", "Produce", "Launch", "Scale"]} speed="slow" />
+      <Marquee items={["Content Systems", "Creative & Campaign", "Film & Production", "Brand Development"]} speed="slow" />
 
       {/* Selected Work */}
       <section className="py-24 md:py-40 px-6 md:px-12">
@@ -229,7 +229,7 @@ const Index = () => {
         </div>
       </section>
 
-      <Marquee items={["Content", "Think", "Produce", "Develop", "Film"]} />
+      <Marquee items={["Content Systems", "Creative & Campaign", "Film & Production", "Brand Development"]} />
 
       {/* Final CTA */}
       <section className="py-40 md:py-56 px-6 md:px-12 text-center">

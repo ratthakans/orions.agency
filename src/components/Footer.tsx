@@ -22,8 +22,13 @@ const Footer = () => {
           <div>
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-7">Services</p>
             <div className="flex flex-col gap-3.5">
-              {["Content", "Think", "Produce", "Develop"].map((item) => (
-                <Link key={item} to="/services" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">{item}</Link>
+              {[
+                { label: "Content", path: "/services" },
+                { label: "Think", path: "/services" },
+                { label: "Produce", path: "/services" },
+                { label: "Develop", path: "/services" },
+              ].map((item) => (
+                <Link key={item.label} to={item.path} className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">{item.label}</Link>
               ))}
             </div>
           </div>

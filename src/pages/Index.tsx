@@ -1,19 +1,43 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import StartProjectDialog from "@/components/StartProjectDialog";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 import Marquee from "@/components/Marquee";
+import TextReveal from "@/components/TextReveal";
+import MagneticButton from "@/components/MagneticButton";
+import HorizontalScroll from "@/components/HorizontalScroll";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 import workNorthwind from "@/assets/work-northwind.jpg";
 import workAtlas from "@/assets/work-atlas.jpg";
 import workKoha from "@/assets/work-koha.jpg";
 import workSera from "@/assets/work-sera.jpg";
+
+const ParallaxImage = ({ src, alt, className }: { src: string; alt: string; className?: string }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
+
+  return (
+    <div ref={ref} className="overflow-hidden relative">
+      <motion.img
+        src={src}
+        alt={alt}
+        style={{ y }}
+        className={`w-full object-cover scale-[1.15] ${className ?? ""}`}
+        loading="lazy"
+      />
+    </div>
+  );
+};
 
 const Index = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -85,9 +109,11 @@ const Index = () => {
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">
               <span className="text-accent-warm mr-2">✦</span> What We Do
             </p>
-            <h2 className="font-display text-[clamp(48px,6vw,100px)] leading-[0.9] tracking-[0.01em] text-foreground mb-6 max-w-4xl">
-              STORIES, CAMPAIGNS,<br />AND <span className="text-accent-gradient">FILMS.</span>
-            </h2>
+          </AnimatedSection>
+          <TextReveal className="font-display text-[clamp(48px,6vw,100px)] leading-[0.9] tracking-[0.01em] text-foreground mb-6 max-w-4xl">
+            STORIES, CAMPAIGNS, AND FILMS.
+          </TextReveal>
+          <AnimatedSection delay={0.2}>
             <p className="font-body text-[16px] leading-[1.7] text-muted-foreground max-w-md mb-20">
               {t(
                 "We help brands think clearly, tell better stories, and produce work that people actually remember.",
@@ -165,34 +191,36 @@ const Index = () => {
 
       <Marquee items={["Content Systems", "Creative & Campaign", "Film & Production", "Brand Development"]} speed="slow" />
 
-      {/* Selected Work */}
+      {/* Selected Work — Horizontal Scroll */}
       <section className="py-24 md:py-40 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">
               <span className="text-accent-warm mr-2">◎</span> Selected Work
             </p>
-            <h2 className="font-display text-[clamp(48px,6vw,100px)] leading-[0.9] tracking-[0.01em] text-foreground mb-20">
-              WORK THAT <span className="text-accent-gradient">SPEAKS.</span>
-            </h2>
           </AnimatedSection>
+          <TextReveal className="font-display text-[clamp(48px,6vw,100px)] leading-[0.9] tracking-[0.01em] text-foreground mb-20">
+            WORK THAT SPEAKS.
+          </TextReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {featuredWork.map((w, i) => (
-              <AnimatedSection key={w.title} delay={i * 0.06}>
-                <Link to="/work" className="group block relative">
-                  <div className="overflow-hidden mb-5 relative">
-                    <img src={w.image} alt={w.title} className="w-full aspect-[16/10] object-cover grayscale group-hover:grayscale-0 group-hover:scale-[1.03] transition-all duration-700" loading="lazy" />
-                    <div className="absolute inset-0 bg-accent-warm/0 group-hover:bg-accent-warm/5 transition-all duration-500" />
-                    <div className="absolute top-3 left-3 w-5 h-5 border-t border-l border-accent-warm/0 group-hover:border-accent-warm/50 transition-all duration-500" />
-                    <div className="absolute bottom-3 right-3 w-5 h-5 border-b border-r border-accent-warm/0 group-hover:border-accent-warm/50 transition-all duration-500" />
-                  </div>
-                  <span className="font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground block mb-1.5">{w.category}</span>
-                  <h3 className="font-body text-[16px] text-foreground/80 group-hover:text-accent-warm transition-colors duration-300">{w.title}</h3>
-                </Link>
-              </AnimatedSection>
+          <HorizontalScroll>
+            {featuredWork.map((w) => (
+              <Link key={w.title} to="/work" className="group block relative flex-shrink-0 w-[80vw] md:w-[45vw] lg:w-[35vw]">
+                <div className="overflow-hidden mb-5 relative">
+                  <ParallaxImage
+                    src={w.image}
+                    alt={w.title}
+                    className="aspect-[16/10] grayscale group-hover:grayscale-0 group-hover:scale-[1.18] transition-all duration-700"
+                  />
+                  <div className="absolute inset-0 bg-accent-warm/0 group-hover:bg-accent-warm/5 transition-all duration-500" />
+                  <div className="absolute top-3 left-3 w-5 h-5 border-t border-l border-accent-warm/0 group-hover:border-accent-warm/50 transition-all duration-500" />
+                  <div className="absolute bottom-3 right-3 w-5 h-5 border-b border-r border-accent-warm/0 group-hover:border-accent-warm/50 transition-all duration-500" />
+                </div>
+                <span className="font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground block mb-1.5">{w.category}</span>
+                <h3 className="font-body text-[16px] text-foreground/80 group-hover:text-accent-warm transition-colors duration-300">{w.title}</h3>
+              </Link>
             ))}
-          </div>
+          </HorizontalScroll>
 
           <AnimatedSection delay={0.2}>
             <div className="mt-20">
@@ -212,9 +240,13 @@ const Index = () => {
               <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">
                 <span className="text-accent-warm mr-2">△</span> Why ORIONS
               </p>
-              <h2 className="font-display text-[clamp(48px,6vw,100px)] leading-[0.9] tracking-[0.01em] text-foreground mb-10">
-                NOT JUST<br /><span className="text-accent-gradient">PRODUCTION.</span>
-              </h2>
+            </div>
+          </AnimatedSection>
+          <div className="max-w-3xl">
+            <TextReveal className="font-display text-[clamp(48px,6vw,100px)] leading-[0.9] tracking-[0.01em] text-foreground mb-10">
+              NOT JUST PRODUCTION.
+            </TextReveal>
+            <AnimatedSection delay={0.3}>
               <p className="font-body text-[16px] leading-[1.7] text-muted-foreground mb-8 max-w-lg">
                 {t(
                   "We're a creative agency that helps brands think, shape stories, and execute them with cinematic quality.",
@@ -224,8 +256,8 @@ const Index = () => {
               <p className="font-mono text-[13px] leading-[1.7] text-accent-warm/60 italic border-l-2 border-accent-warm/30 pl-6">
                 "Every dot has meaning. We just know how to connect them."
               </p>
-            </div>
-          </AnimatedSection>
+            </AnimatedSection>
+          </div>
         </div>
       </section>
 
@@ -234,17 +266,19 @@ const Index = () => {
       {/* Final CTA */}
       <section className="py-40 md:py-56 px-6 md:px-12 text-center">
         <div className="max-w-7xl mx-auto">
-          <AnimatedSection>
-            <h2 className="font-display text-[clamp(64px,10vw,180px)] leading-[0.88] tracking-[0.01em] text-foreground mb-12">
-              START A<br /><span className="text-accent-gradient">PROJECT.</span>
-            </h2>
+          <TextReveal className="font-display text-[clamp(64px,10vw,180px)] leading-[0.88] tracking-[0.01em] text-foreground mb-12">
+            START A PROJECT.
+          </TextReveal>
+          <AnimatedSection delay={0.3}>
             <div className="flex gap-10 justify-center items-center flex-wrap">
-              <button
-                onClick={() => setDialogOpen(true)}
-                className="group font-mono text-[11px] tracking-[0.12em] uppercase text-background bg-foreground px-8 py-3 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300 relative overflow-hidden"
-              >
-                <span className="relative z-10">Start a Project</span>
-              </button>
+              <MagneticButton strength={0.3}>
+                <button
+                  onClick={() => setDialogOpen(true)}
+                  className="group font-mono text-[11px] tracking-[0.12em] uppercase text-background bg-foreground px-8 py-3 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300 relative overflow-hidden"
+                >
+                  <span className="relative z-10">Start a Project</span>
+                </button>
+              </MagneticButton>
               <Link
                 to="/contact"
                 className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300"

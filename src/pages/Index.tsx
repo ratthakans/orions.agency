@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import StartProjectDialog from "@/components/StartProjectDialog";
@@ -16,13 +17,46 @@ import workSera from "@/assets/work-sera.jpg";
 
 const Index = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
+  const [expandedService, setExpandedService] = useState<number | null>(null);
   const { t, lang } = useLanguage();
 
   const services = [
-    { title: "Narrative", desc: { en: "Brand stories that define who you are and why it matters.", th: "เรื่องราวแบรนด์ที่บอกว่าคุณคือใครและทำไมถึงสำคัญ" } },
-    { title: "Campaign", desc: { en: "Strategic campaigns that move people and drive results.", th: "แคมเปญเชิงกลยุทธ์ที่ขับเคลื่อนผู้คนและสร้างผลลัพธ์" } },
-    { title: "Film", desc: { en: "Cinematic production from concept to final cut.", th: "งานภาพยนตร์ตั้งแต่คอนเซ็ปต์จนถึงตัดต่อเสร็จ" } },
-    { title: "Content", desc: { en: "Consistent, meaningful content systems that scale.", th: "ระบบ content ที่สม่ำเสมอ มีความหมาย และขยายได้" } },
+    {
+      title: "Narrative",
+      desc: { en: "Brand stories that define who you are and why it matters.", th: "เรื่องราวแบรนด์ที่บอกว่าคุณคือใครและทำไมถึงสำคัญ" },
+      details: {
+        en: "We craft brand narratives, positioning statements, and messaging frameworks that give your brand a clear voice. From founding stories to campaign themes — we make sure every word counts.",
+        th: "เราสร้าง brand narrative, positioning statement และ messaging framework ที่ให้แบรนด์ของคุณมีเสียงที่ชัดเจน ตั้งแต่เรื่องราวการก่อตั้งจนถึงธีมแคมเปญ"
+      },
+      includes: ["Brand Narrative", "Messaging Architecture", "Tone of Voice", "Tagline Development"]
+    },
+    {
+      title: "Campaign",
+      desc: { en: "Strategic campaigns that move people and drive results.", th: "แคมเปญเชิงกลยุทธ์ที่ขับเคลื่อนผู้คนและสร้างผลลัพธ์" },
+      details: {
+        en: "End-to-end campaign development — from insight and strategy to creative execution across all channels. We design campaigns that connect emotionally and convert meaningfully.",
+        th: "การพัฒนาแคมเปญแบบครบวงจร — ตั้งแต่ insight และกลยุทธ์ไปจนถึง creative execution ในทุกช่องทาง"
+      },
+      includes: ["Campaign Strategy", "Creative Concept", "Multi-channel Execution", "Performance Tracking"]
+    },
+    {
+      title: "Film",
+      desc: { en: "Cinematic production from concept to final cut.", th: "งานภาพยนตร์ตั้งแต่คอนเซ็ปต์จนถึงตัดต่อเสร็จ" },
+      details: {
+        en: "Full-service film production with the storytelling depth of an agency. We handle scripts, direction, cinematography, and post-production for campaign films, brand documentaries, and commercial content.",
+        th: "งานผลิตภาพยนตร์ครบวงจรด้วยความลึกของการเล่าเรื่องระดับ agency เราดูแลบท กำกับ ถ่ายภาพ และ post-production"
+      },
+      includes: ["Script & Treatment", "Direction & DOP", "Post-production", "Color Grading & Sound"]
+    },
+    {
+      title: "Content",
+      desc: { en: "Consistent, meaningful content systems that scale.", th: "ระบบ content ที่สม่ำเสมอ มีความหมาย และขยายได้" },
+      details: {
+        en: "We build content engines — not just posts. From monthly social calendars to short-form video production, we create systems that keep your brand active, consistent, and growing.",
+        th: "เราสร้าง content engine — ไม่ใช่แค่โพสต์ ตั้งแต่ social calendar รายเดือนไปจนถึงการผลิตวิดีโอสั้น เราสร้างระบบที่ทำให้แบรนด์ active และเติบโต"
+      },
+      includes: ["Content Calendar", "Short-form Video", "Social Media Management", "Monthly Reports"]
+    },
   ];
 
   const featuredWork = [
@@ -62,20 +96,61 @@ const Index = () => {
             </p>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-10">
-            {services.map((s, i) => (
-              <AnimatedSection key={s.title} delay={i * 0.08}>
-                <div className="group relative p-5 -m-5 hover:bg-foreground/[0.02] transition-all duration-500">
-                  {/* Corner marks */}
-                  <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500" />
-                  <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500" />
-                  
-                  <span className="font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground/40 block mb-5">{String(i + 1).padStart(2, "0")}</span>
-                  <h3 className="font-display text-[32px] tracking-[0.03em] text-foreground mb-3 group-hover:text-accent-warm transition-colors duration-500">{s.title}</h3>
-                  <p className="font-body text-[15px] leading-[1.7] text-muted-foreground">{s.desc[lang]}</p>
-                </div>
-              </AnimatedSection>
-            ))}
+          <div className="space-y-0">
+            {services.map((s, i) => {
+              const isExpanded = expandedService === i;
+              return (
+                <AnimatedSection key={s.title} delay={i * 0.08}>
+                  <div
+                    className="group border-t border-border cursor-pointer hover:border-accent-warm/30 transition-colors duration-500"
+                    onClick={() => setExpandedService(isExpanded ? null : i)}
+                  >
+                    <div className="flex items-center justify-between py-8 md:py-10">
+                      <div className="flex items-baseline gap-6 md:gap-10">
+                        <span className="font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground/40">{String(i + 1).padStart(2, "0")}</span>
+                        <h3 className="font-display text-[clamp(32px,4vw,56px)] tracking-[0.03em] text-foreground group-hover:text-accent-warm transition-colors duration-500">{s.title}</h3>
+                      </div>
+                      <motion.span
+                        animate={{ rotate: isExpanded ? 45 : 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="text-muted-foreground text-2xl font-light"
+                      >
+                        +
+                      </motion.span>
+                    </div>
+
+                    <AnimatePresence>
+                      {isExpanded && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.4, ease: "easeInOut" }}
+                          className="overflow-hidden"
+                        >
+                          <div className="pb-10 md:pb-14 pl-[calc(11px+1.5rem)] md:pl-[calc(11px+2.5rem)]">
+                            <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-xl mb-8">
+                              {s.details[lang]}
+                            </p>
+                            <div className="flex flex-wrap gap-3">
+                              {s.includes.map((item) => (
+                                <span
+                                  key={item}
+                                  className="font-mono text-[10px] tracking-[0.1em] uppercase text-muted-foreground/60 border border-border/60 px-3 py-1.5 hover:text-foreground/80 hover:border-accent-warm/30 transition-all duration-300"
+                                >
+                                  {item}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                </AnimatedSection>
+              );
+            })}
+            <div className="border-t border-border" />
           </div>
 
           <AnimatedSection delay={0.3}>
@@ -109,7 +184,6 @@ const Index = () => {
                   <div className="overflow-hidden mb-5 relative">
                     <img src={w.image} alt={w.title} className="w-full aspect-[16/10] object-cover grayscale group-hover:grayscale-0 group-hover:scale-[1.03] transition-all duration-700" loading="lazy" />
                     <div className="absolute inset-0 bg-accent-warm/0 group-hover:bg-accent-warm/5 transition-all duration-500" />
-                    {/* Corner marks on hover */}
                     <div className="absolute top-3 left-3 w-5 h-5 border-t border-l border-accent-warm/0 group-hover:border-accent-warm/50 transition-all duration-500" />
                     <div className="absolute bottom-3 right-3 w-5 h-5 border-b border-r border-accent-warm/0 group-hover:border-accent-warm/50 transition-all duration-500" />
                   </div>

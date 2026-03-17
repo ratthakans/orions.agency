@@ -1,13 +1,49 @@
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 interface HeroSectionProps {
   onStartProject: () => void;
 }
 
+const phrases = [
+  "STRONGER STORIES.",
+  "CLEARER IDEAS.",
+  "BETTER CAMPAIGNS.",
+  "FILMS THAT LAST.",
+  "MEANINGFUL CONTENT.",
+];
+
 const HeroSection = ({ onStartProject }: HeroSectionProps) => {
   const { t } = useLanguage();
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [displayText, setDisplayText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  const currentPhrase = phrases[currentIndex];
+
+  useEffect(() => {
+    let timeout: ReturnType<typeof setTimeout>;
+
+    if (!isDeleting && displayText === currentPhrase) {
+      // Pause before deleting
+      timeout = setTimeout(() => setIsDeleting(true), 2000);
+    } else if (isDeleting && displayText === "") {
+      // Move to next phrase
+      setIsDeleting(false);
+      setCurrentIndex((prev) => (prev + 1) % phrases.length);
+    } else if (isDeleting) {
+      timeout = setTimeout(() => {
+        setDisplayText(currentPhrase.slice(0, displayText.length - 1));
+      }, 30);
+    } else {
+      timeout = setTimeout(() => {
+        setDisplayText(currentPhrase.slice(0, displayText.length + 1));
+      }, 60);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [displayText, isDeleting, currentPhrase]);
 
   return (
     <section className="min-h-screen flex items-end px-6 md:px-12 pb-24 md:pb-32 relative overflow-hidden">
@@ -21,7 +57,14 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => {
           >
             A CREATIVE AGENCY<br />
             FOR BRANDS THAT NEED<br />
-            <span className="text-accent-gradient">STRONGER STORIES.</span>
+            <span className="text-accent-gradient">
+              {displayText}
+              <motion.span
+                animate={{ opacity: [1, 0] }}
+                transition={{ duration: 0.5, repeat: Infinity, repeatType: "reverse" }}
+                className="inline-block w-[3px] h-[0.8em] bg-accent-warm ml-1 align-baseline relative top-[0.05em]"
+              />
+            </span>
           </motion.h1>
           <motion.div
             initial={{ opacity: 0 }}

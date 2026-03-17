@@ -30,7 +30,7 @@ const StartProjectDialog = ({ open, onOpenChange }: StartProjectDialogProps) => 
     <Dialog open={open} onOpenChange={handleClose}>
       <DialogContent className="max-w-xl max-h-[85vh] overflow-y-auto bg-background border-border p-0 gap-0">
         <DialogHeader className="p-8 pb-0">
-          <p className="font-mono text-[9px] tracking-[0.35em] uppercase text-accent-gradient mb-4">New Project</p>
+          <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-gradient mb-4">New Project</p>
           <DialogTitle className="font-display text-[36px] tracking-[0.03em] leading-none text-foreground mb-2">
             {t("Start a Project", "เริ่ม Project")}
           </DialogTitle>

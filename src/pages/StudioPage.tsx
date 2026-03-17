@@ -42,7 +42,9 @@ const StudioPage = () => {
           <div className="max-w-7xl mx-auto">
             {studioProjects.map((p, i) => (
               <AnimatedSection key={p.num} delay={i * 0.04}>
-                <div className="border-t border-border py-24 md:py-28">
+                 <div className="group relative border-t border-border py-24 md:py-28 hover:border-accent-warm/30 transition-colors duration-500">
+                   <div className="absolute top-4 left-4 w-4 h-4 border-t border-l border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500" />
+                   <div className="absolute bottom-4 right-4 w-4 h-4 border-b border-r border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500" />
                   <div className="grid grid-cols-1 lg:grid-cols-[240px_1fr] gap-12 lg:gap-24 items-start">
                     <div>
                       <div className="flex items-baseline gap-5 mb-5">

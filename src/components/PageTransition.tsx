@@ -9,22 +9,22 @@ const PageTransition = ({ children }: { children: ReactNode }) => (
       initial={{ scaleY: 1 }}
       animate={{ scaleY: 0 }}
       exit={{ scaleY: 1 }}
-      transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
-      style={{ transformOrigin: "top" }}
+      transition={{ duration: 0.4, ease: [0.76, 0, 0.24, 1] }}
+      style={{ transformOrigin: "top", willChange: "transform" }}
     />
     <motion.div
       className="fixed inset-0 z-[9997] bg-background origin-bottom"
       initial={{ scaleY: 1 }}
       animate={{ scaleY: 0 }}
-      transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1], delay: 0.1 }}
-      style={{ transformOrigin: "top" }}
+      transition={{ duration: 0.4, ease: [0.76, 0, 0.24, 1], delay: 0.08 }}
+      style={{ transformOrigin: "top", willChange: "transform" }}
     />
 
     {/* Content fades in */}
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.4, delay: 0.3 }}
+      transition={{ duration: 0.3, delay: 0.15 }}
     >
       {children}
     </motion.div>

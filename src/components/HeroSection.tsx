@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import TextReveal from "./TextReveal";
@@ -15,8 +15,7 @@ const phrases = [
   "MEANINGFUL CONTENT.",
 ];
 
-const HeroSection = ({ onStartProject }: HeroSectionProps) => {
-  const { t } = useLanguage();
+const Typewriter = memo(() => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
@@ -45,6 +44,28 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => {
   }, [displayText, isDeleting, currentPhrase]);
 
   return (
+    <motion.span
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5, delay: 0.6 }}
+      className="font-display text-[clamp(48px,8vw,130px)] leading-[0.9] tracking-[0.01em] text-accent-gradient block"
+    >
+      {displayText}
+      <motion.span
+        animate={{ opacity: [1, 0] }}
+        transition={{ duration: 0.5, repeat: Infinity, repeatType: "reverse" }}
+        className="inline-block w-[3px] h-[0.8em] bg-accent-warm ml-1 align-baseline relative top-[0.05em]"
+      />
+    </motion.span>
+  );
+});
+
+Typewriter.displayName = "Typewriter";
+
+const HeroSection = ({ onStartProject }: HeroSectionProps) => {
+  const { t } = useLanguage();
+
+  return (
     <section className="min-h-[85vh] flex items-end px-6 md:px-12 pb-20 md:pb-28 relative overflow-hidden">
       <div className="max-w-7xl mx-auto w-full relative z-10">
         <div className="max-w-5xl">
@@ -55,19 +76,7 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => {
             >
               A CREATIVE AGENCY FOR BRANDS THAT NEED
             </TextReveal>
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-              className="font-display text-[clamp(48px,8vw,130px)] leading-[0.9] tracking-[0.01em] text-accent-gradient block"
-            >
-              {displayText}
-              <motion.span
-                animate={{ opacity: [1, 0] }}
-                transition={{ duration: 0.5, repeat: Infinity, repeatType: "reverse" }}
-                className="inline-block w-[3px] h-[0.8em] bg-accent-warm ml-1 align-baseline relative top-[0.05em]"
-              />
-            </motion.span>
+            <Typewriter />
           </div>
           <motion.div
             initial={{ opacity: 0 }}
@@ -77,11 +86,11 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => {
           >
             <div className="flex items-center gap-6 flex-wrap">
               <button
-                  onClick={onStartProject}
-                  className="font-mono text-[11px] tracking-[0.12em] uppercase text-background bg-foreground px-8 py-3 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300"
-                >
-                  Start a Project
-                </button>
+                onClick={onStartProject}
+                className="font-mono text-[11px] tracking-[0.12em] uppercase text-background bg-foreground px-8 py-3 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300"
+              >
+                Start a Project
+              </button>
               <a
                 href="/work"
                 className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300"

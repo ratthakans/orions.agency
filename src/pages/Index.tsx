@@ -1,7 +1,7 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import StartProjectDialog from "@/components/StartProjectDialog";
@@ -18,20 +18,12 @@ import workKoha from "@/assets/work-koha.jpg";
 import workSera from "@/assets/work-sera.jpg";
 
 const ParallaxImage = ({ src, alt, className }: { src: string; alt: string; className?: string }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
-
   return (
-    <div ref={ref} className="overflow-hidden relative">
-      <motion.img
+    <div className="overflow-hidden relative">
+      <img
         src={src}
         alt={alt}
-        style={{ y }}
-        className={`w-full object-cover scale-[1.15] ${className ?? ""}`}
+        className={`w-full object-cover ${className ?? ""}`}
         loading="lazy"
       />
     </div>

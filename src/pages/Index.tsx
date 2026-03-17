@@ -223,7 +223,7 @@ const Index = () => {
 
           <AnimatedSection delay={0.2}>
             <div className="mt-20">
-              <Link to="/work" className="group inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.12em] uppercase text-foreground border-b border-foreground/40 pb-1 hover:border-accent-warm hover:text-accent-warm transition-all duration-300">
+              <Link to="/work" className="group inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.12em] uppercase text-foreground border-b border-foreground/40 pb-1 hover:border-accent-blue hover:text-accent-blue transition-all duration-300">
                 All Work <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
               </Link>
             </div>

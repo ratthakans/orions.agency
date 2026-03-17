@@ -50,26 +50,27 @@ const WorkPage = () => {
       </Helmet>
       <Navbar />
       <div className="pt-20">
-        <section className="py-32 md:py-48 px-6 md:px-12">
+        {/* Compact hero — unified pattern */}
+        <section className="pt-16 md:pt-24 pb-8 md:pb-12 px-6 md:px-12">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
-              <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">
+              <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
                 <span className="text-accent-warm mr-2">◎</span> Portfolio
               </p>
-              <h1 className="font-display text-[clamp(52px,7vw,120px)] leading-[0.9] tracking-[0.01em] text-foreground mb-10 max-w-4xl">
+              <h1 className="font-display text-[clamp(44px,6vw,96px)] leading-[0.9] tracking-[0.01em] text-foreground mb-6 max-w-4xl">
                 SELECTED <span className="text-accent-gradient">WORK.</span>
               </h1>
-              <p className="font-body text-[16px] leading-[1.7] text-muted-foreground max-w-lg">
+              <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-lg">
                 {t("Quality over quantity. Every project here represents a brand we helped think, shape, and produce.", "คุณภาพเหนือปริมาณ")}
               </p>
             </AnimatedSection>
           </div>
         </section>
 
-        <section className="px-6 md:px-12 py-20 pb-32 md:pb-48">
+        <section className="px-6 md:px-12 py-8 md:py-12 pb-32 md:pb-48">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection delay={0.04}>
-              <div className="flex items-center gap-8 mb-20 flex-wrap">
+              <div className="flex items-center gap-8 mb-16 flex-wrap">
                 {categories.map((cat) => (
                   <button
                     key={cat}

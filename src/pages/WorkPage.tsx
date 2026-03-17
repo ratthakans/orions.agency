@@ -1,5 +1,6 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
+import { useSearchParams } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
@@ -17,40 +18,48 @@ import workVela from "@/assets/work-vela.jpg";
 import workTerra from "@/assets/work-terra.jpg";
 
 const works = [
-  { title: "Northwind Electric", category: "Campaign Film", brief: { en: "A cinematic campaign film launching Northwind's entry into the Southeast Asian EV market.", th: "Campaign film ระดับภาพยนตร์สำหรับการเปิดตัว Northwind ในตลาด EV" }, deliverables: ["Campaign Film", "Director's Cut", "Social Cutdowns", "Behind the Scenes"], image: workNorthwind },
-  { title: "Atlas Property Group", category: "Brand Documentary", brief: { en: "A brand documentary capturing the vision behind Atlas's luxury developments.", th: "Brand documentary ถ่ายทอดวิสัยทัศน์เบื้องหลังโครงการ luxury ของ Atlas" }, deliverables: ["Documentary Film", "Interview Series", "Sizzle Reel", "Photography"], image: workAtlas },
-  { title: "Koha Culture Studio", category: "Brand Story Video", brief: { en: "A brand story video series exploring contemporary art and community.", th: "ซีรีส์วิดีโอเรื่องราวแบรนด์สำรวจศิลปะร่วมสมัยและชุมชน" }, deliverables: ["Brand Video", "Artist Profiles", "Event Documentation", "Social Content"], image: workKoha },
-  { title: "Lumen Health", category: "Content System", brief: { en: "A comprehensive content system for a digital health platform.", th: "ระบบ content ครบวงจรสำหรับแพลตฟอร์มสุขภาพดิจิทัล" }, deliverables: ["Content Strategy", "Editorial Calendar", "Video Series", "Blog System"], image: workLumen },
-  { title: "Sera Hospitality", category: "Campaign Film", brief: { en: "A campaign film capturing the essence of Sera's luxury hospitality.", th: "Campaign film ถ่ายทอดแก่นแท้ของ luxury hospitality ของ Sera" }, deliverables: ["Hero Film", "Property Films", "Social Series", "Print Campaign"], image: workSera },
-  { title: "Muse Education", category: "Brand Story Video", brief: { en: "A brand story film positioning Muse as the future of creative education.", th: "Brand story film วาง positioning ให้ Muse เป็นอนาคตของ creative education" }, deliverables: ["Brand Film", "Student Stories", "Campus Tour", "Recruitment Video"], image: workMuse },
-  { title: "Orbit Fintech", category: "Content System", brief: { en: "Building trust through content for a fintech startup.", th: "สร้างความน่าเชื่อถือผ่าน content สำหรับ fintech startup" }, deliverables: ["Content Strategy", "Explainer Videos", "Blog Series", "Social Content"], image: workOrbit },
-  { title: "Field Notes Coffee", category: "Brand Documentary", brief: { en: "A documentary following the journey from farm to cup.", th: "สารคดีตามเส้นทางจากไร่ถึงแก้ว" }, deliverables: ["Documentary", "Origin Series", "Barista Profiles", "Social Content"], image: workField },
-  { title: "Vela Fashion", category: "Campaign Film", brief: { en: "A seasonal campaign film for Vela's debut collection.", th: "Campaign film สำหรับคอลเลกชันเปิดตัวของ Vela" }, deliverables: ["Campaign Film", "Lookbook Video", "Social Content", "Photography"], image: workVela },
-  { title: "Terra Collective", category: "Brand Story Video", brief: { en: "A brand story video exploring sustainable living.", th: "Brand story video สำรวจ sustainable living" }, deliverables: ["Brand Video", "Founder Story", "Product Films", "Impact Report"], image: workTerra },
+  { title: "Northwind Electric", service: "Film & Production", type: "Campaign Film", brief: { en: "A cinematic campaign film launching Northwind's entry into the Southeast Asian EV market.", th: "Campaign film ระดับภาพยนตร์สำหรับการเปิดตัว Northwind ในตลาด EV" }, deliverables: ["Campaign Film", "Director's Cut", "Social Cutdowns", "Behind the Scenes"], image: workNorthwind },
+  { title: "Atlas Property Group", service: "Film & Production", type: "Documentary", brief: { en: "A brand documentary capturing the vision behind Atlas's luxury developments.", th: "Brand documentary ถ่ายทอดวิสัยทัศน์เบื้องหลังโครงการ luxury ของ Atlas" }, deliverables: ["Documentary Film", "Interview Series", "Sizzle Reel", "Photography"], image: workAtlas },
+  { title: "Koha Culture Studio", service: "Creative & Campaign", type: "Brand Story", brief: { en: "A brand story video series exploring contemporary art and community.", th: "ซีรีส์วิดีโอเรื่องราวแบรนด์สำรวจศิลปะร่วมสมัยและชุมชน" }, deliverables: ["Brand Video", "Artist Profiles", "Event Documentation", "Social Content"], image: workKoha },
+  { title: "Lumen Health", service: "Content Systems", type: "Content System", brief: { en: "A comprehensive content system for a digital health platform.", th: "ระบบ content ครบวงจรสำหรับแพลตฟอร์มสุขภาพดิจิทัล" }, deliverables: ["Content Strategy", "Editorial Calendar", "Video Series", "Blog System"], image: workLumen },
+  { title: "Sera Hospitality", service: "Film & Production", type: "Campaign Film", brief: { en: "A campaign film capturing the essence of Sera's luxury hospitality.", th: "Campaign film ถ่ายทอดแก่นแท้ของ luxury hospitality ของ Sera" }, deliverables: ["Hero Film", "Property Films", "Social Series", "Print Campaign"], image: workSera },
+  { title: "Muse Education", service: "Creative & Campaign", type: "Brand Story", brief: { en: "A brand story film positioning Muse as the future of creative education.", th: "Brand story film วาง positioning ให้ Muse เป็นอนาคตของ creative education" }, deliverables: ["Brand Film", "Student Stories", "Campus Tour", "Recruitment Video"], image: workMuse },
+  { title: "Orbit Fintech", service: "Content Systems", type: "Content System", brief: { en: "Building trust through content for a fintech startup.", th: "สร้างความน่าเชื่อถือผ่าน content สำหรับ fintech startup" }, deliverables: ["Content Strategy", "Explainer Videos", "Blog Series", "Social Content"], image: workOrbit },
+  { title: "Field Notes Coffee", service: "Film & Production", type: "Documentary", brief: { en: "A documentary following the journey from farm to cup.", th: "สารคดีตามเส้นทางจากไร่ถึงแก้ว" }, deliverables: ["Documentary", "Origin Series", "Barista Profiles", "Social Content"], image: workField },
+  { title: "Vela Fashion", service: "Film & Production", type: "Campaign Film", brief: { en: "A seasonal campaign film for Vela's debut collection.", th: "Campaign film สำหรับคอลเลกชันเปิดตัวของ Vela" }, deliverables: ["Campaign Film", "Lookbook Video", "Social Content", "Photography"], image: workVela },
+  { title: "Terra Collective", service: "Brand Development", type: "Brand Build", brief: { en: "A brand story video exploring sustainable living.", th: "Brand story video สำรวจ sustainable living" }, deliverables: ["Brand Video", "Founder Story", "Product Films", "Impact Report"], image: workTerra },
 ];
 
-const categories = ["All", "Campaign Film", "Brand Documentary", "Brand Story Video", "Content System"];
+const serviceFilters = ["All", "Content Systems", "Creative & Campaign", "Film & Production", "Brand Development"];
 
 const WorkPage = () => {
   const [selectedWork, setSelectedWork] = useState<typeof works[0] | null>(null);
   const [activeFilter, setActiveFilter] = useState("All");
   const { lang, t } = useLanguage();
+  const [searchParams] = useSearchParams();
+
+  // Sync filter from URL param (linked from Services page)
+  useEffect(() => {
+    const serviceParam = searchParams.get("service");
+    if (serviceParam && serviceFilters.includes(serviceParam)) {
+      setActiveFilter(serviceParam);
+    }
+  }, [searchParams]);
 
   const filteredWorks = useMemo(() => {
     if (activeFilter === "All") return works;
-    return works.filter((w) => w.category === activeFilter);
+    return works.filter((w) => w.service === activeFilter);
   }, [activeFilter]);
 
   return (
     <main className="bg-background min-h-screen grain-overlay">
       <Helmet>
         <title>Work — ØRIONS Creative Agency Portfolio</title>
-        <meta name="description" content="Selected projects: campaign films, brand documentaries, brand story videos, and content systems." />
+        <meta name="description" content="Selected projects organized by service: Content Systems, Creative & Campaign, Film & Production, Brand Development." />
         <link rel="canonical" href="https://orions.agency/work" />
       </Helmet>
       <Navbar />
       <div className="pt-20">
-        {/* Compact hero — unified pattern */}
         <section className="pt-16 md:pt-24 pb-8 md:pb-12 px-6 md:px-12">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
@@ -61,7 +70,7 @@ const WorkPage = () => {
                 SELECTED <span className="text-accent-gradient">WORK.</span>
               </h1>
               <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-lg">
-                {t("Quality over quantity. Every project here represents a brand we helped think, shape, and produce.", "คุณภาพเหนือปริมาณ")}
+                {t("Quality over quantity. Every project here represents a brand we helped think, shape, and produce.", "คุณภาพเหนือปริมาณ ทุกโปรเจกต์ที่นี่คือแบรนด์ที่เราช่วยคิด สร้าง และผลิต")}
               </p>
             </AnimatedSection>
           </div>
@@ -70,8 +79,8 @@ const WorkPage = () => {
         <section className="px-6 md:px-12 py-8 md:py-12 pb-32 md:pb-48">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection delay={0.04}>
-              <div className="flex items-center gap-8 mb-16 flex-wrap">
-                {categories.map((cat) => (
+              <div className="flex items-center gap-6 md:gap-8 mb-16 flex-wrap">
+                {serviceFilters.map((cat) => (
                   <button
                     key={cat}
                     onClick={() => setActiveFilter(cat)}
@@ -97,13 +106,25 @@ const WorkPage = () => {
                       <div className="absolute bottom-3 left-3 w-4 h-4 border-b border-l border-accent-warm/0 group-hover:border-accent-warm/50 transition-all duration-500" />
                       <div className="absolute bottom-3 right-3 w-4 h-4 border-b border-r border-accent-warm/0 group-hover:border-accent-warm/50 transition-all duration-500" />
                     </div>
-                    <span className="font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground block mb-1.5">{w.category}</span>
+                    <div className="flex items-center gap-3 mb-1.5">
+                      <span className="font-mono text-[11px] tracking-[0.15em] uppercase text-accent-warm/60">{w.service}</span>
+                      <span className="text-muted-foreground/30 text-[8px]">●</span>
+                      <span className="font-mono text-[10px] tracking-[0.1em] uppercase text-muted-foreground/50">{w.type}</span>
+                    </div>
                     <h3 className="font-body text-[16px] text-foreground/80 group-hover:text-accent-warm transition-colors duration-300 mb-1">{w.title}</h3>
                     <p className="font-body text-[14px] leading-[1.6] text-muted-foreground line-clamp-2">{w.brief[lang]}</p>
                   </div>
                 </AnimatedSection>
               ))}
             </div>
+
+            {filteredWorks.length === 0 && (
+              <div className="text-center py-20">
+                <p className="font-mono text-[12px] tracking-[0.1em] uppercase text-muted-foreground/50">
+                  {t("No projects in this category yet.", "ยังไม่มีผลงานในหมวดนี้")}
+                </p>
+              </div>
+            )}
           </div>
         </section>
       </div>
@@ -121,7 +142,11 @@ const WorkPage = () => {
               </div>
               <div className="p-8 md:p-12">
                 <DialogHeader className="mb-0 pb-0">
-                  <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground block mb-4">{selectedWork.category}</span>
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-warm/60">{selectedWork.service}</span>
+                    <span className="text-muted-foreground/30 text-[8px]">●</span>
+                    <span className="font-mono text-[10px] tracking-[0.1em] uppercase text-muted-foreground">{selectedWork.type}</span>
+                  </div>
                   <DialogTitle className="font-display text-[40px] tracking-[0.01em] leading-none text-foreground mb-4">{selectedWork.title}</DialogTitle>
                   <p className="font-body text-[15px] text-muted-foreground leading-relaxed">{selectedWork.brief[lang]}</p>
                 </DialogHeader>

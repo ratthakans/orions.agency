@@ -1,32 +1,16 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { motion, AnimatePresence, useScroll, useMotionValueEvent, useSpring } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import StartProjectDialog from "./StartProjectDialog";
-import MagneticButton from "./MagneticButton";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
-  const [hidden, setHidden] = useState(false);
   const location = useLocation();
   const { lang, setLang } = useLanguage();
-  const { scrollY, scrollYProgress } = useScroll();
+  const { scrollYProgress } = useScroll();
   const smoothProgress = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
-
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    const previous = scrollY.getPrevious() ?? 0;
-    if (latest > 80 && latest > previous) {
-      setHidden(true);
-    } else {
-      setHidden(false);
-    }
-  });
-
-  // Always show navbar when mobile menu is open
-  useEffect(() => {
-    if (isOpen) setHidden(false);
-  }, [isOpen]);
 
   const navLinks = [
     { label: "About", href: "/about" },
@@ -39,11 +23,7 @@ const Navbar = () => {
 
   return (
     <>
-      <motion.nav
-        animate={{ y: hidden ? "-100%" : "0%" }}
-        transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
-        className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-xl border-b border-border/50"
-      >
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-xl border-b border-border/50">
         {/* Scroll progress bar */}
         <motion.div
           style={{ scaleX: smoothProgress }}
@@ -89,14 +69,12 @@ const Navbar = () => {
                 TH
               </button>
             </div>
-            <MagneticButton strength={0.25}>
-              <button
-                onClick={() => setDialogOpen(true)}
-                className="font-mono text-[11px] tracking-[0.12em] uppercase text-background bg-foreground px-5 py-2 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300"
-              >
-                Inquiry
-              </button>
-            </MagneticButton>
+            <button
+              onClick={() => setDialogOpen(true)}
+              className="font-mono text-[11px] tracking-[0.12em] uppercase text-background bg-foreground px-5 py-2 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300"
+            >
+              Inquiry
+            </button>
           </div>
 
           {/* Mobile toggle */}
@@ -164,7 +142,7 @@ const Navbar = () => {
             </motion.div>
           )}
         </AnimatePresence>
-      </motion.nav>
+      </nav>
 
       <StartProjectDialog open={dialogOpen} onOpenChange={setDialogOpen} />
     </>

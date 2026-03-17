@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
-import MagneticButton from "./MagneticButton";
 import TextReveal from "./TextReveal";
 
 interface HeroSectionProps {
@@ -77,14 +76,12 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => {
             className="flex flex-col md:flex-row md:items-end md:justify-between max-w-5xl gap-8"
           >
             <div className="flex items-center gap-6 flex-wrap">
-              <MagneticButton strength={0.3}>
-                <button
+              <button
                   onClick={onStartProject}
                   className="font-mono text-[11px] tracking-[0.12em] uppercase text-background bg-foreground px-8 py-3 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300"
                 >
                   Start a Project
                 </button>
-              </MagneticButton>
               <a
                 href="/work"
                 className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300"

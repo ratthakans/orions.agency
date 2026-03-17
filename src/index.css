@@ -30,9 +30,10 @@
     --accent-warm: 50 100% 50%;
     --accent-warm-end: 45 100% 55%;
     --accent-warm-foreground: 0 0% 0%;
-    --accent-violet: 50 100% 50%;
-    --accent-blue: 50 100% 50%;
-    --accent-rose: 50 100% 50%;
+    --accent-blue: 220 90% 56%;
+    --accent-blue-foreground: 0 0% 100%;
+    --accent-violet: 220 90% 56%;
+    --accent-rose: 220 90% 56%;
     --accent-amber: 50 100% 50%;
 
     --destructive: 0 72% 51%;

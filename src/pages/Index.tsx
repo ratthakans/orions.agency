@@ -9,7 +9,6 @@ import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 import Marquee from "@/components/Marquee";
 import TextReveal from "@/components/TextReveal";
-import MagneticButton from "@/components/MagneticButton";
 import HorizontalScroll from "@/components/HorizontalScroll";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -232,36 +231,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Why ORIONS */}
-      <section className="py-24 md:py-40 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto">
-          <AnimatedSection>
-            <div className="max-w-3xl">
-              <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">
-                <span className="text-accent-warm mr-2">△</span> Why ORIONS
-              </p>
-            </div>
-          </AnimatedSection>
-          <div className="max-w-3xl">
-            <TextReveal className="font-display text-[clamp(48px,6vw,100px)] leading-[0.9] tracking-[0.01em] text-foreground mb-10">
-              NOT JUST PRODUCTION.
-            </TextReveal>
-            <AnimatedSection delay={0.3}>
-              <p className="font-body text-[16px] leading-[1.7] text-muted-foreground mb-8 max-w-lg">
-                {t(
-                  "We're a creative agency that helps brands think, shape stories, and execute them with cinematic quality.",
-                  "เราคือ creative agency ที่ช่วยแบรนด์คิด หล่อหลอมเรื่องราว และผลิตออกมาด้วยคุณภาพระดับภาพยนตร์"
-                )}
-              </p>
-              <p className="font-mono text-[13px] leading-[1.7] text-accent-warm/60 italic border-l-2 border-accent-warm/30 pl-6">
-                "Every dot has meaning. We just know how to connect them."
-              </p>
-            </AnimatedSection>
-          </div>
-        </div>
-      </section>
-
-      <Marquee items={["Content Systems", "Creative & Campaign", "Film & Production", "Brand Development"]} />
 
       {/* Final CTA */}
       <section className="py-40 md:py-56 px-6 md:px-12 text-center">
@@ -271,14 +240,12 @@ const Index = () => {
           </TextReveal>
           <AnimatedSection delay={0.3}>
             <div className="flex gap-10 justify-center items-center flex-wrap">
-              <MagneticButton strength={0.3}>
-                <button
+              <button
                   onClick={() => setDialogOpen(true)}
                   className="group font-mono text-[11px] tracking-[0.12em] uppercase text-background bg-foreground px-8 py-3 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300 relative overflow-hidden"
                 >
                   <span className="relative z-10">Start a Project</span>
                 </button>
-              </MagneticButton>
               <Link
                 to="/contact"
                 className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300"

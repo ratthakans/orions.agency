@@ -10,7 +10,6 @@ import AnimatedSection from "@/components/AnimatedSection";
 import Marquee from "@/components/Marquee";
 import TextReveal from "@/components/TextReveal";
 import HorizontalScroll from "@/components/HorizontalScroll";
-import HorizontalScroll from "@/components/HorizontalScroll";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 import workNorthwind from "@/assets/work-northwind.jpg";

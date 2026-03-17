@@ -119,7 +119,7 @@ const Navbar = () => {
                     key={link.href}
                     to={link.href}
                     onClick={() => setIsOpen(false)}
-                    className={`font-mono text-[12px] tracking-[0.12em] uppercase transition-colors duration-300 ${
+                    className={`font-mono text-[11px] tracking-[0.12em] uppercase transition-colors duration-300 ${
                       location.pathname === link.href ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                     }`}
                   >
@@ -128,7 +128,7 @@ const Navbar = () => {
                 ))}
                 <button
                   onClick={() => { setIsOpen(false); setDialogOpen(true); }}
-                  className="font-mono text-[12px] tracking-[0.12em] uppercase text-background bg-foreground px-5 py-3 text-center mt-4 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300"
+                  className="font-mono text-[11px] tracking-[0.12em] uppercase text-background bg-foreground px-5 py-3 text-center mt-4 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300"
                 >
                   Inquiry
                 </button>

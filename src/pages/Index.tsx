@@ -22,33 +22,6 @@ const Index = () => {
 
   const services = [
     {
-      title: "Narrative",
-      desc: { en: "Brand stories that define who you are and why it matters.", th: "เรื่องราวแบรนด์ที่บอกว่าคุณคือใครและทำไมถึงสำคัญ" },
-      details: {
-        en: "We craft brand narratives, positioning statements, and messaging frameworks that give your brand a clear voice. From founding stories to campaign themes — we make sure every word counts.",
-        th: "เราสร้าง brand narrative, positioning statement และ messaging framework ที่ให้แบรนด์ของคุณมีเสียงที่ชัดเจน ตั้งแต่เรื่องราวการก่อตั้งจนถึงธีมแคมเปญ"
-      },
-      includes: ["Brand Narrative", "Messaging Architecture", "Tone of Voice", "Tagline Development"]
-    },
-    {
-      title: "Campaign",
-      desc: { en: "Strategic campaigns that move people and drive results.", th: "แคมเปญเชิงกลยุทธ์ที่ขับเคลื่อนผู้คนและสร้างผลลัพธ์" },
-      details: {
-        en: "End-to-end campaign development — from insight and strategy to creative execution across all channels. We design campaigns that connect emotionally and convert meaningfully.",
-        th: "การพัฒนาแคมเปญแบบครบวงจร — ตั้งแต่ insight และกลยุทธ์ไปจนถึง creative execution ในทุกช่องทาง"
-      },
-      includes: ["Campaign Strategy", "Creative Concept", "Multi-channel Execution", "Performance Tracking"]
-    },
-    {
-      title: "Film",
-      desc: { en: "Cinematic production from concept to final cut.", th: "งานภาพยนตร์ตั้งแต่คอนเซ็ปต์จนถึงตัดต่อเสร็จ" },
-      details: {
-        en: "Full-service film production with the storytelling depth of an agency. We handle scripts, direction, cinematography, and post-production for campaign films, brand documentaries, and commercial content.",
-        th: "งานผลิตภาพยนตร์ครบวงจรด้วยความลึกของการเล่าเรื่องระดับ agency เราดูแลบท กำกับ ถ่ายภาพ และ post-production"
-      },
-      includes: ["Script & Treatment", "Direction & DOP", "Post-production", "Color Grading & Sound"]
-    },
-    {
       title: "Content",
       desc: { en: "Consistent, meaningful content systems that scale.", th: "ระบบ content ที่สม่ำเสมอ มีความหมาย และขยายได้" },
       details: {
@@ -56,6 +29,33 @@ const Index = () => {
         th: "เราสร้าง content engine — ไม่ใช่แค่โพสต์ ตั้งแต่ social calendar รายเดือนไปจนถึงการผลิตวิดีโอสั้น เราสร้างระบบที่ทำให้แบรนด์ active และเติบโต"
       },
       includes: ["Content Calendar", "Short-form Video", "Social Media Management", "Monthly Reports"]
+    },
+    {
+      title: "Think",
+      desc: { en: "Strategic thinking and creative direction for brands that need clarity.", th: "การคิดเชิงกลยุทธ์และ creative direction สำหรับแบรนด์ที่ต้องการความชัดเจน" },
+      details: {
+        en: "We craft brand narratives, positioning statements, and messaging frameworks that give your brand a clear voice. From founding stories to campaign themes — we make sure every word counts.",
+        th: "เราสร้าง brand narrative, positioning statement และ messaging framework ที่ให้แบรนด์ของคุณมีเสียงที่ชัดเจน ตั้งแต่เรื่องราวการก่อตั้งจนถึงธีมแคมเปญ"
+      },
+      includes: ["Brand Narrative", "Creative Brief", "Campaign Concept", "Messaging Architecture"]
+    },
+    {
+      title: "Produce",
+      desc: { en: "Cinematic production from concept to final cut.", th: "งานภาพยนตร์ตั้งแต่คอนเซ็ปต์จนถึงตัดต่อเสร็จ" },
+      details: {
+        en: "Full-service film production with the storytelling depth of an agency. We handle scripts, direction, cinematography, and post-production for campaign films, brand documentaries, and commercial content.",
+        th: "งานผลิตภาพยนตร์ครบวงจรด้วยความลึกของการเล่าเรื่องระดับ agency เราดูแลบท กำกับ ถ่ายภาพ และ post-production"
+      },
+      includes: ["Script Development", "Direction & DOP", "Post-production", "Color Grading & Sound"]
+    },
+    {
+      title: "Develop",
+      desc: { en: "Full brand development from zero — identity, narrative, and IP.", th: "การพัฒนาแบรนด์เต็มรูปแบบตั้งแต่ศูนย์ — identity, narrative และ IP" },
+      details: {
+        en: "End-to-end brand creation — from naming and identity to product concept and launch strategy. We design brands that are built to last and scale.",
+        th: "การสร้างแบรนด์ครบวงจร — ตั้งแต่ naming และ identity ไปจนถึง product concept และ launch strategy"
+      },
+      includes: ["Brand Identity", "Naming & Positioning", "Product Concept", "Launch Strategy"]
     },
   ];
 
@@ -76,7 +76,7 @@ const Index = () => {
       <Navbar />
       <HeroSection onStartProject={() => setDialogOpen(true)} />
 
-      <Marquee items={["Narrative", "Campaign", "Film", "Content", "Strategy", "Brand", "Story"]} />
+      <Marquee items={["Content", "Think", "Produce", "Develop", "Story", "Film", "Strategy"]} />
 
       {/* What We Do */}
       <section className="py-24 md:py-40 px-6 md:px-12">
@@ -229,7 +229,7 @@ const Index = () => {
         </div>
       </section>
 
-      <Marquee items={["Story", "Strategy", "Campaign", "Film", "Meaning"]} />
+      <Marquee items={["Content", "Think", "Produce", "Develop", "Film"]} />
 
       {/* Final CTA */}
       <section className="py-40 md:py-56 px-6 md:px-12 text-center">

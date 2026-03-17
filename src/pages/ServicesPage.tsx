@@ -66,6 +66,9 @@ const ServicesPage = () => {
               <h1 className="font-display text-[clamp(44px,6vw,96px)] leading-[0.9] tracking-[0.01em] text-foreground mb-6 max-w-4xl">
                 FOUR WAYS TO WORK<br />WITH <span className="text-accent-gradient">ORIONS.</span>
               </h1>
+              <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-lg">
+                {t("From content systems to full brand development — choose the way that fits your needs.", "ตั้งแต่ระบบ content ไปจนถึงการพัฒนาแบรนด์เต็มรูปแบบ — เลือกแบบที่เหมาะกับคุณ")}
+              </p>
             </AnimatedSection>
           </div>
         </section>

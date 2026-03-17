@@ -70,10 +70,10 @@ export default {
       },
       fontFamily: {
         display: ["Bebas Neue", "sans-serif"],
-        body: ["DM Sans", "sans-serif"],
-        mono: ["DM Mono", "monospace"],
+        body: ["IBM Plex Sans", "sans-serif"],
+        mono: ["IBM Plex Mono", "monospace"],
         logo: ["Unbounded", "sans-serif"],
-        thai: ["Noto Sans Thai", "sans-serif"],
+        thai: ["IBM Plex Sans Thai", "IBM Plex Sans", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",

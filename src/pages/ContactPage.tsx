@@ -17,8 +17,8 @@ const ContactPage = () => {
     setSubmitted(true);
   };
 
-  const inputClass = "w-full bg-transparent text-[13px] font-body text-foreground placeholder:text-muted-foreground/20 focus:outline-none border-b border-divider/40 focus:border-foreground/20 transition-colors duration-500 pb-3";
-  const selectClass = "w-full bg-transparent text-[13px] font-body text-foreground focus:outline-none border-b border-divider/40 focus:border-foreground/20 transition-colors duration-500 pb-3 appearance-none cursor-pointer";
+  const inputClass = "w-full bg-transparent text-[14px] font-body text-foreground placeholder:text-muted-foreground/15 focus:outline-none border-b border-divider/40 focus:border-foreground/20 transition-colors duration-500 pb-3";
+  const selectClass = "w-full bg-transparent text-[14px] font-body text-foreground focus:outline-none border-b border-divider/40 focus:border-foreground/20 transition-colors duration-500 pb-3 appearance-none cursor-pointer";
 
   return (
     <main className="bg-background min-h-screen grain-overlay">
@@ -32,11 +32,11 @@ const ContactPage = () => {
         <section className="py-32 md:py-48 px-6 md:px-12">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
-              <p className="font-mono text-[9px] tracking-[0.4em] uppercase text-muted-foreground/50 mb-10">Contact</p>
-              <h1 className="font-display text-[clamp(48px,6.5vw,110px)] leading-[0.9] tracking-[0.01em] text-foreground mb-10 max-w-3xl">
-                {t(<>Start a <span className="text-accent-gradient">Project.</span></>, <>เริ่ม<span className="text-accent-gradient">โปรเจกต์</span></>)}
+              <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground/40 mb-10">Contact</p>
+              <h1 className="font-display text-[clamp(48px,6.5vw,110px)] leading-[0.9] tracking-[0.02em] text-foreground mb-10 max-w-3xl">
+                Start a <span className="text-accent-gradient">Project.</span>
               </h1>
-              <p className="font-body text-[14px] leading-[1.9] text-muted-foreground/60 max-w-lg">
+              <p className="font-body text-[15px] leading-[1.8] text-muted-foreground/50 max-w-lg">
                 {t("Tell us about your brand. We'll get back to you within 24 hours.", "เล่าให้เราฟังเกี่ยวกับแบรนด์ เราจะติดต่อกลับภายใน 24 ชั่วโมง")}
               </p>
             </AnimatedSection>
@@ -49,16 +49,16 @@ const ContactPage = () => {
             <AnimatedSection delay={0.04}>
               <div className="flex flex-wrap gap-x-20 gap-y-6 pb-16 border-b border-divider/30">
                 <div>
-                  <p className="font-mono text-[9px] tracking-[0.35em] uppercase text-muted-foreground/25 mb-3">Email</p>
-                  <a href="mailto:hello@orions.agency" className="font-body text-[13px] text-foreground/60 hover:text-foreground transition-colors duration-500">hello@orions.agency</a>
+                  <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground/20 mb-3">Email</p>
+                  <a href="mailto:hello@orions.agency" className="font-body text-[14px] text-foreground/55 hover:text-foreground transition-colors duration-500">hello@orions.agency</a>
                 </div>
                 <div>
-                  <p className="font-mono text-[9px] tracking-[0.35em] uppercase text-muted-foreground/25 mb-3">{t("Phone", "โทรศัพท์")}</p>
-                  <a href="tel:+66923905464" className="font-body text-[13px] text-foreground/60 hover:text-foreground transition-colors duration-500">+66 92 390 5464</a>
+                  <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground/20 mb-3">{t("Phone", "โทรศัพท์")}</p>
+                  <a href="tel:+66923905464" className="font-body text-[14px] text-foreground/55 hover:text-foreground transition-colors duration-500">+66 92 390 5464</a>
                 </div>
                 <div>
-                  <p className="font-mono text-[9px] tracking-[0.35em] uppercase text-muted-foreground/25 mb-3">Location</p>
-                  <span className="font-body text-[13px] text-foreground/60">Bangkok, Thailand</span>
+                  <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground/20 mb-3">Location</p>
+                  <span className="font-body text-[14px] text-foreground/55">Bangkok, Thailand</span>
                 </div>
               </div>
             </AnimatedSection>
@@ -71,21 +71,21 @@ const ContactPage = () => {
             <AnimatedSection delay={0.08}>
               {submitted ? (
                 <div className="py-24 text-center">
-                  <p className="font-display text-[44px] tracking-[0.02em] text-foreground mb-5">{t("Thank you.", "ขอบคุณครับ")}</p>
-                  <p className="font-body text-[14px] text-muted-foreground/50">{t("We'll be in touch within 24 hours.", "เราจะติดต่อกลับภายใน 24 ชั่วโมง")}</p>
+                  <p className="font-display text-[44px] tracking-[0.02em] text-foreground mb-5">Thank you.</p>
+                  <p className="font-body text-[15px] text-muted-foreground/45">{t("We'll be in touch within 24 hours.", "เราจะติดต่อกลับภายใน 24 ชั่วโมง")}</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-12">
                   <div>
-                    <label className="font-mono text-[9px] tracking-[0.35em] uppercase text-muted-foreground/25 mb-4 block">{t("Name *", "ชื่อ *")}</label>
+                    <label className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground/20 mb-4 block">{t("Name *", "ชื่อ *")}</label>
                     <input type="text" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className={inputClass} placeholder={t("Your full name", "ชื่อ-นามสกุล") as string} required />
                   </div>
                   <div>
-                    <label className="font-mono text-[9px] tracking-[0.35em] uppercase text-muted-foreground/25 mb-4 block">{t("Company", "บริษัท")}</label>
+                    <label className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground/20 mb-4 block">{t("Company", "บริษัท")}</label>
                     <input type="text" value={formData.company} onChange={(e) => setFormData({ ...formData, company: e.target.value })} className={inputClass} placeholder={t("Your company name", "ชื่อบริษัท") as string} />
                   </div>
                   <div>
-                    <label className="font-mono text-[9px] tracking-[0.35em] uppercase text-muted-foreground/25 mb-4 block">{t("Project Type", "ประเภทโปรเจกต์")}</label>
+                    <label className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground/20 mb-4 block">Project Type</label>
                     <select value={formData.projectType} onChange={(e) => setFormData({ ...formData, projectType: e.target.value })} className={selectClass}>
                       <option value="" className="bg-background">{t("Select", "เลือก")}</option>
                       <option value="content" className="bg-background">Content</option>
@@ -97,7 +97,7 @@ const ContactPage = () => {
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                     <div>
-                      <label className="font-mono text-[9px] tracking-[0.35em] uppercase text-muted-foreground/25 mb-4 block">Budget</label>
+                      <label className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground/20 mb-4 block">Budget</label>
                       <select value={formData.budget} onChange={(e) => setFormData({ ...formData, budget: e.target.value })} className={selectClass}>
                         <option value="" className="bg-background">{t("Select", "เลือก")}</option>
                         <option value="50k-150k" className="bg-background">฿50k – 150k</option>
@@ -108,7 +108,7 @@ const ContactPage = () => {
                       </select>
                     </div>
                     <div>
-                      <label className="font-mono text-[9px] tracking-[0.35em] uppercase text-muted-foreground/25 mb-4 block">Timeline</label>
+                      <label className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground/20 mb-4 block">Timeline</label>
                       <select value={formData.timeline} onChange={(e) => setFormData({ ...formData, timeline: e.target.value })} className={selectClass}>
                         <option value="" className="bg-background">{t("Select", "เลือก")}</option>
                         <option value="asap" className="bg-background">ASAP</option>
@@ -119,15 +119,15 @@ const ContactPage = () => {
                     </div>
                   </div>
                   <div>
-                    <label className="font-mono text-[9px] tracking-[0.35em] uppercase text-muted-foreground/25 mb-4 block">Email *</label>
+                    <label className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground/20 mb-4 block">Email *</label>
                     <input type="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className={inputClass} placeholder="your@email.com" required />
                   </div>
                   <div>
-                    <label className="font-mono text-[9px] tracking-[0.35em] uppercase text-muted-foreground/25 mb-4 block">{t("Message", "ข้อความ")}</label>
-                    <textarea value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} className="w-full bg-transparent text-[13px] font-body text-foreground placeholder:text-muted-foreground/20 focus:outline-none min-h-[120px] resize-none border-b border-divider/40 focus:border-foreground/20 transition-colors duration-500 pb-3" placeholder={t("Tell us about your project...", "เล่าเกี่ยวกับโปรเจกต์ของคุณ...") as string} />
+                    <label className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground/20 mb-4 block">{t("Message", "ข้อความ")}</label>
+                    <textarea value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} className="w-full bg-transparent text-[14px] font-body text-foreground placeholder:text-muted-foreground/15 focus:outline-none min-h-[120px] resize-none border-b border-divider/40 focus:border-foreground/20 transition-colors duration-500 pb-3" placeholder={t("Tell us about your project...", "เล่าเกี่ยวกับโปรเจกต์ของคุณ...") as string} />
                   </div>
                   <div className="pt-6">
-                    <button type="submit" className="font-mono text-[9px] tracking-[0.2em] uppercase text-foreground border-b border-foreground/30 pb-1 hover:border-foreground transition-all duration-500">
+                    <button type="submit" className="font-mono text-[10px] tracking-[0.15em] uppercase text-foreground border-b border-foreground/30 pb-1 hover:border-foreground transition-all duration-500">
                       {t("Send Message", "ส่งข้อความ")}
                     </button>
                   </div>

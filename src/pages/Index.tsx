@@ -6,6 +6,7 @@ import HeroSection from "@/components/HeroSection";
 import StartProjectDialog from "@/components/StartProjectDialog";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
+import Marquee from "@/components/Marquee";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 import workNorthwind from "@/assets/work-northwind.jpg";
@@ -25,10 +26,10 @@ const Index = () => {
   ];
 
   const featuredWork = [
-    { title: "Northwind Electric", category: { en: "Campaign Film", th: "Campaign Film" }, image: workNorthwind },
-    { title: "Atlas Property Group", category: { en: "Brand Documentary", th: "Brand Documentary" }, image: workAtlas },
-    { title: "Koha Culture Studio", category: { en: "Brand Story Video", th: "Brand Story Video" }, image: workKoha },
-    { title: "Sera Hospitality", category: { en: "Content System", th: "Content System" }, image: workSera },
+    { title: "Northwind Electric", category: "Campaign Film", image: workNorthwind },
+    { title: "Atlas Property Group", category: "Brand Documentary", image: workAtlas },
+    { title: "Koha Culture Studio", category: "Brand Story Video", image: workKoha },
+    { title: "Sera Hospitality", category: "Content System", image: workSera },
   ];
 
   const studioProjects = [
@@ -47,17 +48,20 @@ const Index = () => {
       <Navbar />
       <HeroSection onStartProject={() => setDialogOpen(true)} />
 
+      {/* Marquee */}
+      <Marquee items={["Narrative", "Campaign", "Film", "Content", "Strategy", "Brand", "Story"]} />
+
       {/* What We Do */}
       <section className="py-32 md:py-48 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
-            <p className="font-mono text-[9px] tracking-[0.4em] uppercase text-muted-foreground/50 mb-10">
-              {t("What We Do", "สิ่งที่เราทำ")}
+            <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground/40 mb-10">
+              What We Do
             </p>
-            <h2 className="font-display text-[clamp(44px,5.5vw,88px)] leading-[0.9] tracking-[0.01em] text-foreground mb-6 max-w-3xl">
-              {t(<>Stories, campaigns,<br />and <span className="text-accent-gradient">films.</span></>, <>เรื่องราว, แคมเปญ<br />และ<span className="text-accent-gradient">ภาพยนตร์</span></>)}
+            <h2 className="font-display text-[clamp(44px,5.5vw,88px)] leading-[0.9] tracking-[0.02em] text-foreground mb-6 max-w-3xl">
+              Stories, campaigns,<br />and <span className="text-accent-gradient">films.</span>
             </h2>
-            <p className="font-body text-[14px] leading-[1.9] text-muted-foreground/60 max-w-md mb-24">
+            <p className="font-body text-[15px] leading-[1.8] text-muted-foreground/50 max-w-md mb-24">
               {t(
                 "We help brands think clearly, tell better stories, and produce work that people actually remember.",
                 "เราช่วยแบรนด์คิดอย่างชัดเจน เล่าเรื่องได้ดีขึ้น และผลิตงานที่คนจดจำได้จริง"
@@ -69,9 +73,9 @@ const Index = () => {
             {services.map((s, i) => (
               <AnimatedSection key={s.title} delay={i * 0.08}>
                 <div>
-                  <span className="font-mono text-[9px] tracking-[0.3em] uppercase text-muted-foreground/30 block mb-5">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/25 block mb-5">{String(i + 1).padStart(2, "0")}</span>
                   <h3 className="font-display text-[28px] tracking-[0.04em] text-foreground mb-3">{s.title}</h3>
-                  <p className="font-body text-[13px] leading-[1.8] text-muted-foreground/50">{s.desc[lang]}</p>
+                  <p className="font-body text-[14px] leading-[1.8] text-muted-foreground/45">{s.desc[lang]}</p>
                 </div>
               </AnimatedSection>
             ))}
@@ -79,8 +83,8 @@ const Index = () => {
 
           <AnimatedSection delay={0.3}>
             <div className="mt-20">
-              <Link to="/services" className="font-mono text-[9px] tracking-[0.2em] uppercase text-muted-foreground/40 border-b border-foreground/10 pb-1 hover:text-foreground hover:border-foreground/30 transition-all duration-500">
-                {t("All Services →", "ดู Services ทั้งหมด →")}
+              <Link to="/services" className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground/35 border-b border-foreground/10 pb-1 hover:text-foreground hover:border-foreground/30 transition-all duration-500">
+                All Services →
               </Link>
             </div>
           </AnimatedSection>
@@ -91,11 +95,11 @@ const Index = () => {
       <section className="py-32 md:py-48 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
-            <p className="font-mono text-[9px] tracking-[0.4em] uppercase text-muted-foreground/50 mb-10">
-              {t("Selected Work", "ผลงานคัดสรร")}
+            <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground/40 mb-10">
+              Selected Work
             </p>
-            <h2 className="font-display text-[clamp(44px,5.5vw,88px)] leading-[0.9] tracking-[0.01em] text-foreground mb-20">
-              {t(<>Work that <span className="text-accent-gradient">speaks.</span></>, <>ผลงานที่<span className="text-accent-gradient">สื่อสาร</span></>)}
+            <h2 className="font-display text-[clamp(44px,5.5vw,88px)] leading-[0.9] tracking-[0.02em] text-foreground mb-20">
+              Work that <span className="text-accent-gradient">speaks.</span>
             </h2>
           </AnimatedSection>
 
@@ -106,8 +110,8 @@ const Index = () => {
                   <div className="overflow-hidden mb-5">
                     <img src={w.image} alt={w.title} className="w-full aspect-[16/10] object-cover grayscale group-hover:grayscale-0 group-hover:scale-[1.015] transition-all duration-[900ms]" loading="lazy" />
                   </div>
-                  <span className="font-mono text-[9px] tracking-[0.3em] uppercase text-muted-foreground/30 block mb-1.5">{w.category[lang]}</span>
-                  <h3 className="font-body text-[14px] text-foreground/80 group-hover:text-foreground transition-colors duration-500">{w.title}</h3>
+                  <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/25 block mb-1.5">{w.category}</span>
+                  <h3 className="font-body text-[15px] text-foreground/70 group-hover:text-foreground transition-colors duration-500">{w.title}</h3>
                 </Link>
               </AnimatedSection>
             ))}
@@ -115,36 +119,36 @@ const Index = () => {
 
           <AnimatedSection delay={0.2}>
             <div className="mt-20">
-              <Link to="/work" className="font-mono text-[9px] tracking-[0.2em] uppercase text-muted-foreground/40 border-b border-foreground/10 pb-1 hover:text-foreground hover:border-foreground/30 transition-all duration-500">
-                {t("All Work →", "ดูผลงานทั้งหมด →")}
+              <Link to="/work" className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground/35 border-b border-foreground/10 pb-1 hover:text-foreground hover:border-foreground/30 transition-all duration-500">
+                All Work →
               </Link>
             </div>
           </AnimatedSection>
         </div>
       </section>
 
+      {/* Marquee 2 */}
+      <Marquee items={["Think", "Develop", "Produce", "Launch", "Scale"]} speed="slow" />
+
       {/* Why ORIONS */}
       <section className="py-32 md:py-48 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
             <div className="max-w-2xl">
-              <p className="font-mono text-[9px] tracking-[0.4em] uppercase text-muted-foreground/50 mb-10">
-                {t("Why ORIONS", "ทำไม ORIONS")}
+              <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground/40 mb-10">
+                Why ORIONS
               </p>
-              <h2 className="font-display text-[clamp(44px,5.5vw,88px)] leading-[0.9] tracking-[0.01em] text-foreground mb-10">
-                {t(<>Not just<br /><span className="text-accent-gradient">production.</span></>, <>ไม่ใช่แค่<br /><span className="text-accent-gradient">โปรดักชั่น</span></>)}
+              <h2 className="font-display text-[clamp(44px,5.5vw,88px)] leading-[0.9] tracking-[0.02em] text-foreground mb-10">
+                Not just<br /><span className="text-accent-gradient">production.</span>
               </h2>
-              <p className="font-body text-[14px] leading-[1.9] text-muted-foreground/60 mb-8 max-w-lg">
+              <p className="font-body text-[15px] leading-[1.8] text-muted-foreground/50 mb-8 max-w-lg">
                 {t(
                   "We're a creative agency that helps brands think, shape stories, and execute them with cinematic quality.",
                   "เราคือ creative agency ที่ช่วยแบรนด์คิด หล่อหลอมเรื่องราว และผลิตออกมาด้วยคุณภาพระดับภาพยนตร์"
                 )}
               </p>
-              <p className="font-body text-[13px] leading-[1.9] text-muted-foreground/30 italic">
-                {t(
-                  '"Every dot has meaning. We just know how to connect them."',
-                  '"ทุกจุดมีความหมาย เราแค่รู้วิธีเชื่อมต่อมัน"'
-                )}
+              <p className="font-body text-[14px] leading-[1.8] text-muted-foreground/25 italic">
+                "Every dot has meaning. We just know how to connect them."
               </p>
             </div>
           </AnimatedSection>
@@ -155,11 +159,11 @@ const Index = () => {
       <section className="py-32 md:py-48 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
-            <p className="font-mono text-[9px] tracking-[0.4em] uppercase text-muted-foreground/50 mb-10">
-              {t("Studio", "สตูดิโอ")}
+            <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground/40 mb-10">
+              Studio
             </p>
-            <h2 className="font-display text-[clamp(44px,5.5vw,88px)] leading-[0.9] tracking-[0.01em] text-foreground mb-20">
-              {t(<>Original <span className="text-accent-gradient">content.</span></>, <><span className="text-accent-gradient">ผลงาน</span>ต้นฉบับ</>)}
+            <h2 className="font-display text-[clamp(44px,5.5vw,88px)] leading-[0.9] tracking-[0.02em] text-foreground mb-20">
+              Original <span className="text-accent-gradient">content.</span>
             </h2>
           </AnimatedSection>
 
@@ -168,10 +172,10 @@ const Index = () => {
               <AnimatedSection key={p.title} delay={i * 0.06}>
                 <Link to="/studio" className="flex items-baseline justify-between py-7 border-b border-divider/50 group">
                   <div className="flex items-baseline gap-5">
-                    <span className="font-mono text-[9px] tracking-[0.3em] uppercase text-muted-foreground/25">{p.type}</span>
+                    <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/20">{p.type}</span>
                     <span className="font-display text-[clamp(22px,2.5vw,36px)] tracking-[0.03em] text-foreground/70 group-hover:text-foreground transition-colors duration-500">{p.title}</span>
                   </div>
-                  <span className="font-mono text-[10px] text-muted-foreground/15 group-hover:text-muted-foreground/50 transition-colors duration-500">→</span>
+                  <span className="font-mono text-[11px] text-muted-foreground/15 group-hover:text-muted-foreground/50 transition-colors duration-500">→</span>
                 </Link>
               </AnimatedSection>
             ))}
@@ -183,24 +187,24 @@ const Index = () => {
       <section className="py-48 md:py-64 px-6 md:px-12 text-center">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
-            <h2 className="font-display text-[clamp(56px,9vw,140px)] leading-[0.88] tracking-[0.01em] text-foreground mb-12">
-              {t(<>Start a<br /><span className="text-accent-gradient">project.</span></>, <>เริ่ม<br /><span className="text-accent-gradient">โปรเจกต์</span></>)}
+            <h2 className="font-display text-[clamp(56px,9vw,140px)] leading-[0.88] tracking-[0.02em] text-foreground mb-12">
+              Start a<br /><span className="text-accent-gradient">project.</span>
             </h2>
             <div className="flex gap-10 justify-center items-center flex-wrap">
               <button
                 onClick={() => setDialogOpen(true)}
-                className="font-mono text-[9px] tracking-[0.2em] uppercase text-foreground border-b border-foreground/30 pb-1 hover:border-foreground transition-all duration-500"
+                className="font-mono text-[10px] tracking-[0.15em] uppercase text-foreground border-b border-foreground/30 pb-1 hover:border-foreground transition-all duration-500"
               >
-                {t("Start a Project", "เริ่ม Project")}
+                Start a Project
               </button>
               <Link
                 to="/contact"
-                className="font-mono text-[9px] tracking-[0.2em] uppercase text-muted-foreground/40 hover:text-foreground transition-colors duration-500"
+                className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground/35 hover:text-foreground transition-colors duration-500"
               >
-                {t("Contact", "ติดต่อเรา")}
+                Contact
               </Link>
             </div>
-            <a href="mailto:hello@orions.agency" className="inline-block mt-16 font-mono text-[10px] tracking-[0.12em] text-muted-foreground/20 hover:text-muted-foreground/50 transition-colors duration-500">
+            <a href="mailto:hello@orions.agency" className="inline-block mt-16 font-mono text-[10px] tracking-[0.1em] text-muted-foreground/20 hover:text-muted-foreground/50 transition-colors duration-500">
               hello@orions.agency
             </a>
           </AnimatedSection>

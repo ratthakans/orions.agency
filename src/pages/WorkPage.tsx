@@ -54,11 +54,11 @@ const WorkPage = () => {
         <section className="py-32 md:py-48 px-6 md:px-12">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
-              <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground/40 mb-10">Portfolio</p>
-              <h1 className="font-display text-[clamp(48px,6.5vw,110px)] leading-[0.9] tracking-[0.02em] text-foreground mb-10 max-w-3xl">
-                Selected <span className="text-accent-gradient">Work.</span>
+              <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">Portfolio</p>
+              <h1 className="font-display text-[clamp(52px,7vw,120px)] leading-[0.9] tracking-[0.01em] text-foreground mb-10 max-w-4xl">
+                SELECTED <span className="text-accent-gradient">WORK.</span>
               </h1>
-              <p className="font-body text-[15px] leading-[1.8] text-muted-foreground/50 max-w-lg">
+              <p className="font-body text-[16px] leading-[1.7] text-muted-foreground max-w-lg">
                 {t("Quality over quantity. Every project here represents a brand we helped think, shape, and produce.", "คุณภาพเหนือปริมาณ")}
               </p>
             </AnimatedSection>
@@ -75,8 +75,8 @@ const WorkPage = () => {
                   <button
                     key={cat}
                     onClick={() => setActiveFilter(cat)}
-                    className={`font-mono text-[10px] tracking-[0.2em] uppercase transition-all duration-500 pb-0.5 ${
-                      activeFilter === cat ? "text-foreground border-b border-foreground/40" : "text-muted-foreground/25 hover:text-muted-foreground/50"
+                    className={`font-mono text-[11px] tracking-[0.15em] uppercase transition-all duration-300 pb-0.5 ${
+                      activeFilter === cat ? "text-foreground border-b border-foreground" : "text-muted-foreground hover:text-foreground"
                     }`}
                   >
                     {cat}
@@ -90,11 +90,11 @@ const WorkPage = () => {
                 <AnimatedSection key={w.title} delay={i * 0.03}>
                   <div className="group cursor-pointer" onClick={() => setSelectedWork(w)}>
                     <div className="overflow-hidden mb-5">
-                      <img src={w.image} alt={w.title} className="w-full aspect-[4/3] object-cover grayscale group-hover:grayscale-0 group-hover:scale-[1.015] transition-all duration-[900ms]" loading="lazy" />
+                      <img src={w.image} alt={w.title} className="w-full aspect-[4/3] object-cover grayscale group-hover:grayscale-0 group-hover:scale-[1.02] transition-all duration-700" loading="lazy" />
                     </div>
-                    <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/20 block mb-1.5">{w.category}</span>
-                    <h3 className="font-body text-[15px] text-foreground/70 group-hover:text-foreground transition-colors duration-500 mb-1">{w.title}</h3>
-                    <p className="font-body text-[13px] leading-[1.7] text-muted-foreground/25 line-clamp-2">{w.brief[lang]}</p>
+                    <span className="font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground block mb-1.5">{w.category}</span>
+                    <h3 className="font-body text-[16px] text-foreground/80 group-hover:text-foreground transition-colors duration-300 mb-1">{w.title}</h3>
+                    <p className="font-body text-[14px] leading-[1.6] text-muted-foreground line-clamp-2">{w.brief[lang]}</p>
                   </div>
                 </AnimatedSection>
               ))}
@@ -104,7 +104,7 @@ const WorkPage = () => {
       </div>
 
       <Dialog open={!!selectedWork} onOpenChange={(open) => !open && setSelectedWork(null)}>
-        <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto bg-background border-divider/50 p-0 gap-0">
+        <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto bg-background border-border p-0 gap-0">
           {selectedWork && (
             <>
               <div className="w-full aspect-[16/9] overflow-hidden">
@@ -112,16 +112,16 @@ const WorkPage = () => {
               </div>
               <div className="p-8 md:p-12">
                 <DialogHeader className="mb-0 pb-0">
-                  <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground/20 block mb-4">{selectedWork.category}</span>
-                  <DialogTitle className="font-display text-[36px] tracking-[0.02em] leading-none text-foreground mb-4">{selectedWork.title}</DialogTitle>
-                  <p className="font-body text-[14px] text-muted-foreground/45 leading-relaxed">{selectedWork.brief[lang]}</p>
+                  <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground block mb-4">{selectedWork.category}</span>
+                  <DialogTitle className="font-display text-[40px] tracking-[0.01em] leading-none text-foreground mb-4">{selectedWork.title}</DialogTitle>
+                  <p className="font-body text-[15px] text-muted-foreground leading-relaxed">{selectedWork.brief[lang]}</p>
                 </DialogHeader>
                 <div className="mt-12">
-                  <h4 className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground/20 mb-5">{t("Deliverables", "สิ่งที่ส่งมอบ")}</h4>
+                  <h4 className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-5">{t("Deliverables", "สิ่งที่ส่งมอบ")}</h4>
                   <div className="space-y-0">
                     {selectedWork.deliverables.map((d, i) => (
-                      <div key={i} className="py-3.5 border-b border-divider/30 last:border-b-0">
-                        <span className="font-body text-[14px] text-foreground/45">{d}</span>
+                      <div key={i} className="py-3.5 border-b border-border last:border-b-0">
+                        <span className="font-body text-[15px] text-foreground/70">{d}</span>
                       </div>
                     ))}
                   </div>

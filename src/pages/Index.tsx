@@ -32,12 +32,6 @@ const Index = () => {
     { title: "Sera Hospitality", category: "Content System", image: workSera },
   ];
 
-  const studioProjects = [
-    { title: "ORIONS Dialogue", type: "Podcast" },
-    { title: "No Signal", type: "Documentary" },
-    { title: "Look Your Best", type: "Beauty Show" },
-  ];
-
   return (
     <main className="bg-background min-h-screen grain-overlay">
       <Helmet>
@@ -48,20 +42,19 @@ const Index = () => {
       <Navbar />
       <HeroSection onStartProject={() => setDialogOpen(true)} />
 
-      {/* Marquee */}
       <Marquee items={["Narrative", "Campaign", "Film", "Content", "Strategy", "Brand", "Story"]} />
 
       {/* What We Do */}
       <section className="py-32 md:py-48 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
-            <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground/40 mb-10">
+            <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">
               What We Do
             </p>
-            <h2 className="font-display text-[clamp(44px,5.5vw,88px)] leading-[0.9] tracking-[0.02em] text-foreground mb-6 max-w-3xl">
-              Stories, campaigns,<br />and <span className="text-accent-gradient">films.</span>
+            <h2 className="font-display text-[clamp(48px,6vw,100px)] leading-[0.9] tracking-[0.01em] text-foreground mb-6 max-w-4xl">
+              STORIES, CAMPAIGNS,<br />AND <span className="text-accent-gradient">FILMS.</span>
             </h2>
-            <p className="font-body text-[15px] leading-[1.8] text-muted-foreground/50 max-w-md mb-24">
+            <p className="font-body text-[16px] leading-[1.7] text-muted-foreground max-w-md mb-24">
               {t(
                 "We help brands think clearly, tell better stories, and produce work that people actually remember.",
                 "เราช่วยแบรนด์คิดอย่างชัดเจน เล่าเรื่องได้ดีขึ้น และผลิตงานที่คนจดจำได้จริง"
@@ -73,9 +66,9 @@ const Index = () => {
             {services.map((s, i) => (
               <AnimatedSection key={s.title} delay={i * 0.08}>
                 <div>
-                  <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/25 block mb-5">{String(i + 1).padStart(2, "0")}</span>
-                  <h3 className="font-display text-[28px] tracking-[0.04em] text-foreground mb-3">{s.title}</h3>
-                  <p className="font-body text-[14px] leading-[1.8] text-muted-foreground/45">{s.desc[lang]}</p>
+                  <span className="font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground/40 block mb-5">{String(i + 1).padStart(2, "0")}</span>
+                  <h3 className="font-display text-[32px] tracking-[0.03em] text-foreground mb-3">{s.title}</h3>
+                  <p className="font-body text-[15px] leading-[1.7] text-muted-foreground">{s.desc[lang]}</p>
                 </div>
               </AnimatedSection>
             ))}
@@ -83,7 +76,7 @@ const Index = () => {
 
           <AnimatedSection delay={0.3}>
             <div className="mt-20">
-              <Link to="/services" className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground/35 border-b border-foreground/10 pb-1 hover:text-foreground hover:border-foreground/30 transition-all duration-500">
+              <Link to="/services" className="font-mono text-[11px] tracking-[0.12em] uppercase text-foreground border-b border-foreground/40 pb-1 hover:border-accent-warm hover:text-accent-warm transition-all duration-300">
                 All Services →
               </Link>
             </div>
@@ -95,23 +88,23 @@ const Index = () => {
       <section className="py-32 md:py-48 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
-            <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground/40 mb-10">
+            <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">
               Selected Work
             </p>
-            <h2 className="font-display text-[clamp(44px,5.5vw,88px)] leading-[0.9] tracking-[0.02em] text-foreground mb-20">
-              Work that <span className="text-accent-gradient">speaks.</span>
+            <h2 className="font-display text-[clamp(48px,6vw,100px)] leading-[0.9] tracking-[0.01em] text-foreground mb-20">
+              WORK THAT <span className="text-accent-gradient">SPEAKS.</span>
             </h2>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {featuredWork.map((w, i) => (
               <AnimatedSection key={w.title} delay={i * 0.06}>
                 <Link to="/work" className="group block">
                   <div className="overflow-hidden mb-5">
-                    <img src={w.image} alt={w.title} className="w-full aspect-[16/10] object-cover grayscale group-hover:grayscale-0 group-hover:scale-[1.015] transition-all duration-[900ms]" loading="lazy" />
+                    <img src={w.image} alt={w.title} className="w-full aspect-[16/10] object-cover grayscale group-hover:grayscale-0 group-hover:scale-[1.02] transition-all duration-700" loading="lazy" />
                   </div>
-                  <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/25 block mb-1.5">{w.category}</span>
-                  <h3 className="font-body text-[15px] text-foreground/70 group-hover:text-foreground transition-colors duration-500">{w.title}</h3>
+                  <span className="font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground block mb-1.5">{w.category}</span>
+                  <h3 className="font-body text-[16px] text-foreground/80 group-hover:text-foreground transition-colors duration-300">{w.title}</h3>
                 </Link>
               </AnimatedSection>
             ))}
@@ -119,7 +112,7 @@ const Index = () => {
 
           <AnimatedSection delay={0.2}>
             <div className="mt-20">
-              <Link to="/work" className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground/35 border-b border-foreground/10 pb-1 hover:text-foreground hover:border-foreground/30 transition-all duration-500">
+              <Link to="/work" className="font-mono text-[11px] tracking-[0.12em] uppercase text-foreground border-b border-foreground/40 pb-1 hover:border-accent-warm hover:text-accent-warm transition-all duration-300">
                 All Work →
               </Link>
             </div>
@@ -127,27 +120,26 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Marquee 2 */}
       <Marquee items={["Think", "Develop", "Produce", "Launch", "Scale"]} speed="slow" />
 
       {/* Why ORIONS */}
       <section className="py-32 md:py-48 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
-            <div className="max-w-2xl">
-              <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground/40 mb-10">
+            <div className="max-w-3xl">
+              <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">
                 Why ORIONS
               </p>
-              <h2 className="font-display text-[clamp(44px,5.5vw,88px)] leading-[0.9] tracking-[0.02em] text-foreground mb-10">
-                Not just<br /><span className="text-accent-gradient">production.</span>
+              <h2 className="font-display text-[clamp(48px,6vw,100px)] leading-[0.9] tracking-[0.01em] text-foreground mb-10">
+                NOT JUST<br /><span className="text-accent-gradient">PRODUCTION.</span>
               </h2>
-              <p className="font-body text-[15px] leading-[1.8] text-muted-foreground/50 mb-8 max-w-lg">
+              <p className="font-body text-[16px] leading-[1.7] text-muted-foreground mb-8 max-w-lg">
                 {t(
                   "We're a creative agency that helps brands think, shape stories, and execute them with cinematic quality.",
                   "เราคือ creative agency ที่ช่วยแบรนด์คิด หล่อหลอมเรื่องราว และผลิตออกมาด้วยคุณภาพระดับภาพยนตร์"
                 )}
               </p>
-              <p className="font-body text-[14px] leading-[1.8] text-muted-foreground/25 italic">
+              <p className="font-body text-[15px] leading-[1.7] text-muted-foreground/50 italic">
                 "Every dot has meaning. We just know how to connect them."
               </p>
             </div>
@@ -155,58 +147,27 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Studio */}
-      <section className="py-32 md:py-48 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto">
-          <AnimatedSection>
-            <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground/40 mb-10">
-              Studio
-            </p>
-            <h2 className="font-display text-[clamp(44px,5.5vw,88px)] leading-[0.9] tracking-[0.02em] text-foreground mb-20">
-              Original <span className="text-accent-gradient">content.</span>
-            </h2>
-          </AnimatedSection>
-
-          <div className="space-y-0">
-            {studioProjects.map((p, i) => (
-              <AnimatedSection key={p.title} delay={i * 0.06}>
-                <Link to="/studio" className="flex items-baseline justify-between py-7 border-b border-divider/50 group">
-                  <div className="flex items-baseline gap-5">
-                    <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/20">{p.type}</span>
-                    <span className="font-display text-[clamp(22px,2.5vw,36px)] tracking-[0.03em] text-foreground/70 group-hover:text-foreground transition-colors duration-500">{p.title}</span>
-                  </div>
-                  <span className="font-mono text-[11px] text-muted-foreground/15 group-hover:text-muted-foreground/50 transition-colors duration-500">→</span>
-                </Link>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Final CTA */}
       <section className="py-48 md:py-64 px-6 md:px-12 text-center">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
-            <h2 className="font-display text-[clamp(56px,9vw,140px)] leading-[0.88] tracking-[0.02em] text-foreground mb-12">
-              Start a<br /><span className="text-accent-gradient">project.</span>
+            <h2 className="font-display text-[clamp(64px,10vw,180px)] leading-[0.88] tracking-[0.01em] text-foreground mb-12">
+              START A<br /><span className="text-accent-gradient">PROJECT.</span>
             </h2>
             <div className="flex gap-10 justify-center items-center flex-wrap">
               <button
                 onClick={() => setDialogOpen(true)}
-                className="font-mono text-[10px] tracking-[0.15em] uppercase text-foreground border-b border-foreground/30 pb-1 hover:border-foreground transition-all duration-500"
+                className="font-mono text-[11px] tracking-[0.12em] uppercase text-background bg-foreground px-8 py-3 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300"
               >
                 Start a Project
               </button>
               <Link
                 to="/contact"
-                className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground/35 hover:text-foreground transition-colors duration-500"
+                className="font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-300"
               >
                 Contact
               </Link>
             </div>
-            <a href="mailto:hello@orions.agency" className="inline-block mt-16 font-mono text-[10px] tracking-[0.1em] text-muted-foreground/20 hover:text-muted-foreground/50 transition-colors duration-500">
-              hello@orions.agency
-            </a>
           </AnimatedSection>
         </div>
       </section>

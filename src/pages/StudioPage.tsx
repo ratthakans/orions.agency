@@ -25,11 +25,11 @@ const StudioPage = () => {
         <section className="py-32 md:py-48 px-6 md:px-12">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
-              <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground/40 mb-10">Studio</p>
-              <h1 className="font-display text-[clamp(48px,6.5vw,110px)] leading-[0.9] tracking-[0.02em] text-foreground mb-10 max-w-3xl">
-                Original<br /><span className="text-accent-gradient">content.</span>
+              <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">Studio</p>
+              <h1 className="font-display text-[clamp(52px,7vw,120px)] leading-[0.9] tracking-[0.01em] text-foreground mb-10 max-w-4xl">
+                ORIGINAL<br /><span className="text-accent-gradient">CONTENT.</span>
               </h1>
-              <p className="font-body text-[15px] leading-[1.8] text-muted-foreground/50 max-w-lg">
+              <p className="font-body text-[16px] leading-[1.7] text-muted-foreground max-w-lg">
                 {t("Beyond client work, we create original content that shows our taste, capability, and point of view.", "นอกเหนือจากงานลูกค้า เราสร้างผลงานต้นฉบับที่แสดงรสนิยมและความสามารถ")}
               </p>
             </AnimatedSection>
@@ -40,20 +40,20 @@ const StudioPage = () => {
           <div className="max-w-7xl mx-auto">
             {studioProjects.map((p, i) => (
               <AnimatedSection key={p.num} delay={i * 0.04}>
-                <div className="border-t border-divider/40 py-24 md:py-28">
-                  <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-12 lg:gap-24 items-start">
+                <div className="border-t border-border py-24 md:py-28">
+                  <div className="grid grid-cols-1 lg:grid-cols-[240px_1fr] gap-12 lg:gap-24 items-start">
                     <div>
                       <div className="flex items-baseline gap-5 mb-5">
-                        <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/15">{p.num}</span>
-                        <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/25">{p.type}</span>
+                        <span className="font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground/40">{p.num}</span>
+                        <span className="font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground">{p.type}</span>
                       </div>
-                      <h2 className="font-display text-[clamp(36px,4.5vw,64px)] leading-[0.9] tracking-[0.02em] text-foreground">{p.title}</h2>
+                      <h2 className="font-display text-[clamp(40px,5vw,72px)] leading-[0.9] tracking-[0.01em] text-foreground">{p.title}</h2>
                     </div>
                     <div className="space-y-10">
-                      <p className="font-body text-[15px] leading-[1.8] text-muted-foreground/50 max-w-xl">{p.desc[lang]}</p>
+                      <p className="font-body text-[16px] leading-[1.7] text-foreground/70 max-w-xl">{p.desc[lang]}</p>
                       <div>
-                        <h4 className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground/20 mb-4">Purpose</h4>
-                        <p className="font-body text-[14px] leading-[1.8] text-muted-foreground/30">{p.purpose[lang]}</p>
+                        <h4 className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4">Purpose</h4>
+                        <p className="font-body text-[15px] leading-[1.7] text-muted-foreground">{p.purpose[lang]}</p>
                       </div>
                     </div>
                   </div>

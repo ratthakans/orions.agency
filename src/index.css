@@ -6,58 +6,58 @@
 
 @layer base {
   :root {
-    --background: 0 0% 4%;
-    --foreground: 0 0% 82%;
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
 
-    --card: 0 0% 6%;
-    --card-foreground: 0 0% 82%;
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 0 0% 6%;
-    --popover-foreground: 0 0% 82%;
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 0 0% 82%;
-    --primary-foreground: 0 0% 4%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
 
     --secondary: 0 0% 8%;
-    --secondary-foreground: 0 0% 85%;
+    --secondary-foreground: 0 0% 90%;
 
-    --muted: 0 0% 10%;
-    --muted-foreground: 0 0% 42%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 55%;
 
     --accent: 0 0% 10%;
-    --accent-foreground: 0 0% 85%;
+    --accent-foreground: 0 0% 90%;
 
-    --accent-warm: 36 30% 48%;
-    --accent-warm-end: 36 30% 48%;
-    --accent-warm-foreground: 0 0% 100%;
-    --accent-violet: 36 30% 48%;
-    --accent-blue: 36 30% 48%;
-    --accent-rose: 36 30% 48%;
-    --accent-amber: 36 30% 48%;
+    --accent-warm: 50 100% 50%;
+    --accent-warm-end: 45 100% 55%;
+    --accent-warm-foreground: 0 0% 0%;
+    --accent-violet: 50 100% 50%;
+    --accent-blue: 50 100% 50%;
+    --accent-rose: 50 100% 50%;
+    --accent-amber: 50 100% 50%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 10%;
-    --input: 0 0% 10%;
-    --ring: 0 0% 30%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 0 0% 40%;
 
     --radius: 0px;
 
-    --sidebar-background: 0 0% 3%;
-    --sidebar-foreground: 0 0% 85%;
-    --sidebar-primary: 0 0% 82%;
-    --sidebar-primary-foreground: 0 0% 4%;
+    --sidebar-background: 0 0% 2%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 0 0% 0%;
     --sidebar-accent: 0 0% 8%;
-    --sidebar-accent-foreground: 0 0% 85%;
-    --sidebar-border: 0 0% 10%;
-    --sidebar-ring: 0 0% 30%;
+    --sidebar-accent-foreground: 0 0% 90%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 0 0% 40%;
 
-    --surface-elevated: 0 0% 3%;
-    --text-secondary: 0 0% 38%;
-    --text-tertiary: 0 0% 24%;
-    --divider: 0 0% 11%;
-    --status-available: 36 30% 48%;
+    --surface-elevated: 0 0% 4%;
+    --text-secondary: 0 0% 55%;
+    --text-tertiary: 0 0% 35%;
+    --divider: 0 0% 18%;
+    --status-available: 50 100% 50%;
   }
 }
 
@@ -69,8 +69,8 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'IBM Plex Sans', sans-serif;
-    font-size: 15px;
-    line-height: 1.7;
+    font-size: 16px;
+    line-height: 1.6;
     letter-spacing: 0.01em;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
@@ -118,21 +118,6 @@
   .divider {
     border-color: hsl(var(--divider));
   }
-
-  .text-stroke {
-    -webkit-text-stroke: 1.5px hsl(var(--foreground));
-    color: transparent;
-  }
-
-  .text-stroke-lg {
-    -webkit-text-stroke: 2px hsl(var(--foreground));
-    color: transparent;
-  }
-
-  .text-stroke-dim {
-    -webkit-text-stroke: 1px rgba(255,255,255,0.04);
-    color: transparent;
-  }
 }
 
 html {
@@ -146,51 +131,39 @@ html {
 }
 
 .animate-marquee {
-  animation: marquee 30s linear infinite;
+  animation: marquee 25s linear infinite;
 }
 
 .animate-marquee-slow {
-  animation: marquee 45s linear infinite;
+  animation: marquee 40s linear infinite;
+}
+
+/* Accent text — bright yellow */
+.text-accent-gradient {
+  color: hsl(50 100% 50%);
+}
+
+.bg-accent-gradient {
+  background: hsl(50 100% 50%);
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 2px;
+  width: 3px;
 }
 ::-webkit-scrollbar-track {
-  background: hsl(0 0% 4%);
+  background: hsl(0 0% 0%);
 }
 ::-webkit-scrollbar-thumb {
-  background: hsl(0 0% 15%);
+  background: hsl(0 0% 20%);
 }
 
 ::selection {
-  background: hsl(0 0% 25% / 0.4);
-  color: hsl(0 0% 92%);
+  background: hsl(50 100% 50% / 0.3);
+  color: hsl(0 0% 100%);
 }
 
-.text-accent-gradient {
-  color: hsl(36 25% 52%);
-}
-
-.bg-accent-gradient {
-  background: hsl(36 25% 46%);
-}
-
-.glow-border {
-  border-color: hsl(0 0% 20% / 0.3);
-}
-
-@keyframes twinkle {
-  0%, 100% { opacity: 0.15; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(1.05); }
-}
-
-.animate-twinkle {
-  animation: twinkle 5s ease-in-out infinite;
-}
-
-/* Film grain */
+/* Grain overlay — very subtle */
 .grain-overlay::before {
   content: '';
   position: fixed;
@@ -202,7 +175,7 @@ html {
   height: 200%;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.02;
+  opacity: 0.015;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 256px 256px;
@@ -218,5 +191,5 @@ html {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, hsl(0 0% 14%), transparent);
+  background: linear-gradient(90deg, transparent, hsl(0 0% 18%), transparent);
 }

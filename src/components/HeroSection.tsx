@@ -10,28 +10,31 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => {
   const { t } = useLanguage();
 
   return (
-    <section className="min-h-screen flex items-end px-6 md:px-12 pb-20 md:pb-28 relative overflow-hidden">
+    <section className="min-h-screen flex items-end px-6 md:px-12 pb-24 md:pb-32 relative overflow-hidden">
       <div className="max-w-7xl mx-auto w-full relative z-10">
-        <div className="max-w-5xl">
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.2, delay: 0.3 }} className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground/40 mb-10">
-            Creative Agency · Bangkok
-          </motion.div>
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, delay: 0.4 }} className="font-display text-[clamp(52px,7.5vw,130px)] leading-[0.88] tracking-[0.02em] text-foreground mb-10">
-            Creative Agency for<br />brands that need<br /><span className="text-accent-gradient">stronger stories.</span>
+        <div className="max-w-6xl">
+          <motion.h1
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="font-display text-[clamp(56px,9vw,160px)] leading-[0.9] tracking-[0.01em] text-foreground mb-16"
+          >
+            A CREATIVE AGENCY<br />
+            FOR BRANDS THAT NEED<br />
+            <span className="text-accent-gradient">STRONGER STORIES.</span>
           </motion.h1>
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.7 }} className="font-body text-[15px] text-muted-foreground/50 max-w-[440px] leading-[1.8] mb-14">
-            {t(
-              "We help brands develop narratives, campaigns, and films with clarity and impact.",
-              "เราช่วยแบรนด์พัฒนา narrative, campaign และ film ด้วยความชัดเจนและ impact"
-            )}
-          </motion.p>
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.9 }} className="flex flex-wrap gap-8 items-center">
-            <Link to="/work" className="font-mono text-[10px] tracking-[0.15em] uppercase text-foreground border-b border-foreground/30 pb-1 hover:border-foreground transition-all duration-500">
-              View Work
-            </Link>
-            <button onClick={onStartProject} className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground/40 hover:text-foreground transition-colors duration-500">
-              Start a Project
-            </button>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="flex justify-end max-w-6xl"
+          >
+            <p className="font-body text-[16px] text-muted-foreground max-w-[400px] leading-[1.7]">
+              {t(
+                "We help brands develop narratives, campaigns, and films with clarity and impact.",
+                "เราช่วยแบรนด์พัฒนา narrative, campaign และ film ด้วยความชัดเจนและ impact"
+              )}
+            </p>
           </motion.div>
         </div>
       </div>

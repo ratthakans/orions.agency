@@ -31,9 +31,9 @@ const IndustriesPage = () => {
         <section className="py-32 md:py-48 px-6 md:px-12">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
-              <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground/40 mb-10">Industries</p>
-              <h1 className="font-display text-[clamp(48px,6.5vw,110px)] leading-[0.9] tracking-[0.02em] text-foreground mb-10 max-w-3xl">
-                Every industry<br />has a <span className="text-accent-gradient">story.</span>
+              <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">Industries</p>
+              <h1 className="font-display text-[clamp(52px,7vw,120px)] leading-[0.9] tracking-[0.01em] text-foreground mb-10 max-w-4xl">
+                EVERY INDUSTRY<br />HAS A <span className="text-accent-gradient">STORY.</span>
               </h1>
             </AnimatedSection>
           </div>
@@ -45,19 +45,19 @@ const IndustriesPage = () => {
           <div className="max-w-7xl mx-auto">
             {industries.map((ind, i) => (
               <AnimatedSection key={ind.title} delay={i * 0.03}>
-                <div className="border-t border-divider/40 py-16 md:py-20">
-                  <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr_1fr] gap-8 lg:gap-20 items-start">
+                <div className="border-t border-border py-16 md:py-20">
+                  <div className="grid grid-cols-1 lg:grid-cols-[240px_1fr_1fr] gap-8 lg:gap-20 items-start">
                     <div>
-                      <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/15 block mb-4">{String(i + 1).padStart(2, "0")}</span>
-                      <h2 className="font-display text-[28px] leading-[0.95] tracking-[0.02em] text-foreground">{ind.title}</h2>
+                      <span className="font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground/40 block mb-4">{String(i + 1).padStart(2, "0")}</span>
+                      <h2 className="font-display text-[32px] leading-[0.95] tracking-[0.01em] text-foreground">{ind.title}</h2>
                     </div>
                     <div>
-                      <h4 className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground/20 mb-4">{t("What they need", "สิ่งที่ต้องการ")}</h4>
-                      <p className="font-body text-[14px] leading-[1.8] text-muted-foreground/45">{ind.need[lang]}</p>
+                      <h4 className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4">{t("What they need", "สิ่งที่ต้องการ")}</h4>
+                      <p className="font-body text-[15px] leading-[1.7] text-foreground/70">{ind.need[lang]}</p>
                     </div>
                     <div>
-                      <h4 className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground/20 mb-4">{t("How we help", "เราช่วยอย่างไร")}</h4>
-                      <p className="font-body text-[14px] leading-[1.8] text-muted-foreground/45">{ind.help[lang]}</p>
+                      <h4 className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4">{t("How we help", "เราช่วยอย่างไร")}</h4>
+                      <p className="font-body text-[15px] leading-[1.7] text-foreground/70">{ind.help[lang]}</p>
                     </div>
                   </div>
                 </div>

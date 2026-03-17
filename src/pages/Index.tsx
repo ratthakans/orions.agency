@@ -163,7 +163,7 @@ const Index = () => {
         </div>
       </section>
 
-      <Marquee items={["Think", "Develop", "Produce", "Launch", "Scale"]} speed="slow" />
+      <Marquee items={["Content Systems", "Creative & Campaign", "Film & Production", "Brand Development"]} speed="slow" />
 
       {/* Selected Work */}
       <section className="py-24 md:py-40 px-6 md:px-12">

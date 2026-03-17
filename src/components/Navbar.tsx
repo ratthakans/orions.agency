@@ -44,6 +44,11 @@ const Navbar = () => {
         transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
         className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-xl border-b border-border/50"
       >
+        {/* Scroll progress bar */}
+        <motion.div
+          style={{ scaleX: smoothProgress }}
+          className="absolute bottom-0 left-0 right-0 h-[2px] bg-accent-warm origin-left z-10"
+        />
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-[60px]">
           <Link to="/" className="flex items-center">
             <span className="font-logo text-[13px] font-medium tracking-[0.08em] text-foreground uppercase">ØRIONS</span>

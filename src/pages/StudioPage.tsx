@@ -3,6 +3,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 import { useLanguage } from "@/contexts/LanguageContext";
+import studioDialogue from "@/assets/studio-dialogue.jpg";
+import studioNosignal from "@/assets/studio-nosignal.jpg";
+import studioLookyourbest from "@/assets/studio-lookyourbest.jpg";
 
 const studioProjects = [
   {
@@ -10,6 +13,7 @@ const studioProjects = [
     title: "ORIONS Dialogue",
     type: "Podcast",
     status: "In Production",
+    image: studioDialogue,
     desc: {
       en: "Long-form conversations with creative leaders and thinkers who shape culture. Honest dialogue about craft, purpose, and the creative process.",
       th: "บทสนทนายาวกับผู้นำด้านครีเอทีฟและนักคิดที่หล่อหลอมวัฒนธรรม",
@@ -25,6 +29,7 @@ const studioProjects = [
     title: "No Signal",
     type: "Survival Documentary",
     status: "Pre-production",
+    image: studioNosignal,
     desc: {
       en: "A documentary series following people who choose to live off the grid. Raw, cinematic, and deeply human.",
       th: "ซีรีส์สารคดีตามคนที่เลือกใช้ชีวิตนอกสังคม ดิบ มีความเป็นภาพยนตร์ และเป็นมนุษย์อย่างลึกซึ้ง",
@@ -40,6 +45,7 @@ const studioProjects = [
     title: "Look Your Best",
     type: "Beauty Show",
     status: "Concept",
+    image: studioLookyourbest,
     desc: {
       en: "A beauty and self-expression series that goes beyond makeup. Personal stories, confidence, transformation.",
       th: "ซีรีส์ความงามและการแสดงออกที่ไปไกลกว่าเครื่องสำอาง เรื่องราวส่วนตัว ความมั่นใจ การเปลี่ยนแปลง",
@@ -81,47 +87,60 @@ const StudioPage = () => {
           </div>
         </section>
 
-        {/* Cards grid — immediate access */}
+        {/* Cards with images */}
         <section className="px-6 md:px-12 py-12 md:py-20 pb-32 md:pb-48">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
               {studioProjects.map((p, i) => (
                 <AnimatedSection key={p.num} delay={i * 0.08}>
-                  <div className="group relative border border-border p-8 md:p-10 hover:border-accent-warm/30 transition-all duration-500 h-full flex flex-col">
-                    <div className="absolute top-3 left-3 w-4 h-4 border-t border-l border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500" />
-                    <div className="absolute top-3 right-3 w-4 h-4 border-t border-r border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500" />
-                    <div className="absolute bottom-3 left-3 w-4 h-4 border-b border-l border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500" />
-                    <div className="absolute bottom-3 right-3 w-4 h-4 border-b border-r border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500" />
+                  <div className="group relative border border-border hover:border-accent-warm/30 transition-all duration-500 h-full flex flex-col overflow-hidden">
+                    <div className="absolute top-3 left-3 w-4 h-4 border-t border-l border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500 z-10" />
+                    <div className="absolute top-3 right-3 w-4 h-4 border-t border-r border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500 z-10" />
+                    <div className="absolute bottom-3 left-3 w-4 h-4 border-b border-l border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500 z-10" />
+                    <div className="absolute bottom-3 right-3 w-4 h-4 border-b border-r border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500 z-10" />
 
-                    {/* Header */}
-                    <div className="flex items-center justify-between mb-6">
-                      <span className="font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground/40">{p.num}</span>
-                      <span className="font-mono text-[10px] tracking-[0.1em] uppercase text-accent-warm/70 border border-accent-warm/20 px-3 py-1">
-                        {p.status}
-                      </span>
+                    {/* Image */}
+                    <div className="relative aspect-[16/10] overflow-hidden">
+                      <img
+                        src={p.image}
+                        alt={p.title}
+                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-[1.05] transition-all duration-700"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+                      <div className="absolute top-4 right-4">
+                        <span className="font-mono text-[10px] tracking-[0.1em] uppercase text-accent-warm/90 bg-background/80 backdrop-blur-sm border border-accent-warm/20 px-3 py-1">
+                          {p.status}
+                        </span>
+                      </div>
                     </div>
 
-                    {/* Title & type */}
-                    <h2 className="font-display text-[clamp(32px,4vw,48px)] leading-[0.9] tracking-[0.01em] text-foreground mb-2 group-hover:text-accent-warm transition-colors duration-500">
-                      {p.title}
-                    </h2>
-                    <p className="font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground mb-6">{p.type}</p>
+                    {/* Content */}
+                    <div className="p-8 md:p-8 flex flex-col flex-1">
+                      <div className="flex items-center gap-4 mb-4">
+                        <span className="font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground/40">{p.num}</span>
+                        <span className="font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground">{p.type}</span>
+                      </div>
 
-                    {/* Description */}
-                    <p className="font-body text-[14px] leading-[1.7] text-foreground/70 mb-8 flex-1">
-                      {p.desc[lang]}
-                    </p>
+                      <h2 className="font-display text-[clamp(28px,3.5vw,40px)] leading-[0.9] tracking-[0.01em] text-foreground mb-4 group-hover:text-accent-warm transition-colors duration-500">
+                        {p.title}
+                      </h2>
 
-                    {/* Format */}
-                    <div className="mb-6">
-                      <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/50 mb-2">Format</h4>
-                      <p className="font-mono text-[12px] leading-[1.6] text-foreground/60">{p.format[lang]}</p>
-                    </div>
+                      <p className="font-body text-[14px] leading-[1.7] text-foreground/70 mb-6 flex-1">
+                        {p.desc[lang]}
+                      </p>
 
-                    {/* Purpose */}
-                    <div className="border-t border-border/50 pt-6">
-                      <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/50 mb-2">Purpose</h4>
-                      <p className="font-body text-[13px] leading-[1.7] text-muted-foreground">{p.purpose[lang]}</p>
+                      {/* Format */}
+                      <div className="mb-5">
+                        <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/50 mb-1.5">Format</h4>
+                        <p className="font-mono text-[11px] leading-[1.6] text-foreground/60">{p.format[lang]}</p>
+                      </div>
+
+                      {/* Purpose */}
+                      <div className="border-t border-border/50 pt-5">
+                        <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/50 mb-1.5">Purpose</h4>
+                        <p className="font-body text-[13px] leading-[1.7] text-muted-foreground">{p.purpose[lang]}</p>
+                      </div>
                     </div>
                   </div>
                 </AnimatedSection>

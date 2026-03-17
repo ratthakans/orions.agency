@@ -243,8 +243,8 @@ const CareerPage = () => {
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="py-24 md:py-32 px-6 md:px-12">
+        {/* CTA — same bottom spacing as Services industries */}
+        <section className="px-6 md:px-12 py-20 md:py-32 pb-32 md:pb-48">
           <div className="max-w-7xl mx-auto text-center">
             <AnimatedSection>
               <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">

@@ -52,7 +52,7 @@ const StartProjectDialog = ({ open, onOpenChange }: StartProjectDialogProps) => 
                 <input type="text" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className={inputClass} placeholder={t("Your full name", "ชื่อ-นามสกุล") as string} required />
               </div>
               <div>
-                <label className="font-mono text-[9px] tracking-[0.3em] uppercase text-muted-foreground/50 mb-3 block">Email *</label>
+                <label className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4 block">Email *</label>
                 <input type="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className={inputClass} placeholder="your@email.com" required />
               </div>
               <div>

@@ -106,8 +106,8 @@ const CareerPage = () => {
       </Helmet>
       <Navbar />
       <div className="pt-20">
-        {/* Inline header + positions — no big hero */}
-        <section className="pt-12 md:pt-20 px-6 md:px-12">
+        {/* Compact hero — same spacing as Services */}
+        <section className="pt-16 md:pt-24 px-6 md:px-12">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
               <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 md:mb-16">
@@ -243,8 +243,8 @@ const CareerPage = () => {
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="py-24 md:py-32 px-6 md:px-12">
+        {/* CTA — same bottom spacing as Services industries */}
+        <section className="px-6 md:px-12 py-20 md:py-32 pb-32 md:pb-48">
           <div className="max-w-7xl mx-auto text-center">
             <AnimatedSection>
               <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">

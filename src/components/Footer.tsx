@@ -10,26 +10,25 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-[1.6fr_1fr_1fr_1fr] gap-12 md:gap-16 pb-20 border-b border-border mb-10">
           <div>
             <p className="font-logo font-medium text-[13px] tracking-[0.08em] text-foreground uppercase mb-5">ØRIONS</p>
-            <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-[240px] mb-8">
-              {t("Creative agency for brands that need stronger stories.", "Creative agency สำหรับแบรนด์ที่ต้องการเรื่องราวที่แข็งแกร่ง")}
+            <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-[320px] mb-8">
+              {t("Creative agency in Bangkok for brands that need stronger stories, sharper campaigns, and meaningful production.", "Creative agency ในกรุงเทพฯ สำหรับแบรนด์ที่ต้องการเรื่องราวที่แข็งแกร่ง แคมเปญที่คมขึ้น และงาน production ที่มีความหมาย")}
             </p>
-            <div className="space-y-2.5">
+            <div className="space-y-2.5 mb-8">
               <a href="mailto:hello@orions.agency" className="font-mono text-[11px] tracking-[0.1em] text-muted-foreground block hover:text-foreground transition-colors duration-300">hello@orions.agency</a>
               <a href="tel:+66923905464" className="font-mono text-[11px] tracking-[0.1em] text-muted-foreground block hover:text-foreground transition-colors duration-300">+66 92 390 5464</a>
             </div>
+            <p className="font-mono text-[11px] tracking-[0.1em] text-muted-foreground/50">
+              246/8 Soi Yothinpattana, Khlong Chan, Bang Kapi, Bangkok 10240
+            </p>
           </div>
 
           <div>
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-7">Services</p>
             <div className="flex flex-col gap-3.5">
-              {[
-                { label: "Content Systems", path: "/services" },
-                { label: "Creative & Campaign", path: "/services" },
-                { label: "Film & Production", path: "/services" },
-                { label: "Brand Development", path: "/services" },
-              ].map((item) => (
-                <Link key={item.label} to={item.path} className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">{item.label}</Link>
-              ))}
+              <Link to="/services" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Content Systems</Link>
+              <Link to="/services" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Creative & Campaign</Link>
+              <Link to="/services" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Film & Production</Link>
+              <Link to="/services" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Brand Development</Link>
             </div>
           </div>
 
@@ -38,9 +37,10 @@ const Footer = () => {
             <div className="flex flex-col gap-3.5">
               <Link to="/about" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">About</Link>
               <Link to="/work" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Work</Link>
-              
+              <Link to="/industries" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Industries</Link>
               <Link to="/studio" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Studio</Link>
               <Link to="/career" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Career</Link>
+              <Link to="/contact" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Contact</Link>
             </div>
           </div>
 
@@ -59,7 +59,7 @@ const Footer = () => {
             © {new Date().getFullYear()} ØRIONS
           </p>
           <p className="font-mono text-[11px] tracking-[0.1em] text-muted-foreground/50">
-            Bangkok, Thailand
+            Bangkok, Thailand · Serving Southeast Asia
           </p>
         </div>
       </div>

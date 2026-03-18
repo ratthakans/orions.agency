@@ -1,9 +1,45 @@
 import { useState } from "react";
-import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
+import SEO from "@/components/SEO";
 import { useLanguage } from "@/contexts/LanguageContext";
+
+const contactSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://orions.agency/" },
+        { "@type": "ListItem", position: 2, name: "Contact", item: "https://orions.agency/contact" },
+      ],
+    },
+    {
+      "@type": "ProfessionalService",
+      name: "ØRIONS",
+      url: "https://orions.agency/contact",
+      telephone: "+66-92-390-5464",
+      email: "hello@orions.agency",
+      areaServed: ["Bangkok", "Thailand", "Southeast Asia"],
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "246/8 Soi Yothinpattana",
+        addressLocality: "Khlong Chan, Bang Kapi",
+        addressRegion: "Bangkok",
+        postalCode: "10240",
+        addressCountry: "TH",
+      },
+      openingHoursSpecification: {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "10:00",
+        closes: "19:00",
+      },
+    },
+  ],
+};
 
 const ContactPage = () => {
   const { t } = useLanguage();
@@ -22,35 +58,35 @@ const ContactPage = () => {
 
   return (
     <main className="bg-background min-h-screen grain-overlay">
-      <Helmet>
-        <title>Contact — ØRIONS Creative Agency</title>
-        <meta name="description" content="Start a project with ORIONS. Tell us about your brand." />
-        <link rel="canonical" href="https://orions.agency/contact" />
-      </Helmet>
+      <SEO
+        title="Contact ØRIONS | Creative Agency Bangkok"
+        description="Contact ØRIONS in Bangkok to start a branding, campaign, content, or film production project. Share your brief and get a response within 24 hours."
+        path="/contact"
+        keywords="contact creative agency Bangkok, start project production house Thailand, branding agency Bangkok contact"
+        schema={contactSchema}
+      />
       <Navbar />
       <div className="pt-20">
-        {/* Compact hero — same spacing as Services */}
         <section className="pt-16 md:pt-24 pb-8 md:pb-12 px-6 md:px-12">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
               <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
                 <span className="text-accent-warm mr-2">✦</span> Contact
               </p>
-              <h1 className="font-display text-[clamp(44px,6vw,96px)] leading-[0.9] tracking-[0.01em] text-foreground mb-6 max-w-4xl">
-                START A <span className="text-accent-gradient">PROJECT.</span>
+              <h1 className="font-display text-[clamp(44px,6vw,96px)] leading-[0.9] tracking-[0.01em] text-foreground mb-6 max-w-5xl">
+                START A PROJECT
+                <br />WITH <span className="text-accent-gradient">ØRIONS.</span>
               </h1>
-              <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-lg">
-                {t("Tell us about your brand. We'll get back to you within 24 hours.", "เล่าให้เราฟังเกี่ยวกับแบรนด์ เราจะติดต่อกลับภายใน 24 ชั่วโมง")}
+              <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-2xl">
+                {t("Tell us about your brand, campaign, film, or content need. Our Bangkok team will get back to you within 24 hours.", "เล่าให้เราฟังเกี่ยวกับแบรนด์ แคมเปญ ภาพยนตร์ หรือ content ที่คุณต้องการ แล้วทีมกรุงเทพฯ ของเราจะติดต่อกลับภายใน 24 ชั่วโมง")}
               </p>
             </AnimatedSection>
           </div>
         </section>
 
-        {/* Two-column layout: form + info */}
-        <section className="px-6 md:px-12 py-8 md:py-12 pb-32 md:pb-48">
+        <section className="px-6 md:px-12 py-8 md:py-12 pb-20">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-16 lg:gap-24">
-              {/* Form */}
               <AnimatedSection delay={0.04}>
                 <div className="group relative border border-border p-8 md:p-12 hover:border-accent-warm/30 transition-all duration-500">
                   <div className="absolute top-3 left-3 w-4 h-4 border-t border-l border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500" />
@@ -130,7 +166,6 @@ const ContactPage = () => {
                 </div>
               </AnimatedSection>
 
-              {/* Info sidebar */}
               <AnimatedSection delay={0.12}>
                 <div className="space-y-10 lg:pt-4">
                   <div>
@@ -151,10 +186,21 @@ const ContactPage = () => {
 
                   <div className="border-t border-border pt-8">
                     <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/50 mb-3">{t("Office", "สำนักงาน")}</p>
-                    <p className="font-body text-[14px] text-foreground/60 leading-[1.7]">
+                    <p className="font-body text-[14px] text-foreground/60 leading-[1.7] mb-4">
                       246/8 Soi Yothinpattana,<br />
                       Khlong Chan, Bang Kapi,<br />
                       Bangkok 10240
+                    </p>
+                    <a href="https://maps.google.com/?q=246/8+Soi+Yothinpattana+Bangkok+10240" target="_blank" rel="noopener noreferrer" className="font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300">
+                      Open map →
+                    </a>
+                  </div>
+
+                  <div className="border-t border-border pt-8">
+                    <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/50 mb-3">{t("Business Hours", "เวลาทำการ")}</p>
+                    <p className="font-body text-[13px] text-foreground/50 leading-[1.7]">
+                      Monday – Friday<br />
+                      10:00 – 19:00
                     </p>
                   </div>
 
@@ -168,12 +214,16 @@ const ContactPage = () => {
 
                   <div className="border-t border-border pt-8">
                     <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/50 mb-4">{t("Services", "บริการ")}</p>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2 mb-6">
                       {["Content", "Think", "Produce", "Develop"].map((s) => (
                         <span key={s} className="font-mono text-[10px] tracking-[0.1em] uppercase text-muted-foreground/50 border border-border/50 px-3 py-1.5">
                           {s}
                         </span>
                       ))}
+                    </div>
+                    <div className="flex flex-col gap-3">
+                      <Link to="/services" className="font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300">Explore services →</Link>
+                      <Link to="/work" className="font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300">See selected work →</Link>
                     </div>
                   </div>
                 </div>

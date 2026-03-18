@@ -6,8 +6,13 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://orions.agency/services</loc>
+    <loc>https://orions.agency/about</loc>
     <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://orions.agency/services</loc>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
@@ -16,12 +21,17 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://orions.agency/about</loc>
+    <loc>https://orions.agency/industries</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://orions.agency/careers</loc>
+    <loc>https://orions.agency/studio</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://orions.agency/career</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

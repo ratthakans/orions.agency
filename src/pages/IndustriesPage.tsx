@@ -1,7 +1,8 @@
-import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
+import SEO from "@/components/SEO";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const industries = [
@@ -15,32 +16,56 @@ const industries = [
   { title: "Government", need: { en: "Government organizations need to communicate with clarity and public trust.", th: "องค์กรภาครัฐต้องสื่อสารด้วยความชัดเจนและสร้างความไว้วางใจ" }, help: { en: "We create documentary content and public campaigns.", th: "เราสร้าง documentary content และ public campaign" } },
 ];
 
+const industriesSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://orions.agency/" },
+        { "@type": "ListItem", position: 2, name: "Industries", item: "https://orions.agency/industries" },
+      ],
+    },
+    {
+      "@type": "CollectionPage",
+      name: "Industries ØRIONS Works With",
+      url: "https://orions.agency/industries",
+      description: "Industries served by ØRIONS across Bangkok, Thailand, and Southeast Asia.",
+    },
+  ],
+};
+
 const IndustriesPage = () => {
   const { lang, t } = useLanguage();
 
   return (
     <main className="bg-background min-h-screen grain-overlay">
-      <Helmet>
-        <title>Industries — ØRIONS Creative Agency</title>
-        <meta name="description" content="ORIONS works with brands across hospitality, lifestyle, beauty, real estate, startups, automotive, and government." />
-        <link rel="canonical" href="https://orions.agency/industries" />
-      </Helmet>
+      <SEO
+        title="Industries | ØRIONS Creative Agency Bangkok"
+        description="ØRIONS works with hospitality, lifestyle, beauty, real estate, startups, automotive, and public-sector brands across Bangkok, Thailand, and Southeast Asia."
+        path="/industries"
+        keywords="creative agency hospitality Bangkok, real estate marketing Thailand, automotive campaign production Bangkok"
+        schema={industriesSchema}
+      />
       <Navbar />
       <div className="pt-20">
-        <section className="py-32 md:py-48 px-6 md:px-12">
+        <section className="py-32 md:py-40 px-6 md:px-12">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
               <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">
                 <span className="text-accent-warm mr-2">⬡</span> Industries
               </p>
-              <h1 className="font-display text-[clamp(52px,7vw,120px)] leading-[0.9] tracking-[0.01em] text-foreground mb-10 max-w-4xl">
+              <h1 className="font-display text-[clamp(52px,7vw,120px)] leading-[0.9] tracking-[0.01em] text-foreground mb-8 max-w-5xl">
                 EVERY INDUSTRY<br />HAS A <span className="text-accent-gradient">STORY.</span>
               </h1>
+              <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-2xl">
+                {t("We work with brands in Bangkok, across Thailand, and throughout Southeast Asia that need stronger positioning, sharper campaigns, and more meaningful production.", "เราทำงานกับแบรนด์ในกรุงเทพฯ ทั่วไทย และทั่วเอเชียตะวันออกเฉียงใต้ ที่ต้องการ positioning ที่ชัดขึ้น แคมเปญที่คมขึ้น และงานผลิตที่มีความหมายมากขึ้น")}
+              </p>
             </AnimatedSection>
           </div>
         </section>
 
-        <section className="px-6 md:px-12 py-20 pb-32 md:pb-48">
+        <section className="px-6 md:px-12 py-20 pb-20">
           <div className="max-w-7xl mx-auto">
             {industries.map((ind, i) => (
               <AnimatedSection key={ind.title} delay={i * 0.03}>
@@ -51,17 +76,39 @@ const IndustriesPage = () => {
                       <h2 className="font-display text-[32px] leading-[0.95] tracking-[0.01em] text-foreground group-hover:text-accent-warm transition-colors duration-500">{ind.title}</h2>
                     </div>
                     <div>
-                      <h4 className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4">{t("What they need", "สิ่งที่ต้องการ")}</h4>
+                      <h3 className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4">{t("What they need", "สิ่งที่ต้องการ")}</h3>
                       <p className="font-body text-[15px] leading-[1.7] text-foreground/70">{ind.need[lang]}</p>
                     </div>
                     <div>
-                      <h4 className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4">{t("How we help", "เราช่วยอย่างไร")}</h4>
+                      <h3 className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4">{t("How we help", "เราช่วยอย่างไร")}</h3>
                       <p className="font-body text-[15px] leading-[1.7] text-foreground/70">{ind.help[lang]}</p>
                     </div>
                   </div>
                 </div>
               </AnimatedSection>
             ))}
+          </div>
+        </section>
+
+        <section className="px-6 md:px-12 py-20 md:py-32 pb-32 md:pb-48">
+          <div className="max-w-7xl mx-auto text-center">
+            <AnimatedSection>
+              <h2 className="font-display text-[clamp(36px,5vw,72px)] leading-[0.92] tracking-[0.01em] text-foreground mb-6">
+                NEED A PARTNER WHO
+                <br />UNDERSTANDS YOUR MARKET?
+              </h2>
+              <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-xl mx-auto mb-10">
+                {t("Tell us your category, audience, and commercial goal, and we'll recommend the best service mix for your brand.", "บอกหมวดธุรกิจ กลุ่มเป้าหมาย และเป้าหมายทางธุรกิจของคุณ แล้วเราจะแนะนำ service mix ที่เหมาะที่สุด")}
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-8">
+                <Link to="/services" className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-background bg-foreground px-8 py-3 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300">
+                  Explore Services <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                </Link>
+                <Link to="/contact" className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300">
+                  Start a Conversation <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                </Link>
+              </div>
+            </AnimatedSection>
           </div>
         </section>
       </div>

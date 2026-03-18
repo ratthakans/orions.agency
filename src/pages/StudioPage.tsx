@@ -1,7 +1,8 @@
-import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
+import SEO from "@/components/SEO";
 import { useLanguage } from "@/contexts/LanguageContext";
 import studioDialogue from "@/assets/studio-dialogue.jpg";
 import studioNosignal from "@/assets/studio-nosignal.jpg";
@@ -58,19 +59,39 @@ const studioProjects = [
   },
 ];
 
+const studioSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://orions.agency/" },
+        { "@type": "ListItem", position: 2, name: "Studio", item: "https://orions.agency/studio" },
+      ],
+    },
+    {
+      "@type": "CollectionPage",
+      name: "ØRIONS Studio",
+      url: "https://orions.agency/studio",
+      description: "Original content and studio concepts produced by ØRIONS in Bangkok.",
+    },
+  ],
+};
+
 const StudioPage = () => {
   const { lang, t } = useLanguage();
 
   return (
     <main className="bg-background min-h-screen grain-overlay">
-      <Helmet>
-        <title>Studio — ØRIONS Original Content</title>
-        <meta name="description" content="ORIONS Studio: original content — ORIONS Dialogue, No Signal, Look Your Best." />
-        <link rel="canonical" href="https://orions.agency/studio" />
-      </Helmet>
+      <SEO
+        title="Studio | Original Content Production by ØRIONS"
+        description="Explore ØRIONS Studio, where our Bangkok team develops original podcasts, documentary concepts, and branded entertainment ideas."
+        path="/studio"
+        keywords="studio content Bangkok, original content production Thailand, documentary production Bangkok"
+        schema={studioSchema}
+      />
       <Navbar />
       <div className="pt-20">
-        {/* Compact hero */}
         <section className="pt-16 md:pt-24 pb-8 md:pb-12 px-6 md:px-12">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
@@ -80,15 +101,14 @@ const StudioPage = () => {
               <h1 className="font-display text-[clamp(44px,6vw,96px)] leading-[0.9] tracking-[0.01em] text-foreground mb-6 max-w-4xl">
                 ORIGINAL <span className="text-accent-gradient">CONTENT.</span>
               </h1>
-              <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-lg">
-                {t("Beyond client work, we create original content that shows our taste, capability, and point of view.", "นอกเหนือจากงานลูกค้า เราสร้างผลงานต้นฉบับที่แสดงรสนิยมและความสามารถ")}
+              <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-2xl">
+                {t("Beyond client work, we create original content that shows our taste, capability, and point of view as a Bangkok creative studio.", "นอกเหนือจากงานลูกค้า เราสร้างผลงานต้นฉบับที่แสดงรสนิยม มุมมอง และความสามารถของ creative studio จากกรุงเทพฯ")}
               </p>
             </AnimatedSection>
           </div>
         </section>
 
-        {/* Cards with images */}
-        <section className="px-6 md:px-12 py-8 md:py-12 pb-32 md:pb-48">
+        <section className="px-6 md:px-12 py-8 md:py-12 pb-20">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
               {studioProjects.map((p, i) => (
@@ -99,7 +119,6 @@ const StudioPage = () => {
                     <div className="absolute bottom-3 left-3 w-4 h-4 border-b border-l border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500 z-10" />
                     <div className="absolute bottom-3 right-3 w-4 h-4 border-b border-r border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500 z-10" />
 
-                    {/* Image */}
                     <div className="relative aspect-[16/10] overflow-hidden">
                       <img
                         src={p.image}
@@ -115,7 +134,6 @@ const StudioPage = () => {
                       </div>
                     </div>
 
-                    {/* Content */}
                     <div className="p-8 md:p-8 flex flex-col flex-1">
                       <div className="flex items-center gap-4 mb-4">
                         <span className="font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground/40">{p.num}</span>
@@ -130,13 +148,11 @@ const StudioPage = () => {
                         {p.desc[lang]}
                       </p>
 
-                      {/* Format */}
                       <div className="mb-5">
                         <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/50 mb-1.5">Format</h4>
                         <p className="font-mono text-[11px] leading-[1.6] text-foreground/60">{p.format[lang]}</p>
                       </div>
 
-                      {/* Purpose */}
                       <div className="border-t border-border/50 pt-5">
                         <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/50 mb-1.5">Purpose</h4>
                         <p className="font-body text-[13px] leading-[1.7] text-muted-foreground">{p.purpose[lang]}</p>
@@ -146,6 +162,31 @@ const StudioPage = () => {
                 </AnimatedSection>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section className="px-6 md:px-12 py-20 md:py-32 pb-32 md:pb-48">
+          <div className="max-w-7xl mx-auto text-center">
+            <AnimatedSection>
+              <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
+                <span className="text-accent-warm mr-2">△</span> Collaborate
+              </p>
+              <h2 className="font-display text-[clamp(36px,5vw,72px)] leading-[0.92] tracking-[0.01em] text-foreground mb-6">
+                WANT TO BUILD
+                <br />AN ORIGINAL FORMAT?
+              </h2>
+              <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-xl mx-auto mb-10">
+                {t("If your brand wants branded entertainment, documentary storytelling, or a new content format, let's shape it together.", "ถ้าแบรนด์ของคุณอยากทำ branded entertainment, documentary storytelling หรือรูปแบบคอนเทนต์ใหม่ มาสร้างไปด้วยกัน")}
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-8">
+                <Link to="/contact" className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-background bg-foreground px-8 py-3 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300">
+                  Start a Studio Brief <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                </Link>
+                <Link to="/work" className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300">
+                  See Client Work <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                </Link>
+              </div>
+            </AnimatedSection>
           </div>
         </section>
       </div>

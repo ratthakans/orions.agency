@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
+import SEO from "@/components/SEO";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -93,20 +94,40 @@ const positions = [
   },
 ];
 
+const careerSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://orions.agency/" },
+        { "@type": "ListItem", position: 2, name: "Career", item: "https://orions.agency/career" },
+      ],
+    },
+    {
+      "@type": "CollectionPage",
+      name: "ØRIONS Careers",
+      url: "https://orions.agency/career",
+      description: "Open creative agency and production roles at ØRIONS in Bangkok.",
+    },
+  ],
+};
+
 const CareerPage = () => {
   const { lang, t } = useLanguage();
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
   return (
     <main className="bg-background min-h-screen grain-overlay">
-      <Helmet>
-        <title>Career — ØRIONS Creative Agency</title>
-        <meta name="description" content="Join ORIONS. We're looking for creative minds who think different and connect dots." />
-        <link rel="canonical" href="https://orions.agency/career" />
-      </Helmet>
+      <SEO
+        title="Careers | Join ØRIONS in Bangkok"
+        description="Explore open creative agency jobs at ØRIONS in Bangkok across content, design, account management, production, and strategy."
+        path="/career"
+        keywords="creative agency jobs Bangkok, production house careers Thailand, marketing jobs Bangkok agency"
+        schema={careerSchema}
+      />
       <Navbar />
       <div className="pt-20">
-        {/* Compact hero — same spacing as Services */}
         <section className="pt-16 md:pt-24 pb-8 md:pb-12 px-6 md:px-12">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
@@ -116,19 +137,19 @@ const CareerPage = () => {
                     <span className="text-accent-warm mr-2">✦</span> {t("Open Positions", "ตำแหน่งงาน")}
                   </p>
                   <h1 className="font-display text-[clamp(44px,6vw,96px)] leading-[0.9] tracking-[0.01em] text-foreground">
-                    WE'RE <span className="text-accent-gradient">HIRING.</span>
+                    CREATIVE AGENCY
+                    <br />WE'RE <span className="text-accent-gradient">HIRING.</span>
                   </h1>
                 </div>
-                <p className="font-body text-[14px] leading-[1.7] text-muted-foreground max-w-sm">
+                <p className="font-body text-[14px] leading-[1.7] text-muted-foreground max-w-md">
                   {t(
-                    "We're looking for passionate creatives who believe in storytelling. If you think different, we want to hear from you.",
-                    "เราตามหาครีเอทีฟที่เชื่อในพลังของการเล่าเรื่อง ถ้าคุณคิดต่าง เราอยากรู้จักคุณ"
+                    "We're looking for passionate creatives in Bangkok who believe in storytelling, systems, and meaningful production. If you think different, we want to hear from you.",
+                    "เราตามหาครีเอทีฟในกรุงเทพฯ ที่เชื่อใน storytelling, systems และงาน production ที่มีความหมาย ถ้าคุณคิดต่าง เราอยากรู้จักคุณ"
                   )}
                 </p>
               </div>
             </AnimatedSection>
 
-            {/* Position count */}
             <div className="font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground/50 mb-6">
               {positions.reduce((acc, p) => acc + (p.count || 1), 0)} {t("positions open", "ตำแหน่งเปิดรับ")}
             </div>
@@ -150,9 +171,9 @@ const CareerPage = () => {
                       >
                         <div className="flex-1">
                           <div className="flex items-center gap-3 mb-1">
-                            <h3 className="font-display text-[22px] md:text-[28px] tracking-[0.02em] text-foreground group-hover:text-accent-warm transition-colors duration-500">
+                            <h2 className="font-display text-[22px] md:text-[28px] tracking-[0.02em] text-foreground group-hover:text-accent-warm transition-colors duration-500">
                               {pos.title}
-                            </h3>
+                            </h2>
                             {pos.count && (
                               <span className="font-mono text-[10px] tracking-[0.15em] text-accent-warm border border-accent-warm/30 px-2 py-0.5">
                                 ×{pos.count}
@@ -193,9 +214,9 @@ const CareerPage = () => {
                               <div className="border-t border-border/30 pt-6 md:pt-8">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
                                   <div>
-                                    <h4 className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4">
+                                    <h3 className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4">
                                       {t("Responsibilities", "หน้าที่รับผิดชอบ")}
-                                    </h4>
+                                    </h3>
                                     <ul className="space-y-2.5">
                                       {pos.details[lang].map((item, j) => (
                                         <li key={j} className="flex items-start gap-3">
@@ -207,9 +228,9 @@ const CareerPage = () => {
                                   </div>
 
                                   <div>
-                                    <h4 className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4">
+                                    <h3 className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4">
                                       {t("Requirements", "คุณสมบัติ")}
-                                    </h4>
+                                    </h3>
                                     <ul className="space-y-2.5">
                                       {pos.requirements[lang].map((item, j) => (
                                         <li key={j} className="flex items-start gap-3">
@@ -243,7 +264,6 @@ const CareerPage = () => {
           </div>
         </section>
 
-        {/* CTA — same bottom spacing as Services industries */}
         <section className="px-6 md:px-12 py-20 md:py-32 pb-32 md:pb-48">
           <div className="max-w-7xl mx-auto text-center">
             <AnimatedSection>
@@ -255,16 +275,21 @@ const CareerPage = () => {
               </h2>
               <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-md mx-auto mb-10">
                 {t(
-                  "We're always open to meeting talented people. Drop us a line and tell us what you do best.",
-                  "เราพร้อมพบคนเก่งเสมอ ส่งข้อความมาบอกเราว่าคุณถนัดอะไร"
+                  "We're always open to meeting talented people. Drop us a line, tell us what you do best, or learn more about the studio first.",
+                  "เราพร้อมพบคนเก่งเสมอ ส่งข้อความมาบอกเราว่าคุณถนัดอะไร หรือทำความรู้จักสตูดิโอก่อนก็ได้"
                 )}
               </p>
-              <a
-                href="mailto:career@orions.agency"
-                className="inline-block font-mono text-[11px] tracking-[0.12em] uppercase text-background bg-foreground px-8 py-4 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300"
-              >
-                career@orions.agency
-              </a>
+              <div className="flex flex-wrap items-center justify-center gap-8">
+                <a
+                  href="mailto:career@orions.agency"
+                  className="inline-block font-mono text-[11px] tracking-[0.12em] uppercase text-background bg-foreground px-8 py-4 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300"
+                >
+                  career@orions.agency
+                </a>
+                <Link to="/about" className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300">
+                  Meet the team <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                </Link>
+              </div>
             </AnimatedSection>
           </div>
         </section>

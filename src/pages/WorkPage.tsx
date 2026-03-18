@@ -1,10 +1,10 @@
 import { useState, useMemo, useEffect } from "react";
-import { Helmet } from "react-helmet-async";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import SEO from "@/components/SEO";
 import { useLanguage } from "@/contexts/LanguageContext";
 import workNorthwind from "@/assets/work-northwind.jpg";
 import workAtlas from "@/assets/work-atlas.jpg";
@@ -32,13 +32,31 @@ const works = [
 
 const serviceFilters = ["All", "Content Systems", "Creative & Campaign", "Film & Production", "Brand Development"];
 
+const workSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://orions.agency/" },
+        { "@type": "ListItem", position: 2, name: "Work", item: "https://orions.agency/work" },
+      ],
+    },
+    {
+      "@type": "CollectionPage",
+      name: "ØRIONS Work",
+      url: "https://orions.agency/work",
+      description: "Selected case studies and portfolio work by ØRIONS across campaigns, production, and content systems.",
+    },
+  ],
+};
+
 const WorkPage = () => {
   const [selectedWork, setSelectedWork] = useState<typeof works[0] | null>(null);
   const [activeFilter, setActiveFilter] = useState("All");
   const { lang, t } = useLanguage();
   const [searchParams] = useSearchParams();
 
-  // Sync filter from URL param (linked from Services page)
   useEffect(() => {
     const serviceParam = searchParams.get("service");
     if (serviceParam && serviceFilters.includes(serviceParam)) {
@@ -53,11 +71,13 @@ const WorkPage = () => {
 
   return (
     <main className="bg-background min-h-screen grain-overlay">
-      <Helmet>
-        <title>Work — ØRIONS Creative Agency Portfolio</title>
-        <meta name="description" content="Selected projects organized by service: Content Systems, Creative & Campaign, Film & Production, Brand Development." />
-        <link rel="canonical" href="https://orions.agency/work" />
-      </Helmet>
+      <SEO
+        title="Portfolio & Case Studies | ØRIONS Bangkok"
+        description="Browse selected ØRIONS work across campaign films, brand storytelling, content systems, and brand development projects in Bangkok and Southeast Asia."
+        path="/work"
+        keywords="creative agency portfolio Bangkok, production house case studies Thailand, campaign film portfolio Bangkok"
+        schema={workSchema}
+      />
       <Navbar />
       <div className="pt-20">
         <section className="pt-16 md:pt-24 pb-8 md:pb-12 px-6 md:px-12">
@@ -66,17 +86,18 @@ const WorkPage = () => {
               <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
                 <span className="text-accent-warm mr-2">◎</span> Portfolio
               </p>
-              <h1 className="font-display text-[clamp(44px,6vw,96px)] leading-[0.9] tracking-[0.01em] text-foreground mb-6 max-w-4xl">
-                SELECTED <span className="text-accent-gradient">WORK.</span>
+              <h1 className="font-display text-[clamp(44px,6vw,96px)] leading-[0.9] tracking-[0.01em] text-foreground mb-6 max-w-5xl">
+                CREATIVE AGENCY WORK
+                <br />THAT <span className="text-accent-gradient">PERFORMS.</span>
               </h1>
-              <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-lg">
-                {t("Quality over quantity. Every project here represents a brand we helped think, shape, and produce.", "คุณภาพเหนือปริมาณ ทุกโปรเจกต์ที่นี่คือแบรนด์ที่เราช่วยคิด สร้าง และผลิต")}
+              <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-2xl">
+                {t("Quality over quantity. Every project here represents a brand we helped think, shape, and produce across Bangkok, Thailand, and the region.", "คุณภาพเหนือปริมาณ ทุกโปรเจกต์ที่นี่คือแบรนด์ที่เราช่วยคิด สร้าง และผลิตในกรุงเทพฯ ไทย และระดับภูมิภาค")}
               </p>
             </AnimatedSection>
           </div>
         </section>
 
-        <section className="px-6 md:px-12 py-8 md:py-12 pb-32 md:pb-48">
+        <section className="px-6 md:px-12 py-8 md:py-12 pb-20">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection delay={0.04}>
               <div className="flex items-center gap-6 md:gap-8 mb-16 flex-wrap">
@@ -111,7 +132,7 @@ const WorkPage = () => {
                       <span className="text-muted-foreground/30 text-[8px]">●</span>
                       <span className="font-mono text-[10px] tracking-[0.1em] uppercase text-muted-foreground/50">{w.type}</span>
                     </div>
-                    <h3 className="font-body text-[16px] text-foreground/80 group-hover:text-accent-warm transition-colors duration-300 mb-1">{w.title}</h3>
+                    <h2 className="font-body text-[16px] text-foreground/80 group-hover:text-accent-warm transition-colors duration-300 mb-1">{w.title}</h2>
                     <p className="font-body text-[14px] leading-[1.6] text-muted-foreground line-clamp-2">{w.brief[lang]}</p>
                   </div>
                 </AnimatedSection>
@@ -125,6 +146,28 @@ const WorkPage = () => {
                 </p>
               </div>
             )}
+          </div>
+        </section>
+
+        <section className="px-6 md:px-12 py-20 md:py-32 pb-32 md:pb-48">
+          <div className="max-w-7xl mx-auto text-center">
+            <AnimatedSection>
+              <h2 className="font-display text-[clamp(36px,5vw,72px)] leading-[0.92] tracking-[0.01em] text-foreground mb-6">
+                WANT WORK LIKE THIS
+                <br />FOR YOUR BRAND?
+              </h2>
+              <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-xl mx-auto mb-10">
+                {t("Tell us what you're launching, changing, or trying to grow, and we'll recommend the right mix of strategy, campaign thinking, and production.", "บอกเราว่าคุณกำลังเปิดตัว เปลี่ยนแปลง หรืออยากขยายอะไร แล้วเราจะแนะนำส่วนผสมที่เหมาะของ strategy, campaign thinking และ production")}
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-8">
+                <Link to="/services" className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-background bg-foreground px-8 py-3 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300">
+                  Explore Services <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                </Link>
+                <Link to="/contact" className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300">
+                  Start a Project Brief <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                </Link>
+              </div>
+            </AnimatedSection>
           </div>
         </section>
       </div>
@@ -151,7 +194,7 @@ const WorkPage = () => {
                   <p className="font-body text-[15px] text-muted-foreground leading-relaxed">{selectedWork.brief[lang]}</p>
                 </DialogHeader>
                 <div className="mt-12">
-                  <h4 className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-5">{t("Deliverables", "สิ่งที่ส่งมอบ")}</h4>
+                  <h3 className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-5">{t("Deliverables", "สิ่งที่ส่งมอบ")}</h3>
                   <div className="space-y-0">
                     {selectedWork.deliverables.map((d, i) => (
                       <div key={i} className="py-3.5 border-b border-border last:border-b-0">

@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 import StartProjectDialog from "@/components/StartProjectDialog";
+import SEO from "@/components/SEO";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 interface Package {
@@ -203,6 +203,53 @@ const industries = [
   "Real Estate", "Startups", "Automotive", "Government",
 ];
 
+const servicesSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://orions.agency/" },
+        { "@type": "ListItem", position: 2, name: "Services", item: "https://orions.agency/services" },
+      ],
+    },
+    {
+      "@type": "OfferCatalog",
+      name: "ØRIONS Creative Services",
+      itemListElement: services.map((service) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: service.title,
+          description: service.desc.en,
+          areaServed: ["Bangkok", "Thailand", "Southeast Asia"],
+        },
+      })),
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "What creative services does ØRIONS offer?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "ØRIONS offers Content Systems, Creative & Campaign, Film & Production, and Brand Development for brands in Bangkok, Thailand, and Southeast Asia.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Does ØRIONS share pricing?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes. The services page includes transparent pricing ranges and package structures to help brands understand budget expectations early.",
+          },
+        },
+      ],
+    },
+  ],
+};
+
 const ServicesPage = () => {
   const { lang, t } = useLanguage();
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -210,34 +257,35 @@ const ServicesPage = () => {
 
   return (
     <main className="bg-background min-h-screen grain-overlay">
-      <Helmet>
-        <title>Services — ØRIONS Creative Agency</title>
-        <meta name="description" content="Creative services: Content Systems, Creative & Campaign, Film & Production, Brand Development. Clear packages, transparent pricing." />
-        <link rel="canonical" href="https://orions.agency/services" />
-      </Helmet>
+      <SEO
+        title="Creative Agency Services in Bangkok | ØRIONS"
+        description="Explore ØRIONS services for content systems, campaign strategy, film production, and brand development with clear packages and pricing in Bangkok."
+        path="/services"
+        keywords="creative agency services Bangkok, film production house Bangkok, content agency Thailand, brand development Bangkok"
+        schema={servicesSchema}
+      />
       <Navbar />
       <div className="pt-20">
-        {/* Hero */}
         <section className="pt-16 md:pt-24 pb-8 md:pb-12 px-6 md:px-12">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
               <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
                 <span className="text-accent-warm mr-2">✦</span> Services
               </p>
-              <h1 className="font-display text-[clamp(44px,6vw,96px)] leading-[0.9] tracking-[0.01em] text-foreground mb-6 max-w-4xl">
-                FOUR WAYS TO WORK<br />WITH <span className="text-accent-gradient">ORIONS.</span>
+              <h1 className="font-display text-[clamp(44px,6vw,96px)] leading-[0.9] tracking-[0.01em] text-foreground mb-6 max-w-5xl">
+                CREATIVE AGENCY SERVICES
+                <br />FOR <span className="text-accent-gradient">GROWING BRANDS.</span>
               </h1>
-              <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-lg">
+              <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-2xl">
                 {t(
-                  "From monthly content to full brand builds — choose the way that fits your needs. Each service comes with clear packages and transparent pricing.",
-                  "ตั้งแต่ content รายเดือนไปจนถึงการสร้างแบรนด์เต็มรูปแบบ — เลือกแบบที่เหมาะกับคุณ แต่ละบริการมี package ชัดเจนและราคาโปร่งใส"
+                  "From monthly content to full brand builds in Bangkok, each ØRIONS service comes with clear deliverables, transparent pricing, and a strategy-first process.",
+                  "ตั้งแต่ content รายเดือนไปจนถึงการสร้างแบรนด์เต็มรูปแบบในกรุงเทพฯ แต่ละบริการของ ØRIONS มี deliverables ชัดเจน ราคาโปร่งใส และกระบวนการที่เริ่มจาก strategy"
                 )}
               </p>
             </AnimatedSection>
           </div>
         </section>
 
-        {/* Services — full-width stacked sections */}
         <section className="px-6 md:px-12 py-8 md:py-12">
           <div className="max-w-7xl mx-auto space-y-8">
             {services.map((s, i) => {
@@ -245,13 +293,11 @@ const ServicesPage = () => {
               return (
                 <AnimatedSection key={s.num} delay={i * 0.06}>
                   <div className="group relative border border-border hover:border-accent-warm/30 transition-all duration-500">
-                    {/* Da Vinci corners */}
                     <div className="absolute top-3 left-3 w-4 h-4 border-t border-l border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500" />
                     <div className="absolute top-3 right-3 w-4 h-4 border-t border-r border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500" />
                     <div className="absolute bottom-3 left-3 w-4 h-4 border-b border-l border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500" />
                     <div className="absolute bottom-3 right-3 w-4 h-4 border-b border-r border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500" />
 
-                    {/* Main card header — always visible */}
                     <div
                       className="p-8 md:p-10 cursor-pointer"
                       onClick={() => setExpandedService(isExpanded ? null : s.num)}
@@ -283,21 +329,19 @@ const ServicesPage = () => {
                       </div>
                     </div>
 
-                    {/* Expanded detail */}
                     <div className={`overflow-hidden transition-all duration-500 ${isExpanded ? "max-h-[3000px] opacity-100" : "max-h-0 opacity-0"}`}>
                       <div className="border-t border-border/50 p-8 md:p-10">
-                        {/* Ideal for + Process */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
                           <div>
-                            <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/50 mb-3">
+                            <h3 className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/50 mb-3">
                               {t("Ideal for", "เหมาะสำหรับ")}
-                            </h4>
+                            </h3>
                             <p className="font-body text-[13px] leading-[1.7] text-muted-foreground">{s.ideal[lang]}</p>
                           </div>
                           <div>
-                            <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/50 mb-3">
+                            <h3 className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/50 mb-3">
                               {t("How we work", "วิธีการทำงาน")}
-                            </h4>
+                            </h3>
                             <div className="flex flex-wrap gap-x-6 gap-y-1.5">
                               {s.process[lang].map((step, idx) => (
                                 <span key={idx} className="font-mono text-[11px] text-muted-foreground/70">
@@ -309,10 +353,9 @@ const ServicesPage = () => {
                           </div>
                         </div>
 
-                        {/* Packages */}
-                        <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/50 mb-5">
+                        <h3 className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/50 mb-5">
                           {t("Packages", "แพ็กเกจ")}
-                        </h4>
+                        </h3>
                         <div className={`grid grid-cols-1 ${s.packages.length === 3 ? "md:grid-cols-3" : "md:grid-cols-2"} gap-4`}>
                           {s.packages.map((pkg) => (
                             <div
@@ -320,9 +363,9 @@ const ServicesPage = () => {
                               className="border border-border/60 p-6 hover:border-accent-warm/20 transition-all duration-300"
                             >
                               <div className="flex items-center justify-between mb-3">
-                                <h5 className="font-display text-[18px] tracking-[0.01em] text-foreground">
+                                <h4 className="font-display text-[18px] tracking-[0.01em] text-foreground">
                                   {pkg.name[lang]}
-                                </h5>
+                                </h4>
                               </div>
                               <p className="font-mono text-[13px] tracking-[0.03em] text-accent-warm font-medium mb-3">
                                 ฿{pkg.price}
@@ -347,15 +390,13 @@ const ServicesPage = () => {
                           ))}
                         </div>
 
-                        {/* Note */}
                         {s.note && (
                           <p className="font-mono text-[10px] tracking-[0.05em] text-muted-foreground/40 mt-5 italic">
                             {s.note[lang]}
                           </p>
                         )}
 
-                        {/* Service CTA */}
-                        <div className="mt-8 flex items-center gap-6">
+                        <div className="mt-8 flex items-center gap-6 flex-wrap">
                           <button
                             onClick={() => setDialogOpen(true)}
                             className="font-mono text-[11px] tracking-[0.12em] uppercase text-background bg-foreground px-6 py-2.5 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300"
@@ -378,7 +419,6 @@ const ServicesPage = () => {
           </div>
         </section>
 
-        {/* Industries */}
         <section className="px-6 md:px-12 py-16 md:py-24">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
@@ -386,14 +426,57 @@ const ServicesPage = () => {
                 <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">
                   <span className="text-accent-warm/50 mr-2">⬡</span> {t("Industries We Work With", "อุตสาหกรรมที่เราทำงานด้วย")}
                 </p>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-3 mb-8">
                   {industries.map((ind) => (
-                    <span
+                    <Link
                       key={ind}
+                      to="/industries"
                       className="font-mono text-[11px] tracking-[0.1em] uppercase text-muted-foreground/60 border border-border/60 px-4 py-2 hover:text-foreground/80 hover:border-accent-warm/30 transition-all duration-300"
                     >
                       {ind}
-                    </span>
+                    </Link>
+                  ))}
+                </div>
+                <Link to="/industries" className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-foreground border-b border-foreground/40 pb-1 hover:border-accent-warm hover:text-accent-warm transition-all duration-300">
+                  Explore industries <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                </Link>
+              </div>
+            </AnimatedSection>
+          </div>
+        </section>
+
+        <section className="px-6 md:px-12 py-16 md:py-24">
+          <div className="max-w-7xl mx-auto">
+            <AnimatedSection>
+              <div className="border-t border-border pt-16 grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:gap-16">
+                <div>
+                  <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
+                    <span className="text-accent-warm mr-2">◎</span> FAQs
+                  </p>
+                  <h2 className="font-display text-[clamp(36px,5vw,72px)] leading-[0.92] tracking-[0.01em] text-foreground mb-6">
+                    WHAT TO EXPECT
+                    <br />BEFORE WE START.
+                  </h2>
+                </div>
+                <div className="space-y-6">
+                  {[
+                    {
+                      q: "How do we choose the right service?",
+                      a: "If you need consistent monthly output, start with Content Systems. If you need a launch, repositioning, or high-impact moment, Creative & Campaign or Film & Production is usually the better fit.",
+                    },
+                    {
+                      q: "Do you work with Bangkok-only brands?",
+                      a: "No. We work with brands in Bangkok, across Thailand, and throughout Southeast Asia, but we keep the local market perspective strong.",
+                    },
+                    {
+                      q: "Can you help define scope and budget?",
+                      a: "Yes. Many clients come in with a goal rather than a clear scope, and we help shape the right deliverables, timeline, and budget range.",
+                    },
+                  ].map((item) => (
+                    <div key={item.q} className="border-t border-border pt-5">
+                      <h3 className="font-body text-[16px] text-foreground mb-2">{item.q}</h3>
+                      <p className="font-body text-[14px] leading-[1.7] text-muted-foreground">{item.a}</p>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -401,25 +484,30 @@ const ServicesPage = () => {
           </div>
         </section>
 
-        {/* CTA */}
         <section className="px-6 md:px-12 py-20 md:py-32 pb-32 md:pb-48">
           <div className="max-w-7xl mx-auto text-center">
             <AnimatedSection>
               <h2 className="font-display text-[clamp(44px,6vw,96px)] leading-[0.9] tracking-[0.01em] text-foreground mb-6">
-                NOT SURE WHERE<br />TO <span className="text-accent-gradient">START?</span>
+                NOT SURE WHERE
+                <br />TO <span className="text-accent-gradient">START?</span>
               </h2>
               <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-md mx-auto mb-10">
                 {t(
-                  "Start with a content plan or a campaign idea. We'll figure it out together.",
-                  "เริ่มจาก content plan หรือไอเดียแคมเปญ แล้วเราจะหาทางร่วมกัน"
+                  "Start with a content plan or a campaign idea. We'll figure out the right service, scope, and timing together.",
+                  "เริ่มจาก content plan หรือไอเดียแคมเปญ แล้วเราจะช่วยหาบริการ ขอบเขตงาน และเวลาที่เหมาะสมร่วมกัน"
                 )}
               </p>
-              <button
-                onClick={() => setDialogOpen(true)}
-                className="font-mono text-[11px] tracking-[0.12em] uppercase text-background bg-foreground px-8 py-3 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300"
-              >
-                Start a Project
-              </button>
+              <div className="flex items-center justify-center gap-8 flex-wrap">
+                <button
+                  onClick={() => setDialogOpen(true)}
+                  className="font-mono text-[11px] tracking-[0.12em] uppercase text-background bg-foreground px-8 py-3 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300"
+                >
+                  Start a Project
+                </button>
+                <Link to="/contact" className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300">
+                  Contact the team <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                </Link>
+              </div>
             </AnimatedSection>
           </div>
         </section>

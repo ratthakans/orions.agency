@@ -8,30 +8,22 @@ import teamKrit from "@/assets/team-krit.jpg";
 import teamNari from "@/assets/team-nari.jpg";
 import teamTawan from "@/assets/team-tawan.jpg";
 import teamPloy from "@/assets/team-ploy.jpg";
-import teamArun from "@/assets/team-arun.jpg";
 import teamMai from "@/assets/team-mai.jpg";
 import teamSomchai from "@/assets/team-somchai.jpg";
-import teamPim from "@/assets/team-pim.jpg";
 import teamDao from "@/assets/team-dao.jpg";
 import teamNat from "@/assets/team-nat.jpg";
-import teamJoy from "@/assets/team-joy.jpg";
 import teamLin from "@/assets/team-lin.jpg";
-import teamFern from "@/assets/team-fern.jpg";
 
 const allMembers = [
   { name: "Krit Thanaporn", role: "Founder", dept: "Management", image: teamKrit },
   { name: "Nari Vongsa", role: "CEO", dept: "Management", image: teamNari },
   { name: "Tawan Srisai", role: "CFO", dept: "Management", image: teamTawan },
   { name: "Ploy Charoensuk", role: "Creative Director", dept: "Creative", image: teamPloy },
-  { name: "Arun Kittisak", role: "Creative Marketing", dept: "Creative", image: teamArun },
   { name: "Mai Sutthipong", role: "Creative Senior", dept: "Creative", image: teamMai },
+  { name: "Dao Siriporn", role: "Art Director", dept: "Creative", image: teamDao },
   { name: "Somchai Rattana", role: "Editor / DOP", dept: "Production", image: teamSomchai },
-  { name: "Pim Wattana", role: "Editor Senior", dept: "Production", image: teamPim },
-  { name: "Dao Siriporn", role: "Graphic Designer", dept: "Production", image: teamDao },
-  { name: "Nat Prasert", role: "Account Executive", dept: "Social & Account", image: teamNat },
-  { name: "Joy Supatra", role: "Account Executive", dept: "Social & Account", image: teamJoy },
   { name: "Lin Thongchai", role: "Project Manager", dept: "Social & Account", image: teamLin },
-  { name: "Fern Kamonpat", role: "Social Media Manager", dept: "Social & Account", image: teamFern },
+  { name: "Nat Prasert", role: "Account Executive", dept: "Social & Account", image: teamNat },
 ];
 
 const aboutSchema = {
@@ -89,39 +81,6 @@ const AboutPage = () => {
         <section className="px-6 md:px-12 py-8 md:py-12">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
-              <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
-                <span className="text-accent-warm mr-2">△</span> Why ORIONS
-              </p>
-              <h2 className="font-display text-[clamp(44px,6vw,96px)] leading-[0.9] tracking-[0.01em] text-foreground mb-12">
-                WE DON'T JUST EXECUTE.<br />WE <span className="text-accent-gradient">THINK.</span>
-              </h2>
-            </AnimatedSection>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-              {[
-                { title: "Content & Campaign", desc: { en: "We build content systems and campaign ideas for brands in Bangkok and beyond — strategy first, then execution.", th: "เราสร้างระบบ content และไอเดียแคมเปญให้แบรนด์ในกรุงเทพฯ และที่อื่นๆ — strategy ก่อน แล้วจึง execution" } },
-                { title: "Film & Production", desc: { en: "We produce with cinematic quality — every frame, every word, every detail considered like a production house with agency thinking.", th: "เราผลิตด้วยคุณภาพระดับภาพยนตร์ — ทุกเฟรม ทุกคำ ทุกรายละเอียด ด้วยมาตรฐาน production house และการคิดแบบ agency" } },
-                { title: "Brand Development", desc: { en: "We shape new ideas into clear brand directions — from concept to launch for founders, teams, and growing companies.", th: "เราหล่อหลอมไอเดียใหม่เป็นทิศทางแบรนด์ที่ชัดเจน — จาก concept ถึง launch สำหรับผู้ก่อตั้ง ทีม และธุรกิจที่กำลังเติบโต" } },
-              ].map((v, i) => (
-                <AnimatedSection key={i} delay={i * 0.08}>
-                  <div className="group relative border border-border p-8 md:p-10 hover:border-accent-warm/30 transition-all duration-500 h-full">
-                    <div className="absolute top-3 left-3 w-4 h-4 border-t border-l border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500" />
-                    <div className="absolute top-3 right-3 w-4 h-4 border-t border-r border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500" />
-                    <div className="absolute bottom-3 left-3 w-4 h-4 border-b border-l border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500" />
-                    <div className="absolute bottom-3 right-3 w-4 h-4 border-b border-r border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500" />
-
-                    <span className="font-mono text-[11px] tracking-[0.15em] text-muted-foreground/40 block mb-5">{String(i + 1).padStart(2, "0")}</span>
-                    <h3 className="font-display text-[32px] tracking-[0.03em] text-foreground mb-4 group-hover:text-accent-warm transition-colors duration-500">{v.title}</h3>
-                    <p className="font-body text-[14px] leading-[1.7] text-muted-foreground">{v.desc[lang]}</p>
-                  </div>
-                </AnimatedSection>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="px-6 md:px-12 py-8 md:py-12">
-          <div className="max-w-7xl mx-auto">
-            <AnimatedSection>
               <div className="border-t border-border pt-16 grid gap-8 lg:grid-cols-[1.2fr_1fr] lg:gap-16">
                 <div>
                   <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
@@ -165,8 +124,8 @@ const AboutPage = () => {
                 </h2>
                 <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-lg mb-16">
                   {t(
-                    "13 people. Four departments. One shared belief: every brand has a story worth telling well.",
-                    "13 คน สี่แผนก ความเชื่อเดียวกัน: ทุกแบรนด์มีเรื่องราวที่คุ้มค่าจะเล่าให้ดี"
+                    "9 people. One shared belief: every brand has a story worth telling well.",
+                    "9 คน ความเชื่อเดียวกัน: ทุกแบรนด์มีเรื่องราวที่คุ้มค่าจะเล่าให้ดี"
                   )}
                 </p>
               </div>

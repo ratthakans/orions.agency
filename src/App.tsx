@@ -35,6 +35,7 @@ const AnimatedRoutes = () => {
         <Route path="/studio" element={<Suspense fallback={null}><PageTransition><StudioPage /></PageTransition></Suspense>} />
         <Route path="/contact" element={<Suspense fallback={null}><PageTransition><ContactPage /></PageTransition></Suspense>} />
         <Route path="/career" element={<Suspense fallback={null}><PageTransition><CareerPage /></PageTransition></Suspense>} />
+        <Route path="/package" element={<Suspense fallback={null}><PageTransition><PackagePage /></PageTransition></Suspense>} />
         <Route path="*" element={<Suspense fallback={null}><PageTransition><NotFound /></PageTransition></Suspense>} />
       </Routes>
     </AnimatePresence>

@@ -79,7 +79,7 @@ const PackagePage = () => {
         description="A strategic creative system for 4–5 star hotels and resorts. From brand narrative to cinematic production — ORIONS helps hotels unlock new markets and drive real bookings."
         path="/package"
       />
-      <Navbar onStartProject={() => setDialogOpen(true)} />
+      <Navbar />
 
       {/* Hero */}
       <section className="relative min-h-[90vh] flex items-end overflow-hidden">

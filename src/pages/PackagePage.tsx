@@ -51,18 +51,22 @@ const tiers = [
   {
     label: "FOUNDATION",
     scope: "Analysis + Strategy",
+    price: "120,000",
     detail: "Audit, narrative, positioning, channel plan, creative brief",
     note: "Ideal for hotels starting fresh or repositioning",
   },
   {
     label: "GROWTH",
     scope: "Foundation + Campaign",
+    price: "350,000",
     detail: "Everything above + hero film, photography, campaign production",
     note: "For hotels ready to launch a new chapter",
+    featured: true,
   },
   {
     label: "FULL SYSTEM",
     scope: "All Four Phases",
+    price: "590,000",
     detail: "Complete growth system with ongoing content, performance loop, training",
     note: "For hotels committed to long-term growth",
   },
@@ -216,13 +220,16 @@ const PackagePage = () => {
           <AnimatedSection stagger className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {tiers.map((tier) => (
               <AnimatedChild key={tier.label}>
-                <div className="bg-secondary p-8 md:p-10 h-full flex flex-col justify-between">
+                <div className={`p-8 md:p-10 h-full flex flex-col justify-between ${tier.featured ? 'bg-foreground text-background' : 'bg-secondary'}`}>
                   <div>
-                    <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm mb-4">{tier.label}</p>
-                    <h3 className="font-display text-[24px] leading-[1] text-foreground mb-4">{tier.scope}</h3>
-                    <p className="font-body text-[14px] text-muted-foreground leading-[1.7] mb-6">{tier.detail}</p>
+                    <p className={`font-mono text-[10px] tracking-[0.15em] uppercase mb-4 ${tier.featured ? 'text-accent-warm' : 'text-accent-warm'}`}>{tier.label}</p>
+                    <h3 className={`font-display text-[24px] leading-[1] mb-2 ${tier.featured ? 'text-background' : 'text-foreground'}`}>{tier.scope}</h3>
+                    <p className={`font-display text-[clamp(32px,4vw,48px)] leading-[1] mb-6 ${tier.featured ? 'text-background' : 'text-foreground'}`}>
+                      ฿{tier.price}
+                    </p>
+                    <p className={`font-body text-[14px] leading-[1.7] mb-6 ${tier.featured ? 'text-background/60' : 'text-muted-foreground'}`}>{tier.detail}</p>
                   </div>
-                  <p className="font-body text-[13px] text-muted-foreground/60 italic">{tier.note}</p>
+                  <p className={`font-body text-[13px] italic ${tier.featured ? 'text-background/40' : 'text-muted-foreground/60'}`}>{tier.note}</p>
                 </div>
               </AnimatedChild>
             ))}

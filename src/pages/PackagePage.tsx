@@ -51,18 +51,22 @@ const tiers = [
   {
     label: "FOUNDATION",
     scope: "Analysis + Strategy",
+    price: "120,000",
     detail: "Audit, narrative, positioning, channel plan, creative brief",
     note: "Ideal for hotels starting fresh or repositioning",
   },
   {
     label: "GROWTH",
     scope: "Foundation + Campaign",
+    price: "350,000",
     detail: "Everything above + hero film, photography, campaign production",
     note: "For hotels ready to launch a new chapter",
+    featured: true,
   },
   {
     label: "FULL SYSTEM",
     scope: "All Four Phases",
+    price: "590,000",
     detail: "Complete growth system with ongoing content, performance loop, training",
     note: "For hotels committed to long-term growth",
   },

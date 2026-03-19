@@ -17,6 +17,7 @@ const IndustriesPage = lazy(() => import("./pages/IndustriesPage"));
 const StudioPage = lazy(() => import("./pages/StudioPage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
 const CareerPage = lazy(() => import("./pages/CareerPage"));
+const PackagePage = lazy(() => import("./pages/PackagePage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const queryClient = new QueryClient();
 
@@ -34,6 +35,7 @@ const AnimatedRoutes = () => {
         <Route path="/studio" element={<Suspense fallback={null}><PageTransition><StudioPage /></PageTransition></Suspense>} />
         <Route path="/contact" element={<Suspense fallback={null}><PageTransition><ContactPage /></PageTransition></Suspense>} />
         <Route path="/career" element={<Suspense fallback={null}><PageTransition><CareerPage /></PageTransition></Suspense>} />
+        <Route path="/package" element={<Suspense fallback={null}><PageTransition><PackagePage /></PageTransition></Suspense>} />
         <Route path="*" element={<Suspense fallback={null}><PageTransition><NotFound /></PageTransition></Suspense>} />
       </Routes>
     </AnimatePresence>

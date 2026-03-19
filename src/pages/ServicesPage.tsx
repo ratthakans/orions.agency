@@ -7,13 +7,6 @@ import StartProjectDialog from "@/components/StartProjectDialog";
 import SEO from "@/components/SEO";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-interface Package {
-  name: { en: string; th: string };
-  price: string;
-  details: { en: string; th: string };
-  deliverables: string[];
-}
-
 interface Service {
   num: string;
   title: string;
@@ -21,8 +14,7 @@ interface Service {
   type: "retainer" | "project";
   ideal: { en: string; th: string };
   process: { en: string[]; th: string[] };
-  packages: Package[];
-  note?: { en: string; th: string };
+  deliverables: { en: string[]; th: string[] };
 }
 
 const services: Service[] = [
@@ -42,38 +34,9 @@ const services: Service[] = [
       en: ["Brand & content audit", "Monthly content calendar", "Shoot & produce", "Publish & optimize"],
       th: ["ตรวจสอบแบรนด์และ content", "วางแผน content รายเดือน", "ถ่ายทำและผลิต", "เผยแพร่และปรับปรุง"],
     },
-    packages: [
-      {
-        name: { en: "Starter", th: "Starter" },
-        price: "60,000 THB/mo",
-        details: {
-          en: "Essential monthly content for brands starting out.",
-          th: "Content รายเดือนพื้นฐานสำหรับแบรนด์ที่เริ่มต้น",
-        },
-        deliverables: ["Content strategy", "12 social posts/mo", "4 short-form videos/mo", "1 shoot day/mo"],
-      },
-      {
-        name: { en: "Growth", th: "Growth" },
-        price: "120,000 THB/mo",
-        details: {
-          en: "Scaled content with more depth and variety.",
-          th: "Content ที่ครอบคลุมมากขึ้นทั้งความลึกและความหลากหลาย",
-        },
-        deliverables: ["Content strategy & calendar", "20 social posts/mo", "8 short-form videos/mo", "2 shoot days/mo", "Monthly performance report"],
-      },
-      {
-        name: { en: "Premium", th: "Premium" },
-        price: "200,000 THB/mo",
-        details: {
-          en: "Full content department — strategy, production, and optimization.",
-          th: "ทีม content เต็มรูปแบบ — กลยุทธ์ การผลิต และการปรับปรุง",
-        },
-        deliverables: ["Full content strategy", "30+ social posts/mo", "12 short-form videos/mo", "3 shoot days/mo", "Dedicated content manager", "Monthly report & optimization"],
-      },
-    ],
-    note: {
-      en: "We work with a limited number of monthly clients to ensure quality.",
-      th: "เรารับลูกค้ารายเดือนจำนวนจำกัดเพื่อรักษาคุณภาพ",
+    deliverables: {
+      en: ["Content strategy", "Social media posts", "Short-form videos", "Monthly shoot days", "Performance reports"],
+      th: ["กลยุทธ์ content", "โพสต์โซเชียลมีเดีย", "วิดีโอสั้น", "วันถ่ายทำรายเดือน", "รายงานผลลัพธ์"],
     },
   },
   {
@@ -92,26 +55,10 @@ const services: Service[] = [
       en: ["Brief & research", "Concept development", "Creative direction & production", "Launch & measure"],
       th: ["บรีฟและวิจัย", "พัฒนาคอนเซปต์", "ครีเอทีฟไดเรกชันและผลิต", "เปิดตัวและวัดผล"],
     },
-    packages: [
-      {
-        name: { en: "Campaign Concept", th: "Campaign Concept" },
-        price: "250,000 THB",
-        details: {
-          en: "A single campaign idea with creative direction and key visuals.",
-          th: "ไอเดียแคมเปญเดียวพร้อมครีเอทีฟไดเรกชันและ key visuals",
-        },
-        deliverables: ["Campaign concept & story", "Creative direction deck", "Key visual design", "Copywriting & messaging"],
-      },
-      {
-        name: { en: "Full Campaign", th: "Full Campaign" },
-        price: "350,000 – 500,000 THB",
-        details: {
-          en: "End-to-end campaign — from idea to production and launch assets.",
-          th: "แคมเปญครบวงจร — ตั้งแต่ไอเดียถึงการผลิตและ assets สำหรับเปิดตัว",
-        },
-        deliverables: ["Campaign concept & story", "Creative direction", "Hero visual production", "Social & digital assets", "Launch strategy"],
-      },
-    ],
+    deliverables: {
+      en: ["Campaign concept & story", "Creative direction", "Key visual design", "Copywriting & messaging", "Social & digital assets"],
+      th: ["คอนเซปต์และเรื่องราวแคมเปญ", "ครีเอทีฟไดเรกชัน", "ออกแบบ key visual", "เขียน copy และ messaging", "Assets สำหรับโซเชียลและดิจิทัล"],
+    },
   },
   {
     num: "03",
@@ -129,35 +76,10 @@ const services: Service[] = [
       en: ["Pre-production & scripting", "Production & filming", "Post-production & editing", "Delivery & cutdowns"],
       th: ["Pre-production และเขียนบท", "ถ่ายทำ", "Post-production และตัดต่อ", "ส่งมอบและตัด cutdowns"],
     },
-    packages: [
-      {
-        name: { en: "Brand Video", th: "Brand Video" },
-        price: "120,000 – 200,000 THB",
-        details: {
-          en: "A single brand or product video with full production.",
-          th: "วิดีโอแบรนด์หรือผลิตภัณฑ์ชิ้นเดียวพร้อมการผลิตเต็มรูปแบบ",
-        },
-        deliverables: ["1 hero video (60–90s)", "Script & storyboard", "1-day shoot", "3 social cutdowns"],
-      },
-      {
-        name: { en: "Campaign Film", th: "Campaign Film" },
-        price: "300,000 – 500,000 THB",
-        details: {
-          en: "A cinematic campaign film with full pre- and post-production.",
-          th: "Campaign film ระดับภาพยนตร์พร้อม pre- และ post-production เต็มรูปแบบ",
-        },
-        deliverables: ["1 hero film (2–3 min)", "Director's treatment", "2-day shoot", "Color grading & sound design", "6 social cutdowns"],
-      },
-      {
-        name: { en: "Documentary / Series", th: "Documentary / Series" },
-        price: "500,000 – 700,000 THB",
-        details: {
-          en: "Multi-episode documentary or branded content series.",
-          th: "สารคดีหลายตอนหรือซีรีส์ branded content",
-        },
-        deliverables: ["3–5 episodes", "Full scripting & research", "Multi-day shoots", "Post-production suite", "Behind the scenes content"],
-      },
-    ],
+    deliverables: {
+      en: ["Script & storyboard", "Hero video production", "Color grading & sound design", "Social cutdowns", "Behind the scenes content"],
+      th: ["บทและ storyboard", "ผลิตวิดีโอหลัก", "Color grading และ sound design", "ตัด cutdowns สำหรับโซเชียล", "เบื้องหลังการถ่ายทำ"],
+    },
   },
   {
     num: "04",
@@ -175,26 +97,10 @@ const services: Service[] = [
       en: ["Discovery & research", "Brand strategy", "Identity design", "Launch preparation"],
       th: ["ค้นหาและวิจัย", "กลยุทธ์แบรนด์", "ออกแบบ identity", "เตรียมเปิดตัว"],
     },
-    packages: [
-      {
-        name: { en: "Brand Strategy", th: "Brand Strategy" },
-        price: "200,000 – 350,000 THB",
-        details: {
-          en: "Strategic foundation — positioning, story, and direction.",
-          th: "รากฐานเชิงกลยุทธ์ — positioning, เรื่องราว และทิศทาง",
-        },
-        deliverables: ["Brand positioning", "Brand story & narrative", "Audience & market analysis", "Communication framework"],
-      },
-      {
-        name: { en: "Full Brand Build", th: "Full Brand Build" },
-        price: "500,000 – 1,000,000+ THB",
-        details: {
-          en: "Complete brand creation — from strategy to identity to launch-ready assets.",
-          th: "สร้างแบรนด์ครบวงจร — จากกลยุทธ์ถึง identity จนถึง assets พร้อมเปิดตัว",
-        },
-        deliverables: ["Brand strategy & positioning", "Visual identity system", "Brand guidelines", "Launch content & assets", "Website direction"],
-      },
-    ],
+    deliverables: {
+      en: ["Brand positioning & story", "Visual identity system", "Brand guidelines", "Launch content & assets", "Website direction"],
+      th: ["Positioning และเรื่องราวแบรนด์", "ระบบ visual identity", "Brand guidelines", "Content และ assets สำหรับเปิดตัว", "ทิศทางเว็บไซต์"],
+    },
   },
 ];
 
@@ -239,10 +145,10 @@ const servicesSchema = {
         },
         {
           "@type": "Question",
-          name: "Does ØRIONS share pricing?",
+          name: "How do I choose the right service?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Yes. The services page includes transparent pricing ranges and package structures to help brands understand budget expectations early.",
+            text: "If you need consistent monthly output, start with Content Systems. If you need a launch, repositioning, or high-impact moment, Creative & Campaign or Film & Production is usually the better fit. Contact us and we'll help define the right scope.",
           },
         },
       ],
@@ -259,7 +165,7 @@ const ServicesPage = () => {
     <main className="bg-background min-h-screen grain-overlay">
       <SEO
         title="Creative Agency Services in Bangkok | ØRIONS"
-        description="Explore ØRIONS services for content systems, campaign strategy, film production, and brand development with clear packages and pricing in Bangkok."
+        description="Explore ØRIONS services: content systems, campaign strategy, film production, and brand development for growing brands in Bangkok and Southeast Asia."
         path="/services"
         keywords="creative agency services Bangkok, film production house Bangkok, content agency Thailand, brand development Bangkok"
         schema={servicesSchema}
@@ -278,8 +184,8 @@ const ServicesPage = () => {
               </h1>
               <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-2xl">
                 {t(
-                  "From monthly content to full brand builds in Bangkok, each ØRIONS service comes with clear deliverables, transparent pricing, and a strategy-first process.",
-                  "ตั้งแต่ content รายเดือนไปจนถึงการสร้างแบรนด์เต็มรูปแบบในกรุงเทพฯ แต่ละบริการของ ØRIONS มี deliverables ชัดเจน ราคาโปร่งใส และกระบวนการที่เริ่มจาก strategy"
+                  "From monthly content to full brand builds in Bangkok — each ØRIONS service comes with clear deliverables and a strategy-first process.",
+                  "ตั้งแต่ content รายเดือนไปจนถึงการสร้างแบรนด์เต็มรูปแบบในกรุงเทพฯ — แต่ละบริการของ ØRIONS มี deliverables ชัดเจนและกระบวนการที่เริ่มจาก strategy"
                 )}
               </p>
             </AnimatedSection>
@@ -314,24 +220,17 @@ const ServicesPage = () => {
                         </div>
                       </div>
 
-                      <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
-                        <div>
-                          <h2 className="font-display text-[clamp(36px,4.5vw,56px)] leading-[0.9] tracking-[0.01em] text-foreground mb-3 group-hover:text-accent-warm transition-colors duration-500">
-                            {s.title}
-                          </h2>
-                          <p className="font-body text-[14px] leading-[1.7] text-foreground/70 max-w-xl">
-                            {s.desc[lang]}
-                          </p>
-                        </div>
-                        <p className="font-mono text-[12px] tracking-[0.05em] text-muted-foreground/50 lg:text-right shrink-0">
-                          {s.packages.length} {t("packages available", "แพ็กเกจ")}
-                        </p>
-                      </div>
+                      <h2 className="font-display text-[clamp(36px,4.5vw,56px)] leading-[0.9] tracking-[0.01em] text-foreground mb-3 group-hover:text-accent-warm transition-colors duration-500">
+                        {s.title}
+                      </h2>
+                      <p className="font-body text-[14px] leading-[1.7] text-foreground/70 max-w-xl">
+                        {s.desc[lang]}
+                      </p>
                     </div>
 
-                    <div className={`overflow-hidden transition-all duration-500 ${isExpanded ? "max-h-[3000px] opacity-100" : "max-h-0 opacity-0"}`}>
+                    <div className={`overflow-hidden transition-all duration-500 ${isExpanded ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0"}`}>
                       <div className="border-t border-border/50 p-8 md:p-10">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
                           <div>
                             <h3 className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/50 mb-3">
                               {t("Ideal for", "เหมาะสำหรับ")}
@@ -342,61 +241,31 @@ const ServicesPage = () => {
                             <h3 className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/50 mb-3">
                               {t("How we work", "วิธีการทำงาน")}
                             </h3>
-                            <div className="flex flex-wrap gap-x-6 gap-y-1.5">
+                            <div className="space-y-1.5">
                               {s.process[lang].map((step, idx) => (
-                                <span key={idx} className="font-mono text-[11px] text-muted-foreground/70">
+                                <span key={idx} className="font-mono text-[11px] text-muted-foreground/70 block">
                                   <span className="text-accent-warm/40 mr-1.5">{String(idx + 1).padStart(2, "0")}</span>
                                   {step}
                                 </span>
                               ))}
                             </div>
                           </div>
+                          <div>
+                            <h3 className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/50 mb-3">
+                              {t("Deliverables", "สิ่งที่ส่งมอบ")}
+                            </h3>
+                            <ul className="space-y-1.5">
+                              {s.deliverables[lang].map((d) => (
+                                <li key={d} className="font-body text-[12px] text-foreground/60 flex items-start gap-2">
+                                  <span className="text-accent-warm/40 mt-0.5 text-[8px]">◆</span>
+                                  {d}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
                         </div>
 
-                        <h3 className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/50 mb-5">
-                          {t("Packages", "แพ็กเกจ")}
-                        </h3>
-                        <div className={`grid grid-cols-1 ${s.packages.length === 3 ? "md:grid-cols-3" : "md:grid-cols-2"} gap-4`}>
-                          {s.packages.map((pkg) => (
-                            <div
-                              key={pkg.name.en}
-                              className="border border-border/60 p-6 hover:border-accent-warm/20 transition-all duration-300"
-                            >
-                              <div className="flex items-center justify-between mb-3">
-                                <h4 className="font-display text-[18px] tracking-[0.01em] text-foreground">
-                                  {pkg.name[lang]}
-                                </h4>
-                              </div>
-                              <p className="font-mono text-[13px] tracking-[0.03em] text-accent-warm font-medium mb-3">
-                                ฿{pkg.price}
-                              </p>
-                              <p className="font-body text-[12px] leading-[1.6] text-muted-foreground mb-4">
-                                {pkg.details[lang]}
-                              </p>
-                              <div className="border-t border-border/40 pt-3">
-                                <p className="font-mono text-[9px] tracking-[0.15em] uppercase text-muted-foreground/40 mb-2">
-                                  {t("What you get", "สิ่งที่คุณได้รับ")}
-                                </p>
-                                <ul className="space-y-1.5">
-                                  {pkg.deliverables.map((d) => (
-                                    <li key={d} className="font-body text-[12px] text-foreground/60 flex items-start gap-2">
-                                      <span className="text-accent-warm/40 mt-0.5 text-[8px]">◆</span>
-                                      {d}
-                                    </li>
-                                  ))}
-                                </ul>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-
-                        {s.note && (
-                          <p className="font-mono text-[10px] tracking-[0.05em] text-muted-foreground/40 mt-5 italic">
-                            {s.note[lang]}
-                          </p>
-                        )}
-
-                        <div className="mt-8 flex items-center gap-6 flex-wrap">
+                        <div className="flex items-center gap-6 flex-wrap">
                           <button
                             onClick={() => setDialogOpen(true)}
                             className="font-mono text-[11px] tracking-[0.12em] uppercase text-background bg-foreground px-6 py-2.5 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300"

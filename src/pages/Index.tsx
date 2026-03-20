@@ -224,9 +224,14 @@ const Index = () => {
               <span className="text-accent-warm mr-2">✦</span> {t("What We Do", "สิ่งที่เราทำ")}
             </p>
           </AnimatedSection>
-          <TextReveal className="font-display text-[clamp(48px,6vw,100px)] leading-[0.9] tracking-[0.01em] text-foreground mb-6 max-w-4xl">
-            IDEAS FIRST. THEN EVERYTHING ELSE.
-          </TextReveal>
+          <AnimatedSection delay={0.1}>
+            <h2 className="font-display text-[clamp(48px,6vw,100px)] leading-[0.9] tracking-[0.01em] text-foreground max-w-4xl mb-4">
+              IDEAS FIRST.
+            </h2>
+            <h2 className="font-display text-[clamp(48px,6vw,100px)] leading-[0.9] tracking-[0.01em] text-foreground max-w-4xl mb-8">
+              THEN <span className="text-accent-gradient">EVERYTHING ELSE.</span>
+            </h2>
+          </AnimatedSection>
           <AnimatedSection delay={0.2}>
             <p className="font-body text-[16px] leading-[1.7] text-muted-foreground max-w-2xl mb-20">
               {t(

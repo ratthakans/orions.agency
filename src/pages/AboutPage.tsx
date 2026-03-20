@@ -152,7 +152,7 @@ const AboutPage = () => {
               </div>
             </AnimatedSection>
 
-            <div className="grid md:grid-cols-2 gap-0">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
               {values.map((v, i) => (
                 <AnimatedSection key={v.num} delay={i * 0.05}>
                   <div className="group border-t border-border py-10 pr-8 md:pr-12 relative">

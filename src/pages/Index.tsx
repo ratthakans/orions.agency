@@ -405,10 +405,10 @@ const Index = () => {
       <section className="py-40 md:py-56 px-6 md:px-12 text-center">
         <div className="max-w-5xl mx-auto">
           <TextReveal className="font-display text-[clamp(48px,8vw,140px)] leading-[0.88] tracking-[0.01em] text-foreground mb-4">
-            IF PEOPLE DON'T REMEMBER YOU,
+            WITHOUT THE RIGHT IDEA,
           </TextReveal>
           <TextReveal className="font-display text-[clamp(48px,8vw,140px)] leading-[0.88] tracking-[0.01em] text-accent-warm mb-12">
-            THEY WON'T CHOOSE YOU.
+            NOTHING ELSE MATTERS.
           </TextReveal>
           <AnimatedSection delay={0.3}>
             <p className="font-body text-[18px] text-muted-foreground mb-12">

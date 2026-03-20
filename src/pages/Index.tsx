@@ -182,7 +182,7 @@ const Index = () => {
                 { icon: "03", en: "Create content that matters", th: "สร้าง content ที่มีความหมาย" },
                 { icon: "04", en: "Drive real impact", th: "สร้าง impact ที่จับต้องได้" },
               ].map((item) => (
-                <div key={item.en} className="group relative bg-background hover:bg-muted/30 transition-all duration-500 p-6 md:p-8 border-r border-b border-border last:border-r-0">
+                <div key={item.en} className="group relative bg-background hover:bg-muted/30 transition-all duration-500 p-6 md:p-8">
                   <span className="font-mono text-[10px] tracking-[0.15em] text-accent-warm/40 block mb-4">{item.icon}</span>
                   <span className="font-body text-[14px] md:text-[15px] leading-[1.6] text-foreground/80 group-hover:text-accent-warm transition-colors duration-300">
                     {t(item.en, item.th)}

@@ -48,7 +48,7 @@ const Typewriter = memo(() => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5, delay: 0.6 }}
-      className="font-display text-[clamp(28px,8vw,130px)] leading-[0.9] tracking-[0.01em] text-accent-gradient block min-h-[1.1em]"
+      className="font-display text-[clamp(28px,6.5vw,100px)] leading-[0.9] tracking-[0.01em] text-accent-gradient block min-h-[1.1em]"
     >
       {displayText}
       <motion.span
@@ -66,13 +66,13 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => {
   const { t } = useLanguage();
 
   return (
-    <section className="min-h-[70vh] md:min-h-[85vh] flex items-end px-4 sm:px-6 md:px-12 pb-12 md:pb-28 pt-24 md:pt-0 relative overflow-hidden">
+    <section className="min-h-[75vh] md:min-h-[90vh] flex items-end px-4 sm:px-6 md:px-12 pb-12 md:pb-28 relative overflow-hidden">
       <div className="max-w-7xl mx-auto w-full relative z-10">
         <div className="max-w-5xl">
           <div className="mb-12">
             <TextReveal
               as="h1"
-              className="font-display text-[clamp(28px,8vw,130px)] leading-[0.9] tracking-[0.01em] text-foreground overflow-wrap-break-word"
+              className="font-display text-[clamp(28px,6.5vw,100px)] leading-[0.9] tracking-[0.01em] text-foreground overflow-wrap-break-word"
             >
               A CREATIVE AGENCY THAT TURNS IDEAS INTO DEMAND.
             </TextReveal>

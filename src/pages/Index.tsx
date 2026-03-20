@@ -68,40 +68,40 @@ const Index = () => {
 
   const services = [
     {
-      title: "Creative Direction",
-      desc: { en: "Define your brand story and positioning.", th: "กำหนดเรื่องราวและตำแหน่งของแบรนด์คุณ" },
+      title: "Creative Transformation",
+      desc: { en: "Redefine how your brand communicates and grows.", th: "ปรับเปลี่ยนวิธีที่แบรนด์สื่อสารและเติบโต" },
       details: {
-        en: "We define who you are, what you stand for, and how you should communicate. Strategic thinking and creative direction for brands that need clarity before content.",
-        th: "เรากำหนดว่าคุณคือใคร ยืนหยัดเพื่ออะไร และควรสื่อสารอย่างไร — การคิดเชิงกลยุทธ์และ creative direction สำหรับแบรนด์ที่ต้องการความชัดเจน"
+        en: "A complete creative overhaul — from positioning to campaign. We redefine how your brand communicates, competes, and grows.",
+        th: "ปรับเปลี่ยนครีเอทีฟทั้งระบบ — จาก positioning สู่ campaign เราปรับวิธีที่แบรนด์สื่อสาร แข่งขัน และเติบโต"
       },
-      includes: ["Positioning", "Narrative", "Creative Direction", "Brand Story"],
+      includes: ["Positioning", "Narrative", "Campaign", "Creative Direction"],
     },
     {
-      title: "Campaign Development",
-      desc: { en: "Turn ideas into strong campaigns.", th: "เปลี่ยนไอเดียให้เป็นแคมเปญที่ทรงพลัง" },
+      title: "Creative Communication",
+      desc: { en: "Design ideas and campaigns people remember.", th: "ออกแบบไอเดียและแคมเปญที่คนจดจำ" },
       details: {
-        en: "Ideas that become campaigns people remember. We develop concepts, communication structures, and creative systems that drive real results.",
-        th: "ไอเดียที่กลายเป็นแคมเปญที่คนจดจำ เราพัฒนา concept, โครงสร้างการสื่อสาร และ creative system ที่สร้างผลลัพธ์จริง"
+        en: "Ideas that become campaigns people remember. We design concepts, communication structures, and creative systems that drive real results.",
+        th: "ไอเดียที่กลายเป็นแคมเปญที่คนจดจำ เราออกแบบ concept, โครงสร้างการสื่อสาร และ creative system ที่สร้างผลลัพธ์จริง"
       },
-      includes: ["Campaign Concept", "Creative Idea", "Communication Structure", "Launch Strategy"],
+      includes: ["Campaign Concept", "Key Message", "Communication Design", "Launch Plan"],
     },
     {
-      title: "Content Production",
-      desc: { en: "Bring ideas to life through execution.", th: "ทำให้ไอเดียเป็นจริงผ่านการผลิต" },
+      title: "Film & Production",
+      desc: { en: "Cinematic execution — script to screen.", th: "งานผลิตระดับภาพยนตร์ — จากบทสู่หน้าจอ" },
       details: {
-        en: "Cinematic production from script to screen. We produce campaign films, brand videos, and content with the quality of a production house and the clarity of an agency.",
-        th: "งานผลิตระดับภาพยนตร์ตั้งแต่บทจนถึงหน้าจอ เราผลิต campaign film, brand video และ content ด้วยคุณภาพระดับ production house"
+        en: "Cinematic production from script to screen. Campaign films, brand videos, and visual content with the quality of craft and the clarity of strategy.",
+        th: "งานผลิตระดับภาพยนตร์ตั้งแต่บทจนถึงหน้าจอ Campaign film, brand video และ visual content ด้วยคุณภาพงานฝีมือ"
       },
-      includes: ["Video", "Visual", "Campaign Assets", "Brand Film"],
+      includes: ["Campaign Film", "Brand Video", "Visual Content", "Social Cutdowns"],
     },
     {
       title: "Creative Retainer",
       desc: { en: "Keep your brand consistent and impactful.", th: "รักษาความสม่ำเสมอและผลกระทบของแบรนด์" },
       details: {
-        en: "Products evolve. Users change. Messaging must adapt. We help you stay clear, relevant, and effective over time with ongoing creative direction.",
-        th: "ผลิตภัณฑ์เปลี่ยน ผู้ใช้เปลี่ยน การสื่อสารต้องปรับตัว เราช่วยให้คุณชัดเจน ตรงประเด็น และมีประสิทธิภาพอยู่เสมอ"
+        en: "Brands evolve. Markets change. Messaging must adapt. We help you stay clear, relevant, and effective over time.",
+        th: "แบรนด์เปลี่ยน ตลาดเปลี่ยน การสื่อสารต้องปรับตัว เราช่วยให้คุณชัดเจนและมีประสิทธิภาพอยู่เสมอ"
       },
-      includes: ["Ongoing Creative Direction", "Campaign Extension", "Content Guidance"],
+      includes: ["Ongoing Direction", "Campaign Extension", "Content Guidance"],
     },
   ];
 
@@ -124,7 +124,7 @@ const Index = () => {
       <Navbar />
       <HeroSection onStartProject={() => setDialogOpen(true)} />
 
-      <Marquee items={["Creative Direction", "Campaign Development", "Content Production", "Creative Retainer", "Ideas", "Impact"]} />
+      <Marquee items={["Creative Transformation", "Creative Communication", "Film & Production", "Creative Retainer", "Ideas", "Impact"]} />
 
       {/* ─── POSITIONING ─── */}
       <section className="py-24 md:py-40 px-6 md:px-12">
@@ -214,7 +214,7 @@ const Index = () => {
         </div>
       </section>
 
-      <Marquee items={["Creative Direction", "Campaign Development", "Content Production", "Creative Retainer"]} speed="slow" />
+      <Marquee items={["Creative Transformation", "Creative Communication", "Film & Production", "Creative Retainer"]} speed="slow" />
 
       {/* ─── SERVICES ─── */}
       <section className="py-24 md:py-40 px-6 md:px-12">

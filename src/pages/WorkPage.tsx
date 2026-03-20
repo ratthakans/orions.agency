@@ -15,22 +15,20 @@ import workMuse from "@/assets/work-muse.jpg";
 import workOrbit from "@/assets/work-orbit.jpg";
 import workField from "@/assets/work-field.jpg";
 import workVela from "@/assets/work-vela.jpg";
-import workTerra from "@/assets/work-terra.jpg";
 
 const works = [
   { title: "Northwind Electric", service: "Film & Production", type: "Campaign Film", brief: { en: "A cinematic campaign film launching Northwind's entry into the Southeast Asian EV market.", th: "Campaign film ระดับภาพยนตร์สำหรับการเปิดตัว Northwind ในตลาด EV" }, deliverables: ["Campaign Film", "Director's Cut", "Social Cutdowns", "Behind the Scenes"], image: workNorthwind },
   { title: "Atlas Property Group", service: "Film & Production", type: "Documentary", brief: { en: "A brand documentary capturing the vision behind Atlas's luxury developments.", th: "Brand documentary ถ่ายทอดวิสัยทัศน์เบื้องหลังโครงการ luxury ของ Atlas" }, deliverables: ["Documentary Film", "Interview Series", "Sizzle Reel", "Photography"], image: workAtlas },
-  { title: "Koha Culture Studio", service: "Creative & Campaign", type: "Brand Story", brief: { en: "A brand story video series exploring contemporary art and community.", th: "ซีรีส์วิดีโอเรื่องราวแบรนด์สำรวจศิลปะร่วมสมัยและชุมชน" }, deliverables: ["Brand Video", "Artist Profiles", "Event Documentation", "Social Content"], image: workKoha },
-  { title: "Lumen Health", service: "Content Systems", type: "Content System", brief: { en: "A comprehensive content system for a digital health platform.", th: "ระบบ content ครบวงจรสำหรับแพลตฟอร์มสุขภาพดิจิทัล" }, deliverables: ["Content Strategy", "Editorial Calendar", "Video Series", "Blog System"], image: workLumen },
+  { title: "Koha Culture Studio", service: "Creative Communication", type: "Brand Story", brief: { en: "A brand story video series exploring contemporary art and community.", th: "ซีรีส์วิดีโอเรื่องราวแบรนด์สำรวจศิลปะร่วมสมัยและชุมชน" }, deliverables: ["Brand Video", "Artist Profiles", "Event Documentation", "Social Content"], image: workKoha },
+  { title: "Lumen Health", service: "Creative Retainer", type: "Content System", brief: { en: "A comprehensive content system for a digital health platform.", th: "ระบบ content ครบวงจรสำหรับแพลตฟอร์มสุขภาพดิจิทัล" }, deliverables: ["Content Strategy", "Editorial Calendar", "Video Series", "Blog System"], image: workLumen },
   { title: "Sera Hospitality", service: "Film & Production", type: "Campaign Film", brief: { en: "A campaign film capturing the essence of Sera's luxury hospitality.", th: "Campaign film ถ่ายทอดแก่นแท้ของ luxury hospitality ของ Sera" }, deliverables: ["Hero Film", "Property Films", "Social Series", "Print Campaign"], image: workSera },
-  { title: "Muse Education", service: "Creative & Campaign", type: "Brand Story", brief: { en: "A brand story film positioning Muse as the future of creative education.", th: "Brand story film วาง positioning ให้ Muse เป็นอนาคตของ creative education" }, deliverables: ["Brand Film", "Student Stories", "Campus Tour", "Recruitment Video"], image: workMuse },
-  { title: "Orbit Fintech", service: "Content Systems", type: "Content System", brief: { en: "Building trust through content for a fintech startup.", th: "สร้างความน่าเชื่อถือผ่าน content สำหรับ fintech startup" }, deliverables: ["Content Strategy", "Explainer Videos", "Blog Series", "Social Content"], image: workOrbit },
+  { title: "Muse Education", service: "Creative Communication", type: "Brand Story", brief: { en: "A brand story film positioning Muse as the future of creative education.", th: "Brand story film วาง positioning ให้ Muse เป็นอนาคตของ creative education" }, deliverables: ["Brand Film", "Student Stories", "Campus Tour", "Recruitment Video"], image: workMuse },
+  { title: "Orbit Fintech", service: "Creative Transformation", type: "Brand Transformation", brief: { en: "Complete creative transformation for a fintech startup — from positioning to campaign.", th: "Creative transformation ครบวงจรสำหรับ fintech startup — จาก positioning สู่ campaign" }, deliverables: ["Positioning", "Narrative", "Campaign Concept", "Content Direction"], image: workOrbit },
   { title: "Field Notes Coffee", service: "Film & Production", type: "Documentary", brief: { en: "A documentary following the journey from farm to cup.", th: "สารคดีตามเส้นทางจากไร่ถึงแก้ว" }, deliverables: ["Documentary", "Origin Series", "Barista Profiles", "Social Content"], image: workField },
-  { title: "Vela Fashion", service: "Film & Production", type: "Campaign Film", brief: { en: "A seasonal campaign film for Vela's debut collection.", th: "Campaign film สำหรับคอลเลกชันเปิดตัวของ Vela" }, deliverables: ["Campaign Film", "Lookbook Video", "Social Content", "Photography"], image: workVela },
-  { title: "Terra Collective", service: "Brand Development", type: "Brand Build", brief: { en: "A brand story video exploring sustainable living.", th: "Brand story video สำรวจ sustainable living" }, deliverables: ["Brand Video", "Founder Story", "Product Films", "Impact Report"], image: workTerra },
+  { title: "Vela Fashion", service: "Creative Transformation", type: "Brand Transformation", brief: { en: "A complete brand transformation for Vela's debut collection launch.", th: "Brand transformation ครบวงจรสำหรับการเปิดตัวคอลเลกชันแรกของ Vela" }, deliverables: ["Positioning", "Campaign Film", "Lookbook", "Launch Strategy"], image: workVela },
 ];
 
-const serviceFilters = ["All", "Content Systems", "Creative & Campaign", "Film & Production", "Brand Development"];
+const serviceFilters = ["All", "Creative Transformation", "Creative Communication", "Film & Production", "Creative Retainer"];
 
 const workSchema = {
   "@context": "https://schema.org",
@@ -46,7 +44,7 @@ const workSchema = {
       "@type": "CollectionPage",
       name: "ØRIONS Work",
       url: "https://orions.agency/work",
-      description: "Selected case studies and portfolio work by ØRIONS across campaigns, production, and content systems.",
+      description: "Selected case studies and portfolio work by ØRIONS.",
     },
   ],
 };
@@ -73,9 +71,9 @@ const WorkPage = () => {
     <main className="bg-background min-h-screen grain-overlay">
       <SEO
         title="Portfolio & Case Studies | ØRIONS Bangkok"
-        description="Browse selected ØRIONS work across campaign films, brand storytelling, content systems, and brand development projects in Bangkok and Southeast Asia."
+        description="Browse selected ØRIONS work across creative transformation, communication, film production, and retainer projects."
         path="/work"
-        keywords="creative agency portfolio Bangkok, production house case studies Thailand, campaign film portfolio Bangkok"
+        keywords="creative agency portfolio Bangkok, campaign film portfolio, creative transformation"
         schema={workSchema}
       />
       <Navbar />
@@ -87,11 +85,11 @@ const WorkPage = () => {
                 <span className="text-accent-warm mr-2">◎</span> Portfolio
               </p>
               <h1 className="font-display text-[clamp(44px,6vw,96px)] leading-[0.9] tracking-[0.01em] text-foreground mb-6 max-w-5xl">
-                CREATIVE AGENCY WORK
+                CREATIVE WORK
                 <br />THAT <span className="text-accent-gradient">PERFORMS.</span>
               </h1>
               <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-2xl">
-                {t("Quality over quantity. Every project here represents a brand we helped think, shape, and produce across Bangkok, Thailand, and the region.", "คุณภาพเหนือปริมาณ ทุกโปรเจกต์ที่นี่คือแบรนด์ที่เราช่วยคิด สร้าง และผลิตในกรุงเทพฯ ไทย และระดับภูมิภาค")}
+                {t("Quality over quantity. Every project here represents a brand we helped think, shape, and produce.", "คุณภาพเหนือปริมาณ ทุกโปรเจกต์ที่นี่คือแบรนด์ที่เราช่วยคิด สร้าง และผลิต")}
               </p>
             </AnimatedSection>
           </div>
@@ -100,7 +98,7 @@ const WorkPage = () => {
         <section className="px-6 md:px-12 py-8 md:py-12 pb-20">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection delay={0.04}>
-              <div className="flex items-center gap-6 md:gap-8 mb-16 flex-wrap">
+              <div className="flex items-center gap-4 md:gap-6 mb-16 flex-wrap">
                 {serviceFilters.map((cat) => (
                   <button
                     key={cat}
@@ -157,7 +155,7 @@ const WorkPage = () => {
                 <br />FOR YOUR BRAND?
               </h2>
               <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-xl mx-auto mb-10">
-                {t("Tell us what you're launching, changing, or trying to grow, and we'll recommend the right mix of strategy, campaign thinking, and production.", "บอกเราว่าคุณกำลังเปิดตัว เปลี่ยนแปลง หรืออยากขยายอะไร แล้วเราจะแนะนำส่วนผสมที่เหมาะของ strategy, campaign thinking และ production")}
+                {t("Tell us what you're launching, changing, or trying to grow.", "บอกเราว่าคุณกำลังเปิดตัว เปลี่ยนแปลง หรืออยากขยายอะไร")}
               </p>
               <div className="flex flex-wrap items-center justify-center gap-8">
                 <Link to="/services" className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-background bg-foreground px-8 py-3 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300">

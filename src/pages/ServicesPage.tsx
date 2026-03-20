@@ -20,65 +20,65 @@ interface Service {
 const services: Service[] = [
   {
     num: "01",
-    title: "Creative Direction",
+    title: "Creative Transformation",
     desc: {
-      en: "Define your brand story and positioning — the idea that makes everything else work.",
-      th: "กำหนดเรื่องราวและตำแหน่งของแบรนด์ — ไอเดียที่ทำให้ทุกอย่างได้ผล",
+      en: "Redefine how your brand communicates, competes, and grows — from positioning to campaign.",
+      th: "ปรับเปลี่ยนวิธีที่แบรนด์สื่อสาร แข่งขัน และเติบโต — จาก positioning สู่ campaign",
     },
     type: "project",
     ideal: {
-      en: "Brands that need clarity before content. When your story isn't clear, nothing else works.",
-      th: "แบรนด์ที่ต้องการความชัดเจนก่อน content เมื่อเรื่องราวไม่ชัด สิ่งอื่นก็ไม่ได้ผล",
+      en: "Brands ready for a complete creative overhaul — when your current approach isn't driving the results you need.",
+      th: "แบรนด์ที่พร้อมปรับเปลี่ยนครีเอทีฟทั้งระบบ — เมื่อแนวทางปัจจุบันไม่สร้างผลลัพธ์ที่ต้องการ",
     },
     process: {
-      en: ["Brand & audience audit", "Positioning strategy", "Narrative design", "Creative direction"],
-      th: ["ตรวจสอบแบรนด์และกลุ่มเป้าหมาย", "กลยุทธ์ positioning", "ออกแบบ narrative", "Creative direction"],
+      en: ["Brand & demand audit", "Positioning strategy", "Narrative design", "Campaign development"],
+      th: ["ตรวจสอบแบรนด์และ demand", "กลยุทธ์ positioning", "ออกแบบ narrative", "พัฒนาแคมเปญ"],
     },
     deliverables: {
-      en: ["Brand positioning", "Core narrative", "Creative direction", "Brand story framework", "Messaging guidelines"],
-      th: ["Brand positioning", "Core narrative", "Creative direction", "Brand story framework", "แนวทางการสื่อสาร"],
+      en: ["Brand positioning", "Core narrative", "Campaign concept", "Creative direction", "Communication framework"],
+      th: ["Brand positioning", "Core narrative", "คอนเซปต์แคมเปญ", "Creative direction", "กรอบการสื่อสาร"],
     },
   },
   {
     num: "02",
-    title: "Campaign Development",
+    title: "Creative Communication",
     desc: {
-      en: "Turn ideas into strong campaigns that people remember and act on.",
-      th: "เปลี่ยนไอเดียให้เป็นแคมเปญที่คนจดจำและลงมือทำ",
+      en: "Design the ideas and campaigns that make people care, remember, and act.",
+      th: "ออกแบบไอเดียและแคมเปญที่ทำให้คนสนใจ จดจำ และลงมือทำ",
     },
     type: "project",
     ideal: {
-      en: "Product launches, seasonal campaigns, or when a brand needs a strong creative idea that drives real results.",
-      th: "เปิดตัวผลิตภัณฑ์ แคมเปญตามฤดูกาล หรือเมื่อแบรนด์ต้องการไอเดียที่สร้างผลลัพธ์จริง",
+      en: "Brands that have a story but need stronger campaigns — clear ideas that cut through noise and drive results.",
+      th: "แบรนด์ที่มีเรื่องราวแล้วแต่ต้องการแคมเปญที่แข็งแกร่งกว่า — ไอเดียที่ชัดเจนและสร้างผลลัพธ์",
     },
     process: {
-      en: ["Brief & insight", "Concept development", "Campaign structure", "Launch & measure"],
-      th: ["บรีฟและ insight", "พัฒนาคอนเซปต์", "โครงสร้างแคมเปญ", "เปิดตัวและวัดผล"],
+      en: ["Brief & insight", "Concept development", "Communication design", "Launch strategy"],
+      th: ["บรีฟและ insight", "พัฒนาคอนเซปต์", "ออกแบบการสื่อสาร", "กลยุทธ์เปิดตัว"],
     },
     deliverables: {
-      en: ["Campaign concept", "Creative idea", "Communication structure", "Key visual direction", "Launch strategy"],
-      th: ["คอนเซปต์แคมเปญ", "ไอเดียครีเอทีฟ", "โครงสร้างการสื่อสาร", "ทิศทาง key visual", "กลยุทธ์เปิดตัว"],
+      en: ["Campaign concept", "Key message", "Communication structure", "Content direction", "Launch plan"],
+      th: ["คอนเซปต์แคมเปญ", "Key message", "โครงสร้างการสื่อสาร", "ทิศทาง content", "แผนเปิดตัว"],
     },
   },
   {
     num: "03",
-    title: "Content Production",
+    title: "Film & Production",
     desc: {
-      en: "Bring ideas to life through cinematic execution — video, visual, and campaign assets.",
-      th: "ทำให้ไอเดียเป็นจริงผ่านการผลิตระดับภาพยนตร์ — วิดีโอ ภาพ และ campaign assets",
+      en: "Cinematic production — from script to screen. Campaign films, brand videos, and visual content.",
+      th: "งานผลิตระดับภาพยนตร์ — จากบทสู่หน้าจอ Campaign film, brand video และ visual content",
     },
     type: "project",
     ideal: {
-      en: "Brands that need high-quality production to bring their ideas and campaigns to life.",
-      th: "แบรนด์ที่ต้องการงานผลิตคุณภาพสูงเพื่อทำให้ไอเดียและแคมเปญเป็นจริง",
+      en: "Brands that need high-quality production to bring their ideas to life — not just content, but craft.",
+      th: "แบรนด์ที่ต้องการงานผลิตคุณภาพสูง — ไม่ใช่แค่ content แต่เป็นงานฝีมือ",
     },
     process: {
       en: ["Pre-production & scripting", "Production & filming", "Post-production & editing", "Delivery & cutdowns"],
       th: ["Pre-production และเขียนบท", "ถ่ายทำ", "Post-production และตัดต่อ", "ส่งมอบและตัด cutdowns"],
     },
     deliverables: {
-      en: ["Script & storyboard", "Hero video production", "Color grading & sound design", "Campaign assets", "Social cutdowns"],
-      th: ["บทและ storyboard", "ผลิตวิดีโอหลัก", "Color grading และ sound design", "Campaign assets", "ตัด cutdowns สำหรับโซเชียล"],
+      en: ["Script & storyboard", "Hero video", "Color grading & sound", "Campaign assets", "Social cutdowns"],
+      th: ["บทและ storyboard", "วิดีโอหลัก", "Color grading และ sound", "Campaign assets", "Social cutdowns"],
     },
   },
   {
@@ -86,20 +86,20 @@ const services: Service[] = [
     title: "Creative Retainer",
     desc: {
       en: "Keep your brand consistent, relevant, and impactful over time.",
-      th: "รักษาความสม่ำเสมอ ตรงประเด็น และมีผลกระทบของแบรนด์อย่างต่อเนื่อง",
+      th: "รักษาความสม่ำเสมอ ตรงประเด็น และมีผลกระทบอย่างต่อเนื่อง",
     },
     type: "retainer",
     ideal: {
-      en: "Brands that need ongoing creative direction and campaign continuity — not just content, but ideas that keep working.",
-      th: "แบรนด์ที่ต้องการ creative direction ต่อเนื่องและความต่อเนื่องของแคมเปญ — ไม่ใช่แค่ content แต่เป็นไอเดียที่ทำงานต่อไป",
+      en: "Brands that need ongoing creative direction — not just content, but ideas that keep working month after month.",
+      th: "แบรนด์ที่ต้องการ creative direction ต่อเนื่อง — ไม่ใช่แค่ content แต่เป็นไอเดียที่ทำงานต่อเนื่อง",
     },
     process: {
       en: ["Monthly creative review", "Campaign extension", "Content guidance", "Performance optimization"],
       th: ["ทบทวนครีเอทีฟรายเดือน", "ขยายแคมเปญ", "แนวทาง content", "ปรับปรุงประสิทธิภาพ"],
     },
     deliverables: {
-      en: ["Ongoing creative direction", "Campaign extension", "Content guidance", "Monthly creative review", "Brand consistency audit"],
-      th: ["Creative direction ต่อเนื่อง", "ขยายแคมเปญ", "แนวทาง content", "ทบทวนครีเอทีฟรายเดือน", "ตรวจสอบความสม่ำเสมอของแบรนด์"],
+      en: ["Ongoing creative direction", "Campaign extension", "Content guidance", "Monthly review", "Brand consistency"],
+      th: ["Creative direction ต่อเนื่อง", "ขยายแคมเปญ", "แนวทาง content", "ทบทวนรายเดือน", "ความสม่ำเสมอของแบรนด์"],
     },
   },
 ];
@@ -132,27 +132,6 @@ const servicesSchema = {
         },
       })),
     },
-    {
-      "@type": "FAQPage",
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "What creative services does ØRIONS offer?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "ØRIONS offers Creative Direction, Campaign Development, Content Production, and Creative Retainer — all driven by ideas first, not just execution.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "How do I choose the right service?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "If your brand story isn't clear, start with Creative Direction. If you need a strong campaign, go with Campaign Development. If you need production, Content Production. For ongoing support, Creative Retainer.",
-          },
-        },
-      ],
-    },
   ],
 };
 
@@ -165,9 +144,9 @@ const ServicesPage = () => {
     <main className="bg-background min-h-screen grain-overlay">
       <SEO
         title="Creative Services — Ideas First | ØRIONS"
-        description="ØRIONS services: Creative Direction, Campaign Development, Content Production, and Creative Retainer. We create ideas first, then turn them into campaigns that work."
+        description="Creative Transformation, Creative Communication, Film & Production, and Creative Retainer. We create ideas first, then turn them into campaigns that work."
         path="/services"
-        keywords="creative direction, campaign development, content production, creative retainer, idea-driven agency"
+        keywords="creative transformation, creative communication, film production, creative retainer, idea-driven agency"
         schema={servicesSchema}
       />
       <Navbar />
@@ -322,18 +301,19 @@ const ServicesPage = () => {
                 <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">
                   <span className="text-accent-warm mr-2">◎</span> {t("Simple, Clear Engagement", "ราคาชัดเจน")}
                 </p>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
                   {[
-                    { label: "Creative Direction", price: "60,000 – 100,000", unit: "THB", scope: "Per Project" },
-                    { label: "Campaign Development", price: "200,000 – 400,000", unit: "THB", scope: "Per Project", featured: true },
+                    { label: "Creative Transformation", price: "200,000 – 500,000", unit: "THB", scope: "Per Project" },
+                    { label: "Creative Communication", price: "100,000 – 300,000", unit: "THB", scope: "Per Project", featured: true },
+                    { label: "Film & Production", price: "150,000 – 400,000", unit: "THB", scope: "Per Project" },
                     { label: "Creative Retainer", price: "80,000 – 150,000", unit: "THB / month", scope: "Ongoing" },
                   ].map((tier) => (
                     <div key={tier.label} className={`border ${tier.featured ? "border-accent-warm/30 bg-accent-warm/[0.03]" : "border-border"} p-8`}>
                       {tier.featured && <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm mb-3 block">★ Most Popular</span>}
                       <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground/50 mb-2">{tier.scope}</p>
-                      <h3 className="font-display text-[22px] tracking-[0.02em] text-foreground mb-4">{tier.label}</h3>
+                      <h3 className="font-display text-[18px] tracking-[0.02em] text-foreground mb-4">{tier.label}</h3>
                       <div className="border-t border-border pt-4">
-                        <p className="font-display text-[20px] text-foreground">฿{tier.price}</p>
+                        <p className="font-display text-[18px] text-foreground">฿{tier.price}</p>
                         <p className="font-mono text-[10px] tracking-[0.1em] uppercase text-muted-foreground/50 mt-1">{tier.unit}</p>
                       </div>
                     </div>
@@ -342,45 +322,6 @@ const ServicesPage = () => {
                 <p className="font-body text-[14px] text-muted-foreground/60 italic">
                   {t("We focus on high-impact work, not volume.", "เราโฟกัสที่งานที่สร้าง impact สูง ไม่ใช่ปริมาณ")}
                 </p>
-              </div>
-            </AnimatedSection>
-          </div>
-        </section>
-
-        <section className="px-6 md:px-12 py-16 md:py-24">
-          <div className="max-w-7xl mx-auto">
-            <AnimatedSection>
-              <div className="border-t border-border pt-16 grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:gap-16">
-                <div>
-                  <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
-                    <span className="text-accent-warm mr-2">◎</span> FAQs
-                  </p>
-                  <h2 className="font-display text-[clamp(36px,5vw,72px)] leading-[0.92] tracking-[0.01em] text-foreground mb-6">
-                    WHAT TO EXPECT
-                    <br />BEFORE WE START.
-                  </h2>
-                </div>
-                <div className="space-y-6">
-                  {[
-                    {
-                      q: "How do I choose the right service?",
-                      a: "If your story isn't clear, start with Creative Direction. If you need a campaign, go with Campaign Development. For production, Content Production. For ongoing support, Creative Retainer.",
-                    },
-                    {
-                      q: "What makes ØRIONS different from other agencies?",
-                      a: "We focus on ideas first. We're not a production house or a social media agency — we create the ideas that make everything else work.",
-                    },
-                    {
-                      q: "Can you help define scope and budget?",
-                      a: "Yes. Many clients come with a goal rather than a clear scope, and we help shape the right deliverables, timeline, and budget range.",
-                    },
-                  ].map((item) => (
-                    <div key={item.q} className="border-t border-border pt-5">
-                      <h3 className="font-body text-[16px] text-foreground mb-2">{item.q}</h3>
-                      <p className="font-body text-[14px] leading-[1.7] text-muted-foreground">{item.a}</p>
-                    </div>
-                  ))}
-                </div>
               </div>
             </AnimatedSection>
           </div>

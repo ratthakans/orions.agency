@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Link } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import StartProjectDialog from "@/components/StartProjectDialog";
@@ -81,7 +83,7 @@ const PackagePage = () => {
       <SEO
         title="Hospitality Growth System — Creative Partnership for Hotels | ØRIONS"
         description="A strategic creative system for 4–5 star hotels and resorts. From brand narrative to cinematic production — ORIONS helps hotels unlock new markets and drive real bookings."
-        path="/package"
+        path="/package/hospitality"
       />
       <Navbar />
 
@@ -92,6 +94,9 @@ const PackagePage = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/30" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-12 pb-20 md:pb-28">
+          <Link to="/package" className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground hover:text-accent-warm transition-colors mb-8">
+            <ArrowLeft className="w-3 h-3" /> All Packages
+          </Link>
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

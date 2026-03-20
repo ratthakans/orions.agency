@@ -140,7 +140,7 @@ const servicesSchema = {
           name: "What creative services does ØRIONS offer?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "ØRIONS offers Content Systems, Creative & Campaign, Film & Production, and Brand Development for brands in Bangkok, Thailand, and Southeast Asia.",
+            text: "ØRIONS offers Content Systems, Creative & Campaign, Film & Production, and Creative Transformation for brands in Bangkok, Thailand, and Southeast Asia.",
           },
         },
         {

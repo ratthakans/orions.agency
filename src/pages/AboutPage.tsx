@@ -104,7 +104,7 @@ const AboutPage = () => {
         </section>
 
         {/* Manifesto */}
-        <section className="px-6 md:px-12 py-12 md:py-20">
+        <section className="px-4 sm:px-6 md:px-12 py-12 md:py-20">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
               <div className="border-t border-border pt-16 grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-20">

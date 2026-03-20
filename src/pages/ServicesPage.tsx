@@ -20,93 +20,93 @@ interface Service {
 const services: Service[] = [
   {
     num: "01",
-    title: "Content Systems",
+    title: "Creative Direction",
     desc: {
-      en: "Ongoing content for brands that need consistency and quality — without building an in-house team.",
-      th: "Content ต่อเนื่องสำหรับแบรนด์ที่ต้องการความสม่ำเสมอและคุณภาพ — โดยไม่ต้องสร้างทีมภายใน",
+      en: "Define your brand story and positioning — the idea that makes everything else work.",
+      th: "กำหนดเรื่องราวและตำแหน่งของแบรนด์ — ไอเดียที่ทำให้ทุกอย่างได้ผล",
     },
-    type: "retainer",
+    type: "project",
     ideal: {
-      en: "Brands that need consistent content every month but don't have an in-house creative team.",
-      th: "แบรนด์ที่ต้องการ content สม่ำเสมอทุกเดือนแต่ไม่มีทีมครีเอทีฟภายใน",
+      en: "Brands that need clarity before content. When your story isn't clear, nothing else works.",
+      th: "แบรนด์ที่ต้องการความชัดเจนก่อน content เมื่อเรื่องราวไม่ชัด สิ่งอื่นก็ไม่ได้ผล",
     },
     process: {
-      en: ["Brand & content audit", "Monthly content calendar", "Shoot & produce", "Publish & optimize"],
-      th: ["ตรวจสอบแบรนด์และ content", "วางแผน content รายเดือน", "ถ่ายทำและผลิต", "เผยแพร่และปรับปรุง"],
+      en: ["Brand & audience audit", "Positioning strategy", "Narrative design", "Creative direction"],
+      th: ["ตรวจสอบแบรนด์และกลุ่มเป้าหมาย", "กลยุทธ์ positioning", "ออกแบบ narrative", "Creative direction"],
     },
     deliverables: {
-      en: ["Content strategy", "Social media posts", "Short-form videos", "Monthly shoot days", "Performance reports"],
-      th: ["กลยุทธ์ content", "โพสต์โซเชียลมีเดีย", "วิดีโอสั้น", "วันถ่ายทำรายเดือน", "รายงานผลลัพธ์"],
+      en: ["Brand positioning", "Core narrative", "Creative direction", "Brand story framework", "Messaging guidelines"],
+      th: ["Brand positioning", "Core narrative", "Creative direction", "Brand story framework", "แนวทางการสื่อสาร"],
     },
   },
   {
     num: "02",
-    title: "Creative & Campaign",
+    title: "Campaign Development",
     desc: {
-      en: "Ideas and campaigns that define how brands are seen — from concept to execution.",
-      th: "ไอเดียและแคมเปญที่กำหนดว่าแบรนด์ถูกมองอย่างไร — ตั้งแต่คอนเซปต์ถึงการลงมือทำ",
+      en: "Turn ideas into strong campaigns that people remember and act on.",
+      th: "เปลี่ยนไอเดียให้เป็นแคมเปญที่คนจดจำและลงมือทำ",
     },
     type: "project",
     ideal: {
-      en: "Product launches, rebranding, seasonal campaigns, or when a brand needs a strong creative idea.",
-      th: "เปิดตัวผลิตภัณฑ์ รีแบรนด์ แคมเปญตามฤดูกาล หรือเมื่อแบรนด์ต้องการไอเดียครีเอทีฟที่แข็งแกร่ง",
+      en: "Product launches, seasonal campaigns, or when a brand needs a strong creative idea that drives real results.",
+      th: "เปิดตัวผลิตภัณฑ์ แคมเปญตามฤดูกาล หรือเมื่อแบรนด์ต้องการไอเดียที่สร้างผลลัพธ์จริง",
     },
     process: {
-      en: ["Brief & research", "Concept development", "Creative direction & production", "Launch & measure"],
-      th: ["บรีฟและวิจัย", "พัฒนาคอนเซปต์", "ครีเอทีฟไดเรกชันและผลิต", "เปิดตัวและวัดผล"],
+      en: ["Brief & insight", "Concept development", "Campaign structure", "Launch & measure"],
+      th: ["บรีฟและ insight", "พัฒนาคอนเซปต์", "โครงสร้างแคมเปญ", "เปิดตัวและวัดผล"],
     },
     deliverables: {
-      en: ["Campaign concept & story", "Creative direction", "Key visual design", "Copywriting & messaging", "Social & digital assets"],
-      th: ["คอนเซปต์และเรื่องราวแคมเปญ", "ครีเอทีฟไดเรกชัน", "ออกแบบ key visual", "เขียน copy และ messaging", "Assets สำหรับโซเชียลและดิจิทัล"],
+      en: ["Campaign concept", "Creative idea", "Communication structure", "Key visual direction", "Launch strategy"],
+      th: ["คอนเซปต์แคมเปญ", "ไอเดียครีเอทีฟ", "โครงสร้างการสื่อสาร", "ทิศทาง key visual", "กลยุทธ์เปิดตัว"],
     },
   },
   {
     num: "03",
-    title: "Film & Production",
+    title: "Content Production",
     desc: {
-      en: "High-quality films and visual storytelling — from brand videos to full documentaries.",
-      th: "ภาพยนตร์คุณภาพสูงและการเล่าเรื่องด้วยภาพ — จาก brand video ถึงสารคดีเต็มรูปแบบ",
+      en: "Bring ideas to life through cinematic execution — video, visual, and campaign assets.",
+      th: "ทำให้ไอเดียเป็นจริงผ่านการผลิตระดับภาพยนตร์ — วิดีโอ ภาพ และ campaign assets",
     },
     type: "project",
     ideal: {
-      en: "Brands that need cinematic-quality visual content to tell their story.",
-      th: "แบรนด์ที่ต้องการ visual content ระดับภาพยนตร์เพื่อเล่าเรื่องราว",
+      en: "Brands that need high-quality production to bring their ideas and campaigns to life.",
+      th: "แบรนด์ที่ต้องการงานผลิตคุณภาพสูงเพื่อทำให้ไอเดียและแคมเปญเป็นจริง",
     },
     process: {
       en: ["Pre-production & scripting", "Production & filming", "Post-production & editing", "Delivery & cutdowns"],
       th: ["Pre-production และเขียนบท", "ถ่ายทำ", "Post-production และตัดต่อ", "ส่งมอบและตัด cutdowns"],
     },
     deliverables: {
-      en: ["Script & storyboard", "Hero video production", "Color grading & sound design", "Social cutdowns", "Behind the scenes content"],
-      th: ["บทและ storyboard", "ผลิตวิดีโอหลัก", "Color grading และ sound design", "ตัด cutdowns สำหรับโซเชียล", "เบื้องหลังการถ่ายทำ"],
+      en: ["Script & storyboard", "Hero video production", "Color grading & sound design", "Campaign assets", "Social cutdowns"],
+      th: ["บทและ storyboard", "ผลิตวิดีโอหลัก", "Color grading และ sound design", "Campaign assets", "ตัด cutdowns สำหรับโซเชียล"],
     },
   },
   {
     num: "04",
-    title: "Creative Transformation",
+    title: "Creative Retainer",
     desc: {
-      en: "Building new ideas, products, and brand directions from the ground up.",
-      th: "สร้างไอเดียใหม่ ผลิตภัณฑ์ และทิศทางแบรนด์ตั้งแต่เริ่มต้น",
+      en: "Keep your brand consistent, relevant, and impactful over time.",
+      th: "รักษาความสม่ำเสมอ ตรงประเด็น และมีผลกระทบของแบรนด์อย่างต่อเนื่อง",
     },
-    type: "project",
+    type: "retainer",
     ideal: {
-      en: "Founders, startups, or established companies exploring new brands, products, or sub-brands.",
-      th: "ผู้ก่อตั้ง สตาร์ทอัพ หรือบริษัทที่กำลังสำรวจแบรนด์ ผลิตภัณฑ์ หรือ sub-brand ใหม่",
+      en: "Brands that need ongoing creative direction and campaign continuity — not just content, but ideas that keep working.",
+      th: "แบรนด์ที่ต้องการ creative direction ต่อเนื่องและความต่อเนื่องของแคมเปญ — ไม่ใช่แค่ content แต่เป็นไอเดียที่ทำงานต่อไป",
     },
     process: {
-      en: ["Discovery & research", "Brand strategy", "Identity design", "Launch preparation"],
-      th: ["ค้นหาและวิจัย", "กลยุทธ์แบรนด์", "ออกแบบ identity", "เตรียมเปิดตัว"],
+      en: ["Monthly creative review", "Campaign extension", "Content guidance", "Performance optimization"],
+      th: ["ทบทวนครีเอทีฟรายเดือน", "ขยายแคมเปญ", "แนวทาง content", "ปรับปรุงประสิทธิภาพ"],
     },
     deliverables: {
-      en: ["Brand positioning & story", "Visual identity system", "Brand guidelines", "Launch content & assets", "Website direction"],
-      th: ["Positioning และเรื่องราวแบรนด์", "ระบบ visual identity", "Brand guidelines", "Content และ assets สำหรับเปิดตัว", "ทิศทางเว็บไซต์"],
+      en: ["Ongoing creative direction", "Campaign extension", "Content guidance", "Monthly creative review", "Brand consistency audit"],
+      th: ["Creative direction ต่อเนื่อง", "ขยายแคมเปญ", "แนวทาง content", "ทบทวนครีเอทีฟรายเดือน", "ตรวจสอบความสม่ำเสมอของแบรนด์"],
     },
   },
 ];
 
 const industries = [
-  "Hospitality", "Lifestyle Brands", "Restaurant & Cafe", "Beauty & Wellness",
-  "Real Estate", "Startups", "Automotive", "Government",
+  "Tech", "Hospitality", "Golf", "Concert / Music",
+  "Lifestyle Brands", "Restaurant & Cafe", "Real Estate", "Startups",
 ];
 
 const servicesSchema = {
@@ -140,7 +140,7 @@ const servicesSchema = {
           name: "What creative services does ØRIONS offer?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "ØRIONS offers Content Systems, Creative & Campaign, Film & Production, and Creative Transformation for brands in Bangkok, Thailand, and Southeast Asia.",
+            text: "ØRIONS offers Creative Direction, Campaign Development, Content Production, and Creative Retainer — all driven by ideas first, not just execution.",
           },
         },
         {
@@ -148,7 +148,7 @@ const servicesSchema = {
           name: "How do I choose the right service?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "If you need consistent monthly output, start with Content Systems. If you need a launch, repositioning, or high-impact moment, Creative & Campaign or Film & Production is usually the better fit. Contact us and we'll help define the right scope.",
+            text: "If your brand story isn't clear, start with Creative Direction. If you need a strong campaign, go with Campaign Development. If you need production, Content Production. For ongoing support, Creative Retainer.",
           },
         },
       ],
@@ -164,10 +164,10 @@ const ServicesPage = () => {
   return (
     <main className="bg-background min-h-screen grain-overlay">
       <SEO
-        title="Creative Agency Services in Bangkok | ØRIONS"
-        description="Explore ØRIONS services: content systems, campaign strategy, film production, and creative transformation for growing brands in Bangkok and Southeast Asia."
+        title="Creative Services — Ideas First | ØRIONS"
+        description="ØRIONS services: Creative Direction, Campaign Development, Content Production, and Creative Retainer. We create ideas first, then turn them into campaigns that work."
         path="/services"
-        keywords="creative agency services Bangkok, film production house Bangkok, content agency Thailand, creative transformation Bangkok"
+        keywords="creative direction, campaign development, content production, creative retainer, idea-driven agency"
         schema={servicesSchema}
       />
       <Navbar />
@@ -179,13 +179,13 @@ const ServicesPage = () => {
                 <span className="text-accent-warm mr-2">✦</span> Services
               </p>
               <h1 className="font-display text-[clamp(44px,6vw,96px)] leading-[0.9] tracking-[0.01em] text-foreground mb-6 max-w-5xl">
-                CREATIVE AGENCY SERVICES
-                <br />FOR <span className="text-accent-gradient">GROWING BRANDS.</span>
+                IDEAS FIRST.
+                <br />THEN <span className="text-accent-gradient">EVERYTHING ELSE.</span>
               </h1>
               <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-2xl">
                 {t(
-                  "From monthly content to full brand builds in Bangkok — each ØRIONS service comes with clear deliverables and a strategy-first process.",
-                  "ตั้งแต่ content รายเดือนไปจนถึงการสร้างแบรนด์เต็มรูปแบบในกรุงเทพฯ — แต่ละบริการของ ØRIONS มี deliverables ชัดเจนและกระบวนการที่เริ่มจาก strategy"
+                  "We are an idea-driven creative agency. Every service starts with a strong idea — because without the right idea, execution doesn't matter.",
+                  "เราคือ idea-driven creative agency ทุกบริการเริ่มจากไอเดียที่แข็งแกร่ง — เพราะถ้าไม่มีไอเดียที่ถูกต้อง การลงมือทำก็ไม่มีความหมาย"
                 )}
               </p>
             </AnimatedSection>
@@ -293,22 +293,55 @@ const ServicesPage = () => {
             <AnimatedSection>
               <div className="border-t border-border pt-16">
                 <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">
-                  <span className="text-accent-warm/50 mr-2">⬡</span> {t("Industries We Work With", "อุตสาหกรรมที่เราทำงานด้วย")}
+                  <span className="text-accent-warm/50 mr-2">⬡</span> {t("Where We Create Impact", "ที่ที่เราสร้าง Impact")}
                 </p>
                 <div className="flex flex-wrap gap-3 mb-8">
                   {industries.map((ind) => (
                     <Link
                       key={ind}
-                      to="/industries"
+                      to="/package"
                       className="font-mono text-[11px] tracking-[0.1em] uppercase text-muted-foreground/60 border border-border/60 px-4 py-2 hover:text-foreground/80 hover:border-accent-warm/30 transition-all duration-300"
                     >
                       {ind}
                     </Link>
                   ))}
                 </div>
-                <Link to="/industries" className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-foreground border-b border-foreground/40 pb-1 hover:border-accent-warm hover:text-accent-warm transition-all duration-300">
+                <Link to="/package" className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-foreground border-b border-foreground/40 pb-1 hover:border-accent-warm hover:text-accent-warm transition-all duration-300">
                   Explore industries <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
                 </Link>
+              </div>
+            </AnimatedSection>
+          </div>
+        </section>
+
+        {/* Pricing */}
+        <section className="px-6 md:px-12 py-16 md:py-24">
+          <div className="max-w-7xl mx-auto">
+            <AnimatedSection>
+              <div className="border-t border-border pt-16">
+                <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">
+                  <span className="text-accent-warm mr-2">◎</span> {t("Simple, Clear Engagement", "ราคาชัดเจน")}
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                  {[
+                    { label: "Creative Direction", price: "60,000 – 100,000", unit: "THB", scope: "Per Project" },
+                    { label: "Campaign Development", price: "200,000 – 400,000", unit: "THB", scope: "Per Project", featured: true },
+                    { label: "Creative Retainer", price: "80,000 – 150,000", unit: "THB / month", scope: "Ongoing" },
+                  ].map((tier) => (
+                    <div key={tier.label} className={`border ${tier.featured ? "border-accent-warm/30 bg-accent-warm/[0.03]" : "border-border"} p-8`}>
+                      {tier.featured && <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm mb-3 block">★ Most Popular</span>}
+                      <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground/50 mb-2">{tier.scope}</p>
+                      <h3 className="font-display text-[22px] tracking-[0.02em] text-foreground mb-4">{tier.label}</h3>
+                      <div className="border-t border-border pt-4">
+                        <p className="font-display text-[20px] text-foreground">฿{tier.price}</p>
+                        <p className="font-mono text-[10px] tracking-[0.1em] uppercase text-muted-foreground/50 mt-1">{tier.unit}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <p className="font-body text-[14px] text-muted-foreground/60 italic">
+                  {t("We focus on high-impact work, not volume.", "เราโฟกัสที่งานที่สร้าง impact สูง ไม่ใช่ปริมาณ")}
+                </p>
               </div>
             </AnimatedSection>
           </div>
@@ -330,16 +363,16 @@ const ServicesPage = () => {
                 <div className="space-y-6">
                   {[
                     {
-                      q: "How do we choose the right service?",
-                      a: "If you need consistent monthly output, start with Content Systems. If you need a launch, repositioning, or high-impact moment, Creative & Campaign or Film & Production is usually the better fit.",
+                      q: "How do I choose the right service?",
+                      a: "If your story isn't clear, start with Creative Direction. If you need a campaign, go with Campaign Development. For production, Content Production. For ongoing support, Creative Retainer.",
                     },
                     {
-                      q: "Do you work with Bangkok-only brands?",
-                      a: "No. We work with brands in Bangkok, across Thailand, and throughout Southeast Asia, but we keep the local market perspective strong.",
+                      q: "What makes ØRIONS different from other agencies?",
+                      a: "We focus on ideas first. We're not a production house or a social media agency — we create the ideas that make everything else work.",
                     },
                     {
                       q: "Can you help define scope and budget?",
-                      a: "Yes. Many clients come in with a goal rather than a clear scope, and we help shape the right deliverables, timeline, and budget range.",
+                      a: "Yes. Many clients come with a goal rather than a clear scope, and we help shape the right deliverables, timeline, and budget range.",
                     },
                   ].map((item) => (
                     <div key={item.q} className="border-t border-border pt-5">
@@ -362,8 +395,8 @@ const ServicesPage = () => {
               </h2>
               <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-md mx-auto mb-10">
                 {t(
-                  "Start with a content plan or a campaign idea. We'll figure out the right service, scope, and timing together.",
-                  "เริ่มจาก content plan หรือไอเดียแคมเปญ แล้วเราจะช่วยหาบริการ ขอบเขตงาน และเวลาที่เหมาะสมร่วมกัน"
+                  "Start with an idea. We'll figure out the right service, scope, and timing together.",
+                  "เริ่มจากไอเดีย แล้วเราจะช่วยหาบริการ ขอบเขตงาน และเวลาที่เหมาะสมร่วมกัน"
                 )}
               </p>
               <div className="flex items-center justify-center gap-8 flex-wrap">
@@ -371,7 +404,7 @@ const ServicesPage = () => {
                   onClick={() => setDialogOpen(true)}
                   className="font-mono text-[11px] tracking-[0.12em] uppercase text-background bg-foreground px-8 py-3 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300"
                 >
-                  Start a Project
+                  Work With Us
                 </button>
                 <Link to="/contact" className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300">
                   Contact the team <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>

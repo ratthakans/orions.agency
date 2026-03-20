@@ -215,7 +215,7 @@ const ContactPage = () => {
                   <div className="border-t border-border pt-8">
                     <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/50 mb-4">{t("Services", "บริการ")}</p>
                     <div className="flex flex-wrap gap-2 mb-6">
-                      {["Content", "Think", "Produce", "Develop"].map((s) => (
+                      {["Creative Direction", "Campaign", "Production", "Retainer"].map((s) => (
                         <span key={s} className="font-mono text-[10px] tracking-[0.1em] uppercase text-muted-foreground/50 border border-border/50 px-3 py-1.5">
                           {s}
                         </span>

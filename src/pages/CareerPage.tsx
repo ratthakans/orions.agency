@@ -160,10 +160,10 @@ const CareerPage = () => {
                 return (
                   <AnimatedSection key={i} delay={i * 0.04}>
                     <div className="group relative border-t border-border/50 hover:border-accent-warm/30 transition-all duration-500">
-                      <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-accent-warm/0 group-hover:border-accent-warm/40 transition-all duration-500" />
-                      <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-accent-warm/0 group-hover:border-accent-warm/40 transition-all duration-500" />
-                      <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-accent-warm/0 group-hover:border-accent-warm/40 transition-all duration-500" />
-                      <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-accent-warm/0 group-hover:border-accent-warm/40 transition-all duration-500" />
+                      <div className="absolute top-3 left-3 w-4 h-4 border-t border-l border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500" />
+                      <div className="absolute top-3 right-3 w-4 h-4 border-t border-r border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500" />
+                      <div className="absolute bottom-3 left-3 w-4 h-4 border-b border-l border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500" />
+                      <div className="absolute bottom-3 right-3 w-4 h-4 border-b border-r border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500" />
 
                       <button
                         onClick={() => setExpandedIndex(isExpanded ? null : i)}
@@ -270,7 +270,7 @@ const CareerPage = () => {
               <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
                 <span className="text-accent-warm mr-2">△</span> Don't See Your Role?
               </p>
-              <h2 className="font-display text-[clamp(32px,4vw,64px)] leading-[0.9] tracking-[0.01em] text-foreground mb-8">
+              <h2 className="font-display text-[clamp(36px,5vw,72px)] leading-[0.92] tracking-[0.01em] text-foreground mb-6">
                 SEND US YOUR <span className="text-accent-gradient">PORTFOLIO.</span>
               </h2>
               <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-md mx-auto mb-10">
@@ -282,7 +282,7 @@ const CareerPage = () => {
               <div className="flex flex-wrap items-center justify-center gap-8">
                 <a
                   href="mailto:career@orions.agency"
-                  className="inline-block font-mono text-[11px] tracking-[0.12em] uppercase text-background bg-foreground px-8 py-4 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300"
+                  className="inline-block font-mono text-[11px] tracking-[0.12em] uppercase text-background bg-foreground px-8 py-3 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300"
                 >
                   career@orions.agency
                 </a>

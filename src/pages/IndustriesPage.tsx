@@ -49,13 +49,13 @@ const IndustriesPage = () => {
       />
       <Navbar />
       <div className="pt-20">
-        <section className="py-32 md:py-40 px-6 md:px-12">
+        <section className="pt-16 md:pt-24 pb-8 md:pb-12 px-6 md:px-12">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
-              <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">
+              <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
                 <span className="text-accent-warm mr-2">⬡</span> Industries
               </p>
-              <h1 className="font-display text-[clamp(52px,7vw,120px)] leading-[0.9] tracking-[0.01em] text-foreground mb-8 max-w-5xl">
+              <h1 className="font-display text-[clamp(44px,6vw,96px)] leading-[0.9] tracking-[0.01em] text-foreground mb-6 max-w-5xl">
                 EVERY INDUSTRY<br />HAS A <span className="text-accent-gradient">STORY.</span>
               </h1>
               <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-2xl">
@@ -65,7 +65,7 @@ const IndustriesPage = () => {
           </div>
         </section>
 
-        <section className="px-6 md:px-12 py-20 pb-20">
+        <section className="px-6 md:px-12 py-8 md:py-12 pb-20">
           <div className="max-w-7xl mx-auto">
             {industries.map((ind, i) => (
               <AnimatedSection key={ind.title} delay={i * 0.03}>

@@ -82,10 +82,10 @@ const PackagePage = () => {
             </h2>
           </AnimatedSection>
 
-          <AnimatedSection stagger className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          <div className="border-t border-border">
             {[
               {
-                icon: "📉",
+                num: "01",
                 title: t("Weekdays are empty", "วันธรรมดาห้องว่าง"),
                 desc: t(
                   "Occupancy drops to 40–65% without a compelling reason to visit outside weekends.",
@@ -93,7 +93,7 @@ const PackagePage = () => {
                 ),
               },
               {
-                icon: "💸",
+                num: "02",
                 title: t("Competing on price, not story", "แข่งด้วยราคา ไม่ใช่เรื่องราว"),
                 desc: t(
                   "Without a narrative, guests choose the cheapest option. Your only lever is discounting.",
@@ -101,7 +101,7 @@ const PackagePage = () => {
                 ),
               },
               {
-                icon: "👻",
+                num: "03",
                 title: t("Content that doesn't create desire", "คอนเทนต์ที่ไม่สร้างความอยาก"),
                 desc: t(
                   "You post content but people scroll past. It shows the room — it doesn't make them want it.",
@@ -109,23 +109,28 @@ const PackagePage = () => {
                 ),
               },
               {
-                icon: "🔄",
+                num: "04",
                 title: t("Stuck on OTAs", "ติดอยู่กับ OTAs"),
                 desc: t(
                   "60%+ revenue from OTAs and repeat guests. No engine to bring new people in.",
                   "รายได้ 60%+ มาจาก OTA และแขกเก่า ไม่มีระบบดึงคนใหม่เข้ามา"
                 ),
               },
-            ].map((item) => (
-              <AnimatedChild key={String(item.title)}>
-                <div className="border border-border p-6 md:p-8 group hover:border-accent-warm/30 transition-colors duration-400">
-                  <span className="text-[28px] block mb-4">{item.icon}</span>
-                  <h3 className="font-display text-[22px] leading-[1.05] text-foreground mb-3">{item.title}</h3>
-                  <p className="font-body text-[14px] text-muted-foreground leading-[1.7]">{item.desc}</p>
+            ].map((item, i) => (
+              <AnimatedSection key={item.num} delay={i * 0.06}>
+                <div className="relative grid grid-cols-[auto_1fr] md:grid-cols-[60px_1fr_1.2fr] gap-4 md:gap-8 py-8 md:py-10 border-b border-border items-baseline group">
+                  {/* Da Vinci corners */}
+                  <div className="absolute top-3 left-3 w-4 h-4 border-t border-l border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500" />
+                  <div className="absolute top-3 right-3 w-4 h-4 border-t border-r border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500" />
+                  <div className="absolute bottom-3 left-3 w-4 h-4 border-b border-l border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500" />
+                  <div className="absolute bottom-3 right-3 w-4 h-4 border-b border-r border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500" />
+                  <span className="font-mono text-[11px] tracking-[0.12em] text-accent-warm">{item.num}</span>
+                  <h3 className="font-display text-[clamp(20px,2.5vw,32px)] leading-[1] text-foreground group-hover:text-accent-warm transition-colors duration-300">{item.title}</h3>
+                  <p className="font-body text-[14px] text-muted-foreground leading-[1.7] col-start-2 md:col-start-3">{item.desc}</p>
                 </div>
-              </AnimatedChild>
+              </AnimatedSection>
             ))}
-          </AnimatedSection>
+          </div>
         </div>
       </section>
 

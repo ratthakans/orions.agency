@@ -123,7 +123,7 @@ const Index = () => {
     <main className="bg-background min-h-screen grain-overlay">
       <SEO
         title="Creative Agency Bangkok for Brand, Campaign & Film | ØRIONS"
-        description="ØRIONS is a creative agency in Bangkok helping brands across Thailand and Southeast Asia with storytelling, campaigns, content systems, brand development, and film production."
+        description="ØRIONS is a creative agency in Bangkok helping brands across Thailand and Southeast Asia with storytelling, campaigns, content systems, creative transformation, and film production."
         path="/"
         keywords="creative agency Bangkok, branding agency Thailand, production house Bangkok, campaign agency Bangkok, film production Thailand"
         schema={homeSchema}

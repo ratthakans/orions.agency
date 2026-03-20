@@ -81,7 +81,7 @@ const PackageListPage = () => {
         </section>
 
         {/* Industries */}
-        <section className="px-6 md:px-12 py-12 md:py-20">
+        <section className="px-4 sm:px-6 md:px-12 py-12 md:py-20">
           <div className="max-w-7xl mx-auto space-y-0">
             {industries.map((ind, i) => (
               <AnimatedSection key={ind.slug} delay={i * 0.06}>

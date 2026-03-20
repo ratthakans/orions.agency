@@ -122,10 +122,10 @@ const ContactPage = () => {
                         <label className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4 block">Project Type</label>
                         <select value={formData.projectType} onChange={(e) => setFormData({ ...formData, projectType: e.target.value })} className={selectClass}>
                           <option value="" className="bg-background">{t("Select", "เลือก")}</option>
-                          <option value="content" className="bg-background">Content</option>
-                          <option value="think" className="bg-background">Think (Strategy)</option>
-                          <option value="produce" className="bg-background">Produce (Film)</option>
-                          <option value="develop" className="bg-background">Develop (Brand)</option>
+                          <option value="creative-direction" className="bg-background">Creative Direction</option>
+                          <option value="campaign" className="bg-background">Campaign Development</option>
+                          <option value="production" className="bg-background">Content Production</option>
+                          <option value="retainer" className="bg-background">Creative Retainer</option>
                           <option value="other" className="bg-background">{t("Other", "อื่นๆ")}</option>
                         </select>
                       </div>
@@ -215,7 +215,7 @@ const ContactPage = () => {
                   <div className="border-t border-border pt-8">
                     <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/50 mb-4">{t("Services", "บริการ")}</p>
                     <div className="flex flex-wrap gap-2 mb-6">
-                      {["Content", "Think", "Produce", "Develop"].map((s) => (
+                      {["Creative Direction", "Campaign", "Production", "Retainer"].map((s) => (
                         <span key={s} className="font-mono text-[10px] tracking-[0.1em] uppercase text-muted-foreground/50 border border-border/50 px-3 py-1.5">
                           {s}
                         </span>

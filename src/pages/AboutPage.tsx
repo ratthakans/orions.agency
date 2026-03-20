@@ -42,7 +42,7 @@ const aboutSchema = {
       "@type": "AboutPage",
       name: "About ØRIONS",
       url: "https://orions.agency/about",
-      description: "Learn about ØRIONS, a Bangkok creative agency focused on storytelling, campaigns, and film production.",
+      description: "Learn about ØRIONS, an idea-driven creative agency that creates ideas, stories, and campaigns that drive real impact.",
     },
   ],
 };
@@ -53,10 +53,10 @@ const AboutPage = () => {
   return (
     <main className="bg-background min-h-screen grain-overlay">
       <SEO
-        title="About ØRIONS | Creative Agency in Bangkok"
-        description="Meet ØRIONS, a Bangkok creative agency combining strategy, campaigns, film production, and creative transformation for Thai and regional brands."
+        title="About ØRIONS | Idea-Driven Creative Agency"
+        description="Meet ØRIONS, an idea-driven creative agency. We create ideas, stories, and campaigns that make people care, remember, and act."
         path="/about"
-        keywords="about creative agency Bangkok, Bangkok branding agency team, production house Thailand"
+        keywords="about creative agency, idea-driven agency, creative direction, campaign development"
         schema={aboutSchema}
       />
       <Navbar />
@@ -68,12 +68,12 @@ const AboutPage = () => {
                 <span className="text-accent-warm mr-2">✦</span> Who We Are
               </p>
               <h1 className="font-display text-[clamp(44px,6vw,96px)] leading-[0.9] tracking-[0.01em] text-foreground mb-6 max-w-4xl">
-                A BANGKOK CREATIVE AGENCY<br />FOCUSED ON <span className="text-accent-gradient">STORYTELLING.</span>
+                AN IDEA-DRIVEN<br />CREATIVE <span className="text-accent-gradient">AGENCY.</span>
               </h1>
               <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-2xl">
                 {t(
-                  "ØRIONS is a creative agency in Bangkok focused on storytelling, campaigns, and film. We help Thai and regional brands connect strategy, narrative, and production into one clear creative system.",
-                  "ØRIONS คือ creative agency ในกรุงเทพฯ ที่โฟกัสเรื่องการเล่าเรื่อง แคมเปญ และภาพยนตร์ เราช่วยแบรนด์ไทยและระดับภูมิภาคเชื่อมกลยุทธ์ narrative และ production เข้าด้วยกันเป็นระบบเดียว"
+                  "ØRIONS is an idea-driven creative agency. We create ideas first, then turn them into stories, campaigns, and content that make people care, remember, and act.",
+                  "ØRIONS คือ idea-driven creative agency เราสร้างไอเดียก่อน แล้วเปลี่ยนมันเป็นเรื่องราว แคมเปญ และ content ที่ทำให้คนสนใจ จดจำ และลงมือทำ"
                 )}
               </p>
             </AnimatedSection>

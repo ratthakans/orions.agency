@@ -164,18 +164,18 @@ html {
   color: hsl(0 0% 100%);
 }
 
-/* Grain overlay — very subtle */
+/* Grain overlay — very subtle, GPU-composited */
 .grain-overlay::before {
   content: '';
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.03;
+  opacity: 0.025;
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwBAMAAAClLOS0AAAAElBMVEUAAAAAAAAAAAAAAAAAAAAAAADgKxmiAAAABnRSTlMFBQUFBQVWlpRqAAAASUlEQVQ4y2NgQALMDKiABUlABElAGEmAEUmADUlAAEmACklABUlADUmAAUkgAUlABUlADUlABUkgAElABUlADUlABUlAAEmAAQDa+QIJ9RNwIAAAAABJRU5ErkJggg==");
   background-repeat: repeat;
   background-size: 48px 48px;
-  will-change: auto;
+  contain: strict;
 }
 
 .section-fade {

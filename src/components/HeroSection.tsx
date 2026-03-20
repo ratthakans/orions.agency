@@ -1,5 +1,6 @@
 import { useState, useEffect, memo } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import TextReveal from "./TextReveal";
 
@@ -9,10 +10,9 @@ interface HeroSectionProps {
 
 const phrases = [
   "STRONGER STORIES.",
-  "CLEARER IDEAS.",
   "BETTER CAMPAIGNS.",
-  "FILMS THAT LAST.",
-  "MEANINGFUL CONTENT.",
+  "REAL IMPACT.",
+  "IDEAS THAT WORK.",
 ];
 
 const Typewriter = memo(() => {
@@ -48,7 +48,7 @@ const Typewriter = memo(() => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5, delay: 0.6 }}
-      className="font-display text-[clamp(48px,8vw,130px)] leading-[0.9] tracking-[0.01em] text-accent-gradient block"
+      className="font-display text-[clamp(48px,8vw,130px)] leading-[0.9] tracking-[0.01em] text-accent-gradient block min-h-[1.1em]"
     >
       {displayText}
       <motion.span
@@ -74,7 +74,7 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => {
               as="h1"
               className="font-display text-[clamp(48px,8vw,130px)] leading-[0.9] tracking-[0.01em] text-foreground"
             >
-              A CREATIVE AGENCY FOR BRANDS THAT NEED
+              A CREATIVE AGENCY THAT TURNS IDEAS INTO DEMAND.
             </TextReveal>
             <Typewriter />
           </div>
@@ -89,19 +89,19 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => {
                 onClick={onStartProject}
                 className="font-mono text-[11px] tracking-[0.12em] uppercase text-background bg-foreground px-8 py-3 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300"
               >
-                Start a Project
+                Work With Us
               </button>
-              <a
-                href="/work"
+              <Link
+                to="/work"
                 className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300"
               >
                 View Work <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
-              </a>
+              </Link>
             </div>
             <p className="font-body text-[16px] text-muted-foreground max-w-[400px] leading-[1.7]">
               {t(
-                "We help brands develop narratives, campaigns, and films with clarity and impact.",
-                "เราช่วยแบรนด์พัฒนา narrative, campaign และ film ด้วยความชัดเจนและ impact"
+                "We create ideas, stories, and campaigns that make people care, remember, and act.",
+                "เราสร้างไอเดีย เรื่องราว และแคมเปญ ที่ทำให้คนสนใจ จดจำ และลงมือทำ"
               )}
             </p>
           </motion.div>

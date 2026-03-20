@@ -98,7 +98,7 @@ const WorkPage = () => {
         <section className="px-4 sm:px-6 md:px-12 py-8 md:py-12 pb-20">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection delay={0.04}>
-              <div className="flex items-center gap-4 md:gap-6 mb-16 flex-wrap">
+              <div className="flex items-center gap-3 md:gap-6 mb-12 md:mb-16 flex-wrap">
                 {serviceFilters.map((cat) => (
                   <button
                     key={cat}

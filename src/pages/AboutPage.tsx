@@ -13,6 +13,7 @@ import teamSomchai from "@/assets/team-somchai.jpg";
 import teamDao from "@/assets/team-dao.jpg";
 import teamNat from "@/assets/team-nat.jpg";
 import teamLin from "@/assets/team-lin.jpg";
+import teamArm from "@/assets/team-arm.jpg";
 
 const allMembers = [
   { name: "Krit Thanaporn", role: "Founder", dept: "Management", image: teamKrit },
@@ -22,6 +23,7 @@ const allMembers = [
   { name: "Mai Sutthipong", role: "Creative Senior", dept: "Creative", image: teamMai },
   { name: "Dao Siriporn", role: "Art Director", dept: "Creative", image: teamDao },
   { name: "Somchai Rattana", role: "Editor / DOP", dept: "Production", image: teamSomchai },
+  { name: "Arm Wattana", role: "Strategist", dept: "Strategy", image: teamArm },
   { name: "Lin Thongchai", role: "Project Manager", dept: "Social & Account", image: teamLin },
   { name: "Nat Prasert", role: "Account Executive", dept: "Social & Account", image: teamNat },
 ];
@@ -124,8 +126,8 @@ const AboutPage = () => {
                 </h2>
                 <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-lg mb-16">
                   {t(
-                    "9 people. One shared belief: every brand has a story worth telling well.",
-                    "9 คน ความเชื่อเดียวกัน: ทุกแบรนด์มีเรื่องราวที่คุ้มค่าจะเล่าให้ดี"
+                    "10 people. One shared belief: every brand has a story worth telling well.",
+                    "10 คน ความเชื่อเดียวกัน: ทุกแบรนด์มีเรื่องราวที่คุ้มค่าจะเล่าให้ดี"
                   )}
                 </p>
               </div>

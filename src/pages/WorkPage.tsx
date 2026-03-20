@@ -28,7 +28,7 @@ const works = [
   { title: "Vela Fashion", service: "Creative Transformation", type: "Brand Transformation", brief: { en: "A complete brand transformation for Vela's debut collection launch.", th: "Brand transformation ครบวงจรสำหรับการเปิดตัวคอลเลกชันแรกของ Vela" }, deliverables: ["Positioning", "Campaign Film", "Lookbook", "Launch Strategy"], image: workVela },
 ];
 
-const serviceFilters = ["All", "Creative Transformation", "Creative Communication", "Film & Production", "Creative Retainer"];
+const serviceFilters = ["All", "Creative Transformation", "Creative Communication", "Film & Production", "Creative Partner"];
 
 const workSchema = {
   "@context": "https://schema.org",

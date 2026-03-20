@@ -9,10 +9,10 @@ interface HeroSectionProps {
 }
 
 const phrases = [
-  "CLARITY THAT CONVERTS.",
-  "NARRATIVES THAT MOVE.",
-  "CAMPAIGNS THAT LAND.",
   "DEMAND THAT GROWS.",
+  "IDEAS THAT STICK.",
+  "BRANDS THAT LEAD.",
+  "IMPACT THAT LASTS.",
 ];
 
 const Typewriter = memo(() => {

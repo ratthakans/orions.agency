@@ -13,6 +13,7 @@ import teamSomchai from "@/assets/team-somchai.jpg";
 import teamDao from "@/assets/team-dao.jpg";
 import teamNat from "@/assets/team-nat.jpg";
 import teamLin from "@/assets/team-lin.jpg";
+import teamArm from "@/assets/team-arm.jpg";
 
 const allMembers = [
   { name: "Krit Thanaporn", role: "Founder", dept: "Management", image: teamKrit },
@@ -22,6 +23,7 @@ const allMembers = [
   { name: "Mai Sutthipong", role: "Creative Senior", dept: "Creative", image: teamMai },
   { name: "Dao Siriporn", role: "Art Director", dept: "Creative", image: teamDao },
   { name: "Somchai Rattana", role: "Editor / DOP", dept: "Production", image: teamSomchai },
+  { name: "Arm Wattana", role: "Strategist", dept: "Strategy", image: teamArm },
   { name: "Lin Thongchai", role: "Project Manager", dept: "Social & Account", image: teamLin },
   { name: "Nat Prasert", role: "Account Executive", dept: "Social & Account", image: teamNat },
 ];

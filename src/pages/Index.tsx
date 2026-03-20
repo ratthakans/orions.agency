@@ -127,7 +127,7 @@ const Index = () => {
       <Marquee items={["Creative Transformation", "Creative Communication", "Film & Production", "Creative Partner", "Ideas", "Impact"]} />
 
       {/* ─── POSITIONING ─── */}
-      <section className="py-24 md:py-40 px-6 md:px-12">
+      <section className="py-20 md:py-40 px-4 sm:px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">

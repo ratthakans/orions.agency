@@ -143,12 +143,11 @@ const Index = () => {
             <AnimatedSection delay={0.2}>
               <div className="space-y-6 font-body text-[16px] leading-[1.8] text-muted-foreground">
                 <p>
-                  {t(
-                    "We are not a production house.\nWe are not a social media agency.\nWe are an idea-driven creative agency.",
-                    "เราไม่ใช่ production house\nเราไม่ใช่ social media agency\nเราคือ idea-driven creative agency"
-                  ).split("\n").map((line, i) => (
-                    <span key={i}>{line}<br /></span>
-                  ))}
+                  {lang === "th" ? (
+                    <>เราไม่ใช่ production house<br />เราไม่ใช่ social media agency<br />เราคือ idea-driven creative agency</>
+                  ) : (
+                    <>We are not a production house.<br />We are not a social media agency.<br />We are an idea-driven creative agency.</>
+                  )}
                 </p>
                 <p>
                   {t(

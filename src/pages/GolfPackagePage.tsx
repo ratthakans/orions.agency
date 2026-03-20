@@ -116,7 +116,7 @@ const GolfPackagePage = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="font-mono text-[11px] tracking-[0.15em] uppercase text-accent-warm mb-6"
           >
-            Golf Demand Growth System
+            Golf Creative Layer
           </motion.p>
           <TextReveal as="h1" className="font-display text-[clamp(40px,7vw,100px)] leading-[0.9] tracking-[0.01em] text-foreground max-w-4xl">
             CREATIVE LAYER ที่เพิ่ม DEMAND ให้สนามกอล์ฟ

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
@@ -11,10 +12,11 @@ interface Service {
   num: string;
   title: string;
   desc: { en: string; th: string };
-  type: "retainer" | "project";
+  type: "partner" | "project";
   ideal: { en: string; th: string };
   process: { en: string[]; th: string[] };
   deliverables: { en: string[]; th: string[] };
+  outcome: { en: string; th: string };
 }
 
 const services: Service[] = [
@@ -38,6 +40,10 @@ const services: Service[] = [
       en: ["Brand positioning", "Core narrative", "Campaign concept", "Creative direction", "Communication framework"],
       th: ["Brand positioning", "Core narrative", "คอนเซปต์แคมเปญ", "Creative direction", "กรอบการสื่อสาร"],
     },
+    outcome: {
+      en: "A complete creative reset — clear positioning, strong narrative, and a campaign system ready to launch.",
+      th: "ปรับเปลี่ยนครีเอทีฟทั้งระบบ — positioning ชัด, narrative แข็งแกร่ง และระบบแคมเปญพร้อมเปิดตัว",
+    },
   },
   {
     num: "02",
@@ -59,6 +65,10 @@ const services: Service[] = [
       en: ["Campaign concept", "Key message", "Communication structure", "Content direction", "Launch plan"],
       th: ["คอนเซปต์แคมเปญ", "Key message", "โครงสร้างการสื่อสาร", "ทิศทาง content", "แผนเปิดตัว"],
     },
+    outcome: {
+      en: "A campaign system with a clear idea at its core — designed to cut through and drive action.",
+      th: "ระบบแคมเปญที่มีไอเดียชัดเจนเป็นแกน — ออกแบบมาเพื่อโดดเด่นและกระตุ้นการกระทำ",
+    },
   },
   {
     num: "03",
@@ -77,36 +87,39 @@ const services: Service[] = [
       th: ["Pre-production และเขียนบท", "ถ่ายทำ", "Post-production และตัดต่อ", "ส่งมอบและตัด cutdowns"],
     },
     deliverables: {
-      en: ["Script & storyboard", "Hero video", "Color grading & sound", "Campaign assets", "Social cutdowns"],
-      th: ["บทและ storyboard", "วิดีโอหลัก", "Color grading และ sound", "Campaign assets", "Social cutdowns"],
+      en: ["Script & storyboard", "Hero video", "Color grading & sound design", "Campaign assets", "Social cutdowns"],
+      th: ["บทและ storyboard", "วิดีโอหลัก", "Color grading และ sound design", "Campaign assets", "Social cutdowns"],
+    },
+    outcome: {
+      en: "Cinematic content that captures your brand's essence — hero films, campaign videos, and assets built for impact.",
+      th: "Content ระดับภาพยนตร์ที่จับแก่นของแบรนด์ — hero film, campaign video และ asset ที่สร้างมาเพื่อ impact",
     },
   },
   {
     num: "04",
-    title: "Creative Retainer",
+    title: "Creative Partner",
     desc: {
-      en: "Keep your brand consistent, relevant, and impactful over time.",
-      th: "รักษาความสม่ำเสมอ ตรงประเด็น และมีผลกระทบอย่างต่อเนื่อง",
+      en: "Your long-term creative think tank. We become an extension of your team.",
+      th: "Think tank ครีเอทีฟระยะยาว เราเป็นส่วนขยายของทีมคุณ",
     },
-    type: "retainer",
+    type: "partner",
     ideal: {
-      en: "Brands that need ongoing creative direction — not just content, but ideas that keep working month after month.",
-      th: "แบรนด์ที่ต้องการ creative direction ต่อเนื่อง — ไม่ใช่แค่ content แต่เป็นไอเดียที่ทำงานต่อเนื่อง",
+      en: "Brands that need an ongoing creative partner — not just deliverables, but strategic thinking that evolves with your business.",
+      th: "แบรนด์ที่ต้องการพันธมิตรครีเอทีฟระยะยาว — ไม่ใช่แค่ส่งมอบงาน แต่เป็น strategic thinking ที่เติบโตไปกับธุรกิจ",
     },
     process: {
-      en: ["Monthly creative review", "Campaign extension", "Content guidance", "Performance optimization"],
-      th: ["ทบทวนครีเอทีฟรายเดือน", "ขยายแคมเปญ", "แนวทาง content", "ปรับปรุงประสิทธิภาพ"],
+      en: ["Monthly strategic review", "Campaign evolution", "Creative direction", "Brand guardianship"],
+      th: ["ทบทวนกลยุทธ์รายเดือน", "พัฒนาแคมเปญ", "Creative direction", "ดูแลแบรนด์"],
     },
     deliverables: {
-      en: ["Ongoing creative direction", "Campaign extension", "Content guidance", "Monthly review", "Brand consistency"],
-      th: ["Creative direction ต่อเนื่อง", "ขยายแคมเปญ", "แนวทาง content", "ทบทวนรายเดือน", "ความสม่ำเสมอของแบรนด์"],
+      en: ["Ongoing creative direction", "Campaign evolution", "Strategic thinking", "Brand guardianship", "Content guidance"],
+      th: ["Creative direction ต่อเนื่อง", "พัฒนาแคมเปญ", "Strategic thinking", "ดูแลแบรนด์", "แนวทาง content"],
+    },
+    outcome: {
+      en: "A dedicated creative team that thinks with you — keeping your brand sharp, relevant, and always evolving.",
+      th: "ทีมครีเอทีฟที่คิดไปกับคุณ — ทำให้แบรนด์คมชัด ตรงประเด็น และพัฒนาอยู่เสมอ",
     },
   },
-];
-
-const industries = [
-  "Tech", "Hospitality", "Golf", "Concert / Music",
-  "Lifestyle Brands", "Restaurant & Cafe", "Real Estate", "Startups",
 ];
 
 const servicesSchema = {
@@ -144,9 +157,9 @@ const ServicesPage = () => {
     <main className="bg-background min-h-screen grain-overlay">
       <SEO
         title="Creative Services — Ideas First | ØRIONS"
-        description="Creative Transformation, Creative Communication, Film & Production, and Creative Retainer. We create ideas first, then turn them into campaigns that work."
+        description="Creative Transformation, Creative Communication, Film & Production, and Creative Partner. We create ideas first, then turn them into campaigns that work."
         path="/services"
-        keywords="creative transformation, creative communication, film production, creative retainer, idea-driven agency"
+        keywords="creative transformation, creative communication, film production, creative partner, idea-driven agency"
         schema={servicesSchema}
       />
       <Navbar />
@@ -157,9 +170,11 @@ const ServicesPage = () => {
               <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
                 <span className="text-accent-warm mr-2">✦</span> Services
               </p>
-              <h1 className="font-display text-[clamp(44px,6vw,96px)] leading-[0.9] tracking-[0.01em] text-foreground mb-6 max-w-5xl">
+              <h1 className="font-display text-[clamp(44px,6vw,96px)] leading-[0.9] tracking-[0.01em] text-foreground mb-4 max-w-5xl">
                 IDEAS FIRST.
-                <br />THEN <span className="text-accent-gradient">EVERYTHING ELSE.</span>
+              </h1>
+              <h1 className="font-display text-[clamp(44px,6vw,96px)] leading-[0.9] tracking-[0.01em] text-foreground mb-6 max-w-5xl">
+                THEN <span className="text-accent-gradient">EVERYTHING ELSE.</span>
               </h1>
               <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-2xl">
                 {t(
@@ -172,167 +187,132 @@ const ServicesPage = () => {
         </section>
 
         <section className="px-6 md:px-12 py-8 md:py-12">
-          <div className="max-w-7xl mx-auto space-y-8">
+          <div className="max-w-7xl mx-auto">
             {services.map((s, i) => {
               const isExpanded = expandedService === s.num;
               return (
                 <AnimatedSection key={s.num} delay={i * 0.06}>
-                  <div className="group relative border border-border hover:border-accent-warm/30 transition-all duration-500">
-                    <div className="absolute top-3 left-3 w-4 h-4 border-t border-l border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500" />
-                    <div className="absolute top-3 right-3 w-4 h-4 border-t border-r border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500" />
-                    <div className="absolute bottom-3 left-3 w-4 h-4 border-b border-l border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500" />
-                    <div className="absolute bottom-3 right-3 w-4 h-4 border-b border-r border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500" />
-
-                    <div
-                      className="p-8 md:p-10 cursor-pointer"
-                      onClick={() => setExpandedService(isExpanded ? null : s.num)}
-                    >
-                      <div className="flex items-center justify-between mb-4">
+                  <div
+                    className="group border-t border-border cursor-pointer hover:border-accent-warm/30 transition-colors duration-500"
+                    onClick={() => setExpandedService(isExpanded ? null : s.num)}
+                  >
+                    <div className="flex items-center justify-between py-8 md:py-10">
+                      <div className="flex items-baseline gap-6 md:gap-10">
                         <span className="font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground/40">{s.num}</span>
-                        <div className="flex items-center gap-3">
-                          <span className="font-mono text-[10px] tracking-[0.1em] uppercase text-accent-warm/60 border border-accent-warm/20 px-2.5 py-1">
-                            {s.type === "retainer" ? t("Monthly Retainer", "รายเดือน") : t("Per Project", "ต่อโปรเจกต์")}
-                          </span>
-                          <span className={`font-mono text-[11px] text-muted-foreground/50 transition-transform duration-300 ${isExpanded ? "rotate-45" : ""}`}>
-                            +
-                          </span>
+                        <div>
+                          <div className="flex items-center gap-4 mb-1">
+                            <h2 className="font-display text-[clamp(32px,4vw,56px)] tracking-[0.03em] text-foreground group-hover:text-accent-warm transition-colors duration-500">
+                              {s.title}
+                            </h2>
+                            <span className="font-mono text-[9px] tracking-[0.1em] uppercase text-accent-warm/60 border border-accent-warm/20 px-2 py-0.5 hidden md:inline-block">
+                              {s.type === "partner" ? t("Ongoing Partnership", "พันธมิตรระยะยาว") : t("Per Project", "ต่อโปรเจกต์")}
+                            </span>
+                          </div>
+                          <p className="font-body text-[14px] leading-[1.7] text-foreground/50 max-w-xl">
+                            {s.desc[lang]}
+                          </p>
                         </div>
                       </div>
-
-                      <h2 className="font-display text-[clamp(36px,4.5vw,56px)] leading-[0.9] tracking-[0.01em] text-foreground mb-3 group-hover:text-accent-warm transition-colors duration-500">
-                        {s.title}
-                      </h2>
-                      <p className="font-body text-[14px] leading-[1.7] text-foreground/70 max-w-xl">
-                        {s.desc[lang]}
-                      </p>
+                      <motion.span
+                        animate={{ rotate: isExpanded ? 45 : 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="text-muted-foreground text-2xl font-light shrink-0 ml-4"
+                      >
+                        +
+                      </motion.span>
                     </div>
 
-                    <div className={`overflow-hidden transition-all duration-500 ${isExpanded ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0"}`}>
-                      <div className="border-t border-border/50 p-8 md:p-10">
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-                          <div>
-                            <h3 className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/50 mb-3">
-                              {t("Ideal for", "เหมาะสำหรับ")}
-                            </h3>
-                            <p className="font-body text-[13px] leading-[1.7] text-muted-foreground">{s.ideal[lang]}</p>
-                          </div>
-                          <div>
-                            <h3 className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/50 mb-3">
-                              {t("How we work", "วิธีการทำงาน")}
-                            </h3>
-                            <div className="space-y-1.5">
-                              {s.process[lang].map((step, idx) => (
-                                <span key={idx} className="font-mono text-[11px] text-muted-foreground/70 block">
-                                  <span className="text-accent-warm/40 mr-1.5">{String(idx + 1).padStart(2, "0")}</span>
-                                  {step}
-                                </span>
-                              ))}
+                    <AnimatePresence>
+                      {isExpanded && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.4, ease: "easeInOut" }}
+                          className="overflow-hidden"
+                        >
+                          <div className="pb-10 md:pb-14 pl-[calc(11px+1.5rem)] md:pl-[calc(11px+2.5rem)]">
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+                              <div>
+                                <h3 className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/50 mb-3">
+                                  {t("Ideal for", "เหมาะสำหรับ")}
+                                </h3>
+                                <p className="font-body text-[13px] leading-[1.7] text-muted-foreground">{s.ideal[lang]}</p>
+                              </div>
+                              <div>
+                                <h3 className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/50 mb-3">
+                                  {t("How we work", "วิธีการทำงาน")}
+                                </h3>
+                                <div className="space-y-1.5">
+                                  {s.process[lang].map((step, idx) => (
+                                    <span key={idx} className="font-mono text-[11px] text-muted-foreground/70 block">
+                                      <span className="text-accent-warm/40 mr-1.5">{String(idx + 1).padStart(2, "0")}</span>
+                                      {step}
+                                    </span>
+                                  ))}
+                                </div>
+                              </div>
+                              <div>
+                                <h3 className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/50 mb-3">
+                                  {t("Deliverables", "สิ่งที่ส่งมอบ")}
+                                </h3>
+                                <ul className="space-y-1.5">
+                                  {s.deliverables[lang].map((d) => (
+                                    <li key={d} className="font-body text-[12px] text-foreground/60 flex items-start gap-2">
+                                      <span className="text-accent-warm/40 mt-0.5 text-[8px]">◆</span>
+                                      {d}
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            </div>
+
+                            {/* Outcome */}
+                            <div className="border-t border-border/30 pt-6 mb-8">
+                              <h3 className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/50 mb-3">
+                                {t("What you walk away with", "สิ่งที่คุณจะได้รับ")}
+                              </h3>
+                              <p className="font-body text-[14px] leading-[1.7] text-foreground/70 max-w-2xl">
+                                {s.outcome[lang]}
+                              </p>
+                            </div>
+
+                            <div className="flex items-center gap-6 flex-wrap">
+                              <button
+                                onClick={(e) => { e.stopPropagation(); setDialogOpen(true); }}
+                                className="font-mono text-[11px] tracking-[0.12em] uppercase text-background bg-foreground px-6 py-2.5 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300"
+                              >
+                                {t("Start this service", "เริ่มบริการนี้")}
+                              </button>
+                              <Link
+                                to={`/work?service=${encodeURIComponent(s.title)}`}
+                                onClick={(e) => e.stopPropagation()}
+                                className="font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300"
+                              >
+                                {t("View related work →", "ดูผลงานที่เกี่ยวข้อง →")}
+                              </Link>
                             </div>
                           </div>
-                          <div>
-                            <h3 className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/50 mb-3">
-                              {t("Deliverables", "สิ่งที่ส่งมอบ")}
-                            </h3>
-                            <ul className="space-y-1.5">
-                              {s.deliverables[lang].map((d) => (
-                                <li key={d} className="font-body text-[12px] text-foreground/60 flex items-start gap-2">
-                                  <span className="text-accent-warm/40 mt-0.5 text-[8px]">◆</span>
-                                  {d}
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        </div>
-
-                        <div className="flex items-center gap-6 flex-wrap">
-                          <button
-                            onClick={() => setDialogOpen(true)}
-                            className="font-mono text-[11px] tracking-[0.12em] uppercase text-background bg-foreground px-6 py-2.5 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300"
-                          >
-                            {t("Start this service", "เริ่มบริการนี้")}
-                          </button>
-                          <Link
-                            to={`/work?service=${encodeURIComponent(s.title)}`}
-                            className="font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300"
-                          >
-                            {t("View related work →", "ดูผลงานที่เกี่ยวข้อง →")}
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
                 </AnimatedSection>
               );
             })}
+            <div className="border-t border-border" />
           </div>
         </section>
 
-        <section className="px-6 md:px-12 py-16 md:py-24">
-          <div className="max-w-7xl mx-auto">
-            <AnimatedSection>
-              <div className="border-t border-border pt-16">
-                <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">
-                  <span className="text-accent-warm/50 mr-2">⬡</span> {t("Where We Create Impact", "ที่ที่เราสร้าง Impact")}
-                </p>
-                <div className="flex flex-wrap gap-3 mb-8">
-                  {industries.map((ind) => (
-                    <Link
-                      key={ind}
-                      to="/package"
-                      className="font-mono text-[11px] tracking-[0.1em] uppercase text-muted-foreground/60 border border-border/60 px-4 py-2 hover:text-foreground/80 hover:border-accent-warm/30 transition-all duration-300"
-                    >
-                      {ind}
-                    </Link>
-                  ))}
-                </div>
-                <Link to="/package" className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-foreground border-b border-foreground/40 pb-1 hover:border-accent-warm hover:text-accent-warm transition-all duration-300">
-                  Explore industries <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
-                </Link>
-              </div>
-            </AnimatedSection>
-          </div>
-        </section>
-
-        {/* Pricing */}
-        <section className="px-6 md:px-12 py-16 md:py-24">
-          <div className="max-w-7xl mx-auto">
-            <AnimatedSection>
-              <div className="border-t border-border pt-16">
-                <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">
-                  <span className="text-accent-warm mr-2">◎</span> {t("Simple, Clear Engagement", "ราคาชัดเจน")}
-                </p>
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
-                  {[
-                    { label: "Creative Transformation", price: "200,000 – 500,000", unit: "THB", scope: "Per Project" },
-                    { label: "Creative Communication", price: "100,000 – 300,000", unit: "THB", scope: "Per Project", featured: true },
-                    { label: "Film & Production", price: "150,000 – 400,000", unit: "THB", scope: "Per Project" },
-                    { label: "Creative Retainer", price: "80,000 – 150,000", unit: "THB / month", scope: "Ongoing" },
-                  ].map((tier) => (
-                    <div key={tier.label} className={`border ${tier.featured ? "border-accent-warm/30 bg-accent-warm/[0.03]" : "border-border"} p-8`}>
-                      {tier.featured && <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm mb-3 block">★ Most Popular</span>}
-                      <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground/50 mb-2">{tier.scope}</p>
-                      <h3 className="font-display text-[18px] tracking-[0.02em] text-foreground mb-4">{tier.label}</h3>
-                      <div className="border-t border-border pt-4">
-                        <p className="font-display text-[18px] text-foreground">฿{tier.price}</p>
-                        <p className="font-mono text-[10px] tracking-[0.1em] uppercase text-muted-foreground/50 mt-1">{tier.unit}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <p className="font-body text-[14px] text-muted-foreground/60 italic">
-                  {t("We focus on high-impact work, not volume.", "เราโฟกัสที่งานที่สร้าง impact สูง ไม่ใช่ปริมาณ")}
-                </p>
-              </div>
-            </AnimatedSection>
-          </div>
-        </section>
-
+        {/* CTA */}
         <section className="px-6 md:px-12 py-20 md:py-32 pb-32 md:pb-48">
           <div className="max-w-7xl mx-auto text-center">
             <AnimatedSection>
-              <h2 className="font-display text-[clamp(44px,6vw,96px)] leading-[0.9] tracking-[0.01em] text-foreground mb-6">
+              <h2 className="font-display text-[clamp(36px,5vw,72px)] leading-[0.92] tracking-[0.01em] text-foreground mb-4">
                 NOT SURE WHERE
-                <br />TO <span className="text-accent-gradient">START?</span>
+              </h2>
+              <h2 className="font-display text-[clamp(36px,5vw,72px)] leading-[0.92] tracking-[0.01em] text-foreground mb-6">
+                TO <span className="text-accent-gradient">START?</span>
               </h2>
               <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-md mx-auto mb-10">
                 {t(

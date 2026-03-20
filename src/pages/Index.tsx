@@ -364,7 +364,7 @@ const Index = () => {
                 <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
                   <span className="text-accent-warm mr-2">△</span> FAQs
                 </p>
-                <h2 className="font-display text-[clamp(36px,5vw,72px)] leading-[0.92] tracking-[0.01em] text-foreground mb-6">
+                <h2 className="font-display text-[clamp(28px,5vw,72px)] leading-[0.92] tracking-[0.01em] text-foreground mb-6">
                   WHAT BRANDS
                   <br />ASK FIRST.
                 </h2>

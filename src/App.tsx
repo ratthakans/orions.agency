@@ -20,6 +20,7 @@ const CareerPage = lazy(() => import("./pages/CareerPage"));
 const PackagePage = lazy(() => import("./pages/PackagePage"));
 const PackageListPage = lazy(() => import("./pages/PackageListPage"));
 const GolfPackagePage = lazy(() => import("./pages/GolfPackagePage"));
+const ConcertPackagePage = lazy(() => import("./pages/ConcertPackagePage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const queryClient = new QueryClient();
 

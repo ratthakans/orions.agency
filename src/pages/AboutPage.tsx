@@ -53,10 +53,10 @@ const AboutPage = () => {
   return (
     <main className="bg-background min-h-screen grain-overlay">
       <SEO
-        title="About ØRIONS | Creative Agency in Bangkok"
-        description="Meet ØRIONS, a Bangkok creative agency combining strategy, campaigns, film production, and creative transformation for Thai and regional brands."
+        title="About ØRIONS | Idea-Driven Creative Agency"
+        description="Meet ØRIONS, an idea-driven creative agency. We create ideas, stories, and campaigns that make people care, remember, and act."
         path="/about"
-        keywords="about creative agency Bangkok, Bangkok branding agency team, production house Thailand"
+        keywords="about creative agency, idea-driven agency, creative direction, campaign development"
         schema={aboutSchema}
       />
       <Navbar />

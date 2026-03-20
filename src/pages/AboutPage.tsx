@@ -42,7 +42,7 @@ const aboutSchema = {
       "@type": "AboutPage",
       name: "About ØRIONS",
       url: "https://orions.agency/about",
-      description: "Learn about ØRIONS, a Bangkok creative agency focused on storytelling, campaigns, and film production.",
+      description: "Learn about ØRIONS, an idea-driven creative agency that creates ideas, stories, and campaigns that drive real impact.",
     },
   ],
 };

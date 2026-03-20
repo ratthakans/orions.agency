@@ -25,10 +25,10 @@ const Footer = () => {
           <div>
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-7">Services</p>
             <div className="flex flex-col gap-3.5">
-              <Link to="/services" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Content Systems</Link>
-              <Link to="/services" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Creative & Campaign</Link>
-              <Link to="/services" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Film & Production</Link>
-              <Link to="/services" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Creative Transformation</Link>
+              <Link to="/services" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Creative Direction</Link>
+              <Link to="/services" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Campaign Development</Link>
+              <Link to="/services" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Content Production</Link>
+              <Link to="/services" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Creative Retainer</Link>
             </div>
           </div>
 

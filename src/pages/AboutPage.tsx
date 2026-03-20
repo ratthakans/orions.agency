@@ -177,7 +177,7 @@ const AboutPage = () => {
         </section>
 
         {/* Rooted in Bangkok */}
-        <section className="px-6 md:px-12 py-12 md:py-20">
+        <section className="px-4 sm:px-6 md:px-12 py-12 md:py-20">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
               <div className="border-t border-border pt-16 grid gap-8 lg:grid-cols-[1.2fr_1fr] lg:gap-16">

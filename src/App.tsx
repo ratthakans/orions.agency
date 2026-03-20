@@ -41,6 +41,7 @@ const AnimatedRoutes = () => {
         <Route path="/package" element={<Suspense fallback={null}><PageTransition><PackageListPage /></PageTransition></Suspense>} />
         <Route path="/package/hospitality" element={<Suspense fallback={null}><PageTransition><PackagePage /></PageTransition></Suspense>} />
         <Route path="/package/golf" element={<Suspense fallback={null}><PageTransition><GolfPackagePage /></PageTransition></Suspense>} />
+        <Route path="/package/concert" element={<Suspense fallback={null}><PageTransition><ConcertPackagePage /></PageTransition></Suspense>} />
         <Route path="*" element={<Suspense fallback={null}><PageTransition><NotFound /></PageTransition></Suspense>} />
       </Routes>
     </AnimatePresence>

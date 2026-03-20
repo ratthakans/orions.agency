@@ -90,7 +90,7 @@ const AboutPage = () => {
       <div className="pt-20">
 
         {/* Hero */}
-        <section className="pt-16 md:pt-24 pb-8 md:pb-12 px-6 md:px-12">
+        <section className="pt-16 md:pt-24 pb-8 md:pb-12 px-4 sm:px-6 md:px-12">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
               <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
@@ -104,7 +104,7 @@ const AboutPage = () => {
         </section>
 
         {/* Manifesto */}
-        <section className="px-6 md:px-12 py-12 md:py-20">
+        <section className="px-4 sm:px-6 md:px-12 py-12 md:py-20">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
               <div className="border-t border-border pt-16 grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
@@ -139,7 +139,7 @@ const AboutPage = () => {
         </section>
 
         {/* Values */}
-        <section className="px-6 md:px-12 py-12 md:py-20">
+        <section className="px-4 sm:px-6 md:px-12 py-12 md:py-20">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
               <div className="border-t border-border pt-16">
@@ -152,7 +152,7 @@ const AboutPage = () => {
               </div>
             </AnimatedSection>
 
-            <div className="grid md:grid-cols-2 gap-0">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
               {values.map((v, i) => (
                 <AnimatedSection key={v.num} delay={i * 0.05}>
                   <div className="group border-t border-border py-10 pr-8 md:pr-12 relative">
@@ -177,7 +177,7 @@ const AboutPage = () => {
         </section>
 
         {/* Rooted in Bangkok */}
-        <section className="px-6 md:px-12 py-12 md:py-20">
+        <section className="px-4 sm:px-6 md:px-12 py-12 md:py-20">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
               <div className="border-t border-border pt-16 grid gap-8 lg:grid-cols-[1.2fr_1fr] lg:gap-16">
@@ -212,7 +212,7 @@ const AboutPage = () => {
         </section>
 
         {/* Team */}
-        <section className="px-6 md:px-12 py-20 md:py-32 pb-32 md:pb-48">
+        <section className="px-4 sm:px-6 md:px-12 py-20 md:py-32 pb-32 md:pb-48">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
               <div className="border-t border-border pt-16">
@@ -231,7 +231,7 @@ const AboutPage = () => {
               </div>
             </AnimatedSection>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-6 gap-y-10">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-4 sm:gap-x-6 gap-y-8 sm:gap-y-10">
               {allMembers.map((member, i) => (
                 <AnimatedSection key={member.name} delay={i * 0.03}>
                   <div className="group">

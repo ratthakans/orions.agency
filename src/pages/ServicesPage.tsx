@@ -164,7 +164,7 @@ const ServicesPage = () => {
       />
       <Navbar />
       <div className="pt-20">
-        <section className="pt-16 md:pt-24 pb-8 md:pb-12 px-6 md:px-12">
+        <section className="pt-16 md:pt-24 pb-8 md:pb-12 px-4 sm:px-6 md:px-12">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
               <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
@@ -186,7 +186,7 @@ const ServicesPage = () => {
           </div>
         </section>
 
-        <section className="px-6 md:px-12 py-8 md:py-12">
+        <section className="px-4 sm:px-6 md:px-12 py-8 md:py-12">
           <div className="max-w-7xl mx-auto">
             {services.map((s, i) => {
               const isExpanded = expandedService === s.num;
@@ -305,7 +305,7 @@ const ServicesPage = () => {
         </section>
 
         {/* CTA */}
-        <section className="px-6 md:px-12 py-20 md:py-32 pb-32 md:pb-48">
+        <section className="px-4 sm:px-6 md:px-12 py-20 md:py-32 pb-32 md:pb-48">
           <div className="max-w-7xl mx-auto text-center">
             <AnimatedSection>
               <h2 className="font-display text-[clamp(36px,5vw,72px)] leading-[0.92] tracking-[0.01em] text-foreground mb-4">

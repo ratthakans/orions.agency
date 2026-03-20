@@ -78,7 +78,7 @@ const WorkPage = () => {
       />
       <Navbar />
       <div className="pt-20">
-        <section className="pt-16 md:pt-24 pb-8 md:pb-12 px-6 md:px-12">
+        <section className="pt-16 md:pt-24 pb-8 md:pb-12 px-4 sm:px-6 md:px-12">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
               <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
@@ -95,10 +95,10 @@ const WorkPage = () => {
           </div>
         </section>
 
-        <section className="px-6 md:px-12 py-8 md:py-12 pb-20">
+        <section className="px-4 sm:px-6 md:px-12 py-8 md:py-12 pb-20">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection delay={0.04}>
-              <div className="flex items-center gap-4 md:gap-6 mb-16 flex-wrap">
+              <div className="flex items-center gap-3 md:gap-6 mb-12 md:mb-16 flex-wrap">
                 {serviceFilters.map((cat) => (
                   <button
                     key={cat}
@@ -113,7 +113,7 @@ const WorkPage = () => {
               </div>
             </AnimatedSection>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {filteredWorks.map((w, i) => (
                 <AnimatedSection key={w.title} delay={i * 0.03}>
                   <div className="group cursor-pointer" onClick={() => setSelectedWork(w)}>
@@ -147,7 +147,7 @@ const WorkPage = () => {
           </div>
         </section>
 
-        <section className="px-6 md:px-12 py-20 md:py-32 pb-32 md:pb-48">
+        <section className="px-4 sm:px-6 md:px-12 py-20 md:py-32 pb-32 md:pb-48">
           <div className="max-w-7xl mx-auto text-center">
             <AnimatedSection>
               <h2 className="font-display text-[clamp(36px,5vw,72px)] leading-[0.92] tracking-[0.01em] text-foreground mb-6">

@@ -161,7 +161,7 @@ const TechPackagePage = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent" />
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-12 pb-16 md:pb-24">
+        <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 md:px-12 pb-16 md:pb-24">
           <Link to="/package" className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground hover:text-accent-warm transition-colors mb-10">
             <ArrowLeft className="w-3 h-3" /> All Packages
           </Link>
@@ -204,7 +204,7 @@ const TechPackagePage = () => {
       </section>
 
       {/* ── Positioning ── */}
-      <section className="px-6 md:px-12 py-28 md:py-36">
+      <section className="px-4 sm:px-6 md:px-12 py-28 md:py-36">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection className="mb-16">
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-warm mb-4">Positioning</p>
@@ -240,7 +240,7 @@ const TechPackagePage = () => {
       </section>
 
       {/* ── Problem Section ── */}
-      <section className="px-6 md:px-12 py-20 md:py-28 bg-secondary">
+      <section className="px-4 sm:px-6 md:px-12 py-20 md:py-28 bg-secondary">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection className="mb-16">
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-warm mb-4">The Problem</p>
@@ -263,7 +263,7 @@ const TechPackagePage = () => {
       </section>
 
       {/* ── Insight ── */}
-      <section className="px-6 md:px-12 py-28 md:py-36">
+      <section className="px-4 sm:px-6 md:px-12 py-28 md:py-36">
         <div className="max-w-7xl mx-auto text-center">
           <AnimatedSection>
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-warm mb-8">Insight</p>
@@ -279,7 +279,7 @@ const TechPackagePage = () => {
       </section>
 
       {/* ── Solution ── */}
-      <section className="px-6 md:px-12 py-20 md:py-28 border-t border-border">
+      <section className="px-4 sm:px-6 md:px-12 py-20 md:py-28 border-t border-border">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-warm mb-4">Our Solution</p>
@@ -294,7 +294,7 @@ const TechPackagePage = () => {
       </section>
 
       {/* ── System (4 Blocks) ── */}
-      <section className="px-6 md:px-12 py-20 md:py-28 bg-foreground text-background">
+      <section className="px-4 sm:px-6 md:px-12 py-20 md:py-28 bg-foreground text-background">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection className="mb-16">
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-warm mb-4">The System</p>
@@ -328,7 +328,7 @@ const TechPackagePage = () => {
       </section>
 
       {/* ── Target Segments ── */}
-      <section className="px-6 md:px-12 py-28 md:py-36">
+      <section className="px-4 sm:px-6 md:px-12 py-28 md:py-36">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection className="mb-16">
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-warm mb-4">Target Segments</p>
@@ -351,7 +351,7 @@ const TechPackagePage = () => {
       </section>
 
       {/* ── Example Campaign ── */}
-      <section className="px-6 md:px-12 py-20 md:py-28 bg-secondary">
+      <section className="px-4 sm:px-6 md:px-12 py-20 md:py-28 bg-secondary">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection className="mb-16">
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-warm mb-4">Example</p>
@@ -397,7 +397,7 @@ const TechPackagePage = () => {
       </section>
 
       {/* ── Business Impact ── */}
-      <section className="px-6 md:px-12 py-20 md:py-28 bg-foreground text-background">
+      <section className="px-4 sm:px-6 md:px-12 py-20 md:py-28 bg-foreground text-background">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection className="mb-16">
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-warm mb-4">Business Impact</p>
@@ -436,7 +436,7 @@ const TechPackagePage = () => {
       </section>
 
       {/* ── Investment ── */}
-      <section className="px-6 md:px-12 py-28 md:py-36">
+      <section className="px-4 sm:px-6 md:px-12 py-28 md:py-36">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection className="mb-16">
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-warm mb-4">Investment</p>
@@ -464,7 +464,7 @@ const TechPackagePage = () => {
       </section>
 
       {/* ── Retainer ── */}
-      <section className="px-6 md:px-12 py-20 md:py-28 bg-secondary">
+      <section className="px-4 sm:px-6 md:px-12 py-20 md:py-28 bg-secondary">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
@@ -490,7 +490,7 @@ const TechPackagePage = () => {
       </section>
 
       {/* ── Why ORIONS ── */}
-      <section className="px-6 md:px-12 py-20 md:py-28 border-t border-border">
+      <section className="px-4 sm:px-6 md:px-12 py-20 md:py-28 border-t border-border">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection className="mb-16">
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-warm mb-4">Why ORIONS</p>
@@ -528,7 +528,7 @@ const TechPackagePage = () => {
       </section>
 
       {/* ── 4-Phase System ── */}
-      <section className="px-6 md:px-12 py-28 md:py-36">
+      <section className="px-4 sm:px-6 md:px-12 py-28 md:py-36">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection className="mb-16">
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-warm mb-4">Phased System</p>
@@ -566,7 +566,7 @@ const TechPackagePage = () => {
       </section>
 
       {/* ── Closing CTA ── */}
-      <section className="px-6 md:px-12 py-28 md:py-36 bg-foreground text-background">
+      <section className="px-4 sm:px-6 md:px-12 py-28 md:py-36 bg-foreground text-background">
         <div className="max-w-7xl mx-auto text-center">
           <AnimatedSection>
             <h2 className="font-display text-[clamp(36px,6vw,80px)] leading-[0.88] text-background max-w-4xl mx-auto mb-6">

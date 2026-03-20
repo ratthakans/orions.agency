@@ -92,7 +92,7 @@ const StudioPage = () => {
       />
       <Navbar />
       <div className="pt-20">
-        <section className="pt-16 md:pt-24 pb-8 md:pb-12 px-6 md:px-12">
+        <section className="pt-16 md:pt-24 pb-8 md:pb-12 px-4 sm:px-6 md:px-12">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
               <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
@@ -108,7 +108,7 @@ const StudioPage = () => {
           </div>
         </section>
 
-        <section className="px-6 md:px-12 py-8 md:py-12 pb-20">
+        <section className="px-4 sm:px-6 md:px-12 py-8 md:py-12 pb-20">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
               {studioProjects.map((p, i) => (
@@ -165,7 +165,7 @@ const StudioPage = () => {
           </div>
         </section>
 
-        <section className="px-6 md:px-12 py-20 md:py-32 pb-32 md:pb-48">
+        <section className="px-4 sm:px-6 md:px-12 py-20 md:py-32 pb-32 md:pb-48">
           <div className="max-w-7xl mx-auto text-center">
             <AnimatedSection>
               <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">

@@ -127,7 +127,7 @@ const Index = () => {
       <Marquee items={["Creative Transformation", "Creative Communication", "Film & Production", "Creative Partner", "Ideas", "Impact"]} />
 
       {/* ─── POSITIONING ─── */}
-      <section className="py-24 md:py-40 px-6 md:px-12">
+      <section className="py-20 md:py-40 px-4 sm:px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">
@@ -175,7 +175,7 @@ const Index = () => {
 
           {/* What we help brands do */}
           <AnimatedSection delay={0.4}>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-px border border-border">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-px border border-border">
               {[
                 { icon: "01", en: "Clarify their story", th: "ทำให้เรื่องราวชัดเจน" },
                 { icon: "02", en: "Build strong campaigns", th: "สร้างแคมเปญที่แข็งแกร่ง" },
@@ -195,7 +195,7 @@ const Index = () => {
       </section>
 
       {/* ─── PHILOSOPHY ─── */}
-      <section className="py-32 md:py-48 px-6 md:px-12 text-center border-t border-border">
+      <section className="py-24 md:py-48 px-4 sm:px-6 md:px-12 text-center border-t border-border">
         <div className="max-w-4xl mx-auto">
           <TextReveal className="font-display text-[clamp(40px,7vw,100px)] leading-[0.88] tracking-[0.01em] text-foreground mb-6">
             PEOPLE DON'T REMEMBER CONTENT.
@@ -217,7 +217,7 @@ const Index = () => {
       
 
       {/* ─── SERVICES ─── */}
-      <section className="py-24 md:py-40 px-6 md:px-12">
+      <section className="py-20 md:py-40 px-4 sm:px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">
@@ -312,7 +312,7 @@ const Index = () => {
       </section>
 
       {/* ─── SELECTED WORK ─── */}
-      <section className="py-24 md:py-40 px-6 md:px-12">
+      <section className="py-20 md:py-40 px-4 sm:px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">
@@ -356,7 +356,7 @@ const Index = () => {
       </section>
 
       {/* ─── FAQs ─── */}
-      <section className="py-24 md:py-32 px-6 md:px-12">
+      <section className="py-20 md:py-32 px-4 sm:px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
             <div className="border-t border-border pt-16 grid gap-10 lg:grid-cols-[1.3fr_1fr] lg:gap-16">
@@ -402,12 +402,12 @@ const Index = () => {
       </section>
 
       {/* ─── CLOSING CTA ─── */}
-      <section className="py-40 md:py-56 px-6 md:px-12 text-center">
+      <section className="py-28 md:py-56 px-4 sm:px-6 md:px-12 text-center">
         <div className="max-w-5xl mx-auto">
-          <TextReveal className="font-display text-[clamp(48px,8vw,140px)] leading-[0.88] tracking-[0.01em] text-foreground mb-4">
+          <TextReveal className="font-display text-[clamp(36px,8vw,140px)] leading-[0.88] tracking-[0.01em] text-foreground mb-4">
             WITHOUT THE RIGHT IDEA,
           </TextReveal>
-          <TextReveal className="font-display text-[clamp(48px,8vw,140px)] leading-[0.88] tracking-[0.01em] text-accent-warm mb-12">
+          <TextReveal className="font-display text-[clamp(36px,8vw,140px)] leading-[0.88] tracking-[0.01em] text-accent-warm mb-12">
             NOTHING ELSE MATTERS.
           </TextReveal>
           <AnimatedSection delay={0.3}>

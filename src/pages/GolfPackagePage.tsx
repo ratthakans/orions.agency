@@ -94,7 +94,7 @@ const GolfPackagePage = () => {
   return (
     <>
       <SEO
-        title="Golf Demand Growth System — Creative Layer for Golf Clubs | ØRIONS"
+        title="Golf Creative Layer — Creative Agency for Golf Clubs | ØRIONS"
         description="Creative Agency ที่ช่วยเพิ่ม Demand & รายได้ให้ Golf Club ผ่านระบบ creative ที่ขับเคลื่อน booking จริง"
         path="/package/golf"
       />

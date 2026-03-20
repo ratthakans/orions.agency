@@ -12,17 +12,17 @@ import golfImg from "@/assets/golf-hero.jpg";
 const packages = [
   {
     slug: "hospitality",
-    label: "Hospitality Growth System",
-    title: "A Creative System Built for Hospitality",
-    desc: "ช่วยโรงแรมและรีสอร์ทระดับ 4–5 ดาว กำหนดเรื่องราว สร้างคอนเทนต์ระดับภาพยนตร์ และสร้างระบบที่ขับเคลื่อน booking จริง",
+    label: "For Hotels & Resorts",
+    title: "Hospitality Creative System",
+    desc: "Strategy, cinematic content, and campaign systems designed to turn 4–5 star properties into destination brands that drive real bookings.",
     image: hospitalityImg,
     price: "Starting from ฿120,000",
   },
   {
     slug: "golf",
-    label: "Golf Demand Growth System",
-    title: "Creative Layer ที่เพิ่ม Demand ให้สนามกอล์ฟ",
-    desc: "Creative Agency ที่ช่วยเพิ่ม Demand & รายได้ให้ Golf Club ผ่าน positioning ที่ชัด, campaign ที่แตกต่าง, และ content ที่มีพลัง",
+    label: "For Golf Clubs",
+    title: "Golf Demand System",
+    desc: "A creative layer that unlocks new demand — from positioning and campaigns to cinematic content that attracts the next generation of golfers.",
     image: golfImg,
     price: "Starting from ฿50,000",
   },
@@ -32,8 +32,8 @@ const PackageListPage = () => {
   return (
     <>
       <SEO
-        title="Growth Systems — Creative Packages for Hospitality & Golf | ØRIONS"
-        description="Strategic creative systems designed for hospitality and golf industries. From brand narrative to cinematic production — ORIONS builds systems that drive real revenue."
+        title="Creative Solutions by Industry | ØRIONS"
+        description="Industry-specific creative systems that transform how brands connect with their audience. From strategy to cinematic production — built to drive measurable growth."
         path="/package"
       />
       <Navbar />
@@ -47,10 +47,10 @@ const PackageListPage = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="font-mono text-[11px] tracking-[0.15em] uppercase text-accent-warm mb-6"
           >
-            Growth Systems
+            Creative Solutions
           </motion.p>
           <TextReveal as="h1" className="font-display text-[clamp(40px,7vw,100px)] leading-[0.9] tracking-[0.01em] text-foreground max-w-4xl">
-            CREATIVE SYSTEMS THAT DRIVE REVENUE
+            CREATIVE THAT MAKES EVERYTHING BETTER
           </TextReveal>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -58,7 +58,7 @@ const PackageListPage = () => {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="font-body text-[16px] text-muted-foreground max-w-[500px] leading-[1.7] mt-8"
           >
-            ระบบ creative ที่ออกแบบเฉพาะสำหรับแต่ละ industry — จาก strategy ถึง production พร้อมขับเคลื่อนรายได้จริง
+            We design creative systems tailored to your industry — from strategy and positioning to cinematic production that drives real revenue.
           </motion.p>
         </div>
       </section>

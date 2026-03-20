@@ -45,7 +45,7 @@ const homeSchema = [
         name: "What does ØRIONS do in Bangkok?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "ØRIONS is a Bangkok creative agency that helps brands with strategy, campaigns, film production, content systems, and brand development.",
+          text: "ØRIONS is a Bangkok creative agency that helps brands with strategy, campaigns, film production, content systems, and creative transformation.",
         },
       },
       {
@@ -102,11 +102,11 @@ const Index = () => {
       includes: ["Campaign Film", "Brand Video", "Documentary", "Commercial Video"]
     },
     {
-      title: "Brand Development",
+      title: "Creative Transformation",
       desc: { en: "Building new ideas, products, and brand directions.", th: "สร้างไอเดียใหม่ ผลิตภัณฑ์ และทิศทางแบรนด์" },
       details: {
-        en: "Full brand development from zero — identity, narrative, product concept, and intellectual property creation for founders and companies exploring new opportunities.",
-        th: "การพัฒนาแบรนด์เต็มรูปแบบตั้งแต่ศูนย์ — identity, narrative, product concept และการสร้าง IP"
+        en: "Full creative transformation from zero — identity, narrative, product concept, and intellectual property creation for founders and companies exploring new opportunities.",
+        th: "การ transform แบรนด์เต็มรูปแบบตั้งแต่ศูนย์ — identity, narrative, product concept และการสร้าง IP"
       },
       includes: ["New Brand Concepts", "Product Ideas", "Sub-brand Development", "Creative Project Direction"]
     },
@@ -123,7 +123,7 @@ const Index = () => {
     <main className="bg-background min-h-screen grain-overlay">
       <SEO
         title="Creative Agency Bangkok for Brand, Campaign & Film | ØRIONS"
-        description="ØRIONS is a creative agency in Bangkok helping brands across Thailand and Southeast Asia with storytelling, campaigns, content systems, brand development, and film production."
+        description="ØRIONS is a creative agency in Bangkok helping brands across Thailand and Southeast Asia with storytelling, campaigns, content systems, creative transformation, and film production."
         path="/"
         keywords="creative agency Bangkok, branding agency Thailand, production house Bangkok, campaign agency Bangkok, film production Thailand"
         schema={homeSchema}
@@ -131,7 +131,7 @@ const Index = () => {
       <Navbar />
       <HeroSection onStartProject={() => setDialogOpen(true)} />
 
-      <Marquee items={["Content Systems", "Creative & Campaign", "Film & Production", "Brand Development", "Story", "Strategy"]} />
+      <Marquee items={["Content Systems", "Creative & Campaign", "Film & Production", "Creative Transformation", "Story", "Strategy"]} />
 
       <section className="py-24 md:py-40 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
@@ -222,7 +222,7 @@ const Index = () => {
         </div>
       </section>
 
-      <Marquee items={["Content Systems", "Creative & Campaign", "Film & Production", "Brand Development"]} speed="slow" />
+      <Marquee items={["Content Systems", "Creative & Campaign", "Film & Production", "Creative Transformation"]} speed="slow" />
 
       <section className="py-24 md:py-40 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
@@ -290,7 +290,7 @@ const Index = () => {
                 {[
                   {
                     q: "What services does ØRIONS provide?",
-                    a: "We provide content systems, creative campaigns, film production, and brand development for brands in Bangkok, Thailand, and Southeast Asia.",
+                    a: "We provide content systems, creative campaigns, film production, and creative transformation for brands in Bangkok, Thailand, and Southeast Asia.",
                   },
                   {
                     q: "Who is ØRIONS best for?",

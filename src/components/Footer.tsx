@@ -28,7 +28,7 @@ const Footer = () => {
               <Link to="/services" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Content Systems</Link>
               <Link to="/services" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Creative & Campaign</Link>
               <Link to="/services" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Film & Production</Link>
-              <Link to="/services" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Brand Development</Link>
+              <Link to="/services" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Creative Transformation</Link>
             </div>
           </div>
 

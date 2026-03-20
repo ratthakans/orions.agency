@@ -412,7 +412,7 @@ const Index = () => {
           </TextReveal>
           <AnimatedSection delay={0.3}>
             <p className="font-body text-[18px] text-muted-foreground mb-12">
-              {t("We make sure they do.", "เราทำให้แน่ใจว่าเขาจะจำคุณได้")}
+              {t("We start with the idea. Then we make it impossible to ignore.", "เราเริ่มจากไอเดีย แล้วทำให้มันเป็นสิ่งที่ไม่มีใครมองข้ามได้")}
             </p>
             <div className="flex gap-10 justify-center items-center flex-wrap">
               <button

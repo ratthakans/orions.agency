@@ -32,8 +32,8 @@ const PackageListPage = () => {
   return (
     <>
       <SEO
-        title="Growth Systems — Creative Packages for Hospitality & Golf | ØRIONS"
-        description="Strategic creative systems designed for hospitality and golf industries. From brand narrative to cinematic production — ORIONS builds systems that drive real revenue."
+        title="Creative Solutions by Industry | ØRIONS"
+        description="Industry-specific creative systems that transform how brands connect with their audience. From strategy to cinematic production — built to drive measurable growth."
         path="/package"
       />
       <Navbar />
@@ -47,10 +47,10 @@ const PackageListPage = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="font-mono text-[11px] tracking-[0.15em] uppercase text-accent-warm mb-6"
           >
-            Growth Systems
+            Creative Solutions
           </motion.p>
           <TextReveal as="h1" className="font-display text-[clamp(40px,7vw,100px)] leading-[0.9] tracking-[0.01em] text-foreground max-w-4xl">
-            CREATIVE SYSTEMS THAT DRIVE REVENUE
+            CREATIVE THAT MAKES EVERYTHING BETTER
           </TextReveal>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -58,7 +58,7 @@ const PackageListPage = () => {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="font-body text-[16px] text-muted-foreground max-w-[500px] leading-[1.7] mt-8"
           >
-            ระบบ creative ที่ออกแบบเฉพาะสำหรับแต่ละ industry — จาก strategy ถึง production พร้อมขับเคลื่อนรายได้จริง
+            We design creative systems tailored to your industry — from strategy and positioning to cinematic production that drives real revenue.
           </motion.p>
         </div>
       </section>

@@ -165,9 +165,9 @@ const ServicesPage = () => {
     <main className="bg-background min-h-screen grain-overlay">
       <SEO
         title="Creative Agency Services in Bangkok | ØRIONS"
-        description="Explore ØRIONS services: content systems, campaign strategy, film production, and brand development for growing brands in Bangkok and Southeast Asia."
+        description="Explore ØRIONS services: content systems, campaign strategy, film production, and creative transformation for growing brands in Bangkok and Southeast Asia."
         path="/services"
-        keywords="creative agency services Bangkok, film production house Bangkok, content agency Thailand, brand development Bangkok"
+        keywords="creative agency services Bangkok, film production house Bangkok, content agency Thailand, creative transformation Bangkok"
         schema={servicesSchema}
       />
       <Navbar />

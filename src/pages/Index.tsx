@@ -290,7 +290,7 @@ const Index = () => {
                 {[
                   {
                     q: "What services does ØRIONS provide?",
-                    a: "We provide content systems, creative campaigns, film production, and brand development for brands in Bangkok, Thailand, and Southeast Asia.",
+                    a: "We provide content systems, creative campaigns, film production, and creative transformation for brands in Bangkok, Thailand, and Southeast Asia.",
                   },
                   {
                     q: "Who is ØRIONS best for?",

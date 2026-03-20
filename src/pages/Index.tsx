@@ -253,7 +253,7 @@ const Index = () => {
                     <div className="flex items-center justify-between py-8 md:py-10">
                       <div className="flex items-baseline gap-6 md:gap-10">
                         <span className="font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground/40">{String(i + 1).padStart(2, "0")}</span>
-                        <h3 className="font-display text-[clamp(32px,4vw,56px)] tracking-[0.03em] text-foreground group-hover:text-accent-warm transition-colors duration-500">{s.title}</h3>
+                        <h3 className="font-display text-[clamp(24px,4vw,56px)] tracking-[0.03em] text-foreground group-hover:text-accent-warm transition-colors duration-500">{s.title}</h3>
                       </div>
                       <motion.span
                         animate={{ rotate: isExpanded ? 45 : 0 }}

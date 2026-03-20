@@ -319,7 +319,7 @@ const Index = () => {
               <span className="text-accent-warm mr-2">◎</span> Selected Work
             </p>
           </AnimatedSection>
-          <TextReveal className="font-display text-[clamp(48px,6vw,100px)] leading-[0.9] tracking-[0.01em] text-foreground mb-20">
+          <TextReveal className="font-display text-[clamp(32px,6vw,100px)] leading-[0.9] tracking-[0.01em] text-foreground mb-20">
             WORK THAT SPEAKS.
           </TextReveal>
 

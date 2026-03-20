@@ -1,77 +1,63 @@
 
 
-# Comprehensive Review: ØRIONS Creative Agency Website
+# Page Transition Performance Fix
 
-## Overall Assessment
+## Problem
 
-The website has strong bones — dark mode, clean typography, cinematic feel, and consistent design language. But there are several issues holding it back from feeling like a truly premium, global-level creative agency.
+The transition feels slow because of two compounding issues:
 
----
+1. **`AnimatePresence mode="wait"`** — waits for the **exit** animation to fully complete before mounting the new page. The exit wipe takes 0.4s + 0.08s delay = ~0.48s of black screen before anything new appears.
 
-## Issues Found
+2. **Content fade delay** — after exit finishes, the new page's content has an additional 0.15s delay before fading in. Total perceived delay: ~0.6s+ of "nothing visible."
 
-### 1. Content & Terminology Inconsistencies
+3. **Two wipe overlays** with staggered timing add visual complexity but also add duration.
 
-- **Footer:** Has duplicate "Industries" links (line 40 `/industries` and line 42 `/package`). The `/industries` page and `/package` page are essentially competing — confusing.
-- **Contact page:** Still says "Creative Retainer" in the project type dropdown (line 128-129) instead of "Creative Partner"
-- **Contact page:** Services tags still show "Retainer" instead of "Partner" (line 218)
-- **Work page:** Filter still shows "Creative Retainer" (line 31) instead of "Creative Partner". Lumen Health project also tagged "Creative Retainer" (line 23)
-- **Industries page (`/industries`)** exists separately from **Package page (`/package`)** — they overlap significantly. `/industries` lists generic industries (Hospitality, Lifestyle, Restaurant, etc.) while `/package` lists the 4 core focus industries. This is confusing for visitors.
+4. **Lazy-loaded pages with `Suspense fallback={null}`** — on first visit, the chunk must download before anything renders, adding to the black screen time.
 
-### 2. Navigation & Information Architecture
+## Solution — Make transitions feel instant
 
-- Navbar links to "Industries" → `/package`, but there's also an `/industries` route that's accessible but not in nav. Two competing pages about industries creates confusion.
-- Footer has both `/industries` and `/package` links labeled "Industries"
-- The site has too many pages for a 10-person agency: Home, About, Services, Work, Industries, Package (+ 4 sub-pages), Studio, Contact = 13+ pages. This dilutes the premium feel.
+### 1. Speed up PageTransition durations
+- Wipe overlay: 0.4s → **0.25s**
+- Second overlay delay: 0.08s → **0.05s**
+- Content fade delay: 0.15s → **0.08s**
+- Content fade duration: 0.3s → **0.2s**
 
-### 3. Design & UX Issues
+### 2. Remove exit animation from wipe overlays
+- Remove `exit={{ scaleY: 1 }}` — this is the main culprit. With `mode="wait"`, the old page's exit animation plays fully before the new page mounts, causing a long black-screen gap.
+- Instead, only animate **entrance** (wipe reveals the new page). The old page simply unmounts instantly.
 
-- **Hero section:** The typewriter text "CLARITY THAT CONVERTS." appears below the main headline "A CREATIVE AGENCY THAT TURNS IDEAS INTO DEMAND." — the two messages feel disconnected. The typewriter phrases don't grammatically connect to the headline above.
-- **Homepage is very long** with many sections (Marquee → Positioning → Philosophy → Marquee again → Services → Selected Work → FAQs → Closing CTA). Two marquees feels redundant.
-- **About page** is thin — just a brief intro, "Rooted in Bangkok" section, and team grid. No story, no values, no manifesto. For an "idea-driven" agency, the About page should be the most compelling page.
+### 3. Optionally switch to `mode="popLayout"` or remove `mode="wait"`
+- Without `mode="wait"`, old and new pages can crossfade, eliminating the sequential delay.
+- Since we have wipe overlays, removing `mode="wait"` and keeping only entrance wipes will feel snappier.
 
-### 4. Credibility Gaps
+## Files to modify
 
-- All 9 portfolio projects use placeholder images (work-northwind.jpg etc.) — these are clearly stock/generated. A creative agency lives and dies by its portfolio visuals.
-- Team photos are also placeholder images. For a 10-person agency claiming premium positioning, this undermines trust.
-- No real case studies — just brief descriptions and deliverable lists. No results, no process, no before/after.
-- Contact form doesn't actually send anywhere (just sets `submitted = true`)
+- **`src/components/PageTransition.tsx`** — reduce durations, remove exit animation
+- **`src/App.tsx`** — consider removing `mode="wait"` from AnimatePresence
 
-### 5. Specific Fixes Needed
+## Technical details
 
-| Issue | Location | Fix |
-|-------|----------|-----|
-| "Creative Retainer" → "Creative Partner" | WorkPage filter, work items, ContactPage dropdown & tags | Update all references |
-| Duplicate Industries pages | `/industries` and `/package` | Remove `/industries`, keep `/package` as the single industries page |
-| Duplicate "Industries" in footer | Footer.tsx lines 40, 42 | Remove the `/industries` link |
-| Second Marquee is redundant | Index.tsx line 217 | Remove |
-| Hero typewriter disconnect | HeroSection.tsx | Make phrases connect to "THAT TURNS IDEAS INTO" or redesign layout |
+```tsx
+// PageTransition.tsx — faster, no exit blocking
+const PageTransition = ({ children }) => (
+  <>
+    <motion.div
+      className="fixed inset-0 z-[9998] bg-background"
+      initial={{ scaleY: 1 }}
+      animate={{ scaleY: 0 }}
+      transition={{ duration: 0.25, ease: [0.76, 0, 0.24, 1] }}
+      style={{ transformOrigin: "top" }}
+    />
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.2, delay: 0.08 }}
+    >
+      {children}
+    </motion.div>
+  </>
+);
+```
 
----
-
-## Proposed Changes
-
-### Phase 1: Consistency Cleanup
-1. **Replace all "Creative Retainer" references** with "Creative Partner" in WorkPage.tsx and ContactPage.tsx
-2. **Remove `/industries` route** — consolidate into `/package`. Update Footer to remove duplicate link. Remove IndustriesPage.tsx import from App.tsx.
-3. **Clean Footer** — remove duplicate "Industries" entry
-
-### Phase 2: Homepage Polish
-4. **Remove second Marquee** (line 217 of Index.tsx) — one is enough
-5. **Fix Hero typewriter** — adjust phrases to flow better with the headline, or restructure so typewriter replaces part of the headline
-
-### Phase 3: Structure
-6. **Redirect `/industries` to `/package`** to avoid 404s if anyone bookmarked it
-
----
-
-## Technical Details
-
-**Files to modify:**
-- `src/pages/WorkPage.tsx` — rename "Creative Retainer" to "Creative Partner" in filter and data
-- `src/pages/ContactPage.tsx` — update dropdown option and service tags
-- `src/components/Footer.tsx` — remove duplicate Industries link, update `/industries` to `/package`
-- `src/pages/Index.tsx` — remove second Marquee
-- `src/App.tsx` — remove IndustriesPage import and route (or redirect to /package)
-- `src/pages/IndustriesPage.tsx` — can be deleted
+Remove the second wipe overlay entirely — one is enough and saves ~80ms.
 

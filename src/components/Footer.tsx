@@ -28,7 +28,7 @@ const Footer = () => {
               <Link to="/services" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Creative Transformation</Link>
               <Link to="/services" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Creative Communication</Link>
               <Link to="/services" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Film & Production</Link>
-              <Link to="/services" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Creative Retainer</Link>
+              <Link to="/services" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Creative Partner</Link>
             </div>
           </div>
 
@@ -39,7 +39,7 @@ const Footer = () => {
               <Link to="/work" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Work</Link>
               <Link to="/industries" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Industries</Link>
               <Link to="/studio" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Studio</Link>
-              <Link to="/career" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Career</Link>
+              <Link to="/package" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Industries</Link>
               <Link to="/contact" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Contact</Link>
             </div>
           </div>

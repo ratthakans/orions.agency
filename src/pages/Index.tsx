@@ -95,13 +95,13 @@ const Index = () => {
       includes: ["Campaign Film", "Brand Video", "Visual Content", "Social Cutdowns"],
     },
     {
-      title: "Creative Retainer",
-      desc: { en: "Keep your brand consistent and impactful.", th: "รักษาความสม่ำเสมอและผลกระทบของแบรนด์" },
+      title: "Creative Partner",
+      desc: { en: "Your long-term creative think tank.", th: "Think tank ครีเอทีฟระยะยาวของคุณ" },
       details: {
-        en: "Brands evolve. Markets change. Messaging must adapt. We help you stay clear, relevant, and effective over time.",
-        th: "แบรนด์เปลี่ยน ตลาดเปลี่ยน การสื่อสารต้องปรับตัว เราช่วยให้คุณชัดเจนและมีประสิทธิภาพอยู่เสมอ"
+        en: "More than a retainer — a dedicated creative partnership. We become an extension of your team, providing ongoing strategic thinking, creative direction, and campaign evolution.",
+        th: "มากกว่า retainer — เป็นพันธมิตรครีเอทีฟ เราเป็นส่วนขยายของทีมคุณ ให้ strategic thinking, creative direction และพัฒนาแคมเปญอย่างต่อเนื่อง"
       },
-      includes: ["Ongoing Direction", "Campaign Extension", "Content Guidance"],
+      includes: ["Strategic Thinking", "Creative Direction", "Campaign Evolution", "Brand Guardianship"],
     },
   ];
 
@@ -124,7 +124,7 @@ const Index = () => {
       <Navbar />
       <HeroSection onStartProject={() => setDialogOpen(true)} />
 
-      <Marquee items={["Creative Transformation", "Creative Communication", "Film & Production", "Creative Retainer", "Ideas", "Impact"]} />
+      <Marquee items={["Creative Transformation", "Creative Communication", "Film & Production", "Creative Partner", "Ideas", "Impact"]} />
 
       {/* ─── POSITIONING ─── */}
       <section className="py-24 md:py-40 px-6 md:px-12">
@@ -214,7 +214,7 @@ const Index = () => {
         </div>
       </section>
 
-      <Marquee items={["Creative Transformation", "Creative Communication", "Film & Production", "Creative Retainer"]} speed="slow" />
+      <Marquee items={["Creative Transformation", "Creative Communication", "Film & Production", "Creative Partner"]} speed="slow" />
 
       {/* ─── SERVICES ─── */}
       <section className="py-24 md:py-40 px-6 md:px-12">
@@ -224,9 +224,14 @@ const Index = () => {
               <span className="text-accent-warm mr-2">✦</span> {t("What We Do", "สิ่งที่เราทำ")}
             </p>
           </AnimatedSection>
-          <TextReveal className="font-display text-[clamp(48px,6vw,100px)] leading-[0.9] tracking-[0.01em] text-foreground mb-6 max-w-4xl">
-            IDEAS FIRST. THEN EVERYTHING ELSE.
-          </TextReveal>
+          <AnimatedSection delay={0.1}>
+            <h2 className="font-display text-[clamp(48px,6vw,100px)] leading-[0.9] tracking-[0.01em] text-foreground max-w-4xl mb-4">
+              IDEAS FIRST.
+            </h2>
+            <h2 className="font-display text-[clamp(48px,6vw,100px)] leading-[0.9] tracking-[0.01em] text-foreground max-w-4xl mb-8">
+              THEN <span className="text-accent-gradient">EVERYTHING ELSE.</span>
+            </h2>
+          </AnimatedSection>
           <AnimatedSection delay={0.2}>
             <p className="font-body text-[16px] leading-[1.7] text-muted-foreground max-w-2xl mb-20">
               {t(
@@ -400,14 +405,14 @@ const Index = () => {
       <section className="py-40 md:py-56 px-6 md:px-12 text-center">
         <div className="max-w-5xl mx-auto">
           <TextReveal className="font-display text-[clamp(48px,8vw,140px)] leading-[0.88] tracking-[0.01em] text-foreground mb-4">
-            IF PEOPLE DON'T REMEMBER YOU,
+            WITHOUT THE RIGHT IDEA,
           </TextReveal>
           <TextReveal className="font-display text-[clamp(48px,8vw,140px)] leading-[0.88] tracking-[0.01em] text-accent-warm mb-12">
-            THEY WON'T CHOOSE YOU.
+            NOTHING ELSE MATTERS.
           </TextReveal>
           <AnimatedSection delay={0.3}>
             <p className="font-body text-[18px] text-muted-foreground mb-12">
-              {t("We make sure they do.", "เราทำให้แน่ใจว่าเขาจะจำคุณได้")}
+              {t("We start with the idea. Then we make it impossible to ignore.", "เราเริ่มจากไอเดีย แล้วทำให้มันเป็นสิ่งที่ไม่มีใครมองข้ามได้")}
             </p>
             <div className="flex gap-10 justify-center items-center flex-wrap">
               <button

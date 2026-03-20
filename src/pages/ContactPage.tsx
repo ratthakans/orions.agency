@@ -125,7 +125,7 @@ const ContactPage = () => {
                           <option value="creative-direction" className="bg-background">Creative Direction</option>
                           <option value="campaign" className="bg-background">Campaign Development</option>
                           <option value="production" className="bg-background">Content Production</option>
-                          <option value="retainer" className="bg-background">Creative Retainer</option>
+                          <option value="partner" className="bg-background">Creative Partner</option>
                           <option value="other" className="bg-background">{t("Other", "อื่นๆ")}</option>
                         </select>
                       </div>

@@ -402,7 +402,7 @@ const Index = () => {
       </section>
 
       {/* ─── CLOSING CTA ─── */}
-      <section className="py-40 md:py-56 px-6 md:px-12 text-center">
+      <section className="py-28 md:py-56 px-4 sm:px-6 md:px-12 text-center">
         <div className="max-w-5xl mx-auto">
           <TextReveal className="font-display text-[clamp(48px,8vw,140px)] leading-[0.88] tracking-[0.01em] text-foreground mb-4">
             WITHOUT THE RIGHT IDEA,

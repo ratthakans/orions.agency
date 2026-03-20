@@ -305,7 +305,7 @@ const ServicesPage = () => {
         </section>
 
         {/* CTA */}
-        <section className="px-6 md:px-12 py-20 md:py-32 pb-32 md:pb-48">
+        <section className="px-4 sm:px-6 md:px-12 py-20 md:py-32 pb-32 md:pb-48">
           <div className="max-w-7xl mx-auto text-center">
             <AnimatedSection>
               <h2 className="font-display text-[clamp(36px,5vw,72px)] leading-[0.92] tracking-[0.01em] text-foreground mb-4">

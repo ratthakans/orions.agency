@@ -231,7 +231,7 @@ const AboutPage = () => {
               </div>
             </AnimatedSection>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-6 gap-y-10">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-4 sm:gap-x-6 gap-y-8 sm:gap-y-10">
               {allMembers.map((member, i) => (
                 <AnimatedSection key={member.name} delay={i * 0.03}>
                   <div className="group">

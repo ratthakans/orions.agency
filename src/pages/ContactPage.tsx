@@ -88,7 +88,7 @@ const ContactPage = () => {
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-16 lg:gap-24">
               <AnimatedSection delay={0.04}>
-                <div className="group relative border border-border p-8 md:p-12 hover:border-accent-warm/30 transition-all duration-500">
+                <div className="group relative border border-border p-5 sm:p-8 md:p-12 hover:border-accent-warm/30 transition-all duration-500">
                   <div className="absolute top-3 left-3 w-4 h-4 border-t border-l border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500" />
                   <div className="absolute top-3 right-3 w-4 h-4 border-t border-r border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500" />
                   <div className="absolute bottom-3 left-3 w-4 h-4 border-b border-l border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500" />

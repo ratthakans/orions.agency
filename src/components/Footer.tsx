@@ -5,9 +5,9 @@ const Footer = () => {
   const { t } = useLanguage();
 
   return (
-    <footer className="px-6 md:px-12 py-24 border-t border-border">
+    <footer className="px-4 sm:px-6 md:px-12 py-16 md:py-24 border-t border-border">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-[1.6fr_1fr_1fr_1fr] gap-12 md:gap-16 pb-20 border-b border-border mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr] gap-10 md:gap-16 pb-16 md:pb-20 border-b border-border mb-10">
           <div>
             <p className="font-logo font-medium text-[13px] tracking-[0.08em] text-foreground uppercase mb-5">ØRIONS</p>
             <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-[320px] mb-8">

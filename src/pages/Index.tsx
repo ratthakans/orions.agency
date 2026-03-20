@@ -175,14 +175,14 @@ const Index = () => {
 
           {/* What we help brands do */}
           <AnimatedSection delay={0.4}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-px border border-border">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-px bg-border border border-border">
               {[
                 { icon: "01", en: "Clarify their story", th: "ทำให้เรื่องราวชัดเจน" },
                 { icon: "02", en: "Build strong campaigns", th: "สร้างแคมเปญที่แข็งแกร่ง" },
                 { icon: "03", en: "Create content that matters", th: "สร้าง content ที่มีความหมาย" },
                 { icon: "04", en: "Drive real impact", th: "สร้าง impact ที่จับต้องได้" },
               ].map((item) => (
-                <div key={item.en} className="group relative bg-background hover:bg-muted/30 transition-all duration-500 p-6 md:p-8 border-r border-b border-border last:border-r-0">
+                <div key={item.en} className="group relative bg-background hover:bg-muted/30 transition-all duration-500 p-6 md:p-8">
                   <span className="font-mono text-[10px] tracking-[0.15em] text-accent-warm/40 block mb-4">{item.icon}</span>
                   <span className="font-body text-[14px] md:text-[15px] leading-[1.6] text-foreground/80 group-hover:text-accent-warm transition-colors duration-300">
                     {t(item.en, item.th)}
@@ -197,10 +197,10 @@ const Index = () => {
       {/* ─── PHILOSOPHY ─── */}
       <section className="py-24 md:py-48 px-4 sm:px-6 md:px-12 text-center border-t border-border">
         <div className="max-w-4xl mx-auto">
-          <TextReveal className="font-display text-[clamp(40px,7vw,100px)] leading-[0.88] tracking-[0.01em] text-foreground mb-6">
+          <TextReveal className="font-display text-[clamp(28px,7vw,100px)] leading-[0.88] tracking-[0.01em] text-foreground mb-6">
             PEOPLE DON'T REMEMBER CONTENT.
           </TextReveal>
-          <TextReveal className="font-display text-[clamp(40px,7vw,100px)] leading-[0.88] tracking-[0.01em] text-accent-warm mb-12">
+          <TextReveal className="font-display text-[clamp(28px,7vw,100px)] leading-[0.88] tracking-[0.01em] text-accent-warm mb-12">
             THEY REMEMBER IDEAS.
           </TextReveal>
           <AnimatedSection delay={0.3}>
@@ -225,10 +225,10 @@ const Index = () => {
             </p>
           </AnimatedSection>
           <AnimatedSection delay={0.1}>
-            <h2 className="font-display text-[clamp(48px,6vw,100px)] leading-[0.9] tracking-[0.01em] text-foreground max-w-4xl mb-4">
+            <h2 className="font-display text-[clamp(32px,6vw,100px)] leading-[0.9] tracking-[0.01em] text-foreground max-w-4xl mb-4">
               IDEAS FIRST.
             </h2>
-            <h2 className="font-display text-[clamp(48px,6vw,100px)] leading-[0.9] tracking-[0.01em] text-foreground max-w-4xl mb-8">
+            <h2 className="font-display text-[clamp(32px,6vw,100px)] leading-[0.9] tracking-[0.01em] text-foreground max-w-4xl mb-8">
               THEN <span className="text-accent-gradient">EVERYTHING ELSE.</span>
             </h2>
           </AnimatedSection>
@@ -253,7 +253,7 @@ const Index = () => {
                     <div className="flex items-center justify-between py-8 md:py-10">
                       <div className="flex items-baseline gap-6 md:gap-10">
                         <span className="font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground/40">{String(i + 1).padStart(2, "0")}</span>
-                        <h3 className="font-display text-[clamp(32px,4vw,56px)] tracking-[0.03em] text-foreground group-hover:text-accent-warm transition-colors duration-500">{s.title}</h3>
+                        <h3 className="font-display text-[clamp(24px,4vw,56px)] tracking-[0.03em] text-foreground group-hover:text-accent-warm transition-colors duration-500">{s.title}</h3>
                       </div>
                       <motion.span
                         animate={{ rotate: isExpanded ? 45 : 0 }}
@@ -319,7 +319,7 @@ const Index = () => {
               <span className="text-accent-warm mr-2">◎</span> Selected Work
             </p>
           </AnimatedSection>
-          <TextReveal className="font-display text-[clamp(48px,6vw,100px)] leading-[0.9] tracking-[0.01em] text-foreground mb-20">
+          <TextReveal className="font-display text-[clamp(32px,6vw,100px)] leading-[0.9] tracking-[0.01em] text-foreground mb-20">
             WORK THAT SPEAKS.
           </TextReveal>
 
@@ -364,7 +364,7 @@ const Index = () => {
                 <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
                   <span className="text-accent-warm mr-2">△</span> FAQs
                 </p>
-                <h2 className="font-display text-[clamp(36px,5vw,72px)] leading-[0.92] tracking-[0.01em] text-foreground mb-6">
+                <h2 className="font-display text-[clamp(28px,5vw,72px)] leading-[0.92] tracking-[0.01em] text-foreground mb-6">
                   WHAT BRANDS
                   <br />ASK FIRST.
                 </h2>
@@ -404,10 +404,10 @@ const Index = () => {
       {/* ─── CLOSING CTA ─── */}
       <section className="py-28 md:py-56 px-4 sm:px-6 md:px-12 text-center">
         <div className="max-w-5xl mx-auto">
-          <TextReveal className="font-display text-[clamp(36px,8vw,140px)] leading-[0.88] tracking-[0.01em] text-foreground mb-4">
+          <TextReveal className="font-display text-[clamp(28px,8vw,140px)] leading-[0.88] tracking-[0.01em] text-foreground mb-4">
             WITHOUT THE RIGHT IDEA,
           </TextReveal>
-          <TextReveal className="font-display text-[clamp(36px,8vw,140px)] leading-[0.88] tracking-[0.01em] text-accent-warm mb-12">
+          <TextReveal className="font-display text-[clamp(28px,8vw,140px)] leading-[0.88] tracking-[0.01em] text-accent-warm mb-12">
             NOTHING ELSE MATTERS.
           </TextReveal>
           <AnimatedSection delay={0.3}>

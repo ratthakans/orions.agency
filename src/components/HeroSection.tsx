@@ -66,7 +66,7 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => {
   const { t } = useLanguage();
 
   return (
-    <section className="min-h-[85vh] flex items-end px-4 sm:px-6 md:px-12 pb-16 md:pb-28 relative overflow-hidden">
+    <section className="min-h-[70vh] md:min-h-[85vh] flex items-end px-4 sm:px-6 md:px-12 pb-12 md:pb-28 pt-24 md:pt-0 relative overflow-hidden">
       <div className="max-w-7xl mx-auto w-full relative z-10">
         <div className="max-w-5xl">
           <div className="mb-12">

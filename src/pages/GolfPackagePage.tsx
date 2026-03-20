@@ -379,13 +379,13 @@ const GolfPackagePage = () => {
         </div>
       </section>
 
-      {/* ── Business Impact — horizontal metric bar ── */}
-      <section className="bg-foreground">
+      {/* ── Business Impact ── */}
+      <section className="border-t border-border">
         <div className="px-6 md:px-12 py-20 md:py-24">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection className="mb-12">
               <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-warm mb-4">Business Impact</p>
-              <h2 className="font-display text-[clamp(28px,3.5vw,48px)] leading-[0.92] text-background">
+              <h2 className="font-display text-[clamp(28px,3.5vw,48px)] leading-[0.92] text-foreground">
                 Creative is your demand engine.
               </h2>
             </AnimatedSection>
@@ -398,7 +398,7 @@ const GolfPackagePage = () => {
                 { result: "Revenue", desc: "One visit becomes many. Revenue compounds." },
               ].map((item, i) => (
                 <AnimatedChild key={item.result}>
-                  <div className={`py-8 md:py-10 ${i < 3 ? 'md:pr-8 md:border-r border-background/10' : 'md:pl-8'} ${i > 0 && i < 3 ? 'md:pl-8' : ''} ${i === 0 ? '' : 'md:pl-8'}`}>
+                  <div className={`py-8 md:py-10 ${i < 3 ? 'md:pr-8 md:border-r border-border' : 'md:pl-8'} ${i > 0 && i < 3 ? 'md:pl-8' : ''} ${i === 0 ? '' : 'md:pl-8'}`}>
                     <motion.div
                       className="w-10 h-[2px] bg-accent-warm mb-6"
                       initial={{ scaleX: 0 }}
@@ -407,8 +407,8 @@ const GolfPackagePage = () => {
                       transition={{ duration: 0.6, delay: i * 0.15 }}
                       style={{ originX: 0 }}
                     />
-                    <h3 className="font-display text-[24px] leading-[1] text-background mb-3">{item.result}</h3>
-                    <p className="font-body text-[13px] text-background/50 leading-[1.6]">{item.desc}</p>
+                    <h3 className="font-display text-[24px] leading-[1] text-foreground mb-3">{item.result}</h3>
+                    <p className="font-body text-[13px] text-muted-foreground leading-[1.6]">{item.desc}</p>
                   </div>
                 </AnimatedChild>
               ))}

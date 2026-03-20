@@ -12,17 +12,17 @@ import golfImg from "@/assets/golf-hero.jpg";
 const packages = [
   {
     slug: "hospitality",
-    label: "Hospitality Growth System",
-    title: "A Creative System Built for Hospitality",
-    desc: "ช่วยโรงแรมและรีสอร์ทระดับ 4–5 ดาว กำหนดเรื่องราว สร้างคอนเทนต์ระดับภาพยนตร์ และสร้างระบบที่ขับเคลื่อน booking จริง",
+    label: "For Hotels & Resorts",
+    title: "Hospitality Creative System",
+    desc: "Strategy, cinematic content, and campaign systems designed to turn 4–5 star properties into destination brands that drive real bookings.",
     image: hospitalityImg,
     price: "Starting from ฿120,000",
   },
   {
     slug: "golf",
-    label: "Golf Demand Growth System",
-    title: "Creative Layer ที่เพิ่ม Demand ให้สนามกอล์ฟ",
-    desc: "Creative Agency ที่ช่วยเพิ่ม Demand & รายได้ให้ Golf Club ผ่าน positioning ที่ชัด, campaign ที่แตกต่าง, และ content ที่มีพลัง",
+    label: "For Golf Clubs",
+    title: "Golf Demand System",
+    desc: "A creative layer that unlocks new demand — from positioning and campaigns to cinematic content that attracts the next generation of golfers.",
     image: golfImg,
     price: "Starting from ฿50,000",
   },

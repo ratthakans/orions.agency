@@ -16,7 +16,7 @@ const WorkPage = lazy(() => import("./pages/WorkPage"));
 const IndustriesPage = lazy(() => import("./pages/IndustriesPage"));
 const StudioPage = lazy(() => import("./pages/StudioPage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
-const CareerPage = lazy(() => import("./pages/CareerPage"));
+
 const PackagePage = lazy(() => import("./pages/PackagePage"));
 const PackageListPage = lazy(() => import("./pages/PackageListPage"));
 const GolfPackagePage = lazy(() => import("./pages/GolfPackagePage"));

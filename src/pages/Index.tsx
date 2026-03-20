@@ -197,10 +197,10 @@ const Index = () => {
       {/* ─── PHILOSOPHY ─── */}
       <section className="py-24 md:py-48 px-4 sm:px-6 md:px-12 text-center border-t border-border">
         <div className="max-w-4xl mx-auto">
-          <TextReveal className="font-display text-[clamp(40px,7vw,100px)] leading-[0.88] tracking-[0.01em] text-foreground mb-6">
+          <TextReveal className="font-display text-[clamp(28px,7vw,100px)] leading-[0.88] tracking-[0.01em] text-foreground mb-6">
             PEOPLE DON'T REMEMBER CONTENT.
           </TextReveal>
-          <TextReveal className="font-display text-[clamp(40px,7vw,100px)] leading-[0.88] tracking-[0.01em] text-accent-warm mb-12">
+          <TextReveal className="font-display text-[clamp(28px,7vw,100px)] leading-[0.88] tracking-[0.01em] text-accent-warm mb-12">
             THEY REMEMBER IDEAS.
           </TextReveal>
           <AnimatedSection delay={0.3}>

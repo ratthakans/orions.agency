@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import StartProjectDialog from "@/components/StartProjectDialog";
@@ -153,34 +153,106 @@ const GolfPackagePage = () => {
         </div>
       </section>
 
-      {/* Demand Gap — clean 2x2 */}
+      {/* Demand Gap — redesigned as numbered list with accent bar */}
       <section className="px-6 md:px-12 py-24 md:py-32">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection className="mb-16">
             <p className="font-mono text-[11px] tracking-[0.15em] uppercase text-accent-warm mb-4">The Demand Gap</p>
-            <h2 className="font-display text-[clamp(32px,4vw,56px)] leading-[0.95] text-foreground max-w-2xl">
-              The problem isn't your course. It's your demand.
+            <h2 className="font-display text-[clamp(32px,4vw,56px)] leading-[0.95] text-foreground max-w-3xl">
+              The problem isn't your course. It's the demand around it.
             </h2>
+            <p className="font-body text-[15px] text-muted-foreground leading-[1.7] mt-6 max-w-xl">
+              These are not content problems. They're demand problems — and they require a different kind of solution.
+            </p>
           </AnimatedSection>
-          <AnimatedSection stagger className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-border">
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-0">
             {[
-              { title: "Empty Weekdays", desc: "30–50% utilization on weekdays means significant revenue left on the table." },
-              { title: "No New Players", desc: "Growth is capped when you rely on the same member base year after year." },
-              { title: "Aging Brand Perception", desc: "The next generation sees golf as lifestyle — but your brand still looks traditional." },
-              { title: "Content Without Direction", desc: "You have posts. You have photos. But no story that makes anyone choose you." },
-            ].map((g) => (
-              <AnimatedChild key={g.title}>
-                <div className="bg-background p-8 md:p-10 h-full">
-                  <h3 className="font-display text-[20px] text-foreground mb-3">{g.title}</h3>
-                  <p className="font-body text-[14px] text-muted-foreground leading-[1.7]">{g.desc}</p>
+              { num: "01", title: "Empty Weekdays", desc: "30–50% utilization means you're losing revenue every single week. The course is ready — the players aren't coming." },
+              { num: "02", title: "Stagnant Member Base", desc: "When 60–70% of revenue comes from the same members, growth is capped. New players aren't finding a reason to start." },
+              { num: "03", title: "Outdated Brand Perception", desc: "The next generation sees golf as lifestyle, networking, identity. If your brand still feels traditional, they'll go somewhere else." },
+              { num: "04", title: "Marketing Without Direction", desc: "You post content. You run promotions. But without a narrative, nothing stands out — and nobody remembers you." },
+            ].map((g, i) => (
+              <AnimatedSection key={g.num} delay={i * 0.05}>
+                <div className="py-8 border-b border-border flex gap-6">
+                  <span className="font-mono text-[11px] tracking-[0.12em] text-accent-warm mt-1 shrink-0">{g.num}</span>
+                  <div>
+                    <h3 className="font-display text-[20px] text-foreground mb-2">{g.title}</h3>
+                    <p className="font-body text-[14px] text-muted-foreground leading-[1.7]">{g.desc}</p>
+                  </div>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Social Listening & Demand Maker */}
+      <section className="px-6 md:px-12 py-24 md:py-32 border-t border-border">
+        <div className="max-w-7xl mx-auto">
+          <AnimatedSection className="mb-16">
+            <p className="font-mono text-[11px] tracking-[0.15em] uppercase text-accent-warm mb-4">Demand Maker System</p>
+            <h2 className="font-display text-[clamp(32px,4vw,56px)] leading-[0.95] text-foreground max-w-3xl">
+              We don't guess what works. We listen, then build.
+            </h2>
+            <p className="font-body text-[15px] text-muted-foreground leading-[1.7] mt-6 max-w-xl">
+              Every campaign starts with real data — what people are saying, searching, and sharing. Then we turn those insights into creative that moves them.
+            </p>
+          </AnimatedSection>
+
+          <AnimatedSection stagger className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[
+              {
+                num: "01",
+                title: "Social Listening & Insight",
+                desc: "We analyze what golfers actually talk about — their desires, frustrations, and trends. This gives us topics with real conversation potential.",
+                output: "Insight report with campaign-ready topics",
+              },
+              {
+                num: "02",
+                title: "Narrative & Campaign Design",
+                desc: "We craft stories and campaigns people want to share. Not just content — narratives that shift perception and create desire.",
+                output: "Campaign concept + narrative direction",
+              },
+              {
+                num: "03",
+                title: "Conversation Design",
+                desc: "We design how conversations start — content drop sequences, influencer seeding, launch timing. The goal: campaigns that generate talk, not just views.",
+                output: "Launch strategy + conversation playbook",
+              },
+              {
+                num: "04",
+                title: "Search & Discovery Layer",
+                desc: "When people are interested, they search. We make sure they find you — through keyword strategy, SEO, TikTok search, and content support.",
+                output: "Discovery strategy across platforms",
+              },
+            ].map((item) => (
+              <AnimatedChild key={item.num}>
+                <div className="bg-secondary p-8 md:p-10 h-full flex flex-col">
+                  <span className="font-mono text-[11px] tracking-[0.12em] text-accent-warm">{item.num}</span>
+                  <h3 className="font-display text-[22px] leading-[1.1] text-foreground mt-3 mb-3">{item.title}</h3>
+                  <p className="font-body text-[14px] text-muted-foreground leading-[1.7] mb-6 flex-1">{item.desc}</p>
+                  <div className="border-t border-border pt-4">
+                    <p className="font-mono text-[10px] tracking-[0.12em] uppercase text-accent-warm mb-1">Output</p>
+                    <p className="font-body text-[13px] text-muted-foreground">{item.output}</p>
+                  </div>
                 </div>
               </AnimatedChild>
             ))}
           </AnimatedSection>
+
+          <AnimatedSection className="mt-10">
+            <div className="bg-foreground p-8 md:p-10 text-center">
+              <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm mb-3">Together, these four layers form</p>
+              <h3 className="font-display text-[clamp(24px,3vw,40px)] leading-[1] text-background">
+                Your Brand's Demand Engine
+              </h3>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
-      {/* Insight + Positioning — side by side */}
+      {/* Insight + Positioning */}
       <section className="px-6 md:px-12 py-24 md:py-32 border-t border-border">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
           <AnimatedSection>
@@ -204,7 +276,7 @@ const GolfPackagePage = () => {
         </div>
       </section>
 
-      {/* Target Segments */}
+      {/* Target Segments — expanded */}
       <section className="px-6 md:px-12 py-24 md:py-32">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection className="mb-16">
@@ -213,17 +285,21 @@ const GolfPackagePage = () => {
               These segments spend 1.5–2x more than average golfers.
             </h2>
           </AnimatedSection>
-          <AnimatedSection stagger className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <AnimatedSection stagger className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {[
-              { title: "Young Professionals", tag: "Age 28–40", desc: "City-based, seeking weekend escape. They play for relaxation and social connection — not competition." },
-              { title: "Lifestyle Golfers", tag: "All ages", desc: "Golf is part of their identity. They care about aesthetics, share experiences, and choose courses that look and feel premium." },
-              { title: "Golf Travelers", tag: "High spenders", desc: "They travel for golf. They look for destinations with a story, curated packages, and memorable experiences." },
+              { title: "Young Professionals", tag: "Age 28–40", desc: "City-based, seeking weekend escape. They play for relaxation and social connection — not competition.", spend: "1.5x avg spend" },
+              { title: "Lifestyle Golfers", tag: "All ages", desc: "Golf is part of their identity. They care about aesthetics, share experiences, and choose courses that look and feel premium.", spend: "High UGC value" },
+              { title: "Golf Travelers", tag: "High spenders", desc: "They travel for golf. They look for destinations with a story, curated packages, and memorable experiences.", spend: "2x avg spend" },
+              { title: "Corporate Groups", tag: "B2B segment", desc: "Team outings, client entertainment, executive retreats. They need a venue that feels impressive and runs smooth.", spend: "High per-group revenue" },
+              { title: "Women Golfers", tag: "Growing fast", desc: "One of the fastest-growing segments globally. They want inclusive, welcoming environments — not intimidating country clubs.", spend: "Underserved market" },
+              { title: "Family & Next-Gen", tag: "Long-term value", desc: "Parents introducing kids to golf. They want kid-friendly programs, family packages, and a relaxed atmosphere.", spend: "Lifetime member value" },
             ].map((seg) => (
               <AnimatedChild key={seg.title}>
-                <div className="border border-border p-8 h-full">
+                <div className="border border-border p-8 h-full flex flex-col">
                   <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm mb-3">{seg.tag}</p>
-                  <h3 className="font-display text-[24px] leading-[1] text-foreground mb-4">{seg.title}</h3>
-                  <p className="font-body text-[14px] text-muted-foreground leading-[1.7]">{seg.desc}</p>
+                  <h3 className="font-display text-[22px] leading-[1.1] text-foreground mb-3">{seg.title}</h3>
+                  <p className="font-body text-[14px] text-muted-foreground leading-[1.7] flex-1">{seg.desc}</p>
+                  <p className="font-mono text-[10px] tracking-[0.12em] uppercase text-foreground/40 mt-4 pt-4 border-t border-border">{seg.spend}</p>
                 </div>
               </AnimatedChild>
             ))}
@@ -283,79 +359,44 @@ const GolfPackagePage = () => {
         </div>
       </section>
 
-      {/* Example Campaign */}
+      {/* Business Impact — redesigned as vertical funnel */}
       <section className="px-6 md:px-12 py-24 md:py-32 border-t border-border">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection className="mb-16">
-            <p className="font-mono text-[11px] tracking-[0.15em] uppercase text-accent-warm mb-4">Campaign Example</p>
-            <h2 className="font-display text-[clamp(36px,5vw,64px)] leading-[0.95] text-foreground">
-              Workday Escape Golf
-            </h2>
-            <p className="font-body text-[15px] text-muted-foreground leading-[1.7] mt-6 max-w-xl">
-              Instead of selling golf as sport — sell it as the best break from your work week. Target: professionals aged 30–45 looking for a midweek reset.
-            </p>
-          </AnimatedSection>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <AnimatedSection>
-              <div className="bg-secondary p-8 h-full">
-                <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm mb-4">Content Direction</p>
-                <ul className="space-y-3">
-                  {["Early morning calm on the fairway", "Golf + coffee ritual", "Slow afternoon, no meetings", "Sunset finish — recharged"].map((item) => (
-                    <li key={item} className="font-body text-[15px] text-muted-foreground">{item}</li>
-                  ))}
-                </ul>
-              </div>
-            </AnimatedSection>
-            <AnimatedSection delay={0.1}>
-              <div className="bg-secondary p-8 h-full">
-                <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm mb-4">Expected Impact</p>
-                <div className="space-y-6">
-                  <div>
-                    <p className="font-display text-[32px] leading-[1] text-foreground">+10–20%</p>
-                    <p className="font-body text-[14px] text-muted-foreground mt-1">Weekday traffic increase</p>
-                  </div>
-                  <div>
-                    <p className="font-display text-[32px] leading-[1] text-foreground">New segment</p>
-                    <p className="font-body text-[14px] text-muted-foreground mt-1">Young professional entry point</p>
-                  </div>
-                </div>
-              </div>
-            </AnimatedSection>
-          </div>
-        </div>
-      </section>
-
-      {/* Impact Flow */}
-      <section className="px-6 md:px-12 py-24 md:py-32">
-        <div className="max-w-7xl mx-auto">
-          <AnimatedSection className="mb-16">
             <p className="font-mono text-[11px] tracking-[0.15em] uppercase text-accent-warm mb-4">Business Impact</p>
-            <h2 className="font-display text-[clamp(32px,4vw,56px)] leading-[0.95] text-foreground">
+            <h2 className="font-display text-[clamp(32px,4vw,56px)] leading-[0.95] text-foreground max-w-2xl">
               Creative is your demand engine.
             </h2>
           </AnimatedSection>
-          <AnimatedSection stagger className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-0">
-            {[
-              { step: "Campaign", result: "Awareness" },
-              { step: "Content", result: "Desire" },
-              { step: "Visit", result: "Booking" },
-              { step: "Retention", result: "Revenue" },
-            ].map((item, i) => (
-              <AnimatedChild key={item.step} className="flex items-center gap-4 md:gap-0">
-                <div className="bg-secondary px-6 py-4 text-center min-w-[140px]">
-                  <p className="font-display text-[18px] text-foreground">{item.step}</p>
-                  <p className="font-mono text-[10px] tracking-[0.12em] uppercase text-accent-warm mt-1">{item.result}</p>
-                </div>
-                {i < 3 && <ArrowRight className="w-4 h-4 text-muted-foreground mx-3 hidden md:block" />}
-              </AnimatedChild>
-            ))}
+
+          <AnimatedSection stagger>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-0">
+              {[
+                { phase: "Campaign", action: "Creates", result: "Awareness", desc: "People discover your course exists — and why it's different." },
+                { phase: "Content", action: "Builds", result: "Desire", desc: "They feel something. They save, share, and start paying attention." },
+                { phase: "Visit", action: "Drives", result: "Booking", desc: "Desire turns into action. They book a round, buy a package." },
+                { phase: "Retention", action: "Generates", result: "Revenue", desc: "One visit becomes many. Members refer. Revenue compounds." },
+              ].map((item, i) => (
+                <AnimatedChild key={item.phase}>
+                  <div className={`p-8 h-full border-b md:border-b-0 md:border-r border-border ${i === 3 ? 'md:border-r-0' : ''}`}>
+                    <div className="flex items-center gap-3 mb-6">
+                      <span className="w-8 h-8 rounded-full bg-accent-warm/10 flex items-center justify-center font-mono text-[11px] text-accent-warm">
+                        {i + 1}
+                      </span>
+                      <p className="font-mono text-[10px] tracking-[0.12em] uppercase text-muted-foreground">{item.action}</p>
+                    </div>
+                    <h3 className="font-display text-[28px] leading-[1] text-foreground mb-2">{item.result}</h3>
+                    <p className="font-body text-[13px] text-muted-foreground leading-[1.7] mt-3">{item.desc}</p>
+                  </div>
+                </AnimatedChild>
+              ))}
+            </div>
           </AnimatedSection>
         </div>
       </section>
 
       {/* Investment */}
-      <section className="px-6 md:px-12 py-24 md:py-32 border-t border-border">
+      <section className="px-6 md:px-12 py-24 md:py-32">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection className="mb-16">
             <p className="font-mono text-[11px] tracking-[0.15em] uppercase text-accent-warm mb-4">Investment</p>
@@ -400,43 +441,6 @@ const GolfPackagePage = () => {
                   </p>
                 </div>
               </div>
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* Why ORIONS */}
-      <section className="px-6 md:px-12 py-24 md:py-32 border-t border-border">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
-          <AnimatedSection>
-            <p className="font-mono text-[11px] tracking-[0.15em] uppercase text-accent-warm mb-4">Why ORIONS</p>
-            <h2 className="font-display text-[clamp(32px,4vw,52px)] leading-[0.95] text-foreground mb-6">
-              We don't make content. We build demand.
-            </h2>
-            <div className="space-y-6 mt-8">
-              {[
-                "Strategy-first — content follows direction, not the other way around",
-                "Full production in-house — film, photo, design, digital",
-                "We understand the golf business — not just the aesthetics",
-                "Measurable outcomes — not just beautiful work",
-              ].map((item) => (
-                <p key={item} className="font-body text-[14px] text-muted-foreground leading-[1.7] pl-4 border-l-2 border-accent-warm">{item}</p>
-              ))}
-            </div>
-          </AnimatedSection>
-          <AnimatedSection delay={0.15}>
-            <p className="font-mono text-[11px] tracking-[0.15em] uppercase text-accent-warm mb-4">Our Guarantee</p>
-            <h2 className="font-display text-[clamp(32px,4vw,52px)] leading-[0.95] text-foreground mb-6">
-              We don't guarantee sales numbers.
-            </h2>
-            <p className="font-body text-[15px] text-muted-foreground leading-[1.7] mb-8">
-              But we guarantee that your direction will be clear, your campaign will be ready to deploy, and your marketing impact will be measurably stronger.
-            </p>
-            <div className="bg-secondary p-6">
-              <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm mb-3">If You Do Nothing</p>
-              <p className="font-body text-[14px] text-muted-foreground leading-[1.7]">
-                Weekdays stay empty. No new players. Brand gets more outdated. Eventually, you compete on price — and margins keep shrinking.
-              </p>
             </div>
           </AnimatedSection>
         </div>

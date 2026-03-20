@@ -102,11 +102,11 @@ const Index = () => {
       includes: ["Campaign Film", "Brand Video", "Documentary", "Commercial Video"]
     },
     {
-      title: "Brand Development",
+      title: "Creative Transformation",
       desc: { en: "Building new ideas, products, and brand directions.", th: "สร้างไอเดียใหม่ ผลิตภัณฑ์ และทิศทางแบรนด์" },
       details: {
-        en: "Full brand development from zero — identity, narrative, product concept, and intellectual property creation for founders and companies exploring new opportunities.",
-        th: "การพัฒนาแบรนด์เต็มรูปแบบตั้งแต่ศูนย์ — identity, narrative, product concept และการสร้าง IP"
+        en: "Full creative transformation from zero — identity, narrative, product concept, and intellectual property creation for founders and companies exploring new opportunities.",
+        th: "การ transform แบรนด์เต็มรูปแบบตั้งแต่ศูนย์ — identity, narrative, product concept และการสร้าง IP"
       },
       includes: ["New Brand Concepts", "Product Ideas", "Sub-brand Development", "Creative Project Direction"]
     },

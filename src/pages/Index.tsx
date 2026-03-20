@@ -124,7 +124,7 @@ const Index = () => {
       <Navbar />
       <HeroSection onStartProject={() => setDialogOpen(true)} />
 
-      <Marquee items={["Creative Transformation", "Creative Communication", "Film & Production", "Creative Retainer", "Ideas", "Impact"]} />
+      <Marquee items={["Creative Transformation", "Creative Communication", "Film & Production", "Creative Partner", "Ideas", "Impact"]} />
 
       {/* ─── POSITIONING ─── */}
       <section className="py-24 md:py-40 px-6 md:px-12">

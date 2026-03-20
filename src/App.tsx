@@ -13,7 +13,7 @@ import PageTransition from "./components/PageTransition";
 const AboutPage = lazy(() => import("./pages/AboutPage"));
 const ServicesPage = lazy(() => import("./pages/ServicesPage"));
 const WorkPage = lazy(() => import("./pages/WorkPage"));
-const IndustriesPage = lazy(() => import("./pages/IndustriesPage"));
+
 const StudioPage = lazy(() => import("./pages/StudioPage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
 

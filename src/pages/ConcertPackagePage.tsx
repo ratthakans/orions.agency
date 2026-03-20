@@ -98,7 +98,7 @@ const ConcertPackagePage = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent" />
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-12 pb-16 md:pb-24">
+        <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 md:px-12 pb-16 md:pb-24">
           <Link to="/package" className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground hover:text-accent-warm transition-colors mb-10">
             <ArrowLeft className="w-3 h-3" /> All Packages
           </Link>
@@ -125,7 +125,7 @@ const ConcertPackagePage = () => {
       </section>
 
       {/* ── The Reality ── */}
-      <section className="px-6 md:px-12 py-28 md:py-36">
+      <section className="px-4 sm:px-6 md:px-12 py-28 md:py-36">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection className="mb-20">
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-warm mb-4">The Reality</p>
@@ -163,7 +163,7 @@ const ConcertPackagePage = () => {
       </section>
 
       {/* ── Demand Gap ── */}
-      <section className="px-6 md:px-12 py-28 md:py-36">
+      <section className="px-4 sm:px-6 md:px-12 py-28 md:py-36">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection className="mb-20">
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-warm mb-4">The Demand Gap</p>
@@ -193,7 +193,7 @@ const ConcertPackagePage = () => {
 
       {/* ── Demand Maker System ── */}
       <section className="bg-secondary">
-        <div className="px-6 md:px-12 py-28 md:py-36">
+        <div className="px-4 sm:px-6 md:px-12 py-28 md:py-36">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection className="mb-20">
               <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-warm mb-4">Demand Maker System</p>
@@ -264,7 +264,7 @@ const ConcertPackagePage = () => {
       </section>
 
       {/* ── Insight + Positioning ── */}
-      <section className="px-6 md:px-12 py-28 md:py-36">
+      <section className="px-4 sm:px-6 md:px-12 py-28 md:py-36">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
             <AnimatedSection>
@@ -294,7 +294,7 @@ const ConcertPackagePage = () => {
       </section>
 
       {/* ── Target Segments ── */}
-      <section className="px-6 md:px-12 py-28 md:py-36 border-t border-border">
+      <section className="px-4 sm:px-6 md:px-12 py-28 md:py-36 border-t border-border">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection className="mb-20">
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-warm mb-4">Audience Segments</p>
@@ -336,7 +336,7 @@ const ConcertPackagePage = () => {
       </section>
 
       {/* ── System — 4 Phases ── */}
-      <section className="px-6 md:px-12 py-28 md:py-36">
+      <section className="px-4 sm:px-6 md:px-12 py-28 md:py-36">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection className="mb-20 md:mb-28">
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-warm mb-4">The System</p>
@@ -378,7 +378,7 @@ const ConcertPackagePage = () => {
 
       {/* ── Business Impact ── */}
       <section className="border-t border-border">
-        <div className="px-6 md:px-12 py-20 md:py-24">
+        <div className="px-4 sm:px-6 md:px-12 py-20 md:py-24">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection className="mb-12">
               <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-warm mb-4">Business Impact</p>
@@ -415,7 +415,7 @@ const ConcertPackagePage = () => {
       </section>
 
       {/* ── Investment ── */}
-      <section className="px-6 md:px-12 py-28 md:py-36">
+      <section className="px-4 sm:px-6 md:px-12 py-28 md:py-36">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection className="mb-20">
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-warm mb-4">Investment</p>
@@ -450,7 +450,7 @@ const ConcertPackagePage = () => {
           <img src={heroImg} alt="Concert venue atmosphere" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-background/75" />
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-12 py-24">
+        <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 md:px-12 py-24">
           <AnimatedSection>
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-warm mb-8">Let's Talk</p>
             <h2 className="font-display text-[clamp(40px,7vw,96px)] leading-[0.85] text-foreground max-w-4xl mb-10">

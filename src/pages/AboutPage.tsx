@@ -126,8 +126,8 @@ const AboutPage = () => {
                 </h2>
                 <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-lg mb-16">
                   {t(
-                    "9 people. One shared belief: every brand has a story worth telling well.",
-                    "9 คน ความเชื่อเดียวกัน: ทุกแบรนด์มีเรื่องราวที่คุ้มค่าจะเล่าให้ดี"
+                    "10 people. One shared belief: every brand has a story worth telling well.",
+                    "10 คน ความเชื่อเดียวกัน: ทุกแบรนด์มีเรื่องราวที่คุ้มค่าจะเล่าให้ดี"
                   )}
                 </p>
               </div>

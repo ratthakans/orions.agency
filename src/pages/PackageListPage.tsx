@@ -9,6 +9,7 @@ import SEO from "@/components/SEO";
 import hospitalityImg from "@/assets/hospitality-hero.jpg";
 import golfImg from "@/assets/golf-hero.jpg";
 import concertImg from "@/assets/concert-hero.jpg";
+import techImg from "@/assets/tech-hero.jpg";
 
 const packages = [
   {
@@ -33,6 +34,14 @@ const packages = [
     title: "Concert Creative Layer",
     desc: "A creative layer that turns concerts into cultural moments — through narrative, FOMO-driven campaigns, and content that makes people feel they have to be there.",
     image: concertImg,
+    price: "Starting from ฿60,000",
+  },
+  {
+    slug: "tech",
+    label: "For Tech Companies",
+    title: "Tech Creative Layer",
+    desc: "A creative layer that helps tech companies clarify their product, build narrative, and drive real adoption through creative systems.",
+    image: techImg,
     price: "Starting from ฿60,000",
   },
 ];

@@ -186,7 +186,7 @@ const ServicesPage = () => {
           </div>
         </section>
 
-        <section className="px-6 md:px-12 py-8 md:py-12">
+        <section className="px-4 sm:px-6 md:px-12 py-8 md:py-12">
           <div className="max-w-7xl mx-auto">
             {services.map((s, i) => {
               const isExpanded = expandedService === s.num;

@@ -128,50 +128,69 @@ const Index = () => {
 
       {/* ─── POSITIONING ─── */}
       <section className="py-24 md:py-40 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 lg:gap-24">
-          <div>
-            <AnimatedSection>
-              <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">
-                <span className="text-accent-warm mr-2">✦</span> What We Are
-              </p>
-            </AnimatedSection>
-            <TextReveal className="font-display text-[clamp(36px,5vw,72px)] leading-[0.9] tracking-[0.01em] text-foreground">
-              WE ARE NOT YOUR TYPICAL AGENCY.
-            </TextReveal>
-          </div>
-          <div className="flex flex-col justify-end">
-            <AnimatedSection delay={0.2}>
-              <div className="space-y-6 font-body text-[16px] leading-[1.8] text-muted-foreground">
-                <p>
-                  {lang === "th" ? (
-                    <>เราไม่ใช่ production house<br />เราไม่ใช่ social media agency<br />เราคือ idea-driven creative agency</>
-                  ) : (
-                    <>We are not a production house.<br />We are not a social media agency.<br />We are an idea-driven creative agency.</>
-                  )}
-                </p>
-                <p>
+        <div className="max-w-7xl mx-auto">
+          <AnimatedSection>
+            <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">
+              <span className="text-accent-warm mr-2">✦</span> What We Are
+            </p>
+          </AnimatedSection>
+
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 mb-20">
+            <div className="lg:col-span-7">
+              <TextReveal className="font-display text-[clamp(36px,5vw,72px)] leading-[0.9] tracking-[0.01em] text-foreground">
+                WE ARE NOT YOUR TYPICAL AGENCY.
+              </TextReveal>
+              <AnimatedSection delay={0.2}>
+                <p className="font-body text-[16px] leading-[1.8] text-muted-foreground mt-8 max-w-lg">
                   {t(
-                    "We create ideas first, then turn them into campaigns that work.",
-                    "เราสร้างไอเดียก่อน แล้วเปลี่ยนมันเป็นแคมเปญที่ได้ผล"
+                    "We create ideas first, then turn them into campaigns that work. Everything starts with a strong idea — because without it, execution doesn't matter.",
+                    "เราสร้างไอเดียก่อน แล้วเปลี่ยนมันเป็นแคมเปญที่ได้ผล ทุกอย่างเริ่มจากไอเดียที่แข็งแกร่ง — เพราะถ้าไม่มี การลงมือทำก็ไม่มีความหมาย"
                   )}
                 </p>
-                <div className="pt-4 space-y-3">
-                  <p className="text-foreground/80">{t("We help brands:", "เราช่วยแบรนด์:")}</p>
+              </AnimatedSection>
+            </div>
+            <div className="lg:col-span-5 flex flex-col justify-end">
+              <AnimatedSection delay={0.3}>
+                <div className="space-y-0">
                   {[
-                    { en: "Clarify their story", th: "ทำให้เรื่องราวชัดเจน" },
-                    { en: "Build strong campaigns", th: "สร้างแคมเปญที่แข็งแกร่ง" },
-                    { en: "Create content that matters", th: "สร้าง content ที่มีความหมาย" },
-                    { en: "Drive real impact", th: "สร้าง impact ที่จับต้องได้" },
+                    { label: { en: "Not a production house", th: "ไม่ใช่ production house" }, neg: true },
+                    { label: { en: "Not a social media agency", th: "ไม่ใช่ social media agency" }, neg: true },
+                    { label: { en: "Not a content factory", th: "ไม่ใช่โรงงาน content" }, neg: true },
                   ].map((item) => (
-                    <div key={item.en} className="flex items-center gap-3">
-                      <span className="w-1.5 h-1.5 bg-accent-warm shrink-0" />
-                      <span className="text-foreground/70">{t(item.en, item.th)}</span>
+                    <div key={item.label.en} className="flex items-center gap-4 py-3 border-b border-border">
+                      <span className="font-mono text-[11px] tracking-[0.1em] text-muted-foreground/40">✕</span>
+                      <span className="font-body text-[14px] text-muted-foreground/60 line-through decoration-muted-foreground/20">{t(item.label.en, item.label.th)}</span>
                     </div>
                   ))}
+                  <div className="flex items-center gap-4 py-4 mt-2">
+                    <span className="w-2 h-2 bg-accent-warm shrink-0" />
+                    <span className="font-body text-[15px] text-foreground">
+                      {t("An idea-driven creative agency.", "Idea-driven creative agency.")}
+                    </span>
+                  </div>
                 </div>
-              </div>
-            </AnimatedSection>
+              </AnimatedSection>
+            </div>
           </div>
+
+          {/* What we help brands do */}
+          <AnimatedSection delay={0.4}>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-px border border-border">
+              {[
+                { icon: "01", en: "Clarify their story", th: "ทำให้เรื่องราวชัดเจน" },
+                { icon: "02", en: "Build strong campaigns", th: "สร้างแคมเปญที่แข็งแกร่ง" },
+                { icon: "03", en: "Create content that matters", th: "สร้าง content ที่มีความหมาย" },
+                { icon: "04", en: "Drive real impact", th: "สร้าง impact ที่จับต้องได้" },
+              ].map((item) => (
+                <div key={item.en} className="group relative bg-background hover:bg-muted/30 transition-all duration-500 p-6 md:p-8 border-r border-b border-border last:border-r-0">
+                  <span className="font-mono text-[10px] tracking-[0.15em] text-accent-warm/40 block mb-4">{item.icon}</span>
+                  <span className="font-body text-[14px] md:text-[15px] leading-[1.6] text-foreground/80 group-hover:text-accent-warm transition-colors duration-300">
+                    {t(item.en, item.th)}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 

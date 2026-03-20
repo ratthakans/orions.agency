@@ -51,7 +51,7 @@ const PackagePage = () => {
             {t("For Hotels & Resorts", "สำหรับโรงแรมและรีสอร์ท")}
           </motion.p>
           <TextReveal as="h1" className="font-display text-[clamp(40px,7vw,110px)] leading-[0.88] tracking-[0.01em] text-foreground max-w-4xl">
-            {t("MAKE PEOPLE WANT TO STAY AT YOUR HOTEL.", "ทำให้คนอยากมาพักที่โรงแรมคุณ")}
+            {String(t("MAKE PEOPLE WANT TO STAY AT YOUR HOTEL.", "ทำให้คนอยากมาพักที่โรงแรมคุณ"))}
           </TextReveal>
           <motion.p
             initial={{ opacity: 0, y: 16 }}

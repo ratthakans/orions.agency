@@ -212,7 +212,7 @@ const AboutPage = () => {
         </section>
 
         {/* Team */}
-        <section className="px-6 md:px-12 py-20 md:py-32 pb-32 md:pb-48">
+        <section className="px-4 sm:px-6 md:px-12 py-20 md:py-32 pb-32 md:pb-48">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
               <div className="border-t border-border pt-16">

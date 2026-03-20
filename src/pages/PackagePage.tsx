@@ -94,6 +94,9 @@ const PackagePage = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/30" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-12 pb-20 md:pb-28">
+          <Link to="/package" className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground hover:text-accent-warm transition-colors mb-8">
+            <ArrowLeft className="w-3 h-3" /> All Packages
+          </Link>
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

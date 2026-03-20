@@ -84,7 +84,7 @@ const ContactPage = () => {
           </div>
         </section>
 
-        <section className="px-6 md:px-12 py-8 md:py-12 pb-20">
+        <section className="px-4 sm:px-6 md:px-12 py-8 md:py-12 pb-20">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-16 lg:gap-24">
               <AnimatedSection delay={0.04}>

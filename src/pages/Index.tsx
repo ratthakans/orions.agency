@@ -45,7 +45,7 @@ const homeSchema = [
         name: "What does ØRIONS do in Bangkok?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "ØRIONS is a Bangkok creative agency that helps brands with strategy, campaigns, film production, content systems, and brand development.",
+          text: "ØRIONS is a Bangkok creative agency that helps brands with strategy, campaigns, film production, content systems, and creative transformation.",
         },
       },
       {

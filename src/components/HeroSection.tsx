@@ -48,7 +48,7 @@ const Typewriter = memo(() => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5, delay: 0.6 }}
-      className="font-display text-[clamp(36px,8vw,130px)] leading-[0.9] tracking-[0.01em] text-accent-gradient block min-h-[1.1em]"
+      className="font-display text-[clamp(28px,8vw,130px)] leading-[0.9] tracking-[0.01em] text-accent-gradient block min-h-[1.1em]"
     >
       {displayText}
       <motion.span

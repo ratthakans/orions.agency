@@ -225,10 +225,10 @@ const Index = () => {
             </p>
           </AnimatedSection>
           <AnimatedSection delay={0.1}>
-            <h2 className="font-display text-[clamp(48px,6vw,100px)] leading-[0.9] tracking-[0.01em] text-foreground max-w-4xl mb-4">
+            <h2 className="font-display text-[clamp(32px,6vw,100px)] leading-[0.9] tracking-[0.01em] text-foreground max-w-4xl mb-4">
               IDEAS FIRST.
             </h2>
-            <h2 className="font-display text-[clamp(48px,6vw,100px)] leading-[0.9] tracking-[0.01em] text-foreground max-w-4xl mb-8">
+            <h2 className="font-display text-[clamp(32px,6vw,100px)] leading-[0.9] tracking-[0.01em] text-foreground max-w-4xl mb-8">
               THEN <span className="text-accent-gradient">EVERYTHING ELSE.</span>
             </h2>
           </AnimatedSection>

@@ -356,7 +356,7 @@ const Index = () => {
       </section>
 
       {/* ─── FAQs ─── */}
-      <section className="py-24 md:py-32 px-6 md:px-12">
+      <section className="py-20 md:py-32 px-4 sm:px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
             <div className="border-t border-border pt-16 grid gap-10 lg:grid-cols-[1.3fr_1fr] lg:gap-16">

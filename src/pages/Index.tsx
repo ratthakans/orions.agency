@@ -175,7 +175,7 @@ const Index = () => {
 
           {/* What we help brands do */}
           <AnimatedSection delay={0.4}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-px border border-border">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-px bg-border border border-border">
               {[
                 { icon: "01", en: "Clarify their story", th: "ทำให้เรื่องราวชัดเจน" },
                 { icon: "02", en: "Build strong campaigns", th: "สร้างแคมเปญที่แข็งแกร่ง" },

@@ -83,7 +83,7 @@ const PackagePage = () => {
       <SEO
         title="Hospitality Growth System — Creative Partnership for Hotels | ØRIONS"
         description="A strategic creative system for 4–5 star hotels and resorts. From brand narrative to cinematic production — ORIONS helps hotels unlock new markets and drive real bookings."
-        path="/package"
+        path="/package/hospitality"
       />
       <Navbar />
 

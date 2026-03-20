@@ -8,80 +8,80 @@ import StartProjectDialog from "@/components/StartProjectDialog";
 import AnimatedSection, { AnimatedChild } from "@/components/AnimatedSection";
 import TextReveal from "@/components/TextReveal";
 import SEO from "@/components/SEO";
-import heroImg from "@/assets/golf-hero.jpg";
-import detailImg from "@/assets/golf-detail.jpg";
-import lifestyleImg from "@/assets/golf-lifestyle.jpg";
-import clubhouseImg from "@/assets/golf-clubhouse.jpg";
+import heroImg from "@/assets/concert-hero.jpg";
+import crowdImg from "@/assets/concert-crowd.jpg";
+import backstageImg from "@/assets/concert-backstage.jpg";
 
 const phases = [
   {
     num: "01",
-    title: "Demand & Positioning Audit",
-    subtitle: "Understand the gap before you spend.",
-    items: ["Current audience & utilization analysis", "Content & channel performance review", "Demand gap mapping", "New segment identification", "Positioning opportunity report"],
+    title: "Demand & Cultural Audit",
+    subtitle: "Understand the audience before you announce.",
+    items: ["Fan culture & sentiment analysis", "Competitive event landscape", "Content & channel review", "Demand potential mapping", "Audience segment identification"],
     deliverable: "Demand Audit Report",
-    deliverableDesc: "A clear picture of where demand is lost, which segments to target, and how to position differently.",
+    deliverableDesc: "A clear picture of fan sentiment, audience segments, and the cultural angle that will make this concert feel unmissable.",
   },
   {
     num: "02",
-    title: "Demand Strategy",
-    subtitle: "Define the direction before you create.",
-    items: ["Target segment definition", "Key message development", "Campaign architecture", "Channel-to-audience mapping", "Content framework"],
-    deliverable: "Demand Strategy Deck",
-    deliverableDesc: "Your target, message, and campaign direction — clearly defined and ready to execute.",
+    title: "Narrative & Campaign Strategy",
+    subtitle: "Define the story before you sell.",
+    items: ["Concert narrative positioning", "Emotional hook development", "Campaign architecture", "Content sequence planning", "Channel strategy"],
+    deliverable: "Campaign Strategy Deck",
+    deliverableDesc: "The narrative, emotional hooks, and full campaign blueprint — ready to execute from announcement to show day.",
   },
   {
     num: "03",
-    title: "Signature Campaign & Hero Film",
+    title: "Hero Content & Campaign Launch",
     subtitle: "Turn strategy into something people feel.",
-    items: ["Hero brand film (60–90s)", "Campaign photography", "Social-first video series", "Paid media creative", "On-property content capture"],
+    items: ["Cinematic teaser film (30–60s)", "Campaign visual system", "Social-first content series", "Countdown & reveal content", "Paid media creative"],
     deliverable: "Full Campaign Suite",
-    deliverableDesc: "Hero film, photography, and creative assets — ready to deploy across every channel.",
+    deliverableDesc: "Teaser films, visual assets, and a complete content sequence designed to build hype from day one.",
   },
   {
     num: "04",
-    title: "Campaign Continuity",
-    subtitle: "Keep demand alive after launch.",
-    items: ["Hero content broken into sub-assets", "Brand direction maintenance", "Moment-based content drops", "Performance tracking & optimization", "Seasonal campaign refreshes"],
-    deliverable: "Scalable Demand Engine",
-    deliverableDesc: "A system that keeps demand from dropping — with ongoing content plans and creative direction.",
+    title: "Hype Continuity System",
+    subtitle: "Keep momentum building until show day.",
+    items: ["Content drops on strategic beats", "Conversation & FOMO maintenance", "Peak moment amplification", "Reaction & UGC leverage", "Post-event content capture"],
+    deliverable: "Hype Engine",
+    deliverableDesc: "A system that prevents momentum from dropping — keeping the concert in people's feeds and conversations until tickets are gone.",
   },
 ];
 
 const tiers = [
   {
-    label: "DEMAND AUDIT",
+    label: "NARRATIVE STARTER",
     scope: "Phase 1",
-    price: "50,000 – 80,000",
-    detail: "Demand gap analysis, new segment identification, positioning direction",
-    note: "For clubs that want clarity before committing",
+    price: "60,000 – 100,000",
+    detail: "Cultural insight, concert narrative, campaign idea",
+    note: "For organizers who need direction before committing",
   },
   {
-    label: "SIGNATURE CAMPAIGN",
+    label: "DEMAND CAMPAIGN",
     scope: "Phase 1–3",
-    price: "200,000 – 350,000",
-    detail: "Full strategy + campaign + hero film + content set",
-    note: "For clubs ready to launch a new chapter",
+    price: "200,000 – 400,000",
+    detail: "Full narrative + campaign + hero content + content system",
+    note: "For concerts that need to sell out",
     featured: true,
   },
   {
-    label: "DEMAND GROWTH SYSTEM",
-    scope: "All Four Phases",
-    price: "500,000 – 800,000+",
-    detail: "Complete system — audit, campaign, and 3 months of ongoing support",
-    note: "For clubs serious about long-term growth",
+    label: "DEMAND SYSTEM",
+    scope: "Retainer",
+    price: "100,000 – 180,000",
+    detail: "Monthly content sequence, narrative evolution, conversation tracking",
+    note: "For multi-show tours or ongoing event series",
+    isMonthly: true,
   },
 ];
 
-const GolfPackagePage = () => {
+const ConcertPackagePage = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
 
   return (
     <>
       <SEO
-        title="Golf Creative Layer — Creative Agency for Golf Clubs | ØRIONS"
-        description="A creative layer that helps golf clubs unlock new demand — from positioning and campaigns to cinematic content that drives real revenue."
-        path="/package/golf"
+        title="Concert Creative Layer — Creative Agency for Live Events | ØRIONS"
+        description="A creative layer that helps concerts and live events sell out faster — through narrative, cultural moments, and demand-driven campaigns."
+        path="/package/concert"
       />
       <Navbar />
 
@@ -90,7 +90,7 @@ const GolfPackagePage = () => {
         <div className="absolute inset-0">
           <motion.img
             src={heroImg}
-            alt="Luxury golf course aerial view at golden hour"
+            alt="Massive concert venue with dramatic stage lighting"
             className="w-full h-full object-cover"
             initial={{ scale: 1.1 }}
             animate={{ scale: 1 }}
@@ -108,10 +108,10 @@ const GolfPackagePage = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-warm mb-5"
           >
-            Golf Creative Layer
+            Concert Creative Layer
           </motion.p>
           <TextReveal as="h1" className="font-display text-[clamp(44px,8vw,120px)] leading-[0.85] tracking-[-0.01em] text-foreground max-w-5xl">
-            YOUR COURSE IS GREAT. YOUR DEMAND ISN'T.
+            TICKETS DON'T SELL THEMSELVES. STORIES DO.
           </TextReveal>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -119,32 +119,32 @@ const GolfPackagePage = () => {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="font-body text-[16px] text-muted-foreground max-w-[480px] leading-[1.7] mt-10"
           >
-            Most golf clubs don't lack quality — they lack a reason compelling enough for new players to choose them. We build that reason through creative.
+            Concerts don't fail because the artist isn't good enough. They fail because there's no reason compelling enough for people to feel they must be there.
           </motion.p>
         </div>
       </section>
 
-      {/* ── The Reality — Large Stats ── */}
+      {/* ── The Reality ── */}
       <section className="px-6 md:px-12 py-28 md:py-36">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection className="mb-20">
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-warm mb-4">The Reality</p>
             <h2 className="font-display text-[clamp(32px,4.5vw,60px)] leading-[0.92] text-foreground max-w-3xl">
-              Revenue plateaus. Same promotions. No new players.
+              More concerts than ever. Harder to fill every seat.
             </h2>
           </AnimatedSection>
 
           <AnimatedSection stagger className="grid grid-cols-1 sm:grid-cols-3 gap-0 border-t border-border">
             {[
-              { stat: "60–70%", label: "Revenue from existing members" },
-              { stat: "40–60%", label: "Average weekday utilization" },
-              { stat: "Rising", label: "Average golfer age — year over year" },
+              { stat: "High", label: "Market saturation — more events competing for the same audience" },
+              { stat: "Low", label: "Attention span — people scroll past your announcement in seconds" },
+              { stat: "Rising", label: "Audience expectations — they want moments, not just shows" },
             ].map((s, i) => (
               <AnimatedChild key={s.label}>
                 <div className={`py-12 ${i < 2 ? 'sm:border-r border-border' : ''}`}>
                   <div className={`${i > 0 ? 'sm:pl-12' : ''}`}>
                     <p className="font-display text-[clamp(48px,6vw,80px)] leading-[0.9] text-accent-warm tracking-[-0.02em]">{s.stat}</p>
-                    <p className="font-body text-[14px] text-muted-foreground mt-4 max-w-[200px]">{s.label}</p>
+                    <p className="font-body text-[14px] text-muted-foreground mt-4 max-w-[220px]">{s.label}</p>
                   </div>
                 </div>
               </AnimatedChild>
@@ -153,31 +153,31 @@ const GolfPackagePage = () => {
         </div>
       </section>
 
-      {/* ── Full-bleed image ── */}
+      {/* ── Full-bleed crowd image ── */}
       <section className="w-full">
         <AnimatedSection>
           <div className="relative aspect-[21/9] overflow-hidden">
-            <img src={detailImg} alt="Golf ball on pristine green" className="w-full h-full object-cover" />
+            <img src={crowdImg} alt="Concert crowd with phone lights" className="w-full h-full object-cover" />
           </div>
         </AnimatedSection>
       </section>
 
-      {/* ── Demand Gap — Bold stacked layout ── */}
+      {/* ── Demand Gap ── */}
       <section className="px-6 md:px-12 py-28 md:py-36">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection className="mb-20">
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-warm mb-4">The Demand Gap</p>
             <h2 className="font-display text-[clamp(32px,4.5vw,60px)] leading-[0.92] text-foreground max-w-3xl">
-              The problem isn't your course. It's the demand around it.
+              The problem isn't the show. It's the demand around it.
             </h2>
           </AnimatedSection>
 
           <div className="border-t border-border">
             {[
-              { num: "01", title: "Empty Weekdays", desc: "30–50% utilization means significant revenue left on the table — every single week." },
-              { num: "02", title: "Stagnant Member Base", desc: "60–70% of revenue from the same members. Growth is capped when new players can't find a reason to start." },
-              { num: "03", title: "Outdated Brand Perception", desc: "The next generation sees golf as lifestyle and identity. If your brand still feels traditional, they go somewhere else." },
-              { num: "04", title: "Marketing Without Direction", desc: "You post content, run promotions. But without a narrative, nothing stands out — and nobody remembers you." },
+              { num: "01", title: "Tickets Don't Sell Out", desc: "Demand isn't strong enough. You end up discounting, giving away, or leaving seats empty." },
+              { num: "02", title: "Campaigns Don't Break Through", desc: "Every concert uses the same playbook — poster, teaser, countdown. Nothing stands out." },
+              { num: "03", title: "No FOMO", desc: "People see the content but don't feel urgency. There's no emotional reason to buy now." },
+              { num: "04", title: "Momentum Dies After Launch", desc: "The announcement gets attention. Then silence. By show day, the hype is gone." },
             ].map((g, i) => (
               <AnimatedSection key={g.num} delay={i * 0.06}>
                 <div className="grid grid-cols-[auto_1fr] md:grid-cols-[60px_1fr_1.2fr] gap-4 md:gap-8 py-8 md:py-10 border-b border-border items-baseline group">
@@ -191,17 +191,17 @@ const GolfPackagePage = () => {
         </div>
       </section>
 
-      {/* ── Demand Maker System — Dark feature block ── */}
+      {/* ── Demand Maker System ── */}
       <section className="bg-secondary">
         <div className="px-6 md:px-12 py-28 md:py-36">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection className="mb-20">
               <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-warm mb-4">Demand Maker System</p>
               <h2 className="font-display text-[clamp(32px,4.5vw,60px)] leading-[0.92] text-foreground max-w-3xl">
-                We don't guess what works. We listen, then build.
+                We turn concerts into cultural moments.
               </h2>
               <p className="font-body text-[15px] text-muted-foreground leading-[1.7] mt-6 max-w-xl">
-                Every campaign starts with real data — what people are saying, searching, and sharing. Then we turn those insights into creative that moves them.
+                Every campaign starts with real cultural insight — what fans are feeling, what's trending, what creates urgency. Then we build creative that makes people say "I have to be there."
               </p>
             </AnimatedSection>
 
@@ -209,26 +209,26 @@ const GolfPackagePage = () => {
               {[
                 {
                   num: "01",
-                  title: "Social Listening & Insight",
-                  desc: "We analyze what golfers actually talk about — desires, frustrations, and emerging trends. This gives us topics with real conversation potential.",
-                  output: "Insight report with campaign-ready topics",
+                  title: "Social Listening & Cultural Insight",
+                  desc: "We analyze fan culture, emotional triggers, and trending conversations. This gives us the angles that will create real FOMO.",
+                  output: "Cultural insight report + campaign angles",
                 },
                 {
                   num: "02",
-                  title: "Narrative & Campaign Design",
-                  desc: "We craft stories and campaigns people want to share. Not just content — narratives that shift perception and create desire.",
-                  output: "Campaign concept + narrative direction",
+                  title: "Narrative Design",
+                  desc: "We define what this concert means — 'the last show,' 'once in a lifetime,' 'the night you can't miss.' A story that makes buying feel urgent.",
+                  output: "Concert narrative + emotional positioning",
                 },
                 {
                   num: "03",
                   title: "Conversation Design",
-                  desc: "We design how conversations start — content drop sequences, influencer seeding, launch timing. Campaigns that generate talk, not just views.",
-                  output: "Launch strategy + conversation playbook",
+                  desc: "We design the content sequence — teaser drops, hints, reveals, countdowns. Timed to build conversations, not just impressions.",
+                  output: "Launch sequence + conversation playbook",
                 },
                 {
                   num: "04",
                   title: "Search & Discovery Layer",
-                  desc: "When people are interested, they search. We make sure they find you — through keyword strategy, SEO, TikTok search, and content support.",
+                  desc: "When people feel the FOMO, they search. We make sure they find your concert — TikTok, YouTube, search, social.",
                   output: "Discovery strategy across platforms",
                 },
               ].map((item) => (
@@ -255,7 +255,7 @@ const GolfPackagePage = () => {
               >
                 <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-warm-foreground">Together, these four layers form</p>
                 <h3 className="font-display text-[clamp(22px,2.5vw,36px)] leading-[1] text-accent-warm-foreground">
-                  Your Brand's Demand Engine →
+                  Your Ticket Demand Engine →
                 </h3>
               </motion.div>
             </AnimatedSection>
@@ -263,7 +263,7 @@ const GolfPackagePage = () => {
         </div>
       </section>
 
-      {/* ── Insight + Positioning — editorial split ── */}
+      {/* ── Insight + Positioning ── */}
       <section className="px-6 md:px-12 py-28 md:py-36">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
@@ -271,10 +271,10 @@ const GolfPackagePage = () => {
               <div className="md:pr-16 md:border-r border-border pb-16 md:pb-0">
                 <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-warm mb-6">Insight</p>
                 <h2 className="font-display text-[clamp(28px,3.5vw,48px)] leading-[0.92] text-foreground mb-6">
-                  Golf is no longer just a sport. It's a lifestyle economy.
+                  People don't buy tickets. They buy moments.
                 </h2>
                 <p className="font-body text-[15px] text-muted-foreground leading-[1.7]">
-                  Networking, identity, weekend escape — new players see golf as an experience, not a scorecard. The clubs that win are the ones that sell the feeling.
+                  People don't go to concerts just for the artist. They go for the feeling, the experience, the moment they "have to be part of." Concerts that sell out are the ones that create FOMO.
                 </p>
               </div>
             </AnimatedSection>
@@ -282,10 +282,10 @@ const GolfPackagePage = () => {
               <div className="md:pl-16 pt-16 md:pt-0 border-t md:border-t-0 border-border">
                 <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-warm mb-6">What We Do</p>
                 <h2 className="font-display text-[clamp(28px,3.5vw,48px)] leading-[0.92] text-foreground mb-6">
-                  The creative layer your marketing team is missing.
+                  The creative layer your organizer team is missing.
                 </h2>
                 <p className="font-body text-[15px] text-muted-foreground leading-[1.7]">
-                  Your team runs ads, manages promotions, handles social. We add the layer that makes all of it hit harder — sharper positioning, memorable narratives, campaigns that stand out.
+                  Your team handles ticketing, media buying, and PR. We add the layer that makes all of it sell harder — narrative that creates urgency, campaigns that build FOMO, content that makes people feel they can't miss it.
                 </p>
               </div>
             </AnimatedSection>
@@ -293,23 +293,23 @@ const GolfPackagePage = () => {
         </div>
       </section>
 
-      {/* ── Target Segments — large grid ── */}
+      {/* ── Target Segments ── */}
       <section className="px-6 md:px-12 py-28 md:py-36 border-t border-border">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection className="mb-20">
-            <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-warm mb-4">New Audiences</p>
+            <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-warm mb-4">Audience Segments</p>
             <h2 className="font-display text-[clamp(32px,4.5vw,60px)] leading-[0.92] text-foreground max-w-3xl">
-              Segments that spend 1.5–2x more than average golfers.
+              Core fans buy first. But growth comes from everyone else.
             </h2>
           </AnimatedSection>
-          <AnimatedSection stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
+          <AnimatedSection stagger className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border">
             {[
-              { title: "Young Professionals", tag: "Age 28–40", desc: "City-based, seeking weekend escape. They play for relaxation and social connection — not competition.", metric: "1.5x avg spend" },
-              { title: "Lifestyle Golfers", tag: "All ages", desc: "Golf is identity. They care about aesthetics, share experiences, and choose courses that look and feel premium.", metric: "High UGC value" },
-              { title: "Golf Travelers", tag: "High spenders", desc: "They travel for golf. They want destinations with a story, curated packages, and memorable experiences.", metric: "2x avg spend" },
-              { title: "Corporate Groups", tag: "B2B segment", desc: "Team outings, client entertainment, executive retreats. They need a venue that impresses and runs smooth.", metric: "High group revenue" },
-              { title: "Women Golfers", tag: "Growing fast", desc: "One of the fastest-growing segments globally. They want inclusive, welcoming environments — not intimidating country clubs.", metric: "Underserved market" },
-              { title: "Family & Next-Gen", tag: "Long-term value", desc: "Parents introducing kids to golf. Kid-friendly programs, family packages, and a relaxed atmosphere.", metric: "Lifetime member value" },
+              { title: "Core Fans", tag: "Buy first", desc: "Dedicated followers who buy on announcement day. High engagement, high loyalty — but limited in number.", metric: "Guaranteed base" },
+              { title: "Cultural Audience", tag: "Fear of missing out", desc: "Not die-hard fans, but culturally aware. They go because everyone's going — and they don't want to miss it.", metric: "Growth driver" },
+              { title: "Social Crowd", tag: "Experience seekers", desc: "They buy for the experience, the photos, the stories. Concerts are lifestyle, not fandom.", metric: "High spend per head" },
+              { title: "Group Buyers", tag: "Multiplier effect", desc: "One person convinces five. They need compelling content to share — something that makes their friends say 'I'm in.'", metric: "Revenue multiplier" },
+              { title: "Late Deciders", tag: "FOMO converts", desc: "They watch from the sidelines until urgency peaks. The right content at the right time pushes them over the edge.", metric: "Fill the last seats" },
+              { title: "Brand Partners", tag: "B2B opportunity", desc: "Sponsors and brands looking for cultural alignment. A stronger narrative means more attractive partnership opportunities.", metric: "Sponsorship value" },
             ].map((seg) => (
               <AnimatedChild key={seg.title}>
                 <div className="bg-background p-8 md:p-10 h-full flex flex-col group hover:bg-secondary transition-colors duration-300">
@@ -326,11 +326,11 @@ const GolfPackagePage = () => {
         </div>
       </section>
 
-      {/* ── Full-bleed lifestyle image ── */}
+      {/* ── Backstage image ── */}
       <section className="w-full">
         <AnimatedSection>
           <div className="relative aspect-[21/9] overflow-hidden">
-            <img src={lifestyleImg} alt="Golfer walking on fairway at sunset" className="w-full h-full object-cover" />
+            <img src={backstageImg} alt="Artist silhouette walking towards stage" className="w-full h-full object-cover" />
           </div>
         </AnimatedSection>
       </section>
@@ -341,7 +341,7 @@ const GolfPackagePage = () => {
           <AnimatedSection className="mb-20 md:mb-28">
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-warm mb-4">The System</p>
             <h2 className="font-display text-[clamp(36px,5.5vw,80px)] leading-[0.88] text-foreground">
-              Four phases.<br />One clear direction.
+              Four phases.<br />One sell-out system.
             </h2>
           </AnimatedSection>
 
@@ -349,12 +349,10 @@ const GolfPackagePage = () => {
             {phases.map((phase, i) => (
               <AnimatedSection key={phase.num} delay={0.1}>
                 <div className={`grid grid-cols-1 md:grid-cols-[200px_1fr_1.2fr] gap-6 md:gap-10 py-12 md:py-16 ${i < phases.length - 1 ? 'border-b border-border' : ''}`}>
-                  {/* Phase number + title */}
                   <div>
                     <span className="font-mono text-[11px] tracking-[0.12em] text-accent-warm block mb-2">{phase.num}</span>
                     <h3 className="font-display text-[clamp(22px,2.5vw,32px)] leading-[1] text-foreground">{phase.title}</h3>
                   </div>
-                  {/* Items */}
                   <div>
                     <p className="font-body text-[15px] text-muted-foreground leading-[1.7] mb-5">{phase.subtitle}</p>
                     <ul className="space-y-2">
@@ -366,7 +364,6 @@ const GolfPackagePage = () => {
                       ))}
                     </ul>
                   </div>
-                  {/* Deliverable */}
                   <div className="bg-secondary p-6 md:p-8">
                     <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm mb-3">Deliverable</p>
                     <h4 className="font-display text-[20px] leading-[1.1] text-foreground mb-3">{phase.deliverable}</h4>
@@ -386,16 +383,16 @@ const GolfPackagePage = () => {
             <AnimatedSection className="mb-12">
               <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-warm mb-4">Business Impact</p>
               <h2 className="font-display text-[clamp(28px,3.5vw,48px)] leading-[0.92] text-foreground">
-                Creative is your demand engine.
+                Creative is your ticket demand engine.
               </h2>
             </AnimatedSection>
 
             <AnimatedSection stagger className="grid grid-cols-2 md:grid-cols-4 gap-0">
               {[
-                { result: "Awareness", desc: "People discover your course — and why it's different." },
-                { result: "Desire", desc: "They feel something. They save, share, and pay attention." },
-                { result: "Booking", desc: "Desire turns into action. They book a round." },
-                { result: "Revenue", desc: "One visit becomes many. Revenue compounds." },
+                { result: "Emotion", desc: "The narrative makes people feel something — urgency, excitement, FOMO." },
+                { result: "FOMO", desc: "Conversations build. People start saying 'are you going?' — that's demand." },
+                { result: "Purchase", desc: "Interest converts to ticket sales. Urgency drives faster sell-through." },
+                { result: "Share", desc: "The experience gets shared. Next event sells even faster." },
               ].map((item, i) => (
                 <AnimatedChild key={item.result}>
                   <div className={`py-8 md:py-10 ${i < 3 ? 'md:pr-8 md:border-r border-border' : 'md:pl-8'} ${i > 0 && i < 3 ? 'md:pl-8' : ''} ${i === 0 ? '' : 'md:pl-8'}`}>
@@ -423,7 +420,7 @@ const GolfPackagePage = () => {
           <AnimatedSection className="mb-20">
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-warm mb-4">Investment</p>
             <h2 className="font-display text-[clamp(36px,5vw,64px)] leading-[0.92] text-foreground">
-              Choose the depth<br />that fits your goals.
+              Choose the depth<br />that fits your event.
             </h2>
           </AnimatedSection>
 
@@ -435,7 +432,7 @@ const GolfPackagePage = () => {
                     <p className={`font-mono text-[10px] tracking-[0.15em] uppercase mb-6 ${tier.featured ? 'text-accent-warm-foreground/60' : 'text-accent-warm'}`}>{tier.label}</p>
                     <h3 className={`font-display text-[22px] leading-[1] mb-2 ${tier.featured ? 'text-accent-warm-foreground' : 'text-foreground'}`}>{tier.scope}</h3>
                     <p className={`font-display text-[clamp(32px,4vw,48px)] leading-[0.9] mb-8 tracking-[-0.02em] ${tier.featured ? 'text-accent-warm-foreground' : 'text-foreground'}`}>
-                      ฿{tier.price}
+                      ฿{tier.price}{tier.isMonthly ? <span className="text-[16px] opacity-60"> /mo</span> : ''}
                     </p>
                     <p className={`font-body text-[14px] leading-[1.7] mb-8 ${tier.featured ? 'text-accent-warm-foreground/70' : 'text-muted-foreground'}`}>{tier.detail}</p>
                   </div>
@@ -444,41 +441,20 @@ const GolfPackagePage = () => {
               </AnimatedChild>
             ))}
           </AnimatedSection>
-
-          {/* Retainer */}
-          <AnimatedSection className="mt-px">
-            <div className="bg-secondary p-8 md:p-12">
-              <div className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr] gap-10 items-start">
-                <div>
-                  <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm mb-4">Monthly Retainer</p>
-                  <h3 className="font-display text-[clamp(28px,3vw,40px)] leading-[0.92] text-foreground mb-3">Campaign Continuity</h3>
-                  <p className="font-display text-[clamp(24px,3vw,36px)] leading-[1] text-accent-warm">฿80,000 – 120,000<span className="text-[16px] text-muted-foreground ml-1">/mo</span></p>
-                </div>
-                <div>
-                  <p className="font-body text-[15px] text-muted-foreground leading-[1.7] mb-4">
-                    After 4–8 weeks, campaign momentum fades. The retainer keeps your creative direction alive — ongoing hero content, campaign-to-content breakdowns, and seasonal refreshes.
-                  </p>
-                  <p className="font-body text-[13px] text-muted-foreground/40 italic">
-                    We don't manage ads, run admin, or replace your team — we make the assets you invested in keep working.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </AnimatedSection>
         </div>
       </section>
 
       {/* ── Closing CTA ── */}
       <section className="relative min-h-[70vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src={clubhouseImg} alt="Luxury golf clubhouse at dusk" className="w-full h-full object-cover" />
+          <img src={heroImg} alt="Concert venue atmosphere" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-background/75" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-12 py-24">
           <AnimatedSection>
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-warm mb-8">Let's Talk</p>
             <h2 className="font-display text-[clamp(40px,7vw,96px)] leading-[0.85] text-foreground max-w-4xl mb-10">
-              Give people a reason to play at your course.
+              Make people feel they have to be there.
             </h2>
             <motion.button
               onClick={() => setDialogOpen(true)}
@@ -497,4 +473,4 @@ const GolfPackagePage = () => {
   );
 };
 
-export default GolfPackagePage;
+export default ConcertPackagePage;

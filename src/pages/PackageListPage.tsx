@@ -8,6 +8,7 @@ import TextReveal from "@/components/TextReveal";
 import SEO from "@/components/SEO";
 import hospitalityImg from "@/assets/hospitality-hero.jpg";
 import golfImg from "@/assets/golf-hero.jpg";
+import concertImg from "@/assets/concert-hero.jpg";
 
 const packages = [
   {
@@ -25,6 +26,14 @@ const packages = [
     desc: "A creative layer that unlocks new demand — from positioning and campaigns to cinematic content that attracts the next generation of golfers.",
     image: golfImg,
     price: "Starting from ฿50,000",
+  },
+  {
+    slug: "concert",
+    label: "For Concerts & Live Events",
+    title: "Concert Creative Layer",
+    desc: "A creative layer that turns concerts into cultural moments — through narrative, FOMO-driven campaigns, and content that makes people feel they have to be there.",
+    image: concertImg,
+    price: "Starting from ฿60,000",
   },
 ];
 

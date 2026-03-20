@@ -20,6 +20,7 @@ const CareerPage = lazy(() => import("./pages/CareerPage"));
 const PackagePage = lazy(() => import("./pages/PackagePage"));
 const PackageListPage = lazy(() => import("./pages/PackageListPage"));
 const GolfPackagePage = lazy(() => import("./pages/GolfPackagePage"));
+const ConcertPackagePage = lazy(() => import("./pages/ConcertPackagePage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const queryClient = new QueryClient();
 
@@ -40,6 +41,7 @@ const AnimatedRoutes = () => {
         <Route path="/package" element={<Suspense fallback={null}><PageTransition><PackageListPage /></PageTransition></Suspense>} />
         <Route path="/package/hospitality" element={<Suspense fallback={null}><PageTransition><PackagePage /></PageTransition></Suspense>} />
         <Route path="/package/golf" element={<Suspense fallback={null}><PageTransition><GolfPackagePage /></PageTransition></Suspense>} />
+        <Route path="/package/concert" element={<Suspense fallback={null}><PageTransition><ConcertPackagePage /></PageTransition></Suspense>} />
         <Route path="*" element={<Suspense fallback={null}><PageTransition><NotFound /></PageTransition></Suspense>} />
       </Routes>
     </AnimatePresence>

@@ -65,7 +65,7 @@ const IndustriesPage = () => {
           </div>
         </section>
 
-        <section className="px-6 md:px-12 py-20 pb-20">
+        <section className="px-6 md:px-12 py-8 md:py-12 pb-20">
           <div className="max-w-7xl mx-auto">
             {industries.map((ind, i) => (
               <AnimatedSection key={ind.title} delay={i * 0.03}>

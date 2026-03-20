@@ -95,13 +95,13 @@ const Index = () => {
       includes: ["Campaign Film", "Brand Video", "Visual Content", "Social Cutdowns"],
     },
     {
-      title: "Creative Retainer",
-      desc: { en: "Keep your brand consistent and impactful.", th: "รักษาความสม่ำเสมอและผลกระทบของแบรนด์" },
+      title: "Creative Partner",
+      desc: { en: "Your long-term creative think tank.", th: "Think tank ครีเอทีฟระยะยาวของคุณ" },
       details: {
-        en: "Brands evolve. Markets change. Messaging must adapt. We help you stay clear, relevant, and effective over time.",
-        th: "แบรนด์เปลี่ยน ตลาดเปลี่ยน การสื่อสารต้องปรับตัว เราช่วยให้คุณชัดเจนและมีประสิทธิภาพอยู่เสมอ"
+        en: "More than a retainer — a dedicated creative partnership. We become an extension of your team, providing ongoing strategic thinking, creative direction, and campaign evolution.",
+        th: "มากกว่า retainer — เป็นพันธมิตรครีเอทีฟ เราเป็นส่วนขยายของทีมคุณ ให้ strategic thinking, creative direction และพัฒนาแคมเปญอย่างต่อเนื่อง"
       },
-      includes: ["Ongoing Direction", "Campaign Extension", "Content Guidance"],
+      includes: ["Strategic Thinking", "Creative Direction", "Campaign Evolution", "Brand Guardianship"],
     },
   ];
 

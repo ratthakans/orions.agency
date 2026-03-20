@@ -17,18 +17,11 @@ import workAtlas from "@/assets/work-atlas.jpg";
 import workKoha from "@/assets/work-koha.jpg";
 import workSera from "@/assets/work-sera.jpg";
 
-const ParallaxImage = ({ src, alt, className }: { src: string; alt: string; className?: string }) => {
-  return (
-    <div className="overflow-hidden relative">
-      <img
-        src={src}
-        alt={alt}
-        className={`w-full object-cover ${className ?? ""}`}
-        loading="lazy"
-      />
-    </div>
-  );
-};
+const ParallaxImage = ({ src, alt, className }: { src: string; alt: string; className?: string }) => (
+  <div className="overflow-hidden relative">
+    <img src={src} alt={alt} className={`w-full object-cover ${className ?? ""}`} loading="lazy" />
+  </div>
+);
 
 const homeSchema = [
   {
@@ -42,18 +35,18 @@ const homeSchema = [
     mainEntity: [
       {
         "@type": "Question",
-        name: "What does ØRIONS do in Bangkok?",
+        name: "What does ØRIONS do?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "ØRIONS is a Bangkok creative agency that helps brands with strategy, campaigns, film production, content systems, and creative transformation.",
+          text: "ØRIONS is an idea-driven creative agency that creates ideas, stories, and campaigns that drive real impact for brands.",
         },
       },
       {
         "@type": "Question",
-        name: "Does ØRIONS work with brands outside Thailand?",
+        name: "What makes ØRIONS different?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. ØRIONS works with brands in Bangkok, across Thailand, and throughout Southeast Asia.",
+          text: "We focus on ideas first. We are not a production house or a social media agency — we create the ideas that make everything else work.",
         },
       },
       {
@@ -75,40 +68,40 @@ const Index = () => {
 
   const services = [
     {
-      title: "Content Systems",
-      desc: { en: "Ongoing content for brands that need consistency and quality.", th: "Content ต่อเนื่องสำหรับแบรนด์ที่ต้องการความสม่ำเสมอและคุณภาพ" },
+      title: "Creative Direction",
+      desc: { en: "Define your brand story and positioning.", th: "กำหนดเรื่องราวและตำแหน่งของแบรนด์คุณ" },
       details: {
-        en: "We build and manage your brand's content engine — from social posts and short-form videos to full content calendars and production systems.",
-        th: "เราสร้างและบริหาร content engine ของแบรนด์คุณ — ตั้งแต่ social posts, วิดีโอสั้น ไปจนถึง content calendar และระบบการผลิต"
+        en: "We define who you are, what you stand for, and how you should communicate. Strategic thinking and creative direction for brands that need clarity before content.",
+        th: "เรากำหนดว่าคุณคือใคร ยืนหยัดเพื่ออะไร และควรสื่อสารอย่างไร — การคิดเชิงกลยุทธ์และ creative direction สำหรับแบรนด์ที่ต้องการความชัดเจน"
       },
-      includes: ["Content Strategy", "Social Content", "Short-form Video", "Content Shooting"]
+      includes: ["Positioning", "Narrative", "Creative Direction", "Brand Story"],
     },
     {
-      title: "Creative & Campaign",
-      desc: { en: "Ideas and campaigns that define how brands are seen.", th: "ไอเดียและแคมเปญที่กำหนดว่าแบรนด์ถูกมองอย่างไร" },
+      title: "Campaign Development",
+      desc: { en: "Turn ideas into strong campaigns.", th: "เปลี่ยนไอเดียให้เป็นแคมเปญที่ทรงพลัง" },
       details: {
-        en: "Strategic thinking and creative direction for brands that need clarity before content. We define who you are, what you stand for, and how you should communicate.",
-        th: "การคิดเชิงกลยุทธ์และ creative direction สำหรับแบรนด์ที่ต้องการความชัดเจนก่อน content"
+        en: "Ideas that become campaigns people remember. We develop concepts, communication structures, and creative systems that drive real results.",
+        th: "ไอเดียที่กลายเป็นแคมเปญที่คนจดจำ เราพัฒนา concept, โครงสร้างการสื่อสาร และ creative system ที่สร้างผลลัพธ์จริง"
       },
-      includes: ["Campaign Concept", "Brand Storytelling", "Creative Direction", "Communication Strategy"]
+      includes: ["Campaign Concept", "Creative Idea", "Communication Structure", "Launch Strategy"],
     },
     {
-      title: "Film & Production",
-      desc: { en: "High-quality films and visual storytelling.", th: "ภาพยนตร์คุณภาพสูงและการเล่าเรื่องด้วยภาพ" },
+      title: "Content Production",
+      desc: { en: "Bring ideas to life through execution.", th: "ทำให้ไอเดียเป็นจริงผ่านการผลิต" },
       details: {
-        en: "Cinematic production from script to screen. We produce campaign films, brand videos, documentaries, and commercial content with the quality of a production house and the clarity of an agency.",
-        th: "งานผลิตระดับภาพยนตร์ตั้งแต่บทจนถึงหน้าจอ เราผลิต campaign film, brand video, documentary และ commercial content"
+        en: "Cinematic production from script to screen. We produce campaign films, brand videos, and content with the quality of a production house and the clarity of an agency.",
+        th: "งานผลิตระดับภาพยนตร์ตั้งแต่บทจนถึงหน้าจอ เราผลิต campaign film, brand video และ content ด้วยคุณภาพระดับ production house"
       },
-      includes: ["Campaign Film", "Brand Video", "Documentary", "Commercial Video"]
+      includes: ["Video", "Visual", "Campaign Assets", "Brand Film"],
     },
     {
-      title: "Creative Transformation",
-      desc: { en: "Building new ideas, products, and brand directions.", th: "สร้างไอเดียใหม่ ผลิตภัณฑ์ และทิศทางแบรนด์" },
+      title: "Creative Retainer",
+      desc: { en: "Keep your brand consistent and impactful.", th: "รักษาความสม่ำเสมอและผลกระทบของแบรนด์" },
       details: {
-        en: "Full creative transformation from zero — identity, narrative, product concept, and intellectual property creation for founders and companies exploring new opportunities.",
-        th: "การ transform แบรนด์เต็มรูปแบบตั้งแต่ศูนย์ — identity, narrative, product concept และการสร้าง IP"
+        en: "Products evolve. Users change. Messaging must adapt. We help you stay clear, relevant, and effective over time with ongoing creative direction.",
+        th: "ผลิตภัณฑ์เปลี่ยน ผู้ใช้เปลี่ยน การสื่อสารต้องปรับตัว เราช่วยให้คุณชัดเจน ตรงประเด็น และมีประสิทธิภาพอยู่เสมอ"
       },
-      includes: ["New Brand Concepts", "Product Ideas", "Sub-brand Development", "Creative Project Direction"]
+      includes: ["Ongoing Creative Direction", "Campaign Extension", "Content Guidance"],
     },
   ];
 
@@ -122,32 +115,104 @@ const Index = () => {
   return (
     <main className="bg-background min-h-screen grain-overlay">
       <SEO
-        title="Creative Agency Bangkok for Brand, Campaign & Film | ØRIONS"
-        description="ØRIONS is a creative agency in Bangkok helping brands across Thailand and Southeast Asia with storytelling, campaigns, content systems, creative transformation, and film production."
+        title="Idea-Driven Creative Agency | ØRIONS"
+        description="ØRIONS is an idea-driven creative agency. We create ideas, stories, and campaigns that make people care, remember, and act."
         path="/"
-        keywords="creative agency Bangkok, branding agency Thailand, production house Bangkok, campaign agency Bangkok, film production Thailand"
+        keywords="creative agency, idea-driven agency, branding agency, campaign agency, creative direction, content production"
         schema={homeSchema}
       />
       <Navbar />
       <HeroSection onStartProject={() => setDialogOpen(true)} />
 
-      <Marquee items={["Content Systems", "Creative & Campaign", "Film & Production", "Creative Transformation", "Story", "Strategy"]} />
+      <Marquee items={["Creative Direction", "Campaign Development", "Content Production", "Creative Retainer", "Ideas", "Impact"]} />
 
+      {/* ─── POSITIONING ─── */}
+      <section className="py-24 md:py-40 px-6 md:px-12">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 lg:gap-24">
+          <div>
+            <AnimatedSection>
+              <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">
+                <span className="text-accent-warm mr-2">✦</span> What We Are
+              </p>
+            </AnimatedSection>
+            <TextReveal className="font-display text-[clamp(36px,5vw,72px)] leading-[0.9] tracking-[0.01em] text-foreground">
+              WE ARE NOT YOUR TYPICAL AGENCY.
+            </TextReveal>
+          </div>
+          <div className="flex flex-col justify-end">
+            <AnimatedSection delay={0.2}>
+              <div className="space-y-6 font-body text-[16px] leading-[1.8] text-muted-foreground">
+                <p>
+                  {lang === "th" ? (
+                    <>เราไม่ใช่ production house<br />เราไม่ใช่ social media agency<br />เราคือ idea-driven creative agency</>
+                  ) : (
+                    <>We are not a production house.<br />We are not a social media agency.<br />We are an idea-driven creative agency.</>
+                  )}
+                </p>
+                <p>
+                  {t(
+                    "We create ideas first, then turn them into campaigns that work.",
+                    "เราสร้างไอเดียก่อน แล้วเปลี่ยนมันเป็นแคมเปญที่ได้ผล"
+                  )}
+                </p>
+                <div className="pt-4 space-y-3">
+                  <p className="text-foreground/80">{t("We help brands:", "เราช่วยแบรนด์:")}</p>
+                  {[
+                    { en: "Clarify their story", th: "ทำให้เรื่องราวชัดเจน" },
+                    { en: "Build strong campaigns", th: "สร้างแคมเปญที่แข็งแกร่ง" },
+                    { en: "Create content that matters", th: "สร้าง content ที่มีความหมาย" },
+                    { en: "Drive real impact", th: "สร้าง impact ที่จับต้องได้" },
+                  ].map((item) => (
+                    <div key={item.en} className="flex items-center gap-3">
+                      <span className="w-1.5 h-1.5 bg-accent-warm shrink-0" />
+                      <span className="text-foreground/70">{t(item.en, item.th)}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── PHILOSOPHY ─── */}
+      <section className="py-32 md:py-48 px-6 md:px-12 text-center border-t border-border">
+        <div className="max-w-4xl mx-auto">
+          <TextReveal className="font-display text-[clamp(40px,7vw,100px)] leading-[0.88] tracking-[0.01em] text-foreground mb-6">
+            PEOPLE DON'T REMEMBER CONTENT.
+          </TextReveal>
+          <TextReveal className="font-display text-[clamp(40px,7vw,100px)] leading-[0.88] tracking-[0.01em] text-accent-warm mb-12">
+            THEY REMEMBER IDEAS.
+          </TextReveal>
+          <AnimatedSection delay={0.3}>
+            <p className="font-body text-[16px] md:text-[18px] leading-[1.8] text-muted-foreground max-w-xl mx-auto">
+              {t(
+                "Great brands don't just create more content. They create better ideas. At ØRIONS, everything starts with the idea.",
+                "แบรนด์ที่ยิ่งใหญ่ไม่ได้แค่สร้าง content มากขึ้น แต่สร้างไอเดียที่ดีขึ้น ที่ ØRIONS ทุกอย่างเริ่มต้นจากไอเดีย"
+              )}
+            </p>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      <Marquee items={["Creative Direction", "Campaign Development", "Content Production", "Creative Retainer"]} speed="slow" />
+
+      {/* ─── SERVICES ─── */}
       <section className="py-24 md:py-40 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">
-              <span className="text-accent-warm mr-2">✦</span> What We Do
+              <span className="text-accent-warm mr-2">✦</span> {t("What We Do", "สิ่งที่เราทำ")}
             </p>
           </AnimatedSection>
           <TextReveal className="font-display text-[clamp(48px,6vw,100px)] leading-[0.9] tracking-[0.01em] text-foreground mb-6 max-w-4xl">
-            STORIES, CAMPAIGNS, AND FILMS.
+            IDEAS FIRST. THEN EVERYTHING ELSE.
           </TextReveal>
           <AnimatedSection delay={0.2}>
             <p className="font-body text-[16px] leading-[1.7] text-muted-foreground max-w-2xl mb-20">
               {t(
-                "We are a Bangkok creative agency helping brands think clearly, tell better stories, and produce work people remember across Thailand and Southeast Asia.",
-                "เราเป็น creative agency จากกรุงเทพฯ ที่ช่วยแบรนด์คิดอย่างชัดเจน เล่าเรื่องได้ดีขึ้น และผลิตงานที่คนจดจำได้จริงในไทยและเอเชียตะวันออกเฉียงใต้"
+                "We are an idea-driven creative agency. We create ideas, stories, and campaigns that make people care, remember, and act.",
+                "เราคือ idea-driven creative agency เราสร้างไอเดีย เรื่องราว และแคมเปญที่ทำให้คนสนใจ จดจำ และลงมือทำ"
               )}
             </p>
           </AnimatedSection>
@@ -214,7 +279,7 @@ const Index = () => {
               <Link to="/services" className="group inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.12em] uppercase text-foreground border-b border-foreground/40 pb-1 hover:border-accent-warm hover:text-accent-warm transition-all duration-300">
                 All Services <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
               </Link>
-              <Link to="/industries" className="group inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground border-b border-border pb-1 hover:border-accent-warm hover:text-accent-warm transition-all duration-300">
+              <Link to="/package" className="group inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground border-b border-border pb-1 hover:border-accent-warm hover:text-accent-warm transition-all duration-300">
                 Industries We Serve <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
               </Link>
             </div>
@@ -222,8 +287,7 @@ const Index = () => {
         </div>
       </section>
 
-      <Marquee items={["Content Systems", "Creative & Campaign", "Film & Production", "Creative Transformation"]} speed="slow" />
-
+      {/* ─── SELECTED WORK ─── */}
       <section className="py-24 md:py-40 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
@@ -267,6 +331,7 @@ const Index = () => {
         </div>
       </section>
 
+      {/* ─── FAQs ─── */}
       <section className="py-24 md:py-32 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
@@ -281,24 +346,24 @@ const Index = () => {
                 </h2>
                 <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-xl">
                   {t(
-                    "These are the questions we hear most from brands looking for a creative agency, production house, or campaign partner in Bangkok.",
-                    "นี่คือคำถามที่เราได้ยินบ่อยที่สุดจากแบรนด์ที่มองหา creative agency, production house หรือพาร์ตเนอร์ด้านแคมเปญในกรุงเทพฯ"
+                    "Common questions from brands looking for an idea-driven creative agency that delivers real impact.",
+                    "คำถามที่พบบ่อยจากแบรนด์ที่มองหา creative agency ที่ขับเคลื่อนด้วยไอเดียและสร้าง impact จริง"
                   )}
                 </p>
               </div>
               <div className="space-y-6">
                 {[
                   {
-                    q: "What services does ØRIONS provide?",
-                    a: "We provide content systems, creative campaigns, film production, and creative transformation for brands in Bangkok, Thailand, and Southeast Asia.",
+                    q: "What makes ØRIONS different?",
+                    a: "We focus on ideas first. We are not a production house or a social media agency — we create the ideas that make everything else work.",
                   },
                   {
                     q: "Who is ØRIONS best for?",
-                    a: "We work best with brands that need strategic clarity, premium production quality, and a long-term storytelling system rather than one-off execution.",
+                    a: "Brands that need more than content — they need clarity, strong campaigns, and creative direction that drives real impact.",
                   },
                   {
                     q: "How quickly can we start?",
-                    a: "Most projects can kick off within one to two weeks after briefing, depending on scope, production needs, and approval timelines.",
+                    a: "Most projects can kick off within one to two weeks after briefing, depending on scope and production needs.",
                   },
                 ].map((item) => (
                   <div key={item.q} className="border-t border-border pt-5">
@@ -312,24 +377,31 @@ const Index = () => {
         </div>
       </section>
 
+      {/* ─── CLOSING CTA ─── */}
       <section className="py-40 md:py-56 px-6 md:px-12 text-center">
-        <div className="max-w-7xl mx-auto">
-          <TextReveal className="font-display text-[clamp(64px,10vw,180px)] leading-[0.88] tracking-[0.01em] text-foreground mb-12">
-            START A PROJECT.
+        <div className="max-w-5xl mx-auto">
+          <TextReveal className="font-display text-[clamp(48px,8vw,140px)] leading-[0.88] tracking-[0.01em] text-foreground mb-4">
+            IF PEOPLE DON'T REMEMBER YOU,
+          </TextReveal>
+          <TextReveal className="font-display text-[clamp(48px,8vw,140px)] leading-[0.88] tracking-[0.01em] text-accent-warm mb-12">
+            THEY WON'T CHOOSE YOU.
           </TextReveal>
           <AnimatedSection delay={0.3}>
+            <p className="font-body text-[18px] text-muted-foreground mb-12">
+              {t("We make sure they do.", "เราทำให้แน่ใจว่าเขาจะจำคุณได้")}
+            </p>
             <div className="flex gap-10 justify-center items-center flex-wrap">
               <button
                 onClick={() => setDialogOpen(true)}
                 className="group font-mono text-[11px] tracking-[0.12em] uppercase text-background bg-foreground px-8 py-3 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300 relative overflow-hidden"
               >
-                <span className="relative z-10">Start a Project</span>
+                <span className="relative z-10">Work With Us</span>
               </button>
               <Link
                 to="/contact"
                 className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300"
               >
-                Contact <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                Start a Project <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
               </Link>
             </div>
           </AnimatedSection>

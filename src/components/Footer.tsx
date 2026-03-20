@@ -11,7 +11,7 @@ const Footer = () => {
           <div>
             <p className="font-logo font-medium text-[13px] tracking-[0.08em] text-foreground uppercase mb-5">ØRIONS</p>
             <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-[320px] mb-8">
-              {t("Creative agency in Bangkok for brands that need stronger stories, sharper campaigns, and meaningful production.", "Creative agency ในกรุงเทพฯ สำหรับแบรนด์ที่ต้องการเรื่องราวที่แข็งแกร่ง แคมเปญที่คมขึ้น และงาน production ที่มีความหมาย")}
+              {t("An idea-driven creative agency. We create ideas, stories, and campaigns that make people care, remember, and act.", "Idea-driven creative agency เราสร้างไอเดีย เรื่องราว และแคมเปญที่ทำให้คนสนใจ จดจำ และลงมือทำ")}
             </p>
             <div className="space-y-2.5 mb-8">
               <a href="mailto:hello@orions.agency" className="font-mono text-[11px] tracking-[0.1em] text-muted-foreground block hover:text-foreground transition-colors duration-300">hello@orions.agency</a>
@@ -25,10 +25,10 @@ const Footer = () => {
           <div>
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-7">Services</p>
             <div className="flex flex-col gap-3.5">
-              <Link to="/services" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Content Systems</Link>
-              <Link to="/services" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Creative & Campaign</Link>
-              <Link to="/services" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Film & Production</Link>
-              <Link to="/services" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Creative Transformation</Link>
+              <Link to="/services" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Creative Direction</Link>
+              <Link to="/services" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Campaign Development</Link>
+              <Link to="/services" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Content Production</Link>
+              <Link to="/services" className="font-body text-[15px] text-foreground/60 hover:text-foreground transition-colors duration-300">Creative Retainer</Link>
             </div>
           </div>
 

@@ -161,26 +161,6 @@ html {
   color: hsl(0 0% 100%);
 }
 
-/* Custom cursor */
-.custom-cursor {
-  width: 20px;
-  height: 20px;
-  border: 1.5px solid hsl(48 100% 50%);
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 99999;
-  transition: width 0.2s, height 0.2s, border-color 0.2s, background-color 0.2s;
-  transform: translate(-50%, -50%);
-  mix-blend-mode: difference;
-}
-
-.custom-cursor.expanded {
-  width: 48px;
-  height: 48px;
-  background: hsl(48 100% 50% / 0.1);
-}
-
 /* Cinematic blur reveal */
 @keyframes blur-reveal {
   from { filter: blur(8px); opacity: 0; }

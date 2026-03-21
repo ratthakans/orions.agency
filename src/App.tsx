@@ -4,7 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
-import CustomCursor from "@/components/CustomCursor";
+
 import ScrollToTop from "./components/ScrollToTop";
 import PageTransition from "./components/PageTransition";
 
@@ -26,7 +26,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <CustomCursor />
+          
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<PageTransition><Index /></PageTransition>} />

@@ -73,7 +73,7 @@ const Index = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.55 }}
-            className="font-display text-[clamp(40px,8vw,120px)] leading-[0.9] tracking-[0.01em] mb-12 min-h-[1.1em]"
+            className="font-display text-[clamp(32px,6.5vw,100px)] leading-[0.9] tracking-[0.01em] mb-12 whitespace-nowrap min-h-[1.1em]"
           >
             And <HeroTypewriter />
           </motion.div>

@@ -12,7 +12,6 @@ import Index from "./pages/Index";
 import ProblemPage from "./pages/ProblemPage";
 import ServicesPage2 from "./pages/ServicesPage2";
 import ProcessPage from "./pages/ProcessPage";
-import PhilosophyPage from "./pages/PhilosophyPage";
 import ValuePage from "./pages/ValuePage";
 import ClientsPage from "./pages/ClientsPage";
 import ContactPage2 from "./pages/ContactPage2";

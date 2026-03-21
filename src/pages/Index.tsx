@@ -187,7 +187,7 @@ const Index = () => {
       {/* ═══════════════════════════════════════════
           SECTION 4 — SERVICES
       ═══════════════════════════════════════════ */}
-      <section className="py-24 md:py-48 px-4 sm:px-6 md:px-12 border-t border-border">
+      <section id="services" className="py-24 md:py-48 px-4 sm:px-6 md:px-12 border-t border-border">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">

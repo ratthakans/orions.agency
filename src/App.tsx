@@ -26,7 +26,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <CustomCursor />
+          
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<PageTransition><Index /></PageTransition>} />

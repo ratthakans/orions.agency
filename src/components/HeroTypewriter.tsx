@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const phrases = [
   "unlock new markets.",
   "unlock new demand.",
-  "unlock new reasons to grow.",
+  "unlock new growth.",
 ];
 
 const HeroTypewriter = memo(() => {

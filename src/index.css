@@ -138,11 +138,11 @@ html {
 
 /* Accent text — warm gold */
 .text-accent-gradient {
-  color: hsl(37 42% 60%);
+  color: hsl(48 100% 50%);
 }
 
 .bg-accent-gradient {
-  background: hsl(37 42% 60%);
+  background: hsl(48 100% 50%);
 }
 
 /* Scrollbar */

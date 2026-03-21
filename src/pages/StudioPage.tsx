@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
@@ -13,6 +14,7 @@ const shows = [
     desc: "สารคดีท่องเที่ยวเอาชีวิตรอด — ตามคนที่เลือกออกจากเมืองไปเจอธรรมชาติดิบๆ เรื่องจริง ไม่มีสคริปต์ ไม่มีสัญญาณ",
     descEn: "A raw survival travel documentary. Following people who leave the city to face nature head-on. No script. No signal.",
     format: "Cinematic series · 6 episodes · 20–30 min each",
+    gradient: "from-emerald-900/30 to-background",
   },
   {
     num: "02",
@@ -22,6 +24,7 @@ const shows = [
     desc: "สารคดีความงามและการแต่งหน้า เพื่อไปถึง moment สำคัญที่สุดในชีวิต — งานแต่ง, สัมภาษณ์งาน, วันที่กลับมาเชื่อมั่นในตัวเอง",
     descEn: "A beauty documentary about makeup as transformation — for weddings, job interviews, and the day you believe in yourself again.",
     format: "Short-form series · 10–15 min episodes · Weekly",
+    gradient: "from-rose-900/30 to-background",
   },
   {
     num: "03",
@@ -29,8 +32,9 @@ const shows = [
     type: "Podcast",
     status: "In Production",
     desc: "เชิญคนมาพูดคุยที่ออฟฟิศ ØRIONS แบบ podcast สบายๆ เรื่องทั่วไป เนื้อหา creative เท่ๆ ความคิดที่น่าสนใจ",
-    descEn: "Casual conversations at the ØRIONS office. Creative people, interesting ideas, good energy. A podcast about the work and the thinking behind it.",
+    descEn: "Casual conversations at the ØRIONS office. Creative people, interesting ideas, good energy.",
     format: "Audio + Video · 45–60 min episodes · Monthly",
+    gradient: "from-amber-900/30 to-background",
   },
   {
     num: "04",
@@ -38,8 +42,20 @@ const shows = [
     type: "Adventure Documentary",
     status: "Pre-production",
     desc: "สารคดีการเดินทางระยะยาว — trekking, hiking, trail ไปไกลๆ เรื่องของคนที่เดินไปข้างหน้าแม้ไม่รู้ว่าจะถึงเมื่อไหร่",
-    descEn: "A long-distance journey documentary — trekking, hiking, trail running. Stories of people who keep walking forward without knowing when they'll arrive.",
+    descEn: "A long-distance journey documentary — trekking, hiking, trail running. Stories of people who keep walking forward.",
     format: "Cinematic series · 4 episodes · 30–45 min each",
+    gradient: "from-sky-900/30 to-background",
+  },
+  {
+    num: "05",
+    title: "ระหว่างวัน",
+    titleEn: "RAWANGWAN",
+    type: "Lifestyle Documentary",
+    status: "Concept",
+    desc: "สารคดีที่พาไปรู้จักใครบางคน ผ่านช่วงเวลาระหว่างวันของเขา เราไม่ได้ตามทั้งวัน แต่เลือกอยู่กับบางช่วงเวลา เพื่อค่อยๆ เห็นว่าเขาใช้ชีวิต คิด และมองโลกอย่างไร",
+    descEn: "A documentary that follows someone through selected moments of their day. Not the whole day — just the moments that reveal how they live, think, and see the world.",
+    format: "Short-form series · 12–18 min episodes · Bi-weekly",
+    gradient: "from-violet-900/30 to-background",
   },
 ];
 
@@ -54,11 +70,11 @@ const StudioPage = () => {
       <Navbar />
 
       {/* Hero */}
-      <section className="min-h-[60vh] flex items-end px-4 sm:px-6 md:px-12 pb-16 md:pb-24 pt-24">
+      <section className="min-h-[50vh] flex items-end px-4 sm:px-6 md:px-12 pb-16 md:pb-24 pt-24">
         <div className="max-w-5xl mx-auto w-full">
           <AnimatedSection>
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">
-              <span className="text-accent-warm mr-2">✦</span> Studio
+              <span className="text-accent-warm mr-2">✦</span> Original Productions
             </p>
           </AnimatedSection>
           <AnimatedSection delay={0.2}>
@@ -74,41 +90,50 @@ const StudioPage = () => {
         </div>
       </section>
 
-      {/* Shows */}
+      {/* Shows Grid */}
       <section className="px-4 sm:px-6 md:px-12 py-16 md:py-24">
-        <div className="max-w-6xl mx-auto">
-          <div className="space-y-0">
+        <div className="max-w-7xl mx-auto">
+          <div className="space-y-8 md:space-y-12">
             {shows.map((show, i) => (
               <AnimatedSection key={show.num} delay={i * 0.08}>
-                <div className="group relative border-b border-border py-12 md:py-16 hover:bg-foreground/[0.02] transition-colors duration-500 px-4 md:px-8 -mx-4 md:-mx-8">
-                  <div className="flex flex-col md:flex-row md:items-start gap-6 md:gap-12">
-                    {/* Number + Status */}
-                    <div className="shrink-0 flex items-center gap-4 md:flex-col md:items-start md:gap-3 md:w-32">
-                      <span className="font-display text-[36px] md:text-[48px] leading-none text-accent-warm/15 group-hover:text-accent-warm/40 transition-colors duration-500">
-                        {show.num}
-                      </span>
-                      <span className="font-mono text-[9px] tracking-[0.1em] uppercase text-accent-warm/60 border border-accent-warm/20 px-2 py-1">
-                        {show.status}
-                      </span>
+                <div className="group border border-border hover:border-accent-warm/20 transition-colors duration-500 overflow-hidden">
+                  <div className="grid grid-cols-1 lg:grid-cols-2">
+                    {/* 16:9 Visual Mockup */}
+                    <div className={`aspect-video bg-gradient-to-br ${show.gradient} relative overflow-hidden`}>
+                      <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+                        <span className="font-display text-[64px] md:text-[80px] leading-none text-foreground/5 group-hover:text-foreground/10 transition-colors duration-700">
+                          {show.num}
+                        </span>
+                        <span className="font-mono text-[9px] tracking-[0.15em] uppercase text-foreground/20">
+                          {show.format.split("·")[0]}
+                        </span>
+                      </div>
+                      {/* Status badge */}
+                      <div className="absolute top-4 left-4">
+                        <span className="font-mono text-[9px] tracking-[0.1em] uppercase text-accent-warm/80 border border-accent-warm/30 bg-background/80 backdrop-blur-sm px-3 py-1.5">
+                          {show.status}
+                        </span>
+                      </div>
                     </div>
 
                     {/* Content */}
-                    <div className="flex-1">
-                      <div className="flex items-center gap-4 mb-3">
-                        <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground/50">{show.type}</span>
-                      </div>
-                      <h2 className="font-display text-[clamp(28px,4vw,56px)] leading-[0.9] tracking-[0.02em] text-foreground group-hover:text-accent-warm transition-colors duration-300 mb-4">
+                    <div className="p-6 md:p-10 flex flex-col justify-center">
+                      <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground/50 mb-3 block">{show.type}</span>
+                      <h2 className="font-display text-[clamp(28px,4vw,48px)] leading-[0.9] tracking-[0.02em] text-foreground group-hover:text-accent-warm transition-colors duration-300 mb-2">
                         {show.title}
                       </h2>
-                      <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-xl mb-2">
+                      {show.titleEn && (
+                        <p className="font-mono text-[11px] tracking-[0.1em] uppercase text-accent-warm/40 mb-4">{show.titleEn}</p>
+                      )}
+                      <p className="font-body text-[14px] leading-[1.7] text-muted-foreground mb-3 max-w-lg">
                         {show.descEn}
                       </p>
-                      <p className="font-body text-[14px] leading-[1.7] text-muted-foreground/60 max-w-xl mb-6">
+                      <p className="font-body text-[13px] leading-[1.7] text-muted-foreground/50 mb-6 max-w-lg">
                         {show.desc}
                       </p>
-                      <span className="font-mono text-[10px] tracking-[0.1em] text-muted-foreground/40">
+                      <p className="font-mono text-[10px] tracking-[0.1em] text-muted-foreground/40">
                         {show.format}
-                      </span>
+                      </p>
                     </div>
                   </div>
                 </div>

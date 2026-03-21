@@ -225,7 +225,7 @@ const Index = () => {
               },
             ].map((c, i) => (
               <AnimatedSection key={i} delay={i * 0.12}>
-                <div className="service-card border border-border group h-full flex flex-col">
+                <div className="border border-border group h-full flex flex-col hover:border-accent-warm/20 transition-colors duration-300">
                   {/* Visual placeholder */}
                   <div className="aspect-[16/10] bg-gradient-to-br from-muted/40 to-background relative overflow-hidden">
                     <div className="absolute inset-0 flex items-center justify-center">

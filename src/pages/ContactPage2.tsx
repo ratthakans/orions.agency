@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
-import TextReveal from "@/components/TextReveal";
 import SEO from "@/components/SEO";
 
 const ContactPage2 = () => {
@@ -33,11 +32,16 @@ const ContactPage2 = () => {
             transition={{ duration: 0.6 }}
             className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8"
           >
-            <span className="text-accent-warm mr-2">✦</span> Let's Talk
+            <span className="text-accent-warm mr-2">✦</span> Contact
           </motion.p>
-          <TextReveal className="font-display text-[clamp(40px,8vw,110px)] leading-[0.9] tracking-[0.01em] text-foreground">
-            LET'S TALK.
-          </TextReveal>
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="font-display text-[clamp(40px,8vw,110px)] leading-[0.9] tracking-[0.01em] text-foreground"
+          >
+            LET'S <span className="text-accent-gradient">TALK.</span>
+          </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -49,101 +53,116 @@ const ContactPage2 = () => {
         </div>
       </section>
 
-      {/* Form */}
-      <section className="py-24 md:py-40 px-4 sm:px-6 md:px-12">
-        <div className="max-w-lg mx-auto">
-          {submitted ? (
-            <AnimatedSection>
-              <div className="py-16 text-center">
-                <p className="font-display text-[40px] text-accent-gradient mb-4">THANK YOU.</p>
-                <p className="font-body text-[16px] text-muted-foreground">We'll be in touch soon.</p>
-              </div>
-            </AnimatedSection>
-          ) : (
-            <AnimatedSection delay={0.2}>
-              <form onSubmit={handleSubmit} className="space-y-8">
-                <div>
-                  <label className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground/60 block mb-3">Name</label>
-                  <input
-                    type="text"
-                    required
-                    value={form.name}
-                    onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    className="w-full bg-transparent border-b border-border py-3 font-body text-[15px] text-foreground focus:outline-none focus:border-accent-warm transition-colors duration-300 placeholder:text-muted-foreground/30"
-                    placeholder="Your name"
-                  />
-                </div>
-                <div>
-                  <label className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground/60 block mb-3">Email</label>
-                  <input
-                    type="email"
-                    required
-                    value={form.email}
-                    onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    className="w-full bg-transparent border-b border-border py-3 font-body text-[15px] text-foreground focus:outline-none focus:border-accent-warm transition-colors duration-300 placeholder:text-muted-foreground/30"
-                    placeholder="your@email.com"
-                  />
-                </div>
-                <div>
-                  <label className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground/60 block mb-3">Message</label>
-                  <textarea
-                    required
-                    rows={4}
-                    value={form.message}
-                    onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    className="w-full bg-transparent border-b border-border py-3 font-body text-[15px] text-foreground focus:outline-none focus:border-accent-warm transition-colors duration-300 resize-none placeholder:text-muted-foreground/30"
-                    placeholder="Tell us about your project"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="font-mono text-[11px] tracking-[0.12em] uppercase text-primary-foreground bg-primary px-10 py-3.5 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300 w-full mt-4"
-                >
-                  Send Message
-                </button>
-              </form>
-            </AnimatedSection>
-          )}
+      {/* Two-column: Info + Form */}
+      <section className="py-16 md:py-32 px-4 sm:px-6 md:px-12">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
 
-          <AnimatedSection delay={0.4}>
-            <div className="mt-20 pt-16 border-t border-border">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            {/* Left — Contact Info */}
+            <AnimatedSection>
+              <div className="space-y-12">
+                {/* Email */}
                 <div>
-                  <h3 className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-warm/60 mb-6">Contact</h3>
-                  <div className="space-y-4">
-                    <a href="mailto:hello@orions.agency" className="block font-body text-[15px] text-foreground hover:text-accent-warm transition-colors duration-300">
-                      hello@orions.agency
-                    </a>
-                    <a href="tel:0923905464" className="block font-body text-[15px] text-foreground hover:text-accent-warm transition-colors duration-300">
-                      092-390-5464
-                    </a>
-                  </div>
-                  <div className="mt-8 flex items-center gap-6">
-                    {["Facebook", "Instagram", "YouTube"].map((social) => (
-                      <a
-                        key={social}
-                        href="#"
-                        className="font-mono text-[10px] tracking-[0.1em] uppercase text-muted-foreground/40 hover:text-accent-warm transition-colors duration-300"
-                      >
-                        {social}
-                      </a>
-                    ))}
-                  </div>
+                  <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-warm/60 mb-3">Email</p>
+                  <a href="mailto:hello@orions.agency" className="font-display text-[24px] md:text-[32px] text-foreground hover:text-accent-warm transition-colors duration-300 break-all">
+                    hello@orions.agency
+                  </a>
                 </div>
+
+                {/* Phone */}
                 <div>
-                  <h3 className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-warm/60 mb-6">Office</h3>
-                  <p className="font-body text-[14px] leading-[1.8] text-muted-foreground">
+                  <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-warm/60 mb-3">Phone</p>
+                  <a href="tel:0923905464" className="font-display text-[24px] md:text-[32px] text-foreground hover:text-accent-warm transition-colors duration-300">
+                    092-390-5464
+                  </a>
+                </div>
+
+                {/* Office */}
+                <div>
+                  <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-warm/60 mb-3">Office</p>
+                  <p className="font-body text-[15px] leading-[1.8] text-muted-foreground">
                     246/8 ซอย โยธินพัฒนา<br />
                     แขวงคลองจั่น เขตบางกะปิ<br />
                     กรุงเทพมหานคร 10240
                   </p>
-                  <p className="font-mono text-[10px] tracking-[0.1em] text-muted-foreground/40 mt-4">
-                    Tax ID: 0105568220629
-                  </p>
+                </div>
+
+                {/* Tax */}
+                <div>
+                  <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-warm/60 mb-3">Tax ID</p>
+                  <p className="font-mono text-[14px] text-muted-foreground">0105568220629</p>
+                </div>
+
+                {/* Socials */}
+                <div className="flex items-center gap-8 pt-4">
+                  {["Facebook", "Instagram", "YouTube"].map((social) => (
+                    <a
+                      key={social}
+                      href="#"
+                      className="font-mono text-[10px] tracking-[0.12em] uppercase text-muted-foreground/50 hover:text-accent-warm transition-colors duration-300"
+                    >
+                      {social}
+                    </a>
+                  ))}
                 </div>
               </div>
-            </div>
-          </AnimatedSection>
+            </AnimatedSection>
+
+            {/* Right — Form */}
+            <AnimatedSection delay={0.2}>
+              {submitted ? (
+                <div className="flex items-center justify-center h-full min-h-[400px]">
+                  <div className="text-center">
+                    <p className="font-display text-[48px] text-accent-gradient mb-4">THANK YOU.</p>
+                    <p className="font-body text-[16px] text-muted-foreground">We'll be in touch soon.</p>
+                  </div>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-8">
+                  <div>
+                    <label className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground/60 block mb-3">Name</label>
+                    <input
+                      type="text"
+                      required
+                      value={form.name}
+                      onChange={(e) => setForm({ ...form, name: e.target.value })}
+                      className="w-full bg-transparent border-b border-border py-3 font-body text-[15px] text-foreground focus:outline-none focus:border-accent-warm transition-colors duration-300 placeholder:text-muted-foreground/30"
+                      placeholder="Your name"
+                    />
+                  </div>
+                  <div>
+                    <label className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground/60 block mb-3">Email</label>
+                    <input
+                      type="email"
+                      required
+                      value={form.email}
+                      onChange={(e) => setForm({ ...form, email: e.target.value })}
+                      className="w-full bg-transparent border-b border-border py-3 font-body text-[15px] text-foreground focus:outline-none focus:border-accent-warm transition-colors duration-300 placeholder:text-muted-foreground/30"
+                      placeholder="your@email.com"
+                    />
+                  </div>
+                  <div>
+                    <label className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground/60 block mb-3">Message</label>
+                    <textarea
+                      required
+                      rows={5}
+                      value={form.message}
+                      onChange={(e) => setForm({ ...form, message: e.target.value })}
+                      className="w-full bg-transparent border-b border-border py-3 font-body text-[15px] text-foreground focus:outline-none focus:border-accent-warm transition-colors duration-300 resize-none placeholder:text-muted-foreground/30"
+                      placeholder="Tell us about your project"
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    className="font-mono text-[11px] tracking-[0.12em] uppercase text-primary-foreground bg-primary px-10 py-3.5 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300 w-full mt-4"
+                  >
+                    Send Message →
+                  </button>
+                </form>
+              )}
+            </AnimatedSection>
+
+          </div>
         </div>
       </section>
 

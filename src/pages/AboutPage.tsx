@@ -5,16 +5,16 @@ import AnimatedSection from "@/components/AnimatedSection";
 import SEO from "@/components/SEO";
 
 const team = [
-  { name: "Founder & CD", role: "Creative Direction" },
-  { name: "Strategy Lead", role: "Brand Strategy" },
-  { name: "Head of Production", role: "Film & Content" },
+  { name: "Founder", role: "Vision & Direction" },
+  { name: "CEO", role: "Business & Growth" },
+  { name: "CFO", role: "Finance & Operations" },
+  { name: "Creative Director", role: "Creative Direction" },
   { name: "Art Director", role: "Visual Design" },
-  { name: "Copywriter", role: "Storytelling" },
-  { name: "Motion Designer", role: "Animation & Motion" },
-  { name: "Producer", role: "Project Management" },
-  { name: "Photographer", role: "Photography & Visual" },
+  { name: "Editor / DOP", role: "Cinematography & Edit" },
   { name: "Editor", role: "Post-production" },
-  { name: "Community Manager", role: "Social & Community" },
+  { name: "Account Executive", role: "Client Relations" },
+  { name: "Project Manager", role: "Project Management" },
+  { name: "Creative Senior", role: "Creative Strategy" },
 ];
 
 const AboutPage = () => {

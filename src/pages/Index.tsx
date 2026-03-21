@@ -96,9 +96,7 @@ const Index = () => {
             <p className="font-display text-[clamp(28px,5vw,64px)] leading-[0.95] tracking-[0.01em] text-accent-gradient mt-2">
               WE CHANGE HOW PEOPLE SEE YOU.
             </p>
-            <p className="font-body text-[16px] md:text-[18px] leading-[1.7] text-muted-foreground mt-8 max-w-lg mx-auto">
-              When perception shifts — growth follows.
-            </p>
+            
           </AnimatedSection>
           <AnimatedSection delay={0.2}>
             <div className="mt-10">
@@ -140,7 +138,7 @@ const Index = () => {
               { title: "Film / Production", desc: "Hero films. Branded content. Visual storytelling." },
             ].map((s, i) => (
               <AnimatedSection key={s.title} delay={i * 0.1}>
-                <div className="service-card bg-background p-8 md:p-10 group h-full">
+                <div className="bg-background p-8 md:p-10 group h-full border border-transparent hover:border-accent-warm/20 transition-colors duration-300">
                   <span className="font-mono text-[10px] tracking-[0.15em] text-accent-warm/40 block mb-6">{String(i + 1).padStart(2, "0")}</span>
                   <h3 className="font-display text-[26px] md:text-[30px] tracking-[0.02em] text-foreground mb-4 group-hover:text-accent-warm transition-colors duration-300">
                     {s.title}
@@ -227,7 +225,7 @@ const Index = () => {
               },
             ].map((c, i) => (
               <AnimatedSection key={i} delay={i * 0.12}>
-                <div className="service-card border border-border group h-full flex flex-col">
+                <div className="border border-border group h-full flex flex-col hover:border-accent-warm/20 transition-colors duration-300">
                   {/* Visual placeholder */}
                   <div className="aspect-[16/10] bg-gradient-to-br from-muted/40 to-background relative overflow-hidden">
                     <div className="absolute inset-0 flex items-center justify-center">

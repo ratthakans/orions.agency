@@ -3,193 +3,144 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 import SEO from "@/components/SEO";
-import { useLanguage } from "@/contexts/LanguageContext";
-import studioDialogue from "@/assets/studio-dialogue.jpg";
-import studioNosignal from "@/assets/studio-nosignal.jpg";
-import studioLookyourbest from "@/assets/studio-lookyourbest.jpg";
 
-const studioProjects = [
+const shows = [
   {
     num: "01",
-    title: "ORIONS Dialogue",
-    type: "Podcast",
-    status: "In Production",
-    image: studioDialogue,
-    desc: {
-      en: "Long-form conversations with creative leaders and thinkers who shape culture. Honest dialogue about craft, purpose, and the creative process.",
-      th: "บทสนทนายาวกับผู้นำด้านครีเอทีฟและนักคิดที่หล่อหลอมวัฒนธรรม",
-    },
-    purpose: {
-      en: "Show taste. Start conversations. Build community around meaningful creative work.",
-      th: "แสดงรสนิยม เริ่มบทสนทนา สร้างชุมชนรอบงานสร้างสรรค์ที่มีความหมาย",
-    },
-    format: { en: "Audio + Video · 45–60 min episodes · Monthly", th: "Audio + Video · ตอนละ 45–60 นาที · รายเดือน" },
+    title: "NO SIGNAL",
+    type: "Survival Documentary",
+    status: "In Development",
+    desc: "สารคดีท่องเที่ยวเอาชีวิตรอด — ตามคนที่เลือกออกจากเมืองไปเจอธรรมชาติดิบๆ เรื่องจริง ไม่มีสคริปต์ ไม่มีสัญญาณ",
+    descEn: "A raw survival travel documentary. Following people who leave the city to face nature head-on. No script. No signal.",
+    format: "Cinematic series · 6 episodes · 20–30 min each",
   },
   {
     num: "02",
-    title: "No Signal",
-    type: "Survival Documentary",
-    status: "Pre-production",
-    image: studioNosignal,
-    desc: {
-      en: "A documentary series following people who choose to live off the grid. Raw, cinematic, and deeply human.",
-      th: "ซีรีส์สารคดีตามคนที่เลือกใช้ชีวิตนอกสังคม ดิบ มีความเป็นภาพยนตร์ และเป็นมนุษย์อย่างลึกซึ้ง",
-    },
-    purpose: {
-      en: "Show capability. Prove we can produce content that people choose to watch.",
-      th: "แสดงความสามารถ พิสูจน์ว่าเราผลิต content ที่คนเลือกดู",
-    },
-    format: { en: "Cinematic series · 6 episodes · 20–30 min each", th: "ซีรีส์ภาพยนตร์ · 6 ตอน · ตอนละ 20–30 นาที" },
+    title: "LOOK YOUR BEST",
+    type: "Beauty Documentary",
+    status: "Concept",
+    desc: "สารคดีความงามและการแต่งหน้า เพื่อไปถึง moment สำคัญที่สุดในชีวิต — งานแต่ง, สัมภาษณ์งาน, วันที่กลับมาเชื่อมั่นในตัวเอง",
+    descEn: "A beauty documentary about makeup as transformation — for weddings, job interviews, and the day you believe in yourself again.",
+    format: "Short-form series · 10–15 min episodes · Weekly",
   },
   {
     num: "03",
-    title: "Look Your Best",
-    type: "Beauty Show",
-    status: "Concept",
-    image: studioLookyourbest,
-    desc: {
-      en: "A beauty and self-expression series that goes beyond makeup. Personal stories, confidence, transformation.",
-      th: "ซีรีส์ความงามและการแสดงออกที่ไปไกลกว่าเครื่องสำอาง เรื่องราวส่วนตัว ความมั่นใจ การเปลี่ยนแปลง",
-    },
-    purpose: {
-      en: "Build brand identity. Create a platform that attracts audiences and brand partners.",
-      th: "สร้าง brand identity สร้างแพลตฟอร์มที่ดึงดูดทั้ง audience และ brand partner",
-    },
-    format: { en: "Short-form series · 10–15 min episodes · Weekly", th: "ซีรีส์สั้น · ตอนละ 10–15 นาที · รายสัปดาห์" },
+    title: "ØRIONS TALK",
+    type: "Podcast",
+    status: "In Production",
+    desc: "เชิญคนมาพูดคุยที่ออฟฟิศ ØRIONS แบบ podcast สบายๆ เรื่องทั่วไป เนื้อหา creative เท่ๆ ความคิดที่น่าสนใจ",
+    descEn: "Casual conversations at the ØRIONS office. Creative people, interesting ideas, good energy. A podcast about the work and the thinking behind it.",
+    format: "Audio + Video · 45–60 min episodes · Monthly",
+  },
+  {
+    num: "04",
+    title: "A LONG WAY",
+    type: "Adventure Documentary",
+    status: "Pre-production",
+    desc: "สารคดีการเดินทางระยะยาว — trekking, hiking, trail ไปไกลๆ เรื่องของคนที่เดินไปข้างหน้าแม้ไม่รู้ว่าจะถึงเมื่อไหร่",
+    descEn: "A long-distance journey documentary — trekking, hiking, trail running. Stories of people who keep walking forward without knowing when they'll arrive.",
+    format: "Cinematic series · 4 episodes · 30–45 min each",
   },
 ];
 
-const studioSchema = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://orions.agency/" },
-        { "@type": "ListItem", position: 2, name: "Studio", item: "https://orions.agency/studio" },
-      ],
-    },
-    {
-      "@type": "CollectionPage",
-      name: "ØRIONS Studio",
-      url: "https://orions.agency/studio",
-      description: "Original content and studio concepts produced by ØRIONS in Bangkok.",
-    },
-  ],
-};
-
 const StudioPage = () => {
-  const { lang, t } = useLanguage();
-
   return (
     <main className="bg-background min-h-screen grain-overlay">
       <SEO
-        title="Studio | Original Content Production by ØRIONS"
-        description="Explore ØRIONS Studio, where our Bangkok team develops original podcasts, documentary concepts, and branded entertainment ideas."
+        title="Studio — ØRIONS Original Productions"
+        description="ØRIONS Studio produces original content — documentaries, podcasts, and shows that showcase our creative vision beyond client work."
         path="/studio"
-        keywords="studio content Bangkok, original content production Thailand, documentary production Bangkok"
-        schema={studioSchema}
       />
       <Navbar />
-      <div className="pt-20">
-        <section className="pt-16 md:pt-24 pb-8 md:pb-12 px-4 sm:px-6 md:px-12">
-          <div className="max-w-7xl mx-auto">
-            <AnimatedSection>
-              <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
-                <span className="text-accent-warm mr-2">✦</span> Studio
-              </p>
-              <h1 className="font-display text-[clamp(44px,6vw,96px)] leading-[0.9] tracking-[0.01em] text-foreground mb-6 max-w-4xl">
-                ORIGINAL <span className="text-accent-gradient">CONTENT.</span>
-              </h1>
-              <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-2xl">
-                {t("Beyond client work, we create original content that shows our taste, capability, and point of view as a Bangkok creative studio.", "นอกเหนือจากงานลูกค้า เราสร้างผลงานต้นฉบับที่แสดงรสนิยม มุมมอง และความสามารถของ creative studio จากกรุงเทพฯ")}
-              </p>
-            </AnimatedSection>
-          </div>
-        </section>
 
-        <section className="px-4 sm:px-6 md:px-12 py-8 md:py-12 pb-20">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
-              {studioProjects.map((p, i) => (
-                <AnimatedSection key={p.num} delay={i * 0.08}>
-                  <div className="group relative border border-border hover:border-accent-warm/30 transition-all duration-500 h-full flex flex-col overflow-hidden">
-                    <div className="absolute top-3 left-3 w-4 h-4 border-t border-l border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500 z-10" />
-                    <div className="absolute top-3 right-3 w-4 h-4 border-t border-r border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500 z-10" />
-                    <div className="absolute bottom-3 left-3 w-4 h-4 border-b border-l border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500 z-10" />
-                    <div className="absolute bottom-3 right-3 w-4 h-4 border-b border-r border-accent-warm/0 group-hover:border-accent-warm/30 transition-all duration-500 z-10" />
+      {/* Hero */}
+      <section className="min-h-[60vh] flex items-end px-4 sm:px-6 md:px-12 pb-16 md:pb-24 pt-24">
+        <div className="max-w-5xl mx-auto w-full">
+          <AnimatedSection>
+            <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">
+              <span className="text-accent-warm mr-2">✦</span> Studio
+            </p>
+          </AnimatedSection>
+          <AnimatedSection delay={0.2}>
+            <h1 className="font-display text-[clamp(40px,8vw,110px)] leading-[0.9] tracking-[0.01em] text-foreground">
+              OUR <span className="text-accent-gradient">SHOWS.</span>
+            </h1>
+          </AnimatedSection>
+          <AnimatedSection delay={0.4}>
+            <p className="font-body text-[16px] md:text-[18px] leading-[1.7] text-muted-foreground mt-8 max-w-2xl">
+              Beyond client work, we produce original content — documentaries, podcasts, and shows that represent our taste, vision, and creative point of view.
+            </p>
+          </AnimatedSection>
+        </div>
+      </section>
 
-                    <div className="relative aspect-[16/10] overflow-hidden">
-                      <img
-                        src={p.image}
-                        alt={p.title}
-                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-[1.05] transition-all duration-700"
-                        loading="lazy"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
-                      <div className="absolute top-4 right-4">
-                        <span className="font-mono text-[10px] tracking-[0.1em] uppercase text-accent-warm/90 bg-background/80 backdrop-blur-sm border border-accent-warm/20 px-3 py-1">
-                          {p.status}
-                        </span>
-                      </div>
+      {/* Shows */}
+      <section className="px-4 sm:px-6 md:px-12 py-16 md:py-24">
+        <div className="max-w-6xl mx-auto">
+          <div className="space-y-0">
+            {shows.map((show, i) => (
+              <AnimatedSection key={show.num} delay={i * 0.08}>
+                <div className="group relative border-b border-border py-12 md:py-16 hover:bg-foreground/[0.02] transition-colors duration-500 px-4 md:px-8 -mx-4 md:-mx-8">
+                  <div className="flex flex-col md:flex-row md:items-start gap-6 md:gap-12">
+                    {/* Number + Status */}
+                    <div className="shrink-0 flex items-center gap-4 md:flex-col md:items-start md:gap-3 md:w-32">
+                      <span className="font-display text-[36px] md:text-[48px] leading-none text-accent-warm/15 group-hover:text-accent-warm/40 transition-colors duration-500">
+                        {show.num}
+                      </span>
+                      <span className="font-mono text-[9px] tracking-[0.1em] uppercase text-accent-warm/60 border border-accent-warm/20 px-2 py-1">
+                        {show.status}
+                      </span>
                     </div>
 
-                    <div className="p-8 md:p-8 flex flex-col flex-1">
-                      <div className="flex items-center gap-4 mb-4">
-                        <span className="font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground/40">{p.num}</span>
-                        <span className="font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground">{p.type}</span>
+                    {/* Content */}
+                    <div className="flex-1">
+                      <div className="flex items-center gap-4 mb-3">
+                        <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground/50">{show.type}</span>
                       </div>
-
-                      <h2 className="font-display text-[clamp(28px,3.5vw,40px)] leading-[0.9] tracking-[0.01em] text-foreground mb-4 group-hover:text-accent-warm transition-colors duration-500">
-                        {p.title}
+                      <h2 className="font-display text-[clamp(28px,4vw,56px)] leading-[0.9] tracking-[0.02em] text-foreground group-hover:text-accent-warm transition-colors duration-300 mb-4">
+                        {show.title}
                       </h2>
-
-                      <p className="font-body text-[14px] leading-[1.7] text-foreground/70 mb-6 flex-1">
-                        {p.desc[lang]}
+                      <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-xl mb-2">
+                        {show.descEn}
                       </p>
-
-                      <div className="mb-5">
-                        <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/50 mb-1.5">Format</h4>
-                        <p className="font-mono text-[11px] leading-[1.6] text-foreground/60">{p.format[lang]}</p>
-                      </div>
-
-                      <div className="border-t border-border/50 pt-5">
-                        <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/50 mb-1.5">Purpose</h4>
-                        <p className="font-body text-[13px] leading-[1.7] text-muted-foreground">{p.purpose[lang]}</p>
-                      </div>
+                      <p className="font-body text-[14px] leading-[1.7] text-muted-foreground/60 max-w-xl mb-6">
+                        {show.desc}
+                      </p>
+                      <span className="font-mono text-[10px] tracking-[0.1em] text-muted-foreground/40">
+                        {show.format}
+                      </span>
                     </div>
                   </div>
-                </AnimatedSection>
-              ))}
-            </div>
+                </div>
+              </AnimatedSection>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="px-4 sm:px-6 md:px-12 py-20 md:py-32 pb-32 md:pb-48">
-          <div className="max-w-7xl mx-auto text-center">
-            <AnimatedSection>
-              <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
-                <span className="text-accent-warm mr-2">△</span> Collaborate
-              </p>
-              <h2 className="font-display text-[clamp(36px,5vw,72px)] leading-[0.92] tracking-[0.01em] text-foreground mb-6">
-                WANT TO BUILD
-                <br />AN ORIGINAL FORMAT?
-              </h2>
-              <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-xl mx-auto mb-10">
-                {t("If your brand wants branded entertainment, documentary storytelling, or a new content format, let's shape it together.", "ถ้าแบรนด์ของคุณอยากทำ branded entertainment, documentary storytelling หรือรูปแบบคอนเทนต์ใหม่ มาสร้างไปด้วยกัน")}
-              </p>
-              <div className="flex flex-wrap items-center justify-center gap-8">
-                <Link to="/contact" className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-background bg-foreground px-8 py-3 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300">
-                  Start a Studio Brief <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
-                </Link>
-                <Link to="/work" className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300">
-                  See Client Work <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
-                </Link>
-              </div>
-            </AnimatedSection>
-          </div>
-        </section>
-      </div>
+      {/* CTA */}
+      <section className="py-24 md:py-40 px-4 sm:px-6 md:px-12 border-t border-border">
+        <div className="max-w-4xl mx-auto text-center">
+          <AnimatedSection>
+            <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
+              <span className="text-accent-warm mr-2">△</span> Collaborate
+            </p>
+            <h2 className="font-display text-[clamp(32px,5vw,72px)] leading-[0.92] tracking-[0.01em] text-foreground mb-6">
+              WANT TO BUILD<br />SOMETHING ORIGINAL?
+            </h2>
+            <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-xl mx-auto mb-10">
+              If your brand wants branded entertainment, documentary storytelling, or a completely new content format — let's create it together.
+            </p>
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-primary-foreground bg-primary px-10 py-3.5 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300"
+            >
+              Start a Studio Brief <span>→</span>
+            </Link>
+          </AnimatedSection>
+        </div>
+      </section>
+
       <Footer />
     </main>
   );

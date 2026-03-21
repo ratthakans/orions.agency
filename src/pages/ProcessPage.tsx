@@ -1,27 +1,62 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
+import { useRef } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 import SEO from "@/components/SEO";
 
 const phases = [
-  { num: "I", title: "See Differently", desc: "See the brand from a new angle. Audit perception, find the gap." },
-  { num: "II", title: "Reframe Perception", desc: "Change how people see the brand. Define a new story angle." },
-  { num: "III", title: "Make It Real", desc: "Create something people can feel. Campaigns, films, content." },
-  { num: "IV", title: "Scale Impact", desc: "Expand the result into growth. Measure, iterate, scale." },
+  {
+    num: "01",
+    title: "See Differently",
+    desc: "See the brand from a new angle. Audit perception, find the gap.",
+    details: ["Brand perception audit", "Market & competitor analysis", "Audience insight mapping", "Gap identification"],
+  },
+  {
+    num: "02",
+    title: "Reframe Perception",
+    desc: "Change how people see the brand. Define a new story angle.",
+    details: ["Positioning strategy", "Narrative framework", "Creative direction", "Brand voice"],
+  },
+  {
+    num: "03",
+    title: "Make It Real",
+    desc: "Create something people can feel. Campaigns, films, content.",
+    details: ["Campaign development", "Film & production", "Content creation", "Visual identity"],
+  },
+  {
+    num: "04",
+    title: "Scale Impact",
+    desc: "Expand the result into growth. Measure, iterate, scale.",
+    details: ["Launch & rollout", "Performance tracking", "Iteration & optimization", "Growth scaling"],
+  },
+];
+
+const beliefs = [
+  "Growth starts when perception shifts.",
+  "People don't need more content. They need something worth noticing.",
+  "Story without execution is a dream. Execution without story is noise.",
+  "Most brands aren't boring. They're just seen the wrong way.",
+];
+
+const manifesto = [
+  "We exist because brands deserve to be seen for what they really are.",
+  "We believe creativity isn't decoration — it's strategy.",
+  "We don't chase trends. We set the angle.",
+  "Every project starts with one question: how should people see this brand?",
+  "The answer changes everything.",
 ];
 
 const ProcessPage = () => {
   const lineRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: lineRef, offset: ["start center", "end center"] });
-  const lineWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
     <main className="bg-background min-h-screen grain-overlay">
       <SEO
-        title="Our Process — ØRIONS"
-        description="See differently. Reframe perception. Make it real. Scale impact. Our 4-step creative growth process."
+        title="How We Work — ØRIONS"
+        description="See differently. Reframe perception. Make it real. Scale impact. Our creative growth process and philosophy."
         path="/process"
       />
       <Navbar />
@@ -48,34 +83,94 @@ const ProcessPage = () => {
         </div>
       </section>
 
-      {/* Process steps with animated connecting line */}
+      {/* Vertical timeline process */}
       <section ref={lineRef} className="py-24 md:py-40 px-4 sm:px-6 md:px-12">
-        <div className="max-w-7xl mx-auto">
-          {/* Desktop: connecting line */}
-          <div className="hidden lg:block relative mb-20">
-            <div className="h-px bg-border w-full relative">
-              <motion.div
-                style={{ width: lineWidth }}
-                className="absolute top-0 left-0 h-full bg-accent-warm"
-              />
-            </div>
-            <div className="grid grid-cols-4 mt-[-6px]">
-              {phases.map((_, i) => (
-                <div key={i} className="flex justify-center">
-                  <div className="w-3 h-3 bg-accent-warm" />
-                </div>
-              ))}
-            </div>
+        <div className="max-w-6xl mx-auto relative">
+          {/* Vertical animated line — desktop only */}
+          <div className="hidden md:block absolute left-8 top-0 bottom-0 w-px bg-border">
+            <motion.div
+              style={{ height: lineHeight }}
+              className="w-full bg-accent-warm origin-top"
+            />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+          <div className="space-y-0">
             {phases.map((phase, i) => (
-              <AnimatedSection key={phase.num} delay={i * 0.12}>
-                <div className="text-center lg:px-4">
-                  <span className="font-mono text-[12px] tracking-[0.2em] text-accent-warm/60 block mb-4">{phase.num}</span>
-                  <h3 className="font-display text-[26px] md:text-[32px] tracking-[0.02em] text-foreground mb-4">{phase.title}</h3>
-                  <p className="font-body text-[14px] leading-[1.7] text-muted-foreground">{phase.desc}</p>
+              <AnimatedSection key={phase.num} delay={i * 0.1}>
+                <div className="relative md:pl-24 py-12 md:py-16 border-b border-border last:border-b-0 group">
+                  {/* Dot on line */}
+                  <div className="hidden md:block absolute left-[26px] top-16 w-[13px] h-[13px] border-2 border-accent-warm bg-background z-10 group-hover:bg-accent-warm transition-colors duration-300" />
+
+                  <div className="flex flex-col md:flex-row md:items-start gap-6 md:gap-16">
+                    <div className="shrink-0">
+                      <span className="font-display text-[48px] md:text-[64px] leading-none text-accent-warm/15 group-hover:text-accent-warm/30 transition-colors duration-500">
+                        {phase.num}
+                      </span>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-display text-[32px] md:text-[44px] tracking-[0.02em] text-foreground mb-3 group-hover:text-accent-warm transition-colors duration-300">
+                        {phase.title}
+                      </h3>
+                      <p className="font-body text-[15px] md:text-[16px] leading-[1.7] text-muted-foreground mb-6 max-w-xl">
+                        {phase.desc}
+                      </p>
+                      <div className="flex flex-wrap gap-3">
+                        {phase.details.map((d) => (
+                          <span key={d} className="font-mono text-[10px] tracking-[0.1em] text-muted-foreground/50 border border-border/50 px-3 py-1.5">
+                            {d}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
                 </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* What We Believe — merged from Philosophy */}
+      <section className="py-24 md:py-40 px-4 sm:px-6 md:px-12 border-t border-border">
+        <div className="max-w-5xl mx-auto">
+          <AnimatedSection>
+            <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
+              <span className="text-accent-warm mr-2">✦</span> What We Believe
+            </p>
+            <h2 className="font-display text-[clamp(36px,6vw,72px)] leading-[0.9] tracking-[0.01em] text-foreground mb-4">
+              IDEAS FIRST.
+            </h2>
+            <h2 className="font-display text-[clamp(36px,6vw,72px)] leading-[0.9] tracking-[0.01em] text-accent-gradient">
+              EVERYTHING ELSE FOLLOWS.
+            </h2>
+          </AnimatedSection>
+
+          <div className="mt-20 md:mt-32 space-y-20 md:space-y-32">
+            {beliefs.map((text, i) => (
+              <AnimatedSection key={i} delay={0.1}>
+                <blockquote className={`max-w-4xl ${i % 2 === 0 ? '' : 'md:ml-auto md:text-right'}`}>
+                  <p className="font-display text-[clamp(28px,4.5vw,64px)] leading-[0.95] tracking-[0.01em] text-foreground/90">
+                    "{text}"
+                  </p>
+                </blockquote>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Manifesto */}
+      <section className="py-24 md:py-40 px-4 sm:px-6 md:px-12 border-t border-border">
+        <div className="max-w-4xl mx-auto">
+          <AnimatedSection>
+            <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-warm/60 mb-12">Manifesto</p>
+          </AnimatedSection>
+          <div className="space-y-8">
+            {manifesto.map((line, i) => (
+              <AnimatedSection key={i} delay={i * 0.08}>
+                <p className="font-body text-[clamp(18px,2.5vw,28px)] leading-[1.6] text-foreground/80">
+                  {line}
+                </p>
               </AnimatedSection>
             ))}
           </div>

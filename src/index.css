@@ -171,13 +171,13 @@ html {
   animation: blur-reveal 1s ease-out forwards;
 }
 
-/* Service card glow */
+/* Service card hover — simple, no shadow */
 .service-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, border-color 0.3s ease;
 }
 .service-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 0 30px hsl(48 100% 50% / 0.08), 0 0 60px hsl(48 100% 50% / 0.04);
+  transform: translateY(-2px);
+  border-color: hsl(48 100% 50% / 0.2);
 }
 
 /* Scroll-drawn line */

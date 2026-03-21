@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 const phrases = [
   "unlock new markets.",
   "unlock new demand.",
+  "unlock new ideas.",
   "unlock new growth.",
 ];
 

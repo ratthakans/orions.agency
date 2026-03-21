@@ -59,19 +59,10 @@ const Index = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.55 }}
-            className="font-display text-[clamp(40px,8vw,120px)] leading-[0.9] tracking-[0.01em] mb-10 min-h-[1.1em]"
+            className="font-display text-[clamp(40px,8vw,120px)] leading-[0.9] tracking-[0.01em] mb-12 min-h-[1.1em]"
           >
-            We <HeroTypewriter />
+            And <HeroTypewriter />
           </motion.div>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="font-body text-[16px] md:text-[18px] leading-[1.7] text-muted-foreground max-w-xl mx-auto mb-12"
-          >
-            A creative agency that turns ideas into demand through story-driven creativity.
-          </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}

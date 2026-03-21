@@ -18,6 +18,7 @@ import ContactPage2 from "./pages/ContactPage2";
 import StudioPage from "./pages/StudioPage";
 import AboutPage from "./pages/AboutPage";
 import WorkPage from "./pages/WorkPage";
+import WorkDetailPage from "./pages/WorkDetailPage";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +34,7 @@ const App = () => (
             <Route path="/" element={<PageTransition><Index /></PageTransition>} />
             <Route path="/about" element={<PageTransition><AboutPage /></PageTransition>} />
             <Route path="/work" element={<PageTransition><WorkPage /></PageTransition>} />
+            <Route path="/work/:slug" element={<PageTransition><WorkDetailPage /></PageTransition>} />
             <Route path="/problem" element={<PageTransition><ProblemPage /></PageTransition>} />
             <Route path="/services" element={<PageTransition><ServicesPage2 /></PageTransition>} />
             <Route path="/process" element={<PageTransition><ProcessPage /></PageTransition>} />

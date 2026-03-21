@@ -35,12 +35,12 @@ const Index = () => {
       <Navbar />
 
       {/* ═══ HERO WITH VIDEO ═══ */}
-      <section ref={heroRef} className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      <section ref={heroRef} className="h-screen flex items-center justify-center relative overflow-hidden">
         {/* YouTube Video Background */}
         <div className="absolute inset-0 z-0">
           <iframe
             src="https://www.youtube.com/embed/pT5BmAKGllg?autoplay=1&mute=1&loop=1&playlist=pT5BmAKGllg&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&vq=hd1080"
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] min-w-full min-h-full h-[56.25vw] pointer-events-none"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300vw] h-[300vh] min-w-[100vw] min-h-[100vh] pointer-events-none"
             allow="autoplay; encrypted-media"
             allowFullScreen
             title="Background video"
@@ -73,7 +73,7 @@ const Index = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.55 }}
-            className="font-display text-[clamp(40px,8vw,120px)] leading-[0.9] tracking-[0.01em] mb-12 min-h-[1.1em]"
+            className="font-display text-[clamp(32px,6.5vw,100px)] leading-[0.9] tracking-[0.01em] mb-12 whitespace-nowrap min-h-[1.1em]"
           >
             And <HeroTypewriter />
           </motion.div>
@@ -184,17 +184,24 @@ const Index = () => {
             </div>
           </AnimatedSection>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-0">
             {[
-              { num: "I", title: "See Differently" },
-              { num: "II", title: "Reframe Perception" },
-              { num: "III", title: "Make It Real" },
-              { num: "IV", title: "Scale Impact" },
+              { num: "01", title: "See Differently", desc: "Audit perception. Find the gap." },
+              { num: "02", title: "Reframe", desc: "Define a new positioning angle." },
+              { num: "03", title: "Make It Real", desc: "Turn strategy into creative work." },
+              { num: "04", title: "Activate", desc: "Launch with precision & impact." },
+              { num: "05", title: "Scale", desc: "Iterate, grow, evolve." },
             ].map((phase, i) => (
-              <AnimatedSection key={phase.num} delay={i * 0.1}>
-                <div className="text-center">
-                  <span className="font-mono text-[11px] tracking-[0.2em] text-accent-warm/60 block mb-3">{phase.num}</span>
-                  <h3 className="font-display text-[22px] md:text-[28px] tracking-[0.02em] text-foreground">{phase.title}</h3>
+              <AnimatedSection key={phase.num} delay={i * 0.08}>
+                <div className="relative border-t md:border-t-0 md:border-l border-border p-6 md:p-8 group hover:bg-accent-warm/5 transition-all duration-500 h-full">
+                  <div className="absolute top-0 left-0 w-full h-px md:w-px md:h-full bg-transparent group-hover:bg-accent-warm/40 transition-colors duration-500" />
+                  <span className="font-mono text-[10px] tracking-[0.2em] text-accent-warm/30 group-hover:text-accent-warm transition-colors duration-300 block mb-6">
+                    {phase.num}
+                  </span>
+                  <h3 className="font-display text-[20px] md:text-[24px] tracking-[0.02em] text-foreground mb-3 group-hover:text-accent-warm transition-colors duration-300">
+                    {phase.title}
+                  </h3>
+                  <p className="font-body text-[13px] leading-[1.6] text-muted-foreground/60">{phase.desc}</p>
                 </div>
               </AnimatedSection>
             ))}

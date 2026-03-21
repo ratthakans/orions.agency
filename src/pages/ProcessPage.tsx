@@ -94,6 +94,53 @@ const ProcessPage = () => {
         </div>
       </section>
 
+      {/* Painpoint Section */}
+      <section className="py-24 md:py-32 px-4 sm:px-6 md:px-12 border-t border-border">
+        <div className="max-w-5xl mx-auto">
+          <AnimatedSection>
+            <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-warm/60 mb-8">The Problem We See</p>
+          </AnimatedSection>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
+            <AnimatedSection delay={0.1}>
+              <div className="space-y-6">
+                <p className="font-display text-[clamp(24px,3.5vw,40px)] leading-[1.05] tracking-[0.01em] text-foreground">
+                  Most brands are doing more marketing than ever.
+                </p>
+                <p className="font-body text-[15px] leading-[1.8] text-muted-foreground">
+                  More content. More ads. More campaigns. More channels. More budget. But growth doesn't follow. People see the brand — but they don't feel anything.
+                </p>
+              </div>
+            </AnimatedSection>
+            <AnimatedSection delay={0.2}>
+              <div className="space-y-6">
+                {[
+                  "Spending more but getting diminishing returns",
+                  "Content that gets views but doesn't convert",
+                  "Competing on price because the brand feels generic",
+                  "Agencies that deliver assets but not direction",
+                  "Internal teams stretched thin with no creative clarity",
+                ].map((pain, i) => (
+                  <div key={i} className="flex items-start gap-4 py-3 border-b border-border/50 last:border-b-0">
+                    <span className="text-accent-warm/40 text-[10px] mt-1.5">✦</span>
+                    <p className="font-body text-[14px] leading-[1.7] text-muted-foreground">{pain}</p>
+                  </div>
+                ))}
+              </div>
+            </AnimatedSection>
+          </div>
+          <AnimatedSection delay={0.3}>
+            <div className="mt-16 md:mt-24 text-center">
+              <p className="font-display text-[clamp(22px,3vw,36px)] leading-[1.1] text-foreground">
+                It's not a marketing problem.
+              </p>
+              <p className="font-display text-[clamp(22px,3vw,36px)] leading-[1.1] text-accent-gradient mt-2">
+                It's a perception problem.
+              </p>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
       {/* Vertical timeline process */}
       <section ref={lineRef} className="py-24 md:py-40 px-4 sm:px-6 md:px-12">
         <div className="max-w-6xl mx-auto relative">

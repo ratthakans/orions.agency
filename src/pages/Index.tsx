@@ -96,9 +96,7 @@ const Index = () => {
             <p className="font-display text-[clamp(28px,5vw,64px)] leading-[0.95] tracking-[0.01em] text-accent-gradient mt-2">
               WE CHANGE HOW PEOPLE SEE YOU.
             </p>
-            <p className="font-body text-[16px] md:text-[18px] leading-[1.7] text-muted-foreground mt-8 max-w-lg mx-auto">
-              When perception shifts — growth follows.
-            </p>
+            
           </AnimatedSection>
           <AnimatedSection delay={0.2}>
             <div className="mt-10">

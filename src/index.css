@@ -27,8 +27,8 @@
     --accent: 0 0% 12%;
     --accent-foreground: 0 0% 90%;
 
-    --accent-warm: 37 42% 60%;
-    --accent-warm-end: 37 42% 55%;
+    --accent-warm: 48 100% 50%;
+    --accent-warm-end: 48 100% 45%;
     --accent-warm-foreground: 0 0% 4%;
     --accent-blue: 220 90% 56%;
     --accent-blue-foreground: 0 0% 100%;
@@ -38,7 +38,7 @@
 
     --border: 0 0% 14%;
     --input: 0 0% 14%;
-    --ring: 37 42% 60%;
+    --ring: 48 100% 50%;
 
     --radius: 0px;
 
@@ -49,13 +49,13 @@
     --sidebar-accent: 0 0% 8%;
     --sidebar-accent-foreground: 0 0% 90%;
     --sidebar-border: 0 0% 14%;
-    --sidebar-ring: 37 42% 60%;
+    --sidebar-ring: 48 100% 50%;
 
     --surface-elevated: 0 0% 6%;
     --text-secondary: 0 0% 54%;
     --text-tertiary: 0 0% 35%;
     --divider: 0 0% 16%;
-    --status-available: 37 42% 60%;
+    --status-available: 48 100% 50%;
   }
 }
 
@@ -138,11 +138,11 @@ html {
 
 /* Accent text — warm gold */
 .text-accent-gradient {
-  color: hsl(37 42% 60%);
+  color: hsl(48 100% 50%);
 }
 
 .bg-accent-gradient {
-  background: hsl(37 42% 60%);
+  background: hsl(48 100% 50%);
 }
 
 /* Scrollbar */
@@ -157,8 +157,57 @@ html {
 }
 
 ::selection {
-  background: hsl(37 42% 60% / 0.3);
+  background: hsl(48 100% 50% / 0.3);
   color: hsl(0 0% 100%);
+}
+
+/* Custom cursor */
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid hsl(48 100% 50%);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 99999;
+  transition: width 0.2s, height 0.2s, border-color 0.2s, background-color 0.2s;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+}
+
+.custom-cursor.expanded {
+  width: 48px;
+  height: 48px;
+  background: hsl(48 100% 50% / 0.1);
+}
+
+/* Cinematic blur reveal */
+@keyframes blur-reveal {
+  from { filter: blur(8px); opacity: 0; }
+  to { filter: blur(0px); opacity: 1; }
+}
+
+.animate-blur-reveal {
+  animation: blur-reveal 1s ease-out forwards;
+}
+
+/* Service card glow */
+.service-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 30px hsl(48 100% 50% / 0.08), 0 0 60px hsl(48 100% 50% / 0.04);
+}
+
+/* Scroll-drawn line */
+@keyframes draw-line {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.draw-line-animated {
+  animation: draw-line 1.5s ease-out forwards;
 }
 
 /* Grain overlay — very subtle, GPU-composited */

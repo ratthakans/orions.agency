@@ -20,6 +20,7 @@ const homeSchema = [
 ];
 
 const Index = () => {
+  const { lang } = useLanguage();
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
   const heroOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);

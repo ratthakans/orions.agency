@@ -3,9 +3,10 @@ import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 
 const navLinks = [
-  { label: "Problem", href: "/problem" },
+  { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Process", href: "/process" },
+  { label: "Studio", href: "/studio" },
   { label: "Contact", href: "/contact" },
 ];
 

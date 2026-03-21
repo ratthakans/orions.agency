@@ -18,9 +18,10 @@ const Footer = () => {
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-6">
               {[
-                { label: "Problem", href: "/problem" },
+                { label: "About", href: "/about" },
                 { label: "Services", href: "/services" },
                 { label: "Process", href: "/process" },
+                { label: "Studio", href: "/studio" },
                 { label: "Contact", href: "/contact" },
               ].map((link) => (
                 <Link

@@ -225,67 +225,36 @@ const Index = () => {
                 </p>
                 <h2 className="font-display text-[clamp(36px,6vw,72px)] leading-[0.9] tracking-[0.01em] text-foreground">CASE STUDIES.</h2>
               </div>
+              <Link
+                to="/work"
+                className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300 mt-4 md:mt-0"
+              >
+                View all work <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+              </Link>
             </div>
           </AnimatedSection>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                client: "Lifestyle Brand",
-                before: "Seen as just another commodity brand",
-                shift: "Reframed as a lifestyle experience",
-                outcome: "2x brand search volume in 3 months",
-              },
-              {
-                client: "B2B SaaS",
-                before: "Struggling to attract premium customers",
-                shift: "Repositioned from price to value narrative",
-                outcome: "35% increase in average deal size",
-              },
-              {
-                client: "D2C Brand",
-                before: "Low engagement despite high ad spend",
-                shift: "Shifted from product-first to story-first content",
-                outcome: "4x engagement rate, 50% lower CAC",
-              },
-            ].map((c, i) => (
-              <AnimatedSection key={i} delay={i * 0.12}>
-                <div className="border border-border group h-full flex flex-col hover:border-accent-warm/20 transition-colors duration-300">
-                  <div className="aspect-[16/10] bg-gradient-to-br from-muted/40 to-background relative overflow-hidden">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="font-display text-[40px] md:text-[48px] tracking-[0.02em] text-foreground/5 group-hover:text-accent-warm/10 transition-colors duration-500">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                    </div>
+            {works.slice(0, 3).map((w, i) => (
+              <AnimatedSection key={w.slug} delay={i * 0.12}>
+                <Link to={`/work/${w.slug}`} className="group block border border-border h-full hover:border-accent-warm/20 transition-colors duration-300">
+                  <div className="aspect-[16/10] overflow-hidden relative">
+                    <img src={w.image} alt={w.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" />
+                    <div className="absolute inset-0 bg-accent-warm/0 group-hover:bg-accent-warm/5 transition-all duration-500" />
                   </div>
-                  <div className="p-6 md:p-8 flex-1 flex flex-col">
-                    <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm/60 mb-4">{c.client}</p>
-                    <div className="space-y-4 flex-1">
-                      <div>
-                        <span className="font-mono text-[9px] tracking-[0.15em] uppercase text-muted-foreground/40 block mb-1">Before</span>
-                        <p className="font-body text-[13px] leading-[1.6] text-muted-foreground">{c.before}</p>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <div className="h-px flex-1 bg-accent-warm/20" />
-                        <span className="text-accent-warm text-[10px]">↓</span>
-                        <div className="h-px flex-1 bg-accent-warm/20" />
-                      </div>
-                      <div>
-                        <span className="font-mono text-[9px] tracking-[0.15em] uppercase text-accent-warm/40 block mb-1">Shift</span>
-                        <p className="font-body text-[13px] leading-[1.6] text-foreground/80">{c.shift}</p>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <div className="h-px flex-1 bg-accent-warm/20" />
-                        <span className="text-accent-warm text-[10px]">↓</span>
-                        <div className="h-px flex-1 bg-accent-warm/20" />
-                      </div>
-                      <div>
-                        <span className="font-mono text-[9px] tracking-[0.15em] uppercase text-accent-warm/40 block mb-1">Outcome</span>
-                        <p className="font-display text-[18px] md:text-[22px] tracking-[0.02em] text-accent-gradient">{c.outcome}</p>
-                      </div>
+                  <div className="p-6 md:p-8">
+                    <div className="flex items-center gap-3 mb-3">
+                      <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm/60">{w.service}</span>
+                      <span className="text-muted-foreground/30 text-[8px]">●</span>
+                      <span className="font-mono text-[10px] tracking-[0.1em] uppercase text-muted-foreground/50">{w.type}</span>
                     </div>
+                    <h3 className="font-display text-[22px] md:text-[26px] tracking-[0.02em] text-foreground mb-3 group-hover:text-accent-warm transition-colors duration-300">
+                      {w.title}
+                    </h3>
+                    <p className="font-body text-[13px] leading-[1.6] text-muted-foreground line-clamp-2">{w.brief[lang]}</p>
+                    <p className="font-display text-[16px] tracking-[0.02em] text-accent-gradient mt-4">{w.result}</p>
                   </div>
-                </div>
+                </Link>
               </AnimatedSection>
             ))}
           </div>

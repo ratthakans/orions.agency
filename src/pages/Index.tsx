@@ -184,17 +184,24 @@ const Index = () => {
             </div>
           </AnimatedSection>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-0">
             {[
-              { num: "I", title: "See Differently" },
-              { num: "II", title: "Reframe Perception" },
-              { num: "III", title: "Make It Real" },
-              { num: "IV", title: "Scale Impact" },
+              { num: "01", title: "See Differently", desc: "Audit perception. Find the gap." },
+              { num: "02", title: "Reframe", desc: "Define a new positioning angle." },
+              { num: "03", title: "Make It Real", desc: "Turn strategy into creative work." },
+              { num: "04", title: "Activate", desc: "Launch with precision & impact." },
+              { num: "05", title: "Scale", desc: "Iterate, grow, evolve." },
             ].map((phase, i) => (
-              <AnimatedSection key={phase.num} delay={i * 0.1}>
-                <div className="text-center">
-                  <span className="font-mono text-[11px] tracking-[0.2em] text-accent-warm/60 block mb-3">{phase.num}</span>
-                  <h3 className="font-display text-[22px] md:text-[28px] tracking-[0.02em] text-foreground">{phase.title}</h3>
+              <AnimatedSection key={phase.num} delay={i * 0.08}>
+                <div className="relative border-t md:border-t-0 md:border-l border-border p-6 md:p-8 group hover:bg-accent-warm/5 transition-all duration-500 h-full">
+                  <div className="absolute top-0 left-0 w-full h-px md:w-px md:h-full bg-transparent group-hover:bg-accent-warm/40 transition-colors duration-500" />
+                  <span className="font-mono text-[10px] tracking-[0.2em] text-accent-warm/30 group-hover:text-accent-warm transition-colors duration-300 block mb-6">
+                    {phase.num}
+                  </span>
+                  <h3 className="font-display text-[20px] md:text-[24px] tracking-[0.02em] text-foreground mb-3 group-hover:text-accent-warm transition-colors duration-300">
+                    {phase.title}
+                  </h3>
+                  <p className="font-body text-[13px] leading-[1.6] text-muted-foreground/60">{phase.desc}</p>
                 </div>
               </AnimatedSection>
             ))}

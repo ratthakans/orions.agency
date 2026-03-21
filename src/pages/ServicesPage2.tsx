@@ -78,6 +78,24 @@ const services = [
       timeline: "Ongoing or project-based",
     },
   },
+  {
+    title: "Event & Experience",
+    desc: "Create moments people remember. From concept to execution — events, activations, and brand experiences.",
+    tag: "200K – 1M+",
+    details: {
+      what: "End-to-end event and experience design — from concept and creative direction to production and on-site execution.",
+      includes: [
+        "Event concept & creative direction",
+        "Venue selection & production design",
+        "Stage design & visual identity",
+        "Run-of-show & logistics planning",
+        "On-site direction & coordination",
+        "Post-event content & documentation",
+      ],
+      who: "Brands launching products, hosting brand experiences, or creating community-building moments.",
+      timeline: "6–16 weeks",
+    },
+  },
 ];
 
 const retainers = [

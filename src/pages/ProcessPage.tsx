@@ -11,30 +11,35 @@ const phases = [
     title: "See Differently",
     desc: "See the brand from a new angle. Audit perception, find the gap between how you're seen and how you should be seen.",
     details: ["Brand perception audit", "Market & competitor analysis", "Audience insight mapping", "Gap identification"],
+    body: "We start by understanding how your brand is currently perceived — by customers, competitors, and the market. We map the gap between where you are and where you should be. This is where we find the real opportunity for growth.",
   },
   {
     num: "02",
     title: "Reframe Perception",
     desc: "Change how people see the brand. Define a new positioning, a new story angle that shifts everything.",
     details: ["Positioning strategy", "Narrative framework", "Creative direction", "Brand voice"],
+    body: "Once we see the gap, we define a new way for people to perceive your brand. New positioning, new narrative, new creative direction. This isn't a rebrand — it's a reframe. We change the angle so people see your brand the way it deserves to be seen.",
   },
   {
     num: "03",
     title: "Make It Real",
     desc: "Turn strategy into something people can feel. Campaigns, films, content, experiences.",
     details: ["Campaign development", "Film & production", "Content creation", "Visual identity"],
+    body: "Strategy means nothing if people can't feel it. We turn the new perception into tangible work — campaigns, films, content, brand experiences. Everything is designed to make the brand's new story impossible to ignore.",
   },
   {
     num: "04",
     title: "Launch & Activate",
     desc: "Put the work into the world. Coordinate channels, timing, and touchpoints for maximum impact.",
     details: ["Channel strategy", "Launch planning", "Campaign rollout", "Audience targeting"],
+    body: "We plan and execute the rollout across every relevant channel and touchpoint. Timing, sequencing, platform strategy — every detail is coordinated to maximize impact from day one. We don't just publish content — we orchestrate moments.",
   },
   {
     num: "05",
     title: "Scale & Evolve",
     desc: "Measure what works. Iterate fast. Scale the wins and evolve the story as the brand grows.",
     details: ["Performance tracking", "Data-driven iteration", "Growth scaling", "Long-term evolution"],
+    body: "After launch, we track performance, learn from data, and iterate fast. What works gets scaled. What doesn't gets refined. The story evolves as the brand grows — and we stay with you to keep pushing forward.",
   },
 ];
 
@@ -103,9 +108,9 @@ const ProcessPage = () => {
           <div className="space-y-0">
             {phases.map((phase, i) => (
               <AnimatedSection key={phase.num} delay={i * 0.1}>
-                <div className="relative md:pl-24 py-12 md:py-16 border-b border-border last:border-b-0 group">
+                <div className="relative md:pl-24 py-12 md:py-20 border-b border-border last:border-b-0 group">
                   {/* Dot on line */}
-                  <div className="hidden md:block absolute left-[26px] top-16 w-[13px] h-[13px] border-2 border-accent-warm bg-background z-10 group-hover:bg-accent-warm transition-colors duration-300" />
+                  <div className="hidden md:block absolute left-[26px] top-20 w-[13px] h-[13px] border-2 border-accent-warm bg-background z-10 group-hover:bg-accent-warm transition-colors duration-300" />
 
                   <div className="flex flex-col md:flex-row md:items-start gap-6 md:gap-16">
                     <div className="shrink-0">
@@ -117,8 +122,11 @@ const ProcessPage = () => {
                       <h3 className="font-display text-[32px] md:text-[44px] tracking-[0.02em] text-foreground mb-3 group-hover:text-accent-warm transition-colors duration-300">
                         {phase.title}
                       </h3>
-                      <p className="font-body text-[15px] md:text-[16px] leading-[1.7] text-muted-foreground mb-6 max-w-xl">
+                      <p className="font-body text-[15px] md:text-[16px] leading-[1.7] text-muted-foreground mb-4 max-w-xl">
                         {phase.desc}
+                      </p>
+                      <p className="font-body text-[14px] leading-[1.8] text-muted-foreground/70 mb-6 max-w-xl">
+                        {phase.body}
                       </p>
                       <div className="flex flex-wrap gap-3">
                         {phase.details.map((d) => (
@@ -136,7 +144,7 @@ const ProcessPage = () => {
         </div>
       </section>
 
-      {/* What We Believe — merged from Philosophy */}
+      {/* What We Believe */}
       <section className="py-24 md:py-40 px-4 sm:px-6 md:px-12 border-t border-border">
         <div className="max-w-5xl mx-auto">
           <AnimatedSection>

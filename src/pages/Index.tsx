@@ -34,9 +34,23 @@ const Index = () => {
       />
       <Navbar />
 
-      {/* ═══ HERO ═══ */}
-      <section ref={heroRef} className="min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-12 relative overflow-hidden">
-        <motion.div style={{ opacity: heroOpacity, y: heroY }} className="text-center max-w-5xl mx-auto relative z-10">
+      {/* ═══ HERO WITH VIDEO ═══ */}
+      <section ref={heroRef} className="min-h-screen flex items-center justify-center relative overflow-hidden">
+        {/* YouTube Video Background */}
+        <div className="absolute inset-0 z-0">
+          <iframe
+            src="https://www.youtube.com/embed/pT5BmAKGllg?autoplay=1&mute=1&loop=1&playlist=pT5BmAKGllg&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&vq=hd1080"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] min-w-full min-h-full h-[56.25vw] pointer-events-none"
+            allow="autoplay; encrypted-media"
+            allowFullScreen
+            title="Background video"
+            style={{ border: 0 }}
+          />
+          {/* Dark overlay */}
+          <div className="absolute inset-0 bg-background/70" />
+        </div>
+
+        <motion.div style={{ opacity: heroOpacity, y: heroY }} className="text-center max-w-5xl mx-auto relative z-10 px-4 sm:px-6 md:px-12">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -96,7 +110,6 @@ const Index = () => {
             <p className="font-display text-[clamp(28px,5vw,64px)] leading-[0.95] tracking-[0.01em] text-accent-gradient mt-2">
               WE CHANGE HOW PEOPLE SEE YOU.
             </p>
-            
           </AnimatedSection>
           <AnimatedSection delay={0.2}>
             <div className="mt-10">
@@ -226,7 +239,6 @@ const Index = () => {
             ].map((c, i) => (
               <AnimatedSection key={i} delay={i * 0.12}>
                 <div className="border border-border group h-full flex flex-col hover:border-accent-warm/20 transition-colors duration-300">
-                  {/* Visual placeholder */}
                   <div className="aspect-[16/10] bg-gradient-to-br from-muted/40 to-background relative overflow-hidden">
                     <div className="absolute inset-0 flex items-center justify-center">
                       <span className="font-display text-[40px] md:text-[48px] tracking-[0.02em] text-foreground/5 group-hover:text-accent-warm/10 transition-colors duration-500">
@@ -236,8 +248,6 @@ const Index = () => {
                   </div>
                   <div className="p-6 md:p-8 flex-1 flex flex-col">
                     <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm/60 mb-4">{c.client}</p>
-                    
-                    {/* Before → Shift → Outcome flow */}
                     <div className="space-y-4 flex-1">
                       <div>
                         <span className="font-mono text-[9px] tracking-[0.15em] uppercase text-muted-foreground/40 block mb-1">Before</span>

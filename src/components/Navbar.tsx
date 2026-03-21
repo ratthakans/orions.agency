@@ -45,6 +45,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-[60px]">
         <Link to="/" className="flex items-center">
           <span className="font-logo text-[13px] font-medium tracking-[0.08em] text-foreground uppercase">ØRIONS</span>
+          <span className="hidden md:inline font-mono text-[9px] tracking-[0.15em] uppercase text-muted-foreground ml-3">Creative Agency</span>
         </Link>
 
         {/* Desktop */}

@@ -81,9 +81,9 @@ const ContactPage2 = () => {
                 <div>
                   <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-warm/60 mb-3">Office</p>
                   <p className="font-body text-[15px] leading-[1.8] text-muted-foreground">
-                    246/8 ซอย โยธินพัฒนา<br />
-                    แขวงคลองจั่น เขตบางกะปิ<br />
-                    กรุงเทพมหานคร 10240
+                    246/8 Soi Yothin Pattana<br />
+                    Khlong Chan, Bang Kapi<br />
+                    Bangkok 10240, Thailand
                   </p>
                 </div>
 

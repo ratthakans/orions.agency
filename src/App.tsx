@@ -35,7 +35,7 @@ const App = () => (
             <Route path="/about" element={<PageTransition><AboutPage /></PageTransition>} />
             <Route path="/work" element={<PageTransition><WorkPage /></PageTransition>} />
             <Route path="/work/:slug" element={<PageTransition><WorkDetailPage /></PageTransition>} />
-            <Route path="/problem" element={<PageTransition><ProblemPage /></PageTransition>} />
+            <Route path="/problem" element={<Navigate to="/process" replace />} />
             <Route path="/services" element={<PageTransition><ServicesPage2 /></PageTransition>} />
             <Route path="/process" element={<PageTransition><ProcessPage /></PageTransition>} />
             <Route path="/philosophy" element={<Navigate to="/process" replace />} />

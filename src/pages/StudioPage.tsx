@@ -81,7 +81,6 @@ const shows = [
   {
     num: "05",
     title: "IN BETWEEN DAY",
-    titleTh: "ระหว่างวัน",
     type: "Lifestyle Documentary",
     status: "Concept",
     image: imgInBetweenDay,

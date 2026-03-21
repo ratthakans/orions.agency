@@ -15,14 +15,24 @@ import teamAe from "@/assets/team-fern.jpg";
 import teamPm from "@/assets/team-joy.jpg";
 import teamSenior from "@/assets/team-mai.jpg";
 
-const team = [
+import teamDirector from "@/assets/team-director.jpg";
+import teamPr from "@/assets/team-pr.jpg";
+import teamPostSup from "@/assets/team-post-sup.jpg";
+
+const cLevel = [
   { name: "Founder", role: "Vision & Direction", image: teamFounder },
   { name: "CEO", role: "Business & Growth", image: teamCeo },
   { name: "CFO", role: "Finance & Operations", image: teamCfo },
+];
+
+const teamMembers = [
   { name: "Creative Director", role: "Creative Direction", image: teamCd },
   { name: "Art Director", role: "Visual Design", image: teamAd },
+  { name: "Director", role: "Film Direction", image: teamDirector },
   { name: "Editor / DOP", role: "Cinematography & Edit", image: teamEditorDop },
   { name: "Editor", role: "Post-production", image: teamEditor },
+  { name: "Post Supervisor", role: "Post Workflow", image: teamPostSup },
+  { name: "Public Relations", role: "Brand Communications", image: teamPr },
   { name: "Account Executive", role: "Client Relations", image: teamAe },
   { name: "Project Manager", role: "Project Management", image: teamPm },
   { name: "Creative Senior", role: "Creative Strategy", image: teamSenior },

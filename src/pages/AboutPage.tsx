@@ -4,17 +4,28 @@ import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 import SEO from "@/components/SEO";
 
+import teamFounder from "@/assets/team-somchai.jpg";
+import teamCeo from "@/assets/team-tawan.jpg";
+import teamCfo from "@/assets/team-nari.jpg";
+import teamCd from "@/assets/team-krit.jpg";
+import teamAd from "@/assets/team-pim.jpg";
+import teamEditorDop from "@/assets/team-arun.jpg";
+import teamEditor from "@/assets/team-dao.jpg";
+import teamAe from "@/assets/team-fern.jpg";
+import teamPm from "@/assets/team-joy.jpg";
+import teamSenior from "@/assets/team-mai.jpg";
+
 const team = [
-  { name: "Founder", role: "Vision & Direction" },
-  { name: "CEO", role: "Business & Growth" },
-  { name: "CFO", role: "Finance & Operations" },
-  { name: "Creative Director", role: "Creative Direction" },
-  { name: "Art Director", role: "Visual Design" },
-  { name: "Editor / DOP", role: "Cinematography & Edit" },
-  { name: "Editor", role: "Post-production" },
-  { name: "Account Executive", role: "Client Relations" },
-  { name: "Project Manager", role: "Project Management" },
-  { name: "Creative Senior", role: "Creative Strategy" },
+  { name: "Founder", role: "Vision & Direction", image: teamFounder },
+  { name: "CEO", role: "Business & Growth", image: teamCeo },
+  { name: "CFO", role: "Finance & Operations", image: teamCfo },
+  { name: "Creative Director", role: "Creative Direction", image: teamCd },
+  { name: "Art Director", role: "Visual Design", image: teamAd },
+  { name: "Editor / DOP", role: "Cinematography & Edit", image: teamEditorDop },
+  { name: "Editor", role: "Post-production", image: teamEditor },
+  { name: "Account Executive", role: "Client Relations", image: teamAe },
+  { name: "Project Manager", role: "Project Management", image: teamPm },
+  { name: "Creative Senior", role: "Creative Strategy", image: teamSenior },
 ];
 
 const AboutPage = () => {
@@ -101,7 +112,7 @@ const AboutPage = () => {
               { title: "Long-Term Partners", desc: "We don't do one-off projects. We become your creative brain — thinking with you, growing with you." },
             ].map((v, i) => (
               <AnimatedSection key={v.title} delay={i * 0.1}>
-                <div className="border border-border p-8 md:p-10 h-full">
+                <div className="border border-border p-8 md:p-10 h-full hover:border-accent-warm/20 transition-colors duration-300">
                   <h3 className="font-display text-[24px] md:text-[28px] tracking-[0.02em] text-foreground mb-4">
                     {v.title}
                   </h3>
@@ -132,11 +143,12 @@ const AboutPage = () => {
               <AnimatedSection key={i} delay={i * 0.05}>
                 <div className="group">
                   <div className="aspect-[3/4] bg-foreground/5 border border-border mb-4 overflow-hidden relative">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="font-display text-[48px] text-foreground/10 group-hover:text-accent-warm/20 transition-colors duration-500">
-                        Ø
-                      </span>
-                    </div>
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                      loading="lazy"
+                    />
                   </div>
                   <p className="font-mono text-[11px] tracking-[0.08em] text-foreground mb-1">
                     {member.name}

@@ -3,7 +3,6 @@ import { Link, useSearchParams } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import SEO from "@/components/SEO";
 import { useLanguage } from "@/contexts/LanguageContext";
 import workNorthwind from "@/assets/work-northwind.jpg";
@@ -17,40 +16,119 @@ import workField from "@/assets/work-field.jpg";
 import workVela from "@/assets/work-vela.jpg";
 
 const works = [
-  { title: "Northwind Electric", service: "Film & Production", type: "Campaign Film", brief: { en: "A cinematic campaign film launching Northwind's entry into the Southeast Asian EV market.", th: "Campaign film ระดับภาพยนตร์สำหรับการเปิดตัว Northwind ในตลาด EV" }, deliverables: ["Campaign Film", "Director's Cut", "Social Cutdowns", "Behind the Scenes"], image: workNorthwind },
-  { title: "Atlas Property Group", service: "Film & Production", type: "Documentary", brief: { en: "A brand documentary capturing the vision behind Atlas's luxury developments.", th: "Brand documentary ถ่ายทอดวิสัยทัศน์เบื้องหลังโครงการ luxury ของ Atlas" }, deliverables: ["Documentary Film", "Interview Series", "Sizzle Reel", "Photography"], image: workAtlas },
-  { title: "Koha Culture Studio", service: "Creative Communication", type: "Brand Story", brief: { en: "A brand story video series exploring contemporary art and community.", th: "ซีรีส์วิดีโอเรื่องราวแบรนด์สำรวจศิลปะร่วมสมัยและชุมชน" }, deliverables: ["Brand Video", "Artist Profiles", "Event Documentation", "Social Content"], image: workKoha },
-  { title: "Lumen Health", service: "Creative Partner", type: "Content System", brief: { en: "A comprehensive content system for a digital health platform.", th: "ระบบ content ครบวงจรสำหรับแพลตฟอร์มสุขภาพดิจิทัล" }, deliverables: ["Content Strategy", "Editorial Calendar", "Video Series", "Blog System"], image: workLumen },
-  { title: "Sera Hospitality", service: "Film & Production", type: "Campaign Film", brief: { en: "A campaign film capturing the essence of Sera's luxury hospitality.", th: "Campaign film ถ่ายทอดแก่นแท้ของ luxury hospitality ของ Sera" }, deliverables: ["Hero Film", "Property Films", "Social Series", "Print Campaign"], image: workSera },
-  { title: "Muse Education", service: "Creative Communication", type: "Brand Story", brief: { en: "A brand story film positioning Muse as the future of creative education.", th: "Brand story film วาง positioning ให้ Muse เป็นอนาคตของ creative education" }, deliverables: ["Brand Film", "Student Stories", "Campus Tour", "Recruitment Video"], image: workMuse },
-  { title: "Orbit Fintech", service: "Creative Transformation", type: "Brand Transformation", brief: { en: "Complete creative transformation for a fintech startup — from positioning to campaign.", th: "Creative transformation ครบวงจรสำหรับ fintech startup — จาก positioning สู่ campaign" }, deliverables: ["Positioning", "Narrative", "Campaign Concept", "Content Direction"], image: workOrbit },
-  { title: "Field Notes Coffee", service: "Film & Production", type: "Documentary", brief: { en: "A documentary following the journey from farm to cup.", th: "สารคดีตามเส้นทางจากไร่ถึงแก้ว" }, deliverables: ["Documentary", "Origin Series", "Barista Profiles", "Social Content"], image: workField },
-  { title: "Vela Fashion", service: "Creative Transformation", type: "Brand Transformation", brief: { en: "A complete brand transformation for Vela's debut collection launch.", th: "Brand transformation ครบวงจรสำหรับการเปิดตัวคอลเลกชันแรกของ Vela" }, deliverables: ["Positioning", "Campaign Film", "Lookbook", "Launch Strategy"], image: workVela },
+  {
+    slug: "northwind-electric",
+    title: "Northwind Electric",
+    service: "Film & Production",
+    type: "Campaign Film",
+    brief: { en: "A cinematic campaign film launching Northwind's entry into the Southeast Asian EV market.", th: "Campaign film ระดับภาพยนตร์สำหรับการเปิดตัว Northwind ในตลาด EV" },
+    deliverables: ["Campaign Film", "Director's Cut", "Social Cutdowns", "Behind the Scenes"],
+    challenge: "Northwind needed to launch in Southeast Asia — a market already crowded with established EV brands. They had no brand awareness and no emotional connection with the audience.",
+    approach: "We created a cinematic campaign film that focused on the feeling of driving electric in Bangkok's streets — not the specs. The film positioned Northwind as a lifestyle brand, not just an EV company.",
+    result: "The launch campaign generated 2.3M organic views in the first week. Brand search volume increased 180% in Thailand within 3 months.",
+    image: workNorthwind,
+  },
+  {
+    slug: "atlas-property-group",
+    title: "Atlas Property Group",
+    service: "Film & Production",
+    type: "Documentary",
+    brief: { en: "A brand documentary capturing the vision behind Atlas's luxury developments.", th: "Brand documentary ถ่ายทอดวิสัยทัศน์เบื้องหลังโครงการ luxury ของ Atlas" },
+    deliverables: ["Documentary Film", "Interview Series", "Sizzle Reel", "Photography"],
+    challenge: "Atlas was perceived as just another luxury property developer. They needed to differentiate in an oversaturated premium real estate market.",
+    approach: "We produced a documentary that told the founder's story — why these buildings exist and who they're built for. It shifted the conversation from square meters to meaning.",
+    result: "The documentary became Atlas's most shared piece of content. Pre-sales for the featured development exceeded targets by 40%.",
+    image: workAtlas,
+  },
+  {
+    slug: "koha-culture-studio",
+    title: "Koha Culture Studio",
+    service: "Creative Communication",
+    type: "Brand Story",
+    brief: { en: "A brand story video series exploring contemporary art and community.", th: "ซีรีส์วิดีโอเรื่องราวแบรนด์สำรวจศิลปะร่วมสมัยและชุมชน" },
+    deliverables: ["Brand Video", "Artist Profiles", "Event Documentation", "Social Content"],
+    challenge: "Koha was a hidden gem in Bangkok's art scene — incredible work but almost invisible to a broader audience.",
+    approach: "We created a video series profiling the artists and their processes, making the studio accessible without dumbing it down. Each piece was designed for shareability.",
+    result: "Social following grew 300% in 4 months. Three artist profiles went viral, bringing international attention to the studio.",
+    image: workKoha,
+  },
+  {
+    slug: "lumen-health",
+    title: "Lumen Health",
+    service: "Creative Partner",
+    type: "Content System",
+    brief: { en: "A comprehensive content system for a digital health platform.", th: "ระบบ content ครบวงจรสำหรับแพลตฟอร์มสุขภาพดิจิทัล" },
+    deliverables: ["Content Strategy", "Editorial Calendar", "Video Series", "Blog System"],
+    challenge: "Lumen had great technology but couldn't communicate its value in a way that resonated with everyday users.",
+    approach: "We built a complete content system — from editorial strategy to monthly video series — that translated complex health tech into human stories people actually cared about.",
+    result: "User engagement increased 4x. The content system now generates 60% of new user signups organically.",
+    image: workLumen,
+  },
+  {
+    slug: "sera-hospitality",
+    title: "Sera Hospitality",
+    service: "Film & Production",
+    type: "Campaign Film",
+    brief: { en: "A campaign film capturing the essence of Sera's luxury hospitality.", th: "Campaign film ถ่ายทอดแก่นแท้ของ luxury hospitality ของ Sera" },
+    deliverables: ["Hero Film", "Property Films", "Social Series", "Print Campaign"],
+    challenge: "Sera's properties were stunning but their marketing felt generic — indistinguishable from any other luxury hotel brand.",
+    approach: "We filmed a hero campaign that focused on the moments between the amenities — the quiet, personal, human moments that make a stay memorable. No room tours, no pool shots.",
+    result: "Direct bookings increased 35%. The campaign won recognition at two regional hospitality marketing awards.",
+    image: workSera,
+  },
+  {
+    slug: "muse-education",
+    title: "Muse Education",
+    service: "Creative Communication",
+    type: "Brand Story",
+    brief: { en: "A brand story film positioning Muse as the future of creative education.", th: "Brand story film วาง positioning ให้ Muse เป็นอนาคตของ creative education" },
+    deliverables: ["Brand Film", "Student Stories", "Campus Tour", "Recruitment Video"],
+    challenge: "Muse was competing against established universities with bigger budgets and longer reputations.",
+    approach: "Instead of competing on prestige, we told the stories of Muse students who were already doing remarkable work. The institution's value was proven through its students' output.",
+    result: "Applications increased 55% year-over-year. The brand film became the most-watched education content in Thailand that quarter.",
+    image: workMuse,
+  },
+  {
+    slug: "orbit-fintech",
+    title: "Orbit Fintech",
+    service: "Creative Transformation",
+    type: "Brand Transformation",
+    brief: { en: "Complete creative transformation for a fintech startup — from positioning to campaign.", th: "Creative transformation ครบวงจรสำหรับ fintech startup — จาก positioning สู่ campaign" },
+    deliverables: ["Positioning", "Narrative", "Campaign Concept", "Content Direction"],
+    challenge: "Orbit was just another fintech app in a sea of similar products. Users couldn't tell what made them different.",
+    approach: "We repositioned Orbit from 'easy payments' to 'financial freedom for freelancers' — a specific audience with a specific need. Every touchpoint was redesigned around this narrative.",
+    result: "35% increase in average deal size. User acquisition cost dropped 40% as messaging became more targeted and resonant.",
+    image: workOrbit,
+  },
+  {
+    slug: "field-notes-coffee",
+    title: "Field Notes Coffee",
+    service: "Film & Production",
+    type: "Documentary",
+    brief: { en: "A documentary following the journey from farm to cup.", th: "สารคดีตามเส้นทางจากไร่ถึงแก้ว" },
+    deliverables: ["Documentary", "Origin Series", "Barista Profiles", "Social Content"],
+    challenge: "Field Notes had an incredible supply chain story — direct trade, fair prices, amazing farms — but nobody knew about it.",
+    approach: "We followed the coffee from mountain farms in northern Thailand to the cup in Bangkok. Raw, beautiful, honest filmmaking that let the story tell itself.",
+    result: "The documentary series generated 800K+ views. Wholesale inquiries increased 200% as the brand became synonymous with transparency.",
+    image: workField,
+  },
+  {
+    slug: "vela-fashion",
+    title: "Vela Fashion",
+    service: "Creative Transformation",
+    type: "Brand Transformation",
+    brief: { en: "A complete brand transformation for Vela's debut collection launch.", th: "Brand transformation ครบวงจรสำหรับการเปิดตัวคอลเลกชันแรกของ Vela" },
+    deliverables: ["Positioning", "Campaign Film", "Lookbook", "Launch Strategy"],
+    challenge: "Vela was launching their debut collection with zero brand recognition in a saturated fashion market.",
+    approach: "We built everything from scratch — positioning, visual identity, campaign film, and launch strategy. The concept centered on 'quiet confidence' — fashion that doesn't need to shout.",
+    result: "The debut collection sold out in 2 weeks. Vela was featured in 5 major fashion publications within the first month.",
+    image: workVela,
+  },
 ];
 
 const serviceFilters = ["All", "Creative Transformation", "Creative Communication", "Film & Production", "Creative Partner"];
 
-const workSchema = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://orions.agency/" },
-        { "@type": "ListItem", position: 2, name: "Work", item: "https://orions.agency/work" },
-      ],
-    },
-    {
-      "@type": "CollectionPage",
-      name: "ØRIONS Work",
-      url: "https://orions.agency/work",
-      description: "Selected case studies and portfolio work by ØRIONS.",
-    },
-  ],
-};
-
 const WorkPage = () => {
-  const [selectedWork, setSelectedWork] = useState<typeof works[0] | null>(null);
   const [activeFilter, setActiveFilter] = useState("All");
   const { lang, t } = useLanguage();
   const [searchParams] = useSearchParams();
@@ -74,7 +152,6 @@ const WorkPage = () => {
         description="Browse selected ØRIONS work across creative transformation, communication, film production, and retainer projects."
         path="/work"
         keywords="creative agency portfolio Bangkok, campaign film portfolio, creative transformation"
-        schema={workSchema}
       />
       <Navbar />
       <div className="pt-20">
@@ -115,8 +192,8 @@ const WorkPage = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {filteredWorks.map((w, i) => (
-                <AnimatedSection key={w.title} delay={i * 0.03}>
-                  <div className="group cursor-pointer" onClick={() => setSelectedWork(w)}>
+                <AnimatedSection key={w.slug} delay={i * 0.03}>
+                  <Link to={`/work/${w.slug}`} className="group block">
                     <div className="overflow-hidden mb-5 relative">
                       <img src={w.image} alt={w.title} className="w-full aspect-[4/3] object-cover grayscale group-hover:grayscale-0 group-hover:scale-[1.03] transition-all duration-700" loading="lazy" />
                       <div className="absolute inset-0 bg-accent-warm/0 group-hover:bg-accent-warm/5 transition-all duration-500" />
@@ -132,7 +209,7 @@ const WorkPage = () => {
                     </div>
                     <h2 className="font-body text-[16px] text-foreground/80 group-hover:text-accent-warm transition-colors duration-300 mb-1">{w.title}</h2>
                     <p className="font-body text-[14px] leading-[1.6] text-muted-foreground line-clamp-2">{w.brief[lang]}</p>
-                  </div>
+                  </Link>
                 </AnimatedSection>
               ))}
             </div>
@@ -170,42 +247,6 @@ const WorkPage = () => {
         </section>
       </div>
 
-      <Dialog open={!!selectedWork} onOpenChange={(open) => !open && setSelectedWork(null)}>
-        <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto bg-background border-border p-0 gap-0 relative">
-          <div className="absolute top-3 left-3 w-5 h-5 border-t border-l border-accent-warm/30 z-10" />
-          <div className="absolute top-3 right-3 w-5 h-5 border-t border-r border-accent-warm/30 z-10" />
-          <div className="absolute bottom-3 left-3 w-5 h-5 border-b border-l border-accent-warm/30 z-10" />
-          <div className="absolute bottom-3 right-3 w-5 h-5 border-b border-r border-accent-warm/30 z-10" />
-          {selectedWork && (
-            <>
-              <div className="w-full aspect-[16/9] overflow-hidden">
-                <img src={selectedWork.image} alt={selectedWork.title} className="w-full h-full object-cover" />
-              </div>
-              <div className="p-8 md:p-12">
-                <DialogHeader className="mb-0 pb-0">
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-warm/60">{selectedWork.service}</span>
-                    <span className="text-muted-foreground/30 text-[8px]">●</span>
-                    <span className="font-mono text-[10px] tracking-[0.1em] uppercase text-muted-foreground">{selectedWork.type}</span>
-                  </div>
-                  <DialogTitle className="font-display text-[40px] tracking-[0.01em] leading-none text-foreground mb-4">{selectedWork.title}</DialogTitle>
-                  <p className="font-body text-[15px] text-muted-foreground leading-relaxed">{selectedWork.brief[lang]}</p>
-                </DialogHeader>
-                <div className="mt-12">
-                  <h3 className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-5">{t("Deliverables", "สิ่งที่ส่งมอบ")}</h3>
-                  <div className="space-y-0">
-                    {selectedWork.deliverables.map((d, i) => (
-                      <div key={i} className="py-3.5 border-b border-border last:border-b-0">
-                        <span className="font-body text-[15px] text-foreground/70">{d}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </>
-          )}
-        </DialogContent>
-      </Dialog>
       <Footer />
     </main>
   );

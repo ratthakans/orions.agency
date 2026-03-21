@@ -20,15 +20,15 @@ import teamPr from "@/assets/team-pr.jpg";
 import teamPostSup from "@/assets/team-post-sup.jpg";
 
 const cLevel = [
-  { name: "Founder", role: "Vision & Direction", image: teamFounder },
+  { name: "Ratthakan Suwanphakdee", role: "Founder", image: teamFounder },
   { name: "CEO", role: "Business & Growth", image: teamCeo },
   { name: "CFO", role: "Finance & Operations", image: teamCfo },
 ];
 
 const teamMembers = [
-  { name: "Creative Director", role: "Creative Direction", image: teamCd },
-  { name: "Art Director", role: "Visual Design", image: teamAd },
-  { name: "Director", role: "Film Direction", image: teamDirector },
+  { name: "Manrut Rojrattanavichai", role: "Creative Director", image: teamCd },
+  { name: "Jaruwatr Bhokhaidhanes", role: "Art Director", image: teamAd },
+  { name: "Niti Paladkong", role: "Director", image: teamDirector },
   { name: "Editor / DOP", role: "Cinematography & Edit", image: teamEditorDop },
   { name: "Editor", role: "Post-production", image: teamEditor },
   { name: "Post Supervisor", role: "Post Workflow", image: teamPostSup },
@@ -43,7 +43,7 @@ const AboutPage = () => {
     <main className="bg-background min-h-screen grain-overlay">
       <SEO
         title="About — ØRIONS Creative Agency Bangkok"
-        description="ØRIONS is a creative agency in Bangkok that changes how people see brands. Meet our team of 10 creatives."
+        description="ØRIONS is a creative agency in Bangkok that changes how people see brands. Meet our team of 13 creatives."
         path="/about"
       />
       <Navbar />
@@ -95,7 +95,7 @@ const AboutPage = () => {
                 </div>
                 <div className="border border-border p-8">
                   <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-warm/60 mb-4">Team Size</p>
-                  <p className="font-display text-[36px] leading-none text-foreground">10</p>
+                  <p className="font-display text-[36px] leading-none text-foreground">13</p>
                 </div>
                 <div className="border border-border p-8">
                   <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-warm/60 mb-4">Based In</p>

@@ -9,26 +9,32 @@ const phases = [
   {
     num: "01",
     title: "See Differently",
-    desc: "See the brand from a new angle. Audit perception, find the gap.",
+    desc: "See the brand from a new angle. Audit perception, find the gap between how you're seen and how you should be seen.",
     details: ["Brand perception audit", "Market & competitor analysis", "Audience insight mapping", "Gap identification"],
   },
   {
     num: "02",
     title: "Reframe Perception",
-    desc: "Change how people see the brand. Define a new story angle.",
+    desc: "Change how people see the brand. Define a new positioning, a new story angle that shifts everything.",
     details: ["Positioning strategy", "Narrative framework", "Creative direction", "Brand voice"],
   },
   {
     num: "03",
     title: "Make It Real",
-    desc: "Create something people can feel. Campaigns, films, content.",
+    desc: "Turn strategy into something people can feel. Campaigns, films, content, experiences.",
     details: ["Campaign development", "Film & production", "Content creation", "Visual identity"],
   },
   {
     num: "04",
-    title: "Scale Impact",
-    desc: "Expand the result into growth. Measure, iterate, scale.",
-    details: ["Launch & rollout", "Performance tracking", "Iteration & optimization", "Growth scaling"],
+    title: "Launch & Activate",
+    desc: "Put the work into the world. Coordinate channels, timing, and touchpoints for maximum impact.",
+    details: ["Channel strategy", "Launch planning", "Campaign rollout", "Audience targeting"],
+  },
+  {
+    num: "05",
+    title: "Scale & Evolve",
+    desc: "Measure what works. Iterate fast. Scale the wins and evolve the story as the brand grows.",
+    details: ["Performance tracking", "Data-driven iteration", "Growth scaling", "Long-term evolution"],
   },
 ];
 

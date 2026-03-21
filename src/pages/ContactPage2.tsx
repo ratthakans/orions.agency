@@ -106,23 +106,41 @@ const ContactPage2 = () => {
           )}
 
           <AnimatedSection delay={0.4}>
-            <div className="mt-20 text-center">
-              <a
-                href="mailto:hello@orions.agency"
-                className="font-mono text-[11px] tracking-[0.1em] text-muted-foreground hover:text-accent-warm transition-colors duration-300"
-              >
-                hello@orions.agency
-              </a>
-              <div className="mt-6 flex items-center justify-center gap-6">
-                {["Facebook", "Instagram", "YouTube"].map((social) => (
-                  <a
-                    key={social}
-                    href="#"
-                    className="font-mono text-[10px] tracking-[0.1em] uppercase text-muted-foreground/40 hover:text-accent-warm transition-colors duration-300"
-                  >
-                    {social}
-                  </a>
-                ))}
+            <div className="mt-20 pt-16 border-t border-border">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                  <h3 className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-warm/60 mb-6">Contact</h3>
+                  <div className="space-y-4">
+                    <a href="mailto:hello@orions.agency" className="block font-body text-[15px] text-foreground hover:text-accent-warm transition-colors duration-300">
+                      hello@orions.agency
+                    </a>
+                    <a href="tel:0923905464" className="block font-body text-[15px] text-foreground hover:text-accent-warm transition-colors duration-300">
+                      092-390-5464
+                    </a>
+                  </div>
+                  <div className="mt-8 flex items-center gap-6">
+                    {["Facebook", "Instagram", "YouTube"].map((social) => (
+                      <a
+                        key={social}
+                        href="#"
+                        className="font-mono text-[10px] tracking-[0.1em] uppercase text-muted-foreground/40 hover:text-accent-warm transition-colors duration-300"
+                      >
+                        {social}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <h3 className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-warm/60 mb-6">Office</h3>
+                  <p className="font-body text-[14px] leading-[1.8] text-muted-foreground">
+                    246/8 ซอย โยธินพัฒนา<br />
+                    แขวงคลองจั่น เขตบางกะปิ<br />
+                    กรุงเทพมหานคร 10240
+                  </p>
+                  <p className="font-mono text-[10px] tracking-[0.1em] text-muted-foreground/40 mt-4">
+                    Tax ID: 0105568220629
+                  </p>
+                </div>
               </div>
             </div>
           </AnimatedSection>

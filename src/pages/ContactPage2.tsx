@@ -11,6 +11,9 @@ const ContactPage2 = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const subject = encodeURIComponent(`Project inquiry from ${form.name}`);
+    const body = encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`);
+    window.location.href = `mailto:hello@orions.agency?subject=${subject}&body=${body}`;
     setSubmitted(true);
   };
 

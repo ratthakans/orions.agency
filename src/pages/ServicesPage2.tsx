@@ -272,7 +272,7 @@ const ServicesPage2 = () => {
           <div className="space-y-0">
             {retainers.map((s, i) => (
               <AnimatedSection key={s.title} delay={i * 0.08}>
-                <ServiceCard service={s} index={i} prefix={String(i + 5).padStart(2, "0")} />
+                <ServiceCard service={s} index={i} prefix={String(i + 6).padStart(2, "0")} />
               </AnimatedSection>
             ))}
           </div>

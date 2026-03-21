@@ -17,6 +17,7 @@ import ClientsPage from "./pages/ClientsPage";
 import ContactPage2 from "./pages/ContactPage2";
 import StudioPage from "./pages/StudioPage";
 import AboutPage from "./pages/AboutPage";
+import WorkPage from "./pages/WorkPage";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +32,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<PageTransition><Index /></PageTransition>} />
             <Route path="/about" element={<PageTransition><AboutPage /></PageTransition>} />
+            <Route path="/work" element={<PageTransition><WorkPage /></PageTransition>} />
             <Route path="/problem" element={<PageTransition><ProblemPage /></PageTransition>} />
             <Route path="/services" element={<PageTransition><ServicesPage2 /></PageTransition>} />
             <Route path="/process" element={<PageTransition><ProcessPage /></PageTransition>} />

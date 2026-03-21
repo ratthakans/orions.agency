@@ -15,14 +15,24 @@ import teamAe from "@/assets/team-fern.jpg";
 import teamPm from "@/assets/team-joy.jpg";
 import teamSenior from "@/assets/team-mai.jpg";
 
-const team = [
+import teamDirector from "@/assets/team-director.jpg";
+import teamPr from "@/assets/team-pr.jpg";
+import teamPostSup from "@/assets/team-post-sup.jpg";
+
+const cLevel = [
   { name: "Founder", role: "Vision & Direction", image: teamFounder },
   { name: "CEO", role: "Business & Growth", image: teamCeo },
   { name: "CFO", role: "Finance & Operations", image: teamCfo },
+];
+
+const teamMembers = [
   { name: "Creative Director", role: "Creative Direction", image: teamCd },
   { name: "Art Director", role: "Visual Design", image: teamAd },
+  { name: "Director", role: "Film Direction", image: teamDirector },
   { name: "Editor / DOP", role: "Cinematography & Edit", image: teamEditorDop },
   { name: "Editor", role: "Post-production", image: teamEditor },
+  { name: "Post Supervisor", role: "Post Workflow", image: teamPostSup },
+  { name: "Public Relations", role: "Brand Communications", image: teamPr },
   { name: "Account Executive", role: "Client Relations", image: teamAe },
   { name: "Project Manager", role: "Project Management", image: teamPm },
   { name: "Creative Senior", role: "Creative Strategy", image: teamSenior },
@@ -134,28 +144,35 @@ const AboutPage = () => {
               <span className="text-accent-warm mr-2">✦</span> The Team
             </p>
             <h2 className="font-display text-[clamp(32px,5vw,64px)] leading-[0.9] tracking-[0.01em] text-foreground mb-16">
-              10 CREATIVES.<br /><span className="text-accent-gradient">ONE VISION.</span>
+              13 CREATIVES.<br /><span className="text-accent-gradient">ONE VISION.</span>
             </h2>
           </AnimatedSection>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 md:gap-6">
-            {team.map((member, i) => (
+          {/* C-Level Row */}
+          <div className="grid grid-cols-3 gap-4 md:gap-6 max-w-3xl mx-auto mb-12">
+            {cLevel.map((member, i) => (
               <AnimatedSection key={i} delay={i * 0.05}>
                 <div className="group">
                   <div className="aspect-[3/4] bg-foreground/5 border border-border mb-4 overflow-hidden relative">
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                      loading="lazy"
-                    />
+                    <img src={member.image} alt={member.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" />
                   </div>
-                  <p className="font-mono text-[11px] tracking-[0.08em] text-foreground mb-1">
-                    {member.name}
-                  </p>
-                  <p className="font-mono text-[9px] tracking-[0.1em] uppercase text-muted-foreground/50">
-                    {member.role}
-                  </p>
+                  <p className="font-mono text-[11px] tracking-[0.08em] text-foreground mb-1">{member.name}</p>
+                  <p className="font-mono text-[9px] tracking-[0.1em] uppercase text-muted-foreground/50">{member.role}</p>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+
+          {/* Team Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 md:gap-6">
+            {teamMembers.map((member, i) => (
+              <AnimatedSection key={i} delay={i * 0.05}>
+                <div className="group">
+                  <div className="aspect-[3/4] bg-foreground/5 border border-border mb-4 overflow-hidden relative">
+                    <img src={member.image} alt={member.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" />
+                  </div>
+                  <p className="font-mono text-[11px] tracking-[0.08em] text-foreground mb-1">{member.name}</p>
+                  <p className="font-mono text-[9px] tracking-[0.1em] uppercase text-muted-foreground/50">{member.role}</p>
                 </div>
               </AnimatedSection>
             ))}

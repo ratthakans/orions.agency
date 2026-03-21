@@ -81,7 +81,6 @@ const shows = [
   {
     num: "05",
     title: "IN BETWEEN DAY",
-    titleTh: "ระหว่างวัน",
     type: "Lifestyle Documentary",
     status: "Concept",
     image: imgInBetweenDay,
@@ -173,8 +172,8 @@ const StudioPage = () => {
                         <h2 className="font-display text-[clamp(28px,4vw,48px)] leading-[0.9] tracking-[0.02em] text-foreground mb-2">
                           {show.title}
                         </h2>
-                        {show.titleTh && (
-                          <p className="font-mono text-[11px] tracking-[0.1em] uppercase text-accent-warm/40 mb-4">{show.titleTh}</p>
+                        {'titleTh' in show && (show as any).titleTh && (
+                          <p className="font-mono text-[11px] tracking-[0.1em] uppercase text-accent-warm/40 mb-4">{(show as any).titleTh}</p>
                         )}
                         <p className="font-body text-[14px] leading-[1.7] text-muted-foreground mb-3 max-w-lg">
                           {show.descEn}

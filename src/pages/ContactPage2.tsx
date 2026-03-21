@@ -11,6 +11,9 @@ const ContactPage2 = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const subject = encodeURIComponent(`Project inquiry from ${form.name}`);
+    const body = encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`);
+    window.location.href = `mailto:hello@orions.agency?subject=${subject}&body=${body}`;
     setSubmitted(true);
   };
 
@@ -95,13 +98,19 @@ const ContactPage2 = () => {
 
                 {/* Socials */}
                 <div className="flex items-center gap-8 pt-4">
-                  {["Facebook", "Instagram", "YouTube"].map((social) => (
+                  {[
+                    { name: "Facebook", url: "https://facebook.com/orionsagency" },
+                    { name: "Instagram", url: "https://instagram.com/orionsagency" },
+                    { name: "YouTube", url: "https://youtube.com/@orionsagency" },
+                  ].map((social) => (
                     <a
-                      key={social}
-                      href="#"
+                      key={social.name}
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="font-mono text-[10px] tracking-[0.12em] uppercase text-muted-foreground/50 hover:text-accent-warm transition-colors duration-300"
                     >
-                      {social}
+                      {social.name}
                     </a>
                   ))}
                 </div>

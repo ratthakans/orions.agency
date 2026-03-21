@@ -9,10 +9,8 @@ import ScrollToTop from "./components/ScrollToTop";
 import PageTransition from "./components/PageTransition";
 
 import Index from "./pages/Index";
-import ProblemPage from "./pages/ProblemPage";
 import ServicesPage2 from "./pages/ServicesPage2";
 import ProcessPage from "./pages/ProcessPage";
-import ValuePage from "./pages/ValuePage";
 import ClientsPage from "./pages/ClientsPage";
 import ContactPage2 from "./pages/ContactPage2";
 import StudioPage from "./pages/StudioPage";
@@ -35,12 +33,12 @@ const App = () => (
             <Route path="/about" element={<PageTransition><AboutPage /></PageTransition>} />
             <Route path="/work" element={<PageTransition><WorkPage /></PageTransition>} />
             <Route path="/work/:slug" element={<PageTransition><WorkDetailPage /></PageTransition>} />
-            <Route path="/problem" element={<PageTransition><ProblemPage /></PageTransition>} />
+            <Route path="/problem" element={<Navigate to="/process" replace />} />
             <Route path="/services" element={<PageTransition><ServicesPage2 /></PageTransition>} />
             <Route path="/process" element={<PageTransition><ProcessPage /></PageTransition>} />
             <Route path="/philosophy" element={<Navigate to="/process" replace />} />
             <Route path="/studio" element={<PageTransition><StudioPage /></PageTransition>} />
-            <Route path="/value" element={<PageTransition><ValuePage /></PageTransition>} />
+            <Route path="/value" element={<Navigate to="/" replace />} />
             <Route path="/clients" element={<PageTransition><ClientsPage /></PageTransition>} />
             <Route path="/contact" element={<PageTransition><ContactPage2 /></PageTransition>} />
             <Route path="/industries" element={<Navigate to="/package" replace />} />

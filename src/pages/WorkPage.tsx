@@ -86,7 +86,7 @@ const WorkPage = () => {
                       <span className="text-muted-foreground/30 text-[8px]">●</span>
                       <span className="font-mono text-[10px] tracking-[0.1em] uppercase text-muted-foreground/50">{w.type}</span>
                     </div>
-                    <h2 className="font-body text-[16px] text-foreground/80 group-hover:text-accent-warm transition-colors duration-300 mb-1">{w.title}</h2>
+                    <h2 className="font-display font-normal text-[15px] tracking-tight uppercase text-foreground/80 group-hover:text-accent-warm transition-colors duration-300 mb-1">{w.title}</h2>
                     <p className="font-body text-[14px] leading-[1.6] text-muted-foreground line-clamp-2">{w.brief[lang]}</p>
                   </Link>
                 </AnimatedSection>

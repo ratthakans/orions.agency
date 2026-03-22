@@ -72,7 +72,7 @@ const HeroSection = ({ onStartProject }: HeroSectionProps) => {
           <div className="mb-12">
             <TextReveal
               as="h1"
-              className="font-display text-[clamp(28px,6.5vw,100px)] leading-[0.9] tracking-[0.01em] text-foreground overflow-wrap-break-word"
+              className="font-display font-bold text-[clamp(24px,5.5vw,80px)] leading-[0.9] tracking-[0.01em] text-foreground overflow-wrap-break-word"
             >
               A CREATIVE AGENCY THAT TURNS IDEAS INTO DEMAND.
             </TextReveal>

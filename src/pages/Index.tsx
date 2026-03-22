@@ -7,8 +7,6 @@ import AnimatedSection from "@/components/AnimatedSection";
 import HeroTypewriter from "@/components/HeroTypewriter";
 import Marquee from "@/components/Marquee";
 import ManifestoSection from "@/components/ManifestoSection";
-import CinematicDivider from "@/components/CinematicDivider";
-import HorizontalScrollCaseStudies from "@/components/HorizontalScrollCaseStudies";
 import SEO from "@/components/SEO";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { works } from "@/data/works";
@@ -105,35 +103,21 @@ const Index = () => {
         </motion.div>
       </section>
 
-      {/* ═══ QUICK INTRO STRIP ═══ */}
-      <section className="py-24 md:py-40 px-4 sm:px-6 md:px-12 border-t border-border">
-        <div className="max-w-4xl mx-auto text-center">
-          <AnimatedSection>
-            <p className="font-display text-[clamp(28px,5vw,64px)] leading-[0.95] tracking-[0.01em] text-foreground">
-              WE DON'T ADD MORE MARKETING.
-            </p>
-            <p className="font-display text-[clamp(28px,5vw,64px)] leading-[0.95] tracking-[0.01em] text-accent-gradient mt-2">
-              WE CHANGE HOW PEOPLE SEE YOU.
-            </p>
-          </AnimatedSection>
-          <AnimatedSection delay={0.2}>
-            <div className="mt-10">
-              <Link
-                to="/process"
-                className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300"
-              >
-                Read the full story <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
-              </Link>
-            </div>
-          </AnimatedSection>
+      {/* ═══ MANIFESTO ═══ */}
+      <ManifestoSection />
+      <AnimatedSection delay={0.2}>
+        <div className="text-center -mt-20 mb-24 md:mb-40 px-4">
+          <Link
+            to="/process"
+            className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300"
+          >
+            Read the full story <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+          </Link>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* ═══ MARQUEE ═══ */}
       <Marquee items={["PERCEPTION", "STRATEGY", "STORYTELLING", "CREATIVE", "GROWTH", "FILM", "CAMPAIGN", "REFRAME"]} />
-
-      {/* ═══ MANIFESTO ═══ */}
-      <ManifestoSection />
 
       {/* ═══ SERVICES PREVIEW ═══ */}
       <section className="py-24 md:py-40 px-4 sm:px-6 md:px-12 border-t border-border">
@@ -178,8 +162,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ═══ CINEMATIC DIVIDER ═══ */}
-      <CinematicDivider quote="Perception is the only battlefield that matters." />
 
       {/* ═══ PROCESS PREVIEW ═══ */}
       <section className="py-24 md:py-40 px-4 sm:px-6 md:px-12 border-t border-border">
@@ -238,7 +220,7 @@ const Index = () => {
                 <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4">
                   <span className="text-accent-warm mr-2">✦</span> Featured Work
                 </p>
-                <h2 className="font-display text-[clamp(36px,6vw,72px)] leading-[0.9] tracking-[0.01em] text-foreground">SELECTED PROJECTS.</h2>
+                <h2 className="font-display text-[clamp(36px,6vw,72px)] leading-[0.9] tracking-[0.01em] text-foreground">FEATURED WORK.</h2>
               </div>
               <Link
                 to="/work"
@@ -341,8 +323,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ═══ HORIZONTAL SCROLL CASE STUDIES ═══ */}
-      <HorizontalScrollCaseStudies />
 
       {/* ═══ CTA ═══ */}
       <section className="py-32 md:py-48 px-4 sm:px-6 md:px-12 border-t border-border text-center">

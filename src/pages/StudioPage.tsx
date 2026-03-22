@@ -137,7 +137,7 @@ const StudioPage = () => {
         <div className="max-w-4xl mx-auto text-center">
           <AnimatedSection>
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
-              <span className="text-accent-warm mr-2">△</span> Collaborate
+              <span className="text-accent-warm mr-2">✦</span> Collaborate
             </p>
             <h2 className="font-display text-[clamp(22px,3.5vw,44px)] leading-[1.05] tracking-[0.02em] text-foreground mb-6">
               Want to build<br />something original?

@@ -161,7 +161,7 @@ const Index = () => {
               { title: "Conversation System", desc: "How your brand spreads, gets talked about, and builds trust." },
             ].map((s, i) => (
               <AnimatedSection key={s.title} delay={i * 0.08}>
-                <div className="bg-background p-8 md:p-10 group h-full border border-transparent hover:border-accent-warm/20 transition-colors duration-300">
+                <div className="bg-background p-8 md:p-10 group h-full relative border border-border hover:border-accent-warm/30 transition-colors duration-300">
                   <span className="font-mono text-[10px] tracking-[0.15em] text-accent-warm/40 block mb-6">{String(i + 1).padStart(2, "0")}</span>
                   <h3 className="font-display text-[26px] md:text-[30px] tracking-[0.02em] text-foreground mb-4 group-hover:text-accent-warm transition-colors duration-300">
                     {s.title}
@@ -245,7 +245,7 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {works.slice(0, 3).map((w, i) => (
               <AnimatedSection key={w.slug} delay={i * 0.12}>
-                <Link to={`/work/${w.slug}`} className="group block border border-border h-full hover:border-accent-warm/20 transition-colors duration-300">
+                <Link to={`/work/${w.slug}`} className="group block border border-border h-full hover:border-accent-warm/30 transition-colors duration-300">
                   <div className="aspect-[16/10] overflow-hidden relative">
                     <img src={w.image} alt={w.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" />
                     <div className="absolute inset-0 bg-accent-warm/0 group-hover:bg-accent-warm/5 transition-all duration-500" />

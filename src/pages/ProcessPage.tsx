@@ -145,10 +145,10 @@ const ProcessPage = () => {
 
           <AnimatedSection delay={0.4}>
             <div className="mt-20 md:mt-32 border-l-2 border-accent-warm/40 pl-8 md:pl-12">
-              <p className="font-display text-[clamp(20px,3vw,36px)] leading-[1.1] tracking-[0.02em] text-foreground">
+               <p className="font-display font-medium text-[clamp(18px,2.5vw,32px)] leading-[1.1] tracking-[0.02em] text-foreground">
                 It's not a marketing problem.
               </p>
-              <p className="font-display text-[clamp(20px,3vw,36px)] leading-[1.1] tracking-[0.02em] text-accent-gradient mt-2">
+              <p className="font-display font-medium text-[clamp(18px,2.5vw,32px)] leading-[1.1] tracking-[0.02em] text-accent-gradient mt-2">
                 It's a perception problem.
               </p>
             </div>

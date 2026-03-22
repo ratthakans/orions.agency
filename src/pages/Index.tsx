@@ -158,7 +158,7 @@ const Index = () => {
               { title: "Production", desc: "Hero films, campaign visuals, and content assets." },
               { title: "Event / Activation", desc: "Real-world experiences that people remember." },
               { title: "Digital Experience", desc: "Websites and digital journeys that convert attention into action." },
-              { title: "Communication System", desc: "How your brand spreads, gets talked about, and builds trust." },
+              { title: "Creative Communication", desc: "How your brand spreads, gets talked about, and builds trust." },
             ].map((s, i) => (
               <AnimatedSection key={s.title} delay={i * 0.08}>
                 <div className="bg-background p-8 md:p-10 group h-full relative border border-border hover:border-accent-warm/30 transition-colors duration-300">

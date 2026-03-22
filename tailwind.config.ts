@@ -73,7 +73,7 @@ export default {
         },
       },
       fontFamily: {
-        display: ["Bebas Neue", "sans-serif"],
+        display: ["Unbounded", "sans-serif"],
         body: ["IBM Plex Sans", "sans-serif"],
         mono: ["IBM Plex Mono", "monospace"],
         logo: ["Unbounded", "sans-serif"],

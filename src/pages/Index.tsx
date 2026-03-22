@@ -200,7 +200,7 @@ const Index = () => {
                   <span className="font-mono text-[10px] tracking-[0.2em] text-accent-warm/30 group-hover:text-accent-warm transition-colors duration-300 block mb-4">
                     {phase.num}
                   </span>
-                  <h3 className="font-display text-[15px] md:text-[17px] tracking-[0.02em] text-foreground mb-3 group-hover:text-accent-warm transition-colors duration-300">
+                  <h3 className="font-display font-normal text-[14px] md:text-[15px] tracking-[0.02em] text-foreground mb-3 group-hover:text-accent-warm transition-colors duration-300">
                     {phase.title}
                   </h3>
                   <p className="font-body text-[13px] leading-[1.6] text-muted-foreground/60">{phase.desc}</p>

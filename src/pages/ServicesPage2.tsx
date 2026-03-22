@@ -457,7 +457,7 @@ const ServicesPage2 = () => {
       <section className="px-4 sm:px-6 md:px-12 pb-16 md:pb-24">
         <div className="max-w-5xl mx-auto">
           <AnimatedSection>
-            <div className="border border-accent-warm/20 p-8 md:p-12">
+            <div className="relative border border-accent-warm/30 p-8 md:p-12 overflow-hidden before:absolute before:inset-0 before:border before:border-accent-warm/0 before:animate-[pulse_3s_ease-in-out_infinite] hover:before:border-accent-warm/20 after:absolute after:inset-[-2px] after:rounded-none after:border after:border-accent-warm/0 after:animate-[pulse_3s_ease-in-out_infinite_0.5s] hover:after:border-accent-warm/10 shadow-[0_0_20px_-5px_hsl(var(--accent-warm)/0.15)] hover:shadow-[0_0_40px_-5px_hsl(var(--accent-warm)/0.25)] transition-shadow duration-700">
               <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-warm mb-6">
                 ★ Start here
               </p>

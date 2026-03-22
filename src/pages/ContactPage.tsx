@@ -44,7 +44,7 @@ const contactSchema = {
 const ContactPage = () => {
   const { t } = useLanguage();
   const [formData, setFormData] = useState({
-    name: "", company: "", projectType: "", budget: "", timeline: "", email: "", message: "",
+    name: "", company: "", service: "", projectType: "", budget: "", timeline: "", email: "", message: "",
   });
   const [submitted, setSubmitted] = useState(false);
 

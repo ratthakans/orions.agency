@@ -23,8 +23,6 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      animate={{ y: hidden ? -80 : 0 }}
-      transition={{ duration: 0.3 }}
       className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-xl border-b border-border/50"
     >
       <motion.div

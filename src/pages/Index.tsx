@@ -153,11 +153,12 @@ const Index = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
             {[
-              { title: "Creative Transformation", desc: "Find creative opportunities. Design new growth paths." },
-              { title: "Signature Campaign", desc: "Big ideas. Campaign concepts. Stories that move people." },
-              { title: "Film / Production", desc: "Hero films. Branded content. Visual storytelling." },
-              { title: "Event & Experience", desc: "Moments people remember. Concept to execution." },
-              { title: "Creative Communication", desc: "Strategy, channel planning, campaign rollout." },
+              { title: "Creative Transformation", desc: "Redefine your brand through research, story, and positioning." },
+              { title: "Signature Campaign", desc: "Campaigns that generate attention, conversation, and demand." },
+              { title: "Production", desc: "Hero films, campaign visuals, and content assets." },
+              { title: "Event / Activation", desc: "Real-world experiences that people remember." },
+              { title: "Digital Experience", desc: "Websites and digital journeys that convert attention into action." },
+              { title: "Conversation System", desc: "How your brand spreads, gets talked about, and builds trust." },
             ].map((s, i) => (
               <AnimatedSection key={s.title} delay={i * 0.08}>
                 <div className="bg-background p-8 md:p-10 group h-full border border-transparent hover:border-accent-warm/20 transition-colors duration-300">

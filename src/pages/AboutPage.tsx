@@ -144,7 +144,7 @@ const AboutPage = () => {
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
               <span className="text-accent-warm mr-2">✦</span> The Team
             </p>
-            <h2 className="font-display text-[clamp(24px,4vw,48px)] leading-[1] tracking-[0.02em] text-foreground mb-16">
+            <h2 className="font-display text-[clamp(22px,3.5vw,44px)] leading-[1] tracking-[0.02em] text-foreground mb-16">
               13 Creatives.<br /><span className="text-accent-gradient">One Vision.</span>
             </h2>
           </AnimatedSection>

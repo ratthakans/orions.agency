@@ -122,7 +122,7 @@ const coreServices: ServiceDetail[] = [
   },
   {
     num: "06",
-    title: "Communication System",
+    title: "Creative Communication",
     star: true,
     desc: "We design how your brand spreads, gets talked about, and builds trust.",
     whatWeDo: ["Narrative distribution", "Seeding", "Information Operations (IO)"],

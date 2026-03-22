@@ -67,7 +67,7 @@ const Index = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="font-display text-[clamp(28px,5.5vw,72px)] font-bold leading-[1] tracking-[0.02em] text-foreground mb-4"
+            className="font-display text-[clamp(28px,5.5vw,72px)] leading-[1] tracking-[0.02em] text-foreground mb-4"
           >
             We change perception.
           </motion.h1>
@@ -76,9 +76,9 @@ const Index = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.55 }}
-            className="flex items-center justify-center gap-[0.35em] text-[clamp(24px,4.5vw,64px)] leading-[1] tracking-[0.02em] mb-12 whitespace-nowrap min-h-[1.1em]"
+            className="font-display text-[clamp(24px,4.5vw,64px)] leading-[1] tracking-[0.02em] mb-12 whitespace-nowrap min-h-[1.1em]"
           >
-            <span className="font-display font-bold">AND</span> <HeroTypewriter />
+            And <HeroTypewriter />
           </motion.div>
 
           <motion.div

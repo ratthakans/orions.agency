@@ -214,10 +214,10 @@ const ProcessPage = () => {
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
               <span className="text-accent-warm mr-2">✦</span> What We Believe
             </p>
-            <h2 className="font-display text-[clamp(28px,4.5vw,52px)] leading-[1] tracking-[0.02em] text-foreground mb-4">
+             <h2 className="font-display text-[clamp(22px,3.5vw,44px)] leading-[1] tracking-[0.02em] text-foreground mb-4">
               Ideas first.
             </h2>
-            <h2 className="font-display text-[clamp(28px,4.5vw,52px)] leading-[1] tracking-[0.02em] text-accent-gradient">
+            <h2 className="font-display text-[clamp(22px,3.5vw,44px)] leading-[1] tracking-[0.02em] text-accent-gradient">
               Everything else follows.
             </h2>
           </AnimatedSection>

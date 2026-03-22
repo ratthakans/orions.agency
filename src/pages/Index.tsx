@@ -245,7 +245,7 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {works.slice(0, 3).map((w, i) => (
               <AnimatedSection key={w.slug} delay={i * 0.12}>
-                <Link to={`/work/${w.slug}`} className="group block border border-border h-full hover:border-accent-warm/20 transition-colors duration-300">
+                <Link to={`/work/${w.slug}`} className="group block border border-border h-full hover:border-accent-warm/30 transition-colors duration-300">
                   <div className="aspect-[16/10] overflow-hidden relative">
                     <img src={w.image} alt={w.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" />
                     <div className="absolute inset-0 bg-accent-warm/0 group-hover:bg-accent-warm/5 transition-all duration-500" />

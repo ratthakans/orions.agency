@@ -122,7 +122,7 @@ const AboutPage = () => {
               { title: "Long-Term Partners", desc: "We don't do one-off projects. We become your creative brain — thinking with you, growing with you." },
             ].map((v, i) => (
               <AnimatedSection key={v.title} delay={i * 0.1}>
-                <div className="border border-border p-8 md:p-10 h-full hover:border-accent-warm/20 transition-colors duration-300">
+                <div className="border border-border p-8 md:p-10 h-full hover:border-accent-warm/30 transition-colors duration-300">
                   <h3 className="font-display text-[24px] md:text-[28px] tracking-[0.02em] text-foreground mb-4">
                     {v.title}
                   </h3>

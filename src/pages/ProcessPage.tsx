@@ -107,46 +107,61 @@ const ProcessPage = () => {
         </div>
       </section>
 
-      {/* Painpoint Section */}
-      <section className="py-24 md:py-32 px-4 sm:px-6 md:px-12 border-t border-border">
-        <div className="max-w-5xl mx-auto">
+      {/* Painpoint Section — Redesigned */}
+      <section className="py-24 md:py-40 px-4 sm:px-6 md:px-12 border-t border-border">
+        <div className="max-w-6xl mx-auto">
           <AnimatedSection>
-            <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-warm/60 mb-8">The Problem We See</p>
+            <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-warm/60 mb-16 md:mb-24">The Problem We See</p>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
-            <AnimatedSection delay={0.1}>
-              <div className="space-y-6">
-                <p className="font-display text-[clamp(24px,3.5vw,40px)] leading-[1.05] tracking-[0.01em] text-foreground">
-                  Most brands are doing more marketing than ever.
-                </p>
-                <p className="font-body text-[15px] leading-[1.8] text-muted-foreground">
-                  More content. More ads. More campaigns. More channels. More budget. But growth doesn't follow. People see the brand — but they don't feel anything.
-                </p>
-              </div>
-            </AnimatedSection>
-            <AnimatedSection delay={0.2}>
-              <div className="space-y-6">
-                {[
-                  "Spending more but getting diminishing returns",
-                  "Content that gets views but doesn't convert",
-                  "Competing on price because the brand feels generic",
-                  "Agencies that deliver assets but not direction",
-                  "Internal teams stretched thin with no creative clarity",
-                ].map((pain, i) => (
-                  <div key={i} className="flex items-start gap-4 py-3 border-b border-border/50 last:border-b-0">
-                    <span className="text-accent-warm/40 text-[10px] mt-1.5">✦</span>
-                    <p className="font-body text-[14px] leading-[1.7] text-muted-foreground">{pain}</p>
-                  </div>
-                ))}
-              </div>
-            </AnimatedSection>
+
+          {/* Big statement */}
+          <AnimatedSection delay={0.1}>
+            <div className="mb-20 md:mb-32">
+              <p className="font-display text-[clamp(32px,6vw,80px)] leading-[0.92] tracking-[0.01em] text-foreground">
+                MORE ADS.
+              </p>
+              <p className="font-display text-[clamp(32px,6vw,80px)] leading-[0.92] tracking-[0.01em] text-foreground">
+                MORE CONTENT.
+              </p>
+              <p className="font-display text-[clamp(32px,6vw,80px)] leading-[0.92] tracking-[0.01em] text-foreground">
+                MORE BUDGET.
+              </p>
+              <p className="font-display text-[clamp(32px,6vw,80px)] leading-[0.92] tracking-[0.01em] text-muted-foreground/30 mt-4">
+                LESS GROWTH.
+              </p>
+            </div>
+          </AnimatedSection>
+
+          {/* Pain points as numbered list */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 border-t border-border">
+            {[
+              { num: "01", text: "Spending more but getting diminishing returns" },
+              { num: "02", text: "Content that gets views but doesn't convert" },
+              { num: "03", text: "Competing on price because the brand feels generic" },
+              { num: "04", text: "Agencies that deliver assets but not direction" },
+              { num: "05", text: "Internal teams stretched thin with no creative clarity" },
+              { num: "06", text: "No story. No positioning. No reason to choose you." },
+            ].map((pain, i) => (
+              <AnimatedSection key={i} delay={i * 0.06}>
+                <div className="flex items-start gap-6 py-8 px-2 border-b border-border/50 group hover:border-accent-warm/30 transition-colors duration-300">
+                  <span className="font-mono text-[10px] tracking-[0.15em] text-accent-warm/30 group-hover:text-accent-warm/60 transition-colors duration-300 mt-1 shrink-0">
+                    {pain.num}
+                  </span>
+                  <p className="font-body text-[15px] leading-[1.7] text-muted-foreground group-hover:text-foreground/80 transition-colors duration-300">
+                    {pain.text}
+                  </p>
+                </div>
+              </AnimatedSection>
+            ))}
           </div>
-          <AnimatedSection delay={0.3}>
-            <div className="mt-16 md:mt-24 text-center">
-              <p className="font-display text-[clamp(22px,3vw,36px)] leading-[1.1] text-foreground">
+
+          {/* Conclusion */}
+          <AnimatedSection delay={0.4}>
+            <div className="mt-20 md:mt-32 border-l-2 border-accent-warm/40 pl-8 md:pl-12">
+              <p className="font-display text-[clamp(24px,4vw,48px)] leading-[0.95] tracking-[0.01em] text-foreground">
                 It's not a marketing problem.
               </p>
-              <p className="font-display text-[clamp(22px,3vw,36px)] leading-[1.1] text-accent-gradient mt-2">
+              <p className="font-display text-[clamp(24px,4vw,48px)] leading-[0.95] tracking-[0.01em] text-accent-gradient mt-2">
                 It's a perception problem.
               </p>
             </div>

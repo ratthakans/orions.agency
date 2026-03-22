@@ -137,7 +137,7 @@ const StudioPage = () => {
           <div className="space-y-6">
             {shows.map((show, i) => (
               <AnimatedSection key={show.num} delay={i * 0.06}>
-                <div className="border border-border hover:border-accent-warm/20 transition-colors duration-500 overflow-hidden">
+                <div className="border border-border hover:border-accent-warm/30 transition-colors duration-300 overflow-hidden group">
                   {/* Clickable header */}
                   <button
                     onClick={() => toggle(i)}

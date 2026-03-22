@@ -246,7 +246,7 @@ const Index = () => {
                       <span className="text-muted-foreground/30 text-[8px]">●</span>
                       <span className="font-mono text-[10px] tracking-[0.1em] uppercase text-muted-foreground/50">{works[0].type}</span>
                     </div>
-                    <h3 className="font-display text-[20px] md:text-[26px] tracking-[0.02em] text-foreground mb-3 group-hover:text-accent-warm transition-colors duration-300">
+                    <h3 className="font-display font-normal text-[18px] md:text-[22px] tracking-[0.02em] text-foreground mb-3 group-hover:text-accent-warm transition-colors duration-300">
                       {works[0].title}
                     </h3>
                     <p className="font-body text-[14px] leading-[1.6] text-muted-foreground line-clamp-2">{works[0].brief[lang]}</p>

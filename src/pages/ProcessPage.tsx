@@ -173,7 +173,10 @@ const ProcessPage = () => {
                   <div className="hidden md:block absolute left-[26px] top-20 w-[13px] h-[13px] border-2 border-accent-warm bg-background z-10 group-hover:bg-accent-warm transition-colors duration-300" />
 
                   <div className="flex flex-col md:flex-row md:items-start gap-6 md:gap-16">
-                    <div className="shrink-0">
+                    <div className="shrink-0 flex flex-col items-center gap-3">
+                      <div className="text-accent-warm/20 group-hover:text-accent-warm/60 transition-colors duration-300">
+                        {phaseIcons[i]}
+                      </div>
                       <span className="font-display text-[48px] md:text-[64px] leading-none text-accent-warm/15 group-hover:text-accent-warm/30 transition-colors duration-500">
                         {phase.num}
                       </span>

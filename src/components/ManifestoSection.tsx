@@ -4,7 +4,7 @@ const lines = [
   "Most agencies add noise.",
   "We strip it back.",
   "Find what matters.",
-  "And make people care.",
+  "And make people see you.",
 ];
 
 const ManifestoSection = () => (

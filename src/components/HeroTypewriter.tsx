@@ -2,10 +2,10 @@ import { useState, useEffect, memo } from "react";
 import { motion } from "framer-motion";
 
 const phrases = [
-  "unlock new markets.",
-  "unlock new demand.",
-  "unlock new ideas.",
-  "unlock new growth.",
+  "UNLOCK NEW MARKETS.",
+  "UNLOCK NEW DEMAND.",
+  "UNLOCK NEW IDEAS.",
+  "UNLOCK NEW GROWTH.",
 ];
 
 const HeroTypewriter = memo(() => {
@@ -37,7 +37,7 @@ const HeroTypewriter = memo(() => {
   }, [displayText, isDeleting, currentPhrase]);
 
   return (
-    <span className="text-accent-gradient">
+    <span className="text-accent-gradient" style={{ fontFamily: "'Cutive', serif" }}>
       {displayText}
       <motion.span
         animate={{ opacity: [1, 0] }}

@@ -78,6 +78,7 @@ export default {
         mono: ["IBM Plex Mono", "monospace"],
         logo: ["Unbounded", "sans-serif"],
         thai: ["IBM Plex Sans Thai", "IBM Plex Sans", "sans-serif"],
+        serif: ["Cutive", "serif"],
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -92,7 +92,7 @@ const AboutPage = () => {
               <div className="space-y-8">
                 <div className="border border-border p-8">
                   <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-warm/60 mb-4">Founded</p>
-                  <p className="font-display text-[28px] leading-none text-foreground">2024</p>
+                  <p className="font-display font-normal text-[24px] leading-none text-foreground">2024</p>
                 </div>
                 <div className="border border-border p-8">
                   <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-warm/60 mb-4">Team Size</p>

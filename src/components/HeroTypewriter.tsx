@@ -37,7 +37,7 @@ const HeroTypewriter = memo(() => {
   }, [displayText, isDeleting, currentPhrase]);
 
   return (
-    <span className="text-accent-gradient">
+    <span className="text-accent-gradient" style={{ fontFamily: "'Cutive', serif" }}>
       {displayText}
       <motion.span
         animate={{ opacity: [1, 0] }}

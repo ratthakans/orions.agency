@@ -76,13 +76,17 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Unbounded', sans-serif;
+    text-transform: uppercase;
+    font-weight: 600;
   }
 }
 
 @layer utilities {
   .font-display {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Unbounded', sans-serif;
+    text-transform: uppercase;
+    font-weight: 600;
   }
 
   .font-body {

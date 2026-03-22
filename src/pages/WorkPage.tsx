@@ -40,9 +40,9 @@ const WorkPage = () => {
               <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
                 <span className="text-accent-warm mr-2">◎</span> Portfolio
               </p>
-              <h1 className="font-display text-[clamp(44px,6vw,96px)] leading-[0.9] tracking-[0.01em] text-foreground mb-6 max-w-5xl">
-                CREATIVE WORK
-                <br />THAT <span className="text-accent-gradient">PERFORMS.</span>
+              <h1 className="font-display text-[clamp(32px,5vw,64px)] leading-[1] tracking-[0.02em] text-foreground mb-6 max-w-5xl">
+                Creative work
+                <br />that <span className="text-accent-gradient">performs.</span>
               </h1>
               <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-2xl">
                 {t("Quality over quantity. Every project here represents a brand we helped think, shape, and produce.", "คุณภาพเหนือปริมาณ ทุกโปรเจกต์ที่นี่คือแบรนด์ที่เราช่วยคิด สร้าง และผลิต")}
@@ -106,9 +106,9 @@ const WorkPage = () => {
         <section className="px-4 sm:px-6 md:px-12 py-20 md:py-32 pb-32 md:pb-48">
           <div className="max-w-7xl mx-auto text-center">
             <AnimatedSection>
-              <h2 className="font-display text-[clamp(36px,5vw,72px)] leading-[0.92] tracking-[0.01em] text-foreground mb-6">
-                WANT WORK LIKE THIS
-                <br />FOR YOUR BRAND?
+              <h2 className="font-display text-[clamp(24px,4vw,48px)] leading-[1.05] tracking-[0.02em] text-foreground mb-6">
+                Want work like this
+                <br />for your brand?
               </h2>
               <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-xl mx-auto mb-10">
                 {t("Tell us what you're launching, changing, or trying to grow.", "บอกเราว่าคุณกำลังเปิดตัว เปลี่ยนแปลง หรืออยากขยายอะไร")}

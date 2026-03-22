@@ -204,6 +204,7 @@ const ContactPage2 = () => {
                         <option key={s} value={s} className="bg-background text-foreground">{s}</option>
                       ))}
                     </select>
+                  </div>
                   <div>
                     <label className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground/60 block mb-3">Message</label>
                     <textarea

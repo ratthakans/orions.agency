@@ -117,7 +117,7 @@ const Index = () => {
           <AnimatedSection delay={0.2}>
             <div className="mt-10">
               <Link
-                to="/problem"
+                to="/process"
                 className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300"
               >
                 Read the full story <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
@@ -126,6 +126,10 @@ const Index = () => {
           </AnimatedSection>
         </div>
       </section>
+
+      {/* ═══ MARQUEE ═══ */}
+      <Marquee items={["PERCEPTION", "STRATEGY", "STORYTELLING", "CREATIVE", "GROWTH", "FILM", "CAMPAIGN", "REFRAME"]} />
+      <Marquee items={["BANGKOK", "BRAND", "CONTENT", "PRODUCTION", "DIRECTION", "EXPERIENCE", "IMPACT", "CULTURE"]} speed="slow" />
 
       {/* ═══ SERVICES PREVIEW ═══ */}
       <section className="py-24 md:py-40 px-4 sm:px-6 md:px-12 border-t border-border">

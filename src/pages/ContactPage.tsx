@@ -119,6 +119,22 @@ const ContactPage = () => {
                         <input type="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className={inputClass} placeholder="your@email.com" required />
                       </div>
                       <div>
+                        <label className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4 block">{t("Service", "บริการ")}</label>
+                        <select value={formData.service} onChange={(e) => setFormData({ ...formData, service: e.target.value })} className={selectClass}>
+                          <option value="" className="bg-background">{t("Select a service", "เลือกบริการ")}</option>
+                          <option value="creative-transformation" className="bg-background">Creative Transformation</option>
+                          <option value="signature-campaign" className="bg-background">Signature Campaign</option>
+                          <option value="production" className="bg-background">Production</option>
+                          <option value="event-activation" className="bg-background">Event / Activation</option>
+                          <option value="digital-experience" className="bg-background">Digital Experience</option>
+                          <option value="conversation-system" className="bg-background">Conversation System</option>
+                          <option value="creative-partnership" className="bg-background">Creative Partnership (Retainer)</option>
+                          <option value="content-system" className="bg-background">Content System (Retainer)</option>
+                          <option value="channel-management" className="bg-background">Channel Management (Retainer)</option>
+                          <option value="other" className="bg-background">{t("Other", "อื่นๆ")}</option>
+                        </select>
+                      </div>
+                      <div>
                         <label className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4 block">Project Type</label>
                         <select value={formData.projectType} onChange={(e) => setFormData({ ...formData, projectType: e.target.value })} className={selectClass}>
                           <option value="" className="bg-background">{t("Select", "เลือก")}</option>

@@ -186,7 +186,7 @@ const RetainerCard = ({ r }: { r: Retainer }) => {
           <span className="font-mono text-[10px] tracking-[0.15em] text-muted-foreground/30 shrink-0">{r.num}</span>
           <div className="min-w-0">
             <div className="flex items-center gap-3 mb-1">
-              <h3 className="font-display text-[clamp(17px,2.8vw,30px)] tracking-[0.02em] text-foreground group-hover:text-accent-warm transition-colors duration-300">{r.title}</h3>
+              <h3 className="font-display font-normal text-[clamp(15px,2.4vw,26px)] tracking-[0.02em] text-foreground group-hover:text-accent-warm transition-colors duration-300">{r.title}</h3>
               {r.star && <span className="text-accent-warm text-[10px]">★</span>}
             </div>
             <p className="font-body text-[14px] text-muted-foreground">{r.desc}</p>

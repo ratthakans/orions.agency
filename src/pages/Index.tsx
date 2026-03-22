@@ -161,7 +161,7 @@ const Index = () => {
               { title: "Conversation System", desc: "How your brand spreads, gets talked about, and builds trust." },
             ].map((s, i) => (
               <AnimatedSection key={s.title} delay={i * 0.08}>
-                <div className="bg-background p-8 md:p-10 group h-full border border-transparent hover:border-accent-warm/20 transition-colors duration-300">
+                <div className="bg-background p-8 md:p-10 group h-full relative border border-border hover:border-accent-warm/30 transition-colors duration-300">
                   <span className="font-mono text-[10px] tracking-[0.15em] text-accent-warm/40 block mb-6">{String(i + 1).padStart(2, "0")}</span>
                   <h3 className="font-display text-[26px] md:text-[30px] tracking-[0.02em] text-foreground mb-4 group-hover:text-accent-warm transition-colors duration-300">
                     {s.title}

@@ -100,7 +100,7 @@ const AboutPage = () => {
                 </div>
                 <div className="border border-border p-8">
                   <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-warm/60 mb-4">Based In</p>
-                  <p className="font-display text-[28px] leading-none text-foreground">Bangkok</p>
+                  <p className="font-display font-normal text-[24px] leading-none text-foreground">Bangkok</p>
                 </div>
               </div>
             </AnimatedSection>

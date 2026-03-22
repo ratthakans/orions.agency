@@ -22,7 +22,7 @@ import teamPostSup from "@/assets/team-post-sup.jpg";
 
 const cLevel = [
   { name: "Ratthakan Suwanphakdee", role: "Founder", image: teamFounder },
-  { name: "CEO", role: "Business & Growth", image: teamCeo },
+  { name: "Khanakhom Kittisakulnam", role: "CEO", image: teamCeo },
   { name: "CFO", role: "Finance & Operations", image: teamCfo },
 ];
 

@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
@@ -76,7 +77,7 @@ const ProcessPage = () => {
       <Navbar />
 
       {/* Hero */}
-      <section className="min-h-[60vh] flex items-end px-4 sm:px-6 md:px-12 pb-16 md:pb-24 pt-24">
+      <section className="min-h-[50vh] flex items-end px-4 sm:px-6 md:px-12 pb-16 md:pb-24 pt-24">
         <div className="max-w-5xl mx-auto w-full">
           <motion.p
             initial={{ opacity: 0 }}
@@ -251,6 +252,31 @@ const ProcessPage = () => {
               </AnimatedSection>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-24 md:py-40 px-4 sm:px-6 md:px-12 border-t border-border">
+        <div className="max-w-4xl mx-auto text-center">
+          <AnimatedSection>
+            <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
+              <span className="text-accent-warm mr-2">✦</span> Ready?
+            </p>
+            <h2 className="font-display font-medium text-[clamp(22px,3.5vw,44px)] leading-[1.05] tracking-[0.02em] text-foreground mb-6">
+              Let's build something<br />people remember.
+            </h2>
+            <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-xl mx-auto mb-10">
+              Start with a conversation. We'll figure out the rest together.
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-8">
+              <Link to="/contact" className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-primary-foreground bg-primary px-10 py-3.5 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300">
+                Work with us <span>→</span>
+              </Link>
+              <Link to="/services" className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300">
+                Explore Services <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+              </Link>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 

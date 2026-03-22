@@ -38,7 +38,7 @@ const WorkPage = () => {
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
               <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
-                <span className="text-accent-warm mr-2">◎</span> Portfolio
+                <span className="text-accent-warm mr-2">✦</span> Portfolio
               </p>
               <h1 className="font-display font-bold text-[clamp(28px,4.5vw,56px)] leading-[1] tracking-[0.02em] text-foreground mb-6 max-w-5xl">
                 Creative work
@@ -51,7 +51,7 @@ const WorkPage = () => {
           </div>
         </section>
 
-        <section className="px-4 sm:px-6 md:px-12 py-8 md:py-12 pb-20">
+        <section className="px-4 sm:px-6 md:px-12 py-8 md:py-12 pb-20 border-t border-border">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection delay={0.04}>
               <div className="flex items-center gap-3 md:gap-6 mb-12 md:mb-16 flex-wrap">
@@ -86,7 +86,7 @@ const WorkPage = () => {
                       <span className="text-muted-foreground/30 text-[8px]">●</span>
                       <span className="font-mono text-[10px] tracking-[0.1em] uppercase text-muted-foreground/50">{w.type}</span>
                     </div>
-                    <h2 className="font-body text-[16px] text-foreground/80 group-hover:text-accent-warm transition-colors duration-300 mb-1">{w.title}</h2>
+                    <h2 className="font-display font-normal text-[15px] tracking-tight uppercase text-foreground/80 group-hover:text-accent-warm transition-colors duration-300 mb-1">{w.title}</h2>
                     <p className="font-body text-[14px] leading-[1.6] text-muted-foreground line-clamp-2">{w.brief[lang]}</p>
                   </Link>
                 </AnimatedSection>
@@ -114,7 +114,7 @@ const WorkPage = () => {
                 {t("Tell us what you're launching, changing, or trying to grow.", "บอกเราว่าคุณกำลังเปิดตัว เปลี่ยนแปลง หรืออยากขยายอะไร")}
               </p>
               <div className="flex flex-wrap items-center justify-center gap-8">
-                <Link to="/services" className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-background bg-foreground px-8 py-3 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300">
+                <Link to="/services" className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-primary-foreground bg-primary px-8 py-3 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300">
                   Explore Services <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
                 </Link>
                 <Link to="/contact" className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300">

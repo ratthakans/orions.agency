@@ -50,7 +50,7 @@ const AboutPage = () => {
       <Navbar />
 
       {/* Hero */}
-      <section className="min-h-[60vh] flex items-end px-4 sm:px-6 md:px-12 pb-16 md:pb-24 pt-24">
+      <section className="min-h-[50vh] flex items-end px-4 sm:px-6 md:px-12 pb-16 md:pb-24 pt-24">
         <div className="max-w-5xl mx-auto w-full">
           <AnimatedSection>
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">

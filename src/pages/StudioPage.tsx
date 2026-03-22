@@ -145,9 +145,14 @@ const StudioPage = () => {
             <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-xl mx-auto mb-10">
               If your brand wants branded entertainment, documentary storytelling, or a completely new content format — let's create it together.
             </p>
-            <Link to="/contact" className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-primary-foreground bg-primary px-10 py-3.5 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300">
-              Start a Studio Brief <span>→</span>
-            </Link>
+            <div className="flex flex-wrap items-center justify-center gap-8">
+              <Link to="/contact" className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-primary-foreground bg-primary px-10 py-3.5 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300">
+                Start a Studio Brief <span>→</span>
+              </Link>
+              <Link to="/work" className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300">
+                See Our Work <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+              </Link>
+            </div>
           </AnimatedSection>
         </div>
       </section>

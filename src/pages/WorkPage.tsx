@@ -51,7 +51,7 @@ const WorkPage = () => {
           </div>
         </section>
 
-        <section className="px-4 sm:px-6 md:px-12 py-8 md:py-12 pb-20">
+        <section className="px-4 sm:px-6 md:px-12 py-8 md:py-12 pb-20 border-t border-border">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection delay={0.04}>
               <div className="flex items-center gap-3 md:gap-6 mb-12 md:mb-16 flex-wrap">

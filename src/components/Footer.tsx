@@ -57,24 +57,7 @@ const Footer = () => {
               >
                 092 390 5464
               </a>
-              <div className="pt-4 flex items-center gap-4">
-                {[
-                  { label: "Facebook", href: "https://facebook.com/orionsagency" },
-                  { label: "Instagram", href: "https://instagram.com/orionsagency" },
-                  { label: "YouTube", href: "https://youtube.com/@orionsagency" },
-                ].map((social) => (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-mono text-[10px] tracking-[0.1em] uppercase text-muted-foreground/40 hover:text-accent-warm transition-colors duration-300"
-                  >
-                    {social.label}
-                  </a>
-                ))}
-              </div>
-              <div className="pt-4">
+              <div className="pt-2">
                 <p className="font-mono text-[10px] tracking-[0.1em] text-muted-foreground/40 leading-[1.8]">
                   246/8 Soi Yothin Pattana<br />
                   Khlong Chan, Bang Kapi<br />

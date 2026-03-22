@@ -30,10 +30,10 @@ const ManifestoSection = () => (
                   transition: { duration: 0.7, ease: [0.25, 0.1, 0.25, 1] },
                 },
               }}
-              className={`font-display tracking-[0.02em] leading-[1.15] ${
+              className={`font-display tracking-[0.01em] leading-[1.05] ${
                 i === lines.length - 1
-                  ? "text-accent-gradient text-[clamp(22px,4vw,48px)] font-medium"
-                  : "text-foreground text-[clamp(22px,4vw,48px)] font-medium"
+                  ? "text-accent-gradient text-[clamp(32px,6vw,80px)]"
+                  : "text-foreground text-[clamp(32px,6vw,80px)]"
               }`}
             >
               {line}

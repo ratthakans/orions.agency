@@ -325,8 +325,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ═══ HORIZONTAL SCROLL CASE STUDIES ═══ */}
-      <HorizontalScrollCaseStudies />
 
       {/* ═══ CTA ═══ */}
       <section className="py-32 md:py-48 px-4 sm:px-6 md:px-12 border-t border-border text-center">

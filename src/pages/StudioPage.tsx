@@ -96,7 +96,7 @@ const StudioPage = () => {
                           <span className="font-mono text-[9px] tracking-[0.1em] uppercase text-accent-warm/80 border border-accent-warm/30 bg-background/80 backdrop-blur-sm px-3 py-1.5">{show.status}</span>
                         </div>
                         <div className="absolute bottom-4 right-4">
-                          <span className="font-display text-[36px] leading-none text-foreground/10">{show.num}</span>
+                          <span className="font-display font-normal text-[28px] leading-none text-foreground/10">{show.num}</span>
                         </div>
                       </div>
                       <div className="p-6 md:p-10 flex flex-col justify-center relative">

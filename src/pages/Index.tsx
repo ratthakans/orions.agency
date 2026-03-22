@@ -266,7 +266,7 @@ const Index = () => {
                     <div className="flex items-center gap-3 mb-3">
                       <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm/60">{works[1].service}</span>
                     </div>
-                    <h3 className="font-display text-[17px] md:text-[20px] tracking-[0.02em] text-foreground mb-3 group-hover:text-accent-warm transition-colors duration-300">
+                    <h3 className="font-display font-normal text-[15px] md:text-[18px] tracking-[0.02em] text-foreground mb-3 group-hover:text-accent-warm transition-colors duration-300">
                       {works[1].title}
                     </h3>
                     <p className="font-body text-[13px] leading-[1.6] text-muted-foreground line-clamp-2">{works[1].brief[lang]}</p>

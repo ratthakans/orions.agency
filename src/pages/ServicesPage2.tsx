@@ -258,12 +258,12 @@ const ServicesPage2 = () => {
               <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-warm mb-6">★ Start here</p>
               <p className="font-body text-[15px] leading-[1.8] text-muted-foreground mb-6">If your brand has slowed down, start with:</p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <span className="font-display text-[15px] md:text-[17px] tracking-[0.02em] text-foreground">Creative Transformation</span>
+                 <span className="font-display font-normal text-[14px] md:text-[16px] tracking-[0.02em] text-foreground">Creative Transformation</span>
                 <span className="text-muted-foreground/30 hidden sm:inline self-center">—</span>
                 <span className="font-body text-[14px] text-muted-foreground self-center">for clarity and direction</span>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 mt-3">
-                <span className="font-display text-[15px] md:text-[17px] tracking-[0.02em] text-foreground">Signature Campaign</span>
+                <span className="font-display font-normal text-[14px] md:text-[16px] tracking-[0.02em] text-foreground">Signature Campaign</span>
                 <span className="text-muted-foreground/30 hidden sm:inline self-center">—</span>
                 <span className="font-body text-[14px] text-muted-foreground self-center">for immediate impact</span>
               </div>

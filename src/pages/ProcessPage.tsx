@@ -5,6 +5,19 @@ import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 import SEO from "@/components/SEO";
 
+const phaseIcons = [
+  // 01 — Eye/circle
+  <svg viewBox="0 0 40 40" className="w-10 h-10"><circle cx="20" cy="20" r="16" fill="none" stroke="currentColor" strokeWidth="1.5" /><circle cx="20" cy="20" r="4" fill="currentColor" /></svg>,
+  // 02 — Diamond
+  <svg viewBox="0 0 40 40" className="w-10 h-10"><rect x="6" y="6" width="28" height="28" fill="none" stroke="currentColor" strokeWidth="1.5" transform="rotate(45 20 20)" /></svg>,
+  // 03 — Triangle
+  <svg viewBox="0 0 40 40" className="w-10 h-10"><polygon points="20,4 36,36 4,36" fill="none" stroke="currentColor" strokeWidth="1.5" /></svg>,
+  // 04 — Cross/burst
+  <svg viewBox="0 0 40 40" className="w-10 h-10"><line x1="20" y1="4" x2="20" y2="36" stroke="currentColor" strokeWidth="1.5" /><line x1="4" y1="20" x2="36" y2="20" stroke="currentColor" strokeWidth="1.5" /><line x1="8" y1="8" x2="32" y2="32" stroke="currentColor" strokeWidth="1.5" /><line x1="32" y1="8" x2="8" y2="32" stroke="currentColor" strokeWidth="1.5" /></svg>,
+  // 05 — Star
+  <svg viewBox="0 0 40 40" className="w-10 h-10"><polygon points="20,2 26,15 40,15 29,24 33,38 20,30 7,38 11,24 0,15 14,15" fill="none" stroke="currentColor" strokeWidth="1.5" /></svg>,
+];
+
 const phases = [
   {
     num: "01",
@@ -160,7 +173,10 @@ const ProcessPage = () => {
                   <div className="hidden md:block absolute left-[26px] top-20 w-[13px] h-[13px] border-2 border-accent-warm bg-background z-10 group-hover:bg-accent-warm transition-colors duration-300" />
 
                   <div className="flex flex-col md:flex-row md:items-start gap-6 md:gap-16">
-                    <div className="shrink-0">
+                    <div className="shrink-0 flex flex-col items-center gap-3">
+                      <div className="text-accent-warm/20 group-hover:text-accent-warm/60 transition-colors duration-300">
+                        {phaseIcons[i]}
+                      </div>
                       <span className="font-display text-[48px] md:text-[64px] leading-none text-accent-warm/15 group-hover:text-accent-warm/30 transition-colors duration-500">
                         {phase.num}
                       </span>

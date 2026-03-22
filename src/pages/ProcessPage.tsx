@@ -90,7 +90,7 @@ const ProcessPage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="font-display text-[clamp(32px,6vw,72px)] leading-[1] tracking-[0.02em] text-foreground"
+            className="font-display font-bold text-[clamp(28px,5vw,64px)] leading-[1] tracking-[0.02em] text-foreground"
           >
             Our Process.
           </motion.h1>

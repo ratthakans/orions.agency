@@ -7,8 +7,6 @@ import AnimatedSection from "@/components/AnimatedSection";
 import HeroTypewriter from "@/components/HeroTypewriter";
 import Marquee from "@/components/Marquee";
 import ManifestoSection from "@/components/ManifestoSection";
-import CinematicDivider from "@/components/CinematicDivider";
-import HorizontalScrollCaseStudies from "@/components/HorizontalScrollCaseStudies";
 import SEO from "@/components/SEO";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { works } from "@/data/works";

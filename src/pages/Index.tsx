@@ -151,7 +151,7 @@ const Index = () => {
               <AnimatedSection key={s.title} delay={i * 0.08}>
                 <div className="bg-background p-8 md:p-10 group h-full relative border border-border hover:border-accent-warm/30 transition-colors duration-300">
                   <span className="font-mono text-[10px] tracking-[0.15em] text-accent-warm/40 block mb-6">{String(i + 1).padStart(2, "0")}</span>
-                  <h3 className="font-display text-[18px] md:text-[20px] tracking-[0.02em] text-foreground mb-4 group-hover:text-accent-warm transition-colors duration-300">
+                  <h3 className="font-display font-normal text-[16px] md:text-[18px] tracking-[0.02em] text-foreground mb-4 group-hover:text-accent-warm transition-colors duration-300">
                     {s.title}
                   </h3>
                   <p className="font-body text-[14px] leading-[1.7] text-muted-foreground">{s.desc}</p>

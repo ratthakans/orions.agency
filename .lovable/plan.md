@@ -1,108 +1,109 @@
 
 
-# Elevating ØRIONS — Content, Visual Design & Interactive Experience
+# Design Consistency Review — ØRIONS Website
 
-## What's Missing Right Now
-
-The site is clean and well-structured, but it reads more like a "good template" than a "creative agency that practices what it preaches." Here's what would change that:
+After reviewing every page and component, here are the inconsistencies found and proposed fixes.
 
 ---
 
-## 1. Manifesto Section on Homepage (Content & Storytelling)
+## Issues Found
 
-Add a full-bleed editorial manifesto between the Marquee and Services sections. Large-format typography with staggered word reveals.
+### 1. Hero Section Spacing — Inconsistent across pages
 
-```text
-"Most agencies add noise.
- We strip it back.
- Find what matters.
- And make people care."
-```
+| Page | Hero Style |
+|------|-----------|
+| Homepage | `h-screen flex items-center` (full viewport, centered) |
+| About | `min-h-[60vh] flex items-end pt-24` |
+| Process | `min-h-[60vh] flex items-end pt-24` |
+| Services | `min-h-[55vh] flex items-end pt-24` |
+| Studio | `min-h-[50vh] flex items-end pt-24` |
+| Contact | `min-h-[50vh] flex items-end pt-24` |
+| Work | `pt-20` → `pt-16 md:pt-24` (no min-height) |
+| Work Detail | `pt-24 md:pt-32` (no min-height) |
 
-Each line appears on scroll with a slight delay — pure text, no decoration. This is the kind of bold statement creative agencies use to establish voice.
+**Fix:** Standardize all sub-pages to `min-h-[50vh] flex items-end pt-24 pb-16 md:pb-24`. Work and Work Detail keep compact heroes since they're content-heavy pages.
+
+### 2. Section Label Icons — Mixed symbols
+
+- Homepage: `✦` (services, process, featured work)
+- About: `✦` (about, values, team)
+- Process: `✦` (beliefs) but no icon for "The Problem We See"
+- Services: `✦` (services, CTA)
+- Studio: `✦` (productions) and `△` (collaborate CTA)
+- Work: `◎` (portfolio)
+- Contact: `✦`
+
+**Fix:** Standardize to `✦` everywhere. Replace `◎` on Work page and `△` on Studio page.
+
+### 3. CTA Buttons — Inconsistent patterns
+
+| Location | Style |
+|----------|-------|
+| Homepage hero | `bg-primary` + ghost link |
+| About CTA | `bg-primary` solid only |
+| Process | No CTA at bottom |
+| Services CTA | `bg-primary` + ghost link |
+| Work CTA | `bg-foreground` (!) + ghost link |
+| Studio CTA | `bg-primary` solid only |
+| Contact | Form submit `bg-primary` |
+
+**Fix:** Standardize bottom CTA blocks: always use `bg-primary` button + ghost "→" link. Add CTA to Process page. Fix Work page button from `bg-foreground` to `bg-primary`.
+
+### 4. Max-width containers — Mixed widths
+
+- `max-w-5xl`: Hero text, About story, Process beliefs/manifesto
+- `max-w-6xl`: About sections, Process phases, Contact content
+- `max-w-7xl`: Homepage services/process/work, Services core, Work grid, Studio shows
+- `max-w-4xl`: CTA blocks (About, Services, Studio)
+
+This is actually fine — heroes and CTAs use narrower widths, content grids use wider. No change needed.
+
+### 5. Section Padding — Mostly consistent but some outliers
+
+Most sections use `py-24 md:py-40` or `py-24 md:py-32`. A few exceptions:
+- About story: `py-16 md:py-24` (tighter, OK for narrative flow)
+- Services "Start Here": `pb-16 md:pb-24` (no top padding — flows from hero, OK)
+
+Minor inconsistency, acceptable.
+
+### 6. Work Page title uses `font-body` instead of `font-display`
+
+Line 89: `<h2 className="font-body text-[16px]...">` for work card titles. Every other card title on the site uses `font-display`. This breaks the typographic hierarchy.
+
+**Fix:** Change to `font-display font-normal text-[15px]`.
+
+### 7. Missing `border-t border-border` on some sections
+
+Homepage sections consistently use `border-t border-border` as section dividers. But:
+- Process: Painpoint section has it, but Beliefs and Manifesto also have it (good)
+- Studio: Shows section has NO border-t
+- Work: Filter section has NO border-t
+
+**Fix:** Add `border-t border-border` to Studio shows section and Work filter section for consistency.
+
+### 8. Footer missing social links
+
+Footer has email, phone, address, tax ID — but no social links. Contact page has Facebook/Instagram/YouTube links. These should also appear in the footer.
+
+**Fix:** Add social links to Footer, matching Contact page.
+
+### 9. Process page has no bottom CTA
+
+Every other page ends with a CTA ("Want to work with us?" / "Let's build something" / etc.). Process page ends with the Manifesto section and goes straight to Footer.
+
+**Fix:** Add a CTA section matching the pattern from other pages.
 
 ---
 
-## 2. Asymmetric Work Grid (Visual Design)
+## Summary of Changes
 
-Replace the current 3-column equal grid for Selected Work with an **editorial asymmetric layout**:
+| File | Changes |
+|------|---------|
+| `src/pages/WorkPage.tsx` | Fix `◎` → `✦`, fix `font-body` → `font-display` on card titles, fix CTA button color, add `border-t` to filter section |
+| `src/pages/StudioPage.tsx` | Fix `△` → `✦`, add `border-t` to shows section |
+| `src/pages/ProcessPage.tsx` | Add CTA section at bottom |
+| `src/pages/AboutPage.tsx` | Standardize hero to `min-h-[50vh]` |
+| `src/components/Footer.tsx` | Add social links |
 
-```text
-┌────────────────────┬──────────┐
-│                    │          │
-│   LARGE FEATURE    │  SMALL   │
-│   (2/3 width)      │  (1/3)   │
-│                    │          │
-├──────────┬─────────┴──────────┤
-│          │                    │
-│  SMALL   │   LARGE FEATURE    │
-│  (1/3)   │   (2/3 width)      │
-│          │                    │
-└──────────┴────────────────────┘
-```
-
-This breaks the symmetry and feels more like an editorial portfolio — less corporate, more creative.
-
----
-
-## 3. Horizontal Scroll Case Studies (Interactive Experience)
-
-Replace the static homepage Case Studies cards with a **horizontal scroll section**. As the user scrolls vertically, the cards move horizontally. Each card shows the Before → Shift → Outcome transformation with a reveal animation.
-
-Uses `useScroll` + `useTransform` from Framer Motion — pinning the section while cards scroll left.
-
----
-
-## 4. Full-Bleed Image Divider (Visual Design)
-
-Add a cinematic full-width image strip (or dark gradient with a single powerful quote) between major sections. Something like:
-
-```text
-[full-width dark image, 40vh tall]
-"Perception is the only battlefield that matters."
-— centered, Bebas Neue, large
-```
-
-This breaks the rhythm and adds cinematic breathing room.
-
----
-
-## 5. Scroll-Triggered Number Counters on About Page (Interactive)
-
-In the About page, add an impact section with animated counters:
-
-```text
-50+     3        9
-Projects  Years    Industries
-```
-
-Numbers count up when scrolled into view. Simple, but adds credibility and visual interest.
-
----
-
-## 6. Staggered Text Reveal for Section Headlines (Interactive)
-
-Upgrade all major section headlines to use letter-by-letter or word-by-word stagger animation on scroll entry, instead of the current simple fade-up. This is a signature creative agency move.
-
----
-
-## Files to Modify
-
-| File | Change |
-|------|--------|
-| `src/pages/Index.tsx` | Add manifesto section, asymmetric work grid, horizontal scroll case studies, full-bleed divider |
-| `src/pages/AboutPage.tsx` | Add animated counters section |
-| `src/components/AnimatedSection.tsx` | Add staggered text variant |
-| `src/index.css` | Add horizontal scroll styles if needed |
-
-## What This Achieves
-
-- **Manifesto** → establishes creative authority through voice
-- **Asymmetric grid** → breaks template feel, looks editorial
-- **Horizontal scroll** → interactive storytelling, feels premium
-- **Full-bleed divider** → cinematic pacing
-- **Number counters** → credibility without being corporate
-- **Staggered text** → signature motion design feel
-
-All within existing CI rules (no scale, no glow, no shadow, no custom cursor).
+All changes are small, targeted fixes — no redesigns, no new components. Pure consistency pass.
 

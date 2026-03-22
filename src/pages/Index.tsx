@@ -6,6 +6,9 @@ import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 import HeroTypewriter from "@/components/HeroTypewriter";
 import Marquee from "@/components/Marquee";
+import ManifestoSection from "@/components/ManifestoSection";
+import CinematicDivider from "@/components/CinematicDivider";
+import HorizontalScrollCaseStudies from "@/components/HorizontalScrollCaseStudies";
 import SEO from "@/components/SEO";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { works } from "@/data/works";
@@ -40,7 +43,6 @@ const Index = () => {
 
       {/* ═══ HERO WITH VIDEO ═══ */}
       <section ref={heroRef} className="h-screen flex items-center justify-center relative overflow-hidden">
-        {/* YouTube Video Background */}
         <div className="absolute inset-0 z-0">
           <iframe
             src="https://www.youtube.com/embed/pT5BmAKGllg?autoplay=1&mute=1&loop=1&playlist=pT5BmAKGllg&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&vq=hd1080&start=36"
@@ -50,7 +52,6 @@ const Index = () => {
             title="Background video"
             style={{ border: 0 }}
           />
-          {/* Dark overlay */}
           <div className="absolute inset-0 bg-background/70" />
         </div>
 
@@ -131,6 +132,9 @@ const Index = () => {
       {/* ═══ MARQUEE ═══ */}
       <Marquee items={["PERCEPTION", "STRATEGY", "STORYTELLING", "CREATIVE", "GROWTH", "FILM", "CAMPAIGN", "REFRAME"]} />
 
+      {/* ═══ MANIFESTO ═══ */}
+      <ManifestoSection />
+
       {/* ═══ SERVICES PREVIEW ═══ */}
       <section className="py-24 md:py-40 px-4 sm:px-6 md:px-12 border-t border-border">
         <div className="max-w-7xl mx-auto">
@@ -173,6 +177,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* ═══ CINEMATIC DIVIDER ═══ */}
+      <CinematicDivider quote="Perception is the only battlefield that matters." />
 
       {/* ═══ PROCESS PREVIEW ═══ */}
       <section className="py-24 md:py-40 px-4 sm:px-6 md:px-12 border-t border-border">
@@ -222,16 +229,16 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ═══ SELECTED WORK ═══ */}
+      {/* ═══ SELECTED WORK — ASYMMETRIC GRID ═══ */}
       <section className="py-24 md:py-40 px-4 sm:px-6 md:px-12 border-t border-border">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
             <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16">
               <div>
                 <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4">
-                  <span className="text-accent-warm mr-2">✦</span> Selected Work
+                  <span className="text-accent-warm mr-2">✦</span> Featured Work
                 </p>
-                <h2 className="font-display text-[clamp(36px,6vw,72px)] leading-[0.9] tracking-[0.01em] text-foreground">CASE STUDIES.</h2>
+                <h2 className="font-display text-[clamp(36px,6vw,72px)] leading-[0.9] tracking-[0.01em] text-foreground">SELECTED PROJECTS.</h2>
               </div>
               <Link
                 to="/work"
@@ -242,32 +249,100 @@ const Index = () => {
             </div>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {works.slice(0, 3).map((w, i) => (
-              <AnimatedSection key={w.slug} delay={i * 0.12}>
-                <Link to={`/work/${w.slug}`} className="group block border border-border h-full hover:border-accent-warm/30 transition-colors duration-300">
-                  <div className="aspect-[16/10] overflow-hidden relative">
-                    <img src={w.image} alt={w.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" />
+          {/* Row 1: Large left + Small right */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+            {works[0] && (
+              <AnimatedSection className="md:col-span-2">
+                <Link to={`/work/${works[0].slug}`} className="group block border border-border h-full hover:border-accent-warm/30 transition-colors duration-300">
+                  <div className="aspect-[16/9] overflow-hidden relative">
+                    <img src={works[0].image} alt={works[0].title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" />
                     <div className="absolute inset-0 bg-accent-warm/0 group-hover:bg-accent-warm/5 transition-all duration-500" />
                   </div>
                   <div className="p-6 md:p-8">
                     <div className="flex items-center gap-3 mb-3">
-                      <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm/60">{w.service}</span>
+                      <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm/60">{works[0].service}</span>
                       <span className="text-muted-foreground/30 text-[8px]">●</span>
-                      <span className="font-mono text-[10px] tracking-[0.1em] uppercase text-muted-foreground/50">{w.type}</span>
+                      <span className="font-mono text-[10px] tracking-[0.1em] uppercase text-muted-foreground/50">{works[0].type}</span>
                     </div>
-                    <h3 className="font-display text-[22px] md:text-[26px] tracking-[0.02em] text-foreground mb-3 group-hover:text-accent-warm transition-colors duration-300">
-                      {w.title}
+                    <h3 className="font-display text-[28px] md:text-[36px] tracking-[0.02em] text-foreground mb-3 group-hover:text-accent-warm transition-colors duration-300">
+                      {works[0].title}
                     </h3>
-                    <p className="font-body text-[13px] leading-[1.6] text-muted-foreground line-clamp-2">{w.brief[lang]}</p>
-                    <p className="font-display text-[16px] tracking-[0.02em] text-accent-gradient mt-4">{w.result}</p>
+                    <p className="font-body text-[14px] leading-[1.6] text-muted-foreground line-clamp-2">{works[0].brief[lang]}</p>
+                    <p className="font-display text-[18px] tracking-[0.02em] text-accent-gradient mt-4">{works[0].result}</p>
                   </div>
                 </Link>
               </AnimatedSection>
-            ))}
+            )}
+            {works[1] && (
+              <AnimatedSection delay={0.12}>
+                <Link to={`/work/${works[1].slug}`} className="group block border border-border h-full hover:border-accent-warm/30 transition-colors duration-300">
+                  <div className="aspect-[16/10] overflow-hidden relative">
+                    <img src={works[1].image} alt={works[1].title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" />
+                    <div className="absolute inset-0 bg-accent-warm/0 group-hover:bg-accent-warm/5 transition-all duration-500" />
+                  </div>
+                  <div className="p-6 md:p-8">
+                    <div className="flex items-center gap-3 mb-3">
+                      <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm/60">{works[1].service}</span>
+                    </div>
+                    <h3 className="font-display text-[22px] md:text-[26px] tracking-[0.02em] text-foreground mb-3 group-hover:text-accent-warm transition-colors duration-300">
+                      {works[1].title}
+                    </h3>
+                    <p className="font-body text-[13px] leading-[1.6] text-muted-foreground line-clamp-2">{works[1].brief[lang]}</p>
+                  </div>
+                </Link>
+              </AnimatedSection>
+            )}
+          </div>
+
+          {/* Row 2: Small left + Large right */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {works[2] && (
+              <AnimatedSection delay={0.08}>
+                <Link to={`/work/${works[2].slug}`} className="group block border border-border h-full hover:border-accent-warm/30 transition-colors duration-300">
+                  <div className="aspect-[16/10] overflow-hidden relative">
+                    <img src={works[2].image} alt={works[2].title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" />
+                    <div className="absolute inset-0 bg-accent-warm/0 group-hover:bg-accent-warm/5 transition-all duration-500" />
+                  </div>
+                  <div className="p-6 md:p-8">
+                    <div className="flex items-center gap-3 mb-3">
+                      <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm/60">{works[2].service}</span>
+                    </div>
+                    <h3 className="font-display text-[22px] md:text-[26px] tracking-[0.02em] text-foreground mb-3 group-hover:text-accent-warm transition-colors duration-300">
+                      {works[2].title}
+                    </h3>
+                    <p className="font-body text-[13px] leading-[1.6] text-muted-foreground line-clamp-2">{works[2].brief[lang]}</p>
+                  </div>
+                </Link>
+              </AnimatedSection>
+            )}
+            {works[3] && (
+              <AnimatedSection delay={0.16} className="md:col-span-2">
+                <Link to={`/work/${works[3].slug}`} className="group block border border-border h-full hover:border-accent-warm/30 transition-colors duration-300">
+                  <div className="aspect-[16/9] overflow-hidden relative">
+                    <img src={works[3].image} alt={works[3].title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" />
+                    <div className="absolute inset-0 bg-accent-warm/0 group-hover:bg-accent-warm/5 transition-all duration-500" />
+                  </div>
+                  <div className="p-6 md:p-8">
+                    <div className="flex items-center gap-3 mb-3">
+                      <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm/60">{works[3].service}</span>
+                      <span className="text-muted-foreground/30 text-[8px]">●</span>
+                      <span className="font-mono text-[10px] tracking-[0.1em] uppercase text-muted-foreground/50">{works[3].type}</span>
+                    </div>
+                    <h3 className="font-display text-[28px] md:text-[36px] tracking-[0.02em] text-foreground mb-3 group-hover:text-accent-warm transition-colors duration-300">
+                      {works[3].title}
+                    </h3>
+                    <p className="font-body text-[14px] leading-[1.6] text-muted-foreground line-clamp-2">{works[3].brief[lang]}</p>
+                    <p className="font-display text-[18px] tracking-[0.02em] text-accent-gradient mt-4">{works[3].result}</p>
+                  </div>
+                </Link>
+              </AnimatedSection>
+            )}
           </div>
         </div>
       </section>
+
+      {/* ═══ HORIZONTAL SCROLL CASE STUDIES ═══ */}
+      <HorizontalScrollCaseStudies />
 
       {/* ═══ CTA ═══ */}
       <section className="py-32 md:py-48 px-4 sm:px-6 md:px-12 border-t border-border text-center">

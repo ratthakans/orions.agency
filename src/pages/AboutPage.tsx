@@ -180,6 +180,17 @@ const AboutPage = () => {
         </div>
       </section>
 
+      {/* Impact Numbers */}
+      <section className="px-4 sm:px-6 md:px-12 py-24 md:py-32 border-t border-border">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-3 gap-8 md:gap-16">
+            <AnimatedCounter end={50} suffix="+" label="Projects" />
+            <AnimatedCounter end={9} label="Industries" />
+            <AnimatedCounter end={13} label="Creatives" />
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-24 md:py-40 px-4 sm:px-6 md:px-12 border-t border-border">
         <div className="max-w-4xl mx-auto text-center">

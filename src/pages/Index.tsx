@@ -326,10 +326,10 @@ const Index = () => {
       {/* ═══ CTA ═══ */}
       <section className="py-32 md:py-48 px-4 sm:px-6 md:px-12 border-t border-border text-center">
         <AnimatedSection>
-          <p className="font-display text-[clamp(28px,5vw,64px)] leading-[1] tracking-[0.02em] text-foreground">
+          <p className="font-display font-bold text-[clamp(24px,4.5vw,56px)] leading-[1] tracking-[0.02em] text-foreground">
             Ready to be seen
           </p>
-          <p className="font-display text-[clamp(28px,5vw,64px)] leading-[1] tracking-[0.02em] text-accent-gradient">
+          <p className="font-display font-bold text-[clamp(24px,4.5vw,56px)] leading-[1] tracking-[0.02em] text-accent-gradient">
             differently?
           </p>
         </AnimatedSection>

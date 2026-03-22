@@ -92,7 +92,7 @@ const WorkDetailPage = () => {
         <div className="max-w-6xl mx-auto grid grid-cols-2 gap-4">
           <Link to={`/work/${prevWork.slug}`} className="group text-left">
             <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground/50 block mb-2">← Previous</span>
-            <span className="font-display text-[15px] md:text-[20px] tracking-[0.02em] text-foreground group-hover:text-accent-warm transition-colors duration-300">{prevWork.title}</span>
+            <span className="font-display font-normal text-[14px] md:text-[18px] tracking-[0.02em] text-foreground group-hover:text-accent-warm transition-colors duration-300">{prevWork.title}</span>
           </Link>
           <Link to={`/work/${nextWork.slug}`} className="group text-right">
             <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground/50 block mb-2">Next →</span>

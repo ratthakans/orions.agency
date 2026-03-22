@@ -114,7 +114,7 @@ const CoreServiceCard = ({ s }: { s: ServiceDetail }) => {
           <span className="font-mono text-[10px] tracking-[0.15em] text-muted-foreground/30 shrink-0">{s.num}</span>
           <div className="min-w-0">
             <div className="flex items-center gap-3 mb-2">
-              <h3 className="font-display text-[clamp(18px,3vw,34px)] tracking-[0.02em] text-foreground group-hover:text-accent-warm transition-colors duration-300">
+              <h3 className="font-display font-normal text-[clamp(16px,2.5vw,28px)] tracking-[0.02em] text-foreground group-hover:text-accent-warm transition-colors duration-300">
                 {s.title}
               </h3>
               {s.star && <span className="text-accent-warm text-[10px]">★</span>}

@@ -106,16 +106,16 @@ const ProcessPage = () => {
 
           <AnimatedSection delay={0.1}>
             <div className="mb-20 md:mb-32">
-              <p className="font-display text-[clamp(24px,4.5vw,56px)] leading-[1.05] tracking-[0.02em] text-foreground">
+               <p className="font-display font-medium text-[clamp(22px,4vw,48px)] leading-[1.05] tracking-[0.02em] text-foreground">
                 More ads.
               </p>
-              <p className="font-display text-[clamp(24px,4.5vw,56px)] leading-[1.05] tracking-[0.02em] text-foreground">
+              <p className="font-display font-medium text-[clamp(22px,4vw,48px)] leading-[1.05] tracking-[0.02em] text-foreground">
                 More content.
               </p>
-              <p className="font-display text-[clamp(24px,4.5vw,56px)] leading-[1.05] tracking-[0.02em] text-foreground">
+              <p className="font-display font-medium text-[clamp(22px,4vw,48px)] leading-[1.05] tracking-[0.02em] text-foreground">
                 More budget.
               </p>
-              <p className="font-display text-[clamp(24px,4.5vw,56px)] leading-[1.05] tracking-[0.02em] text-muted-foreground/30 mt-4">
+              <p className="font-display font-medium text-[clamp(22px,4vw,48px)] leading-[1.05] tracking-[0.02em] text-muted-foreground/30 mt-4">
                 Less growth.
               </p>
             </div>

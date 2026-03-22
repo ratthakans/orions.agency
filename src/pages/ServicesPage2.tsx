@@ -294,7 +294,7 @@ const ServicesPage2 = () => {
             <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
               <span className="text-accent-warm mr-2">✦</span> Ready?
             </p>
-            <h2 className="font-display text-[clamp(24px,4vw,48px)] leading-[1.05] tracking-[0.02em] text-foreground mb-6">
+            <h2 className="font-display text-[clamp(22px,3.5vw,44px)] leading-[1.05] tracking-[0.02em] text-foreground mb-6">
               Let's build<br /><span className="text-accent-gradient">something worth noticing.</span>
             </h2>
             <div className="flex items-center justify-center gap-8 flex-wrap mt-10">

@@ -67,7 +67,7 @@ const ContactPage2 = () => {
                 </div>
                 <div>
                   <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-warm/60 mb-3">Phone</p>
-                  <a href="tel:0923905464" className="font-display text-[18px] md:text-[22px] text-foreground hover:text-accent-warm transition-colors duration-300">092-390-5464</a>
+                  <a href="tel:0923905464" className="font-display font-normal text-[16px] md:text-[20px] text-foreground hover:text-accent-warm transition-colors duration-300">092-390-5464</a>
                 </div>
                 <div>
                   <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-warm/60 mb-3">Office</p>

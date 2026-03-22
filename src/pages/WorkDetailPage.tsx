@@ -96,7 +96,7 @@ const WorkDetailPage = () => {
           </Link>
           <Link to={`/work/${nextWork.slug}`} className="group text-right">
             <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground/50 block mb-2">Next →</span>
-            <span className="font-display text-[15px] md:text-[20px] tracking-[0.02em] text-foreground group-hover:text-accent-warm transition-colors duration-300">{nextWork.title}</span>
+            <span className="font-display font-normal text-[14px] md:text-[18px] tracking-[0.02em] text-foreground group-hover:text-accent-warm transition-colors duration-300">{nextWork.title}</span>
           </Link>
         </div>
       </section>

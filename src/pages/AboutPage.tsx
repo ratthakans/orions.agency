@@ -196,7 +196,7 @@ const AboutPage = () => {
       <section className="py-24 md:py-40 px-4 sm:px-6 md:px-12 border-t border-border">
         <div className="max-w-4xl mx-auto text-center">
           <AnimatedSection>
-            <h2 className="font-display text-[clamp(24px,4vw,48px)] leading-[1.05] tracking-[0.02em] text-foreground mb-6">
+            <h2 className="font-display text-[clamp(22px,3.5vw,44px)] leading-[1.05] tracking-[0.02em] text-foreground mb-6">
               Want to work<br />with us?
             </h2>
             <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-xl mx-auto mb-10">

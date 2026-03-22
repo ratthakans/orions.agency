@@ -226,7 +226,7 @@ const ProcessPage = () => {
             {beliefs.map((text, i) => (
               <AnimatedSection key={i} delay={0.1}>
                 <blockquote className={`max-w-4xl ${i % 2 === 0 ? '' : 'md:ml-auto md:text-right'}`}>
-                  <p className="font-display text-[clamp(20px,3.5vw,44px)] leading-[1.1] tracking-[0.02em] text-foreground/90">
+                  <p className="font-display font-normal text-[clamp(18px,3vw,36px)] leading-[1.1] tracking-[0.02em] text-foreground/90">
                     "{text}"
                   </p>
                 </blockquote>

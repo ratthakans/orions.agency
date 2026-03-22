@@ -106,7 +106,7 @@ const WorkPage = () => {
         <section className="px-4 sm:px-6 md:px-12 py-20 md:py-32 pb-32 md:pb-48">
           <div className="max-w-7xl mx-auto text-center">
             <AnimatedSection>
-              <h2 className="font-display text-[clamp(24px,4vw,48px)] leading-[1.05] tracking-[0.02em] text-foreground mb-6">
+              <h2 className="font-display text-[clamp(22px,3.5vw,44px)] leading-[1.05] tracking-[0.02em] text-foreground mb-6">
                 Want work like this
                 <br />for your brand?
               </h2>

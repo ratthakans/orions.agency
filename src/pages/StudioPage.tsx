@@ -82,7 +82,7 @@ const StudioPage = () => {
         </div>
       </section>
 
-      <section className="px-4 sm:px-6 md:px-12 py-16 md:py-24">
+      <section className="px-4 sm:px-6 md:px-12 py-16 md:py-24 border-t border-border">
         <div className="max-w-7xl mx-auto">
           <div className="space-y-6">
             {shows.map((show, i) => (

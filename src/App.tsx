@@ -33,16 +33,14 @@ const App = () => (
             <Route path="/about" element={<PageTransition><AboutPage /></PageTransition>} />
             <Route path="/work" element={<PageTransition><WorkPage /></PageTransition>} />
             <Route path="/work/:slug" element={<PageTransition><WorkDetailPage /></PageTransition>} />
-            <Route path="/problem" element={<Navigate to="/process" replace />} />
             <Route path="/services" element={<PageTransition><ServicesPage2 /></PageTransition>} />
             <Route path="/process" element={<PageTransition><ProcessPage /></PageTransition>} />
-            <Route path="/philosophy" element={<Navigate to="/process" replace />} />
             <Route path="/studio" element={<PageTransition><StudioPage /></PageTransition>} />
-            <Route path="/value" element={<Navigate to="/" replace />} />
-            <Route path="/clients" element={<PageTransition><ClientsPage /></PageTransition>} />
             <Route path="/contact" element={<PageTransition><ContactPage2 /></PageTransition>} />
-            <Route path="/industries" element={<Navigate to="/package" replace />} />
-            <Route path="*" element={<PageTransition><Index /></PageTransition>} />
+            <Route path="/problem" element={<Navigate to="/process" replace />} />
+            <Route path="/philosophy" element={<Navigate to="/process" replace />} />
+            <Route path="/value" element={<Navigate to="/" replace />} />
+            <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
           </Routes>
         </BrowserRouter>
       </LanguageProvider>

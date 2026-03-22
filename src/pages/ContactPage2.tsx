@@ -5,14 +5,55 @@ import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 import SEO from "@/components/SEO";
 
+const serviceOptions = [
+  "Creative Transformation",
+  "Signature Campaign",
+  "Production",
+  "Event / Activation",
+  "Digital Experience",
+  "Conversation System",
+  "Creative Partnership (Retainer)",
+  "Content System (Retainer)",
+  "Channel Management (Retainer)",
+  "Other",
+];
+
+const contactSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://orions.agency/" },
+        { "@type": "ListItem", position: 2, name: "Contact", item: "https://orions.agency/contact" },
+      ],
+    },
+    {
+      "@type": "ProfessionalService",
+      name: "ØRIONS",
+      url: "https://orions.agency/contact",
+      telephone: "+66-92-390-5464",
+      email: "hello@orions.agency",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "246/8 Soi Yothinpattana",
+        addressLocality: "Khlong Chan, Bang Kapi",
+        addressRegion: "Bangkok",
+        postalCode: "10240",
+        addressCountry: "TH",
+      },
+    },
+  ],
+};
+
 const ContactPage2 = () => {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", service: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Project inquiry from ${form.name}`);
-    const body = encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`);
+    const subject = encodeURIComponent(`[${form.service || "General"}] Project inquiry from ${form.name}`);
+    const body = encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\nService: ${form.service}\n\n${form.message}`);
     window.location.href = `mailto:hello@orions.agency?subject=${subject}&body=${body}`;
     setSubmitted(true);
   };

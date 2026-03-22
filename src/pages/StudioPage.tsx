@@ -187,10 +187,7 @@ const StudioPage = () => {
                         {'titleTh' in show && (show as any).titleTh && (
                           <p className="font-mono text-[11px] tracking-[0.1em] uppercase text-accent-warm/40 mb-4">{(show as any).titleTh}</p>
                         )}
-                        <p className="font-body text-[14px] leading-[1.7] text-muted-foreground mb-3 max-w-lg">
-                          {show.descEn}
-                        </p>
-                        <p className="font-body text-[13px] leading-[1.7] text-muted-foreground/50 mb-6 max-w-lg">
+                        <p className="font-body text-[14px] leading-[1.7] text-muted-foreground mb-6 max-w-lg">
                           {show.desc}
                         </p>
                         <div className="flex items-center justify-between">

@@ -64,6 +64,7 @@ const ContactPage2 = () => {
         title="Contact — ØRIONS"
         description="Ready to change how people see your brand? Let's talk. Bangkok-based creative agency."
         path="/contact"
+        schema={contactSchema}
       />
       <Navbar />
 

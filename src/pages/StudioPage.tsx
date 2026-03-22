@@ -101,7 +101,7 @@ const StudioPage = () => {
                       </div>
                       <div className="p-6 md:p-10 flex flex-col justify-center relative">
                         <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground/50 mb-3 block">{show.type}</span>
-                        <h2 className="font-display text-[clamp(20px,3vw,34px)] leading-[1] tracking-[0.02em] text-foreground mb-2">{show.title}</h2>
+                        <h2 className="font-display font-normal text-[clamp(18px,2.5vw,28px)] leading-[1] tracking-[0.02em] text-foreground mb-2">{show.title}</h2>
                         <p className="font-body text-[14px] leading-[1.7] text-muted-foreground mb-6 max-w-lg">{show.desc}</p>
                         <div className="flex items-center justify-between">
                           <p className="font-mono text-[10px] tracking-[0.1em] text-muted-foreground/40">{show.format}</p>

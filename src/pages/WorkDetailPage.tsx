@@ -43,7 +43,7 @@ const WorkDetailPage = () => {
             <span className="text-muted-foreground/30 text-[8px]">●</span>
             <span className="font-mono text-[10px] tracking-[0.1em] uppercase text-muted-foreground/50">{work.type}</span>
           </div>
-          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="font-display text-[clamp(28px,5vw,56px)] leading-[1] tracking-[0.02em] text-foreground mb-4">
+          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="font-display font-bold text-[clamp(24px,4.5vw,48px)] leading-[1] tracking-[0.02em] text-foreground mb-4">
             {work.title}
           </motion.h1>
           <p className="font-body text-[16px] leading-[1.7] text-muted-foreground max-w-2xl">{work.brief[lang]}</p>

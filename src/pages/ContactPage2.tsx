@@ -193,6 +193,18 @@ const ContactPage2 = () => {
                     />
                   </div>
                   <div>
+                    <label className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground/60 block mb-3">Service</label>
+                    <select
+                      value={form.service}
+                      onChange={(e) => setForm({ ...form, service: e.target.value })}
+                      className="w-full bg-transparent border-b border-border py-3 font-body text-[15px] text-foreground focus:outline-none focus:border-accent-warm transition-colors duration-300 appearance-none cursor-pointer"
+                    >
+                      <option value="" className="bg-background text-muted-foreground">Select a service</option>
+                      {serviceOptions.map((s) => (
+                        <option key={s} value={s} className="bg-background text-foreground">{s}</option>
+                      ))}
+                    </select>
+                  <div>
                     <label className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground/60 block mb-3">Message</label>
                     <textarea
                       required

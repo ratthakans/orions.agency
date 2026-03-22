@@ -242,7 +242,7 @@ const ServicesPage2 = () => {
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }} className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
             <span className="text-accent-warm mr-2">✦</span> Services
           </motion.p>
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.15 }} className="font-display text-[clamp(32px,6vw,72px)] leading-[1] tracking-[0.02em] text-foreground mb-6">
+          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.15 }} className="font-display font-bold text-[clamp(28px,5vw,64px)] leading-[1] tracking-[0.02em] text-foreground mb-6">
             Services.
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.35 }} className="font-body text-[15px] md:text-[17px] leading-[1.7] text-muted-foreground max-w-lg">

@@ -164,8 +164,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ═══ CINEMATIC DIVIDER ═══ */}
-      <CinematicDivider quote="Perception is the only battlefield that matters." />
 
       {/* ═══ PROCESS PREVIEW ═══ */}
       <section className="py-24 md:py-40 px-4 sm:px-6 md:px-12 border-t border-border">

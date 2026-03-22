@@ -182,7 +182,7 @@ const ProcessPage = () => {
                       </span>
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-display text-[22px] md:text-[30px] tracking-[0.02em] text-foreground mb-3 group-hover:text-accent-warm transition-colors duration-300">
+                      <h3 className="font-display font-normal text-[20px] md:text-[26px] tracking-[0.02em] text-foreground mb-3 group-hover:text-accent-warm transition-colors duration-300">
                         {phase.title}
                       </h3>
                       <p className="font-body text-[15px] md:text-[16px] leading-[1.7] text-muted-foreground mb-4 max-w-xl">

@@ -1,72 +1,112 @@
 
 
-# ØRIONS Website — Full Review
+# ØRIONS Website — Full Re-Review
 
-## Overall Impression
+## Current State Summary
 
-The site has strong bones — the typography system (Bebas Neue + IBM Plex), the dark palette with gold accents, and the editorial layout are working well together. It reads as a serious creative agency, not a template site. That said, there are several areas that could elevate it from "good agency site" to "this agency clearly practices what they preach."
+After reviewing every page and component, here's what's working and what needs fixing.
 
-## What's Working
+## What's Working Well
 
-- **Brand voice** is consistent and sharp across all pages — short sentences, confident tone
-- **Typography hierarchy** is well-executed — Bebas Neue headlines vs IBM Plex body creates clear contrast
-- **Color discipline** — yellow (#ffcc00) is used sparingly as accent, not overused
-- **Navigation structure** makes sense — Process → Services → About → Work → Studio → Contact is a logical flow
-- **Service page** with expandable details is well-designed and functional
-- **Work detail page** (Challenge → Approach → Result) is clean and easy to scan
+- **Brand system is cohesive** — Bebas Neue + IBM Plex, #ffcc00 accent, dark palette, consistent across all pages
+- **Navigation** — fixed, correct order (Process → Services → About → Work → Studio → Contact), progress bar
+- **Services page** — detailed, expandable, outcome-driven, pricing included
+- **Work page** — shared data file, filters, detail pages with prev/next navigation
+- **Studio page** — accordion details, 16:9 mockups, 5 shows
+- **Footer** — 3-column layout with business details
+- **SEO** — meta tags, schema markup, canonical links
 
-## Issues Found
+## Issues Found — Grouped by Priority
 
-### 1. Homepage — Hero video iframe performance
-The YouTube iframe (`w-[300vw] h-[300vh]`) is a heavy embed that loads YouTube's entire player. On slow connections, users see a black screen for several seconds before the video loads. Consider using a self-hosted MP4 with the `<video>` tag for instant playback, or at minimum add a poster/fallback image.
+### HIGH PRIORITY (Credibility & Performance)
 
-### 2. Homepage — Services preview shows only 3 of 7
-The homepage services section shows only 3 services (Creative Transformation, Signature Campaign, Film/Production). Event & Experience, Creative Communication, and retainers are missing. This undersells what you offer.
+1. **PageTransition still has exit animation** — `exit={{ scaleY: 1 }}` remains on line 12, causing the slow black-screen gap we planned to fix. The second wipe overlay also remains. This was approved in a previous plan but never fully implemented.
 
-### 3. Homepage — Case Studies are placeholder data
-The "Lifestyle Brand", "B2B SaaS", "D2C Brand" cards use generic names with no images. This section should either link to real work from the /work page or be removed. Having placeholder case studies alongside a full portfolio page with 9 detailed projects is contradictory.
+2. **Contact form missing service selector** — `ContactPage2.tsx` (the active contact page) has no service/subject dropdown. `ContactPage.tsx` has one but isn't used. The user previously requested this and it was supposedly added, but `ContactPage2` still only has name/email/message.
 
-### 4. Homepage — No link to Work page in Case Studies section
-The Selected Work section has no "View all" link to /work, unlike the Services and Process sections which link to their respective pages.
+3. **404 route shows homepage instead of NotFound** — `App.tsx` line 45: `path="*"` renders `<Index />` instead of `<NotFound />`. Users hitting bad URLs see the homepage with no indication anything went wrong.
 
-### 5. Work page — Duplicate data
-`WorkPage.tsx` and `WorkDetailPage.tsx` both define the full `works` array independently. This is a maintenance risk — if you update one, the other goes stale.
+4. **Dead redirect** — `/industries` redirects to `/package` (line 44), but there's no `/package` route defined. This is a 404 loop.
 
-### 6. Contact form doesn't actually send
-The form just sets `submitted = true` with no backend integration. This should either connect to an email service or at minimum open a `mailto:` link.
+5. **Unused pages cluttering the codebase** — `ContactPage.tsx` (unused, replaced by `ContactPage2`), `ClientsPage.tsx` (still routed but not in navbar), `PhilosophyPage.tsx`, `ProblemPage.tsx`, `ValuePage.tsx`, various package pages — all orphaned.
 
-### 7. Social links are dead
-Footer and Contact page social links (`Facebook`, `Instagram`, `YouTube`) all point to `#`.
+### MEDIUM PRIORITY (Consistency & UX)
 
-### 8. About page — Team photos are AI-generated placeholders
-The `.jpg` assets in `src/assets/` are generated images, not real team photos. For a 13-person team with named leadership (Ratthakan, Manrut, Jaruwatr, Niti), having obviously AI-generated photos undermines credibility.
+6. **Homepage hero `pt-0` but navbar is 60px fixed** — Hero section has no top padding, so the first ~60px of content sits under the navbar. Currently the hero is `h-screen flex items-center` so it centers, but on shorter viewports the "Creative Agency · Bangkok" text can be cut off.
 
-### 9. Studio page — All shows are in development
-Every show has a status of "In Development," "Concept," or "Pre-production." There's no released content to watch. Consider adding links to any published episodes, trailers, or teasers.
+7. **Two contact pages exist** — `ContactPage.tsx` (256 lines, has service selector, schema markup) and `ContactPage2.tsx` (181 lines, simpler, no service selector). Should consolidate into one, taking the best from each.
 
-### 10. Process page — Painpoint section may be redundant
-Both `/problem` and `/process` cover similar ground about "brands doing too much marketing but not growing." The Problem page does it better with the SCQA framework. The Process page's painpoint intro feels like a diluted version.
+8. **Social links are still placeholder URLs** — `facebook.com/orionsagency`, `instagram.com/orionsagency`, `youtube.com/@orionsagency` — these likely don't exist. Better to use real URLs or remove them.
 
-### 11. Missing "Value" page content
-The route `/value` exists in App.tsx but the homepage's "What We Actually Sell" section seems to have been merged/removed. The Value page may be orphaned.
+9. **About page says "13 CREATIVES" but team data shows 13 people** — The C-level row has "CEO" and "CFO" as names (not real names), which looks placeholder-ish alongside real names like Ratthakan, Manrut, Jaruwatr, Niti.
 
-### 12. Footer — Missing Work link context
-Footer has all nav links but no brief tagline or differentiator per section — it's purely functional.
+10. **Work detail pages have no gallery/additional images** — Each project shows only one hero image. For a creative agency, this undersells the work.
 
-## Design & UX Suggestions (for a future iteration)
+### LOW PRIORITY (Polish)
 
-1. **Replace YouTube iframe with self-hosted video** — instant load, no third-party dependency, smaller file
-2. **Connect homepage Case Studies to real /work entries** — or replace with a "Selected Work" carousel pulling from the actual works data
-3. **Extract works data into a shared file** — `src/data/works.ts` used by both WorkPage and WorkDetailPage
-4. **Add real social media URLs** or remove the placeholder links
-5. **Integrate contact form with email** — Supabase edge function or simple mailto fallback
-6. **Add real team photos** when available, or use a typography-only "role grid" instead of fake photos
-7. **Homepage services preview** — show all 5 core services or use a different selection strategy
-8. **Studio page** — add YouTube embeds or teaser links for any shows that have published content
+11. **Inconsistent hero spacing across pages** — Process/About use `min-h-[60vh]`, Studio uses `min-h-[50vh]`, Contact uses `min-h-[50vh]`, Work uses `pt-16 md:pt-24`. Should standardize.
 
-## Verdict
+12. **No loading state for lazy images** — All images use `loading="lazy"` but no skeleton/placeholder while loading.
 
-The site looks and reads like a legitimate creative agency — the tone is right, the structure makes sense, the design system is cohesive. The main things holding it back from feeling "premium agency that practices what it preaches" are: placeholder content (fake team photos, dead social links, non-functional form, generic case studies on homepage). Fixing those gaps would make a significant difference in credibility.
+13. **`grain-overlay` class** — Used on every page but I should verify the CSS actually renders it properly.
 
-As a design system, it's solid. As a live portfolio site, it needs real content to match the quality of the design.
+## Proposed Fixes
+
+### Batch 1 — Critical fixes
+- **Fix PageTransition**: Remove exit animation, remove second wipe overlay, speed up durations (per the previously approved plan)
+- **Fix 404 route**: Change `path="*"` to render `<NotFound />`
+- **Fix dead redirect**: Remove `/industries → /package` or point to valid route
+- **Merge contact pages**: Consolidate into one `ContactPage` with service selector, schema markup, and mailto functionality
+
+### Batch 2 — Cleanup
+- **Remove unused page files**: `PhilosophyPage.tsx`, `ProblemPage.tsx`, `ValuePage.tsx`, old `ContactPage.tsx` (after merge), unused package pages
+- **Remove unused routes**: `/clients`, orphaned redirects
+- **Standardize hero spacing** across all sub-pages
+
+### Batch 3 — Content quality
+- **Add service selector to contact form** (dropdown with 6 core + 3 retainer options)
+- **Remove or update placeholder social links**
+- **Update About page** — either add real CEO/CFO names or switch to role-only display
+
+## Files to Modify
+
+- `src/components/PageTransition.tsx` — fix transition speed
+- `src/App.tsx` — fix 404 route, clean up unused routes
+- `src/pages/ContactPage2.tsx` — add service selector, merge schema from ContactPage
+- Delete: `src/pages/ContactPage.tsx`, `src/pages/PhilosophyPage.tsx`, `src/pages/ProblemPage.tsx`, `src/pages/ValuePage.tsx`
+
+## Technical Details
+
+```tsx
+// PageTransition.tsx — fixed
+const PageTransition = ({ children }: { children: ReactNode }) => (
+  <>
+    <motion.div
+      className="fixed inset-0 z-[9998] bg-background"
+      initial={{ scaleY: 1 }}
+      animate={{ scaleY: 0 }}
+      transition={{ duration: 0.25, ease: [0.76, 0, 0.24, 1] }}
+      style={{ transformOrigin: "top" }}
+    />
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.2, delay: 0.08 }}
+    >
+      {children}
+    </motion.div>
+  </>
+);
+
+// App.tsx — 404 fix
+<Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
+
+// ContactPage2 — add service dropdown
+const serviceOptions = [
+  "Creative Transformation", "Signature Campaign", "Production",
+  "Event / Activation", "Digital Experience", "Conversation System",
+  "Creative Partnership (Retainer)", "Content System (Retainer)",
+  "Channel Management (Retainer)", "Other",
+];
+```
 

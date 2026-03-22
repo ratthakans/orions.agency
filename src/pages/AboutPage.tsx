@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
+import AnimatedCounter from "@/components/AnimatedCounter";
 import SEO from "@/components/SEO";
 
 import teamFounder from "@/assets/team-somchai.jpg";
@@ -176,6 +177,17 @@ const AboutPage = () => {
                 </div>
               </AnimatedSection>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Impact Numbers */}
+      <section className="px-4 sm:px-6 md:px-12 py-24 md:py-32 border-t border-border">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-3 gap-8 md:gap-16">
+            <AnimatedCounter end={50} suffix="+" label="Projects" />
+            <AnimatedCounter end={9} label="Industries" />
+            <AnimatedCounter end={13} label="Creatives" />
           </div>
         </div>
       </section>

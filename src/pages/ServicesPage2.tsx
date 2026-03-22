@@ -122,7 +122,7 @@ const coreServices: ServiceDetail[] = [
   },
   {
     num: "06",
-    title: "Conversation System",
+    title: "Communication System",
     star: true,
     desc: "We design how your brand spreads, gets talked about, and builds trust.",
     whatWeDo: ["Narrative distribution", "Seeding", "Information Operations (IO)"],
@@ -416,9 +416,9 @@ const ServicesPage2 = () => {
     <main className="bg-background min-h-screen grain-overlay">
       <SEO
         title="Services — ØRIONS"
-        description="Creative transformation, campaigns, production, events, digital experience, and conversation systems. We focus on what actually drives growth."
+        description="Creative transformation, campaigns, production, events, digital experience, and communication systems. We focus on what actually drives growth."
         path="/services"
-        keywords="creative agency services, brand transformation, campaign, production, event activation, digital experience, conversation system"
+        keywords="creative agency services, brand transformation, campaign, production, event activation, digital experience, communication system"
       />
       <Navbar />
 

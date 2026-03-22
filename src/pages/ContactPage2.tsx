@@ -11,7 +11,7 @@ const serviceOptions = [
   "Production",
   "Event / Activation",
   "Digital Experience",
-  "Conversation System",
+  "Communication System",
   "Creative Partnership (Retainer)",
   "Content System (Retainer)",
   "Channel Management (Retainer)",

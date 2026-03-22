@@ -13,22 +13,9 @@ const navLinks = [
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [hidden, setHidden] = useState(false);
-  const [lastY, setLastY] = useState(0);
   const { scrollYProgress } = useScroll();
   const smoothProgress = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
   const location = useLocation();
-
-  useEffect(() => {
-    const onScroll = () => {
-      const y = window.scrollY;
-      if (y > lastY && y > 100) setHidden(true);
-      else setHidden(false);
-      setLastY(y);
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [lastY]);
 
   useEffect(() => {
     setIsOpen(false);
@@ -36,8 +23,6 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      animate={{ y: hidden ? -80 : 0 }}
-      transition={{ duration: 0.3 }}
       className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-xl border-b border-border/50"
     >
       <motion.div

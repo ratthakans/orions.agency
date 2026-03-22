@@ -177,7 +177,7 @@ const ProcessPage = () => {
                       <div className="text-accent-warm/20 group-hover:text-accent-warm/60 transition-colors duration-300">
                         {phaseIcons[i]}
                       </div>
-                      <span className="font-display text-[36px] md:text-[48px] leading-none text-accent-warm/15 group-hover:text-accent-warm/30 transition-colors duration-500">
+                      <span className="font-display font-normal text-[32px] md:text-[40px] leading-none text-accent-warm/15 group-hover:text-accent-warm/30 transition-colors duration-500">
                         {phase.num}
                       </span>
                     </div>

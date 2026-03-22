@@ -47,7 +47,7 @@ const ContactPage2 = () => {
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }} className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">
             <span className="text-accent-warm mr-2">✦</span> Contact
           </motion.p>
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="font-display text-[clamp(32px,6vw,72px)] leading-[1] tracking-[0.02em] text-foreground">
+          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="font-display font-bold text-[clamp(28px,5vw,64px)] leading-[1] tracking-[0.02em] text-foreground">
             Let's <span className="text-accent-gradient">Talk.</span>
           </motion.h1>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.4 }} className="font-body text-[16px] md:text-[18px] leading-[1.7] text-muted-foreground mt-8 max-w-xl">
@@ -63,11 +63,11 @@ const ContactPage2 = () => {
               <div className="space-y-12">
                 <div>
                   <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-warm/60 mb-3">Email</p>
-                  <a href="mailto:hello@orions.agency" className="font-display text-[18px] md:text-[22px] text-foreground hover:text-accent-warm transition-colors duration-300 break-all">hello@orions.agency</a>
+                  <a href="mailto:hello@orions.agency" className="font-display font-normal text-[16px] md:text-[20px] text-foreground hover:text-accent-warm transition-colors duration-300 break-all">hello@orions.agency</a>
                 </div>
                 <div>
                   <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-warm/60 mb-3">Phone</p>
-                  <a href="tel:0923905464" className="font-display text-[18px] md:text-[22px] text-foreground hover:text-accent-warm transition-colors duration-300">092-390-5464</a>
+                  <a href="tel:0923905464" className="font-display font-normal text-[16px] md:text-[20px] text-foreground hover:text-accent-warm transition-colors duration-300">092-390-5464</a>
                 </div>
                 <div>
                   <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-warm/60 mb-3">Office</p>

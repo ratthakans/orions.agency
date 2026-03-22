@@ -70,7 +70,7 @@ const StudioPage = () => {
             </p>
           </AnimatedSection>
           <AnimatedSection delay={0.2}>
-            <h1 className="font-display text-[clamp(32px,6vw,72px)] leading-[1] tracking-[0.02em] text-foreground">
+            <h1 className="font-display font-bold text-[clamp(28px,5vw,64px)] leading-[1] tracking-[0.02em] text-foreground">
               Our <span className="text-accent-gradient">Shows.</span>
             </h1>
           </AnimatedSection>
@@ -96,12 +96,12 @@ const StudioPage = () => {
                           <span className="font-mono text-[9px] tracking-[0.1em] uppercase text-accent-warm/80 border border-accent-warm/30 bg-background/80 backdrop-blur-sm px-3 py-1.5">{show.status}</span>
                         </div>
                         <div className="absolute bottom-4 right-4">
-                          <span className="font-display text-[36px] leading-none text-foreground/10">{show.num}</span>
+                          <span className="font-display font-normal text-[28px] leading-none text-foreground/10">{show.num}</span>
                         </div>
                       </div>
                       <div className="p-6 md:p-10 flex flex-col justify-center relative">
                         <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground/50 mb-3 block">{show.type}</span>
-                        <h2 className="font-display text-[clamp(20px,3vw,34px)] leading-[1] tracking-[0.02em] text-foreground mb-2">{show.title}</h2>
+                        <h2 className="font-display font-normal text-[clamp(18px,2.5vw,28px)] leading-[1] tracking-[0.02em] text-foreground mb-2">{show.title}</h2>
                         <p className="font-body text-[14px] leading-[1.7] text-muted-foreground mb-6 max-w-lg">{show.desc}</p>
                         <div className="flex items-center justify-between">
                           <p className="font-mono text-[10px] tracking-[0.1em] text-muted-foreground/40">{show.format}</p>
@@ -139,7 +139,7 @@ const StudioPage = () => {
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
               <span className="text-accent-warm mr-2">△</span> Collaborate
             </p>
-            <h2 className="font-display text-[clamp(24px,4vw,48px)] leading-[1.05] tracking-[0.02em] text-foreground mb-6">
+            <h2 className="font-display text-[clamp(22px,3.5vw,44px)] leading-[1.05] tracking-[0.02em] text-foreground mb-6">
               Want to build<br />something original?
             </h2>
             <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-xl mx-auto mb-10">

@@ -90,7 +90,7 @@ const ProcessPage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="font-display text-[clamp(32px,6vw,72px)] leading-[1] tracking-[0.02em] text-foreground"
+            className="font-display font-bold text-[clamp(28px,5vw,64px)] leading-[1] tracking-[0.02em] text-foreground"
           >
             Our Process.
           </motion.h1>
@@ -106,16 +106,16 @@ const ProcessPage = () => {
 
           <AnimatedSection delay={0.1}>
             <div className="mb-20 md:mb-32">
-              <p className="font-display text-[clamp(24px,4.5vw,56px)] leading-[1.05] tracking-[0.02em] text-foreground">
+               <p className="font-display font-medium text-[clamp(22px,4vw,48px)] leading-[1.05] tracking-[0.02em] text-foreground">
                 More ads.
               </p>
-              <p className="font-display text-[clamp(24px,4.5vw,56px)] leading-[1.05] tracking-[0.02em] text-foreground">
+              <p className="font-display font-medium text-[clamp(22px,4vw,48px)] leading-[1.05] tracking-[0.02em] text-foreground">
                 More content.
               </p>
-              <p className="font-display text-[clamp(24px,4.5vw,56px)] leading-[1.05] tracking-[0.02em] text-foreground">
+              <p className="font-display font-medium text-[clamp(22px,4vw,48px)] leading-[1.05] tracking-[0.02em] text-foreground">
                 More budget.
               </p>
-              <p className="font-display text-[clamp(24px,4.5vw,56px)] leading-[1.05] tracking-[0.02em] text-muted-foreground/30 mt-4">
+              <p className="font-display font-medium text-[clamp(22px,4vw,48px)] leading-[1.05] tracking-[0.02em] text-muted-foreground/30 mt-4">
                 Less growth.
               </p>
             </div>
@@ -145,10 +145,10 @@ const ProcessPage = () => {
 
           <AnimatedSection delay={0.4}>
             <div className="mt-20 md:mt-32 border-l-2 border-accent-warm/40 pl-8 md:pl-12">
-              <p className="font-display text-[clamp(20px,3vw,36px)] leading-[1.1] tracking-[0.02em] text-foreground">
+               <p className="font-display font-medium text-[clamp(18px,2.5vw,32px)] leading-[1.1] tracking-[0.02em] text-foreground">
                 It's not a marketing problem.
               </p>
-              <p className="font-display text-[clamp(20px,3vw,36px)] leading-[1.1] tracking-[0.02em] text-accent-gradient mt-2">
+              <p className="font-display font-medium text-[clamp(18px,2.5vw,32px)] leading-[1.1] tracking-[0.02em] text-accent-gradient mt-2">
                 It's a perception problem.
               </p>
             </div>
@@ -177,12 +177,12 @@ const ProcessPage = () => {
                       <div className="text-accent-warm/20 group-hover:text-accent-warm/60 transition-colors duration-300">
                         {phaseIcons[i]}
                       </div>
-                      <span className="font-display text-[36px] md:text-[48px] leading-none text-accent-warm/15 group-hover:text-accent-warm/30 transition-colors duration-500">
+                      <span className="font-display font-normal text-[32px] md:text-[40px] leading-none text-accent-warm/15 group-hover:text-accent-warm/30 transition-colors duration-500">
                         {phase.num}
                       </span>
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-display text-[22px] md:text-[30px] tracking-[0.02em] text-foreground mb-3 group-hover:text-accent-warm transition-colors duration-300">
+                      <h3 className="font-display font-normal text-[20px] md:text-[26px] tracking-[0.02em] text-foreground mb-3 group-hover:text-accent-warm transition-colors duration-300">
                         {phase.title}
                       </h3>
                       <p className="font-body text-[15px] md:text-[16px] leading-[1.7] text-muted-foreground mb-4 max-w-xl">
@@ -214,10 +214,10 @@ const ProcessPage = () => {
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
               <span className="text-accent-warm mr-2">✦</span> What We Believe
             </p>
-            <h2 className="font-display text-[clamp(28px,4.5vw,52px)] leading-[1] tracking-[0.02em] text-foreground mb-4">
+             <h2 className="font-display text-[clamp(22px,3.5vw,44px)] leading-[1] tracking-[0.02em] text-foreground mb-4">
               Ideas first.
             </h2>
-            <h2 className="font-display text-[clamp(28px,4.5vw,52px)] leading-[1] tracking-[0.02em] text-accent-gradient">
+            <h2 className="font-display text-[clamp(22px,3.5vw,44px)] leading-[1] tracking-[0.02em] text-accent-gradient">
               Everything else follows.
             </h2>
           </AnimatedSection>
@@ -226,7 +226,7 @@ const ProcessPage = () => {
             {beliefs.map((text, i) => (
               <AnimatedSection key={i} delay={0.1}>
                 <blockquote className={`max-w-4xl ${i % 2 === 0 ? '' : 'md:ml-auto md:text-right'}`}>
-                  <p className="font-display text-[clamp(20px,3.5vw,44px)] leading-[1.1] tracking-[0.02em] text-foreground/90">
+                  <p className="font-display font-normal text-[clamp(18px,3vw,36px)] leading-[1.1] tracking-[0.02em] text-foreground/90">
                     "{text}"
                   </p>
                 </blockquote>

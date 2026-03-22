@@ -38,7 +38,7 @@ const AnimatedCounter = ({ end, suffix = "", label, duration = 2 }: AnimatedCoun
       transition={{ duration: 0.6 }}
       className="text-center"
     >
-      <p className="font-display text-[clamp(48px,8vw,96px)] leading-none text-foreground">
+      <p className="font-display font-bold text-[clamp(40px,7vw,80px)] leading-none text-foreground">
         {count}{suffix}
       </p>
       <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mt-3">

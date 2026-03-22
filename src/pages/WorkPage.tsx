@@ -40,7 +40,7 @@ const WorkPage = () => {
               <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
                 <span className="text-accent-warm mr-2">◎</span> Portfolio
               </p>
-              <h1 className="font-display text-[clamp(32px,5vw,64px)] leading-[1] tracking-[0.02em] text-foreground mb-6 max-w-5xl">
+              <h1 className="font-display font-bold text-[clamp(28px,4.5vw,56px)] leading-[1] tracking-[0.02em] text-foreground mb-6 max-w-5xl">
                 Creative work
                 <br />that <span className="text-accent-gradient">performs.</span>
               </h1>
@@ -106,7 +106,7 @@ const WorkPage = () => {
         <section className="px-4 sm:px-6 md:px-12 py-20 md:py-32 pb-32 md:pb-48">
           <div className="max-w-7xl mx-auto text-center">
             <AnimatedSection>
-              <h2 className="font-display text-[clamp(24px,4vw,48px)] leading-[1.05] tracking-[0.02em] text-foreground mb-6">
+              <h2 className="font-display text-[clamp(22px,3.5vw,44px)] leading-[1.05] tracking-[0.02em] text-foreground mb-6">
                 Want work like this
                 <br />for your brand?
               </h2>

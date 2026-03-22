@@ -114,7 +114,7 @@ const CoreServiceCard = ({ s }: { s: ServiceDetail }) => {
           <span className="font-mono text-[10px] tracking-[0.15em] text-muted-foreground/30 shrink-0">{s.num}</span>
           <div className="min-w-0">
             <div className="flex items-center gap-3 mb-2">
-              <h3 className="font-display text-[clamp(18px,3vw,34px)] tracking-[0.02em] text-foreground group-hover:text-accent-warm transition-colors duration-300">
+              <h3 className="font-display font-normal text-[clamp(16px,2.5vw,28px)] tracking-[0.02em] text-foreground group-hover:text-accent-warm transition-colors duration-300">
                 {s.title}
               </h3>
               {s.star && <span className="text-accent-warm text-[10px]">★</span>}
@@ -186,7 +186,7 @@ const RetainerCard = ({ r }: { r: Retainer }) => {
           <span className="font-mono text-[10px] tracking-[0.15em] text-muted-foreground/30 shrink-0">{r.num}</span>
           <div className="min-w-0">
             <div className="flex items-center gap-3 mb-1">
-              <h3 className="font-display text-[clamp(17px,2.8vw,30px)] tracking-[0.02em] text-foreground group-hover:text-accent-warm transition-colors duration-300">{r.title}</h3>
+              <h3 className="font-display font-normal text-[clamp(15px,2.4vw,26px)] tracking-[0.02em] text-foreground group-hover:text-accent-warm transition-colors duration-300">{r.title}</h3>
               {r.star && <span className="text-accent-warm text-[10px]">★</span>}
             </div>
             <p className="font-body text-[14px] text-muted-foreground">{r.desc}</p>
@@ -242,7 +242,7 @@ const ServicesPage2 = () => {
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }} className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
             <span className="text-accent-warm mr-2">✦</span> Services
           </motion.p>
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.15 }} className="font-display text-[clamp(32px,6vw,72px)] leading-[1] tracking-[0.02em] text-foreground mb-6">
+          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.15 }} className="font-display font-bold text-[clamp(28px,5vw,64px)] leading-[1] tracking-[0.02em] text-foreground mb-6">
             Services.
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.35 }} className="font-body text-[15px] md:text-[17px] leading-[1.7] text-muted-foreground max-w-lg">
@@ -258,12 +258,12 @@ const ServicesPage2 = () => {
               <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-warm mb-6">★ Start here</p>
               <p className="font-body text-[15px] leading-[1.8] text-muted-foreground mb-6">If your brand has slowed down, start with:</p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <span className="font-display text-[15px] md:text-[17px] tracking-[0.02em] text-foreground">Creative Transformation</span>
+                 <span className="font-display font-normal text-[14px] md:text-[16px] tracking-[0.02em] text-foreground">Creative Transformation</span>
                 <span className="text-muted-foreground/30 hidden sm:inline self-center">—</span>
                 <span className="font-body text-[14px] text-muted-foreground self-center">for clarity and direction</span>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 mt-3">
-                <span className="font-display text-[15px] md:text-[17px] tracking-[0.02em] text-foreground">Signature Campaign</span>
+                <span className="font-display font-normal text-[14px] md:text-[16px] tracking-[0.02em] text-foreground">Signature Campaign</span>
                 <span className="text-muted-foreground/30 hidden sm:inline self-center">—</span>
                 <span className="font-body text-[14px] text-muted-foreground self-center">for immediate impact</span>
               </div>
@@ -294,7 +294,7 @@ const ServicesPage2 = () => {
             <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
               <span className="text-accent-warm mr-2">✦</span> Ready?
             </p>
-            <h2 className="font-display text-[clamp(24px,4vw,48px)] leading-[1.05] tracking-[0.02em] text-foreground mb-6">
+            <h2 className="font-display text-[clamp(22px,3.5vw,44px)] leading-[1.05] tracking-[0.02em] text-foreground mb-6">
               Let's build<br /><span className="text-accent-gradient">something worth noticing.</span>
             </h2>
             <div className="flex items-center justify-center gap-8 flex-wrap mt-10">

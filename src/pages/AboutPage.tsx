@@ -58,7 +58,7 @@ const AboutPage = () => {
             </p>
           </AnimatedSection>
           <AnimatedSection delay={0.2}>
-            <h1 className="font-display text-[clamp(32px,6vw,72px)] leading-[1] tracking-[0.02em] text-foreground">
+            <h1 className="font-display font-bold text-[clamp(28px,5vw,64px)] leading-[1] tracking-[0.02em] text-foreground">
               Who we <span className="text-accent-gradient">are.</span>
             </h1>
           </AnimatedSection>
@@ -71,7 +71,7 @@ const AboutPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
             <AnimatedSection>
               <div>
-                <h2 className="font-display text-[clamp(22px,3vw,36px)] leading-[1.1] tracking-[0.02em] text-foreground mb-8">
+                <h2 className="font-display text-[clamp(20px,2.5vw,32px)] leading-[1.1] tracking-[0.02em] text-foreground mb-8">
                   A creative agency<br />from Bangkok.
                 </h2>
                 <div className="space-y-6">
@@ -92,15 +92,15 @@ const AboutPage = () => {
               <div className="space-y-8">
                 <div className="border border-border p-8">
                   <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-warm/60 mb-4">Founded</p>
-                  <p className="font-display text-[28px] leading-none text-foreground">2024</p>
+                  <p className="font-display font-normal text-[24px] leading-none text-foreground">2024</p>
                 </div>
                 <div className="border border-border p-8">
                   <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-warm/60 mb-4">Team Size</p>
-                  <p className="font-display text-[28px] leading-none text-foreground">13</p>
+                  <p className="font-display font-normal text-[24px] leading-none text-foreground">13</p>
                 </div>
                 <div className="border border-border p-8">
                   <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-warm/60 mb-4">Based In</p>
-                  <p className="font-display text-[28px] leading-none text-foreground">Bangkok</p>
+                  <p className="font-display font-normal text-[24px] leading-none text-foreground">Bangkok</p>
                 </div>
               </div>
             </AnimatedSection>
@@ -124,7 +124,7 @@ const AboutPage = () => {
             ].map((v, i) => (
               <AnimatedSection key={v.title} delay={i * 0.1}>
                 <div className="border border-border p-8 md:p-10 h-full hover:border-accent-warm/30 transition-colors duration-300">
-                  <h3 className="font-display text-[18px] md:text-[20px] tracking-[0.02em] text-foreground mb-4">
+                  <h3 className="font-display font-normal text-[16px] md:text-[18px] tracking-[0.02em] text-foreground mb-4">
                     {v.title}
                   </h3>
                   <p className="font-body text-[14px] leading-[1.7] text-muted-foreground">
@@ -144,7 +144,7 @@ const AboutPage = () => {
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
               <span className="text-accent-warm mr-2">✦</span> The Team
             </p>
-            <h2 className="font-display text-[clamp(24px,4vw,48px)] leading-[1] tracking-[0.02em] text-foreground mb-16">
+            <h2 className="font-display text-[clamp(22px,3.5vw,44px)] leading-[1] tracking-[0.02em] text-foreground mb-16">
               13 Creatives.<br /><span className="text-accent-gradient">One Vision.</span>
             </h2>
           </AnimatedSection>
@@ -196,7 +196,7 @@ const AboutPage = () => {
       <section className="py-24 md:py-40 px-4 sm:px-6 md:px-12 border-t border-border">
         <div className="max-w-4xl mx-auto text-center">
           <AnimatedSection>
-            <h2 className="font-display text-[clamp(24px,4vw,48px)] leading-[1.05] tracking-[0.02em] text-foreground mb-6">
+            <h2 className="font-display text-[clamp(22px,3.5vw,44px)] leading-[1.05] tracking-[0.02em] text-foreground mb-6">
               Want to work<br />with us?
             </h2>
             <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-xl mx-auto mb-10">

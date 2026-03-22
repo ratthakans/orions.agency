@@ -11,12 +11,12 @@ import PageTransition from "./components/PageTransition";
 import Index from "./pages/Index";
 import ServicesPage2 from "./pages/ServicesPage2";
 import ProcessPage from "./pages/ProcessPage";
-import ClientsPage from "./pages/ClientsPage";
 import ContactPage2 from "./pages/ContactPage2";
 import StudioPage from "./pages/StudioPage";
 import AboutPage from "./pages/AboutPage";
 import WorkPage from "./pages/WorkPage";
 import WorkDetailPage from "./pages/WorkDetailPage";
+import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 

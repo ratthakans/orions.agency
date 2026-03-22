@@ -222,7 +222,7 @@ const Index = () => {
                 <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4">
                   <span className="text-accent-warm mr-2">✦</span> Featured Work
                 </p>
-                <h2 className="font-display text-[clamp(36px,6vw,72px)] leading-[0.9] tracking-[0.01em] text-foreground">SELECTED PROJECTS.</h2>
+                <h2 className="font-display text-[clamp(36px,6vw,72px)] leading-[0.9] tracking-[0.01em] text-foreground">FEATURED WORK.</h2>
               </div>
               <Link
                 to="/work"

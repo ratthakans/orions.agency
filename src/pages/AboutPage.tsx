@@ -71,7 +71,7 @@ const AboutPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
             <AnimatedSection>
               <div>
-                <h2 className="font-display text-[clamp(22px,3vw,36px)] leading-[1.1] tracking-[0.02em] text-foreground mb-8">
+                <h2 className="font-display text-[clamp(20px,2.5vw,32px)] leading-[1.1] tracking-[0.02em] text-foreground mb-8">
                   A creative agency<br />from Bangkok.
                 </h2>
                 <div className="space-y-6">

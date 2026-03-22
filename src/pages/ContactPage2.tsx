@@ -63,7 +63,7 @@ const ContactPage2 = () => {
               <div className="space-y-12">
                 <div>
                   <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-warm/60 mb-3">Email</p>
-                  <a href="mailto:hello@orions.agency" className="font-display text-[18px] md:text-[22px] text-foreground hover:text-accent-warm transition-colors duration-300 break-all">hello@orions.agency</a>
+                  <a href="mailto:hello@orions.agency" className="font-display font-normal text-[16px] md:text-[20px] text-foreground hover:text-accent-warm transition-colors duration-300 break-all">hello@orions.agency</a>
                 </div>
                 <div>
                   <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-warm/60 mb-3">Phone</p>

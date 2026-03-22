@@ -2,10 +2,10 @@ import { useState, useEffect, memo } from "react";
 import { motion } from "framer-motion";
 
 const phrases = [
-  "unlock new markets.",
-  "unlock new demand.",
-  "unlock new ideas.",
-  "unlock new growth.",
+  "UNLOCK NEW MARKETS.",
+  "UNLOCK NEW DEMAND.",
+  "UNLOCK NEW IDEAS.",
+  "UNLOCK NEW GROWTH.",
 ];
 
 const HeroTypewriter = memo(() => {

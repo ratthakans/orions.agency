@@ -149,7 +149,7 @@ const StudioPage = () => {
                         <img
                           src={show.image}
                           alt={show.title}
-                          className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                          className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                           loading="lazy"
                         />
                         {/* Status badge */}

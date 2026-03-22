@@ -58,7 +58,7 @@ const AboutPage = () => {
             </p>
           </AnimatedSection>
           <AnimatedSection delay={0.2}>
-            <h1 className="font-display text-[clamp(32px,6vw,72px)] leading-[1] tracking-[0.02em] text-foreground">
+            <h1 className="font-display font-bold text-[clamp(28px,5vw,64px)] leading-[1] tracking-[0.02em] text-foreground">
               Who we <span className="text-accent-gradient">are.</span>
             </h1>
           </AnimatedSection>

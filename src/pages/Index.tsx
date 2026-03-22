@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 import HeroTypewriter from "@/components/HeroTypewriter";
+import Marquee from "@/components/Marquee";
 import SEO from "@/components/SEO";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { works } from "@/data/works";

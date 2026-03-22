@@ -12,6 +12,7 @@ import imgLookYourBest from "@/assets/studio-look-your-best.jpg";
 import imgOrionsTalk from "@/assets/studio-orions-talk.jpg";
 import imgALongWay from "@/assets/studio-a-long-way.jpg";
 import imgInBetweenDay from "@/assets/studio-in-between-day.jpg";
+import img365Days from "@/assets/studio-365-days.jpg";
 
 const shows = [
   {
@@ -20,8 +21,7 @@ const shows = [
     type: "Survival Documentary",
     status: "In Development",
     image: imgNoSignal,
-    desc: "สารคดีท่องเที่ยวเอาชีวิตรอด — ตามคนที่เลือกออกจากเมืองไปเจอธรรมชาติดิบๆ เรื่องจริง ไม่มีสคริปต์ ไม่มีสัญญาณ",
-    descEn: "A raw survival travel documentary. Following people who leave the city to face nature head-on. No script. No signal.",
+    desc: "A raw survival travel documentary. Following people who leave the city to face nature head-on. No script. No signal.",
     format: "Cinematic series · 6 episodes · 20–30 min each",
     details: [
       "Follow real people who choose to disconnect from modern life and survive in raw nature.",
@@ -36,8 +36,7 @@ const shows = [
     type: "Beauty Documentary",
     status: "Concept",
     image: imgLookYourBest,
-    desc: "สารคดีความงามและการแต่งหน้า เพื่อไปถึง moment สำคัญที่สุดในชีวิต — งานแต่ง, สัมภาษณ์งาน, วันที่กลับมาเชื่อมั่นในตัวเอง",
-    descEn: "A beauty documentary about makeup as transformation — for weddings, job interviews, and the day you believe in yourself again.",
+    desc: "A beauty documentary about makeup as transformation — for weddings, job interviews, and the day you believe in yourself again.",
     format: "Short-form series · 10–15 min episodes · Weekly",
     details: [
       "Each episode follows one person preparing for a pivotal life moment through beauty and self-care.",
@@ -52,8 +51,7 @@ const shows = [
     type: "Podcast",
     status: "In Production",
     image: imgOrionsTalk,
-    desc: "เชิญคนมาพูดคุยที่ออฟฟิศ ØRIONS แบบ podcast สบายๆ เรื่องทั่วไป เนื้อหา creative เท่ๆ ความคิดที่น่าสนใจ",
-    descEn: "Casual conversations at the ØRIONS office. Creative people, interesting ideas, good energy.",
+    desc: "Casual conversations at the ØRIONS office. Creative people, interesting ideas, good energy.",
     format: "Audio + Video · 45–60 min episodes · Monthly",
     details: [
       "Recorded at the ØRIONS office in Bangkok — intimate setting, natural conversation.",
@@ -68,8 +66,7 @@ const shows = [
     type: "Adventure Documentary",
     status: "Pre-production",
     image: imgALongWay,
-    desc: "สารคดีการเดินทางระยะยาว — trekking, hiking, trail ไปไกลๆ เรื่องของคนที่เดินไปข้างหน้าแม้ไม่รู้ว่าจะถึงเมื่อไหร่",
-    descEn: "A long-distance journey documentary — trekking, hiking, trail running. Stories of people who keep walking forward.",
+    desc: "A long-distance journey documentary — trekking, hiking, trail running. Stories of people who keep walking forward.",
     format: "Cinematic series · 4 episodes · 30–45 min each",
     details: [
       "Each episode follows a different long-distance trail — from Thailand to international routes.",
@@ -84,14 +81,29 @@ const shows = [
     type: "Lifestyle Documentary",
     status: "Concept",
     image: imgInBetweenDay,
-    desc: "สารคดีที่พาไปรู้จักใครบางคน ผ่านช่วงเวลาระหว่างวันของเขา เราไม่ได้ตามทั้งวัน แต่เลือกอยู่กับบางช่วงเวลา เพื่อค่อยๆ เห็นว่าเขาใช้ชีวิต คิด และมองโลกอย่างไร",
-    descEn: "A documentary that follows someone through selected moments of their day. Not the whole day — just the moments that reveal how they live, think, and see the world.",
+    desc: "A documentary that follows someone through selected moments of their day. Not the whole day — just the moments that reveal how they live, think, and see the world.",
     format: "Short-form series · 12–18 min episodes · Bi-weekly",
     details: [
       "Each episode picks one person and captures 2–3 meaningful moments from their day.",
       "Observational style — minimal interviews, mostly watching and listening.",
       "Subjects range from artists and chefs to monks and street vendors.",
       "Platforms: YouTube, social media (short edits).",
+    ],
+  },
+  {
+    num: "06",
+    title: "365 DAYS",
+    type: "Survival Documentary",
+    status: "In Development",
+    image: img365Days,
+    desc: "A post-apocalypse survival simulation. One man. 365 days. What happens after the world collapses — and how you stay alive.",
+    format: "Cinematic series · 12 episodes · 25–40 min each",
+    details: [
+      "A solo male protagonist simulates survival scenarios in a post-collapse world for 365 days.",
+      "Each episode covers a different phase — shelter, food, defense, mental endurance.",
+      "Filmed in remote and abandoned locations to create an authentic post-apocalyptic atmosphere.",
+      "Blends documentary realism with cinematic storytelling. No scripts, real conditions.",
+      "Platforms: YouTube, streaming partners.",
     ],
   },
 ];

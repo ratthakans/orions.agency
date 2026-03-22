@@ -67,7 +67,7 @@ const Index = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="font-display text-[clamp(28px,5.5vw,72px)] leading-[1] tracking-[0.02em] text-foreground mb-4"
+            className="font-display font-bold text-[clamp(28px,5.5vw,72px)] leading-[1] tracking-[0.02em] text-foreground mb-4"
           >
             We change perception.
           </motion.h1>
@@ -76,7 +76,7 @@ const Index = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.55 }}
-            className="font-display text-[clamp(24px,4.5vw,64px)] leading-[1] tracking-[0.02em] mb-12 whitespace-nowrap min-h-[1.1em]"
+            className="font-display font-medium text-[clamp(22px,4vw,56px)] leading-[1] tracking-[0.02em] mb-12 whitespace-nowrap min-h-[1.1em] flex items-center justify-center"
           >
             And <HeroTypewriter />
           </motion.div>
@@ -128,7 +128,7 @@ const Index = () => {
                 <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4">
                   <span className="text-accent-warm mr-2">✦</span> What We Do
                 </p>
-                <h2 className="font-display text-[clamp(28px,4.5vw,52px)] leading-[1] tracking-[0.02em] text-foreground">Services.</h2>
+                <h2 className="font-display text-[clamp(24px,4vw,48px)] leading-[1] tracking-[0.02em] text-foreground">Services.</h2>
               </div>
               <Link
                 to="/services"
@@ -151,7 +151,7 @@ const Index = () => {
               <AnimatedSection key={s.title} delay={i * 0.08}>
                 <div className="bg-background p-8 md:p-10 group h-full relative border border-border hover:border-accent-warm/30 transition-colors duration-300">
                   <span className="font-mono text-[10px] tracking-[0.15em] text-accent-warm/40 block mb-6">{String(i + 1).padStart(2, "0")}</span>
-                  <h3 className="font-display text-[18px] md:text-[20px] tracking-[0.02em] text-foreground mb-4 group-hover:text-accent-warm transition-colors duration-300">
+                  <h3 className="font-display font-normal text-[16px] md:text-[18px] tracking-[0.02em] text-foreground mb-4 group-hover:text-accent-warm transition-colors duration-300">
                     {s.title}
                   </h3>
                   <p className="font-body text-[14px] leading-[1.7] text-muted-foreground">{s.desc}</p>
@@ -172,7 +172,7 @@ const Index = () => {
                 <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4">
                   <span className="text-accent-warm mr-2">✦</span> How We Work
                 </p>
-                <h2 className="font-display text-[clamp(28px,4.5vw,52px)] leading-[1] tracking-[0.02em] text-foreground">Our Process.</h2>
+                <h2 className="font-display text-[clamp(24px,4vw,48px)] leading-[1] tracking-[0.02em] text-foreground">Our Process.</h2>
               </div>
               <Link
                 to="/process"
@@ -200,7 +200,7 @@ const Index = () => {
                   <span className="font-mono text-[10px] tracking-[0.2em] text-accent-warm/30 group-hover:text-accent-warm transition-colors duration-300 block mb-4">
                     {phase.num}
                   </span>
-                  <h3 className="font-display text-[15px] md:text-[17px] tracking-[0.02em] text-foreground mb-3 group-hover:text-accent-warm transition-colors duration-300">
+                  <h3 className="font-display font-normal text-[14px] md:text-[15px] tracking-[0.02em] text-foreground mb-3 group-hover:text-accent-warm transition-colors duration-300">
                     {phase.title}
                   </h3>
                   <p className="font-body text-[13px] leading-[1.6] text-muted-foreground/60">{phase.desc}</p>
@@ -220,7 +220,7 @@ const Index = () => {
                 <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4">
                   <span className="text-accent-warm mr-2">✦</span> Featured Work
                 </p>
-                <h2 className="font-display text-[clamp(28px,4.5vw,52px)] leading-[1] tracking-[0.02em] text-foreground">Featured Work.</h2>
+                <h2 className="font-display text-[clamp(24px,4vw,48px)] leading-[1] tracking-[0.02em] text-foreground">Featured Work.</h2>
               </div>
               <Link
                 to="/work"
@@ -246,7 +246,7 @@ const Index = () => {
                       <span className="text-muted-foreground/30 text-[8px]">●</span>
                       <span className="font-mono text-[10px] tracking-[0.1em] uppercase text-muted-foreground/50">{works[0].type}</span>
                     </div>
-                    <h3 className="font-display text-[20px] md:text-[26px] tracking-[0.02em] text-foreground mb-3 group-hover:text-accent-warm transition-colors duration-300">
+                    <h3 className="font-display font-normal text-[18px] md:text-[22px] tracking-[0.02em] text-foreground mb-3 group-hover:text-accent-warm transition-colors duration-300">
                       {works[0].title}
                     </h3>
                     <p className="font-body text-[14px] leading-[1.6] text-muted-foreground line-clamp-2">{works[0].brief[lang]}</p>
@@ -266,7 +266,7 @@ const Index = () => {
                     <div className="flex items-center gap-3 mb-3">
                       <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm/60">{works[1].service}</span>
                     </div>
-                    <h3 className="font-display text-[17px] md:text-[20px] tracking-[0.02em] text-foreground mb-3 group-hover:text-accent-warm transition-colors duration-300">
+                    <h3 className="font-display font-normal text-[15px] md:text-[18px] tracking-[0.02em] text-foreground mb-3 group-hover:text-accent-warm transition-colors duration-300">
                       {works[1].title}
                     </h3>
                     <p className="font-body text-[13px] leading-[1.6] text-muted-foreground line-clamp-2">{works[1].brief[lang]}</p>
@@ -289,7 +289,7 @@ const Index = () => {
                     <div className="flex items-center gap-3 mb-3">
                       <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm/60">{works[2].service}</span>
                     </div>
-                    <h3 className="font-display text-[17px] md:text-[20px] tracking-[0.02em] text-foreground mb-3 group-hover:text-accent-warm transition-colors duration-300">
+                    <h3 className="font-display font-normal text-[15px] md:text-[18px] tracking-[0.02em] text-foreground mb-3 group-hover:text-accent-warm transition-colors duration-300">
                       {works[2].title}
                     </h3>
                     <p className="font-body text-[13px] leading-[1.6] text-muted-foreground line-clamp-2">{works[2].brief[lang]}</p>
@@ -310,7 +310,7 @@ const Index = () => {
                       <span className="text-muted-foreground/30 text-[8px]">●</span>
                       <span className="font-mono text-[10px] tracking-[0.1em] uppercase text-muted-foreground/50">{works[3].type}</span>
                     </div>
-                    <h3 className="font-display text-[20px] md:text-[26px] tracking-[0.02em] text-foreground mb-3 group-hover:text-accent-warm transition-colors duration-300">
+                    <h3 className="font-display font-normal text-[18px] md:text-[22px] tracking-[0.02em] text-foreground mb-3 group-hover:text-accent-warm transition-colors duration-300">
                       {works[3].title}
                     </h3>
                     <p className="font-body text-[14px] leading-[1.6] text-muted-foreground line-clamp-2">{works[3].brief[lang]}</p>
@@ -326,10 +326,10 @@ const Index = () => {
       {/* ═══ CTA ═══ */}
       <section className="py-32 md:py-48 px-4 sm:px-6 md:px-12 border-t border-border text-center">
         <AnimatedSection>
-          <p className="font-display text-[clamp(28px,5vw,64px)] leading-[1] tracking-[0.02em] text-foreground">
+          <p className="font-display font-bold text-[clamp(24px,4.5vw,56px)] leading-[1] tracking-[0.02em] text-foreground">
             Ready to be seen
           </p>
-          <p className="font-display text-[clamp(28px,5vw,64px)] leading-[1] tracking-[0.02em] text-accent-gradient">
+          <p className="font-display font-bold text-[clamp(24px,4.5vw,56px)] leading-[1] tracking-[0.02em] text-accent-gradient">
             differently?
           </p>
         </AnimatedSection>

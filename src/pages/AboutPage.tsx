@@ -124,7 +124,7 @@ const AboutPage = () => {
             ].map((v, i) => (
               <AnimatedSection key={v.title} delay={i * 0.1}>
                 <div className="border border-border p-8 md:p-10 h-full hover:border-accent-warm/30 transition-colors duration-300">
-                  <h3 className="font-display text-[18px] md:text-[20px] tracking-[0.02em] text-foreground mb-4">
+                  <h3 className="font-display font-normal text-[16px] md:text-[18px] tracking-[0.02em] text-foreground mb-4">
                     {v.title}
                   </h3>
                   <p className="font-body text-[14px] leading-[1.7] text-muted-foreground">

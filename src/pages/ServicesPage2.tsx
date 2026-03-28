@@ -27,165 +27,165 @@ const coreServices: ServiceDetail[] = [
     num: "01",
     title: "Demand Strategy",
     badge: "NEW",
-    desc: "หา insight สร้าง narrative direction วาง message framework — ตอบว่า \"เรื่องอะไรจะสร้าง demand ให้แบรนด์\" ก่อนที่จะผลิตอะไรสักชิ้น",
+    desc: "Find insights, build narrative direction, and design message frameworks — answering \"what story will create demand for your brand\" before producing anything.",
     investment: "150,000 – 300,000 THB",
     timeline: "3–4 weeks",
-    idealFor: "แบรนด์ที่ยังไม่ชัดว่า \"เรื่องอะไรจะขาย\" หรืออยากเปลี่ยน direction ใหม่ก่อนลงทุนผลิตงาน",
+    idealFor: "Brands that don't yet know \"what story sells\" or want to change direction before investing in production.",
     team: "Creative Director + Strategist + Account Executive",
     deliverables: [
-      "Consumer Insight Deck — สรุป insight จาก research, interview, และ market landscape",
-      "Brand Narrative Direction — เรื่องเล่าหลักที่จะใช้ขับเคลื่อนทุกชิ้นงาน",
-      "Key Message Framework — message หลัก + supporting messages สำหรับแต่ละ audience",
-      "Creative Brief — brief ที่พร้อมส่งต่อให้ทีม production (ของเราหรือของลูกค้า)",
-      "Presentation Deck — สรุปทั้งหมดในรูปแบบที่นำเสนอ stakeholder ได้ทันที",
+      "Consumer Insight Deck — insights from research, interviews, and market landscape",
+      "Brand Narrative Direction — the core story that drives every piece of work",
+      "Key Message Framework — primary message + supporting messages per audience",
+      "Creative Brief — ready to hand off to production (ours or yours)",
+      "Presentation Deck — stakeholder-ready summary of everything",
     ],
     process: [
-      "Week 1: Kickoff + Research — interview ทีมลูกค้า, ศึกษาตลาด, วิเคราะห์คู่แข่ง",
-      "Week 2: Insight Synthesis — สรุป insight, หา tension points, draft narrative direction",
-      "Week 3: Direction Development — พัฒนา narrative, message framework, creative brief",
-      "Week 4: Presentation + Revision — นำเสนอ, รับ feedback, ปรับ final version",
+      "Week 1: Kickoff + Research — client interviews, market study, competitor analysis",
+      "Week 2: Insight Synthesis — distill insights, find tension points, draft narrative direction",
+      "Week 3: Direction Development — develop narrative, message framework, creative brief",
+      "Week 4: Presentation + Revision — present, receive feedback, finalize",
     ],
     terms: [
-      "ราคารวม research, strategy, และ creative direction — ไม่รวม production",
-      "Research scope: desk research + interview ไม่เกิน 8 คน",
-      "Revision: 2 rounds หลัง presentation",
-      "Round เพิ่มเติม: 15,000 THB/round",
+      "Price includes research, strategy, and creative direction — excludes production",
+      "Research scope: desk research + up to 8 interviews (client + consumer)",
+      "Revision: 2 rounds after presentation",
+      "Additional rounds: 15,000 THB/round",
       "Payment: 50% upfront, 50% on delivery",
-      "ไฟล์ส่งมอบ: PDF deck + editable file (Keynote/Figma)",
+      "Deliverables: PDF deck + editable file (Keynote/Figma)",
     ],
   },
   {
     num: "02",
     title: "Creative Transformation",
     badge: "FLAGSHIP",
-    desc: "Rebrand, reposition, หรือสร้างแบรนด์ใหม่ตั้งแต่ identity system ถึง brand world — เปลี่ยนวิธีที่คนมองแบรนด์คุณทั้งระบบ",
+    desc: "Rebrand, reposition, or build a new brand from identity system to brand world — change how people perceive your brand across the entire system.",
     investment: "500,000 – 1,000,000+ THB",
     timeline: "4–8 weeks (brand system) / 8–12 weeks (full transformation)",
-    idealFor: "แบรนด์ที่รู้สึกว่า identity เดิมไม่สะท้อนตัวตนอีกแล้ว หรือกำลัง pivot ไป direction ใหม่",
+    idealFor: "Brands whose current identity no longer reflects who they are, or who are pivoting to a new direction.",
     team: "Creative Director + Art Director + Designer + Strategist + AE",
     deliverables: [
       "Brand Strategy Document — positioning, personality, tone of voice, brand story",
       "Visual Identity System — logo, typography, color system, graphic elements, iconography",
-      "Brand Guidelines — document ครบถ้วนที่ทีมใดก็ใช้ต่อได้",
-      "Brand World — visual direction สำหรับ photography, illustration, motion",
-      "Application Mockups — ตัวอย่างการใช้งานจริง 5–10 touchpoints",
-      "Brand Launch Kit — assets พร้อมใช้งานสำหรับ launch",
+      "Brand Guidelines — comprehensive document any team can work from",
+      "Brand World — visual direction for photography, illustration, motion",
+      "Application Mockups — real-world examples across 5–10 touchpoints",
+      "Brand Launch Kit — ready-to-use assets for launch",
     ],
     process: [
-      "Phase 1 (Week 1–2): Discovery — audit แบรนด์เดิม, interview stakeholders, competitive analysis",
+      "Phase 1 (Week 1–2): Discovery — audit existing brand, stakeholder interviews, competitive analysis",
       "Phase 2 (Week 2–4): Strategy — positioning, narrative, personality framework",
-      "Phase 3 (Week 3–6): Design Exploration — 3 visual directions, refine เหลือ 1",
-      "Phase 4 (Week 5–8): System Build — พัฒนา full identity system + guidelines",
+      "Phase 3 (Week 3–6): Design Exploration — 3 visual directions, refine to 1",
+      "Phase 4 (Week 5–8): System Build — develop full identity system + guidelines",
       "Phase 5 (Week 7–10): Application — mockups + brand world + launch kit",
     ],
     terms: [
-      "ราคารวม strategy + design + guidelines — ไม่รวม production ของ applications จริง",
-      "Visual direction: นำเสนอ 3 directions, เลือก 1 เพื่อพัฒนาต่อ",
-      "Direction เพิ่มเติม: 50,000 THB/direction",
-      "Revision: 3 rounds ต่อ phase",
-      "Round เพิ่มเติม: 20,000 THB/round",
+      "Price includes strategy + design + guidelines — excludes production of actual applications",
+      "Visual direction: 3 directions presented, choose 1 to develop",
+      "Additional direction: 50,000 THB/direction",
+      "Revision: 3 rounds per phase",
+      "Additional rounds: 20,000 THB/round",
       "Payment: 40% upfront, 30% after design approval, 30% on final delivery",
-      "ลิขสิทธิ์: โอนให้ลูกค้า 100% หลัง payment ครบ",
+      "IP: 100% transferred to client after full payment",
     ],
   },
   {
     num: "03",
     title: "Signature Campaign",
-    desc: "ออกแบบ campaign ที่มี story เป็นแกน — ตั้งแต่ concept, creative direction, production ไปจนถึง launch plan ที่สร้าง demand ไม่ใช่แค่ awareness",
+    desc: "Design story-driven campaigns — from concept and creative direction to production and launch plan that creates demand, not just awareness.",
     investment: "200,000 – 500,000 THB",
     timeline: "3–6 weeks (concept to launch-ready)",
-    idealFor: "แบรนด์ที่ต้องการ campaign ที่มี narrative ชัด สร้าง impact ได้จริง ไม่ใช่แค่ burst ad",
+    idealFor: "Brands that need campaigns with clear narrative and real impact — not just burst ads.",
     team: "Creative Director + Director + Art Director + Copywriter + AE",
     deliverables: [
       "Campaign Concept Deck — big idea, narrative arc, visual direction",
-      "Creative Execution Plan — ชิ้นงานทั้งหมดที่ต้องผลิต + spec แต่ละชิ้น",
+      "Creative Execution Plan — full list of assets to produce + specs",
       "Key Visual + Adaptations — hero visual + 3–5 format adaptations",
-      "Copy Deck — headline, body copy, tagline, CTA สำหรับทุก touchpoint",
-      "Content Production — video/photo/motion ตาม scope (ถ้ารวม production)",
+      "Copy Deck — headline, body copy, tagline, CTA for every touchpoint",
+      "Content Production — video/photo/motion per scope (if production included)",
       "Launch Strategy — timeline, channel plan, release sequence, KPI framework",
     ],
     process: [
-      "Week 1: Brief + Insight — รับ brief, ขุด insight เพิ่มเติม, กำหนด campaign territory",
-      "Week 2: Concept Development — พัฒนา 2–3 concepts, นำเสนอ, เลือก 1",
+      "Week 1: Brief + Insight — receive brief, dig deeper for insights, define campaign territory",
+      "Week 2: Concept Development — develop 2–3 concepts, present, choose 1",
       "Week 3–4: Creative Execution — KV, copy, content plan, pre-production",
-      "Week 4–6: Production + Launch Prep — ผลิตชิ้นงาน, finalize launch strategy",
+      "Week 4–6: Production + Launch Prep — produce assets, finalize launch strategy",
     ],
     terms: [
-      "200K–300K = concept + creative direction + KV + copy + launch plan (ไม่รวม production)",
-      "300K–500K = ข้างบน + production (1 video + photo set + social adaptations)",
-      "Concept: นำเสนอ 2–3 directions, เลือก 1",
+      "200K–300K = concept + creative direction + KV + copy + launch plan (excludes production)",
+      "300K–500K = above + production (1 video + photo set + social adaptations)",
+      "Concept: 2–3 directions presented, choose 1",
       "Revision: 2 rounds per deliverable",
-      "Round เพิ่มเติม: 15,000 THB/round",
-      "Media buying ไม่รวมในราคา",
+      "Additional rounds: 15,000 THB/round",
+      "Media buying not included",
       "Payment: 50% upfront, 50% on delivery",
-      "ลิขสิทธิ์: โอนให้ลูกค้า 100% หลัง payment ครบ",
+      "IP: 100% transferred to client after full payment",
     ],
   },
   {
     num: "04",
     title: "Production",
-    desc: "ผลิตงานที่มี craft จริง — film, photography, motion, social content ทุกชิ้นสร้างจาก narrative ไม่ใช่จาก template ทีม in-house ตั้งแต่ Director ถึง Post",
+    desc: "Produce work with real craft — film, photography, motion, social content. Every piece is built from narrative, not templates. In-house team from Director to Post.",
     investment: "100,000 – 300,000+ THB",
     timeline: "2–6 weeks",
-    idealFor: "แบรนด์ที่มี direction แล้ว ต้องการ production team ที่เข้าใจ story และผลิตงานที่มีคุณภาพ",
-    team: "Director + DOP/Editor + Art Director + Post Supervisor (+ crew ตาม scope)",
+    idealFor: "Brands that already have direction and need a production team that understands story and delivers quality.",
+    team: "Director + DOP/Editor + Art Director + Post Supervisor (+ crew per scope)",
     subCategories: [
       {
         label: "Film / Video",
         items: [
-          "Short-form video (15–60s) — เริ่มต้น 50,000 THB/piece",
-          "Long-form video (1–3 min) — เริ่มต้น 100,000 THB/piece",
-          "Documentary / brand film (3–10 min) — เริ่มต้น 150,000 THB",
+          "Short-form video (15–60s) — starting at 50,000 THB/piece",
+          "Long-form video (1–3 min) — starting at 100,000 THB/piece",
+          "Documentary / brand film (3–10 min) — starting at 150,000 THB",
         ],
       },
       {
         label: "Photography",
         items: [
-          "Product photography set (10–20 shots) — เริ่มต้น 30,000 THB",
-          "Lifestyle / campaign photography (half day) — เริ่มต้น 50,000 THB",
-          "Full day shoot — เริ่มต้น 80,000 THB",
+          "Product photography set (10–20 shots) — starting at 30,000 THB",
+          "Lifestyle / campaign photography (half day) — starting at 50,000 THB",
+          "Full day shoot — starting at 80,000 THB",
         ],
       },
       {
         label: "Motion Graphics",
         items: [
-          "Social motion (15–30s) — เริ่มต้น 20,000 THB/piece",
-          "Explainer / brand motion (30–60s) — เริ่มต้น 50,000 THB",
+          "Social motion (15–30s) — starting at 20,000 THB/piece",
+          "Explainer / brand motion (30–60s) — starting at 50,000 THB",
         ],
       },
       {
         label: "Social Content Suite",
         items: [
-          "Content pack (10 pieces: static + motion + copy) — เริ่มต้น 40,000 THB",
+          "Content pack (10 pieces: static + motion + copy) — starting at 40,000 THB",
         ],
       },
     ],
     deliverables: [],
     process: [],
     terms: [
-      "ราคาเป็น starting price — final quote ขึ้นอยู่กับ complexity, location, talent",
-      "ค่า location, talent, props, wardrobe, travel — คิดแยกตาม actual cost + 15% management fee",
-      "Revision: 2 rounds edit/retouch ต่อชิ้นงาน",
-      "Video revision เพิ่มเติม: 10,000 THB/round, Photo: 5,000 THB/round",
-      "Raw footage / raw files: ไม่รวม — ซื้อเพิ่ม 20,000 THB",
+      "Prices above are starting rates — final quote depends on complexity, location, talent",
+      "Location, talent, props, wardrobe, travel — billed separately at actual cost + 15% management fee",
+      "Revision: 2 rounds edit/retouch per asset",
+      "Additional revision: Video 10,000 THB/round, Photo 5,000 THB/round",
+      "Raw footage / raw files: not included — available for 20,000 THB",
       "Payment: 50% upfront, 50% on delivery",
-      "ลิขสิทธิ์ชิ้นงาน: โอนให้ลูกค้า 100% หลัง payment ครบ",
+      "IP: 100% transferred to client after full payment",
     ],
   },
   {
     num: "05",
     title: "Event / Activation",
-    desc: "ออกแบบ experience ที่คนสัมผัสได้จริง — จาก concept, spatial design, production จนถึง on-ground execution ที่ต่อเนื่องจาก campaign narrative",
+    desc: "Design real-world experiences people can touch — from concept and spatial design to production and on-ground execution, extending your campaign narrative.",
     investment: "150,000 – 500,000+ THB",
     timeline: "4–8 weeks",
-    idealFor: "แบรนด์ที่ต้องการสร้าง experience ที่คนจำได้ — launch event, pop-up, brand activation",
+    idealFor: "Brands that need memorable experiences — launch events, pop-ups, brand activations, experiential marketing.",
     team: "Creative Director + Event Producer + Art Director + Production Manager + AE",
     deliverables: [
       "Event Concept Deck — theme, narrative, experience flow, mood & tone",
       "Spatial / Experience Design — layout, stage design, installation concept",
       "Production Plan — vendor list, timeline, budget breakdown, logistics",
-      "Content Plan — documentation strategy (photo/video สำหรับ during + after event)",
-      "On-ground Execution — ØRIONS team on-site ดูแล creative direction",
+      "Content Plan — documentation strategy (photo/video for during + after event)",
+      "On-ground Execution — ØRIONS team on-site ensuring creative direction",
       "Post-event Report — documentation, highlights, performance metrics",
     ],
     process: [
@@ -195,22 +195,22 @@ const coreServices: ServiceDetail[] = [
       "Week 7–8: Post-event — content edit, report, debrief",
     ],
     terms: [
-      "ราคารวม creative concept + design + creative direction on-site",
-      "ค่า venue, vendor, construction, F&B, talent — คิดแยกตาม actual cost + 15% management fee",
-      "Concept: นำเสนอ 2 directions, เลือก 1",
-      "Revision: 2 rounds ต่อ phase",
+      "Price includes creative concept + design + on-site creative direction",
+      "Venue, vendor, construction, F&B, talent — billed separately at actual cost + 15% management fee",
+      "Concept: 2 directions presented, choose 1",
+      "Revision: 2 rounds per phase",
       "Payment: 40% upfront, 30% after concept approval, 30% post-event",
-      "Cancellation: หลัง concept approval แล้ว ค่า creative direction ไม่คืน (40%)",
-      "Documentation (photo/video) รวมในราคา — edit + delivery ภายใน 2 weeks หลัง event",
+      "Cancellation: after concept approval, creative direction fee (40%) is non-refundable",
+      "Documentation (photo/video) included — edit + delivery within 2 weeks after event",
     ],
   },
   {
     num: "06",
     title: "Digital Experience",
-    desc: "Narrative website, custom interface, ecommerce ที่ทุก element ถูก design มาเพื่อสร้าง perception shift — ไม่ใช่แค่เว็บสวย แต่เว็บที่เปลี่ยนวิธีที่คนมองแบรนด์",
+    desc: "Narrative websites, custom interfaces, ecommerce — every element designed to create perception shift. Not just a pretty site, but one that changes how people see your brand.",
     investment: "80,000 – 250,000 THB",
     timeline: "3–6 weeks",
-    idealFor: "แบรนด์ที่ต้องการ digital presence ที่สะท้อนตัวตน — ไม่ใช่เว็บ template",
+    idealFor: "Brands that need a digital presence reflecting who they are — not a template site that looks like everyone else.",
     team: "Creative Director + UX/UI Designer + Developer + AE",
     scopeOptions: [
       "Landing Page / Microsite → 1–3 pages, responsive, animation — 80,000–120,000 THB",
@@ -218,27 +218,27 @@ const coreServices: ServiceDetail[] = [
       "Custom Interface / Ecommerce → Custom UI/UX, product system — 180,000–250,000+ THB",
     ],
     deliverables: [
-      "UX Wireframe — structure + user flow ก่อน design",
-      "UI Design — full visual design ทุกหน้า (Figma)",
+      "UX Wireframe — structure + user flow before design",
+      "UI Design — full visual design for every page (Figma)",
       "Development — responsive, optimized, SEO-ready",
-      "CMS Setup — ให้ลูกค้าแก้ไข content เองได้",
+      "CMS Setup — client can edit content independently",
       "Launch Support — deploy + QA + 2 weeks post-launch bug fix",
     ],
     process: [
       "Week 1: Brief + UX — sitemap, wireframe, user flow",
-      "Week 2–3: UI Design — 2 design directions → เลือก 1 → design ทุกหน้า",
+      "Week 2–3: UI Design — 2 design directions → choose 1 → design all pages",
       "Week 3–5: Development — build, CMS, responsive, testing",
       "Week 5–6: QA + Launch — review, fix, deploy, handover",
     ],
     terms: [
-      "ราคารวม design + development + CMS + 2 weeks post-launch support",
-      "Content (text + images): ลูกค้าจัดหา หรือเพิ่ม copywriting +20,000 THB",
-      "Domain + hosting: ลูกค้ารับผิดชอบ (ØRIONS แนะนำ + setup ให้ฟรี)",
-      "Design direction: นำเสนอ 2 directions, เลือก 1",
+      "Price includes design + development + CMS + 2 weeks post-launch support",
+      "Content (text + images): client provides, or add copywriting +20,000 THB",
+      "Domain + hosting: client responsibility (ØRIONS recommends + sets up for free)",
+      "Design direction: 2 directions presented, choose 1",
       "Revision: 2 rounds per phase",
-      "Round เพิ่มเติม: 10,000 THB/round",
+      "Additional rounds: 10,000 THB/round",
       "Payment: 40% upfront, 30% after design approval, 30% on launch",
-      "ลิขสิทธิ์ design + code: โอนให้ลูกค้า 100% หลัง payment ครบ",
+      "IP (design + code): 100% transferred to client after full payment",
     ],
   },
 ];
@@ -267,30 +267,30 @@ const retainers: Retainer[] = [
     subtitle: "Stay visible, stay consistent",
     investment: "40,000 – 80,000 THB / month",
     minCommitment: "3 months",
-    idealFor: "แบรนด์ที่มี direction แล้ว ต้องการทีมดูแล channel ให้ content ออกสม่ำเสมอ ไม่หลุด tone",
+    idealFor: "Brands that already have direction and need a team to keep channels consistent and on-tone.",
     team: "Account Executive + Content Creator + Designer",
     communication: "LINE/Slack + Monthly review call (30 min)",
     monthlyScope: [
-      "Social media management & scheduling (ทุก platform ที่ตกลงกัน)",
-      "Community management & response (จันทร์–ศุกร์, office hours)",
+      "Social media management & scheduling (all agreed platforms)",
+      "Community management & response (Mon–Fri, office hours)",
       "Monthly content calendar (draft + approval flow)",
-      "4–8 content pieces / month (graphic + copy, ตาม tier ราคา)",
+      "4–8 content pieces / month (graphic + copy, per pricing tier)",
       "Basic performance report (reach, engagement, growth)",
       "Platform optimization (bio, highlights, link-in-bio)",
     ],
     bonus: [
-      "Free content audit ก่อนเริ่มงาน (ปกติ 15,000 THB)",
+      "Free content audit before starting (normally 15,000 THB)",
     ],
     terms: [
       "40K/mo = 4 pieces + basic management",
       "60K/mo = 6 pieces + active community mgmt",
       "80K/mo = 8 pieces + full management",
-      "Content ที่เกิน scope: 3,000 THB/piece (graphic) / 5,000 THB/piece (motion)",
-      "Revision: 2 rounds ต่อ piece",
-      "Turnaround: 3–5 business days ต่อ piece",
-      "ไม่รวม ad budget / media buying — เพิ่มได้ +15% management fee ของ ad spend",
-      "Payment: ชำระล่วงหน้าทุกวันที่ 1 ของเดือน",
-      "Cancellation: แจ้งล่วงหน้า 30 วัน หลัง minimum 3 months",
+      "Extra content: 3,000 THB/piece (graphic) / 5,000 THB/piece (motion)",
+      "Revision: 2 rounds per piece",
+      "Turnaround: 3–5 business days per piece",
+      "Ad budget / media buying not included — add +15% management fee on ad spend",
+      "Payment: due on the 1st of each month",
+      "Cancellation: 30 days notice after minimum 3 months",
     ],
   },
   {
@@ -301,32 +301,32 @@ const retainers: Retainer[] = [
     subtitle: "Ongoing creative + production engine",
     investment: "80,000 – 150,000 THB / month",
     minCommitment: "3 months",
-    idealFor: "แบรนด์ที่ต้องการ creative team ประจำ คิด+ผลิตให้ — ไม่ต้องจ้าง freelance แยก",
+    idealFor: "Brands that need a dedicated creative team to think and produce — no more freelance juggling.",
     team: "Creative Director + Art Director + Content Creator + Designer + AE",
     communication: "LINE/Slack + Bi-weekly strategy calls (45 min)",
     monthlyScope: [
       "Everything in Pulse",
-      "Monthly creative direction & campaign concept (mini brief ทุกเดือน)",
+      "Monthly creative direction & campaign concept (mini brief each month)",
       "2–4 creative sets / month (1 set = 1 Key Visual + 3 adaptations + copy)",
       "1–2 short-form videos (30–60s, shot/edited/graded)",
-      "Copywriting & caption direction สำหรับทุก post",
+      "Copywriting & caption direction for every post",
       "Bi-weekly strategy calls (45 min) — review + plan ahead",
       "Performance review + strategic recommendation",
     ],
     bonus: [
-      "Free Demand Strategy mini session ก่อนเริ่มงาน (ปกติ 50,000 THB)",
-      "Priority turnaround 48hr สำหรับ urgent requests (ปกติ 5 days)",
+      "Free Demand Strategy mini session before starting (normally 50,000 THB)",
+      "Priority turnaround 48hr for urgent requests (normally 5 days)",
     ],
     terms: [
       "80K/mo = 2 sets + 1 video",
       "120K/mo = 3 sets + 1 video",
       "150K/mo = 4 sets + 2 videos",
-      "Creative set เพิ่มเติม: 12,000 THB/set",
-      "Video เพิ่มเติม: 35,000 THB/piece (short-form)",
-      "Revision: 2 rounds ต่อ creative set, 2 rounds ต่อ video",
-      "ไม่รวม ad budget / media buying — เพิ่มได้ +12% management fee",
-      "Payment: ชำระล่วงหน้าทุกวันที่ 1 ของเดือน",
-      "Cancellation: แจ้งล่วงหน้า 30 วัน หลัง minimum 3 months",
+      "Additional creative set: 12,000 THB/set",
+      "Additional video: 35,000 THB/piece (short-form)",
+      "Revision: 2 rounds per creative set, 2 rounds per video",
+      "Ad budget / media buying not included — add +12% management fee",
+      "Payment: due on the 1st of each month",
+      "Cancellation: 30 days notice after minimum 3 months",
     ],
   },
   {
@@ -337,7 +337,7 @@ const retainers: Retainer[] = [
     subtitle: "Your creative partner — full access",
     investment: "120,000 – 180,000 THB / month",
     minCommitment: "6 months",
-    idealFor: "แบรนด์ที่ต้องการ ØRIONS เป็น creative partner เต็มตัว เหมือนมี in-house creative team",
+    idealFor: "Brands that want ØRIONS as a full creative partner — like having an in-house creative team.",
     team: "Dedicated Creative Director + Art Director + Director + Editor + Designer + AE",
     communication: "LINE/Slack (direct to CD) + Weekly check-in + Monthly strategy session (90 min)",
     monthlyScope: [
@@ -348,24 +348,45 @@ const retainers: Retainer[] = [
       "Quarterly campaign concept & narrative refresh",
       "Monthly strategy session with leadership (90 min)",
       "Media planning & buying support (media budget separate)",
-      "Website updates & minor iteration (ถ้ามีเว็บที่ ØRIONS สร้าง)",
+      "Website updates & minor iteration (for ØRIONS-built sites)",
     ],
     bonus: [
-      "Free full Demand Strategy session (ปกติ 150,000 THB)",
-      "1 free Event/Activation concept per quarter (ปกติ 80,000 THB/concept)",
+      "Free full Demand Strategy session (normally 150,000 THB)",
+      "1 free Event/Activation concept per quarter (normally 80,000 THB/concept)",
       "Priority access to ØRIONS Studio IP collaborations",
-      "Creative set ส่วนเกิน discounted: 10,000 THB/set (ปกติ 12,000)",
+      "Extra creative sets discounted: 10,000 THB/set (normally 12,000)",
     ],
     terms: [
       "120K/mo = 5 sets + 2 short + 1 long video",
-      "150K/mo = เพิ่ม media support",
+      "150K/mo = add media support",
       "180K/mo = full scope + event concepts",
-      "Video เพิ่มเติม: Short 30,000 THB, Long 60,000 THB",
-      "Revision: 3 rounds ต่อ creative set, 3 rounds ต่อ video",
-      "NDA: sign ก่อนเริ่มงาน (standard ØRIONS NDA)",
-      "Cancellation: แจ้งล่วงหน้า 60 วัน หลัง minimum 6 months",
-      "Early termination fee: ค่า retainer 1 เดือน ถ้ายกเลิกก่อน 6 months",
+      "Additional video: Short 30,000 THB, Long 60,000 THB",
+      "Revision: 3 rounds per creative set, 3 rounds per video",
+      "NDA: signed before starting (standard ØRIONS NDA)",
+      "Cancellation: 60 days notice after minimum 6 months",
+      "Early termination fee: 1 month of retainer if cancelled before 6 months",
     ],
+  },
+];
+
+/* ── Feature Package ── */
+interface FeaturePackage {
+  slug: string;
+  title: string;
+  subtitle: string;
+  desc: string;
+  packages: string;
+  investment: string;
+}
+
+const featurePackages: FeaturePackage[] = [
+  {
+    slug: "hospitality",
+    title: "Hospitality Demand System",
+    subtitle: "For hotels, resorts & hospitality brands",
+    desc: "We don't help hotels sell rooms. We create new reasons people want to come. From demand discovery to revenue design and ongoing demand engine.",
+    packages: "3 Packages + Demand Engine Retainer",
+    investment: "Starting at 600,000 THB",
   },
 ];
 
@@ -710,21 +731,21 @@ const ServicesPage2 = () => {
                 ★ Start here
               </p>
               <p className="font-body text-[15px] leading-[1.8] text-muted-foreground mb-6">
-                ยังไม่ชัดว่าจะเริ่มจากอะไร? ลองดูสิ่งนี้:
+                Not sure where to begin? Start with these:
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <span className="font-display text-[18px] md:text-[22px] tracking-[0.02em] text-foreground">
                   Demand Strategy
                 </span>
                 <span className="text-muted-foreground/30 hidden sm:inline self-center">—</span>
-                <span className="font-body text-[14px] text-muted-foreground self-center">หา insight ก่อนลงทุนผลิต</span>
+                <span className="font-body text-[14px] text-muted-foreground self-center">find insights before investing in production</span>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 mt-3">
                 <span className="font-display text-[18px] md:text-[22px] tracking-[0.02em] text-foreground">
                   Creative Transformation
                 </span>
                 <span className="text-muted-foreground/30 hidden sm:inline self-center">—</span>
-                <span className="font-body text-[14px] text-muted-foreground self-center">เปลี่ยน identity ทั้งระบบ</span>
+                <span className="font-body text-[14px] text-muted-foreground self-center">rebuild your entire identity system</span>
               </div>
             </div>
           </AnimatedSection>
@@ -765,6 +786,56 @@ const ServicesPage2 = () => {
         </div>
       </section>
 
+      {/* ── Feature Packages ── */}
+      <section className="px-4 sm:px-6 md:px-12 pb-20 md:pb-32">
+        <div className="max-w-7xl mx-auto">
+          <AnimatedSection>
+            <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/40 mb-4">
+              Feature Packages
+            </p>
+            <h2 className="font-display text-[clamp(28px,4vw,56px)] leading-[0.92] tracking-[0.01em] text-foreground mb-4">
+              INDUSTRY-SPECIFIC<br />
+              <span className="text-accent-gradient">DEMAND SYSTEMS.</span>
+            </h2>
+            <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-xl mb-12">
+              Tailored packages designed for specific industries — combining our core services into outcome-driven systems.
+            </p>
+          </AnimatedSection>
+
+          <div className="grid grid-cols-1 gap-px">
+            {featurePackages.map((pkg, i) => (
+              <AnimatedSection key={pkg.slug} delay={i * 0.1}>
+                <Link
+                  to={`/package/${pkg.slug}`}
+                  className="block border border-border p-8 md:p-12 group hover:border-accent-warm/40 transition-colors duration-300"
+                >
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                    <div className="flex-1">
+                      <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm mb-3">
+                        {pkg.subtitle}
+                      </p>
+                      <h3 className="font-display text-[clamp(24px,3.5vw,44px)] tracking-[0.02em] text-foreground group-hover:text-accent-warm transition-colors duration-300 mb-3">
+                        {pkg.title}
+                      </h3>
+                      <p className="font-body text-[14px] leading-[1.7] text-muted-foreground max-w-xl">
+                        {pkg.desc}
+                      </p>
+                    </div>
+                    <div className="flex flex-col items-start md:items-end gap-2 shrink-0">
+                      <span className="font-mono text-[10px] tracking-[0.1em] text-muted-foreground/50">{pkg.packages}</span>
+                      <span className="font-mono text-[13px] text-accent-warm">{pkg.investment}</span>
+                      <span className="font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground group-hover:text-accent-warm transition-colors duration-300 mt-2">
+                        View details →
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── General Terms ── */}
       <section className="px-4 sm:px-6 md:px-12 pb-20 md:pb-32">
         <div className="max-w-5xl mx-auto">
@@ -779,34 +850,34 @@ const ServicesPage2 = () => {
                 {
                   label: "Payment",
                   items: [
-                    "สกุลเงิน: THB ทั้งหมด",
-                    "ราคาไม่รวม VAT 7%",
-                    "ชำระภายใน 15 วันหลังได้รับ invoice",
-                    "ค้างชำระเกิน 30 วัน: สงวนสิทธิ์หยุดงาน",
+                    "Currency: THB (Thai Baht) only",
+                    "Prices exclude VAT 7%",
+                    "Payment due within 15 days of invoice",
+                    "Overdue 30+ days: ØRIONS reserves the right to pause work",
                   ],
                 },
                 {
                   label: "Scope & Change Request",
                   items: [
-                    "งานนอก scope คิดเพิ่มตาม rate card",
-                    "Change request แจ้งเป็นลายลักษณ์อักษร",
-                    "ØRIONS ประเมิน impact ภายใน 24 ชม.",
+                    "Out-of-scope work billed per rate card",
+                    "Change requests must be in writing (email/LINE)",
+                    "ØRIONS assesses impact within 24 hours",
                   ],
                 },
                 {
                   label: "Revision Policy",
                   items: [
-                    "ทุก service มี revision rounds ตามที่ระบุ",
-                    "\"1 round\" = feedback ครั้งเดียวที่รวบรวมมาแล้ว",
-                    "Feedback ควรส่งภายใน 3 business days",
+                    "All services include revision rounds as specified",
+                    "\"1 round\" = consolidated feedback submitted once, not piecemeal",
+                    "Feedback should be sent within 3 business days",
                   ],
                 },
                 {
                   label: "Intellectual Property",
                   items: [
-                    "ลิขสิทธิ์โอนให้ลูกค้า 100% หลัง payment ครบ",
-                    "ØRIONS สงวนสิทธิ์ใช้ชิ้นงานใน portfolio",
-                    "Third-party assets: ลูกค้ารับผิดชอบ license",
+                    "IP: 100% transferred to client after full payment",
+                    "ØRIONS reserves the right to use work in portfolio",
+                    "Third-party assets: client responsible for licensing",
                   ],
                 },
               ].map((section) => (

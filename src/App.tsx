@@ -17,6 +17,7 @@ import AboutPage from "./pages/AboutPage";
 import WorkPage from "./pages/WorkPage";
 import WorkDetailPage from "./pages/WorkDetailPage";
 import NotFound from "./pages/NotFound";
+import HospitalityPage from "./pages/HospitalityPage";
 
 const queryClient = new QueryClient();
 
@@ -37,6 +38,7 @@ const App = () => (
             <Route path="/process" element={<PageTransition><ProcessPage /></PageTransition>} />
             <Route path="/studio" element={<PageTransition><StudioPage /></PageTransition>} />
             <Route path="/contact" element={<PageTransition><ContactPage2 /></PageTransition>} />
+            <Route path="/package/hospitality" element={<PageTransition><HospitalityPage /></PageTransition>} />
             <Route path="/problem" element={<Navigate to="/process" replace />} />
             <Route path="/philosophy" element={<Navigate to="/process" replace />} />
             <Route path="/value" element={<Navigate to="/" replace />} />

@@ -1,108 +1,120 @@
 
 
-# Elevating ØRIONS — Content, Visual Design & Interactive Experience
+# ØRIONS Website — Detailed Review
 
-## What's Missing Right Now
-
-The site is clean and well-structured, but it reads more like a "good template" than a "creative agency that practices what it preaches." Here's what would change that:
+## Overall Assessment
+The site is well-structured with consistent visual design, strong brand voice, and cohesive navigation. Below are all issues found, organized by severity.
 
 ---
 
-## 1. Manifesto Section on Homepage (Content & Storytelling)
+## Critical Issues
 
-Add a full-bleed editorial manifesto between the Marquee and Services sections. Large-format typography with staggered word reveals.
+### 1. Service Names Misaligned Between Pages
+The **Homepage services preview** (Index.tsx lines 143-150) lists 6 services with names that mostly match ServicesPage2, but the **Contact page** (ContactPage2.tsx lines 8-19) has outdated service options:
+- Contact lists "Creative Communication" but Services page has it as service 06 — OK
+- Contact lists retainers as "Creative Partnership (Retainer)", "Content System (Retainer)", "Channel Management (Retainer)" — these don't match the actual retainer names **Pulse, Flow, Orbit**
+- Contact is missing **"Demand Strategy"** as an option
+
+### 2. Work Portfolio Service Categories Don't Match Services Page
+The `serviceFilters` in works.ts are: `"Creative Transformation", "Creative Communication", "Film & Production", "Creative Partner"`
+- **"Film & Production"** doesn't match the Services page name **"Production"**
+- **"Creative Partner"** doesn't match any specific service — should map to retainer model
+- Missing filters for: **Demand Strategy, Signature Campaign, Event/Activation, Digital Experience**
+- No work items tagged with the new services
+
+### 3. Hospitality Package Retainer Pricing Inconsistency
+HospitalityPage retainer note says: `"Pulse (120K), Flow (200K), Orbit (300K)"`
+But the main Services page retainers are:
+- Pulse: **40K–80K** / month
+- Flow: **80K–150K** / month
+- Orbit: **120K–180K** / month
+
+The Hospitality Pulse at 120K is **3x** the standard Pulse. This needs explanation or alignment.
+
+---
+
+## Moderate Issues
+
+### 4. Homepage Services Preview Missing "Demand Strategy"
+Index.tsx shows 6 services but starts with "Creative Transformation" at position 1. The actual services page starts with **"Demand Strategy"** at position 01. The homepage preview should reflect the current service lineup order.
+
+### 5. About Page — CFO Has No Name
+C-Level array shows: `{ name: "CFO", role: "Finance & Operations" }` — the name field just says "CFO" instead of the actual person's name.
+
+### 6. About Page — Team Count Discrepancy
+The page says "13 CREATIVES. ONE VISION." and the counter shows 13. But the actual team data has:
+- C-Level: 3 people
+- Team members: 10 people
+- Total: **13** ✓ — This is correct.
+
+### 7. Several Team Members Have Generic Names
+Some team members use role titles instead of real names:
+- "Editor / DOP" (name field)
+- "Editor" (name field)
+- "Post Supervisor" (name field)
+- "Public Relations" (name field)
+
+This is likely intentional (positions to be filled), but looks inconsistent with named members.
+
+### 8. Studio Page — Unused `titleTh` Check
+StudioPage line 187 checks for `titleTh` with a type assertion `(show as any).titleTh` but no show data includes this field. Dead code.
+
+---
+
+## Minor Issues
+
+### 9. Contact Form Uses `mailto:` Instead of API
+The form opens the user's email client instead of actually submitting. This is a known limitation but means form data can be lost if the user doesn't have a mail client configured.
+
+### 10. Process Page Manifesto vs Homepage Manifesto
+The Process page has its own 5-line manifesto (lines 66-72) that's different from the homepage manifesto. Both are valid but could create inconsistency in messaging.
+
+### 11. SEO — Missing `Creative Communication` Service
+Services page SEO description lists "Digital Experience" but not "Creative Communication" (service 06). Not critical since it has no badge and seems like the least defined service.
+
+### 12. Hospitality Page — Empty Hero Image
+`hero.image` is set to `""` — the hero section likely renders an empty or broken image area.
+
+---
+
+## Content Consistency Matrix
 
 ```text
-"Most agencies add noise.
- We strip it back.
- Find what matters.
- And make people care."
+Service Name          | Services | Homepage | Contact | Work Filters
+─────────────────────────────────────────────────────────────────
+Demand Strategy       | ✓ (01)   | ✗        | ✗       | ✗
+Creative Transform.   | ✓ (02)   | ✓        | ✓       | ✓
+Signature Campaign    | ✓ (03)   | ✓        | ✓       | ✗
+Production            | ✓ (04)   | ✓        | ✓       | as "Film & Production"
+Event / Activation    | ✓ (05)   | ✓        | ✗       | ✗
+Digital Experience    | ✓ (06)   | ✓        | ✗       | ✗
+Creative Comms        | (none)   | ✓        | ✓       | ✓
+Pulse Retainer        | ✓ (07)   | ✗        | ✗       | ✗
+Flow Retainer         | ✓ (08)   | ✗        | ✗       | ✗
+Orbit Retainer        | ✓ (09)   | ✗        | ✗       | ✗
 ```
 
-Each line appears on scroll with a slight delay — pure text, no decoration. This is the kind of bold statement creative agencies use to establish voice.
+---
+
+## Recommended Fixes (Priority Order)
+
+1. **Sync Contact page service options** with actual service names + retainer names (Pulse/Flow/Orbit)
+2. **Add "Demand Strategy" to Homepage** services preview and reorder to match Services page
+3. **Fix Work portfolio filters** to match current service categories
+4. **Align Hospitality retainer pricing** — either justify premium or use standard rates
+5. **Fix CFO name** or mark as "TBA" more explicitly
+6. **Remove dead `titleTh` code** from StudioPage
+7. **Add hero image** to Hospitality page or remove the image field
 
 ---
 
-## 2. Asymmetric Work Grid (Visual Design)
+## What's Working Well
 
-Replace the current 3-column equal grid for Selected Work with an **editorial asymmetric layout**:
-
-```text
-┌────────────────────┬──────────┐
-│                    │          │
-│   LARGE FEATURE    │  SMALL   │
-│   (2/3 width)      │  (1/3)   │
-│                    │          │
-├──────────┬─────────┴──────────┤
-│          │                    │
-│  SMALL   │   LARGE FEATURE    │
-│  (1/3)   │   (2/3 width)      │
-│          │                    │
-└──────────┴────────────────────┘
-```
-
-This breaks the symmetry and feels more like an editorial portfolio — less corporate, more creative.
-
----
-
-## 3. Horizontal Scroll Case Studies (Interactive Experience)
-
-Replace the static homepage Case Studies cards with a **horizontal scroll section**. As the user scrolls vertically, the cards move horizontally. Each card shows the Before → Shift → Outcome transformation with a reveal animation.
-
-Uses `useScroll` + `useTransform` from Framer Motion — pinning the section while cards scroll left.
-
----
-
-## 4. Full-Bleed Image Divider (Visual Design)
-
-Add a cinematic full-width image strip (or dark gradient with a single powerful quote) between major sections. Something like:
-
-```text
-[full-width dark image, 40vh tall]
-"Perception is the only battlefield that matters."
-— centered, Bebas Neue, large
-```
-
-This breaks the rhythm and adds cinematic breathing room.
-
----
-
-## 5. Scroll-Triggered Number Counters on About Page (Interactive)
-
-In the About page, add an impact section with animated counters:
-
-```text
-50+     3        9
-Projects  Years    Industries
-```
-
-Numbers count up when scrolled into view. Simple, but adds credibility and visual interest.
-
----
-
-## 6. Staggered Text Reveal for Section Headlines (Interactive)
-
-Upgrade all major section headlines to use letter-by-letter or word-by-word stagger animation on scroll entry, instead of the current simple fade-up. This is a signature creative agency move.
-
----
-
-## Files to Modify
-
-| File | Change |
-|------|--------|
-| `src/pages/Index.tsx` | Add manifesto section, asymmetric work grid, horizontal scroll case studies, full-bleed divider |
-| `src/pages/AboutPage.tsx` | Add animated counters section |
-| `src/components/AnimatedSection.tsx` | Add staggered text variant |
-| `src/index.css` | Add horizontal scroll styles if needed |
-
-## What This Achieves
-
-- **Manifesto** → establishes creative authority through voice
-- **Asymmetric grid** → breaks template feel, looks editorial
-- **Horizontal scroll** → interactive storytelling, feels premium
-- **Full-bleed divider** → cinematic pacing
-- **Number counters** → credibility without being corporate
-- **Staggered text** → signature motion design feel
-
-All within existing CI rules (no scale, no glow, no shadow, no custom cursor).
+- Brand voice is consistent across all pages — confident, minimal, no fluff
+- In-house production messaging is now threaded through Homepage (manifesto), About (block), Studio (framing), and Services (badges) — cohesive
+- Navigation and footer are clean and consistent
+- Process page SCQA structure is strong
+- Service detail expandable cards with full pricing/terms/deliverables are comprehensive
+- Retainer tier structure (Pulse → Flow → Orbit) is clear and well-differentiated
+- EN/TH language support infrastructure is in place
 

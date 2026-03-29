@@ -137,7 +137,7 @@ const StudioPage = () => {
           </AnimatedSection>
           <AnimatedSection delay={0.4}>
             <p className="font-body text-[16px] md:text-[18px] leading-[1.7] text-muted-foreground mt-8 max-w-2xl">
-              Beyond client work, we produce original content — documentaries, podcasts, and shows that represent our taste, vision, and creative point of view.
+              Original work we create, direct, and produce ourselves — the same team that works on your brand.
             </p>
           </AnimatedSection>
         </div>

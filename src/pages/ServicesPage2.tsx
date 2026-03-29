@@ -91,6 +91,7 @@ const coreServices: ServiceDetail[] = [
   {
     num: "03",
     title: "Signature Campaign",
+    badge: "IN-HOUSE PRODUCTION",
     desc: "Design story-driven campaigns — from concept and creative direction to production and launch plan that creates demand, not just awareness.",
     investment: "200,000 – 500,000 THB",
     timeline: "3–6 weeks (concept to launch-ready)",
@@ -124,6 +125,7 @@ const coreServices: ServiceDetail[] = [
   {
     num: "04",
     title: "Production",
+    badge: "IN-HOUSE PRODUCTION",
     desc: "Produce work with real craft — film, photography, motion, social content. Every piece is built from narrative, not templates. In-house team from Director to Post.",
     investment: "100,000 – 300,000+ THB",
     timeline: "2–6 weeks",
@@ -175,6 +177,7 @@ const coreServices: ServiceDetail[] = [
   {
     num: "05",
     title: "Event / Activation",
+    badge: "IN-HOUSE PRODUCTION",
     desc: "Design real-world experiences people can touch — from concept and spatial design to production and on-ground execution, extending your campaign narrative.",
     investment: "150,000 – 500,000+ THB",
     timeline: "4–8 weeks",

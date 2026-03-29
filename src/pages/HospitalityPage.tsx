@@ -222,10 +222,10 @@ const hospitalityData: IndustryPageData = {
     },
   ],
   retainer: {
-    title: "Demand Engine",
+    title: "Demand Engine Retainer",
     price: "120K–300K",
     desc: "For hotels that have completed a package or have foundation ready — need demand to keep growing continuously. Includes content strategy, production, optimization, and quarterly narrative refreshes.",
-    note: "Minimum 6 months · Cancellation: 60 days notice · 3 tiers: Foundation (120K), Growth (200K), Full Engine (300K)",
+    note: "Minimum 6 months · Cancellation: 60 days notice · 3 tiers: Pulse (120K), Flow (200K), Orbit (300K)",
   },
   closing: {
     headline: "MOST HOTELS SELL ROOMS. WE HELP YOU SELL REASONS TO COME.",

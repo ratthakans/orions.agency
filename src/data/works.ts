@@ -25,7 +25,7 @@ export const works: Work[] = [
   {
     slug: "northwind-electric",
     title: "Northwind Electric",
-    service: "Film & Production",
+    service: "Signature Campaign",
     type: "Campaign Film",
     brief: { en: "A cinematic campaign film launching Northwind's entry into the Southeast Asian EV market.", th: "Campaign film ระดับภาพยนตร์สำหรับการเปิดตัว Northwind ในตลาด EV" },
     deliverables: ["Campaign Film", "Director's Cut", "Social Cutdowns", "Behind the Scenes"],
@@ -37,7 +37,7 @@ export const works: Work[] = [
   {
     slug: "atlas-property-group",
     title: "Atlas Property Group",
-    service: "Film & Production",
+    service: "Production",
     type: "Documentary",
     brief: { en: "A brand documentary capturing the vision behind Atlas's luxury developments.", th: "Brand documentary ถ่ายทอดวิสัยทัศน์เบื้องหลังโครงการ luxury ของ Atlas" },
     deliverables: ["Documentary Film", "Interview Series", "Sizzle Reel", "Photography"],
@@ -61,7 +61,7 @@ export const works: Work[] = [
   {
     slug: "lumen-health",
     title: "Lumen Health",
-    service: "Creative Partner",
+    service: "Creative Communication",
     type: "Content System",
     brief: { en: "A comprehensive content system for a digital health platform.", th: "ระบบ content ครบวงจรสำหรับแพลตฟอร์มสุขภาพดิจิทัล" },
     deliverables: ["Content Strategy", "Editorial Calendar", "Video Series", "Blog System"],
@@ -73,7 +73,7 @@ export const works: Work[] = [
   {
     slug: "sera-hospitality",
     title: "Sera Hospitality",
-    service: "Film & Production",
+    service: "Signature Campaign",
     type: "Campaign Film",
     brief: { en: "A campaign film capturing the essence of Sera's luxury hospitality.", th: "Campaign film ถ่ายทอดแก่นแท้ของ luxury hospitality ของ Sera" },
     deliverables: ["Hero Film", "Property Films", "Social Series", "Print Campaign"],
@@ -109,7 +109,7 @@ export const works: Work[] = [
   {
     slug: "field-notes-coffee",
     title: "Field Notes Coffee",
-    service: "Film & Production",
+    service: "Production",
     type: "Documentary",
     brief: { en: "A documentary following the journey from farm to cup.", th: "สารคดีตามเส้นทางจากไร่ถึงแก้ว" },
     deliverables: ["Documentary", "Origin Series", "Barista Profiles", "Social Content"],
@@ -132,4 +132,4 @@ export const works: Work[] = [
   },
 ];
 
-export const serviceFilters = ["All", "Creative Transformation", "Creative Communication", "Film & Production", "Creative Partner"];
+export const serviceFilters = ["All", "Demand Strategy", "Creative Transformation", "Signature Campaign", "Production", "Event / Activation", "Digital Experience", "Creative Communication"];

@@ -5,7 +5,8 @@ const lines = [
   "We strip it back.",
   "Find what matters.",
   "And make people see you.",
-  "From idea to final cut — one team, no handoff.",
+  "From idea to final cut",
+  "— one team, no handoff.",
 ];
 
 const ManifestoSection = () => (

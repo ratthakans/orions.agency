@@ -6,15 +6,16 @@ import AnimatedSection from "@/components/AnimatedSection";
 import SEO from "@/components/SEO";
 
 const serviceOptions = [
+  "Demand Strategy",
   "Creative Transformation",
   "Signature Campaign",
   "Production",
   "Event / Activation",
   "Digital Experience",
   "Creative Communication",
-  "Creative Partnership (Retainer)",
-  "Content System (Retainer)",
-  "Channel Management (Retainer)",
+  "Pulse Retainer",
+  "Flow Retainer",
+  "Orbit Retainer",
   "Other",
 ];
 

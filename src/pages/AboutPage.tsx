@@ -181,6 +181,22 @@ const AboutPage = () => {
         </div>
       </section>
 
+      {/* In-house Production */}
+      <section className="px-4 sm:px-6 md:px-12 py-16 md:py-24 border-t border-border">
+        <div className="max-w-5xl mx-auto">
+          <AnimatedSection>
+            <div className="border border-border p-8 md:p-12">
+              <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-warm/60 mb-6">
+                <span className="text-accent-warm mr-2">✦</span> In-house Production
+              </p>
+              <p className="font-body text-[15px] md:text-[16px] leading-[1.8] text-muted-foreground">
+                ØRIONS has a production team within the same creative unit — Director, DOP, Editor, Post Supervisor — working together from concept to final cut. No handoff between agency and production house. The idea you approve is the idea you get.
+              </p>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
       {/* Impact Numbers */}
       <section className="px-4 sm:px-6 md:px-12 py-24 md:py-32 border-t border-border">
         <div className="max-w-5xl mx-auto">

@@ -19,15 +19,6 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          'vendor-react': ['react', 'react-dom'],
-          'vendor-router': ['react-router-dom'],
-          'vendor-motion': ['framer-motion'],
-        },
-      },
-    },
     target: 'esnext',
     minify: 'esbuild',
   },

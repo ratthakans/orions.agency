@@ -154,7 +154,7 @@ const Index = () => {
 
           {/* Featured project large */}
           <AnimatedSection>
-            <Link to="/work" className="group block mb-8">
+            <Link to={`/work/${featuredWorks[0].slug}`} className="group block mb-8">
               <div className="aspect-[21/9] overflow-hidden relative border border-border hover:border-accent-warm/30 transition-colors duration-300">
                 <img
                   src={featuredWorks[0].image}

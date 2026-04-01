@@ -4,6 +4,39 @@ import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 import SEO from "@/components/SEO";
 
+const team = [
+  {
+    name: "Founder & Creative Director",
+    role: "Creative Direction / Strategy",
+    bio: "Sets the creative vision and strategic direction for every project. Ensures every piece of work meets the studio's standards for clarity and craft.",
+  },
+  {
+    name: "Director of Photography",
+    role: "Cinematography / Visual Storytelling",
+    bio: "Leads all visual storytelling — from camera work and lighting design to the final look of every frame.",
+  },
+  {
+    name: "Producer",
+    role: "Production Management",
+    bio: "Manages production from planning through delivery. Keeps projects on time, on budget, and on brief.",
+  },
+  {
+    name: "Editor & Post-Production",
+    role: "Editing / Color / Sound",
+    bio: "Shapes raw footage into finished stories — editing, color grading, sound design, and final delivery.",
+  },
+  {
+    name: "Strategist",
+    role: "Brand Strategy / Research",
+    bio: "Develops brand positioning, communication frameworks, and campaign strategies grounded in research and market understanding.",
+  },
+  {
+    name: "Art Director",
+    role: "Visual Design / Art Direction",
+    bio: "Translates creative direction into visual systems — typography, layout, identity, and campaign visuals.",
+  },
+];
+
 const AboutPage = () => {
   return (
     <main className="bg-background min-h-screen grain-overlay">
@@ -57,6 +90,47 @@ const AboutPage = () => {
                 We take on a limited number of projects each year. This is by design.
               </p>
             </AnimatedSection>
+          </div>
+        </section>
+
+        {/* Team */}
+        <section className="px-4 sm:px-6 md:px-12 py-20 md:py-32 border-t border-border">
+          <div className="max-w-5xl mx-auto">
+            <AnimatedSection>
+              <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4">
+                <span className="text-accent-warm mr-2">✦</span> The Team
+              </p>
+              <h2 className="font-display text-[clamp(32px,4vw,56px)] leading-[0.95] tracking-[0.01em] text-foreground mb-6">
+                SMALL TEAM.<br />
+                <span className="text-accent-gradient">FULL CONTROL.</span>
+              </h2>
+              <p className="font-body text-[15px] md:text-[16px] leading-[1.8] text-muted-foreground max-w-2xl mb-16">
+                Every project is handled by the core team — no handoffs, no middlemen. This is how we maintain quality and creative consistency across everything we produce.
+              </p>
+            </AnimatedSection>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
+              {team.map((member, i) => (
+                <AnimatedSection key={member.name} delay={i * 0.06}>
+                  <div className="bg-background p-6 md:p-8 h-full group hover:bg-accent-warm/[0.02] transition-colors duration-300">
+                    <div className="w-10 h-10 border border-accent-warm/20 flex items-center justify-center mb-6 group-hover:border-accent-warm/40 transition-colors duration-300">
+                      <span className="font-mono text-[11px] text-accent-warm/40 group-hover:text-accent-warm transition-colors duration-300">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                    </div>
+                    <h3 className="font-display text-[20px] md:text-[22px] tracking-[0.02em] text-foreground mb-2 group-hover:text-accent-warm transition-colors duration-300">
+                      {member.name}
+                    </h3>
+                    <p className="font-mono text-[10px] tracking-[0.12em] uppercase text-accent-warm/50 mb-4">
+                      {member.role}
+                    </p>
+                    <p className="font-body text-[13px] leading-[1.7] text-muted-foreground/60">
+                      {member.bio}
+                    </p>
+                  </div>
+                </AnimatedSection>
+              ))}
+            </div>
           </div>
         </section>
 

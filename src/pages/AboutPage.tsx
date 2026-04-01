@@ -72,17 +72,14 @@ const AboutPage = () => {
             <AnimatedSection>
               <div>
                 <h2 className="font-display text-[clamp(28px,4vw,48px)] leading-[0.95] tracking-[0.01em] text-foreground mb-8">
-                  A CREATIVE AGENCY<br />FROM BANGKOK.
+                  WE DO LESS —<br />WITH MORE INTENTION.
                 </h2>
                 <div className="space-y-6">
                   <p className="font-body text-[15px] leading-[1.8] text-muted-foreground">
-                    We believe good communication is not louder — it is clearer. In a world full of content, brands don't need more noise. They need direction, intention, and execution that people can actually feel.
+                    In a world of constant output, we focus on clarity, direction, and work that holds attention.
                   </p>
                   <p className="font-body text-[15px] leading-[1.8] text-muted-foreground">
-                    We combine strategic thinking, strong creative direction, and cinematic production to create work that communicates with clarity and impact.
-                  </p>
-                  <p className="font-body text-[15px] leading-[1.8] text-muted-foreground">
-                    From brand strategy to communication design to film production — everything we do starts with one question: <span className="text-foreground">what should people feel when they see this brand?</span>
+                    We combine strategic thinking, considered art direction, and disciplined production to create communication that is clear, precise, and built to last.
                   </p>
                 </div>
               </div>
@@ -118,9 +115,9 @@ const AboutPage = () => {
           </AnimatedSection>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
             {[
-              { title: "Strategy before production", desc: "We define before we create. Every piece of work starts with clear direction and intention." },
-              { title: "Clear communication", desc: "Focused ideas that people understand. No noise, no filler — just clarity and impact." },
-              { title: "Cinematic execution", desc: "High-quality film with purpose. In-house production from Director to Post — one team, no handoff." },
+              { title: "Limited projects", desc: "We take on a limited number of projects each year to ensure focus and quality." },
+              { title: "Define before we create", desc: "Every piece of work starts with clear direction and intention." },
+              { title: "Work that lasts", desc: "We focus on communication that holds attention — not chases it." },
             ].map((v, i) => (
               <AnimatedSection key={v.title} delay={i * 0.1}>
                 <div className="border border-border p-8 md:p-10 h-full hover:border-accent-warm/30 transition-colors duration-300">
@@ -190,7 +187,7 @@ const AboutPage = () => {
                 <span className="text-accent-warm mr-2">✦</span> In-house Production
               </p>
               <p className="font-body text-[15px] md:text-[16px] leading-[1.8] text-muted-foreground">
-                ØRIONS has a production team within the same creative unit — Director, DOP, Editor, Post Supervisor — working together from concept to final cut. No handoff between agency and production house. The idea you approve is the idea you get.
+                We work with brands focused on experience, design, and long-term brand building. Our in-house production team — Director, DOP, Editor, Post Supervisor — works together from concept to final cut. No handoff between teams. The idea you approve is the idea you get.
               </p>
             </div>
           </AnimatedSection>

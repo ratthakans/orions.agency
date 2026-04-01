@@ -15,9 +15,20 @@ interface ServiceDetail {
 
 const services: ServiceDetail[] = [
   {
+    num: "00",
+    title: "Retainer",
+    desc: "We work with a small number of clients on an ongoing basis.",
+    deliverables: [
+      "Monthly creative and communication support",
+      "Campaign and content planning",
+      "Ongoing creative direction",
+      "Production oversight and execution",
+    ],
+  },
+  {
     num: "01",
     title: "Brand & Communication Strategy",
-    desc: "We define what your brand should say, who it should speak to, and how it should be understood.",
+    desc: "We define what your brand should say and how it should be understood.",
     deliverables: [
       "Brand Positioning",
       "Key Message & Narrative",
@@ -28,7 +39,7 @@ const services: ServiceDetail[] = [
   {
     num: "02",
     title: "Communication Design",
-    desc: "We turn strategy into clear and compelling ideas people can connect with.",
+    desc: "We shape strategy into ideas, visual direction, and communication systems.",
     deliverables: [
       "Campaign Concept",
       "Creative Direction",
@@ -39,7 +50,7 @@ const services: ServiceDetail[] = [
   {
     num: "03",
     title: "Film & Production",
-    desc: "We bring communication to life through high-quality film and visual production.",
+    desc: "We produce work with attention to detail — from concept to final execution.",
     deliverables: [
       "TVC / Commercial",
       "Branded Content",
@@ -123,9 +134,9 @@ const ServicesPage2 = () => {
     <main className="bg-background min-h-screen grain-overlay">
       <SEO
         title="Services — ØRIONS"
-        description="Brand & Communication Strategy, Communication Design, and Film & Production. A creative agency in Bangkok."
+        description="Retainer, Brand & Communication Strategy, Communication Design, and Film & Production. A creative agency in Bangkok."
         path="/services"
-        keywords="brand strategy, communication design, film production, creative agency bangkok"
+        keywords="brand strategy, communication design, film production, creative agency bangkok, retainer"
       />
       <Navbar />
 
@@ -154,7 +165,7 @@ const ServicesPage2 = () => {
             transition={{ duration: 0.6, delay: 0.35 }}
             className="font-body text-[15px] md:text-[17px] leading-[1.7] text-muted-foreground max-w-lg"
           >
-            We build brand communication through strategy, creative direction, and film.
+            Clear communication, strong art direction, and high-quality film production.
           </motion.p>
         </div>
       </section>
@@ -181,9 +192,9 @@ const ServicesPage2 = () => {
           </AnimatedSection>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
             {[
-              { title: "Strategy before production", desc: "We define before we create. Every piece of work starts with clear direction." },
-              { title: "Clear communication", desc: "Focused ideas that people understand. No noise, no filler — just clarity." },
-              { title: "Cinematic execution", desc: "High-quality film with purpose. In-house production from Director to Post." },
+              { title: "Limited projects", desc: "We take on a limited number of projects each year to ensure focus and quality." },
+              { title: "Define before we create", desc: "Every piece of work starts with clear direction and intention." },
+              { title: "Work that lasts", desc: "We focus on communication that holds attention — not chases it." },
             ].map((v, i) => (
               <AnimatedSection key={v.title} delay={i * 0.1}>
                 <div className="border border-border p-8 md:p-10 h-full hover:border-accent-warm/30 transition-colors duration-300">

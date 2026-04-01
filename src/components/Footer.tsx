@@ -21,7 +21,7 @@ const Footer = () => {
               ØRIONS
             </Link>
             <p className="font-body text-[14px] leading-[1.7] text-muted-foreground max-w-xs">
-              Strategy. Film. Clarity. A creative agency specializing in brand strategy, communication design, and film production. Based in Bangkok.
+              Fewer pieces. Stronger impact. A creative agency focused on clear communication, strong art direction, and high-quality film production. Based in Bangkok.
             </p>
           </div>
 

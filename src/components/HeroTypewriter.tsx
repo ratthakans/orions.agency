@@ -2,9 +2,9 @@ import { useState, useEffect, memo } from "react";
 import { motion } from "framer-motion";
 
 const phrases = [
-  "strategy gives direction.",
-  "film gives it presence.",
-  "clarity creates impact.",
+  "fewer pieces.",
+  "stronger impact.",
+  "clarity over noise.",
 ];
 
 const HeroTypewriter = memo(() => {

@@ -36,10 +36,10 @@ const phases = [
 ];
 
 const beliefs = [
+  "Clarity over noise.",
+  "Fewer, better pieces.",
   "We don't create for attention. We create for clarity.",
   "We don't follow trends. We build communication that lasts.",
-  "Strategy without production is a deck. Production without strategy is noise.",
-  "Good communication is not louder — it is clearer.",
 ];
 
 const ProcessPage = () => {
@@ -85,7 +85,7 @@ const ProcessPage = () => {
         <div className="max-w-4xl mx-auto">
           <AnimatedSection>
             <p className="font-body text-[16px] md:text-[18px] leading-[1.8] text-muted-foreground">
-              In a world full of content, brands don't need more noise. They need direction, intention, and execution that people can actually feel. We combine strategic thinking, strong creative direction, and cinematic production to create work that communicates with clarity and impact.
+              We work through a simple but structured process. In a world of constant output, we focus on clarity, direction, and work that holds attention. We combine strategic thinking, considered art direction, and disciplined production to create communication that is clear, precise, and built to last.
             </p>
           </AnimatedSection>
         </div>

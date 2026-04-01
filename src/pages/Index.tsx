@@ -32,7 +32,7 @@ const Index = () => {
     <main className="bg-background min-h-screen grain-overlay">
       <SEO
         title="ØRIONS — Creative Agency | Bangkok"
-        description="Strategy gives direction. Film gives it presence. A creative agency in Bangkok specializing in brand strategy, communication design, and film production."
+        description="Fewer pieces. Stronger impact. A creative agency focused on clear communication, strong art direction, and high-quality film production."
         path="/"
         keywords="creative agency bangkok, brand strategy, communication design, film production, branded content"
         schema={homeSchema}
@@ -69,7 +69,7 @@ const Index = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="font-display text-[clamp(40px,8vw,120px)] leading-[0.9] tracking-[0.01em] text-foreground mb-4"
           >
-            Strategy. Film. Clarity.
+            Fewer pieces. Stronger impact.
           </motion.h1>
 
           <motion.div
@@ -117,7 +117,7 @@ const Index = () => {
       </AnimatedSection>
 
       {/* ═══ MARQUEE ═══ */}
-      <Marquee items={["STRATEGY", "FILM", "CLARITY", "DIRECTION", "COMMUNICATION", "PRODUCTION", "NARRATIVE", "IMPACT"]} />
+      <Marquee items={["CLARITY", "DIRECTION", "ART DIRECTION", "FILM", "COMMUNICATION", "PRODUCTION", "FEWER PIECES", "STRONGER IMPACT"]} />
 
       {/* ═══ SERVICES PREVIEW ═══ */}
       <section className="py-24 md:py-40 px-4 sm:px-6 md:px-12 border-t border-border">
@@ -141,9 +141,9 @@ const Index = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border">
             {[
-              { title: "Brand & Communication Strategy", desc: "We define what your brand should say, who it should speak to, and how it should be understood." },
-              { title: "Communication Design", desc: "We turn strategy into clear and compelling ideas people can connect with." },
-              { title: "Film & Production", desc: "We bring communication to life through high-quality film and visual production." },
+              { title: "Brand & Communication Strategy", desc: "We define what your brand should say and how it should be understood." },
+              { title: "Communication Design", desc: "We shape strategy into ideas, visual direction, and communication systems." },
+              { title: "Film & Production", desc: "We produce work with attention to detail — from concept to final execution." },
             ].map((s, i) => (
               <AnimatedSection key={s.title} delay={i * 0.08}>
                 <div className="bg-background p-8 md:p-10 group h-full relative border border-border hover:border-accent-warm/30 transition-colors duration-300">
@@ -327,10 +327,8 @@ const Index = () => {
           </AnimatedSection>
           <div className="space-y-12">
             {[
-              { line: "We don't create for attention.", accent: false },
-              { line: "We create for clarity.", accent: true },
-              { line: "We don't follow trends.", accent: false },
-              { line: "We build communication that lasts.", accent: true },
+              { line: "Clarity over noise.", accent: true },
+              { line: "Fewer, better pieces.", accent: false },
             ].map((item, i) => (
               <AnimatedSection key={i} delay={i * 0.1}>
                 <p className={`font-display text-[clamp(28px,5vw,64px)] leading-[0.95] tracking-[0.01em] ${item.accent ? "text-accent-gradient" : "text-foreground/90"}`}>

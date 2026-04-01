@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
 
 const lines = [
-  "Good communication is not louder.",
-  "It is clearer.",
-  "We strip it back.",
-  "Find what matters.",
-  "And make people feel it.",
-  "From idea to final cut",
-  "— one team, no handoff.",
+  "We do less",
+  "— with more intention.",
+  "Clear communication.",
+  "Strong art direction.",
+  "High-quality film.",
+  "Fewer pieces.",
+  "Stronger impact.",
 ];
 
 const ManifestoSection = () => (

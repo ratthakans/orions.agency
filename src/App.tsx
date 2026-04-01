@@ -21,10 +21,9 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <LanguageProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<PageTransition><Index /></PageTransition>} />

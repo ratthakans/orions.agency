@@ -6,11 +6,7 @@ import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 import SEO from "@/components/SEO";
 
-import workNoSignal from "@/assets/work-no-signal.jpg";
-import work37Below from "@/assets/work-37-below.jpg";
-import workAlanMakeup from "@/assets/work-alan-makeup.jpg";
-import workConsecrated from "@/assets/work-the-consecrated.jpg";
-import workOrionsTalk from "@/assets/work-orions-talk.jpg";
+import { projects } from "@/data/projects";
 
 const homeSchema = [
   {
@@ -22,13 +18,12 @@ const homeSchema = [
   },
 ];
 
-const featuredWorks = [
-  { title: "No Signal", type: "Documentary", image: workNoSignal },
-  { title: "37° Below", type: "Documentary", image: work37Below },
-  { title: "Alan Makeup", type: "Documentary", image: workAlanMakeup },
-  { title: "The Consecrated", type: "Documentary", image: workConsecrated },
-  { title: "ORIONS Talk", type: "Podcast", image: workOrionsTalk },
-];
+const featuredWorks = projects.map((p) => ({
+  slug: p.slug,
+  title: p.title,
+  type: p.type,
+  image: p.image,
+}));
 
 const Index = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -159,7 +154,7 @@ const Index = () => {
 
           {/* Featured project large */}
           <AnimatedSection>
-            <Link to="/work" className="group block mb-8">
+            <Link to={`/work/${featuredWorks[0].slug}`} className="group block mb-8">
               <div className="aspect-[21/9] overflow-hidden relative border border-border hover:border-accent-warm/30 transition-colors duration-300">
                 <img
                   src={featuredWorks[0].image}
@@ -182,7 +177,7 @@ const Index = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {featuredWorks.slice(1).map((project, i) => (
               <AnimatedSection key={project.title} delay={i * 0.08}>
-                <Link to="/work" className="group block border border-border hover:border-accent-warm/30 transition-colors duration-300">
+                <Link to={`/work/${project.slug}`} className="group block border border-border hover:border-accent-warm/30 transition-colors duration-300">
                   <div className="aspect-[4/3] overflow-hidden relative">
                     <img
                       src={project.image}

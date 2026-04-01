@@ -1,65 +1,59 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
-import { Link, useLocation } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
-  { label: "Process", href: "/process" },
-  { label: "Services", href: "/services" },
-  { label: "About", href: "/about" },
-  { label: "Work", href: "/work" },
-  { label: "Studio", href: "/studio" },
-  { label: "Contact", href: "/contact" },
+  { label: "About", href: "#about" },
+  { label: "Work", href: "#work" },
+  { label: "Services", href: "#services" },
+  { label: "Contact", href: "#contact" },
 ];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { scrollYProgress } = useScroll();
-  const smoothProgress = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
-  const location = useLocation();
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const handleClick = (href: string) => {
     setIsOpen(false);
-  }, [location.pathname]);
+    const el = document.querySelector(href);
+    el?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
-    <motion.nav
-      className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-xl border-b border-border/50"
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled ? "bg-background/95 backdrop-blur-sm border-b border-border/60" : "bg-transparent"
+      }`}
     >
-      <motion.div
-        style={{ scaleX: smoothProgress }}
-        className="absolute bottom-0 left-0 right-0 h-[2px] bg-accent-warm origin-left z-10"
-      />
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-[60px]">
-        <Link to="/" className="flex items-center">
-          <span className="font-logo text-[13px] font-medium tracking-[0.08em] text-foreground uppercase">ØRIONS</span>
-        </Link>
+      <div className="max-w-[1200px] mx-auto px-6 md:px-12 flex items-center justify-between h-[64px]">
+        <a
+          href="#"
+          onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+          className="font-display text-[22px] font-semibold tracking-[0.15em] text-foreground uppercase"
+        >
+          ORIONS
+        </a>
 
         {/* Desktop */}
-        <div className="hidden lg:flex items-center gap-10">
+        <div className="hidden md:flex items-center gap-10">
           {navLinks.map((s) => (
-            <Link
+            <button
               key={s.href}
-              to={s.href}
-              className={`font-mono text-[11px] tracking-[0.12em] uppercase transition-colors duration-300 ${
-                location.pathname === s.href ? "text-accent-warm" : "text-muted-foreground hover:text-foreground"
-              }`}
+              onClick={() => handleClick(s.href)}
+              className="font-mono text-[11px] tracking-[0.08em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-300"
             >
               {s.label}
-            </Link>
+            </button>
           ))}
         </div>
 
-        <div className="hidden lg:flex items-center">
-          <Link
-            to="/contact"
-            className="font-mono text-[11px] tracking-[0.12em] uppercase text-primary-foreground bg-primary px-5 py-2 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300"
-          >
-            Let's Talk
-          </Link>
-        </div>
-
         {/* Mobile toggle */}
-        <div className="lg:hidden">
+        <div className="md:hidden">
           <button onClick={() => setIsOpen(!isOpen)} className="flex flex-col gap-1.5 p-2" aria-label="Toggle menu">
             <span className={`block w-5 h-px bg-foreground transition-transform duration-300 ${isOpen ? "rotate-45 translate-y-[3px]" : ""}`} />
             <span className={`block w-5 h-px bg-foreground transition-opacity duration-300 ${isOpen ? "opacity-0" : ""}`} />
@@ -75,31 +69,23 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden border-t border-border bg-background overflow-hidden"
+            className="md:hidden border-t border-border bg-background overflow-hidden"
           >
-            <div className="px-6 py-10 flex flex-col gap-6">
+            <div className="px-6 py-8 flex flex-col gap-5">
               {navLinks.map((s) => (
-                <Link
+                <button
                   key={s.href}
-                  to={s.href}
-                  className={`font-mono text-[11px] tracking-[0.12em] uppercase transition-colors duration-300 text-left ${
-                    location.pathname === s.href ? "text-accent-warm" : "text-muted-foreground hover:text-foreground"
-                  }`}
+                  onClick={() => handleClick(s.href)}
+                  className="font-mono text-[12px] tracking-[0.08em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-300 text-left"
                 >
                   {s.label}
-                </Link>
+                </button>
               ))}
-              <Link
-                to="/contact"
-                className="font-mono text-[11px] tracking-[0.12em] uppercase text-primary-foreground bg-primary px-5 py-3 text-center mt-4 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300"
-              >
-                Let's Talk
-              </Link>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.nav>
+    </nav>
   );
 };
 

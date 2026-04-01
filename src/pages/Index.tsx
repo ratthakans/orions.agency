@@ -1,365 +1,255 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
-import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import AnimatedSection from "@/components/AnimatedSection";
-import HeroTypewriter from "@/components/HeroTypewriter";
-import Marquee from "@/components/Marquee";
-import ManifestoSection from "@/components/ManifestoSection";
-import SEO from "@/components/SEO";
-import { useLanguage } from "@/contexts/LanguageContext";
-import { works } from "@/data/works";
 
-const homeSchema = [
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-60px" },
+  transition: { duration: 0.8, delay, ease: [0.25, 0.1, 0.25, 1] as const },
+});
+
+const works = [
   {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "ØRIONS",
-    url: "https://orions.agency",
-    description: "ØRIONS is a creative agency in Bangkok specializing in brand strategy, communication design, and film production.",
+    title: "No Signal",
+    desc: "A survival documentary exploring isolation, endurance, and instinct.",
+    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+  },
+  {
+    title: "37 Below",
+    desc: "An extreme travel documentary on harsh environments and physical limits.",
+    image: "https://images.unsplash.com/photo-1477346611705-65d1883cee1e?w=800&q=80",
+  },
+  {
+    title: "Alan Makeup",
+    desc: "A documentary series on identity and personal transformation through makeup.",
+    image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&q=80",
+  },
+  {
+    title: "ลงอาคม",
+    desc: "A documentary exploring belief, ritual, and the unseen forces people live with.",
+    image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&q=80",
+  },
+];
+
+const services = [
+  {
+    num: "01",
+    title: "Strategy",
+    desc: "Define what your brand should say, who it should speak to, and how it should be understood.",
+    items: ["Brand positioning & narrative", "Communication framework", "Campaign direction"],
+  },
+  {
+    num: "02",
+    title: "Communication Design",
+    desc: "Shape strategy into clear ideas, visual direction, and systems people connect with.",
+    items: ["Campaign concepts & creative direction", "Messaging & content systems", "Touchpoint structure"],
+  },
+  {
+    num: "03",
+    title: "Film & Production",
+    desc: "Execute with attention to detail — from concept to final delivery.",
+    items: ["TVC, commercials & branded content", "Documentary-style film", "Photo & video production"],
   },
 ];
 
 const Index = () => {
-  const { lang } = useLanguage();
-  const heroRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
-  const heroOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
-  const heroY = useTransform(scrollYProgress, [0, 1], [0, 80]);
-
   return (
-    <main className="bg-background min-h-screen grain-overlay">
-      <SEO
-        title="ØRIONS — Creative Agency | Bangkok"
-        description="Fewer pieces. Stronger impact. A creative agency focused on clear communication, strong art direction, and high-quality film production."
-        path="/"
-        keywords="creative agency bangkok, brand strategy, communication design, film production, branded content"
-        schema={homeSchema}
-      />
+    <main className="bg-background min-h-screen">
       <Navbar />
 
-      {/* ═══ HERO WITH VIDEO ═══ */}
-      <section ref={heroRef} className="h-screen flex items-center justify-center relative overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <iframe
-            src="https://www.youtube.com/embed/pT5BmAKGllg?autoplay=1&mute=1&loop=1&playlist=pT5BmAKGllg&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&vq=hd1080&start=36"
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300vw] h-[300vh] min-w-[100vw] min-h-[100vh] pointer-events-none"
-            allow="autoplay; encrypted-media"
-            allowFullScreen
-            title="Background video"
-            style={{ border: 0 }}
-          />
-          <div className="absolute inset-0 bg-background/70" />
-        </div>
+      {/* ── HERO ── */}
+      <section className="min-h-screen flex flex-col items-center justify-center px-6 text-center">
+        <motion.h1
+          {...fadeUp(0.1)}
+          className="font-display text-[clamp(48px,10vw,120px)] font-semibold tracking-[0.12em] uppercase leading-[0.95] text-foreground"
+        >
+          ORIONS
+        </motion.h1>
+        <motion.div {...fadeUp(0.3)} className="mt-8 space-y-1">
+          <p className="font-display text-[clamp(22px,4vw,42px)] font-normal italic text-foreground/80 leading-[1.2]">
+            Fewer pieces.
+          </p>
+          <p className="font-display text-[clamp(22px,4vw,42px)] font-normal italic text-foreground/80 leading-[1.2]">
+            Stronger impact.
+          </p>
+        </motion.div>
+        <motion.p
+          {...fadeUp(0.5)}
+          className="mt-10 font-body text-[15px] md:text-[16px] leading-[1.7] text-muted-foreground max-w-[520px]"
+        >
+          A creative agency focused on clear communication, strong art direction, and high-quality film production.
+        </motion.p>
+      </section>
 
-        <motion.div style={{ opacity: heroOpacity, y: heroY }} className="text-center max-w-5xl mx-auto relative z-10 px-4 sm:px-6 md:px-12">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-10"
-          >
-            Creative Agency · Bangkok
+      {/* ── ABOUT ── */}
+      <section id="about" className="py-24 md:py-40 px-6">
+        <div className="max-w-[680px] mx-auto">
+          <motion.p {...fadeUp()} className="font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground mb-12">
+            About
           </motion.p>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="font-display text-[clamp(40px,8vw,120px)] leading-[0.9] tracking-[0.01em] text-foreground mb-4"
-          >
-            Fewer pieces. Stronger impact.
-          </motion.h1>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.55 }}
-            className="font-display text-[clamp(32px,6.5vw,100px)] leading-[0.9] tracking-[0.01em] mb-12 whitespace-nowrap min-h-[1.1em]"
-          >
-            <HeroTypewriter />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.0 }}
-            className="flex items-center justify-center gap-6"
-          >
-            <Link
-              to="/contact"
-              className="font-mono text-[11px] tracking-[0.12em] uppercase text-primary-foreground bg-primary px-10 py-3.5 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300"
-            >
-              Let's Talk
-            </Link>
-            <Link
-              to="/services"
-              className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300"
-            >
-              Our Services <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
-            </Link>
-          </motion.div>
-        </motion.div>
+          <div className="space-y-8 font-body text-[16px] md:text-[17px] leading-[1.8] text-foreground/85">
+            <motion.p {...fadeUp(0.05)}>
+              We do less — with more intention.
+            </motion.p>
+            <motion.p {...fadeUp(0.1)}>
+              In a world of constant output, we believe brands do not need more noise. They need clear direction, thoughtful communication, and work that people can actually feel.
+            </motion.p>
+            <motion.p {...fadeUp(0.15)}>
+              Our approach brings together strategic thinking, considered art direction, and disciplined production — all within a small, focused team where every decision is deliberate.
+            </motion.p>
+            <motion.p {...fadeUp(0.2)}>
+              We define what needs to be said, shape how it should be expressed, and bring it to life through film and visual production. The result is work that sits between strategy and execution — practical enough to solve communication problems, and crafted enough to create lasting brand value.
+            </motion.p>
+            <motion.p {...fadeUp(0.25)} className="italic text-foreground/70 pt-4">
+              We take on a limited number of projects each year. This is by design.
+            </motion.p>
+          </div>
+        </div>
       </section>
 
-      {/* ═══ MANIFESTO ═══ */}
-      <ManifestoSection />
-      <AnimatedSection delay={0.2}>
-        <div className="text-center -mt-20 mb-24 md:mb-40 px-4">
-          <Link
-            to="/process"
-            className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300"
-          >
-            Read the full story <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
-          </Link>
-        </div>
-      </AnimatedSection>
+      <div className="section-divider max-w-[1200px] mx-auto" />
 
-      {/* ═══ MARQUEE ═══ */}
-      <Marquee items={["CLARITY", "DIRECTION", "ART DIRECTION", "FILM", "COMMUNICATION", "PRODUCTION", "FEWER PIECES", "STRONGER IMPACT"]} />
+      {/* ── WORK ── */}
+      <section id="work" className="py-24 md:py-40 px-6">
+        <div className="max-w-[1200px] mx-auto">
+          <motion.p {...fadeUp()} className="font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground mb-4">
+            Work
+          </motion.p>
+          <motion.p {...fadeUp(0.05)} className="font-body text-[15px] text-muted-foreground mb-16">
+            Selected projects and original productions.
+          </motion.p>
 
-      {/* ═══ SERVICES PREVIEW ═══ */}
-      <section className="py-24 md:py-40 px-4 sm:px-6 md:px-12 border-t border-border">
-        <div className="max-w-7xl mx-auto">
-          <AnimatedSection>
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16">
-              <div>
-                <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4">
-                  <span className="text-accent-warm mr-2">✦</span> What We Do
-                </p>
-                <h2 className="font-display text-[clamp(36px,6vw,72px)] leading-[0.9] tracking-[0.01em] text-foreground">SERVICES.</h2>
-              </div>
-              <Link
-                to="/services"
-                className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300 mt-4 md:mt-0"
-              >
-                View all <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
-              </Link>
-            </div>
-          </AnimatedSection>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border">
-            {[
-              { title: "Brand & Communication Strategy", desc: "We define what your brand should say and how it should be understood." },
-              { title: "Communication Design", desc: "We shape strategy into ideas, visual direction, and communication systems." },
-              { title: "Film & Production", desc: "We produce work with attention to detail — from concept to final execution." },
-            ].map((s, i) => (
-              <AnimatedSection key={s.title} delay={i * 0.08}>
-                <div className="bg-background p-8 md:p-10 group h-full relative border border-border hover:border-accent-warm/30 transition-colors duration-300">
-                  <span className="font-mono text-[10px] tracking-[0.15em] text-accent-warm/40 block mb-6">{String(i + 1).padStart(2, "0")}</span>
-                  <h3 className="font-display text-[26px] md:text-[30px] tracking-[0.02em] text-foreground mb-4 group-hover:text-accent-warm transition-colors duration-300">
-                    {s.title}
-                  </h3>
-                  <p className="font-body text-[14px] leading-[1.7] text-muted-foreground">{s.desc}</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {works.map((w, i) => (
+              <motion.div key={w.title} {...fadeUp(i * 0.08)} className="group cursor-pointer">
+                <div className="aspect-[16/9] overflow-hidden relative bg-foreground/5">
+                  <img
+                    src={w.image}
+                    alt={w.title}
+                    className="w-full h-full object-cover brightness-[0.6] group-hover:brightness-[0.7] group-hover:scale-[1.03] transition-all duration-700"
+                    loading="lazy"
+                  />
+                  <div className="absolute bottom-0 left-0 p-5 md:p-6">
+                    <span className="font-mono text-[9px] tracking-[0.15em] uppercase text-white/50 block mb-2">Original</span>
+                    <h3 className="font-display text-[24px] md:text-[28px] font-medium text-white leading-tight">
+                      {w.title}
+                    </h3>
+                  </div>
                 </div>
-              </AnimatedSection>
+                <p className="font-body text-[13px] text-muted-foreground mt-3 leading-[1.6]">
+                  {w.desc}
+                </p>
+              </motion.div>
             ))}
           </div>
+
+          <motion.p {...fadeUp(0.1)} className="text-center font-body text-[13px] text-muted-foreground/60 mt-12">
+            Additional client work available on request.
+          </motion.p>
         </div>
       </section>
 
-      {/* ═══ PROCESS PREVIEW ═══ */}
-      <section className="py-24 md:py-40 px-4 sm:px-6 md:px-12 border-t border-border">
-        <div className="max-w-7xl mx-auto">
-          <AnimatedSection>
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-20">
-              <div>
-                <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4">
-                  <span className="text-accent-warm mr-2">✦</span> How We Work
-                </p>
-                <h2 className="font-display text-[clamp(36px,6vw,72px)] leading-[0.9] tracking-[0.01em] text-foreground">OUR APPROACH.</h2>
-              </div>
-              <Link
-                to="/process"
-                className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300 mt-4 md:mt-0"
-              >
-                Learn more <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
-              </Link>
-            </div>
-          </AnimatedSection>
+      <div className="section-divider max-w-[1200px] mx-auto" />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
-            {[
-              { num: "01", title: "Define", desc: "Clarify strategy and direction.", icon: <svg viewBox="0 0 40 40" className="w-8 h-8"><circle cx="20" cy="20" r="16" fill="none" stroke="currentColor" strokeWidth="1.5" /><circle cx="20" cy="20" r="4" fill="currentColor" /></svg> },
-              { num: "02", title: "Develop", desc: "Shape ideas and communication.", icon: <svg viewBox="0 0 40 40" className="w-8 h-8"><rect x="6" y="6" width="28" height="28" fill="none" stroke="currentColor" strokeWidth="1.5" transform="rotate(45 20 20)" /></svg> },
-              { num: "03", title: "Produce", desc: "Execute through film and production.", icon: <svg viewBox="0 0 40 40" className="w-8 h-8"><polygon points="20,4 36,36 4,36" fill="none" stroke="currentColor" strokeWidth="1.5" /></svg> },
-            ].map((phase, i) => (
-              <AnimatedSection key={phase.num} delay={i * 0.08}>
-                <div className="relative border-t md:border-t-0 md:border-l border-border p-6 md:p-8 group hover:bg-accent-warm/5 transition-all duration-500 h-full">
-                  <div className="absolute top-0 left-0 w-full h-px md:w-px md:h-full bg-transparent group-hover:bg-accent-warm/40 transition-colors duration-500" />
-                  <div className="text-accent-warm/20 group-hover:text-accent-warm/60 transition-colors duration-300 mb-5">
-                    {phase.icon}
-                  </div>
-                  <span className="font-mono text-[10px] tracking-[0.2em] text-accent-warm/30 group-hover:text-accent-warm transition-colors duration-300 block mb-4">
-                    {phase.num}
-                  </span>
-                  <h3 className="font-display text-[20px] md:text-[24px] tracking-[0.02em] text-foreground mb-3 group-hover:text-accent-warm transition-colors duration-300">
-                    {phase.title}
-                  </h3>
-                  <p className="font-body text-[13px] leading-[1.6] text-muted-foreground/60">{phase.desc}</p>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ── SERVICES ── */}
+      <section id="services" className="py-24 md:py-40 px-6">
+        <div className="max-w-[1200px] mx-auto">
+          <motion.p {...fadeUp()} className="font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground mb-16">
+            Services
+          </motion.p>
 
-      {/* ═══ SELECTED WORK — ASYMMETRIC GRID ═══ */}
-      <section className="py-24 md:py-40 px-4 sm:px-6 md:px-12 border-t border-border">
-        <div className="max-w-7xl mx-auto">
-          <AnimatedSection>
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16">
-              <div>
-                <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4">
-                  <span className="text-accent-warm mr-2">✦</span> Selected Work
-                </p>
-                <h2 className="font-display text-[clamp(36px,6vw,72px)] leading-[0.9] tracking-[0.01em] text-foreground">SELECTED WORK.</h2>
-              </div>
-              <Link
-                to="/work"
-                className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300 mt-4 md:mt-0"
-              >
-                View all work <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
-              </Link>
-            </div>
-          </AnimatedSection>
-
-          {/* Row 1: Large left + Small right */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-            {works[0] && (
-              <AnimatedSection className="md:col-span-2">
-                <Link to={`/work/${works[0].slug}`} className="group block border border-border h-full hover:border-accent-warm/30 transition-colors duration-300">
-                  <div className="aspect-[16/9] overflow-hidden relative">
-                    <img src={works[0].image} alt={works[0].title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" />
-                    <div className="absolute inset-0 bg-accent-warm/0 group-hover:bg-accent-warm/5 transition-all duration-500" />
-                  </div>
-                  <div className="p-6 md:p-8">
-                    <div className="flex items-center gap-3 mb-3">
-                      <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm/60">{works[0].service}</span>
-                      <span className="text-muted-foreground/30 text-[8px]">●</span>
-                      <span className="font-mono text-[10px] tracking-[0.1em] uppercase text-muted-foreground/50">{works[0].type}</span>
-                    </div>
-                    <h3 className="font-display text-[28px] md:text-[36px] tracking-[0.02em] text-foreground mb-3 group-hover:text-accent-warm transition-colors duration-300">
-                      {works[0].title}
-                    </h3>
-                    <p className="font-body text-[14px] leading-[1.6] text-muted-foreground line-clamp-2">{works[0].brief[lang]}</p>
-                    <p className="font-display text-[18px] tracking-[0.02em] text-accent-gradient mt-4">{works[0].result}</p>
-                  </div>
-                </Link>
-              </AnimatedSection>
-            )}
-            {works[1] && (
-              <AnimatedSection delay={0.12}>
-                <Link to={`/work/${works[1].slug}`} className="group block border border-border h-full hover:border-accent-warm/30 transition-colors duration-300">
-                  <div className="aspect-[16/10] overflow-hidden relative">
-                    <img src={works[1].image} alt={works[1].title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" />
-                    <div className="absolute inset-0 bg-accent-warm/0 group-hover:bg-accent-warm/5 transition-all duration-500" />
-                  </div>
-                  <div className="p-6 md:p-8">
-                    <div className="flex items-center gap-3 mb-3">
-                      <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm/60">{works[1].service}</span>
-                    </div>
-                    <h3 className="font-display text-[22px] md:text-[26px] tracking-[0.02em] text-foreground mb-3 group-hover:text-accent-warm transition-colors duration-300">
-                      {works[1].title}
-                    </h3>
-                    <p className="font-body text-[13px] leading-[1.6] text-muted-foreground line-clamp-2">{works[1].brief[lang]}</p>
-                  </div>
-                </Link>
-              </AnimatedSection>
-            )}
-          </div>
-
-          {/* Row 2: Small left + Large right */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {works[2] && (
-              <AnimatedSection delay={0.08}>
-                <Link to={`/work/${works[2].slug}`} className="group block border border-border h-full hover:border-accent-warm/30 transition-colors duration-300">
-                  <div className="aspect-[16/10] overflow-hidden relative">
-                    <img src={works[2].image} alt={works[2].title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" />
-                    <div className="absolute inset-0 bg-accent-warm/0 group-hover:bg-accent-warm/5 transition-all duration-500" />
-                  </div>
-                  <div className="p-6 md:p-8">
-                    <div className="flex items-center gap-3 mb-3">
-                      <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm/60">{works[2].service}</span>
-                    </div>
-                    <h3 className="font-display text-[22px] md:text-[26px] tracking-[0.02em] text-foreground mb-3 group-hover:text-accent-warm transition-colors duration-300">
-                      {works[2].title}
-                    </h3>
-                    <p className="font-body text-[13px] leading-[1.6] text-muted-foreground line-clamp-2">{works[2].brief[lang]}</p>
-                  </div>
-                </Link>
-              </AnimatedSection>
-            )}
-            {works[3] && (
-              <AnimatedSection delay={0.16} className="md:col-span-2">
-                <Link to={`/work/${works[3].slug}`} className="group block border border-border h-full hover:border-accent-warm/30 transition-colors duration-300">
-                  <div className="aspect-[16/9] overflow-hidden relative">
-                    <img src={works[3].image} alt={works[3].title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" />
-                    <div className="absolute inset-0 bg-accent-warm/0 group-hover:bg-accent-warm/5 transition-all duration-500" />
-                  </div>
-                  <div className="p-6 md:p-8">
-                    <div className="flex items-center gap-3 mb-3">
-                      <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm/60">{works[3].service}</span>
-                      <span className="text-muted-foreground/30 text-[8px]">●</span>
-                      <span className="font-mono text-[10px] tracking-[0.1em] uppercase text-muted-foreground/50">{works[3].type}</span>
-                    </div>
-                    <h3 className="font-display text-[28px] md:text-[36px] tracking-[0.02em] text-foreground mb-3 group-hover:text-accent-warm transition-colors duration-300">
-                      {works[3].title}
-                    </h3>
-                    <p className="font-body text-[14px] leading-[1.6] text-muted-foreground line-clamp-2">{works[3].brief[lang]}</p>
-                    <p className="font-display text-[18px] tracking-[0.02em] text-accent-gradient mt-4">{works[3].result}</p>
-                  </div>
-                </Link>
-              </AnimatedSection>
-            )}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══ PHILOSOPHY ═══ */}
-      <section className="py-24 md:py-40 px-4 sm:px-6 md:px-12 border-t border-border">
-        <div className="max-w-5xl mx-auto">
-          <AnimatedSection>
-            <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-12">
-              <span className="text-accent-warm mr-2">✦</span> Philosophy
+          {/* Retainer block */}
+          <motion.div {...fadeUp(0.05)} className="border border-border p-8 md:p-10 mb-12">
+            <h3 className="font-display text-[28px] md:text-[32px] font-medium text-foreground mb-4">Retainer</h3>
+            <p className="font-body text-[15px] leading-[1.8] text-foreground/80 max-w-[600px] mb-4">
+              We work with a small number of clients on an ongoing basis — providing monthly creative support, campaign planning, creative direction, and production oversight.
             </p>
-          </AnimatedSection>
-          <div className="space-y-12">
-            {[
-              { line: "Clarity over noise.", accent: true },
-              { line: "Fewer, better pieces.", accent: false },
-            ].map((item, i) => (
-              <AnimatedSection key={i} delay={i * 0.1}>
-                <p className={`font-display text-[clamp(28px,5vw,64px)] leading-[0.95] tracking-[0.01em] ${item.accent ? "text-accent-gradient" : "text-foreground/90"}`}>
-                  {item.line}
-                </p>
-              </AnimatedSection>
+            <p className="font-body text-[14px] leading-[1.7] text-muted-foreground italic">
+              Best suited for brands that need continuity, consistency, and a trusted creative partner over the long term.
+            </p>
+          </motion.div>
+
+          {/* Three service columns */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+            {services.map((s, i) => (
+              <motion.div key={s.num} {...fadeUp(i * 0.08)}>
+                <span className="font-mono text-[11px] tracking-[0.1em] text-muted-foreground/50 block mb-4">{s.num}</span>
+                <h3 className="font-display text-[24px] md:text-[26px] font-medium text-foreground mb-3">{s.title}</h3>
+                <p className="font-body text-[14px] leading-[1.7] text-foreground/75 mb-5">{s.desc}</p>
+                <ul className="space-y-2">
+                  {s.items.map((item) => (
+                    <li key={item} className="font-body text-[13px] text-muted-foreground flex items-start gap-2">
+                      <span className="text-accent mt-1 text-[8px]">—</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
             ))}
           </div>
+
+          <motion.p {...fadeUp(0.1)} className="text-center font-mono text-[12px] tracking-[0.08em] text-muted-foreground mt-16">
+            Our process: Define → Develop → Produce
+          </motion.p>
         </div>
       </section>
 
-      {/* ═══ CTA ═══ */}
-      <section className="py-32 md:py-48 px-4 sm:px-6 md:px-12 border-t border-border text-center">
-        <AnimatedSection>
-          <p className="font-display text-[clamp(36px,7vw,100px)] leading-[0.9] tracking-[0.01em] text-foreground">
-            LET'S CREATE
-          </p>
-          <p className="font-display text-[clamp(36px,7vw,100px)] leading-[0.9] tracking-[0.01em] text-accent-gradient">
-            SOMETHING MEANINGFUL.
-          </p>
-        </AnimatedSection>
-        <AnimatedSection delay={0.2}>
-          <div className="mt-12">
-            <Link
-              to="/contact"
-              className="inline-block font-mono text-[11px] tracking-[0.12em] uppercase text-primary-foreground bg-primary px-10 py-3.5 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300"
-            >
-              Start a Project
-            </Link>
+      <div className="section-divider max-w-[1200px] mx-auto" />
+
+      {/* ── CLIENTS ── */}
+      <section className="py-24 md:py-40 px-6">
+        <div className="max-w-[680px] mx-auto">
+          <motion.p {...fadeUp()} className="font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground mb-12">
+            Clients
+          </motion.p>
+          <motion.p {...fadeUp(0.05)} className="font-body text-[16px] md:text-[17px] leading-[1.8] text-foreground/85 mb-6">
+            We work best with founder-led and culturally driven brands that value clarity, strong visual standards, and long-term brand building.
+          </motion.p>
+          <motion.p {...fadeUp(0.1)} className="font-body text-[15px] leading-[1.7] text-muted-foreground">
+            Especially suited to lifestyle, hospitality, travel, beauty, and culture-led categories.
+          </motion.p>
+        </div>
+      </section>
+
+      <div className="section-divider max-w-[1200px] mx-auto" />
+
+      {/* ── CONTACT ── */}
+      <section id="contact" className="py-24 md:py-40 px-6">
+        <div className="max-w-[680px] mx-auto">
+          <motion.p {...fadeUp()} className="font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground mb-12">
+            Contact
+          </motion.p>
+          <motion.p {...fadeUp(0.05)} className="font-display text-[28px] md:text-[36px] italic font-normal text-foreground mb-10">
+            Start with a conversation.
+          </motion.p>
+          <div className="space-y-3">
+            <motion.div {...fadeUp(0.1)}>
+              <a href="mailto:hello@orions.agency" className="font-body text-[16px] text-foreground hover:text-accent transition-colors duration-300">
+                hello@orions.agency
+              </a>
+            </motion.div>
+            <motion.div {...fadeUp(0.13)}>
+              <a href="tel:+66923905464" className="font-body text-[16px] text-muted-foreground">
+                092 390 5464
+              </a>
+            </motion.div>
+            <motion.div {...fadeUp(0.16)}>
+              <a href="https://orions.agency" className="font-body text-[16px] text-muted-foreground hover:text-foreground transition-colors duration-300">
+                orions.agency
+              </a>
+            </motion.div>
           </div>
-        </AnimatedSection>
+          <motion.div {...fadeUp(0.2)} className="mt-10">
+            <a
+              href="mailto:hello@orions.agency"
+              className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.1em] uppercase text-foreground border border-foreground/20 px-6 py-3 hover:bg-foreground hover:text-background transition-all duration-300"
+            >
+              Get in touch <span>→</span>
+            </a>
+          </motion.div>
+        </div>
       </section>
 
       <Footer />

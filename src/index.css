@@ -82,6 +82,10 @@
     font-family: 'JetBrains Mono', monospace;
   }
 
+  .font-logo {
+    font-family: 'Unbounded', sans-serif;
+  }
+
   .section-dark-accent {
     background-color: hsl(var(--dark-accent));
   }

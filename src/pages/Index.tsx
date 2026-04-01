@@ -6,11 +6,7 @@ import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 import SEO from "@/components/SEO";
 
-import workNoSignal from "@/assets/work-no-signal.jpg";
-import work37Below from "@/assets/work-37-below.jpg";
-import workAlanMakeup from "@/assets/work-alan-makeup.jpg";
-import workConsecrated from "@/assets/work-the-consecrated.jpg";
-import workOrionsTalk from "@/assets/work-orions-talk.jpg";
+import { projects } from "@/data/projects";
 
 const homeSchema = [
   {
@@ -22,13 +18,12 @@ const homeSchema = [
   },
 ];
 
-const featuredWorks = [
-  { title: "No Signal", type: "Documentary", image: workNoSignal },
-  { title: "37° Below", type: "Documentary", image: work37Below },
-  { title: "Alan Makeup", type: "Documentary", image: workAlanMakeup },
-  { title: "The Consecrated", type: "Documentary", image: workConsecrated },
-  { title: "ORIONS Talk", type: "Podcast", image: workOrionsTalk },
-];
+const featuredWorks = projects.map((p) => ({
+  slug: p.slug,
+  title: p.title,
+  type: p.type,
+  image: p.image,
+}));
 
 const Index = () => {
   const heroRef = useRef<HTMLDivElement>(null);

@@ -72,17 +72,14 @@ const AboutPage = () => {
             <AnimatedSection>
               <div>
                 <h2 className="font-display text-[clamp(28px,4vw,48px)] leading-[0.95] tracking-[0.01em] text-foreground mb-8">
-                  A CREATIVE AGENCY<br />FROM BANGKOK.
+                  WE DO LESS —<br />WITH MORE INTENTION.
                 </h2>
                 <div className="space-y-6">
                   <p className="font-body text-[15px] leading-[1.8] text-muted-foreground">
-                    We believe good communication is not louder — it is clearer. In a world full of content, brands don't need more noise. They need direction, intention, and execution that people can actually feel.
+                    In a world of constant output, we focus on clarity, direction, and work that holds attention.
                   </p>
                   <p className="font-body text-[15px] leading-[1.8] text-muted-foreground">
-                    We combine strategic thinking, strong creative direction, and cinematic production to create work that communicates with clarity and impact.
-                  </p>
-                  <p className="font-body text-[15px] leading-[1.8] text-muted-foreground">
-                    From brand strategy to communication design to film production — everything we do starts with one question: <span className="text-foreground">what should people feel when they see this brand?</span>
+                    We combine strategic thinking, considered art direction, and disciplined production to create communication that is clear, precise, and built to last.
                   </p>
                 </div>
               </div>

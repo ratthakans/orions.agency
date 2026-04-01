@@ -66,7 +66,7 @@ const shows = [
     type: "Adventure Documentary",
     status: "Pre-production",
     image: imgALongWay,
-    desc: "A long-distance journey documentary — trekking, hiking, trail running. Stories of people who keep walking forward.",
+    desc: "Extreme travel documentary focused on cold environments and physical limits. Stories of people who keep walking forward.",
     format: "Cinematic series · 4 episodes · 30–45 min each",
     details: [
       "Each episode follows a different long-distance trail — from Thailand to international routes.",

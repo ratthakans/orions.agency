@@ -187,7 +187,7 @@ const AboutPage = () => {
                 <span className="text-accent-warm mr-2">✦</span> In-house Production
               </p>
               <p className="font-body text-[15px] md:text-[16px] leading-[1.8] text-muted-foreground">
-                ØRIONS has a production team within the same creative unit — Director, DOP, Editor, Post Supervisor — working together from concept to final cut. No handoff between agency and production house. The idea you approve is the idea you get.
+                We work with brands focused on experience, design, and long-term brand building. Our in-house production team — Director, DOP, Editor, Post Supervisor — works together from concept to final cut. No handoff between teams. The idea you approve is the idea you get.
               </p>
             </div>
           </AnimatedSection>

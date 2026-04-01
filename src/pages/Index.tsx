@@ -36,20 +36,16 @@ const Index = () => {
 
       {/* ── HERO WITH VIDEO BG ── */}
       <section className="min-h-screen flex flex-col items-center justify-center px-6 text-center relative overflow-hidden">
-        {/* Video background */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover brightness-[0.25]"
-          poster="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1920&q=80"
-        >
-          <source
-            src="https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4"
-            type="video/mp4"
+        {/* YouTube video background */}
+        <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
+          <iframe
+            src="https://www.youtube.com/embed/pT5BmAKGllg?autoplay=1&mute=1&loop=1&playlist=pT5BmAKGllg&controls=0&showinfo=0&modestbranding=1&rel=0&disablekb=1&playsinline=1&iv_load_policy=3&start=0"
+            title="ØRIONS Hero Background"
+            allow="autoplay; encrypted-media"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] min-w-full min-h-full brightness-[0.25] pointer-events-none"
+            style={{ aspectRatio: '16/9' }}
           />
-        </video>
+        </div>
 
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/30 to-background z-[1]" />

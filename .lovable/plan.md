@@ -1,74 +1,120 @@
 
 
-# ØRIONS — Design Enhancement Plan
+# ØRIONS Website — Detailed Review
 
-## Current Issues
-
-After reviewing all 5 pages, the current site has a **solid foundation** but feels **flat and repetitive**:
-
-1. **Every page has identical structure** — mono label → serif title → body text → border-t sections. No visual variety.
-2. **No texture or atmosphere** — Pure flat #0A0A0A background with no grain, no depth. Doesn't feel "cinematic."
-3. **Hero sections (non-home)** are all identical layouts — just text aligned bottom-left. No personality per page.
-4. **Work cards are static** — 16:9 grid with basic brightness hover. No sense of craft or film production.
-5. **Services page** is a plain text list — no visual hierarchy to differentiate the 3 pillars.
-6. **Contact page** is minimal to the point of feeling empty.
-7. **No manifesto or editorial moment** — The brand's strongest copy ("Most agencies add noise. We strip it back.") is absent.
-8. **No film grain overlay** — Mentioned in brand memory but never implemented.
+## Overall Assessment
+The site is well-structured with consistent visual design, strong brand voice, and cohesive navigation. Below are all issues found, organized by severity.
 
 ---
 
-## Plan: Make Every Page Earn Its Place
+## Critical Issues
 
-### 1. Global — Film Grain + Atmosphere
-**File:** `src/index.css`
-- Add CSS `::after` film grain texture overlay on `body` (subtle SVG noise at 3-4% opacity)
-- Add a `.section-dark-accent` utility for sections with slightly elevated background (#0D0D0D)
+### 1. Service Names Misaligned Between Pages
+The **Homepage services preview** (Index.tsx lines 143-150) lists 6 services with names that mostly match ServicesPage2, but the **Contact page** (ContactPage2.tsx lines 8-19) has outdated service options:
+- Contact lists "Creative Communication" but Services page has it as service 06 — OK
+- Contact lists retainers as "Creative Partnership (Retainer)", "Content System (Retainer)", "Channel Management (Retainer)" — these don't match the actual retainer names **Pulse, Flow, Orbit**
+- Contact is missing **"Demand Strategy"** as an option
 
-### 2. Home (`Index.tsx`) — Add Manifesto + Scroll Indicator
-- Add a **scroll-down indicator** (thin animated line) at the bottom of the hero
-- Replace the plain "About teaser" text with a **staggered manifesto reveal**: "Most agencies add noise. / We strip it back. / Find what matters. / And make people see you." — each line fades in on scroll with slight delay
-- **Work preview**: Make cards larger (full-width stacked instead of 2-col grid), with a horizontal rule between them and bolder typography — more editorial, less "portfolio grid"
-- **Services preview**: Add left border accent (primary/20) on each service card for visual anchor
-- **CTA section**: Make the italic text larger, add a thin horizontal line above it for visual weight
+### 2. Work Portfolio Service Categories Don't Match Services Page
+The `serviceFilters` in works.ts are: `"Creative Transformation", "Creative Communication", "Film & Production", "Creative Partner"`
+- **"Film & Production"** doesn't match the Services page name **"Production"**
+- **"Creative Partner"** doesn't match any specific service — should map to retainer model
+- Missing filters for: **Demand Strategy, Signature Campaign, Event/Activation, Digital Experience**
+- No work items tagged with the new services
 
-### 3. About (`AboutPage.tsx`) — Visual Storytelling
-- Hero: Add a **large atmospheric image** (full-width, 40vh, darkened) behind the title to break the text-only pattern
-- "Why ØRIONS" section: Convert from 3-col text grid to **numbered list with large display numbers** (oversized "01" "02" "03" in primary/10 behind the text) — creates visual rhythm
-- Leadership: Add placeholder initials or monogram instead of empty gray boxes
-- Philosophy closing: Make the italic quotes **much larger** (clamp to 72px) with staggered opacity for visual drama
+### 3. Hospitality Package Retainer Pricing Inconsistency
+HospitalityPage retainer note says: `"Pulse (120K), Flow (200K), Orbit (300K)"`
+But the main Services page retainers are:
+- Pulse: **40K–80K** / month
+- Flow: **80K–150K** / month
+- Orbit: **120K–180K** / month
 
-### 4. Work (`WorkPage.tsx`) — Cinematic Gallery
-- Change card aspect ratio to **3:4 (portrait/poster)** to feel like film posters
-- Add a **hoverable overlay** with project details that slides up from bottom
-- Alternate layout: first card full-width, remaining 3 in a 3-column grid — creates editorial asymmetry
-- Add subtle border-l with primary color on hover
-
-### 5. Services (`ServicesPage2.tsx`) — Visual Hierarchy
-- Each service pillar gets a **full-width horizontal card** with the number as a large watermark (120px, primary/5) — stacked vertically instead of 3-col
-- Add a thin animated divider line between pillars
-- "Define → Develop → Produce" section: Make it a **visual timeline** with dots and connecting line, not just text with arrows
-- Retainer box: Add subtle primary border-left accent
-
-### 6. Contact (`ContactPage2.tsx`) — More Presence
-- Hero: Use the same italic style but make it **much larger** (clamp to 80px)
-- Add a **two-column layout**: left side = large CTA text, right side = contact details
-- Add social links row (Instagram, Vimeo — relevant for a film agency)
-- Bottom: Add a simple embedded map or location illustration
-
-### 7. Navbar Enhancement
-- Add a subtle **bottom progress bar** (1px, primary color) showing scroll position on each page — gives a sense of craft
+The Hospitality Pulse at 120K is **3x** the standard Pulse. This needs explanation or alignment.
 
 ---
 
-## Technical Summary
+## Moderate Issues
 
-| File | Changes |
-|---|---|
-| `src/index.css` | Add grain overlay, section-dark-accent, scroll progress bar |
-| `src/pages/Index.tsx` | Manifesto section, editorial work cards, scroll indicator, enhanced CTA |
-| `src/pages/AboutPage.tsx` | Hero image, oversized value numbers, larger philosophy quotes |
-| `src/pages/WorkPage.tsx` | Portrait cards, asymmetric layout, hover overlay |
-| `src/pages/ServicesPage2.tsx` | Full-width service cards, visual timeline, retainer accent |
-| `src/pages/ContactPage2.tsx` | Two-column layout, larger CTA, social links |
-| `src/components/Navbar.tsx` | Scroll progress indicator |
+### 4. Homepage Services Preview Missing "Demand Strategy"
+Index.tsx shows 6 services but starts with "Creative Transformation" at position 1. The actual services page starts with **"Demand Strategy"** at position 01. The homepage preview should reflect the current service lineup order.
+
+### 5. About Page — CFO Has No Name
+C-Level array shows: `{ name: "CFO", role: "Finance & Operations" }` — the name field just says "CFO" instead of the actual person's name.
+
+### 6. About Page — Team Count Discrepancy
+The page says "13 CREATIVES. ONE VISION." and the counter shows 13. But the actual team data has:
+- C-Level: 3 people
+- Team members: 10 people
+- Total: **13** ✓ — This is correct.
+
+### 7. Several Team Members Have Generic Names
+Some team members use role titles instead of real names:
+- "Editor / DOP" (name field)
+- "Editor" (name field)
+- "Post Supervisor" (name field)
+- "Public Relations" (name field)
+
+This is likely intentional (positions to be filled), but looks inconsistent with named members.
+
+### 8. Studio Page — Unused `titleTh` Check
+StudioPage line 187 checks for `titleTh` with a type assertion `(show as any).titleTh` but no show data includes this field. Dead code.
+
+---
+
+## Minor Issues
+
+### 9. Contact Form Uses `mailto:` Instead of API
+The form opens the user's email client instead of actually submitting. This is a known limitation but means form data can be lost if the user doesn't have a mail client configured.
+
+### 10. Process Page Manifesto vs Homepage Manifesto
+The Process page has its own 5-line manifesto (lines 66-72) that's different from the homepage manifesto. Both are valid but could create inconsistency in messaging.
+
+### 11. SEO — Missing `Creative Communication` Service
+Services page SEO description lists "Digital Experience" but not "Creative Communication" (service 06). Not critical since it has no badge and seems like the least defined service.
+
+### 12. Hospitality Page — Empty Hero Image
+`hero.image` is set to `""` — the hero section likely renders an empty or broken image area.
+
+---
+
+## Content Consistency Matrix
+
+```text
+Service Name          | Services | Homepage | Contact | Work Filters
+─────────────────────────────────────────────────────────────────
+Demand Strategy       | ✓ (01)   | ✗        | ✗       | ✗
+Creative Transform.   | ✓ (02)   | ✓        | ✓       | ✓
+Signature Campaign    | ✓ (03)   | ✓        | ✓       | ✗
+Production            | ✓ (04)   | ✓        | ✓       | as "Film & Production"
+Event / Activation    | ✓ (05)   | ✓        | ✗       | ✗
+Digital Experience    | ✓ (06)   | ✓        | ✗       | ✗
+Creative Comms        | (none)   | ✓        | ✓       | ✓
+Pulse Retainer        | ✓ (07)   | ✗        | ✗       | ✗
+Flow Retainer         | ✓ (08)   | ✗        | ✗       | ✗
+Orbit Retainer        | ✓ (09)   | ✗        | ✗       | ✗
+```
+
+---
+
+## Recommended Fixes (Priority Order)
+
+1. **Sync Contact page service options** with actual service names + retainer names (Pulse/Flow/Orbit)
+2. **Add "Demand Strategy" to Homepage** services preview and reorder to match Services page
+3. **Fix Work portfolio filters** to match current service categories
+4. **Align Hospitality retainer pricing** — either justify premium or use standard rates
+5. **Fix CFO name** or mark as "TBA" more explicitly
+6. **Remove dead `titleTh` code** from StudioPage
+7. **Add hero image** to Hospitality page or remove the image field
+
+---
+
+## What's Working Well
+
+- Brand voice is consistent across all pages — confident, minimal, no fluff
+- In-house production messaging is now threaded through Homepage (manifesto), About (block), Studio (framing), and Services (badges) — cohesive
+- Navigation and footer are clean and consistent
+- Process page SCQA structure is strong
+- Service detail expandable cards with full pricing/terms/deliverables are comprehensive
+- Retainer tier structure (Pulse → Flow → Orbit) is clear and well-differentiated
+- EN/TH language support infrastructure is in place
 

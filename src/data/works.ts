@@ -25,7 +25,7 @@ export const works: Work[] = [
   {
     slug: "northwind-electric",
     title: "Northwind Electric",
-    service: "Film & Production",
+    service: "Signature Campaign",
     type: "Campaign Film",
     brief: { en: "A cinematic campaign film launching Northwind's entry into the Southeast Asian EV market.", th: "Campaign film ระดับภาพยนตร์สำหรับการเปิดตัว Northwind ในตลาด EV" },
     deliverables: ["Campaign Film", "Director's Cut", "Social Cutdowns", "Behind the Scenes"],
@@ -37,7 +37,7 @@ export const works: Work[] = [
   {
     slug: "atlas-property-group",
     title: "Atlas Property Group",
-    service: "Film & Production",
+    service: "Production",
     type: "Documentary",
     brief: { en: "A brand documentary capturing the vision behind Atlas's luxury developments.", th: "Brand documentary ถ่ายทอดวิสัยทัศน์เบื้องหลังโครงการ luxury ของ Atlas" },
     deliverables: ["Documentary Film", "Interview Series", "Sizzle Reel", "Photography"],
@@ -49,7 +49,7 @@ export const works: Work[] = [
   {
     slug: "koha-culture-studio",
     title: "Koha Culture Studio",
-    service: "Communication Design",
+    service: "Creative Communication",
     type: "Brand Story",
     brief: { en: "A brand story video series exploring contemporary art and community.", th: "ซีรีส์วิดีโอเรื่องราวแบรนด์สำรวจศิลปะร่วมสมัยและชุมชน" },
     deliverables: ["Brand Video", "Artist Profiles", "Event Documentation", "Social Content"],
@@ -61,7 +61,7 @@ export const works: Work[] = [
   {
     slug: "lumen-health",
     title: "Lumen Health",
-    service: "Communication Design",
+    service: "Creative Communication",
     type: "Content System",
     brief: { en: "A comprehensive content system for a digital health platform.", th: "ระบบ content ครบวงจรสำหรับแพลตฟอร์มสุขภาพดิจิทัล" },
     deliverables: ["Content Strategy", "Editorial Calendar", "Video Series", "Blog System"],
@@ -73,7 +73,7 @@ export const works: Work[] = [
   {
     slug: "sera-hospitality",
     title: "Sera Hospitality",
-    service: "Film & Production",
+    service: "Signature Campaign",
     type: "Campaign Film",
     brief: { en: "A campaign film capturing the essence of Sera's luxury hospitality.", th: "Campaign film ถ่ายทอดแก่นแท้ของ luxury hospitality ของ Sera" },
     deliverables: ["Hero Film", "Property Films", "Social Series", "Print Campaign"],
@@ -85,7 +85,7 @@ export const works: Work[] = [
   {
     slug: "muse-education",
     title: "Muse Education",
-    service: "Communication Design",
+    service: "Creative Communication",
     type: "Brand Story",
     brief: { en: "A brand story film positioning Muse as the future of creative education.", th: "Brand story film วาง positioning ให้ Muse เป็นอนาคตของ creative education" },
     deliverables: ["Brand Film", "Student Stories", "Campus Tour", "Recruitment Video"],
@@ -97,10 +97,10 @@ export const works: Work[] = [
   {
     slug: "orbit-fintech",
     title: "Orbit Fintech",
-    service: "Brand & Communication Strategy",
-    type: "Brand Strategy",
-    brief: { en: "Complete brand strategy and repositioning for a fintech startup.", th: "Brand strategy และ repositioning ครบวงจรสำหรับ fintech startup" },
-    deliverables: ["Positioning", "Narrative", "Communication Framework", "Content Direction"],
+    service: "Creative Transformation",
+    type: "Brand Transformation",
+    brief: { en: "Complete creative transformation for a fintech startup.", th: "Creative transformation ครบวงจรสำหรับ fintech startup" },
+    deliverables: ["Positioning", "Narrative", "Campaign Concept", "Content Direction"],
     challenge: "Orbit was just another fintech app. Users couldn't tell what made them different.",
     approach: "We repositioned Orbit from 'easy payments' to 'financial freedom for freelancers' — a specific audience with a specific need.",
     result: "35% increase in average deal size. User acquisition cost dropped 40%.",
@@ -109,7 +109,7 @@ export const works: Work[] = [
   {
     slug: "field-notes-coffee",
     title: "Field Notes Coffee",
-    service: "Film & Production",
+    service: "Production",
     type: "Documentary",
     brief: { en: "A documentary following the journey from farm to cup.", th: "สารคดีตามเส้นทางจากไร่ถึงแก้ว" },
     deliverables: ["Documentary", "Origin Series", "Barista Profiles", "Social Content"],
@@ -121,15 +121,15 @@ export const works: Work[] = [
   {
     slug: "vela-fashion",
     title: "Vela Fashion",
-    service: "Brand & Communication Strategy",
-    type: "Brand Strategy",
-    brief: { en: "A complete brand strategy for Vela's debut collection launch.", th: "Brand strategy ครบวงจรสำหรับการเปิดตัวคอลเลกชันแรกของ Vela" },
-    deliverables: ["Positioning", "Campaign Direction", "Key Message", "Launch Strategy"],
+    service: "Creative Transformation",
+    type: "Brand Transformation",
+    brief: { en: "A complete brand transformation for Vela's debut collection launch.", th: "Brand transformation ครบวงจรสำหรับการเปิดตัวคอลเลกชันแรกของ Vela" },
+    deliverables: ["Positioning", "Campaign Film", "Lookbook", "Launch Strategy"],
     challenge: "Vela was launching with zero brand recognition in a saturated fashion market.",
-    approach: "We built everything from scratch — positioning, narrative, campaign direction, and launch strategy centered on 'quiet confidence.'",
+    approach: "We built everything from scratch — positioning, visual identity, campaign film, and launch strategy centered on 'quiet confidence.'",
     result: "Debut collection sold out in 2 weeks. Featured in 5 major fashion publications.",
     image: workVela,
   },
 ];
 
-export const serviceFilters = ["All", "Brand & Communication Strategy", "Communication Design", "Film & Production"];
+export const serviceFilters = ["All", "Demand Strategy", "Creative Transformation", "Signature Campaign", "Production", "Event / Activation", "Digital Experience", "Creative Communication"];

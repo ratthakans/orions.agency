@@ -21,7 +21,7 @@ const shows = [
     type: "Survival Documentary",
     status: "In Development",
     image: imgNoSignal,
-    desc: "Survival documentary exploring isolation and endurance. Following people who leave the city to face nature head-on. No script. No signal.",
+    desc: "A raw survival travel documentary. Following people who leave the city to face nature head-on. No script. No signal.",
     format: "Cinematic series · 6 episodes · 20–30 min each",
     details: [
       "Follow real people who choose to disconnect from modern life and survive in raw nature.",
@@ -36,7 +36,7 @@ const shows = [
     type: "Beauty Documentary",
     status: "Concept",
     image: imgLookYourBest,
-    desc: "Documentary series exploring identity through transformation — for weddings, job interviews, and the day you believe in yourself again.",
+    desc: "A beauty documentary about makeup as transformation — for weddings, job interviews, and the day you believe in yourself again.",
     format: "Short-form series · 10–15 min episodes · Weekly",
     details: [
       "Each episode follows one person preparing for a pivotal life moment through beauty and self-care.",
@@ -66,7 +66,7 @@ const shows = [
     type: "Adventure Documentary",
     status: "Pre-production",
     image: imgALongWay,
-    desc: "Extreme travel documentary focused on cold environments and physical limits. Stories of people who keep walking forward.",
+    desc: "A long-distance journey documentary — trekking, hiking, trail running. Stories of people who keep walking forward.",
     format: "Cinematic series · 4 episodes · 30–45 min each",
     details: [
       "Each episode follows a different long-distance trail — from Thailand to international routes.",
@@ -137,7 +137,7 @@ const StudioPage = () => {
           </AnimatedSection>
           <AnimatedSection delay={0.4}>
             <p className="font-body text-[16px] md:text-[18px] leading-[1.7] text-muted-foreground mt-8 max-w-2xl">
-              We develop original projects to maintain our standard and explore ideas.
+              Original work we create, direct, and produce ourselves — the same team that works on your brand.
             </p>
           </AnimatedSection>
         </div>

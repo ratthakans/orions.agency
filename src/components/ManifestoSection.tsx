@@ -1,13 +1,12 @@
 import { motion } from "framer-motion";
 
 const lines = [
-  "We do less",
-  "— with more intention.",
-  "Clear communication.",
-  "Strong art direction.",
-  "High-quality film.",
-  "Fewer pieces.",
-  "Stronger impact.",
+  "Most agencies add noise.",
+  "We strip it back.",
+  "Find what matters.",
+  "And make people see you.",
+  "From idea to final cut",
+  "— one team, no handoff.",
 ];
 
 const ManifestoSection = () => (
@@ -34,7 +33,7 @@ const ManifestoSection = () => (
                 },
               }}
               className={`font-display tracking-[0.01em] leading-[1.05] ${
-                i >= lines.length - 2
+                i === lines.length - 1
                   ? "text-accent-gradient text-[clamp(32px,6vw,80px)]"
                   : "text-foreground text-[clamp(32px,6vw,80px)]"
               }`}

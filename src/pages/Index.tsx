@@ -139,7 +139,7 @@ const Index = () => {
             <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16">
               <div>
                 <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4">
-                  <span className="text-accent-warm mr-2">✦</span> Selected Work
+                  Selected Work
                 </p>
                 <h2 className="font-display text-[clamp(36px,6vw,72px)] leading-[0.9] tracking-[0.01em] text-foreground">WORK.</h2>
               </div>

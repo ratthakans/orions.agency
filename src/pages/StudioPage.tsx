@@ -36,7 +36,7 @@ const shows = [
     type: "Beauty Documentary",
     status: "Concept",
     image: imgLookYourBest,
-    desc: "A beauty documentary about makeup as transformation — for weddings, job interviews, and the day you believe in yourself again.",
+    desc: "Documentary series exploring identity through transformation — for weddings, job interviews, and the day you believe in yourself again.",
     format: "Short-form series · 10–15 min episodes · Weekly",
     details: [
       "Each episode follows one person preparing for a pivotal life moment through beauty and self-care.",

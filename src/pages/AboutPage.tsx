@@ -73,7 +73,7 @@ const AboutPage = () => {
           <div className="max-w-4xl mx-auto w-full">
             <AnimatedSection>
               <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
-                <span className="text-accent-warm mr-2">✦</span> About
+                About
               </p>
               <h1 className="font-display text-[clamp(44px,6vw,96px)] leading-[0.9] tracking-[0.01em] text-foreground mb-6">
                 WE DO LESS —<br />

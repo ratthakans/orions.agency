@@ -44,7 +44,7 @@ const AboutPage = () => {
     <main className="bg-background min-h-screen grain-overlay">
       <SEO
         title="About — ØRIONS Creative Agency Bangkok"
-        description="ØRIONS is a creative agency in Bangkok that changes how people see brands. Meet our team of 13 creatives."
+        description="ØRIONS is a creative agency in Bangkok specializing in brand strategy, communication design, and film production. Meet our team of 13 creatives."
         path="/about"
       />
       <Navbar />
@@ -76,13 +76,13 @@ const AboutPage = () => {
                 </h2>
                 <div className="space-y-6">
                   <p className="font-body text-[15px] leading-[1.8] text-muted-foreground">
-                    ØRIONS started with a simple belief: most brands aren't boring — they're just seen the wrong way. We're a team of creatives, strategists, and storytellers who change how people perceive brands.
+                    We believe good communication is not louder — it is clearer. In a world full of content, brands don't need more noise. They need direction, intention, and execution that people can actually feel.
                   </p>
                   <p className="font-body text-[15px] leading-[1.8] text-muted-foreground">
-                    Founded in Bangkok, we work at the intersection of strategy and creativity. We don't just make things look good — we make brands mean something to the people who see them.
+                    We combine strategic thinking, strong creative direction, and cinematic production to create work that communicates with clarity and impact.
                   </p>
                   <p className="font-body text-[15px] leading-[1.8] text-muted-foreground">
-                    From brand transformation to film production, from campaign strategy to original content — everything we do starts with one question: <span className="text-foreground">how should people see this brand?</span>
+                    From brand strategy to communication design to film production — everything we do starts with one question: <span className="text-foreground">what should people feel when they see this brand?</span>
                   </p>
                 </div>
               </div>
@@ -113,14 +113,14 @@ const AboutPage = () => {
         <div className="max-w-6xl mx-auto">
           <AnimatedSection>
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-12">
-              <span className="text-accent-warm mr-2">✦</span> What We Stand For
+              <span className="text-accent-warm mr-2">✦</span> Why ØRIONS
             </p>
           </AnimatedSection>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
             {[
-              { title: "Ideas First", desc: "Strategy without creativity is a spreadsheet. Creativity without strategy is art. We do both." },
-              { title: "Clarity Over Noise", desc: "We don't add more. We cut through. Every project starts with finding the truth, then making it impossible to ignore." },
-              { title: "Long-Term Partners", desc: "We don't do one-off projects. We become your creative brain — thinking with you, growing with you." },
+              { title: "Strategy before production", desc: "We define before we create. Every piece of work starts with clear direction and intention." },
+              { title: "Clear communication", desc: "Focused ideas that people understand. No noise, no filler — just clarity and impact." },
+              { title: "Cinematic execution", desc: "High-quality film with purpose. In-house production from Director to Post — one team, no handoff." },
             ].map((v, i) => (
               <AnimatedSection key={v.title} delay={i * 0.1}>
                 <div className="border border-border p-8 md:p-10 h-full hover:border-accent-warm/30 transition-colors duration-300">
@@ -216,7 +216,7 @@ const AboutPage = () => {
               WANT TO WORK<br />WITH US?
             </h2>
             <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-xl mx-auto mb-10">
-              We're always looking for brands that want to be seen differently.
+              Let's create something meaningful.
             </p>
             <Link
               to="/contact"

@@ -17,7 +17,7 @@ const homeSchema = [
     "@type": "Organization",
     name: "ØRIONS",
     url: "https://orions.agency",
-    description: "ØRIONS is a creative agency in Bangkok that changes perception to unlock growth.",
+    description: "ØRIONS is a creative agency in Bangkok specializing in brand strategy, communication design, and film production.",
   },
 ];
 
@@ -32,9 +32,9 @@ const Index = () => {
     <main className="bg-background min-h-screen grain-overlay">
       <SEO
         title="ØRIONS — Creative Agency | Bangkok"
-        description="We change perception. We unlock growth. A creative agency in Bangkok that turns ideas into demand."
+        description="Strategy gives direction. Film gives it presence. A creative agency in Bangkok specializing in brand strategy, communication design, and film production."
         path="/"
-        keywords="creative agency bangkok, brand strategy, creative transformation, brand perception, campaign, film production"
+        keywords="creative agency bangkok, brand strategy, communication design, film production, branded content"
         schema={homeSchema}
       />
       <Navbar />
@@ -69,7 +69,7 @@ const Index = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="font-display text-[clamp(40px,8vw,120px)] leading-[0.9] tracking-[0.01em] text-foreground mb-4"
           >
-            We change perception.
+            Strategy. Film. Clarity.
           </motion.h1>
 
           <motion.div
@@ -78,7 +78,7 @@ const Index = () => {
             transition={{ duration: 0.8, delay: 0.55 }}
             className="font-display text-[clamp(32px,6.5vw,100px)] leading-[0.9] tracking-[0.01em] mb-12 whitespace-nowrap min-h-[1.1em]"
           >
-            And <HeroTypewriter />
+            <HeroTypewriter />
           </motion.div>
 
           <motion.div
@@ -117,7 +117,7 @@ const Index = () => {
       </AnimatedSection>
 
       {/* ═══ MARQUEE ═══ */}
-      <Marquee items={["PERCEPTION", "STRATEGY", "STORYTELLING", "CREATIVE", "GROWTH", "FILM", "CAMPAIGN", "REFRAME"]} />
+      <Marquee items={["STRATEGY", "FILM", "CLARITY", "DIRECTION", "COMMUNICATION", "PRODUCTION", "NARRATIVE", "IMPACT"]} />
 
       {/* ═══ SERVICES PREVIEW ═══ */}
       <section className="py-24 md:py-40 px-4 sm:px-6 md:px-12 border-t border-border">
@@ -139,14 +139,11 @@ const Index = () => {
             </div>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border">
             {[
-              { title: "Demand Strategy", desc: "Find demand no one else sees — then build the system to capture it." },
-              { title: "Creative Transformation", desc: "Redefine your brand through research, story, and positioning." },
-              { title: "Signature Campaign", desc: "Campaigns that generate attention, conversation, and demand." },
-              { title: "Production", desc: "Hero films, campaign visuals, and content assets." },
-              { title: "Event / Activation", desc: "Real-world experiences that people remember." },
-              { title: "Digital Experience", desc: "Websites and digital journeys that convert attention into action." },
+              { title: "Brand & Communication Strategy", desc: "We define what your brand should say, who it should speak to, and how it should be understood." },
+              { title: "Communication Design", desc: "We turn strategy into clear and compelling ideas people can connect with." },
+              { title: "Film & Production", desc: "We bring communication to life through high-quality film and visual production." },
             ].map((s, i) => (
               <AnimatedSection key={s.title} delay={i * 0.08}>
                 <div className="bg-background p-8 md:p-10 group h-full relative border border-border hover:border-accent-warm/30 transition-colors duration-300">
@@ -162,7 +159,6 @@ const Index = () => {
         </div>
       </section>
 
-
       {/* ═══ PROCESS PREVIEW ═══ */}
       <section className="py-24 md:py-40 px-4 sm:px-6 md:px-12 border-t border-border">
         <div className="max-w-7xl mx-auto">
@@ -172,7 +168,7 @@ const Index = () => {
                 <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4">
                   <span className="text-accent-warm mr-2">✦</span> How We Work
                 </p>
-                <h2 className="font-display text-[clamp(36px,6vw,72px)] leading-[0.9] tracking-[0.01em] text-foreground">OUR PROCESS.</h2>
+                <h2 className="font-display text-[clamp(36px,6vw,72px)] leading-[0.9] tracking-[0.01em] text-foreground">OUR APPROACH.</h2>
               </div>
               <Link
                 to="/process"
@@ -183,13 +179,11 @@ const Index = () => {
             </div>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-0">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
             {[
-              { num: "01", title: "See Differently", desc: "Audit perception. Find the gap.", icon: <svg viewBox="0 0 40 40" className="w-8 h-8"><circle cx="20" cy="20" r="16" fill="none" stroke="currentColor" strokeWidth="1.5" /><circle cx="20" cy="20" r="4" fill="currentColor" /></svg> },
-              { num: "02", title: "Reframe", desc: "Define a new positioning angle.", icon: <svg viewBox="0 0 40 40" className="w-8 h-8"><rect x="6" y="6" width="28" height="28" fill="none" stroke="currentColor" strokeWidth="1.5" transform="rotate(45 20 20)" /></svg> },
-              { num: "03", title: "Make It Real", desc: "Turn strategy into creative work.", icon: <svg viewBox="0 0 40 40" className="w-8 h-8"><polygon points="20,4 36,36 4,36" fill="none" stroke="currentColor" strokeWidth="1.5" /></svg> },
-              { num: "04", title: "Activate", desc: "Launch with precision & impact.", icon: <svg viewBox="0 0 40 40" className="w-8 h-8"><line x1="20" y1="4" x2="20" y2="36" stroke="currentColor" strokeWidth="1.5" /><line x1="4" y1="20" x2="36" y2="20" stroke="currentColor" strokeWidth="1.5" /><line x1="8" y1="8" x2="32" y2="32" stroke="currentColor" strokeWidth="1.5" /><line x1="32" y1="8" x2="8" y2="32" stroke="currentColor" strokeWidth="1.5" /></svg> },
-              { num: "05", title: "Scale", desc: "Iterate, grow, evolve.", icon: <svg viewBox="0 0 40 40" className="w-8 h-8"><polygon points="20,2 26,15 40,15 29,24 33,38 20,30 7,38 11,24 0,15 14,15" fill="none" stroke="currentColor" strokeWidth="1.5" /></svg> },
+              { num: "01", title: "Define", desc: "Clarify strategy and direction.", icon: <svg viewBox="0 0 40 40" className="w-8 h-8"><circle cx="20" cy="20" r="16" fill="none" stroke="currentColor" strokeWidth="1.5" /><circle cx="20" cy="20" r="4" fill="currentColor" /></svg> },
+              { num: "02", title: "Develop", desc: "Shape ideas and communication.", icon: <svg viewBox="0 0 40 40" className="w-8 h-8"><rect x="6" y="6" width="28" height="28" fill="none" stroke="currentColor" strokeWidth="1.5" transform="rotate(45 20 20)" /></svg> },
+              { num: "03", title: "Produce", desc: "Execute through film and production.", icon: <svg viewBox="0 0 40 40" className="w-8 h-8"><polygon points="20,4 36,36 4,36" fill="none" stroke="currentColor" strokeWidth="1.5" /></svg> },
             ].map((phase, i) => (
               <AnimatedSection key={phase.num} delay={i * 0.08}>
                 <div className="relative border-t md:border-t-0 md:border-l border-border p-6 md:p-8 group hover:bg-accent-warm/5 transition-all duration-500 h-full">
@@ -218,9 +212,9 @@ const Index = () => {
             <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16">
               <div>
                 <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4">
-                  <span className="text-accent-warm mr-2">✦</span> Featured Work
+                  <span className="text-accent-warm mr-2">✦</span> Selected Work
                 </p>
-                <h2 className="font-display text-[clamp(36px,6vw,72px)] leading-[0.9] tracking-[0.01em] text-foreground">FEATURED WORK.</h2>
+                <h2 className="font-display text-[clamp(36px,6vw,72px)] leading-[0.9] tracking-[0.01em] text-foreground">SELECTED WORK.</h2>
               </div>
               <Link
                 to="/work"
@@ -323,15 +317,39 @@ const Index = () => {
         </div>
       </section>
 
+      {/* ═══ PHILOSOPHY ═══ */}
+      <section className="py-24 md:py-40 px-4 sm:px-6 md:px-12 border-t border-border">
+        <div className="max-w-5xl mx-auto">
+          <AnimatedSection>
+            <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-12">
+              <span className="text-accent-warm mr-2">✦</span> Philosophy
+            </p>
+          </AnimatedSection>
+          <div className="space-y-12">
+            {[
+              { line: "We don't create for attention.", accent: false },
+              { line: "We create for clarity.", accent: true },
+              { line: "We don't follow trends.", accent: false },
+              { line: "We build communication that lasts.", accent: true },
+            ].map((item, i) => (
+              <AnimatedSection key={i} delay={i * 0.1}>
+                <p className={`font-display text-[clamp(28px,5vw,64px)] leading-[0.95] tracking-[0.01em] ${item.accent ? "text-accent-gradient" : "text-foreground/90"}`}>
+                  {item.line}
+                </p>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ═══ CTA ═══ */}
       <section className="py-32 md:py-48 px-4 sm:px-6 md:px-12 border-t border-border text-center">
         <AnimatedSection>
           <p className="font-display text-[clamp(36px,7vw,100px)] leading-[0.9] tracking-[0.01em] text-foreground">
-            READY TO BE SEEN
+            LET'S CREATE
           </p>
           <p className="font-display text-[clamp(36px,7vw,100px)] leading-[0.9] tracking-[0.01em] text-accent-gradient">
-            DIFFERENTLY?
+            SOMETHING MEANINGFUL.
           </p>
         </AnimatedSection>
         <AnimatedSection delay={0.2}>

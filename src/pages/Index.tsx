@@ -69,7 +69,7 @@ const Index = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="font-display text-[clamp(40px,8vw,120px)] leading-[0.9] tracking-[0.01em] text-foreground mb-4"
           >
-            Strategy. Film. Clarity.
+            Fewer pieces. Stronger impact.
           </motion.h1>
 
           <motion.div

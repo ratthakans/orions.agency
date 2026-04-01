@@ -177,7 +177,7 @@ const Index = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {featuredWorks.slice(1).map((project, i) => (
               <AnimatedSection key={project.title} delay={i * 0.08}>
-                <Link to="/work" className="group block border border-border hover:border-accent-warm/30 transition-colors duration-300">
+                <Link to={`/work/${project.slug}`} className="group block border border-border hover:border-accent-warm/30 transition-colors duration-300">
                   <div className="aspect-[4/3] overflow-hidden relative">
                     <img
                       src={project.image}

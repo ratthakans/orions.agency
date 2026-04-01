@@ -141,9 +141,9 @@ const Index = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border">
             {[
-              { title: "Brand & Communication Strategy", desc: "We define what your brand should say, who it should speak to, and how it should be understood." },
-              { title: "Communication Design", desc: "We turn strategy into clear and compelling ideas people can connect with." },
-              { title: "Film & Production", desc: "We bring communication to life through high-quality film and visual production." },
+              { title: "Brand & Communication Strategy", desc: "We define what your brand should say and how it should be understood." },
+              { title: "Communication Design", desc: "We shape strategy into ideas, visual direction, and communication systems." },
+              { title: "Film & Production", desc: "We produce work with attention to detail — from concept to final execution." },
             ].map((s, i) => (
               <AnimatedSection key={s.title} delay={i * 0.08}>
                 <div className="bg-background p-8 md:p-10 group h-full relative border border-border hover:border-accent-warm/30 transition-colors duration-300">

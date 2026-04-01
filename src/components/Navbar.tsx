@@ -33,7 +33,7 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-[1200px] mx-auto px-6 md:px-12 flex items-center justify-between h-[64px]">
-        <Link to="/" className="font-display text-[22px] font-semibold tracking-[0.12em] text-foreground uppercase">
+        <Link to="/" className="font-logo text-[16px] font-bold tracking-[0.18em] text-foreground uppercase">
           ØRIONS
         </Link>
 

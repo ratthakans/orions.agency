@@ -39,7 +39,7 @@ const Index = () => {
         {/* YouTube video background */}
         <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
           <iframe
-            src="https://www.youtube.com/embed/pT5BmAKGllg?autoplay=1&mute=1&loop=1&playlist=pT5BmAKGllg&controls=0&showinfo=0&modestbranding=1&rel=0&disablekb=1&playsinline=1&iv_load_policy=3&start=0"
+            src="https://www.youtube.com/embed/pT5BmAKGllg?autoplay=1&mute=1&loop=1&playlist=pT5BmAKGllg&controls=0&showinfo=0&modestbranding=1&rel=0&disablekb=1&playsinline=1&iv_load_policy=3&start=14"
             title="ØRIONS Hero Background"
             allow="autoplay; encrypted-media"
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] min-w-full min-h-full brightness-[0.25] pointer-events-none"
@@ -49,6 +49,19 @@ const Index = () => {
 
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/30 to-background z-[1]" />
+
+        {/* Get in touch button - top right */}
+        <motion.div
+          {...fade(0.6)}
+          className="absolute top-8 right-8 z-20"
+        >
+          <Link
+            to="/contact"
+            className="font-mono text-[11px] tracking-[0.1em] uppercase text-foreground border border-border/50 px-6 py-2.5 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
+          >
+            Get in touch
+          </Link>
+        </motion.div>
 
         <div className="relative z-10">
           <motion.h1

@@ -114,7 +114,7 @@ const AboutPage = () => {
           <div className="max-w-6xl mx-auto">
             <AnimatedSection>
               <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4">
-                <span className="text-accent-warm mr-2">✦</span> The Team
+                The Team
               </p>
               <h2 className="font-display text-[clamp(32px,4vw,56px)] leading-[0.95] tracking-[0.01em] text-foreground mb-6">
                 SMALL TEAM.<br />

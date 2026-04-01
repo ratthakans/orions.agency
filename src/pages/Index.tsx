@@ -117,7 +117,7 @@ const Index = () => {
       </AnimatedSection>
 
       {/* ═══ MARQUEE ═══ */}
-      <Marquee items={["STRATEGY", "FILM", "CLARITY", "DIRECTION", "COMMUNICATION", "PRODUCTION", "NARRATIVE", "IMPACT"]} />
+      <Marquee items={["CLARITY", "DIRECTION", "ART DIRECTION", "FILM", "COMMUNICATION", "PRODUCTION", "FEWER PIECES", "STRONGER IMPACT"]} />
 
       {/* ═══ SERVICES PREVIEW ═══ */}
       <section className="py-24 md:py-40 px-4 sm:px-6 md:px-12 border-t border-border">

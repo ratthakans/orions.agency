@@ -13,7 +13,7 @@ import teamArtDirector from "@/assets/team-artdirector.jpg";
 
 const team = [
   {
-    name: "Kittipat Sirirat",
+    name: "Ratthakan Suwanphakdee",
     role: "Founder & Creative Director",
     dept: "Creative Direction / Strategy",
     bio: "Sets the creative vision and strategic direction for every project. Ensures every piece of work meets the studio's standards for clarity and craft.",

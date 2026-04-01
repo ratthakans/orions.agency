@@ -16,6 +16,7 @@ const services = [
       { name: "Campaign Direction", detail: "Define the strategic intent behind campaigns before any creative work begins." },
       { name: "Market & Audience Analysis", detail: "Understand the competitive landscape and identify the audiences that matter most." },
       { name: "Brand Architecture", detail: "Organize sub-brands, product lines, and offerings into a coherent system." },
+      { name: "Content & Channel Strategy", detail: "Plan which content goes where — aligning formats, platforms, and timing with business goals." },
     ],
     outcome: "A clear strategic foundation — positioning, narrative, and direction that guides everything else.",
   },

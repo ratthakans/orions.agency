@@ -36,10 +36,10 @@ const phases = [
 ];
 
 const beliefs = [
+  "Clarity over noise.",
+  "Fewer, better pieces.",
   "We don't create for attention. We create for clarity.",
   "We don't follow trends. We build communication that lasts.",
-  "Strategy without production is a deck. Production without strategy is noise.",
-  "Good communication is not louder — it is clearer.",
 ];
 
 const ProcessPage = () => {

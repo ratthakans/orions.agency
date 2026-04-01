@@ -44,7 +44,7 @@ const WorkPage = () => {
                   <img
                     src={projects[0].image}
                     alt={projects[0].title}
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                     width={1280}
                     height={800}
                   />

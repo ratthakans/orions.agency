@@ -27,16 +27,6 @@ const works = [
     desc: "An extreme travel documentary on harsh environments and physical limits.",
     image: "https://images.unsplash.com/photo-1477346611705-65d1883cee1e?w=800&q=80",
   },
-  {
-    title: "Alan Makeup",
-    desc: "A documentary series on identity and personal transformation.",
-    image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&q=80",
-  },
-  {
-    title: "ลงอาคม",
-    desc: "A documentary exploring belief, ritual, and the unseen.",
-    image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&q=80",
-  },
 ];
 
 const Index = () => {
@@ -44,46 +34,38 @@ const Index = () => {
     <main className="bg-background min-h-screen">
       <Navbar />
 
-      {/* ── HERO ── */}
-      <section className="min-h-screen flex flex-col items-center justify-center px-6 text-center relative grain-overlay overflow-hidden">
-        {/* Signature line animation */}
-        <motion.svg
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] opacity-[0.06] pointer-events-none"
-          viewBox="0 0 200 200"
-          fill="none"
+      {/* ── HERO WITH VIDEO BG ── */}
+      <section className="min-h-screen flex flex-col items-center justify-center px-6 text-center relative overflow-hidden">
+        {/* Video background */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover brightness-[0.25]"
+          poster="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1920&q=80"
         >
-          <motion.circle
-            cx="100" cy="100" r="80"
-            stroke="hsl(var(--accent))"
-            strokeWidth="0.5"
-            strokeDasharray="502"
-            strokeDashoffset="502"
-            animate={{ strokeDashoffset: 0 }}
-            transition={{ duration: 3, delay: 0.8, ease: "easeOut" }}
+          <source
+            src="https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4"
+            type="video/mp4"
           />
-          <motion.line
-            x1="20" y1="100" x2="180" y2="100"
-            stroke="hsl(var(--foreground))"
-            strokeWidth="0.3"
-            strokeDasharray="160"
-            strokeDashoffset="160"
-            animate={{ strokeDashoffset: 0 }}
-            transition={{ duration: 2, delay: 1.5, ease: "easeOut" }}
-          />
-        </motion.svg>
+        </video>
+
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/30 to-background z-[1]" />
 
         <div className="relative z-10">
           <motion.h1
             {...fade(0.15)}
-            className="font-display text-[clamp(52px,11vw,130px)] font-semibold tracking-[0.12em] uppercase leading-[0.9] text-foreground"
+            className="font-display text-[clamp(52px,11vw,140px)] font-semibold tracking-[0.14em] uppercase leading-[0.9] text-foreground"
           >
             ØRIONS
           </motion.h1>
           <motion.div {...fade(0.35)} className="mt-8 space-y-1">
-            <p className="font-display text-[clamp(24px,4.5vw,44px)] font-normal italic text-foreground/75 leading-[1.15]">
+            <p className="font-display text-[clamp(24px,4.5vw,44px)] font-normal italic text-foreground/70 leading-[1.15]">
               Fewer pieces.
             </p>
-            <p className="font-display text-[clamp(24px,4.5vw,44px)] font-normal italic text-foreground/75 leading-[1.15]">
+            <p className="font-display text-[clamp(24px,4.5vw,44px)] font-normal italic text-foreground/70 leading-[1.15]">
               Stronger impact.
             </p>
           </motion.div>
@@ -97,15 +79,15 @@ const Index = () => {
       </section>
 
       {/* ── ABOUT TEASER ── */}
-      <section className="py-24 md:py-36 px-6 border-t border-border/40">
+      <section className="py-24 md:py-36 px-6 border-t border-border/30">
         <div className="max-w-[680px] mx-auto">
-          <motion.p {...fadeIn()} className="font-body text-[17px] md:text-[19px] leading-[1.85] text-foreground/80">
+          <motion.p {...fadeIn()} className="font-body text-[17px] md:text-[19px] leading-[1.85] text-foreground/75">
             We do less — with more intention. In a world of constant output, we believe brands do not need more noise. They need clear direction, thoughtful communication, and work that people can actually feel.
           </motion.p>
           <motion.div {...fadeIn(0.1)} className="mt-8">
             <Link
               to="/about"
-              className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.08em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-300"
+              className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.08em] uppercase text-muted-foreground hover:text-primary transition-colors duration-300"
             >
               About us <span>→</span>
             </Link>
@@ -113,38 +95,38 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ── WORK PREVIEW (DARK BLOCK) ── */}
-      <section className="section-dark py-24 md:py-36 px-6 relative grain-overlay">
-        <div className="max-w-[1200px] mx-auto relative z-10">
+      {/* ── WORK PREVIEW ── */}
+      <section className="py-24 md:py-36 px-6 border-t border-border/30">
+        <div className="max-w-[1200px] mx-auto">
           <motion.div {...fadeIn()} className="flex items-end justify-between mb-14">
             <div>
-              <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-dark-muted mb-3">Selected Work</p>
-              <h2 className="font-display text-[clamp(32px,5vw,56px)] font-medium text-dark-foreground leading-[1]">Work</h2>
+              <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground/50 mb-3">Selected Work</p>
+              <h2 className="font-display text-[clamp(32px,5vw,56px)] font-medium text-foreground leading-[1]">Work</h2>
             </div>
             <Link
               to="/work"
-              className="font-mono text-[11px] tracking-[0.08em] uppercase text-dark-muted hover:text-dark-foreground transition-colors duration-300"
+              className="font-mono text-[11px] tracking-[0.08em] uppercase text-muted-foreground hover:text-primary transition-colors duration-300"
             >
               View all →
             </Link>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {works.slice(0, 2).map((w, i) => (
+            {works.map((w, i) => (
               <motion.div key={w.title} {...fadeIn(i * 0.08)} className="group cursor-pointer">
-                <div className="aspect-[3/4] overflow-hidden relative">
+                <div className="aspect-[16/9] overflow-hidden relative">
                   <img
                     src={w.image}
                     alt={w.title}
-                    className="w-full h-full object-cover brightness-[0.5] group-hover:brightness-[0.6] group-hover:scale-[1.02] transition-all duration-700"
+                    className="w-full h-full object-cover brightness-[0.6] group-hover:brightness-[0.7] group-hover:scale-[1.02] transition-all duration-700"
                     loading="lazy"
                   />
                   <div className="absolute bottom-0 left-0 p-5 md:p-6">
-                    <span className="font-mono text-[9px] tracking-[0.15em] uppercase text-white/40 block mb-2">Original</span>
+                    <span className="font-mono text-[9px] tracking-[0.15em] uppercase text-white/35 block mb-2">Original</span>
                     <h3 className="font-display text-[24px] md:text-[28px] font-medium text-white leading-tight">{w.title}</h3>
                   </div>
                 </div>
-                <p className="font-body text-[13px] text-dark-muted mt-3">{w.desc}</p>
+                <p className="font-body text-[13px] text-muted-foreground mt-3">{w.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -152,7 +134,7 @@ const Index = () => {
       </section>
 
       {/* ── SERVICES PREVIEW ── */}
-      <section className="py-24 md:py-36 px-6 border-t border-border/40">
+      <section className="py-24 md:py-36 px-6 border-t border-border/30">
         <div className="max-w-[1200px] mx-auto">
           <motion.div {...fadeIn()} className="flex items-end justify-between mb-14">
             <div>
@@ -161,7 +143,7 @@ const Index = () => {
             </div>
             <Link
               to="/services"
-              className="font-mono text-[11px] tracking-[0.08em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-300"
+              className="font-mono text-[11px] tracking-[0.08em] uppercase text-muted-foreground hover:text-primary transition-colors duration-300"
             >
               View all →
             </Link>
@@ -174,7 +156,7 @@ const Index = () => {
               { num: "03", title: "Film & Production", desc: "Execute with attention to detail — from concept to delivery." },
             ].map((s, i) => (
               <motion.div key={s.num} {...fadeIn(i * 0.08)}>
-                <span className="font-mono text-[11px] text-muted-foreground/40 block mb-4">{s.num}</span>
+                <span className="font-mono text-[11px] text-primary/30 block mb-4">{s.num}</span>
                 <h3 className="font-display text-[22px] md:text-[24px] font-medium text-foreground mb-2">{s.title}</h3>
                 <p className="font-body text-[14px] leading-[1.7] text-muted-foreground">{s.desc}</p>
               </motion.div>
@@ -184,14 +166,14 @@ const Index = () => {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-32 md:py-44 px-6 border-t border-border/40 text-center">
+      <section className="py-32 md:py-44 px-6 border-t border-border/30 text-center">
         <motion.p {...fadeIn()} className="font-display text-[clamp(32px,6vw,72px)] font-medium italic text-foreground leading-[1.05]">
           Start with a conversation.
         </motion.p>
         <motion.div {...fadeIn(0.15)} className="mt-10">
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.1em] uppercase text-foreground border border-foreground/20 px-8 py-3.5 hover:bg-foreground hover:text-background transition-all duration-300"
+            className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.1em] uppercase text-foreground border border-border px-8 py-3.5 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
           >
             Get in touch <span>→</span>
           </Link>

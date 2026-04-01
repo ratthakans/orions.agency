@@ -42,8 +42,8 @@ const AboutPage = () => {
       </section>
 
       {/* Story */}
-      <section className="py-20 md:py-32 px-6 md:px-12 border-t border-border/40">
-        <div className="max-w-[680px] mx-auto space-y-8 font-body text-[16px] md:text-[17px] leading-[1.85] text-foreground/80">
+      <section className="py-20 md:py-32 px-6 md:px-12 border-t border-border/30">
+        <div className="max-w-[680px] mx-auto space-y-8 font-body text-[16px] md:text-[17px] leading-[1.85] text-foreground/75">
           <motion.p {...fadeIn(0.05)}>
             In a world of constant output, we believe brands do not need more noise. They need clear direction, thoughtful communication, and work that people can actually feel.
           </motion.p>
@@ -53,14 +53,14 @@ const AboutPage = () => {
           <motion.p {...fadeIn(0.15)}>
             We define what needs to be said, shape how it should be expressed, and bring it to life through film and visual production. The result is work that sits between strategy and execution — practical enough to solve communication problems, and crafted enough to create lasting brand value.
           </motion.p>
-          <motion.p {...fadeIn(0.2)} className="italic text-foreground/60 pt-4">
+          <motion.p {...fadeIn(0.2)} className="italic text-foreground/50 pt-4">
             We take on a limited number of projects each year. This is by design.
           </motion.p>
         </div>
       </section>
 
       {/* Why ØRIONS */}
-      <section className="py-20 md:py-32 px-6 md:px-12 border-t border-border/40">
+      <section className="py-20 md:py-32 px-6 md:px-12 border-t border-border/30">
         <div className="max-w-[1200px] mx-auto">
           <motion.p {...fadeIn()} className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground/50 mb-12">Why ØRIONS</motion.p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -75,13 +75,13 @@ const AboutPage = () => {
       </section>
 
       {/* Leadership */}
-      <section className="py-20 md:py-32 px-6 md:px-12 border-t border-border/40">
+      <section className="py-20 md:py-32 px-6 md:px-12 border-t border-border/30">
         <div className="max-w-[1200px] mx-auto">
           <motion.p {...fadeIn()} className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground/50 mb-12">Leadership</motion.p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-[600px]">
             {team.map((t, i) => (
               <motion.div key={t.name} {...fadeIn(i * 0.08)}>
-                <div className="aspect-[3/4] bg-foreground/5 mb-4" />
+                <div className="aspect-[3/4] bg-secondary mb-4" />
                 <h3 className="font-display text-[20px] font-medium text-foreground">{t.name}</h3>
                 <p className="font-mono text-[11px] tracking-[0.05em] text-muted-foreground mt-1">{t.role}</p>
               </motion.div>
@@ -91,10 +91,10 @@ const AboutPage = () => {
       </section>
 
       {/* Clients */}
-      <section className="py-20 md:py-32 px-6 md:px-12 border-t border-border/40">
+      <section className="py-20 md:py-32 px-6 md:px-12 border-t border-border/30">
         <div className="max-w-[680px] mx-auto">
           <motion.p {...fadeIn()} className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground/50 mb-10">Clients</motion.p>
-          <motion.p {...fadeIn(0.05)} className="font-body text-[16px] md:text-[17px] leading-[1.85] text-foreground/80 mb-5">
+          <motion.p {...fadeIn(0.05)} className="font-body text-[16px] md:text-[17px] leading-[1.85] text-foreground/75 mb-5">
             We work best with founder-led and culturally driven brands that value clarity, strong visual standards, and long-term brand building.
           </motion.p>
           <motion.p {...fadeIn(0.1)} className="font-body text-[15px] leading-[1.7] text-muted-foreground">
@@ -104,12 +104,12 @@ const AboutPage = () => {
       </section>
 
       {/* Philosophy */}
-      <section className="py-24 md:py-36 px-6 md:px-12 border-t border-border/40">
+      <section className="py-24 md:py-36 px-6 md:px-12 border-t border-border/30">
         <div className="max-w-[680px] mx-auto space-y-6">
-          <motion.p {...fadeIn()} className="font-display text-[clamp(28px,5vw,52px)] font-normal italic text-foreground/80 leading-[1.1]">
+          <motion.p {...fadeIn()} className="font-display text-[clamp(28px,5vw,52px)] font-normal italic text-foreground/70 leading-[1.1]">
             Clarity over noise.
           </motion.p>
-          <motion.p {...fadeIn(0.08)} className="font-display text-[clamp(28px,5vw,52px)] font-normal italic text-foreground/60 leading-[1.1]">
+          <motion.p {...fadeIn(0.08)} className="font-display text-[clamp(28px,5vw,52px)] font-normal italic text-foreground/50 leading-[1.1]">
             Fewer, better pieces.
           </motion.p>
         </div>

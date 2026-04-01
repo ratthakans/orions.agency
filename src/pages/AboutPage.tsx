@@ -163,7 +163,7 @@ const AboutPage = () => {
           <div className="max-w-3xl mx-auto">
             <AnimatedSection>
               <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">
-                <span className="text-accent-warm mr-2">✦</span> Clients
+                Clients
               </p>
             </AnimatedSection>
             <AnimatedSection delay={0.08}>

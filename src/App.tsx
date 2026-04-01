@@ -9,6 +9,10 @@ import ScrollToTop from "./components/ScrollToTop";
 import PageTransition from "./components/PageTransition";
 
 import Index from "./pages/Index";
+import AboutPage from "./pages/AboutPage";
+import WorkPage from "./pages/WorkPage";
+import ServicesPage from "./pages/ServicesPage";
+import ContactPage from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,16 +27,16 @@ const App = () => (
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<PageTransition><Index /></PageTransition>} />
-            {/* Redirect old routes to homepage sections */}
-            <Route path="/about" element={<Navigate to="/#about" replace />} />
-            <Route path="/work" element={<Navigate to="/#work" replace />} />
-            <Route path="/services" element={<Navigate to="/#services" replace />} />
-            <Route path="/contact" element={<Navigate to="/#contact" replace />} />
-            <Route path="/process" element={<Navigate to="/#services" replace />} />
-            <Route path="/studio" element={<Navigate to="/#about" replace />} />
-            <Route path="/package/hospitality" element={<Navigate to="/#services" replace />} />
+            <Route path="/about" element={<PageTransition><AboutPage /></PageTransition>} />
+            <Route path="/work" element={<PageTransition><WorkPage /></PageTransition>} />
+            <Route path="/services" element={<PageTransition><ServicesPage /></PageTransition>} />
+            <Route path="/contact" element={<PageTransition><ContactPage /></PageTransition>} />
+            {/* Redirects for old routes */}
+            <Route path="/process" element={<Navigate to="/services" replace />} />
+            <Route path="/studio" element={<Navigate to="/about" replace />} />
+            <Route path="/package/hospitality" element={<Navigate to="/services" replace />} />
             <Route path="/problem" element={<Navigate to="/" replace />} />
-            <Route path="/philosophy" element={<Navigate to="/" replace />} />
+            <Route path="/philosophy" element={<Navigate to="/about" replace />} />
             <Route path="/value" element={<Navigate to="/" replace />} />
             <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
           </Routes>

@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
-import { useLocation, Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const navLinks = [
-  { label: "About", href: "/#about" },
-  { label: "Work", href: "/#work" },
-  { label: "Services", href: "/#services" },
-  { label: "Clients", href: "/#clients" },
-  { label: "Contact", href: "/#contact" },
+  { label: "About", href: "/about" },
+  { label: "Work", href: "/work" },
+  { label: "Services", href: "/services" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const Navbar = () => {
@@ -19,17 +18,6 @@ const Navbar = () => {
   useEffect(() => {
     setIsOpen(false);
   }, [location.pathname]);
-
-  // Handle anchor scrolling for same-page navigation
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    const hash = href.replace("/", "");
-    if (location.pathname === "/" && hash.startsWith("#")) {
-      e.preventDefault();
-      const el = document.querySelector(hash);
-      if (el) el.scrollIntoView({ behavior: "smooth" });
-      setIsOpen(false);
-    }
-  };
 
   return (
     <motion.nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-xl border-b border-border/50">
@@ -45,25 +33,25 @@ const Navbar = () => {
         {/* Desktop */}
         <div className="hidden lg:flex items-center gap-10">
           {navLinks.map((s) => (
-            <a
+            <Link
               key={s.href}
-              href={s.href}
-              onClick={(e) => handleNavClick(e, s.href)}
-              className="font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-300"
+              to={s.href}
+              className={`font-mono text-[11px] tracking-[0.12em] uppercase transition-colors duration-300 ${
+                location.pathname === s.href ? "text-accent-warm" : "text-muted-foreground hover:text-foreground"
+              }`}
             >
               {s.label}
-            </a>
+            </Link>
           ))}
         </div>
 
         <div className="hidden lg:flex items-center">
-          <a
-            href="/#contact"
-            onClick={(e) => handleNavClick(e, "/#contact")}
+          <Link
+            to="/contact"
             className="font-mono text-[11px] tracking-[0.12em] uppercase text-primary-foreground bg-primary px-5 py-2 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300"
           >
             Let's Talk
-          </a>
+          </Link>
         </div>
 
         {/* Mobile toggle */}
@@ -87,22 +75,22 @@ const Navbar = () => {
           >
             <div className="px-6 py-10 flex flex-col gap-6">
               {navLinks.map((s) => (
-                <a
+                <Link
                   key={s.href}
-                  href={s.href}
-                  onClick={(e) => handleNavClick(e, s.href)}
-                  className="font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-300 text-left"
+                  to={s.href}
+                  className={`font-mono text-[11px] tracking-[0.12em] uppercase transition-colors duration-300 text-left ${
+                    location.pathname === s.href ? "text-accent-warm" : "text-muted-foreground hover:text-foreground"
+                  }`}
                 >
                   {s.label}
-                </a>
+                </Link>
               ))}
-              <a
-                href="/#contact"
-                onClick={(e) => handleNavClick(e, "/#contact")}
+              <Link
+                to="/contact"
                 className="font-mono text-[11px] tracking-[0.12em] uppercase text-primary-foreground bg-primary px-5 py-3 text-center mt-4 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300"
               >
                 Let's Talk
-              </a>
+              </Link>
             </div>
           </motion.div>
         )}

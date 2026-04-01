@@ -2,10 +2,9 @@ import { useState, useEffect, memo } from "react";
 import { motion } from "framer-motion";
 
 const phrases = [
-  "unlock new markets.",
-  "unlock new demand.",
-  "unlock new ideas.",
-  "unlock new growth.",
+  "strategy gives direction.",
+  "film gives it presence.",
+  "clarity creates impact.",
 ];
 
 const HeroTypewriter = memo(() => {

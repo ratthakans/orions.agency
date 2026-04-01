@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 
 const lines = [
-  "Most agencies add noise.",
+  "Good communication is not louder.",
+  "It is clearer.",
   "We strip it back.",
   "Find what matters.",
-  "And make people see you.",
+  "And make people feel it.",
   "From idea to final cut",
   "— one team, no handoff.",
 ];
@@ -33,7 +34,7 @@ const ManifestoSection = () => (
                 },
               }}
               className={`font-display tracking-[0.01em] leading-[1.05] ${
-                i === lines.length - 1
+                i >= lines.length - 2
                   ? "text-accent-gradient text-[clamp(32px,6vw,80px)]"
                   : "text-foreground text-[clamp(32px,6vw,80px)]"
               }`}

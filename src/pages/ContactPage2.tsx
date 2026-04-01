@@ -6,16 +6,9 @@ import AnimatedSection from "@/components/AnimatedSection";
 import SEO from "@/components/SEO";
 
 const serviceOptions = [
-  "Demand Strategy",
-  "Creative Transformation",
-  "Signature Campaign",
-  "Production",
-  "Event / Activation",
-  "Digital Experience",
-  "Creative Communication",
-  "Pulse Retainer",
-  "Flow Retainer",
-  "Orbit Retainer",
+  "Brand & Communication Strategy",
+  "Communication Design",
+  "Film & Production",
   "Other",
 ];
 
@@ -63,7 +56,7 @@ const ContactPage2 = () => {
     <main className="bg-background min-h-screen grain-overlay">
       <SEO
         title="Contact — ØRIONS"
-        description="Ready to change how people see your brand? Let's talk. Bangkok-based creative agency."
+        description="Let's create something meaningful. Bangkok-based creative agency specializing in brand strategy, communication design, and film production."
         path="/contact"
         schema={contactSchema}
       />
@@ -94,7 +87,7 @@ const ContactPage2 = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="font-body text-[16px] md:text-[18px] leading-[1.7] text-muted-foreground mt-8 max-w-xl"
           >
-            If you want your brand to be seen differently, we should talk.
+            Let's create something meaningful.
           </motion.p>
         </div>
       </section>
@@ -107,23 +100,18 @@ const ContactPage2 = () => {
             {/* Left — Contact Info */}
             <AnimatedSection>
               <div className="space-y-12">
-                {/* Email */}
                 <div>
                   <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-warm/60 mb-3">Email</p>
                   <a href="mailto:hello@orions.agency" className="font-display text-[24px] md:text-[32px] text-foreground hover:text-accent-warm transition-colors duration-300 break-all">
                     hello@orions.agency
                   </a>
                 </div>
-
-                {/* Phone */}
                 <div>
                   <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-warm/60 mb-3">Phone</p>
                   <a href="tel:0923905464" className="font-display text-[24px] md:text-[32px] text-foreground hover:text-accent-warm transition-colors duration-300">
                     092-390-5464
                   </a>
                 </div>
-
-                {/* Office */}
                 <div>
                   <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-warm/60 mb-3">Office</p>
                   <p className="font-body text-[15px] leading-[1.8] text-muted-foreground">
@@ -132,14 +120,10 @@ const ContactPage2 = () => {
                     Bangkok 10240, Thailand
                   </p>
                 </div>
-
-                {/* Tax */}
                 <div>
                   <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-warm/60 mb-3">Tax ID</p>
                   <p className="font-mono text-[14px] text-muted-foreground">0105568220629</p>
                 </div>
-
-                {/* Socials */}
                 <div className="flex items-center gap-8 pt-4">
                   {[
                     { name: "Facebook", url: "https://facebook.com/orionsagency" },

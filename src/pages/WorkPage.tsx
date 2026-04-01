@@ -4,31 +4,47 @@ import AnimatedSection from "@/components/AnimatedSection";
 import SEO from "@/components/SEO";
 import { Link } from "react-router-dom";
 
-import workNoSignal from "@/assets/work-northwind.jpg";
-import work37Below from "@/assets/work-atlas.jpg";
-import workAlanMakeup from "@/assets/work-koha.jpg";
-import workLongAkhom from "@/assets/work-lumen.jpg";
+import workNoSignal from "@/assets/work-no-signal.jpg";
+import work37Below from "@/assets/work-37-below.jpg";
+import workAlanMakeup from "@/assets/work-alan-makeup.jpg";
+import workConsecrated from "@/assets/work-the-consecrated.jpg";
+import workOrionsTalk from "@/assets/work-orions-talk.jpg";
 
 const originals = [
   {
     title: "No Signal",
-    desc: "A survival documentary exploring isolation, endurance, and instinct.",
+    type: "Documentary",
+    desc: "สารคดีเอาชีวิตรอดในพื้นที่ไร้สัญญาณ — สำรวจความโดดเดี่ยว ความอดทน และสัญชาตญาณการเอาตัวรอดในธรรมชาติ",
+    descEn: "A survival documentary in areas with no signal — exploring isolation, endurance, and the instinct to survive in nature.",
     image: workNoSignal,
   },
   {
-    title: "37 Below",
-    desc: "An extreme travel documentary on harsh environments and physical limits.",
+    title: "37° Below",
+    type: "Documentary",
+    desc: "สารคดีเอาชีวิตรอดในพื้นที่ติดลบสุดขั้ว — ท้าทายขีดจำกัดของร่างกายและจิตใจในสภาพแวดล้อมที่โหดร้ายที่สุด",
+    descEn: "An extreme survival documentary in sub-zero environments — pushing the limits of body and mind in the harshest conditions.",
     image: work37Below,
   },
   {
     title: "Alan Makeup",
-    desc: "A documentary series on identity and personal transformation through makeup.",
+    type: "Documentary Series",
+    desc: "สารคดีเกี่ยวกับการแต่งหน้า — สำรวจอัตลักษณ์และการเปลี่ยนแปลงตัวตนผ่านศิลปะการแต่งหน้า",
+    descEn: "A documentary series on makeup artistry — exploring identity and personal transformation through the art of makeup.",
     image: workAlanMakeup,
   },
   {
-    title: "ลงอาคม",
-    desc: "A documentary exploring belief, ritual, and the unseen forces people live with.",
-    image: workLongAkhom,
+    title: "The Consecrated",
+    type: "Documentary",
+    desc: "สารคดีสำรวจความเชื่อ พิธีกรรม และสิ่งลี้ลับที่ผู้คนยังคงยึดถือ",
+    descEn: "A documentary exploring belief, ritual, and the unseen forces people live with.",
+    image: workConsecrated,
+  },
+  {
+    title: "ORIONS Talk",
+    type: "Podcast",
+    desc: "รายการ Podcast เชิงสารคดี เล่าถึงประวัติและเรื่องราวของบุคคลที่น่าสนใจ",
+    descEn: "A documentary-style podcast telling the stories and histories of fascinating people.",
+    image: workOrionsTalk,
   },
 ];
 
@@ -56,8 +72,37 @@ const WorkPage = () => {
                 <span className="text-accent-gradient">WORK.</span>
               </h1>
               <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-xl">
-                Selected projects and original productions.
+                Original productions and documentary work.
               </p>
+            </AnimatedSection>
+          </div>
+        </section>
+
+        {/* Featured Project — Full Width */}
+        <section className="px-4 sm:px-6 md:px-12 pb-8">
+          <div className="max-w-7xl mx-auto">
+            <AnimatedSection>
+              <div className="group border border-border hover:border-accent-warm/30 transition-colors duration-300">
+                <div className="aspect-[21/9] overflow-hidden relative">
+                  <img
+                    src={originals[0].image}
+                    alt={originals[0].title}
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                    width={1280}
+                    height={800}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
+                  <div className="absolute bottom-0 left-0 p-6 md:p-10">
+                    <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm mb-2">{originals[0].type}</p>
+                    <h2 className="font-display text-[36px] md:text-[56px] tracking-[0.02em] text-foreground mb-3">
+                      {originals[0].title}
+                    </h2>
+                    <p className="font-body text-[14px] leading-[1.7] text-muted-foreground max-w-lg">
+                      {originals[0].descEn}
+                    </p>
+                  </div>
+                </div>
+              </div>
             </AnimatedSection>
           </div>
         </section>
@@ -66,24 +111,31 @@ const WorkPage = () => {
         <section className="px-4 sm:px-6 md:px-12 py-8 md:py-12 pb-20">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
-              {originals.map((project, i) => (
+              {originals.slice(1).map((project, i) => (
                 <AnimatedSection key={project.title} delay={i * 0.08}>
                   <div className="group border border-border hover:border-accent-warm/30 transition-colors duration-300">
                     <div className="aspect-[16/10] overflow-hidden relative">
                       <img
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
                         loading="lazy"
+                        width={1280}
+                        height={800}
                       />
-                      <div className="absolute inset-0 bg-accent-warm/0 group-hover:bg-accent-warm/5 transition-all duration-500" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
+                      <div className="absolute top-4 left-4">
+                        <span className="font-mono text-[9px] tracking-[0.15em] uppercase text-accent-warm/80 bg-background/60 px-3 py-1 backdrop-blur-sm">
+                          {project.type}
+                        </span>
+                      </div>
                     </div>
                     <div className="p-6 md:p-8">
                       <h2 className="font-display text-[24px] md:text-[30px] tracking-[0.02em] text-foreground mb-3 group-hover:text-accent-warm transition-colors duration-300">
                         {project.title}
                       </h2>
                       <p className="font-body text-[14px] leading-[1.7] text-muted-foreground">
-                        {project.desc}
+                        {project.descEn}
                       </p>
                     </div>
                   </div>

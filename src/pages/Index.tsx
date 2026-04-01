@@ -6,6 +6,12 @@ import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 import SEO from "@/components/SEO";
 
+import workNoSignal from "@/assets/work-no-signal.jpg";
+import work37Below from "@/assets/work-37-below.jpg";
+import workAlanMakeup from "@/assets/work-alan-makeup.jpg";
+import workConsecrated from "@/assets/work-the-consecrated.jpg";
+import workOrionsTalk from "@/assets/work-orions-talk.jpg";
+
 const homeSchema = [
   {
     "@context": "https://schema.org",
@@ -14,6 +20,14 @@ const homeSchema = [
     url: "https://orions.agency",
     description: "A creative agency focused on clear communication, strong art direction, and high-quality film production.",
   },
+];
+
+const featuredWorks = [
+  { title: "No Signal", type: "Documentary", image: workNoSignal },
+  { title: "37° Below", type: "Documentary", image: work37Below },
+  { title: "Alan Makeup", type: "Documentary", image: workAlanMakeup },
+  { title: "The Consecrated", type: "Documentary", image: workConsecrated },
+  { title: "ORIONS Talk", type: "Podcast", image: workOrionsTalk },
 ];
 
 const Index = () => {
@@ -123,11 +137,81 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ═══ SERVICES PREVIEW ═══ */}
+      {/* ═══ WORK PREVIEW ═══ */}
       <section className="py-24 md:py-40 px-4 sm:px-6 md:px-12 border-t border-border">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
             <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16">
+              <div>
+                <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4">
+                  <span className="text-accent-warm mr-2">✦</span> Selected Work
+                </p>
+                <h2 className="font-display text-[clamp(36px,6vw,72px)] leading-[0.9] tracking-[0.01em] text-foreground">WORK.</h2>
+              </div>
+              <Link
+                to="/work"
+                className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300 mt-4 md:mt-0"
+              >
+                View all <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+              </Link>
+            </div>
+          </AnimatedSection>
+
+          {/* Featured project large */}
+          <AnimatedSection>
+            <Link to="/work" className="group block mb-8">
+              <div className="aspect-[21/9] overflow-hidden relative border border-border hover:border-accent-warm/30 transition-colors duration-300">
+                <img
+                  src={featuredWorks[0].image}
+                  alt={featuredWorks[0].title}
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                  loading="lazy"
+                  width={1280}
+                  height={800}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 p-6 md:p-10">
+                  <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm mb-2">{featuredWorks[0].type}</p>
+                  <h3 className="font-display text-[32px] md:text-[48px] tracking-[0.02em] text-foreground">{featuredWorks[0].title}</h3>
+                </div>
+              </div>
+            </Link>
+          </AnimatedSection>
+
+          {/* Grid of remaining */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+            {featuredWorks.slice(1).map((project, i) => (
+              <AnimatedSection key={project.title} delay={i * 0.08}>
+                <Link to="/work" className="group block border border-border hover:border-accent-warm/30 transition-colors duration-300">
+                  <div className="aspect-[4/3] overflow-hidden relative">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                      loading="lazy"
+                      width={1280}
+                      height={800}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/70 to-transparent" />
+                  </div>
+                  <div className="p-4">
+                    <p className="font-mono text-[9px] tracking-[0.15em] uppercase text-accent-warm/60 mb-1">{project.type}</p>
+                    <h3 className="font-display text-[18px] md:text-[22px] tracking-[0.02em] text-foreground group-hover:text-accent-warm transition-colors duration-300">
+                      {project.title}
+                    </h3>
+                  </div>
+                </Link>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ SERVICES PREVIEW ═══ */}
+      <section className="py-24 md:py-40 px-4 sm:px-6 md:px-12 border-t border-border">
+        <div className="max-w-7xl mx-auto">
+          <AnimatedSection>
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-20">
               <div>
                 <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4">
                   <span className="text-accent-warm mr-2">✦</span> What We Do
@@ -143,24 +227,71 @@ const Index = () => {
             </div>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border">
+          {/* Visual service cards — horizontal layout */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px">
             {[
-              { num: "00", title: "Retainer", desc: "Ongoing creative support, campaign planning, and production oversight." },
-              { num: "01", title: "Strategy", desc: "Define what your brand should say, who it should speak to, and how it should be understood." },
-              { num: "02", title: "Communication Design", desc: "Shape strategy into clear ideas, visual direction, and systems people connect with." },
-              { num: "03", title: "Film & Production", desc: "Execute with attention to detail — from concept to final delivery." },
+              {
+                num: "01",
+                title: "Strategy",
+                desc: "Brand positioning, narrative, communication framework, and campaign direction.",
+                icon: "◆",
+              },
+              {
+                num: "02",
+                title: "Communication Design",
+                desc: "Campaign concepts, creative direction, messaging systems, and touchpoint structure.",
+                icon: "◇",
+              },
+              {
+                num: "03",
+                title: "Film & Production",
+                desc: "TVC, commercials, documentary film, branded content, and photo/video production.",
+                icon: "▣",
+              },
             ].map((s, i) => (
-              <AnimatedSection key={s.title} delay={i * 0.08}>
-                <div className={`bg-background p-8 md:p-10 group h-full border border-border hover:border-accent-warm/30 transition-colors duration-300 ${i === 0 ? "md:col-span-3 border-accent-warm/20 bg-accent-warm/[0.02]" : ""}`}>
-                  <span className="font-mono text-[10px] tracking-[0.15em] text-accent-warm/40 block mb-6">{s.num}</span>
-                  <h3 className="font-display text-[26px] md:text-[30px] tracking-[0.02em] text-foreground mb-4 group-hover:text-accent-warm transition-colors duration-300">
-                    {s.title}
-                  </h3>
-                  <p className="font-body text-[14px] leading-[1.7] text-muted-foreground">{s.desc}</p>
-                </div>
+              <AnimatedSection key={s.title} delay={i * 0.1}>
+                <Link to="/services" className="group block h-full">
+                  <div className="border border-border hover:border-accent-warm/30 bg-background p-8 md:p-10 h-full transition-all duration-500 relative overflow-hidden">
+                    {/* Decorative number */}
+                    <span className="absolute top-4 right-4 font-display text-[80px] md:text-[100px] leading-none text-border/30 group-hover:text-accent-warm/10 transition-colors duration-500 select-none">
+                      {s.num}
+                    </span>
+
+                    <div className="relative z-10">
+                      <span className="text-accent-warm/60 text-[20px] block mb-6">{s.icon}</span>
+                      <h3 className="font-display text-[28px] md:text-[34px] tracking-[0.02em] text-foreground mb-4 group-hover:text-accent-warm transition-colors duration-300">
+                        {s.title}
+                      </h3>
+                      <p className="font-body text-[14px] leading-[1.7] text-muted-foreground mb-6">
+                        {s.desc}
+                      </p>
+                      <span className="font-mono text-[10px] tracking-[0.12em] uppercase text-muted-foreground/40 group-hover:text-accent-warm/60 transition-colors duration-300 inline-flex items-center gap-2">
+                        Learn more <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                      </span>
+                    </div>
+                  </div>
+                </Link>
               </AnimatedSection>
             ))}
           </div>
+
+          {/* Retainer callout */}
+          <AnimatedSection delay={0.3}>
+            <Link to="/services" className="group block mt-6">
+              <div className="border border-accent-warm/20 bg-accent-warm/[0.03] p-8 md:p-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6 hover:border-accent-warm/40 transition-all duration-300">
+                <div>
+                  <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm/50 mb-2">Ongoing Partnership</p>
+                  <h3 className="font-display text-[26px] md:text-[32px] tracking-[0.02em] text-accent-warm">RETAINER</h3>
+                  <p className="font-body text-[14px] leading-[1.7] text-muted-foreground mt-2 max-w-xl">
+                    Monthly creative support, campaign planning, and production oversight for brands that need a trusted long-term partner.
+                  </p>
+                </div>
+                <span className="font-mono text-[10px] tracking-[0.12em] uppercase text-accent-warm/40 group-hover:text-accent-warm transition-colors duration-300 inline-flex items-center gap-2 shrink-0">
+                  Details <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                </span>
+              </div>
+            </Link>
+          </AnimatedSection>
         </div>
       </section>
 

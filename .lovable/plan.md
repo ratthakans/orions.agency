@@ -1,120 +1,81 @@
 
 
-# ØRIONS Website — Detailed Review
+# ØRIONS — Design Direction Review: เดิม vs ใหม่
 
-## Overall Assessment
-The site is well-structured with consistent visual design, strong brand voice, and cohesive navigation. Below are all issues found, organized by severity.
+## Design เดิม (Dark Theme)
+จาก memory ที่บันทึกไว้ เว็บเดิมใช้:
+- **Background:** Deep Black (#0A0A0A)
+- **Typography:** Unbounded (display), Cutive (typewriter), IBM Plex Sans/Thai (body), IBM Plex Mono (UI)
+- **Accent:** Yellow (#ffcc00)
+- **Style:** High-contrast, bold, cinematic dark mode
+- **Components:** Manifesto with staggered line reveals, horizontal scroll case studies, scroll progress bar, constellation background, star field, cinematic dividers
+- **Layout:** Asymmetric editorial grid, SCQA narrative structure, parallax-like scrollytelling
+- **Hover:** border-accent-warm/30 transitions, zero-radius (square) design
 
----
-
-## Critical Issues
-
-### 1. Service Names Misaligned Between Pages
-The **Homepage services preview** (Index.tsx lines 143-150) lists 6 services with names that mostly match ServicesPage2, but the **Contact page** (ContactPage2.tsx lines 8-19) has outdated service options:
-- Contact lists "Creative Communication" but Services page has it as service 06 — OK
-- Contact lists retainers as "Creative Partnership (Retainer)", "Content System (Retainer)", "Channel Management (Retainer)" — these don't match the actual retainer names **Pulse, Flow, Orbit**
-- Contact is missing **"Demand Strategy"** as an option
-
-### 2. Work Portfolio Service Categories Don't Match Services Page
-The `serviceFilters` in works.ts are: `"Creative Transformation", "Creative Communication", "Film & Production", "Creative Partner"`
-- **"Film & Production"** doesn't match the Services page name **"Production"**
-- **"Creative Partner"** doesn't match any specific service — should map to retainer model
-- Missing filters for: **Demand Strategy, Signature Campaign, Event/Activation, Digital Experience**
-- No work items tagged with the new services
-
-### 3. Hospitality Package Retainer Pricing Inconsistency
-HospitalityPage retainer note says: `"Pulse (120K), Flow (200K), Orbit (300K)"`
-But the main Services page retainers are:
-- Pulse: **40K–80K** / month
-- Flow: **80K–150K** / month
-- Orbit: **120K–180K** / month
-
-The Hospitality Pulse at 120K is **3x** the standard Pulse. This needs explanation or alignment.
+## Design ใหม่ (Warm Editorial)
+ตอนนี้เว็บใช้:
+- **Background:** Warm off-white (hsl 36 23% 94% ≈ #EDE8E0)
+- **Typography:** Cormorant Garamond (serif display), DM Sans (body), JetBrains Mono (accents)
+- **Accent:** Muted clay/warm tone (hsl 25 18% 58%)
+- **Style:** Editorial minimalism, Kinfolk/Cereal magazine aesthetic
+- **Components:** Simple fade-up animations, border-t dividers, text-focused sections
+- **Layout:** Centered content columns (680px text, 1200px grid), generous whitespace
+- **Hover:** Subtle color transitions, image brightness/scale shifts
 
 ---
 
-## Moderate Issues
+## Comparative Analysis
 
-### 4. Homepage Services Preview Missing "Demand Strategy"
-Index.tsx shows 6 services but starts with "Creative Transformation" at position 1. The actual services page starts with **"Demand Strategy"** at position 01. The homepage preview should reflect the current service lineup order.
+### Design เดิม — ข้อดี
+1. **แยกตัวจากคู่แข่งได้ชัด** — Dark theme + yellow accent ทำให้จดจำได้ทันที ไม่เหมือนใคร
+2. **ให้ feel "production house" ได้แรง** — โทนมืดสื่อถึง cinema, film, post-production ได้ตรง
+3. **Components หลากหลาย** — Constellation background, horizontal scroll, manifesto reveals, typewriter effect สร้าง experience ที่น่าสนใจ
+4. **มี personality ที่ชัด** — Bold, confident, ไม่กลัวที่จะแตกต่าง
 
-### 5. About Page — CFO Has No Name
-C-Level array shows: `{ name: "CFO", role: "Finance & Operations" }` — the name field just says "CFO" instead of the actual person's name.
+### Design เดิม — ข้อเสีย
+1. **Over-designed** — มี components เยอะเกินไป (constellation, star field, cinematic dividers) ไม่สอดคล้องกับ "fewer pieces" philosophy
+2. **Readability ต่ำกว่า** — Light text on dark background อ่านยากกว่า โดยเฉพาะ body text ยาวๆ
+3. **ดูเหมือน production company มากกว่า agency** — ไม่สื่อถึง "strategy" และ "communication design" ที่เป็น core ของ ØRIONS
+4. **Yellow accent ค่อนข้าง aggressive** — ขัดกับ brand voice ที่ควรเป็น calm, confident, unhurried
 
-### 6. About Page — Team Count Discrepancy
-The page says "13 CREATIVES. ONE VISION." and the counter shows 13. But the actual team data has:
-- C-Level: 3 people
-- Team members: 10 people
-- Total: **13** ✓ — This is correct.
+### Design ใหม่ — ข้อดี
+1. **ตรงกับ brand positioning มากกว่า** — "Fewer pieces. Stronger impact." สะท้อนออกมาใน design ที่ลดทอนจริงๆ
+2. **Typography ดีมาก** — Cormorant Garamond serif มี character สูง เหมาะกับ editorial/agency tone
+3. **Readability สูง** — Near-black on warm off-white อ่านสบายตา เหมาะกับ content-heavy pages
+4. **สื่อ "strategic agency" ได้ดี** — ดูเหมือน agency ที่คิดก่อนทำ ไม่ใช่แค่ production house
+5. **Scalable** — เพิ่ม content/pages ใหม่ได้ง่ายโดยไม่ต้องสร้าง complex components
 
-### 7. Several Team Members Have Generic Names
-Some team members use role titles instead of real names:
-- "Editor / DOP" (name field)
-- "Editor" (name field)
-- "Post Supervisor" (name field)
-- "Public Relations" (name field)
-
-This is likely intentional (positions to be filled), but looks inconsistent with named members.
-
-### 8. Studio Page — Unused `titleTh` Check
-StudioPage line 187 checks for `titleTh` with a type assertion `(show as any).titleTh` but no show data includes this field. Dead code.
-
----
-
-## Minor Issues
-
-### 9. Contact Form Uses `mailto:` Instead of API
-The form opens the user's email client instead of actually submitting. This is a known limitation but means form data can be lost if the user doesn't have a mail client configured.
-
-### 10. Process Page Manifesto vs Homepage Manifesto
-The Process page has its own 5-line manifesto (lines 66-72) that's different from the homepage manifesto. Both are valid but could create inconsistency in messaging.
-
-### 11. SEO — Missing `Creative Communication` Service
-Services page SEO description lists "Digital Experience" but not "Creative Communication" (service 06). Not critical since it has no badge and seems like the least defined service.
-
-### 12. Hospitality Page — Empty Hero Image
-`hero.image` is set to `""` — the hero section likely renders an empty or broken image area.
+### Design ใหม่ — ข้อเสีย
+1. **ขาดความน่าจดจำ** — Warm off-white + serif เป็น pattern ที่เห็นบ่อยในเว็บ agency/studio (ดูคล้าย template ทั่วไป)
+2. **ขาด visual impact** — ไม่มี element ที่ทำให้คนหยุดดู ทุกอย่างเรียบเกินไป
+3. **Work section ขาดพลัง** — รูป cinematic ที่ dark + moody ดูไม่ค่อยโดดเด่นบน warm background
+4. **ไม่สื่อ "film production"** — ดูเหมือน branding agency หรือ design studio มากกว่า agency ที่ทำหนัง
+5. **Accent color จาง** — Clay tone แทบมองไม่เห็น ไม่มี visual anchor
 
 ---
 
-## Content Consistency Matrix
+## สรุป: ไม่มีอันไหนสมบูรณ์ — ควรเอาจุดแข็งของทั้งสองมารวมกัน
 
-```text
-Service Name          | Services | Homepage | Contact | Work Filters
-─────────────────────────────────────────────────────────────────
-Demand Strategy       | ✓ (01)   | ✗        | ✗       | ✗
-Creative Transform.   | ✓ (02)   | ✓        | ✓       | ✓
-Signature Campaign    | ✓ (03)   | ✓        | ✓       | ✗
-Production            | ✓ (04)   | ✓        | ✓       | as "Film & Production"
-Event / Activation    | ✓ (05)   | ✓        | ✗       | ✗
-Digital Experience    | ✓ (06)   | ✓        | ✗       | ✗
-Creative Comms        | (none)   | ✓        | ✓       | ✓
-Pulse Retainer        | ✓ (07)   | ✗        | ✗       | ✗
-Flow Retainer         | ✓ (08)   | ✗        | ✗       | ✗
-Orbit Retainer        | ✓ (09)   | ✗        | ✗       | ✗
-```
+### Hybrid Direction ที่แนะนำ
 
----
+เก็บ **foundation ของ design ใหม่** (warm editorial, serif typography, generous whitespace, content-focused) แต่เพิ่ม **cinematic presence** กลับเข้ามา:
 
-## Recommended Fixes (Priority Order)
+1. **Background:** เก็บ warm off-white แต่ Work section ใช้ dark background (#0A0A0A) เป็น full-bleed contrast block — ทำให้รูป cinematic โดดเด่น และสื่อ "film" side ของ agency
+2. **Typography:** เก็บ Cormorant Garamond — มัน fit กับ brand voice
+3. **Accent:** เปลี่ยนจาก clay เป็นสีที่มี presence มากกว่า — deep olive (#4A5440) หรือ charcoal ที่เข้มขึ้น
+4. **Hero:** เพิ่ม subtle grain texture overlay หรือ very slow atmospheric background — ให้รู้สึกว่า "มีชีวิต" แต่ไม่ flashy
+5. **Work cards:** ใช้ film-poster layout (taller aspect ratio 2:3 หรือ 3:4) แทน 16:9 — ให้ feel เหมือน poster จริงๆ
+6. **เพิ่ม 1 signature element:** เช่น subtle line animation ที่ hero หรือ staggered text reveal ที่ About — ให้มี "craft" detail ที่คนสังเกตได้
 
-1. **Sync Contact page service options** with actual service names + retainer names (Pulse/Flow/Orbit)
-2. **Add "Demand Strategy" to Homepage** services preview and reorder to match Services page
-3. **Fix Work portfolio filters** to match current service categories
-4. **Align Hospitality retainer pricing** — either justify premium or use standard rates
-5. **Fix CFO name** or mark as "TBA" more explicitly
-6. **Remove dead `titleTh` code** from StudioPage
-7. **Add hero image** to Hospitality page or remove the image field
+### ไฟล์ที่ต้องแก้
+- `src/index.css` — เพิ่ม dark section variant, grain texture
+- `src/pages/Index.tsx` — Hero grain overlay, Work section dark block
+- `src/pages/WorkPage.tsx` — Dark background, poster-ratio cards
+- `tailwind.config.ts` — เพิ่ม dark section colors
 
----
-
-## What's Working Well
-
-- Brand voice is consistent across all pages — confident, minimal, no fluff
-- In-house production messaging is now threaded through Homepage (manifesto), About (block), Studio (framing), and Services (badges) — cohesive
-- Navigation and footer are clean and consistent
-- Process page SCQA structure is strong
-- Service detail expandable cards with full pricing/terms/deliverables are comprehensive
-- Retainer tier structure (Pulse → Flow → Orbit) is clear and well-differentiated
-- EN/TH language support infrastructure is in place
+### ไม่แก้
+- Typography system (Cormorant Garamond + DM Sans + JetBrains Mono) — ดีอยู่แล้ว
+- Content structure (5 pages, 3 services + retainer) — ตรงตาม direction
+- Layout widths (680px text, 1200px grid) — เหมาะสม
+- Animation approach (subtle fade-up) — ถูกต้อง
 

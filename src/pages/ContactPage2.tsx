@@ -6,6 +6,7 @@ import AnimatedSection from "@/components/AnimatedSection";
 import SEO from "@/components/SEO";
 
 const serviceOptions = [
+  "Retainer",
   "Brand & Communication Strategy",
   "Communication Design",
   "Film & Production",

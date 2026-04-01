@@ -115,9 +115,9 @@ const AboutPage = () => {
           </AnimatedSection>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
             {[
-              { title: "Strategy before production", desc: "We define before we create. Every piece of work starts with clear direction and intention." },
-              { title: "Clear communication", desc: "Focused ideas that people understand. No noise, no filler — just clarity and impact." },
-              { title: "Cinematic execution", desc: "High-quality film with purpose. In-house production from Director to Post — one team, no handoff." },
+              { title: "Limited projects", desc: "We take on a limited number of projects each year to ensure focus and quality." },
+              { title: "Define before we create", desc: "Every piece of work starts with clear direction and intention." },
+              { title: "Work that lasts", desc: "We focus on communication that holds attention — not chases it." },
             ].map((v, i) => (
               <AnimatedSection key={v.title} delay={i * 0.1}>
                 <div className="border border-border p-8 md:p-10 h-full hover:border-accent-warm/30 transition-colors duration-300">

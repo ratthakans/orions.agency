@@ -327,10 +327,8 @@ const Index = () => {
           </AnimatedSection>
           <div className="space-y-12">
             {[
-              { line: "We don't create for attention.", accent: false },
-              { line: "We create for clarity.", accent: true },
-              { line: "We don't follow trends.", accent: false },
-              { line: "We build communication that lasts.", accent: true },
+              { line: "Clarity over noise.", accent: true },
+              { line: "Fewer, better pieces.", accent: false },
             ].map((item, i) => (
               <AnimatedSection key={i} delay={i * 0.1}>
                 <p className={`font-display text-[clamp(28px,5vw,64px)] leading-[0.95] tracking-[0.01em] ${item.accent ? "text-accent-gradient" : "text-foreground/90"}`}>

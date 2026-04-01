@@ -12,7 +12,7 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <main className="bg-background min-h-screen flex flex-col">
+    <main className="bg-background min-h-screen flex flex-col grain-overlay">
       <SEO
         title="Page Not Found | ØRIONS"
         description="The page you are looking for does not exist. Return to the ØRIONS homepage to explore our services, work, and contact information."
@@ -20,28 +20,26 @@ const NotFound = () => {
         noindex
       />
       <Navbar />
-      <div className="flex-1 flex items-center justify-center px-6 md:px-12 relative">
+      <div className="flex-1 flex items-center justify-center px-4 sm:px-6 md:px-12 relative">
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-          <span className="font-display text-[30vw] font-bold tracking-tighter text-stroke-lg opacity-[0.04]">
+          <span className="font-display text-[30vw] font-medium tracking-[0.01em] text-stroke-lg opacity-[0.04]">
             404
           </span>
         </div>
         <div className="text-center relative z-10">
-          <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-body mb-6">Page Not Found</p>
-          <h1 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-foreground mb-4">
+          <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">Page Not Found</p>
+          <h1 className="font-display text-[clamp(44px,6vw,96px)] leading-[0.9] tracking-[0.01em] text-foreground mb-4">
             Lost in the noise.
           </h1>
-          <p className="font-body text-muted-foreground text-base md:text-lg max-w-md mx-auto mb-10 leading-relaxed">
+          <p className="font-body text-[15px] md:text-[16px] leading-[1.8] text-muted-foreground max-w-md mx-auto mb-10">
             The page you're looking for doesn't exist or has been moved.
           </p>
           <Link
             to="/"
-            className="inline-flex items-center gap-2 bg-foreground text-background px-8 py-4 text-sm font-display font-medium tracking-wide hover:bg-accent-warm hover:text-accent-warm-foreground transition-colors duration-300"
+            className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-primary-foreground bg-primary px-8 py-3 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300"
           >
             Return Home
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="transition-transform duration-300 group-hover:translate-x-1">
-              <path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" strokeWidth="1.5" />
-            </svg>
+            <span>→</span>
           </Link>
         </div>
       </div>

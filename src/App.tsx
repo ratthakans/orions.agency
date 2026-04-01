@@ -3,7 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { LanguageProvider } from "@/contexts/LanguageContext";
+
 
 import ScrollToTop from "./components/ScrollToTop";
 import PageTransition from "./components/PageTransition";
@@ -21,10 +21,9 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <LanguageProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<PageTransition><Index /></PageTransition>} />
@@ -42,8 +41,7 @@ const App = () => (
             <Route path="/value" element={<Navigate to="/" replace />} />
             <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
           </Routes>
-        </BrowserRouter>
-      </LanguageProvider>
+      </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
 );

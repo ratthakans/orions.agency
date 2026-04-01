@@ -22,14 +22,14 @@ const WorkPage = () => {
           <div className="max-w-7xl mx-auto w-full">
             <AnimatedSection>
               <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
-                <span className="text-accent-warm mr-2">✦</span> Work
+                Work
               </p>
               <h1 className="font-display text-[clamp(44px,6vw,96px)] leading-[0.9] tracking-[0.01em] text-foreground mb-6">
                 SELECTED<br />
                 <span className="text-accent-gradient">WORK.</span>
               </h1>
               <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-xl">
-                Original productions and documentary work.
+                Selected projects and original productions.
               </p>
             </AnimatedSection>
           </div>
@@ -44,7 +44,7 @@ const WorkPage = () => {
                   <img
                     src={projects[0].image}
                     alt={projects[0].title}
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                     width={1280}
                     height={800}
                   />
@@ -75,7 +75,7 @@ const WorkPage = () => {
                       <img
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                         loading="lazy"
                         width={1280}
                         height={800}

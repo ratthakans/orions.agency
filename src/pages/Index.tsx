@@ -139,7 +139,7 @@ const Index = () => {
             <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16">
               <div>
                 <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4">
-                  <span className="text-accent-warm mr-2">✦</span> Selected Work
+                  Selected Work
                 </p>
                 <h2 className="font-display text-[clamp(36px,6vw,72px)] leading-[0.9] tracking-[0.01em] text-foreground">WORK.</h2>
               </div>
@@ -159,7 +159,7 @@ const Index = () => {
                 <img
                   src={featuredWorks[0].image}
                   alt={featuredWorks[0].title}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                   loading="lazy"
                   width={1280}
                   height={800}
@@ -182,7 +182,7 @@ const Index = () => {
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                       loading="lazy"
                       width={1280}
                       height={800}
@@ -209,7 +209,7 @@ const Index = () => {
             <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-20">
               <div>
                 <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4">
-                  <span className="text-accent-warm mr-2">✦</span> What We Do
+                  What We Do
                 </p>
                 <h2 className="font-display text-[clamp(36px,6vw,72px)] leading-[0.9] tracking-[0.01em] text-foreground">SERVICES.</h2>
               </div>

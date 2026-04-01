@@ -73,7 +73,7 @@ const AboutPage = () => {
           <div className="max-w-4xl mx-auto w-full">
             <AnimatedSection>
               <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
-                <span className="text-accent-warm mr-2">✦</span> About
+                About
               </p>
               <h1 className="font-display text-[clamp(44px,6vw,96px)] leading-[0.9] tracking-[0.01em] text-foreground mb-6">
                 WE DO LESS —<br />
@@ -114,7 +114,7 @@ const AboutPage = () => {
           <div className="max-w-6xl mx-auto">
             <AnimatedSection>
               <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4">
-                <span className="text-accent-warm mr-2">✦</span> The Team
+                The Team
               </p>
               <h2 className="font-display text-[clamp(32px,4vw,56px)] leading-[0.95] tracking-[0.01em] text-foreground mb-6">
                 SMALL TEAM.<br />
@@ -163,7 +163,7 @@ const AboutPage = () => {
           <div className="max-w-3xl mx-auto">
             <AnimatedSection>
               <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">
-                <span className="text-accent-warm mr-2">✦</span> Clients
+                Clients
               </p>
             </AnimatedSection>
             <AnimatedSection delay={0.08}>
@@ -183,8 +183,8 @@ const AboutPage = () => {
         <section className="px-4 sm:px-6 md:px-12 py-20 md:py-32 border-t border-border text-center">
           <AnimatedSection>
             <h2 className="font-display text-[clamp(36px,5vw,72px)] leading-[0.92] tracking-[0.01em] text-foreground mb-6">
-              START WITH<br />
-              <span className="text-accent-gradient">A CONVERSATION.</span>
+              LET'S MAKE<br />
+              <span className="text-accent-gradient">SOMETHING TOGETHER.</span>
             </h2>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-8">
               <Link to="/contact" className="font-mono text-[11px] tracking-[0.12em] uppercase text-primary-foreground bg-primary px-8 py-3 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300">

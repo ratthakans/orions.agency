@@ -61,7 +61,7 @@ const Index = () => {
         <div className="relative z-10">
           <motion.h1
             {...fade(0.15)}
-            className="font-display text-[clamp(52px,11vw,140px)] font-semibold tracking-[0.14em] uppercase leading-[0.9] text-foreground"
+            className="font-logo text-[clamp(44px,10vw,120px)] font-bold tracking-[0.18em] uppercase leading-[0.9] text-foreground"
           >
             ØRIONS
           </motion.h1>

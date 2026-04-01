@@ -21,7 +21,7 @@ const shows = [
     type: "Survival Documentary",
     status: "In Development",
     image: imgNoSignal,
-    desc: "A raw survival travel documentary. Following people who leave the city to face nature head-on. No script. No signal.",
+    desc: "Survival documentary exploring isolation and endurance. Following people who leave the city to face nature head-on. No script. No signal.",
     format: "Cinematic series · 6 episodes · 20–30 min each",
     details: [
       "Follow real people who choose to disconnect from modern life and survive in raw nature.",

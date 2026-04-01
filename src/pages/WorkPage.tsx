@@ -3,50 +3,7 @@ import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 import SEO from "@/components/SEO";
 import { Link } from "react-router-dom";
-
-import workNoSignal from "@/assets/work-no-signal.jpg";
-import work37Below from "@/assets/work-37-below.jpg";
-import workAlanMakeup from "@/assets/work-alan-makeup.jpg";
-import workConsecrated from "@/assets/work-the-consecrated.jpg";
-import workOrionsTalk from "@/assets/work-orions-talk.jpg";
-
-const originals = [
-  {
-    title: "No Signal",
-    type: "Documentary",
-    desc: "สารคดีเอาชีวิตรอดในพื้นที่ไร้สัญญาณ — สำรวจความโดดเดี่ยว ความอดทน และสัญชาตญาณการเอาตัวรอดในธรรมชาติ",
-    descEn: "A survival documentary in areas with no signal — exploring isolation, endurance, and the instinct to survive in nature.",
-    image: workNoSignal,
-  },
-  {
-    title: "37° Below",
-    type: "Documentary",
-    desc: "สารคดีเอาชีวิตรอดในพื้นที่ติดลบสุดขั้ว — ท้าทายขีดจำกัดของร่างกายและจิตใจในสภาพแวดล้อมที่โหดร้ายที่สุด",
-    descEn: "An extreme survival documentary in sub-zero environments — pushing the limits of body and mind in the harshest conditions.",
-    image: work37Below,
-  },
-  {
-    title: "Alan Makeup",
-    type: "Documentary Series",
-    desc: "สารคดีเกี่ยวกับการแต่งหน้า — สำรวจอัตลักษณ์และการเปลี่ยนแปลงตัวตนผ่านศิลปะการแต่งหน้า",
-    descEn: "A documentary series on makeup artistry — exploring identity and personal transformation through the art of makeup.",
-    image: workAlanMakeup,
-  },
-  {
-    title: "The Consecrated",
-    type: "Documentary",
-    desc: "สารคดีสำรวจความเชื่อ พิธีกรรม และสิ่งลี้ลับที่ผู้คนยังคงยึดถือ",
-    descEn: "A documentary exploring belief, ritual, and the unseen forces people live with.",
-    image: workConsecrated,
-  },
-  {
-    title: "ORIONS Talk",
-    type: "Podcast",
-    desc: "รายการ Podcast เชิงสารคดี เล่าถึงประวัติและเรื่องราวของบุคคลที่น่าสนใจ",
-    descEn: "A documentary-style podcast telling the stories and histories of fascinating people.",
-    image: workOrionsTalk,
-  },
-];
+import { projects } from "@/data/projects";
 
 const WorkPage = () => {
   return (
@@ -82,27 +39,27 @@ const WorkPage = () => {
         <section className="px-4 sm:px-6 md:px-12 pb-8">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
-              <div className="group border border-border hover:border-accent-warm/30 transition-colors duration-300">
-                <div className="aspect-[21/9] overflow-hidden relative">
+              <Link to={`/work/${projects[0].slug}`} className="group block">
+                <div className="aspect-[21/9] overflow-hidden relative border border-border hover:border-accent-warm/30 transition-colors duration-300">
                   <img
-                    src={originals[0].image}
-                    alt={originals[0].title}
+                    src={projects[0].image}
+                    alt={projects[0].title}
                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
                     width={1280}
                     height={800}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
                   <div className="absolute bottom-0 left-0 p-6 md:p-10">
-                    <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm mb-2">{originals[0].type}</p>
-                    <h2 className="font-display text-[36px] md:text-[56px] tracking-[0.02em] text-foreground mb-3">
-                      {originals[0].title}
+                    <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm mb-2">{projects[0].type}</p>
+                    <h2 className="font-display text-[36px] md:text-[56px] tracking-[0.02em] text-foreground mb-2">
+                      {projects[0].title}
                     </h2>
-                    <p className="font-body text-[14px] leading-[1.7] text-muted-foreground max-w-lg">
-                      {originals[0].descEn}
+                    <p className="font-body text-[14px] leading-[1.7] text-muted-foreground max-w-lg hidden md:block">
+                      {projects[0].tagline}
                     </p>
                   </div>
                 </div>
-              </div>
+              </Link>
             </AnimatedSection>
           </div>
         </section>
@@ -111,9 +68,9 @@ const WorkPage = () => {
         <section className="px-4 sm:px-6 md:px-12 py-8 md:py-12 pb-20">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
-              {originals.slice(1).map((project, i) => (
-                <AnimatedSection key={project.title} delay={i * 0.08}>
-                  <div className="group border border-border hover:border-accent-warm/30 transition-colors duration-300">
+              {projects.slice(1).map((project, i) => (
+                <AnimatedSection key={project.slug} delay={i * 0.08}>
+                  <Link to={`/work/${project.slug}`} className="group block border border-border hover:border-accent-warm/30 transition-colors duration-300">
                     <div className="aspect-[16/10] overflow-hidden relative">
                       <img
                         src={project.image}
@@ -135,10 +92,10 @@ const WorkPage = () => {
                         {project.title}
                       </h2>
                       <p className="font-body text-[14px] leading-[1.7] text-muted-foreground">
-                        {project.descEn}
+                        {project.tagline}
                       </p>
                     </div>
-                  </div>
+                  </Link>
                 </AnimatedSection>
               ))}
             </div>

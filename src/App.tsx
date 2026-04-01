@@ -17,7 +17,7 @@ import AboutPage from "./pages/AboutPage";
 import WorkPage from "./pages/WorkPage";
 import WorkDetailPage from "./pages/WorkDetailPage";
 import NotFound from "./pages/NotFound";
-import HospitalityPage from "./pages/HospitalityPage";
+
 
 const queryClient = new QueryClient();
 

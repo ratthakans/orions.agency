@@ -1,27 +1,15 @@
-import { Link } from "react-router-dom";
-
-const footerLinks = [
-  { label: "Process", href: "/process" },
-  { label: "Services", href: "/services" },
-  { label: "About", href: "/about" },
-  { label: "Work", href: "/work" },
-  { label: "Studio", href: "/studio" },
-  { label: "Contact", href: "/contact" },
-];
-
 const Footer = () => {
   return (
     <footer className="px-4 sm:px-6 md:px-12 py-16 md:py-24 border-t border-border">
       <div className="max-w-7xl mx-auto">
-        {/* Top: Logo + Tagline */}
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-12 md:gap-20">
           {/* Left: Brand */}
           <div className="flex-1">
-            <Link to="/" className="font-logo text-[18px] font-medium tracking-[0.08em] text-foreground uppercase inline-block mb-4">
+            <a href="/#hero" className="font-logo text-[18px] font-medium tracking-[0.08em] text-foreground uppercase inline-block mb-4">
               ØRIONS
-            </Link>
+            </a>
             <p className="font-body text-[14px] leading-[1.7] text-muted-foreground max-w-xs">
-              A creative agency that changes perception to unlock growth. Based in Bangkok.
+              A creative agency focused on clear communication, strong art direction, and high-quality film production. Based in Bangkok.
             </p>
           </div>
 
@@ -29,14 +17,20 @@ const Footer = () => {
           <div>
             <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-warm/60 mb-6">Navigate</p>
             <div className="grid grid-cols-2 gap-x-12 gap-y-3">
-              {footerLinks.map((link) => (
-                <Link
+              {[
+                { label: "About", href: "/#about" },
+                { label: "Work", href: "/#work" },
+                { label: "Services", href: "/#services" },
+                { label: "Clients", href: "/#clients" },
+                { label: "Contact", href: "/#contact" },
+              ].map((link) => (
+                <a
                   key={link.href}
-                  to={link.href}
+                  href={link.href}
                   className="font-mono text-[11px] tracking-[0.1em] uppercase text-muted-foreground/60 hover:text-foreground transition-colors duration-300"
                 >
                   {link.label}
-                </Link>
+                </a>
               ))}
             </div>
           </div>

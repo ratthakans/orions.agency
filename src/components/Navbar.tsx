@@ -1,14 +1,13 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 const navLinks = [
-  { label: "Process", href: "/process" },
-  { label: "Services", href: "/services" },
-  { label: "About", href: "/about" },
-  { label: "Work", href: "/work" },
-  { label: "Studio", href: "/studio" },
-  { label: "Contact", href: "/contact" },
+  { label: "About", href: "/#about" },
+  { label: "Work", href: "/#work" },
+  { label: "Services", href: "/#services" },
+  { label: "Clients", href: "/#clients" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 const Navbar = () => {
@@ -21,10 +20,19 @@ const Navbar = () => {
     setIsOpen(false);
   }, [location.pathname]);
 
+  // Handle anchor scrolling for same-page navigation
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    const hash = href.replace("/", "");
+    if (location.pathname === "/" && hash.startsWith("#")) {
+      e.preventDefault();
+      const el = document.querySelector(hash);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+      setIsOpen(false);
+    }
+  };
+
   return (
-    <motion.nav
-      className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-xl border-b border-border/50"
-    >
+    <motion.nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-xl border-b border-border/50">
       <motion.div
         style={{ scaleX: smoothProgress }}
         className="absolute bottom-0 left-0 right-0 h-[2px] bg-accent-warm origin-left z-10"
@@ -37,25 +45,25 @@ const Navbar = () => {
         {/* Desktop */}
         <div className="hidden lg:flex items-center gap-10">
           {navLinks.map((s) => (
-            <Link
+            <a
               key={s.href}
-              to={s.href}
-              className={`font-mono text-[11px] tracking-[0.12em] uppercase transition-colors duration-300 ${
-                location.pathname === s.href ? "text-accent-warm" : "text-muted-foreground hover:text-foreground"
-              }`}
+              href={s.href}
+              onClick={(e) => handleNavClick(e, s.href)}
+              className="font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-300"
             >
               {s.label}
-            </Link>
+            </a>
           ))}
         </div>
 
         <div className="hidden lg:flex items-center">
-          <Link
-            to="/contact"
+          <a
+            href="/#contact"
+            onClick={(e) => handleNavClick(e, "/#contact")}
             className="font-mono text-[11px] tracking-[0.12em] uppercase text-primary-foreground bg-primary px-5 py-2 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300"
           >
             Let's Talk
-          </Link>
+          </a>
         </div>
 
         {/* Mobile toggle */}
@@ -79,22 +87,22 @@ const Navbar = () => {
           >
             <div className="px-6 py-10 flex flex-col gap-6">
               {navLinks.map((s) => (
-                <Link
+                <a
                   key={s.href}
-                  to={s.href}
-                  className={`font-mono text-[11px] tracking-[0.12em] uppercase transition-colors duration-300 text-left ${
-                    location.pathname === s.href ? "text-accent-warm" : "text-muted-foreground hover:text-foreground"
-                  }`}
+                  href={s.href}
+                  onClick={(e) => handleNavClick(e, s.href)}
+                  className="font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-300 text-left"
                 >
                   {s.label}
-                </Link>
+                </a>
               ))}
-              <Link
-                to="/contact"
+              <a
+                href="/#contact"
+                onClick={(e) => handleNavClick(e, "/#contact")}
                 className="font-mono text-[11px] tracking-[0.12em] uppercase text-primary-foreground bg-primary px-5 py-3 text-center mt-4 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300"
               >
                 Let's Talk
-              </Link>
+              </a>
             </div>
           </motion.div>
         )}

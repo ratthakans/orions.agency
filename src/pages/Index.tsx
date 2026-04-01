@@ -16,6 +16,13 @@ const fadeIn = (delay = 0) => ({
   transition: { duration: 0.8, delay, ease: [0.25, 0.1, 0.25, 1] as const },
 });
 
+const manifestoLines = [
+  "Most agencies add noise.",
+  "We strip it back.",
+  "Find what matters.",
+  "And make people see you.",
+];
+
 const works = [
   {
     title: "No Signal",
@@ -85,26 +92,59 @@ const Index = () => {
             A creative agency focused on clear communication, strong art direction, and high-quality film production.
           </motion.p>
         </div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2, duration: 0.8 }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3"
+        >
+          <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-muted-foreground/40">Scroll</span>
+          <motion.div
+            animate={{ height: [0, 40, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="w-px bg-primary/30"
+          />
+        </motion.div>
       </section>
 
-      {/* ── ABOUT TEASER ── */}
-      <section className="py-24 md:py-36 px-6 border-t border-border/30">
-        <div className="max-w-[680px] mx-auto">
-          <motion.p {...fadeIn()} className="font-body text-[17px] md:text-[19px] leading-[1.85] text-foreground/75">
-            We do less — with more intention. In a world of constant output, we believe brands do not need more noise. They need clear direction, thoughtful communication, and work that people can actually feel.
-          </motion.p>
-          <motion.div {...fadeIn(0.1)} className="mt-8">
-            <Link
-              to="/about"
-              className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.08em] uppercase text-muted-foreground hover:text-primary transition-colors duration-300"
-            >
-              About us <span>→</span>
-            </Link>
+      {/* ── MANIFESTO ── */}
+      <section className="py-32 md:py-48 px-6 section-dark-accent">
+        <div className="max-w-[900px] mx-auto">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.2, delayChildren: 0.1 } },
+            }}
+          >
+            {manifestoLines.map((line, i) => (
+              <div key={i} className="overflow-hidden">
+                <motion.p
+                  variants={{
+                    hidden: { y: "100%", opacity: 0 },
+                    visible: {
+                      y: 0,
+                      opacity: 1,
+                      transition: { duration: 0.7, ease: [0.25, 0.1, 0.25, 1] },
+                    },
+                  }}
+                  className={`font-display text-[clamp(28px,5.5vw,72px)] leading-[1.1] ${
+                    i >= 2 ? "text-foreground/50 italic" : "text-foreground"
+                  }`}
+                >
+                  {line}
+                </motion.p>
+              </div>
+            ))}
           </motion.div>
         </div>
       </section>
 
-      {/* ── WORK PREVIEW ── */}
+      {/* ── WORK PREVIEW — Editorial stacked ── */}
       <section className="py-24 md:py-36 px-6 border-t border-border/30">
         <div className="max-w-[1200px] mx-auto">
           <motion.div {...fadeIn()} className="flex items-end justify-between mb-14">
@@ -120,22 +160,23 @@ const Index = () => {
             </Link>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="space-y-8">
             {works.map((w, i) => (
-              <motion.div key={w.title} {...fadeIn(i * 0.08)} className="group cursor-pointer">
-                <div className="aspect-[16/9] overflow-hidden relative">
+              <motion.div key={w.title} {...fadeIn(i * 0.1)} className="group cursor-pointer">
+                <div className="aspect-[21/9] overflow-hidden relative">
                   <img
                     src={w.image}
                     alt={w.title}
-                    className="w-full h-full object-cover brightness-[0.6] group-hover:brightness-[0.7] group-hover:scale-[1.02] transition-all duration-700"
+                    className="w-full h-full object-cover brightness-[0.5] group-hover:brightness-[0.65] group-hover:scale-[1.02] transition-all duration-700"
                     loading="lazy"
                   />
-                  <div className="absolute bottom-0 left-0 p-5 md:p-6">
-                    <span className="font-mono text-[9px] tracking-[0.15em] uppercase text-white/35 block mb-2">Original</span>
-                    <h3 className="font-display text-[24px] md:text-[28px] font-medium text-white leading-tight">{w.title}</h3>
+                  <div className="absolute bottom-0 left-0 p-6 md:p-10">
+                    <span className="font-mono text-[9px] tracking-[0.15em] uppercase text-foreground/30 block mb-2">Original</span>
+                    <h3 className="font-display text-[clamp(28px,4vw,48px)] font-medium text-foreground leading-tight">{w.title}</h3>
                   </div>
                 </div>
-                <p className="font-body text-[13px] text-muted-foreground mt-3">{w.desc}</p>
+                <p className="font-body text-[14px] text-muted-foreground mt-4 max-w-[600px]">{w.desc}</p>
+                {i < works.length - 1 && <div className="section-divider mt-8" />}
               </motion.div>
             ))}
           </div>
@@ -143,7 +184,7 @@ const Index = () => {
       </section>
 
       {/* ── SERVICES PREVIEW ── */}
-      <section className="py-24 md:py-36 px-6 border-t border-border/30">
+      <section className="py-24 md:py-36 px-6 border-t border-border/30 section-dark-accent">
         <div className="max-w-[1200px] mx-auto">
           <motion.div {...fadeIn()} className="flex items-end justify-between mb-14">
             <div>
@@ -164,7 +205,7 @@ const Index = () => {
               { num: "02", title: "Communication Design", desc: "Shape strategy into clear ideas and visual direction." },
               { num: "03", title: "Film & Production", desc: "Execute with attention to detail — from concept to delivery." },
             ].map((s, i) => (
-              <motion.div key={s.num} {...fadeIn(i * 0.08)}>
+              <motion.div key={s.num} {...fadeIn(i * 0.08)} className="border-l-2 border-primary/15 pl-6">
                 <span className="font-mono text-[11px] text-primary/30 block mb-4">{s.num}</span>
                 <h3 className="font-display text-[22px] md:text-[24px] font-medium text-foreground mb-2">{s.title}</h3>
                 <p className="font-body text-[14px] leading-[1.7] text-muted-foreground">{s.desc}</p>
@@ -176,7 +217,8 @@ const Index = () => {
 
       {/* ── CTA ── */}
       <section className="py-32 md:py-44 px-6 border-t border-border/30 text-center">
-        <motion.p {...fadeIn()} className="font-display text-[clamp(32px,6vw,72px)] font-medium italic text-foreground leading-[1.05]">
+        <div className="section-divider max-w-[120px] mx-auto mb-14" />
+        <motion.p {...fadeIn()} className="font-display text-[clamp(36px,7vw,80px)] font-medium italic text-foreground leading-[1.05]">
           Start with a conversation.
         </motion.p>
         <motion.div {...fadeIn(0.15)} className="mt-10">

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 
 const navLinks = [
@@ -13,6 +13,8 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
 
   useEffect(() => {
     setIsOpen(false);
@@ -59,6 +61,12 @@ const Navbar = () => {
           </button>
         </div>
       </div>
+
+      {/* Scroll progress bar */}
+      <motion.div
+        className="absolute bottom-0 left-0 right-0 h-px bg-primary origin-left"
+        style={{ scaleX }}
+      />
 
       {/* Mobile menu */}
       <AnimatePresence>

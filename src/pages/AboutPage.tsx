@@ -183,8 +183,8 @@ const AboutPage = () => {
         <section className="px-4 sm:px-6 md:px-12 py-20 md:py-32 border-t border-border text-center">
           <AnimatedSection>
             <h2 className="font-display text-[clamp(36px,5vw,72px)] leading-[0.92] tracking-[0.01em] text-foreground mb-6">
-              START WITH<br />
-              <span className="text-accent-gradient">A CONVERSATION.</span>
+              LET'S MAKE<br />
+              <span className="text-accent-gradient">SOMETHING TOGETHER.</span>
             </h2>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-8">
               <Link to="/contact" className="font-mono text-[11px] tracking-[0.12em] uppercase text-primary-foreground bg-primary px-8 py-3 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300">

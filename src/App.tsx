@@ -41,8 +41,7 @@ const App = () => (
             <Route path="/value" element={<Navigate to="/" replace />} />
             <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
           </Routes>
-        </BrowserRouter>
-      </LanguageProvider>
+      </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
 );

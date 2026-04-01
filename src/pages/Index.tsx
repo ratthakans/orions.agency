@@ -209,7 +209,7 @@ className="w-full h-full object-cover grayscale group-hover:grayscale-0 transiti
             <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-20">
               <div>
                 <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4">
-                  <span className="text-accent-warm mr-2">✦</span> What We Do
+                  What We Do
                 </p>
                 <h2 className="font-display text-[clamp(36px,6vw,72px)] leading-[0.9] tracking-[0.01em] text-foreground">SERVICES.</h2>
               </div>

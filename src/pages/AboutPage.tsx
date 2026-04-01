@@ -1,227 +1,117 @@
-import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import AnimatedSection from "@/components/AnimatedSection";
-import AnimatedCounter from "@/components/AnimatedCounter";
-import SEO from "@/components/SEO";
 
-import teamFounder from "@/assets/team-somchai.jpg";
-import teamCeo from "@/assets/team-tawan.jpg";
-import teamCfo from "@/assets/team-nari.jpg";
-import teamCd from "@/assets/team-krit.jpg";
-import teamAd from "@/assets/team-pim.jpg";
-import teamEditorDop from "@/assets/team-arun.jpg";
-import teamEditor from "@/assets/team-dao.jpg";
-import teamAe from "@/assets/team-fern.jpg";
-import teamPm from "@/assets/team-joy.jpg";
-import teamSenior from "@/assets/team-mai.jpg";
+const fadeIn = (delay = 0) => ({
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-60px" },
+  transition: { duration: 0.8, delay, ease: [0.25, 0.1, 0.25, 1] as const },
+});
 
-import teamDirector from "@/assets/team-director.jpg";
-import teamPr from "@/assets/team-pr.jpg";
-import teamPostSup from "@/assets/team-post-sup.jpg";
+const fade = (delay = 0) => ({
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.8, delay, ease: [0.25, 0.1, 0.25, 1] as const },
+});
 
-const cLevel = [
-  { name: "Ratthakan Suwanphakdee", role: "Founder", image: teamFounder },
-  { name: "Khanakhom Kittisakulnam", role: "CEO", image: teamCeo },
-  { name: "TBA", role: "CFO · Finance & Operations", image: teamCfo },
+const team = [
+  { name: "Ratthakan Suwanphakdee", role: "Founder & Creative Director" },
+  { name: "Khanakhom Kittisakulnam", role: "CEO" },
 ];
 
-const teamMembers = [
-  { name: "Manrut Rojrattanavichai", role: "Creative Director", image: teamCd },
-  { name: "Jaruwatr Bhokhaidhanes", role: "Art Director", image: teamAd },
-  { name: "Niti Paladkong", role: "Director", image: teamDirector },
-  { name: "Editor / DOP", role: "Cinematography & Edit", image: teamEditorDop },
-  { name: "Editor", role: "Post-production", image: teamEditor },
-  { name: "Post Supervisor", role: "Post Workflow", image: teamPostSup },
-  { name: "Public Relations", role: "Brand Communications", image: teamPr },
-  { name: "Account Executive", role: "Client Relations", image: teamAe },
-  { name: "Project Manager", role: "Project Management", image: teamPm },
-  { name: "Creative Senior", role: "Creative Strategy", image: teamSenior },
+const values = [
+  { title: "Limited projects", desc: "We take on a small number of projects each year. This is by design — not by limitation." },
+  { title: "Define before we create", desc: "Every project starts with strategy. We don't produce until the direction is clear." },
+  { title: "Work that lasts", desc: "We focus on communication that builds long-term brand value, not short-term attention." },
 ];
 
 const AboutPage = () => {
   return (
-    <main className="bg-background min-h-screen grain-overlay">
-      <SEO
-        title="About — ØRIONS Creative Agency Bangkok"
-        description="ØRIONS is a creative agency in Bangkok specializing in brand strategy, communication design, and film production. Meet our team of 13 creatives."
-        path="/about"
-      />
+    <main className="bg-background min-h-screen">
       <Navbar />
 
       {/* Hero */}
-      <section className="min-h-[60vh] flex items-end px-4 sm:px-6 md:px-12 pb-16 md:pb-24 pt-24">
-        <div className="max-w-5xl mx-auto w-full">
-          <AnimatedSection>
-            <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">
-              <span className="text-accent-warm mr-2">✦</span> About Us
-            </p>
-          </AnimatedSection>
-          <AnimatedSection delay={0.2}>
-            <h1 className="font-display text-[clamp(40px,8vw,110px)] leading-[0.9] tracking-[0.01em] text-foreground">
-              WHO WE <span className="text-accent-gradient">ARE.</span>
-            </h1>
-          </AnimatedSection>
+      <section className="min-h-[50vh] flex items-end px-6 md:px-12 pt-24 pb-16 md:pb-24">
+        <div className="max-w-[1200px] mx-auto w-full">
+          <motion.p {...fade(0.1)} className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground/50 mb-4">About</motion.p>
+          <motion.h1 {...fade(0.2)} className="font-display text-[clamp(36px,6vw,64px)] font-medium text-foreground leading-[1.05]">
+            We do less —<br />with more intention.
+          </motion.h1>
         </div>
       </section>
 
       {/* Story */}
-      <section className="px-4 sm:px-6 md:px-12 py-16 md:py-24">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
-            <AnimatedSection>
-              <div>
-                <h2 className="font-display text-[clamp(28px,4vw,48px)] leading-[0.95] tracking-[0.01em] text-foreground mb-8">
-                  WE DO LESS —<br />WITH MORE INTENTION.
-                </h2>
-                <div className="space-y-6">
-                  <p className="font-body text-[15px] leading-[1.8] text-muted-foreground">
-                    In a world of constant output, we focus on clarity, direction, and work that holds attention.
-                  </p>
-                  <p className="font-body text-[15px] leading-[1.8] text-muted-foreground">
-                    We combine strategic thinking, considered art direction, and disciplined production to create communication that is clear, precise, and built to last.
-                  </p>
-                </div>
-              </div>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.2}>
-              <div className="space-y-8">
-                <div className="border border-border p-8">
-                  <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-warm/60 mb-4">Founded</p>
-                  <p className="font-display text-[36px] leading-none text-foreground">2024</p>
-                </div>
-                <div className="border border-border p-8">
-                  <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-warm/60 mb-4">Team Size</p>
-                  <p className="font-display text-[36px] leading-none text-foreground">13</p>
-                </div>
-                <div className="border border-border p-8">
-                  <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-warm/60 mb-4">Based In</p>
-                  <p className="font-display text-[36px] leading-none text-foreground">Bangkok</p>
-                </div>
-              </div>
-            </AnimatedSection>
-          </div>
+      <section className="py-20 md:py-32 px-6 md:px-12 border-t border-border/40">
+        <div className="max-w-[680px] mx-auto space-y-8 font-body text-[16px] md:text-[17px] leading-[1.85] text-foreground/80">
+          <motion.p {...fadeIn(0.05)}>
+            In a world of constant output, we believe brands do not need more noise. They need clear direction, thoughtful communication, and work that people can actually feel.
+          </motion.p>
+          <motion.p {...fadeIn(0.1)}>
+            Our approach brings together strategic thinking, considered art direction, and disciplined production — all within a small, focused team where every decision is deliberate.
+          </motion.p>
+          <motion.p {...fadeIn(0.15)}>
+            We define what needs to be said, shape how it should be expressed, and bring it to life through film and visual production. The result is work that sits between strategy and execution — practical enough to solve communication problems, and crafted enough to create lasting brand value.
+          </motion.p>
+          <motion.p {...fadeIn(0.2)} className="italic text-foreground/60 pt-4">
+            We take on a limited number of projects each year. This is by design.
+          </motion.p>
         </div>
       </section>
 
-      {/* Values */}
-      <section className="px-4 sm:px-6 md:px-12 py-24 md:py-32 border-t border-border">
-        <div className="max-w-6xl mx-auto">
-          <AnimatedSection>
-            <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-12">
-              <span className="text-accent-warm mr-2">✦</span> Why ØRIONS
-            </p>
-          </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-            {[
-              { title: "Limited projects", desc: "We take on a limited number of projects each year to ensure focus and quality." },
-              { title: "Define before we create", desc: "Every piece of work starts with clear direction and intention." },
-              { title: "Work that lasts", desc: "We focus on communication that holds attention — not chases it." },
-            ].map((v, i) => (
-              <AnimatedSection key={v.title} delay={i * 0.1}>
-                <div className="border border-border p-8 md:p-10 h-full hover:border-accent-warm/30 transition-colors duration-300">
-                  <h3 className="font-display text-[24px] md:text-[28px] tracking-[0.02em] text-foreground mb-4">
-                    {v.title}
-                  </h3>
-                  <p className="font-body text-[14px] leading-[1.7] text-muted-foreground">
-                    {v.desc}
-                  </p>
-                </div>
-              </AnimatedSection>
+      {/* Why ØRIONS */}
+      <section className="py-20 md:py-32 px-6 md:px-12 border-t border-border/40">
+        <div className="max-w-[1200px] mx-auto">
+          <motion.p {...fadeIn()} className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground/50 mb-12">Why ØRIONS</motion.p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {values.map((v, i) => (
+              <motion.div key={v.title} {...fadeIn(i * 0.08)}>
+                <h3 className="font-display text-[22px] md:text-[24px] font-medium text-foreground mb-3">{v.title}</h3>
+                <p className="font-body text-[14px] leading-[1.75] text-muted-foreground">{v.desc}</p>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Team */}
-      <section className="px-4 sm:px-6 md:px-12 py-24 md:py-32 border-t border-border">
-        <div className="max-w-6xl mx-auto">
-          <AnimatedSection>
-            <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
-              <span className="text-accent-warm mr-2">✦</span> The Team
-            </p>
-            <h2 className="font-display text-[clamp(32px,5vw,64px)] leading-[0.9] tracking-[0.01em] text-foreground mb-16">
-              13 CREATIVES.<br /><span className="text-accent-gradient">ONE VISION.</span>
-            </h2>
-          </AnimatedSection>
-
-          {/* C-Level Row */}
-          <div className="grid grid-cols-3 gap-4 md:gap-6 max-w-3xl mx-auto mb-12">
-            {cLevel.map((member, i) => (
-              <AnimatedSection key={i} delay={i * 0.05}>
-                <div className="group">
-                  <div className="aspect-[3/4] bg-foreground/5 border border-border mb-4 overflow-hidden relative">
-                    <img src={member.image} alt={member.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" />
-                  </div>
-                  <p className="font-mono text-[11px] tracking-[0.08em] text-foreground mb-1">{member.name}</p>
-                  <p className="font-mono text-[9px] tracking-[0.1em] uppercase text-muted-foreground/50">{member.role}</p>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-
-          {/* Team Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 md:gap-6">
-            {teamMembers.map((member, i) => (
-              <AnimatedSection key={i} delay={i * 0.05}>
-                <div className="group">
-                  <div className="aspect-[3/4] bg-foreground/5 border border-border mb-4 overflow-hidden relative">
-                    <img src={member.image} alt={member.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" />
-                  </div>
-                  <p className="font-mono text-[11px] tracking-[0.08em] text-foreground mb-1">{member.name}</p>
-                  <p className="font-mono text-[9px] tracking-[0.1em] uppercase text-muted-foreground/50">{member.role}</p>
-                </div>
-              </AnimatedSection>
+      {/* Leadership */}
+      <section className="py-20 md:py-32 px-6 md:px-12 border-t border-border/40">
+        <div className="max-w-[1200px] mx-auto">
+          <motion.p {...fadeIn()} className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground/50 mb-12">Leadership</motion.p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-[600px]">
+            {team.map((t, i) => (
+              <motion.div key={t.name} {...fadeIn(i * 0.08)}>
+                <div className="aspect-[3/4] bg-foreground/5 mb-4" />
+                <h3 className="font-display text-[20px] font-medium text-foreground">{t.name}</h3>
+                <p className="font-mono text-[11px] tracking-[0.05em] text-muted-foreground mt-1">{t.role}</p>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* In-house Production */}
-      <section className="px-4 sm:px-6 md:px-12 py-16 md:py-24 border-t border-border">
-        <div className="max-w-5xl mx-auto">
-          <AnimatedSection>
-            <div className="border border-border p-8 md:p-12">
-              <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-warm/60 mb-6">
-                <span className="text-accent-warm mr-2">✦</span> In-house Production
-              </p>
-              <p className="font-body text-[15px] md:text-[16px] leading-[1.8] text-muted-foreground">
-                We work with brands focused on experience, design, and long-term brand building. Our in-house production team — Director, DOP, Editor, Post Supervisor — works together from concept to final cut. No handoff between teams. The idea you approve is the idea you get.
-              </p>
-            </div>
-          </AnimatedSection>
+      {/* Clients */}
+      <section className="py-20 md:py-32 px-6 md:px-12 border-t border-border/40">
+        <div className="max-w-[680px] mx-auto">
+          <motion.p {...fadeIn()} className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground/50 mb-10">Clients</motion.p>
+          <motion.p {...fadeIn(0.05)} className="font-body text-[16px] md:text-[17px] leading-[1.85] text-foreground/80 mb-5">
+            We work best with founder-led and culturally driven brands that value clarity, strong visual standards, and long-term brand building.
+          </motion.p>
+          <motion.p {...fadeIn(0.1)} className="font-body text-[15px] leading-[1.7] text-muted-foreground">
+            Especially suited to lifestyle, hospitality, travel, beauty, and culture-led categories.
+          </motion.p>
         </div>
       </section>
 
-      {/* Impact Numbers */}
-      <section className="px-4 sm:px-6 md:px-12 py-24 md:py-32 border-t border-border">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-3 gap-8 md:gap-16">
-            <AnimatedCounter end={50} suffix="+" label="Projects" />
-            <AnimatedCounter end={9} label="Industries" />
-            <AnimatedCounter end={13} label="Creatives" />
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-24 md:py-40 px-4 sm:px-6 md:px-12 border-t border-border">
-        <div className="max-w-4xl mx-auto text-center">
-          <AnimatedSection>
-            <h2 className="font-display text-[clamp(32px,5vw,72px)] leading-[0.92] tracking-[0.01em] text-foreground mb-6">
-              WANT TO WORK<br />WITH US?
-            </h2>
-            <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-xl mx-auto mb-10">
-              Let's create something meaningful.
-            </p>
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-primary-foreground bg-primary px-10 py-3.5 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300"
-            >
-              Let's Talk <span>→</span>
-            </Link>
-          </AnimatedSection>
+      {/* Philosophy */}
+      <section className="py-24 md:py-36 px-6 md:px-12 border-t border-border/40">
+        <div className="max-w-[680px] mx-auto space-y-6">
+          <motion.p {...fadeIn()} className="font-display text-[clamp(28px,5vw,52px)] font-normal italic text-foreground/80 leading-[1.1]">
+            Clarity over noise.
+          </motion.p>
+          <motion.p {...fadeIn(0.08)} className="font-display text-[clamp(28px,5vw,52px)] font-normal italic text-foreground/60 leading-[1.1]">
+            Fewer, better pieces.
+          </motion.p>
         </div>
       </section>
 

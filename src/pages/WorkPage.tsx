@@ -1,130 +1,93 @@
-import { useState, useMemo, useEffect } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import AnimatedSection from "@/components/AnimatedSection";
-import SEO from "@/components/SEO";
-import { useLanguage } from "@/contexts/LanguageContext";
-import { works, serviceFilters } from "@/data/works";
+
+const fadeIn = (delay = 0) => ({
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-60px" },
+  transition: { duration: 0.8, delay, ease: [0.25, 0.1, 0.25, 1] as const },
+});
+
+const fade = (delay = 0) => ({
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.8, delay, ease: [0.25, 0.1, 0.25, 1] as const },
+});
+
+const works = [
+  {
+    title: "No Signal",
+    desc: "A survival documentary exploring isolation, endurance, and instinct.",
+    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    label: "Original",
+  },
+  {
+    title: "37 Below",
+    desc: "An extreme travel documentary on harsh environments and physical limits.",
+    image: "https://images.unsplash.com/photo-1477346611705-65d1883cee1e?w=800&q=80",
+    label: "Original",
+  },
+  {
+    title: "Alan Makeup",
+    desc: "A documentary series on identity and personal transformation through makeup.",
+    image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&q=80",
+    label: "Original",
+  },
+  {
+    title: "ลงอาคม",
+    desc: "A documentary exploring belief, ritual, and the unseen forces people live with.",
+    image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&q=80",
+    label: "Original",
+  },
+];
 
 const WorkPage = () => {
-  const [activeFilter, setActiveFilter] = useState("All");
-  const { lang, t } = useLanguage();
-  const [searchParams] = useSearchParams();
-
-  useEffect(() => {
-    const serviceParam = searchParams.get("service");
-    if (serviceParam && serviceFilters.includes(serviceParam)) {
-      setActiveFilter(serviceParam);
-    }
-  }, [searchParams]);
-
-  const filteredWorks = useMemo(() => {
-    if (activeFilter === "All") return works;
-    return works.filter((w) => w.service === activeFilter);
-  }, [activeFilter]);
-
   return (
-    <main className="bg-background min-h-screen grain-overlay">
-      <SEO
-        title="Portfolio & Case Studies | ØRIONS Bangkok"
-        description="Browse selected ØRIONS work across creative transformation, communication, film production, and retainer projects."
-        path="/work"
-        keywords="creative agency portfolio Bangkok, campaign film portfolio, creative transformation"
-      />
+    <main className="bg-background min-h-screen">
       <Navbar />
-      <div className="pt-20">
-        <section className="pt-16 md:pt-24 pb-8 md:pb-12 px-4 sm:px-6 md:px-12">
-          <div className="max-w-7xl mx-auto">
-            <AnimatedSection>
-              <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
-                <span className="text-accent-warm mr-2">◎</span> Portfolio
-              </p>
-              <h1 className="font-display text-[clamp(44px,6vw,96px)] leading-[0.9] tracking-[0.01em] text-foreground mb-6 max-w-5xl">
-                CREATIVE WORK
-                <br />THAT <span className="text-accent-gradient">PERFORMS.</span>
-              </h1>
-              <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-2xl">
-                {t("Quality over quantity. Every project here represents a brand we helped think, shape, and produce.", "คุณภาพเหนือปริมาณ ทุกโปรเจกต์ที่นี่คือแบรนด์ที่เราช่วยคิด สร้าง และผลิต")}
-              </p>
-            </AnimatedSection>
+
+      {/* Hero */}
+      <section className="min-h-[50vh] flex items-end px-6 md:px-12 pt-24 pb-16 md:pb-24">
+        <div className="max-w-[1200px] mx-auto w-full">
+          <motion.p {...fade(0.1)} className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground/50 mb-4">Selected Work</motion.p>
+          <motion.h1 {...fade(0.2)} className="font-display text-[clamp(36px,6vw,64px)] font-medium text-foreground leading-[1.05]">
+            Work
+          </motion.h1>
+          <motion.p {...fade(0.3)} className="font-body text-[15px] text-muted-foreground mt-4 max-w-[420px]">
+            Selected projects and original productions.
+          </motion.p>
+        </div>
+      </section>
+
+      {/* Grid */}
+      <section className="py-12 md:py-20 px-6 md:px-12 border-t border-border/40">
+        <div className="max-w-[1200px] mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {works.map((w, i) => (
+              <motion.div key={w.title} {...fadeIn(i * 0.08)} className="group cursor-pointer">
+                <div className="aspect-[16/9] overflow-hidden relative bg-foreground/5">
+                  <img
+                    src={w.image}
+                    alt={w.title}
+                    className="w-full h-full object-cover brightness-[0.55] group-hover:brightness-[0.65] group-hover:scale-[1.02] transition-all duration-700"
+                    loading="lazy"
+                  />
+                  <div className="absolute bottom-0 left-0 p-5 md:p-6">
+                    <span className="font-mono text-[9px] tracking-[0.15em] uppercase text-white/40 block mb-2">{w.label}</span>
+                    <h3 className="font-display text-[24px] md:text-[30px] font-medium text-white leading-tight">{w.title}</h3>
+                  </div>
+                </div>
+                <p className="font-body text-[13px] text-muted-foreground mt-3 leading-[1.6]">{w.desc}</p>
+              </motion.div>
+            ))}
           </div>
-        </section>
 
-        <section className="px-4 sm:px-6 md:px-12 py-8 md:py-12 pb-20">
-          <div className="max-w-7xl mx-auto">
-            <AnimatedSection delay={0.04}>
-              <div className="flex items-center gap-3 md:gap-6 mb-12 md:mb-16 flex-wrap">
-                {serviceFilters.map((cat) => (
-                  <button
-                    key={cat}
-                    onClick={() => setActiveFilter(cat)}
-                    className={`font-mono text-[11px] tracking-[0.15em] uppercase transition-all duration-300 pb-0.5 ${
-                      activeFilter === cat ? "text-accent-warm border-b border-accent-warm" : "text-muted-foreground hover:text-foreground"
-                    }`}
-                  >
-                    {cat}
-                  </button>
-                ))}
-              </div>
-            </AnimatedSection>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {filteredWorks.map((w, i) => (
-                <AnimatedSection key={w.slug} delay={i * 0.03}>
-                  <Link to={`/work/${w.slug}`} className="group block">
-                    <div className="overflow-hidden mb-5 relative">
-                      <img src={w.image} alt={w.title} className="w-full aspect-[4/3] object-cover grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" />
-                      <div className="absolute inset-0 bg-accent-warm/0 group-hover:bg-accent-warm/5 transition-all duration-500" />
-                      <div className="absolute top-3 left-3 w-4 h-4 border-t border-l border-accent-warm/0 group-hover:border-accent-warm/50 transition-all duration-500" />
-                      <div className="absolute top-3 right-3 w-4 h-4 border-t border-r border-accent-warm/0 group-hover:border-accent-warm/50 transition-all duration-500" />
-                      <div className="absolute bottom-3 left-3 w-4 h-4 border-b border-l border-accent-warm/0 group-hover:border-accent-warm/50 transition-all duration-500" />
-                      <div className="absolute bottom-3 right-3 w-4 h-4 border-b border-r border-accent-warm/0 group-hover:border-accent-warm/50 transition-all duration-500" />
-                    </div>
-                    <div className="flex items-center gap-3 mb-1.5">
-                      <span className="font-mono text-[11px] tracking-[0.15em] uppercase text-accent-warm/60">{w.service}</span>
-                      <span className="text-muted-foreground/30 text-[8px]">●</span>
-                      <span className="font-mono text-[10px] tracking-[0.1em] uppercase text-muted-foreground/50">{w.type}</span>
-                    </div>
-                    <h2 className="font-body text-[16px] text-foreground/80 group-hover:text-accent-warm transition-colors duration-300 mb-1">{w.title}</h2>
-                    <p className="font-body text-[14px] leading-[1.6] text-muted-foreground line-clamp-2">{w.brief[lang]}</p>
-                  </Link>
-                </AnimatedSection>
-              ))}
-            </div>
-
-            {filteredWorks.length === 0 && (
-              <div className="text-center py-20">
-                <p className="font-mono text-[12px] tracking-[0.1em] uppercase text-muted-foreground/50">
-                  {t("No projects in this category yet.", "ยังไม่มีผลงานในหมวดนี้")}
-                </p>
-              </div>
-            )}
-          </div>
-        </section>
-
-        <section className="px-4 sm:px-6 md:px-12 py-20 md:py-32 pb-32 md:pb-48">
-          <div className="max-w-7xl mx-auto text-center">
-            <AnimatedSection>
-              <h2 className="font-display text-[clamp(36px,5vw,72px)] leading-[0.92] tracking-[0.01em] text-foreground mb-6">
-                WANT WORK LIKE THIS
-                <br />FOR YOUR BRAND?
-              </h2>
-              <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-xl mx-auto mb-10">
-                {t("Tell us what you're launching, changing, or trying to grow.", "บอกเราว่าคุณกำลังเปิดตัว เปลี่ยนแปลง หรืออยากขยายอะไร")}
-              </p>
-              <div className="flex flex-wrap items-center justify-center gap-8">
-                <Link to="/services" className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-background bg-foreground px-8 py-3 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300">
-                  Explore Services <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
-                </Link>
-                <Link to="/contact" className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300">
-                  Start a Project Brief <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
-                </Link>
-              </div>
-            </AnimatedSection>
-          </div>
-        </section>
-      </div>
+          <motion.p {...fadeIn(0.1)} className="text-center font-body text-[13px] text-muted-foreground/50 mt-16">
+            Additional client work available on request.
+          </motion.p>
+        </div>
+      </section>
 
       <Footer />
     </main>

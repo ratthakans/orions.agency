@@ -44,33 +44,33 @@ const works = [
 
 const WorkPage = () => {
   return (
-    <main className="bg-background min-h-screen">
+    <main className="section-dark min-h-screen relative grain-overlay">
       <Navbar />
 
       {/* Hero */}
-      <section className="min-h-[50vh] flex items-end px-6 md:px-12 pt-24 pb-16 md:pb-24">
+      <section className="min-h-[50vh] flex items-end px-6 md:px-12 pt-24 pb-16 md:pb-24 relative z-10">
         <div className="max-w-[1200px] mx-auto w-full">
-          <motion.p {...fade(0.1)} className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground/50 mb-4">Selected Work</motion.p>
-          <motion.h1 {...fade(0.2)} className="font-display text-[clamp(36px,6vw,64px)] font-medium text-foreground leading-[1.05]">
+          <motion.p {...fade(0.1)} className="font-mono text-[10px] tracking-[0.15em] uppercase text-dark-muted mb-4">Selected Work</motion.p>
+          <motion.h1 {...fade(0.2)} className="font-display text-[clamp(36px,6vw,64px)] font-medium text-dark-foreground leading-[1.05]">
             Work
           </motion.h1>
-          <motion.p {...fade(0.3)} className="font-body text-[15px] text-muted-foreground mt-4 max-w-[420px]">
+          <motion.p {...fade(0.3)} className="font-body text-[15px] text-dark-muted mt-4 max-w-[420px]">
             Selected projects and original productions.
           </motion.p>
         </div>
       </section>
 
       {/* Grid */}
-      <section className="py-12 md:py-20 px-6 md:px-12 border-t border-border/40">
+      <section className="py-12 md:py-20 px-6 md:px-12 border-t border-dark-border relative z-10">
         <div className="max-w-[1200px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {works.map((w, i) => (
               <motion.div key={w.title} {...fadeIn(i * 0.08)} className="group cursor-pointer">
-                <div className="aspect-[16/9] overflow-hidden relative bg-foreground/5">
+                <div className="aspect-[3/4] overflow-hidden relative">
                   <img
                     src={w.image}
                     alt={w.title}
-                    className="w-full h-full object-cover brightness-[0.55] group-hover:brightness-[0.65] group-hover:scale-[1.02] transition-all duration-700"
+                    className="w-full h-full object-cover brightness-[0.5] group-hover:brightness-[0.6] group-hover:scale-[1.02] transition-all duration-700"
                     loading="lazy"
                   />
                   <div className="absolute bottom-0 left-0 p-5 md:p-6">
@@ -78,12 +78,12 @@ const WorkPage = () => {
                     <h3 className="font-display text-[24px] md:text-[30px] font-medium text-white leading-tight">{w.title}</h3>
                   </div>
                 </div>
-                <p className="font-body text-[13px] text-muted-foreground mt-3 leading-[1.6]">{w.desc}</p>
+                <p className="font-body text-[13px] text-dark-muted mt-3 leading-[1.6]">{w.desc}</p>
               </motion.div>
             ))}
           </div>
 
-          <motion.p {...fadeIn(0.1)} className="text-center font-body text-[13px] text-muted-foreground/50 mt-16">
+          <motion.p {...fadeIn(0.1)} className="text-center font-body text-[13px] text-dark-muted/50 mt-16">
             Additional client work available on request.
           </motion.p>
         </div>

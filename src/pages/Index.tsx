@@ -45,27 +45,55 @@ const Index = () => {
       <Navbar />
 
       {/* ── HERO ── */}
-      <section className="min-h-screen flex flex-col items-center justify-center px-6 text-center">
-        <motion.h1
-          {...fade(0.15)}
-          className="font-display text-[clamp(52px,11vw,130px)] font-semibold tracking-[0.12em] uppercase leading-[0.9] text-foreground"
+      <section className="min-h-screen flex flex-col items-center justify-center px-6 text-center relative grain-overlay overflow-hidden">
+        {/* Signature line animation */}
+        <motion.svg
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] opacity-[0.06] pointer-events-none"
+          viewBox="0 0 200 200"
+          fill="none"
         >
-          ØRIONS
-        </motion.h1>
-        <motion.div {...fade(0.35)} className="mt-8 space-y-1">
-          <p className="font-display text-[clamp(24px,4.5vw,44px)] font-normal italic text-foreground/75 leading-[1.15]">
-            Fewer pieces.
-          </p>
-          <p className="font-display text-[clamp(24px,4.5vw,44px)] font-normal italic text-foreground/75 leading-[1.15]">
-            Stronger impact.
-          </p>
-        </motion.div>
-        <motion.p
-          {...fade(0.55)}
-          className="mt-10 font-body text-[15px] md:text-[16px] leading-[1.75] text-muted-foreground max-w-[500px]"
-        >
-          A creative agency focused on clear communication, strong art direction, and high-quality film production.
-        </motion.p>
+          <motion.circle
+            cx="100" cy="100" r="80"
+            stroke="hsl(var(--accent))"
+            strokeWidth="0.5"
+            strokeDasharray="502"
+            strokeDashoffset="502"
+            animate={{ strokeDashoffset: 0 }}
+            transition={{ duration: 3, delay: 0.8, ease: "easeOut" }}
+          />
+          <motion.line
+            x1="20" y1="100" x2="180" y2="100"
+            stroke="hsl(var(--foreground))"
+            strokeWidth="0.3"
+            strokeDasharray="160"
+            strokeDashoffset="160"
+            animate={{ strokeDashoffset: 0 }}
+            transition={{ duration: 2, delay: 1.5, ease: "easeOut" }}
+          />
+        </motion.svg>
+
+        <div className="relative z-10">
+          <motion.h1
+            {...fade(0.15)}
+            className="font-display text-[clamp(52px,11vw,130px)] font-semibold tracking-[0.12em] uppercase leading-[0.9] text-foreground"
+          >
+            ØRIONS
+          </motion.h1>
+          <motion.div {...fade(0.35)} className="mt-8 space-y-1">
+            <p className="font-display text-[clamp(24px,4.5vw,44px)] font-normal italic text-foreground/75 leading-[1.15]">
+              Fewer pieces.
+            </p>
+            <p className="font-display text-[clamp(24px,4.5vw,44px)] font-normal italic text-foreground/75 leading-[1.15]">
+              Stronger impact.
+            </p>
+          </motion.div>
+          <motion.p
+            {...fade(0.55)}
+            className="mt-10 font-body text-[15px] md:text-[16px] leading-[1.75] text-muted-foreground max-w-[500px] mx-auto"
+          >
+            A creative agency focused on clear communication, strong art direction, and high-quality film production.
+          </motion.p>
+        </div>
       </section>
 
       {/* ── ABOUT TEASER ── */}
@@ -79,23 +107,23 @@ const Index = () => {
               to="/about"
               className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.08em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-300"
             >
-              About us <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+              About us <span>→</span>
             </Link>
           </motion.div>
         </div>
       </section>
 
-      {/* ── WORK PREVIEW ── */}
-      <section className="py-24 md:py-36 px-6 border-t border-border/40">
-        <div className="max-w-[1200px] mx-auto">
+      {/* ── WORK PREVIEW (DARK BLOCK) ── */}
+      <section className="section-dark py-24 md:py-36 px-6 relative grain-overlay">
+        <div className="max-w-[1200px] mx-auto relative z-10">
           <motion.div {...fadeIn()} className="flex items-end justify-between mb-14">
             <div>
-              <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground/50 mb-3">Selected Work</p>
-              <h2 className="font-display text-[clamp(32px,5vw,56px)] font-medium text-foreground leading-[1]">Work</h2>
+              <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-dark-muted mb-3">Selected Work</p>
+              <h2 className="font-display text-[clamp(32px,5vw,56px)] font-medium text-dark-foreground leading-[1]">Work</h2>
             </div>
             <Link
               to="/work"
-              className="font-mono text-[11px] tracking-[0.08em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-300"
+              className="font-mono text-[11px] tracking-[0.08em] uppercase text-dark-muted hover:text-dark-foreground transition-colors duration-300"
             >
               View all →
             </Link>
@@ -104,11 +132,11 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {works.slice(0, 2).map((w, i) => (
               <motion.div key={w.title} {...fadeIn(i * 0.08)} className="group cursor-pointer">
-                <div className="aspect-[16/9] overflow-hidden relative bg-foreground/5">
+                <div className="aspect-[3/4] overflow-hidden relative">
                   <img
                     src={w.image}
                     alt={w.title}
-                    className="w-full h-full object-cover brightness-[0.55] group-hover:brightness-[0.65] group-hover:scale-[1.02] transition-all duration-700"
+                    className="w-full h-full object-cover brightness-[0.5] group-hover:brightness-[0.6] group-hover:scale-[1.02] transition-all duration-700"
                     loading="lazy"
                   />
                   <div className="absolute bottom-0 left-0 p-5 md:p-6">
@@ -116,7 +144,7 @@ const Index = () => {
                     <h3 className="font-display text-[24px] md:text-[28px] font-medium text-white leading-tight">{w.title}</h3>
                   </div>
                 </div>
-                <p className="font-body text-[13px] text-muted-foreground mt-3">{w.desc}</p>
+                <p className="font-body text-[13px] text-dark-muted mt-3">{w.desc}</p>
               </motion.div>
             ))}
           </div>

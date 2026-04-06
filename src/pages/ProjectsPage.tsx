@@ -69,59 +69,55 @@ const ProjectsPage = () => {
 
         {/* Projects — Alternating Layout */}
         <section className="px-4 sm:px-6 md:px-12 py-8 md:py-12 pb-20">
-          <div className="max-w-7xl mx-auto space-y-12 md:space-y-16">
-            {filtered.map((project, i) => (
-              <AnimatedSection key={project.slug} delay={i * 0.05}>
-                <Link
-                  to={`/projects/${project.slug}`}
-                  className={`group grid grid-cols-1 md:grid-cols-2 gap-0 border border-border hover:border-accent-warm/30 transition-colors duration-500 ${
-                    i % 2 === 1 ? "md:direction-rtl" : ""
-                  }`}
-                >
-                  {/* Image */}
-                  <div className={`aspect-[16/10] md:aspect-auto overflow-hidden relative bg-muted/5 ${i % 2 === 1 ? "md:order-2" : ""}`}>
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-[1.02] group-hover:scale-100"
-                      loading="lazy"
-                      width={1280}
-                      height={800}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-transparent md:bg-none" />
-                    <div className="absolute top-4 left-4 flex items-center gap-2">
-                      <span className="font-mono text-[9px] tracking-[0.15em] uppercase text-accent-warm/80 bg-background/60 px-3 py-1 backdrop-blur-sm">
-                        {project.type}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className={`p-8 md:p-12 flex flex-col justify-center ${i % 2 === 1 ? "md:order-1" : ""}`}>
-                    <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground/40 mb-4">{project.year}</p>
-                    <h2 className="font-display text-[28px] md:text-[36px] tracking-[0.02em] text-foreground mb-3 group-hover:text-accent-warm transition-colors duration-300">
-                      {project.title}
-                    </h2>
-                    <p className="font-body text-[14px] leading-[1.7] text-muted-foreground mb-6">
-                      {project.tagline}
-                    </p>
-                    <div className="flex flex-wrap gap-2 mb-8">
-                      {project.services.map((service) => (
-                        <span
-                          key={service}
-                          className="font-mono text-[9px] tracking-[0.1em] uppercase text-muted-foreground/30 border border-border/50 px-2 py-1"
-                        >
-                          {service}
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+              {filtered.map((project, i) => (
+                <AnimatedSection key={project.slug} delay={i * 0.06}>
+                  <Link
+                    to={`/projects/${project.slug}`}
+                    className="group block border border-border hover:border-accent-warm/30 transition-colors duration-500 h-full"
+                  >
+                    <div className="aspect-[4/3] overflow-hidden relative bg-muted/5">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-[1.02] group-hover:scale-100"
+                        loading="lazy"
+                        width={1280}
+                        height={800}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+                      <div className="absolute top-4 left-4 flex items-center gap-2">
+                        <span className="font-mono text-[9px] tracking-[0.15em] uppercase text-accent-warm/80 bg-background/60 px-3 py-1 backdrop-blur-sm">
+                          {project.type}
                         </span>
-                      ))}
+                        <span className="font-mono text-[9px] tracking-[0.15em] uppercase text-muted-foreground/50 bg-background/60 px-3 py-1 backdrop-blur-sm">
+                          {project.year}
+                        </span>
+                      </div>
                     </div>
-                    <span className="font-mono text-[10px] tracking-[0.12em] uppercase text-muted-foreground/30 group-hover:text-accent-warm/60 transition-colors duration-300 inline-flex items-center gap-2">
-                      View project <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
-                    </span>
-                  </div>
-                </Link>
-              </AnimatedSection>
-            ))}
+                    <div className="p-5 md:p-6">
+                      <h2 className="font-display text-[20px] md:text-[24px] tracking-[0.02em] text-foreground mb-2 group-hover:text-accent-warm transition-colors duration-300">
+                        {project.title}
+                      </h2>
+                      <p className="font-body text-[13px] leading-[1.6] text-muted-foreground/50 mb-4 line-clamp-2">
+                        {project.tagline}
+                      </p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {project.services.slice(0, 2).map((service) => (
+                          <span
+                            key={service}
+                            className="font-mono text-[8px] tracking-[0.1em] uppercase text-muted-foreground/30 border border-border/50 px-2 py-0.5"
+                          >
+                            {service}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </Link>
+                </AnimatedSection>
+              ))}
+            </div>
           </div>
         </section>
 

@@ -53,7 +53,7 @@ const Index = () => {
             title="Background video"
             style={{ border: 0 }}
           />
-          <div className="absolute inset-0 bg-background/70" />
+          <div className="absolute inset-0 bg-background/85" />
         </div>
 
         <motion.div style={{ opacity: heroOpacity, y: heroY }} className="text-center max-w-4xl mx-auto relative z-10 px-4 sm:px-6 md:px-12">
@@ -114,20 +114,20 @@ const Index = () => {
         <div className="max-w-4xl mx-auto">
           <AnimatedSection>
             <h2 className="font-display text-[clamp(32px,5vw,64px)] leading-[1.1] tracking-[0.01em] text-foreground mb-6">
-              Most brands are not unclear.
+              We do fewer things.
               <br />
-              They are just hard to remember.
+              We do them with more intention.
             </h2>
           </AnimatedSection>
           <AnimatedSection delay={0.1}>
             <p className="font-display text-[clamp(32px,5vw,64px)] leading-[1.1] tracking-[0.01em] text-accent-gradient">
-              We fix that.
+              That's how work gets remembered.
             </p>
           </AnimatedSection>
           <AnimatedSection delay={0.2}>
             <Link
               to="/about"
-              className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300 mt-12 block"
+              className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300 mt-12"
             >
               Learn more about us <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
             </Link>
@@ -177,7 +177,7 @@ const Index = () => {
           </AnimatedSection>
 
           {/* Grid of remaining */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-2 gap-4 md:gap-6">
             {featuredWorks.slice(1).map((project, i) => (
               <AnimatedSection key={project.title} delay={i * 0.08}>
                 <Link to={`/work/${project.slug}`} className="group block border border-border hover:border-accent-warm/30 transition-colors duration-300">
@@ -209,7 +209,7 @@ const Index = () => {
       <section className="py-24 md:py-40 px-4 sm:px-6 md:px-12 border-t border-border">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-20">
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16">
               <div>
                 <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4">
                   What We Do
@@ -276,23 +276,6 @@ const Index = () => {
             ))}
           </div>
 
-          {/* Retainer callout */}
-          <AnimatedSection delay={0.3}>
-            <Link to="/services" className="group block mt-6">
-              <div className="border border-accent-warm/20 bg-accent-warm/[0.03] p-8 md:p-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6 hover:border-accent-warm/40 transition-all duration-300">
-                <div>
-                  <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm/50 mb-2">Ongoing Partnership</p>
-                  <h3 className="font-display text-[26px] md:text-[32px] tracking-[0.02em] text-accent-warm">RETAINER</h3>
-                  <p className="font-body text-[14px] leading-[1.7] text-muted-foreground mt-2 max-w-xl">
-                    Monthly creative support, campaign planning, and production oversight for brands that need a trusted long-term partner.
-                  </p>
-                </div>
-                <span className="font-mono text-[10px] tracking-[0.12em] uppercase text-accent-warm/40 group-hover:text-accent-warm transition-colors duration-300 inline-flex items-center gap-2 shrink-0">
-                  Details <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
-                </span>
-              </div>
-            </Link>
-          </AnimatedSection>
         </div>
       </section>
 
@@ -344,7 +327,7 @@ const Index = () => {
                   <ul className="space-y-2 mb-8 flex-1">
                     {pkg.items.map((item) => (
                       <li key={item} className="font-mono text-[11px] tracking-[0.05em] text-muted-foreground/60 flex items-center gap-2">
-                        <span className="w-1 h-1 bg-accent-warm/40 rounded-full flex-shrink-0" />
+                        <span className="w-1 h-1 bg-accent-warm/40 flex-shrink-0" />
                         {item}
                       </li>
                     ))}

@@ -7,6 +7,7 @@ import AnimatedSection from "@/components/AnimatedSection";
 import SEO from "@/components/SEO";
 
 import { projects } from "@/data/projects";
+import { clientProjects } from "@/data/clientProjects";
 
 const homeSchema = [
   {
@@ -135,19 +136,19 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ═══ WORK PREVIEW ═══ */}
+      {/* ═══ PROJECTS PREVIEW (Client Work) ═══ */}
       <section className="py-24 md:py-40 px-4 sm:px-6 md:px-12 border-t border-border">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
             <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16">
               <div>
                 <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4">
-                  Selected Work
+                  Selected Projects
                 </p>
-                <h2 className="font-display text-[clamp(36px,6vw,72px)] leading-[0.9] tracking-[0.01em] text-foreground">WORK.</h2>
+                <h2 className="font-display text-[clamp(36px,6vw,72px)] leading-[0.9] tracking-[0.01em] text-foreground">PROJECTS.</h2>
               </div>
               <Link
-                to="/work"
+                to="/projects"
                 className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300 mt-4 md:mt-0"
               >
                 View all <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
@@ -155,13 +156,13 @@ const Index = () => {
             </div>
           </AnimatedSection>
 
-          {/* Featured project — cinematic wide */}
+          {/* Featured client project — cinematic wide */}
           <AnimatedSection>
-            <Link to={`/work/${featuredWorks[0].slug}`} className="group block mb-6">
+            <Link to={`/projects/${clientProjects[0].slug}`} className="group block mb-6">
               <div className="aspect-[16/7] overflow-hidden relative border border-border hover:border-accent-warm/30 transition-colors duration-500">
                 <img
-                  src={featuredWorks[0].image}
-                  alt={featuredWorks[0].title}
+                  src={clientProjects[0].image}
+                  alt={clientProjects[0].title}
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-[1.02] group-hover:scale-100"
                   loading="lazy"
                   width={1280}
@@ -170,8 +171,13 @@ const Index = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent opacity-90" />
                 <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10 flex items-end justify-between">
                   <div>
-                    <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm mb-2">{featuredWorks[0].type}</p>
-                    <h3 className="font-display text-[28px] md:text-[44px] tracking-[0.02em] text-foreground">{featuredWorks[0].title}</h3>
+                    <div className="flex items-center gap-3 mb-2">
+                      <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm">{clientProjects[0].type}</p>
+                      <span className="w-px h-3 bg-accent-warm/30" />
+                      <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground/50">{clientProjects[0].year}</p>
+                    </div>
+                    <h3 className="font-display text-[28px] md:text-[44px] tracking-[0.02em] text-foreground">{clientProjects[0].title}</h3>
+                    <p className="font-body text-[13px] leading-[1.6] text-muted-foreground/60 mt-2 max-w-md hidden md:block">{clientProjects[0].tagline}</p>
                   </div>
                   <span className="font-mono text-[10px] tracking-[0.12em] uppercase text-muted-foreground/40 group-hover:text-accent-warm/60 transition-colors duration-300 hidden md:inline-flex items-center gap-2 mb-2">
                     View project <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
@@ -181,70 +187,37 @@ const Index = () => {
             </Link>
           </AnimatedSection>
 
-          {/* Asymmetric 2-up layout for remaining projects */}
-          {featuredWorks.slice(1).length > 0 && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Left column — stacked */}
-              <div className="space-y-6">
-                {featuredWorks.slice(1, 3).map((project, i) => (
-                  <AnimatedSection key={project.title} delay={i * 0.1}>
-                    <Link to={`/work/${project.slug}`} className="group block border border-border hover:border-accent-warm/30 transition-colors duration-500">
-                      <div className="aspect-[16/10] overflow-hidden relative">
-                        <img
-                          src={project.image}
-                          alt={project.title}
-                          className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-[1.02] group-hover:scale-100"
-                          loading="lazy"
-                          width={1280}
-                          height={800}
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
-                      </div>
-                      <div className="p-5 md:p-6 flex items-start justify-between">
-                        <div>
-                          <p className="font-mono text-[9px] tracking-[0.15em] uppercase text-accent-warm/50 mb-1">{project.type}</p>
-                          <h3 className="font-display text-[20px] md:text-[24px] tracking-[0.02em] text-foreground group-hover:text-accent-warm transition-colors duration-300">
-                            {project.title}
-                          </h3>
-                        </div>
-                        <span className="font-mono text-[9px] tracking-[0.12em] uppercase text-muted-foreground/30 group-hover:text-accent-warm/50 transition-colors duration-300 mt-1">→</span>
-                      </div>
-                    </Link>
-                  </AnimatedSection>
-                ))}
-              </div>
-
-              {/* Right column — stacked */}
-              <div className="space-y-6">
-                {featuredWorks.slice(3).map((project, i) => (
-                  <AnimatedSection key={project.title} delay={(i + 2) * 0.1}>
-                    <Link to={`/work/${project.slug}`} className="group block border border-border hover:border-accent-warm/30 transition-colors duration-500">
-                      <div className="aspect-[16/10] overflow-hidden relative">
-                        <img
-                          src={project.image}
-                          alt={project.title}
-                          className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-[1.02] group-hover:scale-100"
-                          loading="lazy"
-                          width={1280}
-                          height={800}
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
-                      </div>
-                      <div className="p-5 md:p-6 flex items-start justify-between">
-                        <div>
-                          <p className="font-mono text-[9px] tracking-[0.15em] uppercase text-accent-warm/50 mb-1">{project.type}</p>
-                          <h3 className="font-display text-[20px] md:text-[24px] tracking-[0.02em] text-foreground group-hover:text-accent-warm transition-colors duration-300">
-                            {project.title}
-                          </h3>
-                        </div>
-                        <span className="font-mono text-[9px] tracking-[0.12em] uppercase text-muted-foreground/30 group-hover:text-accent-warm/50 transition-colors duration-300 mt-1">→</span>
-                      </div>
-                    </Link>
-                  </AnimatedSection>
-                ))}
-              </div>
-            </div>
-          )}
+          {/* 3-column grid for remaining */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {clientProjects.slice(1, 4).map((project, i) => (
+              <AnimatedSection key={project.slug} delay={i * 0.1}>
+                <Link to={`/projects/${project.slug}`} className="group block border border-border hover:border-accent-warm/30 transition-colors duration-500 h-full">
+                  <div className="aspect-[4/3] overflow-hidden relative bg-muted/5">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-[1.02] group-hover:scale-100"
+                      loading="lazy"
+                      width={1280}
+                      height={800}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+                    <div className="absolute top-4 left-4">
+                      <span className="font-mono text-[9px] tracking-[0.15em] uppercase text-accent-warm/80 bg-background/60 px-3 py-1 backdrop-blur-sm">
+                        {project.type}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="p-5 md:p-6">
+                    <h3 className="font-display text-[20px] md:text-[22px] tracking-[0.02em] text-foreground group-hover:text-accent-warm transition-colors duration-300 mb-2">
+                      {project.title}
+                    </h3>
+                    <p className="font-body text-[12px] leading-[1.6] text-muted-foreground/50 line-clamp-2">{project.tagline}</p>
+                  </div>
+                </Link>
+              </AnimatedSection>
+            ))}
+          </div>
         </div>
       </section>
 

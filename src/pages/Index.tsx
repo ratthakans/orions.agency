@@ -155,53 +155,96 @@ const Index = () => {
             </div>
           </AnimatedSection>
 
-          {/* Featured project large */}
+          {/* Featured project — cinematic wide */}
           <AnimatedSection>
-            <Link to={`/work/${featuredWorks[0].slug}`} className="group block mb-8">
-              <div className="aspect-[21/9] overflow-hidden relative border border-border hover:border-accent-warm/30 transition-colors duration-300">
+            <Link to={`/work/${featuredWorks[0].slug}`} className="group block mb-6">
+              <div className="aspect-[16/7] overflow-hidden relative border border-border hover:border-accent-warm/30 transition-colors duration-500">
                 <img
                   src={featuredWorks[0].image}
                   alt={featuredWorks[0].title}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-[1.02] group-hover:scale-100"
                   loading="lazy"
                   width={1280}
                   height={800}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
-                <div className="absolute bottom-0 left-0 p-6 md:p-10">
-                  <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm mb-2">{featuredWorks[0].type}</p>
-                  <h3 className="font-display text-[32px] md:text-[48px] tracking-[0.02em] text-foreground">{featuredWorks[0].title}</h3>
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent opacity-90" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10 flex items-end justify-between">
+                  <div>
+                    <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm mb-2">{featuredWorks[0].type}</p>
+                    <h3 className="font-display text-[28px] md:text-[44px] tracking-[0.02em] text-foreground">{featuredWorks[0].title}</h3>
+                  </div>
+                  <span className="font-mono text-[10px] tracking-[0.12em] uppercase text-muted-foreground/40 group-hover:text-accent-warm/60 transition-colors duration-300 hidden md:inline-flex items-center gap-2 mb-2">
+                    View project <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                  </span>
                 </div>
               </div>
             </Link>
           </AnimatedSection>
 
-          {/* Grid of remaining */}
-          <div className="grid grid-cols-2 md:grid-cols-2 gap-4 md:gap-6">
-            {featuredWorks.slice(1).map((project, i) => (
-              <AnimatedSection key={project.title} delay={i * 0.08}>
-                <Link to={`/work/${project.slug}`} className="group block border border-border hover:border-accent-warm/30 transition-colors duration-300">
-                  <div className="aspect-[4/3] overflow-hidden relative">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                      loading="lazy"
-                      width={1280}
-                      height={800}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/70 to-transparent" />
-                  </div>
-                  <div className="p-4">
-                    <p className="font-mono text-[9px] tracking-[0.15em] uppercase text-accent-warm/60 mb-1">{project.type}</p>
-                    <h3 className="font-display text-[18px] md:text-[22px] tracking-[0.02em] text-foreground group-hover:text-accent-warm transition-colors duration-300">
-                      {project.title}
-                    </h3>
-                  </div>
-                </Link>
-              </AnimatedSection>
-            ))}
-          </div>
+          {/* Asymmetric 2-up layout for remaining projects */}
+          {featuredWorks.slice(1).length > 0 && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Left column — stacked */}
+              <div className="space-y-6">
+                {featuredWorks.slice(1, 3).map((project, i) => (
+                  <AnimatedSection key={project.title} delay={i * 0.1}>
+                    <Link to={`/work/${project.slug}`} className="group block border border-border hover:border-accent-warm/30 transition-colors duration-500">
+                      <div className="aspect-[16/10] overflow-hidden relative">
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-[1.02] group-hover:scale-100"
+                          loading="lazy"
+                          width={1280}
+                          height={800}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+                      </div>
+                      <div className="p-5 md:p-6 flex items-start justify-between">
+                        <div>
+                          <p className="font-mono text-[9px] tracking-[0.15em] uppercase text-accent-warm/50 mb-1">{project.type}</p>
+                          <h3 className="font-display text-[20px] md:text-[24px] tracking-[0.02em] text-foreground group-hover:text-accent-warm transition-colors duration-300">
+                            {project.title}
+                          </h3>
+                        </div>
+                        <span className="font-mono text-[9px] tracking-[0.12em] uppercase text-muted-foreground/30 group-hover:text-accent-warm/50 transition-colors duration-300 mt-1">→</span>
+                      </div>
+                    </Link>
+                  </AnimatedSection>
+                ))}
+              </div>
+
+              {/* Right column — stacked */}
+              <div className="space-y-6">
+                {featuredWorks.slice(3).map((project, i) => (
+                  <AnimatedSection key={project.title} delay={(i + 2) * 0.1}>
+                    <Link to={`/work/${project.slug}`} className="group block border border-border hover:border-accent-warm/30 transition-colors duration-500">
+                      <div className="aspect-[16/10] overflow-hidden relative">
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-[1.02] group-hover:scale-100"
+                          loading="lazy"
+                          width={1280}
+                          height={800}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+                      </div>
+                      <div className="p-5 md:p-6 flex items-start justify-between">
+                        <div>
+                          <p className="font-mono text-[9px] tracking-[0.15em] uppercase text-accent-warm/50 mb-1">{project.type}</p>
+                          <h3 className="font-display text-[20px] md:text-[24px] tracking-[0.02em] text-foreground group-hover:text-accent-warm transition-colors duration-300">
+                            {project.title}
+                          </h3>
+                        </div>
+                        <span className="font-mono text-[9px] tracking-[0.12em] uppercase text-muted-foreground/30 group-hover:text-accent-warm/50 transition-colors duration-300 mt-1">→</span>
+                      </div>
+                    </Link>
+                  </AnimatedSection>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </section>
 

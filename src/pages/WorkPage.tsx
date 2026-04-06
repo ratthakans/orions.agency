@@ -29,7 +29,7 @@ const WorkPage = () => {
                 <span className="text-accent-gradient">WORK.</span>
               </h1>
               <p className="font-body text-[15px] leading-[1.7] text-muted-foreground max-w-xl">
-                Selected projects and original productions.
+                Original productions and in-house creative work.
               </p>
             </AnimatedSection>
           </div>

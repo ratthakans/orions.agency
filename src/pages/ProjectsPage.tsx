@@ -53,7 +53,7 @@ const ProjectsPage = () => {
                   <button
                     key={tag}
                     onClick={() => setActiveFilter(tag)}
-                    className={`font-mono text-[10px] tracking-[0.12em] uppercase px-4 py-2 border transition-colors duration-300 ${
+                    className={`cursor-pointer font-mono text-[10px] tracking-[0.12em] uppercase px-4 py-2 border transition-colors duration-300 ${
                       tag === activeFilter
                         ? "border-accent-warm/50 text-accent-warm"
                         : "border-border text-muted-foreground/50 hover:border-accent-warm/30 hover:text-muted-foreground"

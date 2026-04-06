@@ -40,7 +40,7 @@ export const projects: Project[] = [
       format: "Documentary Film",
       status: "In Production",
       year: "2025",
-      role: "Created, Directed & Produced by ORIONS",
+      role: "Created, Directed & Produced by ØRIONS",
     },
     sections: [
       {
@@ -68,7 +68,7 @@ export const projects: Project[] = [
       format: "Documentary Film",
       status: "In Production",
       year: "2025",
-      role: "Created, Directed & Produced by ORIONS",
+      role: "Created, Directed & Produced by ØRIONS",
     },
     sections: [
       {
@@ -96,7 +96,7 @@ export const projects: Project[] = [
       format: "Documentary Series",
       status: "Released",
       year: "2024",
-      role: "Created, Directed & Produced by ORIONS",
+      role: "Created, Directed & Produced by ØRIONS",
     },
     sections: [
       {
@@ -130,7 +130,7 @@ export const projects: Project[] = [
       format: "Documentary Film",
       status: "In Production",
       year: "2025",
-      role: "Created, Directed & Produced by ORIONS",
+      role: "Created, Directed & Produced by ØRIONS",
     },
     sections: [
       {
@@ -158,7 +158,7 @@ export const projects: Project[] = [
       format: "Podcast Series",
       status: "Ongoing",
       year: "2024–Present",
-      role: "Created & Produced by ORIONS",
+      role: "Created & Produced by ØRIONS",
     },
     sections: [
       {

@@ -203,8 +203,8 @@ const ServicesPage = () => {
               <Link to="/contact" className="font-mono text-[11px] tracking-[0.12em] uppercase text-primary-foreground bg-primary px-8 py-3 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300">
                 Start your first project
               </Link>
-              <Link to="/work" className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300">
-                View Work <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+              <Link to="/projects" className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300">
+                View Projects <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
               </Link>
             </div>
           </AnimatedSection>

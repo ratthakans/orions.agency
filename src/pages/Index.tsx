@@ -54,7 +54,7 @@ const Index = () => {
             title="Background video"
             style={{ border: 0 }}
           />
-          <div className="absolute inset-0 bg-background/90" />
+          <div className="absolute inset-0 bg-background/95" />
         </div>
 
         <motion.div style={{ opacity: heroOpacity, y: heroY }} className="text-center max-w-4xl mx-auto relative z-10 px-4 sm:px-6 md:px-12">
@@ -101,10 +101,10 @@ const Index = () => {
               Start your first project
             </Link>
             <Link
-              to="/work"
+              to="/projects"
               className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300"
             >
-              View Work <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+              View Projects <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
             </Link>
           </motion.div>
         </motion.div>

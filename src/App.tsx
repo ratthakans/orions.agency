@@ -14,6 +14,8 @@ import WorkPage from "./pages/WorkPage";
 import ServicesPage from "./pages/ServicesPage";
 import ContactPage from "./pages/ContactPage";
 import ProjectDetailPage from "./pages/ProjectDetailPage";
+import ProjectsPage from "./pages/ProjectsPage";
+import ProjectDetailClientPage from "./pages/ProjectDetailClientPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -31,6 +33,8 @@ const App = () => (
             <Route path="/work" element={<PageTransition><WorkPage /></PageTransition>} />
             <Route path="/work/:slug" element={<PageTransition><ProjectDetailPage /></PageTransition>} />
             <Route path="/services" element={<PageTransition><ServicesPage /></PageTransition>} />
+            <Route path="/projects" element={<PageTransition><ProjectsPage /></PageTransition>} />
+            <Route path="/projects/:slug" element={<PageTransition><ProjectDetailClientPage /></PageTransition>} />
             <Route path="/contact" element={<PageTransition><ContactPage /></PageTransition>} />
             {/* Redirects for old routes */}
             <Route path="/process" element={<Navigate to="/services" replace />} />

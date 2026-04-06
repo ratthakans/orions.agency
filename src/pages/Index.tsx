@@ -53,7 +53,7 @@ const Index = () => {
             title="Background video"
             style={{ border: 0 }}
           />
-          <div className="absolute inset-0 bg-background/85" />
+          <div className="absolute inset-0 bg-background/90" />
         </div>
 
         <motion.div style={{ opacity: heroOpacity, y: heroY }} className="text-center max-w-4xl mx-auto relative z-10 px-4 sm:px-6 md:px-12">

@@ -95,49 +95,6 @@ const ServicesPage = () => {
           </div>
         </section>
 
-        {/* Retainer Block */}
-        <section className="px-4 sm:px-6 md:px-12 py-12 md:py-16">
-          <div className="max-w-5xl mx-auto">
-            <AnimatedSection>
-              <div className="border border-accent-warm/30 bg-accent-warm/[0.03] p-8 md:p-12">
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
-                  <div className="flex-1">
-                    <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-warm/60 mb-6">Ongoing Partnership</p>
-                    <h2 className="font-display text-[32px] md:text-[42px] tracking-[0.02em] text-accent-warm mb-6">
-                      RETAINER
-                    </h2>
-                    <p className="font-body text-[15px] md:text-[16px] leading-[1.9] text-muted-foreground mb-4">
-                      We work with a small number of clients on an ongoing basis — providing monthly creative support, campaign planning, creative direction, and production oversight.
-                    </p>
-                    <p className="font-body text-[14px] leading-[1.7] text-muted-foreground/70 mb-6">
-                      Best suited for brands that need continuity, consistency, and a trusted creative partner over the long term.
-                    </p>
-                  </div>
-                  <div className="md:w-72 space-y-4">
-                    <div className="border border-accent-warm/20 p-4">
-                      <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm/40 mb-2">Includes</p>
-                      <ul className="space-y-2">
-                        {[
-                          "Monthly creative support",
-                          "Campaign planning",
-                          "Creative direction",
-                          "Production oversight",
-                          "Brand consistency review",
-                          "Priority scheduling",
-                        ].map((item) => (
-                          <li key={item} className="font-mono text-[11px] tracking-[0.05em] text-muted-foreground/60 flex items-center gap-2">
-                            <span className="w-1 h-1 bg-accent-warm/40 rounded-full flex-shrink-0" />
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </AnimatedSection>
-          </div>
-        </section>
 
         {/* Service Stages — Full Detail */}
         <section className="px-4 sm:px-6 md:px-12 py-12 md:py-20">
@@ -190,11 +147,46 @@ const ServicesPage = () => {
               </AnimatedSection>
             ))}
 
+
+            {/* Retainer Block */}
             <AnimatedSection delay={0.3}>
-              <div className="border-t border-border pt-12">
-                <p className="font-mono text-[12px] tracking-[0.15em] uppercase text-muted-foreground/50 text-center">
-                  Our process: Define → Develop → Produce
-                </p>
+              <div className="border-t border-border py-16 md:py-24">
+                <div className="border border-accent-warm/30 bg-accent-warm/[0.03] p-8 md:p-12">
+                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
+                    <div className="flex-1">
+                      <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-warm/60 mb-6">Ongoing Partnership</p>
+                      <h2 className="font-display text-[32px] md:text-[42px] tracking-[0.02em] text-accent-warm mb-6">
+                        RETAINER
+                      </h2>
+                      <p className="font-body text-[15px] md:text-[16px] leading-[1.9] text-muted-foreground mb-4">
+                        We work with a small number of clients on an ongoing basis — providing monthly creative support, campaign planning, creative direction, and production oversight.
+                      </p>
+                      <p className="font-body text-[14px] leading-[1.7] text-muted-foreground/70 mb-6">
+                        Best suited for brands that need continuity, consistency, and a trusted creative partner over the long term.
+                      </p>
+                    </div>
+                    <div className="md:w-72 space-y-4">
+                      <div className="border border-accent-warm/20 p-4">
+                        <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm/40 mb-2">Includes</p>
+                        <ul className="space-y-2">
+                          {[
+                            "Monthly creative support",
+                            "Campaign planning",
+                            "Creative direction",
+                            "Production oversight",
+                            "Brand consistency review",
+                            "Priority scheduling",
+                          ].map((item) => (
+                            <li key={item} className="font-mono text-[11px] tracking-[0.05em] text-muted-foreground/60 flex items-center gap-2">
+                              <span className="w-1 h-1 bg-accent-warm/40 flex-shrink-0" />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </AnimatedSection>
           </div>
@@ -209,7 +201,7 @@ const ServicesPage = () => {
             </h2>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-8">
               <Link to="/contact" className="font-mono text-[11px] tracking-[0.12em] uppercase text-primary-foreground bg-primary px-8 py-3 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300">
-                Start your first project with ORIONS
+                Start your first project
               </Link>
               <Link to="/work" className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300">
                 View Work <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>

@@ -19,7 +19,7 @@ const ContactPage = () => {
         <section className="min-h-[60vh] flex items-center justify-center px-4 sm:px-6 md:px-12 pt-24 pb-16 md:pb-24">
           <div className="max-w-3xl mx-auto text-center">
             <AnimatedSection>
-              <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">
+              <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
                 Contact
               </p>
               <h1 className="font-display text-[clamp(36px,5vw,72px)] leading-[1] tracking-[0.01em] text-foreground mb-6">

@@ -109,6 +109,32 @@ const ProjectDetailPage = () => {
           </div>
         </section>
 
+        {/* Case Study */}
+        {project.caseStudy && (
+          <section className="px-4 sm:px-6 md:px-12 py-16 md:py-24 border-t border-border">
+            <div className="max-w-4xl mx-auto">
+              <AnimatedSection>
+                <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent-warm/60 mb-6">Case Study</p>
+              </AnimatedSection>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border">
+                {[
+                  { label: "Problem", content: project.caseStudy.problem },
+                  { label: "Idea", content: project.caseStudy.idea },
+                  { label: "Execution", content: project.caseStudy.execution },
+                  { label: "Result", content: project.caseStudy.result },
+                ].map((block, i) => (
+                  <AnimatedSection key={block.label} delay={i * 0.08}>
+                    <div className="bg-background p-8 md:p-10 h-full border-l-2 border-accent-warm/20">
+                      <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm/40 mb-3">{block.label}</p>
+                      <p className="font-body text-[14px] md:text-[15px] leading-[1.8] text-muted-foreground">{block.content}</p>
+                    </div>
+                  </AnimatedSection>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* Next Project */}
         <section className="px-4 sm:px-6 md:px-12 py-20 md:py-32 border-t border-border">
           <div className="max-w-5xl mx-auto">

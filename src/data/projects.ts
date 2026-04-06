@@ -40,7 +40,7 @@ export const projects: Project[] = [
       format: "Documentary Film",
       status: "In Production",
       year: "2025",
-      role: "Created, Directed & Produced by ORIONS",
+      role: "Created, Directed & Produced by ØRIONS",
     },
     sections: [
       {
@@ -68,7 +68,7 @@ export const projects: Project[] = [
       format: "Documentary Film",
       status: "In Production",
       year: "2025",
-      role: "Created, Directed & Produced by ORIONS",
+      role: "Created, Directed & Produced by ØRIONS",
     },
     sections: [
       {
@@ -96,7 +96,7 @@ export const projects: Project[] = [
       format: "Documentary Series",
       status: "Released",
       year: "2024",
-      role: "Created, Directed & Produced by ORIONS",
+      role: "Created, Directed & Produced by ØRIONS",
     },
     sections: [
       {
@@ -116,7 +116,7 @@ export const projects: Project[] = [
       problem: "A talented makeup artist with a growing following had no content that showed what made their work different — just before-and-after photos like everyone else.",
       idea: "Instead of a beauty show, we made it a documentary about identity. Each episode follows one person and the reason they sit in the chair — not just what they look like after.",
       execution: "Shot with intimate, close-up cinematography. Natural lighting that shifts as the transformation progresses. No scripts — real conversations captured in real time across 6 episodes.",
-      result: "The series was released and became ORIONS' first completed original production. It established a documentary format that the team now applies to other projects — story-first, visually cinematic, emotionally honest.",
+      result: "The series was released and became ØRIONS' first completed original production. It established a documentary format that the team now applies to other projects — story-first, visually cinematic, emotionally honest.",
     },
     image: workAlanMakeup,
   },
@@ -130,7 +130,7 @@ export const projects: Project[] = [
       format: "Documentary Film",
       status: "In Production",
       year: "2025",
-      role: "Created, Directed & Produced by ORIONS",
+      role: "Created, Directed & Produced by ØRIONS",
     },
     sections: [
       {
@@ -150,7 +150,7 @@ export const projects: Project[] = [
   },
   {
     slug: "orions-talk",
-    title: "ORIONS Talk",
+    title: "ØRIONS Talk",
     type: "Podcast",
     tagline: "Podcast เชิงสารคดี เล่าเรื่องราวของบุคคลที่น่าสนใจ",
     description: "A documentary-style podcast that tells the stories, histories, and philosophies of fascinating people — from artists and entrepreneurs to everyday individuals with extraordinary stories.",
@@ -158,12 +158,12 @@ export const projects: Project[] = [
       format: "Podcast Series",
       status: "Ongoing",
       year: "2024–Present",
-      role: "Created & Produced by ORIONS",
+      role: "Created & Produced by ØRIONS",
     },
     sections: [
       {
         title: "The Concept",
-        content: "ORIONS Talk is a long-form podcast that applies documentary storytelling principles to audio. Each episode is a deep dive into a single person's life — not just what they do, but why they do it, what shaped them, and what drives them forward.",
+        content: "ØRIONS Talk is a long-form podcast that applies documentary storytelling principles to audio. Each episode is a deep dive into a single person's life — not just what they do, but why they do it, what shaped them, and what drives them forward.",
       },
       {
         title: "The Approach",
@@ -171,7 +171,7 @@ export const projects: Project[] = [
       },
       {
         title: "Why This Format",
-        content: "Some stories need time. ORIONS Talk gives space for depth, nuance, and honesty — the kind of storytelling that gets lost in short-form content. It's our way of extending the documentary approach into a format people can carry with them.",
+        content: "Some stories need time. ØRIONS Talk gives space for depth, nuance, and honesty — the kind of storytelling that gets lost in short-form content. It's our way of extending the documentary approach into a format people can carry with them.",
       },
     ],
     image: workOrionsTalk,

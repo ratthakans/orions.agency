@@ -1,9 +1,9 @@
-import siamCollectiveImg from "@/assets/projects/siam-collective.jpg";
-import maisonNaraImg from "@/assets/projects/maison-nara.jpg";
-import terraStudioImg from "@/assets/projects/terra-studio.jpg";
-import kinBangkokImg from "@/assets/projects/kin-bangkok.jpg";
-import northwindCapitalImg from "@/assets/projects/northwind-capital.jpg";
-import echoFestivalImg from "@/assets/projects/echo-festival.jpg";
+const siamCollectiveImg = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1280&h=800&fit=crop";
+const maisonNaraImg = "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1280&h=800&fit=crop";
+const terraStudioImg = "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1280&h=800&fit=crop";
+const kinBangkokImg = "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1280&h=800&fit=crop";
+const northwindCapitalImg = "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1280&h=800&fit=crop";
+const echoFestivalImg = "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1280&h=800&fit=crop";
 
 export interface ClientProject {
   slug: string;

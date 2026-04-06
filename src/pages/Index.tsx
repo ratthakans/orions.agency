@@ -54,7 +54,7 @@ const Index = () => {
             title="Background video"
             style={{ border: 0 }}
           />
-          <div className="absolute inset-0 bg-background/90" />
+          <div className="absolute inset-0 bg-background/95" />
         </div>
 
         <motion.div style={{ opacity: heroOpacity, y: heroY }} className="text-center max-w-4xl mx-auto relative z-10 px-4 sm:px-6 md:px-12">
@@ -101,10 +101,10 @@ const Index = () => {
               Start your first project
             </Link>
             <Link
-              to="/work"
+              to="/projects"
               className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300"
             >
-              View Work <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+              View Projects <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
             </Link>
           </motion.div>
         </motion.div>
@@ -213,6 +213,56 @@ const Index = () => {
                       {project.title}
                     </h3>
                     <p className="font-body text-[12px] leading-[1.6] text-muted-foreground/50 line-clamp-2">{project.tagline}</p>
+                  </div>
+                </Link>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ ORIGINAL SERIES PREVIEW ═══ */}
+      <section className="py-24 md:py-40 px-4 sm:px-6 md:px-12 border-t border-border">
+        <div className="max-w-7xl mx-auto">
+          <AnimatedSection>
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16">
+              <div>
+                <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4">
+                  In-House Productions
+                </p>
+                <h2 className="font-display text-[clamp(36px,6vw,72px)] leading-[0.9] tracking-[0.01em] text-foreground">ORIGINAL SERIES.</h2>
+              </div>
+              <Link
+                to="/work"
+                className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300 mt-4 md:mt-0"
+              >
+                View all <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+              </Link>
+            </div>
+          </AnimatedSection>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {featuredWorks.slice(0, 3).map((work, i) => (
+              <AnimatedSection key={work.slug} delay={i * 0.1}>
+                <Link to={`/work/${work.slug}`} className="group block border border-border hover:border-accent-warm/30 transition-colors duration-500 h-full">
+                  <div className="aspect-[16/9] overflow-hidden relative bg-muted/5">
+                    <img
+                      src={work.image}
+                      alt={work.title}
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-[1.02] group-hover:scale-100"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+                    <div className="absolute top-4 left-4">
+                      <span className="font-mono text-[9px] tracking-[0.15em] uppercase text-accent-warm/80 bg-background/60 px-3 py-1 backdrop-blur-sm">
+                        {work.type}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="p-5 md:p-6">
+                    <h3 className="font-display text-[20px] md:text-[22px] tracking-[0.02em] text-foreground group-hover:text-accent-warm transition-colors duration-300">
+                      {work.title}
+                    </h3>
                   </div>
                 </Link>
               </AnimatedSection>

@@ -1,140 +1,87 @@
 
 
-# ØRIONS Website — Full Consistency Review
+# ØRIONS Website — Conversion-Focused Redesign
 
-## Overall Assessment
-The site has been significantly simplified and is now well-aligned with the "fewer, better" philosophy. The 5-page structure (Home, About, Work, Services, Contact) is clean and consistent. Below are all issues found.
-
----
-
-## Issues Found
-
-### 1. ✦ Symbol Still Present (Style Rule Violation)
-The memory states "✦ symbols have been removed in favor of a cleaner monograph and cinematic style," but ✦ appears in **every page** as a section label prefix:
-- **Index.tsx** lines 142, 212 — "✦ Selected Work", "✦ What We Do"
-- **AboutPage.tsx** lines 76, 117, 166 — "✦ About", "✦ The Team", "✦ Clients"
-- **WorkPage.tsx** line 25 — "✦ Work"
-- **ServicesPage.tsx** line 72 — "✦ Services"
-- **ContactPage.tsx** line 23 — "✦ Contact"
-
-**Decision needed**: Either remove all ✦ or keep them consistently. The memory says remove.
-
-### 2. Homepage Services Preview Doesn't Match Services Page
-**Homepage** (lines 227-245) shows 3 services with old-style names and descriptions:
-- "Strategy" — OK, matches
-- "Communication Design" — OK, matches
-- "Film & Production" — OK, matches
-
-BUT the descriptions are different from the Services page. Homepage says: *"Brand positioning, narrative, communication framework, and campaign direction"* while Services page says: *"Define what your brand should say, who it should speak to, and how it should be understood."*
-
-This is acceptable (preview vs full), but worth noting for tone alignment.
-
-### 3. Team Data — Memory vs Code Mismatch
-Memory says team has **13 members** with key names:
-- Ratthakan Suwanphakdee (Founder & CD) ✓ correct in code
-- Khanakhom Kittisakulnam (CEO) — **NOT in code**
-- Manrut Rojrattanavichai (Creative Director) — **NOT in code**
-- Jaruwatr Bhokhaidhanes (Art Director) — **NOT in code**, code has "Nattawut Prasertsri"
-- NITI PALADKONG (Director) — **NOT in code**
-
-Code only has **6 team members** with placeholder names (except Ratthakan). The memory references 13 people but code shows 6.
-
-### 4. About Page — "We do less" Message Repeated
-The phrase "We do less — with more intention" appears in:
-- **Homepage** About preview (line 116) — as heading
-- **About page** hero (line 79) — as heading
-- **About page** SEO description (line 64)
-
-Per content rules, no message should repeat across sections. The homepage preview is a teaser so this is borderline acceptable, but the content spec says this message should only live on About.
-
-### 5. CTA Section Inconsistency Across Pages
-Each page has a different CTA headline:
-- **Home**: "START WITH A CONVERSATION" → links to /contact
-- **About**: "START WITH A CONVERSATION" → links to /contact + /work
-- **Work**: "WANT TO WORK TOGETHER?" → links to /contact + /services
-- **Services**: "READY TO START?" → links to /contact + /work
-- **Contact**: No CTA (it IS the contact page)
-
-The variation is fine for variety, but About and Home use the exact same CTA text. Consider differentiating About's CTA.
-
-### 6. Homepage Work Section Uses `group-hover:scale-105`
-Memory states all scale animations are excluded. Lines 162, 185 in Index.tsx use `group-hover:scale-105` on work card images. Same in WorkPage.tsx lines 47, 78. Also in ProjectDetailPage.tsx line 132.
-
-### 7. Work Page Subtitle Inconsistency
-- **Homepage Work label**: "Selected Work"
-- **Work page hero**: "SELECTED WORK."
-- **Work page subtitle**: "Original productions and documentary work."
-- **Content spec** says: "Selected projects and original productions."
-
-The subtitle doesn't match the content spec.
-
-### 8. Services Page — No Mention of Retainer Tiers (Pulse/Flow/Orbit)
-Memory references three retainer tiers: **Pulse, Flow, Orbit**. The current Services page has a single "Retainer" block with no tier breakdown. This was simplified per the content spec, which only mentions a single retainer concept — so this is correct per spec but contradicts the memory.
-
-### 9. Contact Page Missing "Start with a conversation" as Call to Action
-The content spec says Contact should have "a clear call to action, not just contact info." Current Contact page has the heading "START WITH A CONVERSATION" but no form or action button — just static contact info. This is minimal but could feel passive.
-
-### 10. Footer Brand Description Repeats Hero Tagline
-Footer (line 21): *"A creative agency focused on clear communication, strong art direction, and high-quality film production."*
-Hero (line 86): identical text.
-SEO description: identical text.
-
-This is standard for footer/SEO, not a real issue.
-
-### 11. NotFound Page Style Inconsistency
-NotFound uses `font-bold`, `tracking-tight`, `rounded` patterns, and non-standard button styling (`bg-foreground text-background`) that doesn't match the rest of the site's editorial aesthetic (no font-bold elsewhere, no tracking-tight pattern).
-
-### 12. `grain-overlay` Class Used Inconsistently
-Present on: Index, AboutPage, WorkPage, ServicesPage, ContactPage, ProjectDetailPage.
-Missing on: NotFound page (uses `min-h-screen flex flex-col` but no `grain-overlay`).
-
-### 13. Unused Legacy Files Still in Project
-Files like `ContactPage2.tsx`, `ServicesPage2.tsx`, `StudioPage.tsx`, `ProcessPage.tsx`, `HospitalityPage.tsx`, `IndustryPageTemplate.tsx`, `works.ts`, `HorizontalScroll*.tsx`, `ManifestoSection.tsx`, `Marquee.tsx`, `StarField.tsx`, `OrionConstellation.tsx`, `ConstellationBackground.tsx`, `ConstellationDivider.tsx`, `CinematicDivider.tsx`, `MagneticButton.tsx`, `HeroTypewriter.tsx`, `HeroSection.tsx`, `TextReveal.tsx`, `StartProjectDialog.tsx`, `AnimatedCounter.tsx`, `NavLink.tsx` — all appear to be unused dead code from previous iterations.
-
-### 14. LanguageProvider Still Wrapping App But No EN/TH Toggle
-`App.tsx` wraps everything in `<LanguageProvider>` but no page or component uses language switching. Dead infrastructure.
+## Summary
+Restructure the website from "looks smart" to "closes deals" — rewriting Hero, Services, CTAs, adding Packages section, and adding Case Study format to project details.
 
 ---
 
-## Consistency Matrix
+## Changes
 
-```text
-Element              | Home    | About   | Work    | Services | Contact | Detail
-─────────────────────────────────────────────────────────────────────────────────
-Navbar               | ✓       | ✓       | ✓       | ✓        | ✓       | ✓
-Footer               | ✓       | ✓       | ✓       | ✓        | ✓       | ✓
-SEO component        | ✓       | ✓       | ✓       | ✓        | ✓       | ✓
-grain-overlay        | ✓       | ✓       | ✓       | ✓        | ✓       | ✗ (404)
-✦ symbol             | ✓       | ✓       | ✓       | ✓        | ✓       | ✗
-scale-105 hover      | ✓       | ✗       | ✓       | ✗        | ✗       | ✓
-Hero height          | h-screen| 50vh    | 50vh    | 50vh     | 60vh    | image
-CTA section          | ✓       | ✓       | ✓       | ✓        | ✗       | ✗
-pt-20 wrapper        | ✗       | ✓       | ✓       | ✓        | ✓       | ✓
+### 1. Hero Section (Index.tsx)
+**Current**: "Fewer pieces. Stronger impact." + generic agency description
+**New**:
+- Headline: "We make brands easier to understand and remember."
+- Subtext: "We help brands say the right thing — and show it in a way people actually care."
+- CTA button: "Let's make your brand easier to remember" (links to /contact)
+- Keep video background, keep ØRIONS logo above
+
+### 2. About Preview (Index.tsx)
+**Current**: "We do less — with more intention."
+**New**: Replace with a punchy tone block:
 ```
+Most brands are not unclear.
+They are just hard to remember.
+We fix that.
+```
+This sets a memorable, confident tone without repeating the About page message.
+
+### 3. Services Preview (Index.tsx)
+**Current**: Lists service names + deliverables (abstract)
+**New**: Result-oriented cards:
+- Strategy → "People understand your brand faster"
+- Communication → "People remember what you say"
+- Film & Production → "People feel something about your brand"
+
+Each card: service name, one-line description, bold "Result:" line. Remove icons (◆◇▣).
+
+### 4. New "Start Here" Packages Section (Index.tsx)
+Add between Services and CTA. Three tiers:
+- **Starter** — Brand + Film / For new brands / "Get clear, get seen"
+- **Growth** — Strategy + Campaign / For scaling / "Get strategic, get consistent"
+- **Full System** — Strategy + Content + Film / For serious brands / "Get everything, one team"
+
+Each with a "Start here →" link to /contact. Minimal, editorial card layout.
+
+### 5. CTA Section (all pages)
+**Current**: "START WITH A CONVERSATION" / "Get in Touch"
+**New**:
+- Homepage: "Let's make your brand easier to remember" → button "Start your first project"
+- About: "LET'S MAKE SOMETHING TOGETHER" (keep current differentiated text)
+- Work: "WANT TO WORK TOGETHER?" (keep)
+- Services: "READY TO START?" → button "Start your first project with ORIONS"
+
+### 6. Case Study Format (ProjectDetailPage.tsx + projects.ts)
+Add `caseStudy` field to project data:
+```ts
+caseStudy?: {
+  problem: string;
+  idea: string;
+  execution: string;
+  result: string;
+}
+```
+Render as a 4-block section on ProjectDetailPage between content sections and next project. Uses the existing editorial grid style with border-left accent. Add case study data for at least "Alan Makeup" (the released project).
+
+### 7. Services Page (ServicesPage.tsx)
+Add "Result" line to each of the 3 service stages below the outcome block:
+- Strategy → "People understand your brand faster."
+- Communication Design → "People remember what you say."
+- Film & Production → "People feel something about your brand."
+
+### 8. Contact Page (ContactPage.tsx)
+Change heading from "START WITH A CONVERSATION" to "Let's make your brand easier to remember" and add a clear action prompt: "Tell us about your brand — we'll start with a conversation."
 
 ---
 
-## Recommended Fixes (Priority Order)
+## Files Modified
+- `src/pages/Index.tsx` — Hero, About preview, Services preview, new Packages section, CTA
+- `src/pages/ServicesPage.tsx` — Add result lines
+- `src/pages/ContactPage.tsx` — Update heading and CTA copy
+- `src/pages/ProjectDetailPage.tsx` — Add case study section
+- `src/data/projects.ts` — Add caseStudy data to Project interface and Alan Makeup entry
 
-1. **Remove `group-hover:scale-105`** from all image hovers (Home, Work, Detail pages) per style rules
-2. **Remove or standardize ✦ symbols** — decide once, apply everywhere
-3. **Fix team data** — either update to real names from memory or reduce memory to match current 6-person team
-4. **Fix NotFound page styling** — align with editorial aesthetic (no font-bold, use standard button pattern)
-5. **Add `grain-overlay` to NotFound** page
-6. **Clean up unused files** — remove ~20 dead components and pages
-7. **Remove `LanguageProvider`** if EN/TH is no longer needed
-8. **Update Work page subtitle** to match content spec
-
----
-
-## What's Working Well
-
-- 5-page navigation is clean and consistent across Navbar, Footer, and all pages
-- Service structure (Strategy → Communication Design → Film & Production) is aligned across Homepage preview and Services page
-- Project data is centralized in `projects.ts` and used consistently across Home, Work, and Detail pages
-- Dark editorial aesthetic with #0A0A0A background and yellow accents is consistent
-- All interactive elements use zero-radius (square) profile
-- Border hover pattern `border-accent-warm/30 transition-colors duration-300` is standardized
-- SEO component is applied to every page with proper metadata
-- Footer contact info matches Contact page exactly
+## Files Unchanged
+- About page, Work page, Navbar, Footer — no structural changes needed
 

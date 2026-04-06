@@ -20,6 +20,12 @@ export interface Project {
     title: string;
     content: string;
   }[];
+  caseStudy?: {
+    problem: string;
+    idea: string;
+    execution: string;
+    result: string;
+  };
   image: string;
 }
 
@@ -106,6 +112,12 @@ export const projects: Project[] = [
         content: "In a world that often judges appearances, Alan Makeup celebrates the power of choosing how you present yourself to the world. It's about agency, creativity, and the courage to be exactly who you want to be.",
       },
     ],
+    caseStudy: {
+      problem: "A talented makeup artist with a growing following had no content that showed what made their work different — just before-and-after photos like everyone else.",
+      idea: "Instead of a beauty show, we made it a documentary about identity. Each episode follows one person and the reason they sit in the chair — not just what they look like after.",
+      execution: "Shot with intimate, close-up cinematography. Natural lighting that shifts as the transformation progresses. No scripts — real conversations captured in real time across 6 episodes.",
+      result: "The series was released and became ORIONS' first completed original production. It established a documentary format that the team now applies to other projects — story-first, visually cinematic, emotionally honest.",
+    },
     image: workAlanMakeup,
   },
   {

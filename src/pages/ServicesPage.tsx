@@ -178,8 +178,12 @@ const ServicesPage = () => {
                   {/* Outcome */}
                   <div className="ml-0 md:ml-[104px] mt-8 border-l-2 border-accent-warm/20 pl-6">
                     <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm/40 mb-2">Outcome</p>
-                    <p className="font-body text-[14px] leading-[1.7] text-muted-foreground">
+                    <p className="font-body text-[14px] leading-[1.7] text-muted-foreground mb-3">
                       {service.outcome}
+                    </p>
+                    <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm/40 mb-1">Result</p>
+                    <p className="font-body text-[14px] leading-[1.7] text-foreground/90">
+                      {service.num === "01" ? "People understand your brand faster." : service.num === "02" ? "People remember what you say." : "People feel something about your brand."}
                     </p>
                   </div>
                 </div>
@@ -205,7 +209,7 @@ const ServicesPage = () => {
             </h2>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-8">
               <Link to="/contact" className="font-mono text-[11px] tracking-[0.12em] uppercase text-primary-foreground bg-primary px-8 py-3 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300">
-                Get in Touch
+                Start your first project with ORIONS
               </Link>
               <Link to="/work" className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300">
                 View Work <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>

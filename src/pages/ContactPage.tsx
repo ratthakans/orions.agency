@@ -8,7 +8,7 @@ const ContactPage = () => {
     <main className="bg-background min-h-screen grain-overlay">
       <SEO
         title="Contact | ØRIONS"
-        description="Start with a conversation. Get in touch with ØRIONS creative agency in Bangkok."
+        description="Let's make your brand easier to remember. Get in touch with ØRIONS creative agency in Bangkok."
         path="/contact"
         keywords="contact creative agency bangkok, hire creative agency, brand consultation"
       />
@@ -22,14 +22,17 @@ const ContactPage = () => {
               <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-8">
                 Contact
               </p>
-              <h1 className="font-display text-[clamp(44px,6vw,96px)] leading-[0.9] tracking-[0.01em] text-foreground mb-12">
-                START WITH<br />
-                <span className="text-accent-gradient">A CONVERSATION.</span>
+              <h1 className="font-display text-[clamp(36px,5vw,72px)] leading-[1] tracking-[0.01em] text-foreground mb-6">
+                LET'S MAKE YOUR BRAND<br />
+                <span className="text-accent-gradient">EASIER TO REMEMBER.</span>
               </h1>
+              <p className="font-body text-[15px] md:text-[17px] leading-[1.7] text-muted-foreground max-w-lg mx-auto">
+                Tell us about your brand — we'll start with a conversation.
+              </p>
             </AnimatedSection>
 
             <AnimatedSection delay={0.15}>
-              <div className="space-y-6">
+              <div className="space-y-6 mt-12">
                 <a
                   href="mailto:hello@orions.agency"
                   className="font-mono text-[18px] md:text-[22px] tracking-[0.05em] text-foreground hover:text-accent-warm transition-colors duration-300 block"

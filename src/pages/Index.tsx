@@ -14,7 +14,7 @@ const homeSchema = [
     "@type": "Organization",
     name: "ØRIONS",
     url: "https://orions.agency",
-    description: "A creative agency focused on clear communication, strong art direction, and high-quality film production.",
+    description: "We make brands easier to understand and remember.",
   },
 ];
 
@@ -35,7 +35,7 @@ const Index = () => {
     <main className="bg-background min-h-screen grain-overlay">
       <SEO
         title="ØRIONS — Creative Agency | Bangkok"
-        description="A creative agency focused on clear communication, strong art direction, and high-quality film production."
+        description="We make brands easier to understand and remember. Strategy, communication design, and film production."
         path="/"
         keywords="creative agency bangkok, film production, art direction, brand communication, documentary"
         schema={homeSchema}
@@ -70,11 +70,12 @@ const Index = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="font-display text-[clamp(44px,8vw,120px)] leading-[0.9] tracking-[0.01em] text-foreground mb-4"
+            className="font-display text-[clamp(36px,6vw,88px)] leading-[1] tracking-[0.01em] text-foreground mb-4"
           >
-            Fewer pieces.
+            We make brands easier
             <br />
-            <span className="text-accent-gradient">Stronger impact.</span>
+            to understand and{" "}
+            <span className="text-accent-gradient">remember.</span>
           </motion.h1>
 
           <motion.p
@@ -83,7 +84,7 @@ const Index = () => {
             transition={{ duration: 0.8, delay: 0.7 }}
             className="font-body text-[15px] md:text-[17px] leading-[1.7] text-muted-foreground max-w-2xl mx-auto mt-8"
           >
-            A creative agency focused on clear communication, strong art direction, and high-quality film production.
+            We help brands say the right thing — and show it in a way people actually care.
           </motion.p>
 
           <motion.div
@@ -96,7 +97,7 @@ const Index = () => {
               to="/contact"
               className="inline-block font-mono text-[11px] tracking-[0.12em] uppercase text-primary-foreground bg-primary px-10 py-3.5 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300"
             >
-              Start a conversation
+              Start your first project
             </Link>
             <Link
               to="/work"
@@ -108,23 +109,25 @@ const Index = () => {
         </motion.div>
       </section>
 
-      {/* ═══ BRIEF ABOUT PREVIEW ═══ */}
+      {/* ═══ TONE BLOCK ═══ */}
       <section className="py-32 md:py-48 px-4 sm:px-6 md:px-12 border-t border-border">
         <div className="max-w-4xl mx-auto">
           <AnimatedSection>
-            <h2 className="font-display text-[clamp(36px,5vw,64px)] leading-[0.95] tracking-[0.01em] text-foreground mb-12">
-              We do less — with more intention.
+            <h2 className="font-display text-[clamp(32px,5vw,64px)] leading-[1.1] tracking-[0.01em] text-foreground mb-6">
+              Most brands are not unclear.
+              <br />
+              They are just hard to remember.
             </h2>
           </AnimatedSection>
           <AnimatedSection delay={0.1}>
-            <p className="font-body text-[15px] md:text-[16px] leading-[1.8] text-muted-foreground mb-8">
-              In a world of constant output, we believe brands do not need more noise. They need clear direction, thoughtful communication, and work that people can actually feel.
+            <p className="font-display text-[clamp(32px,5vw,64px)] leading-[1.1] tracking-[0.01em] text-accent-gradient">
+              We fix that.
             </p>
           </AnimatedSection>
           <AnimatedSection delay={0.2}>
             <Link
               to="/about"
-              className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300"
+              className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground hover:text-accent-warm transition-colors duration-300 mt-12 block"
             >
               Learn more about us <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
             </Link>
@@ -182,7 +185,7 @@ const Index = () => {
                     <img
                       src={project.image}
                       alt={project.title}
-className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                       loading="lazy"
                       width={1280}
                       height={800}
@@ -202,7 +205,7 @@ className="w-full h-full object-cover grayscale group-hover:grayscale-0 transiti
         </div>
       </section>
 
-      {/* ═══ SERVICES PREVIEW ═══ */}
+      {/* ═══ SERVICES PREVIEW — Result-Oriented ═══ */}
       <section className="py-24 md:py-40 px-4 sm:px-6 md:px-12 border-t border-border">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
@@ -222,44 +225,47 @@ className="w-full h-full object-cover grayscale group-hover:grayscale-0 transiti
             </div>
           </AnimatedSection>
 
-          {/* Visual service cards — horizontal layout */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px">
             {[
               {
                 num: "01",
                 title: "Strategy",
-                desc: "Brand positioning, narrative, communication framework, and campaign direction.",
-                icon: "◆",
+                desc: "We define what your brand stands for and why people should care.",
+                result: "People understand your brand faster.",
               },
               {
                 num: "02",
                 title: "Communication Design",
-                desc: "Campaign concepts, creative direction, messaging systems, and touchpoint structure.",
-                icon: "◇",
+                desc: "We turn your ideas into something people get.",
+                result: "People remember what you say.",
               },
               {
                 num: "03",
                 title: "Film & Production",
-                desc: "TVC, commercials, documentary film, branded content, and photo/video production.",
-                icon: "▣",
+                desc: "We create visuals that make people stop.",
+                result: "People feel something about your brand.",
               },
             ].map((s, i) => (
               <AnimatedSection key={s.title} delay={i * 0.1}>
                 <Link to="/services" className="group block h-full">
                   <div className="border border-border hover:border-accent-warm/30 bg-background p-8 md:p-10 h-full transition-all duration-500 relative overflow-hidden">
-                    {/* Decorative number */}
                     <span className="absolute top-4 right-4 font-display text-[80px] md:text-[100px] leading-none text-border/30 group-hover:text-accent-warm/10 transition-colors duration-500 select-none">
                       {s.num}
                     </span>
 
                     <div className="relative z-10">
-                      <span className="text-accent-warm/60 text-[20px] block mb-6">{s.icon}</span>
                       <h3 className="font-display text-[28px] md:text-[34px] tracking-[0.02em] text-foreground mb-4 group-hover:text-accent-warm transition-colors duration-300">
                         {s.title}
                       </h3>
                       <p className="font-body text-[14px] leading-[1.7] text-muted-foreground mb-6">
                         {s.desc}
                       </p>
+                      <div className="border-t border-border pt-4 mb-6">
+                        <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm/50 mb-1">Result</p>
+                        <p className="font-body text-[14px] leading-[1.7] text-foreground/90">
+                          {s.result}
+                        </p>
+                      </div>
                       <span className="font-mono text-[10px] tracking-[0.12em] uppercase text-muted-foreground/40 group-hover:text-accent-warm/60 transition-colors duration-300 inline-flex items-center gap-2">
                         Learn more <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
                       </span>
@@ -290,14 +296,81 @@ className="w-full h-full object-cover grayscale group-hover:grayscale-0 transiti
         </div>
       </section>
 
+      {/* ═══ START HERE — Packages ═══ */}
+      <section className="py-24 md:py-40 px-4 sm:px-6 md:px-12 border-t border-border">
+        <div className="max-w-7xl mx-auto">
+          <AnimatedSection>
+            <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-4">
+              Not sure where to begin?
+            </p>
+            <h2 className="font-display text-[clamp(36px,6vw,72px)] leading-[0.9] tracking-[0.01em] text-foreground mb-16">
+              START <span className="text-accent-gradient">HERE.</span>
+            </h2>
+          </AnimatedSection>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px">
+            {[
+              {
+                tier: "Starter",
+                scope: "Brand + Film",
+                audience: "For new brands",
+                tagline: "Get clear, get seen.",
+                items: ["Brand positioning", "Visual direction", "Brand film or content package"],
+              },
+              {
+                tier: "Growth",
+                scope: "Strategy + Campaign",
+                audience: "For scaling brands",
+                tagline: "Get strategic, get consistent.",
+                items: ["Communication framework", "Campaign direction", "Content systems & production"],
+              },
+              {
+                tier: "Full System",
+                scope: "Strategy + Content + Film",
+                audience: "For serious brands",
+                tagline: "Get everything, one team.",
+                items: ["Full brand strategy", "Communication design", "Film & content production", "Ongoing creative direction"],
+              },
+            ].map((pkg, i) => (
+              <AnimatedSection key={pkg.tier} delay={i * 0.1}>
+                <div className="border border-border bg-background p-8 md:p-10 h-full flex flex-col">
+                  <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent-warm/50 mb-2">{pkg.audience}</p>
+                  <h3 className="font-display text-[28px] md:text-[34px] tracking-[0.02em] text-foreground mb-2">
+                    {pkg.tier}
+                  </h3>
+                  <p className="font-mono text-[11px] tracking-[0.05em] text-muted-foreground/60 mb-4">{pkg.scope}</p>
+                  <p className="font-body text-[14px] leading-[1.7] text-foreground/80 mb-6">{pkg.tagline}</p>
+
+                  <ul className="space-y-2 mb-8 flex-1">
+                    {pkg.items.map((item) => (
+                      <li key={item} className="font-mono text-[11px] tracking-[0.05em] text-muted-foreground/60 flex items-center gap-2">
+                        <span className="w-1 h-1 bg-accent-warm/40 rounded-full flex-shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <Link
+                    to="/contact"
+                    className="group inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.12em] uppercase text-muted-foreground/40 hover:text-accent-warm transition-colors duration-300"
+                  >
+                    Start here <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                  </Link>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ═══ CTA ═══ */}
       <section className="py-32 md:py-48 px-4 sm:px-6 md:px-12 border-t border-border text-center">
         <AnimatedSection>
-          <h2 className="font-display text-[clamp(36px,7vw,100px)] leading-[0.9] tracking-[0.01em] text-foreground">
-            START WITH
+          <h2 className="font-display text-[clamp(32px,5vw,72px)] leading-[1] tracking-[0.01em] text-foreground mb-4">
+            Let's make your brand
           </h2>
-          <h2 className="font-display text-[clamp(36px,7vw,100px)] leading-[0.9] tracking-[0.01em] text-accent-gradient">
-            A CONVERSATION.
+          <h2 className="font-display text-[clamp(32px,5vw,72px)] leading-[1] tracking-[0.01em] text-accent-gradient">
+            easier to remember.
           </h2>
         </AnimatedSection>
         <AnimatedSection delay={0.2}>
@@ -306,7 +379,7 @@ className="w-full h-full object-cover grayscale group-hover:grayscale-0 transiti
               to="/contact"
               className="inline-block font-mono text-[11px] tracking-[0.12em] uppercase text-primary-foreground bg-primary px-10 py-3.5 hover:bg-accent-warm hover:text-accent-warm-foreground transition-all duration-300"
             >
-              Get in Touch
+              Start your first project
             </Link>
           </div>
         </AnimatedSection>

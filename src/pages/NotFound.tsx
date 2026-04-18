@@ -18,12 +18,12 @@ const NotFound = () => {
         noindex
       />
       <div className="text-center">
-        <p className="label-mono text-accent">404</p>
-        <h1 className="mt-6 font-display text-[64px] md:text-[120px] leading-none">PAGE NOT FOUND</h1>
+        <p className="label-mono text-chrome-soft">404</p>
+        <h1 className="mt-6 font-display text-chrome text-[64px] md:text-[120px] leading-none">NOT FOUND</h1>
         <p className="mt-6 text-muted-foreground">The page you're looking for doesn't exist.</p>
         <Link
           to="/"
-          className="mt-10 inline-block label-mono bg-accent text-accent-foreground px-6 py-3 hover:bg-accent/90 transition-colors"
+          className="mt-10 inline-block label-mono bg-foreground text-background px-6 py-3 hover:bg-foreground/90 transition-colors"
         >
           ← Back home
         </Link>

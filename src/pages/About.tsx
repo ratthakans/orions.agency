@@ -1,0 +1,115 @@
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
+import Reveal from "@/components/Reveal";
+import SectionLabel from "@/components/SectionLabel";
+import PageHero from "@/components/PageHero";
+import SEO from "@/components/SEO";
+
+const About = () => (
+  <div>
+    <SEO title="About — ØRIONS" description="Bangkok Energy × Logical Standard. We bridge ideas and outcomes." path="/about" />
+
+    <PageHero
+      eyebrowNumber="01"
+      eyebrowLabel="WHO WE ARE"
+      title="Creative Engineering from Bangkok."
+      subtitle="ØRIONS คือเอเจนซีที่ผสาน Bangkok Energy เข้ากับ Logical Standard ระดับสากล เพื่อเชื่อมไอเดียที่ดีกับผลลัพธ์ทางธุรกิจที่วัดผลได้"
+    />
+
+    {/* FORMULA */}
+    <section className="px-6 md:px-12 py-24 md:py-32 border-t border-border">
+      <div className="max-w-[1100px] mx-auto">
+        <Reveal>
+          <div className="border border-border p-10 md:p-16">
+            <div className="font-display text-[24px] md:text-[40px] tracking-tight leading-[1.2]">
+              <span className="text-chrome">BANGKOK ENERGY</span>
+              <span className="text-muted-foreground mx-3 md:mx-6">×</span>
+              <span className="text-chrome">LOGICAL STANDARD</span>
+            </div>
+            <p className="mt-8 max-w-[700px] text-[16px] md:text-[18px] leading-[1.7] text-muted-foreground font-thai">
+              ความรวดเร็วและความหลากหลายของกรุงเทพ × มาตรฐานเชิงเหตุผลและความแม่นยำระดับสากล —
+              สูตรที่ทำให้เราแก้ปัญหาแบรนด์ได้เร็ว ลึก และวัดผลได้
+            </p>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+
+    {/* PRINCIPLES */}
+    <section className="px-6 md:px-12 py-24 md:py-32 border-t border-border bg-surface">
+      <div className="max-w-[1400px] mx-auto">
+        <Reveal><SectionLabel number="02" label="PRINCIPLES" /></Reveal>
+        <Reveal delay={0.1}>
+          <h2 className="mt-8 font-display text-[32px] md:text-[56px] leading-[1] max-w-[900px]">
+            Three rules we live by.
+          </h2>
+        </Reveal>
+
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-px bg-border">
+          {[
+            { n: "01", t: "Practical over Pretty", b: "เราชอบงานสวย แต่เราเลือกงานที่ใช้ได้จริงก่อนเสมอ — strategy ต้อง execute ได้, content ต้อง convert ได้" },
+            { n: "02", t: "Bold over Safe", b: "งานปลอดภัยคืองานที่มองข้าม เราเลือกความกล้าที่มีเหตุผล เพื่อให้แบรนด์ถูกจดจำในจังหวะที่ใช่" },
+            { n: "03", t: "Done over Discussed", b: "เราไม่ส่งมอบ Paper Strategy เราพาไอเดียจากกระดาษไปสู่ผลลัพธ์ที่จับต้องได้จริงในตลาด" },
+          ].map((p, i) => (
+            <Reveal key={p.n} delay={i * 0.1}>
+              <div className="bg-background p-8 md:p-10 h-full">
+                <div className="font-display text-chrome text-[64px] leading-none">{p.n}</div>
+                <h3 className="mt-8 font-display text-[22px]">{p.t}</h3>
+                <p className="mt-4 text-[14px] leading-[1.7] text-muted-foreground font-thai">{p.b}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* WHY US — comparison */}
+    <section className="px-6 md:px-12 py-24 md:py-32 border-t border-border">
+      <div className="max-w-[1400px] mx-auto">
+        <Reveal><SectionLabel number="03" label="WHY ØRIONS" /></Reveal>
+        <Reveal delay={0.1}>
+          <h2 className="mt-8 font-display text-[32px] md:text-[56px] leading-[1] font-thai">
+            ไม่ใช่ Consultant. ไม่ใช่ Studio.
+          </h2>
+        </Reveal>
+
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            { t: "CONSULTANT", s: "ให้แผน ไม่ทำจริง", b: "ส่งมอบ Paper Strategy แต่ไม่ได้พาไปทำจนเห็นผล", muted: true },
+            { t: "STUDIO", s: "ทำตามสั่ง ไม่คิดต่อ", b: "รับ Execution ได้ดี แต่ไม่มองภาพรวมกลยุทธ์ธุรกิจ", muted: true },
+            { t: "ØRIONS", s: "กลยุทธ์ × งานผลิต", b: "เชื่อมการคิดกับการทำ ให้ธุรกิจขยับไปข้างหน้าได้จริง", muted: false },
+          ].map((c, i) => (
+            <Reveal key={c.t} delay={i * 0.1}>
+              <div className={`p-8 md:p-10 h-full border ${c.muted ? "bg-background border-border" : "bg-chrome text-background border-transparent"}`}>
+                <div className={`label-mono ${c.muted ? "text-muted-foreground" : "text-background/70"}`}>
+                  {c.muted ? "VS" : "OUR APPROACH"}
+                </div>
+                <h3 className={`mt-6 font-display text-[26px] md:text-[32px] ${c.muted ? "" : "text-background"}`}>{c.t}</h3>
+                <div className={`mt-3 font-display text-[17px] font-thai ${c.muted ? "text-muted-foreground" : "text-background"}`}>{c.s}</div>
+                <p className={`mt-4 text-[14px] leading-[1.7] font-thai ${c.muted ? "text-muted-foreground/80" : "text-background/85"}`}>{c.b}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* CTA */}
+    <section className="px-6 md:px-12 py-28 border-t border-border">
+      <div className="max-w-[1100px] mx-auto">
+        <Reveal>
+          <h2 className="font-display text-[32px] md:text-[56px] leading-[1]">
+            Let's build the next chapter together.
+          </h2>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <Link to="/contact" className="mt-10 inline-flex items-center gap-3 bg-foreground text-background px-7 py-4 label-mono">
+            Get in touch <ArrowRight className="w-4 h-4" />
+          </Link>
+        </Reveal>
+      </div>
+    </section>
+  </div>
+);
+
+export default About;

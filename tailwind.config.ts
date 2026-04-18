@@ -51,10 +51,11 @@ export default {
         },
       },
       fontFamily: {
-        display: ["Inter", "IBM Plex Sans Thai", "sans-serif"],
+        display: ["Unbounded", "Inter", "IBM Plex Sans Thai", "sans-serif"],
         body: ["Inter", "IBM Plex Sans Thai", "sans-serif"],
         mono: ["JetBrains Mono", "monospace"],
         thai: ["IBM Plex Sans Thai", "Inter", "sans-serif"],
+        brand: ["Unbounded", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -74,11 +75,16 @@ export default {
           "0%, 100%": { transform: "translateY(0)", opacity: "0.4" },
           "50%": { transform: "translateY(8px)", opacity: "1" },
         },
+        "shimmer": {
+          "0%": { backgroundPosition: "-200% 0" },
+          "100%": { backgroundPosition: "200% 0" },
+        },
       },
       animation: {
         "fade-up": "fade-up 0.7s ease-out forwards",
         "fade-in": "fade-in 0.5s ease-out forwards",
         "scroll-bounce": "scroll-bounce 2s ease-in-out infinite",
+        "shimmer": "shimmer 8s linear infinite",
       },
     },
   },

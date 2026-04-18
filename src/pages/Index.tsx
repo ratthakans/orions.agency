@@ -25,7 +25,7 @@ const Index = () => (
     <section className="relative min-h-screen flex items-center justify-center px-6 md:px-12 overflow-hidden">
       <div className="text-center w-full max-w-[1400px] mx-auto pt-20">
         <Reveal>
-          <h1 className="font-brand text-[20vw] md:text-[180px] leading-[0.9] tracking-[-0.04em] text-chrome">
+          <h1 className="font-brand text-[20vw] md:text-[180px] leading-[0.9] tracking-[-0.04em] text-grad">
             ØRIONS
           </h1>
         </Reveal>
@@ -33,7 +33,7 @@ const Index = () => (
           <div className="mt-8 label-mono text-muted-foreground">APPLIED CREATIVE AGENCY</div>
         </Reveal>
         <Reveal delay={0.25}>
-          <div className="mt-5 mx-auto h-px w-24 divider-chrome" />
+          <div className="mt-5 mx-auto h-px w-24 divider-grad" />
         </Reveal>
         <Reveal delay={0.35}>
           <p className="mt-6 font-mono text-[13px] tracking-[0.25em] uppercase text-muted-foreground">
@@ -59,13 +59,13 @@ const Index = () => (
         </Reveal>
         <Reveal delay={0.2}>
           <p className="mt-10 max-w-[760px] text-[16px] md:text-[19px] leading-[1.75] text-muted-foreground font-thai">
-            หลายแบรนด์ติดอยู่ใน <span className="text-chrome-soft">Vicious Cycle</span> — ทำงานหนักขึ้น จ่ายแพงขึ้น แต่ผลลัพธ์เท่าเดิม เพราะกติกาของโลกเปลี่ยนไปแล้ว
+            หลายแบรนด์ติดอยู่ใน <span className="text-grad-soft">Vicious Cycle</span> — ทำงานหนักขึ้น จ่ายแพงขึ้น แต่ผลลัพธ์เท่าเดิม เพราะกติกาของโลกเปลี่ยนไปแล้ว
           </p>
         </Reveal>
         <Reveal delay={0.3}>
           <blockquote className="mt-14 border-l border-border pl-6 md:pl-8 max-w-[820px]">
             <p className="font-thai text-[20px] md:text-[26px] leading-[1.5] font-medium">
-              "เมื่อวิธีเดิมมาถึงทางตัน คุณต้องการไอเดียที่ <span className="text-chrome">'ประยุกต์'</span> มาเพื่อแก้ปัญหาจริง"
+              "เมื่อวิธีเดิมมาถึงทางตัน คุณต้องการไอเดียที่ <span className="text-grad">'ประยุกต์'</span> มาเพื่อแก้ปัญหาจริง"
             </p>
           </blockquote>
         </Reveal>
@@ -87,7 +87,7 @@ const Index = () => (
             <Reveal key={p.label} delay={i * 0.1}>
               <div className="border-t border-border pt-8">
                 <CountUp to={p.stat} prefix={p.prefix} suffix={p.suffix} decimals={p.decimals}
-                  className="font-display text-chrome text-[80px] md:text-[104px] leading-none tracking-[-0.04em] block" />
+                  className="font-display text-grad text-[80px] md:text-[104px] leading-none tracking-[-0.04em] block" />
                 <div className="mt-6 label-mono text-muted-foreground">{p.label}</div>
                 <div className="mt-3 font-display text-[20px] font-thai">{p.title}</div>
                 <p className="mt-3 text-[15px] leading-[1.7] text-muted-foreground font-thai max-w-[300px]">{p.body}</p>
@@ -114,9 +114,9 @@ const Index = () => (
         <Reveal delay={0.2}>
           <div className="mt-16 inline-block border border-border px-8 py-6">
             <div className="font-display text-[18px] md:text-[24px] tracking-tight">
-              <span className="text-chrome">BANGKOK ENERGY</span>
+              <span className="text-grad">BANGKOK ENERGY</span>
               <span className="text-muted-foreground mx-4">×</span>
-              <span className="text-chrome">LOGICAL STANDARD</span>
+              <span className="text-grad">LOGICAL STANDARD</span>
             </div>
           </div>
         </Reveal>
@@ -159,13 +159,13 @@ const Index = () => (
           {featured.map((p, i) => (
             <Reveal key={p.name} delay={i * 0.1}>
               <article className="group bg-background border border-border hover:border-foreground/40 transition-all duration-300">
-                <div className="aspect-[16/10] bg-chrome opacity-[0.08] group-hover:opacity-[0.12] transition-opacity" />
+                <div className="aspect-[16/10] bg-grad opacity-[0.08] group-hover:opacity-[0.12] transition-opacity" />
                 <div className="p-6 md:p-8">
-                  <div className="label-mono text-chrome-soft">{p.category}</div>
+                  <div className="label-mono text-grad-soft">{p.category}</div>
                   <h3 className="mt-4 font-display text-[24px]">{p.name}</h3>
                   <p className="mt-3 text-[14px] leading-[1.65] text-muted-foreground font-thai">{p.body}</p>
                   <div className="mt-6 pt-6 border-t border-border">
-                    <div className="font-display text-chrome text-[36px] leading-none">{p.impact}</div>
+                    <div className="font-display text-grad text-[36px] leading-none">{p.impact}</div>
                     <div className="mt-2 label-mono text-muted-foreground">{p.impactLabel}</div>
                   </div>
                 </div>
@@ -183,7 +183,7 @@ const Index = () => (
         <Reveal delay={0.1}>
           <h2 className="mt-10 font-display text-[40px] md:text-[88px] leading-[0.95]">
             <span className="text-muted-foreground">Your business is stuck.</span><br />
-            <span className="text-chrome">We're the unstuck.</span>
+            <span className="text-grad">We're the unstuck.</span>
           </h2>
         </Reveal>
         <Reveal delay={0.2}>

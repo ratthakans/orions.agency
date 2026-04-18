@@ -22,9 +22,9 @@ const About = () => (
         <Reveal>
           <div className="border border-border p-10 md:p-16">
             <div className="font-display text-[24px] md:text-[40px] tracking-tight leading-[1.2]">
-              <span className="text-chrome">BANGKOK ENERGY</span>
+              <span className="text-grad">BANGKOK ENERGY</span>
               <span className="text-muted-foreground mx-3 md:mx-6">×</span>
-              <span className="text-chrome">LOGICAL STANDARD</span>
+              <span className="text-grad">LOGICAL STANDARD</span>
             </div>
             <p className="mt-8 max-w-[700px] text-[16px] md:text-[18px] leading-[1.7] text-muted-foreground font-thai">
               ความรวดเร็วและความหลากหลายของกรุงเทพ × มาตรฐานเชิงเหตุผลและความแม่นยำระดับสากล —
@@ -53,7 +53,7 @@ const About = () => (
           ].map((p, i) => (
             <Reveal key={p.n} delay={i * 0.1}>
               <div className="bg-background p-8 md:p-10 h-full">
-                <div className="font-display text-chrome text-[64px] leading-none">{p.n}</div>
+                <div className="font-display text-grad text-[64px] leading-none">{p.n}</div>
                 <h3 className="mt-8 font-display text-[22px]">{p.t}</h3>
                 <p className="mt-4 text-[14px] leading-[1.7] text-muted-foreground font-thai">{p.b}</p>
               </div>
@@ -80,7 +80,7 @@ const About = () => (
             { t: "ØRIONS", s: "กลยุทธ์ × งานผลิต", b: "เชื่อมการคิดกับการทำ ให้ธุรกิจขยับไปข้างหน้าได้จริง", muted: false },
           ].map((c, i) => (
             <Reveal key={c.t} delay={i * 0.1}>
-              <div className={`p-8 md:p-10 h-full border ${c.muted ? "bg-background border-border" : "bg-chrome text-background border-transparent"}`}>
+              <div className={`p-8 md:p-10 h-full border ${c.muted ? "bg-background border-border" : "bg-grad text-background border-transparent"}`}>
                 <div className={`label-mono ${c.muted ? "text-muted-foreground" : "text-background/70"}`}>
                   {c.muted ? "VS" : "OUR APPROACH"}
                 </div>

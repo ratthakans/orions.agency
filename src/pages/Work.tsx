@@ -49,13 +49,13 @@ const Work = () => (
           {heroProjects.map((p, i) => (
             <Reveal key={p.name} delay={i * 0.1}>
               <article className="group bg-background border border-border hover:border-foreground/40 transition-all duration-300">
-                <div className="aspect-[16/10] bg-chrome opacity-[0.08] group-hover:opacity-[0.14] transition-opacity" />
+                <div className="aspect-[16/10] bg-grad opacity-[0.08] group-hover:opacity-[0.14] transition-opacity" />
                 <div className="p-6 md:p-8">
-                  <div className="label-mono text-chrome-soft">{p.category}</div>
+                  <div className="label-mono text-grad-soft">{p.category}</div>
                   <h3 className="mt-4 font-display text-[26px]">{p.name}</h3>
                   <p className="mt-3 text-[14px] leading-[1.65] text-muted-foreground font-thai">{p.body}</p>
                   <div className="mt-6 pt-6 border-t border-border">
-                    <div className="font-display text-chrome text-[36px] leading-none">{p.impact}</div>
+                    <div className="font-display text-grad text-[36px] leading-none">{p.impact}</div>
                     <div className="mt-2 label-mono text-muted-foreground">{p.impactLabel}</div>
                   </div>
                 </div>
@@ -74,9 +74,9 @@ const Work = () => (
           {selectedWorks.map((w, i) => (
             <Reveal key={w.name} delay={(i % 2) * 0.1}>
               <article className="group flex border border-border hover:border-foreground/40 transition-colors">
-                <div className="w-[40%] aspect-square bg-chrome opacity-[0.08] shrink-0" />
+                <div className="w-[40%] aspect-square bg-grad opacity-[0.08] shrink-0" />
                 <div className="p-6 md:p-8 flex flex-col justify-center">
-                  <div className="label-mono text-chrome-soft">{w.category}</div>
+                  <div className="label-mono text-grad-soft">{w.category}</div>
                   <h3 className="mt-3 font-display text-[22px] md:text-[26px]">{w.name}</h3>
                   <p className="mt-3 text-[14px] leading-[1.65] text-muted-foreground font-thai">{w.body}</p>
                 </div>
@@ -100,13 +100,13 @@ const Work = () => (
           {commercials.map((c, i) => (
             <Reveal key={c.name} delay={i * 0.1}>
               <article className="group bg-background border border-border hover:border-foreground/40 transition-colors">
-                <div className="aspect-video bg-chrome opacity-[0.08] flex items-center justify-center relative">
+                <div className="aspect-video bg-grad opacity-[0.08] flex items-center justify-center relative">
                   <div className="w-12 h-12 border border-foreground/60 flex items-center justify-center group-hover:bg-foreground transition-colors">
                     <Play className="w-4 h-4 text-foreground group-hover:text-background" fill="currentColor" />
                   </div>
                 </div>
                 <div className="p-6">
-                  <div className="label-mono text-chrome-soft">{c.category}</div>
+                  <div className="label-mono text-grad-soft">{c.category}</div>
                   <h3 className="mt-3 font-display text-[18px]">{c.name}</h3>
                   <p className="mt-2 text-[13px] leading-[1.65] text-muted-foreground font-thai">{c.body}</p>
                 </div>
@@ -130,13 +130,13 @@ const Work = () => (
           {longform.map((l, i) => (
             <Reveal key={l.name} delay={i * 0.1}>
               <article className="group bg-surface border border-border hover:border-foreground/40 transition-colors">
-                <div className="aspect-video bg-chrome opacity-[0.08] flex items-center justify-center relative">
+                <div className="aspect-video bg-grad opacity-[0.08] flex items-center justify-center relative">
                   <div className="w-12 h-12 border border-foreground/60 flex items-center justify-center group-hover:bg-foreground transition-colors">
                     <Play className="w-4 h-4 text-foreground group-hover:text-background" fill="currentColor" />
                   </div>
                 </div>
                 <div className="p-6">
-                  <div className="label-mono text-chrome-soft">{l.category}</div>
+                  <div className="label-mono text-grad-soft">{l.category}</div>
                   <h3 className="mt-3 font-display text-[16px] font-thai leading-[1.35]">{l.name}</h3>
                   <p className="mt-2 text-[13px] leading-[1.65] text-muted-foreground font-thai">{l.body}</p>
                 </div>

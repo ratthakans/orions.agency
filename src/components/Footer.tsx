@@ -35,7 +35,7 @@ const Footer = () => (
       </div>
 
       <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-        <p className="label-mono text-chrome">PRACTICAL. BOLD. DONE.</p>
+        <p className="label-mono text-grad">PRACTICAL. BOLD. DONE.</p>
         <p className="font-mono text-[10px] text-muted-foreground/60">
           © {new Date().getFullYear()} ØRIONS · Tax ID 0105568220629
         </p>

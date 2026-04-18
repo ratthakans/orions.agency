@@ -179,7 +179,7 @@ const Index = () => (
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
           {featured.map((p, i) => (
             <Reveal key={p.name} delay={i * 0.1}>
-              <article className="group bg-background border border-border hover:border-foreground/40 transition-all duration-300">
+              <article className="group bg-background border border-border ring-grad-hover transition-all duration-300">
                 <div className="aspect-[16/10] bg-grad-radial relative overflow-hidden after:absolute after:inset-0 after:bg-background/55 group-hover:after:bg-background/35 after:transition-colors" />
                 <div className="p-6 md:p-8">
                   <div className="label-mono text-grad-soft">{p.category}</div>

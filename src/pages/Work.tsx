@@ -48,7 +48,7 @@ const Work = () => (
         <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
           {heroProjects.map((p, i) => (
             <Reveal key={p.name} delay={i * 0.1}>
-              <article className="group bg-background border border-border hover:border-foreground/40 transition-all duration-300">
+              <article className="group bg-background border border-border ring-grad-hover transition-all duration-300">
                 <div className="aspect-[16/10] bg-grad-radial relative overflow-hidden after:absolute after:inset-0 after:bg-background/55 group-hover:after:bg-background/35 after:transition-colors" />
                 <div className="p-6 md:p-8">
                   <div className="label-mono text-grad-soft">{p.category}</div>
@@ -73,7 +73,7 @@ const Work = () => (
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
           {selectedWorks.map((w, i) => (
             <Reveal key={w.name} delay={(i % 2) * 0.1}>
-              <article className="group flex border border-border hover:border-foreground/40 transition-colors">
+              <article className="group flex border border-border ring-grad-hover transition-colors">
                 <div className="w-[40%] aspect-square bg-grad-radial relative overflow-hidden shrink-0 after:absolute after:inset-0 after:bg-background/55" />
                 <div className="p-6 md:p-8 flex flex-col justify-center">
                   <div className="label-mono text-grad-soft">{w.category}</div>
@@ -99,9 +99,9 @@ const Work = () => (
         <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
           {commercials.map((c, i) => (
             <Reveal key={c.name} delay={i * 0.1}>
-              <article className="group bg-background border border-border hover:border-foreground/40 transition-colors">
+              <article className="group bg-background border border-border ring-grad-hover transition-colors">
                 <div className="aspect-video bg-grad-radial relative overflow-hidden flex items-center justify-center before:absolute before:inset-0 before:bg-background/55">
-                  <div className="w-12 h-12 border border-foreground/60 flex items-center justify-center group-hover:bg-foreground transition-colors">
+                  <div className="relative z-10 w-12 h-12 border border-foreground/60 flex items-center justify-center group-hover:bg-foreground transition-colors">
                     <Play className="w-4 h-4 text-foreground group-hover:text-background" fill="currentColor" />
                   </div>
                 </div>
@@ -129,9 +129,9 @@ const Work = () => (
         <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
           {longform.map((l, i) => (
             <Reveal key={l.name} delay={i * 0.1}>
-              <article className="group bg-surface border border-border hover:border-foreground/40 transition-colors">
+              <article className="group bg-surface border border-border ring-grad-hover transition-colors">
                 <div className="aspect-video bg-grad-radial relative overflow-hidden flex items-center justify-center before:absolute before:inset-0 before:bg-background/55">
-                  <div className="w-12 h-12 border border-foreground/60 flex items-center justify-center group-hover:bg-foreground transition-colors">
+                  <div className="relative z-10 w-12 h-12 border border-foreground/60 flex items-center justify-center group-hover:bg-foreground transition-colors">
                     <Play className="w-4 h-4 text-foreground group-hover:text-background" fill="currentColor" />
                   </div>
                 </div>

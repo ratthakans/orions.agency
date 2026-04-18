@@ -28,46 +28,48 @@ const Index = () => (
   <div id="top">
     <SEO title="ØRIONS — Sharper ideas. Clearer direction." description="Idea-led Creative Agency. We help brands cut through the noise with sharper ideas and clearer direction." path="/" />
 
-    {/* HERO — Editorial cover */}
-    <section className="px-6 md:px-10 pt-24 md:pt-28 pb-10">
-      <Reveal>
-        <div className="border-t border-foreground pt-3 pb-3 flex items-center justify-between">
-          <span className="index-badge font-bold">ISSUE 01 — IDEA-LED CREATIVE AGENCY</span>
-          <span className="index-badge font-medium text-muted-foreground hidden sm:inline">EST. 2024 · BANGKOK</span>
-        </div>
-      </Reveal>
-
-      <div className="mt-12 md:mt-20">
+    {/* HERO — Full viewport editorial cover */}
+    <section className="relative min-h-screen w-full px-6 md:px-10 pt-24 md:pt-28 pb-10 flex flex-col">
+      <div className="flex-1 flex flex-col justify-center">
         <Reveal delay={0.05}>
           <h1 className="font-brand text-[22vw] md:text-[20vw] leading-[0.82] tracking-[-0.05em] text-foreground">
             ØRIONS
           </h1>
         </Reveal>
+
+        <div className="mt-10 md:mt-16 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-end">
+          <div className="md:col-span-6">
+            <Reveal delay={0.15}>
+              <h2 className="font-display text-[28px] md:text-[42px] leading-[1.05] tracking-[-0.02em]">
+                Sharper ideas.<br />Clearer direction.
+              </h2>
+            </Reveal>
+          </div>
+          <div className="md:col-span-5 md:col-start-8">
+            <Reveal delay={0.25}>
+              <p className="text-[15px] md:text-[16px] leading-[1.7] text-muted-foreground font-thai">
+                ØRIONS เป็น Creative Agency สำหรับธุรกิจที่ไม่อยากติดอยู่ใน social vicious cycle เราช่วยให้สิ่งที่คุณทำชัดขึ้น คมขึ้น และทำงานได้จริงขึ้น
+              </p>
+              <Link to="/contact" className="mt-6 inline-flex items-center gap-2 index-badge border-b border-foreground pb-1 hover:opacity-70 transition-opacity">
+                Let's Talk <ArrowUpRight className="w-4 h-4" />
+              </Link>
+            </Reveal>
+          </div>
+        </div>
       </div>
 
-      <div className="mt-12 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-end">
-        <div className="md:col-span-6">
-          <Reveal delay={0.15}>
-            <h2 className="font-display text-[28px] md:text-[42px] leading-[1.05] tracking-[-0.02em]">
-              Sharper ideas.<br />Clearer direction.
-            </h2>
-          </Reveal>
+      <Reveal delay={0.4}>
+        <div className="border-t border-foreground pt-3 flex items-center justify-between">
+          <span className="index-badge font-bold">EST. 2024 · BANGKOK</span>
+          <span className="index-badge font-medium text-muted-foreground">↓ SCROLL</span>
         </div>
-        <div className="md:col-span-5 md:col-start-8">
-          <Reveal delay={0.25}>
-            <p className="text-[15px] md:text-[16px] leading-[1.7] text-muted-foreground font-thai">
-              ØRIONS เป็น Creative Agency สำหรับธุรกิจที่ไม่อยากติดอยู่ใน social vicious cycle เราช่วยให้สิ่งที่คุณทำชัดขึ้น คมขึ้น และทำงานได้จริงขึ้น
-            </p>
-            <Link to="/contact" className="mt-6 inline-flex items-center gap-2 index-badge border-b border-foreground pb-1 hover:opacity-70 transition-opacity">
-              Let's Talk <ArrowUpRight className="w-4 h-4" />
-            </Link>
-          </Reveal>
-        </div>
-      </div>
+      </Reveal>
+    </section>
 
-      {/* Hero image */}
-      <Reveal delay={0.3}>
-        <figure className="mt-16 md:mt-24 border-t border-foreground pt-3">
+    {/* Hero image */}
+    <section className="px-6 md:px-10 pb-10">
+      <Reveal>
+        <figure className="border-t border-foreground pt-3">
           <div className="flex items-center justify-between mb-3">
             <span className="index-badge font-bold">FIG. 01</span>
             <span className="index-badge font-medium text-muted-foreground">— THE WORLD MOVES FASTER THAN BUSINESS</span>

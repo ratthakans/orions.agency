@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Unbounded:wght@400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,42 +6,46 @@
 
 @layer base {
   :root {
-    /* Light editorial — newsprint cream */
-    --background: 40 14% 96%;           /* #F5F2EC paper */
-    --foreground: 0 0% 6%;              /* near black */
+    /* Warm editorial mono base */
+    --background: 240 7% 5%;            /* #0B0B0D warm near-black */
+    --foreground: 48 20% 95%;           /* #F5F5F0 warm white */
 
-    --surface: 40 12% 92%;              /* #ECE8DF darker paper */
-    --surface-foreground: 0 0% 6%;
+    --surface: 240 7% 9%;               /* #131316 */
+    --surface-foreground: 48 20% 95%;
 
-    --surface-2: 40 10% 88%;            /* #E2DDD2 */
+    --surface-2: 240 7% 11%;            /* #1B1B1F */
 
-    --card: 40 14% 96%;
-    --card-foreground: 0 0% 6%;
+    --card: 240 7% 9%;
+    --card-foreground: 48 20% 95%;
 
-    --popover: 40 14% 96%;
-    --popover-foreground: 0 0% 6%;
+    --popover: 240 7% 7%;
+    --popover-foreground: 48 20% 95%;
 
-    --primary: 0 0% 6%;
-    --primary-foreground: 40 14% 96%;
+    --primary: 48 20% 95%;
+    --primary-foreground: 240 7% 5%;
 
-    --secondary: 40 12% 92%;
-    --secondary-foreground: 0 0% 6%;
+    --secondary: 240 7% 11%;
+    --secondary-foreground: 48 20% 95%;
 
-    --muted: 40 12% 92%;
-    --muted-foreground: 0 0% 38%;       /* #5F5F5F */
+    --muted: 240 6% 12%;
+    --muted-foreground: 240 5% 56%;     /* #8A8A92 */
 
-    --accent: 0 0% 6%;
-    --accent-foreground: 40 14% 96%;
+    --accent: 38 30% 88%;               /* #E8E3D8 creamy bone */
+    --accent-foreground: 240 7% 5%;
 
-    --destructive: 0 72% 45%;
-    --destructive-foreground: 40 14% 96%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 48 20% 95%;
 
-    --border: 0 0% 12%;                 /* hairline near-black */
-    --border-soft: 0 0% 78%;            /* light hairline */
-    --input: 0 0% 12%;
-    --ring: 0 0% 12%;
+    --border: 240 7% 16%;               /* #26262B hairline */
+    --input: 240 7% 16%;
+    --ring: 38 30% 80%;
 
     --radius: 0px;
+
+    /* Liquid accent — Warm Bone (amber → cream → bone) */
+    --grad-1: 36 65% 62%;    /* amber  #E0B36A */
+    --grad-2: 38 45% 82%;    /* cream  #ECDCC2 */
+    --grad-3: 38 30% 92%;    /* bone   #ECE7DC */
   }
 }
 
@@ -50,56 +54,119 @@
   html { scroll-behavior: smooth; }
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'IBM Plex Sans Thai', 'Inter', sans-serif;
+    font-family: 'Inter', 'IBM Plex Sans Thai', sans-serif;
     font-size: 16px;
     line-height: 1.65;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-feature-settings: "tnum" 1, "ss01" 1;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Unbounded', 'IBM Plex Sans Thai', sans-serif;
+    font-family: 'Unbounded', 'Inter', 'IBM Plex Sans Thai', sans-serif;
     font-weight: 700;
     letter-spacing: -0.02em;
     line-height: 1;
-    font-feature-settings: "tnum" 1;
-  }
-  /* Thai text shouldn't be uppercased — Thai script has no case but CSS uppercase
-     can affect surrounding numerals/punctuation rendering */
-  :lang(th), .font-thai {
-    text-transform: none !important;
   }
 }
 
 @layer utilities {
-  .font-display { font-family: 'Unbounded', 'IBM Plex Sans Thai', sans-serif; font-weight: 700; letter-spacing: -0.02em; text-transform: uppercase; }
-  .font-body    { font-family: 'IBM Plex Sans Thai', sans-serif; }
+  .font-display { font-family: 'Unbounded', 'Inter', 'IBM Plex Sans Thai', sans-serif; font-weight: 700; letter-spacing: -0.02em; text-transform: uppercase; }
+  .font-body    { font-family: 'Inter', 'IBM Plex Sans Thai', sans-serif; }
   .font-mono    { font-family: 'JetBrains Mono', monospace; }
-  .font-thai    { font-family: 'IBM Plex Sans Thai', sans-serif; text-transform: none; font-weight: 400; }
-  .font-brand   { font-family: 'Unbounded', sans-serif; font-weight: 700; letter-spacing: -0.01em; text-transform: uppercase; }
+  .font-thai    { font-family: 'IBM Plex Sans Thai', 'Inter', sans-serif; text-transform: none; }
+  .font-brand   { font-family: 'Unbounded', sans-serif; font-weight: 600; letter-spacing: 0; text-transform: uppercase; }
+  .normal-case-force { text-transform: none !important; }
 
   .label-mono {
-    @apply font-display text-[11px] tracking-[0.04em];
-    font-weight: 700;
+    @apply font-mono uppercase text-[11px] tracking-[0.22em];
   }
-  .index-badge {
-    @apply font-display text-[11px] tracking-[0.04em] uppercase;
-    font-weight: 700;
+
+  /* === Liquid gradient (blue → magenta → red) === */
+  .text-grad {
+    background: linear-gradient(100deg,
+      hsl(var(--grad-1)) 0%,
+      hsl(var(--grad-2)) 50%,
+      hsl(var(--grad-3)) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
   }
-  .label-soft {
-    @apply font-display text-[11px] tracking-[0.04em] uppercase text-muted-foreground;
-    font-weight: 500;
+  .text-grad-soft {
+    background: linear-gradient(100deg,
+      hsl(var(--grad-1) / 0.95) 0%,
+      hsl(var(--grad-3) / 0.9) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .bg-grad {
+    background: linear-gradient(120deg,
+      hsl(var(--grad-1)) 0%,
+      hsl(var(--grad-2)) 50%,
+      hsl(var(--grad-3)) 100%);
+  }
+  .bg-grad-radial {
+    background:
+      radial-gradient(60% 80% at 20% 30%, hsl(var(--grad-1) / 0.55) 0%, transparent 60%),
+      radial-gradient(50% 70% at 80% 70%, hsl(var(--grad-3) / 0.55) 0%, transparent 60%),
+      radial-gradient(40% 50% at 50% 50%, hsl(var(--grad-2) / 0.45) 0%, transparent 60%);
+  }
+  .divider-grad {
+    background: linear-gradient(90deg,
+      transparent 0%,
+      hsl(var(--grad-1)) 25%,
+      hsl(var(--grad-2)) 50%,
+      hsl(var(--grad-3)) 75%,
+      transparent 100%);
+  }
+  .border-grad {
+    position: relative;
+    isolation: isolate;
+  }
+  .border-grad::before {
+    content: '';
+    position: absolute; inset: 0;
+    padding: 1px;
+    background: linear-gradient(135deg, hsl(var(--grad-1)), hsl(var(--grad-2)) 50%, hsl(var(--grad-3)));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    pointer-events: none;
+  }
+  .ring-grad-hover { transition: box-shadow .35s ease, border-color .35s ease; }
+  .ring-grad-hover:hover {
+    border-color: hsl(var(--grad-2) / 0.6);
+    box-shadow: 0 0 0 1px hsl(var(--grad-1) / 0.25), 0 30px 80px -40px hsl(var(--grad-3) / 0.4);
+  }
+
+  /* Liquid blob backdrop (animated) */
+  .liquid-blob {
+    position: absolute; inset: -20%;
+    background:
+      radial-gradient(38% 42% at 22% 30%, hsl(var(--grad-1) / 0.55) 0%, transparent 60%),
+      radial-gradient(34% 38% at 78% 68%, hsl(var(--grad-3) / 0.55) 0%, transparent 60%),
+      radial-gradient(28% 30% at 55% 50%, hsl(var(--grad-2) / 0.45) 0%, transparent 60%);
+    filter: blur(60px) saturate(140%);
+    animation: blob-shift 18s ease-in-out infinite alternate;
+    z-index: 0;
+    pointer-events: none;
   }
 
   .bg-surface   { background-color: hsl(var(--surface)); }
   .bg-surface-2 { background-color: hsl(var(--surface-2)); }
-  .bg-ink       { background-color: hsl(var(--foreground)); }
-  .text-ink     { color: hsl(var(--foreground)); }
 
-  .border-soft  { border-color: hsl(var(--border-soft)); }
-  .hairline     { height: 1px; background: hsl(var(--foreground)); }
-  .hairline-soft{ height: 1px; background: hsl(var(--border-soft)); }
+  /* Editorial 12-col grid helper */
+  .editorial-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 1.5rem; }
+  @media (min-width: 768px) { .editorial-grid { column-gap: 2rem; } }
+
+  /* Hairline */
+  .hairline { height: 1px; background: hsl(var(--border)); }
+
+  /* Section index badge */
+  .index-badge {
+    @apply font-mono text-[10px] tracking-[0.28em] text-muted-foreground uppercase;
+  }
 
   /* Marquee */
   .marquee {
@@ -116,27 +183,33 @@
   }
 }
 
+@keyframes blob-shift {
+  0%   { transform: translate3d(0,0,0) scale(1); }
+  50%  { transform: translate3d(3%, -2%, 0) scale(1.08); }
+  100% { transform: translate3d(-2%, 3%, 0) scale(0.96); }
+}
+
 @keyframes marquee {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
 
 ::selection {
-  background: hsl(var(--foreground));
-  color: hsl(var(--background));
+  background: hsl(var(--grad-2) / 0.85);
+  color: hsl(0 0% 100%);
 }
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: hsl(var(--background)); }
-::-webkit-scrollbar-thumb { background: hsl(var(--foreground)); }
+::-webkit-scrollbar-track { background: hsl(0 0% 4%); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, hsl(var(--grad-1)), hsl(var(--grad-3)));
+}
 
-/* Subtle paper grain */
 .grain::before {
   content: '';
   position: fixed; inset: 0;
   pointer-events: none;
   z-index: 100;
-  opacity: 0.06;
-  mix-blend-mode: multiply;
+  opacity: 0.035;
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwBAMAAAClLOS0AAAAElBMVEUAAAAAAAAAAAAAAAAAAAAAAADgKxmiAAAABnRSTlMFBQUFBQVWlpRqAAAASUlEQVQ4y2NgQALMDKiABUlABElAGEmAEUmADUlAAEmACklABUlADUmAAUkgAElABUlADUlABUkgAElABUlADUlABUlAAEmAAQDa+QIJ9RNwIAAAAABJRU5ErkJggg==");
   background-size: 180px 180px;
 }

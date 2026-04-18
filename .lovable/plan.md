@@ -1,175 +1,121 @@
 
 
-# ØRIONS — Design Review & Refinement Plan
+# Typography & Copy Review — ØRIONS
 
-## ปัญหาปัจจุบัน (จากการ review)
+## A. ปัญหาขนาดตัวอักษร (Type Scale Issues)
 
-**1. Gradient สีฟ้า→ม่วง→แดง ไม่เข้ากับแบรนด์**
-- ดูเหมือน Web3/Crypto/Gaming brand มากกว่า creative agency
-- 3-color gradient ทำให้ดูยุ่งและขาด sophistication
-- สีแดง crimson ตัดกับ background ดำแรงเกินไป — ไม่ premium
-- ไม่สื่อถึง "Bangkok Energy × Logical Standard"
+**1. Hero (Index)**
+- `text-[22vw]` บน mobile + `text-[20vw]` บน desktop → บน 1252px = ~250px สูงเกินไป กิน vertical space เกือบทั้งจอ ทำให้ tagline + paragraph ดู "หลุด" จาก composition
+- **แนะนำ**: desktop ลดเหลือ `text-[16vw]` (≈200px) เพื่อให้ tagline หายใจได้ / mobile คง `22vw`
+- Tagline `text-[42px]` กับ wordmark 250px → contrast ห่างเกินไป ควรขยับ tagline เป็น `text-[48px]`
 
-**2. Layout ยังเป็น "single column stack"**
-- ทุก section จัดกลาง / max-width เท่ากัน → จังหวะการอ่านเหมือนกันหมด
-- ขาด visual hierarchy ระหว่าง section
-- ไม่มี asymmetry, ไม่มี editorial grid
-- Featured Work cards เหมือนกัน 3 ใบเรียงกัน → น่าเบื่อ
+**2. หัวข้อ Section ซ้ำขนาดเดิมเกือบทุกที่**
+- ทั้ง `02 — THE PRESSURE`, `07 — HOW WE WORK`, About `03 — PRINCIPLES` ใช้ `text-[56px]` เหมือนกัน → ไม่มี hierarchy
+- **แนะนำ**: ใช้ scale ที่ต่างกัน
+  - H2 หลัก (hero ของ section) = `text-[56px]`
+  - H2 รอง = `text-[44px]`
+  - H2 supporting = `text-[36px]`
 
-**3. Hero ยังธรรมดา**
-- ØRIONS อยู่ตรงกลางจอเดี่ยวๆ + blob พื้นหลัง
-- ไม่มี supporting elements (index, meta info, motion text)
-- Marquee แยกอยู่ใต้ hero แทนที่จะเป็นส่วนหนึ่งของ composition
+**3. CTA สุดท้าย "Sharper ideas. Clearer direction. Done." `text-[88px]`**
+- ใหญ่กว่า hero wordmark (~200px) เล็กน้อย แต่ visual weight แข่งกันเอง → ลดเหลือ `text-[72px]`
 
-**4. Typography สีไม่ pop**
-- Heading หลายอันใช้ gradient → อ่านยาก, ลด impact
-- ขาด contrast ระหว่าง display headlines กับ body
-- ตัวอักษร Thai (IBM Plex) กับ Unbounded ยังไม่ harmonize ดีพอ
+**4. Pressure Numbers `text-[72px]`**
+- เล็กไปสำหรับ "ดารา" ของ section นี้ → ขยายเป็น `text-[96px]` พร้อม `tracking-[-0.05em]` เพื่อให้ตัวเลขเป็น hero จริงๆ
 
----
+**5. Quote marks `"` text-[120px]**
+- ลอยเดี่ยวๆ ไม่ align กับอะไร → ปรับเป็น `text-[160px]` แต่ position absolute ซ้อน blockquote เพื่อให้กลายเป็น decorative element
 
-## แนวทางใหม่ (Direction)
+**6. Services page: `text-[120px]` หมายเลข 01-04**
+- ใหญ่เกินกว่า `text-[36px]` ของ title → แทนที่จะเด่น กลับทำให้ title หายไป
+- **แนะนำ**: ลดหมายเลขเหลือ `text-[88px]` และเพิ่ม title เป็น `text-[44px]`
 
-### A. Color System — "Warm Editorial Mono + Single Liquid Accent"
-
-ทิ้ง 3-color gradient แล้วใช้:
-
-```text
-BACKGROUND     #0B0B0D   (warm near-black, ไม่เย็น)
-SURFACE        #131316   (card / alt section)
-SURFACE-2      #1B1B1F   (nested elements)
-BORDER         #26262B   (hairline)
-TEXT           #F5F5F0   (warm white, ไม่ขาวจัด)
-MUTED          #8A8A92   
-ACCENT INK     #E8E3D8   (creamy bone — สำหรับ italic/eyebrow)
-
-LIQUID ACCENT  Single-tone amber→bone→white
-  → ใช้เฉพาะกับ "ØRIONS" wordmark, key numbers, divider
-  → ไม่ใช้กับ paragraph headings
-```
-
-**ทำไม**: warm tone ให้ความรู้สึก editorial/print magazine (เช่น It's Nice That, The Gentlewoman) มากกว่า tech/web3. Amber↔bone gradient ดู refined แต่ยังมี personality.
-
-**ทางเลือก gradient** (จะขอ confirm ก่อนสร้าง):
-- **Option 1 — Warm Bone**: amber → cream → white (แบบ print magazine, เหมือนแสง golden hour)
-- **Option 2 — Cold Pearl**: steel blue → silver → pearl white (modern, premium tech)
-- **Option 3 — Mercury**: mid-grey → bright white → mid-grey (mono ที่สุด, เน้น light play)
-- **Option 4 — Single Solid**: ไม่มี gradient เลย — ใช้สีเดียว (เช่น amber #E8B86D) เป็น accent
-
-### B. Layout — "Editorial Grid System"
-
-แต่ละ section ใช้ 12-column grid พร้อม asymmetric placement:
-
-```text
-HERO (full-bleed)
-┌────────────────────────────────────────────────┐
-│ ⓘ INDEX 01/13      ◐ APPLIED CREATIVE AGENCY   │ ← top meta bar
-│                                                 │
-│   ØRIONS                          (huge, left)  │
-│   ━━━━━                                         │
-│   Practical. Bold. Done.        (italic, mid)   │
-│                                                 │
-│                              ╲ scroll          │
-│ EST. 2024 · BKK              ╲ ↓ next          │
-└────────────────────────────────────────────────┘
-```
-
-```text
-STAGNATION (split layout, ไม่ใช่ centered quote)
-┌──────────────┬─────────────────────────────────┐
-│ 01           │  เมื่อวิธีเดิม                  │
-│ THE          │  มาถึง ทางตัน                   │
-│ STAGNATION   │  คุณต้องการไอเดียที่           │
-│              │  'ประยุกต์'                     │
-│ Source:      │  มาเพื่อแก้ปัญหาจริง           │
-│ Industry     │  ─────                          │
-│ Observation  │  — ØRIONS Manifesto, 2024      │
-└──────────────┴─────────────────────────────────┘
-```
-
-```text
-3 PRESSURES (ตัวเลขใหญ่ขึ้น, layout horizontal divide)
-┌──────────────────────────────────────────────┐
-│ 02 — THE 3 PRESSURES                          │
-│                                                │
-│ 1.7s          +41%          4.6×              │
-│ ─────         ─────         ─────             │
-│ ATTENTION     DIGITAL       DIGITAL           │
-│ SPAN          INFLATION     WASTE             │
-│                                                │
-│ ไม่ถึง 2 วิ   ค่าโฆษณา      ขยะดิจิทัล       │
-│ คือเวลา...   เพิ่มขึ้น...   ล้นโลก...        │
-└──────────────────────────────────────────────┘
-```
-
-```text
-FEATURED WORK (asymmetric — ใบแรกใหญ่, อีก 2 ใบเล็ก stack)
-┌────────────────────────┬──────────────────┐
-│                        │  ┌────────────┐  │
-│   HONGMOVE             │  │  RTAF      │  │
-│   [large image 4:5]    │  └────────────┘  │
-│                        │  ┌────────────┐  │
-│   APPLIED UTILITY      │  │  KHAO YAI  │  │
-│   +25% Conversion      │  └────────────┘  │
-└────────────────────────┴──────────────────┘
-```
-
-### C. Hero ใหม่ — Editorial composition
-
-- เพิ่ม **top meta bar**: `INDEX 01/13` ซ้าย, `◐ APPLIED CREATIVE AGENCY` ขวา
-- ØRIONS ชิดซ้าย (ไม่ใช่ center) ขนาด 18-22vw
-- Tagline italic อยู่ใต้แบบ caption ของหนังสือ
-- มุมล่างซ้าย: `EST. BANGKOK · 2024 · ØRIONS.AGENCY`
-- มุมล่างขวา: scroll indicator + `↓ NEXT — THE STAGNATION`
-- **Marquee** เลื่อนเป็น horizontal divider คั่นระหว่าง hero กับ section ถัดไป (slim, slow)
-
-### D. Typography Refinement
-
-```text
-HERO WORDMARK    Unbounded 700, 18-22vw, tracking -0.06em
-                 → ใช้ liquid accent gradient (amber→bone)
-H1 (page hero)   Unbounded 600, 64-88px, tracking -0.04em
-                 → solid foreground (ไม่ gradient)
-H2 (section)     Unbounded 500, 36-48px
-                 → solid foreground
-EYEBROW          JetBrains Mono 11px, tracking 0.24em, MUTED
-ITALIC SUB       Inter Italic 18-22px, light, ใช้คั่น break
-BODY TH          IBM Plex Sans Thai 16-17px, leading 1.75
-QUOTE TH         IBM Plex Sans Thai 28-36px, weight 400
-                 → keyword highlight ด้วย accent color (ไม่ gradient)
-```
-
-**กฎใหม่**: gradient ใช้กับ ØRIONS wordmark + numbers (1.7s, +41%, 4.6×) + key callouts เท่านั้น ไม่ใช้กับ heading ทั่วไป
-
-### E. Micro-details เพิ่ม visual interest
-
-1. **Section index badges** — `01/13`, `02/13`, ... เป็น meta info ทุก section
-2. **Hairline dividers** — เส้นบางๆ คั่นระหว่าง subsection แทน gap ใหญ่
-3. **Numbered footnotes** — เพิ่ม `¹` `²` กับ key claims (style แบบ academic/editorial)
-4. **Image placeholders** — แทน gradient blob ใส่เป็น noise/grain texture หรือ duotone ภาพจริง (ถ้ามี)
-5. **Cursor**: เพิ่ม custom cursor เล็กๆ บน interactive cards (วงกลม + arrow)
-6. **Sticky page index** ด้านขวาของหน้า Home: dot navigator แสดงว่าอยู่ section ไหน
+**7. Body Thai font-size ไม่สม่ำเสมอ**
+- ใช้สลับ `text-[14px]`, `text-[15px]`, `text-[16px]`, `text-[17px]`, `text-[18px]` → 5 ขนาดในเว็บเดียว
+- **แนะนำ**: ตั้ง scale แค่ 3 ระดับ — `text-[13px]` (caption), `text-[15px]` (body), `text-[17px]` (lead)
 
 ---
 
-## คำถามก่อนลงมือ
+## B. ปัญหาการแบ่งวรรค (Line-break / Phrasing)
 
-ขอ confirm 2 จุดสำคัญ:
+**1. Hero paragraph (Index 51)**
+> "ØRIONS เป็น Creative Agency สำหรับธุรกิจที่ไม่อยากติดอยู่ใน social vicious cycle เราช่วยให้สิ่งที่คุณทำชัดขึ้น คมขึ้น และทำงานได้จริงขึ้น"
 
-**Q1 — เลือก accent gradient แบบไหน**
-1. Warm Bone (amber → cream → white) — editorial print magazine
-2. Cold Pearl (steel → silver → pearl) — modern premium tech
-3. Mercury (grey → white → grey) — most mono
-4. Single solid amber #E8B86D — no gradient at all
+- ประโยคยาวต่อกัน 2 ประโยคไม่มีจุดคั่น → ควรแยก
+- **แก้**: "ØRIONS คือ Creative Agency สำหรับธุรกิจที่ไม่อยากติดอยู่ใน social vicious cycle / เราช่วยให้สิ่งที่คุณทำ — ชัดขึ้น คมขึ้น และทำงานได้จริง"
 
-**Q2 — Hero composition**
-1. Editorial split (ØRIONS ซ้าย + meta bars + asymmetric)
-2. คงไว้กลางจอแต่ refine (ลด blob, เพิ่ม meta bar บน-ล่าง)
-3. Full-bleed video/image background + ØRIONS overlay
+**2. Vicious Cycle Quote (line 142-144)** — มีปัญหามาก
+> "The Vicious Cycle — หลายธุรกิจกำลังติดอยู่ในวงจรอุบาท ทำมากขึ้น จ่ายมากขึ้น งบไหลออกแต่ผลลัพธ์เท่าเดิม เมื่อถูกปิดกั้นการมองเห็น **ทุกอย่างก็จบ**"
 
-ตอบ 2 ข้อนี้แล้วจะเริ่มลงมือ refactor:
-- `src/index.css` — color tokens + gradient ใหม่
-- `src/pages/Index.tsx` — editorial layout ทุก section
-- `src/pages/Services.tsx`, `Work.tsx`, `About.tsx`, `Contact.tsx` — sync grid system + typography rules
-- `src/components/PageHero.tsx`, `Nav.tsx` — meta bar + index badges
+- "วงจรอุบาท" → ควรเป็น "วงจรอุบาทว์" (สะกดผิด)
+- ประโยคยาวเป็น run-on sentence ไม่มีจังหวะหยุด
+- **แก้** (แบ่งบรรทัดให้เป็น quote สวยๆ):
+  > "หลายธุรกิจกำลังติดอยู่ในวงจรอุบาทว์ —  
+  > ทำมากขึ้น จ่ายมากขึ้น  
+  > งบไหลออก แต่ผลลัพธ์เท่าเดิม  
+  > เมื่อถูกปิดกั้นการมองเห็น **ทุกอย่างก็จบ**"
+
+**3. The Pressure heading (line 107)**
+> "ธุรกิจไม่ได้สู้แค่<br/>คู่แข่งอย่างเดียว"
+
+- การ break "แค่ / คู่แข่ง" ทำให้ "แค่" ลอย → ควร break "ธุรกิจไม่ได้สู้ / แค่คู่แข่งอย่างเดียว"
+
+**4. Pressure label (line 16)**
+> "ADHD SPAN" + "attention สั้นลงกว่าเดิมมาก"
+- "ADHD" ใช้กับ medical condition — sensitive และไม่ premium
+- **แก้**: เปลี่ยนเป็น `"ATTENTION SPAN"` + body "เวลาที่คนยอมหยุดดูคอนเทนต์"
+
+**5. POV section (line 169-180)** — เปิดด้วย `<strong>` ทุกย่อหน้า
+- ทำให้ rhythm ซ้ำเกินไป → ควรสลับ: ย่อหน้า 1 เปิดด้วย bold, ย่อหน้า 2 เปิดด้วยตัวเลข ¹ ² ³
+
+**6. About Manifesto (line 28-30)**
+> "ไอเดียที่ชัด คอนเทนต์ที่มีคุณภาพ และการสื่อสารที่มีกลยุทธ์ ไม่ใช่แค่ทางเลือก **แต่คือทางรอด**"
+- โอเค แต่ break เป็นบรรทัดจะ powerful กว่า:
+  > "ไอเดียที่ชัด  
+  > คอนเทนต์ที่มีคุณภาพ  
+  > การสื่อสารที่มีกลยุทธ์  
+  > — ไม่ใช่ทางเลือก **แต่คือทางรอด**"
+
+**7. CTA สุดท้าย "Done." opacity-50**
+- การทำให้ "Done." จาง = ขัดกับ brand promise "Done"
+- **แก้**: ลบ `opacity-50` ให้ "Done." เด่นที่สุด (มันคือ punchline)
+
+---
+
+## C. ปัญหาคำพูด (Wording)
+
+| ตำแหน่ง | ปัญหา | แก้เป็น |
+|---|---|---|
+| Index L18 | "AI FLOOD" | "AI FLOOD" (ok) แต่ body "content มากขึ้นจนความแตกต่างถูกกลบ" → "เนื้อหาท่วมจนแบรนด์ถูกกลบ" |
+| Index L23 | "เปลี่ยนการสื่อสาร / ให้น่าสนใจ พอที่จะถูกเห็นและถูกจำ" | "ออกแบบการสื่อสารให้คมพอจะถูกเห็น และคุ้มพอจะถูกจำ" |
+| Index L24 | "ให้ทุกจุดสัมผัสลูกค้า / แปลเป็นผลลัพธ์ของธุรกิจ" | "เปลี่ยนทุกจุดสัมผัสลูกค้า ให้กลายเป็นผลลัพธ์ทางธุรกิจ" |
+| Index L143 | "วงจรอุบาท" | "วงจรอุบาทว์" |
+| Index L75 | "— THE WORLD MOVES FASTER THAN BUSINESS" | ไม่จริงทั้งหมด ภาพคือ cyclist บนถนน → "BANGKOK ON THE MOVE" |
+| Services L12 | "วาง narrative และ positioning ที่ชัด..." | "วาง narrative และ positioning ให้ชัด เพื่อให้แบรนด์ยืนตรงจุด สื่อสารต่อเนื่อง" (ตัด "และ" ซ้ำ) |
+| About L83 | "ช่วยคิดได้" / "แต่ไม่ได้พาไอเดียไปสู่ execution เสมอไป" | สั้นลง: "คิดเก่ง / แต่มักจบที่ slide" |
+| About L85 | "เชื่อมการคิดเข้ากับการทำ" | "ทั้งคิดและทำในทีมเดียว" |
+| Work L9 | "อยากทำการเมืองสร้างสรรค์ ผ่านกิจกรรมที่ไม่ใช่การหาเสียง" | OK แต่ "อยากทำ" → "ต้องการสร้างการเมืองเชิงสร้างสรรค์ ผ่านกิจกรรมนอกการหาเสียง" |
+| Work L11 | "ต้องการวางตัวเป็น first smart hotel OTA ของไทย" | "วางตำแหน่งเป็น Smart Hotel OTA รายแรกของไทย" |
+| Work L19 | "พรรคใหม่ที่ต้องนำเสนอมุมมองทางการเมืองภายใต้เวลาจำกัด" | "พรรคใหม่ที่ต้องสื่อสารจุดยืนภายใต้เวลาจำกัด" |
+| Work L32 | "เพลงลำคำเขื่อนแก้ว" | สะกดถูกไหม? ควรเช็ก — น่าจะเป็น "เพลงลำคำ เขื่อนแก้ว" หรือ "ลำคำ" ผิด |
+
+---
+
+## D. คำแนะนำเพิ่มเติม (Recommendations)
+
+1. **ใช้ "soft hyphen" หรือ `<wbr>`** ในประโยค Thai ยาวๆ แทน `<br/>` แข็ง — ป้องกัน break ผิดที่บน mobile
+2. **ลบ `text-transform: uppercase` ออกจาก h3 ที่เป็นภาษาไทย** — ตอนนี้ class `font-display` บังคับ uppercase ทำให้ Thai heading (เช่น line 199) อาจดู awkward (Thai ไม่มี case แต่ CSS อาจส่งผลกับตัวเลข/วงเล็บ)
+3. **ตั้ง max-width ทุก paragraph** ที่ 60-70 character (~`max-w-[58ch]`) แทนการกำหนด px — อ่านง่ายกว่า ทุกอุปกรณ์
+4. **Italic-like emphasis** — ตอนนี้ใช้ `<strong className="font-display normal-case font-bold">` ผสมในย่อหน้า Thai → font-family เปลี่ยนกลางประโยคทำให้ขรุขระ → ใช้แค่ `font-bold` พอ
+5. **Number formatting**: "1.7s", "+41%", "4.6×" — ควรใช้ Tabular figures (`font-feature-settings: "tnum"`) เพื่อให้ตัวเลขเรียงสวย
+6. **Quote mark `"` เดี่ยวๆ** — ดู orphan; ใช้คู่ open/close `"` `"` หรือทำเป็น decorative ตำแหน่ง absolute หลัง blockquote
+
+---
+
+## ไฟล์ที่จะแก้
+
+- `src/index.css` — เพิ่ม tabular-nums, refine font-display ไม่ uppercase Thai
+- `src/pages/Index.tsx` — type scale, phrasing, line breaks (vicious cycle, pressure, hero, CTA)
+- `src/pages/Services.tsx` — ลด numeral, scale title up, tweak body
+- `src/pages/About.tsx` — manifesto line breaks, vs-table copy
+- `src/pages/Work.tsx` — copy edits, spell checks
 

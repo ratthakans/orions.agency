@@ -133,7 +133,7 @@ const Index = () => (
       <div className="max-w-[1100px] mx-auto">
         <Reveal><SectionLabel number="03" label="WHO IS ØRIONS" /></Reveal>
         <Reveal delay={0.1}>
-          <h2 className="mt-8 font-display italic text-[36px] md:text-[56px] leading-[1] font-light">
+          <h2 className="mt-8 font-display italic text-[36px] md:text-[56px] leading-[1] font-light normal-case-force">
             Creative Engineering<br />from Bangkok.
           </h2>
         </Reveal>
@@ -169,7 +169,7 @@ const Index = () => (
           <div>
             <Reveal><SectionLabel number="04" label="FEATURED WORK" /></Reveal>
             <Reveal delay={0.1}>
-              <h2 className="mt-8 font-display italic text-[36px] md:text-[48px] leading-[0.95] font-light">
+              <h2 className="mt-8 font-display italic text-[36px] md:text-[48px] leading-[0.95] font-light normal-case-force">
                 Applied Creative in action.
               </h2>
             </Reveal>
@@ -213,7 +213,7 @@ const Index = () => (
           </h2>
         </Reveal>
         <Reveal delay={0.2}>
-          <p className="mt-8 font-display italic text-foreground text-[20px] md:text-[26px]">
+          <p className="mt-8 font-display italic text-foreground text-[20px] md:text-[26px] normal-case-force">
             Stop guessing. Start applying.
           </p>
         </Reveal>

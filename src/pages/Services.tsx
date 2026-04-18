@@ -125,7 +125,7 @@ const Services = () => (
                 <h2 className="mt-6 font-display text-[28px] md:text-[32px] leading-[1.05]">
                   {s.title}
                 </h2>
-                <p className="mt-4 font-display italic text-muted-foreground text-[16px] md:text-[18px] font-light">
+                <p className="mt-4 font-display italic text-muted-foreground text-[16px] md:text-[18px] font-light normal-case-force">
                   {s.tagline}
                 </p>
               </header>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Unbounded:wght@400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,14 +6,14 @@
 
 @layer base {
   :root {
-    /* Core palette — near-black + burnt orange */
-    --background: 0 0% 4%;            /* #0A0A0A */
-    --foreground: 0 0% 100%;          /* #FFFFFF */
+    /* Monotone palette */
+    --background: 0 0% 4%;             /* #0A0A0A */
+    --foreground: 0 0% 100%;
 
-    --surface: 0 0% 8%;               /* #141414 */
+    --surface: 0 0% 7%;                /* #121212 */
     --surface-foreground: 0 0% 100%;
 
-    --card: 0 0% 8%;
+    --card: 0 0% 7%;
     --card-foreground: 0 0% 100%;
 
     --popover: 0 0% 6%;
@@ -26,19 +26,25 @@
     --secondary-foreground: 0 0% 100%;
 
     --muted: 0 0% 10%;
-    --muted-foreground: 0 0% 50%;     /* #808080 */
+    --muted-foreground: 0 0% 55%;      /* #8c8c8c */
 
-    --accent: 16 100% 50%;            /* #FF4500 burnt orange */
-    --accent-foreground: 0 0% 100%;
+    /* Accent now neutral chrome (used as plain accent surface, not color pop) */
+    --accent: 0 0% 92%;
+    --accent-foreground: 0 0% 4%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 15%;               /* #262626 */
+    --border: 0 0% 15%;                /* #262626 */
     --input: 0 0% 15%;
-    --ring: 16 100% 50%;
+    --ring: 0 0% 70%;
 
     --radius: 2px;
+
+    /* Chrome gradient stops (silver → white → grey) */
+    --chrome-1: 0 0% 70%;
+    --chrome-2: 0 0% 100%;
+    --chrome-3: 0 0% 45%;
   }
 }
 
@@ -59,35 +65,72 @@
     -moz-osx-font-smoothing: grayscale;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Inter', 'IBM Plex Sans Thai', sans-serif;
-    font-weight: 900;
+    font-family: 'Unbounded', 'Inter', 'IBM Plex Sans Thai', sans-serif;
+    font-weight: 700;
     letter-spacing: -0.02em;
-    line-height: 0.95;
+    line-height: 1;
   }
 }
 
 @layer utilities {
-  .font-display { font-family: 'Inter', 'IBM Plex Sans Thai', sans-serif; font-weight: 900; letter-spacing: -0.02em; }
+  .font-display { font-family: 'Unbounded', 'Inter', 'IBM Plex Sans Thai', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
   .font-body    { font-family: 'Inter', 'IBM Plex Sans Thai', sans-serif; }
   .font-mono    { font-family: 'JetBrains Mono', monospace; }
   .font-thai    { font-family: 'IBM Plex Sans Thai', 'Inter', sans-serif; }
+  .font-brand   { font-family: 'Unbounded', sans-serif; font-weight: 600; letter-spacing: 0; }
 
   .label-mono {
-    @apply font-mono uppercase text-[11px] tracking-[0.2em];
+    @apply font-mono uppercase text-[11px] tracking-[0.22em];
   }
 
-  .text-accent { color: hsl(var(--accent)); }
+  /* Chrome gradient text */
+  .text-chrome {
+    background: linear-gradient(180deg,
+      hsl(var(--chrome-1)) 0%,
+      hsl(var(--chrome-2)) 45%,
+      hsl(var(--chrome-3)) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  .text-chrome-soft {
+    background: linear-gradient(180deg,
+      hsl(0 0% 88%) 0%,
+      hsl(0 0% 60%) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .bg-chrome {
+    background: linear-gradient(135deg,
+      hsl(var(--chrome-1)) 0%,
+      hsl(var(--chrome-2)) 50%,
+      hsl(var(--chrome-3)) 100%);
+  }
+  .border-chrome {
+    border-image: linear-gradient(180deg, hsl(0 0% 70%), hsl(0 0% 30%)) 1;
+  }
+  .divider-chrome {
+    background: linear-gradient(90deg,
+      transparent 0%,
+      hsl(0 0% 70%) 30%,
+      hsl(0 0% 100%) 50%,
+      hsl(0 0% 70%) 70%,
+      transparent 100%);
+  }
+
   .bg-surface  { background-color: hsl(var(--surface)); }
 }
 
 ::selection {
-  background: hsl(var(--accent) / 0.85);
-  color: hsl(0 0% 100%);
+  background: hsl(0 0% 90%);
+  color: hsl(0 0% 4%);
 }
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: hsl(0 0% 4%); }
-::-webkit-scrollbar-thumb { background: hsl(0 0% 18%); }
-::-webkit-scrollbar-thumb:hover { background: hsl(var(--accent)); }
+::-webkit-scrollbar-thumb { background: hsl(0 0% 25%); }
+::-webkit-scrollbar-thumb:hover { background: hsl(0 0% 70%); }
 
 /* Subtle grain */
 .grain::before {
@@ -95,7 +138,7 @@
   position: fixed; inset: 0;
   pointer-events: none;
   z-index: 100;
-  opacity: 0.025;
+  opacity: 0.03;
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwBAMAAAClLOS0AAAAElBMVEUAAAAAAAAAAAAAAAAAAAAAAADgKxmiAAAABnRSTlMFBQUFBQVWlpRqAAAASUlEQVQ4y2NgQALMDKiABUlABElAGEmAEUmADUlAAEmACklABUlADUmAAUkgAElABUlADUlABUkgAElABUlADUlABUlAAEmAAQDa+QIJ9RNwIAAAAABJRU5ErkJggg==");
   background-size: 180px 180px;
 }

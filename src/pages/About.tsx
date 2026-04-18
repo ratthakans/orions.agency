@@ -20,8 +20,8 @@ const About = () => (
     <section className="px-6 md:px-12 py-24 md:py-32 border-t border-border">
       <div className="max-w-[1100px] mx-auto">
         <Reveal>
-          <div className="border border-border p-10 md:p-16">
-            <div className="font-display text-[24px] md:text-[40px] tracking-tight leading-[1.2]">
+          <div className="border-grad p-10 md:p-16 relative">
+            <div className="font-display text-[24px] md:text-[44px] tracking-tight leading-[1.2]">
               <span className="text-grad">BANGKOK ENERGY</span>
               <span className="text-muted-foreground mx-3 md:mx-6">×</span>
               <span className="text-grad">LOGICAL STANDARD</span>
@@ -80,13 +80,13 @@ const About = () => (
             { t: "ØRIONS", s: "กลยุทธ์ × งานผลิต", b: "เชื่อมการคิดกับการทำ ให้ธุรกิจขยับไปข้างหน้าได้จริง", muted: false },
           ].map((c, i) => (
             <Reveal key={c.t} delay={i * 0.1}>
-              <div className={`p-8 md:p-10 h-full border ${c.muted ? "bg-background border-border" : "bg-grad text-background border-transparent"}`}>
-                <div className={`label-mono ${c.muted ? "text-muted-foreground" : "text-background/70"}`}>
+              <div className={`p-8 md:p-10 h-full border ${c.muted ? "bg-background border-border" : "bg-grad text-background border-transparent md:scale-[1.03] shadow-[0_30px_80px_-30px_hsl(var(--grad-2)/0.5)]"}`}>
+                <div className={`label-mono ${c.muted ? "text-muted-foreground" : "text-background/80"}`}>
                   {c.muted ? "VS" : "OUR APPROACH"}
                 </div>
                 <h3 className={`mt-6 font-display text-[26px] md:text-[32px] ${c.muted ? "" : "text-background"}`}>{c.t}</h3>
                 <div className={`mt-3 font-display text-[17px] font-thai ${c.muted ? "text-muted-foreground" : "text-background"}`}>{c.s}</div>
-                <p className={`mt-4 text-[14px] leading-[1.7] font-thai ${c.muted ? "text-muted-foreground/80" : "text-background/85"}`}>{c.b}</p>
+                <p className={`mt-4 text-[14px] leading-[1.7] font-thai ${c.muted ? "text-muted-foreground/80" : "text-background/90"}`}>{c.b}</p>
               </div>
             </Reveal>
           ))}

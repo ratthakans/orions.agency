@@ -1,4 +1,4 @@
-/* Fonts loaded via index.html <link> for non-blocking render */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,56 +6,39 @@
 
 @layer base {
   :root {
-    --background: 0 0% 4%;
-    --foreground: 40 10% 96%;
+    /* Core palette — near-black + burnt orange */
+    --background: 0 0% 4%;            /* #0A0A0A */
+    --foreground: 0 0% 100%;          /* #FFFFFF */
 
-    --card: 0 0% 6%;
-    --card-foreground: 40 10% 96%;
+    --surface: 0 0% 8%;               /* #141414 */
+    --surface-foreground: 0 0% 100%;
+
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 100%;
 
     --popover: 0 0% 6%;
-    --popover-foreground: 40 10% 96%;
+    --popover-foreground: 0 0% 100%;
 
     --primary: 0 0% 100%;
     --primary-foreground: 0 0% 4%;
 
-    --secondary: 0 0% 9%;
-    --secondary-foreground: 0 0% 90%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 14%;
-    --muted-foreground: 0 0% 54%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 50%;     /* #808080 */
 
-    --accent: 0 0% 12%;
-    --accent-foreground: 0 0% 90%;
-
-    --accent-warm: 48 100% 50%;
-    --accent-warm-end: 48 100% 45%;
-    --accent-warm-foreground: 0 0% 4%;
-    --accent-blue: 220 90% 56%;
-    --accent-blue-foreground: 0 0% 100%;
+    --accent: 16 100% 50%;            /* #FF4500 burnt orange */
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 14%;
-    --input: 0 0% 14%;
-    --ring: 48 100% 50%;
+    --border: 0 0% 15%;               /* #262626 */
+    --input: 0 0% 15%;
+    --ring: 16 100% 50%;
 
-    --radius: 0px;
-
-    --sidebar-background: 0 0% 3%;
-    --sidebar-foreground: 0 0% 90%;
-    --sidebar-primary: 0 0% 100%;
-    --sidebar-primary-foreground: 0 0% 0%;
-    --sidebar-accent: 0 0% 8%;
-    --sidebar-accent-foreground: 0 0% 90%;
-    --sidebar-border: 0 0% 14%;
-    --sidebar-ring: 48 100% 50%;
-
-    --surface-elevated: 0 0% 6%;
-    --text-secondary: 0 0% 54%;
-    --text-tertiary: 0 0% 35%;
-    --divider: 0 0% 16%;
-    --status-available: 48 100% 50%;
+    --radius: 2px;
   }
 }
 
@@ -63,156 +46,56 @@
   * {
     @apply border-border;
   }
-
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'IBM Plex Sans', 'Inter', sans-serif;
+    font-family: 'Inter', 'IBM Plex Sans Thai', sans-serif;
     font-size: 16px;
-    line-height: 1.6;
-    letter-spacing: 0.01em;
+    line-height: 1.65;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Inter', 'IBM Plex Sans Thai', sans-serif;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 0.95;
   }
 }
 
 @layer utilities {
-  .font-display {
-    font-family: 'Bebas Neue', sans-serif;
+  .font-display { font-family: 'Inter', 'IBM Plex Sans Thai', sans-serif; font-weight: 900; letter-spacing: -0.02em; }
+  .font-body    { font-family: 'Inter', 'IBM Plex Sans Thai', sans-serif; }
+  .font-mono    { font-family: 'JetBrains Mono', monospace; }
+  .font-thai    { font-family: 'IBM Plex Sans Thai', 'Inter', sans-serif; }
+
+  .label-mono {
+    @apply font-mono uppercase text-[11px] tracking-[0.2em];
   }
 
-  .font-body {
-    font-family: 'IBM Plex Sans', 'Inter', sans-serif;
-  }
-
-  .font-mono {
-    font-family: 'IBM Plex Mono', monospace;
-  }
-
-  .font-logo {
-    font-family: 'Unbounded', sans-serif;
-  }
-
-  .font-thai {
-    font-family: 'IBM Plex Sans Thai', 'IBM Plex Sans', sans-serif;
-  }
-
-  .text-secondary {
-    color: hsl(var(--text-secondary));
-  }
-
-  .text-tertiary {
-    color: hsl(var(--text-tertiary));
-  }
-
-  .bg-elevated {
-    background-color: hsl(var(--surface-elevated));
-  }
-
-  .divider {
-    border-color: hsl(var(--divider));
-  }
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-/* Marquee */
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-.animate-marquee {
-  animation: marquee 25s linear infinite;
-}
-
-.animate-marquee-slow {
-  animation: marquee 40s linear infinite;
-}
-
-/* Accent text — warm gold */
-.text-accent-gradient {
-  color: hsl(48 100% 50%);
-}
-
-.bg-accent-gradient {
-  background: hsl(48 100% 50%);
-}
-
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 3px;
-}
-::-webkit-scrollbar-track {
-  background: hsl(0 0% 4%);
-}
-::-webkit-scrollbar-thumb {
-  background: hsl(0 0% 20%);
+  .text-accent { color: hsl(var(--accent)); }
+  .bg-surface  { background-color: hsl(var(--surface)); }
 }
 
 ::selection {
-  background: hsl(48 100% 50% / 0.3);
+  background: hsl(var(--accent) / 0.85);
   color: hsl(0 0% 100%);
 }
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: hsl(0 0% 4%); }
+::-webkit-scrollbar-thumb { background: hsl(0 0% 18%); }
+::-webkit-scrollbar-thumb:hover { background: hsl(var(--accent)); }
 
-/* Cinematic blur reveal */
-@keyframes blur-reveal {
-  from { filter: blur(8px); opacity: 0; }
-  to { filter: blur(0px); opacity: 1; }
-}
-
-.animate-blur-reveal {
-  animation: blur-reveal 1s ease-out forwards;
-}
-
-/* Service card hover — simple, no shadow */
-.service-card {
-  transition: transform 0.3s ease, border-color 0.3s ease;
-}
-.service-card:hover {
-  transform: translateY(-2px);
-  border-color: hsl(48 100% 50% / 0.2);
-}
-
-/* Scroll-drawn line */
-@keyframes draw-line {
-  from { width: 0; }
-  to { width: 100%; }
-}
-
-.draw-line-animated {
-  animation: draw-line 1.5s ease-out forwards;
-}
-
-/* Grain overlay — very subtle, GPU-composited */
-.grain-overlay::before {
+/* Subtle grain */
+.grain::before {
   content: '';
-  position: fixed;
-  inset: 0;
+  position: fixed; inset: 0;
   pointer-events: none;
-  z-index: 9999;
-  opacity: 0.03;
+  z-index: 100;
+  opacity: 0.025;
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwBAMAAAClLOS0AAAAElBMVEUAAAAAAAAAAAAAAAAAAAAAAADgKxmiAAAABnRSTlMFBQUFBQVWlpRqAAAASUlEQVQ4y2NgQALMDKiABUlABElAGEmAEUmADUlAAEmACklABUlADUmAAUkgAElABUlADUlABUkgAElABUlADUlABUlAAEmAAQDa+QIJ9RNwIAAAAABJRU5ErkJggg==");
-  background-repeat: repeat;
-  background-size: 48px 48px;
-  contain: strict;
-}
-
-.section-fade {
-  position: relative;
-}
-.section-fade::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, hsl(0 0% 16%), transparent);
+  background-size: 180px 180px;
 }

@@ -68,11 +68,12 @@
 }
 
 @layer utilities {
-  .font-display { font-family: 'Unbounded', 'Inter', 'IBM Plex Sans Thai', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
+  .font-display { font-family: 'Unbounded', 'Inter', 'IBM Plex Sans Thai', sans-serif; font-weight: 700; letter-spacing: -0.02em; text-transform: uppercase; }
   .font-body    { font-family: 'Inter', 'IBM Plex Sans Thai', sans-serif; }
   .font-mono    { font-family: 'JetBrains Mono', monospace; }
-  .font-thai    { font-family: 'IBM Plex Sans Thai', 'Inter', sans-serif; }
-  .font-brand   { font-family: 'Unbounded', sans-serif; font-weight: 600; letter-spacing: 0; }
+  .font-thai    { font-family: 'IBM Plex Sans Thai', 'Inter', sans-serif; text-transform: none; }
+  .font-brand   { font-family: 'Unbounded', sans-serif; font-weight: 600; letter-spacing: 0; text-transform: uppercase; }
+  .normal-case-force { text-transform: none !important; }
 
   .label-mono {
     @apply font-mono uppercase text-[11px] tracking-[0.22em];

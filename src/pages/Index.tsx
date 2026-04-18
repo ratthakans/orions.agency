@@ -29,7 +29,7 @@ const Index = () => (
           <div className="label-mono text-grad-soft mb-8">EST. BANGKOK · 2024</div>
         </Reveal>
         <Reveal delay={0.05}>
-          <h1 className="font-brand text-[22vw] md:text-[200px] leading-[0.88] tracking-[-0.05em] text-grad">
+          <h1 className="font-brand text-[16vw] md:text-[140px] leading-[0.88] tracking-[-0.05em] text-grad">
             ØRIONS
           </h1>
         </Reveal>
@@ -41,7 +41,7 @@ const Index = () => (
           </div>
         </Reveal>
         <Reveal delay={0.3}>
-          <p className="mt-8 font-display italic text-[20px] md:text-[28px] font-light text-foreground/90">
+          <p className="mt-8 font-display normal-case-force italic text-[18px] md:text-[22px] font-light text-foreground/90">
             Practical. Bold. <span className="text-grad">Done.</span>
           </p>
         </Reveal>

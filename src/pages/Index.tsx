@@ -133,7 +133,7 @@ const Index = () => (
           </h2>
         </Reveal>
         <Reveal delay={0.2}>
-          <div className="mt-16 inline-block border border-border px-8 py-6">
+          <div className="mt-16 inline-block border-grad px-8 py-6 relative">
             <div className="font-display text-[18px] md:text-[24px] tracking-tight">
               <span className="text-grad">BANGKOK ENERGY</span>
               <span className="text-muted-foreground mx-4">×</span>
@@ -214,7 +214,7 @@ const Index = () => (
         </Reveal>
         <Reveal delay={0.3}>
           <div className="mt-12 flex flex-wrap gap-4">
-            <Link to="/contact" className="inline-flex items-center gap-3 bg-foreground text-background px-7 py-4 label-mono hover:bg-foreground/90">
+            <Link to="/contact" className="inline-flex items-center gap-3 bg-grad text-background px-7 py-4 label-mono hover:opacity-90 transition-opacity">
               Book Clarity Audit <ArrowRight className="w-4 h-4" />
             </Link>
             <Link to="/services" className="inline-flex items-center gap-3 border border-border px-7 py-4 label-mono hover:border-foreground">

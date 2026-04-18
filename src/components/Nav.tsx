@@ -54,7 +54,7 @@ const Nav = () => {
 
         <Link
           to="/contact"
-          className="hidden md:inline-flex label-mono bg-foreground text-background px-4 py-2.5 hover:bg-foreground/90 transition-colors"
+          className="hidden md:inline-flex label-mono bg-grad text-background px-4 py-2.5 hover:opacity-90 transition-opacity"
         >
           Book Audit
         </Link>

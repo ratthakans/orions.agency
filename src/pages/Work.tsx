@@ -156,7 +156,7 @@ const Work = () => (
           </h2>
         </Reveal>
         <Reveal delay={0.1}>
-          <Link to="/contact" className="mt-10 inline-flex items-center gap-3 bg-foreground text-background px-7 py-4 label-mono">
+          <Link to="/contact" className="mt-10 inline-flex items-center gap-3 bg-grad text-background px-7 py-4 label-mono hover:opacity-90 transition-opacity">
             Start a conversation <ArrowRight className="w-4 h-4" />
           </Link>
         </Reveal>

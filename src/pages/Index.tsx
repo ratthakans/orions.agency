@@ -180,7 +180,7 @@ const Index = () => (
           {featured.map((p, i) => (
             <Reveal key={p.name} delay={i * 0.1}>
               <article className="group bg-background border border-border hover:border-foreground/40 transition-all duration-300">
-                <div className="aspect-[16/10] bg-grad opacity-[0.08] group-hover:opacity-[0.12] transition-opacity" />
+                <div className="aspect-[16/10] bg-grad-radial relative overflow-hidden after:absolute after:inset-0 after:bg-background/55 group-hover:after:bg-background/35 after:transition-colors" />
                 <div className="p-6 md:p-8">
                   <div className="label-mono text-grad-soft">{p.category}</div>
                   <h3 className="mt-4 font-display text-[24px]">{p.name}</h3>

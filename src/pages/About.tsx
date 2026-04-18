@@ -21,7 +21,7 @@ const About = () => (
       <div className="max-w-[1100px] mx-auto">
         <Reveal>
           <div className="border-grad p-10 md:p-16 relative">
-            <div className="font-display text-[24px] md:text-[44px] tracking-tight leading-[1.2]">
+            <div className="font-display text-[24px] md:text-[36px] tracking-tight leading-[1.2]">
               <span className="text-grad">BANGKOK ENERGY</span>
               <span className="text-muted-foreground mx-3 md:mx-6">×</span>
               <span className="text-grad">LOGICAL STANDARD</span>
@@ -40,7 +40,7 @@ const About = () => (
       <div className="max-w-[1400px] mx-auto">
         <Reveal><SectionLabel number="02" label="PRINCIPLES" /></Reveal>
         <Reveal delay={0.1}>
-          <h2 className="mt-8 font-display text-[32px] md:text-[56px] leading-[1] max-w-[900px]">
+          <h2 className="mt-8 font-display text-[32px] md:text-[44px] leading-[1] max-w-[900px]">
             Three rules we live by.
           </h2>
         </Reveal>
@@ -53,7 +53,7 @@ const About = () => (
           ].map((p, i) => (
             <Reveal key={p.n} delay={i * 0.1}>
               <div className="bg-background p-8 md:p-10 h-full">
-                <div className="font-display text-grad text-[64px] leading-none">{p.n}</div>
+                <div className="font-display text-grad text-[48px] leading-none">{p.n}</div>
                 <h3 className="mt-8 font-display text-[22px]">{p.t}</h3>
                 <p className="mt-4 text-[14px] leading-[1.7] text-muted-foreground font-thai">{p.b}</p>
               </div>
@@ -68,7 +68,7 @@ const About = () => (
       <div className="max-w-[1400px] mx-auto">
         <Reveal><SectionLabel number="03" label="WHY ØRIONS" /></Reveal>
         <Reveal delay={0.1}>
-          <h2 className="mt-8 font-display text-[32px] md:text-[56px] leading-[1] font-thai">
+          <h2 className="mt-8 font-display text-[32px] md:text-[44px] leading-[1] font-thai">
             ไม่ใช่ Consultant. ไม่ใช่ Studio.
           </h2>
         </Reveal>
@@ -98,7 +98,7 @@ const About = () => (
     <section className="px-6 md:px-12 py-28 border-t border-border">
       <div className="max-w-[1100px] mx-auto">
         <Reveal>
-          <h2 className="font-display text-[32px] md:text-[56px] leading-[1]">
+          <h2 className="font-display text-[32px] md:text-[44px] leading-[1]">
             Let's build the next chapter together.
           </h2>
         </Reveal>

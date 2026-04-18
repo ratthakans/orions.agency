@@ -29,7 +29,7 @@ const Index = () => (
           <div className="label-mono text-grad-soft mb-8">EST. BANGKOK · 2024</div>
         </Reveal>
         <Reveal delay={0.05}>
-          <h1 className="font-brand text-[22vw] md:text-[200px] leading-[0.88] tracking-[-0.05em] text-grad">
+          <h1 className="font-brand text-[16vw] md:text-[110px] leading-[0.88] tracking-[-0.05em] text-grad">
             ØRIONS
           </h1>
         </Reveal>
@@ -41,7 +41,7 @@ const Index = () => (
           </div>
         </Reveal>
         <Reveal delay={0.3}>
-          <p className="mt-8 font-display italic text-[20px] md:text-[28px] font-light text-foreground/90">
+          <p className="mt-8 font-display normal-case-force italic text-[18px] md:text-[22px] font-light text-foreground/90">
             Practical. Bold. <span className="text-grad">Done.</span>
           </p>
         </Reveal>
@@ -59,7 +59,7 @@ const Index = () => (
         {[0, 1].map((k) => (
           <div key={k} className="marquee-track" aria-hidden={k === 1}>
             {["STRATEGY", "COMMUNICATION", "SOCIAL", "PRODUCTION", "BRAND FILM", "APPLIED CREATIVE", "BANGKOK ↔ WORLD"].map((w, i) => (
-              <span key={i} className="font-display text-[28px] md:text-[40px] leading-none tracking-[-0.02em] flex items-center gap-16">
+              <span key={i} className="font-display text-[28px] md:text-[32px] leading-none tracking-[-0.02em] flex items-center gap-16">
                 <span className={i % 2 ? "text-grad" : "text-foreground/80"}>{w}</span>
                 <span className="text-muted-foreground/40">✦</span>
               </span>
@@ -69,26 +69,31 @@ const Index = () => (
       </div>
     </section>
 
-    {/* THE STAGNATION */}
+    {/* THE STAGNATION — centered quote */}
     <section id="stagnation" className="px-6 md:px-12 py-28 md:py-40 border-t border-border">
-      <div className="max-w-[1100px] mx-auto">
-        <Reveal><SectionLabel number="01" label="THE STAGNATION" /></Reveal>
-        <Reveal delay={0.1}>
-          <h2 className="mt-8 font-display text-[40px] md:text-[80px] leading-[0.95] font-thai">
-            ทำไมธุรกิจของคุณถึง <span className="text-muted-foreground">'นิ่ง'</span>?
-          </h2>
+      <div className="max-w-[920px] mx-auto text-center">
+        <Reveal>
+          <div className="flex justify-center">
+            <SectionLabel number="01" label="THE STAGNATION" />
+          </div>
         </Reveal>
-        <Reveal delay={0.2}>
-          <p className="mt-10 max-w-[760px] text-[16px] md:text-[19px] leading-[1.75] text-muted-foreground font-thai">
-            หลายแบรนด์ติดอยู่ใน <span className="text-grad-soft">Vicious Cycle</span> — ทำงานหนักขึ้น จ่ายแพงขึ้น แต่ผลลัพธ์เท่าเดิม เพราะกติกาของโลกเปลี่ยนไปแล้ว
-          </p>
-        </Reveal>
-        <Reveal delay={0.3}>
-          <blockquote className="mt-14 border-l border-border pl-6 md:pl-8 max-w-[820px]">
-            <p className="font-thai text-[20px] md:text-[26px] leading-[1.5] font-medium">
-              "เมื่อวิธีเดิมมาถึงทางตัน คุณต้องการไอเดียที่ <span className="text-grad">'ประยุกต์'</span> มาเพื่อแก้ปัญหาจริง"
+        <Reveal delay={0.15}>
+          <blockquote className="mt-12">
+            <p className="font-thai text-[26px] md:text-[36px] leading-[1.35] font-medium">
+              <span className="text-muted-foreground">"เมื่อวิธีเดิม</span><br />
+              <span>มาถึง</span> <span className="text-grad">ทางตัน</span><br />
+              <span className="text-muted-foreground">คุณต้องการไอเดียที่</span><br />
+              <span className="text-grad">'ประยุกต์'</span> <span>มาเพื่อแก้ปัญหาจริง"</span>
             </p>
           </blockquote>
+        </Reveal>
+        <Reveal delay={0.3}>
+          <div className="mt-10 mx-auto h-px w-24 divider-grad" />
+        </Reveal>
+        <Reveal delay={0.4}>
+          <p className="mt-8 mx-auto max-w-[620px] text-[15px] md:text-[16px] leading-[1.75] text-muted-foreground font-thai">
+            หลายแบรนด์ติดอยู่ใน <span className="text-grad-soft">Vicious Cycle</span> — ทำงานหนักขึ้น จ่ายแพงขึ้น แต่ผลลัพธ์เท่าเดิม เพราะกติกาของโลกเปลี่ยนไปแล้ว
+          </p>
         </Reveal>
       </div>
     </section>
@@ -98,7 +103,7 @@ const Index = () => (
       <div className="max-w-[1400px] mx-auto">
         <Reveal><SectionLabel number="02" label="THE 3 PRESSURES" /></Reveal>
         <Reveal delay={0.1}>
-          <h2 className="mt-8 font-display text-[36px] md:text-[64px] leading-[0.95] max-w-[900px] font-thai">
+          <h2 className="mt-8 font-display text-[36px] md:text-[48px] leading-[0.95] max-w-[900px] font-thai">
             3 จุดตายที่กัดกินงบประมาณ
           </h2>
         </Reveal>
@@ -108,7 +113,7 @@ const Index = () => (
             <Reveal key={p.label} delay={i * 0.1}>
               <div className="border-t border-border pt-8">
                 <CountUp to={p.stat} prefix={p.prefix} suffix={p.suffix} decimals={p.decimals}
-                  className="font-display text-grad text-[80px] md:text-[104px] leading-none tracking-[-0.04em] block" />
+                  className="font-display text-grad text-[60px] md:text-[84px] leading-none tracking-[-0.04em] block" />
                 <div className="mt-6 label-mono text-muted-foreground">{p.label}</div>
                 <div className="mt-3 font-display text-[20px] font-thai">{p.title}</div>
                 <p className="mt-3 text-[15px] leading-[1.7] text-muted-foreground font-thai max-w-[300px]">{p.body}</p>
@@ -128,7 +133,7 @@ const Index = () => (
       <div className="max-w-[1100px] mx-auto">
         <Reveal><SectionLabel number="03" label="WHO IS ØRIONS" /></Reveal>
         <Reveal delay={0.1}>
-          <h2 className="mt-8 font-display italic text-[36px] md:text-[72px] leading-[1] font-light">
+          <h2 className="mt-8 font-display italic text-[36px] md:text-[56px] leading-[1] font-light normal-case-force">
             Creative Engineering<br />from Bangkok.
           </h2>
         </Reveal>
@@ -164,7 +169,7 @@ const Index = () => (
           <div>
             <Reveal><SectionLabel number="04" label="FEATURED WORK" /></Reveal>
             <Reveal delay={0.1}>
-              <h2 className="mt-8 font-display italic text-[36px] md:text-[64px] leading-[0.95] font-light">
+              <h2 className="mt-8 font-display italic text-[36px] md:text-[48px] leading-[0.95] font-light normal-case-force">
                 Applied Creative in action.
               </h2>
             </Reveal>
@@ -202,13 +207,13 @@ const Index = () => (
       <div className="max-w-[1400px] mx-auto">
         <Reveal><SectionLabel number="05" label="LET'S WORK" /></Reveal>
         <Reveal delay={0.1}>
-          <h2 className="mt-10 font-display text-[40px] md:text-[88px] leading-[0.95]">
+          <h2 className="mt-10 font-display text-[32px] md:text-[68px] leading-[0.95]">
             <span className="text-muted-foreground">Your business is stuck.</span><br />
             <span className="text-grad">We're the unstuck.</span>
           </h2>
         </Reveal>
         <Reveal delay={0.2}>
-          <p className="mt-8 font-display italic text-foreground text-[20px] md:text-[26px]">
+          <p className="mt-8 font-display italic text-foreground text-[20px] md:text-[26px] normal-case-force">
             Stop guessing. Start applying.
           </p>
         </Reveal>

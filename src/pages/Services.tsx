@@ -119,13 +119,13 @@ const Services = () => (
             <article className="py-20 md:py-28 grid grid-cols-1 lg:grid-cols-12 gap-10">
               {/* Left rail */}
               <header className="lg:col-span-4">
-                <div className="font-display text-grad text-[80px] md:text-[120px] leading-none tracking-[-0.04em]">
+                <div className="font-display text-grad text-[60px] md:text-[96px] leading-none tracking-[-0.04em]">
                   {s.n}
                 </div>
-                <h2 className="mt-6 font-display text-[28px] md:text-[40px] leading-[1.05]">
+                <h2 className="mt-6 font-display text-[28px] md:text-[32px] leading-[1.05]">
                   {s.title}
                 </h2>
-                <p className="mt-4 font-display italic text-muted-foreground text-[16px] md:text-[18px] font-light">
+                <p className="mt-4 font-display italic text-muted-foreground text-[16px] md:text-[18px] font-light normal-case-force">
                   {s.tagline}
                 </p>
               </header>
@@ -187,7 +187,7 @@ const Services = () => (
       <div className="max-w-[1400px] mx-auto">
         <Reveal><SectionLabel number="02" label="THE BLUEPRINT" /></Reveal>
         <Reveal delay={0.1}>
-          <h2 className="mt-8 font-display text-[32px] md:text-[56px] leading-[1] max-w-[800px]">
+          <h2 className="mt-8 font-display text-[32px] md:text-[44px] leading-[1] max-w-[800px]">
             6 ขั้นตอนสู่ผลลัพธ์ที่แม่นยำ
           </h2>
         </Reveal>
@@ -204,7 +204,7 @@ const Services = () => (
             <Reveal key={b.n} delay={i * 0.05}>
               <div className="bg-background border border-border p-5 h-full">
                 <div className="label-mono text-muted-foreground">{b.n}</div>
-                <div className="mt-4 font-display text-grad text-[56px] leading-none">{b.letter}</div>
+                <div className="mt-4 font-display text-grad text-[44px] leading-none">{b.letter}</div>
                 <div className="mt-4 font-display text-[16px]">{b.name}</div>
                 <p className="mt-2 text-[12px] leading-[1.55] text-muted-foreground font-thai">{b.body}</p>
               </div>
@@ -218,7 +218,7 @@ const Services = () => (
     <section className="px-6 md:px-12 py-28 md:py-36 border-t border-border">
       <div className="max-w-[1100px] mx-auto">
         <Reveal>
-          <h2 className="font-display text-[36px] md:text-[64px] leading-[1]">
+          <h2 className="font-display text-[36px] md:text-[48px] leading-[1]">
             Ready to apply?
           </h2>
         </Reveal>

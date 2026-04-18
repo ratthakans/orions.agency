@@ -92,7 +92,7 @@ const Work = () => (
       <div className="max-w-[1400px] mx-auto">
         <Reveal><SectionLabel number="04" label="SOCIAL & COMMERCIALS" /></Reveal>
         <Reveal delay={0.1}>
-          <h2 className="mt-8 font-display italic text-[32px] md:text-[56px] leading-[1] font-light">
+          <h2 className="mt-8 font-display italic text-[32px] md:text-[44px] leading-[1] font-light">
             High-Impact Digital Content.
           </h2>
         </Reveal>
@@ -122,7 +122,7 @@ const Work = () => (
       <div className="max-w-[1400px] mx-auto">
         <Reveal><SectionLabel number="05" label="ENTERTAINMENT & LONG-FORM" /></Reveal>
         <Reveal delay={0.1}>
-          <h2 className="mt-8 font-display italic text-[32px] md:text-[56px] leading-[1] font-light">
+          <h2 className="mt-8 font-display italic text-[32px] md:text-[44px] leading-[1] font-light">
             Mastery in Storytelling.
           </h2>
         </Reveal>
@@ -151,7 +151,7 @@ const Work = () => (
     <section className="px-6 md:px-12 py-28 border-t border-border">
       <div className="max-w-[1100px] mx-auto">
         <Reveal>
-          <h2 className="font-display text-[32px] md:text-[56px] leading-[1]">
+          <h2 className="font-display text-[32px] md:text-[44px] leading-[1]">
             Have a project in mind?
           </h2>
         </Reveal>

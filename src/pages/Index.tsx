@@ -29,7 +29,7 @@ const Index = () => (
           <div className="label-mono text-grad-soft mb-8">EST. BANGKOK · 2024</div>
         </Reveal>
         <Reveal delay={0.05}>
-          <h1 className="font-brand text-[16vw] md:text-[140px] leading-[0.88] tracking-[-0.05em] text-grad">
+          <h1 className="font-brand text-[16vw] md:text-[110px] leading-[0.88] tracking-[-0.05em] text-grad">
             ØRIONS
           </h1>
         </Reveal>
@@ -59,7 +59,7 @@ const Index = () => (
         {[0, 1].map((k) => (
           <div key={k} className="marquee-track" aria-hidden={k === 1}>
             {["STRATEGY", "COMMUNICATION", "SOCIAL", "PRODUCTION", "BRAND FILM", "APPLIED CREATIVE", "BANGKOK ↔ WORLD"].map((w, i) => (
-              <span key={i} className="font-display text-[28px] md:text-[40px] leading-none tracking-[-0.02em] flex items-center gap-16">
+              <span key={i} className="font-display text-[28px] md:text-[32px] leading-none tracking-[-0.02em] flex items-center gap-16">
                 <span className={i % 2 ? "text-grad" : "text-foreground/80"}>{w}</span>
                 <span className="text-muted-foreground/40">✦</span>
               </span>
@@ -79,7 +79,7 @@ const Index = () => (
         </Reveal>
         <Reveal delay={0.15}>
           <blockquote className="mt-12">
-            <p className="font-thai text-[26px] md:text-[44px] leading-[1.35] font-medium">
+            <p className="font-thai text-[26px] md:text-[36px] leading-[1.35] font-medium">
               <span className="text-muted-foreground">"เมื่อวิธีเดิม</span><br />
               <span>มาถึง</span> <span className="text-grad">ทางตัน</span><br />
               <span className="text-muted-foreground">คุณต้องการไอเดียที่</span><br />
@@ -103,7 +103,7 @@ const Index = () => (
       <div className="max-w-[1400px] mx-auto">
         <Reveal><SectionLabel number="02" label="THE 3 PRESSURES" /></Reveal>
         <Reveal delay={0.1}>
-          <h2 className="mt-8 font-display text-[36px] md:text-[64px] leading-[0.95] max-w-[900px] font-thai">
+          <h2 className="mt-8 font-display text-[36px] md:text-[48px] leading-[0.95] max-w-[900px] font-thai">
             3 จุดตายที่กัดกินงบประมาณ
           </h2>
         </Reveal>
@@ -113,7 +113,7 @@ const Index = () => (
             <Reveal key={p.label} delay={i * 0.1}>
               <div className="border-t border-border pt-8">
                 <CountUp to={p.stat} prefix={p.prefix} suffix={p.suffix} decimals={p.decimals}
-                  className="font-display text-grad text-[80px] md:text-[104px] leading-none tracking-[-0.04em] block" />
+                  className="font-display text-grad text-[60px] md:text-[84px] leading-none tracking-[-0.04em] block" />
                 <div className="mt-6 label-mono text-muted-foreground">{p.label}</div>
                 <div className="mt-3 font-display text-[20px] font-thai">{p.title}</div>
                 <p className="mt-3 text-[15px] leading-[1.7] text-muted-foreground font-thai max-w-[300px]">{p.body}</p>
@@ -133,7 +133,7 @@ const Index = () => (
       <div className="max-w-[1100px] mx-auto">
         <Reveal><SectionLabel number="03" label="WHO IS ØRIONS" /></Reveal>
         <Reveal delay={0.1}>
-          <h2 className="mt-8 font-display italic text-[36px] md:text-[72px] leading-[1] font-light">
+          <h2 className="mt-8 font-display italic text-[36px] md:text-[56px] leading-[1] font-light">
             Creative Engineering<br />from Bangkok.
           </h2>
         </Reveal>
@@ -169,7 +169,7 @@ const Index = () => (
           <div>
             <Reveal><SectionLabel number="04" label="FEATURED WORK" /></Reveal>
             <Reveal delay={0.1}>
-              <h2 className="mt-8 font-display italic text-[36px] md:text-[64px] leading-[0.95] font-light">
+              <h2 className="mt-8 font-display italic text-[36px] md:text-[48px] leading-[0.95] font-light">
                 Applied Creative in action.
               </h2>
             </Reveal>
@@ -207,7 +207,7 @@ const Index = () => (
       <div className="max-w-[1400px] mx-auto">
         <Reveal><SectionLabel number="05" label="LET'S WORK" /></Reveal>
         <Reveal delay={0.1}>
-          <h2 className="mt-10 font-display text-[40px] md:text-[88px] leading-[0.95]">
+          <h2 className="mt-10 font-display text-[32px] md:text-[68px] leading-[0.95]">
             <span className="text-muted-foreground">Your business is stuck.</span><br />
             <span className="text-grad">We're the unstuck.</span>
           </h2>

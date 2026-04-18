@@ -6,9 +6,9 @@ import SectionHeader from "@/components/SectionHeader";
 import SEO from "@/components/SEO";
 
 const heroProjects = [
-  { n: "01", name: "พรรคประชาธิปัตย์", url: "democrat.or.th", body: "อยากทำการเมืองสร้างสรรค์ ผ่านกิจกรรมที่ไม่ใช่การหาเสียง", challenge: "แรงต้านทางการเมืองฝั่งซ้าย / ข้อจำกัดของกฎหมายเลือกตั้ง" },
+  { n: "01", name: "พรรคประชาธิปัตย์", url: "democrat.or.th", body: "ต้องการสร้างการเมืองเชิงสร้างสรรค์ ผ่านกิจกรรมนอกการหาเสียง", challenge: "แรงต้านทางการเมืองฝั่งซ้าย / ข้อจำกัดของกฎหมายเลือกตั้ง" },
   { n: "02", name: "GCOO", url: "gcoo.in.th", body: "เปิดตลาดในไทยด้วย localization และ payment gateway", challenge: "การปรับโมเดลให้เข้ากับพฤติกรรมคนไทย" },
-  { n: "03", name: "MY HOTEL", url: "pzentsmart.com", body: "ต้องการวางตัวเป็น first smart hotel OTA ของไทย", challenge: "การดีลกับผู้ให้บริการให้เกิดความเชื่อถือ" },
+  { n: "03", name: "MY HOTEL", url: "pzentsmart.com", body: "วางตำแหน่งเป็น Smart Hotel OTA รายแรกของไทย", challenge: "การดีลกับผู้ให้บริการให้เกิดความเชื่อถือ" },
   { n: "04", name: "HONG MOVE", url: "hongmove.co.th", body: "ออกตลาด taxi VIP EV ใน AOT พร้อมวางระบบความเป็นไปได้", challenge: "ความหลากหลายทางภาษา รองรับมาลายู จีน อาราบิก ฮินดี" },
 ];
 
@@ -16,7 +16,7 @@ const more = [
   { n: "05", name: "HEAVY ORGANIZER", url: "heavyorganizer.com", body: "Green music festival with low carbon footprint", challenge: "การสร้างความรู้และความร่วมมือจากผู้คนร่วมงาน" },
   { n: "06", name: "เขาใหญ่ คันทรีคลับ", url: "khaoyaicc.com", body: "ปรับโฉมประสบการณ์สนามกอล์ฟดั้งเดิมสู่พรีเมียม", challenge: "การรักษามรดกของแบรนด์ในขณะที่ขยายฐานลูกค้าใหม่" },
   { n: "07", name: "RTAF · กองทัพอากาศ", url: "rtaf.mi.th", body: "ปรับภาพลักษณ์ผ่าน high-end production", challenge: "fake news / การสื่อสารโดยต้องรักษาความลับทางราชการ" },
-  { n: "08", name: "พรรคพลวัต", url: "—", body: "พรรคใหม่ที่ต้องนำเสนอมุมมองทางการเมืองภายใต้เวลาจำกัด", challenge: "ไม่มีฐานเสียงเดิม / ข้อจำกัดของกฎหมายเลือกตั้ง" },
+  { n: "08", name: "พรรคพลวัต", url: "—", body: "พรรคใหม่ที่ต้องสื่อสารจุดยืนภายใต้เวลาจำกัด", challenge: "ไม่มีฐานเสียงเดิม / ข้อจำกัดของกฎหมายเลือกตั้ง" },
 ];
 
 const commercials = [

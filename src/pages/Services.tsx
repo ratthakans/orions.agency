@@ -9,7 +9,7 @@ const services = [
   {
     n: "01",
     title: "Brand Direction",
-    body: "วาง narrative และ positioning ที่ชัด เพื่อให้แบรนด์ยืนตรงจุดและสื่อสารได้สม่ำเสมอ",
+    body: "วาง narrative และ positioning ให้ชัด เพื่อให้แบรนด์ยืนตรงจุด สื่อสารต่อเนื่อง",
     items: ["Brand Narrative", "Positioning", "Messaging", "Brand Voice", "Campaign Planning"],
     outcomes: ["ทีมและผู้บริหารเห็นภาพเดียวกัน", "ลดเวลา decision-making", "งบการตลาดถูกใช้ตรงเป้า"],
   },
@@ -53,13 +53,13 @@ const Services = () => (
           <Reveal key={s.n}>
             <article className="py-16 md:py-20 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 border-b border-border-soft">
               <header className="lg:col-span-4">
-                <div className="font-display text-[80px] md:text-[120px] leading-[0.85] tracking-[-0.04em]">
+                <div className="font-display text-[64px] md:text-[88px] leading-[0.85] tracking-[-0.04em]">
                   {s.n}
                 </div>
-                <h2 className="mt-6 font-display text-[26px] md:text-[36px] leading-[1] tracking-[-0.02em]">
+                <h2 className="mt-6 font-display text-[32px] md:text-[44px] leading-[1] tracking-[-0.02em]">
                   {s.title}
                 </h2>
-                <p className="mt-6 text-[15px] md:text-[16px] leading-[1.7] text-muted-foreground font-thai max-w-[360px]">
+                <p className="mt-6 text-[15px] leading-[1.7] text-muted-foreground font-thai max-w-[58ch]">
                   {s.body}
                 </p>
               </header>

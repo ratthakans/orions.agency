@@ -23,29 +23,50 @@ const Index = () => (
 
     {/* HERO */}
     <section className="relative min-h-screen flex items-center justify-center px-6 md:px-12 overflow-hidden">
-      <div className="text-center w-full max-w-[1400px] mx-auto pt-20">
+      <div className="liquid-blob" aria-hidden />
+      <div className="relative z-10 text-center w-full max-w-[1400px] mx-auto pt-20">
         <Reveal>
-          <h1 className="font-brand text-[20vw] md:text-[180px] leading-[0.9] tracking-[-0.04em] text-grad">
+          <div className="label-mono text-grad-soft mb-8">EST. BANGKOK · 2024</div>
+        </Reveal>
+        <Reveal delay={0.05}>
+          <h1 className="font-brand text-[22vw] md:text-[200px] leading-[0.88] tracking-[-0.05em] text-grad">
             ØRIONS
           </h1>
         </Reveal>
-        <Reveal delay={0.15}>
-          <div className="mt-8 label-mono text-muted-foreground">APPLIED CREATIVE AGENCY</div>
+        <Reveal delay={0.2}>
+          <div className="mt-10 flex items-center justify-center gap-4">
+            <span className="h-px w-16 divider-grad" />
+            <span className="label-mono text-foreground">APPLIED CREATIVE AGENCY</span>
+            <span className="h-px w-16 divider-grad" />
+          </div>
         </Reveal>
-        <Reveal delay={0.25}>
-          <div className="mt-5 mx-auto h-px w-24 divider-grad" />
-        </Reveal>
-        <Reveal delay={0.35}>
-          <p className="mt-6 font-mono text-[13px] tracking-[0.25em] uppercase text-muted-foreground">
-            Practical. Bold. Done.
+        <Reveal delay={0.3}>
+          <p className="mt-8 font-display italic text-[20px] md:text-[28px] font-light text-foreground/90">
+            Practical. Bold. <span className="text-grad">Done.</span>
           </p>
         </Reveal>
       </div>
 
-      <div className="absolute bottom-6 left-6 md:left-12 label-mono text-muted-foreground">orions.agency</div>
-      <a href="#stagnation" className="absolute bottom-6 right-6 md:right-12 flex items-center gap-2 label-mono text-muted-foreground hover:text-foreground transition-colors">
+      <div className="absolute bottom-6 left-6 md:left-12 label-mono text-muted-foreground z-10">orions.agency</div>
+      <a href="#stagnation" className="absolute bottom-6 right-6 md:right-12 flex items-center gap-2 label-mono text-muted-foreground hover:text-foreground transition-colors z-10">
         Scroll <ChevronDown className="w-4 h-4 animate-scroll-bounce" />
       </a>
+    </section>
+
+    {/* MARQUEE */}
+    <section className="border-y border-border py-6 overflow-hidden">
+      <div className="marquee">
+        {[0, 1].map((k) => (
+          <div key={k} className="marquee-track" aria-hidden={k === 1}>
+            {["STRATEGY", "COMMUNICATION", "SOCIAL", "PRODUCTION", "BRAND FILM", "APPLIED CREATIVE", "BANGKOK ↔ WORLD"].map((w, i) => (
+              <span key={i} className="font-display text-[28px] md:text-[40px] leading-none tracking-[-0.02em] flex items-center gap-16">
+                <span className={i % 2 ? "text-grad" : "text-foreground/80"}>{w}</span>
+                <span className="text-muted-foreground/40">✦</span>
+              </span>
+            ))}
+          </div>
+        ))}
+      </div>
     </section>
 
     {/* THE STAGNATION */}

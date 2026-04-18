@@ -105,6 +105,7 @@ const Index = () => {
       <SEO
         title="ØRIONS — Applied Creative Agency"
         description="Practical. Bold. Done. Creative Engineering from Bangkok."
+        path="/"
       />
       <Nav />
 

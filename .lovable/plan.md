@@ -1,107 +1,175 @@
 
 
-# ØRIONS Website — Full Review & Recommendations
+# ØRIONS — Design Review & Refinement Plan
 
-## Critical Bugs (P0)
+## ปัญหาปัจจุบัน (จากการ review)
 
-### 1. Project images are broken / not rendering
-The project cards on `/projects` and the homepage Projects section are completely invisible. The 6 `.jpg` files in `src/assets/projects/` appear to have been generated as binary but may be invalid or empty. The grid renders but shows nothing — no images, no text, no cards at all. This is the most critical issue.
+**1. Gradient สีฟ้า→ม่วง→แดง ไม่เข้ากับแบรนด์**
+- ดูเหมือน Web3/Crypto/Gaming brand มากกว่า creative agency
+- 3-color gradient ทำให้ดูยุ่งและขาด sophistication
+- สีแดง crimson ตัดกับ background ดำแรงเกินไป — ไม่ premium
+- ไม่สื่อถึง "Bangkok Energy × Logical Standard"
 
-**Fix**: Re-generate all 6 project images using proper Unsplash URLs as fallbacks, or use placeholder images from a reliable CDN (e.g. `picsum.photos` or `unsplash` URLs) until real images are ready.
+**2. Layout ยังเป็น "single column stack"**
+- ทุก section จัดกลาง / max-width เท่ากัน → จังหวะการอ่านเหมือนกันหมด
+- ขาด visual hierarchy ระหว่าง section
+- ไม่มี asymmetry, ไม่มี editorial grid
+- Featured Work cards เหมือนกัน 3 ใบเรียงกัน → น่าเบื่อ
 
-### 2. YouTube iframe "Sign in" overlay still bleeding through Hero
-The YouTube play button avatar and "Sign in" link are clearly visible through the `bg-background/90` overlay on the homepage hero. Despite the previous fix increasing opacity to 90%, YouTube's UI elements still show.
+**3. Hero ยังธรรมดา**
+- ØRIONS อยู่ตรงกลางจอเดี่ยวๆ + blob พื้นหลัง
+- ไม่มี supporting elements (index, meta info, motion text)
+- Marquee แยกอยู่ใต้ hero แทนที่จะเป็นส่วนหนึ่งของ composition
 
-**Fix**: Replace the YouTube iframe entirely with a `<video>` tag using a self-hosted MP4 file, OR add `pointer-events-none` plus a higher z-index overlay, OR increase overlay to `bg-background/95`.
-
----
-
-## Structural Issues (P1)
-
-### 3. Footer is out of sync with Navbar
-The Footer still shows old navigation links: About, **Work**, Services, Contact. It's missing **Projects** and **Original Series**. The Navbar has 5 links but the Footer only shows 4.
-
-**Fix**: Update `Footer.tsx` to match the current Navbar structure — add "Original Series" and "Projects" links.
-
-### 4. "ORIONS" vs "ØRIONS" brand inconsistency
-In `projects.ts`, the role field reads `"Created, Directed & Produced by ORIONS"` (without Ø) across all projects. Should be `ØRIONS`.
-
-**Fix**: Replace all instances of `ORIONS` with `ØRIONS` in project data.
-
-### 5. Homepage hero CTA "View Work" is vague
-The secondary CTA says "View Work →" which could link to either Original Series or Projects. It currently links to `/work` (Original Series). Since Projects (client work) is now the primary portfolio, this link should point to `/projects` or the text should say "View Original Series →".
-
-**Fix**: Change to "View Projects →" linking to `/projects`, or "View Original Series →" keeping the `/work` link.
+**4. Typography สีไม่ pop**
+- Heading หลายอันใช้ gradient → อ่านยาก, ลด impact
+- ขาด contrast ระหว่าง display headlines กับ body
+- ตัวอักษร Thai (IBM Plex) กับ Unbounded ยังไม่ harmonize ดีพอ
 
 ---
 
-## Design & UX Improvements (P2)
+## แนวทางใหม่ (Direction)
 
-### 6. Homepage is still 7 sections long
-Hero → Tone Block → Projects Preview → Services Preview → Packages → CTA → Footer. The Services + Packages sections overlap in purpose (both sell services). Consider merging or shortening.
+### A. Color System — "Warm Editorial Mono + Single Liquid Accent"
 
-**Recommendation**: The Packages section could become a compact callout within the Services section, or be removed from homepage entirely (it lives on the Services page already).
+ทิ้ง 3-color gradient แล้วใช้:
 
-### 7. No Original Series preview on Homepage
-The homepage only shows client Projects now but has no preview of Original Series content. Since Original Series is a key differentiator for the brand, a small preview section between Projects and Services would strengthen the page.
+```text
+BACKGROUND     #0B0B0D   (warm near-black, ไม่เย็น)
+SURFACE        #131316   (card / alt section)
+SURFACE-2      #1B1B1F   (nested elements)
+BORDER         #26262B   (hairline)
+TEXT           #F5F5F0   (warm white, ไม่ขาวจัด)
+MUTED          #8A8A92   
+ACCENT INK     #E8E3D8   (creamy bone — สำหรับ italic/eyebrow)
 
-**Recommendation**: Add a compact 2-3 item Original Series preview after the Projects section.
+LIQUID ACCENT  Single-tone amber→bone→white
+  → ใช้เฉพาะกับ "ØRIONS" wordmark, key numbers, divider
+  → ไม่ใช้กับ paragraph headings
+```
 
-### 8. Services page "View Work" link in CTA
-The Services page CTA has `"View Work →"` linking to `/work`. Should probably link to `/projects` since client work is more relevant for someone evaluating services.
+**ทำไม**: warm tone ให้ความรู้สึก editorial/print magazine (เช่น It's Nice That, The Gentlewoman) มากกว่า tech/web3. Amber↔bone gradient ดู refined แต่ยังมี personality.
 
-**Fix**: Change to "View Projects →" with link to `/projects`.
+**ทางเลือก gradient** (จะขอ confirm ก่อนสร้าง):
+- **Option 1 — Warm Bone**: amber → cream → white (แบบ print magazine, เหมือนแสง golden hour)
+- **Option 2 — Cold Pearl**: steel blue → silver → pearl white (modern, premium tech)
+- **Option 3 — Mercury**: mid-grey → bright white → mid-grey (mono ที่สุด, เน้น light play)
+- **Option 4 — Single Solid**: ไม่มี gradient เลย — ใช้สีเดียว (เช่น amber #E8B86D) เป็น accent
 
-### 9. About page CTA "View Work" same issue
-The About page CTA also links to `/work` with "View Work →". Same fix needed.
+### B. Layout — "Editorial Grid System"
+
+แต่ละ section ใช้ 12-column grid พร้อม asymmetric placement:
+
+```text
+HERO (full-bleed)
+┌────────────────────────────────────────────────┐
+│ ⓘ INDEX 01/13      ◐ APPLIED CREATIVE AGENCY   │ ← top meta bar
+│                                                 │
+│   ØRIONS                          (huge, left)  │
+│   ━━━━━                                         │
+│   Practical. Bold. Done.        (italic, mid)   │
+│                                                 │
+│                              ╲ scroll          │
+│ EST. 2024 · BKK              ╲ ↓ next          │
+└────────────────────────────────────────────────┘
+```
+
+```text
+STAGNATION (split layout, ไม่ใช่ centered quote)
+┌──────────────┬─────────────────────────────────┐
+│ 01           │  เมื่อวิธีเดิม                  │
+│ THE          │  มาถึง ทางตัน                   │
+│ STAGNATION   │  คุณต้องการไอเดียที่           │
+│              │  'ประยุกต์'                     │
+│ Source:      │  มาเพื่อแก้ปัญหาจริง           │
+│ Industry     │  ─────                          │
+│ Observation  │  — ØRIONS Manifesto, 2024      │
+└──────────────┴─────────────────────────────────┘
+```
+
+```text
+3 PRESSURES (ตัวเลขใหญ่ขึ้น, layout horizontal divide)
+┌──────────────────────────────────────────────┐
+│ 02 — THE 3 PRESSURES                          │
+│                                                │
+│ 1.7s          +41%          4.6×              │
+│ ─────         ─────         ─────             │
+│ ATTENTION     DIGITAL       DIGITAL           │
+│ SPAN          INFLATION     WASTE             │
+│                                                │
+│ ไม่ถึง 2 วิ   ค่าโฆษณา      ขยะดิจิทัล       │
+│ คือเวลา...   เพิ่มขึ้น...   ล้นโลก...        │
+└──────────────────────────────────────────────┘
+```
+
+```text
+FEATURED WORK (asymmetric — ใบแรกใหญ่, อีก 2 ใบเล็ก stack)
+┌────────────────────────┬──────────────────┐
+│                        │  ┌────────────┐  │
+│   HONGMOVE             │  │  RTAF      │  │
+│   [large image 4:5]    │  └────────────┘  │
+│                        │  ┌────────────┐  │
+│   APPLIED UTILITY      │  │  KHAO YAI  │  │
+│   +25% Conversion      │  └────────────┘  │
+└────────────────────────┴──────────────────┘
+```
+
+### C. Hero ใหม่ — Editorial composition
+
+- เพิ่ม **top meta bar**: `INDEX 01/13` ซ้าย, `◐ APPLIED CREATIVE AGENCY` ขวา
+- ØRIONS ชิดซ้าย (ไม่ใช่ center) ขนาด 18-22vw
+- Tagline italic อยู่ใต้แบบ caption ของหนังสือ
+- มุมล่างซ้าย: `EST. BANGKOK · 2024 · ØRIONS.AGENCY`
+- มุมล่างขวา: scroll indicator + `↓ NEXT — THE STAGNATION`
+- **Marquee** เลื่อนเป็น horizontal divider คั่นระหว่าง hero กับ section ถัดไป (slim, slow)
+
+### D. Typography Refinement
+
+```text
+HERO WORDMARK    Unbounded 700, 18-22vw, tracking -0.06em
+                 → ใช้ liquid accent gradient (amber→bone)
+H1 (page hero)   Unbounded 600, 64-88px, tracking -0.04em
+                 → solid foreground (ไม่ gradient)
+H2 (section)     Unbounded 500, 36-48px
+                 → solid foreground
+EYEBROW          JetBrains Mono 11px, tracking 0.24em, MUTED
+ITALIC SUB       Inter Italic 18-22px, light, ใช้คั่น break
+BODY TH          IBM Plex Sans Thai 16-17px, leading 1.75
+QUOTE TH         IBM Plex Sans Thai 28-36px, weight 400
+                 → keyword highlight ด้วย accent color (ไม่ gradient)
+```
+
+**กฎใหม่**: gradient ใช้กับ ØRIONS wordmark + numbers (1.7s, +41%, 4.6×) + key callouts เท่านั้น ไม่ใช้กับ heading ทั่วไป
+
+### E. Micro-details เพิ่ม visual interest
+
+1. **Section index badges** — `01/13`, `02/13`, ... เป็น meta info ทุก section
+2. **Hairline dividers** — เส้นบางๆ คั่นระหว่าง subsection แทน gap ใหญ่
+3. **Numbered footnotes** — เพิ่ม `¹` `²` กับ key claims (style แบบ academic/editorial)
+4. **Image placeholders** — แทน gradient blob ใส่เป็น noise/grain texture หรือ duotone ภาพจริง (ถ้ามี)
+5. **Cursor**: เพิ่ม custom cursor เล็กๆ บน interactive cards (วงกลม + arrow)
+6. **Sticky page index** ด้านขวาของหน้า Home: dot navigator แสดงว่าอยู่ section ไหน
 
 ---
 
-## Minor Polish (P3)
+## คำถามก่อนลงมือ
 
-### 10. Filter buttons on Projects page need `cursor-pointer`
-The filter buttons don't show pointer cursor by default since they're `<button>` elements without explicit cursor styling.
+ขอ confirm 2 จุดสำคัญ:
 
-### 11. Project detail pages may crash
-Since the project images are broken, the detail pages at `/projects/:slug` likely show broken images too. Need to verify once images are fixed.
+**Q1 — เลือก accent gradient แบบไหน**
+1. Warm Bone (amber → cream → white) — editorial print magazine
+2. Cold Pearl (steel → silver → pearl) — modern premium tech
+3. Mercury (grey → white → grey) — most mono
+4. Single solid amber #E8B86D — no gradient at all
 
-### 12. Navbar "LET'S TALK" button has border styling
-The CTA button in the navbar appears to have a border/outline style (white bg with dark text) that looks like a ghost button. This is fine visually but differs from the solid-fill CTAs used elsewhere.
+**Q2 — Hero composition**
+1. Editorial split (ØRIONS ซ้าย + meta bars + asymmetric)
+2. คงไว้กลางจอแต่ refine (ลด blob, เพิ่ม meta bar บน-ล่าง)
+3. Full-bleed video/image background + ØRIONS overlay
 
----
-
-## Implementation Plan
-
-### Step 1: Fix broken project images
-Replace the local `.jpg` imports in `clientProjects.ts` with working Unsplash URLs as reliable placeholders. Remove the broken files from `src/assets/projects/`.
-
-### Step 2: Fix YouTube overlay
-Increase hero overlay opacity to `bg-background/95` or replace iframe with a static dark background.
-
-### Step 3: Update Footer links
-Add "Original Series" and "Projects" to the Footer navigation to match the Navbar.
-
-### Step 4: Fix brand name consistency
-Replace `ORIONS` with `ØRIONS` in all project data files.
-
-### Step 5: Fix CTA link targets
-Update "View Work" links across Homepage, About, and Services pages to point to the correct destination (`/projects` for client work context).
-
-### Step 6: Optional — Add Original Series preview to Homepage
-Add a compact section showing 2-3 Original Series items between the Projects preview and Services sections.
-
----
-
-## Summary
-
-| Priority | Issue | Status |
-|----------|-------|--------|
-| P0 | Project images completely broken — grid is empty | Must fix |
-| P0 | YouTube "Sign in" still visible in hero | Must fix |
-| P1 | Footer missing Projects + Original Series links | Should fix |
-| P1 | "ORIONS" vs "ØRIONS" in project data | Should fix |
-| P1 | "View Work" CTA targets wrong page | Should fix |
-| P2 | Homepage too long (7 sections) | Consider |
-| P2 | No Original Series preview on Homepage | Consider |
-| P3 | Minor cursor + styling polish | Nice to have |
+ตอบ 2 ข้อนี้แล้วจะเริ่มลงมือ refactor:
+- `src/index.css` — color tokens + gradient ใหม่
+- `src/pages/Index.tsx` — editorial layout ทุก section
+- `src/pages/Services.tsx`, `Work.tsx`, `About.tsx`, `Contact.tsx` — sync grid system + typography rules
+- `src/components/PageHero.tsx`, `Nav.tsx` — meta bar + index badges
 

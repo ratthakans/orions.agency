@@ -13,15 +13,15 @@ import whatSkater from "@/assets/what-skater.jpg";
 import whatWindow from "@/assets/what-window.jpg";
 
 const pressures = [
-  { stat: 1.7, suffix: "s", decimals: 1, label: "ADHD SPAN", body: "attention สั้นลงกว่าเดิมมาก" },
+  { stat: 1.7, suffix: "s", decimals: 1, label: "ATTENTION SPAN", body: "เวลาที่คนยอมหยุดดูคอนเทนต์" },
   { stat: 41, prefix: "+", suffix: "%", decimals: 0, label: "DIGITAL INFLATION", body: "ต้นทุนของการเข้าถึงลูกค้าสูงขึ้น" },
-  { stat: 4.6, suffix: "×", decimals: 1, label: "AI FLOOD", body: "content มากขึ้นจนความแตกต่างถูกกลบ" },
+  { stat: 4.6, suffix: "×", decimals: 1, label: "AI FLOOD", body: "เนื้อหาท่วมจนแบรนด์ถูกกลบ" },
 ];
 
 const whatWeDo = [
   { n: "01", img: whatSkater, title: "วิเคราะห์ธุรกิจชัด", body: "ว่าคือใคร และควรยืนตรงไหน" },
-  { n: "02", img: whatVortex, title: "เปลี่ยนการสื่อสาร", body: "ให้น่าสนใจ พอที่จะถูกเห็นและถูกจำ" },
-  { n: "03", img: whatWindow, title: "ให้ทุกจุดสัมผัสลูกค้า", body: "แปลเป็นผลลัพธ์ของธุรกิจ" },
+  { n: "02", img: whatVortex, title: "ออกแบบการสื่อสาร", body: "ให้คมพอจะถูกเห็น และคุ้มพอจะถูกจำ" },
+  { n: "03", img: whatWindow, title: "เปลี่ยนทุกจุดสัมผัสลูกค้า", body: "ให้กลายเป็นผลลัพธ์ทางธุรกิจ" },
 ];
 
 const Index = () => (
@@ -32,7 +32,7 @@ const Index = () => (
     <section className="relative min-h-screen w-full px-6 md:px-10 pt-24 md:pt-28 pb-10 flex flex-col">
       <div className="flex-1 flex flex-col justify-center">
         <Reveal delay={0.05}>
-          <h1 className="font-brand text-[22vw] md:text-[20vw] leading-[0.82] tracking-[-0.05em] text-foreground">
+          <h1 className="font-brand text-[22vw] md:text-[16vw] leading-[0.82] tracking-[-0.05em] text-foreground">
             ØRIONS
           </h1>
         </Reveal>
@@ -40,15 +40,15 @@ const Index = () => (
         <div className="mt-10 md:mt-16 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-end">
           <div className="md:col-span-6">
             <Reveal delay={0.15}>
-              <h2 className="font-display text-[28px] md:text-[42px] leading-[1.05] tracking-[-0.02em]">
+              <h2 className="font-display text-[28px] md:text-[48px] leading-[1.05] tracking-[-0.02em]">
                 Sharper ideas.<br />Clearer direction.
               </h2>
             </Reveal>
           </div>
           <div className="md:col-span-5 md:col-start-8">
             <Reveal delay={0.25}>
-              <p className="text-[15px] md:text-[16px] leading-[1.7] text-muted-foreground font-thai">
-                ØRIONS เป็น Creative Agency สำหรับธุรกิจที่ไม่อยากติดอยู่ใน social vicious cycle เราช่วยให้สิ่งที่คุณทำชัดขึ้น คมขึ้น และทำงานได้จริงขึ้น
+              <p className="text-[15px] md:text-[15px] leading-[1.7] text-muted-foreground font-thai max-w-[58ch]">
+                ØRIONS คือ Creative Agency สำหรับธุรกิจที่ไม่อยากติดอยู่ใน social vicious cycle เราช่วยให้สิ่งที่คุณทำ — ชัดขึ้น คมขึ้น และทำงานได้จริง
               </p>
               <Link to="/contact" className="mt-6 inline-flex items-center gap-2 index-badge border-b border-foreground pb-1 hover:opacity-70 transition-opacity">
                 Let's Talk <ArrowUpRight className="w-4 h-4" />
@@ -72,7 +72,7 @@ const Index = () => (
         <figure className="border-t border-foreground pt-3">
           <div className="flex items-center justify-between mb-3">
             <span className="index-badge font-bold">FIG. 01</span>
-            <span className="index-badge font-medium text-muted-foreground">— THE WORLD MOVES FASTER THAN BUSINESS</span>
+            <span className="index-badge font-medium text-muted-foreground">— BANGKOK ON THE MOVE</span>
           </div>
           <div className="aspect-[16/9] w-full overflow-hidden bg-surface-2">
             <img src={heroStreet} alt="A cyclist on a cobblestone street at sunset" className="w-full h-full object-cover" />
@@ -105,9 +105,9 @@ const Index = () => (
         <div className="md:col-span-5">
           <Reveal>
             <h2 className="font-display text-[36px] md:text-[56px] leading-[0.95] tracking-[-0.03em]">
-              ธุรกิจไม่ได้สู้แค่<br />คู่แข่งอย่างเดียว
+              ธุรกิจไม่ได้สู้<br />แค่คู่แข่งอย่างเดียว
             </h2>
-            <p className="mt-8 max-w-[400px] text-[15px] leading-[1.7] text-muted-foreground font-thai">
+            <p className="mt-8 max-w-[58ch] text-[15px] leading-[1.7] text-muted-foreground font-thai">
               แต่กำลังรับแรงกดดันพร้อมกันจาก 3 ด้าน — ที่ทำให้ทุกการสื่อสารยากขึ้น แพงขึ้น และเลือนหายเร็วขึ้น
             </p>
           </Reveal>
@@ -119,7 +119,7 @@ const Index = () => (
               <div className="bg-background p-6 md:p-8 h-full">
                 <div className="index-badge text-muted-foreground">{p.label}</div>
                 <CountUp to={p.stat} prefix={p.prefix} suffix={p.suffix} decimals={p.decimals}
-                  className="mt-6 font-display text-[56px] md:text-[72px] leading-[0.9] tracking-[-0.04em] block" />
+                  className="mt-6 font-display text-[64px] md:text-[96px] leading-[0.9] tracking-[-0.05em] block" />
                 <p className="mt-6 text-[13px] leading-[1.65] text-muted-foreground font-thai">{p.body}</p>
               </div>
             </Reveal>
@@ -132,15 +132,18 @@ const Index = () => (
     <section className="px-6 md:px-10 py-20 md:py-28 bg-surface border-y border-foreground">
       <SectionHeader left="03 — THE VICIOUS CYCLE" right="this is where ØRIONS begins" />
       <div className="mt-16 grid grid-cols-1 md:grid-cols-12 gap-10">
-        <div className="md:col-span-2">
+        <div className="md:col-span-2 relative">
           <Reveal>
-            <div className="font-display text-[80px] md:text-[120px] leading-[0.85]">"</div>
+            <div className="font-display text-[120px] md:text-[160px] leading-[0.7] absolute -top-6 md:-top-8 left-0 select-none pointer-events-none">"</div>
           </Reveal>
         </div>
         <div className="md:col-span-9">
           <Reveal delay={0.1}>
-            <blockquote className="font-thai text-[24px] md:text-[36px] leading-[1.4] font-normal max-w-[860px]">
-              The Vicious Cycle — หลายธุรกิจกำลังติดอยู่ในวงจรอุบาท ทำมากขึ้น จ่ายมากขึ้น งบไหลออกแต่ผลลัพธ์เท่าเดิม เมื่อถูกปิดกั้นการมองเห็น <span className="font-display normal-case font-medium">ทุกอย่างก็จบ</span>
+            <blockquote className="font-thai text-[22px] md:text-[34px] leading-[1.45] font-normal max-w-[860px]">
+              หลายธุรกิจกำลังติดอยู่ในวงจรอุบาทว์ —<br />
+              ทำมากขึ้น จ่ายมากขึ้น<br />
+              งบไหลออก แต่ผลลัพธ์เท่าเดิม<br />
+              เมื่อถูกปิดกั้นการมองเห็น <span className="font-bold">ทุกอย่างก็จบ</span>
             </blockquote>
           </Reveal>
           <Reveal delay={0.25}>
@@ -165,18 +168,18 @@ const Index = () => (
         </div>
         <div className="md:col-span-5 order-1 md:order-2 space-y-8">
           <Reveal>
-            <p className="text-[16px] md:text-[18px] leading-[1.7] font-thai">
-              <strong className="font-display normal-case font-bold">ปัญหาของหลายธุรกิจวันนี้</strong> ไม่ใช่การทำไม่พอ แต่คือการทำมากเกินไป โดยไม่ได้ความชัดเจนกลับมา
+            <p className="text-[17px] leading-[1.7] font-thai max-w-[58ch]">
+              <span className="font-bold">ปัญหาของหลายธุรกิจวันนี้</span> ไม่ใช่การทำไม่พอ แต่คือการทำมากเกินไป โดยไม่ได้ความชัดเจนกลับมา
             </p>
           </Reveal>
           <Reveal delay={0.1}>
-            <p className="text-[16px] md:text-[18px] leading-[1.7] font-thai">
-              <strong className="font-display normal-case font-bold">สิ่งที่หายไปทุกวัน</strong> ไม่ใช่แค่งบประมาณ แต่คือเวลาของทีม พลังงาน และความหมาย ที่ถูกใช้ไปกับ digital waste
+            <p className="text-[17px] leading-[1.7] font-thai max-w-[58ch]">
+              <sup className="font-display text-[11px] mr-1">¹</sup>สิ่งที่หายไปทุกวันไม่ใช่แค่งบประมาณ แต่คือเวลาของทีม พลังงาน และความหมาย ที่ถูกใช้ไปกับ digital waste
             </p>
           </Reveal>
           <Reveal delay={0.2}>
-            <p className="text-[16px] md:text-[18px] leading-[1.7] font-thai">
-              <strong className="font-display normal-case font-bold">ØRIONS</strong> ไม่ได้เข้ามาเพื่อสร้าง noise เพิ่ม แต่เข้ามาเพื่อลด digital waste ด้วยงานที่คิดมาดี ทำมาคม และมีคุณภาพพอจะจบงานได้ตรงจุด
+            <p className="text-[17px] leading-[1.7] font-thai max-w-[58ch]">
+              <sup className="font-display text-[11px] mr-1">²</sup>ØRIONS ไม่ได้เข้ามาเพื่อสร้าง noise เพิ่ม แต่เข้ามาเพื่อลด digital waste ด้วยงานที่คิดมาดี ทำมาคม และมีคุณภาพพอจะจบงานได้ตรงจุด
             </p>
           </Reveal>
         </div>
@@ -197,7 +200,7 @@ const Index = () => (
               <div className="p-6 md:p-8 flex-1">
                 <div className="font-display text-[36px] md:text-[44px] leading-none">{w.n}</div>
                 <h3 className="mt-6 font-display text-[18px] md:text-[20px] leading-[1.2] font-thai">{w.title}</h3>
-                <p className="mt-3 text-[14px] leading-[1.65] text-muted-foreground font-thai">{w.body}</p>
+                <p className="mt-3 text-[13px] leading-[1.65] text-muted-foreground font-thai">{w.body}</p>
               </div>
             </article>
           </Reveal>
@@ -213,7 +216,7 @@ const Index = () => (
           <Reveal key={g.t} delay={i * 0.05}>
             <div className="border-t border-foreground pt-4">
               <div className="index-badge font-bold">{g.t}</div>
-              <ul className="mt-4 space-y-2 text-[14px] font-thai text-muted-foreground">
+              <ul className="mt-4 space-y-2 text-[13px] font-thai text-muted-foreground">
                 {g.items.map((item) => (
                   <li key={item} className="flex gap-2"><span>·</span><span>{item}</span></li>
                 ))}
@@ -232,13 +235,13 @@ const Index = () => (
         <div className="md:col-span-4">
           <Reveal>
             <div className="font-display text-[24px]">01</div>
-            <h2 className="mt-2 font-display text-[44px] md:text-[64px] leading-[0.9] tracking-[-0.03em]">
+            <h2 className="mt-2 font-display text-[44px] md:text-[56px] leading-[0.9] tracking-[-0.03em]">
               Creative<br />Unlock
             </h2>
-            <p className="mt-8 text-[15px] leading-[1.65] text-muted-foreground font-thai max-w-[320px]">
+            <p className="mt-8 text-[15px] leading-[1.65] text-muted-foreground font-thai max-w-[58ch]">
               ปลดล็อกสิ่งที่ธุรกิจมีอยู่แล้ว แต่ยังสื่อสารออกมาได้ไม่เต็มที่
             </p>
-            <ul className="mt-6 space-y-2 text-[14px] font-thai">
+            <ul className="mt-6 space-y-2 text-[13px] font-thai">
               <li className="flex gap-2"><span>·</span><span>message ชัดขึ้น</span></li>
               <li className="flex gap-2"><span>·</span><span>flow ดีขึ้น</span></li>
               <li className="flex gap-2"><span>·</span><span>value ถูกมองเห็นมากขึ้น</span></li>
@@ -296,13 +299,13 @@ const Index = () => (
         <div className="md:col-span-4 order-1 md:order-2">
           <Reveal>
             <div className="font-display text-[24px]">02</div>
-            <h2 className="mt-2 font-display text-[44px] md:text-[64px] leading-[0.9] tracking-[-0.03em]">
+            <h2 className="mt-2 font-display text-[44px] md:text-[56px] leading-[0.9] tracking-[-0.03em]">
               Demand<br />Gravity
             </h2>
-            <p className="mt-8 text-[15px] leading-[1.65] text-muted-foreground font-thai max-w-[320px]">
+            <p className="mt-8 text-[15px] leading-[1.65] text-muted-foreground font-thai max-w-[58ch]">
               สร้างแรงดึงดูดให้คนอยากขยับเข้าหา ก่อนต้องซื้อ reach เพิ่ม
             </p>
-            <ul className="mt-6 space-y-2 text-[14px] font-thai">
+            <ul className="mt-6 space-y-2 text-[13px] font-thai">
               <li className="flex gap-2"><span>·</span><span>campaign idea ชัดขึ้น</span></li>
               <li className="flex gap-2"><span>·</span><span>content ทำงานต่อเนื่องขึ้น</span></li>
               <li className="flex gap-2"><span>·</span><span>communication น่าสนใจขึ้น</span></li>
@@ -321,7 +324,7 @@ const Index = () => (
 
       <div className="mt-12">
         <Reveal>
-          <h2 className="font-display text-[36px] md:text-[56px] leading-[0.95] tracking-[-0.03em] max-w-[820px]">
+          <h2 className="font-display text-[32px] md:text-[44px] leading-[0.95] tracking-[-0.03em] max-w-[820px]">
             We don't start with the brief.<br />We start with what's broken.
           </h2>
         </Reveal>
@@ -357,9 +360,8 @@ const Index = () => (
       <div className="mt-16 grid grid-cols-1 md:grid-cols-12 gap-10">
         <div className="md:col-span-8">
           <Reveal>
-            <h2 className="font-display text-[44px] md:text-[88px] leading-[0.9] tracking-[-0.04em]">
-              Sharper ideas.<br />Clearer direction.<br />
-              <span className="opacity-50">Done.</span>
+            <h2 className="font-display text-[44px] md:text-[72px] leading-[0.95] tracking-[-0.04em]">
+              Sharper ideas.<br />Clearer direction.<br />Done.
             </h2>
           </Reveal>
           <Reveal delay={0.2}>

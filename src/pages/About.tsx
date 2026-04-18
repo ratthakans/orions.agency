@@ -25,8 +25,11 @@ const About = () => (
         </div>
         <div className="md:col-span-9">
           <Reveal>
-            <p className="font-thai text-[24px] md:text-[36px] leading-[1.4] max-w-[860px]">
-              ไอเดียที่ชัด คอนเทนต์ที่มีคุณภาพ และการสื่อสารที่มีกลยุทธ์ ไม่ใช่แค่ทางเลือก <span className="font-display normal-case font-medium">แต่คือทางรอด</span>
+            <p className="font-thai text-[22px] md:text-[34px] leading-[1.45] max-w-[860px]">
+              ไอเดียที่ชัด<br />
+              คอนเทนต์ที่มีคุณภาพ<br />
+              การสื่อสารที่มีกลยุทธ์<br />
+              — ไม่ใช่ทางเลือก <span className="font-bold">แต่คือทางรอด</span>
             </p>
           </Reveal>
           <Reveal delay={0.2}>
@@ -80,9 +83,9 @@ const About = () => (
 
       <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-px bg-foreground border border-foreground">
         {[
-          { t: "CONSULTANT", s: "ช่วยคิดได้", b: "แต่ไม่ได้พาไอเดียไปสู่ execution เสมอไป", us: false },
+          { t: "CONSULTANT", s: "คิดเก่ง", b: "แต่มักจบที่ slide", us: false },
           { t: "STUDIO", s: "ช่วยทำได้", b: "แต่ไม่ได้เริ่มจากปัญหาธุรกิจที่ลึกพอทุกครั้ง", us: false },
-          { t: "AGENCY", s: "เชื่อมการคิดเข้ากับการทำ", b: "เพื่อให้ direction กลายเป็นงานที่ใช้ได้จริง", us: true },
+          { t: "AGENCY", s: "ทั้งคิดและทำในทีมเดียว", b: "เพื่อให้ direction กลายเป็นงานที่ใช้ได้จริง", us: true },
         ].map((c, i) => (
           <Reveal key={c.t} delay={i * 0.1}>
             <div className={`p-8 md:p-10 h-full ${c.us ? "bg-foreground text-background" : "bg-background"}`}>

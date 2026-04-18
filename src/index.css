@@ -56,12 +56,19 @@
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "tnum" 1, "ss01" 1;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Unbounded', 'IBM Plex Sans Thai', sans-serif;
     font-weight: 700;
     letter-spacing: -0.02em;
     line-height: 1;
+    font-feature-settings: "tnum" 1;
+  }
+  /* Thai text shouldn't be uppercased — Thai script has no case but CSS uppercase
+     can affect surrounding numerals/punctuation rendering */
+  :lang(th), .font-thai {
+    text-transform: none !important;
   }
 }
 

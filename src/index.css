@@ -6,44 +6,46 @@
 
 @layer base {
   :root {
-    /* Monotone base */
-    --background: 0 0% 4%;             /* #0A0A0A */
-    --foreground: 0 0% 100%;
+    /* Warm editorial mono base */
+    --background: 240 7% 5%;            /* #0B0B0D warm near-black */
+    --foreground: 48 20% 95%;           /* #F5F5F0 warm white */
 
-    --surface: 0 0% 7%;                /* #121212 */
-    --surface-foreground: 0 0% 100%;
+    --surface: 240 7% 9%;               /* #131316 */
+    --surface-foreground: 48 20% 95%;
 
-    --card: 0 0% 7%;
-    --card-foreground: 0 0% 100%;
+    --surface-2: 240 7% 11%;            /* #1B1B1F */
 
-    --popover: 0 0% 6%;
-    --popover-foreground: 0 0% 100%;
+    --card: 240 7% 9%;
+    --card-foreground: 48 20% 95%;
 
-    --primary: 0 0% 100%;
-    --primary-foreground: 0 0% 4%;
+    --popover: 240 7% 7%;
+    --popover-foreground: 48 20% 95%;
 
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 0 0% 100%;
+    --primary: 48 20% 95%;
+    --primary-foreground: 240 7% 5%;
 
-    --muted: 0 0% 10%;
-    --muted-foreground: 0 0% 58%;
+    --secondary: 240 7% 11%;
+    --secondary-foreground: 48 20% 95%;
 
-    --accent: 0 0% 92%;
-    --accent-foreground: 0 0% 4%;
+    --muted: 240 6% 12%;
+    --muted-foreground: 240 5% 56%;     /* #8A8A92 */
+
+    --accent: 38 30% 88%;               /* #E8E3D8 creamy bone */
+    --accent-foreground: 240 7% 5%;
 
     --destructive: 0 72% 51%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive-foreground: 48 20% 95%;
 
-    --border: 0 0% 14%;
-    --input: 0 0% 14%;
-    --ring: 0 0% 70%;
+    --border: 240 7% 16%;               /* #26262B hairline */
+    --input: 240 7% 16%;
+    --ring: 38 30% 80%;
 
-    --radius: 2px;
+    --radius: 0px;
 
-    /* Liquid accent — Electric Blue → Magenta → Crimson */
-    --grad-1: 222 100% 60%;   /* electric blue   #3366FF */
-    --grad-2: 280 90% 58%;    /* violet/magenta  #B040E0 */
-    --grad-3: 350 95% 55%;    /* crimson red     #F02746 */
+    /* Liquid accent — Warm Bone (amber → cream → bone) */
+    --grad-1: 36 65% 62%;    /* amber  #E0B36A */
+    --grad-2: 38 45% 82%;    /* cream  #ECDCC2 */
+    --grad-3: 38 30% 92%;    /* bone   #ECE7DC */
   }
 }
 
@@ -151,7 +153,20 @@
     pointer-events: none;
   }
 
-  .bg-surface  { background-color: hsl(var(--surface)); }
+  .bg-surface   { background-color: hsl(var(--surface)); }
+  .bg-surface-2 { background-color: hsl(var(--surface-2)); }
+
+  /* Editorial 12-col grid helper */
+  .editorial-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 1.5rem; }
+  @media (min-width: 768px) { .editorial-grid { column-gap: 2rem; } }
+
+  /* Hairline */
+  .hairline { height: 1px; background: hsl(var(--border)); }
+
+  /* Section index badge */
+  .index-badge {
+    @apply font-mono text-[10px] tracking-[0.28em] text-muted-foreground uppercase;
+  }
 
   /* Marquee */
   .marquee {

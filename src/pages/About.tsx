@@ -80,13 +80,14 @@ const About = () => (
             { t: "ØRIONS", s: "กลยุทธ์ × งานผลิต", b: "เชื่อมการคิดกับการทำ ให้ธุรกิจขยับไปข้างหน้าได้จริง", muted: false },
           ].map((c, i) => (
             <Reveal key={c.t} delay={i * 0.1}>
-              <div className={`p-8 md:p-10 h-full border ${c.muted ? "bg-background border-border" : "bg-grad text-background border-transparent md:scale-[1.03] shadow-[0_30px_80px_-30px_hsl(var(--grad-2)/0.5)]"}`}>
-                <div className={`label-mono ${c.muted ? "text-muted-foreground" : "text-background/80"}`}>
+              <div className={`p-8 md:p-10 h-full border relative ${c.muted ? "bg-background border-border" : "bg-surface-2 border-foreground/20"}`}>
+                {!c.muted && <div className="absolute top-0 left-0 right-0 h-px bg-grad" />}
+                <div className={`label-mono ${c.muted ? "text-muted-foreground" : "text-grad-soft"}`}>
                   {c.muted ? "VS" : "OUR APPROACH"}
                 </div>
-                <h3 className={`mt-6 font-display text-[26px] md:text-[32px] ${c.muted ? "" : "text-background"}`}>{c.t}</h3>
-                <div className={`mt-3 font-display text-[17px] font-thai ${c.muted ? "text-muted-foreground" : "text-background"}`}>{c.s}</div>
-                <p className={`mt-4 text-[14px] leading-[1.7] font-thai ${c.muted ? "text-muted-foreground/80" : "text-background/90"}`}>{c.b}</p>
+                <h3 className={`mt-6 font-display text-[26px] md:text-[32px] ${c.muted ? "" : "text-grad"}`}>{c.t}</h3>
+                <div className="mt-3 font-display text-[17px] font-thai text-foreground">{c.s}</div>
+                <p className="mt-4 text-[14px] leading-[1.7] font-thai text-muted-foreground">{c.b}</p>
               </div>
             </Reveal>
           ))}

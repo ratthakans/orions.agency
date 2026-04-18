@@ -119,7 +119,7 @@ const Services = () => (
             <article className="py-20 md:py-28 grid grid-cols-1 lg:grid-cols-12 gap-10">
               {/* Left rail */}
               <header className="lg:col-span-4">
-                <div className="font-display text-chrome text-[80px] md:text-[120px] leading-none tracking-[-0.04em]">
+                <div className="font-display text-grad text-[80px] md:text-[120px] leading-none tracking-[-0.04em]">
                   {s.n}
                 </div>
                 <h2 className="mt-6 font-display text-[28px] md:text-[40px] leading-[1.05]">
@@ -133,7 +133,7 @@ const Services = () => (
               {/* Right details */}
               <div className="lg:col-span-8 lg:pl-10 lg:border-l border-border space-y-12">
                 <div>
-                  <div className="label-mono text-chrome-soft">What it is</div>
+                  <div className="label-mono text-grad-soft">What it is</div>
                   <p className="mt-4 text-[16px] md:text-[18px] leading-[1.7] text-foreground/90 font-thai max-w-[640px]">
                     {s.what}
                   </p>
@@ -145,7 +145,7 @@ const Services = () => (
                     <ul className="mt-4 space-y-3">
                       {s.how.map((h) => (
                         <li key={h} className="flex gap-3 text-[14px] leading-[1.55] text-foreground/85">
-                          <span className="mt-[7px] h-[5px] w-[5px] bg-chrome shrink-0" />
+                          <span className="mt-[7px] h-[5px] w-[5px] bg-grad shrink-0" />
                           <span>{h}</span>
                         </li>
                       ))}
@@ -157,7 +157,7 @@ const Services = () => (
                     <ul className="mt-4 space-y-3">
                       {s.deliverables.map((d) => (
                         <li key={d} className="flex gap-3 text-[14px] leading-[1.55] text-foreground/85">
-                          <Check className="w-3.5 h-3.5 mt-[5px] text-chrome-soft shrink-0" />
+                          <Check className="w-3.5 h-3.5 mt-[5px] text-grad-soft shrink-0" />
                           <span>{d}</span>
                         </li>
                       ))}
@@ -204,7 +204,7 @@ const Services = () => (
             <Reveal key={b.n} delay={i * 0.05}>
               <div className="bg-background border border-border p-5 h-full">
                 <div className="label-mono text-muted-foreground">{b.n}</div>
-                <div className="mt-4 font-display text-chrome text-[56px] leading-none">{b.letter}</div>
+                <div className="mt-4 font-display text-grad text-[56px] leading-none">{b.letter}</div>
                 <div className="mt-4 font-display text-[16px]">{b.name}</div>
                 <p className="mt-2 text-[12px] leading-[1.55] text-muted-foreground font-thai">{b.body}</p>
               </div>
@@ -228,7 +228,7 @@ const Services = () => (
           </p>
         </Reveal>
         <Reveal delay={0.2}>
-          <Link to="/contact" className="mt-10 inline-flex items-center gap-3 bg-foreground text-background px-7 py-4 label-mono">
+          <Link to="/contact" className="mt-10 inline-flex items-center gap-3 bg-grad text-background px-7 py-4 label-mono hover:opacity-90 transition-opacity">
             Book Clarity Audit <ArrowRight className="w-4 h-4" />
           </Link>
         </Reveal>

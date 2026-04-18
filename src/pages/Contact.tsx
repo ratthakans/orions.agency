@@ -50,13 +50,13 @@ const Contact = () => {
           <Reveal delay={0.1} className="lg:col-span-5 lg:border-l border-border lg:pl-12 space-y-10">
             <div>
               <div className="label-mono text-muted-foreground">Email</div>
-              <a href="mailto:hello@orions.agency" className="mt-3 block font-display text-[20px] md:text-[24px] hover:text-chrome transition-colors break-all">
+              <a href="mailto:hello@orions.agency" className="mt-3 block font-display text-[20px] md:text-[24px] hover:text-grad transition-colors break-all">
                 hello@orions.agency
               </a>
             </div>
             <div>
               <div className="label-mono text-muted-foreground">Telephone</div>
-              <a href="tel:+66923905464" className="mt-3 block font-display text-[20px] md:text-[24px] hover:text-chrome transition-colors">
+              <a href="tel:+66923905464" className="mt-3 block font-display text-[20px] md:text-[24px] hover:text-grad transition-colors">
                 +66 92 390 5464
               </a>
             </div>
@@ -69,11 +69,11 @@ const Contact = () => {
               </p>
             </div>
             <div className="border-t border-border pt-8">
-              <div className="label-mono text-chrome-soft">What you'll get</div>
+              <div className="label-mono text-grad-soft">What you'll get</div>
               <ul className="mt-4 space-y-3 text-[14px] leading-[1.6] font-thai text-foreground/85">
-                <li className="flex gap-3"><span className="mt-[7px] h-[5px] w-[5px] bg-chrome shrink-0" /> วิเคราะห์จุดตันของธุรกิจคุณภายใน 60 นาที</li>
-                <li className="flex gap-3"><span className="mt-[7px] h-[5px] w-[5px] bg-chrome shrink-0" /> แนวทางแก้ไขเบื้องต้น พร้อมลำดับความสำคัญ</li>
-                <li className="flex gap-3"><span className="mt-[7px] h-[5px] w-[5px] bg-chrome shrink-0" /> รับเฉพาะธุรกิจที่ต้องการเปลี่ยนแปลงจริง</li>
+                <li className="flex gap-3"><span className="mt-[7px] h-[5px] w-[5px] bg-grad shrink-0" /> วิเคราะห์จุดตันของธุรกิจคุณภายใน 60 นาที</li>
+                <li className="flex gap-3"><span className="mt-[7px] h-[5px] w-[5px] bg-grad shrink-0" /> แนวทางแก้ไขเบื้องต้น พร้อมลำดับความสำคัญ</li>
+                <li className="flex gap-3"><span className="mt-[7px] h-[5px] w-[5px] bg-grad shrink-0" /> รับเฉพาะธุรกิจที่ต้องการเปลี่ยนแปลงจริง</li>
               </ul>
             </div>
           </Reveal>

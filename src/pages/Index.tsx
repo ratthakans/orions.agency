@@ -69,26 +69,31 @@ const Index = () => (
       </div>
     </section>
 
-    {/* THE STAGNATION */}
+    {/* THE STAGNATION — centered quote */}
     <section id="stagnation" className="px-6 md:px-12 py-28 md:py-40 border-t border-border">
-      <div className="max-w-[1100px] mx-auto">
-        <Reveal><SectionLabel number="01" label="THE STAGNATION" /></Reveal>
-        <Reveal delay={0.1}>
-          <h2 className="mt-8 font-display text-[40px] md:text-[80px] leading-[0.95] font-thai">
-            ทำไมธุรกิจของคุณถึง <span className="text-muted-foreground">'นิ่ง'</span>?
-          </h2>
+      <div className="max-w-[920px] mx-auto text-center">
+        <Reveal>
+          <div className="flex justify-center">
+            <SectionLabel number="01" label="THE STAGNATION" />
+          </div>
         </Reveal>
-        <Reveal delay={0.2}>
-          <p className="mt-10 max-w-[760px] text-[16px] md:text-[19px] leading-[1.75] text-muted-foreground font-thai">
-            หลายแบรนด์ติดอยู่ใน <span className="text-grad-soft">Vicious Cycle</span> — ทำงานหนักขึ้น จ่ายแพงขึ้น แต่ผลลัพธ์เท่าเดิม เพราะกติกาของโลกเปลี่ยนไปแล้ว
-          </p>
-        </Reveal>
-        <Reveal delay={0.3}>
-          <blockquote className="mt-14 border-l border-border pl-6 md:pl-8 max-w-[820px]">
-            <p className="font-thai text-[20px] md:text-[26px] leading-[1.5] font-medium">
-              "เมื่อวิธีเดิมมาถึงทางตัน คุณต้องการไอเดียที่ <span className="text-grad">'ประยุกต์'</span> มาเพื่อแก้ปัญหาจริง"
+        <Reveal delay={0.15}>
+          <blockquote className="mt-12">
+            <p className="font-thai text-[26px] md:text-[44px] leading-[1.35] font-medium">
+              <span className="text-muted-foreground">"เมื่อวิธีเดิม</span><br />
+              <span>มาถึง</span> <span className="text-grad">ทางตัน</span><br />
+              <span className="text-muted-foreground">คุณต้องการไอเดียที่</span><br />
+              <span className="text-grad">'ประยุกต์'</span> <span>มาเพื่อแก้ปัญหาจริง"</span>
             </p>
           </blockquote>
+        </Reveal>
+        <Reveal delay={0.3}>
+          <div className="mt-10 mx-auto h-px w-24 divider-grad" />
+        </Reveal>
+        <Reveal delay={0.4}>
+          <p className="mt-8 mx-auto max-w-[620px] text-[15px] md:text-[16px] leading-[1.75] text-muted-foreground font-thai">
+            หลายแบรนด์ติดอยู่ใน <span className="text-grad-soft">Vicious Cycle</span> — ทำงานหนักขึ้น จ่ายแพงขึ้น แต่ผลลัพธ์เท่าเดิม เพราะกติกาของโลกเปลี่ยนไปแล้ว
+          </p>
         </Reveal>
       </div>
     </section>

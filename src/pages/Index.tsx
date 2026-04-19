@@ -291,7 +291,12 @@ const Index = () => (
 
     {/* SOCIAL & COMMERCIALS — video reel */}
     <section className="relative px-6 md:px-10 py-24 md:py-32 border-t border-foreground">
-      <SectionHeader left="SOCIAL & COMMERCIALS" right="branded films · campaigns" />
+      <h2
+        className="font-display leading-[0.9] tracking-[-0.03em]"
+        style={{ fontSize: "clamp(44px, 8vw, 112px)" }}
+      >
+        Social &amp; <span className="italic opacity-70">Commercials</span>
+      </h2>
       <VideoReel items={socialCommercials} />
 
 
@@ -304,12 +309,12 @@ const Index = () => (
 
 
     {/* CLOSING — clean two-line CTA strip */}
-    <section className="relative bg-foreground text-background border-t border-foreground px-6 md:px-10 py-24 md:py-32">
+    <section className="relative bg-foreground text-background border-t border-foreground px-6 md:px-10 py-20 md:py-24">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 items-end">
         <Reveal delay={0.05} className="md:col-span-8">
           <h2
-            className="group/headline font-display leading-[0.92] tracking-[-0.03em] cursor-default select-none"
-            style={{ fontSize: "clamp(40px, 6vw, 72px)" }}
+            className="group/headline font-display leading-[0.95] tracking-[-0.03em] cursor-default select-none"
+            style={{ fontSize: "clamp(28px, 4.2vw, 52px)" }}
           >
             <span className="block overflow-hidden">
               <span className="inline-block transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/headline:-translate-y-1">

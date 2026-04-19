@@ -97,42 +97,10 @@ const About = () => (
       path="/about"
     />
 
-    <div className="relative">
-      <PageHero
-        eyebrow="ABOUT · INDEX"
-        title={<>The <span className="text-gradient">Applied</span> Creative<br />Agency<span className="text-muted-foreground">.</span></>}
-      />
-
-      {/* Hero meta strip */}
-      <div className="px-6 md:px-10 -mt-10 md:-mt-14 mb-4 md:mb-6">
-        <Reveal delay={0.3}>
-          <div className="max-w-[1400px] mx-auto border-t border-foreground grid grid-cols-3">
-            {[
-              { k: "EST.", v: "2014" },
-              { k: "BASED", v: "BANGKOK" },
-              { k: "DISCIPLINE", v: "APPLIED CREATIVE" },
-            ].map((m, i) => (
-              <div
-                key={m.k}
-                className={`py-3 px-3 ${i > 0 ? "border-l border-foreground" : ""} flex items-baseline gap-2`}
-              >
-                <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-muted-foreground">{m.k}</span>
-                <span className="font-mono text-[11px] tracking-[0.18em] uppercase">{m.v}</span>
-              </div>
-            ))}
-          </div>
-        </Reveal>
-      </div>
-
-      {/* Scroll cue */}
-      <div className="hidden md:flex absolute bottom-6 right-10 items-center gap-3 pointer-events-none">
-        <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground">Scroll</span>
-        <span className="relative inline-flex w-1.5 h-1.5">
-          <span className="absolute inset-0 bg-foreground rounded-full animate-ping opacity-60" />
-          <span className="relative inline-flex w-1.5 h-1.5 bg-foreground rounded-full" />
-        </span>
-      </div>
-    </div>
+    <PageHero
+      eyebrow="ABOUT · INDEX"
+      title={<>The <span className="text-gradient">Applied</span> Creative<br />Agency<span className="text-muted-foreground">.</span></>}
+    />
 
     {/* WHO IS ØRIONS — image dominant */}
     <section className="relative px-6 md:px-10 py-24 md:py-32">
@@ -213,7 +181,6 @@ const About = () => (
         <div className="flex items-center gap-3 mb-12 md:mb-16 flex-wrap">
           <span className="block w-8 h-px bg-foreground" />
           <p className="index-badge">THE MEANING OF THE LINE</p>
-          <span className="ml-auto index-badge text-muted-foreground hidden md:block">MANIFESTO · 01</span>
         </div>
 
         {/* Pull quote — centered */}
@@ -419,12 +386,12 @@ const About = () => (
 
         <Reveal delay={0.3}>
           <div className="mt-14 inline-flex items-center gap-6 md:gap-8 font-mono text-[11px] md:text-[12px] tracking-[0.2em] uppercase text-muted-foreground">
-            <a href="mailto:hello@orions.co" className="hover:text-foreground transition-colors">
-              hello@orions.co
+            <a href="mailto:hello@orions.agency" className="hover:text-foreground transition-colors">
+              hello@orions.agency
             </a>
             <span aria-hidden className="block w-px h-3 bg-foreground/30" />
-            <a href="tel:+66000000000" className="hover:text-foreground transition-colors">
-              +66 (0) 00 000 0000
+            <a href="tel:+66923905464" className="hover:text-foreground transition-colors">
+              +66 92 390 5464
             </a>
           </div>
         </Reveal>

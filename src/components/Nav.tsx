@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
 import { Menu, X, ArrowUpRight } from "lucide-react";
-import Magnetic from "./Magnetic";
 
 
 const links = [
@@ -65,18 +64,13 @@ const Nav = () => {
           ))}
         </nav>
 
-        <Magnetic strength={6} className="hidden md:inline-block">
-          <Link
-            to="/contact"
-            className="group inline-flex items-center gap-2 index-badge bg-foreground text-background px-4 py-2.5 hover:opacity-95 transition-opacity"
-          >
-            <span>Let's Talk</span>
-            <span className="relative inline-flex overflow-hidden w-3.5 h-3.5">
-              <ArrowUpRight className="w-3.5 h-3.5 absolute inset-0 transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-x-3 group-hover:-translate-y-3 group-hover:opacity-0" />
-              <ArrowUpRight className="w-3.5 h-3.5 absolute inset-0 -translate-x-3 translate-y-3 opacity-0 transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100" style={{ stroke: "url(#cta-grad)" }} />
-            </span>
-          </Link>
-        </Magnetic>
+        <Link
+          to="/contact"
+          className="hidden md:inline-flex items-center gap-2 index-badge bg-foreground text-background px-4 py-2.5 transition-colors duration-200 hover:bg-muted-foreground"
+        >
+          <span>Let's Talk</span>
+          <ArrowUpRight className="w-3.5 h-3.5" />
+        </Link>
 
         <button
           aria-label="Menu"

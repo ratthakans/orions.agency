@@ -75,24 +75,21 @@ const Index = () => (
     <section className="relative px-6 md:px-10 min-h-screen flex flex-col justify-center py-20 md:py-28 bg-surface border-y border-foreground overflow-hidden">
       <div className="max-w-[1400px] mx-auto w-full relative z-10">
         <Reveal>
-          <p className="index-badge text-muted-foreground text-center">02 — THE PRESSURE</p>
+          <p className="index-badge text-muted-foreground text-center">THE PRESSURE</p>
         </Reveal>
 
         <Reveal delay={0.1}>
-          <h2 className="mt-6 md:mt-8 font-thai text-[28px] md:text-[56px] leading-[1.25] tracking-[-0.02em] font-normal text-center max-w-[1100px] mx-auto">
-            หลายธุรกิจติดอยู่ใน <span className="font-display normal-case font-medium tracking-[-0.03em]">"วงจรอุบาท <span className="text-muted-foreground">(VICIOUS CYCLE)"</span></span>
-            <br className="hidden md:block" />
-            <span className="block mt-3 md:mt-4 text-muted-foreground text-[20px] md:text-[36px]">
+          <h2 className="mt-8 md:mt-10 font-mono text-[22px] md:text-[40px] leading-[1.3] tracking-[-0.01em] text-center max-w-[1100px] mx-auto">
+            <span className="font-bold">หลายธุรกิจติดอยู่ใน "วงจรอุบาท (VICIOUS CYCLE)"</span>
+            <span className="block mt-3 md:mt-4 text-muted-foreground font-normal text-[18px] md:text-[28px]">
               ทำงานหนักขึ้น จ่ายแพงขึ้น แต่ได้ผลลัพธ์เท่าเดิม
             </span>
           </h2>
         </Reveal>
 
         <Reveal delay={0.2}>
-          <div className="mt-10 md:mt-14 flex items-center justify-center gap-4">
-            <div className="hairline w-12" />
-            <span className="index-badge text-muted-foreground">3 จุดตายที่กัดกินงบประมาณ</span>
-            <div className="hairline w-12" />
+          <div className="mt-12 md:mt-16 flex justify-center">
+            <div className="hairline w-16" />
           </div>
         </Reveal>
 

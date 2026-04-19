@@ -34,6 +34,14 @@ const socialCommercials: VideoReelItem[] = [
   { tag: "Automotive", name: "AUDI THAILAND", body: "High-end Production ที่ตีความ Premium Mobility ในแบบไทย", videoId: "_aEZ3MWhjV4" },
 ];
 
+const entertainmentLongForm: VideoReelItem[] = [
+  { tag: "Travel · Series", name: "เถื่อน TRAVEL", body: "รายการสารคดีเดินทางที่ผสานวัฒนธรรมและการค้นหาตัวตน", videoId: "s1x7o-sqphY" },
+  { tag: "Documentary", name: "THE UPGRADE", body: "เรื่องราวการยกระดับชีวิตผ่านมุมมองที่จริงและจริงใจ", videoId: "nVkxo3pfrVE" },
+  { tag: "Original Series", name: "เกิด/แก่/เจ็บ/โต", body: "ซีรีส์สารคดีว่าด้วยช่วงชีวิตของผู้คนในสังคมไทย", videoId: "W5mnOSlWVb4" },
+  { tag: "Music · Culture", name: "เพลงลำคำเขื่อนแก้ว", body: "บันทึกเสียงและภาพของวัฒนธรรมหมอลำในยุคปัจจุบัน", videoId: "rx-a8myzwVg" },
+  { tag: "Music · Heritage", name: "ท่วงทำนองที่เลือนหาย", body: "ตามรอยเสียงดนตรีพื้นบ้านที่กำลังจะสูญหายไปจากแผ่นดิน", videoId: "ASjm7TKqf-M" },
+];
+
 const Work = () => (
   <div>
     <SEO title="Work — ØRIONS" description="Selected projects across politics, mobility, hospitality, healthcare and culture." path="/work" />
@@ -67,14 +75,25 @@ const Work = () => (
     </section>
 
     {/* SOCIAL & COMMERCIALS — video reel */}
-    <section className="relative px-6 md:px-10 py-24 md:py-32 border-t border-foreground">
+    <section className="relative px-6 md:px-10 py-16 md:py-20 border-t border-foreground">
       <h2
-        className="font-display leading-[0.9] tracking-[-0.03em]"
-        style={{ fontSize: "clamp(44px, 8vw, 112px)" }}
+        className="font-display leading-[1] tracking-[-0.02em]"
+        style={{ fontSize: "clamp(24px, 3vw, 40px)" }}
       >
         Social &amp; <span className="italic opacity-70">Commercials</span>
       </h2>
       <VideoReel items={socialCommercials} />
+    </section>
+
+    {/* ENTERTAINMENT & LONG-FORM — video reel */}
+    <section className="relative px-6 md:px-10 py-16 md:py-20 border-t border-foreground">
+      <h2
+        className="font-display leading-[1] tracking-[-0.02em]"
+        style={{ fontSize: "clamp(24px, 3vw, 40px)" }}
+      >
+        Entertainment &amp; <span className="italic opacity-70">Long-form</span>
+      </h2>
+      <VideoReel items={entertainmentLongForm} />
     </section>
 
     {/* CTA */}

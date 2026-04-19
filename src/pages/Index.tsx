@@ -272,7 +272,7 @@ const Index = () => (
         <Reveal delay={0.1}>
           <h2
             className="mt-10 font-display leading-[0.9] tracking-[-0.04em]"
-            style={{ fontSize: "clamp(56px, 11vw, 180px)" }}
+            style={{ fontSize: "clamp(36px, 6vw, 88px)" }}
           >
             Stop guessing<span className="text-muted-foreground">.</span>
             <br />

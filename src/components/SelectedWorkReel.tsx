@@ -125,12 +125,16 @@ const SelectedWorkReel = ({ projects, size = "lg" }: Props) => {
               className={`group relative snap-start shrink-0 ${cardWidthCls} bg-background`}
             >
               <div className="relative aspect-[4/5] overflow-hidden bg-surface-2 border border-foreground">
-                <img
-                  src={p.img}
-                  alt={p.name}
-                  className="w-full h-full object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
-                />
-
+                <div
+                  className="absolute inset-0 reveal-clip"
+                  style={{ animationDelay: `${(i % baseLen) * 80}ms` }}
+                >
+                  <img
+                    src={p.img}
+                    alt={p.name}
+                    className="w-full h-full object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
+                  />
+                </div>
                 <div className="absolute top-3 left-3 md:top-4 md:left-4 font-mono text-[10px] md:text-[11px] tracking-[0.18em] uppercase text-background mix-blend-difference">
                   ({String(numIdx).padStart(2, "0")})
                 </div>

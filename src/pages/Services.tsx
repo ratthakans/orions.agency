@@ -187,7 +187,7 @@ const Services = () => (
       <div className="mt-12 grid grid-cols-1 md:grid-cols-12 gap-10">
         <div className="md:col-span-8">
           <Reveal>
-            <h2 className="font-display leading-[0.95] tracking-[-0.03em]" style={{ fontSize: "clamp(40px, 6vw, 72px)" }}>
+            <h2 className="font-display h-display-md">
               Have a problem<br />worth solving?
             </h2>
           </Reveal>

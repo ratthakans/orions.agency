@@ -73,7 +73,7 @@ const Contact = () => {
                 </span>
                 FREE DIAGNOSTIC · LIMITED SLOTS
               </div>
-              <h2 className="mt-6 font-display text-[36px] md:text-[56px] leading-[0.95] tracking-[-0.03em]">
+              <h2 className="mt-6 font-display h-display-sm">
                 ØRIONS Audit.<br />Free.
               </h2>
               <p className="mt-6 max-w-[520px] text-[15px] md:text-[16px] leading-[1.7] font-thai opacity-85">

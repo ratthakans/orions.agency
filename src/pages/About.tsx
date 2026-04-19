@@ -107,7 +107,7 @@ const About = () => (
             <p className="index-badge text-foreground">WHO IS ØRIONS</p>
           </div>
           <Reveal delay={0.1}>
-            <h2 className="mt-8 font-display text-[40px] md:text-[64px] leading-[0.95] tracking-[-0.04em]">
+            <h2 className="mt-8 font-display h-display-md">
               Applied Creative Agency
               <span className="block mt-3 text-[18px] md:text-[22px] tracking-[0.04em] text-muted-foreground font-mono uppercase">from Bangkok</span>
             </h2>
@@ -206,16 +206,9 @@ const About = () => (
 
     {/* THE 6 METHODS */}
     <section className="px-6 md:px-10 py-24 md:py-32 bg-foreground text-background border-y border-foreground">
-      <div className="border-t border-background/40 pt-3 pb-3 flex items-center justify-between gap-6">
-        <span className="index-badge font-bold inline-flex items-center gap-3">
-          <span className="opacity-60 font-mono">01</span>
-          <span className="block w-4 h-px bg-background/40" />
-          <span>METHOD</span>
-        </span>
-        <span className="index-badge font-medium opacity-60 hidden sm:inline">06 STEPS</span>
-      </div>
+      <SectionHeader index="01" left="METHOD" right="06 STEPS" variant="dark" />
       <Reveal>
-        <h2 className="mt-12 font-display leading-[0.92] tracking-[-0.03em] max-w-[900px]" style={{ fontSize: "clamp(40px, 6vw, 72px)" }}>
+        <h2 className="mt-12 font-display h-display-md max-w-[900px]">
           The 6 Methods
         </h2>
       </Reveal>
@@ -246,7 +239,7 @@ const About = () => (
     <section className="px-6 md:px-10 py-24 md:py-32">
       <SectionHeader index="02" left="TEAM" right={`${team.length} PEOPLE`} />
       <Reveal>
-        <h2 className="mt-12 font-display leading-[0.92] tracking-[-0.03em] max-w-[900px]" style={{ fontSize: "clamp(36px, 5vw, 64px)" }}>
+        <h2 className="mt-12 font-display h-display-md max-w-[900px]">
           People behind<br />the output<span className="text-muted-foreground">.</span>
         </h2>
       </Reveal>
@@ -263,7 +256,7 @@ const About = () => (
     <section className="px-6 md:px-10 py-24 md:py-32 border-t border-foreground">
       <div>
         <Reveal>
-          <h2 className="font-display leading-[0.92] tracking-[-0.03em] max-w-[860px]" style={{ fontSize: "clamp(40px, 6vw, 72px)" }}>
+          <h2 className="font-display h-display-md max-w-[860px]">
             Stop guessing.<br />Start applying.
           </h2>
         </Reveal>

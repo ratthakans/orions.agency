@@ -145,29 +145,14 @@ const Work = () => (
       </div>
 
       <div className="space-y-10 md:space-y-14">
-        <div>
-          <div className="px-6 md:px-10 mb-3 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
-            Row 01 · Music Videos
-          </div>
-          <div className="px-6 md:px-10">
-            <VideoReel items={musicRow1} />
-          </div>
+        <div className="px-6 md:px-10">
+          <VideoReel items={musicRow1} hideMeta />
         </div>
-        <div>
-          <div className="px-6 md:px-10 mb-3 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
-            Row 02 · Visual Singles
-          </div>
-          <div className="px-6 md:px-10">
-            <VideoReel items={musicRow2} />
-          </div>
+        <div className="px-6 md:px-10">
+          <VideoReel items={musicRow2} hideMeta />
         </div>
-        <div>
-          <div className="px-6 md:px-10 mb-3 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
-            Row 03 · Creative Cuts
-          </div>
-          <div className="px-6 md:px-10">
-            <VideoReel items={musicRow3} />
-          </div>
+        <div className="px-6 md:px-10">
+          <VideoReel items={musicRow3} hideMeta />
         </div>
       </div>
     </section>

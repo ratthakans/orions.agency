@@ -73,10 +73,6 @@ const Index = () => (
 
     {/* THE VICIOUS CYCLE */}
     <section className="relative px-6 md:px-10 min-h-screen flex items-center py-20 md:py-28 bg-surface border-y border-foreground overflow-hidden">
-      {/* Background mark — decorative */}
-      <div aria-hidden className="pointer-events-none absolute -right-6 md:-right-10 top-1/2 -translate-y-1/2 font-display text-[40vw] md:text-[28vw] leading-none tracking-[-0.05em] text-foreground/[0.04] select-none">
-        ∞
-      </div>
 
       <div className="max-w-[1400px] mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 relative z-10">
         {/* Left */}

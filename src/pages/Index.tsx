@@ -290,10 +290,10 @@ const Index = () => (
     </section>
 
     {/* SOCIAL & COMMERCIALS — video reel */}
-    <section className="relative px-6 md:px-10 py-24 md:py-32 border-t border-foreground">
+    <section className="relative px-6 md:px-10 py-16 md:py-20 border-t border-foreground">
       <h2
-        className="font-display leading-[0.9] tracking-[-0.03em]"
-        style={{ fontSize: "clamp(44px, 8vw, 112px)" }}
+        className="font-display leading-[1] tracking-[-0.02em]"
+        style={{ fontSize: "clamp(24px, 3vw, 40px)" }}
       >
         Social &amp; <span className="italic opacity-70">Commercials</span>
       </h2>

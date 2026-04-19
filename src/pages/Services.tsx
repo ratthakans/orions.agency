@@ -8,50 +8,122 @@ import SEO from "@/components/SEO";
 const services = [
   {
     n: "01",
-    title: "Brand Direction",
-    body: "วาง narrative และ positioning ที่ชัด เพื่อให้แบรนด์ยืนตรงจุดและสื่อสารได้สม่ำเสมอ",
-    items: ["Brand Narrative", "Positioning", "Messaging", "Brand Voice", "Campaign Planning"],
-    outcomes: ["ทีมและผู้บริหารเห็นภาพเดียวกัน", "ลดเวลา decision-making", "งบการตลาดถูกใช้ตรงเป้า"],
+    title: "Creative Solution",
+    body: "วางกลยุทธ์และหาทางออกใหม่ๆ เมื่อธุรกิจเริ่มถึงจุดตัน",
+    detail:
+      "เราเริ่มจากการตีโจทย์ทางธุรกิจให้ขาด แล้วใช้ creative thinking ผสมกับ data เพื่อหาทางออกที่ทั้งสด ใหม่ และพิสูจน์ผลได้จริง — ไม่ใช่แค่ idea ที่ดูดีบน slide",
+    items: [
+      "Business & Brand Diagnosis",
+      "Positioning & Messaging Framework",
+      "Creative Strategy",
+      "Campaign Concept Development",
+      "Workshop & Co-creation",
+    ],
+    outcomes: [
+      "ลด decision-making time ของทีม 40–60%",
+      "Brief ที่ชัดขึ้น ลดรอบ revision เฉลี่ย 3 รอบ",
+      "Conversion clarity เพิ่มขึ้น +30%",
+    ],
+    stats: [
+      { v: "+30%", l: "CONVERSION CLARITY" },
+      { v: "−25%", l: "DIGITAL WASTE" },
+      { v: "60min", l: "AVG. STRATEGY UNLOCK" },
+    ],
   },
   {
     n: "02",
-    title: "Creative Direction",
-    body: "ออกแบบ campaign และ content system ที่หยุดสายตา และทำงานได้ต่อเนื่องในทุกช่องทาง",
-    items: ["Campaign Concepts", "Content Systems", "Copywriting", "Creative Direction", "Film & Production"],
-    outcomes: ["Engagement quality เพิ่มขึ้น", "Cost per result ลดลง", "Brand recall ที่วัดผลได้"],
+    title: "Applied Communication",
+    body: "การสื่อสารที่ประยุกต์ให้เข้ากับพฤติกรรมจริง เพื่อหยุดนิ้วโป้งลูกค้า",
+    detail:
+      "เราออกแบบสารและรูปแบบ content ที่อิงพฤติกรรมจริงในแต่ละแพลตฟอร์ม ไม่ใช่ template สำเร็จรูป — เพื่อให้ทุก touchpoint ทำงานได้ในสภาพแวดล้อมที่ attention เหลือไม่ถึง 2 วินาที",
+    items: [
+      "Communication Architecture",
+      "Copywriting & Messaging",
+      "Platform-native Content",
+      "Visual Direction",
+      "A/B Testing & Optimization",
+    ],
+    outcomes: [
+      "Engagement quality เพิ่มขึ้น 2–3 เท่า",
+      "Cost per qualified lead ลดลง 35%",
+      "Stop-rate บนฟีดดีขึ้น +45%",
+    ],
+    stats: [
+      { v: "3×", l: "ENGAGEMENT QUALITY" },
+      { v: "+45%", l: "STOP-RATE" },
+      { v: "−35%", l: "CPL" },
+    ],
   },
   {
     n: "03",
-    title: "Digital Experience",
-    body: "ออกแบบ touchpoint ดิจิทัลให้แปลงความสนใจเป็นการกระทำ ตั้งแต่หน้าเว็บถึง flow การใช้งาน",
-    items: ["Website Direction", "UX/UI", "Landing Pages", "Experience Design", "Touchpoint Design"],
-    outcomes: ["Conversion clarity ดีขึ้น", "User journey ลื่นไหล", "Touchpoint ที่จดจำได้"],
+    title: "Social Media Marketing",
+    body: "บริหารจัดการช่องทางดิจิทัลเพื่อสร้างตัวตนที่แตกต่างและสร้างยอดขาย",
+    detail:
+      "ดูแลช่องทาง social ตั้งแต่วาง content pillar รายไตรมาส บริหารคอมมูนิตี้ จนถึงรัน performance campaign — โฟกัสที่ทั้ง brand presence และ commercial outcome ไปพร้อมกัน",
+    items: [
+      "Content Pillar & Editorial Calendar",
+      "Channel Management (FB / IG / TikTok / LinkedIn / YT)",
+      "Community Management",
+      "Performance Media & Paid Social",
+      "Monthly Reporting & Insight",
+    ],
+    outcomes: [
+      "Organic reach โต 4–6 เท่าใน 90 วัน",
+      "Qualified inbound เพิ่มขึ้น +35%",
+      "ลดการพึ่งพา paid reach ลง 20%",
+    ],
+    stats: [
+      { v: "5×", l: "ORGANIC REACH (90D)" },
+      { v: "+35%", l: "QUALIFIED INBOUND" },
+      { v: "−20%", l: "PAID DEPENDENCY" },
+    ],
   },
   {
     n: "04",
-    title: "Film & Production",
-    body: "งานผลิตคุณภาพระดับสากล — brand film, commercial, documentary ที่สร้างภาพจำที่ทรงพลัง",
-    items: ["Brand Film & TVC", "Commercial Production", "Documentary", "Photography", "Post-production"],
-    outcomes: ["ภาพลักษณ์ premium ที่จดจำ", "Asset ที่ใช้ได้ข้ามช่องทาง", "ROI ผ่าน brand equity"],
+    title: "High Impact Production",
+    body: "งานผลิตคุณภาพสูงระดับสากล เพื่อสร้างภาพจำที่ทรงพลัง",
+    detail:
+      "ทีมผลิต in-house ที่ทำตั้งแต่ brand film, TVC, documentary จนถึง premium photography — ทุก asset ถูกออกแบบให้ใช้งานได้ข้ามช่องทางและเก็บมูลค่าระยะยาวให้แบรนด์",
+    items: [
+      "Brand Film & TVC",
+      "Commercial Production",
+      "Documentary & Long-form",
+      "Premium Photography",
+      "Post-production & Color",
+    ],
+    outcomes: [
+      "Brand recall ที่วัดผลได้ +50%",
+      "Asset usable ข้ามช่องทาง 6+ เดือน",
+      "Decision speed ของลูกค้าใหม่เร็วขึ้น 30%",
+    ],
+    stats: [
+      { v: "+50%", l: "BRAND RECALL" },
+      { v: "6mo+", l: "ASSET LIFESPAN" },
+      { v: "30%", l: "FASTER DECISION" },
+    ],
   },
 ];
 
 const Services = () => (
   <div>
-    <SEO title="Services — ØRIONS" description="Brand Direction, Creative Direction, Digital Experience, Film & Production. Four practices, one outcome: clarity." path="/services" />
+    <SEO
+      title="Services — ØRIONS"
+      description="Creative Solution, Applied Communication, Social Media Marketing, High Impact Production. Four practices, one outcome: clarity."
+      path="/services"
+    />
 
     <PageHero
       eyebrowNumber="01"
       eyebrowLabel="WHAT WE DO"
       title="Four practices. One outcome: clarity."
-      subtitle="ØRIONS ทำงานครบทั้งกลยุทธ์ การสื่อสาร ประสบการณ์ดิจิทัล และงานผลิต — ทุกบริการถูกออกแบบให้ส่งมอบผลลัพธ์ที่วัดผลได้"
+      subtitle="ØRIONS ทำงานครบทั้งกลยุทธ์ การสื่อสาร โซเชียล และงานผลิต — ทุกบริการถูกออกแบบให้ส่งมอบผลลัพธ์ที่วัดผลได้"
     />
 
     <section className="px-6 md:px-10 pb-10">
       <div className="border-t border-foreground">
         {services.map((s) => (
           <Reveal key={s.n}>
-            <article className="py-16 md:py-20 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 border-b border-border-soft">
+            <article className="py-16 md:py-24 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 border-b border-border-soft">
               <header className="lg:col-span-4">
                 <div className="font-display text-[80px] md:text-[120px] leading-[0.85] tracking-[-0.04em]">
                   {s.n}
@@ -59,37 +131,51 @@ const Services = () => (
                 <h2 className="mt-6 font-display text-[26px] md:text-[36px] leading-[1] tracking-[-0.02em]">
                   {s.title}
                 </h2>
-                <p className="mt-6 text-[15px] md:text-[16px] leading-[1.7] text-muted-foreground font-thai max-w-[360px]">
+                <p className="mt-6 text-[15px] md:text-[16px] leading-[1.7] font-thai font-bold max-w-[380px]">
                   {s.body}
+                </p>
+                <p className="mt-4 text-[14px] md:text-[15px] leading-[1.75] text-muted-foreground font-thai max-w-[380px]">
+                  {s.detail}
                 </p>
               </header>
 
-              <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-10">
-                <div>
-                  <div className="border-t border-foreground pt-3">
-                    <span className="index-badge font-bold">CAPABILITIES</span>
+              <div className="lg:col-span-8 space-y-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                  <div>
+                    <div className="border-t border-foreground pt-3">
+                      <span className="index-badge font-bold">CAPABILITIES</span>
+                    </div>
+                    <ul className="mt-5 space-y-2 text-[14px] font-thai">
+                      {s.items.map((it) => (
+                        <li key={it} className="flex gap-3 border-b border-border-soft pb-2">
+                          <span className="text-muted-foreground">·</span>
+                          <span>{it}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <ul className="mt-5 space-y-2 text-[14px] font-thai">
-                    {s.items.map((it) => (
-                      <li key={it} className="flex gap-3 border-b border-border-soft pb-2">
-                        <span className="text-muted-foreground">·</span>
-                        <span>{it}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <div>
+                    <div className="border-t border-foreground pt-3">
+                      <span className="index-badge font-bold">OUTCOMES</span>
+                    </div>
+                    <ul className="mt-5 space-y-3 text-[14px] font-thai">
+                      {s.outcomes.map((o) => (
+                        <li key={o} className="flex gap-3">
+                          <span className="font-display text-[12px] mt-[2px]">→</span>
+                          <span>{o}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-                <div>
-                  <div className="border-t border-foreground pt-3">
-                    <span className="index-badge font-bold">OUTCOMES</span>
-                  </div>
-                  <ul className="mt-5 space-y-3 text-[14px] font-thai">
-                    {s.outcomes.map((o) => (
-                      <li key={o} className="flex gap-3">
-                        <span className="font-display text-[12px] mt-[2px]">→</span>
-                        <span>{o}</span>
-                      </li>
-                    ))}
-                  </ul>
+
+                <div className="grid grid-cols-3 gap-px bg-foreground border border-foreground">
+                  {s.stats.map((st) => (
+                    <div key={st.l} className="bg-background p-5 md:p-6">
+                      <div className="font-display text-[28px] md:text-[40px] leading-none tracking-[-0.03em]">{st.v}</div>
+                      <div className="mt-3 index-badge text-muted-foreground">{st.l}</div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </article>
@@ -98,40 +184,9 @@ const Services = () => (
       </div>
     </section>
 
-    {/* PROCESS */}
-    <section className="px-6 md:px-10 py-20 md:py-32 bg-surface border-y border-foreground">
-      <SectionHeader left="02 — THE BLUEPRINT" right="ORIONS · 6 stages" />
-      <div className="mt-12">
-        <Reveal>
-          <h2 className="font-display text-[32px] md:text-[52px] leading-[0.95] tracking-[-0.03em] max-w-[800px]">
-            Six stages, one outcome.
-          </h2>
-        </Reveal>
-      </div>
-
-      <div className="mt-16 grid grid-cols-2 md:grid-cols-6 gap-px bg-foreground border border-foreground">
-        {[
-          { l: "O", n: "Observe", b: "อ่านสิ่งที่เกิดขึ้นจริง" },
-          { l: "R", n: "Reframe", b: "ตีโจทย์ใหม่ให้คม" },
-          { l: "I", n: "Imagine", b: "สร้างความเป็นไปได้" },
-          { l: "O", n: "Orchestrate", b: "ประกอบ solution" },
-          { l: "N", n: "Nurture", b: "Refine ต่อเนื่อง" },
-          { l: "S", n: "Scale", b: "ขยายผลที่เวิร์ก" },
-        ].map((b, i) => (
-          <Reveal key={i} delay={i * 0.05}>
-            <div className="bg-background p-5 md:p-6 h-full min-h-[180px]">
-              <div className="font-display text-[64px] md:text-[80px] leading-[0.85]">{b.l}</div>
-              <div className="mt-4 font-display text-[14px]">{b.n}</div>
-              <p className="mt-2 text-[12px] leading-[1.55] text-muted-foreground font-thai">{b.b}</p>
-            </div>
-          </Reveal>
-        ))}
-      </div>
-    </section>
-
     {/* CTA */}
     <section className="px-6 md:px-10 py-20 md:py-28">
-      <SectionHeader left="03 — READY?" />
+      <SectionHeader left="02 — READY?" />
       <div className="mt-12 grid grid-cols-1 md:grid-cols-12 gap-10">
         <div className="md:col-span-8">
           <Reveal>

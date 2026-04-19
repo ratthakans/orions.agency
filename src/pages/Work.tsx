@@ -4,6 +4,18 @@ import Reveal from "@/components/Reveal";
 import SectionLabel from "@/components/SectionLabel";
 import PageHero from "@/components/PageHero";
 import SEO from "@/components/SEO";
+import gravityTaxi from "@/assets/gravity-taxi.jpg";
+import unlockRunning from "@/assets/unlock-running.jpg";
+import povCrosswalk from "@/assets/pov-crosswalk.jpg";
+import portrait1 from "@/assets/portrait-1.jpg";
+import portrait2 from "@/assets/portrait-2.jpg";
+import portrait3 from "@/assets/portrait-3.jpg";
+import heroBicycle from "@/assets/hero-bicycle.jpg";
+
+const heroImages = [gravityTaxi, unlockRunning, povCrosswalk];
+const selectedImages = [portrait1, portrait2, portrait3, heroBicycle];
+const commercialImages = [unlockRunning, portrait3, gravityTaxi];
+const longformImages = [heroBicycle, povCrosswalk, portrait2];
 
 const heroProjects = [
   { name: "HONGMOVE", category: "APPLIED UTILITY", body: "เปลี่ยนความซับซ้อนให้ดูง่าย ระบบสื่อสาร Seamless สำหรับ Taxi VIP", impact: "+25%", impactLabel: "CONVERSION CLARITY" },

@@ -7,9 +7,11 @@ interface Props {
   decimals?: number;
   duration?: number;
   className?: string;
+  suffixClassName?: string;
+  prefixClassName?: string;
 }
 
-const CountUp = ({ to, suffix = "", prefix = "", decimals = 0, duration = 1500, className }: Props) => {
+const CountUp = ({ to, suffix = "", prefix = "", decimals = 0, duration = 1500, className, suffixClassName, prefixClassName }: Props) => {
   const [val, setVal] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
   const started = useRef(false);
@@ -41,9 +43,9 @@ const CountUp = ({ to, suffix = "", prefix = "", decimals = 0, duration = 1500, 
 
   return (
     <span ref={ref} className={className}>
-      {prefix}
+      {prefix && <span className={prefixClassName}>{prefix}</span>}
       {val.toFixed(decimals)}
-      {suffix}
+      {suffix && <span className={suffixClassName}>{suffix}</span>}
     </span>
   );
 };

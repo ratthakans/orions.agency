@@ -92,11 +92,19 @@
   }
 
   /* === Display Type Scale (single source of truth) === */
-  .h-display-xl { font-size: clamp(72px, 14vw, 180px); line-height: 0.85; letter-spacing: -0.04em; }
-  .h-display-lg { font-size: clamp(56px, 10vw, 132px); line-height: 0.88; letter-spacing: -0.04em; }
-  .h-display-md { font-size: clamp(40px, 6vw, 88px);   line-height: 0.92; letter-spacing: -0.03em; }
-  .h-display-sm { font-size: clamp(28px, 3.5vw, 48px); line-height: 1;    letter-spacing: -0.02em; }
-  .h-display-xs { font-size: clamp(20px, 2vw, 28px);   line-height: 1.05; letter-spacing: -0.02em; }
+  .h-display-xl,
+  .h-display-lg,
+  .h-display-md,
+  .h-display-sm,
+  .h-display-xs {
+    text-wrap: balance;
+    font-feature-settings: "ss01", "ss02";
+  }
+  .h-display-xl { font-size: clamp(56px, 14vw, 180px); line-height: 0.85; letter-spacing: -0.04em; }
+  .h-display-lg { font-size: clamp(40px, 11vw, 132px); line-height: 0.9;  letter-spacing: -0.04em; }
+  .h-display-md { font-size: clamp(32px, 6.5vw, 88px); line-height: 0.95; letter-spacing: -0.03em; }
+  .h-display-sm { font-size: clamp(24px, 4vw, 48px);   line-height: 1.05; letter-spacing: -0.02em; }
+  .h-display-xs { font-size: clamp(18px, 2.2vw, 28px); line-height: 1.1;  letter-spacing: -0.02em; }
 
   .bg-surface   { background-color: hsl(var(--surface)); }
   .bg-surface-2 { background-color: hsl(var(--surface-2)); }

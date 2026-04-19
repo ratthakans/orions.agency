@@ -255,12 +255,11 @@ const Index = () => (
           {/* Large feature */}
           <Reveal className="md:col-span-7">
             <Link to="/work" className="group block bg-background border border-border ring-grad-hover transition-all duration-300 h-full">
-              <div className="aspect-[4/3] bg-surface-2 relative overflow-hidden">
-                <div className="absolute inset-0 bg-grad-radial opacity-30" />
-                <div className="absolute inset-0 grain opacity-30" />
-                <div className="absolute top-6 left-6 label-mono text-foreground/60">FEATURED · 01</div>
-                <div className="absolute bottom-6 right-6">
-                  <ArrowUpRight className="w-6 h-6 text-foreground/60 group-hover:text-grad transition-colors" />
+              <div className="aspect-[4/3] bg-surface-2 relative overflow-hidden image-overlay-soft">
+                <img src={gravityTaxi} alt="HONGMOVE — Taxi VIP" className="absolute inset-0 w-full h-full object-cover image-warm" />
+                <div className="absolute top-6 left-6 label-mono text-foreground/90 z-10">FEATURED · 01</div>
+                <div className="absolute bottom-6 right-6 z-10">
+                  <ArrowUpRight className="w-6 h-6 text-foreground/90 group-hover:text-grad transition-colors" />
                 </div>
               </div>
               <div className="p-8 md:p-10">
@@ -282,15 +281,15 @@ const Index = () => (
           {/* Two stacked */}
           <div className="md:col-span-5 grid grid-cols-1 gap-6">
             {[
-              { name: "RTAF", category: "APPLIED IMAGE", body: "ปรับโฉมภาพลักษณ์ผ่าน High-end Production", impact: "2×", impactLabel: "ENGAGEMENT", n: "02" },
-              { name: "KHAO YAI", category: "APPLIED AESTHETIC", body: "เปลี่ยนสนามกอล์ฟดั้งเดิมสู่ประสบการณ์พรีเมียม", impact: "30%", impactLabel: "DECISION SPEED", n: "03" },
+              { name: "RTAF", category: "APPLIED IMAGE", body: "ปรับโฉมภาพลักษณ์ผ่าน High-end Production", impact: "2×", impactLabel: "ENGAGEMENT", n: "02", img: unlockRunning },
+              { name: "KHAO YAI", category: "APPLIED AESTHETIC", body: "เปลี่ยนสนามกอล์ฟดั้งเดิมสู่ประสบการณ์พรีเมียม", impact: "30%", impactLabel: "DECISION SPEED", n: "03", img: povCrosswalk },
             ].map((p, i) => (
               <Reveal key={p.name} delay={(i + 1) * 0.1}>
                 <Link to="/work" className="group block bg-background border border-border ring-grad-hover transition-all duration-300 h-full">
                   <div className="grid grid-cols-5 h-full">
-                    <div className="col-span-2 aspect-square bg-surface-2 relative overflow-hidden">
-                      <div className="absolute inset-0 bg-grad-radial opacity-25" />
-                      <div className="absolute top-3 left-3 label-mono text-foreground/60">FT · {p.n}</div>
+                    <div className="col-span-2 aspect-square bg-surface-2 relative overflow-hidden image-overlay-soft">
+                      <img src={p.img} alt={p.name} className="absolute inset-0 w-full h-full object-cover image-warm" />
+                      <div className="absolute top-3 left-3 label-mono text-foreground/90 z-10">FT · {p.n}</div>
                     </div>
                     <div className="col-span-3 p-6 flex flex-col justify-between">
                       <div>

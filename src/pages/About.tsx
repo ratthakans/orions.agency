@@ -216,44 +216,28 @@ const About = () => (
           <span className="ml-auto index-badge text-muted-foreground hidden md:block">MANIFESTO · 01</span>
         </div>
 
-        {/* Pull quote with drop cap */}
+        {/* Pull quote */}
         <Reveal>
           <blockquote className="font-display h-display-md max-w-[1100px] text-foreground">
-            <span
-              className="float-left font-display leading-[0.85] tracking-[-0.04em] mr-4 mt-1 text-gradient"
-              style={{ fontSize: "clamp(72px, 11vw, 180px)" }}
-            >
-              ด
-            </span>
             <span className="text-muted-foreground">&ldquo;</span>
-            าวฤกษ์ทุกดวงมีแสงในตัวเอง<span className="text-muted-foreground"> … </span>
-            แต่มันไม่มีความหมายอะไรเลย
+            ดาวฤกษ์ทุกดวงมีแสงในตัวเอง<span className="text-muted-foreground"> … </span>
+            แต่ไม่มีความหมายอะไรเลย
             <span className="text-muted-foreground">&rdquo;</span>
           </blockquote>
         </Reveal>
 
-        <Reveal delay={0.15}>
-          <div className="mt-8 flex items-center gap-3 clear-both">
-            <span className="block w-12 h-px bg-foreground" />
-            <span className="index-badge text-muted-foreground">UNTIL SOMEONE DRAWS THE LINE</span>
-          </div>
-        </Reveal>
-
-        {/* Constellation line — desktop only, draws over the asymmetric staircase */}
+        {/* Equal 3 columns with constellation connector */}
         <div className="relative mt-20 md:mt-28">
-          <div className="hidden md:block absolute inset-x-0 -top-12 h-24 text-foreground">
+          <div className="hidden md:block absolute inset-x-0 -top-12 h-16 text-foreground">
             <ConstellationLine className="w-full h-full" dots={3} />
           </div>
 
-          {/* Asymmetric staircase grid */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
             {[
               {
                 n: "01",
                 tag: "The Line",
-                span: "md:col-span-5",
-                offset: "",
-                lead: true,
+                lead: false,
                 body: (
                   <>
                     จนกว่าจะมีคน <span className="font-display normal-case font-bold tracking-[-0.01em]">"ลากเส้น"</span> เชื่อมพวกมันเข้าด้วยกัน เส้นสายที่ลากผ่านความมืด คือสิ่งที่เปลี่ยนจุดสว่างที่กระจัดกระจาย ให้กลายเป็นรูปธรรม เป็นเรื่องเล่า และเป็นตำนาน
@@ -263,9 +247,6 @@ const About = () => (
               {
                 n: "02",
                 tag: "The Connector",
-                span: "md:col-span-4",
-                offset: "md:-mt-10",
-                lead: false,
                 body: (
                   <>
                     <span className="font-display normal-case font-bold tracking-[-0.01em]">ØRIONS</span> คือคนลากเส้นสายเหล่านั้น เราไม่ได้แค่รวบรวมคนเก่ง แต่เราคือคนที่เชื่อมโยงศักยภาพมหาศาล ให้กลายเป็น <span className="italic">'ทางออก'</span> ที่มีทิศทาง
@@ -275,9 +256,6 @@ const About = () => (
               {
                 n: "03",
                 tag: "The Meaning",
-                span: "md:col-span-3",
-                offset: "md:-mt-20",
-                lead: false,
                 body: (
                   <>
                     เราเปลี่ยนแสงสว่างที่โดดเดี่ยว ให้กลายเป็น <span className="italic">'ความหมาย'</span> ที่ขับเคลื่อนธุรกิจของคุณได้จริง — ไม่ใช่แค่ภาพสวย แต่เป็น Impact ที่วัดผลได้
@@ -285,29 +263,21 @@ const About = () => (
                 ),
               },
             ].map((c, i) => (
-              <div key={c.n} className={`${c.span} ${c.offset}`}>
-                <Reveal delay={0.1 + i * 0.1} className="h-full">
-                  <div className="border-t border-foreground pt-6 h-full flex flex-col">
-                    <div className="flex items-baseline justify-between mb-5">
-                      <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-muted-foreground">
-                        {c.n}
-                      </span>
-                      <span className="font-display text-[12px] tracking-[0.04em] uppercase text-foreground">
-                        {c.tag}
-                      </span>
-                    </div>
-                    <p
-                      className={`font-thai text-foreground/90 ${
-                        c.lead
-                          ? "text-[18px] md:text-[22px] leading-[1.7] tracking-[-0.005em]"
-                          : "text-[15px] md:text-[16px] leading-[1.85]"
-                      }`}
-                    >
-                      {c.body}
-                    </p>
+              <Reveal key={c.n} delay={0.1 + i * 0.1} className="h-full">
+                <div className="border-t border-foreground pt-6 h-full flex flex-col">
+                  <div className="flex items-baseline justify-between mb-5">
+                    <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-muted-foreground">
+                      {c.n}
+                    </span>
+                    <span className="font-display text-[12px] tracking-[0.04em] uppercase text-foreground">
+                      {c.tag}
+                    </span>
                   </div>
-                </Reveal>
-              </div>
+                  <p className="font-thai text-foreground/90 text-[15px] md:text-[16px] leading-[1.85]">
+                    {c.body}
+                  </p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -431,61 +401,56 @@ const About = () => (
       </div>
     </section>
 
-    {/* CTA — dark bookend */}
-    <section className="relative px-6 md:px-10 py-28 md:py-40 bg-foreground text-background border-t border-foreground overflow-hidden">
-      {/* Giant decorative arrow */}
-      <div className="pointer-events-none absolute -right-10 md:-right-16 top-1/2 -translate-y-1/2 select-none">
-        <span
-          className="font-display leading-none text-background/[0.06]"
-          style={{ fontSize: "clamp(220px, 36vw, 480px)" }}
-        >
-          →
-        </span>
-      </div>
-
+    {/* CTA — editorial light close */}
+    <section className="relative px-6 md:px-10 py-24 md:py-32 border-t border-foreground overflow-hidden">
       <div className="relative max-w-[1400px] mx-auto">
-        <div className="flex items-center gap-3 mb-10">
-          <span className="block w-8 h-px bg-background" />
-          <p className="index-badge text-background">END · 03</p>
-          <span className="ml-auto index-badge text-background/60 hidden md:block">LET'S DRAW THE LINE</span>
+        <div className="flex items-center gap-3 mb-12">
+          <span className="block w-8 h-px bg-foreground" />
+          <p className="index-badge">CONTACT · 03</p>
+          <span className="ml-auto index-badge text-muted-foreground hidden md:block">END OF FILE</span>
         </div>
 
-        <Reveal>
-          <h2 className="font-display h-display-lg max-w-[900px]">
-            Stop guessing.<br />Start <span className="italic">applying</span><span className="text-background/50">.</span>
-          </h2>
-        </Reveal>
-
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-12 gap-10 items-end">
-          <div className="md:col-span-7 flex flex-col gap-5 items-start">
-            <Reveal delay={0.2}>
-              <CTA to="/contact#audit" variant="invert">Request ØRIONS Audit (Free)</CTA>
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-start">
+          <div className="md:col-span-7">
+            <Reveal>
+              <h2 className="font-display h-display-lg">
+                Stop guessing.<br />
+                Start <span className="italic text-gradient">applying</span><span className="text-muted-foreground">.</span>
+              </h2>
             </Reveal>
-            <Reveal delay={0.3}>
-              <a
-                href="/work"
-                className="font-mono text-[11px] tracking-[0.2em] uppercase text-background/70 hover:text-background transition-colors inline-flex items-center gap-2"
-              >
-                Or explore our work <span aria-hidden>→</span>
-              </a>
+            <Reveal delay={0.2}>
+              <div className="mt-10 flex flex-col items-start gap-5">
+                <CTA to="/contact#audit">Request ØRIONS Audit (Free)</CTA>
+                <a
+                  href="/work"
+                  className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-2"
+                >
+                  Or explore our work <span aria-hidden>→</span>
+                </a>
+              </div>
             </Reveal>
           </div>
-          <div className="md:col-span-5 md:text-right">
-            <Reveal delay={0.35}>
-              <div className="space-y-2">
-                <div className="index-badge text-background/60">DIRECT LINE</div>
+
+          <div className="md:col-span-5 md:pt-4">
+            <Reveal delay={0.25}>
+              <div className="border-t border-foreground pt-6">
+                <div className="index-badge text-muted-foreground">DIRECT LINE</div>
                 <a
                   href="mailto:hello@orions.co"
-                  className="block font-display text-[18px] md:text-[22px] tracking-[-0.02em] hover:text-gradient transition-colors"
+                  className="mt-3 block font-display text-[22px] md:text-[28px] tracking-[-0.02em] hover:text-gradient transition-colors"
                 >
                   hello@orions.co
                 </a>
                 <a
                   href="tel:+66000000000"
-                  className="block font-mono text-[12px] tracking-[0.18em] uppercase text-background/70 hover:text-background transition-colors"
+                  className="mt-2 block font-mono text-[12px] tracking-[0.18em] uppercase text-muted-foreground hover:text-foreground transition-colors"
                 >
                   +66 (0) 00 000 0000
                 </a>
+                <div className="mt-6 hairline w-12" />
+                <p className="mt-4 font-thai text-[13px] leading-[1.7] text-muted-foreground">
+                  ตอบกลับภายใน 24 ชั่วโมง · ปรึกษาเบื้องต้นไม่มีค่าใช้จ่าย
+                </p>
               </div>
             </Reveal>
           </div>

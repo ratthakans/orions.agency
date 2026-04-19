@@ -30,29 +30,28 @@ const About = () => (
 
     {/* 01 — WHO WE ARE */}
     <section className="px-6 md:px-10 pt-28 md:pt-32 pb-20 md:pb-28">
-      <SectionHeader left="WHO WE ARE" />
+      <SectionHeader left="01 — WHO WE ARE" right="bangkok · est. 2014" />
 
-      <div className="mt-16 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-end">
+      <div className="mt-16">
+        <Reveal>
+          <h1 className="font-display text-[56px] md:text-[140px] leading-[0.86] tracking-[-0.05em]">
+            The{" "}
+            <span
+              className="italic font-normal"
+              style={{ fontFamily: "'Cutive', serif", textTransform: "none", letterSpacing: "-0.02em" }}
+            >
+              Applied
+            </span>{" "}
+            Creative<br />
+            Agency<span className="text-muted-foreground">.</span>
+          </h1>
+        </Reveal>
+      </div>
+
+      <div className="mt-16 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-stretch">
         <div className="md:col-span-7">
-          <Reveal>
-            <h1 className="font-display text-[56px] md:text-[112px] leading-[0.88] tracking-[-0.05em]">
-              The{" "}
-              <span
-                className="italic font-normal align-baseline"
-                style={{ fontFamily: "'Cutive', serif", textTransform: "none", letterSpacing: "-0.02em" }}
-              >
-                Applied
-              </span>
-              <br />
-              Creative<br />
-              Agency<span className="text-muted-foreground">.</span>
-            </h1>
-          </Reveal>
-        </div>
-
-        <div className="md:col-span-5">
           <Reveal delay={0.1}>
-            <div className="relative aspect-[4/5] w-full overflow-hidden bg-surface">
+            <div className="relative aspect-[4/3] w-full overflow-hidden bg-surface">
               <img
                 src={aboutHero}
                 alt="ØRIONS studio in Bangkok at dusk"
@@ -67,22 +66,22 @@ const About = () => (
             </div>
           </Reveal>
         </div>
-      </div>
 
-      <div className="mt-16 grid grid-cols-1 md:grid-cols-12 gap-8">
-        <div className="md:col-span-3">
-          <Reveal>
+        <div className="md:col-span-5 flex flex-col justify-between">
+          <Reveal delay={0.15}>
             <span className="index-badge text-muted-foreground">— A NOTE</span>
-          </Reveal>
-        </div>
-        <div className="md:col-span-7">
-          <Reveal delay={0.1}>
-            <p className="text-[16px] md:text-[19px] leading-[1.7] font-thai">
+            <p className="mt-6 text-[16px] md:text-[19px] leading-[1.7] font-thai">
               เราคือจุดตัดระหว่าง{" "}
               <span className="font-display normal-case font-bold">Bangkok Energy</span>{" "}
               (ความเร็ว) และ{" "}
               <span className="font-display normal-case font-bold">Logical Standard</span>{" "}
               (ตรรกะสากล) เราทำหน้าที่เชื่อมช่องว่างระหว่าง "ไอเดียที่ดูดี" กับ "ผลลัพธ์ที่วัดผลได้" เพื่อเปลี่ยนงบประมาณที่สูญเปล่าให้เป็น Impact ที่แท้จริงของธุรกิจ
+            </p>
+          </Reveal>
+          <Reveal delay={0.25}>
+            <p className="mt-10 md:mt-0 pt-8 border-t border-foreground text-[15px] md:text-[17px] leading-[1.6] font-thai">
+              ไม่ใช่แค่คนที่คิดเป็น ไม่ใช่แค่คนที่ทำเป็น{" "}
+              <span className="font-display normal-case font-bold">แต่คือคนที่ทำให้ธุรกิจขยับได้จริง</span>
             </p>
           </Reveal>
         </div>

@@ -196,11 +196,12 @@ const Index = () => (
         <div className="md:col-span-7 order-1 md:order-2">
           <div className="flex items-center gap-3">
             <span className="block w-8 h-px bg-foreground" />
-            <p className="index-badge text-foreground">04 — WHO IS ØRIONS</p>
+            <p className="index-badge text-foreground">WHO IS ØRIONS</p>
           </div>
           <Reveal delay={0.1}>
             <h2 className="mt-8 font-display text-[40px] md:text-[64px] leading-[0.95] tracking-[-0.04em]">
-              Applied Creative<br />Agency from Bangkok.
+              Applied Creative Agency
+              <span className="block mt-3 text-[18px] md:text-[22px] tracking-[0.04em] text-muted-foreground font-mono uppercase">from Bangkok</span>
             </h2>
           </Reveal>
           <Reveal delay={0.2}>
@@ -221,9 +222,9 @@ const Index = () => (
           <Reveal delay={0.35}>
             <div className="mt-12 grid grid-cols-3 border-t border-foreground pt-6 max-w-[560px]">
               {[
-                { v: "12+", l: "YEARS" },
+                { v: "10+", l: "YEARS CRAFT" },
                 { v: "40+", l: "BRANDS" },
-                { v: "1", l: "STUDIO" },
+                { v: "∞", l: "IDEAS APPLIED" },
               ].map((s) => (
                 <div key={s.l}>
                   <div className="font-display text-[32px] md:text-[44px] leading-none tracking-[-0.03em]">{s.v}</div>

@@ -61,7 +61,7 @@ const Footer = () => (
       </div>
 
       {/* Legal row */}
-      <div className="mt-16 pt-6 border-t border-background/15 flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
+      <div className="mt-10 pt-5 border-t border-background/15 flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
         <p className="font-mono text-[10px] tracking-[0.12em] uppercase opacity-50">
           © {new Date().getFullYear()} ØRIONS · Bangkok, TH
         </p>

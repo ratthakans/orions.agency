@@ -4,6 +4,7 @@ import SectionHeader from "@/components/SectionHeader";
 import CTA from "@/components/CTA";
 import SEO from "@/components/SEO";
 import aboutHero from "@/assets/about-hero.jpg";
+import whoOrionsTeam from "@/assets/who-orions-team.jpg";
 import founderImg from "@/assets/team/founder.jpg";
 import ceoImg from "@/assets/team/ceo.jpg";
 import cdImg from "@/assets/team/creative-director.jpg";
@@ -89,8 +90,57 @@ const About = () => (
       title={<>The <span className="text-gradient">Applied</span> Creative<br />Agency<span className="text-muted-foreground">.</span></>}
     />
 
+    {/* WHO IS ØRIONS — moved from home */}
+    <section className="relative px-6 md:px-10 py-24 md:py-32">
+      <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-start">
+        <div className="md:col-span-5 order-2 md:order-1">
+          <Reveal>
+            <div className="aspect-[3/4] overflow-hidden bg-surface-2 border border-foreground">
+              <img src={whoOrionsTeam} alt="ØRIONS team in Bangkok" className="w-full h-full object-cover" />
+            </div>
+          </Reveal>
+        </div>
+
+        <div className="md:col-span-7 order-1 md:order-2">
+          <div className="flex items-center gap-3">
+            <span className="block w-8 h-px bg-foreground" />
+            <p className="index-badge text-foreground">WHO IS ØRIONS</p>
+          </div>
+          <Reveal delay={0.1}>
+            <h2 className="mt-8 font-display text-[40px] md:text-[64px] leading-[0.95] tracking-[-0.04em]">
+              Applied Creative Agency
+              <span className="block mt-3 text-[18px] md:text-[22px] tracking-[0.04em] text-muted-foreground font-mono uppercase">from Bangkok</span>
+            </h2>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <div className="hairline w-16 mt-8" />
+          </Reveal>
+          <Reveal delay={0.25}>
+            <p className="mt-8 text-[16px] md:text-[18px] leading-[1.8] font-thai text-muted-foreground max-w-[560px]">
+              ØRIONS ทำหน้าที่เชื่อมช่องว่างระหว่าง <span className="text-foreground font-medium">"ไอเดียที่ดูดี"</span> กับ <span className="text-foreground font-medium">"ผลลัพธ์ที่วัดผลได้"</span> เพื่อเปลี่ยนงบประมาณที่สูญเปล่าให้เป็น Impact ที่แท้จริงของธุรกิจ
+            </p>
+          </Reveal>
+
+          <Reveal delay={0.35}>
+            <div className="mt-12 grid grid-cols-3 border-t border-foreground pt-6 max-w-[560px]">
+              {[
+                { v: "10+", l: "YEARS CRAFT" },
+                { v: "40+", l: "BRANDS" },
+                { v: "∞", l: "IDEAS APPLIED" },
+              ].map((s) => (
+                <div key={s.l}>
+                  <div className="font-display text-[32px] md:text-[44px] leading-none tracking-[-0.03em]">{s.v}</div>
+                  <div className="mt-2 index-badge text-muted-foreground">{s.l}</div>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+
     {/* THE MEANING OF THE LINE — manifesto (replaces A NOTE) */}
-    <section className="px-6 md:px-10 pb-24 md:pb-32">
+    <section className="px-6 md:px-10 pb-24 md:pb-32 border-t border-foreground pt-24 md:pt-32">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-stretch">
         <div className="md:col-span-7">
           <Reveal delay={0.1}>

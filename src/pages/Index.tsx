@@ -75,13 +75,13 @@ const Index = () => (
     <section className="relative px-6 md:px-10 min-h-screen flex flex-col justify-center py-20 md:py-28 bg-surface border-y border-foreground overflow-hidden">
       <div className="max-w-[1400px] mx-auto w-full relative z-10">
         <Reveal>
-          <p className="index-badge text-muted-foreground text-center">THE PRESSURE</p>
+          <p className="index-badge text-muted-foreground text-center">THE VICIOUS CYCLE</p>
         </Reveal>
 
         <Reveal delay={0.1}>
           <h2 className="mt-8 md:mt-10 font-thai text-[24px] md:text-[44px] leading-[1.35] tracking-[-0.01em] text-center max-w-[1100px] mx-auto">
             <span className="font-bold text-foreground">
-              หลายธุรกิจติดอยู่ใน "วงจรอุบาท <span className="font-display normal-case tracking-[-0.02em]">(Vicious Cycle)</span>"
+              หลายธุรกิจติดอยู่ใน "วงจรอุบาท"
             </span>
             <span className="block mt-4 md:mt-5 text-muted-foreground font-normal text-[18px] md:text-[28px]">
               ทำงานหนักขึ้น จ่ายแพงขึ้น แต่ได้ผลลัพธ์เท่าเดิม

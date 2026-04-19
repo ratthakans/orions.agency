@@ -1,107 +1,102 @@
 
 
-# ØRIONS Website — Full Review & Recommendations
+## Hero Section Review — Current State
 
-## Critical Bugs (P0)
+**What's there now:**
+- `EST. BANGKOK · 2024` mono label (gradient soft)
+- Massive `ØRIONS` wordmark, white, Unbounded, ~110px desktop / 16vw mobile
+- Looping Typewriter cycling 4 phrases in Unbounded uppercase
+- Animated `liquid-blob` (blue/magenta/red) blurred backdrop
+- Bottom-left: `orions.agency`
+- Bottom-right: `Scroll ↓` link
 
-### 1. Project images are broken / not rendering
-The project cards on `/projects` and the homepage Projects section are completely invisible. The 6 `.jpg` files in `src/assets/projects/` appear to have been generated as binary but may be invalid or empty. The grid renders but shows nothing — no images, no text, no cards at all. This is the most critical issue.
+**Issues spotted:**
 
-**Fix**: Re-generate all 6 project images using proper Unsplash URLs as fallbacks, or use placeholder images from a reliable CDN (e.g. `picsum.photos` or `unsplash` URLs) until real images are ready.
-
-### 2. YouTube iframe "Sign in" overlay still bleeding through Hero
-The YouTube play button avatar and "Sign in" link are clearly visible through the `bg-background/90` overlay on the homepage hero. Despite the previous fix increasing opacity to 90%, YouTube's UI elements still show.
-
-**Fix**: Replace the YouTube iframe entirely with a `<video>` tag using a self-hosted MP4 file, OR add `pointer-events-none` plus a higher z-index overlay, OR increase overlay to `bg-background/95`.
-
----
-
-## Structural Issues (P1)
-
-### 3. Footer is out of sync with Navbar
-The Footer still shows old navigation links: About, **Work**, Services, Contact. It's missing **Projects** and **Original Series**. The Navbar has 5 links but the Footer only shows 4.
-
-**Fix**: Update `Footer.tsx` to match the current Navbar structure — add "Original Series" and "Projects" links.
-
-### 4. "ORIONS" vs "ØRIONS" brand inconsistency
-In `projects.ts`, the role field reads `"Created, Directed & Produced by ORIONS"` (without Ø) across all projects. Should be `ØRIONS`.
-
-**Fix**: Replace all instances of `ORIONS` with `ØRIONS` in project data.
-
-### 5. Homepage hero CTA "View Work" is vague
-The secondary CTA says "View Work →" which could link to either Original Series or Projects. It currently links to `/work` (Original Series). Since Projects (client work) is now the primary portfolio, this link should point to `/projects` or the text should say "View Original Series →".
-
-**Fix**: Change to "View Projects →" linking to `/projects`, or "View Original Series →" keeping the `/work` link.
+1. **Vertical balance feels off** — Logo sits high after `pt-20`, but with `min-h-screen` + `items-center` the content clusters mid-page leaving a heavy dead zone below. No visual anchor at the bottom besides tiny labels.
+2. **Typewriter is visually noisy** — 4 long phrases in Unbounded uppercase at 18px reads as a second headline competing with ØRIONS. The hard delete/retype + blinking cursor pulls attention away from the brand.
+3. **Eyebrow is weak** — "EST. BANGKOK · 2024" is a generic label. Doesn't telegraph what ØRIONS *does*.
+4. **No real CTA** — Hero has zero action. User must scroll or hunt the nav. Premium agency sites (Berlin/Stockholm tier) almost always anchor a primary action in the hero.
+5. **Liquid blob is too soft / too centered** — At 60px blur it reads as a uniform purple wash behind the logo, muddying the wordmark contrast instead of framing it.
+6. **Wordmark feels floating** — No supporting metadata grid (most premium agency heros use a 2–4 column meta strip: location, status, year, discipline) which gives the page editorial weight.
+7. **Bottom corners feel asymmetric and tiny** — `orions.agency` left + `Scroll ↓` right are isolated; no horizontal rule or grid to tie them in.
+8. **Mobile**: 16vw logo + uppercase Unbounded typewriter wraps awkwardly on 375px. Phrase #2 ("CREATIVE ENGINEERING FROM BANGKOK.") breaks across 3 lines.
 
 ---
 
-## Design & UX Improvements (P2)
+## Proposed Redesign — "Editorial Studio" Hero
 
-### 6. Homepage is still 7 sections long
-Hero → Tone Block → Projects Preview → Services Preview → Packages → CTA → Footer. The Services + Packages sections overlap in purpose (both sell services). Consider merging or shortening.
+Goal: keep the liquid gradient identity but make the hero feel like a **senior studio masthead** — calmer, more intentional, with clear hierarchy and a real action.
 
-**Recommendation**: The Packages section could become a compact callout within the Services section, or be removed from homepage entirely (it lives on the Services page already).
+### Layout (desktop)
 
-### 7. No Original Series preview on Homepage
-The homepage only shows client Projects now but has no preview of Original Series content. Since Original Series is a key differentiator for the brand, a small preview section between Projects and Services would strengthen the page.
+```text
+┌─────────────────────────────────────────────────────────────┐
+│ [nav already above]                                         │
+│                                                             │
+│  ── APPLIED CREATIVE AGENCY                  (BKK 13.7°N)   │
+│                                                             │
+│                                                             │
+│  ØRIONS                                                     │
+│  ───────                                                    │
+│  We turn stuck brands into                                  │
+│  unstuck outcomes.                  [single rotating verb]  │
+│                                                             │
+│  [ Book Clarity Audit → ]   [ See Work ]                    │
+│                                                             │
+│                                                             │
+│ ─────────────────────────────────────────────────────────── │
+│ 01 BANGKOK    02 STRATEGY+FILM    03 EST. 2024    ↓ SCROLL  │
+└─────────────────────────────────────────────────────────────┘
+```
 
-**Recommendation**: Add a compact 2-3 item Original Series preview after the Projects section.
+### Specific changes
 
-### 8. Services page "View Work" link in CTA
-The Services page CTA has `"View Work →"` linking to `/work`. Should probably link to `/projects` since client work is more relevant for someone evaluating services.
+**A. Replace the typewriter as second headline → use it as a single rotating verb chip**
+- Move Typewriter to a small inline chip beside or under the sub-headline (`font-mono`, 11–12px, gradient text). It cycles single words: `PRACTICAL.` / `BOLD.` / `DONE.` / `APPLIED.`
+- Add a real h2 sub-headline in `font-thai` (IBM Plex), left-aligned: e.g. *"We turn stuck brands into unstuck outcomes."* — gives the hero a content message instead of a slogan loop.
 
-**Fix**: Change to "View Projects →" with link to `/projects`.
+**B. Strengthen the eyebrow row (top of hero)**
+- Left: `── APPLIED CREATIVE AGENCY` (replaces "EST. BANGKOK · 2024")
+- Right: live-feel meta `BKK · 13.7°N, 100.5°E` in mono (subtle, premium studio touch)
+- Both small, gradient-soft, on a single horizontal rule that spans the container.
 
-### 9. About page CTA "View Work" same issue
-The About page CTA also links to `/work` with "View Work →". Same fix needed.
+**C. Add primary + secondary CTA buttons**
+- Primary: `Book Clarity Audit →` using `bg-grad` (gradient fill, dark text).
+- Secondary: `See Work` using `border-grad` outline.
+- Sits directly under the sub-headline. Anchors action above the fold.
+
+**D. Replace bottom corner labels with a 4-column meta strip**
+- Top divider line, then 4 cells: `01 BANGKOK` · `02 STRATEGY + FILM` · `03 EST. 2024` · `04 ↓ SCROLL`.
+- Each cell is `label-mono`, gradient-soft on hover. Last cell is the scroll anchor (replaces the floating "Scroll ↓").
+- This grounds the hero like an editorial cover.
+
+**E. Tune the liquid blob**
+- Push two blobs to the **edges** instead of behind the wordmark: one top-left (blue), one bottom-right (red), magenta accent off-canvas. Reduces wash behind ØRIONS so the white wordmark stays crisp.
+- Add a subtle 1px noise/grain overlay (already in CSS as `.grain`) to give it film texture.
+- Keep the slow `blob-shift` animation but reduce opacity slightly (0.55 → 0.45) for premium calm.
+
+**F. Wordmark refinement**
+- Slightly reduce desktop size: `110px → 96px` so it shares the page with the sub-headline rather than dominating it.
+- Add tracking polish: `tracking-[-0.06em]` for tighter Unbounded.
+- Keep solid white (per memory).
+
+**G. Left-align everything**
+- Switch hero from `text-center` to `text-left` (memory rule: never center body paragraphs). Aligns with the editorial Berlin/Stockholm brief.
+- Sub-headline + CTAs left-aligned; eyebrow row uses `justify-between`.
+
+**H. Mobile pass**
+- Wordmark `16vw → 18vw` but on a tighter container (px-5).
+- Sub-headline 18px → tight 1.4 line-height.
+- CTAs stack vertically full-width.
+- Meta strip becomes 2×2 grid.
 
 ---
 
-## Minor Polish (P3)
+## Files to touch
 
-### 10. Filter buttons on Projects page need `cursor-pointer`
-The filter buttons don't show pointer cursor by default since they're `<button>` elements without explicit cursor styling.
+1. **`src/pages/Index.tsx`** — restructure hero JSX (eyebrow row, left-align, sub-headline, CTA pair, meta strip). Remove old `text-center`, `pt-20`, bottom-corner labels, and inline `Scroll` link.
+2. **`src/components/Typewriter.tsx`** — accept smaller cursor and allow a `chip` style; pass shorter single-word phrases from Index.
+3. **`src/index.css`** — minor: lower `.liquid-blob` opacity, optionally add `.hero-grid-meta` helper. No new tokens.
 
-### 11. Project detail pages may crash
-Since the project images are broken, the detail pages at `/projects/:slug` likely show broken images too. Need to verify once images are fixed.
-
-### 12. Navbar "LET'S TALK" button has border styling
-The CTA button in the navbar appears to have a border/outline style (white bg with dark text) that looks like a ghost button. This is fine visually but differs from the solid-fill CTAs used elsewhere.
-
----
-
-## Implementation Plan
-
-### Step 1: Fix broken project images
-Replace the local `.jpg` imports in `clientProjects.ts` with working Unsplash URLs as reliable placeholders. Remove the broken files from `src/assets/projects/`.
-
-### Step 2: Fix YouTube overlay
-Increase hero overlay opacity to `bg-background/95` or replace iframe with a static dark background.
-
-### Step 3: Update Footer links
-Add "Original Series" and "Projects" to the Footer navigation to match the Navbar.
-
-### Step 4: Fix brand name consistency
-Replace `ORIONS` with `ØRIONS` in all project data files.
-
-### Step 5: Fix CTA link targets
-Update "View Work" links across Homepage, About, and Services pages to point to the correct destination (`/projects` for client work context).
-
-### Step 6: Optional — Add Original Series preview to Homepage
-Add a compact section showing 2-3 Original Series items between the Projects preview and Services sections.
-
----
-
-## Summary
-
-| Priority | Issue | Status |
-|----------|-------|--------|
-| P0 | Project images completely broken — grid is empty | Must fix |
-| P0 | YouTube "Sign in" still visible in hero | Must fix |
-| P1 | Footer missing Projects + Original Series links | Should fix |
-| P1 | "ORIONS" vs "ØRIONS" in project data | Should fix |
-| P1 | "View Work" CTA targets wrong page | Should fix |
-| P2 | Homepage too long (7 sections) | Consider |
-| P2 | No Original Series preview on Homepage | Consider |
-| P3 | Minor cursor + styling polish | Nice to have |
+No new dependencies. No routing changes. Memory rules respected: left-align body, no scale-on-hover, no glows beyond existing gradient, Unbounded stays uppercase.
 

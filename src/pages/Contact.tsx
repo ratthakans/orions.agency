@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
+import PageHero from "@/components/PageHero";
 import SEO from "@/components/SEO";
 import { toast } from "sonner";
 
@@ -20,15 +21,10 @@ const Contact = () => {
     <div>
       <SEO title="Contact — ØRIONS" description="Let's talk. We'll point out the dead-end and the way out." path="/contact" />
 
-      <section className="px-6 md:px-10 pt-28 md:pt-32 pb-20 md:pb-28">
-        <Reveal>
-          <h1 className="font-display leading-[0.86] tracking-[-0.05em]" style={{ fontSize: "clamp(56px, 11vw, 132px)" }}>
-            Tell us<br />
-            what's <span className="text-gradient">stuck</span>
-            <span className="text-muted-foreground">.</span>
-          </h1>
-        </Reveal>
-      </section>
+      <PageHero
+        eyebrow="CONTACT · INDEX"
+        title={<>Tell us<br />what's <span className="text-gradient">stuck</span><span className="text-muted-foreground">.</span></>}
+      />
 
       {/* ØRIONS AUDIT — featured anchor card */}
       <section id="audit" className="px-6 md:px-10 pb-16 md:pb-24 scroll-mt-24">

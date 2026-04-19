@@ -1,5 +1,6 @@
 import { Instagram, Facebook } from "lucide-react";
 import Reveal from "@/components/Reveal";
+import PageHero from "@/components/PageHero";
 import SectionHeader from "@/components/SectionHeader";
 import CTA from "@/components/CTA";
 import SEO from "@/components/SEO";

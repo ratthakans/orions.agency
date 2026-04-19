@@ -396,54 +396,63 @@ const Index = () => (
       </Reveal>
     </section>
 
-    {/* 10 — CTA */}
-    <section className="relative px-6 md:px-10 py-20 md:py-32 bg-foreground text-background overflow-hidden">
-      <div>
-        <div className="border-t border-background pt-3 pb-3 flex items-center justify-between">
-          <span className="index-badge font-bold">10 — LET'S WORK</span>
-          <span className="index-badge font-medium opacity-60 hidden sm:inline">ØRIONS · BANGKOK</span>
+    {/* LET'S WORK — full-bleed editorial close */}
+    <section className="relative bg-foreground text-background overflow-hidden border-t border-foreground">
+      <div className="px-6 md:px-10 pt-6 pb-3 flex items-center justify-between border-b border-background/20">
+        <span className="index-badge font-bold">LET'S WORK</span>
+        <span className="index-badge font-medium opacity-60">ØRIONS · BANGKOK</span>
+      </div>
+
+      {/* Massive headline */}
+      <Reveal delay={0.05}>
+        <div className="px-6 md:px-10 pt-20 md:pt-32 pb-16 md:pb-24">
+          <h2 className="font-display text-[16vw] md:text-[15vw] leading-[0.85] tracking-[-0.05em]">
+            UNSTUCK<br /><span className="opacity-40">YOUR BIZ.</span>
+          </h2>
+          <p className="mt-12 font-thai text-[18px] md:text-[24px] max-w-[640px] leading-[1.5] opacity-80">
+            Stop guessing. Start applying. — <span className="font-bold text-background">Practical. Bold. Done.</span>
+          </p>
         </div>
+      </Reveal>
 
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-12 gap-10">
-          <div className="md:col-span-8">
-            <Reveal>
-              <h2 className="font-display text-[44px] md:text-[88px] leading-[0.9] tracking-[-0.04em]">
-                Your business<br />is stuck.<br />
-                <span className="opacity-50">We're the unstuck.</span>
-              </h2>
-            </Reveal>
-            <Reveal delay={0.15}>
-              <p className="mt-8 font-thai text-[18px] md:text-[22px] text-background/70">
-                Stop guessing. Start applying. — <span className="text-background font-medium">Practical. Bold. Done.</span>
-              </p>
-            </Reveal>
-            <Reveal delay={0.2}>
-              <div className="mt-12 flex flex-wrap gap-4">
-                <Link to="/contact" className="inline-flex items-center gap-3 bg-background text-foreground px-7 py-4 index-badge hover:opacity-90 transition-opacity">
-                  Start a project <ArrowUpRight className="w-4 h-4" />
-                </Link>
-                <Link to="/services" className="inline-flex items-center gap-3 border border-background px-7 py-4 index-badge hover:bg-background hover:text-foreground transition-colors">
-                  Explore services
-                </Link>
-              </div>
-            </Reveal>
+      {/* Action row */}
+      <div className="grid grid-cols-1 md:grid-cols-12 border-t border-background/20">
+        <Link to="/contact" className="md:col-span-7 group p-8 md:p-12 flex items-center justify-between border-b md:border-b-0 md:border-r border-background/20 hover:bg-background hover:text-foreground transition-colors">
+          <div>
+            <div className="index-badge opacity-60 group-hover:opacity-100">START</div>
+            <div className="mt-3 font-display text-[28px] md:text-[44px] tracking-[-0.03em] leading-[0.95]">Start a project →</div>
           </div>
+          <ArrowUpRight className="w-8 h-8 md:w-12 md:h-12 transition-transform duration-500 group-hover:rotate-45" />
+        </Link>
+        <Link to="/contact#audit" className="md:col-span-5 group p-8 md:p-12 flex items-center justify-between hover:bg-background hover:text-foreground transition-colors">
+          <div>
+            <div className="index-badge opacity-60 group-hover:opacity-100">FREE</div>
+            <div className="mt-3 font-display text-[24px] md:text-[32px] tracking-[-0.03em] leading-[0.95]">Get the Audit →</div>
+          </div>
+          <ArrowUpRight className="w-6 h-6 md:w-8 md:h-8 transition-transform duration-500 group-hover:rotate-45" />
+        </Link>
+      </div>
 
-          <div className="md:col-span-4 md:border-l md:border-background/30 md:pl-8">
-            <Reveal delay={0.3}>
-              <div className="index-badge opacity-60">DIRECT</div>
-              <a href="mailto:hello@orions.agency" className="mt-3 block font-display text-[16px] hover:underline">
-                hello@orions.agency
-              </a>
-              <a href="tel:+66923905464" className="mt-1 block font-display text-[16px] hover:underline">
-                +66 92 390 5464
-              </a>
-              <p className="mt-8 text-[12px] font-mono opacity-60 leading-relaxed">
-                246/8 SOI YOTHINPHATTHANA<br />
-                BANG KAPI · BANGKOK 10240
-              </p>
-            </Reveal>
-          </div>
+      {/* Footer meta */}
+      <div className="grid grid-cols-1 md:grid-cols-3 border-t border-background/20">
+        <div className="p-6 md:p-10 md:border-r border-background/20">
+          <div className="index-badge opacity-60">EMAIL</div>
+          <a href="mailto:hello@orions.agency" className="mt-3 block font-display text-[16px] md:text-[18px] hover:underline">
+            hello@orions.agency
+          </a>
+        </div>
+        <div className="p-6 md:p-10 md:border-r border-background/20 border-t md:border-t-0 border-background/20">
+          <div className="index-badge opacity-60">PHONE</div>
+          <a href="tel:+66923905464" className="mt-3 block font-display text-[16px] md:text-[18px] hover:underline">
+            +66 92 390 5464
+          </a>
+        </div>
+        <div className="p-6 md:p-10 border-t md:border-t-0 border-background/20">
+          <div className="index-badge opacity-60">STUDIO</div>
+          <p className="mt-3 text-[13px] md:text-[14px] font-mono opacity-70 leading-relaxed">
+            246/8 SOI YOTHINPHATTHANA<br />
+            BANG KAPI · BANGKOK 10240
+          </p>
         </div>
       </div>
     </section>

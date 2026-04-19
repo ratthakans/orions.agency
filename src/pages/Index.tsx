@@ -308,60 +308,59 @@ const Index = () => (
     </section>
 
 
-    {/* CLOSING — clean two-line CTA strip */}
-    <section className="relative bg-foreground text-background border-t border-foreground px-6 md:px-10 py-20 md:py-24">
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 items-end">
-        <Reveal delay={0.05} className="md:col-span-8">
+    {/* CLOSING — high-contrast CTA, distinct from footer */}
+    <section className="relative bg-background text-foreground border-t border-foreground px-6 md:px-10 py-28 md:py-40 overflow-hidden">
+      {/* corner marks */}
+      <span className="pointer-events-none absolute top-6 left-6 w-6 h-px bg-foreground" />
+      <span className="pointer-events-none absolute top-6 left-6 w-px h-6 bg-foreground" />
+      <span className="pointer-events-none absolute top-6 right-6 w-6 h-px bg-foreground" />
+      <span className="pointer-events-none absolute top-6 right-6 w-px h-6 bg-foreground" />
+
+      <div className="max-w-[1400px] mx-auto">
+        <Reveal>
+          <div className="flex items-center gap-3">
+            <span className="block w-8 h-px bg-foreground" />
+            <span className="index-badge font-bold">— READY WHEN YOU ARE</span>
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.1}>
           <h2
-            className="group/headline font-display leading-[0.95] tracking-[-0.03em] cursor-default select-none"
-            style={{ fontSize: "clamp(28px, 4.2vw, 52px)" }}
+            className="mt-10 font-display leading-[0.9] tracking-[-0.04em]"
+            style={{ fontSize: "clamp(56px, 11vw, 180px)" }}
           >
-            <span className="block overflow-hidden">
-              <span className="inline-block transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/headline:-translate-y-1">
-                {"Stop guessing.".split("").map((c, i) => (
-                  <span
-                    key={i}
-                    className="inline-block transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/headline:-translate-y-1"
-                    style={{ transitionDelay: `${i * 22}ms` }}
-                  >
-                    {c === " " ? "\u00A0" : c}
-                  </span>
-                ))}
-              </span>
-            </span>
-            <span className="block overflow-hidden mt-1">
-              <span className="inline-block italic opacity-60 transition-opacity duration-500 group-hover/headline:opacity-100">
-                {"Start applying.".split("").map((c, i) => (
-                  <span
-                    key={i}
-                    className="inline-block transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/headline:translate-y-1"
-                    style={{ transitionDelay: `${i * 22}ms` }}
-                  >
-                    {c === " " ? "\u00A0" : c}
-                  </span>
-                ))}
-                <span className="ml-3 inline-block w-2 h-[0.7em] align-middle bg-background animate-pulse" />
-              </span>
-            </span>
+            Stop guessing<span className="text-muted-foreground">.</span>
+            <br />
+            <span className="italic">Start applying</span><span className="text-muted-foreground">.</span>
           </h2>
         </Reveal>
 
-        <Reveal delay={0.15} className="md:col-span-4">
-          <div className="flex flex-col items-start gap-5">
-            <Link
-              to="/contact#audit"
-              className="group inline-flex items-center gap-3 bg-background text-foreground px-7 py-4 index-badge hover:opacity-95 transition-opacity"
-            >
-              <span>Request the Audit</span>
-              <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            </Link>
-            <Link
-              to="/contact"
-              className="group inline-flex items-center gap-2 index-badge text-background border-b border-background pb-1 hover:opacity-70 transition-opacity"
-            >
-              <span>Or start a project</span>
-              <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            </Link>
+        <Reveal delay={0.2}>
+          <div className="mt-14 md:mt-20 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-end border-t border-foreground pt-10">
+            <div className="md:col-span-7 max-w-[560px]">
+              <p className="font-thai text-[16px] md:text-[18px] leading-[1.7] text-muted-foreground">
+                เริ่มจากบทสนทนา 30 นาที — ไม่มีค่าใช้จ่าย ไม่มีพันธะ เราฟังก่อน แล้วบอกตรงๆ ว่าจะลากเส้นไปทางไหน
+              </p>
+            </div>
+
+            <div className="md:col-span-5 flex flex-col items-start md:items-end gap-5">
+              <Link
+                to="/contact#audit"
+                className="group relative inline-flex items-center gap-4 bg-foreground text-background pl-7 pr-5 py-5 hover:bg-background hover:text-foreground border border-foreground transition-colors duration-300"
+              >
+                <span className="font-display tracking-[-0.01em] text-[16px] md:text-[18px]">Request the Audit</span>
+                <span className="block w-px h-6 bg-background/40 group-hover:bg-foreground/40 transition-colors" />
+                <ArrowUpRight className="w-5 h-5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </Link>
+
+              <Link
+                to="/contact"
+                className="group inline-flex items-center gap-2 index-badge text-foreground hover:opacity-60 transition-opacity"
+              >
+                <span>Or start a project</span>
+                <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </Link>
+            </div>
           </div>
         </Reveal>
       </div>

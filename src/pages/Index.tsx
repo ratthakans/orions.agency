@@ -101,13 +101,8 @@ const Index = () => (
     </section>
 
     {/* 03 — THE VICIOUS CYCLE */}
-    <section className="relative px-6 md:px-10 min-h-screen flex items-center py-20 md:py-28 border-t border-foreground overflow-hidden">
-      {/* Decorative oversized anchor */}
-      <div aria-hidden className="pointer-events-none absolute -left-4 md:-left-8 top-10 font-display text-[180px] md:text-[320px] leading-none tracking-[-0.06em] text-foreground/[0.04] select-none">
-        03
-      </div>
-
-      <div className="max-w-[1400px] mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 relative z-10">
+    <section className="relative px-6 md:px-10 py-20 md:py-28 border-t border-foreground">
+      <div className="max-w-[1400px] mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
         <div className="md:col-span-5 md:sticky md:top-32 md:self-start">
           <Reveal>
             <div className="flex items-center gap-3">

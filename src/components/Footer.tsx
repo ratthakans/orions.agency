@@ -29,14 +29,14 @@ const Footer = () => (
         <div>
           <div className="label-mono text-muted-foreground">Studio</div>
           <p className="mt-4 text-[13px] leading-[1.6] text-muted-foreground font-thai">
-            246/8 Soi Yothinphatthana<br />Bang Kapi, Bangkok 10240
+            246/8 Soi Yothin Pattana 3<br />Bang Kapi, Bangkok 10240
           </p>
         </div>
       </div>
 
       <div className="mt-12 h-px divider-grad" />
       <div className="mt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-        <p className="label-mono text-grad">SHARPER IDEAS. CLEARER DIRECTION.</p>
+        <p className="label-mono text-grad">PRACTICAL. BOLD. DONE.</p>
         <p className="font-mono text-[10px] text-muted-foreground/60">
           © {new Date().getFullYear()} ØRIONS · Tax ID 0105568220629
         </p>

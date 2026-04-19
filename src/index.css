@@ -7,10 +7,10 @@
 @layer base {
   :root {
     /* Monotone base */
-    --background: 0 0% 4%;
+    --background: 0 0% 4%;             /* #0A0A0A */
     --foreground: 0 0% 100%;
 
-    --surface: 0 0% 7%;
+    --surface: 0 0% 7%;                /* #121212 */
     --surface-foreground: 0 0% 100%;
 
     --card: 0 0% 7%;
@@ -41,9 +41,9 @@
     --radius: 2px;
 
     /* Liquid accent — Electric Blue → Magenta → Crimson */
-    --grad-1: 222 100% 60%;
-    --grad-2: 280 90% 58%;
-    --grad-3: 350 95% 55%;
+    --grad-1: 222 100% 60%;   /* electric blue   #3366FF */
+    --grad-2: 280 90% 58%;    /* violet/magenta  #B040E0 */
+    --grad-3: 350 95% 55%;    /* crimson red     #F02746 */
   }
 }
 
@@ -79,7 +79,7 @@
     @apply font-mono uppercase text-[11px] tracking-[0.22em];
   }
 
-  /* Gradient — used sparingly for accents only */
+  /* === Liquid gradient (blue → magenta → red) === */
   .text-grad {
     background: linear-gradient(100deg,
       hsl(var(--grad-1)) 0%,
@@ -110,15 +110,6 @@
       radial-gradient(50% 70% at 80% 70%, hsl(var(--grad-3) / 0.55) 0%, transparent 60%),
       radial-gradient(40% 50% at 50% 50%, hsl(var(--grad-2) / 0.45) 0%, transparent 60%);
   }
-  /* Subtle static wash for hero — no animation */
-  .hero-wash {
-    position: absolute; inset: 0;
-    background:
-      radial-gradient(50% 60% at 18% 28%, hsl(var(--grad-1) / 0.18) 0%, transparent 60%),
-      radial-gradient(45% 55% at 82% 72%, hsl(var(--grad-3) / 0.15) 0%, transparent 60%);
-    pointer-events: none;
-    z-index: 0;
-  }
   .divider-grad {
     background: linear-gradient(90deg,
       transparent 0%,
@@ -143,13 +134,26 @@
   }
   .ring-grad-hover { transition: box-shadow .35s ease, border-color .35s ease; }
   .ring-grad-hover:hover {
-    border-color: hsl(var(--grad-2) / 0.5);
-    box-shadow: 0 0 0 1px hsl(var(--grad-1) / 0.18), 0 30px 80px -40px hsl(var(--grad-3) / 0.3);
+    border-color: hsl(var(--grad-2) / 0.6);
+    box-shadow: 0 0 0 1px hsl(var(--grad-1) / 0.25), 0 30px 80px -40px hsl(var(--grad-3) / 0.4);
+  }
+
+  /* Liquid blob backdrop (animated) */
+  .liquid-blob {
+    position: absolute; inset: -20%;
+    background:
+      radial-gradient(38% 42% at 22% 30%, hsl(var(--grad-1) / 0.55) 0%, transparent 60%),
+      radial-gradient(34% 38% at 78% 68%, hsl(var(--grad-3) / 0.55) 0%, transparent 60%),
+      radial-gradient(28% 30% at 55% 50%, hsl(var(--grad-2) / 0.45) 0%, transparent 60%);
+    filter: blur(60px) saturate(140%);
+    animation: blob-shift 18s ease-in-out infinite alternate;
+    z-index: 0;
+    pointer-events: none;
   }
 
   .bg-surface  { background-color: hsl(var(--surface)); }
 
-  /* Marquee — slower, calmer */
+  /* Marquee */
   .marquee {
     display: flex;
     overflow: hidden;
@@ -158,10 +162,16 @@
   .marquee-track {
     display: flex;
     gap: 4rem;
-    animation: marquee 75s linear infinite;
+    animation: marquee 40s linear infinite;
     flex-shrink: 0;
     padding-right: 4rem;
   }
+}
+
+@keyframes blob-shift {
+  0%   { transform: translate3d(0,0,0) scale(1); }
+  50%  { transform: translate3d(3%, -2%, 0) scale(1.08); }
+  100% { transform: translate3d(-2%, 3%, 0) scale(0.96); }
 }
 
 @keyframes marquee {

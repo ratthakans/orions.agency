@@ -1,58 +1,107 @@
-## Plan: Align site design with ØRIONS Master V6.5 deck
 
-The PDF establishes a **calmer, more editorial** brand voice than the current site. Current site is loud (liquid blob, marquee, gradient text everywhere). The deck is sharper, quieter, content-first.
 
-### Key insights from deck
+# ØRIONS Website — Full Review & Recommendations
 
-- **The Pressure** = 3 pillars: ADHD SPAN (1.7s), DIGITAL INFLATION (+41%), AI FLOOD (4.6x) — rename from current "ATTENTION SPAN / DIGITAL INFLATION / DIGITAL WASTE"
-- **Hero Projects** (4): พรรคประชาธิปัตย์, GCOO, MY HOTEL, HONG MOVE — each with Challenge + URL
-- **More Selected Projects** (4): HEAVY ORGANIZER, เขาใหญ่ คันทรีคลับ, กองทัพอากาศ (RTAF), พรรคพลวัต
-- **Social & Commercials**: LEICESTER CITY, BURIRAM ESPORT, AUDI THAILAND, SIRIRAJ HOSPITAL, TAT
-- **Entertainment & Long-form**: เถื่อน TRAVEL, THE UPGRADE, FINDING THE LAST NOTE, etc.
-- **Why Agency**: Consultant vs Studio vs Agency (3-column comparison) — NEW SECTION
-- **Contact**: 246/8 Soi Yothinphatthana, Bang Kapi, Bangkok 10240 / [hello@orions.agency](mailto:hello@orions.agency) / +66 92 390 5464
+## Critical Bugs (P0)
 
-### Design direction shift
+### 1. Project images are broken / not rendering
+The project cards on `/projects` and the homepage Projects section are completely invisible. The 6 `.jpg` files in `src/assets/projects/` appear to have been generated as binary but may be invalid or empty. The grid renders but shows nothing — no images, no text, no cards at all. This is the most critical issue.
 
-- **Quieter visuals**: remove animated `liquid-blob`, tone down marquee, use gradient sparingly (accents/dividers only — not whole headlines)
-- **Editorial layout**: bigger whitespace, numbered sections, content-led
-- **Real imagery**: copy hero project + selected project images from PDF into `src/assets/projects/`
+**Fix**: Re-generate all 6 project images using proper Unsplash URLs as fallbacks, or use placeholder images from a reliable CDN (e.g. `picsum.photos` or `unsplash` URLs) until real images are ready.
 
-### Changes by file
+### 2. YouTube iframe "Sign in" overlay still bleeding through Hero
+The YouTube play button avatar and "Sign in" link are clearly visible through the `bg-background/90` overlay on the homepage hero. Despite the previous fix increasing opacity to 90%, YouTube's UI elements still show.
 
-**Home (`src/pages/Index.tsx`)**
+**Fix**: Replace the YouTube iframe entirely with a `<video>` tag using a self-hosted MP4 file, OR add `pointer-events-none` plus a higher z-index overlay, OR increase overlay to `bg-background/95`.
 
-1. Replace "STAGNATION" quote section → new copy: "ในโลกที่ทุกอย่างหมุนเร็วขึ้น / ไม่ใช่ทุกธุรกิจจะปรับตัวทัน"
-2. THE PRESSURE: rename labels (ADHD SPAN / DIGITAL INFLATION / AI FLOOD) + update body copy
-3. Featured Work: replace 3 placeholders with 4 Hero Projects using real images + Challenge text
-4. Add new section: **WHY AGENCY** (Consultant / Studio / Agency 3-column)
-5. CTA: keep, but soften copy
+---
 
-**Work (`src/pages/Work.tsx`)**
+## Structural Issues (P1)
 
-- Restructure into 3 buckets matching deck: Hero Projects (4), Selected Projects (4), Social & Commercials (5), Entertainment & Long-form
-- Use real images from PDF
+### 3. Footer is out of sync with Navbar
+The Footer still shows old navigation links: About, **Work**, Services, Contact. It's missing **Projects** and **Original Series**. The Navbar has 5 links but the Footer only shows 4.
 
-**Contact (`src/pages/Contact.tsx`)**
+**Fix**: Update `Footer.tsx` to match the current Navbar structure — add "Original Series" and "Projects" links.
 
-- Update address, phone, email per deck
+### 4. "ORIONS" vs "ØRIONS" brand inconsistency
+In `projects.ts`, the role field reads `"Created, Directed & Produced by ORIONS"` (without Ø) across all projects. Should be `ØRIONS`.
 
-**Footer (`src/components/Footer.tsx`)**
+**Fix**: Replace all instances of `ORIONS` with `ØRIONS` in project data.
 
-- Update contact info to match
+### 5. Homepage hero CTA "View Work" is vague
+The secondary CTA says "View Work →" which could link to either Original Series or Projects. It currently links to `/work` (Original Series). Since Projects (client work) is now the primary portfolio, this link should point to `/projects` or the text should say "View Original Series →".
 
-**Global (`src/index.css`)**
+**Fix**: Change to "View Projects →" linking to `/projects`, or "View Original Series →" keeping the `/work` link.
 
-- Soften gradient usage: remove `liquid-blob` animation from hero, keep `text-grad` for accents only
-- Slow marquee or shorten; consider replacing with static logo strip
-- Keep monotone base, gradient on dividers/numbers/CTAs only
+---
 
-**Assets**
+## Design & UX Improvements (P2)
 
-- Copy ~12 project images from `parsed-documents://` into `src/assets/projects/`
+### 6. Homepage is still 7 sections long
+Hero → Tone Block → Projects Preview → Services Preview → Packages → CTA → Footer. The Services + Packages sections overlap in purpose (both sell services). Consider merging or shortening.
 
-### Out of scope (this round)
+**Recommendation**: The Packages section could become a compact callout within the Services section, or be removed from homepage entirely (it lives on the Services page already).
 
-- Individual case-study pages
-- Backend wiring for contact form
-- About page edits (deck has no About content)
+### 7. No Original Series preview on Homepage
+The homepage only shows client Projects now but has no preview of Original Series content. Since Original Series is a key differentiator for the brand, a small preview section between Projects and Services would strengthen the page.
+
+**Recommendation**: Add a compact 2-3 item Original Series preview after the Projects section.
+
+### 8. Services page "View Work" link in CTA
+The Services page CTA has `"View Work →"` linking to `/work`. Should probably link to `/projects` since client work is more relevant for someone evaluating services.
+
+**Fix**: Change to "View Projects →" with link to `/projects`.
+
+### 9. About page CTA "View Work" same issue
+The About page CTA also links to `/work` with "View Work →". Same fix needed.
+
+---
+
+## Minor Polish (P3)
+
+### 10. Filter buttons on Projects page need `cursor-pointer`
+The filter buttons don't show pointer cursor by default since they're `<button>` elements without explicit cursor styling.
+
+### 11. Project detail pages may crash
+Since the project images are broken, the detail pages at `/projects/:slug` likely show broken images too. Need to verify once images are fixed.
+
+### 12. Navbar "LET'S TALK" button has border styling
+The CTA button in the navbar appears to have a border/outline style (white bg with dark text) that looks like a ghost button. This is fine visually but differs from the solid-fill CTAs used elsewhere.
+
+---
+
+## Implementation Plan
+
+### Step 1: Fix broken project images
+Replace the local `.jpg` imports in `clientProjects.ts` with working Unsplash URLs as reliable placeholders. Remove the broken files from `src/assets/projects/`.
+
+### Step 2: Fix YouTube overlay
+Increase hero overlay opacity to `bg-background/95` or replace iframe with a static dark background.
+
+### Step 3: Update Footer links
+Add "Original Series" and "Projects" to the Footer navigation to match the Navbar.
+
+### Step 4: Fix brand name consistency
+Replace `ORIONS` with `ØRIONS` in all project data files.
+
+### Step 5: Fix CTA link targets
+Update "View Work" links across Homepage, About, and Services pages to point to the correct destination (`/projects` for client work context).
+
+### Step 6: Optional — Add Original Series preview to Homepage
+Add a compact section showing 2-3 Original Series items between the Projects preview and Services sections.
+
+---
+
+## Summary
+
+| Priority | Issue | Status |
+|----------|-------|--------|
+| P0 | Project images completely broken — grid is empty | Must fix |
+| P0 | YouTube "Sign in" still visible in hero | Must fix |
+| P1 | Footer missing Projects + Original Series links | Should fix |
+| P1 | "ORIONS" vs "ØRIONS" in project data | Should fix |
+| P1 | "View Work" CTA targets wrong page | Should fix |
+| P2 | Homepage too long (7 sections) | Consider |
+| P2 | No Original Series preview on Homepage | Consider |
+| P3 | Minor cursor + styling polish | Nice to have |
+

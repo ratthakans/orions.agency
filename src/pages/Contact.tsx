@@ -63,9 +63,9 @@ const Contact = () => {
             <div>
               <div className="label-mono text-muted-foreground">Studio</div>
               <p className="mt-3 font-display text-[18px] leading-[1.5] font-thai">
-                246/8 Soi Yothinphatthana<br />
-                Bang Kapi, Bangkok 10240<br />
-                Thailand
+                246/8 Soi Yothin Pattana 3<br />
+                Khlong Chan, Bang Kapi<br />
+                Bangkok 10240, Thailand
               </p>
             </div>
             <div className="border-t border-border pt-8">

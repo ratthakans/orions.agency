@@ -179,61 +179,6 @@ const Index = () => (
       </div>
     </section>
 
-    {/* 04 — WHO IS ØRIONS — balanced split, smaller image */}
-    <section className="relative border-t border-foreground px-6 md:px-10 py-24 md:py-32">
-      <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-start">
-        {/* Image — contained, 3/4 ratio */}
-        <div className="md:col-span-5 order-2 md:order-1">
-          <div className="aspect-[3/4] overflow-hidden bg-surface-2 border border-foreground">
-            <img src={whoOrionsTeam} alt="ØRIONS team in Bangkok" className="w-full h-full object-cover" />
-          </div>
-        </div>
-
-        {/* Manifesto column */}
-        <div className="md:col-span-7 order-1 md:order-2">
-          <div className="flex items-center gap-3">
-            <span className="block w-8 h-px bg-foreground" />
-            <p className="index-badge text-foreground">WHO IS ØRIONS</p>
-          </div>
-          <Reveal delay={0.1}>
-            <h2 className="mt-8 font-display text-[40px] md:text-[64px] leading-[0.95] tracking-[-0.04em]">
-              Applied Creative Agency
-              <span className="block mt-3 text-[18px] md:text-[22px] tracking-[0.04em] text-muted-foreground font-mono uppercase">from Bangkok</span>
-            </h2>
-          </Reveal>
-          <Reveal delay={0.2}>
-            <div className="hairline w-16 mt-8" />
-          </Reveal>
-          <Reveal delay={0.25}>
-            <p className="mt-8 text-[16px] md:text-[18px] leading-[1.8] font-thai text-muted-foreground max-w-[560px]">
-              ØRIONS ทำหน้าที่เชื่อมช่องว่างระหว่าง <span className="text-foreground font-medium">"ไอเดียที่ดูดี"</span> กับ <span className="text-foreground font-medium">"ผลลัพธ์ที่วัดผลได้"</span> เพื่อเปลี่ยนงบประมาณที่สูญเปล่าให้เป็น Impact ที่แท้จริงของธุรกิจ
-            </p>
-          </Reveal>
-          <Reveal delay={0.3}>
-            <Link to="/about" className="mt-6 inline-flex items-center gap-2 index-badge text-foreground border-b border-foreground pb-1 hover:opacity-60 transition-opacity">
-              READ MORE <ArrowUpRight className="w-4 h-4" />
-            </Link>
-          </Reveal>
-
-          {/* Stats */}
-          <Reveal delay={0.35}>
-            <div className="mt-12 grid grid-cols-3 border-t border-foreground pt-6 max-w-[560px]">
-              {[
-                { v: "10+", l: "YEARS CRAFT" },
-                { v: "40+", l: "BRANDS" },
-                { v: "∞", l: "IDEAS APPLIED" },
-              ].map((s) => (
-                <div key={s.l}>
-                  <div className="font-display text-[32px] md:text-[44px] leading-none tracking-[-0.03em]">{s.v}</div>
-                  <div className="mt-2 index-badge text-muted-foreground">{s.l}</div>
-                </div>
-              ))}
-            </div>
-          </Reveal>
-        </div>
-      </div>
-    </section>
-
     {/* APPLIED SOLUTIONS — the offer */}
     <section className="relative px-6 md:px-10 py-24 md:py-32 border-t border-foreground bg-foreground text-background">
       <Reveal>

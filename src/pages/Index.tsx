@@ -70,8 +70,15 @@ const Index = () => (
         </Reveal>
 
         <Reveal delay={0.3}>
-          <p className="mt-4 font-display text-[20px] md:text-[28px] leading-[1.1] tracking-[-0.02em] min-h-[1.2em]">
-            <TypingLoop text="PRACTICAL. BOLD. DONE." />
+          <p className="mt-4 font-display text-[20px] md:text-[28px] leading-[1.2] tracking-[-0.02em]">
+            <RotatingHeadline
+              items={[
+                "PRACTICAL · BOLD · DONE",
+                "FROM IDEA → FINAL CUT",
+                "ONE TEAM · NO HANDOFF",
+                "BANGKOK · 2019—",
+              ]}
+            />
           </p>
         </Reveal>
       </div>

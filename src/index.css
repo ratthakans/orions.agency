@@ -128,7 +128,7 @@
   position: fixed; inset: 0;
   pointer-events: none;
   z-index: 100;
-  opacity: 0.06;
+  opacity: 0.03;
   mix-blend-mode: multiply;
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwBAMAAAClLOS0AAAAElBMVEUAAAAAAAAAAAAAAAAAAAAAAADgKxmiAAAABnRSTlMFBQUFBQVWlpRqAAAASUlEQVQ4y2NgQALMDKiABUlABElAGEmAEUmADUlAAEmACklABUlADUmAAUkgAElABUlADUlABUkgAElABUlADUlABUlAAEmAAQDa+QIJ9RNwIAAAAABJRU5ErkJggg==");
   background-size: 180px 180px;

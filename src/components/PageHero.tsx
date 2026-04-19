@@ -1,37 +1,36 @@
 import Reveal from "@/components/Reveal";
+import { ReactNode } from "react";
 
 interface Props {
-  eyebrowNumber: string;
-  eyebrowLabel: string;
-  title: string;
-  subtitle?: string;
+  eyebrow?: string;
+  /** Title can include JSX for italic accents */
+  title: ReactNode;
+  subtitle?: ReactNode;
+  meta?: string;
 }
 
-const PageHero = ({ eyebrowNumber, eyebrowLabel, title, subtitle }: Props) => (
+/** Unified left-aligned editorial hero used on About / Work / Services / Contact */
+const PageHero = ({ eyebrow, title, subtitle, meta = "ØRIONS · BANGKOK" }: Props) => (
   <section className="px-6 md:px-10 pt-28 md:pt-32 pb-16 md:pb-24">
-    {(eyebrowNumber || eyebrowLabel) && (
-      <Reveal>
-        <div className="border-t border-foreground pt-3 pb-3 flex items-center justify-between">
-          <span className="index-badge font-bold">{eyebrowNumber} — {eyebrowLabel}</span>
-          <span className="index-badge font-medium text-muted-foreground hidden sm:inline">ØRIONS · BANGKOK</span>
-        </div>
-      </Reveal>
-    )}
-    <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 mt-12 md:mt-16">
-      <div className="md:col-span-9">
-        <Reveal delay={0.1}>
-          <h1 className="font-display text-[48px] md:text-[96px] leading-[0.95] tracking-[-0.04em] whitespace-pre-line">
-            {title}
-          </h1>
-        </Reveal>
+    <Reveal>
+      <div className="border-t border-foreground pt-3 pb-3 flex items-center justify-between">
+        <span className="index-badge font-bold">{eyebrow ?? "INDEX"}</span>
+        <span className="index-badge font-medium text-muted-foreground hidden sm:inline">{meta}</span>
       </div>
+    </Reveal>
+    <div className="mt-12 md:mt-16">
+      <Reveal delay={0.1}>
+        <h1 className="font-display leading-[0.86] tracking-[-0.05em]" style={{ fontSize: "clamp(56px, 11vw, 132px)" }}>
+          {title}
+        </h1>
+      </Reveal>
       {subtitle && (
-        <div className="md:col-span-7 md:col-start-3">
-          <Reveal delay={0.2}>
-            <p className="mt-6 text-[16px] md:text-[18px] leading-[1.7] text-muted-foreground font-thai">
-              {subtitle}
-            </p>
-          </Reveal>
+        <div className="mt-10 md:mt-12 grid grid-cols-1 md:grid-cols-12 gap-8">
+          <div className="md:col-span-7 md:col-start-6">
+            <Reveal delay={0.2}>
+              <p className="text-[16px] md:text-[19px] leading-[1.7] text-muted-foreground font-thai">{subtitle}</p>
+            </Reveal>
+          </div>
         </div>
       )}
     </div>

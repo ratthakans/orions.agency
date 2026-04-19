@@ -34,11 +34,7 @@ const worksAcrossIndustries = [
   { tag: "National Campaign", name: "HEAVY ORGANIZER", body: "แคมเปญสื่อสารระดับประเทศที่สร้างแรงกระเพื่อมจริง", img: approachRunning },
 ];
 
-const worksHighImpact = [
-  { tag: "Sports Branding", name: "LEICESTER × BURIRAM ESPORT", body: "งานสื่อสารแบรนด์กีฬาระดับสากล", img: approachTaxi },
-  { tag: "Healthcare", name: "SIRIRAJ HOSPITAL", body: "การเล่าเรื่องความเชื่อมั่นทางการแพทย์ให้เข้าถึงง่าย", img: whatWindow },
-  { tag: "Automotive", name: "AUDI THAILAND", body: "โปรดักชันสะท้อนภาพลักษณ์ความพรีเมียมระดับโลก", img: whatVortex },
-];
+// (worksHighImpact moved to /work)
 
 const worksStorytelling = [
   { tag: "Documentary", name: "เถื่อน Travel · เกิดแก่เจ็บโต · ท่วงทำนองที่เลือนหาย", body: "สารคดีที่บันทึกชีวิตและความเปลี่ยนแปลง", img: approachRunning },
@@ -127,16 +123,14 @@ const Index = () => (
         <div className="md:col-span-7 flex flex-col">
           {pressures.map((p, i) => (
             <Reveal key={p.label} delay={0.2 + i * 0.1}>
-              <div className={`group relative py-10 md:py-14 ${i === 0 ? "border-t" : ""} border-b border-foreground transition-colors duration-500 hover:bg-foreground hover:text-background cursor-default overflow-hidden`}>
+              <div className={`group relative py-10 md:py-14 ${i === 0 ? "border-t" : ""} border-b border-soft cursor-default`}>
                 <div className="grid grid-cols-12 gap-6 md:gap-8 items-start px-2 md:px-6">
-                  {/* Index marker */}
                   <div className="col-span-2 md:col-span-1 pt-3">
-                    <span className="font-mono text-[11px] tracking-[0.12em] text-muted-foreground transition-colors duration-500 group-hover:text-background/60">
+                    <span className="font-mono text-[11px] tracking-[0.12em] text-muted-foreground">
                       0{i + 1}
                     </span>
                   </div>
 
-                  {/* Stat */}
                   <div className="col-span-10 md:col-span-4">
                     <CountUp
                       to={p.stat}
@@ -144,25 +138,19 @@ const Index = () => (
                       suffix={p.suffix}
                       decimals={p.decimals}
                       className="font-display text-[64px] md:text-[88px] leading-[0.9] tracking-[-0.04em] block transition-transform duration-500 group-hover:-translate-y-1"
-                      suffixClassName={p.suffix === "x" ? "" : "text-[28px] md:text-[36px] tracking-normal ml-1 align-baseline text-muted-foreground group-hover:text-background/70"}
+                      suffixClassName={p.suffix === "x" ? "" : "text-[28px] md:text-[36px] tracking-normal ml-1 align-baseline text-muted-foreground"}
                     />
                   </div>
 
-                  {/* Label + body */}
                   <div className="col-span-12 md:col-span-7 md:pt-3">
-                    <div className="index-badge text-foreground transition-colors duration-500 group-hover:text-background">
+                    <div className="index-badge text-foreground">
                       {p.label}
                     </div>
-                    <div className="mt-3 hairline w-8 transition-colors duration-500 group-hover:bg-background/40" />
-                    <p className="mt-4 text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground font-thai transition-colors duration-500 group-hover:text-background/80 max-w-[420px]">
+                    <div className="mt-3 hairline w-8" />
+                    <p className="mt-4 text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground font-thai max-w-[420px]">
                       {p.body}
                     </p>
                   </div>
-                </div>
-
-                {/* Hover arrow */}
-                <div className="absolute bottom-4 right-4 md:bottom-6 md:right-6 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500">
-                  <ArrowUpRight className="w-5 h-5" />
                 </div>
               </div>
             </Reveal>
@@ -237,15 +225,15 @@ const Index = () => (
       <div className="mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-background/30 border border-background/30">
         {appliedSolutions.map((s, i) => (
           <Reveal key={s.n} delay={0.05 * i}>
-            <article className="group h-full p-7 md:p-9 bg-foreground text-background hover:bg-background hover:text-foreground transition-colors duration-500 flex flex-col">
+            <article className="group h-full p-7 md:p-9 bg-foreground text-background flex flex-col">
               <div className="flex items-baseline justify-between">
                 <div className="font-mono text-[11px] tracking-[0.12em] opacity-60">{s.n}</div>
                 <ArrowUpRight className="w-4 h-4 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500" />
               </div>
-              <h3 className="mt-10 md:mt-14 font-display text-[24px] md:text-[28px] leading-[1.05] tracking-[-0.02em]">
+              <h3 className="mt-10 md:mt-14 font-display text-[24px] md:text-[28px] leading-[1.05] tracking-[-0.02em] transition-transform duration-500 group-hover:translate-x-1">
                 {s.title}
               </h3>
-              <div className="mt-5 hairline w-8 bg-background/40 group-hover:bg-foreground/40 transition-colors duration-500" />
+              <div className="mt-5 hairline w-8 bg-background/40" />
               <p className="mt-5 text-[14px] leading-[1.7] font-thai opacity-75">
                 {s.body}
               </p>
@@ -310,57 +298,7 @@ const Index = () => (
             ))}
           </div>
 
-          {/* HIGH-IMPACT — inserted between as single big video showcase */}
-          {cat.ci === 1 && (
-            <div className="mt-20">
-              <Reveal>
-                <div className="border-t border-foreground pt-3 pb-3 flex items-center justify-between">
-                  <span className="index-badge font-bold">02 / HIGH-IMPACT DIGITAL CONTENT</span>
-                  <span className="index-badge font-medium text-muted-foreground hidden sm:inline">FEATURE REEL</span>
-                </div>
-              </Reveal>
-              <Reveal delay={0.1}>
-                <div className="mt-8 group relative bg-foreground border border-foreground overflow-hidden">
-                  <div className="relative aspect-video w-full overflow-hidden bg-surface-2">
-                    <img
-                      src={worksHighImpact[0].img}
-                      alt="High-Impact Digital Content showreel"
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
-                    />
-                    {/* Vignette overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/20 to-transparent" />
-                    {/* Play marker */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-20 h-20 md:w-28 md:h-28 rounded-full border-2 border-background flex items-center justify-center bg-foreground/40 backdrop-blur-sm">
-                        <div
-                          className="w-0 h-0 border-y-[14px] md:border-y-[18px] border-y-transparent border-l-[22px] md:border-l-[28px] border-l-background ml-2"
-                          aria-hidden
-                        />
-                      </div>
-                    </div>
-                    {/* Bottom meta */}
-                    <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12 text-background">
-                      <div className="flex items-end justify-between gap-6">
-                        <div className="max-w-[640px]">
-                          <div className="index-badge opacity-70">SHOWREEL · 2024</div>
-                          <h3 className="mt-3 font-display text-[28px] md:text-[56px] leading-[0.95] tracking-[-0.03em]">
-                            High-Impact<br />Digital Content.
-                          </h3>
-                          <p className="mt-4 text-[14px] md:text-[16px] leading-[1.6] font-thai opacity-80 max-w-[520px]">
-                            Production คุณภาพระดับสากล — Audi, Siriraj, Leicester × Buriram และอีกมากมาย ที่ออกแบบเพื่อหยุดสายตาตั้งแต่วินาทีแรก
-                          </p>
-                        </div>
-                        <div className="hidden md:flex flex-col items-end gap-2">
-                          <ArrowUpRight className="w-8 h-8" />
-                          <span className="index-badge opacity-70">WATCH REEL</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Reveal>
-            </div>
-          )}
+          {/* (High-Impact reel moved to /work) */}
         </div>
       ))}
 
@@ -372,102 +310,33 @@ const Index = () => (
     </section>
 
 
-    {/* CLOSING — ØRIONS AUDIT + LET'S WORK merged */}
-    <section className="relative bg-foreground text-background overflow-hidden border-t border-foreground">
-      <div className="px-6 md:px-10 pt-6 pb-3 flex items-center justify-between border-b border-background/20">
-        <span className="index-badge font-bold">ØRIONS AUDIT × LET'S WORK</span>
-        <span className="index-badge font-medium opacity-60 hidden sm:inline">FREE · LIMITED · BANGKOK</span>
+    {/* CLOSING — clean two-line CTA strip */}
+    <section className="relative bg-foreground text-background border-t border-foreground px-6 md:px-10 py-24 md:py-40">
+      <div className="border-t border-background/30 pt-3 pb-3 flex items-center justify-between gap-6">
+        <span className="index-badge font-bold inline-flex items-center gap-3">
+          <span className="opacity-60 font-mono">07</span>
+          <span className="block w-4 h-px bg-background/40" />
+          <span>UNSTUCK</span>
+        </span>
+        <span className="index-badge font-medium opacity-60 hidden sm:inline">PRACTICAL · BOLD · DONE</span>
       </div>
 
-      {/* Massive headline */}
       <Reveal delay={0.05}>
-        <div className="px-6 md:px-10 pt-20 md:pt-32 pb-10 md:pb-16">
-          <h2 className="font-display text-[16vw] md:text-[15vw] leading-[0.85] tracking-[-0.05em]">
-            UNSTUCK<br /><span className="opacity-40">YOUR BIZ.</span>
-          </h2>
-          <p className="mt-10 font-thai text-[18px] md:text-[24px] max-w-[640px] leading-[1.5] opacity-80">
-            Stop guessing. Start applying. — <span className="font-bold text-background">Practical. Bold. Done.</span>
-          </p>
-        </div>
+        <h2 className="mt-16 md:mt-24 font-display leading-[0.86] tracking-[-0.05em]" style={{ fontSize: "clamp(56px, 11vw, 132px)" }}>
+          Stop guessing.<br /><span className="opacity-50">Start applying.</span>
+        </h2>
       </Reveal>
 
-      {/* AUDIT highlight band */}
-      <div className="border-t border-background/20 grid grid-cols-1 lg:grid-cols-12">
-        <div className="lg:col-span-7 p-8 md:p-14 lg:border-r lg:border-background/20">
-          <div className="flex items-center gap-4 mb-8">
-            <span className="index-badge bg-background text-foreground px-3 py-1">FREE DIAGNOSTIC</span>
-            <span className="index-badge opacity-60">60 MIN · NO STRINGS</span>
-          </div>
-          <Reveal>
-            <h3 className="font-display text-[44px] md:text-[88px] leading-[0.9] tracking-[-0.04em]">
-              ØRIONS Audit. <span className="opacity-50">Free.</span>
-            </h3>
-          </Reveal>
-          <Reveal delay={0.15}>
-            <p className="mt-8 max-w-[560px] text-[16px] md:text-[18px] leading-[1.65] font-thai opacity-85">
-              เราไม่ได้มาขอโอกาส แต่มาเพื่อชี้ <span className="font-bold">"จุดตาย"</span> และหา <span className="font-bold">"ทางรอด"</span> ให้ธุรกิจของคุณ — รับเฉพาะธุรกิจที่ต้องการเปลี่ยนแปลงจริง
-            </p>
-          </Reveal>
+      <Reveal delay={0.15}>
+        <div className="mt-12 md:mt-16 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+          <Link to="/contact#audit" className="inline-flex items-center gap-3 bg-background text-foreground px-7 py-4 index-badge hover:opacity-90 transition-opacity">
+            Request the ØRIONS Audit <ArrowUpRight className="w-4 h-4" />
+          </Link>
+          <Link to="/contact" className="inline-flex items-center gap-2 index-badge text-background border-b border-background pb-1 hover:opacity-60 transition-opacity">
+            Or start a project <ArrowUpRight className="w-3.5 h-3.5" />
+          </Link>
         </div>
-
-        <ul className="lg:col-span-5 flex flex-col border-t lg:border-t-0 border-background/20">
-          {[
-            { n: "01", t: "Diagnose", b: "วิเคราะห์จุดตันและจุดที่งบรั่วไหลด้วยตรรกะและข้อมูลจริง" },
-            { n: "02", t: "Roadmap", b: "แนวทางแก้ไขเบื้องต้น พร้อมลำดับความสำคัญที่ต้องลงมือ" },
-            { n: "03", t: "No Pitch", b: "ไม่มีค่าใช้จ่าย ไม่มี deck ขายของ — ตรงประเด็นเท่านั้น" },
-          ].map((it, i) => (
-            <li key={it.n} className={`p-6 md:p-8 ${i > 0 ? "border-t border-background/20" : ""} flex-1`}>
-              <div className="flex items-baseline justify-between">
-                <span className="index-badge opacity-60">{it.n}</span>
-                <ArrowUpRight className="w-4 h-4 opacity-40" />
-              </div>
-              <div className="mt-4 font-display text-[20px] md:text-[24px] tracking-[-0.02em]">{it.t}</div>
-              <p className="mt-2 text-[13px] md:text-[14px] leading-[1.65] font-thai opacity-75">{it.b}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {/* Action row — 2 paths */}
-      <div className="grid grid-cols-1 md:grid-cols-12 border-t border-background/20">
-        <Link to="/contact#audit" className="md:col-span-7 group p-8 md:p-12 flex items-center justify-between border-b md:border-b-0 md:border-r border-background/20 hover:bg-background hover:text-foreground transition-colors">
-          <div>
-            <div className="index-badge opacity-60 group-hover:opacity-100">FREE</div>
-            <div className="mt-3 font-display text-[28px] md:text-[44px] tracking-[-0.03em] leading-[0.95]">Request your Audit →</div>
-          </div>
-          <ArrowUpRight className="w-8 h-8 md:w-12 md:h-12 transition-transform duration-500 group-hover:rotate-45" />
-        </Link>
-        <Link to="/contact" className="md:col-span-5 group p-8 md:p-12 flex items-center justify-between hover:bg-background hover:text-foreground transition-colors">
-          <div>
-            <div className="index-badge opacity-60 group-hover:opacity-100">START</div>
-            <div className="mt-3 font-display text-[24px] md:text-[32px] tracking-[-0.03em] leading-[0.95]">Start a project →</div>
-          </div>
-          <ArrowUpRight className="w-6 h-6 md:w-8 md:h-8 transition-transform duration-500 group-hover:rotate-45" />
-        </Link>
-      </div>
-
-      {/* Footer meta */}
-      <div className="grid grid-cols-1 md:grid-cols-3 border-t border-background/20">
-        <div className="p-6 md:p-10 md:border-r border-background/20">
-          <div className="index-badge opacity-60">EMAIL</div>
-          <a href="mailto:hello@orions.agency" className="mt-3 block font-display text-[16px] md:text-[18px] hover:underline">
-            hello@orions.agency
-          </a>
-        </div>
-        <div className="p-6 md:p-10 md:border-r border-background/20 border-t md:border-t-0">
-          <div className="index-badge opacity-60">PHONE</div>
-          <a href="tel:+66923905464" className="mt-3 block font-display text-[16px] md:text-[18px] hover:underline">
-            +66 92 390 5464
-          </a>
-        </div>
-        <div className="p-6 md:p-10 border-t md:border-t-0 border-background/20">
-          <div className="index-badge opacity-60">STUDIO</div>
-          <p className="mt-3 text-[13px] md:text-[14px] font-mono opacity-70 leading-relaxed">
-            246/8 SOI YOTHINPHATTHANA<br />
-            BANG KAPI · BANGKOK 10240
-          </p>
-        </div>
-      </div>
+      </Reveal>
     </section>
   </div>
 );

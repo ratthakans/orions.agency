@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
 import { ArrowUpRight, Play } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import PageHero from "@/components/PageHero";
 import SectionHeader from "@/components/SectionHeader";
+import CTA from "@/components/CTA";
 import SEO from "@/components/SEO";
 
 const heroProjects = [
@@ -72,21 +72,10 @@ const Work = () => (
   <div>
     <SEO title="Work — ØRIONS" description="Selected projects across politics, mobility, hospitality, healthcare and culture." path="/work" />
 
-    <section className="px-6 md:px-10 pt-28 md:pt-32 pb-16 md:pb-24">
-      <Reveal>
-        <h1 className="font-display text-[56px] md:text-[140px] leading-[0.86] tracking-[-0.05em]">
-          Sharper{" "}
-          <span
-            className="italic font-normal"
-            style={{ fontFamily: "'Cutive', serif", textTransform: "none", letterSpacing: "-0.02em" }}
-          >
-            ideas
-          </span>
-          .<br />
-          Real outcomes<span className="text-muted-foreground">.</span>
-        </h1>
-      </Reveal>
-    </section>
+    <PageHero
+      eyebrow="WORK · INDEX"
+      title={<>Sharper <span className="italic font-normal" style={{ fontFamily: "'Cutive', serif", textTransform: "none", letterSpacing: "-0.02em" }}>ideas</span>.<br />Real outcomes<span className="text-muted-foreground">.</span></>}
+    />
 
     {/* FEATURED VIDEO REEL */}
     <section className="px-6 md:px-10 pb-20 md:pb-28">
@@ -119,8 +108,8 @@ const Work = () => (
     </section>
 
     {/* HERO PROJECTS — visual cards */}
-    <section className="px-6 md:px-10 pb-20 md:pb-28">
-      <SectionHeader left="HERO PROJECTS" right="four featured cases" />
+    <section className="px-6 md:px-10 pb-24 md:pb-32">
+      <SectionHeader index="01" left="HERO PROJECTS" right={`${heroProjects.length} FEATURED CASES`} />
 
       <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
         {heroProjects.map((p, i) => (
@@ -133,7 +122,7 @@ const Work = () => (
                   loading="lazy"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors duration-500" />
                 <div className="absolute top-4 left-4 flex items-center gap-2">
                   <span className="bg-background text-foreground px-2 py-1 index-badge">{p.n}</span>
                   <span className="bg-foreground text-background px-2 py-1 index-badge">{p.tag}</span>
@@ -164,8 +153,8 @@ const Work = () => (
     </section>
 
     {/* MORE PROJECTS — image-led grid */}
-    <section className="px-6 md:px-10 py-20 md:py-28 bg-surface border-y border-foreground">
-      <SectionHeader left="MORE SELECTED" right="across industries" />
+    <section className="px-6 md:px-10 py-24 md:py-32 bg-surface border-y border-foreground">
+      <SectionHeader index="02" left="MORE SELECTED" right="ACROSS INDUSTRIES" />
 
       <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
         {more.map((p, i) => (
@@ -189,8 +178,8 @@ const Work = () => (
     </section>
 
     {/* COMMERCIALS — video-style hover cards */}
-    <section className="px-6 md:px-10 py-20 md:py-28">
-      <SectionHeader left="SOCIAL & COMMERCIALS" />
+    <section className="px-6 md:px-10 py-24 md:py-32">
+      <SectionHeader index="03" left="SOCIAL & COMMERCIALS" right={`${reels.length} TITLES`} />
 
       <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-foreground border border-foreground">
         {reels.map((c, i) => (
@@ -202,7 +191,7 @@ const Work = () => (
                 loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover opacity-90 transition-opacity duration-500 group-hover:opacity-100"
               />
-              <div className="absolute inset-0 bg-foreground/40 group-hover:bg-foreground/20 transition-colors duration-500" />
+              <div className="absolute inset-0 bg-foreground/30 group-hover:bg-foreground/10 transition-colors duration-500" />
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="w-14 h-14 border-2 border-background flex items-center justify-center">
                   <Play className="w-5 h-5 text-background fill-background" />
@@ -222,22 +211,19 @@ const Work = () => (
     </section>
 
     {/* LONG-FORM — cinematic dark theatre */}
-    <section className="px-6 md:px-10 py-20 md:py-28 bg-foreground text-background border-y border-foreground">
-      <div className="border-t border-background/30 pt-3 pb-3 flex items-center justify-between">
-        <span className="index-badge font-bold">ENTERTAINMENT & LONG-FORM</span>
-        <span className="index-badge font-medium opacity-60">{String(longform.length).padStart(2, "0")} titles</span>
+    <section className="px-6 md:px-10 py-24 md:py-32 bg-foreground text-background border-y border-foreground">
+      <div className="border-t border-background/40 pt-3 pb-3 flex items-center justify-between gap-6">
+        <span className="index-badge font-bold inline-flex items-center gap-3">
+          <span className="opacity-60 font-mono">04</span>
+          <span className="block w-4 h-px bg-background/40" />
+          <span>ENTERTAINMENT & LONG-FORM</span>
+        </span>
+        <span className="index-badge font-medium opacity-60 hidden sm:inline">{String(longform.length).padStart(2, "0")} TITLES</span>
       </div>
 
       <Reveal>
-        <h2 className="mt-12 font-display text-[40px] md:text-[80px] leading-[0.9] tracking-[-0.04em] max-w-[1100px]">
-          Stories worth<br />
-          <span
-            className="italic font-normal"
-            style={{ fontFamily: "'Cutive', serif", textTransform: "none", letterSpacing: "-0.02em" }}
-          >
-            sitting
-          </span>{" "}
-          through<span className="opacity-50">.</span>
+        <h2 className="mt-12 font-display text-[40px] md:text-[72px] leading-[0.92] tracking-[-0.03em] max-w-[1100px]">
+          Stories worth sitting through<span className="opacity-50">.</span>
         </h2>
       </Reveal>
 
@@ -310,17 +296,17 @@ const Work = () => (
     </section>
 
     {/* CTA */}
-    <section className="px-6 md:px-10 py-20 md:py-28">
+    <section className="px-6 md:px-10 py-24 md:py-32">
       <div>
         <Reveal>
-          <h2 className="font-display text-[36px] md:text-[64px] leading-[0.95] tracking-[-0.03em] max-w-[800px]">
+          <h2 className="font-display text-[40px] md:text-[72px] leading-[0.92] tracking-[-0.03em] max-w-[800px]">
             Have a project in mind?
           </h2>
         </Reveal>
         <Reveal delay={0.1}>
-          <Link to="/contact" className="mt-10 inline-flex items-center gap-3 bg-foreground text-background px-7 py-4 index-badge hover:opacity-90 transition-opacity">
-            Start a conversation <ArrowUpRight className="w-4 h-4" />
-          </Link>
+          <div className="mt-10">
+            <CTA to="/contact">Start a conversation</CTA>
+          </div>
         </Reveal>
       </div>
     </section>

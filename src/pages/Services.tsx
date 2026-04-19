@@ -1,8 +1,7 @@
-import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import PageHero from "@/components/PageHero";
-import SectionHeader from "@/components/SectionHeader";
+import CTA from "@/components/CTA";
 import SEO from "@/components/SEO";
 
 const services = [
@@ -113,24 +112,24 @@ const Services = () => (
     />
 
     <PageHero
-      eyebrowNumber=""
-      eyebrowLabel=""
-      title="Applied Solution"
+      eyebrow="INDEX · 01–04"
+      title={<>Applied <span className="italic font-normal" style={{ fontFamily: "'Cutive', serif", textTransform: "none", letterSpacing: "-0.02em" }}>solutions</span>.</>}
+      subtitle="สี่ practices หนึ่ง outcome — ความชัด ที่จับต้องได้และวัดผลได้จริง"
     />
 
     <section className="px-6 md:px-10 pb-10">
       <div className="border-t border-foreground">
         {services.map((s) => (
           <Reveal key={s.n}>
-            <article className="group py-16 md:py-24 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 border-b border-border-soft transition-colors duration-500 hover:bg-foreground hover:text-background -mx-6 md:-mx-10 px-6 md:px-10">
+            <article className="group py-20 md:py-28 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 border-b border-soft transition-colors duration-500">
               <header className="lg:col-span-4">
-                <div className="font-display text-[80px] md:text-[120px] leading-[0.85] tracking-[-0.04em] transition-transform duration-500 group-hover:translate-x-2">
+                <div className="font-display text-[80px] md:text-[120px] leading-[0.85] tracking-[-0.04em] transition-transform duration-500 group-hover:translate-x-1 text-muted-foreground/40 group-hover:text-foreground">
                   {s.n}
                 </div>
                 <h2 className="mt-6 font-display text-[26px] md:text-[36px] leading-[1] tracking-[-0.02em]">
                   {s.title}
                 </h2>
-                <p className="mt-6 text-[15px] md:text-[16px] leading-[1.7] font-thai font-bold max-w-[380px]">
+                <p className="mt-6 text-[15px] md:text-[16px] leading-[1.7] font-thai max-w-[380px]">
                   {s.body}
                 </p>
               </header>
@@ -138,20 +137,20 @@ const Services = () => (
               <div className="lg:col-span-8 space-y-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                   <div>
-                    <div className="border-t border-current pt-3">
+                    <div className="border-t border-foreground pt-3">
                       <span className="index-badge font-bold">CAPABILITIES</span>
                     </div>
                     <ul className="mt-5 space-y-2 text-[14px] font-thai">
                       {s.items.map((it) => (
-                        <li key={it} className="flex gap-3 border-b border-current/20 pb-2 transition-transform duration-300 group-hover:translate-x-1">
-                          <span className="opacity-60">·</span>
+                        <li key={it} className="flex gap-3 border-b border-soft pb-2">
+                          <span className="text-muted-foreground">·</span>
                           <span>{it}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
                   <div>
-                    <div className="border-t border-current pt-3">
+                    <div className="border-t border-foreground pt-3">
                       <span className="index-badge font-bold">OUTCOMES</span>
                     </div>
                     <ul className="mt-5 space-y-3 text-[14px] font-thai">
@@ -165,14 +164,18 @@ const Services = () => (
                   </div>
                 </div>
 
-                <div className="grid grid-cols-3 gap-px bg-current border border-current">
+                <div className="grid grid-cols-3 gap-px bg-foreground border border-foreground">
                   {s.stats.map((st) => (
-                    <div key={st.l} className="bg-background text-foreground p-5 md:p-6 transition-colors duration-500 group-hover:bg-foreground group-hover:text-background">
+                    <div key={st.l} className="bg-background text-foreground p-5 md:p-6">
                       <div className="font-display text-[28px] md:text-[40px] leading-none tracking-[-0.03em]">{st.v}</div>
-                      <div className="mt-3 index-badge opacity-70">{st.l}</div>
+                      <div className="mt-3 index-badge text-muted-foreground">{st.l}</div>
                     </div>
                   ))}
                 </div>
+              </div>
+
+              <div className="lg:col-span-12 flex justify-end opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500">
+                <ArrowUpRight className="w-5 h-5" />
               </div>
             </article>
           </Reveal>
@@ -195,9 +198,9 @@ const Services = () => (
             </p>
           </Reveal>
           <Reveal delay={0.2}>
-            <Link to="/contact" className="mt-10 inline-flex items-center gap-3 bg-foreground text-background px-7 py-4 index-badge hover:opacity-90 transition-opacity">
-              Start a project <ArrowUpRight className="w-4 h-4" />
-            </Link>
+            <div className="mt-10">
+              <CTA to="/contact">Start a project</CTA>
+            </div>
           </Reveal>
         </div>
       </div>

@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
-import { ArrowUpRight, Instagram, Facebook } from "lucide-react";
+import { Instagram, Facebook } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SectionHeader from "@/components/SectionHeader";
+import CTA from "@/components/CTA";
 import SEO from "@/components/SEO";
 import aboutHero from "@/assets/about-hero.jpg";
 import founderImg from "@/assets/team/founder.jpg";
@@ -56,9 +56,9 @@ const PersonCard = ({ p, index, large = false }: { p: Person; index: number; lar
           height={960}
           className="absolute inset-0 w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-[1.02]"
         />
-        <div className="absolute top-3 left-3 right-3 flex items-center justify-between text-background mix-blend-difference">
-          <span className="index-badge">{String(index + 1).padStart(2, "0")}</span>
-          <span className="font-mono text-[10px]">ØRIONS</span>
+        <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
+          <span className="index-badge text-background bg-foreground/70 px-1.5 py-0.5">{String(index + 1).padStart(2, "0")}</span>
+          <span className="font-mono text-[10px] text-background bg-foreground/70 px-1.5 py-0.5">ØRIONS</span>
         </div>
       </div>
       <div className="pt-5 pb-1 flex items-start justify-between gap-4">
@@ -159,8 +159,15 @@ const About = () => (
     </section>
 
     {/* THE 6 METHODS */}
-    <section className="px-6 md:px-10 py-20 md:py-28 bg-foreground text-background border-y border-foreground">
-      <SectionHeader left="02 — THE METHOD" />
+    <section className="px-6 md:px-10 py-24 md:py-32 bg-foreground text-background border-y border-foreground">
+      <div className="border-t border-background/40 pt-3 pb-3 flex items-center justify-between gap-6">
+        <span className="index-badge font-bold inline-flex items-center gap-3">
+          <span className="opacity-60 font-mono">01</span>
+          <span className="block w-4 h-px bg-background/40" />
+          <span>METHOD</span>
+        </span>
+        <span className="index-badge font-medium opacity-60 hidden sm:inline">06 STEPS</span>
+      </div>
       <Reveal>
         <h2 className="mt-12 font-display text-[40px] md:text-[72px] leading-[0.92] tracking-[-0.03em] max-w-[900px]">
           The 6 Methods
@@ -190,29 +197,23 @@ const About = () => (
     </section>
 
     {/* TEAM */}
-    <section className="px-6 md:px-10 py-20 md:py-28">
+    <section className="px-6 md:px-10 py-24 md:py-32">
+      <SectionHeader index="02" left="TEAM" right={`${leadership.length + crew.length} PEOPLE`} />
       <Reveal>
-        <h2 className="font-display text-[40px] md:text-[72px] leading-[0.92] tracking-[-0.03em] max-w-[900px]">
-          People behind<br />the{" "}
-          <span
-            className="italic font-normal"
-            style={{ fontFamily: "'Cutive', serif", textTransform: "none", letterSpacing: "-0.02em" }}
-          >
-            output
-          </span>
-          <span className="text-muted-foreground">.</span>
+        <h2 className="mt-12 font-display text-[40px] md:text-[72px] leading-[0.92] tracking-[-0.03em] max-w-[900px]">
+          People behind<br />the output<span className="text-muted-foreground">.</span>
         </h2>
       </Reveal>
 
       {/* Leadership */}
-      <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+      <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
         {leadership.map((p, i) => (
           <PersonCard key={p.name} p={p} index={i} large />
         ))}
       </div>
 
       {/* Crew */}
-      <div className="mt-16 grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-10">
+      <div className="mt-16 grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
         {crew.map((p, i) => (
           <PersonCard key={p.name} p={p} index={i + 2} />
         ))}
@@ -220,17 +221,17 @@ const About = () => (
     </section>
 
     {/* CTA */}
-    <section className="px-6 md:px-10 py-20 md:py-28 border-t border-foreground">
+    <section className="px-6 md:px-10 py-24 md:py-32 border-t border-foreground">
       <div>
         <Reveal>
-          <h2 className="font-display text-[36px] md:text-[64px] leading-[0.95] tracking-[-0.03em] max-w-[860px]">
+          <h2 className="font-display text-[40px] md:text-[72px] leading-[0.92] tracking-[-0.03em] max-w-[860px]">
             Stop guessing.<br />Start applying.
           </h2>
         </Reveal>
         <Reveal delay={0.2}>
-          <Link to="/contact#audit" className="mt-10 inline-flex items-center gap-3 bg-foreground text-background px-7 py-4 index-badge hover:opacity-90 transition-opacity">
-            Request ØRIONS Audit (Free) <ArrowUpRight className="w-4 h-4" />
-          </Link>
+          <div className="mt-10">
+            <CTA to="/contact#audit">Request ØRIONS Audit (Free)</CTA>
+          </div>
         </Reveal>
       </div>
     </section>

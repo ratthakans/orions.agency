@@ -72,26 +72,22 @@ const Index = () => (
     </section>
 
     {/* THE PRESSURE */}
-    <section className="px-6 md:px-10 pt-16 pb-24 md:pb-32">
-      <SectionHeader left="02 — THE PRESSURE" right="3 forces against business today" />
+    <section className="px-6 md:px-10 min-h-screen flex flex-col justify-center py-20">
+      <div className="max-w-[1400px] mx-auto w-full">
+        <Reveal>
+          <h2 className="font-display text-[40px] md:text-[72px] leading-[0.95] tracking-[-0.03em] font-thai text-center">
+            3 จุดตายที่กัดกินงบประมาณ
+          </h2>
+        </Reveal>
 
-      <div className="mt-16 grid grid-cols-1 md:grid-cols-12 gap-10">
-        <div className="md:col-span-5">
-          <Reveal>
-            <h2 className="font-display text-[36px] md:text-[56px] leading-[0.95] tracking-[-0.03em] font-thai">
-              3 จุดตายที่กัดกิน<br />งบประมาณ
-            </h2>
-          </Reveal>
-        </div>
-
-        <div className="md:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-px bg-foreground border border-foreground">
+        <div className="mt-16 md:mt-24 grid grid-cols-1 md:grid-cols-3 gap-px bg-foreground border border-foreground">
           {pressures.map((p, i) => (
             <Reveal key={p.label} delay={i * 0.1}>
-              <div className="bg-background p-6 md:p-8 h-full">
-                <div className="index-badge text-muted-foreground">{p.label}</div>
+              <div className="group bg-background p-8 md:p-10 h-full transition-colors duration-500 hover:bg-foreground hover:text-background cursor-default">
+                <div className="index-badge text-muted-foreground transition-colors duration-500 group-hover:text-background/60">{p.label}</div>
                 <CountUp to={p.stat} prefix={p.prefix} suffix={p.suffix} decimals={p.decimals}
-                  className="mt-6 font-display text-[56px] md:text-[72px] leading-[0.9] tracking-[-0.04em] block" />
-                <p className="mt-6 text-[13px] leading-[1.65] text-muted-foreground font-thai">{p.body}</p>
+                  className="mt-8 font-display text-[64px] md:text-[96px] leading-[0.9] tracking-[-0.04em] block transition-transform duration-500 group-hover:-translate-y-1" />
+                <p className="mt-8 text-[14px] md:text-[15px] leading-[1.65] text-muted-foreground font-thai transition-colors duration-500 group-hover:text-background/80">{p.body}</p>
               </div>
             </Reveal>
           ))}

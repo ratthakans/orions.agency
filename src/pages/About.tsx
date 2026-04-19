@@ -89,7 +89,7 @@ const About = () => (
       title={<>The <span className="text-gradient">Applied</span> Creative<br />Agency<span className="text-muted-foreground">.</span></>}
     />
 
-    {/* WHO WE ARE — supporting block */}
+    {/* THE MEANING OF THE LINE — manifesto (replaces A NOTE) */}
     <section className="px-6 md:px-10 pb-24 md:pb-32">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-stretch">
         <div className="md:col-span-7">
@@ -102,8 +102,19 @@ const About = () => (
                 height={1280}
                 className="absolute inset-0 w-full h-full object-cover"
               />
+              <div className="absolute inset-0 bg-foreground/20 mix-blend-multiply pointer-events-none" />
               <div className="absolute top-4 left-4 right-4 flex items-center justify-between text-background">
                 <span className="index-badge">ØRIONS · BANGKOK</span>
+                <span className="index-badge opacity-70">— MANIFESTO</span>
+              </div>
+              <div className="absolute bottom-6 left-6 right-6 text-background">
+                <p className="font-display tracking-[-0.02em] leading-[1.15] text-[20px] md:text-[30px] max-w-[560px]">
+                  <span className="opacity-60">"</span>ดาวฤกษ์ทุกดวงมีแสงในตัวเอง<span className="opacity-60">…</span> แต่มันไม่มีความหมายอะไรเลย<span className="opacity-60">"</span>
+                </p>
+                <div className="mt-4 flex items-center gap-3">
+                  <span className="block w-8 h-px bg-background/70" />
+                  <span className="index-badge opacity-80">UNTIL SOMEONE DRAWS THE LINE</span>
+                </div>
               </div>
             </div>
           </Reveal>
@@ -111,16 +122,33 @@ const About = () => (
 
         <div className="md:col-span-5 flex flex-col justify-between">
           <Reveal delay={0.15}>
-            <span className="index-badge text-muted-foreground">— A NOTE</span>
-            <p className="mt-6 text-[16px] md:text-[19px] leading-[1.7] font-thai">
-              ØRIONS คือจุดบรรจบของความเร็วและสัญชาตญาณแบบกรุงเทพฯ และตรรกะและมาตรฐานระดับสากล เราปิดช่องว่างระหว่าง “ไอเดียที่ดูดีบนสไลด์” กับ “ผลลัพธ์ที่วัดได้จริงในธุรกิจ” เปลี่ยนทุกบาทของงบประมาณให้กลายเป็น Impact ที่จับต้องได้
-            </p>
+            <span className="index-badge text-muted-foreground">— THE MEANING OF THE LINE</span>
+            <div className="mt-6 space-y-5 text-[15px] md:text-[17px] leading-[1.75] font-thai">
+              <p>
+                จนกว่าจะมีคน <span className="font-display normal-case font-bold">"ลากเส้น"</span> เชื่อมพวกมันเข้าด้วยกัน
+                เส้นสายที่ลากผ่านความมืด คือสิ่งที่เปลี่ยนจุดสว่างที่กระจัดกระจาย ให้กลายเป็นรูปธรรม เป็นเรื่องเล่า และเป็นตำนาน
+              </p>
+              <p>
+                <span className="font-display normal-case font-bold">ØRIONS</span> คือคนลากเส้นสายเหล่านั้น
+                เราไม่ได้แค่รวบรวมคนเก่ง แต่เราคือคนที่เชื่อมโยงศักยภาพมหาศาล ให้กลายเป็น <span className="italic">'ทางออก'</span> ที่มีทิศทาง
+              </p>
+              <p>
+                เราเปลี่ยนแสงสว่างที่โดดเดี่ยว ให้กลายเป็น <span className="italic">'ความหมาย'</span> ที่ขับเคลื่อนธุรกิจของคุณได้จริง
+              </p>
+            </div>
           </Reveal>
           <Reveal delay={0.25}>
-            <p className="mt-10 md:mt-0 pt-8 border-t border-foreground text-[15px] md:text-[17px] leading-[1.6] font-thai">
-              ไม่ใช่แค่คนคิดเป็น ไม่ใช่แค่คนทำเป็น{" "}
-              <span className="font-display normal-case font-bold">แต่คือคนที่ทำให้ธุรกิจไปต่อได้</span>
-            </p>
+            <div className="mt-10 md:mt-0 pt-8 border-t border-foreground">
+              <p className="font-display tracking-[-0.02em] leading-[1.2] text-[18px] md:text-[22px]">
+                หยุดเดา แล้วเริ่ม<span className="italic">ลากเส้น</span>ที่ถูกต้องไปกับเรา<span className="text-muted-foreground">.</span>
+              </p>
+              <div className="mt-5 flex items-center justify-between">
+                <span className="index-badge text-muted-foreground">— SIGNED</span>
+                <span className="font-display tracking-[-0.02em] text-[13px] md:text-[15px]">
+                  ØRIONS Creative Co., Ltd.
+                </span>
+              </div>
+            </div>
           </Reveal>
         </div>
       </div>

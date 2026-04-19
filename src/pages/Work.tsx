@@ -64,7 +64,12 @@ const musicRow3: VideoReelItem[] = [
 ];
 
 const entertainmentLongForm: VideoReelItem[] = [
-  { tag: "Travel · Series", name: "เถื่อน TRAVEL", body: "รายการสารคดีเดินทางที่ผสานวัฒนธรรมและการค้นหาตัวตน", videoId: "s1x7o-sqphY" },
+  { tag: "Travel · EP 01", name: "เถื่อน TRAVEL · 01", body: "รายการสารคดีเดินทางที่ผสานวัฒนธรรมและการค้นหาตัวตน", videoId: "s1x7o-sqphY" },
+  { tag: "Travel · EP 02", name: "เถื่อน TRAVEL · 02", body: "ตอนใหม่ของการเดินทางสู่พื้นที่ที่ไม่คุ้นเคย", videoId: "2oyy7-2SuLU" },
+  { tag: "Travel · EP 03", name: "เถื่อน TRAVEL · 03", body: "บทสนทนาและภาพระหว่างทางที่ไม่เคยถูกเล่า", videoId: "A5Bce6V_Sv4" },
+  { tag: "Travel · EP 04", name: "เถื่อน TRAVEL · 04", body: "การค้นหาความหมายผ่านเส้นทางที่เลือกเอง", videoId: "Oz3id2nOmDE" },
+  { tag: "Travel · EP 05", name: "เถื่อน TRAVEL · 05", body: "ภาพและเสียงของผู้คนในที่ห่างไกล", videoId: "KsQpdA359Jw" },
+  { tag: "Travel · EP 06", name: "เถื่อน TRAVEL · 06", body: "ตอนพิเศษว่าด้วยมิตรภาพและการเดินทาง", videoId: "peLn0WISMrM" },
   { tag: "Documentary", name: "THE UPGRADE", body: "เรื่องราวการยกระดับชีวิตผ่านมุมมองที่จริงและจริงใจ", videoId: "nVkxo3pfrVE" },
   { tag: "Original Series", name: "เกิด/แก่/เจ็บ/โต", body: "ซีรีส์สารคดีว่าด้วยช่วงชีวิตของผู้คนในสังคมไทย", videoId: "W5mnOSlWVb4" },
   { tag: "Music · Culture", name: "เพลงลำคำเขื่อนแก้ว", body: "บันทึกเสียงและภาพของวัฒนธรรมหมอลำในยุคปัจจุบัน", videoId: "rx-a8myzwVg" },

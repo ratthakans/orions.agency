@@ -104,8 +104,8 @@ const About = () => (
     />
 
     {/* WHO IS ØRIONS — image dominant */}
-    <section className="relative px-6 md:px-10 py-24 md:py-32">
-      <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-start">
+    <section className="relative px-6 md:px-10 py-16 md:py-24">
+      <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start">
         <div className="md:col-span-7 order-2 md:order-1">
           <Reveal>
             <div className="aspect-[4/5] md:aspect-[5/4] overflow-hidden bg-surface-2 border border-foreground">
@@ -166,7 +166,7 @@ const About = () => (
     </section>
 
     {/* THE MEANING OF THE LINE — editorial asymmetric */}
-    <section className="relative px-6 md:px-10 py-24 md:py-32 border-t border-foreground bg-surface overflow-hidden">
+    <section className="relative px-6 md:px-10 py-16 md:py-24 border-t border-foreground bg-surface overflow-hidden">
       {/* Decorative oversized line — top right, rotated, intentional mark */}
       <div className="pointer-events-none absolute -top-10 -right-20 select-none">
         <div
@@ -200,7 +200,7 @@ const About = () => (
             <ConstellationLine className="w-full h-full" dots={3} />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
             {[
               {
                 n: "01",
@@ -252,7 +252,7 @@ const About = () => (
 
         {/* Signature row */}
         <Reveal delay={0.35}>
-          <div className="mt-24 md:mt-32 pt-8 border-t border-foreground flex flex-col md:flex-row md:items-end justify-between gap-8">
+          <div className="mt-12 pt-8 border-t border-foreground flex flex-col md:flex-row md:items-end justify-between gap-8">
             <p className="font-display tracking-[-0.02em] leading-[1.15] text-[24px] md:text-[36px] max-w-[680px]">
               หยุดเดา แล้วเริ่ม<span className="text-gradient italic"> ลากเส้น </span>ที่ถูกต้องไปกับเรา<span className="text-muted-foreground">.</span>
             </p>
@@ -268,7 +268,7 @@ const About = () => (
     </section>
 
     {/* THE 6 METHODS */}
-    <section className="px-6 md:px-10 py-24 md:py-32 bg-foreground text-background border-y border-foreground">
+    <section className="px-6 md:px-10 py-16 md:py-24 bg-foreground text-background border-t border-foreground">
       <SectionHeader index="01" left="METHOD" right="06 STEPS" variant="dark" />
       <Reveal>
         <h2 className="mt-12 font-display h-display-md max-w-[900px]">
@@ -336,7 +336,7 @@ const About = () => (
     </section>
 
     {/* TEAM */}
-    <section className="px-6 md:px-10 py-24 md:py-32">
+    <section className="px-6 md:px-10 py-16 md:py-24 border-t border-foreground">
       <SectionHeader index="02" left="TEAM" right={`${team.length} PEOPLE`} />
       <Reveal>
         <h2 className="mt-12 font-display h-display-md max-w-[900px]">

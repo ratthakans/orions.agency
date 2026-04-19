@@ -27,7 +27,7 @@ const Contact = () => {
       />
 
       {/* ØRIONS AUDIT — featured anchor card */}
-      <section id="audit" className="px-6 md:px-10 pb-16 md:pb-24 scroll-mt-24">
+      <section id="audit" className="px-6 md:px-10 py-16 md:py-24 scroll-mt-24">
         {/* Live availability marquee */}
         <Reveal>
           <div className="border border-foreground border-b-0 bg-background overflow-hidden">
@@ -100,8 +100,8 @@ const Contact = () => {
         </Reveal>
       </section>
 
-      <section id="inquiry" className="px-6 md:px-10 pb-24 md:pb-32 scroll-mt-24">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+      <section id="inquiry" className="px-6 md:px-10 py-16 md:py-24 border-t border-foreground scroll-mt-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12">
           <Reveal className="lg:col-span-7">
             <form onSubmit={submit} className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2">
               <div className="md:col-span-1">

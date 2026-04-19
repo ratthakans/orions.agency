@@ -108,7 +108,7 @@ const Index = () => (
     </section>
 
     {/* 03 — THE VICIOUS CYCLE */}
-    <section className="relative px-6 md:px-10 py-24 md:py-32 border-t border-foreground">
+    <section className="relative px-6 md:px-10 py-16 md:py-24 border-t border-foreground">
       <div className="max-w-[1400px] mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
         <div className="md:col-span-5 md:sticky md:top-32 md:self-start">
           <Reveal>
@@ -169,7 +169,7 @@ const Index = () => (
     </section>
 
     {/* APPLIED SOLUTIONS — the offer */}
-    <section className="relative px-6 md:px-10 py-24 md:py-32 border-t border-foreground bg-foreground text-background">
+    <section className="relative px-6 md:px-10 py-16 md:py-24 border-t border-foreground bg-foreground text-background">
       <Reveal>
         <h2 className="font-display h-display-md">
           Applied <span className="text-gradient">Solutions</span>.
@@ -198,13 +198,13 @@ const Index = () => (
     </section>
 
     {/* SELECTED WORK */}
-    <section className="relative px-6 md:px-10 py-24 md:py-32 border-t border-foreground">
+    <section className="relative px-6 md:px-10 py-16 md:py-24 border-t border-foreground">
       <SectionHeader left="SELECTED WORK" right="applied creative in action" />
 
       <SelectedWorkReel projects={heroProjects} />
 
       {/* Applied Creative Across Industries — small reel */}
-      <div className="mt-20">
+      <div className="mt-12">
         <SelectedWorkReel projects={worksAcrossIndustries} size="sm" />
       </div>
 
@@ -240,7 +240,7 @@ const Index = () => (
 
 
     {/* CLOSING — high-contrast CTA, distinct from footer */}
-    <section className="relative bg-background text-foreground border-t border-foreground px-6 md:px-10 py-24 md:py-32 overflow-hidden">
+    <section className="relative bg-background text-foreground border-t border-foreground px-6 md:px-10 py-16 md:py-20 overflow-hidden">
       <div className="max-w-[1400px] mx-auto">
         <Reveal>
           <div className="flex items-center gap-3">

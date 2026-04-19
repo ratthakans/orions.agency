@@ -125,11 +125,11 @@ const Work = () => (
     />
 
     {/* SELECTED WORK */}
-    <section className="relative px-6 md:px-10 py-20 md:py-24 border-t border-foreground">
+    <section className="relative px-6 md:px-10 py-16 md:py-24 border-t border-foreground">
       <SectionHeader left="SELECTED WORK" right="applied creative in action" />
       <SelectedWorkReel projects={heroProjects} />
 
-      <div className="mt-20">
+      <div className="mt-12">
         <SelectedWorkReel projects={worksAcrossIndustries} size="sm" />
       </div>
     </section>
@@ -148,7 +148,7 @@ const Work = () => (
     </section>
 
     {/* SOCIAL & COMMERCIALS — video reel */}
-    <section className="relative px-6 md:px-10 py-16 md:py-20 border-t border-foreground">
+    <section className="relative px-6 md:px-10 py-16 md:py-24 border-t border-foreground">
       <h2 className="font-display h-display-sm">
         Social &amp; <span className="italic opacity-70">Commercials</span>
       </h2>
@@ -173,7 +173,7 @@ const Work = () => (
     </section>
 
     {/* MUSIC & CREATIVE CONTENT — auto-scrolling marquees */}
-    <section className="relative py-16 md:py-20 border-t border-foreground overflow-hidden">
+<section className="relative py-16 md:py-24 border-t border-foreground overflow-hidden">
       <div className="px-6 md:px-10 flex items-end justify-between gap-6 flex-wrap mb-8 md:mb-10">
         <h2 className="font-display h-display-sm">
           Music &amp; <span className="italic opacity-70">Creative Content</span>

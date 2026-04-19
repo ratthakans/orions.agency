@@ -20,7 +20,7 @@ const PageHero = ({ eyebrowNumber, eyebrowLabel, title, subtitle }: Props) => (
     <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 mt-12 md:mt-16">
       <div className="md:col-span-9">
         <Reveal delay={0.1}>
-          <h1 className="font-display text-[48px] md:text-[96px] leading-[0.95] tracking-[-0.04em]">
+          <h1 className="font-display text-[48px] md:text-[96px] leading-[0.95] tracking-[-0.04em] whitespace-pre-line">
             {title}
           </h1>
         </Reveal>

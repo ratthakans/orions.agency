@@ -140,14 +140,14 @@ const Work = () => (
           Music &amp; <span className="italic opacity-70">Creative Content</span>
         </h2>
         <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
-          18 films · music · culture · loop
+          18 films · music · culture
         </span>
       </div>
 
-      <div className="space-y-5 md:space-y-7">
-        <MusicMarquee items={musicRow1} direction="left" speed={45} />
-        <MusicMarquee items={musicRow2} direction="right" speed={35} stagger cardClass="w-[240px] md:w-[300px]" />
-        <MusicMarquee items={musicRow3} direction="left" speed={50} cardClass="w-[280px] md:w-[340px]" />
+      <div className="px-6 md:px-10 space-y-6 md:space-y-10">
+        <MusicMarquee items={musicRow1} stagger={0} />
+        <MusicMarquee items={musicRow2} stagger={28} />
+        <MusicMarquee items={musicRow3} stagger={0} />
       </div>
     </section>
 

@@ -1,4 +1,3 @@
-import Reveal from "@/components/Reveal";
 import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import PageHero from "@/components/PageHero";

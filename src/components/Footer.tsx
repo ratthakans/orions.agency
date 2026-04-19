@@ -30,24 +30,24 @@ const Footer = () => (
         <div>
           <div className="index-badge opacity-50 mb-6">Reach</div>
           <div className="space-y-4 font-display text-[15px] md:text-[16px]">
-            <a href="mailto:hello@orions.agency" className="block hover:opacity-60 transition-opacity break-all">
+            <a href="mailto:hello@orions.agency" className="block transition-colors duration-300 hover:text-[hsl(var(--accent-to))] break-all">
               hello@orions.agency
             </a>
-            <a href="tel:+66923905464" className="block hover:opacity-60 transition-opacity">
+            <a href="tel:+66923905464" className="block transition-colors duration-300 hover:text-[hsl(var(--accent-to))]">
               +66 92 390 5464
             </a>
           </div>
           <div className="mt-6 flex items-center gap-2">
             <a href="https://instagram.com/orions.bkk" target="_blank" rel="noreferrer" aria-label="Instagram"
-               className="w-9 h-9 border border-background/25 flex items-center justify-center hover:bg-background hover:text-foreground transition-colors">
+               className="w-9 h-9 border border-background/25 flex items-center justify-center transition-all duration-300 hover:bg-gradient-accent hover:text-background hover:border-transparent">
               <Instagram className="w-4 h-4" />
             </a>
             <a href="https://facebook.com/orions.bkk" target="_blank" rel="noreferrer" aria-label="Facebook"
-               className="w-9 h-9 border border-background/25 flex items-center justify-center hover:bg-background hover:text-foreground transition-colors">
+               className="w-9 h-9 border border-background/25 flex items-center justify-center transition-all duration-300 hover:bg-gradient-accent hover:text-background hover:border-transparent">
               <Facebook className="w-4 h-4" />
             </a>
             <a href="mailto:hello@orions.agency" aria-label="Email"
-               className="w-9 h-9 border border-background/25 flex items-center justify-center hover:bg-background hover:text-foreground transition-colors">
+               className="w-9 h-9 border border-background/25 flex items-center justify-center transition-all duration-300 hover:bg-gradient-accent hover:text-background hover:border-transparent">
               <Mail className="w-4 h-4" />
             </a>
           </div>

@@ -14,12 +14,6 @@ const orionsSteps = [
   { letter: "S", title: "Success", body: "วัดผลความสำเร็จและขยายผล (Scale) ให้เติบโต" },
 ];
 
-const principles = [
-  { n: "01", t: "Practical", b: "เราชอบงานสวย แต่เราเลือกงานที่ใช้ได้จริงก่อนเสมอ — ไอเดียต้อง execute ได้" },
-  { n: "02", t: "Bold", b: "งานปลอดภัยคืองานที่ถูกมองข้าม เราเลือกความคมที่มีเหตุผลและ data รองรับ" },
-  { n: "03", t: "Done", b: "เราไม่ส่งมอบ paper strategy เราพาไอเดียไปสู่ผลลัพธ์ทางธุรกิจที่วัดผลได้จริง" },
-];
-
 const compare = [
   { t: "CONSULTANT", s: "ช่วยคิดได้", b: "แต่ไม่ได้พาไอเดียไปสู่ execution ที่วัดผลได้", us: false },
   { t: "STUDIO", s: "ช่วยทำได้", b: "แต่ไม่ได้เริ่มจากปัญหาธุรกิจที่ลึกพอทุกครั้ง", us: false },
@@ -34,21 +28,55 @@ const About = () => (
       path="/about"
     />
 
-    {/* HERO with image */}
-    <section className="px-6 md:px-10 pt-28 md:pt-32 pb-16 md:pb-24">
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10">
-        <div className="md:col-span-7">
+    {/* 01 — THE PROBLEM (now first) */}
+    <section className="px-6 md:px-10 pt-28 md:pt-32 pb-20 md:pb-28">
+      <SectionHeader left="01 — THE PROBLEM" right="why applied matters" />
+      <div className="mt-12 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10">
+        <div className="md:col-span-8">
           <Reveal>
-            <h1 className="font-display text-[48px] md:text-[88px] leading-[0.95] tracking-[-0.04em]">
-              The Applied<br />Creative Agency.
-            </h1>
-          </Reveal>
-          <Reveal delay={0.15}>
-            <p className="mt-8 max-w-[560px] text-[15px] md:text-[17px] leading-[1.7] font-thai text-muted-foreground">
-              เราคือจุดตัดระหว่าง <span className="font-display normal-case font-bold text-foreground">Bangkok Energy</span> (ความเร็ว) และ <span className="font-display normal-case font-bold text-foreground">Logical Standard</span> (ตรรกะสากล) เราทำหน้าที่เชื่อมช่องว่างระหว่าง "ไอเดียที่ดูดี" กับ "ผลลัพธ์ที่วัดผลได้" เพื่อเปลี่ยนงบประมาณที่สูญเปล่าให้เป็น Impact ที่แท้จริงของธุรกิจ
-            </p>
+            <h2 className="font-display text-[40px] md:text-[80px] leading-[0.92] tracking-[-0.04em]">
+              Good ideas<br />are cheap.<br />
+              <span className="italic font-normal" style={{ fontFamily: "'Cutive', serif", textTransform: "none" }}>
+                Applied
+              </span>{" "}
+              ideas<br />move business.
+            </h2>
           </Reveal>
         </div>
+        <div className="md:col-span-4 md:pt-4">
+          <Reveal delay={0.15}>
+            <div className="border-t border-foreground pt-6">
+              <p className="text-[15px] md:text-[17px] leading-[1.7] font-thai text-muted-foreground">
+                หลายธุรกิจติดอยู่ในวงจรที่จ่ายแพงขึ้น แต่ได้ผลลัพธ์เท่าเดิม เพราะ <span className="text-foreground font-medium">'ไอเดียที่ดูดี'</span> ไม่เคยถูกแปลงเป็นระบบที่ทำงานได้จริง
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+
+    {/* 02 — THE APPLIED CREATIVE AGENCY (redesigned typo) */}
+    <section className="px-6 md:px-10 py-20 md:py-28 border-t border-foreground">
+      <SectionHeader left="02 — WHO WE ARE" right="bangkok · est. 2014" />
+
+      <div className="mt-16 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-end">
+        <div className="md:col-span-7">
+          <Reveal>
+            <h1 className="font-display text-[56px] md:text-[112px] leading-[0.88] tracking-[-0.05em]">
+              The{" "}
+              <span
+                className="italic font-normal align-baseline"
+                style={{ fontFamily: "'Cutive', serif", textTransform: "none", letterSpacing: "-0.02em" }}
+              >
+                Applied
+              </span>
+              <br />
+              Creative<br />
+              Agency<span className="text-muted-foreground">.</span>
+            </h1>
+          </Reveal>
+        </div>
+
         <div className="md:col-span-5">
           <Reveal delay={0.1}>
             <div className="relative aspect-[4/5] w-full overflow-hidden bg-surface">
@@ -67,11 +95,30 @@ const About = () => (
           </Reveal>
         </div>
       </div>
+
+      <div className="mt-16 grid grid-cols-1 md:grid-cols-12 gap-8">
+        <div className="md:col-span-3">
+          <Reveal>
+            <span className="index-badge text-muted-foreground">— A NOTE</span>
+          </Reveal>
+        </div>
+        <div className="md:col-span-7">
+          <Reveal delay={0.1}>
+            <p className="text-[16px] md:text-[19px] leading-[1.7] font-thai">
+              เราคือจุดตัดระหว่าง{" "}
+              <span className="font-display normal-case font-bold">Bangkok Energy</span>{" "}
+              (ความเร็ว) และ{" "}
+              <span className="font-display normal-case font-bold">Logical Standard</span>{" "}
+              (ตรรกะสากล) เราทำหน้าที่เชื่อมช่องว่างระหว่าง "ไอเดียที่ดูดี" กับ "ผลลัพธ์ที่วัดผลได้" เพื่อเปลี่ยนงบประมาณที่สูญเปล่าให้เป็น Impact ที่แท้จริงของธุรกิจ
+            </p>
+          </Reveal>
+        </div>
+      </div>
     </section>
 
-    {/* O-R-I-O-N-S METHOD — 6 columns */}
+    {/* 03 — O-R-I-O-N-S METHOD */}
     <section className="px-6 md:px-10 py-20 md:py-28 bg-foreground text-background border-y border-foreground">
-      <SectionHeader left="THE METHOD" right="O · R · I · O · N · S" />
+      <SectionHeader left="03 — THE METHOD" right="O · R · I · O · N · S" />
       <Reveal>
         <h2 className="mt-12 font-display text-[40px] md:text-[72px] leading-[0.92] tracking-[-0.03em] max-w-[900px]">
           6 ขั้นตอน<br />สู่ผลลัพธ์ที่แม่นยำ
@@ -100,42 +147,9 @@ const About = () => (
       </div>
     </section>
 
-    {/* THE PROBLEM WE SOLVE */}
+    {/* 04 — WHY APPLIED */}
     <section className="px-6 md:px-10 py-20 md:py-28">
-      <SectionHeader left="THE PROBLEM" right="why applied matters" />
-      <div className="mt-12">
-        <Reveal>
-          <h2 className="font-display text-[36px] md:text-[56px] leading-[0.95] tracking-[-0.03em] max-w-[860px]">
-            Good ideas are cheap.<br />Applied ideas move business.
-          </h2>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <p className="mt-8 max-w-[700px] text-[16px] md:text-[18px] leading-[1.7] font-thai text-muted-foreground">
-            หลายธุรกิจติดอยู่ในวงจรที่จ่ายแพงขึ้น แต่ได้ผลลัพธ์เท่าเดิม เพราะ 'ไอเดียที่ดูดี' ไม่เคยถูกแปลงเป็นระบบที่ทำงานได้จริง
-          </p>
-        </Reveal>
-      </div>
-    </section>
-
-    {/* PRINCIPLES */}
-    <section className="px-6 md:px-10 py-20 md:py-28 border-y border-foreground">
-      <SectionHeader left="PRINCIPLES" right="three rules we live by" />
-      <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-px bg-foreground border border-foreground">
-        {principles.map((p, i) => (
-          <Reveal key={p.n} delay={i * 0.1}>
-            <div className="bg-background p-8 md:p-10 h-full">
-              <div className="font-display text-[60px] md:text-[80px] leading-[0.85]">{p.n}</div>
-              <h3 className="mt-8 font-display text-[24px] md:text-[28px]">{p.t}</h3>
-              <p className="mt-4 text-[14px] leading-[1.7] text-muted-foreground font-thai">{p.b}</p>
-            </div>
-          </Reveal>
-        ))}
-      </div>
-    </section>
-
-    {/* WHY APPLIED */}
-    <section className="px-6 md:px-10 py-20 md:py-28">
-      <SectionHeader left="WHY APPLIED" right="not consultant. not studio." />
+      <SectionHeader left="04 — WHY APPLIED" right="not consultant. not studio." />
       <div className="mt-12 max-w-[700px]">
         <Reveal>
           <p className="text-[16px] md:text-[18px] leading-[1.7] font-thai">
@@ -176,9 +190,6 @@ const About = () => (
           <h2 className="font-display text-[36px] md:text-[64px] leading-[0.95] tracking-[-0.03em] max-w-[860px]">
             Stop guessing.<br />Start applying.
           </h2>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <p className="mt-6 index-badge text-muted-foreground">PRACTICAL · BOLD · DONE</p>
         </Reveal>
         <Reveal delay={0.2}>
           <Link to="/contact#audit" className="mt-10 inline-flex items-center gap-3 bg-foreground text-background px-7 py-4 index-badge hover:opacity-90 transition-opacity">

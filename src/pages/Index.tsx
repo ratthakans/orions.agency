@@ -228,23 +228,11 @@ const Index = () => (
 
     {/* APPLIED SOLUTIONS — the offer */}
     <section className="relative px-6 md:px-10 py-20 md:py-28 border-t border-foreground bg-foreground text-background">
-      <div className="border-t border-background pt-3 pb-3 flex items-center justify-between">
-        <span className="index-badge font-bold">APPLIED SOLUTIONS</span>
-        <span className="index-badge font-medium opacity-60 hidden sm:inline">สิ่งที่เราส่งมอบให้คุณ</span>
-      </div>
-
-      <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-end">
-        <Reveal delay={0.1} className="md:col-span-8">
-          <h2 className="font-display text-[48px] md:text-[88px] leading-[0.92] tracking-[-0.04em]">
-            Four practices.<br />One outcome.
-          </h2>
-        </Reveal>
-        <Reveal delay={0.2} className="md:col-span-4">
-          <p className="text-[15px] md:text-[17px] leading-[1.7] font-thai text-background/70">
-            ครบทุกเครื่องมือที่ธุรกิจคุณต้องใช้ — ตั้งแต่กลยุทธ์จนถึงงานผลิต ภายใต้ทีมเดียว
-          </p>
-        </Reveal>
-      </div>
+      <Reveal>
+        <h2 className="font-display text-[48px] md:text-[88px] leading-[0.92] tracking-[-0.04em]">
+          Applied Solutions.
+        </h2>
+      </Reveal>
 
       <div className="mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-background/30 border border-background/30">
         {appliedSolutions.map((s, i) => (

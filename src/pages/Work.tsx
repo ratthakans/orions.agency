@@ -4,7 +4,7 @@ import PageHero from "@/components/PageHero";
 import SectionHeader from "@/components/SectionHeader";
 import SelectedWorkReel from "@/components/SelectedWorkReel";
 import VideoReel, { type VideoReelItem } from "@/components/VideoReel";
-import LongFormStack from "@/components/LongFormStack";
+import ShowRow, { type Show } from "@/components/ShowRow";
 
 import CTA from "@/components/CTA";
 import SEO from "@/components/SEO";
@@ -63,17 +63,54 @@ const musicRow3: VideoReelItem[] = [
   { tag: "Creative Cut", name: "CC · 06", body: "Creative storytelling cut", videoId: "8K6iMvHI_F8" },
 ];
 
-const entertainmentLongForm: VideoReelItem[] = [
-  { tag: "Travel · EP 01", name: "เถื่อน TRAVEL · 01", body: "รายการสารคดีเดินทางที่ผสานวัฒนธรรมและการค้นหาตัวตน", videoId: "s1x7o-sqphY" },
-  { tag: "Travel · EP 02", name: "เถื่อน TRAVEL · 02", body: "ตอนใหม่ของการเดินทางสู่พื้นที่ที่ไม่คุ้นเคย", videoId: "2oyy7-2SuLU" },
-  { tag: "Travel · EP 03", name: "เถื่อน TRAVEL · 03", body: "บทสนทนาและภาพระหว่างทางที่ไม่เคยถูกเล่า", videoId: "A5Bce6V_Sv4" },
-  { tag: "Travel · EP 04", name: "เถื่อน TRAVEL · 04", body: "การค้นหาความหมายผ่านเส้นทางที่เลือกเอง", videoId: "Oz3id2nOmDE" },
-  { tag: "Travel · EP 05", name: "เถื่อน TRAVEL · 05", body: "ภาพและเสียงของผู้คนในที่ห่างไกล", videoId: "KsQpdA359Jw" },
-  { tag: "Travel · EP 06", name: "เถื่อน TRAVEL · 06", body: "ตอนพิเศษว่าด้วยมิตรภาพและการเดินทาง", videoId: "peLn0WISMrM" },
-  { tag: "Documentary", name: "THE UPGRADE", body: "เรื่องราวการยกระดับชีวิตผ่านมุมมองที่จริงและจริงใจ", videoId: "nVkxo3pfrVE" },
-  { tag: "Original Series", name: "เกิด/แก่/เจ็บ/โต", body: "ซีรีส์สารคดีว่าด้วยช่วงชีวิตของผู้คนในสังคมไทย", videoId: "W5mnOSlWVb4" },
-  { tag: "Music · Culture", name: "เพลงลำคำเขื่อนแก้ว", body: "บันทึกเสียงและภาพของวัฒนธรรมหมอลำในยุคปัจจุบัน", videoId: "rx-a8myzwVg" },
-  { tag: "Music · Heritage", name: "ท่วงทำนองที่เลือนหาย", body: "ตามรอยเสียงดนตรีพื้นบ้านที่กำลังจะสูญหายไปจากแผ่นดิน", videoId: "ASjm7TKqf-M" },
+const entertainmentShows: Show[] = [
+  {
+    name: "เถื่อน TRAVEL",
+    meta: "Travel · Documentary",
+    body: "รายการสารคดีเดินทางที่ผสานวัฒนธรรมและการค้นหาตัวตน ผ่านเส้นทางที่ไม่คุ้นเคย",
+    episodes: [
+      { videoId: "s1x7o-sqphY", label: "EP 01" },
+      { videoId: "2oyy7-2SuLU", label: "EP 02" },
+      { videoId: "A5Bce6V_Sv4", label: "EP 03" },
+      { videoId: "Oz3id2nOmDE", label: "EP 04" },
+      { videoId: "KsQpdA359Jw", label: "EP 05" },
+      { videoId: "peLn0WISMrM", label: "EP 06" },
+      { videoId: "s1x7o-sqphY", label: "EP 07" },
+    ],
+  },
+  {
+    name: "THE UPGRADE",
+    meta: "Documentary · Series",
+    body: "เรื่องราวการยกระดับชีวิตผ่านมุมมองที่จริงและจริงใจ",
+    episodes: [
+      { videoId: "1XuM19cfaCs", label: "EP 01" },
+      { videoId: "nVkxo3pfrVE", label: "EP 02" },
+      { videoId: "8OXMw66-CmM", label: "EP 03" },
+      { videoId: "6ynFgJdBxIg", label: "EP 04" },
+      { videoId: "hG1enPTHCeQ", label: "EP 05" },
+      { videoId: "z1pu_lsKrPg", label: "EP 06" },
+      { videoId: "PQCbew-6Di0", label: "EP 07" },
+      { videoId: "dv1hWfTQH2I", label: "EP 08" },
+    ],
+  },
+  {
+    name: "เกิด/แก่/เจ็บ/โต",
+    meta: "Original Series · Thai PBS",
+    body: "ซีรีส์สารคดีว่าด้วยช่วงชีวิตของผู้คนในสังคมไทย",
+    episodes: Array.from({ length: 16 }, (_, i) => ({
+      label: `EP ${String(i + 1).padStart(2, "0")}`,
+      isPlaceholder: true,
+    })),
+  },
+  {
+    name: "ท่วงทำนองที่เลือนหาย",
+    meta: "Music · Heritage",
+    body: "ตามรอยเสียงดนตรีพื้นบ้านที่กำลังจะสูญหายไปจากแผ่นดิน",
+    episodes: Array.from({ length: 10 }, (_, i) => ({
+      label: `EP ${String(i + 1).padStart(2, "0")}`,
+      isPlaceholder: true,
+    })),
+  },
 ];
 
 const Work = () => (
@@ -129,10 +166,14 @@ const Work = () => (
           Entertainment &amp; <span className="italic opacity-70">Long-form</span>
         </h2>
         <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
-          {String(entertainmentLongForm.length).padStart(2, "0")} films · documentary · culture
+          {String(entertainmentShows.length).padStart(2, "0")} shows · documentary · culture
         </span>
       </div>
-      <LongFormStack items={entertainmentLongForm} />
+      <div className="mt-8 md:mt-10 flex flex-col">
+        {entertainmentShows.map((show, i) => (
+          <ShowRow key={show.name} show={show} index={i} isLast={i === entertainmentShows.length - 1} />
+        ))}
+      </div>
     </section>
 
     {/* MUSIC & CREATIVE CONTENT — auto-scrolling marquees */}

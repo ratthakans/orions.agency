@@ -464,7 +464,7 @@ const Index = () => (
             </Reveal>
             <Reveal delay={0.15}>
               <p className="mt-8 font-thai text-[18px] md:text-[22px] text-background/70">
-                Stop guessing. Start applying.
+                Stop guessing. Start applying. — <span className="text-background font-medium">Practical. Bold. Done.</span>
               </p>
             </Reveal>
             <Reveal delay={0.2}>

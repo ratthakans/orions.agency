@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { ReactNode } from "react";
+import Magnetic from "./Magnetic";
 
 interface Props {
   to?: string;
@@ -9,11 +10,12 @@ interface Props {
   children: ReactNode;
   className?: string;
   external?: boolean;
+  noMagnetic?: boolean;
 }
 
-/** Single CTA primitive — primary (filled pill on light bg), invert (filled pill on dark bg), or ghost (underlined link).
- *  Arrow shifts to the Sunset Ink gradient on hover. */
-const CTA = ({ to, href, variant = "primary", children, className = "", external }: Props) => {
+/** Single CTA primitive — primary/invert filled pill or ghost underlined link.
+ *  Arrow performs a diagonal swap-out on hover (Vercel-style) + magnetic drift. */
+const CTA = ({ to, href, variant = "primary", children, className = "", external, noMagnetic }: Props) => {
   const base =
     variant === "primary"
       ? "group inline-flex items-center gap-3 bg-foreground text-background px-7 py-4 index-badge hover:opacity-95 transition-opacity"
@@ -27,10 +29,12 @@ const CTA = ({ to, href, variant = "primary", children, className = "", external
   const inner = (
     <>
       <span>{children}</span>
-      <span className={`relative inline-flex ${arrowSize} transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5`}>
-        <ArrowUpRight className={`${arrowSize} absolute inset-0 transition-opacity duration-300 group-hover:opacity-0`} />
+      <span className={`relative inline-flex overflow-hidden ${arrowSize}`}>
         <ArrowUpRight
-          className={`${arrowSize} absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100`}
+          className={`${arrowSize} absolute inset-0 transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-x-3 group-hover:-translate-y-3 group-hover:opacity-0`}
+        />
+        <ArrowUpRight
+          className={`${arrowSize} absolute inset-0 -translate-x-3 translate-y-3 opacity-0 transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100`}
           style={{ stroke: "url(#cta-grad)" }}
         />
         <svg width="0" height="0" className="absolute">
@@ -45,18 +49,18 @@ const CTA = ({ to, href, variant = "primary", children, className = "", external
     </>
   );
 
-  if (href) {
-    return (
-      <a href={href} className={cls} target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined}>
-        {inner}
-      </a>
-    );
-  }
-  return (
+  const node = href ? (
+    <a href={href} className={cls} target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined}>
+      {inner}
+    </a>
+  ) : (
     <Link to={to || "/"} className={cls}>
       {inner}
     </Link>
   );
+
+  if (noMagnetic || variant === "ghost") return node;
+  return <Magnetic strength={6} className="inline-block">{node}</Magnetic>;
 };
 
 export default CTA;

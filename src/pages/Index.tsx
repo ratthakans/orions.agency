@@ -317,29 +317,39 @@ const Index = () => (
     <section className="relative bg-foreground text-background border-t border-foreground px-6 md:px-10 py-24 md:py-32">
       <div className="border-t border-background/30 pt-3 pb-3 flex items-center justify-between gap-6">
         <span className="index-badge font-bold inline-flex items-center gap-3">
-          <span className="opacity-60 font-mono">07</span>
+          <span className="opacity-60 font-mono">05</span>
           <span className="block w-4 h-px bg-background/40" />
           <span>UNSTUCK</span>
         </span>
         <span className="index-badge font-medium opacity-60 hidden sm:inline">PRACTICAL · BOLD · DONE</span>
       </div>
 
-      <Reveal delay={0.05}>
-        <h2 className="mt-16 md:mt-24 font-display leading-[0.86] tracking-[-0.05em]" style={{ fontSize: "clamp(56px, 11vw, 132px)" }}>
-          Stop guessing.<br /><span className="opacity-50">Start applying.</span>
-        </h2>
-      </Reveal>
+      <div className="mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 items-end">
+        <Reveal delay={0.05} className="md:col-span-8">
+          <h2 className="font-display leading-[0.92] tracking-[-0.03em]" style={{ fontSize: "clamp(40px, 6vw, 72px)" }}>
+            Stop guessing.<br /><span className="opacity-50">Start applying.</span>
+          </h2>
+        </Reveal>
 
-      <Reveal delay={0.15}>
-        <div className="mt-12 md:mt-16 flex flex-col sm:flex-row items-start sm:items-center gap-6">
-          <Link to="/contact#audit" className="inline-flex items-center gap-3 bg-background text-foreground px-7 py-4 index-badge hover:opacity-90 transition-opacity">
-            Request the ØRIONS Audit <ArrowUpRight className="w-4 h-4" />
-          </Link>
-          <Link to="/contact" className="inline-flex items-center gap-2 index-badge text-background border-b border-background pb-1 hover:opacity-60 transition-opacity">
-            Or start a project <ArrowUpRight className="w-3.5 h-3.5" />
-          </Link>
-        </div>
-      </Reveal>
+        <Reveal delay={0.15} className="md:col-span-4">
+          <div className="flex flex-col items-start gap-5">
+            <Link
+              to="/contact#audit"
+              className="group inline-flex items-center gap-3 bg-background text-foreground px-7 py-4 index-badge hover:opacity-95 transition-opacity"
+            >
+              <span>Request the Audit</span>
+              <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </Link>
+            <Link
+              to="/contact"
+              className="group inline-flex items-center gap-2 index-badge text-background border-b border-background pb-1 hover:opacity-70 transition-opacity"
+            >
+              <span>Or start a project</span>
+              <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </Link>
+          </div>
+        </Reveal>
+      </div>
     </section>
   </div>
 );

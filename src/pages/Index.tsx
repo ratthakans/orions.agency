@@ -34,11 +34,7 @@ const worksAcrossIndustries = [
   { tag: "National Campaign", name: "HEAVY ORGANIZER", body: "แคมเปญสื่อสารระดับประเทศที่สร้างแรงกระเพื่อมจริง", img: approachRunning },
 ];
 
-const worksHighImpact = [
-  { tag: "Sports Branding", name: "LEICESTER × BURIRAM ESPORT", body: "งานสื่อสารแบรนด์กีฬาระดับสากล", img: approachTaxi },
-  { tag: "Healthcare", name: "SIRIRAJ HOSPITAL", body: "การเล่าเรื่องความเชื่อมั่นทางการแพทย์ให้เข้าถึงง่าย", img: whatWindow },
-  { tag: "Automotive", name: "AUDI THAILAND", body: "โปรดักชันสะท้อนภาพลักษณ์ความพรีเมียมระดับโลก", img: whatVortex },
-];
+// (worksHighImpact moved to /work)
 
 const worksStorytelling = [
   { tag: "Documentary", name: "เถื่อน Travel · เกิดแก่เจ็บโต · ท่วงทำนองที่เลือนหาย", body: "สารคดีที่บันทึกชีวิตและความเปลี่ยนแปลง", img: approachRunning },

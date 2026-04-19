@@ -419,17 +419,12 @@ const Index = () => (
               { n: "02", t: "จำกัดจำนวน", b: "รับเฉพาะธุรกิจที่ต้องการความเปลี่ยนแปลงจริงๆ เพื่อรักษาคุณภาพการวิเคราะห์สูงสุด" },
             ].map((c, i) => (
               <Reveal key={c.n} delay={0.2 + i * 0.1}>
-                <div className="bg-background p-6 md:p-8 relative overflow-hidden">
-                  <div aria-hidden className="absolute -right-2 -top-4 font-display text-[120px] md:text-[160px] leading-none tracking-[-0.06em] text-foreground/[0.05] select-none">
-                    {c.n}
+                <div className="bg-background p-6 md:p-8">
+                  <div className="flex items-baseline gap-4">
+                    <div className="font-mono text-[12px] text-muted-foreground">{c.n} /</div>
+                    <h4 className="font-display text-[16px] md:text-[18px] tracking-[0.02em]">{c.t}</h4>
                   </div>
-                  <div className="relative">
-                    <div className="flex items-baseline gap-4">
-                      <div className="font-mono text-[12px] text-muted-foreground">{c.n} /</div>
-                      <h4 className="font-display text-[16px] md:text-[18px] tracking-[0.02em]">{c.t}</h4>
-                    </div>
-                    <p className="mt-4 text-[14px] leading-[1.7] text-muted-foreground font-thai">{c.b}</p>
-                  </div>
+                  <p className="mt-4 text-[14px] leading-[1.7] text-muted-foreground font-thai">{c.b}</p>
                 </div>
               </Reveal>
             ))}

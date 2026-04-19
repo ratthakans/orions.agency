@@ -38,6 +38,41 @@ const Contact = () => {
 
       {/* ØRIONS AUDIT — featured anchor card */}
       <section id="audit" className="px-6 md:px-10 pb-16 md:pb-24 scroll-mt-24">
+        {/* Live availability marquee */}
+        <Reveal>
+          <div className="border border-foreground border-b-0 bg-background overflow-hidden">
+            <div className="marquee py-3">
+              <div className="marquee-track index-badge text-foreground items-center">
+                {Array.from({ length: 2 }).flatMap((_, loop) =>
+                  [
+                    { dot: true, text: "3 audit slots left this month" },
+                    { text: "New inquiry · Bangkok · F&B brand" },
+                    { text: "Audit booked · Property developer" },
+                    { dot: true, text: "Next opening · Apr 24" },
+                    { text: "New inquiry · Skincare DTC" },
+                    { text: "Audit booked · B2B SaaS" },
+                    { dot: true, text: "Reply within 24h" },
+                    { text: "New inquiry · Hospitality group" },
+                  ].map((item, i) => (
+                    <span key={`${loop}-${i}`} className="inline-flex items-center gap-3 shrink-0">
+                      {item.dot ? (
+                        <span className="relative flex h-1.5 w-1.5">
+                          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-foreground opacity-60"></span>
+                          <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-foreground"></span>
+                        </span>
+                      ) : (
+                        <span className="font-mono text-[10px] text-muted-foreground">●</span>
+                      )}
+                      <span>{item.text}</span>
+                      <span className="text-muted-foreground">/</span>
+                    </span>
+                  ))
+                )}
+              </div>
+            </div>
+          </div>
+        </Reveal>
+
         <Reveal>
           <div className="border border-foreground bg-foreground text-background grid grid-cols-1 lg:grid-cols-12">
             <div className="lg:col-span-7 p-8 md:p-12 lg:border-r lg:border-background/20">

@@ -71,6 +71,17 @@ const Index = () => (
       </div>
     </section>
 
+    {/* THE VICIOUS CYCLE */}
+    <section className="px-6 md:px-10 py-20 md:py-28 bg-surface border-y border-foreground">
+      <div className="max-w-[1200px] mx-auto">
+        <Reveal>
+          <blockquote className="font-thai text-[24px] md:text-[40px] leading-[1.4] font-normal text-center">
+            หลายแบรนด์ติดอยู่ใน <span className="font-display normal-case">Vicious Cycle</span> ทำงานหนักขึ้น จ่ายแพงขึ้น แต่ได้ผลลัพธ์เท่าเดิม เพราะกติกาของโลกเปลี่ยนไปแล้ว
+          </blockquote>
+        </Reveal>
+      </div>
+    </section>
+
     {/* THE PRESSURE */}
     <section className="px-6 md:px-10 min-h-screen flex flex-col justify-center py-20">
       <div className="max-w-[1400px] mx-auto w-full">
@@ -91,31 +102,6 @@ const Index = () => (
               </div>
             </Reveal>
           ))}
-        </div>
-      </div>
-    </section>
-
-    {/* THE VICIOUS CYCLE */}
-    <section className="px-6 md:px-10 py-20 md:py-28 bg-surface border-y border-foreground">
-      <SectionHeader left="03 — THE VICIOUS CYCLE" right="this is where ØRIONS begins" />
-      <div className="mt-16 grid grid-cols-1 md:grid-cols-12 gap-10">
-        <div className="md:col-span-2">
-          <Reveal>
-            <div className="font-display text-[80px] md:text-[120px] leading-[0.85]">"</div>
-          </Reveal>
-        </div>
-        <div className="md:col-span-9">
-          <Reveal delay={0.1}>
-            <blockquote className="font-thai text-[24px] md:text-[36px] leading-[1.4] font-normal max-w-[860px]">
-              The Vicious Cycle — หลายธุรกิจกำลังติดอยู่ในวงจรอุบาท ทำมากขึ้น จ่ายมากขึ้น งบไหลออกแต่ผลลัพธ์เท่าเดิม เมื่อถูกปิดกั้นการมองเห็น <span className="font-display normal-case font-medium">ทุกอย่างก็จบ</span>
-            </blockquote>
-          </Reveal>
-          <Reveal delay={0.25}>
-            <div className="mt-12 flex items-center gap-4">
-              <div className="hairline w-12" />
-              <p className="index-badge font-medium">— ØRIONS MANIFESTO, 2024</p>
-            </div>
-          </Reveal>
         </div>
       </div>
     </section>

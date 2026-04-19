@@ -14,7 +14,7 @@ const Contact = () => {
     setForm({ name: "", company: "", email: "", brief: "" });
   };
 
-  const inputCls = "bg-transparent border-b border-foreground px-0 py-3 text-[15px] placeholder:text-muted-foreground focus:outline-none focus:border-b-2 transition-all font-thai";
+  const inputCls = "bg-transparent border-b border-foreground px-0 py-3 text-[15px] placeholder:text-muted-foreground focus:outline-none focus:placeholder:opacity-50 transition-all font-thai";
 
   return (
     <div>

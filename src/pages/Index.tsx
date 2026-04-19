@@ -12,6 +12,7 @@ import approachTaxi from "@/assets/approach-taxi.jpg";
 import hongmove from "@/assets/hongmove.png";
 import rtaf from "@/assets/rtaf.jpg";
 import khaoyai from "@/assets/khaoyai.jpg";
+import democrat from "@/assets/democrat.jpg";
 import whatVortex from "@/assets/what-vortex.jpg";
 import whatSkater from "@/assets/what-skater.jpg";
 import whatWindow from "@/assets/what-window.jpg";
@@ -31,7 +32,7 @@ const appliedSolutions = [
 
 
 const worksAcrossIndustries = [
-  { tag: "Political Communication", name: "DEMOCRAT PARTY", body: "การสื่อสารเชิงกลยุทธ์ภายใต้เงื่อนไขที่ท้าทาย", img: whatSkater },
+  { tag: "Political Communication", name: "DEMOCRAT PARTY", body: "การสื่อสารเชิงกลยุทธ์ภายใต้เงื่อนไขที่ท้าทาย", img: democrat },
   { tag: "Mobility", name: "GCOO", body: "Localization ระบบการเดินทางคนเมือง", img: whatWindow },
   { tag: "Hospitality Tech", name: "MY HOTEL", body: "Smart Hotel ที่ใช้งานได้จริงรายแรกของไทย", img: whatVortex },
   { tag: "National Campaign", name: "HEAVY ORGANIZER", body: "แคมเปญสื่อสารระดับประเทศที่สร้างแรงกระเพื่อมจริง", img: approachRunning },
@@ -48,7 +49,7 @@ const worksStorytelling = [
 const heroProjects = [
   { tag: "MOBILITY", name: "HONGMOVE", body: "เปลี่ยนความซับซ้อนให้ดูง่าย ระบบสื่อสาร Seamless สำหรับ Taxi VIP", stat: "+25%", statLabel: "CONVERSION CLARITY", img: hongmove },
   { tag: "DEFENCE", name: "RTAF", body: "ยึดความน่าเชื่อถือคืนมา ปรับโฉมภาพลักษณ์ผ่าน High-end Production", stat: "2×", statLabel: "ENGAGEMENT QUALITY", img: rtaf },
-  { tag: "HOSPITALITY", name: "KHAO YAI", body: "ยกระดับด้วยรสนิยม เปลี่ยนสนามกอล์ฟดั้งเดิมสู่ประสบการณ์พรีเมียม", stat: "30%", statLabel: "DECISION SPEED", img: khaoyai },
+  { tag: "HOSPITALITY", name: "KHAO YAI", body: "ยกระดับด้วยรสนิยม เปลี่ยนสนามกอล์ฟดั้งเดิมสู่ประสบการณ์พรีเมียม", stat: "30%", statLabel: "DECISION SPEED", img: approachRunning },
 ];
 
 
@@ -265,7 +266,7 @@ const Index = () => (
         {heroProjects.map((p) => (
           <Reveal key={p.name}>
             <Link to="/work" className="group bg-background h-full flex flex-col">
-              <div className="aspect-[4/3] overflow-hidden bg-surface-2">
+              <div className="aspect-[3/4] overflow-hidden bg-surface-2">
                 <img src={p.img} alt={p.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
               </div>
               <div className="p-6 md:p-8 flex-1 flex flex-col">
@@ -290,7 +291,7 @@ const Index = () => (
         <div key={cat.label} className="mt-20">
           <Reveal>
             <div className="border-t border-foreground pt-3 pb-3 flex items-center justify-between">
-              <span className="index-badge font-bold">{`0${cat.ci} / ${cat.label.toUpperCase()}`}</span>
+              <span className="index-badge font-bold">{cat.label.toUpperCase()}</span>
               <span className="index-badge font-medium text-muted-foreground hidden sm:inline">{cat.items.length} PROJECTS</span>
             </div>
           </Reveal>

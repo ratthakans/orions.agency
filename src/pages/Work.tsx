@@ -74,7 +74,7 @@ const Work = () => (
 
     <PageHero
       eyebrow="WORK · INDEX"
-      title={<>Sharper <span className="italic font-normal" style={{ fontFamily: "'Cutive', serif", textTransform: "none", letterSpacing: "-0.02em" }}>ideas</span>.<br />Real outcomes<span className="text-muted-foreground">.</span></>}
+      title={<>Sharper <span className="text-gradient">ideas</span>.<br />Real outcomes<span className="text-muted-foreground">.</span></>}
     />
 
     {/* FEATURED VIDEO REEL */}
@@ -95,7 +95,7 @@ const Work = () => (
             <span className="index-badge text-background">SHOWREEL · 2025</span>
           </div>
           <div className="absolute bottom-6 left-6 right-6 md:bottom-10 md:left-10 md:right-10 flex items-end justify-between gap-6">
-            <h2 className="font-display text-background text-[32px] md:text-[72px] leading-[0.9] tracking-[-0.03em]">
+            <h2 className="font-display text-background leading-[0.9] tracking-[-0.03em]" style={{ fontSize: "clamp(32px, 6vw, 72px)" }}>
               From idea<br />to final cut.
             </h2>
             <div className="hidden md:flex items-center gap-3 text-background">
@@ -111,7 +111,7 @@ const Work = () => (
     <section className="px-6 md:px-10 pb-24 md:pb-32">
       <SectionHeader index="01" left="HERO PROJECTS" right={`${heroProjects.length} FEATURED CASES`} />
 
-      <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+      <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
         {heroProjects.map((p, i) => (
           <Reveal key={p.n} delay={i * 0.05}>
             <article className="group cursor-pointer">
@@ -156,7 +156,7 @@ const Work = () => (
     <section className="px-6 md:px-10 py-24 md:py-32 bg-surface border-y border-foreground">
       <SectionHeader index="02" left="MORE SELECTED" right="ACROSS INDUSTRIES" />
 
-      <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+      <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {more.map((p, i) => (
           <Reveal key={p.n} delay={i * 0.05}>
             <article className="group">
@@ -222,7 +222,7 @@ const Work = () => (
       </div>
 
       <Reveal>
-        <h2 className="mt-12 font-display text-[40px] md:text-[72px] leading-[0.92] tracking-[-0.03em] max-w-[1100px]">
+        <h2 className="mt-12 font-display leading-[0.92] tracking-[-0.03em] max-w-[1100px]" style={{ fontSize: "clamp(40px, 6vw, 72px)" }}>
           Stories worth sitting through<span className="opacity-50">.</span>
         </h2>
       </Reveal>
@@ -247,7 +247,7 @@ const Work = () => (
             <div className="absolute bottom-6 left-6 right-6 md:bottom-10 md:left-10 md:right-10 flex items-end justify-between gap-6">
               <div>
                 <div className="index-badge opacity-70">{longform[0].category}</div>
-                <h3 className="mt-3 font-display text-[28px] md:text-[64px] leading-[0.95] tracking-[-0.03em]">
+                <h3 className="mt-3 font-display leading-[0.95] tracking-[-0.03em]" style={{ fontSize: "clamp(28px, 4.5vw, 64px)" }}>
                   {longform[0].name}
                 </h3>
               </div>
@@ -299,7 +299,7 @@ const Work = () => (
     <section className="px-6 md:px-10 py-24 md:py-32">
       <div>
         <Reveal>
-          <h2 className="font-display text-[40px] md:text-[72px] leading-[0.92] tracking-[-0.03em] max-w-[800px]">
+          <h2 className="font-display leading-[0.92] tracking-[-0.03em] max-w-[800px]" style={{ fontSize: "clamp(40px, 6vw, 72px)" }}>
             Have a project in mind?
           </h2>
         </Reveal>

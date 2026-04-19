@@ -5,6 +5,7 @@ import CountUp from "@/components/CountUp";
 import FlipNumber from "@/components/FlipNumber";
 import ScrollMarquee from "@/components/ScrollMarquee";
 import SectionHeader from "@/components/SectionHeader";
+import BigSectionNumber from "@/components/BigSectionNumber";
 import SEO from "@/components/SEO";
 import RotatingHeadline from "@/components/RotatingHeadline";
 import SelectedWorkReel from "@/components/SelectedWorkReel";
@@ -90,15 +91,17 @@ const Index = () => (
 
       <div className="absolute bottom-8 md:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground">
         <span className="index-badge">SCROLL</span>
-        <span className="block w-px h-10 bg-muted-foreground animate-pulse" />
+        <span className="block w-px h-10 bg-foreground/40 animate-pulse" />
       </div>
     </section>
 
     {/* MARQUEE — scroll-velocity coupled */}
-    <section className="border-y border-foreground py-3 overflow-hidden">
-      <ScrollMarquee
-        items={["BRAND DIRECTION", "CREATIVE DIRECTION", "DIGITAL EXPERIENCE", "FILM & PRODUCTION", "BANGKOK ↔ WORLD"]}
-      />
+    <section className="px-6 md:px-10 overflow-hidden">
+      <div className="border-y border-foreground py-3">
+        <ScrollMarquee
+          items={["BRAND DIRECTION", "CREATIVE DIRECTION", "DIGITAL EXPERIENCE", "FILM & PRODUCTION", "BANGKOK ↔ WORLD"]}
+        />
+      </div>
     </section>
 
     {/* 03 — THE VICIOUS CYCLE */}
@@ -108,14 +111,20 @@ const Index = () => (
           <Reveal>
             <SectionHeader index="03" left="THE VICIOUS CYCLE" right="why budgets keep leaking" />
           </Reveal>
+          <Reveal delay={0.05}>
+            <BigSectionNumber n="03" label="THE VICIOUS CYCLE" className="mt-8" />
+          </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="mt-12 font-display h-display-md text-foreground">
+            <h2 className="mt-6 font-display h-display-md text-foreground">
               The Vicious Cycle<span className="text-muted-foreground">.</span>
             </h2>
           </Reveal>
           <Reveal delay={0.15}>
             <p className="mt-6 font-thai text-[17px] md:text-[20px] leading-[1.6] text-foreground max-w-[460px]">
-              หลายธุรกิจติดอยู่ใน<span className="font-semibold">"วงจรอุบาท"</span> — จ่ายแพงขึ้น แต่ได้ผลลัพธ์เท่าเดิม
+              ธุรกิจของคุณนิ่ง เพราะกติกาเปลี่ยน — ไม่ใช่เพราะคุณไม่เก่งพอ
+            </p>
+            <p className="mt-4 font-thai text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground max-w-[460px]">
+              หลายธุรกิจติดอยู่ใน<span className="text-foreground font-semibold">"วงจรอุบาท"</span> — จ่ายแพงขึ้น แต่ได้ผลลัพธ์เท่าเดิม
             </p>
           </Reveal>
           <Reveal delay={0.3}>

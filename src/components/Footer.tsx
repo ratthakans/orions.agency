@@ -15,11 +15,14 @@ const Footer = () => (
               { to: "/work", label: "Work" },
               { to: "/about", label: "About" },
               { to: "/contact", label: "Contact" },
-            ].map((l) => (
-              <li key={l.to}>
+            ].map((l, i, arr) => (
+              <li key={l.to} className="flex items-baseline gap-3">
+                <span className="font-mono text-[10px] tracking-[0.2em] opacity-40">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
                 <Link
                   to={l.to}
-                  className="inline-block transition-colors duration-300 hover:text-[hsl(var(--accent-to))]"
+                  className="inline-block transition-opacity duration-300 hover:opacity-70"
                 >
                   {l.label}
                 </Link>
@@ -31,24 +34,24 @@ const Footer = () => (
         <div>
           <div className="index-badge opacity-50 mb-6">Reach</div>
           <div className="space-y-4 font-display text-[15px] md:text-[16px]">
-            <a href="mailto:hello@orions.agency" className="block transition-colors duration-300 hover:text-[hsl(var(--accent-to))] break-all">
+            <a href="mailto:hello@orions.agency" className="block transition-opacity duration-300 hover:opacity-70 break-all">
               hello@orions.agency
             </a>
-            <a href="tel:+66923905464" className="block transition-colors duration-300 hover:text-[hsl(var(--accent-to))]">
+            <a href="tel:+66923905464" className="block transition-opacity duration-300 hover:opacity-70">
               +66 92 390 5464
             </a>
           </div>
           <div className="mt-6 flex items-center gap-2">
             <a href="https://instagram.com/orions.bkk" target="_blank" rel="noreferrer" aria-label="Instagram"
-               className="w-9 h-9 border border-background/25 flex items-center justify-center transition-all duration-300 hover:bg-gradient-accent hover:text-background hover:border-transparent">
+               className="w-9 h-9 border border-background/25 flex items-center justify-center transition-colors duration-300 hover:bg-background hover:text-foreground hover:border-background">
               <Instagram className="w-4 h-4" />
             </a>
             <a href="https://facebook.com/orions.bkk" target="_blank" rel="noreferrer" aria-label="Facebook"
-               className="w-9 h-9 border border-background/25 flex items-center justify-center transition-all duration-300 hover:bg-gradient-accent hover:text-background hover:border-transparent">
+               className="w-9 h-9 border border-background/25 flex items-center justify-center transition-colors duration-300 hover:bg-background hover:text-foreground hover:border-background">
               <Facebook className="w-4 h-4" />
             </a>
             <a href="mailto:hello@orions.agency" aria-label="Email"
-               className="w-9 h-9 border border-background/25 flex items-center justify-center transition-all duration-300 hover:bg-gradient-accent hover:text-background hover:border-transparent">
+               className="w-9 h-9 border border-background/25 flex items-center justify-center transition-colors duration-300 hover:bg-background hover:text-foreground hover:border-background">
               <Mail className="w-4 h-4" />
             </a>
           </div>

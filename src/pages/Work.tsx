@@ -1,5 +1,4 @@
 import { ArrowUpRight } from "lucide-react";
-import { Link } from "react-router-dom";
 import Reveal from "@/components/Reveal";
 import PageHero from "@/components/PageHero";
 import SectionHeader from "@/components/SectionHeader";
@@ -149,7 +148,8 @@ const Work = () => (
 
     <PageHero
       eyebrow="WORK · INDEX"
-      title={<>Sharper <span className="text-gradient">ideas</span><span className="text-muted-foreground">.</span><br />Real outcomes<span className="text-muted-foreground">.</span></>}
+      verticalLabel="/ 02 · WORK"
+      title={<>Sharper ideas<span className="text-muted-foreground">.</span><br />Real <span className="text-muted-foreground">outcomes.</span></>}
     />
 
     {/* SELECTED WORK */}
@@ -173,17 +173,7 @@ const Work = () => (
 
     {/* SOCIAL & COMMERCIALS — video reel */}
     <section className="relative px-6 md:px-10">
-      <div className="border-t border-foreground py-16 md:py-24">
-      <h2 className="font-display h-display-sm">
-        Social &amp; <span className="text-muted-foreground">Commercials</span>
-      </h2>
-      <VideoReel items={socialCommercials} />
-      </div>
-    </section>
-
-    {/* SOCIAL & COMMERCIALS — video reel */}
-    <section className="relative px-6 md:px-10">
-      <div className="border-t border-foreground py-16 md:py-24">
+      <div className="border-t border-foreground py-16 md:py-20">
       <h2 className="font-display h-display-sm">
         Social &amp; <span className="text-muted-foreground">Commercials</span>
       </h2>
@@ -196,7 +186,7 @@ const Work = () => (
       <div className="border-t border-foreground py-16 md:py-24">
       <div className="flex items-end justify-between gap-6 flex-wrap">
         <h2 className="font-display h-display-sm">
-          Entertainment &amp; <span className="italic opacity-70">Long-form</span>
+          Entertainment &amp; <span className="text-muted-foreground">Long-form</span>
         </h2>
         <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
           {String(entertainmentShows.length).padStart(2, "0")} shows · documentary · culture
@@ -244,15 +234,13 @@ const Work = () => (
         </Reveal>
         <Reveal delay={0.05}>
           <h2 className="font-display h-display-sm text-balance">
-            Have a project<br />in <span className="text-gradient">mind</span><span className="text-muted-foreground">.</span>
+            Have a project<br />in <span className="text-muted-foreground">mind.</span>
           </h2>
         </Reveal>
         <Reveal delay={0.2}>
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-5">
             <CTA to="/contact">Start a conversation</CTA>
-            <Link to="/contact#audit" className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground hover:text-foreground transition-colors">
-              Or request the audit →
-            </Link>
+            <CTA to="/contact#audit" variant="ghost">Or request the audit</CTA>
           </div>
         </Reveal>
         <Reveal delay={0.3}>

@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import Reveal from "@/components/Reveal";
 import PageHero from "@/components/PageHero";
 import SectionHeader from "@/components/SectionHeader";
@@ -110,7 +109,8 @@ const About = () => (
 
     <PageHero
       eyebrow="ABOUT · INDEX"
-      title={<>The <span className="text-gradient">Applied</span> Creative<br />Agency<span className="text-muted-foreground">.</span></>}
+      verticalLabel="/ 04 · ABOUT"
+      title={<>The Applied Creative<br /><span className="text-muted-foreground">Agency.</span></>}
     />
 
     {/* WHO IS ØRIONS — image dominant */}
@@ -395,9 +395,7 @@ const About = () => (
         <Reveal delay={0.2}>
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-5">
             <CTA to="/contact#audit">Request ØRIONS Audit (Free)</CTA>
-            <Link to="/contact" className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground hover:text-foreground transition-colors">
-              Or start a conversation →
-            </Link>
+            <CTA to="/contact" variant="ghost">Or start a conversation</CTA>
           </div>
         </Reveal>
         <Reveal delay={0.3}>

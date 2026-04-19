@@ -4,6 +4,7 @@ import Reveal from "@/components/Reveal";
 import CountUp from "@/components/CountUp";
 import SectionHeader from "@/components/SectionHeader";
 import SEO from "@/components/SEO";
+import TypingLoop from "@/components/TypingLoop";
 import heroStreet from "@/assets/hero-street.jpg";
 import povCrosswalk from "@/assets/pov-crosswalk.jpg";
 import approachRunning from "@/assets/approach-running.jpg";
@@ -42,8 +43,8 @@ const Index = () => (
         </Reveal>
 
         <Reveal delay={0.3}>
-          <p className="mt-4 font-display text-[20px] md:text-[28px] leading-[1.1] tracking-[-0.02em]">
-            "Practical. Bold. Done."
+          <p className="mt-4 font-display text-[20px] md:text-[28px] leading-[1.1] tracking-[-0.02em] min-h-[1.2em]">
+            <TypingLoop text="PRACTICAL. BOLD. DONE." />
           </p>
         </Reveal>
       </div>

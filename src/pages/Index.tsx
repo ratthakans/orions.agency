@@ -4,7 +4,7 @@ import Reveal from "@/components/Reveal";
 import CountUp from "@/components/CountUp";
 import SectionHeader from "@/components/SectionHeader";
 import SEO from "@/components/SEO";
-import TypingLoop from "@/components/TypingLoop";
+import RotatingHeadline from "@/components/RotatingHeadline";
 import heroStreet from "@/assets/hero-street.jpg";
 import whoOrionsTeam from "@/assets/who-orions-team.jpg";
 import approachRunning from "@/assets/approach-running.jpg";

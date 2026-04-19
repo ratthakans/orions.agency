@@ -166,7 +166,8 @@ const About = () => (
     </section>
 
     {/* THE MEANING OF THE LINE — editorial asymmetric */}
-    <section className="relative px-6 md:px-10 py-16 md:py-24 border-t border-foreground bg-surface overflow-hidden">
+    <section className="relative px-6 md:px-10 bg-surface overflow-hidden">
+      <div className="border-t border-foreground pt-16 md:pt-24 pb-16 md:pb-24 -mx-0">
       {/* Decorative oversized line — top right, rotated, intentional mark */}
       <div className="pointer-events-none absolute -top-10 -right-20 select-none">
         <div
@@ -265,10 +266,12 @@ const About = () => (
           </div>
         </Reveal>
       </div>
+      </div>
     </section>
 
     {/* THE 6 METHODS */}
-    <section className="px-6 md:px-10 py-16 md:py-24 bg-foreground text-background border-t border-foreground">
+    <section className="px-6 md:px-10 bg-foreground text-background">
+      <div className="border-t border-background/40 py-16 md:py-24">
       <SectionHeader index="01" left="METHOD" right="06 STEPS" variant="dark" />
       <Reveal>
         <h2 className="mt-12 font-display h-display-md max-w-[900px]">
@@ -333,10 +336,12 @@ const About = () => (
           </Reveal>
         ))}
       </div>
+      </div>
     </section>
 
     {/* TEAM */}
-    <section className="px-6 md:px-10 py-16 md:py-24 border-t border-foreground">
+    <section className="px-6 md:px-10">
+      <div className="border-t border-foreground py-16 md:py-24">
       <SectionHeader index="02" left="TEAM" right={`${team.length} PEOPLE`} />
       <Reveal>
         <h2 className="mt-12 font-display h-display-md max-w-[900px]">
@@ -367,11 +372,12 @@ const About = () => (
           );
         })}
       </div>
+      </div>
     </section>
 
     {/* CTA — editorial close, centered & calm */}
-    <section className="relative px-6 md:px-10 py-16 md:py-20 border-t border-foreground">
-      <div className="max-w-[760px] mx-auto text-center">
+    <section className="relative px-6 md:px-10">
+      <div className="border-t border-foreground py-16 md:py-20 max-w-[760px] mx-auto text-center">
         <Reveal>
           <div className="index-badge text-muted-foreground mb-6">READY WHEN YOU ARE</div>
         </Reveal>

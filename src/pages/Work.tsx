@@ -125,17 +125,19 @@ const Work = () => (
     />
 
     {/* SELECTED WORK */}
-    <section className="relative px-6 md:px-10 py-16 md:py-24 border-t border-foreground">
+    <section className="relative px-6 md:px-10">
+      <div className="border-t border-foreground py-16 md:py-24">
       <SectionHeader left="SELECTED WORK" right="applied creative in action" />
       <SelectedWorkReel projects={heroProjects} />
 
       <div className="mt-12">
         <SelectedWorkReel projects={worksAcrossIndustries} size="sm" />
       </div>
+      </div>
     </section>
 
-    {/* MASTERY IN STORYTELLING — 21:9 cinematic video */}
-    <section className="relative w-full overflow-hidden border-t border-foreground bg-foreground">
+    {/* MASTERY IN STORYTELLING — 21:9 cinematic video (full bleed) */}
+    <section className="relative w-full overflow-hidden bg-foreground">
       <div className="relative w-full overflow-hidden" style={{ aspectRatio: "21 / 9" }}>
         <iframe
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] h-[56.25vw] min-w-full min-h-full pointer-events-none"
@@ -148,15 +150,18 @@ const Work = () => (
     </section>
 
     {/* SOCIAL & COMMERCIALS — video reel */}
-    <section className="relative px-6 md:px-10 py-16 md:py-24 border-t border-foreground">
+    <section className="relative px-6 md:px-10">
+      <div className="border-t border-foreground py-16 md:py-24">
       <h2 className="font-display h-display-sm">
         Social &amp; <span className="italic opacity-70">Commercials</span>
       </h2>
       <VideoReel items={socialCommercials} />
+      </div>
     </section>
 
     {/* ENTERTAINMENT & LONG-FORM — editorial alternating stack */}
-    <section className="relative px-6 md:px-10 py-16 md:py-24 border-t border-foreground">
+    <section className="relative px-6 md:px-10">
+      <div className="border-t border-foreground py-16 md:py-24">
       <div className="flex items-end justify-between gap-6 flex-wrap">
         <h2 className="font-display h-display-sm">
           Entertainment &amp; <span className="italic opacity-70">Long-form</span>
@@ -170,11 +175,13 @@ const Work = () => (
           <ShowRow key={show.name} show={show} index={i} isLast={i === entertainmentShows.length - 1} />
         ))}
       </div>
+      </div>
     </section>
 
     {/* MUSIC & CREATIVE CONTENT — auto-scrolling marquees */}
-<section className="relative py-16 md:py-24 border-t border-foreground overflow-hidden">
-      <div className="px-6 md:px-10 flex items-end justify-between gap-6 flex-wrap mb-8 md:mb-10">
+    <section className="relative px-6 md:px-10 overflow-hidden">
+      <div className="border-t border-foreground py-16 md:py-24">
+      <div className="flex items-end justify-between gap-6 flex-wrap mb-8 md:mb-10">
         <h2 className="font-display h-display-sm">
           Music &amp; <span className="italic opacity-70">Creative Content</span>
         </h2>
@@ -184,21 +191,22 @@ const Work = () => (
       </div>
 
       <div className="space-y-2 md:space-y-3">
-        <div className="px-6 md:px-10">
+        <div>
           <VideoReel items={musicRow1} hideMeta hideControls />
         </div>
-        <div className="px-6 md:px-10">
+        <div>
           <VideoReel items={musicRow2} hideMeta hideControls />
         </div>
-        <div className="px-6 md:px-10">
+        <div>
           <VideoReel items={musicRow3} hideMeta hideControls />
         </div>
+      </div>
       </div>
     </section>
 
     {/* CTA — editorial close, centered & calm */}
-    <section className="relative px-6 md:px-10 py-16 md:py-20 border-t border-foreground">
-      <div className="max-w-[760px] mx-auto text-center">
+    <section className="relative px-6 md:px-10">
+      <div className="border-t border-foreground py-16 md:py-20 max-w-[760px] mx-auto text-center">
         <Reveal>
           <div className="index-badge text-muted-foreground mb-6">READY WHEN YOU ARE</div>
         </Reveal>

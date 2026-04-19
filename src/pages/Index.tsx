@@ -307,8 +307,37 @@ const Index = () => (
     <section className="relative bg-foreground text-background border-t border-foreground px-6 md:px-10 py-24 md:py-32">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 items-end">
         <Reveal delay={0.05} className="md:col-span-8">
-          <h2 className="font-display leading-[0.92] tracking-[-0.03em]" style={{ fontSize: "clamp(40px, 6vw, 72px)" }}>
-            Stop guessing.<br /><span className="opacity-50">Start applying.</span>
+          <h2
+            className="group/headline font-display leading-[0.92] tracking-[-0.03em] cursor-default select-none"
+            style={{ fontSize: "clamp(40px, 6vw, 72px)" }}
+          >
+            <span className="block overflow-hidden">
+              <span className="inline-block transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/headline:-translate-y-1">
+                {"Stop guessing.".split("").map((c, i) => (
+                  <span
+                    key={i}
+                    className="inline-block transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/headline:-translate-y-1"
+                    style={{ transitionDelay: `${i * 22}ms` }}
+                  >
+                    {c === " " ? "\u00A0" : c}
+                  </span>
+                ))}
+              </span>
+            </span>
+            <span className="block overflow-hidden mt-1">
+              <span className="inline-block italic opacity-60 transition-opacity duration-500 group-hover/headline:opacity-100">
+                {"Start applying.".split("").map((c, i) => (
+                  <span
+                    key={i}
+                    className="inline-block transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/headline:translate-y-1"
+                    style={{ transitionDelay: `${i * 22}ms` }}
+                  >
+                    {c === " " ? "\u00A0" : c}
+                  </span>
+                ))}
+                <span className="ml-3 inline-block w-2 h-[0.7em] align-middle bg-background animate-pulse" />
+              </span>
+            </span>
           </h2>
         </Reveal>
 

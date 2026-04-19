@@ -127,16 +127,14 @@ const Index = () => (
         <div className="md:col-span-7 flex flex-col">
           {pressures.map((p, i) => (
             <Reveal key={p.label} delay={0.2 + i * 0.1}>
-              <div className={`group relative py-10 md:py-14 ${i === 0 ? "border-t" : ""} border-b border-foreground transition-colors duration-500 hover:bg-foreground hover:text-background cursor-default overflow-hidden`}>
+              <div className={`group relative py-10 md:py-14 ${i === 0 ? "border-t" : ""} border-b border-soft cursor-default`}>
                 <div className="grid grid-cols-12 gap-6 md:gap-8 items-start px-2 md:px-6">
-                  {/* Index marker */}
                   <div className="col-span-2 md:col-span-1 pt-3">
-                    <span className="font-mono text-[11px] tracking-[0.12em] text-muted-foreground transition-colors duration-500 group-hover:text-background/60">
+                    <span className="font-mono text-[11px] tracking-[0.12em] text-muted-foreground">
                       0{i + 1}
                     </span>
                   </div>
 
-                  {/* Stat */}
                   <div className="col-span-10 md:col-span-4">
                     <CountUp
                       to={p.stat}
@@ -144,25 +142,19 @@ const Index = () => (
                       suffix={p.suffix}
                       decimals={p.decimals}
                       className="font-display text-[64px] md:text-[88px] leading-[0.9] tracking-[-0.04em] block transition-transform duration-500 group-hover:-translate-y-1"
-                      suffixClassName={p.suffix === "x" ? "" : "text-[28px] md:text-[36px] tracking-normal ml-1 align-baseline text-muted-foreground group-hover:text-background/70"}
+                      suffixClassName={p.suffix === "x" ? "" : "text-[28px] md:text-[36px] tracking-normal ml-1 align-baseline text-muted-foreground"}
                     />
                   </div>
 
-                  {/* Label + body */}
                   <div className="col-span-12 md:col-span-7 md:pt-3">
-                    <div className="index-badge text-foreground transition-colors duration-500 group-hover:text-background">
+                    <div className="index-badge text-foreground">
                       {p.label}
                     </div>
-                    <div className="mt-3 hairline w-8 transition-colors duration-500 group-hover:bg-background/40" />
-                    <p className="mt-4 text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground font-thai transition-colors duration-500 group-hover:text-background/80 max-w-[420px]">
+                    <div className="mt-3 hairline w-8" />
+                    <p className="mt-4 text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground font-thai max-w-[420px]">
                       {p.body}
                     </p>
                   </div>
-                </div>
-
-                {/* Hover arrow */}
-                <div className="absolute bottom-4 right-4 md:bottom-6 md:right-6 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500">
-                  <ArrowUpRight className="w-5 h-5" />
                 </div>
               </div>
             </Reveal>
@@ -237,15 +229,15 @@ const Index = () => (
       <div className="mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-background/30 border border-background/30">
         {appliedSolutions.map((s, i) => (
           <Reveal key={s.n} delay={0.05 * i}>
-            <article className="group h-full p-7 md:p-9 bg-foreground text-background hover:bg-background hover:text-foreground transition-colors duration-500 flex flex-col">
+            <article className="group h-full p-7 md:p-9 bg-foreground text-background flex flex-col">
               <div className="flex items-baseline justify-between">
                 <div className="font-mono text-[11px] tracking-[0.12em] opacity-60">{s.n}</div>
                 <ArrowUpRight className="w-4 h-4 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500" />
               </div>
-              <h3 className="mt-10 md:mt-14 font-display text-[24px] md:text-[28px] leading-[1.05] tracking-[-0.02em]">
+              <h3 className="mt-10 md:mt-14 font-display text-[24px] md:text-[28px] leading-[1.05] tracking-[-0.02em] transition-transform duration-500 group-hover:translate-x-1">
                 {s.title}
               </h3>
-              <div className="mt-5 hairline w-8 bg-background/40 group-hover:bg-foreground/40 transition-colors duration-500" />
+              <div className="mt-5 hairline w-8 bg-background/40" />
               <p className="mt-5 text-[14px] leading-[1.7] font-thai opacity-75">
                 {s.body}
               </p>

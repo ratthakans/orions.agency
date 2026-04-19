@@ -305,16 +305,7 @@ const Index = () => (
 
     {/* CLOSING — clean two-line CTA strip */}
     <section className="relative bg-foreground text-background border-t border-foreground px-6 md:px-10 py-24 md:py-32">
-      <div className="border-t border-background/30 pt-3 pb-3 flex items-center justify-between gap-6">
-        <span className="index-badge font-bold inline-flex items-center gap-3">
-          <span className="opacity-60 font-mono">05</span>
-          <span className="block w-4 h-px bg-background/40" />
-          <span>UNSTUCK</span>
-        </span>
-        <span className="index-badge font-medium opacity-60 hidden sm:inline">PRACTICAL · BOLD · DONE</span>
-      </div>
-
-      <div className="mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 items-end">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 items-end">
         <Reveal delay={0.05} className="md:col-span-8">
           <h2 className="font-display leading-[0.92] tracking-[-0.03em]" style={{ fontSize: "clamp(40px, 6vw, 72px)" }}>
             Stop guessing.<br /><span className="opacity-50">Start applying.</span>

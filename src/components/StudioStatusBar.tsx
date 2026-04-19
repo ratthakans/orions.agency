@@ -9,7 +9,6 @@ const taglines = [
 const StudioStatusBar = () => {
   const [time, setTime] = useState("");
   const [tagIdx, setTagIdx] = useState(0);
-  const [hidden, setHidden] = useState(false);
 
   useEffect(() => {
     const tick = () => {
@@ -29,28 +28,13 @@ const StudioStatusBar = () => {
     return () => clearInterval(t);
   }, []);
 
-  useEffect(() => {
-    let lastY = window.scrollY;
-    const onScroll = () => {
-      const y = window.scrollY;
-      setHidden(y > 80 && y > lastY);
-      lastY = y;
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   // Bangkok hours: 09:00–19:00
   const hourStr = time.split(":")[0];
   const hour = hourStr ? parseInt(hourStr, 10) : 12;
   const open = hour >= 9 && hour < 19;
 
   return (
-    <div
-      className={`fixed top-0 left-0 right-0 z-[60] h-7 bg-foreground text-background transition-transform duration-500 ${
-        hidden ? "-translate-y-full" : "translate-y-0"
-      }`}
-    >
+    <div className="fixed top-0 left-0 right-0 z-[60] h-7 bg-foreground text-background">
       <div className="h-full px-6 md:px-10 flex items-center justify-between text-[10px] tracking-[0.12em] uppercase font-mono">
         <span className="flex items-center gap-2">
           <span

@@ -4,6 +4,7 @@ import Reveal from "@/components/Reveal";
 import SectionLabel from "@/components/SectionLabel";
 import PageHero from "@/components/PageHero";
 import SEO from "@/components/SEO";
+import aboutBw from "@/assets/pov-crosswalk.jpg";
 
 const About = () => (
   <div>
@@ -18,8 +19,19 @@ const About = () => (
 
     {/* FORMULA */}
     <section className="px-6 md:px-12 py-24 md:py-32 border-t border-border">
-      <div className="max-w-[1100px] mx-auto">
-        <Reveal>
+      <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-center">
+        <Reveal className="md:col-span-5">
+          <div className="relative aspect-[4/5] image-overlay-soft overflow-hidden">
+            <img src={aboutBw} alt="Bangkok streets" className="absolute inset-0 w-full h-full object-cover image-warm-bw" />
+            <div className="absolute bottom-6 left-6 right-6">
+              <div className="hairline w-12 mb-3 bg-foreground/40" />
+              <p className="font-mono text-[10px] italic text-foreground/80 leading-relaxed">
+                Bangkok · 2024
+              </p>
+            </div>
+          </div>
+        </Reveal>
+        <Reveal className="md:col-span-7">
           <div className="border-grad p-10 md:p-16 relative">
             <div className="font-display text-[24px] md:text-[36px] tracking-tight leading-[1.2]">
               <span className="text-grad">BANGKOK ENERGY</span>

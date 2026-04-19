@@ -29,32 +29,22 @@ const Index = () => (
     <SEO title="ØRIONS — Sharper ideas. Clearer direction." description="Idea-led Creative Agency. We help brands cut through the noise with sharper ideas and clearer direction." path="/" />
 
     {/* HERO — Editorial cover */}
-    <section className="px-6 md:px-10 pt-24 md:pt-28 pb-10">
-      <Reveal>
-        <div className="border-t border-foreground pt-3 pb-3 flex items-center justify-between">
-          <span className="index-badge font-bold">ISSUE 01 — IDEA-LED CREATIVE AGENCY</span>
-          <span className="index-badge font-medium text-muted-foreground hidden sm:inline">EST. 2024 · BANGKOK</span>
-        </div>
+    <section className="px-6 md:px-10 min-h-[88vh] flex flex-col items-center justify-center text-center">
+      <Reveal delay={0.05}>
+        <h1 className="font-brand text-[18vw] md:text-[14vw] leading-[0.85] tracking-[-0.05em] text-foreground">
+          ØRIONS
+        </h1>
       </Reveal>
 
-      <div className="mt-12 md:mt-20">
-        <Reveal delay={0.05}>
-          <h1 className="font-brand text-[22vw] md:text-[20vw] leading-[0.82] tracking-[-0.05em] text-foreground">
-            ØRIONS
-          </h1>
-        </Reveal>
-      </div>
+      <Reveal delay={0.2}>
+        <p className="mt-8 md:mt-10 index-badge font-bold">APPLIED CREATIVE AGENCY</p>
+      </Reveal>
 
-      <div className="mt-10 md:mt-14 flex flex-col gap-3">
-        <Reveal delay={0.15}>
-          <p className="index-badge font-bold">APPLIED CREATIVE AGENCY</p>
-        </Reveal>
-        <Reveal delay={0.25}>
-          <p className="font-display text-[22px] md:text-[32px] leading-[1.1] tracking-[-0.02em]">
-            "Practical. Bold. Done."
-          </p>
-        </Reveal>
-      </div>
+      <Reveal delay={0.3}>
+        <p className="mt-4 font-display text-[20px] md:text-[28px] leading-[1.1] tracking-[-0.02em]">
+          "Practical. Bold. Done."
+        </p>
+      </Reveal>
     </section>
 
     {/* MARQUEE */}

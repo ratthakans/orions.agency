@@ -81,11 +81,10 @@ const Index = () => (
         </Reveal>
         <Reveal delay={0.15}>
           <blockquote className="mt-12">
-            <p className="font-thai text-[26px] md:text-[36px] leading-[1.35] font-medium">
-              <span className="text-muted-foreground">"เมื่อวิธีเดิม</span><br />
-              <span>มาถึง</span> <span className="text-grad">ทางตัน</span><br />
-              <span className="text-muted-foreground">คุณต้องการไอเดียที่</span><br />
-              <span className="text-grad">'ประยุกต์'</span> <span>มาเพื่อแก้ปัญหาจริง"</span>
+            <p className="font-thai text-[26px] md:text-[36px] leading-[1.4] font-medium">
+              <span className="text-muted-foreground">"เมื่อวิธีเดิม</span> <span>มาถึง</span> <span className="text-grad">ทางตัน</span><br />
+              <span className="text-muted-foreground">ไอเดียที่</span> <span className="text-grad">'ประยุกต์ได้จริง'</span><br />
+              <span>จึงเป็นคำตอบ"</span>
             </p>
           </blockquote>
         </Reveal>
@@ -94,7 +93,8 @@ const Index = () => (
         </Reveal>
         <Reveal delay={0.4}>
           <p className="mt-8 mx-auto max-w-[620px] text-[15px] md:text-[16px] leading-[1.75] text-muted-foreground font-thai">
-            หลายแบรนด์ติดอยู่ใน <span className="text-grad-soft">Vicious Cycle</span> — ทำงานหนักขึ้น จ่ายแพงขึ้น แต่ผลลัพธ์เท่าเดิม เพราะกติกาของโลกเปลี่ยนไปแล้ว
+            หลายแบรนด์ติดอยู่ใน <span className="text-grad-soft">Vicious Cycle</span><br />
+            จ่ายแพงขึ้น แต่ผลลัพธ์เท่าเดิม เพราะกติกาของโลกเปลี่ยนไปแล้ว
           </p>
         </Reveal>
       </div>

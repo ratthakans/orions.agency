@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Reveal from "@/components/Reveal";
 import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import PageHero from "@/components/PageHero";
@@ -199,9 +199,9 @@ const Services = () => (
             </p>
           </Reveal>
           <Reveal delay={0.2}>
-            <Link to="/contact" className="mt-10 inline-flex items-center gap-3 bg-foreground text-background px-7 py-4 index-badge hover:opacity-90 transition-opacity">
-              Start a project <ArrowUpRight className="w-4 h-4" />
-            </Link>
+            <div className="mt-10">
+              <CTA to="/contact">Start a project</CTA>
+            </div>
           </Reveal>
         </div>
       </div>

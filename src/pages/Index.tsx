@@ -278,53 +278,33 @@ const Index = () => (
       </div>
     </section>
 
-    {/* 07 — SELECTED WORK — 1 hero + bento grid */}
+    {/* SELECTED WORK */}
     <section className="relative px-6 md:px-10 py-20 md:py-32 border-t border-foreground">
-      <SectionHeader left="07 — SELECTED WORK" right="applied creative in action" />
+      <SectionHeader left="SELECTED WORK" right="applied creative in action" />
 
-      {/* Hero feature */}
-      <Reveal delay={0.1}>
-        <Link to="/work" className="mt-12 md:mt-16 group block border border-foreground overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-12">
-            <div className="lg:col-span-8 aspect-[16/10] lg:aspect-auto overflow-hidden bg-surface-2 lg:border-r border-foreground">
-              <img src={heroProjects[0].img} alt={heroProjects[0].name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
-            </div>
-            <div className="lg:col-span-4 p-8 md:p-12 flex flex-col">
-              <div className="index-badge text-muted-foreground">{heroProjects[0].tag}</div>
-              <h3 className="mt-6 font-display text-[36px] md:text-[56px] leading-[0.95] tracking-[-0.03em]">{heroProjects[0].name}</h3>
-              <p className="mt-6 text-[15px] leading-[1.7] text-muted-foreground font-thai">{heroProjects[0].body}</p>
-              <div className="mt-auto pt-10 border-t border-foreground">
-                <div className="font-display text-[44px] md:text-[56px] leading-none tracking-[-0.03em]">{heroProjects[0].stat}</div>
-                <div className="mt-3 index-badge text-muted-foreground">{heroProjects[0].statLabel}</div>
-              </div>
-            </div>
-          </div>
-        </Link>
-      </Reveal>
-
-      {/* Hero secondary — 2 large */}
-      <div className="mt-px grid grid-cols-1 md:grid-cols-12 gap-px bg-foreground border border-foreground border-t-0">
-        {heroProjects.slice(1).map((p) => (
-          <Reveal key={p.name} className="md:col-span-6">
-            <article className="group bg-background h-full flex flex-col">
-              <div className="aspect-[16/10] overflow-hidden bg-surface-2">
+      {/* Hero projects — 3 column */}
+      <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-3 gap-px bg-foreground border border-foreground">
+        {heroProjects.map((p) => (
+          <Reveal key={p.name}>
+            <Link to="/work" className="group bg-background h-full flex flex-col">
+              <div className="aspect-[4/3] overflow-hidden bg-surface-2">
                 <img src={p.img} alt={p.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
               </div>
               <div className="p-6 md:p-8 flex-1 flex flex-col">
                 <div className="index-badge text-muted-foreground">{p.tag}</div>
-                <h3 className="mt-4 font-display text-[24px] md:text-[32px] leading-[1.05] tracking-[-0.02em]">{p.name}</h3>
+                <h3 className="mt-4 font-display text-[22px] md:text-[28px] leading-[1.05] tracking-[-0.02em]">{p.name}</h3>
                 <p className="mt-4 text-[14px] leading-[1.65] text-muted-foreground font-thai flex-1">{p.body}</p>
                 <div className="mt-6 pt-4 border-t border-foreground flex items-baseline justify-between">
-                  <div className="font-display text-[28px] leading-none tracking-[-0.03em]">{p.stat}</div>
+                  <div className="font-display text-[28px] md:text-[32px] leading-none tracking-[-0.03em]">{p.stat}</div>
                   <div className="index-badge text-muted-foreground">{p.statLabel}</div>
                 </div>
               </div>
-            </article>
+            </Link>
           </Reveal>
         ))}
       </div>
 
-      {/* Sub-categories */}
+      {/* Sub-categories — always 4 columns */}
       {[
         { label: "Applied Creative across industries", items: worksAcrossIndustries },
         { label: "High-Impact Digital Content", items: worksHighImpact },
@@ -337,7 +317,7 @@ const Index = () => (
               <span className="index-badge font-medium text-muted-foreground hidden sm:inline">{cat.items.length} PROJECTS</span>
             </div>
           </Reveal>
-          <div className={`mt-8 grid grid-cols-1 md:grid-cols-2 ${cat.items.length >= 4 ? "lg:grid-cols-4" : "lg:grid-cols-3"} gap-px bg-foreground border border-foreground`}>
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-foreground border border-foreground">
             {cat.items.map((w) => (
               <Reveal key={w.name}>
                 <article className="group bg-background h-full flex flex-col">

@@ -11,20 +11,21 @@ import SelectedWorkReel from "@/components/SelectedWorkReel";
 import VideoReel, { type VideoReelItem } from "@/components/VideoReel";
 import CTA from "@/components/CTA";
 import KineticWordmark from "@/components/KineticWordmark";
-import heroStreet from "@/assets/hero-street.jpg";
+import heroStreet from "@/assets/hero-street.webp";
 
-import approachRunning from "@/assets/approach-running.jpg";
-import approachTaxi from "@/assets/approach-taxi.jpg";
-import hongmove from "@/assets/hongmove.png";
-import rtaf from "@/assets/rtaf.jpg";
+import approachRunning from "@/assets/approach-running.webp";
+import approachTaxi from "@/assets/approach-taxi.webp";
+import hongmove from "@/assets/hongmove.webp";
+import rtaf from "@/assets/rtaf.webp";
 import khaoyai from "@/assets/khaoyai.jpg";
-import democrat from "@/assets/democrat.jpg";
-import gcoo from "@/assets/gcoo.jpg";
-import myhotel from "@/assets/myhotel.png";
-import heavyOrganizer from "@/assets/heavy-organizer.jpg";
+import democrat from "@/assets/democrat.webp";
+import gcoo from "@/assets/gcoo.webp";
+import myhotel from "@/assets/myhotel.webp";
+import heavyOrganizer from "@/assets/heavy-organizer.webp";
 import whatVortex from "@/assets/what-vortex.jpg";
 import whatSkater from "@/assets/what-skater.jpg";
 import whatWindow from "@/assets/what-window.jpg";
+import YouTubeFacade from "@/components/YouTubeFacade";
 
 const pressures = [
   { stat: 1.7, suffix: "s", decimals: 1, label: "ATTENTION SPAN", body: "คุณมีเวลาไม่ถึง 2 วินาทีในการหยุดลูกค้าก่อนจะถูกปัดทิ้ง" },
@@ -77,11 +78,11 @@ const Index = () => (
         </Reveal>
 
         <Reveal delay={0.2}>
-          <p className="mt-8 md:mt-10 index-badge font-bold">APPLIED CREATIVE AGENCY</p>
+          <p className="mt-8 index-badge">APPLIED CREATIVE AGENCY</p>
         </Reveal>
 
         <Reveal delay={0.3}>
-          <div className="mt-4 font-display text-[20px] md:text-[28px] leading-[1.2] tracking-[-0.02em] text-foreground">
+          <div className="mt-6 font-display h-display-xs text-foreground">
             <RotatingHeadline
               items={[
                 "PRACTICAL · BOLD · DONE",
@@ -95,8 +96,8 @@ const Index = () => (
       </div>
 
       <div className="absolute bottom-8 md:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground">
-        <span className="index-badge font-medium">SCROLL</span>
-        <span className="block w-px h-10 bg-foreground/40 animate-pulse" />
+        <span className="index-badge">SCROLL</span>
+        <span className="block w-px h-10 bg-muted-foreground animate-pulse" />
       </div>
     </section>
 
@@ -115,13 +116,13 @@ const Index = () => (
             <SectionHeader index="03" left="THE VICIOUS CYCLE" right="why budgets keep leaking" />
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="mt-10 md:mt-12 font-display h-display-md text-foreground">
-              The Vicious <span className="italic">Cycle</span><span className="text-muted-foreground">.</span>
+            <h2 className="mt-12 font-display h-display-md text-foreground">
+              The Vicious Cycle<span className="text-muted-foreground">.</span>
             </h2>
           </Reveal>
           <Reveal delay={0.15}>
-            <p className="mt-6 font-thai text-[18px] md:text-[22px] leading-[1.55] text-foreground/80 max-w-[460px]">
-              หลายธุรกิจติดอยู่ใน<span className="font-bold">"วงจรอุบาท"</span> — จ่ายแพงขึ้น แต่ได้ผลลัพธ์เท่าเดิม
+            <p className="mt-6 font-thai text-[17px] md:text-[20px] leading-[1.6] text-foreground max-w-[460px]">
+              หลายธุรกิจติดอยู่ใน<span className="font-semibold">"วงจรอุบาท"</span> — จ่ายแพงขึ้น แต่ได้ผลลัพธ์เท่าเดิม
             </p>
           </Reveal>
           <Reveal delay={0.3}>
@@ -146,8 +147,8 @@ const Index = () => (
                       prefix={p.prefix}
                       suffix={p.suffix}
                       decimals={p.decimals}
-                      className="font-display text-[64px] md:text-[88px] leading-[0.9] tracking-[-0.04em] transition-transform duration-500 group-hover:-translate-y-1"
-                      suffixClassName="text-[28px] md:text-[36px] tracking-normal ml-1 align-baseline text-muted-foreground"
+                      className="num-display text-[56px] md:text-[88px] transition-transform duration-500 group-hover:-translate-y-1"
+                      suffixClassName="text-[24px] md:text-[36px] tracking-normal ml-1 align-baseline text-muted-foreground"
                     />
                   </div>
 
@@ -173,7 +174,7 @@ const Index = () => (
       <div className="border-t border-background/40 py-16 md:py-24">
       <Reveal>
         <h2 className="font-display h-display-md">
-          Applied <span className="text-gradient">Solutions</span>.
+          Applied Solutions<span className="text-background/60">.</span>
         </h2>
       </Reveal>
 
@@ -185,11 +186,11 @@ const Index = () => (
                 <div className="font-mono text-[11px] tracking-[0.12em] opacity-60">{s.n}</div>
                 <ArrowUpRight className="w-4 h-4 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500" />
               </div>
-              <h3 className="mt-10 md:mt-14 font-display text-[24px] md:text-[28px] leading-[1.05] tracking-[-0.02em] transition-transform duration-500 group-hover:translate-x-1">
+              <h3 className="mt-12 font-display h-display-2xs transition-transform duration-500 group-hover:translate-x-1">
                 {s.title}
               </h3>
-              <div className="mt-5 hairline w-8 bg-background/40" />
-              <p className="mt-5 text-[14px] leading-[1.7] font-thai opacity-75">
+              <div className="mt-6 hairline w-8 bg-background/40" />
+              <p className="mt-6 text-[14px] leading-[1.7] font-thai opacity-80">
                 {s.body}
               </p>
             </article>
@@ -217,13 +218,7 @@ const Index = () => (
     {/* MASTERY IN STORYTELLING — 21:9 cinematic video (full bleed, no divider) */}
     <section className="relative w-full overflow-hidden bg-foreground">
       <div className="relative w-full overflow-hidden" style={{ aspectRatio: "21 / 9" }}>
-        <iframe
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] h-[56.25vw] min-w-full min-h-full pointer-events-none"
-          src="https://www.youtube.com/embed/u4r7Szy3uxI?autoplay=1&mute=1&loop=1&playlist=u4r7Szy3uxI&controls=0&showinfo=0&modestbranding=1&rel=0&playsinline=1&iv_load_policy=3&disablekb=1&fs=0"
-          title="Mastery in Storytelling"
-          allow="autoplay; encrypted-media"
-          frameBorder={0}
-        />
+        <YouTubeFacade videoId="u4r7Szy3uxI" title="Mastery in Storytelling" ambient />
       </div>
     </section>
 
@@ -231,13 +226,13 @@ const Index = () => (
     <section className="relative px-6 md:px-10">
       <div className="border-t border-foreground py-16 md:py-20">
       <h2 className="font-display h-display-sm">
-        Social &amp; <span className="italic opacity-70">Commercials</span>
+        Social &amp; <span className="text-muted-foreground">Commercials</span>
       </h2>
       <VideoReel items={socialCommercials} />
 
 
       <div className="mt-12 flex justify-end">
-        <Link to="/work" className="inline-flex items-center gap-3 index-badge hover:opacity-60 transition-opacity">
+        <Link to="/work" className="inline-flex items-center gap-3 index-badge text-muted-foreground hover:text-foreground transition-colors">
           VIEW ALL WORK <ArrowUpRight className="w-4 h-4" />
         </Link>
       </div>
@@ -245,28 +240,34 @@ const Index = () => (
     </section>
 
 
-    {/* CLOSING — high-contrast CTA, distinct from footer */}
-    <section className="relative bg-background text-foreground px-6 md:px-10 overflow-hidden">
-      <div className="border-t border-foreground py-16 md:py-20 max-w-[1400px] mx-auto">
+    {/* CLOSING — centered editorial CTA, unified with Work/About/Services */}
+    <section className="relative px-6 md:px-10">
+      <div className="border-t border-foreground py-16 md:py-20 max-w-[760px] mx-auto text-center">
         <Reveal>
-          <div className="flex items-center gap-3">
-            <span className="block w-8 h-px bg-foreground" />
-            <span className="index-badge font-bold">— READY WHEN YOU ARE</span>
+          <div className="index-badge text-muted-foreground mb-6">READY WHEN YOU ARE</div>
+        </Reveal>
+        <Reveal delay={0.05}>
+          <h2 className="font-display h-display-sm text-balance">
+            Stop guessing<span className="text-muted-foreground">.</span>
+            <br />
+            Start <span className="text-gradient">applying</span><span className="text-muted-foreground">.</span>
+          </h2>
+        </Reveal>
+        <Reveal delay={0.2}>
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-5">
+            <CTA to="/contact#audit">Request the Audit</CTA>
+            <CTA to="/contact" variant="ghost">Or start a project</CTA>
           </div>
         </Reveal>
-
-        <Reveal delay={0.1}>
-          <div className="mt-10 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-end">
-            <h2 className="md:col-span-7 font-display h-display-md">
-              Stop guessing<span className="text-muted-foreground">.</span>
-              <br />
-              <span className="italic">Start applying</span><span className="text-muted-foreground">.</span>
-            </h2>
-
-            <div className="md:col-span-5 flex flex-col items-start md:items-end gap-5">
-              <CTA to="/contact#audit">Request the Audit</CTA>
-              <CTA to="/contact" variant="ghost">Or start a project</CTA>
-            </div>
+        <Reveal delay={0.3}>
+          <div className="mt-12 inline-flex items-center gap-6 md:gap-8 font-mono text-[11px] md:text-[12px] tracking-[0.2em] uppercase text-muted-foreground">
+            <a href="mailto:hello@orions.agency" className="hover:text-foreground transition-colors">
+              hello@orions.agency
+            </a>
+            <span aria-hidden className="block w-px h-3 bg-muted-foreground" />
+            <a href="tel:+66923905464" className="hover:text-foreground transition-colors">
+              +66 92 390 5464
+            </a>
           </div>
         </Reveal>
       </div>

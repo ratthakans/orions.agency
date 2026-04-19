@@ -1,112 +1,102 @@
 
 
-## UI / Design System Audit — สรุปทั้งระบบ
+## Make ØRIONS Feel Alive — Motion & Dynamic Polish
 
-### 1. Design System ที่ตั้งใจไว้ (จาก index.css + tailwind)
-
-**Color tokens** (light editorial newsprint):
-- `background` cream #F5F2EC, `foreground` near-black #0F0F0F
-- `surface` / `surface-2` paper tones
-- `muted-foreground` #5F5F5F
-- Accent gradient: `--accent-from` vermilion → `--accent-to` amber (Sunset Ink) — ใช้น้อย เฉพาะ highlight word
-
-**Typography:**
-- `font-brand` / `font-display` = Unbounded (ENG headlines, uppercase, tracking -0.02em)
-- `font-thai` = IBM Plex Sans Thai (Thai body, normal-case)
-- `font-mono` = JetBrains Mono (numbers, tags)
-- Utility classes: `index-badge` / `label-mono` / `label-soft` (11px tracking 0.04em)
-
-**Layout:**
-- Padding: `px-6 md:px-10` ทุก section
-- Section spacing: `py-24 md:py-32` (สำหรับ section ใหญ่), `py-16 md:py-20` (สำหรับ row)
-- Border: `border-t border-foreground` (hairline หนา) หรือ `border-soft` (เบา)
-- Radius: 0 ทุกที่ (`--radius: 0px`)
-
-**Components ที่เป็น single source of truth:**
-- `PageHero` — hero ทุกหน้าย่อย
-- `SectionHeader` — divider บนหัว section
-- `CTA` — ปุ่ม primary/ghost
-- `Reveal` — animation
-- `SelectedWorkReel`, `VideoReel`, `ShowRow` — content blocks
+ตอนนี้เว็บเป็น "static editorial" สวยแบบนิตยสาร แต่ขาด movement ที่บอกว่าเป็น **Creative Agency** จริงๆ ผมแนะนำ 6 layer ของ motion โดย**ไม่ทำลาย newsprint aesthetic** — ทุกอย่าง subtle, intentional, performant.
 
 ---
 
-### 2. ปัญหาที่หลุด tone (รวม 9 จุด)
+### 1. Hero — Kinetic Wordmark (impact สูงสุด)
 
-| # | หน้า / ที่ตั้ง | ปัญหา | ระดับ |
-|---|---|---|---|
-| **A** | **Index hero** | ใช้ `font-brand` + size 220px แต่ PageHero หน้าอื่นใช้ size 132px → home แตกออกจาก family ของหน้าอื่นมากเกินไป | กลาง |
-| **B** | **Index** ทุก section heading | ใช้ขนาดต่างกันหลายค่า: `clamp(40px,6vw,72px)`, `clamp(36px,6vw,88px)`, `clamp(24px,3vw,40px)`, `text-[36px] md:text-[64px]` (vicious cycle) — ไม่มี scale ชัดเจน | **สูง** |
-| **C** | **Index — Vicious Cycle** | heading ใช้ `font-thai` แต่ heading หน้าอื่นใช้ `font-display` → outlier เดียวในเว็บที่ headline เป็น Thai sans | **สูง** |
-| **D** | **Index — Closing CTA** | ทำ corner marks เอง (4 spans) ทั้งที่มี `<CornerMarks/>` component อยู่แล้ว → duplicate pattern | กลาง |
-| **E** | **Index, Work, Services** | section dividers ใช้ 3 รูปแบบ: `<SectionHeader>`, manual `border-t` + h2, raw h2 ลอย → ไม่ consistent | **สูง** |
-| **F** | **About — The 6 Methods** | สร้าง section header เองด้วย `border-background/40` แทนการสร้าง `<SectionHeader variant="dark">` → รูปแบบเดียวกันแต่เขียนซ้ำ | กลาง |
-| **G** | **Contact + Index CTA + Footer link** | ปุ่มมี 4 รูปแบบ: `<CTA primary>`, custom Link "Request the Audit" (border + hover invert), Nav "Let's Talk" pill, Contact "Request your audit" anchor → CTA primitive ไม่ได้ถูกใช้ครบทุกที่ | **สูง** |
-| **H** | **Index** | ใช้ `tracking-[-0.04em]` / `-0.05em` / `-0.03em` / `-0.02em` ปนกันโดยไม่มี rule | กลาง |
-| **I** | **Index marquee + Vicious Cycle** | ✦ symbol และ "วงจรอุบาท" — memory บอก "no ✦ symbols" และ design ปัจจุบันเป็น light theme (ไม่ใช่ dark editorial ตาม memory เก่า) → memory ล้าสมัย | ข้อสังเกต |
-| **J** | **About PersonCard / SelectedWorkReel** | มี `group-hover:scale-[1.02]` / `scale-[1.04]` — memory เคยห้าม scale-on-hover แต่ปัจจุบันใช้แล้ว → ขัดกับ core rule เก่า | ข้อสังเกต |
+**ตอนนี้**: ØRIONS โผล่ขึ้นมาเฉยๆ
+**เปลี่ยนเป็น**:
+- ตัวอักษร `Ø R I O N S` แยกเป็น 6 ตัว → stagger reveal (mask-up wipe จากล่างขึ้นบน, delay 60ms ต่อตัว)
+- หลัง mount: `Ø` (ตัวแรก) มี **subtle rotation loop** 20s — บอกว่ามันคือ "orbit"
+- Mouse move บน hero → wordmark **parallax tilt** ±3deg (perspective)
+- Cursor บน hero → custom **circular dot cursor** (ขนาด 8px) ที่ scale-up เป็น 40px เมื่อ hover ปุ่ม
 
----
+### 2. Scroll-driven Section Reveals
 
-### 3. แผนปรับให้ tone เดียวกันทั้งระบบ
+**ตอนนี้**: ใช้ `<Reveal>` แบบ fade+slide เหมือนกันหมด
+**เปลี่ยนเป็น**:
+- **Section dividers** (`border-t border-foreground`) → animate `scaleX 0 → 1` จากซ้าย→ขวา เมื่อ scroll เข้าจอ (400ms)
+- **Section numbers** (`01`, `02`, `03`) → count-up effect (จาก `00` → number จริง)
+- **Headlines** ทุกอัน → split words → stagger fade-up 40ms/word (แทน reveal ทั้งบล็อก)
+- เพิ่ม `useScroll` + `useTransform` ทำ **horizontal parallax** ให้ภาพใน SelectedWorkReel เลื่อนสวนทาง scroll นิดๆ (±20px)
 
-**Step 1 — กำหนด Type Scale อย่างเป็นทางการ** (เพิ่มใน `index.css` เป็น utility)
-```
-.h-display-xl  → clamp(72px, 14vw, 180px)   // Home hero ØRIONS เท่านั้น
-.h-display-lg  → clamp(56px, 10vw, 132px)   // PageHero (ทุกหน้าย่อย)
-.h-display-md  → clamp(40px, 6vw, 88px)     // Section headline (CTA, manifesto)
-.h-display-sm  → clamp(28px, 3.5vw, 48px)   // Sub-section (Social & Commercials, Music...)
-.h-display-xs  → clamp(20px, 2vw, 28px)     // Card title
-```
-แล้วแทนที่ inline `style={{fontSize:...}}` ทุกตัวด้วย class เหล่านี้
+### 3. Marquee — Smarter Motion
 
-**Step 2 — ขยาย `<SectionHeader>` ให้มี variant**
-- เพิ่ม prop `variant?: "light" | "dark"` (dark สำหรับ section bg-foreground)
-- บังคับใช้ทุก section หัวข้อ (Index, About, Services, Work) — ลบ heading ลอยๆ
+**ตอนนี้**: marquee เลื่อนเร็วคงที่
+**เปลี่ยนเป็น**:
+- **Scroll-velocity coupling**: ตอน scroll ลง → marquee เร็วขึ้น, scroll ขึ้น → กลับทาง (เหมือนเว็บ Studio Lumio, Locomotive)
+- Hover marquee → slow down to 30%
 
-**Step 3 — บังคับใช้ `<CTA>` ทุก primary action**
-- แทน "Request the Audit" custom (Index), "Request your audit" (Contact), "Let's Talk" (Nav) ด้วย `<CTA>` ที่ extend variant: `primary | ghost | invert` (invert สำหรับบน bg-foreground)
-- ลบ duplicate corner marks ใน Index closing → ใช้ `<CornerMarks/>` component
+### 4. CTA & Link Magnetism
 
-**Step 4 — แก้ heading "วงจรอุบาท" (Index)**
-- เปลี่ยนจาก `font-thai` เป็น `font-display` ภาษาอังกฤษ + Thai supporting line ด้านล่าง (เช่น "The Vicious Cycle" + sub "วงจรอุบาทของหลายธุรกิจ") เพื่อ match pattern PageHero
+**ตอนนี้**: ปุ่ม CTA hover แค่ invert
+**เปลี่ยนเป็น**:
+- **Magnetic hover**: ปุ่ม "Request the Audit" + Nav links → element ขยับตาม cursor ±8px (limit) เมื่อ cursor ใกล้ — feel เหมือน agency เก๋ๆ (Active Theory, Locomotive)
+- Arrow `↗` ใน CTA → on hover เคลื่อน diagonal-out + arrow ใหม่ slide-in (เหมือน Vercel)
+- Underline links → wipe จากซ้าย→ขวา (มี `.story-link` อยู่แล้ว — apply ให้ครบ)
 
-**Step 5 — Tracking scale**
-- กำหนด: display-xl/lg = `-0.04em`, display-md = `-0.03em`, display-sm/xs = `-0.02em` (เลิกใช้ -0.05em)
+### 5. Page Transitions — Editorial Wipe
 
-**Step 6 — Spacing scale**
-- Section ใหญ่: `py-24 md:py-32`
-- Section รอง: `py-16 md:py-20`
-- Card inner: `p-6 md:p-8`
-- ลบค่า py-28, py-40 ที่หลุด scale
+**ตอนนี้**: PageTransition มีแค่ scale-y wipe
+**เปลี่ยนเป็น**:
+- เปลี่ยนเป็น **diagonal wipe** ดำพาดเฉียง 15° (slash transition) + แสดง route name (เช่น "→ WORK") กลางจอตอน wipe peak
+- Duration 800ms, ease custom `[0.76, 0, 0.24, 1]`
 
-**Step 7 — Memory cleanup**
-- อัปเดต `mem://style/aesthetic` จาก dark theme → light editorial newsprint (memory ปัจจุบันยังบอก #0A0A0A bg ซึ่งไม่ตรงกับ code)
-- ลบกฎ "no scale-on-hover" ออก (ใช้แล้วจริง) หรือลบ `scale` ออกจาก code
+### 6. Micro-interactions เสริม "Creative Agency feel"
+
+- **Image reveal**: รูปใน SelectedWorkReel → mask-clip reveal (clip-path inset 0 100% 0 0 → 0) แทน fade ธรรมดา
+- **Number tickers**: stat numbers ใน Vicious Cycle → flip-digit animation (เหมือน airport board) แทน count-up ธรรมดา
+- **Status bar**: เพิ่ม blinking caret หลัง time `13:42|`
+- **Cursor follower**: dot เล็กๆ ตาม cursor ทั้งเว็บ (8px) + ring ที่ lag 200ms (Active Theory style)
+- **Footer reveal**: footer เลื่อนขึ้นจากใต้ viewport (parallax fixed) เหมือนซ่อนอยู่ใต้ content
 
 ---
 
-### 4. ลำดับการลงมือ (แนะนำเป็น 3 PR ย่อย)
+### สิ่งที่ **จะไม่ทำ** (รักษา tone)
 
-**PR1 — Tokens & Type Scale** (impact สูงสุด, risk ต่ำ)
-- เพิ่ม `.h-display-*` ใน `index.css`
-- แทนที่ทุก `style={{fontSize: clamp(...)}}` ในทั้ง 5 หน้า
-
-**PR2 — Components consolidation**
-- ขยาย `SectionHeader` (dark variant), `CTA` (invert variant)
-- แทน manual heading + custom buttons ทั้งหมด
-
-**PR3 — Polish**
-- Vicious Cycle heading rework
-- Index closing CTA → ใช้ `<CornerMarks>`
-- Memory update
+- ❌ ไม่ใช้ glow / blur / 3D rotation รุนแรง
+- ❌ ไม่ใส่ video background ใน hero (ทำลาย newsprint)
+- ❌ ไม่ใช้ scroll-jacking แบบ Locomotive lock (ทำให้ accessibility แย่)
+- ❌ ไม่ใส่ confetti / cute particles
+- ❌ Motion ทุกอันต้อง respect `prefers-reduced-motion`
 
 ---
 
-### 5. ผลที่ได้
+### Implementation plan (ทำเป็น phase)
 
-- **เร็วขึ้น** เวลาสร้าง section ใหม่ — copy pattern เดียว
-- **Visual rhythm คงที่** ทั้ง 5 หน้า (hero → header → content → CTA)
-- **Brand voice ชัด** Unbounded เป็น display, Plex Thai เป็น body — ไม่มีกรณี exception
-- **Maintainability** — เปลี่ยน accent gradient ที่เดียวมีผลทุกที่ (ตอนนี้ก็เป็นอยู่แล้ว แต่ heading sizes กระจาย)
+**Phase A — Quick wins** (1 round, low risk, high impact)
+1. Hero kinetic wordmark + Ø rotation
+2. Section divider scaleX reveal
+3. Headline word-split stagger
+4. CTA arrow swap-out + magnetic links (Nav + CTA)
+
+**Phase B — Cursor & scroll layer**
+5. Custom cursor (dot + ring) ทั้งเว็บ
+6. Scroll-velocity marquee
+7. Image clip-path reveal ใน SelectedWorkReel
+
+**Phase C — Polish**
+8. Page transition diagonal wipe + route name
+9. Flip-digit stat numbers
+10. Status bar caret + Footer parallax
+
+---
+
+### Tech notes
+
+- ใช้ `framer-motion` (มีอยู่แล้ว) — `useScroll`, `useTransform`, `useMotionValue`, `useSpring`
+- Custom cursor: 1 component mount ที่ Layout, ใช้ `pointer-events-none fixed` + `transform3d` (GPU)
+- Word split: helper `splitWords(text)` → return array → map ใน `<motion.span>`
+- Magnetic: `useRef` + `mousemove` listener + `transform translate`
+- Reduced motion: `useReducedMotion()` hook → bypass effects
+
+---
+
+### คำถาม
+
+อยากให้เริ่มที่ phase ไหน? แนะนำ **Phase A ก่อน** (4 effects, เห็นผลทันที, ไม่กระทบ structure) แล้วค่อยขยับไป B/C
 

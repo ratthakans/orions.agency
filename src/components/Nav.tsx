@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
 import { Menu, X, ArrowUpRight } from "lucide-react";
+import Magnetic from "./Magnetic";
 
 const links = [
   { label: "Services", to: "/services" },
@@ -49,37 +50,40 @@ const Nav = () => {
 
         <nav className="hidden md:flex items-center gap-10">
           {links.map((l) => (
-            <NavLink
-              key={l.to}
-              to={l.to}
-              className={({ isActive }) =>
-                `index-badge relative pb-1 inline-flex items-center gap-2 transition-opacity ${
-                  isActive
-                    ? "text-foreground after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-0.5 after:h-[2px] after:bg-gradient-accent"
-                    : "text-muted-foreground hover:text-foreground"
-                }`
-              }
-            >
-              {({ isActive }) => (
-                <>
-                  {isActive && <span className="w-1 h-1 rounded-full accent-dot" />}
-                  <span>{l.label}</span>
-                </>
-              )}
-            </NavLink>
+            <Magnetic key={l.to} strength={5} className="inline-block">
+              <NavLink
+                to={l.to}
+                className={({ isActive }) =>
+                  `index-badge relative pb-1 inline-flex items-center gap-2 transition-colors duration-300 ${
+                    isActive
+                      ? "text-foreground after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-0.5 after:h-[2px] after:bg-gradient-accent"
+                      : "text-muted-foreground hover:text-[hsl(var(--accent-to))]"
+                  }`
+                }
+              >
+                {({ isActive }) => (
+                  <>
+                    {isActive && <span className="w-1 h-1 rounded-full accent-dot" />}
+                    <span>{l.label}</span>
+                  </>
+                )}
+              </NavLink>
+            </Magnetic>
           ))}
         </nav>
 
-        <Link
-          to="/contact"
-          className="hidden md:inline-flex group items-center gap-2 index-badge bg-foreground text-background px-4 py-2.5 hover:opacity-95 transition-opacity"
-        >
-          <span>Let's Talk</span>
-          <span className="relative inline-flex w-3.5 h-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5">
-            <ArrowUpRight className="w-3.5 h-3.5 absolute inset-0 transition-opacity duration-300 group-hover:opacity-0" />
-            <ArrowUpRight className="w-3.5 h-3.5 absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ stroke: "url(#cta-grad)" }} />
-          </span>
-        </Link>
+        <Magnetic strength={6} className="hidden md:inline-block">
+          <Link
+            to="/contact"
+            className="group inline-flex items-center gap-2 index-badge bg-foreground text-background px-4 py-2.5 hover:opacity-95 transition-opacity"
+          >
+            <span>Let's Talk</span>
+            <span className="relative inline-flex overflow-hidden w-3.5 h-3.5">
+              <ArrowUpRight className="w-3.5 h-3.5 absolute inset-0 transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-x-3 group-hover:-translate-y-3 group-hover:opacity-0" />
+              <ArrowUpRight className="w-3.5 h-3.5 absolute inset-0 -translate-x-3 translate-y-3 opacity-0 transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100" style={{ stroke: "url(#cta-grad)" }} />
+            </span>
+          </Link>
+        </Magnetic>
 
         <button
           aria-label="Menu"

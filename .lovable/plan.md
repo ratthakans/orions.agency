@@ -1,175 +1,90 @@
 
 
-# ØRIONS — Design Review & Refinement Plan
+# ปรับ Design ตาม PDF Master V6 — IBM Plex Sans Thai + Warm Palette + Grain
 
-## ปัญหาปัจจุบัน (จากการ review)
+## สรุปสิ่งที่จะเปลี่ยน (จาก deck)
 
-**1. Gradient สีฟ้า→ม่วง→แดง ไม่เข้ากับแบรนด์**
-- ดูเหมือน Web3/Crypto/Gaming brand มากกว่า creative agency
-- 3-color gradient ทำให้ดูยุ่งและขาด sophistication
-- สีแดง crimson ตัดกับ background ดำแรงเกินไป — ไม่ premium
-- ไม่สื่อถึง "Bangkok Energy × Logical Standard"
+ดู deck แล้ว direction ชัดมาก: **editorial photo-led, body type หลักเป็น IBM Plex Sans Thai, มี grain texture, palette warm earthy** (off-white #F2EFE8 พื้นหลัง / น้ำตาลเข้ม / amber accent) — ต่างจาก dark mode ปัจจุบันโดยสิ้นเชิง
 
-**2. Layout ยังเป็น "single column stack"**
-- ทุก section จัดกลาง / max-width เท่ากัน → จังหวะการอ่านเหมือนกันหมด
-- ขาด visual hierarchy ระหว่าง section
-- ไม่มี asymmetry, ไม่มี editorial grid
-- Featured Work cards เหมือนกัน 3 ใบเรียงกัน → น่าเบื่อ
+### A. Color System ใหม่ (Light/Warm Editorial)
+```
+BACKGROUND       #F2EFE8   (warm off-white / paper)
+SURFACE          #E8E3D8   (cream card)
+INK PRIMARY      #1A1815   (warm black for text)
+INK MUTED        #6B6660   
+ACCENT           #C2641E   (burnt amber — จาก deck cover)
+ACCENT SOFT      #E0B36A   (warm amber)
+HAIRLINE         #1A1815 / 12%
+```
+ทั้งเว็บกลับเป็น **light mode** ตาม deck (PDF เกือบทุกหน้าพื้นขาวครีม) — dark mode ปัจจุบันไม่ตรง brand
 
-**3. Hero ยังธรรมดา**
-- ØRIONS อยู่ตรงกลางจอเดี่ยวๆ + blob พื้นหลัง
-- ไม่มี supporting elements (index, meta info, motion text)
-- Marquee แยกอยู่ใต้ hero แทนที่จะเป็นส่วนหนึ่งของ composition
+### B. Typography Hierarchy ใหม่
+```
+HEADLINE (EN)    Unbounded 600, UPPERCASE, tracking -0.03em
+HEADLINE (TH)    IBM Plex Sans Thai 600, leading 1.15
+BODY (TH/EN)     IBM Plex Sans Thai 400/500, 16-18px, leading 1.7
+EYEBROW          IBM Plex Mono / JetBrains Mono 11px, tracking 0.22em
+KEY NUMBERS      Unbounded 700, ขนาดใหญ่ (1.7s, +41%, 4.6×)
+```
+- ลบ font Inter ออก → ใช้ IBM Plex Sans Thai เป็น body หลักทั้ง EN และ TH (Plex รองรับทั้งคู่ ดูเป็น editorial)
+- Heading คงไว้ Unbounded เฉพาะคำสำคัญ + EN, ส่วน heading TH ใช้ IBM Plex Sans Thai bold
 
-**4. Typography สีไม่ pop**
-- Heading หลายอันใช้ gradient → อ่านยาก, ลด impact
-- ขาด contrast ระหว่าง display headlines กับ body
-- ตัวอักษร Thai (IBM Plex) กับ Unbounded ยังไม่ harmonize ดีพอ
+### C. Grain & Texture
+- Grain overlay เพิ่ม opacity จาก 0.035 → 0.08 (เห็นชัดเจนเหมือน printed paper)
+- เพิ่ม **paper noise** ที่ surface cards (subtle beige fiber)
+- ลบ `liquid-blob` animation ทิ้ง — ไม่ตรงกับ editorial print mood
+
+### D. Content Sync ตาม Deck V6
+
+ปรับ copy ให้ตรง deck (เว็บปัจจุบันยังใช้คำเก่าหลายจุด):
+
+1. **Tagline ใหม่**: "Sharper ideas. Clearer direction." (แทน "Practical. Bold. Done.")
+2. **Positioning**: "IDEA-LED CREATIVE AGENCY" (แทน "Applied Creative Agency")
+3. **The Pressure (3 ตัว)**: ADHD SPAN 1.7s / DIGITAL INFLATION +41% / AI FLOOD 4.6×
+4. **Vicious Cycle section** (ใหม่ — page 4)
+5. **What We Do** 3 ขั้น: วิเคราะห์ธุรกิจ → เปลี่ยนการสื่อสาร → แปลเป็นผลลัพธ์
+6. **Service stacks**: BRAND DIRECTION / CREATIVE DIRECTION / DIGITAL EXPERIENCE (แทน 4 services เดิม)
+7. **Signature Approaches**: 01 CREATIVE UNLOCK / 02 DEMAND GRAVITY (พร้อม metrics)
+8. **ORIONS Process** (acronym): Observe / Reframe / Imagine / Orchestrate / Nurture / Scale
+9. **Hero Projects**: ประชาธิปัตย์, GCOO, MY HOTEL, HONG MOVE
+10. **More Projects**: HEAVY ORGANIZER, เขาใหญ่ คันทรีคลับ, RTAF, พรรคพลวัต
+11. **Social & Commercials**: Leicester City, Buriram Esport, Audi, Siriraj
+12. **Entertainment**: เถื่อน TRAVEL, THE UPGRADE, Finding the Last Note
+13. **Why Agency**: Consultant vs Studio vs Agency comparison
+14. **Contact**: 246/8 Soi Yothinphatthana, +66 92 390 5464
+
+### E. Layout Patterns จาก Deck
+- **Photo-driven**: ทุก section หลักมีภาพประกอบ full-bleed หรือ 50/50 split
+- **Typographic posters**: section title ตัวใหญ่ชิดบน-ซ้าย, content วาง grid ด้านล่าง
+- **Numbered lists**: 01 / 02 / 03 ใหญ่ๆ เป็น index (ไม่ใช่ index-badge เล็ก)
+- **Asymmetric image+text**: ตามแบบ page 5, 6, 8
+
+### F. ไฟล์ที่จะแก้
+- `src/index.css` — invert color tokens (light mode), update grain opacity, ลบ blob animation, fonts
+- `tailwind.config.ts` — fontFamily order (Plex Thai เป็น body หลัก)
+- `src/pages/Index.tsx` — sync copy + เพิ่ม Vicious Cycle, Signature Approaches, ORIONS process
+- `src/pages/Services.tsx` — restructure เป็น 3 stacks (Brand/Creative/Digital) ตาม deck
+- `src/pages/Work.tsx` — เพิ่ม Hero Projects + More Projects + Social Commercials + Entertainment 4 บล็อก
+- `src/pages/About.tsx` — sync POV + Why Agency comparison
+- `src/pages/Contact.tsx` — update address + tagline
+- `src/components/Nav.tsx`, `Footer.tsx`, `PageHero.tsx` — ปรับสีเป็น light mode
+- `src/components/SEO.tsx`, `index.html` — update tagline
+
+### G. Asset Plan
+จาก PDF มีรูป 146 รูป — copy ใช้รูปสำคัญ ~12-15 รูปเข้า `src/assets/deck/`:
+- Hero/POV images (page 5, 6, 7)
+- Project thumbnails (4 hero + 4 selected + 4 commercials + 3 entertainment)
 
 ---
 
-## แนวทางใหม่ (Direction)
+## คำถาม confirm 2 ข้อก่อนเริ่ม
 
-### A. Color System — "Warm Editorial Mono + Single Liquid Accent"
+**Q1 — Light mode ทั้งเว็บ จริงๆ ใช่ไหม?**
+Deck เป็นพื้น cream/off-white เกือบทุกหน้า แต่เว็บปัจจุบันเป็น dark mode ครบ — ต้อง flip ทั้งระบบ
 
-ทิ้ง 3-color gradient แล้วใช้:
+**Q2 — Tagline หลัก**
+ใช้ "Sharper ideas. Clearer direction." (deck) หรือคงไว้ "Practical. Bold. Done." (เว็บปัจจุบัน)?
 
-```text
-BACKGROUND     #0B0B0D   (warm near-black, ไม่เย็น)
-SURFACE        #131316   (card / alt section)
-SURFACE-2      #1B1B1F   (nested elements)
-BORDER         #26262B   (hairline)
-TEXT           #F5F5F0   (warm white, ไม่ขาวจัด)
-MUTED          #8A8A92   
-ACCENT INK     #E8E3D8   (creamy bone — สำหรับ italic/eyebrow)
-
-LIQUID ACCENT  Single-tone amber→bone→white
-  → ใช้เฉพาะกับ "ØRIONS" wordmark, key numbers, divider
-  → ไม่ใช้กับ paragraph headings
-```
-
-**ทำไม**: warm tone ให้ความรู้สึก editorial/print magazine (เช่น It's Nice That, The Gentlewoman) มากกว่า tech/web3. Amber↔bone gradient ดู refined แต่ยังมี personality.
-
-**ทางเลือก gradient** (จะขอ confirm ก่อนสร้าง):
-- **Option 1 — Warm Bone**: amber → cream → white (แบบ print magazine, เหมือนแสง golden hour)
-- **Option 2 — Cold Pearl**: steel blue → silver → pearl white (modern, premium tech)
-- **Option 3 — Mercury**: mid-grey → bright white → mid-grey (mono ที่สุด, เน้น light play)
-- **Option 4 — Single Solid**: ไม่มี gradient เลย — ใช้สีเดียว (เช่น amber #E8B86D) เป็น accent
-
-### B. Layout — "Editorial Grid System"
-
-แต่ละ section ใช้ 12-column grid พร้อม asymmetric placement:
-
-```text
-HERO (full-bleed)
-┌────────────────────────────────────────────────┐
-│ ⓘ INDEX 01/13      ◐ APPLIED CREATIVE AGENCY   │ ← top meta bar
-│                                                 │
-│   ØRIONS                          (huge, left)  │
-│   ━━━━━                                         │
-│   Practical. Bold. Done.        (italic, mid)   │
-│                                                 │
-│                              ╲ scroll          │
-│ EST. 2024 · BKK              ╲ ↓ next          │
-└────────────────────────────────────────────────┘
-```
-
-```text
-STAGNATION (split layout, ไม่ใช่ centered quote)
-┌──────────────┬─────────────────────────────────┐
-│ 01           │  เมื่อวิธีเดิม                  │
-│ THE          │  มาถึง ทางตัน                   │
-│ STAGNATION   │  คุณต้องการไอเดียที่           │
-│              │  'ประยุกต์'                     │
-│ Source:      │  มาเพื่อแก้ปัญหาจริง           │
-│ Industry     │  ─────                          │
-│ Observation  │  — ØRIONS Manifesto, 2024      │
-└──────────────┴─────────────────────────────────┘
-```
-
-```text
-3 PRESSURES (ตัวเลขใหญ่ขึ้น, layout horizontal divide)
-┌──────────────────────────────────────────────┐
-│ 02 — THE 3 PRESSURES                          │
-│                                                │
-│ 1.7s          +41%          4.6×              │
-│ ─────         ─────         ─────             │
-│ ATTENTION     DIGITAL       DIGITAL           │
-│ SPAN          INFLATION     WASTE             │
-│                                                │
-│ ไม่ถึง 2 วิ   ค่าโฆษณา      ขยะดิจิทัล       │
-│ คือเวลา...   เพิ่มขึ้น...   ล้นโลก...        │
-└──────────────────────────────────────────────┘
-```
-
-```text
-FEATURED WORK (asymmetric — ใบแรกใหญ่, อีก 2 ใบเล็ก stack)
-┌────────────────────────┬──────────────────┐
-│                        │  ┌────────────┐  │
-│   HONGMOVE             │  │  RTAF      │  │
-│   [large image 4:5]    │  └────────────┘  │
-│                        │  ┌────────────┐  │
-│   APPLIED UTILITY      │  │  KHAO YAI  │  │
-│   +25% Conversion      │  └────────────┘  │
-└────────────────────────┴──────────────────┘
-```
-
-### C. Hero ใหม่ — Editorial composition
-
-- เพิ่ม **top meta bar**: `INDEX 01/13` ซ้าย, `◐ APPLIED CREATIVE AGENCY` ขวา
-- ØRIONS ชิดซ้าย (ไม่ใช่ center) ขนาด 18-22vw
-- Tagline italic อยู่ใต้แบบ caption ของหนังสือ
-- มุมล่างซ้าย: `EST. BANGKOK · 2024 · ØRIONS.AGENCY`
-- มุมล่างขวา: scroll indicator + `↓ NEXT — THE STAGNATION`
-- **Marquee** เลื่อนเป็น horizontal divider คั่นระหว่าง hero กับ section ถัดไป (slim, slow)
-
-### D. Typography Refinement
-
-```text
-HERO WORDMARK    Unbounded 700, 18-22vw, tracking -0.06em
-                 → ใช้ liquid accent gradient (amber→bone)
-H1 (page hero)   Unbounded 600, 64-88px, tracking -0.04em
-                 → solid foreground (ไม่ gradient)
-H2 (section)     Unbounded 500, 36-48px
-                 → solid foreground
-EYEBROW          JetBrains Mono 11px, tracking 0.24em, MUTED
-ITALIC SUB       Inter Italic 18-22px, light, ใช้คั่น break
-BODY TH          IBM Plex Sans Thai 16-17px, leading 1.75
-QUOTE TH         IBM Plex Sans Thai 28-36px, weight 400
-                 → keyword highlight ด้วย accent color (ไม่ gradient)
-```
-
-**กฎใหม่**: gradient ใช้กับ ØRIONS wordmark + numbers (1.7s, +41%, 4.6×) + key callouts เท่านั้น ไม่ใช้กับ heading ทั่วไป
-
-### E. Micro-details เพิ่ม visual interest
-
-1. **Section index badges** — `01/13`, `02/13`, ... เป็น meta info ทุก section
-2. **Hairline dividers** — เส้นบางๆ คั่นระหว่าง subsection แทน gap ใหญ่
-3. **Numbered footnotes** — เพิ่ม `¹` `²` กับ key claims (style แบบ academic/editorial)
-4. **Image placeholders** — แทน gradient blob ใส่เป็น noise/grain texture หรือ duotone ภาพจริง (ถ้ามี)
-5. **Cursor**: เพิ่ม custom cursor เล็กๆ บน interactive cards (วงกลม + arrow)
-6. **Sticky page index** ด้านขวาของหน้า Home: dot navigator แสดงว่าอยู่ section ไหน
-
----
-
-## คำถามก่อนลงมือ
-
-ขอ confirm 2 จุดสำคัญ:
-
-**Q1 — เลือก accent gradient แบบไหน**
-1. Warm Bone (amber → cream → white) — editorial print magazine
-2. Cold Pearl (steel → silver → pearl) — modern premium tech
-3. Mercury (grey → white → grey) — most mono
-4. Single solid amber #E8B86D — no gradient at all
-
-**Q2 — Hero composition**
-1. Editorial split (ØRIONS ซ้าย + meta bars + asymmetric)
-2. คงไว้กลางจอแต่ refine (ลด blob, เพิ่ม meta bar บน-ล่าง)
-3. Full-bleed video/image background + ØRIONS overlay
-
-ตอบ 2 ข้อนี้แล้วจะเริ่มลงมือ refactor:
-- `src/index.css` — color tokens + gradient ใหม่
-- `src/pages/Index.tsx` — editorial layout ทุก section
-- `src/pages/Services.tsx`, `Work.tsx`, `About.tsx`, `Contact.tsx` — sync grid system + typography rules
-- `src/components/PageHero.tsx`, `Nav.tsx` — meta bar + index badges
+**Q3 — Copy migration**
+sync copy + structure ตาม deck V6 ทั้งหมด (vicious cycle, signature approaches, ORIONS process) หรือเอาแค่เปลี่ยน design system (สี/ฟอนต์/grain) แต่คง content เว็บเดิม?
 

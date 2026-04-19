@@ -343,44 +343,6 @@ const Index = () => (
       </div>
     </section>
 
-    {/* 08 — WHY ØRIONS — middle card oversized */}
-    <section className="relative px-6 md:px-10 py-20 md:py-32 border-t border-foreground">
-      <SectionHeader left="08 — WHY ØRIONS" right="ทำไมต้องเป็น ØRIONS" />
-
-      <Reveal delay={0.1}>
-        <h2 className="mt-12 md:mt-16 font-display text-[40px] md:text-[64px] leading-[0.95] tracking-[-0.04em] max-w-[900px]">
-          Not a consultant.<br />Not a studio.
-        </h2>
-      </Reveal>
-
-      <div className="mt-16 grid grid-cols-1 md:grid-cols-12 gap-px bg-foreground border border-foreground">
-        {whyOrions.map((w) => (
-          <div
-            key={w.tag}
-            className={`p-8 md:p-10 flex flex-col ${w.highlight ? "bg-foreground text-background md:col-span-6 md:row-span-2 min-h-[420px]" : "bg-background md:col-span-3"}`}
-          >
-            <div className="flex items-baseline justify-between">
-              <div className={`index-badge ${w.highlight ? "text-background/60" : "text-muted-foreground"}`}>{w.tag}</div>
-              <div className={`font-display text-[20px] ${w.highlight ? "" : "text-muted-foreground"}`}>
-                {w.highlight ? "✓" : "✕"}
-              </div>
-            </div>
-            <h3 className={`mt-8 font-display tracking-[-0.02em] ${w.highlight ? "text-[36px] md:text-[56px] leading-[0.95]" : "text-[22px] md:text-[26px] leading-[1.1] font-thai"}`}>
-              {w.title}
-            </h3>
-            <p className={`mt-6 text-[14px] md:text-[15px] leading-[1.7] font-thai ${w.highlight ? "text-background/80 md:text-[16px]" : "text-muted-foreground"}`}>
-              {w.body}
-            </p>
-            {w.highlight && (
-              <div className="mt-auto pt-10 flex items-center gap-2 index-badge text-background/60">
-                <span>OUR APPROACH</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
-    </section>
 
     {/* 09 — ØRIONS AUDIT */}
     <section className="relative px-6 md:px-10 py-20 md:py-28 border-t border-foreground">

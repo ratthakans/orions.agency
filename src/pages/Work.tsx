@@ -178,7 +178,7 @@ const Work = () => (
           Music &amp; <span className="italic opacity-70">Creative Content</span>
         </h2>
         <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
-          18 films · music · culture
+          12 films · music · culture
         </span>
       </div>
 

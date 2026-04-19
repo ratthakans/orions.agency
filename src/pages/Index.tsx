@@ -270,23 +270,15 @@ const Index = () => (
         </Reveal>
 
         <Reveal delay={0.1}>
-          <h2
-            className="mt-10 font-display leading-[0.9] tracking-[-0.04em]"
-            style={{ fontSize: "clamp(36px, 6vw, 88px)" }}
-          >
-            Stop guessing<span className="text-muted-foreground">.</span>
-            <br />
-            <span className="italic">Start applying</span><span className="text-muted-foreground">.</span>
-          </h2>
-        </Reveal>
-
-        <Reveal delay={0.2}>
-          <div className="mt-14 md:mt-20 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-end border-t border-foreground pt-10">
-            <div className="md:col-span-7 max-w-[560px]">
-              <p className="font-thai text-[16px] md:text-[18px] leading-[1.7] text-muted-foreground">
-                เริ่มจากบทสนทนา 30 นาที — ไม่มีค่าใช้จ่าย ไม่มีพันธะ เราฟังก่อน แล้วบอกตรงๆ ว่าจะลากเส้นไปทางไหน
-              </p>
-            </div>
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-end">
+            <h2
+              className="md:col-span-7 font-display leading-[0.9] tracking-[-0.04em]"
+              style={{ fontSize: "clamp(36px, 6vw, 88px)" }}
+            >
+              Stop guessing<span className="text-muted-foreground">.</span>
+              <br />
+              <span className="italic">Start applying</span><span className="text-muted-foreground">.</span>
+            </h2>
 
             <div className="md:col-span-5 flex flex-col items-start md:items-end gap-5">
               <Link

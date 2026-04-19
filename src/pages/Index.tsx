@@ -73,24 +73,43 @@ const Index = () => (
 
     {/* THE VICIOUS CYCLE */}
     <section className="relative px-6 md:px-10 min-h-screen flex items-center py-20 md:py-28 bg-surface border-y border-foreground overflow-hidden">
-      <div className="max-w-[1400px] mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
+      {/* Background mark — decorative */}
+      <div aria-hidden className="pointer-events-none absolute -right-6 md:-right-10 top-1/2 -translate-y-1/2 font-display text-[40vw] md:text-[28vw] leading-none tracking-[-0.05em] text-foreground/[0.04] select-none">
+        ∞
+      </div>
+
+      <div className="max-w-[1400px] mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 relative z-10">
         {/* Left */}
         <div className="md:col-span-5 md:sticky md:top-32 md:self-start">
           <Reveal>
-            <p className="index-badge text-muted-foreground">THE VICIOUS CYCLE</p>
+            <div className="flex items-center gap-3">
+              <span className="block w-8 h-px bg-foreground" />
+              <p className="index-badge text-foreground">THE VICIOUS CYCLE</p>
+            </div>
           </Reveal>
+
           <Reveal delay={0.1}>
-            <h2 className="mt-8 md:mt-10 font-thai text-[28px] md:text-[44px] leading-[1.3] tracking-[-0.01em] font-bold text-foreground">
-              หลายธุรกิจติดอยู่ใน "วงจรอุบาท"
+            <h2 className="mt-8 md:mt-10 font-thai text-[32px] md:text-[56px] leading-[1.2] tracking-[-0.02em] font-bold text-foreground">
+              หลายธุรกิจติดอยู่ใน
+              <br />
+              <span className="relative inline-block mt-2">
+                <span className="relative z-10">"วงจรอุบาท"</span>
+                <span aria-hidden className="absolute left-0 right-0 bottom-1 md:bottom-2 h-[10px] md:h-[14px] bg-foreground/10 -z-0" />
+              </span>
             </h2>
           </Reveal>
+
           <Reveal delay={0.2}>
-            <p className="mt-5 md:mt-6 font-thai text-[18px] md:text-[22px] leading-[1.55] text-muted-foreground max-w-[460px]">
+            <p className="mt-6 md:mt-8 font-thai text-[18px] md:text-[22px] leading-[1.55] text-muted-foreground max-w-[460px]">
               ทำงานหนักขึ้น จ่ายแพงขึ้น แต่ได้ผลลัพธ์เท่าเดิม
             </p>
           </Reveal>
+
           <Reveal delay={0.3}>
-            <div className="mt-10 hairline w-16" />
+            <div className="mt-10 md:mt-12 flex items-center gap-4 text-muted-foreground">
+              <div className="hairline w-12" />
+              <span className="font-mono text-[11px] tracking-[0.08em] uppercase">3 Pressure Points</span>
+            </div>
           </Reveal>
         </div>
 
@@ -98,14 +117,22 @@ const Index = () => (
         <div className="md:col-span-7 flex flex-col">
           {pressures.map((p, i) => (
             <Reveal key={p.label} delay={0.2 + i * 0.1}>
-              <div className={`group py-8 md:py-10 ${i === 0 ? "border-t" : ""} border-b border-foreground transition-colors duration-500 hover:bg-foreground hover:text-background cursor-default`}>
+              <div className={`group relative py-8 md:py-10 ${i === 0 ? "border-t" : ""} border-b border-foreground transition-colors duration-500 hover:bg-foreground hover:text-background cursor-default overflow-hidden`}>
+                <div className="absolute top-3 right-3 md:top-4 md:right-4 font-mono text-[11px] tracking-[0.08em] text-muted-foreground transition-colors duration-500 group-hover:text-background/60">
+                  0{i + 1} / 03
+                </div>
+
+                <div className="absolute bottom-3 right-3 md:bottom-4 md:right-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500">
+                  <ArrowUpRight className="w-5 h-5" />
+                </div>
+
                 <div className="grid grid-cols-12 gap-4 md:gap-6 items-baseline px-2 md:px-4">
                   <div className="col-span-12 md:col-span-4">
                     <CountUp to={p.stat} prefix={p.prefix} suffix={p.suffix} decimals={p.decimals}
-                      className="font-display text-[56px] md:text-[80px] leading-[0.9] tracking-[-0.04em] block transition-transform duration-500 group-hover:-translate-y-1" />
+                      className="font-display text-[64px] md:text-[88px] leading-[0.9] tracking-[-0.04em] block transition-transform duration-500 group-hover:-translate-y-1" />
                   </div>
                   <div className="col-span-12 md:col-span-8">
-                    <div className="index-badge text-muted-foreground transition-colors duration-500 group-hover:text-background/60">{p.label}</div>
+                    <div className="index-badge text-foreground transition-colors duration-500 group-hover:text-background">{p.label}</div>
                     <p className="mt-4 text-[14px] md:text-[15px] leading-[1.65] text-muted-foreground font-thai transition-colors duration-500 group-hover:text-background/80">
                       {p.body}
                     </p>

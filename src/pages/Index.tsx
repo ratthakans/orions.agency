@@ -435,11 +435,7 @@ const Index = () => (
 
     {/* 10 — CTA */}
     <section className="relative px-6 md:px-10 py-20 md:py-32 bg-foreground text-background overflow-hidden">
-      <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-[-4vw] flex justify-center select-none">
-        <span className="font-brand text-[28vw] leading-[0.85] tracking-[-0.06em] text-background/[0.05]">ØRIONS</span>
-      </div>
-
-      <div className="relative z-10">
+      <div>
         <div className="border-t border-background pt-3 pb-3 flex items-center justify-between">
           <span className="index-badge font-bold">10 — LET'S WORK</span>
           <span className="index-badge font-medium opacity-60 hidden sm:inline">ØRIONS · BANGKOK</span>

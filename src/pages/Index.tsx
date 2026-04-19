@@ -387,12 +387,8 @@ const Index = () => (
     </section>
 
     {/* 09 — THE CLARITY AUDIT */}
-    <section className="relative px-6 md:px-10 py-20 md:py-32 border-t border-foreground overflow-hidden">
-      <div aria-hidden className="pointer-events-none absolute -right-4 top-10 font-display text-[180px] md:text-[320px] leading-none tracking-[-0.06em] text-foreground/[0.04] select-none">
-        09
-      </div>
-
-      <div className="relative z-10">
+    <section className="relative px-6 md:px-10 py-20 md:py-28 border-t border-foreground">
+      <div>
         <div className="border-t border-foreground pt-3 pb-3 flex items-center justify-between">
           <span className="index-badge font-bold">09 — THE CLARITY AUDIT</span>
           <span className="index-badge font-medium opacity-60 hidden sm:inline">SPECIAL OFFER · LIMITED</span>

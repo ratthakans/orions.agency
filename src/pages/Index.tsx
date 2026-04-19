@@ -100,39 +100,36 @@ const Index = () => (
       </div>
     </section>
 
-    {/* THE VICIOUS CYCLE */}
-    <section className="relative px-6 md:px-10 min-h-screen flex items-center py-20 md:py-28 bg-surface border-y border-foreground overflow-hidden">
+    {/* 03 — THE VICIOUS CYCLE */}
+    <section className="relative px-6 md:px-10 min-h-screen flex items-center py-20 md:py-28 border-t border-foreground overflow-hidden">
+      {/* Decorative oversized anchor */}
+      <div aria-hidden className="pointer-events-none absolute -left-4 md:-left-8 top-10 font-display text-[180px] md:text-[320px] leading-none tracking-[-0.06em] text-foreground/[0.04] select-none">
+        03
+      </div>
 
       <div className="max-w-[1400px] mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 relative z-10">
-        {/* Left */}
         <div className="md:col-span-5 md:sticky md:top-32 md:self-start">
           <Reveal>
             <div className="flex items-center gap-3">
               <span className="block w-8 h-px bg-foreground" />
-              <p className="index-badge text-foreground">THE VICIOUS CYCLE</p>
+              <p className="index-badge text-foreground">03 — THE VICIOUS CYCLE</p>
             </div>
           </Reveal>
-
           <Reveal delay={0.1}>
-            <h2 className="mt-8 md:mt-10 font-thai text-[32px] md:text-[56px] leading-[1.2] tracking-[-0.02em] font-bold text-foreground">
-              หลายธุรกิจติดอยู่ใน
-              <br />
-              <span className="font-extrabold">"วงจรอุบาท"</span>
+            <h2 className="mt-10 md:mt-12 font-thai text-[36px] md:text-[64px] leading-[1.15] tracking-[-0.02em] font-bold text-foreground">
+              หลายธุรกิจติดอยู่ใน<br /><span className="font-extrabold">"วงจรอุบาท"</span>
             </h2>
           </Reveal>
-
           <Reveal delay={0.2}>
-            <p className="mt-6 md:mt-8 font-thai text-[18px] md:text-[22px] leading-[1.55] text-muted-foreground max-w-[460px]">
+            <p className="mt-8 font-thai text-[18px] md:text-[22px] leading-[1.55] text-muted-foreground max-w-[460px]">
               ทำงานหนักขึ้น จ่ายแพงขึ้น แต่ได้ผลลัพธ์เท่าเดิม
             </p>
           </Reveal>
-
           <Reveal delay={0.3}>
-            <div className="mt-10 md:mt-12 hairline w-16" />
+            <div className="mt-12 hairline w-16" />
           </Reveal>
         </div>
 
-        {/* Right */}
         <div className="md:col-span-7 flex flex-col">
           {pressures.map((p, i) => (
             <Reveal key={p.label} delay={0.2 + i * 0.1}>
@@ -140,15 +137,13 @@ const Index = () => (
                 <div className="absolute top-3 right-3 md:top-4 md:right-4 font-mono text-[11px] tracking-[0.08em] text-muted-foreground transition-colors duration-500 group-hover:text-background/60">
                   0{i + 1} / 03
                 </div>
-
                 <div className="absolute bottom-3 right-3 md:bottom-4 md:right-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500">
                   <ArrowUpRight className="w-5 h-5" />
                 </div>
-
                 <div className="grid grid-cols-12 gap-4 md:gap-6 items-baseline px-2 md:px-4">
                   <div className="col-span-12 md:col-span-4">
                     <CountUp to={p.stat} prefix={p.prefix} suffix={p.suffix} decimals={p.decimals}
-                      className="font-display text-[64px] md:text-[88px] leading-[0.9] tracking-[-0.04em] block transition-transform duration-500 group-hover:-translate-y-1" />
+                      className="font-display text-[64px] md:text-[96px] leading-[0.9] tracking-[-0.04em] block transition-transform duration-500 group-hover:-translate-y-1" />
                   </div>
                   <div className="col-span-12 md:col-span-8">
                     <div className="index-badge text-foreground transition-colors duration-500 group-hover:text-background">{p.label}</div>
@@ -164,199 +159,143 @@ const Index = () => (
       </div>
     </section>
 
-    {/* WHO IS ØRIONS */}
-    <section className="px-6 md:px-10 py-20 md:py-32">
-      <SectionHeader left="04 — WHO IS ØRIONS" right="creative agency from bangkok" />
-
-      <div className="mt-12 grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-center">
-        <div className="md:col-span-7 order-2 md:order-1">
-          <div className="aspect-[4/5] overflow-hidden bg-surface-2">
-            <img src={whoOrionsTeam} alt="ØRIONS team standing on a Bangkok rooftop with the city skyline" className="w-full h-full object-cover" />
+    {/* 04 — WHO IS ØRIONS — full-bleed image left, manifesto right */}
+    <section className="relative border-t border-foreground">
+      <div className="grid grid-cols-1 md:grid-cols-12 min-h-[80vh]">
+        {/* Image kiss-edge */}
+        <div className="md:col-span-7 relative overflow-hidden bg-surface-2 order-2 md:order-1 border-t md:border-t-0 md:border-r border-foreground">
+          <img src={whoOrionsTeam} alt="ØRIONS team in Bangkok" className="absolute inset-0 w-full h-full object-cover" />
+          {/* Vertical anchor text */}
+          <div aria-hidden className="hidden md:flex absolute right-4 top-6 bottom-6 items-center">
+            <span className="font-display text-[11px] tracking-[0.3em] text-background/80 [writing-mode:vertical-rl] rotate-180">
+              BANGKOK / 2024 / ØRIONS
+            </span>
           </div>
         </div>
-        <div className="md:col-span-5 order-1 md:order-2 space-y-8">
-          <Reveal>
-            <h2 className="font-display text-[36px] md:text-[56px] leading-[0.95] tracking-[-0.03em]">
-              Creative Agency<br />from Bangkok.
-            </h2>
-          </Reveal>
-          <Reveal delay={0.15}>
-            <div className="hairline w-16" />
-          </Reveal>
-          <Reveal delay={0.2}>
-            <p className="text-[16px] md:text-[18px] leading-[1.75] font-thai text-muted-foreground">
-              เราคือนักแก้ปัญหาที่นำความรวดเร็วแบบ <span className="font-display normal-case font-bold text-foreground">Bangkok Energy</span> มาผสานกับ <span className="font-display normal-case font-bold text-foreground">Logical Standard</span> ระดับสากล เราเชื่อมช่องว่างระหว่าง <span className="text-foreground font-medium">"ไอเดียที่ดูดี"</span> กับ <span className="text-foreground font-medium">"ผลลัพธ์ทางธุรกิจที่วัดผลได้"</span> เพื่อลดงบประมาณที่สูญเปล่าและสร้างผลกระทบที่แท้จริงให้กับแบรนด์
-            </p>
+
+        {/* Manifesto column */}
+        <div className="md:col-span-5 order-1 md:order-2 px-6 md:px-12 py-16 md:py-24 flex flex-col justify-between">
+          <div>
+            <div className="flex items-center gap-3">
+              <span className="block w-8 h-px bg-foreground" />
+              <p className="index-badge text-foreground">04 — WHO IS ØRIONS</p>
+            </div>
+            <Reveal delay={0.1}>
+              <h2 className="mt-10 font-display text-[40px] md:text-[64px] leading-[0.95] tracking-[-0.04em]">
+                Creative Agency<br />from Bangkok.
+              </h2>
+            </Reveal>
+            <Reveal delay={0.2}>
+              <div className="hairline w-16 mt-8" />
+            </Reveal>
+            <Reveal delay={0.25}>
+              <p className="mt-8 text-[16px] md:text-[18px] leading-[1.8] font-thai text-muted-foreground">
+                เราคือนักแก้ปัญหาที่นำความรวดเร็วแบบ <span className="font-display normal-case font-bold text-foreground">Bangkok Energy</span> มาผสานกับ <span className="font-display normal-case font-bold text-foreground">Logical Standard</span> ระดับสากล เชื่อมช่องว่างระหว่าง <span className="text-foreground font-medium">"ไอเดียที่ดูดี"</span> กับ <span className="text-foreground font-medium">"ผลลัพธ์ทางธุรกิจที่วัดผลได้"</span>
+              </p>
+            </Reveal>
+          </div>
+
+          {/* Stats */}
+          <Reveal delay={0.35}>
+            <div className="mt-12 grid grid-cols-3 border-t border-foreground pt-6">
+              {[
+                { v: "12+", l: "YEARS" },
+                { v: "40+", l: "BRANDS" },
+                { v: "1", l: "STUDIO" },
+              ].map((s) => (
+                <div key={s.l}>
+                  <div className="font-display text-[32px] md:text-[44px] leading-none tracking-[-0.03em]">{s.v}</div>
+                  <div className="mt-2 index-badge text-muted-foreground">{s.l}</div>
+                </div>
+              ))}
+            </div>
           </Reveal>
         </div>
       </div>
     </section>
 
-    {/* APPLIED SOLUTIONS */}
-    <section className="px-6 md:px-10 py-20 md:py-32 bg-surface border-y border-foreground">
-      <SectionHeader left="05 — APPLIED SOLUTIONS" right="สิ่งที่เราส่งมอบให้คุณ" />
-
-      <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-foreground border border-foreground">
-        {appliedSolutions.map((s, i) => (
-          <Reveal key={s.n} delay={i * 0.08}>
-            <article className="group bg-background h-full p-8 md:p-10 flex flex-col transition-colors duration-500 hover:bg-foreground hover:text-background cursor-default">
-              <div className="flex items-start justify-between">
-                <div className="font-display text-[44px] md:text-[56px] leading-none tracking-[-0.03em]">{s.n}</div>
-                <ArrowUpRight className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              </div>
-              <h3 className="mt-12 font-display text-[20px] md:text-[24px] leading-[1.15] tracking-[-0.02em]">{s.title}</h3>
-              <p className="mt-4 text-[14px] md:text-[15px] leading-[1.65] text-muted-foreground font-thai transition-colors duration-500 group-hover:text-background/80">
-                {s.body}
-              </p>
-            </article>
-          </Reveal>
-        ))}
+    {/* 05 — APPLIED SOLUTIONS — horizontal expanding rows */}
+    <section className="relative px-6 md:px-10 py-20 md:py-32 border-t border-foreground overflow-hidden">
+      <div aria-hidden className="pointer-events-none absolute right-0 top-8 font-display text-[160px] md:text-[260px] leading-none tracking-[-0.06em] text-foreground/[0.04] select-none">
+        05
       </div>
-    </section>
 
-    {/* THE BLUEPRINT */}
-    <section className="px-6 md:px-10 py-20 md:py-32">
-      <SectionHeader left="06 — THE BLUEPRINT" right="6 ขั้นตอนสู่ผลลัพธ์ที่แม่นยำ" />
+      <div className="relative z-10">
+        <SectionHeader left="05 — APPLIED SOLUTIONS" right="สิ่งที่เราส่งมอบให้คุณ" />
 
-      <div className="mt-12">
-        <Reveal>
-          <h2 className="font-display text-[36px] md:text-[56px] leading-[0.95] tracking-[-0.03em] max-w-[900px]">
-            6 ขั้นตอนสู่ผลลัพธ์<br />ที่แม่นยำ
+        <Reveal delay={0.1}>
+          <h2 className="mt-12 md:mt-16 font-display text-[44px] md:text-[72px] leading-[0.95] tracking-[-0.04em] max-w-[900px]">
+            Four practices.<br />One outcome.
           </h2>
         </Reveal>
-        <Reveal delay={0.1}>
-          <p className="mt-6 text-[16px] md:text-[18px] leading-[1.7] font-thai text-muted-foreground max-w-[680px]">
-            จากความเข้าใจปัญหาที่แท้จริง สู่การขยายผลความสำเร็จให้เติบโต
-          </p>
-        </Reveal>
-      </div>
 
-      <div className="mt-16 grid grid-cols-2 md:grid-cols-6 gap-px bg-foreground border border-foreground">
-        {blueprint.map((s, i) => (
-          <Reveal key={i} delay={i * 0.05}>
-            <div className="bg-background p-5 md:p-6 h-full min-h-[220px] flex flex-col">
-              <div className="font-mono text-[11px] tracking-[0.08em] text-muted-foreground">0{i + 1}</div>
-              <div className="mt-3 font-display text-[64px] md:text-[80px] leading-[0.85]">{s.l}</div>
-              <div className="mt-4 font-display text-[14px] tracking-[0.02em]">{s.n}</div>
-              <p className="mt-3 text-[12px] leading-[1.55] text-muted-foreground font-thai">{s.b}</p>
-            </div>
-          </Reveal>
-        ))}
-      </div>
-    </section>
-
-    {/* HERO PROJECTS */}
-    <section className="px-6 md:px-10 py-20 md:py-32 bg-surface border-y border-foreground">
-      <SectionHeader left="07 — HERO PROJECTS" right="applied creative in action" />
-
-      <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-px bg-foreground border border-foreground">
-        {heroProjects.map((p, i) => (
-          <Reveal key={p.name} delay={i * 0.1}>
-            <article className="bg-background h-full flex flex-col">
-              <div className="aspect-[4/3] overflow-hidden bg-surface-2">
-                <img src={p.img} alt={p.name} className="w-full h-full object-cover" />
-              </div>
-              <div className="p-6 md:p-8 flex-1 flex flex-col">
-                <div className="index-badge text-muted-foreground">{p.tag}</div>
-                <h3 className="mt-4 font-display text-[24px] md:text-[28px] leading-[1.1] tracking-[-0.02em]">{p.name}</h3>
-                <p className="mt-4 text-[14px] leading-[1.65] text-muted-foreground font-thai flex-1">{p.body}</p>
-                <div className="mt-8 border-t border-foreground pt-4">
-                  <div className="font-display text-[32px] md:text-[40px] leading-none tracking-[-0.03em]">{p.stat}</div>
-                  <div className="mt-2 index-badge text-muted-foreground">{p.statLabel}</div>
+        <div className="mt-16 border-t border-foreground">
+          {appliedSolutions.map((s) => (
+            <Reveal key={s.n}>
+              <article className="group relative border-b border-foreground transition-colors duration-500 hover:bg-foreground hover:text-background cursor-default">
+                <div className="grid grid-cols-12 gap-4 md:gap-8 items-center px-2 md:px-4 py-8 md:py-10">
+                  <div className="col-span-2 md:col-span-1 font-mono text-[11px] tracking-[0.08em] text-muted-foreground transition-colors duration-500 group-hover:text-background/60">
+                    {s.n}
+                  </div>
+                  <div className="col-span-10 md:col-span-5">
+                    <h3 className="font-display text-[28px] md:text-[44px] leading-[1.05] tracking-[-0.03em]">
+                      {s.title}
+                    </h3>
+                  </div>
+                  <div className="col-span-12 md:col-span-5">
+                    <p className="text-[14px] md:text-[16px] leading-[1.65] text-muted-foreground font-thai transition-colors duration-500 group-hover:text-background/80">
+                      {s.body}
+                    </p>
+                  </div>
+                  <div className="hidden md:flex md:col-span-1 justify-end">
+                    <ArrowUpRight className="w-6 h-6 transition-transform duration-500 group-hover:rotate-45" />
+                  </div>
                 </div>
-              </div>
-            </article>
-          </Reveal>
-        ))}
+              </article>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
 
-    {/* SELECTED WORKS */}
-    <section className="px-6 md:px-10 py-20 md:py-32">
-      <SectionHeader left="08 — SELECTED WORKS" right="applied creative across industries" />
+    {/* 06 — THE BLUEPRINT — vertical chapter list */}
+    <section className="relative px-6 md:px-10 py-20 md:py-32 border-t border-foreground overflow-hidden">
+      <SectionHeader left="06 — THE BLUEPRINT" right="6 ขั้นตอนสู่ผลลัพธ์ที่แม่นยำ" />
 
-      <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-px bg-foreground border border-foreground">
-        {selectedWorks.map((w, i) => (
-          <Reveal key={w.name} delay={i * 0.08}>
-            <article className="group bg-background h-full grid grid-cols-1 sm:grid-cols-2">
-              <div className="aspect-[4/3] sm:aspect-auto overflow-hidden bg-surface-2">
-                <img src={w.img} alt={w.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
-              </div>
-              <div className="p-6 md:p-8 flex flex-col">
-                <div className="index-badge text-muted-foreground">{w.tag}</div>
-                <h3 className="mt-4 font-display text-[22px] md:text-[26px] leading-[1.1] tracking-[-0.02em]">{w.name}</h3>
-                <p className="mt-4 text-[14px] leading-[1.65] text-muted-foreground font-thai">{w.body}</p>
-                <div className="mt-auto pt-6 flex items-center gap-2 text-[12px] font-mono text-muted-foreground">
-                  <span>VIEW CASE</span>
-                  <ArrowUpRight className="w-4 h-4" />
-                </div>
-              </div>
-            </article>
-          </Reveal>
-        ))}
-      </div>
-    </section>
-
-    {/* WHY AGENCY */}
-    <section className="px-6 md:px-10 py-20 md:py-32 bg-surface border-y border-foreground">
-      <SectionHeader left="09 — WHY AGENCY?" right="ทำไมต้องเป็น ØRIONS" />
-
-      <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-px bg-foreground border border-foreground">
-        {whyOrions.map((w, i) => (
-          <Reveal key={w.tag} delay={i * 0.1}>
-            <div className={`h-full p-8 md:p-10 flex flex-col ${w.highlight ? "bg-foreground text-background" : "bg-background"}`}>
-              <div className={`index-badge ${w.highlight ? "text-background/60" : "text-muted-foreground"}`}>{w.tag}</div>
-              <h3 className={`mt-8 font-display text-[28px] md:text-[36px] leading-[1.05] tracking-[-0.02em] ${w.highlight ? "" : "font-thai"}`}>
-                {w.title}
-              </h3>
-              <p className={`mt-6 text-[14px] md:text-[15px] leading-[1.65] font-thai ${w.highlight ? "text-background/80" : "text-muted-foreground"}`}>
-                {w.body}
-              </p>
-              {w.highlight && (
-                <div className="mt-auto pt-10 flex items-center gap-2 index-badge text-background/60">
-                  <span>OUR APPROACH</span>
-                  <ArrowUpRight className="w-4 h-4" />
-                </div>
-              )}
-            </div>
-          </Reveal>
-        ))}
-      </div>
-    </section>
-
-    {/* THE CLARITY AUDIT */}
-    <section className="px-6 md:px-10 py-20 md:py-32">
-      <div className="border-t border-foreground pt-3 pb-3 flex items-center justify-between">
-        <span className="index-badge font-bold">10 — THE CLARITY AUDIT</span>
-        <span className="index-badge font-medium opacity-60 hidden sm:inline">SPECIAL OFFER · LIMITED</span>
-      </div>
-
-      <div className="mt-16 grid grid-cols-1 md:grid-cols-12 gap-10">
-        <div className="md:col-span-7">
+      <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-12 gap-8">
+        <div className="md:col-span-4 md:sticky md:top-32 md:self-start">
           <Reveal>
-            <h2 className="font-display text-[40px] md:text-[72px] leading-[0.95] tracking-[-0.03em]">
-              The Clarity<br />Audit.
+            <h2 className="font-display text-[40px] md:text-[64px] leading-[0.95] tracking-[-0.04em]">
+              The<br />Blueprint.
             </h2>
           </Reveal>
-          <Reveal delay={0.15}>
-            <p className="mt-8 text-[16px] md:text-[20px] leading-[1.65] font-thai text-muted-foreground max-w-[560px]">
-              เราไม่ได้มาขอโอกาส แต่มาเพื่อชี้ <span className="text-foreground font-bold">"จุดตาย"</span> และหา <span className="text-foreground font-bold">"ทางรอด"</span> ให้คุณ
+          <Reveal delay={0.1}>
+            <p className="mt-6 text-[15px] md:text-[16px] leading-[1.7] font-thai text-muted-foreground max-w-[360px]">
+              จากความเข้าใจปัญหาที่แท้จริง สู่การขยายผลความสำเร็จให้เติบโต
             </p>
           </Reveal>
         </div>
 
-        <div className="md:col-span-5 space-y-px bg-foreground border border-foreground">
-          {[
-            { n: "01", t: "วิเคราะห์จุดตัน", b: "เราจะบอกว่าอะไรที่ขวางการเติบโตของธุรกิจคุณอยู่ พร้อมแนวทางแก้ไขเบื้องต้น" },
-            { n: "02", t: "จำกัดจำนวน", b: "รับเฉพาะธุรกิจที่ต้องการความเปลี่ยนแปลงจริงๆ เพื่อรักษาคุณภาพการวิเคราะห์สูงสุด" },
-          ].map((c, i) => (
-            <Reveal key={c.n} delay={0.2 + i * 0.1}>
-              <div className="bg-background p-6 md:p-8">
-                <div className="flex items-baseline gap-4">
-                  <div className="font-mono text-[12px] text-muted-foreground">{c.n} /</div>
-                  <h4 className="font-display text-[16px] md:text-[18px] tracking-[0.02em]">{c.t}</h4>
+        <div className="md:col-span-8 border-t border-foreground">
+          {blueprint.map((s, i) => (
+            <Reveal key={i}>
+              <div className="group relative border-b border-foreground py-8 md:py-10 transition-colors duration-500 hover:bg-foreground hover:text-background">
+                <div className="grid grid-cols-12 gap-4 md:gap-6 items-center px-2 md:px-4">
+                  <div className="col-span-3 md:col-span-3">
+                    <div className="font-display text-[80px] md:text-[140px] leading-[0.85] tracking-[-0.06em]">{s.l}</div>
+                  </div>
+                  <div className="col-span-9 md:col-span-4">
+                    <div className="font-mono text-[11px] tracking-[0.08em] text-muted-foreground transition-colors duration-500 group-hover:text-background/60">
+                      0{i + 1} / 06
+                    </div>
+                    <h3 className="mt-3 font-display text-[22px] md:text-[28px] tracking-[-0.02em]">{s.n}</h3>
+                  </div>
+                  <div className="col-span-12 md:col-span-5">
+                    <p className="text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground font-thai transition-colors duration-500 group-hover:text-background/80">
+                      {s.b}
+                    </p>
+                  </div>
                 </div>
-                <p className="mt-4 text-[14px] leading-[1.7] text-muted-foreground font-thai">{c.b}</p>
               </div>
             </Reveal>
           ))}
@@ -364,52 +303,239 @@ const Index = () => (
       </div>
     </section>
 
-    {/* CTA */}
-    <section className="px-6 md:px-10 py-20 md:py-32 bg-foreground text-background">
-      <div className="border-t border-background pt-3 pb-3 flex items-center justify-between">
-        <span className="index-badge font-bold">11 — LET'S WORK</span>
-        <span className="index-badge font-medium opacity-60 hidden sm:inline">ØRIONS · BANGKOK</span>
+    {/* 07 — SELECTED WORK — 1 hero + bento grid */}
+    <section className="relative px-6 md:px-10 py-20 md:py-32 border-t border-foreground">
+      <SectionHeader left="07 — SELECTED WORK" right="applied creative in action" />
+
+      {/* Hero feature */}
+      <Reveal delay={0.1}>
+        <Link to="/work" className="mt-12 md:mt-16 group block border border-foreground overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-12">
+            <div className="lg:col-span-8 aspect-[16/10] lg:aspect-auto overflow-hidden bg-surface-2 lg:border-r border-foreground">
+              <img src={heroProjects[0].img} alt={heroProjects[0].name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
+            </div>
+            <div className="lg:col-span-4 p-8 md:p-12 flex flex-col">
+              <div className="index-badge text-muted-foreground">{heroProjects[0].tag}</div>
+              <h3 className="mt-6 font-display text-[36px] md:text-[56px] leading-[0.95] tracking-[-0.03em]">{heroProjects[0].name}</h3>
+              <p className="mt-6 text-[15px] leading-[1.7] text-muted-foreground font-thai">{heroProjects[0].body}</p>
+              <div className="mt-auto pt-10 border-t border-foreground">
+                <div className="font-display text-[44px] md:text-[56px] leading-none tracking-[-0.03em]">{heroProjects[0].stat}</div>
+                <div className="mt-3 index-badge text-muted-foreground">{heroProjects[0].statLabel}</div>
+              </div>
+            </div>
+          </div>
+        </Link>
+      </Reveal>
+
+      {/* Secondary bento */}
+      <div className="mt-px grid grid-cols-1 md:grid-cols-12 gap-px bg-foreground border border-foreground border-t-0 md:mt-0">
+        {/* Two large secondary */}
+        {heroProjects.slice(1).map((p) => (
+          <Reveal key={p.name} className="md:col-span-6">
+            <article className="group bg-background h-full flex flex-col">
+              <div className="aspect-[16/10] overflow-hidden bg-surface-2">
+                <img src={p.img} alt={p.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
+              </div>
+              <div className="p-6 md:p-8 flex-1 flex flex-col">
+                <div className="index-badge text-muted-foreground">{p.tag}</div>
+                <h3 className="mt-4 font-display text-[24px] md:text-[32px] leading-[1.05] tracking-[-0.02em]">{p.name}</h3>
+                <p className="mt-4 text-[14px] leading-[1.65] text-muted-foreground font-thai flex-1">{p.body}</p>
+                <div className="mt-6 pt-4 border-t border-foreground flex items-baseline justify-between">
+                  <div className="font-display text-[28px] leading-none tracking-[-0.03em]">{p.stat}</div>
+                  <div className="index-badge text-muted-foreground">{p.statLabel}</div>
+                </div>
+              </div>
+            </article>
+          </Reveal>
+        ))}
+
+        {/* Two compact secondary */}
+        {selectedWorks.slice(0, 2).map((w) => (
+          <Reveal key={w.name} className="md:col-span-6">
+            <article className="group bg-background h-full grid grid-cols-2">
+              <div className="overflow-hidden bg-surface-2">
+                <img src={w.img} alt={w.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
+              </div>
+              <div className="p-6 md:p-7 flex flex-col">
+                <div className="index-badge text-muted-foreground">{w.tag}</div>
+                <h3 className="mt-3 font-display text-[18px] md:text-[22px] leading-[1.1] tracking-[-0.02em]">{w.name}</h3>
+                <p className="mt-3 text-[13px] leading-[1.6] text-muted-foreground font-thai">{w.body}</p>
+              </div>
+            </article>
+          </Reveal>
+        ))}
+
+        {/* Compact 2 more */}
+        {selectedWorks.slice(2).map((w) => (
+          <Reveal key={w.name} className="md:col-span-6">
+            <article className="group bg-background h-full grid grid-cols-2">
+              <div className="overflow-hidden bg-surface-2">
+                <img src={w.img} alt={w.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
+              </div>
+              <div className="p-6 md:p-7 flex flex-col">
+                <div className="index-badge text-muted-foreground">{w.tag}</div>
+                <h3 className="mt-3 font-display text-[18px] md:text-[22px] leading-[1.1] tracking-[-0.02em]">{w.name}</h3>
+                <p className="mt-3 text-[13px] leading-[1.6] text-muted-foreground font-thai">{w.body}</p>
+              </div>
+            </article>
+          </Reveal>
+        ))}
       </div>
 
-      <div className="mt-16 grid grid-cols-1 md:grid-cols-12 gap-10">
-        <div className="md:col-span-8">
-          <Reveal>
-            <h2 className="font-display text-[44px] md:text-[88px] leading-[0.9] tracking-[-0.04em]">
-              Your business<br />is stuck.<br />
-              <span className="opacity-50">We're the unstuck.</span>
-            </h2>
-          </Reveal>
-          <Reveal delay={0.15}>
-            <p className="mt-8 font-thai text-[18px] md:text-[22px] text-background/70">
-              Stop guessing. Start applying.
-            </p>
-          </Reveal>
-          <Reveal delay={0.2}>
-            <div className="mt-12 flex flex-wrap gap-4">
-              <Link to="/contact" className="inline-flex items-center gap-3 bg-background text-foreground px-7 py-4 index-badge hover:opacity-90 transition-opacity">
-                Start a project <ArrowUpRight className="w-4 h-4" />
-              </Link>
-              <Link to="/services" className="inline-flex items-center gap-3 border border-background px-7 py-4 index-badge hover:bg-background hover:text-foreground transition-colors">
-                Explore services
-              </Link>
+      <div className="mt-12 flex justify-end">
+        <Link to="/work" className="inline-flex items-center gap-3 index-badge hover:opacity-60 transition-opacity">
+          VIEW ALL WORK <ArrowUpRight className="w-4 h-4" />
+        </Link>
+      </div>
+    </section>
+
+    {/* 08 — WHY ØRIONS — middle card oversized */}
+    <section className="relative px-6 md:px-10 py-20 md:py-32 border-t border-foreground">
+      <SectionHeader left="08 — WHY ØRIONS" right="ทำไมต้องเป็น ØRIONS" />
+
+      <Reveal delay={0.1}>
+        <h2 className="mt-12 md:mt-16 font-display text-[40px] md:text-[64px] leading-[0.95] tracking-[-0.04em] max-w-[900px]">
+          Not a consultant.<br />Not a studio.
+        </h2>
+      </Reveal>
+
+      <div className="mt-16 grid grid-cols-1 md:grid-cols-12 gap-px bg-foreground border border-foreground">
+        {whyOrions.map((w) => (
+          <div
+            key={w.tag}
+            className={`p-8 md:p-10 flex flex-col ${w.highlight ? "bg-foreground text-background md:col-span-6 md:row-span-2 min-h-[420px]" : "bg-background md:col-span-3"}`}
+          >
+            <div className="flex items-baseline justify-between">
+              <div className={`index-badge ${w.highlight ? "text-background/60" : "text-muted-foreground"}`}>{w.tag}</div>
+              <div className={`font-display text-[20px] ${w.highlight ? "" : "text-muted-foreground"}`}>
+                {w.highlight ? "✓" : "✕"}
+              </div>
             </div>
-          </Reveal>
+            <h3 className={`mt-8 font-display tracking-[-0.02em] ${w.highlight ? "text-[36px] md:text-[56px] leading-[0.95]" : "text-[22px] md:text-[26px] leading-[1.1] font-thai"}`}>
+              {w.title}
+            </h3>
+            <p className={`mt-6 text-[14px] md:text-[15px] leading-[1.7] font-thai ${w.highlight ? "text-background/80 md:text-[16px]" : "text-muted-foreground"}`}>
+              {w.body}
+            </p>
+            {w.highlight && (
+              <div className="mt-auto pt-10 flex items-center gap-2 index-badge text-background/60">
+                <span>OUR APPROACH</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+
+    {/* 09 — THE CLARITY AUDIT */}
+    <section className="relative px-6 md:px-10 py-20 md:py-32 border-t border-foreground overflow-hidden">
+      <div aria-hidden className="pointer-events-none absolute -right-4 top-10 font-display text-[180px] md:text-[320px] leading-none tracking-[-0.06em] text-foreground/[0.04] select-none">
+        09
+      </div>
+
+      <div className="relative z-10">
+        <div className="border-t border-foreground pt-3 pb-3 flex items-center justify-between">
+          <span className="index-badge font-bold">09 — THE CLARITY AUDIT</span>
+          <span className="index-badge font-medium opacity-60 hidden sm:inline">SPECIAL OFFER · LIMITED</span>
         </div>
 
-        <div className="md:col-span-4 md:border-l md:border-background/30 md:pl-8">
-          <Reveal delay={0.3}>
-            <div className="index-badge opacity-60">DIRECT</div>
-            <a href="mailto:hello@orions.agency" className="mt-3 block font-display text-[16px] hover:underline">
-              hello@orions.agency
-            </a>
-            <a href="tel:+66923905464" className="mt-1 block font-display text-[16px] hover:underline">
-              +66 92 390 5464
-            </a>
-            <p className="mt-8 text-[12px] font-mono opacity-60 leading-relaxed">
-              246/8 SOI YOTHINPHATTHANA<br />
-              BANG KAPI · BANGKOK 10240
-            </p>
-          </Reveal>
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-12 gap-10">
+          <div className="md:col-span-7">
+            <Reveal>
+              <h2 className="font-display text-[44px] md:text-[88px] leading-[0.95] tracking-[-0.04em]">
+                The Clarity<br />Audit.
+              </h2>
+            </Reveal>
+            <Reveal delay={0.15}>
+              <p className="mt-8 text-[16px] md:text-[20px] leading-[1.65] font-thai text-muted-foreground max-w-[560px]">
+                เราไม่ได้มาขอโอกาส แต่มาเพื่อชี้ <span className="text-foreground font-bold">"จุดตาย"</span> และหา <span className="text-foreground font-bold">"ทางรอด"</span> ให้คุณ
+              </p>
+            </Reveal>
+            <Reveal delay={0.25}>
+              <Link to="/contact" className="mt-10 inline-flex items-center gap-3 border border-foreground px-7 py-4 index-badge hover:bg-foreground hover:text-background transition-colors">
+                BOOK A SESSION <ArrowUpRight className="w-4 h-4" />
+              </Link>
+            </Reveal>
+          </div>
+
+          <div className="md:col-span-5 space-y-px bg-foreground border border-foreground">
+            {[
+              { n: "01", t: "วิเคราะห์จุดตัน", b: "เราจะบอกว่าอะไรที่ขวางการเติบโตของธุรกิจคุณอยู่ พร้อมแนวทางแก้ไขเบื้องต้น" },
+              { n: "02", t: "จำกัดจำนวน", b: "รับเฉพาะธุรกิจที่ต้องการความเปลี่ยนแปลงจริงๆ เพื่อรักษาคุณภาพการวิเคราะห์สูงสุด" },
+            ].map((c, i) => (
+              <Reveal key={c.n} delay={0.2 + i * 0.1}>
+                <div className="bg-background p-6 md:p-8 relative overflow-hidden">
+                  <div aria-hidden className="absolute -right-2 -top-4 font-display text-[120px] md:text-[160px] leading-none tracking-[-0.06em] text-foreground/[0.05] select-none">
+                    {c.n}
+                  </div>
+                  <div className="relative">
+                    <div className="flex items-baseline gap-4">
+                      <div className="font-mono text-[12px] text-muted-foreground">{c.n} /</div>
+                      <h4 className="font-display text-[16px] md:text-[18px] tracking-[0.02em]">{c.t}</h4>
+                    </div>
+                    <p className="mt-4 text-[14px] leading-[1.7] text-muted-foreground font-thai">{c.b}</p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* 10 — CTA */}
+    <section className="relative px-6 md:px-10 py-20 md:py-32 bg-foreground text-background overflow-hidden">
+      <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-[-4vw] flex justify-center select-none">
+        <span className="font-brand text-[28vw] leading-[0.85] tracking-[-0.06em] text-background/[0.05]">ØRIONS</span>
+      </div>
+
+      <div className="relative z-10">
+        <div className="border-t border-background pt-3 pb-3 flex items-center justify-between">
+          <span className="index-badge font-bold">10 — LET'S WORK</span>
+          <span className="index-badge font-medium opacity-60 hidden sm:inline">ØRIONS · BANGKOK</span>
+        </div>
+
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-12 gap-10">
+          <div className="md:col-span-8">
+            <Reveal>
+              <h2 className="font-display text-[44px] md:text-[88px] leading-[0.9] tracking-[-0.04em]">
+                Your business<br />is stuck.<br />
+                <span className="opacity-50">We're the unstuck.</span>
+              </h2>
+            </Reveal>
+            <Reveal delay={0.15}>
+              <p className="mt-8 font-thai text-[18px] md:text-[22px] text-background/70">
+                Stop guessing. Start applying.
+              </p>
+            </Reveal>
+            <Reveal delay={0.2}>
+              <div className="mt-12 flex flex-wrap gap-4">
+                <Link to="/contact" className="inline-flex items-center gap-3 bg-background text-foreground px-7 py-4 index-badge hover:opacity-90 transition-opacity">
+                  Start a project <ArrowUpRight className="w-4 h-4" />
+                </Link>
+                <Link to="/services" className="inline-flex items-center gap-3 border border-background px-7 py-4 index-badge hover:bg-background hover:text-foreground transition-colors">
+                  Explore services
+                </Link>
+              </div>
+            </Reveal>
+          </div>
+
+          <div className="md:col-span-4 md:border-l md:border-background/30 md:pl-8">
+            <Reveal delay={0.3}>
+              <div className="index-badge opacity-60">DIRECT</div>
+              <a href="mailto:hello@orions.agency" className="mt-3 block font-display text-[16px] hover:underline">
+                hello@orions.agency
+              </a>
+              <a href="tel:+66923905464" className="mt-1 block font-display text-[16px] hover:underline">
+                +66 92 390 5464
+              </a>
+              <p className="mt-8 text-[12px] font-mono opacity-60 leading-relaxed">
+                246/8 SOI YOTHINPHATTHANA<br />
+                BANG KAPI · BANGKOK 10240
+              </p>
+            </Reveal>
+          </div>
         </div>
       </div>
     </section>

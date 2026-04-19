@@ -26,26 +26,36 @@ const appliedSolutions = [
   { n: "04", title: "High Impact Production", body: "งานผลิตคุณภาพสูงระดับสากล เพื่อสร้างภาพจำที่ทรงพลัง" },
 ];
 
-const blueprint = [
-  { l: "O", n: "Open", b: "ทำความเข้าใจปัญหาที่แท้จริง" },
-  { l: "R", n: "Reason", b: "ใช้ข้อมูลคัดเลือกทางที่มีค่า" },
-  { l: "I", n: "Ideation", b: "สร้างไอเดียนำที่แก้ไขได้" },
-  { l: "O", n: "Offer", b: "นำเสนอแผนงานที่ชัดเจน" },
-  { l: "N", n: "Navigation", b: "ทำงานผลิตให้แม่นยำ" },
-  { l: "S", n: "Success", b: "วัดผลและขยายผลให้เติบโต" },
+const unstuckSteps = [
+  { n: "01", title: "AUDIT", body: "วิเคราะห์จุดตันและจุดที่งบรั่วไหลด้วยตรรกะและข้อมูล" },
+  { n: "02", title: "ENGINEER", body: "ออกแบบโซลูชันที่ประยุกต์ใช้ได้จริง เปลี่ยนไอเดียเป็นแผนงาน" },
+  { n: "03", title: "EXECUTE", body: "ผลิตงาน High-Impact ด้วยความเร็วและมาตรฐานสากล" },
+  { n: "04", title: "IMPACT", body: "วัดผลลัพธ์ทางธุรกิจและขยายผล (Scale) ให้เติบโตยั่งยืน" },
+];
+
+const worksAcrossIndustries = [
+  { tag: "Political Communication", name: "DEMOCRAT PARTY", body: "การสื่อสารเชิงกลยุทธ์ภายใต้เงื่อนไขที่ท้าทาย", img: whatSkater },
+  { tag: "Mobility", name: "GCOO", body: "Localization ระบบการเดินทางคนเมือง", img: whatWindow },
+  { tag: "Hospitality Tech", name: "MY HOTEL", body: "Smart Hotel ที่ใช้งานได้จริงรายแรกของไทย", img: whatVortex },
+  { tag: "National Campaign", name: "HEAVY ORGANIZER", body: "แคมเปญสื่อสารระดับประเทศที่สร้างแรงกระเพื่อมจริง", img: approachRunning },
+];
+
+const worksHighImpact = [
+  { tag: "Sports Branding", name: "LEICESTER × BURIRAM ESPORT", body: "งานสื่อสารแบรนด์กีฬาระดับสากล", img: approachTaxi },
+  { tag: "Healthcare", name: "SIRIRAJ HOSPITAL", body: "การเล่าเรื่องความเชื่อมั่นทางการแพทย์ให้เข้าถึงง่าย", img: whatWindow },
+  { tag: "Automotive", name: "AUDI THAILAND", body: "โปรดักชันสะท้อนภาพลักษณ์ความพรีเมียมระดับโลก", img: whatVortex },
+];
+
+const worksStorytelling = [
+  { tag: "Documentary", name: "เถื่อน Travel · เกิดแก่เจ็บโต · ท่วงทำนองที่เลือนหาย", body: "สารคดีที่บันทึกชีวิตและความเปลี่ยนแปลง", img: approachRunning },
+  { tag: "Series & Variety", name: "THE UPGRADE", body: "ซีรีส์ที่ผสมความบันเทิงกับสาระอย่างลงตัว", img: whatSkater },
+  { tag: "Music & Creative", name: "เพลงลำคำเขื่อนแก้ว", body: "Creative Content ที่ผูกดนตรีกับท้องถิ่น", img: heroStreet },
 ];
 
 const heroProjects = [
   { tag: "APPLIED UTILITY", name: "HONGMOVE", body: "เปลี่ยนความซับซ้อนให้ดูง่าย ระบบสื่อสาร Seamless สำหรับ Taxi VIP", stat: "+25%", statLabel: "CONVERSION CLARITY", img: approachTaxi },
   { tag: "APPLIED IMAGE", name: "RTAF", body: "ยึดความน่าเชื่อถือคืนมา ปรับโฉมภาพลักษณ์ผ่าน High-end Production", stat: "2×", statLabel: "ENGAGEMENT QUALITY", img: whatVortex },
   { tag: "APPLIED AESTHETIC", name: "KHAO YAI", body: "ยกระดับด้วยรสนิยม เปลี่ยนสนามกอล์ฟดั้งเดิมสู่ประสบการณ์พรีเมียม", stat: "30%", statLabel: "DECISION SPEED", img: approachRunning },
-];
-
-const selectedWorks = [
-  { tag: "Political Communication", name: "DEMOCRAT PARTY", body: "การสื่อสารเชิงกลยุทธ์ภายใต้เงื่อนไขที่ท้าทาย", img: whatSkater },
-  { tag: "Mobility", name: "GCOO", body: "Localization และระบบที่เปลี่ยนพฤติกรรมการเดินทางของคนเมือง", img: whatWindow },
-  { tag: "Hospitality Tech", name: "MY HOTEL", body: "วางระบบ Smart Hotel ที่ใช้งานได้จริงรายแรกของไทย", img: whatVortex },
-  { tag: "National Campaign", name: "HEAVY ORGANIZER", body: "แคมเปญสื่อสารระดับประเทศที่สร้างแรงกระเพื่อมได้จริง", img: approachRunning },
 ];
 
 const whyOrions = [
@@ -117,7 +127,7 @@ const Index = () => (
           </Reveal>
           <Reveal delay={0.2}>
             <p className="mt-8 font-thai text-[18px] md:text-[22px] leading-[1.55] text-muted-foreground max-w-[460px]">
-              ทำงานหนักขึ้น จ่ายแพงขึ้น แต่ได้ผลลัพธ์เท่าเดิม
+              จ่ายแพงขึ้น แต่ได้ผลลัพธ์เท่าเดิม
             </p>
           </Reveal>
           <Reveal delay={0.3}>
@@ -172,7 +182,7 @@ const Index = () => (
           </div>
           <Reveal delay={0.1}>
             <h2 className="mt-8 font-display text-[40px] md:text-[64px] leading-[0.95] tracking-[-0.04em]">
-              Creative Agency<br />from Bangkok.
+              Applied Creative<br />Agency from Bangkok.
             </h2>
           </Reveal>
           <Reveal delay={0.2}>
@@ -180,8 +190,13 @@ const Index = () => (
           </Reveal>
           <Reveal delay={0.25}>
             <p className="mt-8 text-[16px] md:text-[18px] leading-[1.8] font-thai text-muted-foreground max-w-[560px]">
-              เราคือนักแก้ปัญหาที่นำความรวดเร็วแบบ <span className="font-display normal-case font-bold text-foreground">Bangkok Energy</span> มาผสานกับ <span className="font-display normal-case font-bold text-foreground">Logical Standard</span> ระดับสากล เชื่อมช่องว่างระหว่าง <span className="text-foreground font-medium">"ไอเดียที่ดูดี"</span> กับ <span className="text-foreground font-medium">"ผลลัพธ์ทางธุรกิจที่วัดผลได้"</span>
+              ØRIONS ทำหน้าที่เชื่อมช่องว่างระหว่าง <span className="text-foreground font-medium">"ไอเดียที่ดูดี"</span> กับ <span className="text-foreground font-medium">"ผลลัพธ์ที่วัดผลได้"</span> เพื่อเปลี่ยนงบประมาณที่สูญเปล่าให้เป็น Impact ที่แท้จริงของธุรกิจ
             </p>
+          </Reveal>
+          <Reveal delay={0.3}>
+            <Link to="/about" className="mt-6 inline-flex items-center gap-2 index-badge text-foreground border-b border-foreground pb-1 hover:opacity-60 transition-opacity">
+              READ MORE <ArrowUpRight className="w-4 h-4" />
+            </Link>
           </Reveal>
 
           {/* Stats */}
@@ -230,31 +245,30 @@ const Index = () => (
       </div>
     </section>
 
-    {/* 06 — THE BLUEPRINT — single horizontal row */}
+    {/* 06 — 4 STEPS TO UNSTUCK */}
     <section className="relative px-6 md:px-10 py-20 md:py-28 border-t border-foreground">
-      <SectionHeader left="06 — THE BLUEPRINT" right="6 ขั้นตอนสู่ผลลัพธ์ที่แม่นยำ" />
+      <SectionHeader left="06 — 4 STEPS TO UNSTUCK" right="จากจุดตัน สู่การเติบโตที่วัดผลได้" />
 
       <div className="mt-12 md:mt-16 max-w-[760px]">
         <Reveal>
           <h2 className="font-display text-[40px] md:text-[56px] leading-[0.95] tracking-[-0.04em]">
-            The Blueprint.
+            From stuck.<br />To unstuck.
           </h2>
         </Reveal>
         <Reveal delay={0.1}>
           <p className="mt-5 text-[15px] md:text-[16px] leading-[1.7] font-thai text-muted-foreground max-w-[520px]">
-            จากความเข้าใจปัญหาที่แท้จริง สู่การขยายผลความสำเร็จให้เติบโต
+            กระบวนการ 4 ขั้นที่เปลี่ยนปัญหาเป็นผลลัพธ์ทางธุรกิจที่จับต้องได้
           </p>
         </Reveal>
       </div>
 
-      <div className="mt-16 border-t border-foreground grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
-        {blueprint.map((s, i) => (
-          <Reveal key={i} delay={0.05 * i}>
-            <div className={`h-full p-5 md:p-6 border-b border-foreground lg:border-b-0 ${i > 0 ? "lg:border-l border-foreground" : ""} ${(i % 2 === 1) ? "border-l border-foreground lg:border-l" : ""} ${i >= 2 ? "md:border-t-0" : ""}`}>
-              <div className="font-display text-[72px] md:text-[96px] leading-[0.85] tracking-[-0.06em]">{s.l}</div>
-              <div className="mt-6 font-mono text-[11px] tracking-[0.08em] text-muted-foreground">0{i + 1} / 06</div>
-              <h3 className="mt-2 font-display text-[18px] md:text-[20px] tracking-[-0.02em]">{s.n}</h3>
-              <p className="mt-3 text-[13px] md:text-[14px] leading-[1.6] text-muted-foreground font-thai">{s.b}</p>
+      <div className="mt-16 border-t border-foreground grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+        {unstuckSteps.map((s, i) => (
+          <Reveal key={s.n} delay={0.05 * i}>
+            <div className={`h-full p-6 md:p-8 border-b border-foreground lg:border-b-0 ${i > 0 ? "lg:border-l border-foreground" : ""} ${i === 1 ? "md:border-l border-foreground" : ""} ${i === 3 ? "md:border-l border-foreground" : ""}`}>
+              <div className="font-display text-[64px] md:text-[88px] leading-[0.85] tracking-[-0.06em] text-muted-foreground">{s.n}</div>
+              <h3 className="mt-6 font-display text-[22px] md:text-[26px] tracking-[-0.02em]">{s.title}</h3>
+              <p className="mt-4 text-[14px] leading-[1.65] text-muted-foreground font-thai">{s.body}</p>
             </div>
           </Reveal>
         ))}
@@ -285,9 +299,8 @@ const Index = () => (
         </Link>
       </Reveal>
 
-      {/* Secondary bento */}
-      <div className="mt-px grid grid-cols-1 md:grid-cols-12 gap-px bg-foreground border border-foreground border-t-0 md:mt-0">
-        {/* Two large secondary */}
+      {/* Hero secondary — 2 large */}
+      <div className="mt-px grid grid-cols-1 md:grid-cols-12 gap-px bg-foreground border border-foreground border-t-0">
         {heroProjects.slice(1).map((p) => (
           <Reveal key={p.name} className="md:col-span-6">
             <article className="group bg-background h-full flex flex-col">
@@ -306,39 +319,39 @@ const Index = () => (
             </article>
           </Reveal>
         ))}
-
-        {/* Two compact secondary */}
-        {selectedWorks.slice(0, 2).map((w) => (
-          <Reveal key={w.name} className="md:col-span-6">
-            <article className="group bg-background h-full grid grid-cols-2">
-              <div className="overflow-hidden bg-surface-2">
-                <img src={w.img} alt={w.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
-              </div>
-              <div className="p-6 md:p-7 flex flex-col">
-                <div className="index-badge text-muted-foreground">{w.tag}</div>
-                <h3 className="mt-3 font-display text-[18px] md:text-[22px] leading-[1.1] tracking-[-0.02em]">{w.name}</h3>
-                <p className="mt-3 text-[13px] leading-[1.6] text-muted-foreground font-thai">{w.body}</p>
-              </div>
-            </article>
-          </Reveal>
-        ))}
-
-        {/* Compact 2 more */}
-        {selectedWorks.slice(2).map((w) => (
-          <Reveal key={w.name} className="md:col-span-6">
-            <article className="group bg-background h-full grid grid-cols-2">
-              <div className="overflow-hidden bg-surface-2">
-                <img src={w.img} alt={w.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
-              </div>
-              <div className="p-6 md:p-7 flex flex-col">
-                <div className="index-badge text-muted-foreground">{w.tag}</div>
-                <h3 className="mt-3 font-display text-[18px] md:text-[22px] leading-[1.1] tracking-[-0.02em]">{w.name}</h3>
-                <p className="mt-3 text-[13px] leading-[1.6] text-muted-foreground font-thai">{w.body}</p>
-              </div>
-            </article>
-          </Reveal>
-        ))}
       </div>
+
+      {/* Sub-categories */}
+      {[
+        { label: "Applied Creative across industries", items: worksAcrossIndustries },
+        { label: "High-Impact Digital Content", items: worksHighImpact },
+        { label: "Mastery in Storytelling", items: worksStorytelling },
+      ].map((cat, ci) => (
+        <div key={cat.label} className="mt-20">
+          <Reveal>
+            <div className="border-t border-foreground pt-3 pb-3 flex items-center justify-between">
+              <span className="index-badge font-bold">{`0${ci + 1} / ${cat.label.toUpperCase()}`}</span>
+              <span className="index-badge font-medium text-muted-foreground hidden sm:inline">{cat.items.length} PROJECTS</span>
+            </div>
+          </Reveal>
+          <div className={`mt-8 grid grid-cols-1 md:grid-cols-2 ${cat.items.length >= 4 ? "lg:grid-cols-4" : "lg:grid-cols-3"} gap-px bg-foreground border border-foreground`}>
+            {cat.items.map((w) => (
+              <Reveal key={w.name}>
+                <article className="group bg-background h-full flex flex-col">
+                  <div className="aspect-[4/3] overflow-hidden bg-surface-2">
+                    <img src={w.img} alt={w.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
+                  </div>
+                  <div className="p-5 md:p-6 flex-1 flex flex-col">
+                    <div className="index-badge text-muted-foreground">{w.tag}</div>
+                    <h3 className="mt-3 font-display text-[16px] md:text-[18px] leading-[1.15] tracking-[-0.02em]">{w.name}</h3>
+                    <p className="mt-3 text-[13px] leading-[1.6] text-muted-foreground font-thai">{w.body}</p>
+                  </div>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      ))}
 
       <div className="mt-12 flex justify-end">
         <Link to="/work" className="inline-flex items-center gap-3 index-badge hover:opacity-60 transition-opacity">
@@ -386,36 +399,36 @@ const Index = () => (
       </div>
     </section>
 
-    {/* 09 — THE CLARITY AUDIT */}
+    {/* 09 — ØRIONS AUDIT */}
     <section className="relative px-6 md:px-10 py-20 md:py-28 border-t border-foreground">
       <div>
         <div className="border-t border-foreground pt-3 pb-3 flex items-center justify-between">
-          <span className="index-badge font-bold">09 — THE CLARITY AUDIT</span>
-          <span className="index-badge font-medium opacity-60 hidden sm:inline">SPECIAL OFFER · LIMITED</span>
+          <span className="index-badge font-bold">09 — ØRIONS AUDIT (FREE)</span>
+          <span className="index-badge font-medium opacity-60 hidden sm:inline">LIMITED · รับเฉพาะธุรกิจที่ต้องการเปลี่ยนแปลงจริง</span>
         </div>
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-12 gap-10">
           <div className="md:col-span-7">
             <Reveal>
               <h2 className="font-display text-[44px] md:text-[88px] leading-[0.95] tracking-[-0.04em]">
-                The Clarity<br />Audit.
+                ØRIONS Audit.<br />Free.
               </h2>
             </Reveal>
             <Reveal delay={0.15}>
               <p className="mt-8 text-[16px] md:text-[20px] leading-[1.65] font-thai text-muted-foreground max-w-[560px]">
-                เราไม่ได้มาขอโอกาส แต่มาเพื่อชี้ <span className="text-foreground font-bold">"จุดตาย"</span> และหา <span className="text-foreground font-bold">"ทางรอด"</span> ให้คุณ
+                เราไม่ได้มาขอโอกาส แต่มาเพื่อชี้ <span className="text-foreground font-bold">"จุดตาย"</span> และหา <span className="text-foreground font-bold">"ทางรอด"</span> ให้ธุรกิจของคุณ
               </p>
             </Reveal>
             <Reveal delay={0.25}>
               <Link to="/contact" className="mt-10 inline-flex items-center gap-3 border border-foreground px-7 py-4 index-badge hover:bg-foreground hover:text-background transition-colors">
-                BOOK A SESSION <ArrowUpRight className="w-4 h-4" />
+                REQUEST AUDIT <ArrowUpRight className="w-4 h-4" />
               </Link>
             </Reveal>
           </div>
 
           <div className="md:col-span-5 space-y-px bg-foreground border border-foreground">
             {[
-              { n: "01", t: "วิเคราะห์จุดตัน", b: "เราจะบอกว่าอะไรที่ขวางการเติบโตของธุรกิจคุณอยู่ พร้อมแนวทางแก้ไขเบื้องต้น" },
+              { n: "01", t: "ชี้จุดตาย", b: "เราจะบอกว่าอะไรที่ขวางการเติบโตของธุรกิจคุณอยู่ พร้อมแนวทางแก้ไขเบื้องต้น" },
               { n: "02", t: "จำกัดจำนวน", b: "รับเฉพาะธุรกิจที่ต้องการความเปลี่ยนแปลงจริงๆ เพื่อรักษาคุณภาพการวิเคราะห์สูงสุด" },
             ].map((c, i) => (
               <Reveal key={c.n} delay={0.2 + i * 0.1}>
@@ -451,7 +464,7 @@ const Index = () => (
             </Reveal>
             <Reveal delay={0.15}>
               <p className="mt-8 font-thai text-[18px] md:text-[22px] text-background/70">
-                Stop guessing. Start applying.
+                Stop guessing. Start applying. — <span className="text-background font-medium">Practical. Bold. Done.</span>
               </p>
             </Reveal>
             <Reveal delay={0.2}>

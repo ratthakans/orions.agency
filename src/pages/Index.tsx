@@ -71,41 +71,46 @@ const Index = () => (
       </div>
     </section>
 
-    {/* THE VICIOUS CYCLE + PRESSURE */}
-    <section className="relative px-6 md:px-10 min-h-screen flex flex-col justify-center py-20 md:py-28 bg-surface border-y border-foreground overflow-hidden">
-      <div className="max-w-[1400px] mx-auto w-full relative z-10">
-        <Reveal>
-          <p className="index-badge text-muted-foreground text-center">THE VICIOUS CYCLE</p>
-        </Reveal>
-
-        <Reveal delay={0.1}>
-          <h2 className="mt-8 md:mt-10 font-thai text-[24px] md:text-[44px] leading-[1.35] tracking-[-0.01em] text-center max-w-[1100px] mx-auto">
-            <span className="font-bold text-foreground">
+    {/* THE VICIOUS CYCLE */}
+    <section className="relative px-6 md:px-10 min-h-screen flex items-center py-20 md:py-28 bg-surface border-y border-foreground overflow-hidden">
+      <div className="max-w-[1400px] mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
+        {/* Left */}
+        <div className="md:col-span-5 md:sticky md:top-32 md:self-start">
+          <Reveal>
+            <p className="index-badge text-muted-foreground">THE VICIOUS CYCLE</p>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <h2 className="mt-8 md:mt-10 font-thai text-[28px] md:text-[44px] leading-[1.3] tracking-[-0.01em] font-bold text-foreground">
               หลายธุรกิจติดอยู่ใน "วงจรอุบาท"
-            </span>
-            <span className="block mt-4 md:mt-5 text-muted-foreground font-normal text-[18px] md:text-[28px]">
+            </h2>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <p className="mt-5 md:mt-6 font-thai text-[18px] md:text-[22px] leading-[1.55] text-muted-foreground max-w-[460px]">
               ทำงานหนักขึ้น จ่ายแพงขึ้น แต่ได้ผลลัพธ์เท่าเดิม
-            </span>
-          </h2>
-        </Reveal>
+            </p>
+          </Reveal>
+          <Reveal delay={0.3}>
+            <div className="mt-10 hairline w-16" />
+          </Reveal>
+        </div>
 
-        <Reveal delay={0.2}>
-          <div className="mt-12 md:mt-16 flex justify-center">
-            <div className="hairline w-16" />
-          </div>
-        </Reveal>
-
-        <div className="mt-10 md:mt-14 grid grid-cols-1 md:grid-cols-3 gap-px bg-foreground border border-foreground">
+        {/* Right */}
+        <div className="md:col-span-7 flex flex-col">
           {pressures.map((p, i) => (
-            <Reveal key={p.label} delay={0.3 + i * 0.1}>
-              <div className="group bg-background p-8 md:p-10 h-full transition-colors duration-500 hover:bg-foreground hover:text-background cursor-default">
-                <div className="flex items-center justify-between">
-                  <div className="index-badge text-muted-foreground transition-colors duration-500 group-hover:text-background/60">{p.label}</div>
-                  <div className="font-mono text-[11px] text-muted-foreground transition-colors duration-500 group-hover:text-background/60">0{i + 1}</div>
+            <Reveal key={p.label} delay={0.2 + i * 0.1}>
+              <div className={`group py-8 md:py-10 ${i === 0 ? "border-t" : ""} border-b border-foreground transition-colors duration-500 hover:bg-foreground hover:text-background cursor-default`}>
+                <div className="grid grid-cols-12 gap-4 md:gap-6 items-baseline px-2 md:px-4">
+                  <div className="col-span-12 md:col-span-4">
+                    <CountUp to={p.stat} prefix={p.prefix} suffix={p.suffix} decimals={p.decimals}
+                      className="font-display text-[56px] md:text-[80px] leading-[0.9] tracking-[-0.04em] block transition-transform duration-500 group-hover:-translate-y-1" />
+                  </div>
+                  <div className="col-span-12 md:col-span-8">
+                    <div className="index-badge text-muted-foreground transition-colors duration-500 group-hover:text-background/60">{p.label}</div>
+                    <p className="mt-4 text-[14px] md:text-[15px] leading-[1.65] text-muted-foreground font-thai transition-colors duration-500 group-hover:text-background/80">
+                      {p.body}
+                    </p>
+                  </div>
                 </div>
-                <CountUp to={p.stat} prefix={p.prefix} suffix={p.suffix} decimals={p.decimals}
-                  className="mt-8 font-display text-[64px] md:text-[96px] leading-[0.9] tracking-[-0.04em] block transition-transform duration-500 group-hover:-translate-y-1" />
-                <p className="mt-8 text-[14px] md:text-[15px] leading-[1.65] text-muted-foreground font-thai transition-colors duration-500 group-hover:text-background/80">{p.body}</p>
               </div>
             </Reveal>
           ))}

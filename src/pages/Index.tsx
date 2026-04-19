@@ -26,13 +26,30 @@ const appliedSolutions = [
   { n: "04", title: "High Impact Production", body: "งานผลิตคุณภาพสูงระดับสากล เพื่อสร้างภาพจำที่ทรงพลัง" },
 ];
 
-const blueprint = [
-  { l: "O", n: "Open", b: "ทำความเข้าใจปัญหาที่แท้จริง" },
-  { l: "R", n: "Reason", b: "ใช้ข้อมูลคัดเลือกทางที่มีค่า" },
-  { l: "I", n: "Ideation", b: "สร้างไอเดียนำที่แก้ไขได้" },
-  { l: "O", n: "Offer", b: "นำเสนอแผนงานที่ชัดเจน" },
-  { l: "N", n: "Navigation", b: "ทำงานผลิตให้แม่นยำ" },
-  { l: "S", n: "Success", b: "วัดผลและขยายผลให้เติบโต" },
+const unstuckSteps = [
+  { n: "01", title: "AUDIT", body: "วิเคราะห์จุดตันและจุดที่งบรั่วไหลด้วยตรรกะและข้อมูล" },
+  { n: "02", title: "ENGINEER", body: "ออกแบบโซลูชันที่ประยุกต์ใช้ได้จริง เปลี่ยนไอเดียเป็นแผนงาน" },
+  { n: "03", title: "EXECUTE", body: "ผลิตงาน High-Impact ด้วยความเร็วและมาตรฐานสากล" },
+  { n: "04", title: "IMPACT", body: "วัดผลลัพธ์ทางธุรกิจและขยายผล (Scale) ให้เติบโตยั่งยืน" },
+];
+
+const worksAcrossIndustries = [
+  { tag: "Political Communication", name: "DEMOCRAT PARTY", body: "การสื่อสารเชิงกลยุทธ์ภายใต้เงื่อนไขที่ท้าทาย", img: whatSkater },
+  { tag: "Mobility", name: "GCOO", body: "Localization ระบบการเดินทางคนเมือง", img: whatWindow },
+  { tag: "Hospitality Tech", name: "MY HOTEL", body: "Smart Hotel ที่ใช้งานได้จริงรายแรกของไทย", img: whatVortex },
+  { tag: "National Campaign", name: "HEAVY ORGANIZER", body: "แคมเปญสื่อสารระดับประเทศที่สร้างแรงกระเพื่อมจริง", img: approachRunning },
+];
+
+const worksHighImpact = [
+  { tag: "Sports Branding", name: "LEICESTER × BURIRAM ESPORT", body: "งานสื่อสารแบรนด์กีฬาระดับสากล", img: approachTaxi },
+  { tag: "Healthcare", name: "SIRIRAJ HOSPITAL", body: "การเล่าเรื่องความเชื่อมั่นทางการแพทย์ให้เข้าถึงง่าย", img: whatWindow },
+  { tag: "Automotive", name: "AUDI THAILAND", body: "โปรดักชันสะท้อนภาพลักษณ์ความพรีเมียมระดับโลก", img: whatVortex },
+];
+
+const worksStorytelling = [
+  { tag: "Documentary", name: "เถื่อน Travel · เกิดแก่เจ็บโต · ท่วงทำนองที่เลือนหาย", body: "สารคดีที่บันทึกชีวิตและความเปลี่ยนแปลง", img: approachRunning },
+  { tag: "Series & Variety", name: "THE UPGRADE", body: "ซีรีส์ที่ผสมความบันเทิงกับสาระอย่างลงตัว", img: whatSkater },
+  { tag: "Music & Creative", name: "เพลงลำคำเขื่อนแก้ว", body: "Creative Content ที่ผูกดนตรีกับท้องถิ่น", img: heroStreet },
 ];
 
 const heroProjects = [

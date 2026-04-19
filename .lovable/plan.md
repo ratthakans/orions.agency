@@ -1,89 +1,103 @@
 
 
-## Site-wide Audit — สิ่งที่หลุด tone & แผนแก้
+## ตรวจสอบ Spacing & Section Rhythm — ทั้งเว็บ
 
-ตรวจครบ 6 หน้า (Index, Services, Work, About, Contact, NotFound) + Footer/Nav แล้ว นี่คือ inconsistencies ที่เจอ **เรียงตามความรุนแรง**
-
----
-
-### 🔴 Critical — ต้องแก้
-
-#### 1. Email/Phone ไม่ตรงกันทั่วเว็บ
-- **About** CTA: `hello@orions.co` · `+66 (0) 00 000 0000` (placeholder!)
-- **Contact**: `hello@orions.agency` · `+66 92 390 5464`
-- **Footer**: `hello@orions.agency` · `+66 92 390 5464`
-- **แก้**: About → ใช้ `hello@orions.agency` + `+66 92 390 5464` ให้ตรงกับ Contact/Footer
-
-#### 2. About — `import SectionHeader` แต่ไม่ได้ใช้
-- เคย refactor แล้วลืมลบ → unused import ใน 6 METHODS section ใช้ `<div>` เอง ไม่ใช้ SectionHeader → **inconsistent กับหน้าอื่น** (Index/Work ใช้ SectionHeader)
-- **แก้**: เปลี่ยน 6 METHODS และ TEAM ใน About ให้ใช้ `<SectionHeader>` component (consistent กับ Index/Work)
-
-#### 3. Hero structure ไม่สอดคล้องกัน
-- **About**: ใช้ `PageHero` + custom meta strip + scroll cue
-- **Services / Work / Contact**: ใช้ `PageHero` เปล่าๆ
-- **Index**: hero เอง (custom)
-- **แก้**: ลบ meta strip + scroll cue ออกจาก About hero (มันเป็น one-off ที่หน้าอื่นไม่มี) → เก็บแค่ `PageHero` ธรรมดาให้เหมือน Services/Work/Contact
+ผมไป audit ครบทุกหน้าแล้ว นี่คือสิ่งที่เจอ + แผนแก้
 
 ---
 
-### 🟡 Moderate — tone หลุด
+### 🔴 ปัญหาหลัก
 
-#### 4. Services CTA — โครงสร้าง grid แปลก
-- ใช้ `mt-12 grid grid-cols-1 md:grid-cols-12` แต่มีแค่ `md:col-span-8` อันเดียว → grid ไม่จำเป็น, มี `mt-12` ติดมาจาก paste ที่ลืมลบ
-- ไม่มี `border-t border-foreground` separator เหมือนหน้าอื่น → CTA ลอย ไม่มี anchor
-- **แก้**: เพิ่ม `border-t border-foreground`, ลบ grid wrapper เหลือ container ปกติ, เพิ่ม email/tel hairline footer style เหมือน About CTA (คงทรง centered/calm)
+#### 1. Section padding ไม่ consistent — ค่ากระจัดกระจาย
 
-#### 5. Work CTA — minimal เกินไป
-- มีแค่ heading + button → เทียบกับ Index/About CTA ที่มี hairline + secondary action → ดู "ขาด"
-- **แก้**: เพิ่ม `READY WHEN YOU ARE` eyebrow + secondary CTA (`Or request the audit →`) ให้ matched กับ Index closing pattern
+ปัจจุบันใช้ค่าหลากหลายมากเกินไป:
+- `py-16 md:py-20` (CTA หลังแก้ล่าสุด)
+- `py-20 md:py-32` (Index sections)
+- `py-24 md:py-32` (Services cards)
+- `py-12 md:py-16` (About sub-sections)
+- `pb-10`, `pb-20` (mixed bottom paddings)
 
-#### 6. About — มี `MANIFESTO · 01` badge ขวาบน แต่ section อื่นไม่มี numbering แบบนี้
-- ขัดกับ user request เดิมที่ขอเอา "UNTIL SOMEONE DRAWS THE LINE" ออก → badge นี้ก็ตระกูลเดียวกัน รก
-- **แก้**: ลบ `MANIFESTO · 01` badge ออก เหลือแค่ `THE MEANING OF THE LINE`
+→ ไม่มี rhythm ที่ชัดเจน อ่านไม่ลื่น
 
-#### 7. About hero — `SCROLL` cue ซ้ำซ้อนกับหน้า Index
-- Index มี SCROLL cue กลางล่าง, About มีอันที่มุมขวาล่าง → คนละ pattern → confusing
-- **แก้**: ลบออก (cleanup ตามข้อ 3)
-
----
-
-### 🟢 Minor — polish
-
-#### 8. Contact — `DIRECT` label vs Footer ใช้ `Reach`
-- Inconsistent — เลือกอันเดียว
-- **แก้**: Contact ใช้ `DIRECT LINE` (เก็บไว้ — ชัดเจนกว่า), Footer คงไว้ ok
-
-#### 9. About TEAM heading — `8 PEOPLE · 1 MISSION · NO HANDOFF` 
-- ใช้ inline number `08` ใหญ่กับ mono caption — ok แต่ duplicate กับ `${team.length} PEOPLE` ในเดิม
-- แก้: เก็บไว้ ดี — แค่ตรวจ alignment
-
-#### 10. Index hero — `BANGKOK · 2019—` ใน rotating headline
-- About meta strip บอก `EST. 2014` (ก่อนเอาออก) → ปีไม่ตรง
-- **แก้**: เลือก year เดียว — ปัจจุบัน About จะถูกลบ meta strip → ใช้ `2019—` ใน Index เป็น source of truth (หรือ user confirm year ที่ถูก)
+**แก้:** กำหนด **section padding scale** ให้เป็น 3 ระดับ:
+- **Hero:** `py-20 md:py-28` (หายใจได้ แต่ไม่บวมเกิน)
+- **Content section:** `py-16 md:py-24` (มาตรฐาน — Index, Work, Services cards, About blocks)
+- **CTA / closer:** `py-16 md:py-20` (compact ตามที่เพิ่งปรับ ✓)
 
 ---
 
-### แผนแก้ — 3 รอบ
+#### 2. Hairline (border-t) เยอะเกินจริง — ซ้อนกันรัวๆ
 
-**Round 1 (critical, 5 นาที)**
-- About: แก้ email/tel ให้ตรง (`hello@orions.agency`, `+66 92 390 5464`)
-- About: ลบ meta strip + scroll cue ออกจาก hero
-- About: ลบ `MANIFESTO · 01` badge
-- About: ลบ unused `SectionHeader` import หรือใช้จริงใน 6 METHODS/TEAM
+ตัวอย่างหน้า Services:
+- PageHero มี border ล่าง
+- `<section>` ถัดไป `border-t border-foreground` (ทับ)
+- การ์ด services แต่ละอันมี `border-b border-soft`
+- CTA section อีก `border-t border-foreground`
+- Footer อีก border บน
 
-**Round 2 (consistency, 5 นาที)**
-- Services CTA: เพิ่ม `border-t`, simplify grid, เพิ่ม contact line เหมือน About
-- Work CTA: เพิ่ม eyebrow + secondary CTA pattern เหมือน Index closing
+→ บางจุด **2 hairlines ติดกัน** (เช่น hero bottom + section top)
 
-**Round 3 (optional)**
-- ตรวจ year `2019—` vs `2014` — ขอ user confirm
+**แก้:**
+- ลบ `border-t` ที่ซ้ำกับ border ของ section ก่อนหน้า
+- ใช้ `border-foreground` (ดำเข้ม) เฉพาะ **section divider หลัก** เท่านั้น
+- ใช้ `border-soft` (เทาอ่อน) สำหรับ inner dividers (list items, cards)
+- กฎ: ระหว่าง 2 sections ติดกัน → ใช้แค่ **1 hairline** (อยู่กับ section ใดก็ได้ แต่ไม่ทั้งสอง)
 
-### Files
-- `src/pages/About.tsx` — Rounds 1
-- `src/pages/Services.tsx` — Round 2
-- `src/pages/Work.tsx` — Round 2
+---
 
-### คำถาม
-- ปีก่อตั้ง ØRIONS คือ **2014** หรือ **2019**? (เจอทั้ง 2 ในเว็บ)
-- จะให้ทำทั้ง 3 รอบรวดเดียว หรือเลือกเฉพาะ Round 1 (critical) ก่อน?
+#### 3. Margin top ของ child elements ไม่เป็น scale
+
+เจอ `mt-3, mt-5, mt-6, mt-8, mt-10, mt-12, mt-14` ปนกันมั่ว
+
+**แก้:** ใช้ scale **mt-4 / mt-6 / mt-8 / mt-12** เท่านั้น (4-step rhythm)
+
+---
+
+### 🟡 ปัญหารอง
+
+#### 4. Horizontal padding ok แล้ว
+ทุกหน้าใช้ `px-6 md:px-10` consistent ✓ — ไม่ต้องแตะ
+
+#### 5. Gap ใน grid ไม่ตรงกัน
+- Services: `gap-8 lg:gap-12`
+- About methods: `gap-10 md:gap-12`
+- Index: `gap-6 md:gap-10`
+
+**แก้:** มาตรฐาน `gap-8 md:gap-12` สำหรับ content grids
+
+---
+
+### 🎯 Nav hover — กลับเป็นแบบเดิม
+
+ปัจจุบัน Nav ใช้:
+- Magnetic wrapper
+- `after:` underline gradient
+- Active dot + gradient text
+- Hover เปลี่ยนสีเป็น `accent-to`
+
+**แก้กลับเป็นแบบ minimal เดิม:**
+- ลบ `Magnetic` wrapper รอบ NavLink (เก็บไว้แค่ปุ่ม Let's Talk)
+- ลบ `after:` gradient underline
+- ลบ active dot
+- Hover: แค่เปลี่ยนสี `text-muted-foreground` → `text-foreground` (transition 200ms)
+- Active state: text สีดำ (`text-foreground`) — ไม่มี underline/dot
+
+---
+
+### ไฟล์ที่จะแก้
+
+| ไฟล์ | สิ่งที่แก้ |
+|---|---|
+| `src/components/Nav.tsx` | กลับ hover เป็นแบบ minimal |
+| `src/pages/Index.tsx` | normalize section padding ให้เข้า scale |
+| `src/pages/Services.tsx` | ลบ border ซ้ำ, normalize padding, gap |
+| `src/pages/Work.tsx` | normalize padding, ลบ border ซ้ำ |
+| `src/pages/About.tsx` | normalize padding, gap, mt scale |
+| `src/pages/Contact.tsx` | ตรวจ padding ให้เข้า scale |
+
+### หลักการสรุป
+- Section: `py-16 md:py-24` (content), `py-16 md:py-20` (CTA), `py-20 md:py-28` (hero)
+- Margin scale: 4 / 6 / 8 / 12
+- Hairline rule: 1 เส้นระหว่าง section, ไม่มีคู่
+- Nav: minimal hover (แค่เปลี่ยนสี)
 

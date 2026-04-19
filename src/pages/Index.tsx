@@ -6,6 +6,7 @@ import SectionHeader from "@/components/SectionHeader";
 import SEO from "@/components/SEO";
 import RotatingHeadline from "@/components/RotatingHeadline";
 import SelectedWorkReel from "@/components/SelectedWorkReel";
+import VideoReel, { type VideoReelItem } from "@/components/VideoReel";
 import heroStreet from "@/assets/hero-street.jpg";
 import whoOrionsTeam from "@/assets/who-orions-team.jpg";
 import approachRunning from "@/assets/approach-running.jpg";
@@ -44,10 +45,11 @@ const worksAcrossIndustries = [
 
 // (worksHighImpact moved to /work)
 
-const worksStorytelling = [
-  { tag: "Documentary", name: "เถื่อน Travel · เกิดแก่เจ็บโต · ท่วงทำนองที่เลือนหาย", body: "สารคดีที่บันทึกชีวิตและความเปลี่ยนแปลง", img: approachRunning },
-  { tag: "Series & Variety", name: "THE UPGRADE", body: "ซีรีส์ที่ผสมความบันเทิงกับสาระอย่างลงตัว", img: whatSkater },
-  { tag: "Music & Creative", name: "เพลงลำคำเขื่อนแก้ว", body: "Creative Content ที่ผูกดนตรีกับท้องถิ่น", img: heroStreet },
+const socialCommercials: VideoReelItem[] = [
+  { tag: "Sports · Football", name: "LEICESTER CITY", body: "แคมเปญสื่อสารแบรนด์ระดับสากล สำหรับสโมสรฟุตบอลพรีเมียร์ลีก", videoId: "dQw4w9WgXcQ" },
+  { tag: "Esports", name: "BURIRAM ESPORT", body: "สร้างตัวตนทีม Esport ไทยให้ก้าวสู่เวทีระดับภูมิภาค", videoId: "dQw4w9WgXcQ" },
+  { tag: "Healthcare", name: "SIRIRAJ HOSPITAL", body: "Storytelling ที่สื่อสารความน่าเชื่อถือของสถาบันการแพทย์ชั้นนำ", videoId: "dQw4w9WgXcQ" },
+  { tag: "Automotive", name: "AUDI THAILAND", body: "High-end Production ที่ตีความ Premium Mobility ในแบบไทย", videoId: "dQw4w9WgXcQ" },
 ];
 
 const heroProjects = [
@@ -272,16 +274,43 @@ const Index = () => (
         <SelectedWorkReel projects={worksAcrossIndustries} size="sm" />
       </div>
 
-      {/* Mastery in Storytelling */}
-      <div className="mt-20">
+    </section>
+
+    {/* MASTERY IN STORYTELLING — fullsize video background */}
+    <section className="relative h-[80vh] md:h-screen w-full overflow-hidden border-t border-foreground">
+      <video
+        className="absolute inset-0 w-full h-full object-cover"
+        src="https://cdn.pixabay.com/video/2024/03/15/204306-924698132_large.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        poster={heroStreet}
+      />
+      <div className="absolute inset-0 bg-foreground/55" />
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
         <Reveal>
-          <div className="border-t border-foreground pt-3 pb-3 flex items-center justify-between">
-            <span className="index-badge font-bold">MASTERY IN STORYTELLING</span>
-            <span className="index-badge font-medium text-muted-foreground hidden sm:inline">{worksStorytelling.length} PROJECTS</span>
-          </div>
+          <p className="index-badge text-background/70 font-medium">— THE CRAFT —</p>
         </Reveal>
-        <SelectedWorkReel projects={worksStorytelling} size="sm" />
+        <Reveal delay={0.1}>
+          <h2
+            className="mt-6 font-display text-background leading-[0.9] tracking-[-0.04em]"
+            style={{ fontSize: "clamp(48px, 9vw, 140px)" }}
+          >
+            Mastery in <span className="italic opacity-80">Storytelling</span>
+          </h2>
+        </Reveal>
+        <Reveal delay={0.2}>
+          <div className="mt-8 hairline w-16 bg-background/60" />
+        </Reveal>
       </div>
+    </section>
+
+    {/* SOCIAL & COMMERCIALS — video reel */}
+    <section className="relative px-6 md:px-10 py-24 md:py-32 border-t border-foreground">
+      <SectionHeader left="SOCIAL & COMMERCIALS" right="branded films · campaigns" />
+      <VideoReel items={socialCommercials} />
+
 
       <div className="mt-12 flex justify-end">
         <Link to="/work" className="inline-flex items-center gap-3 index-badge hover:opacity-60 transition-opacity">

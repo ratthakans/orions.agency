@@ -23,14 +23,12 @@ const Nav = () => {
 
   useEffect(() => { setOpen(false); }, [pathname]);
 
-  const isHome = pathname === "/";
-
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled || !isHome
-          ? "bg-background/80 backdrop-blur-md border-b border-border"
-          : "bg-transparent border-b border-transparent"
+        scrolled
+          ? "bg-background/85 backdrop-blur-md border-b border-border"
+          : "bg-background/40 backdrop-blur-sm border-b border-transparent"
       }`}
     >
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 h-[68px] flex items-center justify-between">
@@ -54,9 +52,9 @@ const Nav = () => {
 
         <Link
           to="/contact"
-          className="hidden md:inline-flex label-mono bg-grad text-background px-4 py-2.5 hover:opacity-90 transition-opacity"
+          className="hidden md:inline-flex label-mono bg-accent-solid text-accent-foreground px-4 py-2.5 hover:opacity-90 transition-opacity"
         >
-          Book Audit
+          Let's Talk
         </Link>
 
         <button
@@ -68,7 +66,6 @@ const Nav = () => {
         </button>
       </div>
 
-      {/* Mobile drawer */}
       {open && (
         <div className="md:hidden border-t border-border bg-background">
           <div className="px-6 py-6 flex flex-col gap-5">
@@ -77,8 +74,8 @@ const Nav = () => {
                 {l.label}
               </NavLink>
             ))}
-            <Link to="/contact" className="label-mono bg-foreground text-background px-4 py-3 inline-block w-fit">
-              Book Audit
+            <Link to="/contact" className="label-mono bg-accent-solid text-accent-foreground px-4 py-3 inline-block w-fit">
+              Let's Talk
             </Link>
           </div>
         </div>

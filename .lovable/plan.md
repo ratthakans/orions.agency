@@ -1,101 +1,86 @@
 
-## Accent Color & Site-wide UI Audit
+## Make ØRIONS feel like a top-tier Amsterdam creative agency
 
-### Part 1 — Accent Gradient Recommendation
+After reviewing the current state (Index, Nav, Footer, PageHero, all pages), the bones are strong but the site still reads as "editorial template" not "studio with a point of view". Top Amsterdam studios (Build in Amsterdam, Mainstudio, Random Studio, Order, Lundgren+Lindqvist) share these traits we're missing:
 
-The site is currently pure B/W on newsprint cream (#F5F2EC). To elevate without breaking the editorial Amsterdam tone, I recommend **ONE restrained accent** used sparingly (hover states, active nav, key CTA arrow, audit badge dot).
+1. **A signature interaction** — one repeating gesture across the site (custom cursor, magnetic hover, slow reveal, or marquee logic) that becomes the brand.
+2. **Deep navigation with intent** — not just nav links but a *system* (page indicator, scroll progress, time/location ticker).
+3. **Confident negative space + asymmetric grids** — not centered everything; off-grid moments that breathe.
+4. **One unforgettable hero gesture** — kinetic type, scroll-driven scale, or rotating tagline.
+5. **Detail layer** — corner brackets, tiny ticking metadata, hairline numbering, status dot ("STUDIO OPEN · 14:32 ICT").
 
-**Recommended: "Sunset Ink" gradient**
+---
+
+## What I'll build (focused, not bloated)
+
+### A. New "Studio Status Bar" (top, above Nav)
+Thin bar (28px) showing live Bangkok time, status dot, and a rotating tagline. Hides on scroll down, returns on scroll up.
 ```
-from: #FF4D2E  (vermilion red — Bangkok energy)
-to:   #FFB800  (amber yellow — editorial highlight)
-angle: 135deg
-```
-
-Why this works:
-- Vermilion + amber feels Thai (temple lacquer, marigold) but reads internationally premium (think Pentagram, Mainstudio accent work).
-- High contrast on cream paper without fighting the black ink.
-- Used as a **gradient text fill** on ONE word per page (replacing some Cutive italics) + as a **2px underline** on active nav + as the **CTA arrow color on hover**.
-
-**Alternatives I considered (will offer as choice):**
-- "Electric Dusk": `#6366F1 → #EC4899` (indigo→pink) — more techy, less editorial
-- "Ink Wash": `#0A0A0A → #4A4A4A` (mono gradient) — safest, subtle depth, no real color
-- "Citrus Pulp": `#FFD60A → #FF8C42` (yellow→orange) — warm, optimistic, very Dutch
-
-### Part 2 — Where the accent appears (discipline rules)
-
-```
-1. Active nav link underline      → 2px gradient bar
-2. Hero "one word" per page       → gradient text fill (replaces Cutive italic on:
-                                     About "Applied", Work "ideas", Contact "stuck")
-3. CTA primary arrow on hover     → arrow turns gradient
-4. Audit badge pulsing dot        → solid vermilion #FF4D2E
-5. Section index numbers (01/02)  → muted gradient on hover only
+● STUDIO OPEN · BKK 14:32 ICT       NOW: TAKING Q2 2026 PROJECTS       N 13.756° E 100.501°
 ```
 
-That's it. Max 5 touchpoints sitewide. Never on body text, never on borders, never on backgrounds.
+### B. Refined Nav
+- Add scroll-progress hairline at the bottom of nav (gradient).
+- Active link gets a small leading `•` + gradient underline (already there).
+- Logo gets a tiny rotating "01/05" page indicator next to it (e.g. `ØRIONS [03/05]`).
 
-### Part 3 — UI Consistency Audit (per page)
+### C. Index Hero — kinetic upgrade
+Replace static hero with:
+- Massive ØRIONS wordmark unchanged, but add **3 rotating sub-headlines** below ("FROM IDEA → FINAL CUT", "ONE TEAM · NO HANDOFF", "BANGKOK · 2019—") cycling every 3s with vertical wipe.
+- Add a tiny **"scroll" indicator** with vertical line + label.
+- Replace TypingLoop with the rotation (less jittery).
 
-After scanning all pages I found these residual inconsistencies to lock down:
+### D. Signature interaction: Magnetic CTAs + cursor-aware arrows
+- Primary CTA arrows subtly tilt toward cursor on hover (CSS transform via mouse position, no library).
+- Project cards get a soft "lift" (translateY -4px + shadow) instead of current hover.
 
-**Font size drift**
-- Index hero uses inline `clamp()` different from PageHero's `clamp(56px, 11vw, 132px)` → unify
-- Work cinematic h3 is `text-[64px]`, About leadership names are `text-[48px]`, Services rows `text-[56px]` → standardize section H2/H3 scale
-- Contact hero uses hard-coded `md:text-[128px]` → switch to PageHero scale
+### E. Section transitions — a real "wipe"
+Add a 400ms full-screen vertical wipe (cream → black → cream) on route change. One overlay component in `<Layout>`. This is THE Amsterdam move.
 
-**Font family drift**
-- Some Thai paragraphs missing `.font-thai` class → render in Unbounded fallback (ugly)
-- Mono labels mix `font-mono` and `index-badge` (which is Unbounded) → pick one per role
-- Cutive italic still appears 2x on About after refactor → cut to 1
+### F. Detail layer (sitewide, tiny)
+- Corner brackets `⌐ ¬ ∟ ⌐` at viewport edges (4 SVGs, fixed, 24px, opacity 0.15).
+- Section anchors get a hover-revealed `§` symbol next to numbers.
+- Footer wordmark: on hover, letters animate individually (stagger fade).
 
-**Layout drift**
-- Page gutters: most use `px-6 md:px-10` ✓ but Footer uses `px-10 md:px-16` → align
-- Section padding: Index sections `py-20`, About `py-24`, Services `py-28`, Work `py-20 md:py-28` → lock all to `py-24 md:py-32`
-- Grid gaps: cards use `gap-6`, `gap-8`, `gap-10`, `gap-12` randomly → standardize to `gap-8` (cards) / `gap-12` (sections)
+### G. Index page tightening
+- Remove "Vicious Cycle" section noise — keep stats but in 4-col with hairline dividers, no card boxes.
+- "Selected Work" → asymmetric grid: 1 large (60%) + 2 stacked small (40%) instead of 4 equal.
+- Closing CTA: simplify to ONE giant headline + one CTA, drop the 2nd column.
 
-**Component drift**
-- Some sections still use raw `<div className="border-t border-foreground...">` instead of `<SectionHeader/>` → replace
-- "Let's Talk" button in Nav still hand-rolled → swap to `<CTA variant="primary">`
-- Contact form inputs still use `border-b-2` focus → align with system
+### H. Typography micro-refinement
+- Add `font-feature-settings: "ss01", "ss02"` for Unbounded alt characters.
+- Tighten `letter-spacing` on hero from -0.05em → -0.055em.
+- Add `text-wrap: balance` on all H1/H2.
 
-### Part 4 — Files I'll touch
+### I. Color discipline (keep Sunset Ink)
+No new color. Sunset Ink stays as-is, but extends to:
+- Status dot in StudioStatusBar (vermilion only, no gradient).
+- Scroll progress bar (gradient).
+- One word per page (already done).
 
-- `src/index.css` — add `--accent-from`, `--accent-to`, `.text-gradient`, `.bg-gradient-accent` utilities; lock section padding helpers
-- `src/components/CTA.tsx` — gradient arrow on hover (primary variant)
-- `src/components/Nav.tsx` — gradient underline on active link, swap CTA primitive
-- `src/components/PageHero.tsx` — accept optional `accentWord` prop that gets gradient fill
-- `src/components/SectionHeader.tsx` — already good, minor mono cleanup
-- `src/components/Footer.tsx` — align gutters `px-6 md:px-10`
-- `src/pages/Index.tsx` — unify hero scale, swap to standard padding, replace one Cutive with gradient word
-- `src/pages/About.tsx` — remove duplicate Cutive italic (keep one), fix Thai font class, gradient on "Applied"
-- `src/pages/Services.tsx` — section padding lock, gradient on hover arrow
-- `src/pages/Work.tsx` — gradient on "ideas", normalize h3 sizes (64px→clamp), reduce gradient overlay opacity
-- `src/pages/Contact.tsx` — replace Cutive "stuck" with gradient fill, vermilion dot in audit badge, standardize input focus
+---
 
-### Part 5 — Type & spacing lockdown (final)
+## Files to touch
 
-```
-H1 (hero):       clamp(56px, 11vw, 132px)   — PageHero only
-H2 (section):    clamp(40px, 6vw, 72px)
-H3 (card big):   clamp(28px, 3.5vw, 56px)
-H3 (card small): 22–28px
-Body:            15–17px
-Label:           11px (index-badge, Unbounded)
+- `src/components/StudioStatusBar.tsx` — **new** (top bar w/ live time)
+- `src/components/PageTransition.tsx` — **new** (route wipe overlay)
+- `src/components/CornerMarks.tsx` — **new** (4 fixed viewport corners)
+- `src/components/MagneticCTA.tsx` — **new** wrapper or extend `CTA.tsx` with cursor tilt
+- `src/components/Layout.tsx` — mount StatusBar + PageTransition + CornerMarks
+- `src/components/Nav.tsx` — scroll progress bar, page indicator next to logo
+- `src/components/Footer.tsx` — letter-stagger hover on wordmark
+- `src/pages/Index.tsx` — kinetic rotating sub-headline hero, asymmetric work grid, simplified closing CTA, cleaner stats row
+- `src/index.css` — `text-wrap: balance`, `font-feature-settings`, tighter tracking, corner marks utility
+- `src/App.tsx` — wrap routes with PageTransition
 
-Section padding: py-24 md:py-32
-Gutters:         px-6 md:px-10
-Card gap:        gap-8
-Section gap:     gap-12
+---
 
-Fonts (strict)
-  Display H1-H3: Unbounded
-  Body EN:       Inter
-  Body TH:       IBM Plex Sans Thai (.font-thai)
-  Mono meta:     JetBrains Mono (rare — dates/coords only)
-  Italic accent: REPLACED by gradient (Cutive removed except 1 hero use max)
-```
+## What you'll feel after
 
-### Choice for you
+- Site has a **heartbeat** (time ticker, scroll progress, route wipe).
+- One memorable interaction (magnetic CTA / page wipe) becomes the brand signature.
+- Less "section after section" — more asymmetry and intentional emptiness.
+- Hero feels alive without being noisy.
+- Every detail (corners, status, page count) signals "designed by a studio, not a template".
 
-I'll proceed with **"Sunset Ink" (vermilion → amber)** unless you pick another below.
+No new colors. No new fonts. No backend. Pure design and motion craft.

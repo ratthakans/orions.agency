@@ -203,47 +203,30 @@ const Index = () => (
       </div>
     </section>
 
-    {/* 05 — APPLIED SOLUTIONS — horizontal expanding rows */}
-    <section className="relative px-6 md:px-10 py-20 md:py-32 border-t border-foreground overflow-hidden">
-      <div aria-hidden className="pointer-events-none absolute right-0 top-8 font-display text-[160px] md:text-[260px] leading-none tracking-[-0.06em] text-foreground/[0.04] select-none">
-        05
-      </div>
+    {/* 05 — APPLIED SOLUTIONS — 4 column grid */}
+    <section className="relative px-6 md:px-10 py-20 md:py-28 border-t border-foreground">
+      <SectionHeader left="05 — APPLIED SOLUTIONS" right="สิ่งที่เราส่งมอบให้คุณ" />
 
-      <div className="relative z-10">
-        <SectionHeader left="05 — APPLIED SOLUTIONS" right="สิ่งที่เราส่งมอบให้คุณ" />
+      <Reveal delay={0.1}>
+        <h2 className="mt-12 md:mt-16 font-display text-[40px] md:text-[64px] leading-[0.95] tracking-[-0.04em] max-w-[900px]">
+          Four practices.<br />One outcome.
+        </h2>
+      </Reveal>
 
-        <Reveal delay={0.1}>
-          <h2 className="mt-12 md:mt-16 font-display text-[44px] md:text-[72px] leading-[0.95] tracking-[-0.04em] max-w-[900px]">
-            Four practices.<br />One outcome.
-          </h2>
-        </Reveal>
-
-        <div className="mt-16 border-t border-foreground">
-          {appliedSolutions.map((s) => (
-            <Reveal key={s.n}>
-              <article className="group relative border-b border-foreground transition-colors duration-500 hover:bg-foreground hover:text-background cursor-default">
-                <div className="grid grid-cols-12 gap-4 md:gap-8 items-center px-2 md:px-4 py-8 md:py-10">
-                  <div className="col-span-2 md:col-span-1 font-mono text-[11px] tracking-[0.08em] text-muted-foreground transition-colors duration-500 group-hover:text-background/60">
-                    {s.n}
-                  </div>
-                  <div className="col-span-10 md:col-span-5">
-                    <h3 className="font-display text-[28px] md:text-[44px] leading-[1.05] tracking-[-0.03em]">
-                      {s.title}
-                    </h3>
-                  </div>
-                  <div className="col-span-12 md:col-span-5">
-                    <p className="text-[14px] md:text-[16px] leading-[1.65] text-muted-foreground font-thai transition-colors duration-500 group-hover:text-background/80">
-                      {s.body}
-                    </p>
-                  </div>
-                  <div className="hidden md:flex md:col-span-1 justify-end">
-                    <ArrowUpRight className="w-6 h-6 transition-transform duration-500 group-hover:rotate-45" />
-                  </div>
-                </div>
-              </article>
-            </Reveal>
-          ))}
-        </div>
+      <div className="mt-16 border-t border-foreground grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+        {appliedSolutions.map((s, i) => (
+          <Reveal key={s.n} delay={0.05 * i}>
+            <article className={`h-full p-6 md:p-8 border-b border-foreground lg:border-b-0 ${i > 0 ? "md:border-t-0 lg:border-l border-foreground" : "lg:border-l-0"} ${i === 1 ? "lg:border-l" : ""} ${i === 2 ? "md:border-t lg:border-t-0" : ""} ${i === 3 ? "md:border-t lg:border-t-0" : ""}`}>
+              <div className="font-mono text-[11px] tracking-[0.08em] text-muted-foreground">{s.n}</div>
+              <h3 className="mt-6 font-display text-[22px] md:text-[24px] leading-[1.1] tracking-[-0.02em]">
+                {s.title}
+              </h3>
+              <p className="mt-4 text-[14px] leading-[1.65] text-muted-foreground font-thai">
+                {s.body}
+              </p>
+            </article>
+          </Reveal>
+        ))}
       </div>
     </section>
 

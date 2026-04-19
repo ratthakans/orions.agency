@@ -90,7 +90,7 @@ const About = () => (
 
     {/* 03 — O-R-I-O-N-S METHOD */}
     <section className="px-6 md:px-10 py-20 md:py-28 bg-foreground text-background border-y border-foreground">
-      <SectionHeader left="03 — THE METHOD" right="O · R · I · O · N · S" />
+      <SectionHeader left="02 — THE METHOD" right="O · R · I · O · N · S" />
       <Reveal>
         <h2 className="mt-12 font-display text-[40px] md:text-[72px] leading-[0.92] tracking-[-0.03em] max-w-[900px]">
           6 ขั้นตอน<br />สู่ผลลัพธ์ที่แม่นยำ
@@ -117,42 +117,6 @@ const About = () => (
           </Reveal>
         ))}
       </div>
-    </section>
-
-    {/* 04 — WHY APPLIED */}
-    <section className="px-6 md:px-10 py-20 md:py-28">
-      <SectionHeader left="04 — WHY APPLIED" right="not consultant. not studio." />
-      <div className="mt-12 max-w-[700px]">
-        <Reveal>
-          <p className="text-[16px] md:text-[18px] leading-[1.7] font-thai">
-            ทำไมบางโจทย์ต้องใช้{" "}
-            <span className="font-display normal-case font-bold">Applied Creative Agency</span>{" "}
-            ไม่ใช่แค่ consultant หรือ studio
-          </p>
-        </Reveal>
-      </div>
-
-      <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-px bg-foreground border border-foreground">
-        {compare.map((c, i) => (
-          <Reveal key={c.t} delay={i * 0.1}>
-            <div className={`p-8 md:p-10 h-full ${c.us ? "bg-foreground text-background" : "bg-background"}`}>
-              <div className={`index-badge ${c.us ? "opacity-70" : "text-muted-foreground"}`}>
-                {c.us ? "ØRIONS" : "VS"}
-              </div>
-              <h3 className="mt-6 font-display text-[26px] md:text-[32px]">{c.t}</h3>
-              <div className={`mt-3 font-display text-[16px] font-thai font-medium ${c.us ? "" : "text-muted-foreground"}`}>{c.s}</div>
-              <p className={`mt-4 text-[14px] leading-[1.7] font-thai ${c.us ? "opacity-80" : "text-muted-foreground"}`}>{c.b}</p>
-            </div>
-          </Reveal>
-        ))}
-      </div>
-
-      <Reveal delay={0.4}>
-        <p className="mt-12 max-w-[700px] text-[15px] md:text-[17px] leading-[1.7] font-thai">
-          ไม่ใช่แค่คนที่คิดเป็น ไม่ใช่แค่คนที่ทำเป็น{" "}
-          <span className="font-display normal-case font-bold">แต่คือคนที่ทำให้ธุรกิจขยับได้จริง</span>
-        </p>
-      </Reveal>
     </section>
 
     {/* CTA */}

@@ -40,7 +40,11 @@ const StudioStatusBar = () => {
           <span
             className={`w-1.5 h-1.5 rounded-full ${open ? "accent-dot animate-pulse" : "bg-background/40"}`}
           />
-          <span className="opacity-90">{open ? "STUDIO OPEN" : "AFTER HOURS"} · BKK {time} ICT</span>
+          <span className="opacity-90 inline-flex items-center">
+            {open ? "STUDIO OPEN" : "AFTER HOURS"} · BKK&nbsp;{time}
+            <span className="ml-0.5 inline-block w-[0.5ch] animate-pulse" aria-hidden>|</span>
+            &nbsp;ICT
+          </span>
         </span>
 
         <span className="hidden md:block opacity-90 transition-opacity duration-300" key={tagIdx}>

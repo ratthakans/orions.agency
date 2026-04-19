@@ -247,9 +247,6 @@ const About = () => (
               {
                 n: "02",
                 tag: "The Connector",
-                span: "md:col-span-4",
-                offset: "md:-mt-10",
-                lead: false,
                 body: (
                   <>
                     <span className="font-display normal-case font-bold tracking-[-0.01em]">ØRIONS</span> คือคนลากเส้นสายเหล่านั้น เราไม่ได้แค่รวบรวมคนเก่ง แต่เราคือคนที่เชื่อมโยงศักยภาพมหาศาล ให้กลายเป็น <span className="italic">'ทางออก'</span> ที่มีทิศทาง
@@ -259,9 +256,6 @@ const About = () => (
               {
                 n: "03",
                 tag: "The Meaning",
-                span: "md:col-span-3",
-                offset: "md:-mt-20",
-                lead: false,
                 body: (
                   <>
                     เราเปลี่ยนแสงสว่างที่โดดเดี่ยว ให้กลายเป็น <span className="italic">'ความหมาย'</span> ที่ขับเคลื่อนธุรกิจของคุณได้จริง — ไม่ใช่แค่ภาพสวย แต่เป็น Impact ที่วัดผลได้
@@ -269,29 +263,21 @@ const About = () => (
                 ),
               },
             ].map((c, i) => (
-              <div key={c.n} className={`${c.span} ${c.offset}`}>
-                <Reveal delay={0.1 + i * 0.1} className="h-full">
-                  <div className="border-t border-foreground pt-6 h-full flex flex-col">
-                    <div className="flex items-baseline justify-between mb-5">
-                      <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-muted-foreground">
-                        {c.n}
-                      </span>
-                      <span className="font-display text-[12px] tracking-[0.04em] uppercase text-foreground">
-                        {c.tag}
-                      </span>
-                    </div>
-                    <p
-                      className={`font-thai text-foreground/90 ${
-                        c.lead
-                          ? "text-[18px] md:text-[22px] leading-[1.7] tracking-[-0.005em]"
-                          : "text-[15px] md:text-[16px] leading-[1.85]"
-                      }`}
-                    >
-                      {c.body}
-                    </p>
+              <Reveal key={c.n} delay={0.1 + i * 0.1} className="h-full">
+                <div className="border-t border-foreground pt-6 h-full flex flex-col">
+                  <div className="flex items-baseline justify-between mb-5">
+                    <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-muted-foreground">
+                      {c.n}
+                    </span>
+                    <span className="font-display text-[12px] tracking-[0.04em] uppercase text-foreground">
+                      {c.tag}
+                    </span>
                   </div>
-                </Reveal>
-              </div>
+                  <p className="font-thai text-foreground/90 text-[15px] md:text-[16px] leading-[1.85]">
+                    {c.body}
+                  </p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>

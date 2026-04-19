@@ -115,8 +115,7 @@ const Services = () => (
     <PageHero
       eyebrowNumber="01"
       eyebrowLabel="WHAT WE DO"
-      title="Four practices. One outcome: clarity."
-      subtitle="ØRIONS ทำงานครบทั้งกลยุทธ์ การสื่อสาร โซเชียล และงานผลิต — ทุกบริการถูกออกแบบให้ส่งมอบผลลัพธ์ที่วัดผลได้"
+      title="Applied Solution"
     />
 
     <section className="px-6 md:px-10 pb-10">
@@ -186,7 +185,6 @@ const Services = () => (
 
     {/* CTA */}
     <section className="px-6 md:px-10 py-20 md:py-28">
-      <SectionHeader left="02 — READY?" />
       <div className="mt-12 grid grid-cols-1 md:grid-cols-12 gap-10">
         <div className="md:col-span-8">
           <Reveal>

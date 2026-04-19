@@ -401,61 +401,56 @@ const About = () => (
       </div>
     </section>
 
-    {/* CTA — dark bookend */}
-    <section className="relative px-6 md:px-10 py-28 md:py-40 bg-foreground text-background border-t border-foreground overflow-hidden">
-      {/* Giant decorative arrow */}
-      <div className="pointer-events-none absolute -right-10 md:-right-16 top-1/2 -translate-y-1/2 select-none">
-        <span
-          className="font-display leading-none text-background/[0.06]"
-          style={{ fontSize: "clamp(220px, 36vw, 480px)" }}
-        >
-          →
-        </span>
-      </div>
-
+    {/* CTA — editorial light close */}
+    <section className="relative px-6 md:px-10 py-24 md:py-32 border-t border-foreground overflow-hidden">
       <div className="relative max-w-[1400px] mx-auto">
-        <div className="flex items-center gap-3 mb-10">
-          <span className="block w-8 h-px bg-background" />
-          <p className="index-badge text-background">END · 03</p>
-          <span className="ml-auto index-badge text-background/60 hidden md:block">LET'S DRAW THE LINE</span>
+        <div className="flex items-center gap-3 mb-12">
+          <span className="block w-8 h-px bg-foreground" />
+          <p className="index-badge">CONTACT · 03</p>
+          <span className="ml-auto index-badge text-muted-foreground hidden md:block">END OF FILE</span>
         </div>
 
-        <Reveal>
-          <h2 className="font-display h-display-lg max-w-[900px]">
-            Stop guessing.<br />Start <span className="italic">applying</span><span className="text-background/50">.</span>
-          </h2>
-        </Reveal>
-
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-12 gap-10 items-end">
-          <div className="md:col-span-7 flex flex-col gap-5 items-start">
-            <Reveal delay={0.2}>
-              <CTA to="/contact#audit" variant="invert">Request ØRIONS Audit (Free)</CTA>
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-start">
+          <div className="md:col-span-7">
+            <Reveal>
+              <h2 className="font-display h-display-lg">
+                Stop guessing.<br />
+                Start <span className="italic text-gradient">applying</span><span className="text-muted-foreground">.</span>
+              </h2>
             </Reveal>
-            <Reveal delay={0.3}>
-              <a
-                href="/work"
-                className="font-mono text-[11px] tracking-[0.2em] uppercase text-background/70 hover:text-background transition-colors inline-flex items-center gap-2"
-              >
-                Or explore our work <span aria-hidden>→</span>
-              </a>
+            <Reveal delay={0.2}>
+              <div className="mt-10 flex flex-col items-start gap-5">
+                <CTA to="/contact#audit">Request ØRIONS Audit (Free)</CTA>
+                <a
+                  href="/work"
+                  className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-2"
+                >
+                  Or explore our work <span aria-hidden>→</span>
+                </a>
+              </div>
             </Reveal>
           </div>
-          <div className="md:col-span-5 md:text-right">
-            <Reveal delay={0.35}>
-              <div className="space-y-2">
-                <div className="index-badge text-background/60">DIRECT LINE</div>
+
+          <div className="md:col-span-5 md:pt-4">
+            <Reveal delay={0.25}>
+              <div className="border-t border-foreground pt-6">
+                <div className="index-badge text-muted-foreground">DIRECT LINE</div>
                 <a
                   href="mailto:hello@orions.co"
-                  className="block font-display text-[18px] md:text-[22px] tracking-[-0.02em] hover:text-gradient transition-colors"
+                  className="mt-3 block font-display text-[22px] md:text-[28px] tracking-[-0.02em] hover:text-gradient transition-colors"
                 >
                   hello@orions.co
                 </a>
                 <a
                   href="tel:+66000000000"
-                  className="block font-mono text-[12px] tracking-[0.18em] uppercase text-background/70 hover:text-background transition-colors"
+                  className="mt-2 block font-mono text-[12px] tracking-[0.18em] uppercase text-muted-foreground hover:text-foreground transition-colors"
                 >
                   +66 (0) 00 000 0000
                 </a>
+                <div className="mt-6 hairline w-12" />
+                <p className="mt-4 font-thai text-[13px] leading-[1.7] text-muted-foreground">
+                  ตอบกลับภายใน 24 ชั่วโมง · ปรึกษาเบื้องต้นไม่มีค่าใช้จ่าย
+                </p>
               </div>
             </Reveal>
           </div>

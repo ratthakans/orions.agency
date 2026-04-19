@@ -57,7 +57,10 @@ const Index = () => (
     <section className="relative px-6 md:px-10 min-h-screen flex flex-col items-center justify-center text-center">
       <div className="flex flex-col items-center justify-center">
         <Reveal delay={0.05}>
-          <h1 className="font-brand text-[18vw] md:text-[14vw] leading-[0.85] tracking-[-0.05em] text-foreground">
+          <h1
+            className="font-brand leading-[0.85] tracking-[-0.05em] text-foreground"
+            style={{ fontSize: "clamp(72px, 16vw, 220px)" }}
+          >
             ØRIONS
           </h1>
         </Reveal>
@@ -96,7 +99,7 @@ const Index = () => (
     </section>
 
     {/* 03 — THE VICIOUS CYCLE */}
-    <section className="relative px-6 md:px-10 py-20 md:py-28 border-t border-foreground">
+    <section className="relative px-6 md:px-10 py-24 md:py-32 border-t border-foreground">
       <div className="max-w-[1400px] mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
         <div className="md:col-span-5 md:sticky md:top-32 md:self-start">
           <Reveal>
@@ -160,7 +163,7 @@ const Index = () => (
     </section>
 
     {/* 04 — WHO IS ØRIONS — balanced split, smaller image */}
-    <section className="relative border-t border-foreground px-6 md:px-10 py-20 md:py-28">
+    <section className="relative border-t border-foreground px-6 md:px-10 py-24 md:py-32">
       <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-start">
         {/* Image — contained, 3/4 ratio */}
         <div className="md:col-span-5 order-2 md:order-1">
@@ -215,10 +218,10 @@ const Index = () => (
     </section>
 
     {/* APPLIED SOLUTIONS — the offer */}
-    <section className="relative px-6 md:px-10 py-20 md:py-28 border-t border-foreground bg-foreground text-background">
+    <section className="relative px-6 md:px-10 py-24 md:py-32 border-t border-foreground bg-foreground text-background">
       <Reveal>
-        <h2 className="font-display text-[48px] md:text-[88px] leading-[0.92] tracking-[-0.04em]">
-          Applied Solutions.
+        <h2 className="font-display leading-[0.92] tracking-[-0.04em]" style={{ fontSize: "clamp(40px, 6vw, 72px)" }}>
+          Applied <span className="text-gradient">Solutions</span>.
         </h2>
       </Reveal>
 
@@ -244,7 +247,7 @@ const Index = () => (
     </section>
 
     {/* SELECTED WORK */}
-    <section className="relative px-6 md:px-10 py-20 md:py-32 border-t border-foreground">
+    <section className="relative px-6 md:px-10 py-24 md:py-32 border-t border-foreground">
       <SectionHeader left="SELECTED WORK" right="applied creative in action" />
 
       {/* Hero projects — 3 column */}
@@ -311,7 +314,7 @@ const Index = () => (
 
 
     {/* CLOSING — clean two-line CTA strip */}
-    <section className="relative bg-foreground text-background border-t border-foreground px-6 md:px-10 py-24 md:py-40">
+    <section className="relative bg-foreground text-background border-t border-foreground px-6 md:px-10 py-24 md:py-32">
       <div className="border-t border-background/30 pt-3 pb-3 flex items-center justify-between gap-6">
         <span className="index-badge font-bold inline-flex items-center gap-3">
           <span className="opacity-60 font-mono">07</span>

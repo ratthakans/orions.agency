@@ -58,20 +58,11 @@ const heroProjects = [
   { tag: "APPLIED AESTHETIC", name: "KHAO YAI", body: "ยกระดับด้วยรสนิยม เปลี่ยนสนามกอล์ฟดั้งเดิมสู่ประสบการณ์พรีเมียม", stat: "30%", statLabel: "DECISION SPEED", img: approachRunning },
 ];
 
-const selectedWorks = [
-  { tag: "Political Communication", name: "DEMOCRAT PARTY", body: "การสื่อสารเชิงกลยุทธ์ภายใต้เงื่อนไขที่ท้าทาย", img: whatSkater },
-  { tag: "Mobility", name: "GCOO", body: "Localization และระบบที่เปลี่ยนพฤติกรรมการเดินทางของคนเมือง", img: whatWindow },
-  { tag: "Hospitality Tech", name: "MY HOTEL", body: "วางระบบ Smart Hotel ที่ใช้งานได้จริงรายแรกของไทย", img: whatVortex },
-  { tag: "National Campaign", name: "HEAVY ORGANIZER", body: "แคมเปญสื่อสารระดับประเทศที่สร้างแรงกระเพื่อมได้จริง", img: approachRunning },
-];
-
 const whyOrions = [
   { tag: "CONSULTANT", title: "ให้แผน ไม่ทำจริง", body: "ส่งมอบ Paper Strategy แต่ไม่ได้พาไปทำจนเห็นผล", highlight: false },
   { tag: "STUDIO", title: "ทำตามสั่ง ไม่คิดต่อ", body: "รับ Execution ได้ดี แต่ไม่มองภาพรวมกลยุทธ์ธุรกิจ", highlight: false },
   { tag: "ØRIONS", title: "กลยุทธ์ × งานผลิต", body: "เชื่อมการคิดกับการทำ เพื่อให้ธุรกิจขยับไปข้างหน้าได้จริง", highlight: true },
 ];
-
-const selectedWorks = worksAcrossIndustries;
 
 const Index = () => (
   <div id="top">

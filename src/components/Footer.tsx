@@ -4,23 +4,8 @@ import { Instagram, Facebook, Mail } from "lucide-react";
 const Footer = () => (
   <footer className="bg-foreground text-background">
     <div className="px-6 md:px-10 pt-20 md:pt-24 pb-10">
-      {/* Top row: wordmark + tagline */}
-      <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 pb-12 md:pb-16 border-b border-background/15">
-        <Link to="/" aria-label="ØRIONS home" className="block">
-          <span
-            className="font-brand block leading-[0.85] tracking-[-0.04em]"
-            style={{ fontSize: "clamp(56px, 10vw, 140px)" }}
-          >
-            ØRIONS
-          </span>
-        </Link>
-        <p className="font-thai text-[14px] md:text-[15px] leading-[1.6] opacity-70 max-w-xs md:text-right">
-          From idea to final cut — one team, no handoff.
-        </p>
-      </div>
-
       {/* Main grid: nav / contact / studio */}
-      <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
         <div>
           <div className="index-badge opacity-50 mb-6">Index</div>
           <ul className="space-y-3 font-display text-[18px] md:text-[20px] tracking-[-0.02em]">

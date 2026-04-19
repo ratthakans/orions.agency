@@ -6,6 +6,7 @@ import SectionHeader from "@/components/SectionHeader";
 import SEO from "@/components/SEO";
 import RotatingHeadline from "@/components/RotatingHeadline";
 import SelectedWorkReel from "@/components/SelectedWorkReel";
+import VideoReel, { type VideoReelItem } from "@/components/VideoReel";
 import heroStreet from "@/assets/hero-street.jpg";
 import whoOrionsTeam from "@/assets/who-orions-team.jpg";
 import approachRunning from "@/assets/approach-running.jpg";
@@ -44,10 +45,11 @@ const worksAcrossIndustries = [
 
 // (worksHighImpact moved to /work)
 
-const worksStorytelling = [
-  { tag: "Documentary", name: "เถื่อน Travel · เกิดแก่เจ็บโต · ท่วงทำนองที่เลือนหาย", body: "สารคดีที่บันทึกชีวิตและความเปลี่ยนแปลง", img: approachRunning },
-  { tag: "Series & Variety", name: "THE UPGRADE", body: "ซีรีส์ที่ผสมความบันเทิงกับสาระอย่างลงตัว", img: whatSkater },
-  { tag: "Music & Creative", name: "เพลงลำคำเขื่อนแก้ว", body: "Creative Content ที่ผูกดนตรีกับท้องถิ่น", img: heroStreet },
+const socialCommercials: VideoReelItem[] = [
+  { tag: "Sports · Football", name: "LEICESTER CITY", body: "แคมเปญสื่อสารแบรนด์ระดับสากล สำหรับสโมสรฟุตบอลพรีเมียร์ลีก", videoId: "dQw4w9WgXcQ" },
+  { tag: "Esports", name: "BURIRAM ESPORT", body: "สร้างตัวตนทีม Esport ไทยให้ก้าวสู่เวทีระดับภูมิภาค", videoId: "dQw4w9WgXcQ" },
+  { tag: "Healthcare", name: "SIRIRAJ HOSPITAL", body: "Storytelling ที่สื่อสารความน่าเชื่อถือของสถาบันการแพทย์ชั้นนำ", videoId: "dQw4w9WgXcQ" },
+  { tag: "Automotive", name: "AUDI THAILAND", body: "High-end Production ที่ตีความ Premium Mobility ในแบบไทย", videoId: "dQw4w9WgXcQ" },
 ];
 
 const heroProjects = [

@@ -115,6 +115,84 @@ const About = () => (
       </div>
     </section>
 
+    {/* 03 — TEAM */}
+    <section className="px-6 md:px-10 py-20 md:py-28">
+      <SectionHeader left="03 — THE TEAM" right="bangkok crew · 08" />
+
+      <Reveal>
+        <h2 className="mt-12 font-display text-[40px] md:text-[72px] leading-[0.92] tracking-[-0.03em] max-w-[900px]">
+          People behind<br />the{" "}
+          <span
+            className="italic font-normal"
+            style={{ fontFamily: "'Cutive', serif", textTransform: "none", letterSpacing: "-0.02em" }}
+          >
+            output
+          </span>
+          <span className="text-muted-foreground">.</span>
+        </h2>
+      </Reveal>
+
+      {/* Leadership */}
+      <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-px bg-foreground border border-foreground">
+        {[
+          { role: "Founder", name: "Ratthakan Suwanphakdee", initials: "RS" },
+          { role: "CEO", name: "Kanakhom Kittisakulnam", initials: "KK" },
+        ].map((p, i) => (
+          <Reveal key={p.name} delay={i * 0.05}>
+            <div className="bg-background p-8 md:p-10 h-full flex flex-col justify-between min-h-[260px]">
+              <div className="flex items-start justify-between">
+                <span className="index-badge">{String(i + 1).padStart(2, "0")} — {p.role}</span>
+                <span className="font-mono text-[10px] text-muted-foreground">{p.initials}</span>
+              </div>
+              <div>
+                <div className="font-display text-[32px] md:text-[48px] leading-[0.95] tracking-[-0.03em]">
+                  {p.name.split(" ")[0]}
+                </div>
+                <div className="font-display text-[32px] md:text-[48px] leading-[0.95] tracking-[-0.03em] text-muted-foreground">
+                  {p.name.split(" ").slice(1).join(" ")}
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        ))}
+      </div>
+
+      {/* Crew */}
+      <div className="mt-12">
+        <SectionHeader left="— THE CREW" right="06 specialists" />
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-px bg-foreground border border-foreground">
+          {[
+            { role: "Creative Director", name: "Manrut Rojrattanavichai" },
+            { role: "Creative", name: "Akaphant Apirugpong" },
+            { role: "Project Manager", name: "Namfon Kamnoedklang" },
+            { role: "Editor", name: "Achitpon Repaichit" },
+            { role: "DOP", name: "Teerawat Singkam" },
+            { role: "Director", name: "Niti Paladkong" },
+          ].map((p, i) => {
+            const initials = p.name.split(" ").map((n) => n[0]).join("").slice(0, 2).toUpperCase();
+            return (
+              <Reveal key={p.name} delay={i * 0.04}>
+                <div className="bg-background p-6 md:p-7 h-full flex flex-col justify-between min-h-[200px] group transition-colors duration-500 hover:bg-foreground hover:text-background">
+                  <div className="flex items-center justify-between">
+                    <span className="index-badge opacity-70">{String(i + 3).padStart(2, "0")}</span>
+                    <span className="font-mono text-[10px] opacity-60">{initials}</span>
+                  </div>
+                  <div>
+                    <div className="index-badge text-muted-foreground group-hover:text-background/70 transition-colors">
+                      {p.role}
+                    </div>
+                    <div className="mt-2 font-display text-[20px] md:text-[24px] leading-[1.05] tracking-[-0.02em]">
+                      {p.name}
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+
     {/* CTA */}
     <section className="px-6 md:px-10 py-20 md:py-28 border-t border-foreground">
       <div>

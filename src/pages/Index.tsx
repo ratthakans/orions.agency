@@ -73,10 +73,6 @@ const Index = () => (
 
     {/* THE VICIOUS CYCLE */}
     <section className="relative px-6 md:px-10 min-h-screen flex items-center py-20 md:py-28 bg-surface border-y border-foreground overflow-hidden">
-      {/* Background mark — decorative */}
-      <div aria-hidden className="pointer-events-none absolute -right-6 md:-right-10 top-1/2 -translate-y-1/2 font-display text-[40vw] md:text-[28vw] leading-none tracking-[-0.05em] text-foreground/[0.04] select-none">
-        ∞
-      </div>
 
       <div className="max-w-[1400px] mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 relative z-10">
         {/* Left */}
@@ -92,10 +88,7 @@ const Index = () => (
             <h2 className="mt-8 md:mt-10 font-thai text-[32px] md:text-[56px] leading-[1.2] tracking-[-0.02em] font-bold text-foreground">
               หลายธุรกิจติดอยู่ใน
               <br />
-              <span className="relative inline-block mt-2">
-                <span className="relative z-10">"วงจรอุบาท"</span>
-                <span aria-hidden className="absolute left-0 right-0 bottom-1 md:bottom-2 h-[10px] md:h-[14px] bg-foreground/10 -z-0" />
-              </span>
+              <span className="font-extrabold">"วงจรอุบาท"</span>
             </h2>
           </Reveal>
 
@@ -106,10 +99,7 @@ const Index = () => (
           </Reveal>
 
           <Reveal delay={0.3}>
-            <div className="mt-10 md:mt-12 flex items-center gap-4 text-muted-foreground">
-              <div className="hairline w-12" />
-              <span className="font-mono text-[11px] tracking-[0.08em] uppercase">3 Pressure Points</span>
-            </div>
+            <div className="mt-10 md:mt-12 hairline w-16" />
           </Reveal>
         </div>
 

@@ -281,16 +281,15 @@ const Index = () => (
         ))}
       </div>
 
-      {/* Sub-categories — always 4 columns */}
+      {/* Sub-categories: industries + storytelling = 4-col grids */}
       {[
-        { label: "Applied Creative across industries", items: worksAcrossIndustries },
-        { label: "High-Impact Digital Content", items: worksHighImpact },
-        { label: "Mastery in Storytelling", items: worksStorytelling },
-      ].map((cat, ci) => (
+        { label: "Applied Creative across industries", items: worksAcrossIndustries, ci: 1 },
+        { label: "Mastery in Storytelling", items: worksStorytelling, ci: 3 },
+      ].map((cat) => (
         <div key={cat.label} className="mt-20">
           <Reveal>
             <div className="border-t border-foreground pt-3 pb-3 flex items-center justify-between">
-              <span className="index-badge font-bold">{`0${ci + 1} / ${cat.label.toUpperCase()}`}</span>
+              <span className="index-badge font-bold">{`0${cat.ci} / ${cat.label.toUpperCase()}`}</span>
               <span className="index-badge font-medium text-muted-foreground hidden sm:inline">{cat.items.length} PROJECTS</span>
             </div>
           </Reveal>
@@ -310,6 +309,58 @@ const Index = () => (
               </Reveal>
             ))}
           </div>
+
+          {/* HIGH-IMPACT — inserted between as single big video showcase */}
+          {cat.ci === 1 && (
+            <div className="mt-20">
+              <Reveal>
+                <div className="border-t border-foreground pt-3 pb-3 flex items-center justify-between">
+                  <span className="index-badge font-bold">02 / HIGH-IMPACT DIGITAL CONTENT</span>
+                  <span className="index-badge font-medium text-muted-foreground hidden sm:inline">FEATURE REEL</span>
+                </div>
+              </Reveal>
+              <Reveal delay={0.1}>
+                <div className="mt-8 group relative bg-foreground border border-foreground overflow-hidden">
+                  <div className="relative aspect-video w-full overflow-hidden bg-surface-2">
+                    <img
+                      src={worksHighImpact[0].img}
+                      alt="High-Impact Digital Content showreel"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                    />
+                    {/* Vignette overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/20 to-transparent" />
+                    {/* Play marker */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-20 h-20 md:w-28 md:h-28 rounded-full border-2 border-background flex items-center justify-center bg-foreground/40 backdrop-blur-sm">
+                        <div
+                          className="w-0 h-0 border-y-[14px] md:border-y-[18px] border-y-transparent border-l-[22px] md:border-l-[28px] border-l-background ml-2"
+                          aria-hidden
+                        />
+                      </div>
+                    </div>
+                    {/* Bottom meta */}
+                    <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12 text-background">
+                      <div className="flex items-end justify-between gap-6">
+                        <div className="max-w-[640px]">
+                          <div className="index-badge opacity-70">SHOWREEL · 2024</div>
+                          <h3 className="mt-3 font-display text-[28px] md:text-[56px] leading-[0.95] tracking-[-0.03em]">
+                            High-Impact<br />Digital Content.
+                          </h3>
+                          <p className="mt-4 text-[14px] md:text-[16px] leading-[1.6] font-thai opacity-80 max-w-[520px]">
+                            Production คุณภาพระดับสากล — Audi, Siriraj, Leicester × Buriram และอีกมากมาย ที่ออกแบบเพื่อหยุดสายตาตั้งแต่วินาทีแรก
+                          </p>
+                        </div>
+                        <div className="hidden md:flex flex-col items-end gap-2">
+                          <ArrowUpRight className="w-8 h-8" />
+                          <span className="index-badge opacity-70">WATCH REEL</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+            </div>
+          )}
         </div>
       ))}
 

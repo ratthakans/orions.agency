@@ -136,7 +136,7 @@ const Services = () => (
 
     <PageHero
       eyebrow="SERVICES · INDEX"
-      title={<>Applied <span className="text-gradient">solutions</span><span className="text-muted-foreground">.</span></>}
+      title={<>Applied <span className="text-muted-foreground">solutions.</span></>}
     />
 
     <section className="px-6 md:px-10">
@@ -213,7 +213,7 @@ const Services = () => (
         </Reveal>
         <Reveal delay={0.05}>
           <h2 className="font-display h-display-sm text-balance">
-            Have a problem<br />worth <span className="text-gradient">solving</span><span className="text-muted-foreground">.</span>
+            Have a problem<br />worth <span className="text-muted-foreground">solving.</span>
           </h2>
         </Reveal>
         <Reveal delay={0.1}>

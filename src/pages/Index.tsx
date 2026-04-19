@@ -90,15 +90,17 @@ const Index = () => (
 
       <div className="absolute bottom-8 md:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground">
         <span className="index-badge">SCROLL</span>
-        <span className="block w-px h-10 bg-muted-foreground animate-pulse" />
+        <span className="block w-px h-10 bg-foreground/40 animate-pulse" />
       </div>
     </section>
 
     {/* MARQUEE — scroll-velocity coupled */}
-    <section className="border-y border-foreground py-3 overflow-hidden">
-      <ScrollMarquee
-        items={["BRAND DIRECTION", "CREATIVE DIRECTION", "DIGITAL EXPERIENCE", "FILM & PRODUCTION", "BANGKOK ↔ WORLD"]}
-      />
+    <section className="px-6 md:px-10 overflow-hidden">
+      <div className="border-y border-foreground py-3">
+        <ScrollMarquee
+          items={["BRAND DIRECTION", "CREATIVE DIRECTION", "DIGITAL EXPERIENCE", "FILM & PRODUCTION", "BANGKOK ↔ WORLD"]}
+        />
+      </div>
     </section>
 
     {/* 03 — THE VICIOUS CYCLE */}
@@ -115,7 +117,10 @@ const Index = () => (
           </Reveal>
           <Reveal delay={0.15}>
             <p className="mt-6 font-thai text-[17px] md:text-[20px] leading-[1.6] text-foreground max-w-[460px]">
-              หลายธุรกิจติดอยู่ใน<span className="font-semibold">"วงจรอุบาท"</span> — จ่ายแพงขึ้น แต่ได้ผลลัพธ์เท่าเดิม
+              ธุรกิจของคุณนิ่ง เพราะกติกาเปลี่ยน — ไม่ใช่เพราะคุณไม่เก่งพอ
+            </p>
+            <p className="mt-4 font-thai text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground max-w-[460px]">
+              หลายธุรกิจติดอยู่ใน<span className="text-foreground font-semibold">"วงจรอุบาท"</span> — จ่ายแพงขึ้น แต่ได้ผลลัพธ์เท่าเดิม
             </p>
           </Reveal>
           <Reveal delay={0.3}>

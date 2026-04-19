@@ -399,36 +399,36 @@ const Index = () => (
       </div>
     </section>
 
-    {/* 09 — THE CLARITY AUDIT */}
+    {/* 09 — ØRIONS AUDIT */}
     <section className="relative px-6 md:px-10 py-20 md:py-28 border-t border-foreground">
       <div>
         <div className="border-t border-foreground pt-3 pb-3 flex items-center justify-between">
-          <span className="index-badge font-bold">09 — THE CLARITY AUDIT</span>
-          <span className="index-badge font-medium opacity-60 hidden sm:inline">SPECIAL OFFER · LIMITED</span>
+          <span className="index-badge font-bold">09 — ØRIONS AUDIT (FREE)</span>
+          <span className="index-badge font-medium opacity-60 hidden sm:inline">LIMITED · รับเฉพาะธุรกิจที่ต้องการเปลี่ยนแปลงจริง</span>
         </div>
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-12 gap-10">
           <div className="md:col-span-7">
             <Reveal>
               <h2 className="font-display text-[44px] md:text-[88px] leading-[0.95] tracking-[-0.04em]">
-                The Clarity<br />Audit.
+                ØRIONS Audit.<br />Free.
               </h2>
             </Reveal>
             <Reveal delay={0.15}>
               <p className="mt-8 text-[16px] md:text-[20px] leading-[1.65] font-thai text-muted-foreground max-w-[560px]">
-                เราไม่ได้มาขอโอกาส แต่มาเพื่อชี้ <span className="text-foreground font-bold">"จุดตาย"</span> และหา <span className="text-foreground font-bold">"ทางรอด"</span> ให้คุณ
+                เราไม่ได้มาขอโอกาส แต่มาเพื่อชี้ <span className="text-foreground font-bold">"จุดตาย"</span> และหา <span className="text-foreground font-bold">"ทางรอด"</span> ให้ธุรกิจของคุณ
               </p>
             </Reveal>
             <Reveal delay={0.25}>
               <Link to="/contact" className="mt-10 inline-flex items-center gap-3 border border-foreground px-7 py-4 index-badge hover:bg-foreground hover:text-background transition-colors">
-                BOOK A SESSION <ArrowUpRight className="w-4 h-4" />
+                REQUEST AUDIT <ArrowUpRight className="w-4 h-4" />
               </Link>
             </Reveal>
           </div>
 
           <div className="md:col-span-5 space-y-px bg-foreground border border-foreground">
             {[
-              { n: "01", t: "วิเคราะห์จุดตัน", b: "เราจะบอกว่าอะไรที่ขวางการเติบโตของธุรกิจคุณอยู่ พร้อมแนวทางแก้ไขเบื้องต้น" },
+              { n: "01", t: "ชี้จุดตาย", b: "เราจะบอกว่าอะไรที่ขวางการเติบโตของธุรกิจคุณอยู่ พร้อมแนวทางแก้ไขเบื้องต้น" },
               { n: "02", t: "จำกัดจำนวน", b: "รับเฉพาะธุรกิจที่ต้องการความเปลี่ยนแปลงจริงๆ เพื่อรักษาคุณภาพการวิเคราะห์สูงสุด" },
             ].map((c, i) => (
               <Reveal key={c.n} delay={0.2 + i * 0.1}>

@@ -106,18 +106,11 @@ const About = () => (
     />
 
     {/* WHO WE ARE */}
-    <section className="px-6 md:px-10 pt-28 md:pt-32 pb-20 md:pb-28">
+    <section className="px-6 md:px-10 pt-28 md:pt-32 pb-24 md:pb-32">
       <div className="mt-4">
         <Reveal>
-          <h1 className="font-display text-[56px] md:text-[140px] leading-[0.86] tracking-[-0.05em]">
-            The{" "}
-            <span
-              className="italic font-normal"
-              style={{ fontFamily: "'Cutive', serif", textTransform: "none", letterSpacing: "-0.02em" }}
-            >
-              Applied
-            </span>{" "}
-            Creative<br />
+          <h1 className="font-display leading-[0.86] tracking-[-0.05em]" style={{ fontSize: "clamp(56px, 11vw, 132px)" }}>
+            The <span className="text-gradient">Applied</span> Creative<br />
             Agency<span className="text-muted-foreground">.</span>
           </h1>
         </Reveal>
@@ -169,7 +162,7 @@ const About = () => (
         <span className="index-badge font-medium opacity-60 hidden sm:inline">06 STEPS</span>
       </div>
       <Reveal>
-        <h2 className="mt-12 font-display text-[40px] md:text-[72px] leading-[0.92] tracking-[-0.03em] max-w-[900px]">
+        <h2 className="mt-12 font-display leading-[0.92] tracking-[-0.03em] max-w-[900px]" style={{ fontSize: "clamp(40px, 6vw, 72px)" }}>
           The 6 Methods
         </h2>
       </Reveal>
@@ -200,7 +193,7 @@ const About = () => (
     <section className="px-6 md:px-10 py-24 md:py-32">
       <SectionHeader index="02" left="TEAM" right={`${leadership.length + crew.length} PEOPLE`} />
       <Reveal>
-        <h2 className="mt-12 font-display text-[40px] md:text-[72px] leading-[0.92] tracking-[-0.03em] max-w-[900px]">
+        <h2 className="mt-12 font-display leading-[0.92] tracking-[-0.03em] max-w-[900px]" style={{ fontSize: "clamp(40px, 6vw, 72px)" }}>
           People behind<br />the output<span className="text-muted-foreground">.</span>
         </h2>
       </Reveal>
@@ -213,7 +206,7 @@ const About = () => (
       </div>
 
       {/* Crew */}
-      <div className="mt-16 grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+      <div className="mt-16 grid grid-cols-2 md:grid-cols-3 gap-8">
         {crew.map((p, i) => (
           <PersonCard key={p.name} p={p} index={i + 2} />
         ))}
@@ -224,7 +217,7 @@ const About = () => (
     <section className="px-6 md:px-10 py-24 md:py-32 border-t border-foreground">
       <div>
         <Reveal>
-          <h2 className="font-display text-[40px] md:text-[72px] leading-[0.92] tracking-[-0.03em] max-w-[860px]">
+          <h2 className="font-display leading-[0.92] tracking-[-0.03em] max-w-[860px]" style={{ fontSize: "clamp(40px, 6vw, 72px)" }}>
             Stop guessing.<br />Start applying.
           </h2>
         </Reveal>

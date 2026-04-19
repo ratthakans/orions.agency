@@ -70,7 +70,7 @@ const Index = () => (
         </Reveal>
 
         <Reveal delay={0.3}>
-          <p className="mt-4 font-display text-[20px] md:text-[28px] leading-[1.2] tracking-[-0.02em]">
+          <div className="mt-4 font-display text-[20px] md:text-[28px] leading-[1.2] tracking-[-0.02em] text-foreground">
             <RotatingHeadline
               items={[
                 "PRACTICAL · BOLD · DONE",
@@ -79,7 +79,7 @@ const Index = () => (
                 "BANGKOK · 2019—",
               ]}
             />
-          </p>
+          </div>
         </Reveal>
       </div>
 

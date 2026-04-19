@@ -1,175 +1,76 @@
 
+ปรับหน้า Home ตั้งแต่ **THE VICIOUS CYCLE** ลงไป ให้มีจังหวะการเล่าเรื่อง (rhythm) และ visual hierarchy ที่ดีขึ้น แบบ editorial magazine จริงๆ ไม่ใช่ stack ของ section ที่หน้าตาเหมือนกัน
 
-# ØRIONS — Design Review & Refinement Plan
+## ปัญหาปัจจุบัน
+- ทุก section ใช้ pattern เดิม: `SectionHeader` + grid 12 col + alternating `bg-surface` → จังหวะแบนราบ
+- 11 section ยาวเกินไป มี content ซ้ำซ้อน (Applied Solutions + Blueprint + Why Agency พูดเรื่องคล้ายกัน)
+- Hero Projects กับ Selected Works แทบเหมือนกัน (กริดรูป + caption)
+- ขาด moment ที่ "หยุดสายตา" — ไม่มี full-bleed, ไม่มี oversized type, ไม่มี contrast block ที่กล้า
+- Blueprint 6-col กลายเป็นกล่องเล็กๆ อ่านยากบนมือถือ
 
-## ปัญหาปัจจุบัน (จากการ review)
+## แนวทางใหม่ — Re-pacing & Re-grouping
 
-**1. Gradient สีฟ้า→ม่วง→แดง ไม่เข้ากับแบรนด์**
-- ดูเหมือน Web3/Crypto/Gaming brand มากกว่า creative agency
-- 3-color gradient ทำให้ดูยุ่งและขาด sophistication
-- สีแดง crimson ตัดกับ background ดำแรงเกินไป — ไม่ premium
-- ไม่สื่อถึง "Bangkok Energy × Logical Standard"
-
-**2. Layout ยังเป็น "single column stack"**
-- ทุก section จัดกลาง / max-width เท่ากัน → จังหวะการอ่านเหมือนกันหมด
-- ขาด visual hierarchy ระหว่าง section
-- ไม่มี asymmetry, ไม่มี editorial grid
-- Featured Work cards เหมือนกัน 3 ใบเรียงกัน → น่าเบื่อ
-
-**3. Hero ยังธรรมดา**
-- ØRIONS อยู่ตรงกลางจอเดี่ยวๆ + blob พื้นหลัง
-- ไม่มี supporting elements (index, meta info, motion text)
-- Marquee แยกอยู่ใต้ hero แทนที่จะเป็นส่วนหนึ่งของ composition
-
-**4. Typography สีไม่ pop**
-- Heading หลายอันใช้ gradient → อ่านยาก, ลด impact
-- ขาด contrast ระหว่าง display headlines กับ body
-- ตัวอักษร Thai (IBM Plex) กับ Unbounded ยังไม่ harmonize ดีพอ
-
----
-
-## แนวทางใหม่ (Direction)
-
-### A. Color System — "Warm Editorial Mono + Single Liquid Accent"
-
-ทิ้ง 3-color gradient แล้วใช้:
+### ลำดับใหม่ (จาก 9 sections เหลือ 8 ที่มีน้ำหนักต่างกัน)
 
 ```text
-BACKGROUND     #0B0B0D   (warm near-black, ไม่เย็น)
-SURFACE        #131316   (card / alt section)
-SURFACE-2      #1B1B1F   (nested elements)
-BORDER         #26262B   (hairline)
-TEXT           #F5F5F0   (warm white, ไม่ขาวจัด)
-MUTED          #8A8A92   
-ACCENT INK     #E8E3D8   (creamy bone — สำหรับ italic/eyebrow)
-
-LIQUID ACCENT  Single-tone amber→bone→white
-  → ใช้เฉพาะกับ "ØRIONS" wordmark, key numbers, divider
-  → ไม่ใช้กับ paragraph headings
+03  THE VICIOUS CYCLE         [keep, refine type scale]
+04  WHO IS ØRIONS              [bigger, full-bleed image left, manifesto right]
+05  APPLIED SOLUTIONS          [new layout: horizontal scroll-stack list, ไม่ใช่ 4 grid]
+06  THE BLUEPRINT              [redesign: oversized "ORIONS" lockup horizontal, 1 letter = 1 row]
+07  SELECTED WORK              [merge Hero Projects + Selected Works → 1 feature + 4 secondary asymmetric]
+08  WHY ØRIONS                 [keep 3-col, but make middle ØRIONS card oversized]
+09  THE CLARITY AUDIT          [refine, add stronger visual anchor]
+10  LET'S WORK (CTA)           [keep + add giant ØRIONS wordmark behind]
 ```
 
-**ทำไม**: warm tone ให้ความรู้สึก editorial/print magazine (เช่น It's Nice That, The Gentlewoman) มากกว่า tech/web3. Amber↔bone gradient ดู refined แต่ยังมี personality.
+### การเปลี่ยนแปลงสำคัญ section-by-section
 
-**ทางเลือก gradient** (จะขอ confirm ก่อนสร้าง):
-- **Option 1 — Warm Bone**: amber → cream → white (แบบ print magazine, เหมือนแสง golden hour)
-- **Option 2 — Cold Pearl**: steel blue → silver → pearl white (modern, premium tech)
-- **Option 3 — Mercury**: mid-grey → bright white → mid-grey (mono ที่สุด, เน้น light play)
-- **Option 4 — Single Solid**: ไม่มี gradient เลย — ใช้สีเดียว (เช่น amber #E8B86D) เป็น accent
+**03 — THE VICIOUS CYCLE**
+- คงโครง 5/7 split sticky
+- เพิ่ม decorative oversized number "01–03" บางๆ ขนาดใหญ่ตรงพื้นหลังด้านซ้ายเป็น typographic anchor
+- เพิ่ม keyword highlight ใน body text ของแต่ละ pressure (e.g. "ไม่ถึง 2 วินาที" เป็นตัวหนา/underline)
 
-### B. Layout — "Editorial Grid System"
+**04 — WHO IS ØRIONS** (ขยาย impact)
+- เปลี่ยนจาก 7/5 → full-bleed image ซ้าย (kiss edge) + ข้อความขวาแบบ manifesto column แคบ
+- เพิ่ม oversized vertical text "BANGKOK / 2024" คั่นระหว่างภาพกับ text
+- เพิ่ม 3 stats ด้านล่าง (e.g., "12+ Years", "40+ Brands", "1 Studio")
 
-แต่ละ section ใช้ 12-column grid พร้อม asymmetric placement:
+**05 — APPLIED SOLUTIONS** (ทิ้ง 4-col grid แบนๆ)
+- เปลี่ยนเป็น **horizontal expanding list** — แต่ละ service เป็น row เต็มความกว้าง, hover → ขยาย, เผยรายละเอียด
+- ซ้าย: เลข + ชื่อ service (display font ใหญ่) | กลาง: keyword tags | ขวา: arrow
+- ให้ feel เหมือน table of contents ของ magazine
 
-```text
-HERO (full-bleed)
-┌────────────────────────────────────────────────┐
-│ ⓘ INDEX 01/13      ◐ APPLIED CREATIVE AGENCY   │ ← top meta bar
-│                                                 │
-│   ØRIONS                          (huge, left)  │
-│   ━━━━━                                         │
-│   Practical. Bold. Done.        (italic, mid)   │
-│                                                 │
-│                              ╲ scroll          │
-│ EST. 2024 · BKK              ╲ ↓ next          │
-└────────────────────────────────────────────────┘
-```
+**06 — THE BLUEPRINT** (redesign สำคัญ)
+- ทิ้ง 6-col grid เล็ก
+- เปลี่ยนเป็น **vertical stack 6 rows** เต็มความกว้าง: ตัวอักษร O/R/I/O/N/S ขนาด ~140px ชิดซ้าย + ชื่อ stage กลาง + คำอธิบายขวา + เส้น hairline คั่น
+- Sticky number indicator ทางซ้าย (01–06) ขณะ scroll
+- ให้ feel เหมือน editorial chapter list
 
-```text
-STAGNATION (split layout, ไม่ใช่ centered quote)
-┌──────────────┬─────────────────────────────────┐
-│ 01           │  เมื่อวิธีเดิม                  │
-│ THE          │  มาถึง ทางตัน                   │
-│ STAGNATION   │  คุณต้องการไอเดียที่           │
-│              │  'ประยุกต์'                     │
-│ Source:      │  มาเพื่อแก้ปัญหาจริง           │
-│ Industry     │  ─────                          │
-│ Observation  │  — ØRIONS Manifesto, 2024      │
-└──────────────┴─────────────────────────────────┘
-```
+**07 — SELECTED WORK** (รวม Hero + Selected → 1 section)
+- ลบ section "Selected Works" แยก
+- Layout: 1 hero project ใหญ่ (full-width 16:9) + ใต้นั้น 4 secondary projects asymmetric grid (2 ใหญ่ + 2 เล็ก แบบ bento)
+- ลด redundancy, เพิ่ม visual variety
 
-```text
-3 PRESSURES (ตัวเลขใหญ่ขึ้น, layout horizontal divide)
-┌──────────────────────────────────────────────┐
-│ 02 — THE 3 PRESSURES                          │
-│                                                │
-│ 1.7s          +41%          4.6×              │
-│ ─────         ─────         ─────             │
-│ ATTENTION     DIGITAL       DIGITAL           │
-│ SPAN          INFLATION     WASTE             │
-│                                                │
-│ ไม่ถึง 2 วิ   ค่าโฆษณา      ขยะดิจิทัล       │
-│ คือเวลา...   เพิ่มขึ้น...   ล้นโลก...        │
-└──────────────────────────────────────────────┘
-```
+**08 — WHY ØRIONS** (ทำให้ ØRIONS card เด่น)
+- คงกริด 3 cards แต่ ØRIONS card span 2 rows / มี aspect ratio ต่างจาก 2 อันแรก
+- เพิ่ม comparison icon (✕ vs ✕ vs ✓) บน card
 
-```text
-FEATURED WORK (asymmetric — ใบแรกใหญ่, อีก 2 ใบเล็ก stack)
-┌────────────────────────┬──────────────────┐
-│                        │  ┌────────────┐  │
-│   HONGMOVE             │  │  RTAF      │  │
-│   [large image 4:5]    │  └────────────┘  │
-│                        │  ┌────────────┐  │
-│   APPLIED UTILITY      │  │  KHAO YAI  │  │
-│   +25% Conversion      │  └────────────┘  │
-└────────────────────────┴──────────────────┘
-```
+**09 — CLARITY AUDIT**
+- เพิ่ม number "01" "02" ขนาดใหญ่มากใน card
+- เพิ่ม CTA mini "BOOK A SESSION →" ใต้ description
 
-### C. Hero ใหม่ — Editorial composition
+**10 — CTA**
+- เพิ่ม oversized "ØRIONS" wordmark พื้นหลัง (text-foreground/5) เพื่อ echo hero
+- คง content เดิม
 
-- เพิ่ม **top meta bar**: `INDEX 01/13` ซ้าย, `◐ APPLIED CREATIVE AGENCY` ขวา
-- ØRIONS ชิดซ้าย (ไม่ใช่ center) ขนาด 18-22vw
-- Tagline italic อยู่ใต้แบบ caption ของหนังสือ
-- มุมล่างซ้าย: `EST. BANGKOK · 2024 · ØRIONS.AGENCY`
-- มุมล่างขวา: scroll indicator + `↓ NEXT — THE STAGNATION`
-- **Marquee** เลื่อนเป็น horizontal divider คั่นระหว่าง hero กับ section ถัดไป (slim, slow)
+### Design rules ที่ใช้ตลอด
+- ลบ alternating `bg-surface` ทุก section — ใช้ rhythm ผ่าน spacing/scale แทน, คั่นด้วย hairline
+- ใช้ `min-h-screen` เฉพาะ section ที่ต้องการ moment (Vicious Cycle, Who, CTA)
+- ขนาด heading ไล่ระดับ: 56→72→88→64→48 ตาม narrative beat ไม่ uniform
+- เพิ่ม oversized typographic background numbers/letters เป็น anchor ทุก section หลัก
 
-### D. Typography Refinement
+## ไฟล์ที่จะแก้
+- `src/pages/Index.tsx` — refactor section 03 ลงไปทั้งหมด
 
-```text
-HERO WORDMARK    Unbounded 700, 18-22vw, tracking -0.06em
-                 → ใช้ liquid accent gradient (amber→bone)
-H1 (page hero)   Unbounded 600, 64-88px, tracking -0.04em
-                 → solid foreground (ไม่ gradient)
-H2 (section)     Unbounded 500, 36-48px
-                 → solid foreground
-EYEBROW          JetBrains Mono 11px, tracking 0.24em, MUTED
-ITALIC SUB       Inter Italic 18-22px, light, ใช้คั่น break
-BODY TH          IBM Plex Sans Thai 16-17px, leading 1.75
-QUOTE TH         IBM Plex Sans Thai 28-36px, weight 400
-                 → keyword highlight ด้วย accent color (ไม่ gradient)
-```
-
-**กฎใหม่**: gradient ใช้กับ ØRIONS wordmark + numbers (1.7s, +41%, 4.6×) + key callouts เท่านั้น ไม่ใช้กับ heading ทั่วไป
-
-### E. Micro-details เพิ่ม visual interest
-
-1. **Section index badges** — `01/13`, `02/13`, ... เป็น meta info ทุก section
-2. **Hairline dividers** — เส้นบางๆ คั่นระหว่าง subsection แทน gap ใหญ่
-3. **Numbered footnotes** — เพิ่ม `¹` `²` กับ key claims (style แบบ academic/editorial)
-4. **Image placeholders** — แทน gradient blob ใส่เป็น noise/grain texture หรือ duotone ภาพจริง (ถ้ามี)
-5. **Cursor**: เพิ่ม custom cursor เล็กๆ บน interactive cards (วงกลม + arrow)
-6. **Sticky page index** ด้านขวาของหน้า Home: dot navigator แสดงว่าอยู่ section ไหน
-
----
-
-## คำถามก่อนลงมือ
-
-ขอ confirm 2 จุดสำคัญ:
-
-**Q1 — เลือก accent gradient แบบไหน**
-1. Warm Bone (amber → cream → white) — editorial print magazine
-2. Cold Pearl (steel → silver → pearl) — modern premium tech
-3. Mercury (grey → white → grey) — most mono
-4. Single solid amber #E8B86D — no gradient at all
-
-**Q2 — Hero composition**
-1. Editorial split (ØRIONS ซ้าย + meta bars + asymmetric)
-2. คงไว้กลางจอแต่ refine (ลด blob, เพิ่ม meta bar บน-ล่าง)
-3. Full-bleed video/image background + ØRIONS overlay
-
-ตอบ 2 ข้อนี้แล้วจะเริ่มลงมือ refactor:
-- `src/index.css` — color tokens + gradient ใหม่
-- `src/pages/Index.tsx` — editorial layout ทุก section
-- `src/pages/Services.tsx`, `Work.tsx`, `About.tsx`, `Contact.tsx` — sync grid system + typography rules
-- `src/components/PageHero.tsx`, `Nav.tsx` — meta bar + index badges
+ขอ confirm 1 จุดก่อนเริ่ม:
 

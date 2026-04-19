@@ -14,6 +14,7 @@ export interface VideoReelItem {
 
 interface Props {
   items: VideoReelItem[];
+  hideMeta?: boolean;
 }
 
 const buildEmbed = (it: VideoReelItem) => {
@@ -32,7 +33,7 @@ const buildPoster = (it: VideoReelItem) => {
   return "";
 };
 
-const VideoReel = ({ items }: Props) => {
+const VideoReel = ({ items, hideMeta = false }: Props) => {
   const scrollerRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
   const [progress, setProgress] = useState(0);
@@ -83,11 +84,15 @@ const VideoReel = ({ items }: Props) => {
   return (
     <div className="mt-6 md:mt-8">
       <div className="flex items-center justify-between mb-5">
-        <div className="font-mono text-[11px] tracking-[0.18em] uppercase text-muted-foreground">
-          <span className="text-foreground">{String(active + 1).padStart(2, "0")}</span>
-          <span className="opacity-40"> / {String(baseLen).padStart(2, "0")}</span>
-          <span className="ml-4 hidden sm:inline opacity-60">CLICK TO PLAY · LOOP</span>
-        </div>
+        {hideMeta ? (
+          <div />
+        ) : (
+          <div className="font-mono text-[11px] tracking-[0.18em] uppercase text-muted-foreground">
+            <span className="text-foreground">{String(active + 1).padStart(2, "0")}</span>
+            <span className="opacity-40"> / {String(baseLen).padStart(2, "0")}</span>
+            <span className="ml-4 hidden sm:inline opacity-60">CLICK TO PLAY · LOOP</span>
+          </div>
+        )}
         <div className="flex gap-2">
           <button
             onClick={() => scrollBy(-1)}

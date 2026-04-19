@@ -8,7 +8,7 @@ import RotatingHeadline from "@/components/RotatingHeadline";
 import SelectedWorkReel from "@/components/SelectedWorkReel";
 import VideoReel, { type VideoReelItem } from "@/components/VideoReel";
 import heroStreet from "@/assets/hero-street.jpg";
-import whoOrionsTeam from "@/assets/who-orions-team.jpg";
+
 import approachRunning from "@/assets/approach-running.jpg";
 import approachTaxi from "@/assets/approach-taxi.jpg";
 import hongmove from "@/assets/hongmove.png";

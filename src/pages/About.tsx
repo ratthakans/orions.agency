@@ -181,6 +181,72 @@ const About = () => (
       </div>
     </section>
 
+    {/* THE MEANING OF THE LINE */}
+    <section className="relative px-6 md:px-10 py-24 md:py-32 bg-foreground text-background border-t border-foreground overflow-hidden">
+      <SectionHeader index="03" left="THE MEANING OF THE LINE" right="MANIFESTO" />
+
+      <div className="mt-16 grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12">
+        <div className="md:col-span-7">
+          <Reveal>
+            <h2
+              className="font-display leading-[0.95] tracking-[-0.03em]"
+              style={{ fontSize: "clamp(36px, 5.2vw, 68px)" }}
+            >
+              The Meaning<br />of the <span className="italic opacity-80">Line</span><span className="opacity-50">.</span>
+            </h2>
+          </Reveal>
+
+          <Reveal delay={0.15}>
+            <p className="mt-12 font-display tracking-[-0.02em] leading-[1.2] text-[22px] md:text-[30px] max-w-[680px]">
+              <span className="opacity-60">"</span>ดาวฤกษ์ทุกดวงมีแสงในตัวเอง<span className="opacity-60">…</span>{" "}
+              แต่มันไม่มีความหมายอะไรเลย<span className="opacity-60">"</span>
+            </p>
+          </Reveal>
+
+          <Reveal delay={0.25}>
+            <div className="mt-10 flex items-center gap-4">
+              <span className="block w-10 h-px bg-background/60" />
+              <span className="index-badge opacity-70">UNTIL SOMEONE DRAWS THE LINE</span>
+            </div>
+          </Reveal>
+        </div>
+
+        <div className="md:col-span-5 md:border-l border-background/30 md:pl-10">
+          <Reveal delay={0.2}>
+            <div className="space-y-6 text-[15px] md:text-[16px] leading-[1.8] font-thai opacity-90">
+              <p>
+                จนกว่าจะมีคน <span className="font-display normal-case font-bold opacity-100">"ลากเส้น"</span> เชื่อมพวกมันเข้าด้วยกัน
+                เส้นสายที่ลากผ่านความมืด คือสิ่งที่เปลี่ยนจุดสว่างที่กระจัดกระจาย ให้กลายเป็นรูปธรรม เป็นเรื่องเล่า และเป็นตำนาน
+              </p>
+              <p>
+                <span className="font-display normal-case font-bold opacity-100">ØRIONS</span> คือคนลากเส้นสายเหล่านั้น
+                เราไม่ได้แค่รวบรวมคนเก่ง แต่เราคือคนที่เชื่อมโยงศักยภาพมหาศาล ให้กลายเป็น{" "}
+                <span className="italic">'ทางออก'</span> ที่มีทิศทาง
+              </p>
+              <p>
+                เราเปลี่ยนแสงสว่างที่โดดเดี่ยว ให้กลายเป็น <span className="italic">'ความหมาย'</span> ที่ขับเคลื่อนธุรกิจของคุณได้จริง
+              </p>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.35}>
+            <p className="mt-12 pt-8 border-t border-background/30 font-display tracking-[-0.02em] leading-[1.2] text-[20px] md:text-[26px]">
+              หยุดเดา แล้วเริ่ม<span className="italic">ลากเส้น</span>ที่ถูกต้อง<br />ไปกับเรา<span className="opacity-50">.</span>
+            </p>
+          </Reveal>
+
+          <Reveal delay={0.45}>
+            <div className="mt-10 flex items-center justify-between">
+              <span className="index-badge opacity-70">— SIGNED</span>
+              <span className="font-display tracking-[-0.02em] text-[14px] md:text-[16px]">
+                ØRIONS Creative Co., Ltd.
+              </span>
+            </div>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+
     {/* CTA */}
     <section className="px-6 md:px-10 py-24 md:py-32 border-t border-foreground">
       <div>

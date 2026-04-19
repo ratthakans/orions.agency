@@ -216,9 +216,9 @@ const About = () => (
           <span className="ml-auto index-badge text-muted-foreground hidden md:block">MANIFESTO · 01</span>
         </div>
 
-        {/* Pull quote */}
+        {/* Pull quote — centered */}
         <Reveal>
-          <blockquote className="font-display h-display-md max-w-[1100px] text-foreground">
+          <blockquote className="font-display h-display-md text-foreground text-center max-w-[1100px] mx-auto text-balance">
             <span className="text-muted-foreground">&ldquo;</span>
             ดาวฤกษ์ทุกดวงมีแสงในตัวเอง<span className="text-muted-foreground"> … </span>
             แต่ไม่มีความหมายอะไรเลย

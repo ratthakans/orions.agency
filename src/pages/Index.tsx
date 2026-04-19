@@ -101,13 +101,8 @@ const Index = () => (
     </section>
 
     {/* 03 — THE VICIOUS CYCLE */}
-    <section className="relative px-6 md:px-10 min-h-screen flex items-center py-20 md:py-28 border-t border-foreground overflow-hidden">
-      {/* Decorative oversized anchor */}
-      <div aria-hidden className="pointer-events-none absolute -left-4 md:-left-8 top-10 font-display text-[180px] md:text-[320px] leading-none tracking-[-0.06em] text-foreground/[0.04] select-none">
-        03
-      </div>
-
-      <div className="max-w-[1400px] mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 relative z-10">
+    <section className="relative px-6 md:px-10 py-20 md:py-28 border-t border-foreground">
+      <div className="max-w-[1400px] mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
         <div className="md:col-span-5 md:sticky md:top-32 md:self-start">
           <Reveal>
             <div className="flex items-center gap-3">
@@ -159,45 +154,39 @@ const Index = () => (
       </div>
     </section>
 
-    {/* 04 — WHO IS ØRIONS — full-bleed image left, manifesto right */}
-    <section className="relative border-t border-foreground">
-      <div className="grid grid-cols-1 md:grid-cols-12 min-h-[80vh]">
-        {/* Image kiss-edge */}
-        <div className="md:col-span-7 relative overflow-hidden bg-surface-2 order-2 md:order-1 border-t md:border-t-0 md:border-r border-foreground">
-          <img src={whoOrionsTeam} alt="ØRIONS team in Bangkok" className="absolute inset-0 w-full h-full object-cover" />
-          {/* Vertical anchor text */}
-          <div aria-hidden className="hidden md:flex absolute right-4 top-6 bottom-6 items-center">
-            <span className="font-display text-[11px] tracking-[0.3em] text-background/80 [writing-mode:vertical-rl] rotate-180">
-              BANGKOK / 2024 / ØRIONS
-            </span>
+    {/* 04 — WHO IS ØRIONS — balanced split, smaller image */}
+    <section className="relative border-t border-foreground px-6 md:px-10 py-20 md:py-28">
+      <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-start">
+        {/* Image — contained, 3/4 ratio */}
+        <div className="md:col-span-5 order-2 md:order-1">
+          <div className="aspect-[3/4] overflow-hidden bg-surface-2 border border-foreground">
+            <img src={whoOrionsTeam} alt="ØRIONS team in Bangkok" className="w-full h-full object-cover" />
           </div>
         </div>
 
         {/* Manifesto column */}
-        <div className="md:col-span-5 order-1 md:order-2 px-6 md:px-12 py-16 md:py-24 flex flex-col justify-between">
-          <div>
-            <div className="flex items-center gap-3">
-              <span className="block w-8 h-px bg-foreground" />
-              <p className="index-badge text-foreground">04 — WHO IS ØRIONS</p>
-            </div>
-            <Reveal delay={0.1}>
-              <h2 className="mt-10 font-display text-[40px] md:text-[64px] leading-[0.95] tracking-[-0.04em]">
-                Creative Agency<br />from Bangkok.
-              </h2>
-            </Reveal>
-            <Reveal delay={0.2}>
-              <div className="hairline w-16 mt-8" />
-            </Reveal>
-            <Reveal delay={0.25}>
-              <p className="mt-8 text-[16px] md:text-[18px] leading-[1.8] font-thai text-muted-foreground">
-                เราคือนักแก้ปัญหาที่นำความรวดเร็วแบบ <span className="font-display normal-case font-bold text-foreground">Bangkok Energy</span> มาผสานกับ <span className="font-display normal-case font-bold text-foreground">Logical Standard</span> ระดับสากล เชื่อมช่องว่างระหว่าง <span className="text-foreground font-medium">"ไอเดียที่ดูดี"</span> กับ <span className="text-foreground font-medium">"ผลลัพธ์ทางธุรกิจที่วัดผลได้"</span>
-              </p>
-            </Reveal>
+        <div className="md:col-span-7 order-1 md:order-2">
+          <div className="flex items-center gap-3">
+            <span className="block w-8 h-px bg-foreground" />
+            <p className="index-badge text-foreground">04 — WHO IS ØRIONS</p>
           </div>
+          <Reveal delay={0.1}>
+            <h2 className="mt-8 font-display text-[40px] md:text-[64px] leading-[0.95] tracking-[-0.04em]">
+              Creative Agency<br />from Bangkok.
+            </h2>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <div className="hairline w-16 mt-8" />
+          </Reveal>
+          <Reveal delay={0.25}>
+            <p className="mt-8 text-[16px] md:text-[18px] leading-[1.8] font-thai text-muted-foreground max-w-[560px]">
+              เราคือนักแก้ปัญหาที่นำความรวดเร็วแบบ <span className="font-display normal-case font-bold text-foreground">Bangkok Energy</span> มาผสานกับ <span className="font-display normal-case font-bold text-foreground">Logical Standard</span> ระดับสากล เชื่อมช่องว่างระหว่าง <span className="text-foreground font-medium">"ไอเดียที่ดูดี"</span> กับ <span className="text-foreground font-medium">"ผลลัพธ์ทางธุรกิจที่วัดผลได้"</span>
+            </p>
+          </Reveal>
 
           {/* Stats */}
           <Reveal delay={0.35}>
-            <div className="mt-12 grid grid-cols-3 border-t border-foreground pt-6">
+            <div className="mt-12 grid grid-cols-3 border-t border-foreground pt-6 max-w-[560px]">
               {[
                 { v: "12+", l: "YEARS" },
                 { v: "40+", l: "BRANDS" },
@@ -214,92 +203,61 @@ const Index = () => (
       </div>
     </section>
 
-    {/* 05 — APPLIED SOLUTIONS — horizontal expanding rows */}
-    <section className="relative px-6 md:px-10 py-20 md:py-32 border-t border-foreground overflow-hidden">
-      <div aria-hidden className="pointer-events-none absolute right-0 top-8 font-display text-[160px] md:text-[260px] leading-none tracking-[-0.06em] text-foreground/[0.04] select-none">
-        05
-      </div>
+    {/* 05 — APPLIED SOLUTIONS — 4 column grid */}
+    <section className="relative px-6 md:px-10 py-20 md:py-28 border-t border-foreground">
+      <SectionHeader left="05 — APPLIED SOLUTIONS" right="สิ่งที่เราส่งมอบให้คุณ" />
 
-      <div className="relative z-10">
-        <SectionHeader left="05 — APPLIED SOLUTIONS" right="สิ่งที่เราส่งมอบให้คุณ" />
+      <Reveal delay={0.1}>
+        <h2 className="mt-12 md:mt-16 font-display text-[40px] md:text-[64px] leading-[0.95] tracking-[-0.04em] max-w-[900px]">
+          Four practices.<br />One outcome.
+        </h2>
+      </Reveal>
 
-        <Reveal delay={0.1}>
-          <h2 className="mt-12 md:mt-16 font-display text-[44px] md:text-[72px] leading-[0.95] tracking-[-0.04em] max-w-[900px]">
-            Four practices.<br />One outcome.
-          </h2>
-        </Reveal>
-
-        <div className="mt-16 border-t border-foreground">
-          {appliedSolutions.map((s) => (
-            <Reveal key={s.n}>
-              <article className="group relative border-b border-foreground transition-colors duration-500 hover:bg-foreground hover:text-background cursor-default">
-                <div className="grid grid-cols-12 gap-4 md:gap-8 items-center px-2 md:px-4 py-8 md:py-10">
-                  <div className="col-span-2 md:col-span-1 font-mono text-[11px] tracking-[0.08em] text-muted-foreground transition-colors duration-500 group-hover:text-background/60">
-                    {s.n}
-                  </div>
-                  <div className="col-span-10 md:col-span-5">
-                    <h3 className="font-display text-[28px] md:text-[44px] leading-[1.05] tracking-[-0.03em]">
-                      {s.title}
-                    </h3>
-                  </div>
-                  <div className="col-span-12 md:col-span-5">
-                    <p className="text-[14px] md:text-[16px] leading-[1.65] text-muted-foreground font-thai transition-colors duration-500 group-hover:text-background/80">
-                      {s.body}
-                    </p>
-                  </div>
-                  <div className="hidden md:flex md:col-span-1 justify-end">
-                    <ArrowUpRight className="w-6 h-6 transition-transform duration-500 group-hover:rotate-45" />
-                  </div>
-                </div>
-              </article>
-            </Reveal>
-          ))}
-        </div>
+      <div className="mt-16 border-t border-foreground grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+        {appliedSolutions.map((s, i) => (
+          <Reveal key={s.n} delay={0.05 * i}>
+            <article className={`h-full p-6 md:p-8 border-b border-foreground lg:border-b-0 ${i > 0 ? "md:border-t-0 lg:border-l border-foreground" : "lg:border-l-0"} ${i === 1 ? "lg:border-l" : ""} ${i === 2 ? "md:border-t lg:border-t-0" : ""} ${i === 3 ? "md:border-t lg:border-t-0" : ""}`}>
+              <div className="font-mono text-[11px] tracking-[0.08em] text-muted-foreground">{s.n}</div>
+              <h3 className="mt-6 font-display text-[22px] md:text-[24px] leading-[1.1] tracking-[-0.02em]">
+                {s.title}
+              </h3>
+              <p className="mt-4 text-[14px] leading-[1.65] text-muted-foreground font-thai">
+                {s.body}
+              </p>
+            </article>
+          </Reveal>
+        ))}
       </div>
     </section>
 
-    {/* 06 — THE BLUEPRINT — vertical chapter list */}
-    <section className="relative px-6 md:px-10 py-20 md:py-32 border-t border-foreground overflow-hidden">
+    {/* 06 — THE BLUEPRINT — single horizontal row */}
+    <section className="relative px-6 md:px-10 py-20 md:py-28 border-t border-foreground">
       <SectionHeader left="06 — THE BLUEPRINT" right="6 ขั้นตอนสู่ผลลัพธ์ที่แม่นยำ" />
 
-      <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-12 gap-8">
-        <div className="md:col-span-4 md:sticky md:top-32 md:self-start">
-          <Reveal>
-            <h2 className="font-display text-[40px] md:text-[64px] leading-[0.95] tracking-[-0.04em]">
-              The<br />Blueprint.
-            </h2>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <p className="mt-6 text-[15px] md:text-[16px] leading-[1.7] font-thai text-muted-foreground max-w-[360px]">
-              จากความเข้าใจปัญหาที่แท้จริง สู่การขยายผลความสำเร็จให้เติบโต
-            </p>
-          </Reveal>
-        </div>
+      <div className="mt-12 md:mt-16 max-w-[760px]">
+        <Reveal>
+          <h2 className="font-display text-[40px] md:text-[56px] leading-[0.95] tracking-[-0.04em]">
+            The Blueprint.
+          </h2>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <p className="mt-5 text-[15px] md:text-[16px] leading-[1.7] font-thai text-muted-foreground max-w-[520px]">
+            จากความเข้าใจปัญหาที่แท้จริง สู่การขยายผลความสำเร็จให้เติบโต
+          </p>
+        </Reveal>
+      </div>
 
-        <div className="md:col-span-8 border-t border-foreground">
-          {blueprint.map((s, i) => (
-            <Reveal key={i}>
-              <div className="group relative border-b border-foreground py-8 md:py-10 transition-colors duration-500 hover:bg-foreground hover:text-background">
-                <div className="grid grid-cols-12 gap-4 md:gap-6 items-center px-2 md:px-4">
-                  <div className="col-span-3 md:col-span-3">
-                    <div className="font-display text-[80px] md:text-[140px] leading-[0.85] tracking-[-0.06em]">{s.l}</div>
-                  </div>
-                  <div className="col-span-9 md:col-span-4">
-                    <div className="font-mono text-[11px] tracking-[0.08em] text-muted-foreground transition-colors duration-500 group-hover:text-background/60">
-                      0{i + 1} / 06
-                    </div>
-                    <h3 className="mt-3 font-display text-[22px] md:text-[28px] tracking-[-0.02em]">{s.n}</h3>
-                  </div>
-                  <div className="col-span-12 md:col-span-5">
-                    <p className="text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground font-thai transition-colors duration-500 group-hover:text-background/80">
-                      {s.b}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+      <div className="mt-16 border-t border-foreground grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+        {blueprint.map((s, i) => (
+          <Reveal key={i} delay={0.05 * i}>
+            <div className={`h-full p-5 md:p-6 border-b border-foreground lg:border-b-0 ${i > 0 ? "lg:border-l border-foreground" : ""} ${(i % 2 === 1) ? "border-l border-foreground lg:border-l" : ""} ${i >= 2 ? "md:border-t-0" : ""}`}>
+              <div className="font-display text-[72px] md:text-[96px] leading-[0.85] tracking-[-0.06em]">{s.l}</div>
+              <div className="mt-6 font-mono text-[11px] tracking-[0.08em] text-muted-foreground">0{i + 1} / 06</div>
+              <h3 className="mt-2 font-display text-[18px] md:text-[20px] tracking-[-0.02em]">{s.n}</h3>
+              <p className="mt-3 text-[13px] md:text-[14px] leading-[1.6] text-muted-foreground font-thai">{s.b}</p>
+            </div>
+          </Reveal>
+        ))}
       </div>
     </section>
 
@@ -429,12 +387,8 @@ const Index = () => (
     </section>
 
     {/* 09 — THE CLARITY AUDIT */}
-    <section className="relative px-6 md:px-10 py-20 md:py-32 border-t border-foreground overflow-hidden">
-      <div aria-hidden className="pointer-events-none absolute -right-4 top-10 font-display text-[180px] md:text-[320px] leading-none tracking-[-0.06em] text-foreground/[0.04] select-none">
-        09
-      </div>
-
-      <div className="relative z-10">
+    <section className="relative px-6 md:px-10 py-20 md:py-28 border-t border-foreground">
+      <div>
         <div className="border-t border-foreground pt-3 pb-3 flex items-center justify-between">
           <span className="index-badge font-bold">09 — THE CLARITY AUDIT</span>
           <span className="index-badge font-medium opacity-60 hidden sm:inline">SPECIAL OFFER · LIMITED</span>
@@ -465,17 +419,12 @@ const Index = () => (
               { n: "02", t: "จำกัดจำนวน", b: "รับเฉพาะธุรกิจที่ต้องการความเปลี่ยนแปลงจริงๆ เพื่อรักษาคุณภาพการวิเคราะห์สูงสุด" },
             ].map((c, i) => (
               <Reveal key={c.n} delay={0.2 + i * 0.1}>
-                <div className="bg-background p-6 md:p-8 relative overflow-hidden">
-                  <div aria-hidden className="absolute -right-2 -top-4 font-display text-[120px] md:text-[160px] leading-none tracking-[-0.06em] text-foreground/[0.05] select-none">
-                    {c.n}
+                <div className="bg-background p-6 md:p-8">
+                  <div className="flex items-baseline gap-4">
+                    <div className="font-mono text-[12px] text-muted-foreground">{c.n} /</div>
+                    <h4 className="font-display text-[16px] md:text-[18px] tracking-[0.02em]">{c.t}</h4>
                   </div>
-                  <div className="relative">
-                    <div className="flex items-baseline gap-4">
-                      <div className="font-mono text-[12px] text-muted-foreground">{c.n} /</div>
-                      <h4 className="font-display text-[16px] md:text-[18px] tracking-[0.02em]">{c.t}</h4>
-                    </div>
-                    <p className="mt-4 text-[14px] leading-[1.7] text-muted-foreground font-thai">{c.b}</p>
-                  </div>
+                  <p className="mt-4 text-[14px] leading-[1.7] text-muted-foreground font-thai">{c.b}</p>
                 </div>
               </Reveal>
             ))}
@@ -486,11 +435,7 @@ const Index = () => (
 
     {/* 10 — CTA */}
     <section className="relative px-6 md:px-10 py-20 md:py-32 bg-foreground text-background overflow-hidden">
-      <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-[-4vw] flex justify-center select-none">
-        <span className="font-brand text-[28vw] leading-[0.85] tracking-[-0.06em] text-background/[0.05]">ØRIONS</span>
-      </div>
-
-      <div className="relative z-10">
+      <div>
         <div className="border-t border-background pt-3 pb-3 flex items-center justify-between">
           <span className="index-badge font-bold">10 — LET'S WORK</span>
           <span className="index-badge font-medium opacity-60 hidden sm:inline">ØRIONS · BANGKOK</span>

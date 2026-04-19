@@ -144,10 +144,10 @@ const Work = () => (
         </span>
       </div>
 
-      <div className="px-6 md:px-10 space-y-6 md:space-y-10">
-        <MusicMarquee items={musicRow1} stagger={0} />
-        <MusicMarquee items={musicRow2} stagger={28} />
-        <MusicMarquee items={musicRow3} stagger={0} />
+      <div className="px-6 md:px-10 space-y-12 md:space-y-20">
+        <MusicMarquee items={musicRow1} variant="mosaic" label="Row 01 · Music Videos" />
+        <MusicMarquee items={musicRow2} variant="stagger" label="Row 02 · Visual Singles" />
+        <MusicMarquee items={musicRow3} variant="ribbon" label="Row 03 · Creative Cuts" />
       </div>
     </section>
 

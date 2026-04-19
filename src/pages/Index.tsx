@@ -109,7 +109,7 @@ const Index = () => (
       <div className="border-t border-foreground py-16 md:py-24 max-w-[1400px] mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
         <div className="md:col-span-5 md:sticky md:top-32 md:self-start">
           <Reveal>
-            <SectionHeader left="THE VICIOUS CYCLE" right="why budgets keep leaking" />
+            <SectionHeader left="WHY BUDGETS KEEP LEAKING" />
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="mt-6 font-display h-display-md text-foreground">
@@ -118,10 +118,7 @@ const Index = () => (
           </Reveal>
           <Reveal delay={0.15}>
             <p className="mt-6 font-thai text-[17px] md:text-[20px] leading-[1.6] text-foreground max-w-[460px]">
-              ธุรกิจของคุณนิ่ง เพราะกติกาเปลี่ยน — ไม่ใช่เพราะคุณไม่เก่งพอ
-            </p>
-            <p className="mt-4 font-thai text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground max-w-[460px]">
-              หลายธุรกิจติดอยู่ใน<span className="text-foreground font-semibold">"วงจรอุบาท"</span> — จ่ายแพงขึ้น แต่ได้ผลลัพธ์เท่าเดิม
+              หลายธุรกิจติดอยู่ใน<span className="font-semibold">"วงจรอุบาท"</span> จ่ายแพงขึ้น แต่ได้ผลลัพธ์เท่าเดิม
             </p>
           </Reveal>
           <Reveal delay={0.3}>

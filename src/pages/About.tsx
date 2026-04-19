@@ -3,7 +3,6 @@ import PageHero from "@/components/PageHero";
 import SectionHeader from "@/components/SectionHeader";
 import CTA from "@/components/CTA";
 import SEO from "@/components/SEO";
-import aboutHero from "@/assets/about-hero.jpg";
 import whoOrionsTeam from "@/assets/who-orions-team.jpg";
 import founderImg from "@/assets/team/founder.jpg";
 import ceoImg from "@/assets/team/ceo.jpg";
@@ -143,7 +142,7 @@ const About = () => (
     <section className="relative px-6 md:px-10 py-24 md:py-32 border-t border-foreground bg-surface overflow-hidden">
       {/* Decorative oversized line mark */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center select-none">
-        <div className="font-display leading-none tracking-[-0.06em] text-foreground/[0.04]" style={{ fontSize: "clamp(200px, 40vw, 640px)" }}>
+        <div className="font-display leading-none tracking-[-0.06em] text-foreground/[0.03]" style={{ fontSize: "clamp(160px, 28vw, 420px)" }}>
           ―
         </div>
       </div>
@@ -174,7 +173,7 @@ const About = () => (
         </Reveal>
 
         {/* Three-column manifesto body */}
-        <div className="mt-16 md:mt-24 grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12">
+        <div className="mt-16 md:mt-24 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
           {[
             {
               n: "01",
@@ -204,8 +203,8 @@ const About = () => (
               ),
             },
           ].map((c, i) => (
-            <Reveal key={c.n} delay={0.1 + i * 0.08}>
-              <div className="md:col-span-4 border-t border-foreground pt-6 h-full flex flex-col">
+            <Reveal key={c.n} delay={0.1 + i * 0.08} className="h-full">
+              <div className="border-t border-foreground pt-6 h-full flex flex-col">
                 <div className="flex items-baseline justify-between mb-5">
                   <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-muted-foreground">
                     {c.n}

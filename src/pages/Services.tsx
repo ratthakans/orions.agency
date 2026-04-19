@@ -136,6 +136,7 @@ const Services = () => (
 
     <PageHero
       eyebrow="SERVICES · INDEX"
+      verticalLabel="/ 01 · SERVICES"
       title={<>Applied <span className="text-muted-foreground">solutions.</span></>}
     />
 

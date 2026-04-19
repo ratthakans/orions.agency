@@ -35,6 +35,7 @@ const Contact = () => {
 
       <PageHero
         eyebrow="CONTACT · INDEX"
+        verticalLabel="/ 05 · CONTACT"
         title={<>Tell us<br />what's <span className="text-muted-foreground">stuck.</span></>}
       />
 

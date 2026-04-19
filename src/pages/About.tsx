@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import Reveal from "@/components/Reveal";
 import PageHero from "@/components/PageHero";
 import SectionHeader from "@/components/SectionHeader";
@@ -110,6 +109,7 @@ const About = () => (
 
     <PageHero
       eyebrow="ABOUT · INDEX"
+      verticalLabel="/ 04 · ABOUT"
       title={<>The Applied Creative<br /><span className="text-muted-foreground">Agency.</span></>}
     />
 

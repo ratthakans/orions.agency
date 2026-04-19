@@ -1,5 +1,4 @@
 import { ArrowUpRight } from "lucide-react";
-import { Link } from "react-router-dom";
 import Reveal from "@/components/Reveal";
 import PageHero from "@/components/PageHero";
 import SectionHeader from "@/components/SectionHeader";
@@ -149,6 +148,7 @@ const Work = () => (
 
     <PageHero
       eyebrow="WORK · INDEX"
+      verticalLabel="/ 02 · WORK"
       title={<>Sharper ideas<span className="text-muted-foreground">.</span><br />Real <span className="text-muted-foreground">outcomes.</span></>}
     />
 

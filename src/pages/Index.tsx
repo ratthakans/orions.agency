@@ -9,7 +9,6 @@ import SelectedWorkReel from "@/components/SelectedWorkReel";
 import VideoReel, { type VideoReelItem } from "@/components/VideoReel";
 import CTA from "@/components/CTA";
 import KineticWordmark from "@/components/KineticWordmark";
-import KineticWordmark from "@/components/KineticWordmark";
 import heroStreet from "@/assets/hero-street.jpg";
 
 import approachRunning from "@/assets/approach-running.jpg";

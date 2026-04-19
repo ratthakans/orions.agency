@@ -19,10 +19,39 @@ const pressures = [
   { stat: 4.6, suffix: "×", decimals: 1, label: "DIGITAL WASTE", body: "ขยะดิจิทัลล้นโลก จนงานที่ไม่มีคุณภาพถูกกลบหายไปหมด" },
 ];
 
-const whatWeDo = [
-  { n: "01", img: whatSkater, title: "วิเคราะห์ธุรกิจชัด", body: "ว่าคือใคร และควรยืนตรงไหน" },
-  { n: "02", img: whatVortex, title: "เปลี่ยนการสื่อสาร", body: "ให้น่าสนใจ พอที่จะถูกเห็นและถูกจำ" },
-  { n: "03", img: whatWindow, title: "ให้ทุกจุดสัมผัสลูกค้า", body: "แปลเป็นผลลัพธ์ของธุรกิจ" },
+const appliedSolutions = [
+  { n: "01", title: "Creative Solution", body: "วางกลยุทธ์และหาทางออกใหม่ๆ เมื่อธุรกิจมาถึงจุดตัน" },
+  { n: "02", title: "Applied Communication", body: "การสื่อสารที่ประยุกต์ให้เข้ากับพฤติกรรมจริง เพื่อหยุดนิ้วโป้งลูกค้า" },
+  { n: "03", title: "Social Media Marketing", body: "บริหารจัดการช่องทางการตลาด เพื่อสร้างตัวตนและยอดขาย" },
+  { n: "04", title: "High Impact Production", body: "งานผลิตคุณภาพสูงระดับสากล เพื่อสร้างภาพจำที่ทรงพลัง" },
+];
+
+const blueprint = [
+  { l: "O", n: "Open", b: "ทำความเข้าใจปัญหาที่แท้จริง" },
+  { l: "R", n: "Reason", b: "ใช้ข้อมูลคัดเลือกทางที่มีค่า" },
+  { l: "I", n: "Ideation", b: "สร้างไอเดียนำที่แก้ไขได้" },
+  { l: "O", n: "Offer", b: "นำเสนอแผนงานที่ชัดเจน" },
+  { l: "N", n: "Navigation", b: "ทำงานผลิตให้แม่นยำ" },
+  { l: "S", n: "Success", b: "วัดผลและขยายผลให้เติบโต" },
+];
+
+const heroProjects = [
+  { tag: "APPLIED UTILITY", name: "HONGMOVE", body: "เปลี่ยนความซับซ้อนให้ดูง่าย ระบบสื่อสาร Seamless สำหรับ Taxi VIP", stat: "+25%", statLabel: "CONVERSION CLARITY", img: approachTaxi },
+  { tag: "APPLIED IMAGE", name: "RTAF", body: "ยึดความน่าเชื่อถือคืนมา ปรับโฉมภาพลักษณ์ผ่าน High-end Production", stat: "2×", statLabel: "ENGAGEMENT QUALITY", img: whatVortex },
+  { tag: "APPLIED AESTHETIC", name: "KHAO YAI", body: "ยกระดับด้วยรสนิยม เปลี่ยนสนามกอล์ฟดั้งเดิมสู่ประสบการณ์พรีเมียม", stat: "30%", statLabel: "DECISION SPEED", img: approachRunning },
+];
+
+const selectedWorks = [
+  { tag: "Political Communication", name: "DEMOCRAT PARTY", body: "การสื่อสารเชิงกลยุทธ์ภายใต้เงื่อนไขที่ท้าทาย", img: whatSkater },
+  { tag: "Mobility", name: "GCOO", body: "Localization และระบบที่เปลี่ยนพฤติกรรมการเดินทางของคนเมือง", img: whatWindow },
+  { tag: "Hospitality Tech", name: "MY HOTEL", body: "วางระบบ Smart Hotel ที่ใช้งานได้จริงรายแรกของไทย", img: whatVortex },
+  { tag: "National Campaign", name: "HEAVY ORGANIZER", body: "แคมเปญสื่อสารระดับประเทศที่สร้างแรงกระเพื่อมได้จริง", img: approachRunning },
+];
+
+const whyOrions = [
+  { tag: "CONSULTANT", title: "ให้แผน ไม่ทำจริง", body: "ส่งมอบ Paper Strategy แต่ไม่ได้พาไปทำจนเห็นผล", highlight: false },
+  { tag: "STUDIO", title: "ทำตามสั่ง ไม่คิดต่อ", body: "รับ Execution ได้ดี แต่ไม่มองภาพรวมกลยุทธ์ธุรกิจ", highlight: false },
+  { tag: "ØRIONS", title: "กลยุทธ์ × งานผลิต", body: "เชื่อมการคิดกับการทำ เพื่อให้ธุรกิจขยับไปข้างหน้าได้จริง", highlight: true },
 ];
 
 const Index = () => (

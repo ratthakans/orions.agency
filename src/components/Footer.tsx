@@ -119,14 +119,23 @@ const Footer = () => (
       </div>
     </div>
 
-    {/* Massive editorial wordmark */}
+    {/* Massive editorial wordmark — letter stagger on hover */}
     <div className="px-6 md:px-10 pt-12 md:pt-16">
       <Link to="/" aria-label="ØRIONS home" className="block group">
         <span
-          className="font-brand block leading-[0.82] tracking-[-0.05em] transition-opacity duration-500 group-hover:opacity-90"
+          className="font-brand block leading-[0.82] tracking-[-0.05em]"
           style={{ fontSize: "clamp(80px, 19vw, 280px)" }}
+          aria-hidden
         >
-          ØRIONS
+          {"ØRIONS".split("").map((c, i) => (
+            <span
+              key={i}
+              className="inline-block transition-all duration-500 ease-out group-hover:-translate-y-2 group-hover:opacity-70"
+              style={{ transitionDelay: `${i * 40}ms` }}
+            >
+              {c}
+            </span>
+          ))}
         </span>
       </Link>
     </div>

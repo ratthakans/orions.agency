@@ -9,17 +9,42 @@ const links = [
   { label: "Contact", to: "/contact" },
 ];
 
+const pageIndex: Record<string, string> = {
+  "/": "01",
+  "/services": "02",
+  "/work": "03",
+  "/about": "04",
+  "/contact": "05",
+};
+
 const Nav = () => {
   const [open, setOpen] = useState(false);
+  const [progress, setProgress] = useState(0);
   const { pathname } = useLocation();
 
   useEffect(() => { setOpen(false); }, [pathname]);
 
+  useEffect(() => {
+    const onScroll = () => {
+      const h = document.documentElement;
+      const max = h.scrollHeight - h.clientHeight;
+      setProgress(max > 0 ? (h.scrollTop / max) * 100 : 0);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const idx = pageIndex[pathname] ?? "··";
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-sm border-b border-soft">
+    <header className="fixed top-7 left-0 right-0 z-50 bg-background/90 backdrop-blur-sm border-b border-soft">
       <div className="px-6 md:px-10 h-[64px] flex items-center justify-between">
-        <Link to="/" className="font-brand text-[20px] md:text-[22px] tracking-[-0.02em] text-foreground">
-          ØRIONS
+        <Link to="/" className="flex items-baseline gap-2 text-foreground">
+          <span className="font-brand text-[20px] md:text-[22px] tracking-[-0.02em]">ØRIONS</span>
+          <span className="font-mono text-[10px] tracking-[0.12em] text-muted-foreground hidden sm:inline">
+            [{idx}/05]
+          </span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-10">
@@ -28,14 +53,19 @@ const Nav = () => {
               key={l.to}
               to={l.to}
               className={({ isActive }) =>
-                `index-badge relative pb-1 transition-opacity ${
+                `index-badge relative pb-1 inline-flex items-center gap-2 transition-opacity ${
                   isActive
                     ? "text-foreground after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-0.5 after:h-[2px] after:bg-gradient-accent"
                     : "text-muted-foreground hover:text-foreground"
                 }`
               }
             >
-              {l.label}
+              {({ isActive }) => (
+                <>
+                  {isActive && <span className="w-1 h-1 rounded-full accent-dot" />}
+                  <span>{l.label}</span>
+                </>
+              )}
             </NavLink>
           ))}
         </nav>
@@ -56,6 +86,9 @@ const Nav = () => {
           {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>
+
+      {/* Scroll progress hairline */}
+      <div className="absolute bottom-0 left-0 h-px bg-gradient-accent transition-[width] duration-150" style={{ width: `${progress}%` }} />
 
       {open && (
         <div className="md:hidden border-t border-foreground bg-background">

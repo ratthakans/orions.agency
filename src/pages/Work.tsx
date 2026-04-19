@@ -122,7 +122,7 @@ const Work = () => (
                   loading="lazy"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors duration-500" />
                 <div className="absolute top-4 left-4 flex items-center gap-2">
                   <span className="bg-background text-foreground px-2 py-1 index-badge">{p.n}</span>
                   <span className="bg-foreground text-background px-2 py-1 index-badge">{p.tag}</span>
@@ -191,7 +191,7 @@ const Work = () => (
                 loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover opacity-90 transition-opacity duration-500 group-hover:opacity-100"
               />
-              <div className="absolute inset-0 bg-foreground/40 group-hover:bg-foreground/20 transition-colors duration-500" />
+              <div className="absolute inset-0 bg-foreground/30 group-hover:bg-foreground/10 transition-colors duration-500" />
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="w-14 h-14 border-2 border-background flex items-center justify-center">
                   <Play className="w-5 h-5 text-background fill-background" />

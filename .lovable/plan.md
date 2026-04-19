@@ -1,102 +1,175 @@
 
 
-## Hero Section Review — Current State
+# ØRIONS — Design Review & Refinement Plan
 
-**What's there now:**
-- `EST. BANGKOK · 2024` mono label (gradient soft)
-- Massive `ØRIONS` wordmark, white, Unbounded, ~110px desktop / 16vw mobile
-- Looping Typewriter cycling 4 phrases in Unbounded uppercase
-- Animated `liquid-blob` (blue/magenta/red) blurred backdrop
-- Bottom-left: `orions.agency`
-- Bottom-right: `Scroll ↓` link
+## ปัญหาปัจจุบัน (จากการ review)
 
-**Issues spotted:**
+**1. Gradient สีฟ้า→ม่วง→แดง ไม่เข้ากับแบรนด์**
+- ดูเหมือน Web3/Crypto/Gaming brand มากกว่า creative agency
+- 3-color gradient ทำให้ดูยุ่งและขาด sophistication
+- สีแดง crimson ตัดกับ background ดำแรงเกินไป — ไม่ premium
+- ไม่สื่อถึง "Bangkok Energy × Logical Standard"
 
-1. **Vertical balance feels off** — Logo sits high after `pt-20`, but with `min-h-screen` + `items-center` the content clusters mid-page leaving a heavy dead zone below. No visual anchor at the bottom besides tiny labels.
-2. **Typewriter is visually noisy** — 4 long phrases in Unbounded uppercase at 18px reads as a second headline competing with ØRIONS. The hard delete/retype + blinking cursor pulls attention away from the brand.
-3. **Eyebrow is weak** — "EST. BANGKOK · 2024" is a generic label. Doesn't telegraph what ØRIONS *does*.
-4. **No real CTA** — Hero has zero action. User must scroll or hunt the nav. Premium agency sites (Berlin/Stockholm tier) almost always anchor a primary action in the hero.
-5. **Liquid blob is too soft / too centered** — At 60px blur it reads as a uniform purple wash behind the logo, muddying the wordmark contrast instead of framing it.
-6. **Wordmark feels floating** — No supporting metadata grid (most premium agency heros use a 2–4 column meta strip: location, status, year, discipline) which gives the page editorial weight.
-7. **Bottom corners feel asymmetric and tiny** — `orions.agency` left + `Scroll ↓` right are isolated; no horizontal rule or grid to tie them in.
-8. **Mobile**: 16vw logo + uppercase Unbounded typewriter wraps awkwardly on 375px. Phrase #2 ("CREATIVE ENGINEERING FROM BANGKOK.") breaks across 3 lines.
+**2. Layout ยังเป็น "single column stack"**
+- ทุก section จัดกลาง / max-width เท่ากัน → จังหวะการอ่านเหมือนกันหมด
+- ขาด visual hierarchy ระหว่าง section
+- ไม่มี asymmetry, ไม่มี editorial grid
+- Featured Work cards เหมือนกัน 3 ใบเรียงกัน → น่าเบื่อ
+
+**3. Hero ยังธรรมดา**
+- ØRIONS อยู่ตรงกลางจอเดี่ยวๆ + blob พื้นหลัง
+- ไม่มี supporting elements (index, meta info, motion text)
+- Marquee แยกอยู่ใต้ hero แทนที่จะเป็นส่วนหนึ่งของ composition
+
+**4. Typography สีไม่ pop**
+- Heading หลายอันใช้ gradient → อ่านยาก, ลด impact
+- ขาด contrast ระหว่าง display headlines กับ body
+- ตัวอักษร Thai (IBM Plex) กับ Unbounded ยังไม่ harmonize ดีพอ
 
 ---
 
-## Proposed Redesign — "Editorial Studio" Hero
+## แนวทางใหม่ (Direction)
 
-Goal: keep the liquid gradient identity but make the hero feel like a **senior studio masthead** — calmer, more intentional, with clear hierarchy and a real action.
+### A. Color System — "Warm Editorial Mono + Single Liquid Accent"
 
-### Layout (desktop)
+ทิ้ง 3-color gradient แล้วใช้:
 
 ```text
-┌─────────────────────────────────────────────────────────────┐
-│ [nav already above]                                         │
-│                                                             │
-│  ── APPLIED CREATIVE AGENCY                  (BKK 13.7°N)   │
-│                                                             │
-│                                                             │
-│  ØRIONS                                                     │
-│  ───────                                                    │
-│  We turn stuck brands into                                  │
-│  unstuck outcomes.                  [single rotating verb]  │
-│                                                             │
-│  [ Book Clarity Audit → ]   [ See Work ]                    │
-│                                                             │
-│                                                             │
-│ ─────────────────────────────────────────────────────────── │
-│ 01 BANGKOK    02 STRATEGY+FILM    03 EST. 2024    ↓ SCROLL  │
-└─────────────────────────────────────────────────────────────┘
+BACKGROUND     #0B0B0D   (warm near-black, ไม่เย็น)
+SURFACE        #131316   (card / alt section)
+SURFACE-2      #1B1B1F   (nested elements)
+BORDER         #26262B   (hairline)
+TEXT           #F5F5F0   (warm white, ไม่ขาวจัด)
+MUTED          #8A8A92   
+ACCENT INK     #E8E3D8   (creamy bone — สำหรับ italic/eyebrow)
+
+LIQUID ACCENT  Single-tone amber→bone→white
+  → ใช้เฉพาะกับ "ØRIONS" wordmark, key numbers, divider
+  → ไม่ใช้กับ paragraph headings
 ```
 
-### Specific changes
+**ทำไม**: warm tone ให้ความรู้สึก editorial/print magazine (เช่น It's Nice That, The Gentlewoman) มากกว่า tech/web3. Amber↔bone gradient ดู refined แต่ยังมี personality.
 
-**A. Replace the typewriter as second headline → use it as a single rotating verb chip**
-- Move Typewriter to a small inline chip beside or under the sub-headline (`font-mono`, 11–12px, gradient text). It cycles single words: `PRACTICAL.` / `BOLD.` / `DONE.` / `APPLIED.`
-- Add a real h2 sub-headline in `font-thai` (IBM Plex), left-aligned: e.g. *"We turn stuck brands into unstuck outcomes."* — gives the hero a content message instead of a slogan loop.
+**ทางเลือก gradient** (จะขอ confirm ก่อนสร้าง):
+- **Option 1 — Warm Bone**: amber → cream → white (แบบ print magazine, เหมือนแสง golden hour)
+- **Option 2 — Cold Pearl**: steel blue → silver → pearl white (modern, premium tech)
+- **Option 3 — Mercury**: mid-grey → bright white → mid-grey (mono ที่สุด, เน้น light play)
+- **Option 4 — Single Solid**: ไม่มี gradient เลย — ใช้สีเดียว (เช่น amber #E8B86D) เป็น accent
 
-**B. Strengthen the eyebrow row (top of hero)**
-- Left: `── APPLIED CREATIVE AGENCY` (replaces "EST. BANGKOK · 2024")
-- Right: live-feel meta `BKK · 13.7°N, 100.5°E` in mono (subtle, premium studio touch)
-- Both small, gradient-soft, on a single horizontal rule that spans the container.
+### B. Layout — "Editorial Grid System"
 
-**C. Add primary + secondary CTA buttons**
-- Primary: `Book Clarity Audit →` using `bg-grad` (gradient fill, dark text).
-- Secondary: `See Work` using `border-grad` outline.
-- Sits directly under the sub-headline. Anchors action above the fold.
+แต่ละ section ใช้ 12-column grid พร้อม asymmetric placement:
 
-**D. Replace bottom corner labels with a 4-column meta strip**
-- Top divider line, then 4 cells: `01 BANGKOK` · `02 STRATEGY + FILM` · `03 EST. 2024` · `04 ↓ SCROLL`.
-- Each cell is `label-mono`, gradient-soft on hover. Last cell is the scroll anchor (replaces the floating "Scroll ↓").
-- This grounds the hero like an editorial cover.
+```text
+HERO (full-bleed)
+┌────────────────────────────────────────────────┐
+│ ⓘ INDEX 01/13      ◐ APPLIED CREATIVE AGENCY   │ ← top meta bar
+│                                                 │
+│   ØRIONS                          (huge, left)  │
+│   ━━━━━                                         │
+│   Practical. Bold. Done.        (italic, mid)   │
+│                                                 │
+│                              ╲ scroll          │
+│ EST. 2024 · BKK              ╲ ↓ next          │
+└────────────────────────────────────────────────┘
+```
 
-**E. Tune the liquid blob**
-- Push two blobs to the **edges** instead of behind the wordmark: one top-left (blue), one bottom-right (red), magenta accent off-canvas. Reduces wash behind ØRIONS so the white wordmark stays crisp.
-- Add a subtle 1px noise/grain overlay (already in CSS as `.grain`) to give it film texture.
-- Keep the slow `blob-shift` animation but reduce opacity slightly (0.55 → 0.45) for premium calm.
+```text
+STAGNATION (split layout, ไม่ใช่ centered quote)
+┌──────────────┬─────────────────────────────────┐
+│ 01           │  เมื่อวิธีเดิม                  │
+│ THE          │  มาถึง ทางตัน                   │
+│ STAGNATION   │  คุณต้องการไอเดียที่           │
+│              │  'ประยุกต์'                     │
+│ Source:      │  มาเพื่อแก้ปัญหาจริง           │
+│ Industry     │  ─────                          │
+│ Observation  │  — ØRIONS Manifesto, 2024      │
+└──────────────┴─────────────────────────────────┘
+```
 
-**F. Wordmark refinement**
-- Slightly reduce desktop size: `110px → 96px` so it shares the page with the sub-headline rather than dominating it.
-- Add tracking polish: `tracking-[-0.06em]` for tighter Unbounded.
-- Keep solid white (per memory).
+```text
+3 PRESSURES (ตัวเลขใหญ่ขึ้น, layout horizontal divide)
+┌──────────────────────────────────────────────┐
+│ 02 — THE 3 PRESSURES                          │
+│                                                │
+│ 1.7s          +41%          4.6×              │
+│ ─────         ─────         ─────             │
+│ ATTENTION     DIGITAL       DIGITAL           │
+│ SPAN          INFLATION     WASTE             │
+│                                                │
+│ ไม่ถึง 2 วิ   ค่าโฆษณา      ขยะดิจิทัล       │
+│ คือเวลา...   เพิ่มขึ้น...   ล้นโลก...        │
+└──────────────────────────────────────────────┘
+```
 
-**G. Left-align everything**
-- Switch hero from `text-center` to `text-left` (memory rule: never center body paragraphs). Aligns with the editorial Berlin/Stockholm brief.
-- Sub-headline + CTAs left-aligned; eyebrow row uses `justify-between`.
+```text
+FEATURED WORK (asymmetric — ใบแรกใหญ่, อีก 2 ใบเล็ก stack)
+┌────────────────────────┬──────────────────┐
+│                        │  ┌────────────┐  │
+│   HONGMOVE             │  │  RTAF      │  │
+│   [large image 4:5]    │  └────────────┘  │
+│                        │  ┌────────────┐  │
+│   APPLIED UTILITY      │  │  KHAO YAI  │  │
+│   +25% Conversion      │  └────────────┘  │
+└────────────────────────┴──────────────────┘
+```
 
-**H. Mobile pass**
-- Wordmark `16vw → 18vw` but on a tighter container (px-5).
-- Sub-headline 18px → tight 1.4 line-height.
-- CTAs stack vertically full-width.
-- Meta strip becomes 2×2 grid.
+### C. Hero ใหม่ — Editorial composition
+
+- เพิ่ม **top meta bar**: `INDEX 01/13` ซ้าย, `◐ APPLIED CREATIVE AGENCY` ขวา
+- ØRIONS ชิดซ้าย (ไม่ใช่ center) ขนาด 18-22vw
+- Tagline italic อยู่ใต้แบบ caption ของหนังสือ
+- มุมล่างซ้าย: `EST. BANGKOK · 2024 · ØRIONS.AGENCY`
+- มุมล่างขวา: scroll indicator + `↓ NEXT — THE STAGNATION`
+- **Marquee** เลื่อนเป็น horizontal divider คั่นระหว่าง hero กับ section ถัดไป (slim, slow)
+
+### D. Typography Refinement
+
+```text
+HERO WORDMARK    Unbounded 700, 18-22vw, tracking -0.06em
+                 → ใช้ liquid accent gradient (amber→bone)
+H1 (page hero)   Unbounded 600, 64-88px, tracking -0.04em
+                 → solid foreground (ไม่ gradient)
+H2 (section)     Unbounded 500, 36-48px
+                 → solid foreground
+EYEBROW          JetBrains Mono 11px, tracking 0.24em, MUTED
+ITALIC SUB       Inter Italic 18-22px, light, ใช้คั่น break
+BODY TH          IBM Plex Sans Thai 16-17px, leading 1.75
+QUOTE TH         IBM Plex Sans Thai 28-36px, weight 400
+                 → keyword highlight ด้วย accent color (ไม่ gradient)
+```
+
+**กฎใหม่**: gradient ใช้กับ ØRIONS wordmark + numbers (1.7s, +41%, 4.6×) + key callouts เท่านั้น ไม่ใช้กับ heading ทั่วไป
+
+### E. Micro-details เพิ่ม visual interest
+
+1. **Section index badges** — `01/13`, `02/13`, ... เป็น meta info ทุก section
+2. **Hairline dividers** — เส้นบางๆ คั่นระหว่าง subsection แทน gap ใหญ่
+3. **Numbered footnotes** — เพิ่ม `¹` `²` กับ key claims (style แบบ academic/editorial)
+4. **Image placeholders** — แทน gradient blob ใส่เป็น noise/grain texture หรือ duotone ภาพจริง (ถ้ามี)
+5. **Cursor**: เพิ่ม custom cursor เล็กๆ บน interactive cards (วงกลม + arrow)
+6. **Sticky page index** ด้านขวาของหน้า Home: dot navigator แสดงว่าอยู่ section ไหน
 
 ---
 
-## Files to touch
+## คำถามก่อนลงมือ
 
-1. **`src/pages/Index.tsx`** — restructure hero JSX (eyebrow row, left-align, sub-headline, CTA pair, meta strip). Remove old `text-center`, `pt-20`, bottom-corner labels, and inline `Scroll` link.
-2. **`src/components/Typewriter.tsx`** — accept smaller cursor and allow a `chip` style; pass shorter single-word phrases from Index.
-3. **`src/index.css`** — minor: lower `.liquid-blob` opacity, optionally add `.hero-grid-meta` helper. No new tokens.
+ขอ confirm 2 จุดสำคัญ:
 
-No new dependencies. No routing changes. Memory rules respected: left-align body, no scale-on-hover, no glows beyond existing gradient, Unbounded stays uppercase.
+**Q1 — เลือก accent gradient แบบไหน**
+1. Warm Bone (amber → cream → white) — editorial print magazine
+2. Cold Pearl (steel → silver → pearl) — modern premium tech
+3. Mercury (grey → white → grey) — most mono
+4. Single solid amber #E8B86D — no gradient at all
+
+**Q2 — Hero composition**
+1. Editorial split (ØRIONS ซ้าย + meta bars + asymmetric)
+2. คงไว้กลางจอแต่ refine (ลด blob, เพิ่ม meta bar บน-ล่าง)
+3. Full-bleed video/image background + ØRIONS overlay
+
+ตอบ 2 ข้อนี้แล้วจะเริ่มลงมือ refactor:
+- `src/index.css` — color tokens + gradient ใหม่
+- `src/pages/Index.tsx` — editorial layout ทุก section
+- `src/pages/Services.tsx`, `Work.tsx`, `About.tsx`, `Contact.tsx` — sync grid system + typography rules
+- `src/components/PageHero.tsx`, `Nav.tsx` — meta bar + index badges
 

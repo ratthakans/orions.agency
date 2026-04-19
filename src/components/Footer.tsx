@@ -3,7 +3,7 @@ import { Instagram, Facebook, Mail } from "lucide-react";
 
 const Footer = () => (
   <footer className="bg-foreground text-background">
-    <div className="px-6 md:px-10 pt-20 md:pt-24 pb-10">
+    <div className="px-6 md:px-10 pt-12 md:pt-14 pb-8">
       {/* Main grid: nav / contact / studio */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
         <div>
@@ -61,7 +61,7 @@ const Footer = () => (
       </div>
 
       {/* Legal row */}
-      <div className="mt-16 pt-6 border-t border-background/15 flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
+      <div className="mt-10 pt-5 border-t border-background/15 flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
         <p className="font-mono text-[10px] tracking-[0.12em] uppercase opacity-50">
           © {new Date().getFullYear()} ØRIONS · Bangkok, TH
         </p>

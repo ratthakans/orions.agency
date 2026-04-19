@@ -139,68 +139,92 @@ const About = () => (
       </div>
     </section>
 
-    {/* THE MEANING OF THE LINE — manifesto (replaces A NOTE) */}
-    <section className="px-6 md:px-10 pb-24 md:pb-32 border-t border-foreground pt-24 md:pt-32">
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-stretch">
-        <div className="md:col-span-7">
+    {/* THE MEANING OF THE LINE — editorial manifesto */}
+    <section className="relative px-6 md:px-10 py-24 md:py-32 border-t border-foreground bg-surface overflow-hidden">
+      {/* Decorative oversized line mark */}
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-[0.04]">
+        <div className="font-display text-[40vw] leading-none tracking-[-0.06em] select-none">
+          ―
+        </div>
+      </div>
+
+      <div className="relative max-w-[1400px] mx-auto">
+        {/* Header row */}
+        <div className="flex items-center gap-3 mb-10 md:mb-14">
+          <span className="block w-8 h-px bg-foreground" />
+          <p className="index-badge">— THE MEANING OF THE LINE</p>
+          <span className="ml-auto index-badge text-muted-foreground hidden md:block">MANIFESTO · 01</span>
+        </div>
+
+        {/* Pull quote */}
+        <Reveal>
+          <blockquote className="font-display h-display-md max-w-[1100px]">
+            <span className="text-muted-foreground">"</span>
+            ดาวฤกษ์ทุกดวงมีแสงในตัวเอง<span className="text-gradient">…</span> แต่มันไม่มีความหมายอะไรเลย
+            <span className="text-muted-foreground">"</span>
+          </blockquote>
+        </Reveal>
+
+        <Reveal delay={0.15}>
+          <div className="mt-6 flex items-center gap-3">
+            <span className="block w-12 h-px bg-foreground" />
+            <span className="index-badge text-muted-foreground">UNTIL SOMEONE DRAWS THE LINE</span>
+          </div>
+        </Reveal>
+
+        {/* Three-column manifesto body */}
+        <div className="mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12">
           <Reveal delay={0.1}>
-            <div className="relative aspect-[4/3] w-full overflow-hidden bg-surface">
-              <img
-                src={aboutHero}
-                alt="ØRIONS studio in Bangkok at dusk"
-                width={1920}
-                height={1280}
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-foreground/20 mix-blend-multiply pointer-events-none" />
-              <div className="absolute top-4 left-4 right-4 flex items-center justify-between text-background">
-                <span className="index-badge">ØRIONS · BANGKOK</span>
-                <span className="index-badge opacity-70">— MANIFESTO</span>
+            <div className="md:col-span-4 border-t border-foreground pt-6">
+              <div className="font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground mb-4">
+                01 · The Line
               </div>
-              <div className="absolute bottom-6 left-6 right-6 text-background">
-                <p className="font-display tracking-[-0.02em] leading-[1.15] text-[20px] md:text-[30px] max-w-[560px]">
-                  <span className="opacity-60">"</span>ดาวฤกษ์ทุกดวงมีแสงในตัวเอง<span className="opacity-60">…</span> แต่มันไม่มีความหมายอะไรเลย<span className="opacity-60">"</span>
-                </p>
-                <div className="mt-4 flex items-center gap-3">
-                  <span className="block w-8 h-px bg-background/70" />
-                  <span className="index-badge opacity-80">UNTIL SOMEONE DRAWS THE LINE</span>
-                </div>
+              <p className="text-[15px] md:text-[16px] leading-[1.8] font-thai">
+                จนกว่าจะมีคน <span className="font-display normal-case font-bold">"ลากเส้น"</span> เชื่อมพวกมันเข้าด้วยกัน เส้นสายที่ลากผ่านความมืด คือสิ่งที่เปลี่ยนจุดสว่างที่กระจัดกระจาย ให้กลายเป็นรูปธรรม เป็นเรื่องเล่า และเป็นตำนาน
+              </p>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.2}>
+            <div className="md:col-span-4 border-t border-foreground pt-6">
+              <div className="font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground mb-4">
+                02 · The Connector
               </div>
+              <p className="text-[15px] md:text-[16px] leading-[1.8] font-thai">
+                <span className="font-display normal-case font-bold">ØRIONS</span> คือคนลากเส้นสายเหล่านั้น เราไม่ได้แค่รวบรวมคนเก่ง แต่เราคือคนที่เชื่อมโยงศักยภาพมหาศาล ให้กลายเป็น <span className="italic">'ทางออก'</span> ที่มีทิศทาง
+              </p>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.3}>
+            <div className="md:col-span-4 border-t border-foreground pt-6">
+              <div className="font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground mb-4">
+                03 · The Meaning
+              </div>
+              <p className="text-[15px] md:text-[16px] leading-[1.8] font-thai">
+                เราเปลี่ยนแสงสว่างที่โดดเดี่ยว ให้กลายเป็น <span className="italic">'ความหมาย'</span> ที่ขับเคลื่อนธุรกิจของคุณได้จริง — ไม่ใช่แค่ภาพสวย แต่เป็น Impact ที่วัดผลได้
+              </p>
             </div>
           </Reveal>
         </div>
 
-        <div className="md:col-span-5 flex flex-col justify-between">
-          <Reveal delay={0.15}>
-            <span className="index-badge text-muted-foreground">— THE MEANING OF THE LINE</span>
-            <div className="mt-6 space-y-5 text-[15px] md:text-[17px] leading-[1.75] font-thai">
-              <p>
-                จนกว่าจะมีคน <span className="font-display normal-case font-bold">"ลากเส้น"</span> เชื่อมพวกมันเข้าด้วยกัน
-                เส้นสายที่ลากผ่านความมืด คือสิ่งที่เปลี่ยนจุดสว่างที่กระจัดกระจาย ให้กลายเป็นรูปธรรม เป็นเรื่องเล่า และเป็นตำนาน
-              </p>
-              <p>
-                <span className="font-display normal-case font-bold">ØRIONS</span> คือคนลากเส้นสายเหล่านั้น
-                เราไม่ได้แค่รวบรวมคนเก่ง แต่เราคือคนที่เชื่อมโยงศักยภาพมหาศาล ให้กลายเป็น <span className="italic">'ทางออก'</span> ที่มีทิศทาง
-              </p>
-              <p>
-                เราเปลี่ยนแสงสว่างที่โดดเดี่ยว ให้กลายเป็น <span className="italic">'ความหมาย'</span> ที่ขับเคลื่อนธุรกิจของคุณได้จริง
-              </p>
-            </div>
-          </Reveal>
-          <Reveal delay={0.25}>
-            <div className="mt-10 md:mt-0 pt-8 border-t border-foreground">
-              <p className="font-display tracking-[-0.02em] leading-[1.2] text-[18px] md:text-[22px]">
-                หยุดเดา แล้วเริ่ม<span className="italic">ลากเส้น</span>ที่ถูกต้องไปกับเรา<span className="text-muted-foreground">.</span>
-              </p>
-              <div className="mt-5 flex items-center justify-between">
-                <span className="index-badge text-muted-foreground">— SIGNED</span>
-                <span className="font-display tracking-[-0.02em] text-[13px] md:text-[15px]">
+        {/* Signature row */}
+        <Reveal delay={0.35}>
+          <div className="mt-16 md:mt-20 pt-8 border-t border-foreground flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <p className="font-display tracking-[-0.02em] leading-[1.15] text-[22px] md:text-[32px] max-w-[640px]">
+              หยุดเดา แล้วเริ่ม<span className="text-gradient italic">ลากเส้น</span>ที่ถูกต้องไปกับเรา<span className="text-muted-foreground">.</span>
+            </p>
+            <div className="flex items-center gap-3 md:text-right">
+              <span className="block w-8 h-px bg-foreground md:hidden" />
+              <div>
+                <div className="index-badge text-muted-foreground">— SIGNED</div>
+                <div className="mt-2 font-display tracking-[-0.02em] text-[14px] md:text-[16px]">
                   ØRIONS Creative Co., Ltd.
-                </span>
+                </div>
               </div>
             </div>
-          </Reveal>
-        </div>
+          </div>
+        </Reveal>
       </div>
     </section>
 

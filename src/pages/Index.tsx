@@ -276,11 +276,11 @@ const Index = () => (
 
     </section>
 
-    {/* MASTERY IN STORYTELLING — fullsize video background */}
-    <section className="relative h-[80vh] md:h-screen w-full overflow-hidden border-t border-foreground">
-      <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
+    {/* MASTERY IN STORYTELLING — 21:9 cinematic video */}
+    <section className="relative w-full overflow-hidden border-t border-foreground bg-foreground">
+      <div className="relative w-full" style={{ aspectRatio: "21 / 9" }}>
         <iframe
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300vh] h-[168.75vw] min-w-[150%] min-h-[150%]"
+          className="absolute inset-0 w-full h-full"
           src="https://www.youtube.com/embed/u4r7Szy3uxI?autoplay=1&mute=1&loop=1&playlist=u4r7Szy3uxI&controls=0&showinfo=0&modestbranding=1&rel=0&playsinline=1&iv_load_policy=3"
           title="Mastery in Storytelling"
           allow="autoplay; encrypted-media"

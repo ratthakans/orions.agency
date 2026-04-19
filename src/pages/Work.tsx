@@ -197,18 +197,18 @@ const Work = () => (
     </section>
 
     {/* CTA — editorial close, centered & calm */}
-    <section className="relative px-6 md:px-10 py-28 md:py-40 border-t border-foreground">
-      <div className="max-w-[900px] mx-auto text-center">
+    <section className="relative px-6 md:px-10 py-16 md:py-20 border-t border-foreground">
+      <div className="max-w-[760px] mx-auto text-center">
         <Reveal>
           <div className="index-badge text-muted-foreground mb-6">READY WHEN YOU ARE</div>
         </Reveal>
         <Reveal delay={0.05}>
-          <h2 className="font-display h-display-lg text-balance">
+          <h2 className="font-display h-display-sm text-balance">
             Have a project<br />in <span className="italic text-gradient">mind</span><span className="text-muted-foreground">.</span>
           </h2>
         </Reveal>
         <Reveal delay={0.2}>
-          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6">
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-5">
             <CTA to="/contact">Start a conversation</CTA>
             <Link to="/contact#audit" className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground hover:text-foreground transition-colors">
               Or request the audit →
@@ -216,7 +216,7 @@ const Work = () => (
           </div>
         </Reveal>
         <Reveal delay={0.3}>
-          <div className="mt-14 inline-flex items-center gap-6 md:gap-8 font-mono text-[11px] md:text-[12px] tracking-[0.2em] uppercase text-muted-foreground">
+          <div className="mt-10 inline-flex items-center gap-6 md:gap-8 font-mono text-[11px] md:text-[12px] tracking-[0.2em] uppercase text-muted-foreground">
             <a href="mailto:hello@orions.agency" className="hover:text-foreground transition-colors">
               hello@orions.agency
             </a>

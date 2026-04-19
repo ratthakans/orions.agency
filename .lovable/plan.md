@@ -1,131 +1,101 @@
 
+## Accent Color & Site-wide UI Audit
 
-# Cohesive UI Refinement — Amsterdam-style Creative Agency
+### Part 1 — Accent Gradient Recommendation
 
-I've reviewed all pages (Index, About, Services, Work, Contact) + Nav/Footer. The site has strong bones (newsprint cream, hairlines, Unbounded + Cutive italic accents, square corners) but suffers from **inconsistency, visual fatigue, and competing systems**. Here's a focused refinement to make it tighter, more confident, and clearly Amsterdam-style (think Build in Amsterdam, Studio Dumbar, Mainstudio).
+The site is currently pure B/W on newsprint cream (#F5F2EC). To elevate without breaking the editorial Amsterdam tone, I recommend **ONE restrained accent** used sparingly (hover states, active nav, key CTA arrow, audit badge dot).
 
----
-
-## What's wrong today (the diagnosis)
-
-**Inconsistency**
-- 4 different hero patterns: Index (centered giant ØRIONS), About/Work/Contact (left-aligned editorial), Services (uses `PageHero` component with empty eyebrows producing dead space).
-- Section labels are mixed: `01 — TITLE`, `HERO PROJECTS`, plain `SectionHeader`, no label at all. Earlier requests removed many — now numbering is broken/random.
-- Type scales jump arbitrarily: 88px / 96px / 128px / 140px hero sizes across pages.
-- Two CTA styles: solid black pill and outlined link — used inconsistently.
-- "Stat" cards rendered 3 different ways (Index pressures vs Services stats vs Index hero projects).
-
-**Visual noise**
-- Index closing section is enormous (audit + contact + footer-meta) and duplicates the Footer + Contact page.
-- Too many hover effects: scale, color invert, translate, rotate-45 all on one page.
-- `grain` texture + `marquee` + pulsing dots + `animate-ping` + typing loop happening simultaneously on Index.
-- Hairlines are full-black (`border-foreground`) everywhere, making the page feel boxed-in. Amsterdam style uses **selective** hard rules + lots of breathing room.
-
-**Amsterdam-style misses**
-- Not enough whitespace between sections.
-- Numbering system inconsistent (should be a strict, visible 01/02/03 grid index).
-- No restrained color accent — everything is pure B/W on cream. Adding **one tiny signal color** (or none, but used with discipline) is a hallmark.
-- Footer is generic — should match the editorial system.
-
----
-
-## The plan — One Design System, applied everywhere
-
-### 1. Lock a strict design system (tokens + primitives)
-
-**Type scale (3 sizes only)**
+**Recommended: "Sunset Ink" gradient**
 ```
-Hero (H1):     clamp(56px, 11vw, 132px)   — every page hero uses this exactly
-Section (H2):  clamp(40px, 6vw, 72px)
-Card (H3):     22–28px
-Body:          15–17px
-Label:         11px mono (index-badge)
+from: #FF4D2E  (vermilion red — Bangkok energy)
+to:   #FFB800  (amber yellow — editorial highlight)
+angle: 135deg
 ```
 
-**Spacing rhythm:** sections use `py-24 md:py-32` (currently inconsistent 20/28). Page gutters stay `px-6 md:px-10`.
+Why this works:
+- Vermilion + amber feels Thai (temple lacquer, marigold) but reads internationally premium (think Pentagram, Mainstudio accent work).
+- High contrast on cream paper without fighting the black ink.
+- Used as a **gradient text fill** on ONE word per page (replacing some Cutive italics) + as a **2px underline** on active nav + as the **CTA arrow color on hover**.
 
-**Hairlines:** switch most to `border-soft` (light gray). Reserve full-black `border-foreground` ONLY for section dividers and the active hero rule. This single change instantly looks more Amsterdam.
+**Alternatives I considered (will offer as choice):**
+- "Electric Dusk": `#6366F1 → #EC4899` (indigo→pink) — more techy, less editorial
+- "Ink Wash": `#0A0A0A → #4A4A4A` (mono gradient) — safest, subtle depth, no real color
+- "Citrus Pulp": `#FFD60A → #FF8C42` (yellow→orange) — warm, optimistic, very Dutch
 
-**One CTA primitive** — refactor into `<CTA variant="primary|ghost">`:
-- Primary: black pill with arrow (used once per page, max twice)
-- Ghost: underline label with arrow
+### Part 2 — Where the accent appears (discipline rules)
 
-**One SectionHeader primitive** used on every section:
 ```
-[index]  [TITLE]                                        [meta right]
-─────────────────────────────────────────────────────────────────
-01 / SELECTED WORK                                  04 PROJECTS
+1. Active nav link underline      → 2px gradient bar
+2. Hero "one word" per page       → gradient text fill (replaces Cutive italic on:
+                                     About "Applied", Work "ideas", Contact "stuck")
+3. CTA primary arrow on hover     → arrow turns gradient
+4. Audit badge pulsing dot        → solid vermilion #FF4D2E
+5. Section index numbers (01/02)  → muted gradient on hover only
 ```
-Numbered consistently across each page (01, 02, 03...).
 
-**One PageHero primitive** — left-aligned, eyebrow + giant headline + optional 2-col supporting paragraph + bottom hairline. Use on About, Work, Services, Contact identically. Index keeps its unique centered cover.
+That's it. Max 5 touchpoints sitewide. Never on body text, never on borders, never on backgrounds.
 
-### 2. Page-by-page refinements
+### Part 3 — UI Consistency Audit (per page)
 
-**Index**
-- Keep cover hero, marquee.
-- Trim "Vicious Cycle" hover (remove invert-on-hover; keep stat reveal). Less is more.
-- Applied Solutions: keep dark band but reduce padding, drop hover invert.
-- Selected Work: simplify to ONE grid (4-col), remove the inserted "High-Impact" video block — move that to Work page.
-- **Replace giant closing section** with a clean 2-line CTA strip (mirroring About's "Stop guessing"). All audit/contact details belong in Footer/Contact only — not duplicated here.
+After scanning all pages I found these residual inconsistencies to lock down:
 
-**About**
-- Remove leftover `02 — THE METHOD` label (request was to drop these).
-- Keep current structure but apply new SectionHeader (`01 / WHO WE ARE` removed per earlier ask → use unlabelled hero, then `01 / METHOD`, `02 / TEAM` for visual rhythm).
-- Tighten team grid: leadership 2-col stays, crew 3-col stays, but unify image aspect to `4/5` and reduce gap to `gap-8`.
-- Drop the `mix-blend-difference` overlay on portraits — too noisy.
+**Font size drift**
+- Index hero uses inline `clamp()` different from PageHero's `clamp(56px, 11vw, 132px)` → unify
+- Work cinematic h3 is `text-[64px]`, About leadership names are `text-[48px]`, Services rows `text-[56px]` → standardize section H2/H3 scale
+- Contact hero uses hard-coded `md:text-[128px]` → switch to PageHero scale
 
-**Services**
-- Replace empty `PageHero` with proper hero: eyebrow `INDEX 01–04` + headline "Applied Solution.".
-- Fix the hover-invert on each service row → too aggressive (4 in a row flashes the whole page). Replace with subtle `border-soft → border-foreground` transition + arrow reveal only.
-- Stats grid: align to same component as Index pressures.
+**Font family drift**
+- Some Thai paragraphs missing `.font-thai` class → render in Unbounded fallback (ugly)
+- Mono labels mix `font-mono` and `index-badge` (which is Unbounded) → pick one per role
+- Cutive italic still appears 2x on About after refactor → cut to 1
 
-**Work**
-- Already redesigned. Apply unified SectionHeader (currently mixed: `HERO PROJECTS`, `MORE SELECTED`, `SOCIAL & COMMERCIALS`, `ENTERTAINMENT & LONG-FORM` — number them `01/02/03/04`).
-- Reduce gradient overlays on cards (currently every card has one).
+**Layout drift**
+- Page gutters: most use `px-6 md:px-10` ✓ but Footer uses `px-10 md:px-16` → align
+- Section padding: Index sections `py-20`, About `py-24`, Services `py-28`, Work `py-20 md:py-28` → lock all to `py-24 md:py-32`
+- Grid gaps: cards use `gap-6`, `gap-8`, `gap-10`, `gap-12` randomly → standardize to `gap-8` (cards) / `gap-12` (sections)
 
-**Contact**
-- Hero is good. Marquee good.
-- Audit card: keep dark, but remove duplicated content with Index (now Index won't have it).
-- Form: standardize input style to match the design system (currently uses `border-b-2` on focus — change to `border-foreground` constant + bottom-grow underline animation).
+**Component drift**
+- Some sections still use raw `<div className="border-t border-foreground...">` instead of `<SectionHeader/>` → replace
+- "Let's Talk" button in Nav still hand-rolled → swap to `<CTA variant="primary">`
+- Contact form inputs still use `border-b-2` focus → align with system
 
-**Nav**
-- Add visible page index indicator (e.g. small dot or active underline animation).
-- Convert "Let's Talk ↗" pill to match new CTA primitive.
+### Part 4 — Files I'll touch
 
-**Footer**
-- Promote to editorial signature: large ØRIONS wordmark across full width, hairline columns, big legal line at bottom. Remove duplicate contact (it's in Contact + index closing already).
+- `src/index.css` — add `--accent-from`, `--accent-to`, `.text-gradient`, `.bg-gradient-accent` utilities; lock section padding helpers
+- `src/components/CTA.tsx` — gradient arrow on hover (primary variant)
+- `src/components/Nav.tsx` — gradient underline on active link, swap CTA primitive
+- `src/components/PageHero.tsx` — accept optional `accentWord` prop that gets gradient fill
+- `src/components/SectionHeader.tsx` — already good, minor mono cleanup
+- `src/components/Footer.tsx` — align gutters `px-6 md:px-10`
+- `src/pages/Index.tsx` — unify hero scale, swap to standard padding, replace one Cutive with gradient word
+- `src/pages/About.tsx` — remove duplicate Cutive italic (keep one), fix Thai font class, gradient on "Applied"
+- `src/pages/Services.tsx` — section padding lock, gradient on hover arrow
+- `src/pages/Work.tsx` — gradient on "ideas", normalize h3 sizes (64px→clamp), reduce gradient overlay opacity
+- `src/pages/Contact.tsx` — replace Cutive "stuck" with gradient fill, vermilion dot in audit badge, standardize input focus
 
-### 3. Amsterdam-style polish (small but defining)
+### Part 5 — Type & spacing lockdown (final)
 
-- **Numbered index everywhere**: every section gets a 2-digit prefix consistently.
-- **Mono captions** for all metadata (dates, project counts, locations) — already partly done.
-- **Cutive italic accent** used ONCE per page maximum (currently overused: About has "Applied" + "output", Work has "ideas" + "sitting", Contact has "stuck" — keep one per page).
-- **Reduce grain opacity** from 0.06 to 0.03 — currently visible on flat surfaces.
-- **Remove `animate-pulse`/`animate-ping`** dots except in Contact marquee (one place only).
+```
+H1 (hero):       clamp(56px, 11vw, 132px)   — PageHero only
+H2 (section):    clamp(40px, 6vw, 72px)
+H3 (card big):   clamp(28px, 3.5vw, 56px)
+H3 (card small): 22–28px
+Body:            15–17px
+Label:           11px (index-badge, Unbounded)
 
----
+Section padding: py-24 md:py-32
+Gutters:         px-6 md:px-10
+Card gap:        gap-8
+Section gap:     gap-12
 
-## Files I'll touch
+Fonts (strict)
+  Display H1-H3: Unbounded
+  Body EN:       Inter
+  Body TH:       IBM Plex Sans Thai (.font-thai)
+  Mono meta:     JetBrains Mono (rare — dates/coords only)
+  Italic accent: REPLACED by gradient (Cutive removed except 1 hero use max)
+```
 
-- `src/index.css` — lower grain opacity, add `--border-soft` usage helpers
-- `src/components/SectionHeader.tsx` — extend with optional `index` and `right` props (already has)
-- `src/components/PageHero.tsx` — refactor to support optional eyebrow, single source of truth
-- `src/components/CTA.tsx` — **new** primitive
-- `src/components/Nav.tsx` — refine active state, CTA
-- `src/components/Footer.tsx` — editorial redesign with big wordmark
-- `src/pages/Index.tsx` — trim closing section, simplify hovers, remove inserted high-impact block
-- `src/pages/About.tsx` — apply unified headers, remove blend-difference, one italic accent
-- `src/pages/Services.tsx` — proper hero, calmer hover
-- `src/pages/Work.tsx` — numbered headers, less gradient
-- `src/pages/Contact.tsx` — input style, remove duplication
+### Choice for you
 
----
-
-## What you'll feel after
-
-- Every page reads as the **same magazine issue** — same grid, same type, same rhythm.
-- Less hover noise → feels more confident, less "trying hard".
-- Bigger whitespace + softer hairlines → premium editorial.
-- One CTA, one hero, one section header → instantly more designed.
-
+I'll proceed with **"Sunset Ink" (vermilion → amber)** unless you pick another below.

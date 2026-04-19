@@ -141,13 +141,13 @@ const Index = () => (
                   </div>
 
                   <div className="col-span-10 md:col-span-4">
-                    <CountUp
+                    <FlipNumber
                       to={p.stat}
                       prefix={p.prefix}
                       suffix={p.suffix}
                       decimals={p.decimals}
-                      className="font-display text-[64px] md:text-[88px] leading-[0.9] tracking-[-0.04em] block transition-transform duration-500 group-hover:-translate-y-1"
-                      suffixClassName={p.suffix === "x" ? "" : "text-[28px] md:text-[36px] tracking-normal ml-1 align-baseline text-muted-foreground"}
+                      className="font-display text-[64px] md:text-[88px] leading-[0.9] tracking-[-0.04em] transition-transform duration-500 group-hover:-translate-y-1"
+                      suffixClassName="text-[28px] md:text-[36px] tracking-normal ml-1 align-baseline text-muted-foreground"
                     />
                   </div>
 

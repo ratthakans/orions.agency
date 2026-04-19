@@ -113,8 +113,8 @@ const Services = () => (
     />
 
     <PageHero
-      eyebrowNumber="01"
-      eyebrowLabel="WHAT WE DO"
+      eyebrowNumber=""
+      eyebrowLabel=""
       title="Applied Solution"
     />
 
@@ -122,9 +122,9 @@ const Services = () => (
       <div className="border-t border-foreground">
         {services.map((s) => (
           <Reveal key={s.n}>
-            <article className="py-16 md:py-24 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 border-b border-border-soft">
+            <article className="group py-16 md:py-24 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 border-b border-border-soft transition-colors duration-500 hover:bg-foreground hover:text-background -mx-6 md:-mx-10 px-6 md:px-10">
               <header className="lg:col-span-4">
-                <div className="font-display text-[80px] md:text-[120px] leading-[0.85] tracking-[-0.04em]">
+                <div className="font-display text-[80px] md:text-[120px] leading-[0.85] tracking-[-0.04em] transition-transform duration-500 group-hover:translate-x-2">
                   {s.n}
                 </div>
                 <h2 className="mt-6 font-display text-[26px] md:text-[36px] leading-[1] tracking-[-0.02em]">
@@ -133,28 +133,25 @@ const Services = () => (
                 <p className="mt-6 text-[15px] md:text-[16px] leading-[1.7] font-thai font-bold max-w-[380px]">
                   {s.body}
                 </p>
-                <p className="mt-4 text-[14px] md:text-[15px] leading-[1.75] text-muted-foreground font-thai max-w-[380px]">
-                  {s.detail}
-                </p>
               </header>
 
               <div className="lg:col-span-8 space-y-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                   <div>
-                    <div className="border-t border-foreground pt-3">
+                    <div className="border-t border-current pt-3">
                       <span className="index-badge font-bold">CAPABILITIES</span>
                     </div>
                     <ul className="mt-5 space-y-2 text-[14px] font-thai">
                       {s.items.map((it) => (
-                        <li key={it} className="flex gap-3 border-b border-border-soft pb-2">
-                          <span className="text-muted-foreground">·</span>
+                        <li key={it} className="flex gap-3 border-b border-current/20 pb-2 transition-transform duration-300 group-hover:translate-x-1">
+                          <span className="opacity-60">·</span>
                           <span>{it}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
                   <div>
-                    <div className="border-t border-foreground pt-3">
+                    <div className="border-t border-current pt-3">
                       <span className="index-badge font-bold">OUTCOMES</span>
                     </div>
                     <ul className="mt-5 space-y-3 text-[14px] font-thai">
@@ -168,11 +165,11 @@ const Services = () => (
                   </div>
                 </div>
 
-                <div className="grid grid-cols-3 gap-px bg-foreground border border-foreground">
+                <div className="grid grid-cols-3 gap-px bg-current border border-current">
                   {s.stats.map((st) => (
-                    <div key={st.l} className="bg-background p-5 md:p-6">
+                    <div key={st.l} className="bg-background text-foreground p-5 md:p-6 transition-colors duration-500 group-hover:bg-foreground group-hover:text-background">
                       <div className="font-display text-[28px] md:text-[40px] leading-none tracking-[-0.03em]">{st.v}</div>
-                      <div className="mt-3 index-badge text-muted-foreground">{st.l}</div>
+                      <div className="mt-3 index-badge opacity-70">{st.l}</div>
                     </div>
                   ))}
                 </div>

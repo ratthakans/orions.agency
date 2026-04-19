@@ -45,38 +45,16 @@ const Index = () => (
         </Reveal>
       </div>
 
-      <div className="mt-12 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-end">
-        <div className="md:col-span-6">
-          <Reveal delay={0.15}>
-            <h2 className="font-display text-[28px] md:text-[42px] leading-[1.05] tracking-[-0.02em]">
-              Sharper ideas.<br />Clearer direction.
-            </h2>
-          </Reveal>
-        </div>
-        <div className="md:col-span-5 md:col-start-8">
-          <Reveal delay={0.25}>
-            <p className="text-[15px] md:text-[16px] leading-[1.7] text-muted-foreground font-thai">
-              ØRIONS เป็น Creative Agency สำหรับธุรกิจที่ไม่อยากติดอยู่ใน social vicious cycle เราช่วยให้สิ่งที่คุณทำชัดขึ้น คมขึ้น และทำงานได้จริงขึ้น
-            </p>
-            <Link to="/contact" className="mt-6 inline-flex items-center gap-2 index-badge border-b border-foreground pb-1 hover:opacity-70 transition-opacity">
-              Let's Talk <ArrowUpRight className="w-4 h-4" />
-            </Link>
-          </Reveal>
-        </div>
+      <div className="mt-10 md:mt-14 flex flex-col gap-3">
+        <Reveal delay={0.15}>
+          <p className="index-badge font-bold">APPLIED CREATIVE AGENCY</p>
+        </Reveal>
+        <Reveal delay={0.25}>
+          <p className="font-display text-[22px] md:text-[32px] leading-[1.1] tracking-[-0.02em]">
+            "Practical. Bold. Done."
+          </p>
+        </Reveal>
       </div>
-
-      {/* Hero image */}
-      <Reveal delay={0.3}>
-        <figure className="mt-16 md:mt-24 border-t border-foreground pt-3">
-          <div className="flex items-center justify-between mb-3">
-            <span className="index-badge font-bold">FIG. 01</span>
-            <span className="index-badge font-medium text-muted-foreground">— THE WORLD MOVES FASTER THAN BUSINESS</span>
-          </div>
-          <div className="aspect-[16/9] w-full overflow-hidden bg-surface-2">
-            <img src={heroStreet} alt="A cyclist on a cobblestone street at sunset" className="w-full h-full object-cover" />
-          </div>
-        </figure>
-      </Reveal>
     </section>
 
     {/* MARQUEE */}

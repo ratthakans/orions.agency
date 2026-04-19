@@ -216,44 +216,28 @@ const About = () => (
           <span className="ml-auto index-badge text-muted-foreground hidden md:block">MANIFESTO · 01</span>
         </div>
 
-        {/* Pull quote with drop cap */}
+        {/* Pull quote */}
         <Reveal>
           <blockquote className="font-display h-display-md max-w-[1100px] text-foreground">
-            <span
-              className="float-left font-display leading-[0.85] tracking-[-0.04em] mr-4 mt-1 text-gradient"
-              style={{ fontSize: "clamp(72px, 11vw, 180px)" }}
-            >
-              ด
-            </span>
             <span className="text-muted-foreground">&ldquo;</span>
-            าวฤกษ์ทุกดวงมีแสงในตัวเอง<span className="text-muted-foreground"> … </span>
-            แต่มันไม่มีความหมายอะไรเลย
+            ดาวฤกษ์ทุกดวงมีแสงในตัวเอง<span className="text-muted-foreground"> … </span>
+            แต่ไม่มีความหมายอะไรเลย
             <span className="text-muted-foreground">&rdquo;</span>
           </blockquote>
         </Reveal>
 
-        <Reveal delay={0.15}>
-          <div className="mt-8 flex items-center gap-3 clear-both">
-            <span className="block w-12 h-px bg-foreground" />
-            <span className="index-badge text-muted-foreground">UNTIL SOMEONE DRAWS THE LINE</span>
-          </div>
-        </Reveal>
-
-        {/* Constellation line — desktop only, draws over the asymmetric staircase */}
+        {/* Equal 3 columns with constellation connector */}
         <div className="relative mt-20 md:mt-28">
-          <div className="hidden md:block absolute inset-x-0 -top-12 h-24 text-foreground">
+          <div className="hidden md:block absolute inset-x-0 -top-12 h-16 text-foreground">
             <ConstellationLine className="w-full h-full" dots={3} />
           </div>
 
-          {/* Asymmetric staircase grid */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
             {[
               {
                 n: "01",
                 tag: "The Line",
-                span: "md:col-span-5",
-                offset: "",
-                lead: true,
+                lead: false,
                 body: (
                   <>
                     จนกว่าจะมีคน <span className="font-display normal-case font-bold tracking-[-0.01em]">"ลากเส้น"</span> เชื่อมพวกมันเข้าด้วยกัน เส้นสายที่ลากผ่านความมืด คือสิ่งที่เปลี่ยนจุดสว่างที่กระจัดกระจาย ให้กลายเป็นรูปธรรม เป็นเรื่องเล่า และเป็นตำนาน

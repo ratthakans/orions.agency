@@ -72,11 +72,21 @@ const Work = () => (
   <div>
     <SEO title="Work — ØRIONS" description="Selected projects across politics, mobility, hospitality, healthcare and culture." path="/work" />
 
-    <PageHero
-      eyebrowNumber=""
-      eyebrowLabel=""
-      title={"Sharper ideas.\nReal outcomes."}
-    />
+    <section className="px-6 md:px-10 pt-28 md:pt-32 pb-16 md:pb-24">
+      <Reveal>
+        <h1 className="font-display text-[56px] md:text-[140px] leading-[0.86] tracking-[-0.05em]">
+          Sharper{" "}
+          <span
+            className="italic font-normal"
+            style={{ fontFamily: "'Cutive', serif", textTransform: "none", letterSpacing: "-0.02em" }}
+          >
+            ideas
+          </span>
+          .<br />
+          Real outcomes<span className="text-muted-foreground">.</span>
+        </h1>
+      </Reveal>
+    </section>
 
     {/* FEATURED VIDEO REEL */}
     <section className="px-6 md:px-10 pb-20 md:pb-28">

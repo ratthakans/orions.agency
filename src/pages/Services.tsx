@@ -4,6 +4,12 @@ import Reveal from "@/components/Reveal";
 import SectionLabel from "@/components/SectionLabel";
 import PageHero from "@/components/PageHero";
 import SEO from "@/components/SEO";
+import portrait1 from "@/assets/portrait-1.jpg";
+import portrait2 from "@/assets/portrait-2.jpg";
+import portrait3 from "@/assets/portrait-3.jpg";
+import unlockRunning from "@/assets/unlock-running.jpg";
+
+const serviceImages = [portrait1, portrait2, portrait3, unlockRunning];
 
 const services = [
   {

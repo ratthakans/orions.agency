@@ -9,12 +9,14 @@ interface Props {
 
 const PageHero = ({ eyebrowNumber, eyebrowLabel, title, subtitle }: Props) => (
   <section className="px-6 md:px-10 pt-28 md:pt-32 pb-16 md:pb-24">
-    <Reveal>
-      <div className="border-t border-foreground pt-3 pb-3 flex items-center justify-between">
-        <span className="index-badge font-bold">{eyebrowNumber} — {eyebrowLabel}</span>
-        <span className="index-badge font-medium text-muted-foreground hidden sm:inline">ØRIONS · BANGKOK</span>
-      </div>
-    </Reveal>
+    {(eyebrowNumber || eyebrowLabel) && (
+      <Reveal>
+        <div className="border-t border-foreground pt-3 pb-3 flex items-center justify-between">
+          <span className="index-badge font-bold">{eyebrowNumber} — {eyebrowLabel}</span>
+          <span className="index-badge font-medium text-muted-foreground hidden sm:inline">ØRIONS · BANGKOK</span>
+        </div>
+      </Reveal>
+    )}
     <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 mt-12 md:mt-16">
       <div className="md:col-span-9">
         <Reveal delay={0.1}>

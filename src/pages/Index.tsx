@@ -138,22 +138,42 @@ const Index = () => (
         <div className="md:col-span-7 flex flex-col">
           {pressures.map((p, i) => (
             <Reveal key={p.label} delay={0.2 + i * 0.1}>
-              <div className={`group relative py-8 md:py-10 ${i === 0 ? "border-t" : ""} border-b border-foreground transition-colors duration-500 hover:bg-foreground hover:text-background cursor-default overflow-hidden`}>
-                <div className="absolute bottom-3 right-3 md:bottom-4 md:right-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500">
-                  <ArrowUpRight className="w-5 h-5" />
-                </div>
-                <div className="grid grid-cols-12 gap-4 md:gap-6 items-baseline px-2 md:px-4">
-                  <div className="col-span-12 md:col-span-4">
-                    <CountUp to={p.stat} prefix={p.prefix} suffix={p.suffix} decimals={p.decimals}
-                      className="font-display text-[48px] md:text-[64px] leading-[0.95] tracking-[-0.03em] block transition-transform duration-500 group-hover:-translate-y-1"
-                      suffixClassName={p.suffix === "x" ? "" : "text-[24px] md:text-[30px] tracking-normal ml-1 align-baseline text-muted-foreground group-hover:text-background/70"} />
+              <div className={`group relative py-10 md:py-14 ${i === 0 ? "border-t" : ""} border-b border-foreground transition-colors duration-500 hover:bg-foreground hover:text-background cursor-default overflow-hidden`}>
+                <div className="grid grid-cols-12 gap-6 md:gap-8 items-start px-2 md:px-6">
+                  {/* Index marker */}
+                  <div className="col-span-2 md:col-span-1 pt-3">
+                    <span className="font-mono text-[11px] tracking-[0.12em] text-muted-foreground transition-colors duration-500 group-hover:text-background/60">
+                      0{i + 1}
+                    </span>
                   </div>
-                  <div className="col-span-12 md:col-span-8">
-                    <div className="index-badge text-foreground transition-colors duration-500 group-hover:text-background">{p.label}</div>
-                    <p className="mt-4 text-[14px] md:text-[15px] leading-[1.65] text-muted-foreground font-thai transition-colors duration-500 group-hover:text-background/80">
+
+                  {/* Stat */}
+                  <div className="col-span-10 md:col-span-4">
+                    <CountUp
+                      to={p.stat}
+                      prefix={p.prefix}
+                      suffix={p.suffix}
+                      decimals={p.decimals}
+                      className="font-display text-[64px] md:text-[88px] leading-[0.9] tracking-[-0.04em] block transition-transform duration-500 group-hover:-translate-y-1"
+                      suffixClassName={p.suffix === "x" ? "" : "text-[28px] md:text-[36px] tracking-normal ml-1 align-baseline text-muted-foreground group-hover:text-background/70"}
+                    />
+                  </div>
+
+                  {/* Label + body */}
+                  <div className="col-span-12 md:col-span-7 md:pt-3">
+                    <div className="index-badge text-foreground transition-colors duration-500 group-hover:text-background">
+                      {p.label}
+                    </div>
+                    <div className="mt-3 hairline w-8 transition-colors duration-500 group-hover:bg-background/40" />
+                    <p className="mt-4 text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground font-thai transition-colors duration-500 group-hover:text-background/80 max-w-[420px]">
                       {p.body}
                     </p>
                   </div>
+                </div>
+
+                {/* Hover arrow */}
+                <div className="absolute bottom-4 right-4 md:bottom-6 md:right-6 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500">
+                  <ArrowUpRight className="w-5 h-5" />
                 </div>
               </div>
             </Reveal>

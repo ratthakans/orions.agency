@@ -43,7 +43,12 @@ const Index = () => (
         </Reveal>
         <Reveal delay={0.3}>
           <Typewriter
-            text="Practical. Bold. Done."
+            texts={[
+              "Practical. Bold. Done.",
+              "Creative Engineering from Bangkok.",
+              "Applied Creative Agency.",
+              "From idea to final cut — one team, no handoff.",
+            ]}
             className="mt-8 font-thai text-[18px] md:text-[22px] font-light text-foreground/90"
           />
         </Reveal>

@@ -185,7 +185,7 @@ const Work = () => (
     <section className="relative px-6 md:px-10">
       <div className="border-t border-foreground py-16 md:py-24">
       <h2 className="font-display h-display-sm">
-        Social &amp; <span className="italic opacity-70">Commercials</span>
+        Social &amp; <span className="text-muted-foreground">Commercials</span>
       </h2>
       <VideoReel items={socialCommercials} />
       </div>
@@ -215,7 +215,7 @@ const Work = () => (
       <div className="border-t border-foreground py-16 md:py-24">
       <div className="flex items-end justify-between gap-6 flex-wrap mb-8 md:mb-10">
         <h2 className="font-display h-display-sm">
-          Music &amp; <span className="italic opacity-70">Creative Content</span>
+          Music &amp; <span className="text-muted-foreground">Creative Content</span>
         </h2>
         <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
           18 films · music · culture
@@ -244,7 +244,7 @@ const Work = () => (
         </Reveal>
         <Reveal delay={0.05}>
           <h2 className="font-display h-display-sm text-balance">
-            Have a project<br />in <span className="italic text-gradient">mind</span><span className="text-muted-foreground">.</span>
+            Have a project<br />in <span className="text-gradient">mind</span><span className="text-muted-foreground">.</span>
           </h2>
         </Reveal>
         <Reveal delay={0.2}>
@@ -256,11 +256,11 @@ const Work = () => (
           </div>
         </Reveal>
         <Reveal delay={0.3}>
-          <div className="mt-10 inline-flex items-center gap-6 md:gap-8 font-mono text-[11px] md:text-[12px] tracking-[0.2em] uppercase text-muted-foreground">
+          <div className="mt-12 inline-flex items-center gap-6 md:gap-8 font-mono text-[11px] md:text-[12px] tracking-[0.2em] uppercase text-muted-foreground">
             <a href="mailto:hello@orions.agency" className="hover:text-foreground transition-colors">
               hello@orions.agency
             </a>
-            <span aria-hidden className="block w-px h-3 bg-foreground/30" />
+            <span aria-hidden className="block w-px h-3 bg-muted-foreground" />
             <a href="tel:+66923905464" className="hover:text-foreground transition-colors">
               +66 92 390 5464
             </a>

@@ -109,10 +109,7 @@ const Index = () => (
       <div className="border-t border-foreground py-16 md:py-24 max-w-[1400px] mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
         <div className="md:col-span-5 md:sticky md:top-32 md:self-start">
           <Reveal>
-            <SectionHeader index="03" left="THE VICIOUS CYCLE" right="why budgets keep leaking" />
-          </Reveal>
-          <Reveal delay={0.05}>
-            <BigSectionNumber n="03" label="THE VICIOUS CYCLE" className="mt-8" />
+            <SectionHeader left="THE VICIOUS CYCLE" right="why budgets keep leaking" />
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="mt-6 font-display h-display-md text-foreground">

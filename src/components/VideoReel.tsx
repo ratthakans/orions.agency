@@ -15,6 +15,7 @@ export interface VideoReelItem {
 interface Props {
   items: VideoReelItem[];
   hideMeta?: boolean;
+  hideControls?: boolean;
 }
 
 const buildEmbed = (it: VideoReelItem) => {
@@ -33,7 +34,7 @@ const buildPoster = (it: VideoReelItem) => {
   return "";
 };
 
-const VideoReel = ({ items, hideMeta = false }: Props) => {
+const VideoReel = ({ items, hideMeta = false, hideControls = false }: Props) => {
   const scrollerRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
   const [progress, setProgress] = useState(0);
@@ -83,33 +84,37 @@ const VideoReel = ({ items, hideMeta = false }: Props) => {
 
   return (
     <div className="mt-6 md:mt-8">
-      <div className="flex items-center justify-between mb-5">
-        {hideMeta ? (
-          <div />
-        ) : (
-          <div className="font-mono text-[11px] tracking-[0.18em] uppercase text-muted-foreground">
-            <span className="text-foreground">{String(active + 1).padStart(2, "0")}</span>
-            <span className="opacity-40"> / {String(baseLen).padStart(2, "0")}</span>
-            <span className="ml-4 hidden sm:inline opacity-60">CLICK TO PLAY · LOOP</span>
-          </div>
-        )}
-        <div className="flex gap-2">
-          <button
-            onClick={() => scrollBy(-1)}
-            aria-label="Previous"
-            className="w-9 h-9 md:w-10 md:h-10 border border-foreground flex items-center justify-center hover:bg-foreground hover:text-background transition-colors"
-          >
-            <ArrowUpRight className="w-4 h-4 -rotate-[135deg]" />
-          </button>
-          <button
-            onClick={() => scrollBy(1)}
-            aria-label="Next"
-            className="w-9 h-9 md:w-10 md:h-10 border border-foreground flex items-center justify-center hover:bg-foreground hover:text-background transition-colors"
-          >
-            <ArrowUpRight className="w-4 h-4 rotate-45" />
-          </button>
+      {!(hideMeta && hideControls) && (
+        <div className="flex items-center justify-between mb-5">
+          {hideMeta ? (
+            <div />
+          ) : (
+            <div className="font-mono text-[11px] tracking-[0.18em] uppercase text-muted-foreground">
+              <span className="text-foreground">{String(active + 1).padStart(2, "0")}</span>
+              <span className="opacity-40"> / {String(baseLen).padStart(2, "0")}</span>
+              <span className="ml-4 hidden sm:inline opacity-60">CLICK TO PLAY · LOOP</span>
+            </div>
+          )}
+          {!hideControls && (
+            <div className="flex gap-2">
+              <button
+                onClick={() => scrollBy(-1)}
+                aria-label="Previous"
+                className="w-9 h-9 md:w-10 md:h-10 border border-foreground flex items-center justify-center hover:bg-foreground hover:text-background transition-colors"
+              >
+                <ArrowUpRight className="w-4 h-4 -rotate-[135deg]" />
+              </button>
+              <button
+                onClick={() => scrollBy(1)}
+                aria-label="Next"
+                className="w-9 h-9 md:w-10 md:h-10 border border-foreground flex items-center justify-center hover:bg-foreground hover:text-background transition-colors"
+              >
+                <ArrowUpRight className="w-4 h-4 rotate-45" />
+              </button>
+            </div>
+          )}
         </div>
-      </div>
+      )}
 
       <div
         ref={scrollerRef}

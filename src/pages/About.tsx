@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
-import PageHero from "@/components/PageHero";
 import SectionHeader from "@/components/SectionHeader";
 import SEO from "@/components/SEO";
+import aboutHero from "@/assets/about-hero.jpg";
 
 const orionsSteps = [
   { letter: "O", title: "Open", body: "ทำความเข้าใจปัญหาที่แท้จริงที่ทำให้ธุรกิจนิ่ง" },
@@ -30,87 +30,71 @@ const About = () => (
   <div>
     <SEO
       title="About — ØRIONS"
-      description="Applied Creative Agency from Bangkok. We bridge the gap between good ideas and measurable impact."
+      description="The Applied Creative Agency from Bangkok. We bridge the gap between good ideas and measurable impact."
       path="/about"
     />
 
-    <PageHero
-      eyebrowNumber=""
-      eyebrowLabel=""
-      title={"Applied Creative\nAgency."}
-    />
-
-    {/* MANIFESTO */}
-    <section className="px-6 md:px-10 py-20 md:py-28 border-y border-foreground">
-      <SectionHeader left="MANIFESTO" right="practical. bold. done." />
-      <div className="mt-12 grid grid-cols-1 md:grid-cols-12 gap-10">
-        <div className="md:col-span-2">
-          <div className="font-display text-[80px] md:text-[120px] leading-[0.85]">"</div>
-        </div>
-        <div className="md:col-span-9">
+    {/* HERO with image */}
+    <section className="px-6 md:px-10 pt-28 md:pt-32 pb-16 md:pb-24">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10">
+        <div className="md:col-span-7">
           <Reveal>
-            <p className="font-thai text-[24px] md:text-[36px] leading-[1.4] max-w-[860px]">
-              เราไม่ได้มาขอโอกาส{" "}
-              <span className="font-display normal-case font-medium">
-                แต่มาเพื่อชี้จุดตาย และหาทางรอดให้ธุรกิจของคุณ
-              </span>
+            <h1 className="font-display text-[48px] md:text-[88px] leading-[0.95] tracking-[-0.04em]">
+              The Applied<br />Creative Agency.
+            </h1>
+          </Reveal>
+          <Reveal delay={0.15}>
+            <p className="mt-8 max-w-[560px] text-[15px] md:text-[17px] leading-[1.7] font-thai text-muted-foreground">
+              เราคือจุดตัดระหว่าง <span className="font-display normal-case font-bold text-foreground">Bangkok Energy</span> (ความเร็ว) และ <span className="font-display normal-case font-bold text-foreground">Logical Standard</span> (ตรรกะสากล) เราทำหน้าที่เชื่อมช่องว่างระหว่าง "ไอเดียที่ดูดี" กับ "ผลลัพธ์ที่วัดผลได้" เพื่อเปลี่ยนงบประมาณที่สูญเปล่าให้เป็น Impact ที่แท้จริงของธุรกิจ
             </p>
           </Reveal>
-          <Reveal delay={0.2}>
-            <div className="mt-12 flex items-center gap-4">
-              <div className="hairline w-12" />
-              <p className="index-badge font-medium">— ØRIONS, BANGKOK</p>
+        </div>
+        <div className="md:col-span-5">
+          <Reveal delay={0.1}>
+            <div className="relative aspect-[4/5] w-full overflow-hidden bg-surface">
+              <img
+                src={aboutHero}
+                alt="ØRIONS studio in Bangkok at dusk"
+                width={1920}
+                height={1280}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              <div className="absolute top-4 left-4 right-4 flex items-center justify-between text-background">
+                <span className="index-badge">ØRIONS · BANGKOK</span>
+                <span className="font-mono text-[10px]">EST. 2014</span>
+              </div>
             </div>
           </Reveal>
         </div>
       </div>
     </section>
 
-    {/* O-R-I-O-N-S METHOD */}
-    <section className="px-6 md:px-10 py-20 md:py-28 bg-foreground text-background">
+    {/* O-R-I-O-N-S METHOD — 6 columns */}
+    <section className="px-6 md:px-10 py-20 md:py-28 bg-foreground text-background border-y border-foreground">
       <SectionHeader left="THE METHOD" right="O · R · I · O · N · S" />
-      <div className="mt-12 grid grid-cols-1 md:grid-cols-12 gap-10">
-        <div className="md:col-span-7">
-          <Reveal>
-            <h2 className="font-display text-[40px] md:text-[72px] leading-[0.92] tracking-[-0.03em]">
-              6 ขั้นตอน<br />สู่ผลลัพธ์ที่แม่นยำ
-            </h2>
-          </Reveal>
-        </div>
-        <div className="md:col-span-5 md:pt-6">
-          <Reveal delay={0.1}>
-            <p className="text-[15px] md:text-[17px] leading-[1.7] font-thai opacity-80">
-              ทุกโปรเจกต์ของ ØRIONS เดินตามกระบวนการเดียวกัน — เพื่อให้ทุก decision มีเหตุผล และทุก output วัดผลได้
-            </p>
-          </Reveal>
-        </div>
-      </div>
+      <Reveal>
+        <h2 className="mt-12 font-display text-[40px] md:text-[72px] leading-[0.92] tracking-[-0.03em] max-w-[900px]">
+          6 ขั้นตอน<br />สู่ผลลัพธ์ที่แม่นยำ
+        </h2>
+      </Reveal>
 
-      <div className="mt-16 border-t border-background/30">
+      <div className="mt-16 grid grid-cols-2 md:grid-cols-6 gap-px bg-background/30 border border-background/30">
         {orionsSteps.map((s, i) => (
           <Reveal key={`${s.letter}-${i}`} delay={i * 0.05}>
-            <article className="group grid grid-cols-12 gap-6 md:gap-10 py-8 md:py-10 border-b border-background/20 transition-all duration-500 hover:bg-background hover:text-foreground -mx-6 md:-mx-10 px-6 md:px-10">
-              <div className="col-span-2 md:col-span-1">
-                <div className="font-display text-[48px] md:text-[80px] leading-[0.85] tracking-[-0.04em] transition-transform duration-500 group-hover:translate-x-2">
+            <div className="bg-foreground p-5 md:p-6 h-full flex flex-col group transition-colors duration-500 hover:bg-background hover:text-foreground">
+              <div className="flex items-baseline justify-between">
+                <div className="font-display text-[56px] md:text-[80px] leading-[0.85] tracking-[-0.04em] transition-transform duration-500 group-hover:translate-x-1">
                   {s.letter}
                 </div>
+                <span className="index-badge opacity-60">{String(i + 1).padStart(2, "0")}</span>
               </div>
-              <div className="col-span-10 md:col-span-1 self-center">
-                <span className="index-badge opacity-60">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-              </div>
-              <div className="col-span-12 md:col-span-4 self-center">
-                <h3 className="font-display text-[24px] md:text-[32px] leading-[1] tracking-[-0.02em]">
-                  {s.title}
-                </h3>
-              </div>
-              <div className="col-span-12 md:col-span-6 self-center">
-                <p className="text-[14px] md:text-[16px] leading-[1.7] font-thai">
-                  {s.body}
-                </p>
-              </div>
-            </article>
+              <h3 className="mt-8 font-display text-[18px] md:text-[22px] leading-[1] tracking-[-0.02em]">
+                {s.title}
+              </h3>
+              <p className="mt-3 text-[12px] md:text-[13px] leading-[1.6] font-thai opacity-80 group-hover:opacity-100">
+                {s.body}
+              </p>
+            </div>
           </Reveal>
         ))}
       </div>

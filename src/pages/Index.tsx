@@ -71,6 +71,8 @@ const whyOrions = [
   { tag: "ØRIONS", title: "กลยุทธ์ × งานผลิต", body: "เชื่อมการคิดกับการทำ เพื่อให้ธุรกิจขยับไปข้างหน้าได้จริง", highlight: true },
 ];
 
+const selectedWorks = worksAcrossIndustries;
+
 const Index = () => (
   <div id="top">
     <SEO title="ØRIONS — Sharper ideas. Clearer direction." description="Idea-led Creative Agency. We help brands cut through the noise with sharper ideas and clearer direction." path="/" />
@@ -134,7 +136,7 @@ const Index = () => (
           </Reveal>
           <Reveal delay={0.2}>
             <p className="mt-8 font-thai text-[18px] md:text-[22px] leading-[1.55] text-muted-foreground max-w-[460px]">
-              ทำงานหนักขึ้น จ่ายแพงขึ้น แต่ได้ผลลัพธ์เท่าเดิม
+              จ่ายแพงขึ้น แต่ได้ผลลัพธ์เท่าเดิม
             </p>
           </Reveal>
           <Reveal delay={0.3}>
@@ -189,7 +191,7 @@ const Index = () => (
           </div>
           <Reveal delay={0.1}>
             <h2 className="mt-8 font-display text-[40px] md:text-[64px] leading-[0.95] tracking-[-0.04em]">
-              Creative Agency<br />from Bangkok.
+              Applied Creative<br />Agency from Bangkok.
             </h2>
           </Reveal>
           <Reveal delay={0.2}>
@@ -197,8 +199,13 @@ const Index = () => (
           </Reveal>
           <Reveal delay={0.25}>
             <p className="mt-8 text-[16px] md:text-[18px] leading-[1.8] font-thai text-muted-foreground max-w-[560px]">
-              เราคือนักแก้ปัญหาที่นำความรวดเร็วแบบ <span className="font-display normal-case font-bold text-foreground">Bangkok Energy</span> มาผสานกับ <span className="font-display normal-case font-bold text-foreground">Logical Standard</span> ระดับสากล เชื่อมช่องว่างระหว่าง <span className="text-foreground font-medium">"ไอเดียที่ดูดี"</span> กับ <span className="text-foreground font-medium">"ผลลัพธ์ทางธุรกิจที่วัดผลได้"</span>
+              ØRIONS ทำหน้าที่เชื่อมช่องว่างระหว่าง <span className="text-foreground font-medium">"ไอเดียที่ดูดี"</span> กับ <span className="text-foreground font-medium">"ผลลัพธ์ที่วัดผลได้"</span> เพื่อเปลี่ยนงบประมาณที่สูญเปล่าให้เป็น Impact ที่แท้จริงของธุรกิจ
             </p>
+          </Reveal>
+          <Reveal delay={0.3}>
+            <Link to="/about" className="mt-6 inline-flex items-center gap-2 index-badge text-foreground border-b border-foreground pb-1 hover:opacity-60 transition-opacity">
+              READ MORE <ArrowUpRight className="w-4 h-4" />
+            </Link>
           </Reveal>
 
           {/* Stats */}
@@ -247,31 +254,30 @@ const Index = () => (
       </div>
     </section>
 
-    {/* 06 — THE BLUEPRINT — single horizontal row */}
+    {/* 06 — 4 STEPS TO UNSTUCK */}
     <section className="relative px-6 md:px-10 py-20 md:py-28 border-t border-foreground">
-      <SectionHeader left="06 — THE BLUEPRINT" right="6 ขั้นตอนสู่ผลลัพธ์ที่แม่นยำ" />
+      <SectionHeader left="06 — 4 STEPS TO UNSTUCK" right="จากจุดตัน สู่การเติบโตที่วัดผลได้" />
 
       <div className="mt-12 md:mt-16 max-w-[760px]">
         <Reveal>
           <h2 className="font-display text-[40px] md:text-[56px] leading-[0.95] tracking-[-0.04em]">
-            The Blueprint.
+            From stuck.<br />To unstuck.
           </h2>
         </Reveal>
         <Reveal delay={0.1}>
           <p className="mt-5 text-[15px] md:text-[16px] leading-[1.7] font-thai text-muted-foreground max-w-[520px]">
-            จากความเข้าใจปัญหาที่แท้จริง สู่การขยายผลความสำเร็จให้เติบโต
+            กระบวนการ 4 ขั้นที่เปลี่ยนปัญหาเป็นผลลัพธ์ทางธุรกิจที่จับต้องได้
           </p>
         </Reveal>
       </div>
 
-      <div className="mt-16 border-t border-foreground grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
-        {blueprint.map((s, i) => (
-          <Reveal key={i} delay={0.05 * i}>
-            <div className={`h-full p-5 md:p-6 border-b border-foreground lg:border-b-0 ${i > 0 ? "lg:border-l border-foreground" : ""} ${(i % 2 === 1) ? "border-l border-foreground lg:border-l" : ""} ${i >= 2 ? "md:border-t-0" : ""}`}>
-              <div className="font-display text-[72px] md:text-[96px] leading-[0.85] tracking-[-0.06em]">{s.l}</div>
-              <div className="mt-6 font-mono text-[11px] tracking-[0.08em] text-muted-foreground">0{i + 1} / 06</div>
-              <h3 className="mt-2 font-display text-[18px] md:text-[20px] tracking-[-0.02em]">{s.n}</h3>
-              <p className="mt-3 text-[13px] md:text-[14px] leading-[1.6] text-muted-foreground font-thai">{s.b}</p>
+      <div className="mt-16 border-t border-foreground grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+        {unstuckSteps.map((s, i) => (
+          <Reveal key={s.n} delay={0.05 * i}>
+            <div className={`h-full p-6 md:p-8 border-b border-foreground lg:border-b-0 ${i > 0 ? "lg:border-l border-foreground" : ""} ${i === 1 ? "md:border-l border-foreground" : ""} ${i === 3 ? "md:border-l border-foreground" : ""}`}>
+              <div className="font-display text-[64px] md:text-[88px] leading-[0.85] tracking-[-0.06em] text-muted-foreground">{s.n}</div>
+              <h3 className="mt-6 font-display text-[22px] md:text-[26px] tracking-[-0.02em]">{s.title}</h3>
+              <p className="mt-4 text-[14px] leading-[1.65] text-muted-foreground font-thai">{s.body}</p>
             </div>
           </Reveal>
         ))}

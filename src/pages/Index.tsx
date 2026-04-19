@@ -34,22 +34,15 @@ const Index = () => (
             ØRIONS
           </h1>
         </Reveal>
-        <Reveal delay={0.2}>
-          <div className="mt-10 flex items-center justify-center gap-4">
-            <span className="h-px w-16 divider-grad" />
-            <span className="label-mono text-foreground">APPLIED CREATIVE AGENCY</span>
-            <span className="h-px w-16 divider-grad" />
-          </div>
-        </Reveal>
         <Reveal delay={0.3}>
           <Typewriter
             texts={[
-              "Practical. Bold. Done.",
-              "Creative Engineering from Bangkok.",
-              "Applied Creative Agency.",
-              "From idea to final cut — one team, no handoff.",
+              "PRACTICAL. BOLD. DONE.",
+              "CREATIVE ENGINEERING FROM BANGKOK.",
+              "APPLIED CREATIVE AGENCY.",
+              "ONE TEAM, NO HANDOFF.",
             ]}
-            className="mt-8 font-thai text-[18px] md:text-[22px] font-light text-foreground/90"
+            className="mt-12 font-brand text-[14px] md:text-[18px] tracking-[0.08em] text-foreground/90"
           />
         </Reveal>
       </div>

@@ -237,58 +237,42 @@ const Index = () => (
       </div>
     </section>
 
-    {/* 05 — APPLIED SOLUTIONS — 4 column grid */}
-    <section className="relative px-6 md:px-10 py-20 md:py-28 border-t border-foreground">
-      <SectionHeader left="05 — APPLIED SOLUTIONS" right="สิ่งที่เราส่งมอบให้คุณ" />
-
-      <Reveal delay={0.1}>
-        <h2 className="mt-12 md:mt-16 font-display text-[40px] md:text-[64px] leading-[0.95] tracking-[-0.04em] max-w-[900px]">
-          Four practices.<br />One outcome.
-        </h2>
-      </Reveal>
-
-      <div className="mt-16 border-t border-foreground grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-        {appliedSolutions.map((s, i) => (
-          <Reveal key={s.n} delay={0.05 * i}>
-            <article className={`h-full p-6 md:p-8 border-b border-foreground lg:border-b-0 ${i > 0 ? "md:border-t-0 lg:border-l border-foreground" : "lg:border-l-0"} ${i === 1 ? "lg:border-l" : ""} ${i === 2 ? "md:border-t lg:border-t-0" : ""} ${i === 3 ? "md:border-t lg:border-t-0" : ""}`}>
-              <div className="font-mono text-[11px] tracking-[0.08em] text-muted-foreground">{s.n}</div>
-              <h3 className="mt-6 font-display text-[22px] md:text-[24px] leading-[1.1] tracking-[-0.02em]">
-                {s.title}
-              </h3>
-              <p className="mt-4 text-[14px] leading-[1.65] text-muted-foreground font-thai">
-                {s.body}
-              </p>
-            </article>
-          </Reveal>
-        ))}
+    {/* APPLIED SOLUTIONS — the offer */}
+    <section className="relative px-6 md:px-10 py-20 md:py-28 border-t border-foreground bg-foreground text-background">
+      <div className="border-t border-background pt-3 pb-3 flex items-center justify-between">
+        <span className="index-badge font-bold">APPLIED SOLUTIONS</span>
+        <span className="index-badge font-medium opacity-60 hidden sm:inline">สิ่งที่เราส่งมอบให้คุณ</span>
       </div>
-    </section>
 
-    {/* 06 — 4 STEPS TO UNSTUCK */}
-    <section className="relative px-6 md:px-10 py-20 md:py-28 border-t border-foreground">
-      <SectionHeader left="06 — 4 STEPS TO UNSTUCK" right="จากจุดตัน สู่การเติบโตที่วัดผลได้" />
-
-      <div className="mt-12 md:mt-16 max-w-[760px]">
-        <Reveal>
-          <h2 className="font-display text-[40px] md:text-[56px] leading-[0.95] tracking-[-0.04em]">
-            From stuck.<br />To unstuck.
+      <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-end">
+        <Reveal delay={0.1} className="md:col-span-8">
+          <h2 className="font-display text-[48px] md:text-[88px] leading-[0.92] tracking-[-0.04em]">
+            Four practices.<br />One outcome.
           </h2>
         </Reveal>
-        <Reveal delay={0.1}>
-          <p className="mt-5 text-[15px] md:text-[16px] leading-[1.7] font-thai text-muted-foreground max-w-[520px]">
-            กระบวนการ 4 ขั้นที่เปลี่ยนปัญหาเป็นผลลัพธ์ทางธุรกิจที่จับต้องได้
+        <Reveal delay={0.2} className="md:col-span-4">
+          <p className="text-[15px] md:text-[17px] leading-[1.7] font-thai text-background/70">
+            ครบทุกเครื่องมือที่ธุรกิจคุณต้องใช้ — ตั้งแต่กลยุทธ์จนถึงงานผลิต ภายใต้ทีมเดียว
           </p>
         </Reveal>
       </div>
 
-      <div className="mt-16 border-t border-foreground grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-        {unstuckSteps.map((s, i) => (
+      <div className="mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-background/30 border border-background/30">
+        {appliedSolutions.map((s, i) => (
           <Reveal key={s.n} delay={0.05 * i}>
-            <div className={`h-full p-6 md:p-8 border-b border-foreground lg:border-b-0 ${i > 0 ? "lg:border-l border-foreground" : ""} ${i === 1 ? "md:border-l border-foreground" : ""} ${i === 3 ? "md:border-l border-foreground" : ""}`}>
-              <div className="font-display text-[64px] md:text-[88px] leading-[0.85] tracking-[-0.06em] text-muted-foreground">{s.n}</div>
-              <h3 className="mt-6 font-display text-[22px] md:text-[26px] tracking-[-0.02em]">{s.title}</h3>
-              <p className="mt-4 text-[14px] leading-[1.65] text-muted-foreground font-thai">{s.body}</p>
-            </div>
+            <article className="group h-full p-7 md:p-9 bg-foreground text-background hover:bg-background hover:text-foreground transition-colors duration-500 flex flex-col">
+              <div className="flex items-baseline justify-between">
+                <div className="font-mono text-[11px] tracking-[0.12em] opacity-60">{s.n}</div>
+                <ArrowUpRight className="w-4 h-4 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500" />
+              </div>
+              <h3 className="mt-10 md:mt-14 font-display text-[24px] md:text-[28px] leading-[1.05] tracking-[-0.02em]">
+                {s.title}
+              </h3>
+              <div className="mt-5 hairline w-8 bg-background/40 group-hover:bg-foreground/40 transition-colors duration-500" />
+              <p className="mt-5 text-[14px] leading-[1.7] font-thai opacity-75">
+                {s.body}
+              </p>
+            </article>
           </Reveal>
         ))}
       </div>

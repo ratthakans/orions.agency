@@ -28,36 +28,9 @@ const About = () => (
       path="/about"
     />
 
-    {/* 01 — THE PROBLEM (now first) */}
+    {/* 01 — WHO WE ARE */}
     <section className="px-6 md:px-10 pt-28 md:pt-32 pb-20 md:pb-28">
-      <SectionHeader left="01 — THE PROBLEM" right="why applied matters" />
-      <div className="mt-12 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10">
-        <div className="md:col-span-8">
-          <Reveal>
-            <h2 className="font-display text-[40px] md:text-[80px] leading-[0.92] tracking-[-0.04em]">
-              Good ideas<br />are cheap.<br />
-              <span className="italic font-normal" style={{ fontFamily: "'Cutive', serif", textTransform: "none" }}>
-                Applied
-              </span>{" "}
-              ideas<br />move business.
-            </h2>
-          </Reveal>
-        </div>
-        <div className="md:col-span-4 md:pt-4">
-          <Reveal delay={0.15}>
-            <div className="border-t border-foreground pt-6">
-              <p className="text-[15px] md:text-[17px] leading-[1.7] font-thai text-muted-foreground">
-                หลายธุรกิจติดอยู่ในวงจรที่จ่ายแพงขึ้น แต่ได้ผลลัพธ์เท่าเดิม เพราะ <span className="text-foreground font-medium">'ไอเดียที่ดูดี'</span> ไม่เคยถูกแปลงเป็นระบบที่ทำงานได้จริง
-              </p>
-            </div>
-          </Reveal>
-        </div>
-      </div>
-    </section>
-
-    {/* 02 — THE APPLIED CREATIVE AGENCY (redesigned typo) */}
-    <section className="px-6 md:px-10 py-20 md:py-28 border-t border-foreground">
-      <SectionHeader left="02 — WHO WE ARE" right="bangkok · est. 2014" />
+      <SectionHeader left="WHO WE ARE" />
 
       <div className="mt-16 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-end">
         <div className="md:col-span-7">

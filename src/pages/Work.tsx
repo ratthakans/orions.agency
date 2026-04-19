@@ -58,12 +58,11 @@ const musicRow2: VideoReelItem[] = [
 ];
 
 const musicRow3: VideoReelItem[] = [
-  { tag: "Creative Cut", name: "CC · 01", body: "Creative storytelling cut", videoId: "sCjPTr0CfXc" },
-  { tag: "Creative Cut", name: "CC · 02", body: "Creative storytelling cut", videoId: "YQb_ueBfplM" },
-  { tag: "Creative Cut", name: "CC · 03", body: "Creative storytelling cut", videoId: "p4JICbYbDow" },
-  { tag: "Creative Cut", name: "CC · 04", body: "Creative storytelling cut", videoId: "ysrayxcXoF8" },
-  { tag: "Creative Cut", name: "CC · 05", body: "Creative storytelling cut", videoId: "GH-hH8PXQ5E" },
-  { tag: "Creative Cut", name: "CC · 06", body: "Creative storytelling cut", videoId: "OVU8YA9zLns" },
+  { tag: "Creative Cut", name: "CC · 01", body: "Creative storytelling cut", videoId: "LKFAtp_oxf0" },
+  { tag: "Creative Cut", name: "CC · 02", body: "Creative storytelling cut", videoId: "YBXpSXAkej4" },
+  { tag: "Creative Cut", name: "CC · 03", body: "Creative storytelling cut", videoId: "n2_rKXXzg8w" },
+  { tag: "Creative Cut", name: "CC · 04", body: "Creative storytelling cut", videoId: "IOJV7hOB-9c" },
+  { tag: "Creative Cut", name: "CC · 05", body: "Creative storytelling cut", videoId: "WFEAPxB47qc" },
 ];
 
 

@@ -281,16 +281,15 @@ const Index = () => (
         ))}
       </div>
 
-      {/* Sub-categories — always 4 columns */}
+      {/* Sub-categories: industries + storytelling = 4-col grids */}
       {[
-        { label: "Applied Creative across industries", items: worksAcrossIndustries },
-        { label: "High-Impact Digital Content", items: worksHighImpact },
-        { label: "Mastery in Storytelling", items: worksStorytelling },
-      ].map((cat, ci) => (
+        { label: "Applied Creative across industries", items: worksAcrossIndustries, ci: 1 },
+        { label: "Mastery in Storytelling", items: worksStorytelling, ci: 3 },
+      ].map((cat) => (
         <div key={cat.label} className="mt-20">
           <Reveal>
             <div className="border-t border-foreground pt-3 pb-3 flex items-center justify-between">
-              <span className="index-badge font-bold">{`0${ci + 1} / ${cat.label.toUpperCase()}`}</span>
+              <span className="index-badge font-bold">{`0${cat.ci} / ${cat.label.toUpperCase()}`}</span>
               <span className="index-badge font-medium text-muted-foreground hidden sm:inline">{cat.items.length} PROJECTS</span>
             </div>
           </Reveal>
@@ -310,6 +309,58 @@ const Index = () => (
               </Reveal>
             ))}
           </div>
+
+          {/* HIGH-IMPACT — inserted between as single big video showcase */}
+          {cat.ci === 1 && (
+            <div className="mt-20">
+              <Reveal>
+                <div className="border-t border-foreground pt-3 pb-3 flex items-center justify-between">
+                  <span className="index-badge font-bold">02 / HIGH-IMPACT DIGITAL CONTENT</span>
+                  <span className="index-badge font-medium text-muted-foreground hidden sm:inline">FEATURE REEL</span>
+                </div>
+              </Reveal>
+              <Reveal delay={0.1}>
+                <div className="mt-8 group relative bg-foreground border border-foreground overflow-hidden">
+                  <div className="relative aspect-video w-full overflow-hidden bg-surface-2">
+                    <img
+                      src={worksHighImpact[0].img}
+                      alt="High-Impact Digital Content showreel"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                    />
+                    {/* Vignette overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/20 to-transparent" />
+                    {/* Play marker */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-20 h-20 md:w-28 md:h-28 rounded-full border-2 border-background flex items-center justify-center bg-foreground/40 backdrop-blur-sm">
+                        <div
+                          className="w-0 h-0 border-y-[14px] md:border-y-[18px] border-y-transparent border-l-[22px] md:border-l-[28px] border-l-background ml-2"
+                          aria-hidden
+                        />
+                      </div>
+                    </div>
+                    {/* Bottom meta */}
+                    <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12 text-background">
+                      <div className="flex items-end justify-between gap-6">
+                        <div className="max-w-[640px]">
+                          <div className="index-badge opacity-70">SHOWREEL · 2024</div>
+                          <h3 className="mt-3 font-display text-[28px] md:text-[56px] leading-[0.95] tracking-[-0.03em]">
+                            High-Impact<br />Digital Content.
+                          </h3>
+                          <p className="mt-4 text-[14px] md:text-[16px] leading-[1.6] font-thai opacity-80 max-w-[520px]">
+                            Production คุณภาพระดับสากล — Audi, Siriraj, Leicester × Buriram และอีกมากมาย ที่ออกแบบเพื่อหยุดสายตาตั้งแต่วินาทีแรก
+                          </p>
+                        </div>
+                        <div className="hidden md:flex flex-col items-end gap-2">
+                          <ArrowUpRight className="w-8 h-8" />
+                          <span className="index-badge opacity-70">WATCH REEL</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+            </div>
+          )}
         </div>
       ))}
 
@@ -321,90 +372,75 @@ const Index = () => (
     </section>
 
 
-    {/* ØRIONS AUDIT — bold inverted hero card */}
-    <section className="relative px-6 md:px-10 py-20 md:py-28 border-t border-foreground">
-      <div className="border-t border-foreground pt-3 pb-3 flex items-center justify-between">
-        <span className="index-badge font-bold">ØRIONS AUDIT</span>
-        <span className="index-badge font-medium text-muted-foreground hidden sm:inline">FREE · LIMITED SLOTS</span>
-      </div>
-
-      <Reveal delay={0.1}>
-        <div className="mt-12 md:mt-16 relative bg-foreground text-background border border-foreground overflow-hidden">
-          <div className="flex items-center justify-between px-6 md:px-12 py-4 border-b border-background/20">
-            <span className="index-badge opacity-70">FREE DIAGNOSTIC</span>
-            <span className="index-badge opacity-70">60 MIN · NO STRINGS</span>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12">
-            <div className="lg:col-span-7 p-8 md:p-14 lg:border-r lg:border-background/20">
-              <h2 className="font-display text-[56px] md:text-[120px] leading-[0.9] tracking-[-0.05em]">
-                ØRIONS<br />Audit.<br /><span className="opacity-50">Free.</span>
-              </h2>
-              <p className="mt-10 max-w-[520px] text-[16px] md:text-[18px] leading-[1.65] font-thai opacity-85">
-                เราไม่ได้มาขอโอกาส แต่มาเพื่อชี้ <span className="opacity-100 font-bold">"จุดตาย"</span> และหา <span className="opacity-100 font-bold">"ทางรอด"</span> ให้ธุรกิจของคุณ
-              </p>
-              <Link to="/contact#audit" className="mt-12 inline-flex items-center gap-3 bg-background text-foreground px-8 py-5 index-badge hover:opacity-90 transition-opacity">
-                REQUEST YOUR AUDIT <ArrowUpRight className="w-4 h-4" />
-              </Link>
-            </div>
-
-            <ul className="lg:col-span-5 flex flex-col">
-              {[
-                { n: "01", t: "Diagnose", b: "วิเคราะห์จุดตันและจุดที่งบรั่วไหลด้วยตรรกะและข้อมูลจริง" },
-                { n: "02", t: "Roadmap", b: "แนวทางแก้ไขเบื้องต้น พร้อมลำดับความสำคัญที่ต้องลงมือ" },
-                { n: "03", t: "No Pitch", b: "ไม่มีค่าใช้จ่าย ไม่มี deck ขายของ — ตรงประเด็นเท่านั้น" },
-              ].map((it, i) => (
-                <li key={it.n} className={`p-7 md:p-10 ${i > 0 ? "border-t border-background/20" : ""} flex-1`}>
-                  <div className="flex items-baseline justify-between">
-                    <span className="index-badge opacity-60">{it.n}</span>
-                    <ArrowUpRight className="w-4 h-4 opacity-40" />
-                  </div>
-                  <div className="mt-6 font-display text-[24px] md:text-[28px] tracking-[-0.02em]">{it.t}</div>
-                  <p className="mt-3 text-[13px] md:text-[14px] leading-[1.65] font-thai opacity-75">{it.b}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="px-6 md:px-12 py-4 border-t border-background/20 text-center">
-            <span className="index-badge opacity-70">รับเฉพาะธุรกิจที่ต้องการเปลี่ยนแปลงจริง</span>
-          </div>
-        </div>
-      </Reveal>
-    </section>
-
-    {/* LET'S WORK — full-bleed editorial close */}
+    {/* CLOSING — ØRIONS AUDIT + LET'S WORK merged */}
     <section className="relative bg-foreground text-background overflow-hidden border-t border-foreground">
       <div className="px-6 md:px-10 pt-6 pb-3 flex items-center justify-between border-b border-background/20">
-        <span className="index-badge font-bold">LET'S WORK</span>
-        <span className="index-badge font-medium opacity-60">ØRIONS · BANGKOK</span>
+        <span className="index-badge font-bold">ØRIONS AUDIT × LET'S WORK</span>
+        <span className="index-badge font-medium opacity-60 hidden sm:inline">FREE · LIMITED · BANGKOK</span>
       </div>
 
       {/* Massive headline */}
       <Reveal delay={0.05}>
-        <div className="px-6 md:px-10 pt-20 md:pt-32 pb-16 md:pb-24">
+        <div className="px-6 md:px-10 pt-20 md:pt-32 pb-10 md:pb-16">
           <h2 className="font-display text-[16vw] md:text-[15vw] leading-[0.85] tracking-[-0.05em]">
             UNSTUCK<br /><span className="opacity-40">YOUR BIZ.</span>
           </h2>
-          <p className="mt-12 font-thai text-[18px] md:text-[24px] max-w-[640px] leading-[1.5] opacity-80">
+          <p className="mt-10 font-thai text-[18px] md:text-[24px] max-w-[640px] leading-[1.5] opacity-80">
             Stop guessing. Start applying. — <span className="font-bold text-background">Practical. Bold. Done.</span>
           </p>
         </div>
       </Reveal>
 
-      {/* Action row */}
+      {/* AUDIT highlight band */}
+      <div className="border-t border-background/20 grid grid-cols-1 lg:grid-cols-12">
+        <div className="lg:col-span-7 p-8 md:p-14 lg:border-r lg:border-background/20">
+          <div className="flex items-center gap-4 mb-8">
+            <span className="index-badge bg-background text-foreground px-3 py-1">FREE DIAGNOSTIC</span>
+            <span className="index-badge opacity-60">60 MIN · NO STRINGS</span>
+          </div>
+          <Reveal>
+            <h3 className="font-display text-[44px] md:text-[88px] leading-[0.9] tracking-[-0.04em]">
+              ØRIONS Audit. <span className="opacity-50">Free.</span>
+            </h3>
+          </Reveal>
+          <Reveal delay={0.15}>
+            <p className="mt-8 max-w-[560px] text-[16px] md:text-[18px] leading-[1.65] font-thai opacity-85">
+              เราไม่ได้มาขอโอกาส แต่มาเพื่อชี้ <span className="font-bold">"จุดตาย"</span> และหา <span className="font-bold">"ทางรอด"</span> ให้ธุรกิจของคุณ — รับเฉพาะธุรกิจที่ต้องการเปลี่ยนแปลงจริง
+            </p>
+          </Reveal>
+        </div>
+
+        <ul className="lg:col-span-5 flex flex-col border-t lg:border-t-0 border-background/20">
+          {[
+            { n: "01", t: "Diagnose", b: "วิเคราะห์จุดตันและจุดที่งบรั่วไหลด้วยตรรกะและข้อมูลจริง" },
+            { n: "02", t: "Roadmap", b: "แนวทางแก้ไขเบื้องต้น พร้อมลำดับความสำคัญที่ต้องลงมือ" },
+            { n: "03", t: "No Pitch", b: "ไม่มีค่าใช้จ่าย ไม่มี deck ขายของ — ตรงประเด็นเท่านั้น" },
+          ].map((it, i) => (
+            <li key={it.n} className={`p-6 md:p-8 ${i > 0 ? "border-t border-background/20" : ""} flex-1`}>
+              <div className="flex items-baseline justify-between">
+                <span className="index-badge opacity-60">{it.n}</span>
+                <ArrowUpRight className="w-4 h-4 opacity-40" />
+              </div>
+              <div className="mt-4 font-display text-[20px] md:text-[24px] tracking-[-0.02em]">{it.t}</div>
+              <p className="mt-2 text-[13px] md:text-[14px] leading-[1.65] font-thai opacity-75">{it.b}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Action row — 2 paths */}
       <div className="grid grid-cols-1 md:grid-cols-12 border-t border-background/20">
-        <Link to="/contact" className="md:col-span-7 group p-8 md:p-12 flex items-center justify-between border-b md:border-b-0 md:border-r border-background/20 hover:bg-background hover:text-foreground transition-colors">
+        <Link to="/contact#audit" className="md:col-span-7 group p-8 md:p-12 flex items-center justify-between border-b md:border-b-0 md:border-r border-background/20 hover:bg-background hover:text-foreground transition-colors">
           <div>
-            <div className="index-badge opacity-60 group-hover:opacity-100">START</div>
-            <div className="mt-3 font-display text-[28px] md:text-[44px] tracking-[-0.03em] leading-[0.95]">Start a project →</div>
+            <div className="index-badge opacity-60 group-hover:opacity-100">FREE</div>
+            <div className="mt-3 font-display text-[28px] md:text-[44px] tracking-[-0.03em] leading-[0.95]">Request your Audit →</div>
           </div>
           <ArrowUpRight className="w-8 h-8 md:w-12 md:h-12 transition-transform duration-500 group-hover:rotate-45" />
         </Link>
-        <Link to="/contact#audit" className="md:col-span-5 group p-8 md:p-12 flex items-center justify-between hover:bg-background hover:text-foreground transition-colors">
+        <Link to="/contact" className="md:col-span-5 group p-8 md:p-12 flex items-center justify-between hover:bg-background hover:text-foreground transition-colors">
           <div>
-            <div className="index-badge opacity-60 group-hover:opacity-100">FREE</div>
-            <div className="mt-3 font-display text-[24px] md:text-[32px] tracking-[-0.03em] leading-[0.95]">Get the Audit →</div>
+            <div className="index-badge opacity-60 group-hover:opacity-100">START</div>
+            <div className="mt-3 font-display text-[24px] md:text-[32px] tracking-[-0.03em] leading-[0.95]">Start a project →</div>
           </div>
           <ArrowUpRight className="w-6 h-6 md:w-8 md:h-8 transition-transform duration-500 group-hover:rotate-45" />
         </Link>
@@ -418,7 +454,7 @@ const Index = () => (
             hello@orions.agency
           </a>
         </div>
-        <div className="p-6 md:p-10 md:border-r border-background/20 border-t md:border-t-0 border-background/20">
+        <div className="p-6 md:p-10 md:border-r border-background/20 border-t md:border-t-0">
           <div className="index-badge opacity-60">PHONE</div>
           <a href="tel:+66923905464" className="mt-3 block font-display text-[16px] md:text-[18px] hover:underline">
             +66 92 390 5464

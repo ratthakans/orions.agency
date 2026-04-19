@@ -29,22 +29,29 @@ const Index = () => (
     <SEO title="ØRIONS — Sharper ideas. Clearer direction." description="Idea-led Creative Agency. We help brands cut through the noise with sharper ideas and clearer direction." path="/" />
 
     {/* HERO — Editorial cover */}
-    <section className="px-6 md:px-10 min-h-[88vh] flex flex-col items-center justify-center text-center">
-      <Reveal delay={0.05}>
-        <h1 className="font-brand text-[18vw] md:text-[14vw] leading-[0.85] tracking-[-0.05em] text-foreground">
-          ØRIONS
-        </h1>
-      </Reveal>
+    <section className="relative px-6 md:px-10 min-h-screen flex flex-col items-center justify-center text-center">
+      <div className="flex flex-col items-center justify-center">
+        <Reveal delay={0.05}>
+          <h1 className="font-brand text-[18vw] md:text-[14vw] leading-[0.85] tracking-[-0.05em] text-foreground">
+            ØRIONS
+          </h1>
+        </Reveal>
 
-      <Reveal delay={0.2}>
-        <p className="mt-8 md:mt-10 index-badge font-bold">APPLIED CREATIVE AGENCY</p>
-      </Reveal>
+        <Reveal delay={0.2}>
+          <p className="mt-8 md:mt-10 index-badge font-bold">APPLIED CREATIVE AGENCY</p>
+        </Reveal>
 
-      <Reveal delay={0.3}>
-        <p className="mt-4 font-display text-[20px] md:text-[28px] leading-[1.1] tracking-[-0.02em]">
-          "Practical. Bold. Done."
-        </p>
-      </Reveal>
+        <Reveal delay={0.3}>
+          <p className="mt-4 font-display text-[20px] md:text-[28px] leading-[1.1] tracking-[-0.02em]">
+            "Practical. Bold. Done."
+          </p>
+        </Reveal>
+      </div>
+
+      <div className="absolute bottom-8 md:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground">
+        <span className="index-badge font-medium">SCROLL</span>
+        <span className="block w-px h-10 bg-foreground/40 animate-pulse" />
+      </div>
     </section>
 
     {/* MARQUEE */}

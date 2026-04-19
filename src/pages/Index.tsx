@@ -42,7 +42,7 @@ const Index = () => (
       </Reveal>
 
       {/* Wordmark — left aligned */}
-      <div className="flex-1 flex flex-col justify-center">
+      <div className="relative flex-1 flex flex-col justify-center">
         <Reveal delay={0.05}>
           <h1 className="font-brand text-grad text-[20vw] md:text-[18vw] lg:text-[17vw] leading-[0.85] tracking-[-0.06em] text-left">
             ØRIONS
@@ -67,7 +67,7 @@ const Index = () => (
 
       {/* Bottom meta bar */}
       <Reveal delay={0.3}>
-        <div className="flex items-end justify-between border-t border-border pt-4 mt-8">
+        <div className="relative flex items-end justify-between border-t border-foreground/15 pt-4 mt-8">
           <span className="index-badge">EST. BANGKOK · 2024 · ORIONS.AGENCY</span>
           <a href="#stagnation" className="index-badge text-foreground hover:text-grad transition-colors flex items-center gap-2">
             <span>↓ NEXT — THE STAGNATION</span>

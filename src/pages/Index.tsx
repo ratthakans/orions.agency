@@ -6,7 +6,7 @@ import SectionHeader from "@/components/SectionHeader";
 import SEO from "@/components/SEO";
 import TypingLoop from "@/components/TypingLoop";
 import heroStreet from "@/assets/hero-street.jpg";
-import povCrosswalk from "@/assets/pov-crosswalk.jpg";
+import whoOrionsTeam from "@/assets/who-orions-team.jpg";
 import approachRunning from "@/assets/approach-running.jpg";
 import approachTaxi from "@/assets/approach-taxi.jpg";
 import whatVortex from "@/assets/what-vortex.jpg";

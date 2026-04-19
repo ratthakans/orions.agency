@@ -145,8 +145,8 @@ const Index = () => (
                 <div className="grid grid-cols-12 gap-4 md:gap-6 items-baseline px-2 md:px-4">
                   <div className="col-span-12 md:col-span-4">
                     <CountUp to={p.stat} prefix={p.prefix} suffix={p.suffix} decimals={p.decimals}
-                      className="font-display text-[72px] md:text-[112px] leading-[0.9] tracking-[-0.04em] block transition-transform duration-500 group-hover:-translate-y-1"
-                      suffixClassName={p.suffix === "x" ? "" : "text-[40px] md:text-[56px] tracking-normal ml-1 align-baseline text-muted-foreground group-hover:text-background/70"} />
+                      className="font-display text-[48px] md:text-[64px] leading-[0.95] tracking-[-0.03em] block transition-transform duration-500 group-hover:-translate-y-1"
+                      suffixClassName={p.suffix === "x" ? "" : "text-[24px] md:text-[30px] tracking-normal ml-1 align-baseline text-muted-foreground group-hover:text-background/70"} />
                   </div>
                   <div className="col-span-12 md:col-span-8">
                     <div className="index-badge text-foreground transition-colors duration-500 group-hover:text-background">{p.label}</div>

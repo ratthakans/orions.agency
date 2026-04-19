@@ -11,10 +11,6 @@ import SelectedWorkReel from "@/components/SelectedWorkReel";
 import VideoReel, { type VideoReelItem } from "@/components/VideoReel";
 import CTA from "@/components/CTA";
 import KineticWordmark from "@/components/KineticWordmark";
-import heroStreet from "@/assets/hero-street.webp";
-
-import approachRunning from "@/assets/approach-running.webp";
-import approachTaxi from "@/assets/approach-taxi.webp";
 import hongmove from "@/assets/hongmove.webp";
 import rtaf from "@/assets/rtaf.webp";
 import khaoyai from "@/assets/khaoyai.jpg";
@@ -22,9 +18,6 @@ import democrat from "@/assets/democrat.webp";
 import gcoo from "@/assets/gcoo.webp";
 import myhotel from "@/assets/myhotel.webp";
 import heavyOrganizer from "@/assets/heavy-organizer.webp";
-import whatVortex from "@/assets/what-vortex.jpg";
-import whatSkater from "@/assets/what-skater.jpg";
-import whatWindow from "@/assets/what-window.jpg";
 import YouTubeFacade from "@/components/YouTubeFacade";
 
 const pressures = [

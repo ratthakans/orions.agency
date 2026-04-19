@@ -280,26 +280,12 @@ const Index = () => (
     <section className="relative h-[80vh] md:h-screen w-full overflow-hidden border-t border-foreground">
       <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
         <iframe
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] h-[56.25vw] min-w-full min-h-full"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300vh] h-[168.75vw] min-w-[150%] min-h-[150%]"
           src="https://www.youtube.com/embed/u4r7Szy3uxI?autoplay=1&mute=1&loop=1&playlist=u4r7Szy3uxI&controls=0&showinfo=0&modestbranding=1&rel=0&playsinline=1&iv_load_policy=3"
           title="Mastery in Storytelling"
           allow="autoplay; encrypted-media"
           frameBorder={0}
         />
-      </div>
-      <div className="absolute inset-0 bg-foreground/65" />
-      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
-        <Reveal>
-          <h2
-            className="font-display text-background leading-[0.95] tracking-[-0.04em]"
-            style={{ fontSize: "clamp(36px, 6vw, 88px)" }}
-          >
-            Mastery in <span className="italic opacity-80">Storytelling</span>
-          </h2>
-        </Reveal>
-        <Reveal delay={0.15}>
-          <div className="mt-6 hairline w-16 bg-background/60" />
-        </Reveal>
       </div>
     </section>
 

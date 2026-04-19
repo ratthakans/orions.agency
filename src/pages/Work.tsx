@@ -191,13 +191,6 @@ const Work = () => (
     {/* COMMERCIALS — video-style hover cards */}
     <section className="px-6 md:px-10 py-20 md:py-28">
       <SectionHeader left="SOCIAL & COMMERCIALS" />
-      <div className="mt-8 max-w-[700px]">
-        <Reveal>
-          <p className="text-[15px] md:text-[17px] leading-[1.7] text-muted-foreground font-thai">
-            เราพาแนวคิดไปสู่ execution ได้จริงในงาน social-led และ commercial ที่ต้องการทั้งภาพลักษณ์และคุณภาพของการผลิต
-          </p>
-        </Reveal>
-      </div>
 
       <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-foreground border border-foreground">
         {reels.map((c, i) => (

@@ -344,51 +344,56 @@ const Index = () => (
     </section>
 
 
-    {/* 09 — ØRIONS AUDIT */}
+    {/* ØRIONS AUDIT — bold inverted hero card */}
     <section className="relative px-6 md:px-10 py-20 md:py-28 border-t border-foreground">
-      <div>
-        <div className="border-t border-foreground pt-3 pb-3 flex items-center justify-between">
-          <span className="index-badge font-bold">09 — ØRIONS AUDIT (FREE)</span>
-          <span className="index-badge font-medium opacity-60 hidden sm:inline">LIMITED · รับเฉพาะธุรกิจที่ต้องการเปลี่ยนแปลงจริง</span>
-        </div>
-
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-12 gap-10">
-          <div className="md:col-span-7">
-            <Reveal>
-              <h2 className="font-display text-[44px] md:text-[88px] leading-[0.95] tracking-[-0.04em]">
-                ØRIONS Audit.<br />Free.
-              </h2>
-            </Reveal>
-            <Reveal delay={0.15}>
-              <p className="mt-8 text-[16px] md:text-[20px] leading-[1.65] font-thai text-muted-foreground max-w-[560px]">
-                เราไม่ได้มาขอโอกาส แต่มาเพื่อชี้ <span className="text-foreground font-bold">"จุดตาย"</span> และหา <span className="text-foreground font-bold">"ทางรอด"</span> ให้ธุรกิจของคุณ
-              </p>
-            </Reveal>
-            <Reveal delay={0.25}>
-              <Link to="/contact" className="mt-10 inline-flex items-center gap-3 border border-foreground px-7 py-4 index-badge hover:bg-foreground hover:text-background transition-colors">
-                REQUEST AUDIT <ArrowUpRight className="w-4 h-4" />
-              </Link>
-            </Reveal>
-          </div>
-
-          <div className="md:col-span-5 space-y-px bg-foreground border border-foreground">
-            {[
-              { n: "01", t: "ชี้จุดตาย", b: "เราจะบอกว่าอะไรที่ขวางการเติบโตของธุรกิจคุณอยู่ พร้อมแนวทางแก้ไขเบื้องต้น" },
-              { n: "02", t: "จำกัดจำนวน", b: "รับเฉพาะธุรกิจที่ต้องการความเปลี่ยนแปลงจริงๆ เพื่อรักษาคุณภาพการวิเคราะห์สูงสุด" },
-            ].map((c, i) => (
-              <Reveal key={c.n} delay={0.2 + i * 0.1}>
-                <div className="bg-background p-6 md:p-8">
-                  <div className="flex items-baseline gap-4">
-                    <div className="font-mono text-[12px] text-muted-foreground">{c.n} /</div>
-                    <h4 className="font-display text-[16px] md:text-[18px] tracking-[0.02em]">{c.t}</h4>
-                  </div>
-                  <p className="mt-4 text-[14px] leading-[1.7] text-muted-foreground font-thai">{c.b}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
+      <div className="border-t border-foreground pt-3 pb-3 flex items-center justify-between">
+        <span className="index-badge font-bold">ØRIONS AUDIT</span>
+        <span className="index-badge font-medium text-muted-foreground hidden sm:inline">FREE · LIMITED SLOTS</span>
       </div>
+
+      <Reveal delay={0.1}>
+        <div className="mt-12 md:mt-16 relative bg-foreground text-background border border-foreground overflow-hidden">
+          <div className="flex items-center justify-between px-6 md:px-12 py-4 border-b border-background/20">
+            <span className="index-badge opacity-70">FREE DIAGNOSTIC</span>
+            <span className="index-badge opacity-70">60 MIN · NO STRINGS</span>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12">
+            <div className="lg:col-span-7 p-8 md:p-14 lg:border-r lg:border-background/20">
+              <h2 className="font-display text-[56px] md:text-[120px] leading-[0.9] tracking-[-0.05em]">
+                ØRIONS<br />Audit.<br /><span className="opacity-50">Free.</span>
+              </h2>
+              <p className="mt-10 max-w-[520px] text-[16px] md:text-[18px] leading-[1.65] font-thai opacity-85">
+                เราไม่ได้มาขอโอกาส แต่มาเพื่อชี้ <span className="opacity-100 font-bold">"จุดตาย"</span> และหา <span className="opacity-100 font-bold">"ทางรอด"</span> ให้ธุรกิจของคุณ
+              </p>
+              <Link to="/contact#audit" className="mt-12 inline-flex items-center gap-3 bg-background text-foreground px-8 py-5 index-badge hover:opacity-90 transition-opacity">
+                REQUEST YOUR AUDIT <ArrowUpRight className="w-4 h-4" />
+              </Link>
+            </div>
+
+            <ul className="lg:col-span-5 flex flex-col">
+              {[
+                { n: "01", t: "Diagnose", b: "วิเคราะห์จุดตันและจุดที่งบรั่วไหลด้วยตรรกะและข้อมูลจริง" },
+                { n: "02", t: "Roadmap", b: "แนวทางแก้ไขเบื้องต้น พร้อมลำดับความสำคัญที่ต้องลงมือ" },
+                { n: "03", t: "No Pitch", b: "ไม่มีค่าใช้จ่าย ไม่มี deck ขายของ — ตรงประเด็นเท่านั้น" },
+              ].map((it, i) => (
+                <li key={it.n} className={`p-7 md:p-10 ${i > 0 ? "border-t border-background/20" : ""} flex-1`}>
+                  <div className="flex items-baseline justify-between">
+                    <span className="index-badge opacity-60">{it.n}</span>
+                    <ArrowUpRight className="w-4 h-4 opacity-40" />
+                  </div>
+                  <div className="mt-6 font-display text-[24px] md:text-[28px] tracking-[-0.02em]">{it.t}</div>
+                  <p className="mt-3 text-[13px] md:text-[14px] leading-[1.65] font-thai opacity-75">{it.b}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="px-6 md:px-12 py-4 border-t border-background/20 text-center">
+            <span className="index-badge opacity-70">รับเฉพาะธุรกิจที่ต้องการเปลี่ยนแปลงจริง</span>
+          </div>
+        </div>
+      </Reveal>
     </section>
 
     {/* 10 — CTA */}

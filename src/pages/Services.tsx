@@ -112,9 +112,8 @@ const Services = () => (
     />
 
     <PageHero
-      eyebrow="INDEX · 01–04"
+      eyebrow="SERVICES · INDEX"
       title={<>Applied <span className="text-gradient">solutions</span>.</>}
-      subtitle="สี่ practices หนึ่ง outcome — ความชัด ที่จับต้องได้และวัดผลได้จริง"
     />
 
     <section className="px-6 md:px-10 pb-10">

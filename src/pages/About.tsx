@@ -1,5 +1,6 @@
 import { Instagram, Facebook } from "lucide-react";
 import Reveal from "@/components/Reveal";
+import PageHero from "@/components/PageHero";
 import SectionHeader from "@/components/SectionHeader";
 import CTA from "@/components/CTA";
 import SEO from "@/components/SEO";
@@ -105,18 +106,14 @@ const About = () => (
       path="/about"
     />
 
-    {/* WHO WE ARE */}
-    <section className="px-6 md:px-10 pt-28 md:pt-32 pb-24 md:pb-32">
-      <div className="mt-4">
-        <Reveal>
-          <h1 className="font-display leading-[0.86] tracking-[-0.05em]" style={{ fontSize: "clamp(56px, 11vw, 132px)" }}>
-            The <span className="text-gradient">Applied</span> Creative<br />
-            Agency<span className="text-muted-foreground">.</span>
-          </h1>
-        </Reveal>
-      </div>
+    <PageHero
+      eyebrow="ABOUT · INDEX"
+      title={<>The <span className="text-gradient">Applied</span> Creative<br />Agency<span className="text-muted-foreground">.</span></>}
+    />
 
-      <div className="mt-16 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-stretch">
+    {/* WHO WE ARE — supporting block */}
+    <section className="px-6 md:px-10 pb-24 md:pb-32">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-stretch">
         <div className="md:col-span-7">
           <Reveal delay={0.1}>
             <div className="relative aspect-[4/3] w-full overflow-hidden bg-surface">

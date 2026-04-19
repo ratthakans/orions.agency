@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import CountUp from "@/components/CountUp";
+import FlipNumber from "@/components/FlipNumber";
+import ScrollMarquee from "@/components/ScrollMarquee";
 import SectionHeader from "@/components/SectionHeader";
 import SEO from "@/components/SEO";
 import RotatingHeadline from "@/components/RotatingHeadline";
@@ -98,20 +100,11 @@ const Index = () => (
       </div>
     </section>
 
-    {/* MARQUEE */}
+    {/* MARQUEE — scroll-velocity coupled */}
     <section className="border-y border-foreground py-3 overflow-hidden">
-      <div className="marquee">
-        {[0, 1].map((k) => (
-          <div key={k} className="marquee-track" aria-hidden={k === 1}>
-            {["BRAND DIRECTION", "CREATIVE DIRECTION", "DIGITAL EXPERIENCE", "FILM & PRODUCTION", "BANGKOK ↔ WORLD"].map((w, i) => (
-              <span key={i} className="font-display text-[14px] md:text-[16px] leading-none tracking-[0.04em] flex items-center gap-12">
-                <span>{w}</span>
-                <span className="text-muted-foreground">✦</span>
-              </span>
-            ))}
-          </div>
-        ))}
-      </div>
+      <ScrollMarquee
+        items={["BRAND DIRECTION", "CREATIVE DIRECTION", "DIGITAL EXPERIENCE", "FILM & PRODUCTION", "BANGKOK ↔ WORLD"]}
+      />
     </section>
 
     {/* 03 — THE VICIOUS CYCLE */}
@@ -148,13 +141,13 @@ const Index = () => (
                   </div>
 
                   <div className="col-span-10 md:col-span-4">
-                    <CountUp
+                    <FlipNumber
                       to={p.stat}
                       prefix={p.prefix}
                       suffix={p.suffix}
                       decimals={p.decimals}
-                      className="font-display text-[64px] md:text-[88px] leading-[0.9] tracking-[-0.04em] block transition-transform duration-500 group-hover:-translate-y-1"
-                      suffixClassName={p.suffix === "x" ? "" : "text-[28px] md:text-[36px] tracking-normal ml-1 align-baseline text-muted-foreground"}
+                      className="font-display text-[64px] md:text-[88px] leading-[0.9] tracking-[-0.04em] transition-transform duration-500 group-hover:-translate-y-1"
+                      suffixClassName="text-[28px] md:text-[36px] tracking-normal ml-1 align-baseline text-muted-foreground"
                     />
                   </div>
 

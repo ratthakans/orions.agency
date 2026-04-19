@@ -11,8 +11,14 @@ const Layout = ({ children }: { children: ReactNode }) => (
     <Nav />
     <CornerMarks />
     <PageTransition />
-    <main className="flex-1 pt-7">{children}</main>
-    <Footer />
+    {/* Main wraps content above the parallax-revealed footer */}
+    <main className="flex-1 pt-7 relative z-10 bg-background">{children}</main>
+    {/* Footer sits behind, revealed as the page scrolls past — sticky reveal */}
+    <div className="relative z-0" style={{ clipPath: "polygon(0% 0, 100% 0, 100% 100%, 0 100%)" }}>
+      <div className="sticky bottom-0">
+        <Footer />
+      </div>
+    </div>
   </div>
 );
 

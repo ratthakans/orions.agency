@@ -1,9 +1,17 @@
 import { Link } from "react-router-dom";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Instagram, Facebook } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SectionHeader from "@/components/SectionHeader";
 import SEO from "@/components/SEO";
 import aboutHero from "@/assets/about-hero.jpg";
+import founderImg from "@/assets/team/founder.jpg";
+import ceoImg from "@/assets/team/ceo.jpg";
+import cdImg from "@/assets/team/creative-director.jpg";
+import creativeImg from "@/assets/team/creative.jpg";
+import pmImg from "@/assets/team/pm.jpg";
+import editorImg from "@/assets/team/editor.jpg";
+import dopImg from "@/assets/team/dop.jpg";
+import directorImg from "@/assets/team/director.jpg";
 
 const orionsSteps = [
   { letter: "O", title: "Open", body: "ทำความเข้าใจปัญหาที่แท้จริงที่ทำให้ธุรกิจนิ่ง" },
@@ -14,7 +22,80 @@ const orionsSteps = [
   { letter: "S", title: "Success", body: "วัดผลความสำเร็จและขยายผล (Scale) ให้เติบโต" },
 ];
 
+type Person = {
+  role: string;
+  name: string;
+  img: string;
+  ig: string;
+  fb: string;
+};
 
+const leadership: Person[] = [
+  { role: "Founder", name: "Ratthakan Suwanphakdee", img: founderImg, ig: "https://instagram.com/orions.bkk", fb: "https://facebook.com/orions.bkk" },
+  { role: "CEO", name: "Kanakhom Kittisakulnam", img: ceoImg, ig: "https://instagram.com/orions.bkk", fb: "https://facebook.com/orions.bkk" },
+];
+
+const crew: Person[] = [
+  { role: "Creative Director", name: "Manrut Rojrattanavichai", img: cdImg, ig: "https://instagram.com/orions.bkk", fb: "https://facebook.com/orions.bkk" },
+  { role: "Creative", name: "Akaphant Apirugpong", img: creativeImg, ig: "https://instagram.com/orions.bkk", fb: "https://facebook.com/orions.bkk" },
+  { role: "Project Manager", name: "Namfon Kamnoedklang", img: pmImg, ig: "https://instagram.com/orions.bkk", fb: "https://facebook.com/orions.bkk" },
+  { role: "Editor", name: "Achitpon Repaichit", img: editorImg, ig: "https://instagram.com/orions.bkk", fb: "https://facebook.com/orions.bkk" },
+  { role: "DOP", name: "Teerawat Singkam", img: dopImg, ig: "https://instagram.com/orions.bkk", fb: "https://facebook.com/orions.bkk" },
+  { role: "Director", name: "Niti Paladkong", img: directorImg, ig: "https://instagram.com/orions.bkk", fb: "https://facebook.com/orions.bkk" },
+];
+
+const PersonCard = ({ p, index, large = false }: { p: Person; index: number; large?: boolean }) => (
+  <Reveal delay={index * 0.04}>
+    <div className="bg-background h-full flex flex-col group">
+      <div className="relative w-full aspect-[4/5] overflow-hidden bg-surface">
+        <img
+          src={p.img}
+          alt={`${p.name} — ${p.role} at ØRIONS`}
+          loading="lazy"
+          width={768}
+          height={960}
+          className="absolute inset-0 w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-[1.02]"
+        />
+        <div className="absolute top-3 left-3 right-3 flex items-center justify-between text-background mix-blend-difference">
+          <span className="index-badge">{String(index + 1).padStart(2, "0")}</span>
+          <span className="font-mono text-[10px]">ØRIONS</span>
+        </div>
+      </div>
+      <div className="pt-5 pb-1 flex items-start justify-between gap-4">
+        <div>
+          <div className="index-badge text-muted-foreground">{p.role}</div>
+          <div
+            className={`mt-2 font-display tracking-[-0.02em] leading-[1.05] ${
+              large ? "text-[24px] md:text-[32px]" : "text-[18px] md:text-[22px]"
+            }`}
+          >
+            {p.name}
+          </div>
+        </div>
+        <div className="flex items-center gap-2 pt-1 shrink-0">
+          <a
+            href={p.ig}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`${p.name} on Instagram`}
+            className="w-8 h-8 border border-foreground flex items-center justify-center hover:bg-foreground hover:text-background transition-colors"
+          >
+            <Instagram className="w-3.5 h-3.5" />
+          </a>
+          <a
+            href={p.fb}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`${p.name} on Facebook`}
+            className="w-8 h-8 border border-foreground flex items-center justify-center hover:bg-foreground hover:text-background transition-colors"
+          >
+            <Facebook className="w-3.5 h-3.5" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </Reveal>
+);
 
 const About = () => (
   <div>
@@ -24,11 +105,9 @@ const About = () => (
       path="/about"
     />
 
-    {/* 01 — WHO WE ARE */}
+    {/* WHO WE ARE */}
     <section className="px-6 md:px-10 pt-28 md:pt-32 pb-20 md:pb-28">
-      <SectionHeader left="01 — WHO WE ARE" right="bangkok · est. 2014" />
-
-      <div className="mt-16">
+      <div className="mt-4">
         <Reveal>
           <h1 className="font-display text-[56px] md:text-[140px] leading-[0.86] tracking-[-0.05em]">
             The{" "}
@@ -57,7 +136,6 @@ const About = () => (
               />
               <div className="absolute top-4 left-4 right-4 flex items-center justify-between text-background">
                 <span className="index-badge">ØRIONS · BANGKOK</span>
-                <span className="font-mono text-[10px]">EST. 2014</span>
               </div>
             </div>
           </Reveal>
@@ -67,29 +145,25 @@ const About = () => (
           <Reveal delay={0.15}>
             <span className="index-badge text-muted-foreground">— A NOTE</span>
             <p className="mt-6 text-[16px] md:text-[19px] leading-[1.7] font-thai">
-              ØRIONS คือจุดบรรจบของ{" "}
-              <span className="font-display normal-case font-bold">Bangkok Energy</span>{" "}
-              — ความเร็วและสัญชาตญาณแบบกรุงเทพฯ และ{" "}
-              <span className="font-display normal-case font-bold">Logical Standard</span>{" "}
-              — ตรรกะและมาตรฐานระดับสากล เราปิดช่องว่างระหว่าง “ไอเดียที่ดูดีบนสไลด์” กับ “ผลลัพธ์ที่วัดได้จริงในธุรกิจ” เปลี่ยนทุกบาทของงบประมาณให้กลายเป็น Impact ที่จับต้องได้
+              ØRIONS คือจุดบรรจบของความเร็วและสัญชาตญาณแบบกรุงเทพฯ และตรรกะและมาตรฐานระดับสากล เราปิดช่องว่างระหว่าง “ไอเดียที่ดูดีบนสไลด์” กับ “ผลลัพธ์ที่วัดได้จริงในธุรกิจ” เปลี่ยนทุกบาทของงบประมาณให้กลายเป็น Impact ที่จับต้องได้
             </p>
           </Reveal>
           <Reveal delay={0.25}>
             <p className="mt-10 md:mt-0 pt-8 border-t border-foreground text-[15px] md:text-[17px] leading-[1.6] font-thai">
-              ไม่ใช่แค่คนที่คิดเป็น ไม่ใช่แค่คนที่ทำเป็น{" "}
-              <span className="font-display normal-case font-bold">แต่คือคนที่ทำให้ธุรกิจขยับได้จริง</span>
+              ไม่ใช่แค่คนคิดเป็น ไม่ใช่แค่คนทำเป็น{" "}
+              <span className="font-display normal-case font-bold">แต่คือคนที่ทำให้ธุรกิจไปต่อได้</span>
             </p>
           </Reveal>
         </div>
       </div>
     </section>
 
-    {/* 03 — O-R-I-O-N-S METHOD */}
+    {/* THE 6 METHODS */}
     <section className="px-6 md:px-10 py-20 md:py-28 bg-foreground text-background border-y border-foreground">
-      <SectionHeader left="02 — THE METHOD" right="O · R · I · O · N · S" />
+      <SectionHeader left="02 — THE METHOD" />
       <Reveal>
         <h2 className="mt-12 font-display text-[40px] md:text-[72px] leading-[0.92] tracking-[-0.03em] max-w-[900px]">
-          6 ขั้นตอน<br />สู่ผลลัพธ์ที่แม่นยำ
+          The 6 Methods
         </h2>
       </Reveal>
 
@@ -115,12 +189,10 @@ const About = () => (
       </div>
     </section>
 
-    {/* 03 — TEAM */}
+    {/* TEAM */}
     <section className="px-6 md:px-10 py-20 md:py-28">
-      <SectionHeader left="03 — THE TEAM" right="bangkok crew · 08" />
-
       <Reveal>
-        <h2 className="mt-12 font-display text-[40px] md:text-[72px] leading-[0.92] tracking-[-0.03em] max-w-[900px]">
+        <h2 className="font-display text-[40px] md:text-[72px] leading-[0.92] tracking-[-0.03em] max-w-[900px]">
           People behind<br />the{" "}
           <span
             className="italic font-normal"
@@ -133,63 +205,17 @@ const About = () => (
       </Reveal>
 
       {/* Leadership */}
-      <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-px bg-foreground border border-foreground">
-        {[
-          { role: "Founder", name: "Ratthakan Suwanphakdee", initials: "RS" },
-          { role: "CEO", name: "Kanakhom Kittisakulnam", initials: "KK" },
-        ].map((p, i) => (
-          <Reveal key={p.name} delay={i * 0.05}>
-            <div className="bg-background p-8 md:p-10 h-full flex flex-col justify-between min-h-[260px]">
-              <div className="flex items-start justify-between">
-                <span className="index-badge">{String(i + 1).padStart(2, "0")} — {p.role}</span>
-                <span className="font-mono text-[10px] text-muted-foreground">{p.initials}</span>
-              </div>
-              <div>
-                <div className="font-display text-[32px] md:text-[48px] leading-[0.95] tracking-[-0.03em]">
-                  {p.name.split(" ")[0]}
-                </div>
-                <div className="font-display text-[32px] md:text-[48px] leading-[0.95] tracking-[-0.03em] text-muted-foreground">
-                  {p.name.split(" ").slice(1).join(" ")}
-                </div>
-              </div>
-            </div>
-          </Reveal>
+      <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+        {leadership.map((p, i) => (
+          <PersonCard key={p.name} p={p} index={i} large />
         ))}
       </div>
 
       {/* Crew */}
-      <div className="mt-12">
-        <SectionHeader left="— THE CREW" right="06 specialists" />
-        <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-px bg-foreground border border-foreground">
-          {[
-            { role: "Creative Director", name: "Manrut Rojrattanavichai" },
-            { role: "Creative", name: "Akaphant Apirugpong" },
-            { role: "Project Manager", name: "Namfon Kamnoedklang" },
-            { role: "Editor", name: "Achitpon Repaichit" },
-            { role: "DOP", name: "Teerawat Singkam" },
-            { role: "Director", name: "Niti Paladkong" },
-          ].map((p, i) => {
-            const initials = p.name.split(" ").map((n) => n[0]).join("").slice(0, 2).toUpperCase();
-            return (
-              <Reveal key={p.name} delay={i * 0.04}>
-                <div className="bg-background p-6 md:p-7 h-full flex flex-col justify-between min-h-[200px] group transition-colors duration-500 hover:bg-foreground hover:text-background">
-                  <div className="flex items-center justify-between">
-                    <span className="index-badge opacity-70">{String(i + 3).padStart(2, "0")}</span>
-                    <span className="font-mono text-[10px] opacity-60">{initials}</span>
-                  </div>
-                  <div>
-                    <div className="index-badge text-muted-foreground group-hover:text-background/70 transition-colors">
-                      {p.role}
-                    </div>
-                    <div className="mt-2 font-display text-[20px] md:text-[24px] leading-[1.05] tracking-[-0.02em]">
-                      {p.name}
-                    </div>
-                  </div>
-                </div>
-              </Reveal>
-            );
-          })}
-        </div>
+      <div className="mt-16 grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-10">
+        {crew.map((p, i) => (
+          <PersonCard key={p.name} p={p} index={i + 2} />
+        ))}
       </div>
     </section>
 

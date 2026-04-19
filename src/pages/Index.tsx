@@ -71,24 +71,13 @@ const Index = () => (
       </div>
     </section>
 
-    {/* THE VICIOUS CYCLE */}
-    <section className="px-6 md:px-10 py-20 md:py-28 bg-surface border-y border-foreground">
-      <div className="max-w-[1200px] mx-auto">
-        <Reveal>
-          <blockquote className="font-thai text-[24px] md:text-[40px] leading-[1.4] font-normal text-center">
-            หลายแบรนด์ติดอยู่ใน <span className="font-display normal-case">Vicious Cycle</span> ทำงานหนักขึ้น จ่ายแพงขึ้น แต่ได้ผลลัพธ์เท่าเดิม เพราะกติกาของโลกเปลี่ยนไปแล้ว
-          </blockquote>
-        </Reveal>
-      </div>
-    </section>
-
-    {/* THE PRESSURE */}
-    <section className="px-6 md:px-10 min-h-screen flex flex-col justify-center py-20">
+    {/* THE VICIOUS CYCLE + PRESSURE */}
+    <section className="px-6 md:px-10 min-h-screen flex flex-col justify-center py-20 md:py-28 bg-surface border-y border-foreground">
       <div className="max-w-[1400px] mx-auto w-full">
         <Reveal>
-          <h2 className="font-display text-[40px] md:text-[72px] leading-[0.95] tracking-[-0.03em] font-thai text-center">
-            3 จุดตายที่กัดกินงบประมาณ
-          </h2>
+          <blockquote className="font-thai text-[24px] md:text-[40px] leading-[1.4] font-normal text-center max-w-[1100px] mx-auto">
+            หลายแบรนด์ติดอยู่ใน <span className="font-display normal-case">Vicious Cycle</span> ทำงานหนักขึ้น จ่ายแพงขึ้น แต่ได้ผลลัพธ์เท่าเดิม เพราะกติกาของโลกเปลี่ยนไปแล้ว
+          </blockquote>
         </Reveal>
 
         <div className="mt-16 md:mt-24 grid grid-cols-1 md:grid-cols-3 gap-px bg-foreground border border-foreground">

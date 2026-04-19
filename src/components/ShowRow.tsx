@@ -28,10 +28,25 @@ const buildPoster = (id: string) =>
   `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
 
 const ShowRow = ({ show, index, isLast }: Props) => {
-  const featured = show.episodes.find((e) => e.videoId) ?? show.episodes[0];
+  const firstPlayable = show.episodes.findIndex((e) => e.videoId);
+  const [activeIdx, setActiveIdx] = useState(firstPlayable >= 0 ? firstPlayable : 0);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [showAll, setShowAll] = useState(false);
+
+  const active = show.episodes[activeIdx];
   const num = String(index + 1).padStart(2, "0");
   const isOdd = index % 2 === 1;
+
+  const handleSelect = (i: number) => {
+    if (i !== activeIdx) {
+      setActiveIdx(i);
+      setIsPlaying(false);
+    }
+  };
+
+  const PREVIEW_COUNT = 5;
+  const visibleEpisodes = showAll ? show.episodes : show.episodes.slice(0, PREVIEW_COUNT);
+  const hiddenCount = show.episodes.length - PREVIEW_COUNT;
 
   return (
     <article
@@ -39,27 +54,28 @@ const ShowRow = ({ show, index, isLast }: Props) => {
         isLast ? "border-b border-foreground/15" : ""
       }`}
     >
-      {/* Featured EP poster — compact */}
+      {/* Featured EP poster */}
       <div className={`col-span-12 md:col-span-5 ${isOdd ? "md:order-2" : ""}`}>
         <div className="relative aspect-video overflow-hidden border border-foreground bg-surface-2 max-w-[460px]">
-          {featured.videoId && isPlaying ? (
+          {active.videoId && isPlaying ? (
             <iframe
-              src={buildEmbed(featured.videoId)}
-              title={`${show.name} — ${featured.label}`}
+              key={active.videoId}
+              src={buildEmbed(active.videoId)}
+              title={`${show.name} — ${active.label}`}
               allow="autoplay; encrypted-media; picture-in-picture"
               allowFullScreen
               className="absolute inset-0 w-full h-full"
             />
-          ) : featured.videoId ? (
+          ) : active.videoId ? (
             <button
               type="button"
               onClick={() => setIsPlaying(true)}
-              aria-label={`Play ${show.name}`}
+              aria-label={`Play ${show.name} ${active.label}`}
               className="absolute inset-0 w-full h-full text-left"
             >
               <img
-                src={buildPoster(featured.videoId)}
-                alt={`${show.name} ${featured.label}`}
+                src={buildPoster(active.videoId)}
+                alt={`${show.name} ${active.label}`}
                 loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
               />
@@ -69,11 +85,19 @@ const ShowRow = ({ show, index, isLast }: Props) => {
                   <Play className="w-4 h-4 ml-0.5" fill="currentColor" />
                 </div>
               </div>
+              <div className="absolute bottom-0 left-0 right-0 px-3 py-2 bg-gradient-to-t from-background/85 to-transparent">
+                <span className="font-mono text-[9px] tracking-[0.22em] uppercase text-foreground/80">
+                  {active.label}
+                </span>
+              </div>
             </button>
           ) : (
             <div className="absolute inset-0 w-full h-full flex flex-col items-center justify-center bg-surface-2">
               <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
                 Coming soon
+              </span>
+              <span className="mt-1 font-mono text-[10px] tracking-[0.22em] uppercase text-foreground/50">
+                {active.label}
               </span>
             </div>
           )}
@@ -105,7 +129,42 @@ const ShowRow = ({ show, index, isLast }: Props) => {
           {show.body}
         </p>
 
-        <div className={`mt-4 flex items-center gap-3 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground ${isOdd ? "md:justify-end" : ""}`}>
+        {/* Episode chips — small preview with show more */}
+        <div className={`mt-4 flex flex-wrap items-center gap-1.5 ${isOdd ? "md:justify-end" : ""}`}>
+          {visibleEpisodes.map((ep, i) => {
+            const isActive = i === activeIdx;
+            const playable = !!ep.videoId;
+            return (
+              <button
+                key={i}
+                type="button"
+                onClick={() => playable && handleSelect(i)}
+                disabled={!playable}
+                aria-label={`Select ${ep.label}`}
+                className={`font-mono text-[10px] tracking-[0.18em] uppercase px-2 py-1 border transition-colors ${
+                  isActive
+                    ? "border-foreground bg-foreground text-background"
+                    : playable
+                    ? "border-foreground/30 text-foreground/70 hover:border-foreground hover:text-foreground"
+                    : "border-foreground/15 text-muted-foreground/60 cursor-not-allowed"
+                }`}
+              >
+                {ep.label}
+              </button>
+            );
+          })}
+          {hiddenCount > 0 && !showAll && (
+            <button
+              type="button"
+              onClick={() => setShowAll(true)}
+              className="font-mono text-[10px] tracking-[0.18em] uppercase px-2 py-1 border border-dashed border-foreground/30 text-muted-foreground hover:text-foreground hover:border-foreground transition-colors"
+            >
+              +{hiddenCount} more
+            </button>
+          )}
+        </div>
+
+        <div className={`mt-3 flex items-center gap-3 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground ${isOdd ? "md:justify-end" : ""}`}>
           <span>{String(show.episodes.length).padStart(2, "0")} EP</span>
           <span className="block w-6 h-px bg-foreground/30" />
           <span className="inline-flex items-center gap-1.5 text-foreground/70 group-hover:text-foreground transition-colors">

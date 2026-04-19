@@ -56,10 +56,10 @@ const Footer = () => (
 
         <div>
           <div className="index-badge opacity-50 mb-6">Studio</div>
-          <p className="font-thai text-[14px] leading-[1.7] opacity-80">
-            246/8 Soi Yothinphatthana<br />
-            Bang Kapi, Bangkok 10240<br />
-            Thailand
+          <p className="font-thai text-[14px] leading-[1.7] text-background/80">
+            246/8 Soi Yothinphatthana 3<br />
+            Khlong Chan, Bang Kapi<br />
+            Bangkok 10240, Thailand
           </p>
         </div>
       </div>

@@ -274,16 +274,43 @@ const Index = () => (
         <SelectedWorkReel projects={worksAcrossIndustries} size="sm" />
       </div>
 
-      {/* Mastery in Storytelling */}
-      <div className="mt-20">
+    </section>
+
+    {/* MASTERY IN STORYTELLING — fullsize video background */}
+    <section className="relative h-[80vh] md:h-screen w-full overflow-hidden border-t border-foreground">
+      <video
+        className="absolute inset-0 w-full h-full object-cover"
+        src="https://cdn.pixabay.com/video/2024/03/15/204306-924698132_large.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        poster={heroStreet}
+      />
+      <div className="absolute inset-0 bg-foreground/55" />
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
         <Reveal>
-          <div className="border-t border-foreground pt-3 pb-3 flex items-center justify-between">
-            <span className="index-badge font-bold">MASTERY IN STORYTELLING</span>
-            <span className="index-badge font-medium text-muted-foreground hidden sm:inline">{worksStorytelling.length} PROJECTS</span>
-          </div>
+          <p className="index-badge text-background/70 font-medium">— THE CRAFT —</p>
         </Reveal>
-        <SelectedWorkReel projects={worksStorytelling} size="sm" />
+        <Reveal delay={0.1}>
+          <h2
+            className="mt-6 font-display text-background leading-[0.9] tracking-[-0.04em]"
+            style={{ fontSize: "clamp(48px, 9vw, 140px)" }}
+          >
+            Mastery in <span className="italic opacity-80">Storytelling</span>
+          </h2>
+        </Reveal>
+        <Reveal delay={0.2}>
+          <div className="mt-8 hairline w-16 bg-background/60" />
+        </Reveal>
       </div>
+    </section>
+
+    {/* SOCIAL & COMMERCIALS — video reel */}
+    <section className="relative px-6 md:px-10 py-24 md:py-32 border-t border-foreground">
+      <SectionHeader left="SOCIAL & COMMERCIALS" right="branded films · campaigns" />
+      <VideoReel items={socialCommercials} />
+
 
       <div className="mt-12 flex justify-end">
         <Link to="/work" className="inline-flex items-center gap-3 index-badge hover:opacity-60 transition-opacity">

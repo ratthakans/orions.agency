@@ -6,7 +6,9 @@ import CTA from "@/components/CTA";
 import SEO from "@/components/SEO";
 import FlipNumber from "@/components/FlipNumber";
 import ConstellationLine from "@/components/ConstellationLine";
-import whoOrionsTeam from "@/assets/who-orions-team.jpg";
+import whoOrionsTeam from "@/assets/who-orions-team.webp";
+
+const SITE_URL = "https://orions.agency";
 import founderImg from "@/assets/team/founder.jpg";
 import ceoImg from "@/assets/team/ceo.jpg";
 import cdImg from "@/assets/team/creative-director.jpg";
@@ -96,6 +98,14 @@ const About = () => (
       title="About — ØRIONS"
       description="The Applied Creative Agency from Bangkok. We bridge the gap between good ideas and measurable impact."
       path="/about"
+      schema={{
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+          { "@type": "ListItem", position: 2, name: "About", item: `${SITE_URL}/about` },
+        ],
+      }}
     />
 
     <PageHero
@@ -109,7 +119,7 @@ const About = () => (
         <div className="md:col-span-7 order-2 md:order-1">
           <Reveal>
             <div className="aspect-[4/5] md:aspect-[5/4] overflow-hidden bg-surface-2 border border-foreground">
-              <img src={whoOrionsTeam} alt="ØRIONS team in Bangkok" className="w-full h-full object-cover" />
+              <img src={whoOrionsTeam} alt="ØRIONS team in Bangkok" loading="lazy" decoding="async" className="w-full h-full object-cover" />
             </div>
           </Reveal>
           <Reveal delay={0.15}>
@@ -129,7 +139,7 @@ const About = () => (
           <Reveal delay={0.1}>
             <h2 className="mt-8 font-display h-display-md">
               Applied Creative Agency
-              <span className="block mt-3 text-[18px] md:text-[22px] tracking-[0.04em] text-muted-foreground font-mono uppercase">from Bangkok</span>
+              <span className="block mt-3 font-mono text-[14px] md:text-[16px] tracking-[0.04em] text-muted-foreground uppercase">from Bangkok</span>
             </h2>
           </Reveal>
           <Reveal delay={0.2}>
@@ -142,14 +152,14 @@ const About = () => (
           </Reveal>
 
           <Reveal delay={0.35}>
-            <div className="mt-12 border-t border-foreground pt-6 flex items-stretch divide-x divide-foreground/30">
+            <div className="mt-12 border-t border-foreground pt-6 grid grid-cols-3 gap-3 md:gap-4">
               {[
                 { v: 10, suffix: "+", l: "YEARS CRAFT" },
                 { v: 40, suffix: "+", l: "BRANDS" },
                 { v: null, suffix: "∞", l: "IDEAS APPLIED" },
               ].map((s, i) => (
-                <div key={s.l} className={`flex-1 ${i === 0 ? "pr-4" : "px-4"} ${i === 2 ? "pr-0" : ""}`}>
-                  <div className="font-display text-[32px] md:text-[44px] leading-none tracking-[-0.03em]">
+                <div key={s.l} className={i > 0 ? "border-l border-soft pl-3 md:pl-4" : ""}>
+                  <div className="num-display text-[28px] md:text-[44px]">
                     {s.v !== null ? (
                       <FlipNumber to={s.v} suffix={s.suffix} suffixClassName="ml-0.5" />
                     ) : (
@@ -167,7 +177,7 @@ const About = () => (
 
     {/* THE MEANING OF THE LINE — editorial asymmetric */}
     <section className="relative px-6 md:px-10 bg-surface overflow-hidden">
-      <div className="border-t border-foreground pt-16 md:pt-24 pb-16 md:pb-24 -mx-0">
+      <div className="border-t border-foreground py-16 md:py-24">
       {/* Decorative oversized line — top right, rotated, intentional mark */}
       <div className="pointer-events-none absolute -top-10 -right-20 select-none">
         <div
@@ -218,7 +228,7 @@ const About = () => (
                 tag: "The Connector",
                 body: (
                   <>
-                    <span className="font-display normal-case font-bold tracking-[-0.01em]">ØRIONS</span> คือคนลากเส้นสายเหล่านั้น เราไม่ได้แค่รวบรวมคนเก่ง แต่เราคือคนที่เชื่อมโยงศักยภาพมหาศาล ให้กลายเป็น <span className="italic">'ทางออก'</span> ที่มีทิศทาง
+                    <span className="font-display normal-case font-bold tracking-[-0.01em]">ØRIONS</span> คือคนลากเส้นสายเหล่านั้น เราไม่ได้แค่รวบรวมคนเก่ง แต่เราคือคนที่เชื่อมโยงศักยภาพมหาศาล ให้กลายเป็น <span className="text-foreground font-semibold">'ทางออก'</span> ที่มีทิศทาง
                   </>
                 ),
               },
@@ -227,7 +237,7 @@ const About = () => (
                 tag: "The Meaning",
                 body: (
                   <>
-                    เราเปลี่ยนแสงสว่างที่โดดเดี่ยว ให้กลายเป็น <span className="italic">'ความหมาย'</span> ที่ขับเคลื่อนธุรกิจของคุณได้จริง — ไม่ใช่แค่ภาพสวย แต่เป็น Impact ที่วัดผลได้
+                    เราเปลี่ยนแสงสว่างที่โดดเดี่ยว ให้กลายเป็น <span className="text-foreground font-semibold">'ความหมาย'</span> ที่ขับเคลื่อนธุรกิจของคุณได้จริง — ไม่ใช่แค่ภาพสวย แต่เป็น Impact ที่วัดผลได้
                   </>
                 ),
               },
@@ -242,7 +252,7 @@ const About = () => (
                       {c.tag}
                     </span>
                   </div>
-                  <p className="font-thai text-foreground/90 text-[15px] md:text-[16px] leading-[1.85]">
+                  <p className="font-thai text-foreground text-[15px] md:text-[16px] leading-[1.85]">
                     {c.body}
                   </p>
                 </div>
@@ -254,8 +264,8 @@ const About = () => (
         {/* Signature row */}
         <Reveal delay={0.35}>
           <div className="mt-12 pt-8 border-t border-foreground flex flex-col md:flex-row md:items-end justify-between gap-8">
-            <p className="font-display tracking-[-0.02em] leading-[1.15] text-[24px] md:text-[36px] max-w-[680px]">
-              หยุดเดา แล้วเริ่ม<span className="text-gradient italic"> ลากเส้น </span>ที่ถูกต้องไปกับเรา<span className="text-muted-foreground">.</span>
+            <p className="font-display tracking-[-0.02em] leading-[1.15] h-display-xs max-w-[680px]">
+              หยุดเดา แล้วเริ่ม<span className="text-gradient"> ลากเส้น </span>ที่ถูกต้องไปกับเรา<span className="text-muted-foreground">.</span>
             </p>
             <div className="md:text-right shrink-0">
               <div className="index-badge text-muted-foreground">— SIGNED</div>
@@ -307,19 +317,14 @@ const About = () => (
               <span className="absolute bottom-1 right-1 w-2 h-2 border-b border-r border-current opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
               <div className="flex items-baseline justify-between">
-                <div
-                  className="font-display text-[56px] md:text-[80px] leading-[0.85] tracking-[-0.04em] transition-all duration-500 group-hover:translate-x-1"
-                  style={{
-                    WebkitTextStroke: "0px transparent",
-                  }}
-                >
+                <div className="num-display text-[48px] md:text-[80px] transition-all duration-500 group-hover:translate-x-1">
                   <span className="inline-block group-hover:[-webkit-text-stroke:1px_currentColor] group-hover:text-transparent transition-all duration-500">
                     {s.letter}
                   </span>
                 </div>
                 <span className="index-badge opacity-60">{String(i + 1).padStart(2, "0")}</span>
               </div>
-              <h3 className="mt-8 font-display text-[18px] md:text-[22px] leading-[1] tracking-[-0.02em]">
+              <h3 className="mt-8 font-display h-display-2xs">
                 {s.title}
               </h3>
               <p className="mt-3 text-[12px] md:text-[13px] leading-[1.6] font-thai opacity-80 group-hover:opacity-100">
@@ -351,7 +356,7 @@ const About = () => (
 
       <Reveal delay={0.15}>
         <div className="mt-8 flex items-baseline gap-4 flex-wrap">
-          <span className="font-display text-[44px] md:text-[64px] leading-none tracking-[-0.03em]">
+          <span className="num-display text-[40px] md:text-[64px]">
             {String(team.length).padStart(2, "0")}
           </span>
           <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground">
@@ -383,8 +388,8 @@ const About = () => (
         </Reveal>
         <Reveal delay={0.05}>
           <h2 className="font-display h-display-sm text-balance">
-            Stop guessing.<br />
-            Start <span className="italic text-gradient">applying</span><span className="text-muted-foreground">.</span>
+            Stop guessing<span className="text-muted-foreground">.</span><br />
+            Start <span className="text-gradient">applying</span><span className="text-muted-foreground">.</span>
           </h2>
         </Reveal>
         <Reveal delay={0.2}>
@@ -396,11 +401,11 @@ const About = () => (
           </div>
         </Reveal>
         <Reveal delay={0.3}>
-          <div className="mt-10 inline-flex items-center gap-6 md:gap-8 font-mono text-[11px] md:text-[12px] tracking-[0.2em] uppercase text-muted-foreground">
+          <div className="mt-12 inline-flex items-center gap-6 md:gap-8 font-mono text-[11px] md:text-[12px] tracking-[0.2em] uppercase text-muted-foreground">
             <a href="mailto:hello@orions.agency" className="hover:text-foreground transition-colors">
               hello@orions.agency
             </a>
-            <span aria-hidden className="block w-px h-3 bg-foreground/30" />
+            <span aria-hidden className="block w-px h-3 bg-muted-foreground" />
             <a href="tel:+66923905464" className="hover:text-foreground transition-colors">
               +66 92 390 5464
             </a>

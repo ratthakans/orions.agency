@@ -18,7 +18,7 @@ const Footer = () => (
               <li key={l.to}>
                 <Link
                   to={l.to}
-                  className="inline-block bg-gradient-to-r from-[hsl(var(--accent-from))] to-[hsl(var(--accent-to))] bg-[length:0%_1px] bg-no-repeat bg-left-bottom hover:bg-[length:100%_1px] hover:text-transparent hover:bg-clip-text transition-all duration-500"
+                  className="inline-block transition-colors duration-300 hover:text-[hsl(var(--accent-to))]"
                 >
                   {l.label}
                 </Link>

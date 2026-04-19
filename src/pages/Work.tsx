@@ -54,6 +54,15 @@ const musicRow2: VideoReelItem[] = [
   { tag: "Visual Single", name: "VS · 06", body: "Creative content for music release", videoId: "i2xgZRTqK_c" },
 ];
 
+const musicRow3: VideoReelItem[] = [
+  { tag: "Creative Cut", name: "CC · 01", body: "Creative storytelling cut", videoId: "sCjPTr0CfXc" },
+  { tag: "Creative Cut", name: "CC · 02", body: "Creative storytelling cut", videoId: "YQb_ueBfplM" },
+  { tag: "Creative Cut", name: "CC · 03", body: "Creative storytelling cut", videoId: "p4JICbYbDow" },
+  { tag: "Creative Cut", name: "CC · 04", body: "Creative storytelling cut", videoId: "ysrayxcXoF8" },
+  { tag: "Creative Cut", name: "CC · 05", body: "Creative storytelling cut", videoId: "GH-hH8PXQ5E" },
+  { tag: "Creative Cut", name: "CC · 06", body: "Creative storytelling cut", videoId: "OVU8YA9zLns" },
+];
+
 
 const entertainmentShows: Show[] = [
   {
@@ -178,7 +187,7 @@ const Work = () => (
           Music &amp; <span className="italic opacity-70">Creative Content</span>
         </h2>
         <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
-          12 films · music · culture
+          18 films · music · culture
         </span>
       </div>
 
@@ -188,6 +197,9 @@ const Work = () => (
         </div>
         <div className="px-6 md:px-10">
           <VideoReel items={musicRow2} hideMeta hideControls />
+        </div>
+        <div className="px-6 md:px-10">
+          <VideoReel items={musicRow3} hideMeta hideControls />
         </div>
       </div>
     </section>

@@ -111,6 +111,27 @@ const Services = () => (
       title="Services — ØRIONS"
       description="Creative Solution, Applied Communication, Social Media Marketing, High Impact Production. Four practices, one outcome: clarity."
       path="/services"
+      schema={[
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+            { "@type": "ListItem", position: 2, name: "Services", item: `${SITE_URL}/services` },
+          ],
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          itemListElement: services.map((s, i) => ({
+            "@type": "Service",
+            position: i + 1,
+            name: s.title,
+            description: s.body,
+            provider: { "@type": "Organization", name: "ØRIONS" },
+          })),
+        },
+      ]}
     />
 
     <PageHero

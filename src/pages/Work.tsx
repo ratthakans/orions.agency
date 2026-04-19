@@ -9,13 +9,16 @@ import ShowRow, { type Show } from "@/components/ShowRow";
 
 import CTA from "@/components/CTA";
 import SEO from "@/components/SEO";
-import hongmove from "@/assets/hongmove.png";
-import rtaf from "@/assets/rtaf.jpg";
+import hongmove from "@/assets/hongmove.webp";
+import rtaf from "@/assets/rtaf.webp";
 import khaoyai from "@/assets/khaoyai.jpg";
-import democrat from "@/assets/democrat.jpg";
-import gcoo from "@/assets/gcoo.jpg";
-import myhotel from "@/assets/myhotel.png";
-import heavyOrganizer from "@/assets/heavy-organizer.jpg";
+import democrat from "@/assets/democrat.webp";
+import gcoo from "@/assets/gcoo.webp";
+import myhotel from "@/assets/myhotel.webp";
+import heavyOrganizer from "@/assets/heavy-organizer.webp";
+import YouTubeFacade from "@/components/YouTubeFacade";
+
+const SITE_URL = "https://orions.agency";
 
 const heroProjects = [
   { tag: "MOBILITY", name: "HONGMOVE", body: "เปลี่ยนความซับซ้อนให้ดูง่าย ระบบสื่อสาร Seamless สำหรับ Taxi VIP", stat: "+25%", statLabel: "CONVERSION CLARITY", img: hongmove },
@@ -117,11 +120,36 @@ const entertainmentShows: Show[] = [
 
 const Work = () => (
   <div>
-    <SEO title="Work — ØRIONS" description="Selected projects across politics, mobility, hospitality, healthcare and culture." path="/work" />
+    <SEO
+      title="Work — ØRIONS"
+      description="Selected projects across politics, mobility, hospitality, healthcare and culture."
+      path="/work"
+      schema={[
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+            { "@type": "ListItem", position: 2, name: "Work", item: `${SITE_URL}/work` },
+          ],
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          itemListElement: heroProjects.map((p, i) => ({
+            "@type": "CreativeWork",
+            position: i + 1,
+            name: p.name,
+            description: p.body,
+            genre: p.tag,
+          })),
+        },
+      ]}
+    />
 
     <PageHero
       eyebrow="WORK · INDEX"
-      title={<>Sharper <span className="text-gradient">ideas</span>.<br />Real outcomes<span className="text-muted-foreground">.</span></>}
+      title={<>Sharper <span className="text-gradient">ideas</span><span className="text-muted-foreground">.</span><br />Real outcomes<span className="text-muted-foreground">.</span></>}
     />
 
     {/* SELECTED WORK */}
@@ -139,13 +167,17 @@ const Work = () => (
     {/* MASTERY IN STORYTELLING — 21:9 cinematic video (full bleed) */}
     <section className="relative w-full overflow-hidden bg-foreground">
       <div className="relative w-full overflow-hidden" style={{ aspectRatio: "21 / 9" }}>
-        <iframe
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] h-[56.25vw] min-w-full min-h-full pointer-events-none"
-          src="https://www.youtube.com/embed/u4r7Szy3uxI?autoplay=1&mute=1&loop=1&playlist=u4r7Szy3uxI&controls=0&showinfo=0&modestbranding=1&rel=0&playsinline=1&iv_load_policy=3&disablekb=1&fs=0"
-          title="Mastery in Storytelling"
-          allow="autoplay; encrypted-media"
-          frameBorder={0}
-        />
+        <YouTubeFacade videoId="u4r7Szy3uxI" title="Mastery in Storytelling" ambient />
+      </div>
+    </section>
+
+    {/* SOCIAL & COMMERCIALS — video reel */}
+    <section className="relative px-6 md:px-10">
+      <div className="border-t border-foreground py-16 md:py-24">
+      <h2 className="font-display h-display-sm">
+        Social &amp; <span className="text-muted-foreground">Commercials</span>
+      </h2>
+      <VideoReel items={socialCommercials} />
       </div>
     </section>
 

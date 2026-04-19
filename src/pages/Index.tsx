@@ -7,6 +7,7 @@ import SEO from "@/components/SEO";
 import RotatingHeadline from "@/components/RotatingHeadline";
 import SelectedWorkReel from "@/components/SelectedWorkReel";
 import VideoReel, { type VideoReelItem } from "@/components/VideoReel";
+import CTA from "@/components/CTA";
 import heroStreet from "@/assets/hero-street.jpg";
 
 import approachRunning from "@/assets/approach-running.jpg";
@@ -67,10 +68,7 @@ const Index = () => (
     <section className="relative px-6 md:px-10 min-h-screen flex flex-col items-center justify-center text-center">
       <div className="flex flex-col items-center justify-center">
         <Reveal delay={0.05}>
-          <h1
-            className="font-brand leading-[0.85] tracking-[-0.05em] text-foreground"
-            style={{ fontSize: "clamp(72px, 16vw, 220px)" }}
-          >
+          <h1 className="font-brand h-display-xl text-foreground">
             ØRIONS
           </h1>
         </Reveal>
@@ -120,19 +118,16 @@ const Index = () => (
       <div className="max-w-[1400px] mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
         <div className="md:col-span-5 md:sticky md:top-32 md:self-start">
           <Reveal>
-            <div className="flex items-center gap-3">
-              <span className="block w-8 h-px bg-foreground" />
-              <p className="index-badge text-foreground">THE VICIOUS CYCLE</p>
-            </div>
+            <SectionHeader index="03" left="THE VICIOUS CYCLE" right="why budgets keep leaking" />
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="mt-10 md:mt-12 font-thai text-[36px] md:text-[64px] leading-[1.15] tracking-[-0.02em] font-bold text-foreground">
-              หลายธุรกิจติดอยู่ใน<br /><span className="font-extrabold">"วงจรอุบาท"</span>
+            <h2 className="mt-10 md:mt-12 font-display h-display-md text-foreground">
+              The Vicious <span className="italic">Cycle</span><span className="text-muted-foreground">.</span>
             </h2>
           </Reveal>
-          <Reveal delay={0.2}>
-            <p className="mt-8 font-thai text-[18px] md:text-[22px] leading-[1.55] text-muted-foreground max-w-[460px]">
-              จ่ายแพงขึ้น แต่ได้ผลลัพธ์เท่าเดิม
+          <Reveal delay={0.15}>
+            <p className="mt-6 font-thai text-[18px] md:text-[22px] leading-[1.55] text-foreground/80 max-w-[460px]">
+              หลายธุรกิจติดอยู่ใน<span className="font-bold">"วงจรอุบาท"</span> — จ่ายแพงขึ้น แต่ได้ผลลัพธ์เท่าเดิม
             </p>
           </Reveal>
           <Reveal delay={0.3}>
@@ -182,7 +177,7 @@ const Index = () => (
     {/* APPLIED SOLUTIONS — the offer */}
     <section className="relative px-6 md:px-10 py-24 md:py-32 border-t border-foreground bg-foreground text-background">
       <Reveal>
-        <h2 className="font-display leading-[0.92] tracking-[-0.04em]" style={{ fontSize: "clamp(40px, 6vw, 72px)" }}>
+        <h2 className="font-display h-display-md">
           Applied <span className="text-gradient">Solutions</span>.
         </h2>
       </Reveal>
@@ -236,10 +231,7 @@ const Index = () => (
 
     {/* SOCIAL & COMMERCIALS — video reel */}
     <section className="relative px-6 md:px-10 py-16 md:py-20 border-t border-foreground">
-      <h2
-        className="font-display leading-[1] tracking-[-0.02em]"
-        style={{ fontSize: "clamp(24px, 3vw, 40px)" }}
-      >
+      <h2 className="font-display h-display-sm">
         Social &amp; <span className="italic opacity-70">Commercials</span>
       </h2>
       <VideoReel items={socialCommercials} />
@@ -254,13 +246,7 @@ const Index = () => (
 
 
     {/* CLOSING — high-contrast CTA, distinct from footer */}
-    <section className="relative bg-background text-foreground border-t border-foreground px-6 md:px-10 py-28 md:py-40 overflow-hidden">
-      {/* corner marks */}
-      <span className="pointer-events-none absolute top-6 left-6 w-6 h-px bg-foreground" />
-      <span className="pointer-events-none absolute top-6 left-6 w-px h-6 bg-foreground" />
-      <span className="pointer-events-none absolute top-6 right-6 w-6 h-px bg-foreground" />
-      <span className="pointer-events-none absolute top-6 right-6 w-px h-6 bg-foreground" />
-
+    <section className="relative bg-background text-foreground border-t border-foreground px-6 md:px-10 py-24 md:py-32 overflow-hidden">
       <div className="max-w-[1400px] mx-auto">
         <Reveal>
           <div className="flex items-center gap-3">
@@ -271,32 +257,15 @@ const Index = () => (
 
         <Reveal delay={0.1}>
           <div className="mt-10 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-end">
-            <h2
-              className="md:col-span-7 font-display leading-[0.9] tracking-[-0.04em]"
-              style={{ fontSize: "clamp(36px, 6vw, 88px)" }}
-            >
+            <h2 className="md:col-span-7 font-display h-display-md">
               Stop guessing<span className="text-muted-foreground">.</span>
               <br />
               <span className="italic">Start applying</span><span className="text-muted-foreground">.</span>
             </h2>
 
             <div className="md:col-span-5 flex flex-col items-start md:items-end gap-5">
-              <Link
-                to="/contact#audit"
-                className="group relative inline-flex items-center gap-4 bg-foreground text-background pl-7 pr-5 py-5 hover:bg-background hover:text-foreground border border-foreground transition-colors duration-300"
-              >
-                <span className="font-display tracking-[-0.01em] text-[16px] md:text-[18px]">Request the Audit</span>
-                <span className="block w-px h-6 bg-background/40 group-hover:bg-foreground/40 transition-colors" />
-                <ArrowUpRight className="w-5 h-5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </Link>
-
-              <Link
-                to="/contact"
-                className="group inline-flex items-center gap-2 index-badge text-foreground hover:opacity-60 transition-opacity"
-              >
-                <span>Or start a project</span>
-                <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </Link>
+              <CTA to="/contact#audit">Request the Audit</CTA>
+              <CTA to="/contact" variant="ghost">Or start a project</CTA>
             </div>
           </div>
         </Reveal>

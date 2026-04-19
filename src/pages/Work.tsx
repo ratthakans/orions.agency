@@ -148,10 +148,7 @@ const Work = () => (
 
     {/* SOCIAL & COMMERCIALS — video reel */}
     <section className="relative px-6 md:px-10 py-16 md:py-20 border-t border-foreground">
-      <h2
-        className="font-display leading-[1] tracking-[-0.02em]"
-        style={{ fontSize: "clamp(24px, 3vw, 40px)" }}
-      >
+      <h2 className="font-display h-display-sm">
         Social &amp; <span className="italic opacity-70">Commercials</span>
       </h2>
       <VideoReel items={socialCommercials} />
@@ -160,10 +157,7 @@ const Work = () => (
     {/* ENTERTAINMENT & LONG-FORM — editorial alternating stack */}
     <section className="relative px-6 md:px-10 py-16 md:py-24 border-t border-foreground">
       <div className="flex items-end justify-between gap-6 flex-wrap">
-        <h2
-          className="font-display leading-[1] tracking-[-0.02em]"
-          style={{ fontSize: "clamp(24px, 3vw, 40px)" }}
-        >
+        <h2 className="font-display h-display-sm">
           Entertainment &amp; <span className="italic opacity-70">Long-form</span>
         </h2>
         <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
@@ -180,10 +174,7 @@ const Work = () => (
     {/* MUSIC & CREATIVE CONTENT — auto-scrolling marquees */}
     <section className="relative py-16 md:py-20 border-t border-foreground overflow-hidden">
       <div className="px-6 md:px-10 flex items-end justify-between gap-6 flex-wrap mb-8 md:mb-10">
-        <h2
-          className="font-display leading-[1] tracking-[-0.02em]"
-          style={{ fontSize: "clamp(24px, 3vw, 40px)" }}
-        >
+        <h2 className="font-display h-display-sm">
           Music &amp; <span className="italic opacity-70">Creative Content</span>
         </h2>
         <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
@@ -207,7 +198,7 @@ const Work = () => (
     {/* CTA */}
     <section className="px-6 md:px-10 py-24 md:py-32 border-t border-foreground">
       <Reveal>
-        <h2 className="font-display leading-[0.92] tracking-[-0.03em] max-w-[800px]" style={{ fontSize: "clamp(40px, 6vw, 72px)" }}>
+        <h2 className="font-display h-display-md max-w-[800px]">
           Have a project in mind?
         </h2>
       </Reveal>

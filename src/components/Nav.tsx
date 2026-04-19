@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 
 const links = [
   { label: "Services", to: "/services" },
@@ -75,7 +75,10 @@ const Nav = () => {
           className="hidden md:inline-flex group items-center gap-2 index-badge bg-foreground text-background px-4 py-2.5 hover:opacity-95 transition-opacity"
         >
           <span>Let's Talk</span>
-          <span className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 text-gradient">↗</span>
+          <span className="relative inline-flex w-3.5 h-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5">
+            <ArrowUpRight className="w-3.5 h-3.5 absolute inset-0 transition-opacity duration-300 group-hover:opacity-0" />
+            <ArrowUpRight className="w-3.5 h-3.5 absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ stroke: "url(#cta-grad)" }} />
+          </span>
         </Link>
 
         <button

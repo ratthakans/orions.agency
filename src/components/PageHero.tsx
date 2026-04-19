@@ -20,7 +20,7 @@ const PageHero = ({ eyebrow, title, subtitle, meta = "ØRIONS · BANGKOK" }: Pro
     </Reveal>
     <div className="mt-12 md:mt-16">
       <Reveal delay={0.1}>
-        <h1 className="font-display leading-[0.86] tracking-[-0.05em]" style={{ fontSize: "clamp(56px, 11vw, 132px)" }}>
+        <h1 className="font-display h-display-lg">
           {title}
         </h1>
       </Reveal>

@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
-import PageHero from "@/components/PageHero";
-import SectionHeader from "@/components/SectionHeader";
 import SEO from "@/components/SEO";
 import { toast } from "sonner";
 
@@ -22,18 +20,22 @@ const Contact = () => {
     <div>
       <SEO title="Contact — ØRIONS" description="Let's talk. We'll point out the dead-end and the way out." path="/contact" />
 
-      <PageHero
-        eyebrowNumber="01"
-        eyebrowLabel="LET'S TALK"
-        title="Tell us what's stuck."
-        subtitle="เริ่มจากการคุยสั้นๆ — เราจะฟังโจทย์ ชี้จุดตายและหาทางรอดให้คุณภายใน 60 นาที โดยไม่มีค่าใช้จ่าย"
-      />
+      <section className="px-6 md:px-10 pt-28 md:pt-32 pb-16 md:pb-24">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10">
+          <div className="md:col-span-9">
+            <Reveal>
+              <h1 className="font-display text-[48px] md:text-[96px] leading-[0.95] tracking-[-0.04em]">
+                Tell us what's stuck.
+              </h1>
+            </Reveal>
+          </div>
+        </div>
+      </section>
 
       {/* ØRIONS AUDIT — featured anchor card */}
       <section id="audit" className="px-6 md:px-10 pb-16 md:pb-24 scroll-mt-24">
-        <SectionHeader left="02 — ØRIONS AUDIT" right="free · limited" />
         <Reveal>
-          <div className="mt-12 border border-foreground bg-foreground text-background grid grid-cols-1 lg:grid-cols-12">
+          <div className="border border-foreground bg-foreground text-background grid grid-cols-1 lg:grid-cols-12">
             <div className="lg:col-span-7 p-8 md:p-12 lg:border-r lg:border-background/20">
               <div className="index-badge opacity-70">FREE DIAGNOSTIC · LIMITED SLOTS</div>
               <h2 className="mt-6 font-display text-[36px] md:text-[56px] leading-[0.95] tracking-[-0.03em]">
@@ -64,9 +66,7 @@ const Contact = () => {
       </section>
 
       <section id="inquiry" className="px-6 md:px-10 pb-20 md:pb-28 scroll-mt-24">
-        <SectionHeader left="03 — INQUIRY" right="reply within 24h" />
-
-        <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           <Reveal className="lg:col-span-7">
             <form onSubmit={submit} className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2">
               <div className="md:col-span-1">
@@ -120,14 +120,6 @@ const Contact = () => {
                 Bang Kapi, Bangkok 10240<br />
                 Thailand
               </p>
-            </div>
-            <div className="border-t border-foreground pt-6">
-              <span className="index-badge font-bold">WHAT YOU'LL GET</span>
-              <ul className="mt-5 space-y-3 text-[14px] leading-[1.6] font-thai">
-                <li className="flex gap-3"><span className="font-display text-[12px] mt-[2px]">→</span><span>วิเคราะห์จุดตันของธุรกิจคุณภายใน 60 นาที</span></li>
-                <li className="flex gap-3"><span className="font-display text-[12px] mt-[2px]">→</span><span>แนวทางแก้ไขเบื้องต้น พร้อมลำดับความสำคัญ</span></li>
-                <li className="flex gap-3"><span className="font-display text-[12px] mt-[2px]">→</span><span>รับเฉพาะธุรกิจที่ต้องการเปลี่ยนแปลงจริง</span></li>
-              </ul>
             </div>
           </Reveal>
         </div>

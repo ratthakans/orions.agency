@@ -16,7 +16,7 @@ const Nav = () => {
   useEffect(() => { setOpen(false); }, [pathname]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-sm border-b border-foreground">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-sm border-b border-soft">
       <div className="px-6 md:px-10 h-[64px] flex items-center justify-between">
         <Link to="/" className="font-brand text-[20px] md:text-[22px] tracking-[-0.02em] text-foreground">
           ØRIONS
@@ -28,7 +28,11 @@ const Nav = () => {
               key={l.to}
               to={l.to}
               className={({ isActive }) =>
-                `index-badge transition-opacity ${isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"}`
+                `index-badge relative pb-1 transition-opacity ${
+                  isActive
+                    ? "text-foreground after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-0.5 after:h-px after:bg-foreground"
+                    : "text-muted-foreground hover:text-foreground"
+                }`
               }
             >
               {l.label}

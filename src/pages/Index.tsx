@@ -5,6 +5,7 @@ import CountUp from "@/components/CountUp";
 import SectionHeader from "@/components/SectionHeader";
 import SEO from "@/components/SEO";
 import RotatingHeadline from "@/components/RotatingHeadline";
+import SelectedWorkReel from "@/components/SelectedWorkReel";
 import heroStreet from "@/assets/hero-street.jpg";
 import whoOrionsTeam from "@/assets/who-orions-team.jpg";
 import approachRunning from "@/assets/approach-running.jpg";
@@ -261,27 +262,7 @@ const Index = () => (
     <section className="relative px-6 md:px-10 py-24 md:py-32 border-t border-foreground">
       <SectionHeader left="SELECTED WORK" right="applied creative in action" />
 
-      {/* Hero projects — 3 column */}
-      <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-3 gap-px bg-foreground border border-foreground">
-        {heroProjects.map((p) => (
-          <Reveal key={p.name}>
-            <Link to="/work" className="group bg-background h-full flex flex-col">
-              <div className="aspect-[3/4] overflow-hidden bg-surface-2">
-                <img src={p.img} alt={p.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
-              </div>
-              <div className="p-6 md:p-8 flex-1 flex flex-col">
-                <div className="index-badge text-muted-foreground">{p.tag}</div>
-                <h3 className="mt-4 font-display text-[22px] md:text-[28px] leading-[1.05] tracking-[-0.02em]">{p.name}</h3>
-                <p className="mt-4 text-[14px] leading-[1.65] text-muted-foreground font-thai flex-1">{p.body}</p>
-                <div className="mt-6 pt-4 border-t border-foreground flex items-baseline justify-between">
-                  <div className="font-display text-[28px] md:text-[32px] leading-none tracking-[-0.03em]">{p.stat}</div>
-                  <div className="index-badge text-muted-foreground">{p.statLabel}</div>
-                </div>
-              </div>
-            </Link>
-          </Reveal>
-        ))}
-      </div>
+      <SelectedWorkReel projects={heroProjects} />
 
       {/* Sub-categories: industries + storytelling = 4-col grids */}
       {[

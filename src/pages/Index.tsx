@@ -25,11 +25,16 @@ const Index = () => (
   <div id="top">
     <SEO title="ØRIONS — Applied Creative Agency" description="Practical. Bold. Done. Creative Engineering from Bangkok." path="/" />
 
-    {/* HERO — Editorial split */}
+    {/* HERO — Editorial split with cinematic background */}
     <section className="relative min-h-screen flex flex-col px-6 md:px-12 pt-28 md:pt-32 pb-10 overflow-hidden">
+      {/* Cinematic background */}
+      <div className="absolute inset-0 image-overlay">
+        <img src={heroBicycle} alt="" className="absolute inset-0 w-full h-full object-cover image-warm" />
+      </div>
+
       {/* Top meta bar */}
       <Reveal>
-        <div className="flex items-center justify-between border-b border-border pb-4">
+        <div className="relative flex items-center justify-between border-b border-foreground/15 pb-4">
           <span className="index-badge">◐ INDEX 01 / 13</span>
           <span className="index-badge text-foreground/80 hidden sm:inline">APPLIED CREATIVE AGENCY</span>
           <span className="index-badge">EST. 2024 — BKK</span>

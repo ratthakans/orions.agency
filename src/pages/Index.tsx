@@ -3,33 +3,11 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import CountUp from "@/components/CountUp";
 import SEO from "@/components/SEO";
-import heroCyclist from "@/assets/deck/hero-cyclist.jpg";
-import povCrosswalk from "@/assets/deck/pov-crosswalk.jpg";
-import whatVortex from "@/assets/deck/what-vortex.jpg";
-import whatSkater from "@/assets/deck/what-skater.jpg";
-import whatWindow from "@/assets/deck/what-window.jpg";
-import unlockRunners from "@/assets/deck/unlock-runners.jpg";
-import gravityTaxi from "@/assets/deck/gravity-taxi.jpg";
 
 const pressures = [
-  { stat: 1.7, suffix: "s", decimals: 1, label: "ADHD SPAN", body: "attention สั้นลงกว่าเดิมมาก" },
-  { stat: 41, prefix: "+", suffix: "%", decimals: 0, label: "DIGITAL INFLATION", body: "ต้นทุนของการเข้าถึงลูกค้าสูงขึ้น" },
-  { stat: 4.6, suffix: "×", decimals: 1, label: "AI FLOOD", body: "content มากขึ้นจนความแตกต่างถูกกลบ" },
-];
-
-const whatWeDo = [
-  { n: "01", img: whatSkater, alt: "Skater on crosswalk", t: "วิเคราะห์ธุรกิจชัด", b: "ว่าคือใคร และควรยืนตรงไหน" },
-  { n: "02", img: whatVortex, alt: "Vortex silhouette", t: "เปลี่ยนการสื่อสาร", b: "ให้น่าสนใจ พอที่จะถูกเห็นและถูกจำ" },
-  { n: "03", img: whatWindow, alt: "Window view", t: "ให้ทุกจุดสัมผัสลูกค้า", b: "แปลเป็นผลลัพธ์ของธุรกิจ" },
-];
-
-const orionsAcronym = [
-  { l: "O", n: "Observe",     b: "อ่านสิ่งที่เกิดขึ้นจริงในตลาด พฤติกรรม และบริบทธุรกิจ" },
-  { l: "R", n: "Reframe",     b: "ตีโจทย์ใหม่ให้คม เพื่อเห็นโอกาสที่ซ่อนอยู่" },
-  { l: "I", n: "Imagine",     b: "สร้างความเป็นไปได้ใหม่ที่ตอบโจทย์ได้จริง" },
-  { l: "O", n: "Orchestrate", b: "ประกอบ solution ที่ตรงจุด และพร้อม execute" },
-  { l: "N", n: "Nurture",     b: "Refine และ optimize ให้งานดีขึ้นต่อเนื่อง" },
-  { l: "S", n: "Scale",       b: "ขยายสิ่งที่พิสูจน์แล้วว่าเวิร์กในระดับใหญ่ขึ้น" },
+  { stat: 1.7, suffix: "s", decimals: 1, label: "ATTENTION SPAN", title: "ไม่ถึง 2 วินาที", body: "คือเวลาที่คุณมีในการหยุดลูกค้า ก่อนจะถูกปัดทิ้ง" },
+  { stat: 41, prefix: "+", suffix: "%", decimals: 0, label: "DIGITAL INFLATION", title: "ค่าโฆษณาแพงขึ้น", body: "เกือบเท่าตัว แต่ประสิทธิภาพกลับสวนทาง" },
+  { stat: 4.6, suffix: "×", decimals: 1, label: "DIGITAL WASTE", title: "ขยะดิจิทัลล้นโลก", body: "งานที่ไม่มีคุณภาพถูกกลบหายไปหมด" },
 ];
 
 const SectionMeta = ({ index, total = "13", label }: { index: string; total?: string; label: string }) => (
@@ -41,60 +19,63 @@ const SectionMeta = ({ index, total = "13", label }: { index: string; total?: st
 
 const Index = () => (
   <div id="top">
-    <SEO title="ØRIONS — Idea-Led Creative Agency, Bangkok" description="Sharper ideas. Clearer direction. Creative agency for businesses that want to escape the social vicious cycle." path="/" />
+    <SEO title="ØRIONS — Applied Creative Agency" description="Practical. Bold. Done. Creative Engineering from Bangkok." path="/" />
 
-    {/* HERO */}
-    <section className="relative min-h-screen flex flex-col px-6 md:px-12 pt-28 md:pt-32 pb-10">
+    {/* HERO — Editorial split */}
+    <section className="relative min-h-screen flex flex-col px-6 md:px-12 pt-28 md:pt-32 pb-10 overflow-hidden">
+      {/* Top meta bar */}
       <Reveal>
         <div className="flex items-center justify-between border-b border-border pb-4">
           <span className="index-badge">◐ INDEX 01 / 13</span>
-          <span className="index-badge text-foreground/80 hidden sm:inline">IDEA-LED CREATIVE AGENCY</span>
-          <span className="index-badge">EST. BKK</span>
+          <span className="index-badge text-foreground/80 hidden sm:inline">APPLIED CREATIVE AGENCY</span>
+          <span className="index-badge">EST. 2024 — BKK</span>
         </div>
       </Reveal>
 
+      {/* Wordmark — left aligned */}
       <div className="flex-1 flex flex-col justify-center">
         <Reveal delay={0.05}>
-          <h1 className="font-brand text-foreground text-[22vw] md:text-[18vw] lg:text-[17vw] leading-[0.85] tracking-[-0.06em] text-left">
+          <h1 className="font-brand text-grad text-[20vw] md:text-[18vw] lg:text-[17vw] leading-[0.85] tracking-[-0.06em] text-left">
             ØRIONS
           </h1>
         </Reveal>
 
         <Reveal delay={0.2}>
           <div className="mt-10 md:mt-14 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-end">
-            <div className="md:col-span-6">
-              <p className="font-display normal-case-force italic text-[22px] md:text-[32px] font-light text-foreground leading-[1.2]">
-                Sharper ideas. <span className="text-accent">Clearer direction.</span>
+            <div className="md:col-span-5">
+              <p className="font-display normal-case-force italic text-[20px] md:text-[28px] font-light text-foreground/95 leading-[1.25]">
+                Practical. Bold. <span className="text-grad">Done.</span>
               </p>
             </div>
-            <div className="md:col-span-4 md:col-start-9">
-              <p className="text-[14px] leading-[1.7] text-muted-foreground font-thai">
-                เอเจนซีสำหรับธุรกิจที่ไม่อยากติดอยู่ใน social vicious cycle — ไอเดียที่ชัด คือทางรอด
+            <div className="md:col-span-4 md:col-start-8">
+              <p className="text-[13px] md:text-[14px] leading-[1.65] text-muted-foreground font-thai">
+                เอเจนซีสร้างสรรค์ที่นำกลยุทธ์มาแก้ปัญหาธุรกิจจริง — ไม่ใช่แค่ทำงานสวย
               </p>
             </div>
           </div>
         </Reveal>
       </div>
 
+      {/* Bottom meta bar */}
       <Reveal delay={0.3}>
         <div className="flex items-end justify-between border-t border-border pt-4 mt-8">
-          <span className="index-badge">EST. BANGKOK · ORIONS.AGENCY</span>
-          <a href="#cycle" className="index-badge text-foreground hover:text-accent transition-colors flex items-center gap-2">
-            <span>↓ NEXT — THE PRESSURE</span>
+          <span className="index-badge">EST. BANGKOK · 2024 · ORIONS.AGENCY</span>
+          <a href="#stagnation" className="index-badge text-foreground hover:text-grad transition-colors flex items-center gap-2">
+            <span>↓ NEXT — THE STAGNATION</span>
           </a>
         </div>
       </Reveal>
     </section>
 
-    {/* MARQUEE */}
-    <section className="border-y border-border py-3 overflow-hidden bg-surface">
+    {/* MARQUEE — slim divider */}
+    <section className="border-y border-border py-3 overflow-hidden">
       <div className="marquee">
         {[0, 1].map((k) => (
           <div key={k} className="marquee-track" aria-hidden={k === 1}>
-            {["BRAND DIRECTION", "CREATIVE DIRECTION", "DIGITAL EXPERIENCE", "FILM & PRODUCTION", "BANGKOK ↔ WORLD"].map((w, i) => (
+            {["STRATEGY", "COMMUNICATION", "SOCIAL", "PRODUCTION", "BRAND FILM", "APPLIED CREATIVE", "BANGKOK ↔ WORLD"].map((w, i) => (
               <span key={i} className="font-display text-[14px] md:text-[16px] leading-none tracking-[0.05em] flex items-center gap-12">
-                <span className="text-foreground/80">{w}</span>
-                <span className="text-accent">✦</span>
+                <span className="text-foreground/70">{w}</span>
+                <span className="text-grad-soft">✦</span>
               </span>
             ))}
           </div>
@@ -102,57 +83,23 @@ const Index = () => (
       </div>
     </section>
 
-    {/* THE PRESSURE — 3 Pressures */}
-    <section id="cycle" className="px-6 md:px-12 py-28 md:py-36 border-t border-border">
+    {/* THE STAGNATION — Editorial split */}
+    <section id="stagnation" className="px-6 md:px-12 py-28 md:py-36 border-t border-border">
       <div className="max-w-[1400px] mx-auto">
-        <Reveal><SectionMeta index="02" label="THE PRESSURE" /></Reveal>
-
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 mb-16">
-          <div className="md:col-span-3">
-            <Reveal>
-              <div className="font-display text-accent text-[64px] md:text-[88px] leading-[0.9] tracking-[-0.04em]">02</div>
-              <div className="mt-4 label-mono text-muted-foreground">THE PRESSURE</div>
-            </Reveal>
-          </div>
-          <div className="md:col-span-9">
-            <Reveal delay={0.1}>
-              <h2 className="font-thai font-semibold text-[28px] md:text-[44px] leading-[1.25] max-w-[820px]">
-                ธุรกิจไม่ได้สู้แค่กับคู่แข่ง<br />
-                แต่กำลังรับ <span className="text-accent">แรงกดดันพร้อมกันจาก 3 ด้าน</span>
-              </h2>
-            </Reveal>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 md:divide-x divide-border border-t border-border">
-          {pressures.map((p, i) => (
-            <Reveal key={p.label} delay={i * 0.1}>
-              <div className="md:px-10 first:md:pl-0 py-10">
-                <div className="label-mono text-muted-foreground">{p.label}</div>
-                <CountUp to={p.stat} prefix={p.prefix} suffix={p.suffix} decimals={p.decimals}
-                  className="mt-4 font-display text-accent text-[88px] md:text-[120px] leading-[0.9] tracking-[-0.05em] block" />
-                <div className="mt-6 hairline w-10" />
-                <p className="mt-6 text-[15px] leading-[1.7] text-muted-foreground font-thai max-w-[280px]">{p.body}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    {/* THE VICIOUS CYCLE */}
-    <section className="px-6 md:px-12 py-28 md:py-36 border-t border-border bg-surface">
-      <div className="max-w-[1400px] mx-auto">
-        <Reveal><SectionMeta index="03" label="THE VICIOUS CYCLE" /></Reveal>
+        <Reveal>
+          <SectionMeta index="02" label="THE STAGNATION" />
+        </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16">
           <div className="md:col-span-3">
             <Reveal>
-              <div className="font-display text-accent text-[64px] md:text-[88px] leading-[0.9] tracking-[-0.04em]">03</div>
-              <div className="mt-4 label-mono text-muted-foreground">VICIOUS CYCLE</div>
+              <div className="font-display text-grad text-[64px] md:text-[88px] leading-[0.9] tracking-[-0.04em]">
+                01
+              </div>
+              <div className="mt-4 label-mono text-muted-foreground">THE STAGNATION</div>
               <div className="mt-12 hidden md:block">
                 <div className="hairline w-12 mb-3" />
-                <p className="font-mono text-[10px] italic text-muted-foreground/80 leading-relaxed">
+                <p className="font-mono text-[10px] italic text-muted-foreground/60 leading-relaxed">
                   Source: ØRIONS<br />Industry Observation, 2025
                 </p>
               </div>
@@ -162,15 +109,16 @@ const Index = () => (
           <div className="md:col-span-9 md:border-l md:border-border md:pl-12">
             <Reveal delay={0.15}>
               <blockquote>
-                <p className="font-thai text-[24px] md:text-[40px] leading-[1.4] font-normal max-w-[820px]">
-                  <span className="text-foreground">"หลายธุรกิจกำลังติดอยู่ใน</span>{" "}
-                  <span className="text-accent italic">วงจรอุบาทว์</span>
-                  <span className="text-foreground">,</span>
+                <p className="font-thai text-[26px] md:text-[40px] leading-[1.35] font-normal max-w-[820px]">
+                  <span className="text-muted-foreground">"เมื่อวิธีเดิมมาถึง</span>{" "}
+                  <span className="text-foreground">ทางตัน</span>
+                  <span className="text-muted-foreground">,</span>
                   <br />
-                  <span className="text-muted-foreground">ทำมากขึ้น จ่ายมากขึ้น</span>
+                  <span className="text-muted-foreground">คุณต้องการไอเดียที่</span>{" "}
+                  <span className="text-grad italic">'ประยุกต์'</span>
                   <br />
-                  <span className="text-muted-foreground">งบไหลออก แต่ผลลัพธ์</span>
-                  <span className="text-foreground"> เท่าเดิม</span>
+                  <span className="text-muted-foreground">มาเพื่อแก้ปัญหา</span>
+                  <span className="text-foreground">จริง</span>
                   <span className="text-muted-foreground">"</span>
                 </p>
               </blockquote>
@@ -178,271 +126,174 @@ const Index = () => (
             <Reveal delay={0.3}>
               <div className="mt-12 flex items-center gap-4">
                 <div className="hairline w-16" />
-                <p className="label-mono text-accent">THIS IS WHERE ØRIONS BEGINS.</p>
+                <p className="label-mono text-muted-foreground">— ØRIONS MANIFESTO, 2024</p>
               </div>
+            </Reveal>
+            <Reveal delay={0.4}>
+              <p className="mt-10 max-w-[640px] text-[15px] md:text-[16px] leading-[1.75] text-muted-foreground font-thai">
+                หลายแบรนด์ติดอยู่ใน <span className="text-foreground">Vicious Cycle</span> — ทำงานหนักขึ้น จ่ายแพงขึ้น แต่ผลลัพธ์เท่าเดิม เพราะกติกาของโลกเปลี่ยนไปแล้ว<sup className="text-grad ml-0.5">¹</sup>
+              </p>
             </Reveal>
           </div>
         </div>
       </div>
     </section>
 
-    {/* WHO IS ØRIONS — Photo + Text */}
+    {/* 3 PRESSURES — Horizontal */}
+    <section className="px-6 md:px-12 py-28 md:py-36 border-t border-border bg-surface">
+      <div className="max-w-[1400px] mx-auto">
+        <Reveal><SectionMeta index="03" label="THE 3 PRESSURES" /></Reveal>
+
+        <Reveal delay={0.05}>
+          <h2 className="font-display text-[32px] md:text-[44px] leading-[1] max-w-[760px] font-thai font-medium">
+            3 จุดตายที่กัดกินงบประมาณ<sup className="text-grad ml-1 text-[16px] md:text-[20px]">²</sup>
+          </h2>
+        </Reveal>
+
+        <div className="mt-20 grid grid-cols-1 md:grid-cols-3 md:divide-x divide-border">
+          {pressures.map((p, i) => (
+            <Reveal key={p.label} delay={i * 0.1}>
+              <div className="md:px-10 first:md:pl-0 py-10 md:py-0">
+                <CountUp to={p.stat} prefix={p.prefix} suffix={p.suffix} decimals={p.decimals}
+                  className="font-display text-grad text-[88px] md:text-[120px] leading-[0.9] tracking-[-0.05em] block" />
+                <div className="mt-6 hairline w-10" />
+                <div className="mt-6 label-mono text-muted-foreground">{p.label}</div>
+                <div className="mt-2 font-display text-[18px] md:text-[20px] font-thai">{p.title}</div>
+                <p className="mt-3 text-[14px] leading-[1.7] text-muted-foreground font-thai max-w-[280px]">{p.body}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* WHO IS ØRIONS — Asymmetric */}
     <section className="px-6 md:px-12 py-28 md:py-36 border-t border-border">
       <div className="max-w-[1400px] mx-auto">
         <Reveal><SectionMeta index="04" label="WHO IS ØRIONS" /></Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
-          <Reveal className="md:col-span-7">
-            <div className="aspect-[4/5] md:aspect-[5/6] overflow-hidden">
-              <img src={heroCyclist} alt="Cyclist on cobblestone street at sunset" className="w-full h-full object-cover duotone" loading="lazy" />
-            </div>
-          </Reveal>
-
-          <div className="md:col-span-5 flex flex-col justify-center">
-            <Reveal delay={0.15}>
-              <div className="label-mono text-accent">IDEA-LED CREATIVE AGENCY</div>
-              <h2 className="mt-6 font-display text-[40px] md:text-[56px] leading-[1.05]">
-                ØRIONS
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16">
+          <div className="md:col-span-7">
+            <Reveal>
+              <h2 className="font-display italic text-[40px] md:text-[64px] leading-[1] font-light normal-case-force">
+                Creative Engineering<br />
+                <span className="text-grad">from Bangkok.</span>
               </h2>
             </Reveal>
-            <Reveal delay={0.25}>
-              <p className="mt-8 text-[17px] md:text-[19px] leading-[1.7] font-thai">
-                คือ <span className="text-accent">Creative Agency</span> สำหรับธุรกิจที่ไม่อยากติดอยู่ใน social vicious cycle
+            <Reveal delay={0.2}>
+              <p className="mt-12 max-w-[600px] text-[17px] md:text-[19px] leading-[1.7] font-thai">
+                เราคือนักแก้ปัญหาที่นำความรวดเร็วแบบ <span className="text-grad">Bangkok Energy</span> มาผสานกับ <span className="text-grad">Logical Standard</span> ระดับสากล
               </p>
-              <p className="mt-6 text-[15px] leading-[1.75] text-muted-foreground font-thai">
-                เราช่วยให้สิ่งที่คุณทำ ชัดขึ้น คมขึ้น และทำงานได้จริงขึ้น
-                ไอเดียที่ชัด คอนเทนต์ที่มีคุณภาพ และการสื่อสารที่มีกลยุทธ์ —
-                ไม่ใช่แค่ทางเลือก <span className="text-foreground italic">แต่คือทางรอด</span>
+            </Reveal>
+            <Reveal delay={0.3}>
+              <p className="mt-6 max-w-[600px] text-[14px] leading-[1.75] text-muted-foreground font-thai">
+                เราเชื่อมช่องว่างระหว่าง 'ไอเดียที่ดูดี' กับ 'ผลลัพธ์ทางธุรกิจที่วัดผลได้' เพื่อลดงบประมาณที่สูญเปล่าและสร้างผลกระทบที่แท้จริงให้กับแบรนด์
               </p>
             </Reveal>
             <Reveal delay={0.4}>
-              <Link to="/about" className="mt-10 inline-flex items-center gap-3 label-mono text-foreground border-b border-foreground/40 hover:border-accent hover:text-accent pb-1 w-fit">
+              <Link to="/about" className="mt-10 inline-flex items-center gap-3 label-mono text-foreground border-b border-border hover:border-foreground pb-1">
                 More about us <ArrowRight className="w-4 h-4" />
               </Link>
             </Reveal>
           </div>
-        </div>
-      </div>
-    </section>
 
-    {/* THE POINT OF VIEW */}
-    <section className="px-6 md:px-12 py-28 md:py-36 border-t border-border bg-surface">
-      <div className="max-w-[1400px] mx-auto">
-        <Reveal><SectionMeta index="05" label="THE POINT OF VIEW" /></Reveal>
-
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16">
-          <div className="md:col-span-5 md:order-2">
-            <Reveal>
-              <div className="aspect-[4/5] overflow-hidden">
-                <img src={povCrosswalk} alt="Busy crosswalk in warm sunlight" className="w-full h-full object-cover duotone" loading="lazy" />
-              </div>
-            </Reveal>
-          </div>
-          <div className="md:col-span-7 md:order-1 space-y-8">
-            <Reveal delay={0.1}>
-              <p className="font-thai text-[20px] md:text-[24px] leading-[1.55]">
-                <span className="text-foreground font-medium">ปัญหาของหลายธุรกิจวันนี้</span>
-                <span className="text-muted-foreground"> ไม่ใช่การทำไม่พอ แต่คือการทำมากเกินไป โดยไม่ได้ความชัดเจนกลับมา</span>
-              </p>
-            </Reveal>
+          <div className="md:col-span-5 md:pt-20">
             <Reveal delay={0.2}>
-              <p className="font-thai text-[20px] md:text-[24px] leading-[1.55]">
-                <span className="text-foreground font-medium">สิ่งที่หายไปทุกวัน</span>
-                <span className="text-muted-foreground"> ไม่ใช่แค่งบประมาณ แต่คือเวลาของทีม พลังงาน และความหมาย ที่ถูกใช้ไปกับ </span>
-                <span className="text-accent">digital waste</span>
-              </p>
-            </Reveal>
-            <Reveal delay={0.3}>
-              <p className="font-thai text-[20px] md:text-[24px] leading-[1.55]">
-                <span className="text-foreground font-medium">ØRIONS</span>
-                <span className="text-muted-foreground"> ไม่ได้เข้ามาสร้าง noise เพิ่ม แต่เข้ามาเพื่อ </span>
-                <span className="text-accent">ลด digital waste</span>
-                <span className="text-muted-foreground"> ด้วยงานที่คิดมาดี ทำมาคม</span>
-              </p>
+              <div className="border border-border p-8 md:p-10 bg-surface-2">
+                <div className="label-mono text-muted-foreground mb-6">THE FORMULA</div>
+                <div className="font-display text-[20px] md:text-[24px] leading-[1.3]">
+                  <div className="text-grad">BANGKOK</div>
+                  <div className="text-grad">ENERGY</div>
+                  <div className="my-3 text-muted-foreground text-[28px]">×</div>
+                  <div className="text-grad">LOGICAL</div>
+                  <div className="text-grad">STANDARD</div>
+                </div>
+                <div className="mt-8 hairline" />
+                <p className="mt-6 text-[12px] leading-[1.6] text-muted-foreground font-mono">
+                  EQ. ØRIONS_v.1 — established 2024
+                </p>
+              </div>
             </Reveal>
           </div>
         </div>
       </div>
     </section>
 
-    {/* WHAT WE DO */}
-    <section className="px-6 md:px-12 py-28 md:py-36 border-t border-border">
-      <div className="max-w-[1400px] mx-auto">
-        <Reveal><SectionMeta index="06" label="WHAT WE DO" /></Reveal>
-
-        <Reveal delay={0.05}>
-          <h2 className="font-display text-[36px] md:text-[56px] leading-[1.05] max-w-[900px]">
-            3 ขั้น <span className="text-accent">เปลี่ยนธุรกิจ</span><br />ให้ขยับได้จริง
-          </h2>
-        </Reveal>
-
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-          {whatWeDo.map((s, i) => (
-            <Reveal key={s.n} delay={i * 0.1}>
-              <article>
-                <div className="aspect-[4/5] overflow-hidden">
-                  <img src={s.img} alt={s.alt} className="w-full h-full object-cover duotone" loading="lazy" />
-                </div>
-                <div className="mt-6 font-display text-accent text-[44px] leading-none">{s.n}</div>
-                <h3 className="mt-4 font-thai font-semibold text-[22px] leading-[1.3]">{s.t}</h3>
-                <p className="mt-3 text-[14px] leading-[1.7] text-muted-foreground font-thai">{s.b}</p>
-              </article>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    {/* SIGNATURE APPROACHES */}
+    {/* FEATURED WORK — Asymmetric: 1 large + 2 stack */}
     <section className="px-6 md:px-12 py-28 md:py-36 border-t border-border bg-surface">
       <div className="max-w-[1400px] mx-auto">
-        <Reveal><SectionMeta index="07" label="SIGNATURE APPROACHES" /></Reveal>
-
-        <div className="space-y-24 md:space-y-32">
-          {/* 01 CREATIVE UNLOCK */}
-          <Reveal>
-            <article className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12">
-              <div className="md:col-span-5">
-                <div className="aspect-[4/5] overflow-hidden">
-                  <img src={unlockRunners} alt="Runners in field" className="w-full h-full object-cover duotone" loading="lazy" />
-                </div>
-              </div>
-              <div className="md:col-span-7 md:pl-6">
-                <div className="label-mono text-muted-foreground">01 — APPROACH</div>
-                <h3 className="mt-4 font-display text-[40px] md:text-[64px] leading-[1] tracking-[-0.04em]">
-                  CREATIVE<br /><span className="text-accent">UNLOCK</span>
-                </h3>
-                <p className="mt-8 font-thai text-[17px] leading-[1.7] max-w-[520px]">
-                  ปลดล็อกสิ่งที่ธุรกิจมีอยู่แล้ว แต่ยังสื่อสารออกมาได้ไม่เต็มที่ —
-                  ทำงานกับ <span className="text-foreground font-medium">message, flow และ value</span> เพื่อให้สิ่งที่อยู่แล้วเริ่มทำงานได้ดีขึ้นจริง
-                </p>
-                <div className="mt-10 grid grid-cols-3 gap-4 border-t border-border pt-8">
-                  {[
-                    { n: "+30%", l: "CONVERSION CLARITY" },
-                    { n: "−25%", l: "DIGITAL WASTE" },
-                    { n: "+40%", l: "ACTION RATE" },
-                  ].map((m) => (
-                    <div key={m.l}>
-                      <div className="font-display text-accent text-[28px] md:text-[36px] leading-none">{m.n}</div>
-                      <div className="mt-2 label-mono text-muted-foreground text-[9px]">{m.l}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </article>
-          </Reveal>
-
-          <div className="hairline" />
-
-          {/* 02 DEMAND GRAVITY */}
-          <Reveal>
-            <article className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12">
-              <div className="md:col-span-7 md:order-1">
-                <div className="label-mono text-muted-foreground">02 — APPROACH</div>
-                <h3 className="mt-4 font-display text-[40px] md:text-[64px] leading-[1] tracking-[-0.04em]">
-                  DEMAND<br /><span className="text-accent">GRAVITY</span>
-                </h3>
-                <p className="mt-8 font-thai text-[17px] leading-[1.7] max-w-[520px]">
-                  สร้างแรงดึงดูดให้คนอยากขยับเข้ามา ก่อนต้องซื้อ reach เพิ่ม —
-                  ทำงานกับ <span className="text-foreground font-medium">idea, system และ communication</span> เพื่อสร้าง momentum ที่ไปได้ไกลกว่า
-                </p>
-                <div className="mt-10 grid grid-cols-3 gap-4 border-t border-border pt-8">
-                  {[
-                    { n: "3×",   l: "ENGAGEMENT QUALITY" },
-                    { n: "+35%", l: "QUALIFIED RESPONSE" },
-                    { n: "−20%", l: "PAID REACH RELIANCE" },
-                  ].map((m) => (
-                    <div key={m.l}>
-                      <div className="font-display text-accent text-[28px] md:text-[36px] leading-none">{m.n}</div>
-                      <div className="mt-2 label-mono text-muted-foreground text-[9px]">{m.l}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="md:col-span-5 md:order-2">
-                <div className="aspect-[4/5] overflow-hidden">
-                  <img src={gravityTaxi} alt="Busy street with taxis" className="w-full h-full object-cover duotone" loading="lazy" />
-                </div>
-              </div>
-            </article>
-          </Reveal>
-        </div>
-
-        <p className="mt-16 text-[11px] text-muted-foreground/80 font-mono italic">
-          ตัวเลขเป็นช่วงโดยประมาณจากรูปแบบงานที่ใกล้เคียง และขึ้นอยู่กับบริบทของแต่ละโปรเจกต์
-        </p>
-      </div>
-    </section>
-
-    {/* HOW WE WORK — ORIONS PROCESS */}
-    <section className="px-6 md:px-12 py-28 md:py-36 border-t border-border">
-      <div className="max-w-[1400px] mx-auto">
-        <Reveal><SectionMeta index="08" label="HOW WE WORK" /></Reveal>
-
-        <Reveal delay={0.05}>
-          <h2 className="font-display text-[36px] md:text-[56px] leading-[1.05] max-w-[900px]">
-            THE <span className="text-accent">ØRIONS</span><br />PROCESS
-          </h2>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <p className="mt-8 max-w-[640px] text-[16px] leading-[1.7] text-muted-foreground font-thai">
-            เราไม่เริ่มจากสิ่งที่ลูกค้าขอ แต่เริ่มจากสิ่งที่ธุรกิจกำลังเจออยู่จริง —
-            กระบวนการของ ØRIONS ถูกออกแบบให้ค้นหาปัญหาที่แท้จริงก่อนเสมอ
-          </p>
-        </Reveal>
-
-        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 border-t border-l border-border">
-          {orionsAcronym.map((s, i) => (
-            <Reveal key={i} delay={i * 0.05}>
-              <div className="border-r border-b border-border p-6 md:p-8 h-full">
-                <div className="font-display text-accent text-[64px] leading-none">{s.l}</div>
-                <div className="mt-6 font-display text-[15px] tracking-[0.05em]">{s.n}</div>
-                <p className="mt-3 text-[12px] leading-[1.65] text-muted-foreground font-thai">{s.b}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    {/* HERO PROJECTS preview */}
-    <section className="px-6 md:px-12 py-28 md:py-36 border-t border-border bg-surface">
-      <div className="max-w-[1400px] mx-auto">
-        <Reveal><SectionMeta index="09" label="HERO PROJECTS" /></Reveal>
+        <Reveal><SectionMeta index="05" label="FEATURED WORK" /></Reveal>
 
         <div className="flex items-end justify-between flex-wrap gap-6 mb-16">
           <Reveal>
-            <h2 className="font-display text-[36px] md:text-[56px] leading-[1.05] max-w-[700px]">
-              Hero <span className="text-accent">Projects</span>
+            <h2 className="font-display italic text-[36px] md:text-[52px] leading-[0.95] font-light normal-case-force max-w-[700px]">
+              Applied Creative<br />in action.
             </h2>
           </Reveal>
-          <Reveal delay={0.1}>
-            <Link to="/work" className="label-mono text-muted-foreground hover:text-accent inline-flex items-center gap-2 border-b border-border pb-1">
+          <Reveal delay={0.2}>
+            <Link to="/work" className="label-mono text-muted-foreground hover:text-foreground inline-flex items-center gap-2 border-b border-border pb-1">
               All Work <ArrowRight className="w-4 h-4" />
             </Link>
           </Reveal>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border">
-          {[
-            { n: "01", name: "พรรคประชาธิปัตย์", cat: "POLITICAL CREATIVE", body: "ทำการเมืองสร้างสรรค์ผ่านกิจกรรมที่ไม่ใช่การหาเสียง", url: "democrat.or.th" },
-            { n: "02", name: "GCOO",            cat: "MOBILITY · LOCALIZATION", body: "เปิดตลาดในไทยด้วย localization และ payment gateway", url: "gcoo.io" },
-            { n: "03", name: "MY HOTEL",        cat: "HOSPITALITY TECH", body: "วางตัวเป็น first smart hotel OTA ของไทย", url: "pzentsmart.com" },
-            { n: "04", name: "HONG MOVE",       cat: "APPLIED UTILITY", body: "Taxi VIP EV ใน AOT พร้อมระบบหลายภาษา", url: "hongmove.co.th" },
-          ].map((p) => (
-            <Reveal key={p.n}>
-              <Link to="/work" className="group block bg-background p-8 md:p-10 h-full hover:bg-surface-2 transition-colors">
-                <div className="flex items-start justify-between">
-                  <div className="font-display text-accent text-[40px] leading-none">{p.n}</div>
-                  <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-accent transition-colors" />
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+          {/* Large feature */}
+          <Reveal className="md:col-span-7">
+            <Link to="/work" className="group block bg-background border border-border ring-grad-hover transition-all duration-300 h-full">
+              <div className="aspect-[4/3] bg-surface-2 relative overflow-hidden">
+                <div className="absolute inset-0 bg-grad-radial opacity-30" />
+                <div className="absolute inset-0 grain opacity-30" />
+                <div className="absolute top-6 left-6 label-mono text-foreground/60">FEATURED · 01</div>
+                <div className="absolute bottom-6 right-6">
+                  <ArrowUpRight className="w-6 h-6 text-foreground/60 group-hover:text-grad transition-colors" />
                 </div>
-                <div className="mt-8 label-mono text-muted-foreground">{p.cat}</div>
-                <h3 className="mt-3 font-thai font-semibold text-[24px] md:text-[28px] leading-[1.2]">{p.name}</h3>
-                <p className="mt-4 text-[14px] leading-[1.7] text-muted-foreground font-thai max-w-[420px]">{p.body}</p>
-                <div className="mt-8 pt-6 border-t border-border font-mono text-[11px] text-accent tracking-[0.1em]">{p.url}</div>
-              </Link>
-            </Reveal>
-          ))}
+              </div>
+              <div className="p-8 md:p-10">
+                <div className="label-mono text-grad-soft">APPLIED UTILITY</div>
+                <h3 className="mt-4 font-display text-[32px] md:text-[40px] leading-[1]">HONGMOVE</h3>
+                <p className="mt-4 text-[15px] leading-[1.7] text-muted-foreground font-thai max-w-[500px]">
+                  ระบบสื่อสาร Seamless สำหรับ Taxi VIP — เปลี่ยนความซับซ้อนให้ดูง่าย
+                </p>
+                <div className="mt-8 pt-8 border-t border-border flex items-end justify-between">
+                  <div>
+                    <div className="font-display text-grad text-[48px] md:text-[56px] leading-none">+25%</div>
+                    <div className="mt-2 label-mono text-muted-foreground">CONVERSION CLARITY</div>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </Reveal>
+
+          {/* Two stacked */}
+          <div className="md:col-span-5 grid grid-cols-1 gap-6">
+            {[
+              { name: "RTAF", category: "APPLIED IMAGE", body: "ปรับโฉมภาพลักษณ์ผ่าน High-end Production", impact: "2×", impactLabel: "ENGAGEMENT", n: "02" },
+              { name: "KHAO YAI", category: "APPLIED AESTHETIC", body: "เปลี่ยนสนามกอล์ฟดั้งเดิมสู่ประสบการณ์พรีเมียม", impact: "30%", impactLabel: "DECISION SPEED", n: "03" },
+            ].map((p, i) => (
+              <Reveal key={p.name} delay={(i + 1) * 0.1}>
+                <Link to="/work" className="group block bg-background border border-border ring-grad-hover transition-all duration-300 h-full">
+                  <div className="grid grid-cols-5 h-full">
+                    <div className="col-span-2 aspect-square bg-surface-2 relative overflow-hidden">
+                      <div className="absolute inset-0 bg-grad-radial opacity-25" />
+                      <div className="absolute top-3 left-3 label-mono text-foreground/60">FT · {p.n}</div>
+                    </div>
+                    <div className="col-span-3 p-6 flex flex-col justify-between">
+                      <div>
+                        <div className="label-mono text-grad-soft text-[10px]">{p.category}</div>
+                        <h3 className="mt-3 font-display text-[20px]">{p.name}</h3>
+                        <p className="mt-2 text-[12px] leading-[1.6] text-muted-foreground font-thai">{p.body}</p>
+                      </div>
+                      <div className="mt-4 pt-4 border-t border-border flex items-baseline gap-3">
+                        <div className="font-display text-grad text-[24px] leading-none">{p.impact}</div>
+                        <div className="label-mono text-muted-foreground text-[9px]">{p.impactLabel}</div>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -450,30 +301,48 @@ const Index = () => (
     {/* CTA */}
     <section className="px-6 md:px-12 py-28 md:py-40 border-t border-border">
       <div className="max-w-[1400px] mx-auto">
-        <Reveal><SectionMeta index="10" label="LET'S TALK" /></Reveal>
+        <Reveal><SectionMeta index="06" label="LET'S WORK" /></Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
-          <div className="md:col-span-9">
+          <div className="md:col-span-8">
             <Reveal>
-              <h2 className="font-display text-[44px] md:text-[88px] leading-[0.98] tracking-[-0.04em]">
-                <span className="text-foreground">Sharper ideas.</span><br />
-                <span className="text-accent">Clearer direction.</span>
+              <h2 className="font-display text-[40px] md:text-[80px] leading-[0.95] tracking-[-0.03em]">
+                <span className="text-muted-foreground">Your business</span><br />
+                <span className="text-muted-foreground">is stuck.</span><br />
+                <span className="text-grad">We're the unstuck.</span>
               </h2>
             </Reveal>
             <Reveal delay={0.2}>
-              <p className="mt-10 font-thai text-foreground text-[18px] md:text-[22px] max-w-[640px] leading-[1.6]">
-                ถ้าธุรกิจของคุณกำลังหาความชัดเจน — เราพร้อมเป็นทีมที่ช่วยตีโจทย์ใหม่
+              <p className="mt-10 font-display italic text-foreground text-[20px] md:text-[26px] normal-case-force">
+                Stop guessing. Start applying.
               </p>
             </Reveal>
             <Reveal delay={0.3}>
               <div className="mt-12 flex flex-wrap gap-4">
-                <Link to="/contact" className="inline-flex items-center gap-3 bg-accent-solid text-accent-foreground px-7 py-4 label-mono hover:opacity-90 transition-opacity">
-                  Let's Talk <ArrowRight className="w-4 h-4" />
+                <Link to="/contact" className="inline-flex items-center gap-3 bg-grad text-background px-7 py-4 label-mono hover:opacity-90 transition-opacity">
+                  Book Clarity Audit <ArrowRight className="w-4 h-4" />
                 </Link>
-                <Link to="/work" className="inline-flex items-center gap-3 border border-foreground/30 text-foreground px-7 py-4 label-mono hover:border-accent hover:text-accent transition-colors">
-                  See Our Work
+                <Link to="/services" className="inline-flex items-center gap-3 border border-border px-7 py-4 label-mono hover:border-foreground transition-colors">
+                  Explore Services
                 </Link>
               </div>
+            </Reveal>
+          </div>
+
+          <div className="md:col-span-4 md:border-l md:border-border md:pl-10 md:pt-4">
+            <Reveal delay={0.3}>
+              <div className="label-mono text-muted-foreground">DIRECT</div>
+              <a href="mailto:hello@orions.agency" className="mt-3 block font-display text-[18px] hover:text-grad transition-colors">
+                hello@orions.agency
+              </a>
+              <a href="tel:+66923905464" className="mt-2 block font-display text-[18px] hover:text-grad transition-colors">
+                +66 92 390 5464
+              </a>
+              <div className="mt-8 hairline" />
+              <p className="mt-6 text-[12px] font-mono text-muted-foreground/70 leading-relaxed">
+                246/8 SOI YOTHIN PATTANA 3<br />
+                BANG KAPI · BANGKOK 10240
+              </p>
             </Reveal>
           </div>
         </div>

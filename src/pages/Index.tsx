@@ -367,7 +367,7 @@ const Index = () => (
     {/* CTA */}
     <section className="px-6 md:px-10 py-20 md:py-32 bg-foreground text-background">
       <div className="border-t border-background pt-3 pb-3 flex items-center justify-between">
-        <span className="index-badge font-bold">08 — LET'S TALK</span>
+        <span className="index-badge font-bold">11 — LET'S WORK</span>
         <span className="index-badge font-medium opacity-60 hidden sm:inline">ØRIONS · BANGKOK</span>
       </div>
 
@@ -375,9 +375,14 @@ const Index = () => (
         <div className="md:col-span-8">
           <Reveal>
             <h2 className="font-display text-[44px] md:text-[88px] leading-[0.9] tracking-[-0.04em]">
-              Sharper ideas.<br />Clearer direction.<br />
-              <span className="opacity-50">Done.</span>
+              Your business<br />is stuck.<br />
+              <span className="opacity-50">We're the unstuck.</span>
             </h2>
+          </Reveal>
+          <Reveal delay={0.15}>
+            <p className="mt-8 font-thai text-[18px] md:text-[22px] text-background/70">
+              Stop guessing. Start applying.
+            </p>
           </Reveal>
           <Reveal delay={0.2}>
             <div className="mt-12 flex flex-wrap gap-4">

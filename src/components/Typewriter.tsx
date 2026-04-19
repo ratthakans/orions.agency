@@ -8,6 +8,7 @@ interface Props {
   deleteSpeed?: number;
   startDelay?: number;
   holdDuration?: number;
+  cursorClassName?: string;
 }
 
 const Typewriter = ({
@@ -18,6 +19,7 @@ const Typewriter = ({
   deleteSpeed = 40,
   startDelay = 400,
   holdDuration = 1600,
+  cursorClassName = "w-[2px] h-[1em] bg-foreground ml-1",
 }: Props) => {
   const phrases = texts && texts.length > 0 ? texts : text ? [text] : [""];
   const loop = phrases.length > 1;
@@ -62,10 +64,10 @@ const Typewriter = ({
   }, [phase, displayed, index, phrases, loop, speed, deleteSpeed, holdDuration]);
 
   return (
-    <p className={className} aria-label={phrases.join(" · ")}>
+    <span className={className} aria-label={phrases.join(" · ")}>
       {displayed}
-      <span className="inline-block w-[2px] h-[1em] bg-foreground align-middle ml-1 animate-pulse" />
-    </p>
+      <span className={`inline-block align-middle animate-pulse ${cursorClassName}`} />
+    </span>
   );
 };
 

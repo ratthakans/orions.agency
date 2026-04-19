@@ -22,35 +22,95 @@ const Index = () => (
   <div id="top">
     <SEO title="ØRIONS — Applied Creative Agency" description="Practical. Bold. Done. Creative Engineering from Bangkok." path="/" />
 
-    {/* HERO */}
-    <section className="relative min-h-screen flex items-center justify-center px-6 md:px-12 overflow-hidden">
+    {/* HERO — Editorial Studio Masthead */}
+    <section className="relative min-h-screen flex flex-col px-5 md:px-12 overflow-hidden">
       <div className="liquid-blob" aria-hidden />
-      <div className="relative z-10 text-center w-full max-w-[1400px] mx-auto pt-20">
+      <div className="grain" aria-hidden />
+
+      {/* Eyebrow row */}
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto pt-28 md:pt-36">
         <Reveal>
-          <div className="label-mono text-grad-soft mb-8">EST. BANGKOK · 2024</div>
-        </Reveal>
-        <Reveal delay={0.05}>
-          <h1 className="font-brand text-[16vw] md:text-[110px] leading-[0.88] tracking-[-0.05em] text-foreground">
-            ØRIONS
-          </h1>
-        </Reveal>
-        <Reveal delay={0.3}>
-          <Typewriter
-            texts={[
-              "PRACTICAL. BOLD. DONE.",
-              "CREATIVE ENGINEERING FROM BANGKOK.",
-              "APPLIED CREATIVE AGENCY.",
-              "ONE TEAM, NO HANDOFF.",
-            ]}
-            className="mt-12 font-brand text-[14px] md:text-[18px] tracking-[0.08em] text-foreground/90"
-          />
+          <div className="flex items-center justify-between gap-4 pb-5 border-b border-border">
+            <div className="flex items-center gap-3">
+              <span className="h-px w-8 divider-grad" />
+              <span className="label-mono text-grad-soft">APPLIED CREATIVE AGENCY</span>
+            </div>
+            <span className="label-mono text-muted-foreground hidden sm:inline">
+              BKK · 13.7°N, 100.5°E
+            </span>
+          </div>
         </Reveal>
       </div>
 
-      <div className="absolute bottom-6 left-6 md:left-12 label-mono text-muted-foreground z-10">orions.agency</div>
-      <a href="#stagnation" className="absolute bottom-6 right-6 md:right-12 flex items-center gap-2 label-mono text-muted-foreground hover:text-foreground transition-colors z-10">
-        Scroll <ChevronDown className="w-4 h-4 animate-scroll-bounce" />
-      </a>
+      {/* Main content */}
+      <div className="relative z-10 flex-1 flex items-center w-full max-w-[1400px] mx-auto py-16 md:py-20">
+        <div className="w-full">
+          <Reveal delay={0.05}>
+            <h1 className="font-brand text-[18vw] md:text-[96px] leading-[0.88] tracking-[-0.06em] text-foreground">
+              ØRIONS
+            </h1>
+          </Reveal>
+
+          <Reveal delay={0.2}>
+            <div className="mt-10 md:mt-12 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-end">
+              <h2 className="md:col-span-7 font-thai text-[20px] md:text-[28px] leading-[1.4] font-medium text-foreground/90 normal-case-force">
+                We turn <span className="text-muted-foreground">stuck brands</span> into <span className="text-grad">unstuck outcomes.</span>
+              </h2>
+              <div className="md:col-span-5 md:text-right">
+                <div className="label-mono text-muted-foreground mb-2">CURRENTLY</div>
+                <Typewriter
+                  texts={["PRACTICAL.", "BOLD.", "DONE.", "APPLIED."]}
+                  className="font-brand text-grad text-[18px] md:text-[22px] tracking-[0.04em]"
+                  cursorClassName="w-[2px] h-[0.9em] bg-grad ml-1"
+                />
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.35}>
+            <div className="mt-12 md:mt-14 flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center gap-3 bg-grad text-background px-7 py-4 font-brand text-[12px] tracking-[0.12em] hover:opacity-90 transition-opacity"
+              >
+                Book Clarity Audit <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                to="/work"
+                className="inline-flex items-center justify-center gap-3 border-grad px-7 py-4 font-brand text-[12px] tracking-[0.12em] text-foreground hover:opacity-80 transition-opacity"
+              >
+                See Work
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </div>
+
+      {/* Bottom meta strip */}
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto pb-8">
+        <Reveal delay={0.5}>
+          <div className="border-t border-border grid grid-cols-2 md:grid-cols-4">
+            {[
+              { n: "01", l: "BANGKOK" },
+              { n: "02", l: "STRATEGY + FILM" },
+              { n: "03", l: "EST. 2024" },
+            ].map((m) => (
+              <div key={m.n} className="py-5 md:py-6 px-1 border-b md:border-b-0 md:border-r border-border last:border-r-0">
+                <span className="label-mono text-muted-foreground mr-3">{m.n}</span>
+                <span className="label-mono text-foreground">{m.l}</span>
+              </div>
+            ))}
+            <a
+              href="#stagnation"
+              className="py-5 md:py-6 px-1 flex items-center gap-3 label-mono text-muted-foreground hover:text-foreground transition-colors group"
+            >
+              <span className="text-grad-soft">04</span>
+              <span>SCROLL</span>
+              <ChevronDown className="w-3.5 h-3.5 ml-auto md:ml-2 animate-scroll-bounce group-hover:text-foreground" />
+            </a>
+          </div>
+        </Reveal>
+      </div>
     </section>
 
     {/* MARQUEE */}

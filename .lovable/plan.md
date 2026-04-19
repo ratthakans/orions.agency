@@ -1,110 +1,107 @@
 
-# Full Site Review — Design, Consistency, Creative Agency Polish
 
-## Findings by Page
+# ØRIONS Website — Full Review & Recommendations
 
-### 1. Typography inconsistency (sitewide)
-- Heading sizes scale inconsistently: Home hero `110px`, About `56px italic`, Services `48px`, Work/Contact different again. No clear type scale.
-- Mixing `font-display italic` (About, Work, Services, Contact heroes) with `font-display` uppercase elsewhere creates two competing voices.
-- Body text alternates between `text-[15px]`, `text-[17px]`, `text-[20px]` with different leading. Thai text needs consistent `font-thai` treatment.
-- Section labels (`SectionLabel`) work well but numbering restarts per page — fine, but visual rhythm is broken by inconsistent margins (`mt-8`, `mt-10`, `mt-12`).
+## Critical Bugs (P0)
 
-### 2. Home (`/`)
-- Hero is strong but the section after marquee → STAGNATION → 3 PRESSURES → WHO → FEATURED → CTA is **6 heavy sections** with nearly identical padding (`py-28 md:py-40`) — feels monotonous.
-- 3 PRESSURES uses fake-feeling stats ("1.7s attention span", "+41% inflation", "4.6x waste") with a "Source: ØRIONS Industry Observation" disclaimer — reads as filler. A real agency would either cite real sources or remove.
-- Featured Work cards show **only gradient placeholders** — no actual imagery. Looks unfinished.
-- CTA headline "Your business is stuck / We're the unstuck" is awkward English.
+### 1. Project images are broken / not rendering
+The project cards on `/projects` and the homepage Projects section are completely invisible. The 6 `.jpg` files in `src/assets/projects/` appear to have been generated as binary but may be invalid or empty. The grid renders but shows nothing — no images, no text, no cards at all. This is the most critical issue.
 
-### 3. Services (`/services`)
-- Good structure (4 services with what/how/deliverables/outcomes) but very text-heavy and visually flat — long vertical scroll of similar blocks.
-- No visual differentiation between services (no icon, no number, no signature color/treatment per service).
+**Fix**: Re-generate all 6 project images using proper Unsplash URLs as fallbacks, or use placeholder images from a reliable CDN (e.g. `picsum.photos` or `unsplash` URLs) until real images are ready.
 
-### 4. Work (`/work`)
-- All project cards likely use the same `bg-grad-radial` placeholder — no real imagery, no hierarchy (no "featured" project larger than others).
-- Missing: filter/category, year, client name treatment.
+### 2. YouTube iframe "Sign in" overlay still bleeding through Hero
+The YouTube play button avatar and "Sign in" link are clearly visible through the `bg-background/90` overlay on the homepage hero. Despite the previous fix increasing opacity to 90%, YouTube's UI elements still show.
 
-### 5. About (`/about`)
-- Italic display headings clash with the uppercase Unbounded used elsewhere.
-- "ØRIONS Formula" likely needs more visual weight.
-- No team, no process diagram, no founding story beat — feels thin for an agency About page.
-
-### 6. Contact (`/contact`)
-- Likely a basic form. Agencies need: direct email, response time promise, office location, social links, optional Calendly-style booking CTA.
-
-### 7. Nav & Footer
-- Nav: solid. "Book Audit" CTA is good.
-- Footer: needs review — likely missing social, address, legal.
+**Fix**: Replace the YouTube iframe entirely with a `<video>` tag using a self-hosted MP4 file, OR add `pointer-events-none` plus a higher z-index overlay, OR increase overlay to `bg-background/95`.
 
 ---
 
-## Plan — What I'll Change
+## Structural Issues (P1)
 
-### A. Establish a unified type scale (in `index.css` + applied everywhere)
-```
-Display XL  → clamp(64px, 9vw, 110px)   Hero only
-Display L   → clamp(40px, 5vw, 72px)    Page heroes
-Display M   → clamp(28px, 3.5vw, 44px)  Section headlines
-Display S   → 22–24px                   Card titles
-Body L      → 18px / 1.7                Lead paragraphs
-Body M      → 15px / 1.75               Default
-Label       → 11px mono uppercase       Already exists
-```
-- Remove `italic` from page hero subheads — replace with uppercase Unbounded for consistency. Keep one italic accent only as a deliberate moment (e.g., a single pull-quote).
-- Standardize section padding to `py-24 md:py-32` (slightly tighter).
-- Standardize section header gap: `SectionLabel` → 32px → headline → 48px → content.
+### 3. Footer is out of sync with Navbar
+The Footer still shows old navigation links: About, **Work**, Services, Contact. It's missing **Projects** and **Original Series**. The Navbar has 5 links but the Footer only shows 4.
 
-### B. Home — tighten + add creative agency texture
-1. **Drop fake stats** in 3 PRESSURES. Replace with 3 short editorial statements (no numbers, just sharp copy + a small visual mark per item).
-2. **Compress** STAGNATION + 3 PRESSURES into one tighter "Diagnosis" block (saves a section).
-3. **Featured Work**: redesign as **1 large featured + 2 smaller**, asymmetric grid. Use real image slots (with proper fallback gradients with project name as overlay typography — much more agency-like).
-4. **Add a small "Capabilities" strip** between WHO and FEATURED — 4 short service tags linking to /services. Replaces the empty marquee feel.
-5. **Rewrite CTA** copy to: "Let's make something that works." / "Book a 30-min Clarity Call."
+**Fix**: Update `Footer.tsx` to match the current Navbar structure — add "Original Series" and "Projects" links.
 
-### C. Services — visual differentiation
-1. Add a **large numeric marker** (01–04) per service in Unbounded at `120px` opacity 15% as background.
-2. Add a one-line **signature verb** per service (e.g., "WE CLARIFY", "WE CONNECT", "WE AMPLIFY", "WE PRODUCE").
-3. Convert what/how/deliverables/outcomes into a **2-column layout** (left: narrative; right: bullet list) instead of stacked — much easier to scan.
-4. Add a sticky side index (desktop only) listing the 4 services for quick jump.
+### 4. "ORIONS" vs "ØRIONS" brand inconsistency
+In `projects.ts`, the role field reads `"Created, Directed & Produced by ORIONS"` (without Ø) across all projects. Should be `ØRIONS`.
 
-### D. Work — proper portfolio feel
-1. **Asymmetric editorial grid**: row 1 = 1 large + 1 medium; row 2 = 3 equal; alternating.
-2. Each card: client name (mono label), project title (Unbounded), one-line outcome, year tag.
-3. Add **category filter chips** at top (All / Brand / Film / Digital / Campaign).
-4. Hover: gradient overlay lifts, label slides up. No scale.
+**Fix**: Replace all instances of `ORIONS` with `ØRIONS` in project data.
 
-### E. About — give it weight
-1. Add a **manifesto block** — 3 short principles in large Unbounded with thin dividers between.
-2. Add a **process timeline** (4 steps: Listen → Diagnose → Apply → Measure) as a horizontal line with dots on desktop, vertical on mobile.
-3. Keep "ØRIONS Formula" but wrap it in a stronger frame with a section label.
-4. Add a **"Based in Bangkok / Working worldwide"** locator block.
+### 5. Homepage hero CTA "View Work" is vague
+The secondary CTA says "View Work →" which could link to either Original Series or Projects. It currently links to `/work` (Original Series). Since Projects (client work) is now the primary portfolio, this link should point to `/projects` or the text should say "View Original Series →".
 
-### F. Contact — make it useful
-1. Two-column on desktop: left = form; right = direct contact info (email, phone, address, hours, response promise "We reply within 1 business day").
-2. Add **service-of-interest dropdown** in form (the 4 services).
-3. Add small social row + a "Prefer to talk? Book a call →" link.
-
-### G. Footer
-- 4 columns: Brand + tagline / Services links / Site links / Contact + socials.
-- Bottom: © 2025 ØRIONS · Bangkok · All rights reserved.
-
-### H. Micro-polish
-- Standardize all CTA buttons: one primary (`bg-grad`), one secondary (`border border-border`). Same padding `px-7 py-4`, same `label-mono` text.
-- Add subtle horizontal rule treatment between major sections (the `divider-grad` thin line) for editorial rhythm.
-- Reduce gradient usage to **accent moments only** (1 gradient element per section max) to prevent fatigue.
+**Fix**: Change to "View Projects →" linking to `/projects`, or "View Original Series →" keeping the `/work` link.
 
 ---
 
-## Files to be edited
-- `src/index.css` — unified type scale utilities, spacing tokens
-- `src/pages/Index.tsx` — restructure sections, drop fake stats, asymmetric featured grid, new CTA copy
-- `src/pages/Services.tsx` — large numerals, 2-col layout, sticky index, signature verbs
-- `src/pages/Work.tsx` — asymmetric grid, filter chips, card redesign
-- `src/pages/About.tsx` — manifesto, process timeline, remove clashing italics
-- `src/pages/Contact.tsx` — 2-col layout, info panel, service dropdown
-- `src/components/Footer.tsx` — 4-column structured footer
-- `src/components/PageHero.tsx` — remove italic, apply unified scale
+## Design & UX Improvements (P2)
 
-## Out of scope (for this pass)
-- Real project photography (placeholders stay, but redesigned as typographic cards)
-- Backend wiring of contact form
-- Individual /work/:slug case study pages
+### 6. Homepage is still 7 sections long
+Hero → Tone Block → Projects Preview → Services Preview → Packages → CTA → Footer. The Services + Packages sections overlap in purpose (both sell services). Consider merging or shortening.
+
+**Recommendation**: The Packages section could become a compact callout within the Services section, or be removed from homepage entirely (it lives on the Services page already).
+
+### 7. No Original Series preview on Homepage
+The homepage only shows client Projects now but has no preview of Original Series content. Since Original Series is a key differentiator for the brand, a small preview section between Projects and Services would strengthen the page.
+
+**Recommendation**: Add a compact 2-3 item Original Series preview after the Projects section.
+
+### 8. Services page "View Work" link in CTA
+The Services page CTA has `"View Work →"` linking to `/work`. Should probably link to `/projects` since client work is more relevant for someone evaluating services.
+
+**Fix**: Change to "View Projects →" with link to `/projects`.
+
+### 9. About page CTA "View Work" same issue
+The About page CTA also links to `/work` with "View Work →". Same fix needed.
+
+---
+
+## Minor Polish (P3)
+
+### 10. Filter buttons on Projects page need `cursor-pointer`
+The filter buttons don't show pointer cursor by default since they're `<button>` elements without explicit cursor styling.
+
+### 11. Project detail pages may crash
+Since the project images are broken, the detail pages at `/projects/:slug` likely show broken images too. Need to verify once images are fixed.
+
+### 12. Navbar "LET'S TALK" button has border styling
+The CTA button in the navbar appears to have a border/outline style (white bg with dark text) that looks like a ghost button. This is fine visually but differs from the solid-fill CTAs used elsewhere.
+
+---
+
+## Implementation Plan
+
+### Step 1: Fix broken project images
+Replace the local `.jpg` imports in `clientProjects.ts` with working Unsplash URLs as reliable placeholders. Remove the broken files from `src/assets/projects/`.
+
+### Step 2: Fix YouTube overlay
+Increase hero overlay opacity to `bg-background/95` or replace iframe with a static dark background.
+
+### Step 3: Update Footer links
+Add "Original Series" and "Projects" to the Footer navigation to match the Navbar.
+
+### Step 4: Fix brand name consistency
+Replace `ORIONS` with `ØRIONS` in all project data files.
+
+### Step 5: Fix CTA link targets
+Update "View Work" links across Homepage, About, and Services pages to point to the correct destination (`/projects` for client work context).
+
+### Step 6: Optional — Add Original Series preview to Homepage
+Add a compact section showing 2-3 Original Series items between the Projects preview and Services sections.
+
+---
+
+## Summary
+
+| Priority | Issue | Status |
+|----------|-------|--------|
+| P0 | Project images completely broken — grid is empty | Must fix |
+| P0 | YouTube "Sign in" still visible in hero | Must fix |
+| P1 | Footer missing Projects + Original Series links | Should fix |
+| P1 | "ORIONS" vs "ØRIONS" in project data | Should fix |
+| P1 | "View Work" CTA targets wrong page | Should fix |
+| P2 | Homepage too long (7 sections) | Consider |
+| P2 | No Original Series preview on Homepage | Consider |
+| P3 | Minor cursor + styling polish | Nice to have |
+

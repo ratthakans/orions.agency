@@ -1,86 +1,112 @@
 
-## Make ØRIONS feel like a top-tier Amsterdam creative agency
 
-After reviewing the current state (Index, Nav, Footer, PageHero, all pages), the bones are strong but the site still reads as "editorial template" not "studio with a point of view". Top Amsterdam studios (Build in Amsterdam, Mainstudio, Random Studio, Order, Lundgren+Lindqvist) share these traits we're missing:
+## UI / Design System Audit — สรุปทั้งระบบ
 
-1. **A signature interaction** — one repeating gesture across the site (custom cursor, magnetic hover, slow reveal, or marquee logic) that becomes the brand.
-2. **Deep navigation with intent** — not just nav links but a *system* (page indicator, scroll progress, time/location ticker).
-3. **Confident negative space + asymmetric grids** — not centered everything; off-grid moments that breathe.
-4. **One unforgettable hero gesture** — kinetic type, scroll-driven scale, or rotating tagline.
-5. **Detail layer** — corner brackets, tiny ticking metadata, hairline numbering, status dot ("STUDIO OPEN · 14:32 ICT").
+### 1. Design System ที่ตั้งใจไว้ (จาก index.css + tailwind)
+
+**Color tokens** (light editorial newsprint):
+- `background` cream #F5F2EC, `foreground` near-black #0F0F0F
+- `surface` / `surface-2` paper tones
+- `muted-foreground` #5F5F5F
+- Accent gradient: `--accent-from` vermilion → `--accent-to` amber (Sunset Ink) — ใช้น้อย เฉพาะ highlight word
+
+**Typography:**
+- `font-brand` / `font-display` = Unbounded (ENG headlines, uppercase, tracking -0.02em)
+- `font-thai` = IBM Plex Sans Thai (Thai body, normal-case)
+- `font-mono` = JetBrains Mono (numbers, tags)
+- Utility classes: `index-badge` / `label-mono` / `label-soft` (11px tracking 0.04em)
+
+**Layout:**
+- Padding: `px-6 md:px-10` ทุก section
+- Section spacing: `py-24 md:py-32` (สำหรับ section ใหญ่), `py-16 md:py-20` (สำหรับ row)
+- Border: `border-t border-foreground` (hairline หนา) หรือ `border-soft` (เบา)
+- Radius: 0 ทุกที่ (`--radius: 0px`)
+
+**Components ที่เป็น single source of truth:**
+- `PageHero` — hero ทุกหน้าย่อย
+- `SectionHeader` — divider บนหัว section
+- `CTA` — ปุ่ม primary/ghost
+- `Reveal` — animation
+- `SelectedWorkReel`, `VideoReel`, `ShowRow` — content blocks
 
 ---
 
-## What I'll build (focused, not bloated)
+### 2. ปัญหาที่หลุด tone (รวม 9 จุด)
 
-### A. New "Studio Status Bar" (top, above Nav)
-Thin bar (28px) showing live Bangkok time, status dot, and a rotating tagline. Hides on scroll down, returns on scroll up.
+| # | หน้า / ที่ตั้ง | ปัญหา | ระดับ |
+|---|---|---|---|
+| **A** | **Index hero** | ใช้ `font-brand` + size 220px แต่ PageHero หน้าอื่นใช้ size 132px → home แตกออกจาก family ของหน้าอื่นมากเกินไป | กลาง |
+| **B** | **Index** ทุก section heading | ใช้ขนาดต่างกันหลายค่า: `clamp(40px,6vw,72px)`, `clamp(36px,6vw,88px)`, `clamp(24px,3vw,40px)`, `text-[36px] md:text-[64px]` (vicious cycle) — ไม่มี scale ชัดเจน | **สูง** |
+| **C** | **Index — Vicious Cycle** | heading ใช้ `font-thai` แต่ heading หน้าอื่นใช้ `font-display` → outlier เดียวในเว็บที่ headline เป็น Thai sans | **สูง** |
+| **D** | **Index — Closing CTA** | ทำ corner marks เอง (4 spans) ทั้งที่มี `<CornerMarks/>` component อยู่แล้ว → duplicate pattern | กลาง |
+| **E** | **Index, Work, Services** | section dividers ใช้ 3 รูปแบบ: `<SectionHeader>`, manual `border-t` + h2, raw h2 ลอย → ไม่ consistent | **สูง** |
+| **F** | **About — The 6 Methods** | สร้าง section header เองด้วย `border-background/40` แทนการสร้าง `<SectionHeader variant="dark">` → รูปแบบเดียวกันแต่เขียนซ้ำ | กลาง |
+| **G** | **Contact + Index CTA + Footer link** | ปุ่มมี 4 รูปแบบ: `<CTA primary>`, custom Link "Request the Audit" (border + hover invert), Nav "Let's Talk" pill, Contact "Request your audit" anchor → CTA primitive ไม่ได้ถูกใช้ครบทุกที่ | **สูง** |
+| **H** | **Index** | ใช้ `tracking-[-0.04em]` / `-0.05em` / `-0.03em` / `-0.02em` ปนกันโดยไม่มี rule | กลาง |
+| **I** | **Index marquee + Vicious Cycle** | ✦ symbol และ "วงจรอุบาท" — memory บอก "no ✦ symbols" และ design ปัจจุบันเป็น light theme (ไม่ใช่ dark editorial ตาม memory เก่า) → memory ล้าสมัย | ข้อสังเกต |
+| **J** | **About PersonCard / SelectedWorkReel** | มี `group-hover:scale-[1.02]` / `scale-[1.04]` — memory เคยห้าม scale-on-hover แต่ปัจจุบันใช้แล้ว → ขัดกับ core rule เก่า | ข้อสังเกต |
+
+---
+
+### 3. แผนปรับให้ tone เดียวกันทั้งระบบ
+
+**Step 1 — กำหนด Type Scale อย่างเป็นทางการ** (เพิ่มใน `index.css` เป็น utility)
 ```
-● STUDIO OPEN · BKK 14:32 ICT       NOW: TAKING Q2 2026 PROJECTS       N 13.756° E 100.501°
+.h-display-xl  → clamp(72px, 14vw, 180px)   // Home hero ØRIONS เท่านั้น
+.h-display-lg  → clamp(56px, 10vw, 132px)   // PageHero (ทุกหน้าย่อย)
+.h-display-md  → clamp(40px, 6vw, 88px)     // Section headline (CTA, manifesto)
+.h-display-sm  → clamp(28px, 3.5vw, 48px)   // Sub-section (Social & Commercials, Music...)
+.h-display-xs  → clamp(20px, 2vw, 28px)     // Card title
 ```
+แล้วแทนที่ inline `style={{fontSize:...}}` ทุกตัวด้วย class เหล่านี้
 
-### B. Refined Nav
-- Add scroll-progress hairline at the bottom of nav (gradient).
-- Active link gets a small leading `•` + gradient underline (already there).
-- Logo gets a tiny rotating "01/05" page indicator next to it (e.g. `ØRIONS [03/05]`).
+**Step 2 — ขยาย `<SectionHeader>` ให้มี variant**
+- เพิ่ม prop `variant?: "light" | "dark"` (dark สำหรับ section bg-foreground)
+- บังคับใช้ทุก section หัวข้อ (Index, About, Services, Work) — ลบ heading ลอยๆ
 
-### C. Index Hero — kinetic upgrade
-Replace static hero with:
-- Massive ØRIONS wordmark unchanged, but add **3 rotating sub-headlines** below ("FROM IDEA → FINAL CUT", "ONE TEAM · NO HANDOFF", "BANGKOK · 2019—") cycling every 3s with vertical wipe.
-- Add a tiny **"scroll" indicator** with vertical line + label.
-- Replace TypingLoop with the rotation (less jittery).
+**Step 3 — บังคับใช้ `<CTA>` ทุก primary action**
+- แทน "Request the Audit" custom (Index), "Request your audit" (Contact), "Let's Talk" (Nav) ด้วย `<CTA>` ที่ extend variant: `primary | ghost | invert` (invert สำหรับบน bg-foreground)
+- ลบ duplicate corner marks ใน Index closing → ใช้ `<CornerMarks/>` component
 
-### D. Signature interaction: Magnetic CTAs + cursor-aware arrows
-- Primary CTA arrows subtly tilt toward cursor on hover (CSS transform via mouse position, no library).
-- Project cards get a soft "lift" (translateY -4px + shadow) instead of current hover.
+**Step 4 — แก้ heading "วงจรอุบาท" (Index)**
+- เปลี่ยนจาก `font-thai` เป็น `font-display` ภาษาอังกฤษ + Thai supporting line ด้านล่าง (เช่น "The Vicious Cycle" + sub "วงจรอุบาทของหลายธุรกิจ") เพื่อ match pattern PageHero
 
-### E. Section transitions — a real "wipe"
-Add a 400ms full-screen vertical wipe (cream → black → cream) on route change. One overlay component in `<Layout>`. This is THE Amsterdam move.
+**Step 5 — Tracking scale**
+- กำหนด: display-xl/lg = `-0.04em`, display-md = `-0.03em`, display-sm/xs = `-0.02em` (เลิกใช้ -0.05em)
 
-### F. Detail layer (sitewide, tiny)
-- Corner brackets `⌐ ¬ ∟ ⌐` at viewport edges (4 SVGs, fixed, 24px, opacity 0.15).
-- Section anchors get a hover-revealed `§` symbol next to numbers.
-- Footer wordmark: on hover, letters animate individually (stagger fade).
+**Step 6 — Spacing scale**
+- Section ใหญ่: `py-24 md:py-32`
+- Section รอง: `py-16 md:py-20`
+- Card inner: `p-6 md:p-8`
+- ลบค่า py-28, py-40 ที่หลุด scale
 
-### G. Index page tightening
-- Remove "Vicious Cycle" section noise — keep stats but in 4-col with hairline dividers, no card boxes.
-- "Selected Work" → asymmetric grid: 1 large (60%) + 2 stacked small (40%) instead of 4 equal.
-- Closing CTA: simplify to ONE giant headline + one CTA, drop the 2nd column.
-
-### H. Typography micro-refinement
-- Add `font-feature-settings: "ss01", "ss02"` for Unbounded alt characters.
-- Tighten `letter-spacing` on hero from -0.05em → -0.055em.
-- Add `text-wrap: balance` on all H1/H2.
-
-### I. Color discipline (keep Sunset Ink)
-No new color. Sunset Ink stays as-is, but extends to:
-- Status dot in StudioStatusBar (vermilion only, no gradient).
-- Scroll progress bar (gradient).
-- One word per page (already done).
+**Step 7 — Memory cleanup**
+- อัปเดต `mem://style/aesthetic` จาก dark theme → light editorial newsprint (memory ปัจจุบันยังบอก #0A0A0A bg ซึ่งไม่ตรงกับ code)
+- ลบกฎ "no scale-on-hover" ออก (ใช้แล้วจริง) หรือลบ `scale` ออกจาก code
 
 ---
 
-## Files to touch
+### 4. ลำดับการลงมือ (แนะนำเป็น 3 PR ย่อย)
 
-- `src/components/StudioStatusBar.tsx` — **new** (top bar w/ live time)
-- `src/components/PageTransition.tsx` — **new** (route wipe overlay)
-- `src/components/CornerMarks.tsx` — **new** (4 fixed viewport corners)
-- `src/components/MagneticCTA.tsx` — **new** wrapper or extend `CTA.tsx` with cursor tilt
-- `src/components/Layout.tsx` — mount StatusBar + PageTransition + CornerMarks
-- `src/components/Nav.tsx` — scroll progress bar, page indicator next to logo
-- `src/components/Footer.tsx` — letter-stagger hover on wordmark
-- `src/pages/Index.tsx` — kinetic rotating sub-headline hero, asymmetric work grid, simplified closing CTA, cleaner stats row
-- `src/index.css` — `text-wrap: balance`, `font-feature-settings`, tighter tracking, corner marks utility
-- `src/App.tsx` — wrap routes with PageTransition
+**PR1 — Tokens & Type Scale** (impact สูงสุด, risk ต่ำ)
+- เพิ่ม `.h-display-*` ใน `index.css`
+- แทนที่ทุก `style={{fontSize: clamp(...)}}` ในทั้ง 5 หน้า
+
+**PR2 — Components consolidation**
+- ขยาย `SectionHeader` (dark variant), `CTA` (invert variant)
+- แทน manual heading + custom buttons ทั้งหมด
+
+**PR3 — Polish**
+- Vicious Cycle heading rework
+- Index closing CTA → ใช้ `<CornerMarks>`
+- Memory update
 
 ---
 
-## What you'll feel after
+### 5. ผลที่ได้
 
-- Site has a **heartbeat** (time ticker, scroll progress, route wipe).
-- One memorable interaction (magnetic CTA / page wipe) becomes the brand signature.
-- Less "section after section" — more asymmetry and intentional emptiness.
-- Hero feels alive without being noisy.
-- Every detail (corners, status, page count) signals "designed by a studio, not a template".
+- **เร็วขึ้น** เวลาสร้าง section ใหม่ — copy pattern เดียว
+- **Visual rhythm คงที่** ทั้ง 5 หน้า (hero → header → content → CTA)
+- **Brand voice ชัด** Unbounded เป็น display, Plex Thai เป็น body — ไม่มีกรณี exception
+- **Maintainability** — เปลี่ยน accent gradient ที่เดียวมีผลทุกที่ (ตอนนี้ก็เป็นอยู่แล้ว แต่ heading sizes กระจาย)
 
-No new colors. No new fonts. No backend. Pure design and motion craft.

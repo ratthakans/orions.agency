@@ -63,13 +63,16 @@ const musicRow3: VideoReelItem[] = [
   { tag: "Creative Cut", name: "CC · 06", body: "Creative storytelling cut", videoId: "8K6iMvHI_F8" },
 ];
 
+const thuanTravel: VideoReelItem[] = [
+  { tag: "EP 01", name: "เถื่อน TRAVEL · 01", body: "รายการสารคดีเดินทางที่ผสานวัฒนธรรมและการค้นหาตัวตน", videoId: "s1x7o-sqphY" },
+  { tag: "EP 02", name: "เถื่อน TRAVEL · 02", body: "ตอนใหม่ของการเดินทางสู่พื้นที่ที่ไม่คุ้นเคย", videoId: "2oyy7-2SuLU" },
+  { tag: "EP 03", name: "เถื่อน TRAVEL · 03", body: "บทสนทนาและภาพระหว่างทางที่ไม่เคยถูกเล่า", videoId: "A5Bce6V_Sv4" },
+  { tag: "EP 04", name: "เถื่อน TRAVEL · 04", body: "การค้นหาความหมายผ่านเส้นทางที่เลือกเอง", videoId: "Oz3id2nOmDE" },
+  { tag: "EP 05", name: "เถื่อน TRAVEL · 05", body: "ภาพและเสียงของผู้คนในที่ห่างไกล", videoId: "KsQpdA359Jw" },
+  { tag: "EP 06", name: "เถื่อน TRAVEL · 06", body: "ตอนพิเศษว่าด้วยมิตรภาพและการเดินทาง", videoId: "peLn0WISMrM" },
+];
+
 const entertainmentLongForm: VideoReelItem[] = [
-  { tag: "Travel · EP 01", name: "เถื่อน TRAVEL · 01", body: "รายการสารคดีเดินทางที่ผสานวัฒนธรรมและการค้นหาตัวตน", videoId: "s1x7o-sqphY" },
-  { tag: "Travel · EP 02", name: "เถื่อน TRAVEL · 02", body: "ตอนใหม่ของการเดินทางสู่พื้นที่ที่ไม่คุ้นเคย", videoId: "2oyy7-2SuLU" },
-  { tag: "Travel · EP 03", name: "เถื่อน TRAVEL · 03", body: "บทสนทนาและภาพระหว่างทางที่ไม่เคยถูกเล่า", videoId: "A5Bce6V_Sv4" },
-  { tag: "Travel · EP 04", name: "เถื่อน TRAVEL · 04", body: "การค้นหาความหมายผ่านเส้นทางที่เลือกเอง", videoId: "Oz3id2nOmDE" },
-  { tag: "Travel · EP 05", name: "เถื่อน TRAVEL · 05", body: "ภาพและเสียงของผู้คนในที่ห่างไกล", videoId: "KsQpdA359Jw" },
-  { tag: "Travel · EP 06", name: "เถื่อน TRAVEL · 06", body: "ตอนพิเศษว่าด้วยมิตรภาพและการเดินทาง", videoId: "peLn0WISMrM" },
   { tag: "Documentary", name: "THE UPGRADE", body: "เรื่องราวการยกระดับชีวิตผ่านมุมมองที่จริงและจริงใจ", videoId: "nVkxo3pfrVE" },
   { tag: "Original Series", name: "เกิด/แก่/เจ็บ/โต", body: "ซีรีส์สารคดีว่าด้วยช่วงชีวิตของผู้คนในสังคมไทย", videoId: "W5mnOSlWVb4" },
   { tag: "Music · Culture", name: "เพลงลำคำเขื่อนแก้ว", body: "บันทึกเสียงและภาพของวัฒนธรรมหมอลำในยุคปัจจุบัน", videoId: "rx-a8myzwVg" },
@@ -133,6 +136,22 @@ const Work = () => (
         </span>
       </div>
       <LongFormStack items={entertainmentLongForm} />
+
+      {/* เถื่อน TRAVEL — series row */}
+      <div className="mt-16 md:mt-20">
+        <div className="flex items-end justify-between gap-6 flex-wrap">
+          <h3
+            className="font-display leading-[1] tracking-[-0.02em]"
+            style={{ fontSize: "clamp(20px, 2.2vw, 30px)" }}
+          >
+            เถื่อน <span className="italic opacity-70">TRAVEL</span>
+          </h3>
+          <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
+            {String(thuanTravel.length).padStart(2, "0")} episodes · travel series
+          </span>
+        </div>
+        <VideoReel items={thuanTravel} />
+      </div>
     </section>
 
     {/* MUSIC & CREATIVE CONTENT — auto-scrolling marquees */}

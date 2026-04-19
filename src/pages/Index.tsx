@@ -92,10 +92,7 @@ const Index = () => (
             <h2 className="mt-8 md:mt-10 font-thai text-[32px] md:text-[56px] leading-[1.2] tracking-[-0.02em] font-bold text-foreground">
               หลายธุรกิจติดอยู่ใน
               <br />
-              <span className="relative inline-block mt-2">
-                <span className="relative z-10">"วงจรอุบาท"</span>
-                <span aria-hidden className="absolute left-0 right-0 bottom-1 md:bottom-2 h-[10px] md:h-[14px] bg-foreground/10 -z-0" />
-              </span>
+              <span className="font-extrabold">"วงจรอุบาท"</span>
             </h2>
           </Reveal>
 
@@ -106,10 +103,7 @@ const Index = () => (
           </Reveal>
 
           <Reveal delay={0.3}>
-            <div className="mt-10 md:mt-12 flex items-center gap-4 text-muted-foreground">
-              <div className="hairline w-12" />
-              <span className="font-mono text-[11px] tracking-[0.08em] uppercase">3 Pressure Points</span>
-            </div>
+            <div className="mt-10 md:mt-12 hairline w-16" />
           </Reveal>
         </div>
 

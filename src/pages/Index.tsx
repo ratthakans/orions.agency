@@ -78,12 +78,9 @@ const Index = () => (
       <div className="mt-16 grid grid-cols-1 md:grid-cols-12 gap-10">
         <div className="md:col-span-5">
           <Reveal>
-            <h2 className="font-display text-[36px] md:text-[56px] leading-[0.95] tracking-[-0.03em]">
-              ธุรกิจไม่ได้สู้แค่<br />คู่แข่งอย่างเดียว
+            <h2 className="font-display text-[36px] md:text-[56px] leading-[0.95] tracking-[-0.03em] font-thai">
+              3 จุดตายที่กัดกิน<br />งบประมาณ
             </h2>
-            <p className="mt-8 max-w-[400px] text-[15px] leading-[1.7] text-muted-foreground font-thai">
-              แต่กำลังรับแรงกดดันพร้อมกันจาก 3 ด้าน — ที่ทำให้ทุกการสื่อสารยากขึ้น แพงขึ้น และเลือนหายเร็วขึ้น
-            </p>
           </Reveal>
         </div>
 

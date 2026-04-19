@@ -26,12 +26,6 @@ const appliedSolutions = [
   { n: "04", title: "High Impact Production", body: "งานผลิตคุณภาพสูงระดับสากล เพื่อสร้างภาพจำที่ทรงพลัง" },
 ];
 
-const unstuckSteps = [
-  { n: "01", title: "AUDIT", body: "วิเคราะห์จุดตันและจุดที่งบรั่วไหลด้วยตรรกะและข้อมูล" },
-  { n: "02", title: "ENGINEER", body: "ออกแบบโซลูชันที่ประยุกต์ใช้ได้จริง เปลี่ยนไอเดียเป็นแผนงาน" },
-  { n: "03", title: "EXECUTE", body: "ผลิตงาน High-Impact ด้วยความเร็วและมาตรฐานสากล" },
-  { n: "04", title: "IMPACT", body: "วัดผลลัพธ์ทางธุรกิจและขยายผล (Scale) ให้เติบโตยั่งยืน" },
-];
 
 const worksAcrossIndustries = [
   { tag: "Political Communication", name: "DEMOCRAT PARTY", body: "การสื่อสารเชิงกลยุทธ์ภายใต้เงื่อนไขที่ท้าทาย", img: whatSkater },
@@ -58,11 +52,6 @@ const heroProjects = [
   { tag: "APPLIED AESTHETIC", name: "KHAO YAI", body: "ยกระดับด้วยรสนิยม เปลี่ยนสนามกอล์ฟดั้งเดิมสู่ประสบการณ์พรีเมียม", stat: "30%", statLabel: "DECISION SPEED", img: approachRunning },
 ];
 
-const whyOrions = [
-  { tag: "CONSULTANT", title: "ให้แผน ไม่ทำจริง", body: "ส่งมอบ Paper Strategy แต่ไม่ได้พาไปทำจนเห็นผล", highlight: false },
-  { tag: "STUDIO", title: "ทำตามสั่ง ไม่คิดต่อ", body: "รับ Execution ได้ดี แต่ไม่มองภาพรวมกลยุทธ์ธุรกิจ", highlight: false },
-  { tag: "ØRIONS", title: "กลยุทธ์ × งานผลิต", body: "เชื่อมการคิดกับการทำ เพื่อให้ธุรกิจขยับไปข้างหน้าได้จริง", highlight: true },
-];
 
 const Index = () => (
   <div id="top">

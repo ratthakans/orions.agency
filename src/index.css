@@ -92,6 +92,14 @@
   }
 
   /* === Display Type Scale (single source of truth) === */
+  .h-display-xl,
+  .h-display-lg,
+  .h-display-md,
+  .h-display-sm,
+  .h-display-xs {
+    text-wrap: balance;
+    font-feature-settings: "ss01", "ss02";
+  }
   .h-display-xl { font-size: clamp(72px, 14vw, 180px); line-height: 0.85; letter-spacing: -0.04em; }
   .h-display-lg { font-size: clamp(56px, 10vw, 132px); line-height: 0.88; letter-spacing: -0.04em; }
   .h-display-md { font-size: clamp(40px, 6vw, 88px);   line-height: 0.92; letter-spacing: -0.03em; }

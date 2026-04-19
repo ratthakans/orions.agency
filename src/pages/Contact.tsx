@@ -26,11 +26,45 @@ const Contact = () => {
         eyebrowNumber="01"
         eyebrowLabel="LET'S TALK"
         title="Tell us what's stuck."
-        subtitle="เริ่มจากการคุยสั้นๆ — เราจะฟังโจทย์ ชี้จุดตันและทางรอดให้คุณภายใน 60 นาที โดยไม่มีค่าใช้จ่าย"
+        subtitle="เริ่มจากการคุยสั้นๆ — เราจะฟังโจทย์ ชี้จุดตายและหาทางรอดให้คุณภายใน 60 นาที โดยไม่มีค่าใช้จ่าย"
       />
 
-      <section className="px-6 md:px-10 pb-20 md:pb-28">
-        <SectionHeader left="02 — INQUIRY" right="reply within 24h" />
+      {/* ØRIONS AUDIT — featured anchor card */}
+      <section id="audit" className="px-6 md:px-10 pb-16 md:pb-24 scroll-mt-24">
+        <SectionHeader left="02 — ØRIONS AUDIT" right="free · limited" />
+        <Reveal>
+          <div className="mt-12 border border-foreground bg-foreground text-background grid grid-cols-1 lg:grid-cols-12">
+            <div className="lg:col-span-7 p-8 md:p-12 lg:border-r lg:border-background/20">
+              <div className="index-badge opacity-70">FREE DIAGNOSTIC · LIMITED SLOTS</div>
+              <h2 className="mt-6 font-display text-[36px] md:text-[56px] leading-[0.95] tracking-[-0.03em]">
+                ØRIONS Audit.<br />Free.
+              </h2>
+              <p className="mt-6 max-w-[520px] text-[15px] md:text-[16px] leading-[1.7] font-thai opacity-85">
+                เราไม่ได้มาขอโอกาส แต่มาเพื่อชี้ 'จุดตาย' และหา 'ทางรอด' ให้ธุรกิจของคุณ — รับเฉพาะธุรกิจที่ต้องการความเปลี่ยนแปลงจริงๆ เท่านั้น
+              </p>
+              <a href="#inquiry" className="mt-10 inline-flex items-center gap-3 bg-background text-foreground px-7 py-4 index-badge hover:opacity-90 transition-opacity">
+                Request your audit <ArrowUpRight className="w-4 h-4" />
+              </a>
+            </div>
+            <ul className="lg:col-span-5 p-8 md:p-12 space-y-6">
+              {[
+                { n: "01", t: "60-min Diagnostic", b: "วิเคราะห์จุดตันและจุดที่งบรั่วไหลด้วยตรรกะและข้อมูล" },
+                { n: "02", t: "Applied Roadmap", b: "แนวทางแก้ไขเบื้องต้น พร้อมลำดับความสำคัญ" },
+                { n: "03", t: "No Strings", b: "ไม่มีค่าใช้จ่าย ไม่มี pitch deck — ตรงประเด็นเท่านั้น" },
+              ].map((it) => (
+                <li key={it.n} className="border-t border-background/20 pt-5">
+                  <div className="index-badge opacity-60">{it.n}</div>
+                  <div className="mt-2 font-display text-[20px] md:text-[22px]">{it.t}</div>
+                  <p className="mt-2 text-[13px] leading-[1.6] font-thai opacity-80">{it.b}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Reveal>
+      </section>
+
+      <section id="inquiry" className="px-6 md:px-10 pb-20 md:pb-28 scroll-mt-24">
+        <SectionHeader left="03 — INQUIRY" right="reply within 24h" />
 
         <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           <Reveal className="lg:col-span-7">

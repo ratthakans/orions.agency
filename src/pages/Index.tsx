@@ -299,9 +299,8 @@ const Index = () => (
         </Link>
       </Reveal>
 
-      {/* Secondary bento */}
-      <div className="mt-px grid grid-cols-1 md:grid-cols-12 gap-px bg-foreground border border-foreground border-t-0 md:mt-0">
-        {/* Two large secondary */}
+      {/* Hero secondary — 2 large */}
+      <div className="mt-px grid grid-cols-1 md:grid-cols-12 gap-px bg-foreground border border-foreground border-t-0">
         {heroProjects.slice(1).map((p) => (
           <Reveal key={p.name} className="md:col-span-6">
             <article className="group bg-background h-full flex flex-col">
@@ -320,39 +319,39 @@ const Index = () => (
             </article>
           </Reveal>
         ))}
-
-        {/* Two compact secondary */}
-        {selectedWorks.slice(0, 2).map((w) => (
-          <Reveal key={w.name} className="md:col-span-6">
-            <article className="group bg-background h-full grid grid-cols-2">
-              <div className="overflow-hidden bg-surface-2">
-                <img src={w.img} alt={w.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
-              </div>
-              <div className="p-6 md:p-7 flex flex-col">
-                <div className="index-badge text-muted-foreground">{w.tag}</div>
-                <h3 className="mt-3 font-display text-[18px] md:text-[22px] leading-[1.1] tracking-[-0.02em]">{w.name}</h3>
-                <p className="mt-3 text-[13px] leading-[1.6] text-muted-foreground font-thai">{w.body}</p>
-              </div>
-            </article>
-          </Reveal>
-        ))}
-
-        {/* Compact 2 more */}
-        {selectedWorks.slice(2).map((w) => (
-          <Reveal key={w.name} className="md:col-span-6">
-            <article className="group bg-background h-full grid grid-cols-2">
-              <div className="overflow-hidden bg-surface-2">
-                <img src={w.img} alt={w.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
-              </div>
-              <div className="p-6 md:p-7 flex flex-col">
-                <div className="index-badge text-muted-foreground">{w.tag}</div>
-                <h3 className="mt-3 font-display text-[18px] md:text-[22px] leading-[1.1] tracking-[-0.02em]">{w.name}</h3>
-                <p className="mt-3 text-[13px] leading-[1.6] text-muted-foreground font-thai">{w.body}</p>
-              </div>
-            </article>
-          </Reveal>
-        ))}
       </div>
+
+      {/* Sub-categories */}
+      {[
+        { label: "Applied Creative across industries", items: worksAcrossIndustries },
+        { label: "High-Impact Digital Content", items: worksHighImpact },
+        { label: "Mastery in Storytelling", items: worksStorytelling },
+      ].map((cat, ci) => (
+        <div key={cat.label} className="mt-20">
+          <Reveal>
+            <div className="border-t border-foreground pt-3 pb-3 flex items-center justify-between">
+              <span className="index-badge font-bold">{`0${ci + 1} / ${cat.label.toUpperCase()}`}</span>
+              <span className="index-badge font-medium text-muted-foreground hidden sm:inline">{cat.items.length} PROJECTS</span>
+            </div>
+          </Reveal>
+          <div className={`mt-8 grid grid-cols-1 md:grid-cols-2 ${cat.items.length >= 4 ? "lg:grid-cols-4" : "lg:grid-cols-3"} gap-px bg-foreground border border-foreground`}>
+            {cat.items.map((w) => (
+              <Reveal key={w.name}>
+                <article className="group bg-background h-full flex flex-col">
+                  <div className="aspect-[4/3] overflow-hidden bg-surface-2">
+                    <img src={w.img} alt={w.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
+                  </div>
+                  <div className="p-5 md:p-6 flex-1 flex flex-col">
+                    <div className="index-badge text-muted-foreground">{w.tag}</div>
+                    <h3 className="mt-3 font-display text-[16px] md:text-[18px] leading-[1.15] tracking-[-0.02em]">{w.name}</h3>
+                    <p className="mt-3 text-[13px] leading-[1.6] text-muted-foreground font-thai">{w.body}</p>
+                  </div>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      ))}
 
       <div className="mt-12 flex justify-end">
         <Link to="/work" className="inline-flex items-center gap-3 index-badge hover:opacity-60 transition-opacity">

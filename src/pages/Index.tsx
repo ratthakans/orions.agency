@@ -230,48 +230,34 @@ const Index = () => (
       </div>
     </section>
 
-    {/* 06 — THE BLUEPRINT — vertical chapter list */}
-    <section className="relative px-6 md:px-10 py-20 md:py-32 border-t border-foreground overflow-hidden">
+    {/* 06 — THE BLUEPRINT — single horizontal row */}
+    <section className="relative px-6 md:px-10 py-20 md:py-28 border-t border-foreground">
       <SectionHeader left="06 — THE BLUEPRINT" right="6 ขั้นตอนสู่ผลลัพธ์ที่แม่นยำ" />
 
-      <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-12 gap-8">
-        <div className="md:col-span-4 md:sticky md:top-32 md:self-start">
-          <Reveal>
-            <h2 className="font-display text-[40px] md:text-[64px] leading-[0.95] tracking-[-0.04em]">
-              The<br />Blueprint.
-            </h2>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <p className="mt-6 text-[15px] md:text-[16px] leading-[1.7] font-thai text-muted-foreground max-w-[360px]">
-              จากความเข้าใจปัญหาที่แท้จริง สู่การขยายผลความสำเร็จให้เติบโต
-            </p>
-          </Reveal>
-        </div>
+      <div className="mt-12 md:mt-16 max-w-[760px]">
+        <Reveal>
+          <h2 className="font-display text-[40px] md:text-[56px] leading-[0.95] tracking-[-0.04em]">
+            The Blueprint.
+          </h2>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <p className="mt-5 text-[15px] md:text-[16px] leading-[1.7] font-thai text-muted-foreground max-w-[520px]">
+            จากความเข้าใจปัญหาที่แท้จริง สู่การขยายผลความสำเร็จให้เติบโต
+          </p>
+        </Reveal>
+      </div>
 
-        <div className="md:col-span-8 border-t border-foreground">
-          {blueprint.map((s, i) => (
-            <Reveal key={i}>
-              <div className="group relative border-b border-foreground py-8 md:py-10 transition-colors duration-500 hover:bg-foreground hover:text-background">
-                <div className="grid grid-cols-12 gap-4 md:gap-6 items-center px-2 md:px-4">
-                  <div className="col-span-3 md:col-span-3">
-                    <div className="font-display text-[80px] md:text-[140px] leading-[0.85] tracking-[-0.06em]">{s.l}</div>
-                  </div>
-                  <div className="col-span-9 md:col-span-4">
-                    <div className="font-mono text-[11px] tracking-[0.08em] text-muted-foreground transition-colors duration-500 group-hover:text-background/60">
-                      0{i + 1} / 06
-                    </div>
-                    <h3 className="mt-3 font-display text-[22px] md:text-[28px] tracking-[-0.02em]">{s.n}</h3>
-                  </div>
-                  <div className="col-span-12 md:col-span-5">
-                    <p className="text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground font-thai transition-colors duration-500 group-hover:text-background/80">
-                      {s.b}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+      <div className="mt-16 border-t border-foreground grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+        {blueprint.map((s, i) => (
+          <Reveal key={i} delay={0.05 * i}>
+            <div className={`h-full p-5 md:p-6 border-b border-foreground lg:border-b-0 ${i > 0 ? "lg:border-l border-foreground" : ""} ${(i % 2 === 1) ? "border-l border-foreground lg:border-l" : ""} ${i >= 2 ? "md:border-t-0" : ""}`}>
+              <div className="font-display text-[72px] md:text-[96px] leading-[0.85] tracking-[-0.06em]">{s.l}</div>
+              <div className="mt-6 font-mono text-[11px] tracking-[0.08em] text-muted-foreground">0{i + 1} / 06</div>
+              <h3 className="mt-2 font-display text-[18px] md:text-[20px] tracking-[-0.02em]">{s.n}</h3>
+              <p className="mt-3 text-[13px] md:text-[14px] leading-[1.6] text-muted-foreground font-thai">{s.b}</p>
+            </div>
+          </Reveal>
+        ))}
       </div>
     </section>
 

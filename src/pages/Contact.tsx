@@ -21,15 +21,19 @@ const Contact = () => {
       <SEO title="Contact — ØRIONS" description="Let's talk. We'll point out the dead-end and the way out." path="/contact" />
 
       <section className="px-6 md:px-10 pt-28 md:pt-32 pb-16 md:pb-24">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10">
-          <div className="md:col-span-9">
-            <Reveal>
-              <h1 className="font-display text-[48px] md:text-[96px] leading-[0.95] tracking-[-0.04em]">
-                Tell us what's stuck.
-              </h1>
-            </Reveal>
-          </div>
-        </div>
+        <Reveal>
+          <h1 className="font-display text-[56px] md:text-[128px] leading-[0.86] tracking-[-0.05em]">
+            Tell us<br />
+            what's{" "}
+            <span
+              className="italic font-normal"
+              style={{ fontFamily: "'Cutive', serif", textTransform: "none", letterSpacing: "-0.02em" }}
+            >
+              stuck
+            </span>
+            <span className="text-muted-foreground">.</span>
+          </h1>
+        </Reveal>
       </section>
 
       {/* ØRIONS AUDIT — featured anchor card */}

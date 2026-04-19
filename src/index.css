@@ -66,6 +66,8 @@
     font-weight: 700;
     letter-spacing: -0.02em;
     line-height: 1;
+    text-wrap: balance;
+    font-feature-settings: "ss01", "ss02";
   }
 }
 

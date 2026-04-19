@@ -14,9 +14,9 @@ import whatSkater from "@/assets/what-skater.jpg";
 import whatWindow from "@/assets/what-window.jpg";
 
 const pressures = [
-  { stat: 1.7, suffix: "s", decimals: 1, label: "ADHD SPAN", body: "attention สั้นลงกว่าเดิมมาก" },
-  { stat: 41, prefix: "+", suffix: "%", decimals: 0, label: "DIGITAL INFLATION", body: "ต้นทุนของการเข้าถึงลูกค้าสูงขึ้น" },
-  { stat: 4.6, suffix: "×", decimals: 1, label: "AI FLOOD", body: "content มากขึ้นจนความแตกต่างถูกกลบ" },
+  { stat: 1.7, suffix: "s", decimals: 1, label: "ATTENTION SPAN", body: "คุณมีเวลาไม่ถึง 2 วินาทีในการหยุดลูกค้าก่อนจะถูกปัดทิ้ง" },
+  { stat: 41, prefix: "", suffix: "%", decimals: 0, label: "DIGITAL INFLATION", body: "ค่าโฆษณาแพงขึ้นเกือบเท่าตัว แต่ประสิทธิภาพกลับสวนทาง" },
+  { stat: 4.6, suffix: "×", decimals: 1, label: "DIGITAL WASTE", body: "ขยะดิจิทัลล้นโลก จนงานที่ไม่มีคุณภาพถูกกลบหายไปหมด" },
 ];
 
 const whatWeDo = [

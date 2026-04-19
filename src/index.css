@@ -138,15 +138,15 @@
     box-shadow: 0 0 0 1px hsl(var(--grad-1) / 0.25), 0 30px 80px -40px hsl(var(--grad-3) / 0.4);
   }
 
-  /* Liquid blob backdrop (animated) */
+  /* Liquid blob backdrop (animated) — pushed to edges */
   .liquid-blob {
     position: absolute; inset: -20%;
     background:
-      radial-gradient(38% 42% at 22% 30%, hsl(var(--grad-1) / 0.55) 0%, transparent 60%),
-      radial-gradient(34% 38% at 78% 68%, hsl(var(--grad-3) / 0.55) 0%, transparent 60%),
-      radial-gradient(28% 30% at 55% 50%, hsl(var(--grad-2) / 0.45) 0%, transparent 60%);
-    filter: blur(60px) saturate(140%);
-    animation: blob-shift 18s ease-in-out infinite alternate;
+      radial-gradient(32% 36% at 8% 12%, hsl(var(--grad-1) / 0.45) 0%, transparent 65%),
+      radial-gradient(30% 34% at 92% 88%, hsl(var(--grad-3) / 0.45) 0%, transparent 65%),
+      radial-gradient(22% 24% at 105% 35%, hsl(var(--grad-2) / 0.35) 0%, transparent 60%);
+    filter: blur(70px) saturate(135%);
+    animation: blob-shift 22s ease-in-out infinite alternate;
     z-index: 0;
     pointer-events: none;
   }

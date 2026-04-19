@@ -3,6 +3,10 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import CountUp from "@/components/CountUp";
 import SEO from "@/components/SEO";
+import heroBicycle from "@/assets/hero-bicycle.jpg";
+import povCrosswalk from "@/assets/pov-crosswalk.jpg";
+import unlockRunning from "@/assets/unlock-running.jpg";
+import gravityTaxi from "@/assets/gravity-taxi.jpg";
 
 const pressures = [
   { stat: 1.7, suffix: "s", decimals: 1, label: "ATTENTION SPAN", title: "ไม่ถึง 2 วินาที", body: "คือเวลาที่คุณมีในการหยุดลูกค้า ก่อนจะถูกปัดทิ้ง" },

@@ -3,15 +3,15 @@ import { ReactNode } from "react";
 
 interface Props {
   eyebrow?: string;
-  /** Title can include JSX for italic accents */
+  /** Title can include JSX. Use <span className="text-gradient">word</span> for accent. */
   title: ReactNode;
   subtitle?: ReactNode;
   meta?: string;
 }
 
-/** Unified left-aligned editorial hero used on About / Work / Services / Contact */
+/** Unified left-aligned editorial hero — single source of truth for page heroes */
 const PageHero = ({ eyebrow, title, subtitle, meta = "ØRIONS · BANGKOK" }: Props) => (
-  <section className="px-6 md:px-10 pt-28 md:pt-32 pb-16 md:pb-24">
+  <section className="px-6 md:px-10 pt-28 md:pt-32 pb-20 md:pb-28">
     <Reveal>
       <div className="border-t border-foreground pt-3 pb-3 flex items-center justify-between">
         <span className="index-badge font-bold">{eyebrow ?? "INDEX"}</span>

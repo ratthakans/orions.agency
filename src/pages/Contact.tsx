@@ -14,23 +14,17 @@ const Contact = () => {
     setForm({ name: "", company: "", email: "", brief: "" });
   };
 
-  const inputCls = "bg-transparent border-b border-foreground px-0 py-3 text-[15px] placeholder:text-muted-foreground focus:outline-none focus:placeholder:opacity-50 transition-all font-thai";
+  const inputCls = "bg-transparent border-b border-foreground px-0 py-3 text-[15px] placeholder:text-muted-foreground focus:outline-none focus:border-foreground focus:placeholder:opacity-40 transition-all font-thai";
 
   return (
     <div>
       <SEO title="Contact — ØRIONS" description="Let's talk. We'll point out the dead-end and the way out." path="/contact" />
 
-      <section className="px-6 md:px-10 pt-28 md:pt-32 pb-16 md:pb-24">
+      <section className="px-6 md:px-10 pt-28 md:pt-32 pb-20 md:pb-28">
         <Reveal>
-          <h1 className="font-display text-[56px] md:text-[128px] leading-[0.86] tracking-[-0.05em]">
+          <h1 className="font-display leading-[0.86] tracking-[-0.05em]" style={{ fontSize: "clamp(56px, 11vw, 132px)" }}>
             Tell us<br />
-            what's{" "}
-            <span
-              className="italic font-normal"
-              style={{ fontFamily: "'Cutive', serif", textTransform: "none", letterSpacing: "-0.02em" }}
-            >
-              stuck
-            </span>
+            what's <span className="text-gradient">stuck</span>
             <span className="text-muted-foreground">.</span>
           </h1>
         </Reveal>
@@ -78,8 +72,8 @@ const Contact = () => {
             <div className="lg:col-span-7 p-8 md:p-12 lg:border-r lg:border-background/20">
               <div className="index-badge opacity-90 inline-flex items-center gap-2.5">
                 <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-background opacity-75"></span>
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-background"></span>
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full opacity-75" style={{ backgroundColor: "hsl(var(--accent-from))" }}></span>
+                  <span className="relative inline-flex h-2 w-2 rounded-full" style={{ backgroundColor: "hsl(var(--accent-from))" }}></span>
                 </span>
                 FREE DIAGNOSTIC · LIMITED SLOTS
               </div>
@@ -110,7 +104,7 @@ const Contact = () => {
         </Reveal>
       </section>
 
-      <section id="inquiry" className="px-6 md:px-10 pb-20 md:pb-28 scroll-mt-24">
+      <section id="inquiry" className="px-6 md:px-10 pb-24 md:pb-32 scroll-mt-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           <Reveal className="lg:col-span-7">
             <form onSubmit={submit} className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2">

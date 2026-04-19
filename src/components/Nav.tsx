@@ -30,7 +30,7 @@ const Nav = () => {
               className={({ isActive }) =>
                 `index-badge relative pb-1 transition-opacity ${
                   isActive
-                    ? "text-foreground after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-0.5 after:h-px after:bg-foreground"
+                    ? "text-foreground after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-0.5 after:h-[2px] after:bg-gradient-accent"
                     : "text-muted-foreground hover:text-foreground"
                 }`
               }
@@ -42,9 +42,10 @@ const Nav = () => {
 
         <Link
           to="/contact"
-          className="hidden md:inline-flex index-badge bg-foreground text-background px-4 py-2.5 hover:opacity-90 transition-opacity"
+          className="hidden md:inline-flex group items-center gap-2 index-badge bg-foreground text-background px-4 py-2.5 hover:opacity-95 transition-opacity"
         >
-          Let's Talk ↗
+          <span>Let's Talk</span>
+          <span className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 text-gradient">↗</span>
         </Link>
 
         <button

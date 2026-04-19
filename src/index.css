@@ -42,6 +42,10 @@
     --ring: 0 0% 12%;
 
     --radius: 0px;
+
+    /* Sunset Ink — single accent gradient (Bangkok temple lacquer → editorial amber) */
+    --accent-from: 12 100% 59%;   /* #FF4D2E vermilion */
+    --accent-to:   42 100% 50%;   /* #FFB800 amber */
   }
 }
 
@@ -93,6 +97,21 @@
   .border-soft  { border-color: hsl(var(--border-soft)); }
   .hairline     { height: 1px; background: hsl(var(--foreground)); }
   .hairline-soft{ height: 1px; background: hsl(var(--border-soft)); }
+
+  /* Sunset Ink accent — used sparingly */
+  .bg-gradient-accent {
+    background-image: linear-gradient(135deg, hsl(var(--accent-from)), hsl(var(--accent-to)));
+  }
+  .text-gradient {
+    background-image: linear-gradient(135deg, hsl(var(--accent-from)), hsl(var(--accent-to)));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+  .accent-dot {
+    background-color: hsl(var(--accent-from));
+  }
 
   /* Marquee */
   .marquee {

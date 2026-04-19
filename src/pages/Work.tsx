@@ -4,6 +4,7 @@ import PageHero from "@/components/PageHero";
 import SectionHeader from "@/components/SectionHeader";
 import SelectedWorkReel from "@/components/SelectedWorkReel";
 import VideoReel, { type VideoReelItem } from "@/components/VideoReel";
+import LongFormStack from "@/components/LongFormStack";
 import CTA from "@/components/CTA";
 import SEO from "@/components/SEO";
 import hongmove from "@/assets/hongmove.png";
@@ -85,15 +86,20 @@ const Work = () => (
       <VideoReel items={socialCommercials} />
     </section>
 
-    {/* ENTERTAINMENT & LONG-FORM — video reel */}
-    <section className="relative px-6 md:px-10 py-16 md:py-20 border-t border-foreground">
-      <h2
-        className="font-display leading-[1] tracking-[-0.02em]"
-        style={{ fontSize: "clamp(24px, 3vw, 40px)" }}
-      >
-        Entertainment &amp; <span className="italic opacity-70">Long-form</span>
-      </h2>
-      <VideoReel items={entertainmentLongForm} />
+    {/* ENTERTAINMENT & LONG-FORM — editorial alternating stack */}
+    <section className="relative px-6 md:px-10 py-16 md:py-24 border-t border-foreground">
+      <div className="flex items-end justify-between gap-6 flex-wrap">
+        <h2
+          className="font-display leading-[1] tracking-[-0.02em]"
+          style={{ fontSize: "clamp(24px, 3vw, 40px)" }}
+        >
+          Entertainment &amp; <span className="italic opacity-70">Long-form</span>
+        </h2>
+        <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
+          {String(entertainmentLongForm.length).padStart(2, "0")} films · documentary · culture
+        </span>
+      </div>
+      <LongFormStack items={entertainmentLongForm} />
     </section>
 
     {/* CTA */}

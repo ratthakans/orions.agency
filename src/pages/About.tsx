@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
-import { ArrowUpRight, Instagram, Facebook } from "lucide-react";
+import { Instagram, Facebook } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SectionHeader from "@/components/SectionHeader";
+import CTA from "@/components/CTA";
 import SEO from "@/components/SEO";
 import aboutHero from "@/assets/about-hero.jpg";
 import founderImg from "@/assets/team/founder.jpg";
@@ -221,17 +221,17 @@ const About = () => (
     </section>
 
     {/* CTA */}
-    <section className="px-6 md:px-10 py-20 md:py-28 border-t border-foreground">
+    <section className="px-6 md:px-10 py-24 md:py-32 border-t border-foreground">
       <div>
         <Reveal>
-          <h2 className="font-display text-[36px] md:text-[64px] leading-[0.95] tracking-[-0.03em] max-w-[860px]">
+          <h2 className="font-display text-[40px] md:text-[72px] leading-[0.92] tracking-[-0.03em] max-w-[860px]">
             Stop guessing.<br />Start applying.
           </h2>
         </Reveal>
         <Reveal delay={0.2}>
-          <Link to="/contact#audit" className="mt-10 inline-flex items-center gap-3 bg-foreground text-background px-7 py-4 index-badge hover:opacity-90 transition-opacity">
-            Request ØRIONS Audit (Free) <ArrowUpRight className="w-4 h-4" />
-          </Link>
+          <div className="mt-10">
+            <CTA to="/contact#audit">Request ØRIONS Audit (Free)</CTA>
+          </div>
         </Reveal>
       </div>
     </section>

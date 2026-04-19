@@ -67,11 +67,11 @@ const About = () => (
           <Reveal delay={0.15}>
             <span className="index-badge text-muted-foreground">— A NOTE</span>
             <p className="mt-6 text-[16px] md:text-[19px] leading-[1.7] font-thai">
-              เราคือจุดตัดระหว่าง{" "}
+              ØRIONS คือจุดบรรจบของ{" "}
               <span className="font-display normal-case font-bold">Bangkok Energy</span>{" "}
-              (ความเร็ว) และ{" "}
+              — ความเร็วและสัญชาตญาณแบบกรุงเทพฯ และ{" "}
               <span className="font-display normal-case font-bold">Logical Standard</span>{" "}
-              (ตรรกะสากล) เราทำหน้าที่เชื่อมช่องว่างระหว่าง "ไอเดียที่ดูดี" กับ "ผลลัพธ์ที่วัดผลได้" เพื่อเปลี่ยนงบประมาณที่สูญเปล่าให้เป็น Impact ที่แท้จริงของธุรกิจ
+              — ตรรกะและมาตรฐานระดับสากล เราปิดช่องว่างระหว่าง “ไอเดียที่ดูดีบนสไลด์” กับ “ผลลัพธ์ที่วัดได้จริงในธุรกิจ” เปลี่ยนทุกบาทของงบประมาณให้กลายเป็น Impact ที่จับต้องได้
             </p>
           </Reveal>
           <Reveal delay={0.25}>

@@ -19,7 +19,19 @@ const Contact = () => {
 
   return (
     <div>
-      <SEO title="Contact — ØRIONS" description="Let's talk. We'll point out the dead-end and the way out." path="/contact" />
+      <SEO
+        title="Contact — ØRIONS"
+        description="Let's talk. We'll point out the dead-end and the way out."
+        path="/contact"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://orions.agency/" },
+            { "@type": "ListItem", position: 2, name: "Contact", item: "https://orions.agency/contact" },
+          ],
+        }}
+      />
 
       <PageHero
         eyebrow="CONTACT · INDEX"
@@ -74,12 +86,12 @@ const Contact = () => {
                 FREE DIAGNOSTIC · LIMITED SLOTS
               </div>
               <h2 className="mt-6 font-display h-display-sm">
-                ØRIONS Audit.<br />Free.
+                ØRIONS Audit<span className="text-background/60">.</span><br />Free<span className="text-background/60">.</span>
               </h2>
-              <p className="mt-6 max-w-[520px] text-[15px] md:text-[16px] leading-[1.7] font-thai opacity-85">
+              <p className="mt-6 max-w-[520px] text-[15px] md:text-[16px] leading-[1.7] font-thai text-background/85">
                 เราไม่ได้มาขอโอกาส แต่มาเพื่อชี้ 'จุดตาย' และหา 'ทางรอด' ให้ธุรกิจของคุณ — รับเฉพาะธุรกิจที่ต้องการความเปลี่ยนแปลงจริงๆ เท่านั้น
               </p>
-              <a href="#inquiry" className="mt-10 inline-flex items-center gap-3 bg-background text-foreground px-7 py-4 index-badge hover:opacity-90 transition-opacity">
+              <a href="#inquiry" className="mt-10 inline-flex items-center gap-3 bg-background text-foreground px-7 py-4 index-badge hover:bg-muted-foreground hover:text-background transition-colors">
                 Request your audit <ArrowUpRight className="w-4 h-4" />
               </a>
             </div>
@@ -90,9 +102,9 @@ const Contact = () => {
                 { n: "03", t: "No Strings", b: "ไม่มีค่าใช้จ่าย ไม่มี pitch deck — ตรงประเด็นเท่านั้น" },
               ].map((it) => (
                 <li key={it.n} className="border-t border-background/20 pt-5">
-                  <div className="index-badge opacity-60">{it.n}</div>
-                  <div className="mt-2 font-display text-[20px] md:text-[22px]">{it.t}</div>
-                  <p className="mt-2 text-[13px] leading-[1.6] font-thai opacity-80">{it.b}</p>
+                  <div className="index-badge text-background/60">{it.n}</div>
+                  <div className="mt-3 font-display h-display-2xs">{it.t}</div>
+                  <p className="mt-2 text-[13px] leading-[1.6] font-thai text-background/80">{it.b}</p>
                 </li>
               ))}
             </ul>
@@ -134,26 +146,26 @@ const Contact = () => {
 
           <Reveal delay={0.1} className="lg:col-span-5 lg:border-l lg:border-foreground lg:pl-12 space-y-10">
             <div className="border-t border-foreground pt-3">
-              <span className="index-badge font-bold">DIRECT</span>
+              <span className="index-badge">DIRECT</span>
             </div>
             <div>
               <div className="index-badge text-muted-foreground">EMAIL</div>
-              <a href="mailto:hello@orions.agency" className="mt-2 block font-display text-[20px] md:text-[24px] hover:underline break-all">
+              <a href="mailto:hello@orions.agency" className="mt-3 block font-display h-display-2xs hover:underline break-all">
                 hello@orions.agency
               </a>
             </div>
             <div>
               <div className="index-badge text-muted-foreground">TELEPHONE</div>
-              <a href="tel:+66923905464" className="mt-2 block font-display text-[20px] md:text-[24px] hover:underline">
+              <a href="tel:+66923905464" className="mt-3 block font-display h-display-2xs hover:underline">
                 +66 92 390 5464
               </a>
             </div>
             <div>
               <div className="index-badge text-muted-foreground">STUDIO</div>
-              <p className="mt-2 font-display text-[16px] md:text-[18px] leading-[1.5] font-thai font-normal normal-case">
-                246/8 Soi Yothinphatthana<br />
-                Bang Kapi, Bangkok 10240<br />
-                Thailand
+              <p className="mt-3 font-thai text-[15px] md:text-[16px] leading-[1.6]">
+                246/8 Soi Yothinphatthana 3<br />
+                Khlong Chan, Bang Kapi<br />
+                Bangkok 10240, Thailand
               </p>
             </div>
           </Reveal>

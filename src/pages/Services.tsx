@@ -4,6 +4,8 @@ import PageHero from "@/components/PageHero";
 import CTA from "@/components/CTA";
 import SEO from "@/components/SEO";
 
+const SITE_URL = "https://orions.agency";
+
 const services = [
   {
     n: "01",
@@ -109,11 +111,32 @@ const Services = () => (
       title="Services — ØRIONS"
       description="Creative Solution, Applied Communication, Social Media Marketing, High Impact Production. Four practices, one outcome: clarity."
       path="/services"
+      schema={[
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+            { "@type": "ListItem", position: 2, name: "Services", item: `${SITE_URL}/services` },
+          ],
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          itemListElement: services.map((s, i) => ({
+            "@type": "Service",
+            position: i + 1,
+            name: s.title,
+            description: s.body,
+            provider: { "@type": "Organization", name: "ØRIONS" },
+          })),
+        },
+      ]}
     />
 
     <PageHero
       eyebrow="SERVICES · INDEX"
-      title={<>Applied <span className="text-gradient">solutions</span>.</>}
+      title={<>Applied <span className="text-gradient">solutions</span><span className="text-muted-foreground">.</span></>}
     />
 
     <section className="px-6 md:px-10">
@@ -122,26 +145,26 @@ const Services = () => (
           <Reveal key={s.n}>
             <article className="group py-16 md:py-24 grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 border-b border-soft transition-colors duration-500">
               <header className="lg:col-span-4">
-                <div className="font-display text-[80px] md:text-[120px] leading-[0.85] tracking-[-0.04em] transition-transform duration-500 group-hover:translate-x-1 text-muted-foreground/40 group-hover:text-foreground">
+                <div className="num-display text-[72px] md:text-[120px] transition-transform duration-500 group-hover:translate-x-1 text-muted-foreground/40 group-hover:text-foreground">
                   {s.n}
                 </div>
-                <h2 className="mt-6 font-display text-[26px] md:text-[36px] leading-[1] tracking-[-0.02em]">
+                <h2 className="mt-8 font-display h-display-xs">
                   {s.title}
                 </h2>
-                <p className="mt-6 text-[15px] md:text-[16px] leading-[1.7] font-thai max-w-[380px]">
+                <p className="mt-6 text-[15px] md:text-[16px] leading-[1.7] font-thai max-w-[380px] text-muted-foreground">
                   {s.body}
                 </p>
               </header>
 
-              <div className="lg:col-span-8 space-y-10">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+              <div className="lg:col-span-8 space-y-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                   <div>
                     <div className="border-t border-foreground pt-3">
-                      <span className="index-badge font-bold">CAPABILITIES</span>
+                      <span className="index-badge">CAPABILITIES</span>
                     </div>
-                    <ul className="mt-5 space-y-2 text-[14px] font-thai">
+                    <ul className="mt-6 space-y-3 text-[14px] font-thai">
                       {s.items.map((it) => (
-                        <li key={it} className="flex gap-3 border-b border-soft pb-2">
+                        <li key={it} className="flex gap-3 border-b border-soft pb-3">
                           <span className="text-muted-foreground">·</span>
                           <span>{it}</span>
                         </li>
@@ -150,12 +173,12 @@ const Services = () => (
                   </div>
                   <div>
                     <div className="border-t border-foreground pt-3">
-                      <span className="index-badge font-bold">OUTCOMES</span>
+                      <span className="index-badge">OUTCOMES</span>
                     </div>
-                    <ul className="mt-5 space-y-3 text-[14px] font-thai">
+                    <ul className="mt-6 space-y-3 text-[14px] font-thai">
                       {s.outcomes.map((o) => (
                         <li key={o} className="flex gap-3">
-                          <span className="font-display text-[12px] mt-[2px]">→</span>
+                          <span className="font-mono text-[12px] mt-[2px] text-muted-foreground">→</span>
                           <span>{o}</span>
                         </li>
                       ))}
@@ -163,10 +186,10 @@ const Services = () => (
                   </div>
                 </div>
 
-                <div className="grid grid-cols-3 gap-px bg-foreground border border-foreground">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-foreground border border-foreground">
                   {s.stats.map((st) => (
-                    <div key={st.l} className="bg-background text-foreground p-5 md:p-6">
-                      <div className="font-display text-[28px] md:text-[40px] leading-none tracking-[-0.03em]">{st.v}</div>
+                    <div key={st.l} className="bg-background text-foreground p-6">
+                      <div className="num-display text-[28px] md:text-[40px]">{st.v}</div>
                       <div className="mt-3 index-badge text-muted-foreground">{st.l}</div>
                     </div>
                   ))}
@@ -186,8 +209,11 @@ const Services = () => (
     <section className="relative px-6 md:px-10">
       <div className="border-t border-foreground py-16 md:py-20 max-w-[760px] mx-auto text-center">
         <Reveal>
+          <div className="index-badge text-muted-foreground mb-6">READY WHEN YOU ARE</div>
+        </Reveal>
+        <Reveal delay={0.05}>
           <h2 className="font-display h-display-sm text-balance">
-            Have a problem<br />worth <span className="italic text-gradient">solving</span><span className="text-muted-foreground">.</span>
+            Have a problem<br />worth <span className="text-gradient">solving</span><span className="text-muted-foreground">.</span>
           </h2>
         </Reveal>
         <Reveal delay={0.1}>
@@ -201,11 +227,11 @@ const Services = () => (
           </div>
         </Reveal>
         <Reveal delay={0.3}>
-          <div className="mt-10 inline-flex items-center gap-6 md:gap-8 font-mono text-[11px] md:text-[12px] tracking-[0.2em] uppercase text-muted-foreground">
+          <div className="mt-12 inline-flex items-center gap-6 md:gap-8 font-mono text-[11px] md:text-[12px] tracking-[0.2em] uppercase text-muted-foreground">
             <a href="mailto:hello@orions.agency" className="hover:text-foreground transition-colors">
               hello@orions.agency
             </a>
-            <span aria-hidden className="block w-px h-3 bg-foreground/30" />
+            <span aria-hidden className="block w-px h-3 bg-muted-foreground" />
             <a href="tel:+66923905464" className="hover:text-foreground transition-colors">
               +66 92 390 5464
             </a>

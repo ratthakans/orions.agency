@@ -1,103 +1,61 @@
 
 
-## ตรวจสอบ Spacing & Section Rhythm — ทั้งเว็บ
+## เส้นแบ่ง Section — ให้อยู่ในขอบ ไม่เต็มหน้าจอ
 
-ผมไป audit ครบทุกหน้าแล้ว นี่คือสิ่งที่เจอ + แผนแก้
+ตอนนี้ section dividers (`border-t border-foreground`) ใช้กับ `<section>` ที่มี `px-6 md:px-10` → เส้นจึงลากเต็มความกว้าง viewport (เพราะ border อยู่บน element ที่กิน full-width แล้ว padding แค่ดัน content ข้างใน)
 
----
+### แก้
 
-### 🔴 ปัญหาหลัก
+ย้าย `border-t` จาก `<section>` ไปอยู่บน **inner wrapper** ที่อยู่ภายใน padding → เส้นจะเริ่ม/จบที่ขอบเดียวกับ content (`px-6 md:px-10`)
 
-#### 1. Section padding ไม่ consistent — ค่ากระจัดกระจาย
+**Pattern เดิม:**
+```tsx
+<section className="px-6 md:px-10 py-16 md:py-24 border-t border-foreground">
+  <div>...</div>
+</section>
+```
 
-ปัจจุบันใช้ค่าหลากหลายมากเกินไป:
-- `py-16 md:py-20` (CTA หลังแก้ล่าสุด)
-- `py-20 md:py-32` (Index sections)
-- `py-24 md:py-32` (Services cards)
-- `py-12 md:py-16` (About sub-sections)
-- `pb-10`, `pb-20` (mixed bottom paddings)
+**Pattern ใหม่:**
+```tsx
+<section className="px-6 md:px-10 py-16 md:py-24">
+  <div className="border-t border-foreground pt-16 md:pt-24 -mt-16 md:-mt-24">
+    ...
+  </div>
+</section>
+```
 
-→ ไม่มี rhythm ที่ชัดเจน อ่านไม่ลื่น
+หรือทางที่สะอาดกว่า — ย้าย border ไป wrap content แบบ natural:
+```tsx
+<section className="px-6 md:px-10">
+  <div className="border-t border-foreground py-16 md:py-24">
+    ...
+  </div>
+</section>
+```
 
-**แก้:** กำหนด **section padding scale** ให้เป็น 3 ระดับ:
-- **Hero:** `py-20 md:py-28` (หายใจได้ แต่ไม่บวมเกิน)
-- **Content section:** `py-16 md:py-24` (มาตรฐาน — Index, Work, Services cards, About blocks)
-- **CTA / closer:** `py-16 md:py-20` (compact ตามที่เพิ่งปรับ ✓)
-
----
-
-#### 2. Hairline (border-t) เยอะเกินจริง — ซ้อนกันรัวๆ
-
-ตัวอย่างหน้า Services:
-- PageHero มี border ล่าง
-- `<section>` ถัดไป `border-t border-foreground` (ทับ)
-- การ์ด services แต่ละอันมี `border-b border-soft`
-- CTA section อีก `border-t border-foreground`
-- Footer อีก border บน
-
-→ บางจุด **2 hairlines ติดกัน** (เช่น hero bottom + section top)
-
-**แก้:**
-- ลบ `border-t` ที่ซ้ำกับ border ของ section ก่อนหน้า
-- ใช้ `border-foreground` (ดำเข้ม) เฉพาะ **section divider หลัก** เท่านั้น
-- ใช้ `border-soft` (เทาอ่อน) สำหรับ inner dividers (list items, cards)
-- กฎ: ระหว่าง 2 sections ติดกัน → ใช้แค่ **1 hairline** (อยู่กับ section ใดก็ได้ แต่ไม่ทั้งสอง)
-
----
-
-#### 3. Margin top ของ child elements ไม่เป็น scale
-
-เจอ `mt-3, mt-5, mt-6, mt-8, mt-10, mt-12, mt-14` ปนกันมั่ว
-
-**แก้:** ใช้ scale **mt-4 / mt-6 / mt-8 / mt-12** เท่านั้น (4-step rhythm)
-
----
-
-### 🟡 ปัญหารอง
-
-#### 4. Horizontal padding ok แล้ว
-ทุกหน้าใช้ `px-6 md:px-10` consistent ✓ — ไม่ต้องแตะ
-
-#### 5. Gap ใน grid ไม่ตรงกัน
-- Services: `gap-8 lg:gap-12`
-- About methods: `gap-10 md:gap-12`
-- Index: `gap-6 md:gap-10`
-
-**แก้:** มาตรฐาน `gap-8 md:gap-12` สำหรับ content grids
-
----
-
-### 🎯 Nav hover — กลับเป็นแบบเดิม
-
-ปัจจุบัน Nav ใช้:
-- Magnetic wrapper
-- `after:` underline gradient
-- Active dot + gradient text
-- Hover เปลี่ยนสีเป็น `accent-to`
-
-**แก้กลับเป็นแบบ minimal เดิม:**
-- ลบ `Magnetic` wrapper รอบ NavLink (เก็บไว้แค่ปุ่ม Let's Talk)
-- ลบ `after:` gradient underline
-- ลบ active dot
-- Hover: แค่เปลี่ยนสี `text-muted-foreground` → `text-foreground` (transition 200ms)
-- Active state: text สีดำ (`text-foreground`) — ไม่มี underline/dot
-
----
+→ เส้นจะหยุดที่ `24px` (mobile) / `40px` (desktop) จากขอบจอ แทนที่จะลากสุด
 
 ### ไฟล์ที่จะแก้
 
-| ไฟล์ | สิ่งที่แก้ |
-|---|---|
-| `src/components/Nav.tsx` | กลับ hover เป็นแบบ minimal |
-| `src/pages/Index.tsx` | normalize section padding ให้เข้า scale |
-| `src/pages/Services.tsx` | ลบ border ซ้ำ, normalize padding, gap |
-| `src/pages/Work.tsx` | normalize padding, ลบ border ซ้ำ |
-| `src/pages/About.tsx` | normalize padding, gap, mt scale |
-| `src/pages/Contact.tsx` | ตรวจ padding ให้เข้า scale |
+ทุกหน้าที่มี section divider เต็มจอ:
 
-### หลักการสรุป
-- Section: `py-16 md:py-24` (content), `py-16 md:py-20` (CTA), `py-20 md:py-28` (hero)
-- Margin scale: 4 / 6 / 8 / 12
-- Hairline rule: 1 เส้นระหว่าง section, ไม่มีคู่
-- Nav: minimal hover (แค่เปลี่ยนสี)
+| ไฟล์ | section ที่ต้องแก้ |
+|---|---|
+| `src/pages/Index.tsx` | section dividers ทุกตัวที่ใช้ `border-t` |
+| `src/pages/Services.tsx` | service list `<section>` + CTA `<section>` |
+| `src/pages/Work.tsx` | grid section + CTA section |
+| `src/pages/About.tsx` | meaning, methods, team, CTA sections |
+| `src/pages/Contact.tsx` | section dividers |
+| `src/components/PageHero.tsx` | hero divider (ใช้อยู่แล้วแบบ inner — ตรวจซ้ำ) |
+| `src/components/SectionHeader.tsx` | ใช้ inner อยู่แล้ว ✓ ไม่ต้องแตะ |
+| `src/components/Footer.tsx` | top border ของ footer (ถ้าเต็มจอ → ขยับเข้าใน) |
+
+### ข้อยกเว้น
+
+- **Footer top border** — ถ้า user ต้องการ visual anchor สุดท้าย เต็มจอก็ ok (ขอ confirm)
+- **Hero top border** ใน `PageHero` ใช้ inner อยู่แล้ว ✓
+
+### หลักการ
+- Section dividers ทั้งหมด → จำกัดอยู่ในกรอบ `px-6 md:px-10` เดียวกับ content
+- ไม่มีเส้นไหนลากเต็ม viewport อีก (ยกเว้น Footer ถ้า user ต้องการ)
 

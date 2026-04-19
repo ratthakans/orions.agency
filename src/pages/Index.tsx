@@ -5,6 +5,7 @@ import CountUp from "@/components/CountUp";
 import FlipNumber from "@/components/FlipNumber";
 import ScrollMarquee from "@/components/ScrollMarquee";
 import SectionHeader from "@/components/SectionHeader";
+import BigSectionNumber from "@/components/BigSectionNumber";
 import SEO from "@/components/SEO";
 import RotatingHeadline from "@/components/RotatingHeadline";
 import SelectedWorkReel from "@/components/SelectedWorkReel";
@@ -110,8 +111,11 @@ const Index = () => (
           <Reveal>
             <SectionHeader index="03" left="THE VICIOUS CYCLE" right="why budgets keep leaking" />
           </Reveal>
+          <Reveal delay={0.05}>
+            <BigSectionNumber n="03" label="THE VICIOUS CYCLE" className="mt-8" />
+          </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="mt-12 font-display h-display-md text-foreground">
+            <h2 className="mt-6 font-display h-display-md text-foreground">
               The Vicious Cycle<span className="text-muted-foreground">.</span>
             </h2>
           </Reveal>

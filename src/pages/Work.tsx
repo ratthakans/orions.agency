@@ -221,42 +221,87 @@ const Work = () => (
       </div>
     </section>
 
-    {/* LONG-FORM — wide cinematic */}
-    <section className="px-6 md:px-10 py-20 md:py-28 bg-surface border-y border-foreground">
-      <SectionHeader left="ENTERTAINMENT & LONG-FORM" />
-      <div className="mt-8 max-w-[700px]">
-        <Reveal>
-          <p className="text-[15px] md:text-[17px] leading-[1.7] text-muted-foreground font-thai">
-            สารคดี ซีรีส์ และผลงานเล่าเรื่องที่ฟังเสียงของคนจริง — ไม่ใช่แค่งาน production
-          </p>
-        </Reveal>
+    {/* LONG-FORM — cinematic dark theatre */}
+    <section className="px-6 md:px-10 py-20 md:py-28 bg-foreground text-background border-y border-foreground">
+      <div className="border-t border-background/30 pt-3 pb-3 flex items-center justify-between">
+        <span className="index-badge font-bold">ENTERTAINMENT & LONG-FORM</span>
+        <span className="index-badge font-medium opacity-60">{String(longform.length).padStart(2, "0")} titles</span>
       </div>
 
-      <div className="mt-12 space-y-6 md:space-y-8">
-        {longform.map((l, i) => (
+      <Reveal>
+        <h2 className="mt-12 font-display text-[40px] md:text-[80px] leading-[0.9] tracking-[-0.04em] max-w-[1100px]">
+          Stories worth<br />
+          <span
+            className="italic font-normal"
+            style={{ fontFamily: "'Cutive', serif", textTransform: "none", letterSpacing: "-0.02em" }}
+          >
+            sitting
+          </span>{" "}
+          through<span className="opacity-50">.</span>
+        </h2>
+      </Reveal>
+
+      {/* Hero feature */}
+      <Reveal delay={0.1}>
+        <article className="mt-16 group cursor-pointer">
+          <div className="relative w-full aspect-[21/9] overflow-hidden bg-background/10">
+            <img
+              src={longform[0].img}
+              alt={longform[0].name}
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-cover opacity-80 transition-all duration-700 group-hover:opacity-100 group-hover:scale-[1.02]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-foreground via-foreground/30 to-transparent" />
+            <div className="absolute top-5 left-5 right-5 flex items-center justify-between text-background">
+              <span className="inline-flex items-center gap-2 index-badge">
+                <span className="w-1.5 h-1.5 bg-background animate-pulse" /> FEATURE · 01
+              </span>
+              <span className="font-mono text-[10px] opacity-70">21 : 9</span>
+            </div>
+            <div className="absolute bottom-6 left-6 right-6 md:bottom-10 md:left-10 md:right-10 flex items-end justify-between gap-6">
+              <div>
+                <div className="index-badge opacity-70">{longform[0].category}</div>
+                <h3 className="mt-3 font-display text-[28px] md:text-[64px] leading-[0.95] tracking-[-0.03em]">
+                  {longform[0].name}
+                </h3>
+              </div>
+              <div className="hidden md:flex w-16 h-16 border border-background items-center justify-center group-hover:bg-background group-hover:text-foreground transition-colors duration-500">
+                <Play className="w-5 h-5 fill-current" />
+              </div>
+            </div>
+          </div>
+        </article>
+      </Reveal>
+
+      {/* Grid of remaining titles */}
+      <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-px bg-background/20 border border-background/20">
+        {longform.slice(1).map((l, i) => (
           <Reveal key={l.name} delay={i * 0.05}>
-            <article className="group grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-              <div className="md:col-span-5 relative aspect-[21/9] md:aspect-[16/9] overflow-hidden bg-background">
+            <article className="group relative bg-foreground overflow-hidden">
+              <div className="relative aspect-[16/9] overflow-hidden">
                 <img
                   src={l.img}
                   alt={l.name}
                   loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                  className="absolute inset-0 w-full h-full object-cover opacity-60 transition-all duration-700 group-hover:opacity-100 group-hover:scale-[1.04]"
                 />
-                <div className="absolute inset-0 bg-foreground/20" />
-                <div className="absolute bottom-3 left-3 flex items-center gap-2 text-background">
-                  <Play className="w-3 h-3 fill-background" />
-                  <span className="index-badge">REEL</span>
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/30 to-transparent" />
+                <div className="absolute top-4 left-4 flex items-center gap-2">
+                  <span className="bg-background text-foreground px-2 py-1 index-badge">
+                    {String(i + 2).padStart(2, "0")}
+                  </span>
+                  <span className="border border-background/50 text-background px-2 py-1 index-badge opacity-80">
+                    {l.category}
+                  </span>
                 </div>
-              </div>
-              <div className="md:col-span-1 font-display text-[14px] text-muted-foreground">
-                {String(i + 1).padStart(2, "0")}
-              </div>
-              <div className="md:col-span-4">
-                <h3 className="font-display text-[24px] md:text-[36px] leading-[1.05] font-thai font-medium">{l.name}</h3>
-              </div>
-              <div className="md:col-span-2">
-                <span className="index-badge text-muted-foreground">{l.category}</span>
+                <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-4">
+                  <h3 className="font-display text-[20px] md:text-[28px] leading-[1.05] tracking-[-0.02em] text-background">
+                    {l.name}
+                  </h3>
+                  <div className="w-10 h-10 border border-background flex items-center justify-center text-background opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500">
+                    <Play className="w-3.5 h-3.5 fill-background" />
+                  </div>
+                </div>
               </div>
             </article>
           </Reveal>

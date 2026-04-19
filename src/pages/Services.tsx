@@ -113,7 +113,7 @@ const Services = () => (
 
     <PageHero
       eyebrow="INDEX · 01–04"
-      title={<>Applied <span className="italic font-normal" style={{ fontFamily: "'Cutive', serif", textTransform: "none", letterSpacing: "-0.02em" }}>solutions</span>.</>}
+      title={<>Applied <span className="text-gradient">solutions</span>.</>}
       subtitle="สี่ practices หนึ่ง outcome — ความชัด ที่จับต้องได้และวัดผลได้จริง"
     />
 
@@ -121,7 +121,7 @@ const Services = () => (
       <div className="border-t border-foreground">
         {services.map((s) => (
           <Reveal key={s.n}>
-            <article className="group py-20 md:py-28 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 border-b border-soft transition-colors duration-500">
+            <article className="group py-24 md:py-32 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 border-b border-soft transition-colors duration-500">
               <header className="lg:col-span-4">
                 <div className="font-display text-[80px] md:text-[120px] leading-[0.85] tracking-[-0.04em] transition-transform duration-500 group-hover:translate-x-1 text-muted-foreground/40 group-hover:text-foreground">
                   {s.n}
@@ -184,11 +184,11 @@ const Services = () => (
     </section>
 
     {/* CTA */}
-    <section className="px-6 md:px-10 py-20 md:py-28">
+    <section className="px-6 md:px-10 py-24 md:py-32">
       <div className="mt-12 grid grid-cols-1 md:grid-cols-12 gap-10">
         <div className="md:col-span-8">
           <Reveal>
-            <h2 className="font-display text-[36px] md:text-[64px] leading-[0.95] tracking-[-0.03em]">
+            <h2 className="font-display leading-[0.95] tracking-[-0.03em]" style={{ fontSize: "clamp(40px, 6vw, 72px)" }}>
               Have a problem<br />worth solving?
             </h2>
           </Reveal>

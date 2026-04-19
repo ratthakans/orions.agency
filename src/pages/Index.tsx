@@ -79,9 +79,11 @@ const Index = () => (
         </Reveal>
 
         <Reveal delay={0.1}>
-          <h2 className="mt-8 md:mt-10 font-mono text-[22px] md:text-[40px] leading-[1.3] tracking-[-0.01em] text-center max-w-[1100px] mx-auto">
-            <span className="font-bold">หลายธุรกิจติดอยู่ใน "วงจรอุบาท (VICIOUS CYCLE)"</span>
-            <span className="block mt-3 md:mt-4 text-muted-foreground font-normal text-[18px] md:text-[28px]">
+          <h2 className="mt-8 md:mt-10 font-thai text-[24px] md:text-[44px] leading-[1.35] tracking-[-0.01em] text-center max-w-[1100px] mx-auto">
+            <span className="font-bold text-foreground">
+              หลายธุรกิจติดอยู่ใน "วงจรอุบาท <span className="font-display normal-case tracking-[-0.02em]">(Vicious Cycle)</span>"
+            </span>
+            <span className="block mt-4 md:mt-5 text-muted-foreground font-normal text-[18px] md:text-[28px]">
               ทำงานหนักขึ้น จ่ายแพงขึ้น แต่ได้ผลลัพธ์เท่าเดิม
             </span>
           </h2>

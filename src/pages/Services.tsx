@@ -183,8 +183,8 @@ const Services = () => (
     </section>
 
     {/* CTA — editorial close, centered & calm */}
-    <section className="relative px-6 md:px-10 py-16 md:py-20 border-t border-foreground">
-      <div className="max-w-[760px] mx-auto text-center">
+    <section className="relative px-6 md:px-10">
+      <div className="border-t border-foreground py-16 md:py-20 max-w-[760px] mx-auto text-center">
         <Reveal>
           <h2 className="font-display h-display-sm text-balance">
             Have a problem<br />worth <span className="italic text-gradient">solving</span><span className="text-muted-foreground">.</span>

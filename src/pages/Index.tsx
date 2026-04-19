@@ -108,8 +108,8 @@ const Index = () => (
     </section>
 
     {/* 03 — THE VICIOUS CYCLE */}
-    <section className="relative px-6 md:px-10 py-16 md:py-24 border-t border-foreground">
-      <div className="max-w-[1400px] mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
+    <section className="relative px-6 md:px-10">
+      <div className="border-t border-foreground py-16 md:py-24 max-w-[1400px] mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
         <div className="md:col-span-5 md:sticky md:top-32 md:self-start">
           <Reveal>
             <SectionHeader index="03" left="THE VICIOUS CYCLE" right="why budgets keep leaking" />
@@ -169,7 +169,8 @@ const Index = () => (
     </section>
 
     {/* APPLIED SOLUTIONS — the offer */}
-    <section className="relative px-6 md:px-10 py-16 md:py-24 border-t border-foreground bg-foreground text-background">
+    <section className="relative px-6 md:px-10 bg-foreground text-background">
+      <div className="border-t border-background/40 py-16 md:py-24">
       <Reveal>
         <h2 className="font-display h-display-md">
           Applied <span className="text-gradient">Solutions</span>.
@@ -195,10 +196,12 @@ const Index = () => (
           </Reveal>
         ))}
       </div>
+      </div>
     </section>
 
     {/* SELECTED WORK */}
-    <section className="relative px-6 md:px-10 py-16 md:py-24 border-t border-foreground">
+    <section className="relative px-6 md:px-10">
+      <div className="border-t border-foreground py-16 md:py-24">
       <SectionHeader left="SELECTED WORK" right="applied creative in action" />
 
       <SelectedWorkReel projects={heroProjects} />
@@ -208,10 +211,11 @@ const Index = () => (
         <SelectedWorkReel projects={worksAcrossIndustries} size="sm" />
       </div>
 
+      </div>
     </section>
 
-    {/* MASTERY IN STORYTELLING — 21:9 cinematic video */}
-    <section className="relative w-full overflow-hidden border-t border-foreground bg-foreground">
+    {/* MASTERY IN STORYTELLING — 21:9 cinematic video (full bleed, no divider) */}
+    <section className="relative w-full overflow-hidden bg-foreground">
       <div className="relative w-full overflow-hidden" style={{ aspectRatio: "21 / 9" }}>
         <iframe
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] h-[56.25vw] min-w-full min-h-full pointer-events-none"
@@ -224,7 +228,8 @@ const Index = () => (
     </section>
 
     {/* SOCIAL & COMMERCIALS — video reel */}
-    <section className="relative px-6 md:px-10 py-16 md:py-20 border-t border-foreground">
+    <section className="relative px-6 md:px-10">
+      <div className="border-t border-foreground py-16 md:py-20">
       <h2 className="font-display h-display-sm">
         Social &amp; <span className="italic opacity-70">Commercials</span>
       </h2>
@@ -236,12 +241,13 @@ const Index = () => (
           VIEW ALL WORK <ArrowUpRight className="w-4 h-4" />
         </Link>
       </div>
+      </div>
     </section>
 
 
     {/* CLOSING — high-contrast CTA, distinct from footer */}
-    <section className="relative bg-background text-foreground border-t border-foreground px-6 md:px-10 py-16 md:py-20 overflow-hidden">
-      <div className="max-w-[1400px] mx-auto">
+    <section className="relative bg-background text-foreground px-6 md:px-10 overflow-hidden">
+      <div className="border-t border-foreground py-16 md:py-20 max-w-[1400px] mx-auto">
         <Reveal>
           <div className="flex items-center gap-3">
             <span className="block w-8 h-px bg-foreground" />

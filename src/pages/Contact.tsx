@@ -100,8 +100,8 @@ const Contact = () => {
         </Reveal>
       </section>
 
-      <section id="inquiry" className="px-6 md:px-10 py-16 md:py-24 border-t border-foreground scroll-mt-24">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12">
+      <section id="inquiry" className="px-6 md:px-10 scroll-mt-24">
+        <div className="border-t border-foreground py-16 md:py-24 grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12">
           <Reveal className="lg:col-span-7">
             <form onSubmit={submit} className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2">
               <div className="md:col-span-1">

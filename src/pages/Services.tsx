@@ -1,180 +1,79 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SectionLabel from "@/components/SectionLabel";
 import PageHero from "@/components/PageHero";
 import SEO from "@/components/SEO";
 
-const services = [
+const stacks = [
   {
     n: "01",
-    title: "Creative Solution",
-    tagline: "Strategy that unlocks the real bottleneck.",
-    what: "วางกลยุทธ์เชิงสร้างสรรค์เมื่อธุรกิจของคุณติดอยู่กับวิธีเดิม — เราหาจุดตายที่แท้จริง แล้วออกแบบทางออกที่ใช้ได้จริง ไม่ใช่แค่สวยบนสไลด์",
-    how: [
-      "Discovery & Diagnostic Workshop",
-      "Brand & Business Audit",
-      "Positioning & Messaging Architecture",
-      "Creative Direction Roadmap",
-    ],
-    deliverables: [
-      "Strategic Brief Document",
-      "Brand Positioning Framework",
-      "Visual & Verbal Direction Deck",
-      "12-month Creative Roadmap",
-    ],
-    outcomes: [
-      "ทีมและผู้บริหารเห็นภาพเดียวกัน",
-      "ลดเวลา decision-making 40%+",
-      "งบประมาณการตลาดถูกใช้ตรงเป้า",
-    ],
+    title: "BRAND DIRECTION",
+    tagline: "วาง direction ของแบรนด์ให้คมและใช้ได้จริง",
+    items: ["Brand Narrative", "Positioning", "Messaging", "Brand Voice", "Campaign Planning"],
   },
   {
     n: "02",
-    title: "Applied Communication",
-    tagline: "Content built for the way people actually scroll.",
-    what: "การสื่อสารที่ออกแบบจากพฤติกรรมจริงของผู้ใช้ ไม่ใช่จากเทรนด์ — content, copy, และ creative ที่หยุดนิ้วโป้งและสร้าง action",
-    how: [
-      "Audience Behavior Mapping",
-      "Message Frameworking",
-      "Multi-format Content System",
-      "Performance Iteration",
-    ],
-    deliverables: [
-      "Content Pillar System",
-      "Editorial Calendar (3-6 mo.)",
-      "Hero & Hub Creative Sets",
-      "Copy & CTA Library",
-    ],
-    outcomes: [
-      "Engagement rate เพิ่มเฉลี่ย 2-3x",
-      "Cost per acquisition ลดลง",
-      "Brand recall ที่วัดผลได้จริง",
-    ],
+    title: "CREATIVE DIRECTION",
+    tagline: "เปลี่ยน direction ให้กลายเป็นงานที่ทำงานได้จริง",
+    items: ["Campaign Concepts", "Content Systems", "Copywriting", "Creative Direction", "Film & Production"],
   },
   {
     n: "03",
-    title: "Social Media Marketing",
-    tagline: "Always-on systems, not random posting.",
-    what: "บริหารช่องทางดิจิทัลแบบ end-to-end — ตั้งแต่ strategy, content production, community, paid media จนถึง analytics เพื่อสร้างทั้งตัวตนและยอดขาย",
-    how: [
-      "Channel Strategy & Setup",
-      "Monthly Content Production",
-      "Paid Media Management",
-      "Community & Reporting",
-    ],
-    deliverables: [
-      "Monthly Content (12-30 ชิ้น)",
-      "Paid Campaign Management",
-      "Community Response SLA",
-      "Monthly Performance Report",
-    ],
-    outcomes: [
-      "Follower growth ที่มีคุณภาพ",
-      "Lead pipeline จาก social",
-      "Brand presence ที่สม่ำเสมอ",
-    ],
+    title: "DIGITAL EXPERIENCE",
+    tagline: "ออกแบบทุกจุดสัมผัสให้แปลเป็นผลลัพธ์ของธุรกิจ",
+    items: ["Website Direction", "UX / UI", "Landing Pages", "Experience Design", "Touchpoint Design"],
   },
-  {
-    n: "04",
-    title: "High Impact Production",
-    tagline: "Cinematic craft for moments that must land.",
-    what: "งานผลิตคุณภาพระดับสากล — ภาพยนตร์โฆษณา, brand film, documentary, photography และ key visual ที่สร้างภาพจำที่ทรงพลังให้แบรนด์",
-    how: [
-      "Pre-production & Storyboarding",
-      "Director-led Production",
-      "Post-production & Color",
-      "Multi-format Delivery",
-    ],
-    deliverables: [
-      "TVC / Brand Film",
-      "Key Visual & Photography",
-      "Cutdowns & Social Edits",
-      "Behind-the-scenes Asset",
-    ],
-    outcomes: [
-      "ภาพลักษณ์ premium ที่จดจำ",
-      "Asset ที่ใช้ได้ข้ามช่องทาง",
-      "ROI ที่วัดผ่าน brand equity",
-    ],
-  },
+];
+
+const orionsAcronym = [
+  { l: "O", n: "Observe",     b: "อ่านสิ่งที่เกิดขึ้นจริงในตลาด พฤติกรรม และบริบทธุรกิจ" },
+  { l: "R", n: "Reframe",     b: "ตีโจทย์ใหม่ให้คม เพื่อเห็นโอกาสที่ซ่อนอยู่" },
+  { l: "I", n: "Imagine",     b: "สร้างความเป็นไปได้ใหม่ที่ตอบโจทย์ได้จริง" },
+  { l: "O", n: "Orchestrate", b: "ประกอบ solution ที่ตรงจุด พร้อม execute" },
+  { l: "N", n: "Nurture",     b: "Refine และ optimize ให้ดีขึ้นต่อเนื่อง" },
+  { l: "S", n: "Scale",       b: "ขยายสิ่งที่พิสูจน์แล้วว่าเวิร์กในระดับใหญ่ขึ้น" },
 ];
 
 const Services = () => (
   <div>
-    <SEO title="Services — ØRIONS" description="Strategy, Communication, Social, and Production. Four applied solutions to unstick your business." path="/services" />
+    <SEO title="Services — ØRIONS" description="Brand Direction, Creative Direction, Digital Experience. Three stacks that turn ideas into outcomes." path="/services" />
 
     <PageHero
       eyebrowNumber="01"
-      eyebrowLabel="APPLIED SOLUTIONS"
-      title="What we do, and what you get."
-      subtitle="ØRIONS ทำงานครบทั้งกลยุทธ์ การสื่อสาร และงานผลิต — ทุกบริการถูกออกแบบให้ส่งมอบ outcome ที่วัดผลได้ ไม่ใช่แค่ deliverable"
+      eyebrowLabel="WHAT WE DO"
+      title="Three stacks. One direction."
+      subtitle="ØRIONS ทำงานครบทั้งกลยุทธ์ การสื่อสาร และประสบการณ์ดิจิทัล — ออกแบบให้แต่ละ stack ส่งต่อกันเป็นทิศทางเดียว ไม่ใช่งานแยกชิ้น"
     />
 
-    {/* SERVICE STACK */}
-    <section className="px-6 md:px-12 pb-10 border-t border-border">
+    {/* STACKS */}
+    <section className="px-6 md:px-12 pb-10">
       <div className="max-w-[1400px] mx-auto divide-y divide-border">
-        {services.map((s) => (
+        {stacks.map((s) => (
           <Reveal key={s.n}>
             <article className="py-20 md:py-28 grid grid-cols-1 lg:grid-cols-12 gap-10">
-              {/* Left rail */}
-              <header className="lg:col-span-4">
-                <div className="font-display text-grad text-[60px] md:text-[96px] leading-none tracking-[-0.04em]">
+              <header className="lg:col-span-5">
+                <div className="font-display text-accent text-[80px] md:text-[140px] leading-none tracking-[-0.04em]">
                   {s.n}
                 </div>
-                <h2 className="mt-6 font-display text-[28px] md:text-[32px] leading-[1.05]">
+                <h2 className="mt-6 font-display text-[28px] md:text-[40px] leading-[1.05]">
                   {s.title}
                 </h2>
-                <p className="mt-4 font-display italic text-muted-foreground text-[16px] md:text-[18px] font-light normal-case-force">
+                <p className="mt-5 font-thai text-muted-foreground text-[16px] md:text-[18px] leading-[1.6] max-w-[420px]">
                   {s.tagline}
                 </p>
               </header>
 
-              {/* Right details */}
-              <div className="lg:col-span-8 lg:pl-10 lg:border-l border-border space-y-12">
-                <div>
-                  <div className="label-mono text-grad-soft">What it is</div>
-                  <p className="mt-4 text-[16px] md:text-[18px] leading-[1.7] text-foreground/90 font-thai max-w-[640px]">
-                    {s.what}
-                  </p>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-                  <div>
-                    <div className="label-mono text-muted-foreground">How we work</div>
-                    <ul className="mt-4 space-y-3">
-                      {s.how.map((h) => (
-                        <li key={h} className="flex gap-3 text-[14px] leading-[1.55] text-foreground/85">
-                          <span className="mt-[7px] h-[5px] w-[5px] bg-grad shrink-0" />
-                          <span>{h}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div>
-                    <div className="label-mono text-muted-foreground">Deliverables</div>
-                    <ul className="mt-4 space-y-3">
-                      {s.deliverables.map((d) => (
-                        <li key={d} className="flex gap-3 text-[14px] leading-[1.55] text-foreground/85">
-                          <Check className="w-3.5 h-3.5 mt-[5px] text-grad-soft shrink-0" />
-                          <span>{d}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div>
-                    <div className="label-mono text-muted-foreground">Outcomes</div>
-                    <ul className="mt-4 space-y-3">
-                      {s.outcomes.map((o) => (
-                        <li key={o} className="text-[14px] leading-[1.55] text-foreground/85 font-thai border-l border-border pl-3">
-                          {o}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
+              <div className="lg:col-span-7 lg:pl-12 lg:border-l border-border">
+                <div className="label-mono text-muted-foreground mb-6">SCOPE</div>
+                <ul className="divide-y divide-border border-y border-border">
+                  {s.items.map((i) => (
+                    <li key={i} className="py-4 flex items-baseline gap-6">
+                      <span className="font-mono text-[11px] text-accent w-8">→</span>
+                      <span className="font-thai text-[17px] md:text-[19px] text-foreground">{i}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </article>
           </Reveal>
@@ -182,31 +81,28 @@ const Services = () => (
       </div>
     </section>
 
-    {/* PROCESS */}
+    {/* PROCESS — ORIONS */}
     <section className="px-6 md:px-12 py-28 md:py-36 border-t border-border bg-surface">
       <div className="max-w-[1400px] mx-auto">
-        <Reveal><SectionLabel number="02" label="THE BLUEPRINT" /></Reveal>
+        <Reveal><SectionLabel number="04" label="HOW WE WORK" /></Reveal>
         <Reveal delay={0.1}>
-          <h2 className="mt-8 font-display text-[32px] md:text-[44px] leading-[1] max-w-[800px]">
-            6 ขั้นตอนสู่ผลลัพธ์ที่แม่นยำ
+          <h2 className="mt-8 font-display text-[36px] md:text-[56px] leading-[1.05] max-w-[800px]">
+            THE <span className="text-accent">ØRIONS</span> PROCESS
           </h2>
         </Reveal>
+        <Reveal delay={0.15}>
+          <p className="mt-6 max-w-[620px] text-[16px] leading-[1.7] text-muted-foreground font-thai">
+            เราไม่เริ่มจากสิ่งที่ลูกค้าขอ แต่เริ่มจากสิ่งที่ธุรกิจกำลังเจออยู่จริง
+          </p>
+        </Reveal>
 
-        <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-          {[
-            { n: "01", letter: "O", name: "Open", body: "เปิดปัญหาที่แท้จริง" },
-            { n: "02", letter: "R", name: "Reason", body: "หาเหตุผลเบื้องหลัง" },
-            { n: "03", letter: "I", name: "Ideation", body: "ไอเดียที่ใช้ได้จริง" },
-            { n: "04", letter: "O", name: "Offer", body: "ออกแบบข้อเสนอที่ชัด" },
-            { n: "05", letter: "N", name: "Navigation", body: "นำทางจนเห็นผล" },
-            { n: "06", letter: "S", name: "Success", body: "ขยายผลความสำเร็จ" },
-          ].map((b, i) => (
-            <Reveal key={b.n} delay={i * 0.05}>
-              <div className="bg-background border border-border p-5 h-full">
-                <div className="label-mono text-muted-foreground">{b.n}</div>
-                <div className="mt-4 font-display text-grad text-[44px] leading-none">{b.letter}</div>
-                <div className="mt-4 font-display text-[16px]">{b.name}</div>
-                <p className="mt-2 text-[12px] leading-[1.55] text-muted-foreground font-thai">{b.body}</p>
+        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 border-t border-l border-border">
+          {orionsAcronym.map((s, i) => (
+            <Reveal key={i} delay={i * 0.05}>
+              <div className="bg-background border-r border-b border-border p-6 md:p-8 h-full">
+                <div className="font-display text-accent text-[64px] leading-none">{s.l}</div>
+                <div className="mt-6 font-display text-[15px] tracking-[0.05em]">{s.n}</div>
+                <p className="mt-3 text-[12px] leading-[1.65] text-muted-foreground font-thai">{s.b}</p>
               </div>
             </Reveal>
           ))}
@@ -218,18 +114,18 @@ const Services = () => (
     <section className="px-6 md:px-12 py-28 md:py-36 border-t border-border">
       <div className="max-w-[1100px] mx-auto">
         <Reveal>
-          <h2 className="font-display text-[36px] md:text-[48px] leading-[1]">
-            Ready to apply?
+          <h2 className="font-display text-[36px] md:text-[56px] leading-[1.05]">
+            Ready to <span className="text-accent">sharpen</span><br />the next idea?
           </h2>
         </Reveal>
         <Reveal delay={0.1}>
-          <p className="mt-6 max-w-[600px] text-[16px] leading-[1.7] text-muted-foreground font-thai">
-            เริ่มจาก Clarity Audit — เราจะชี้จุดตายและทางรอดให้คุณภายใน 60 นาที
+          <p className="mt-8 max-w-[600px] text-[16px] leading-[1.7] text-muted-foreground font-thai">
+            เริ่มจากการสนทนา 30 นาที — เราจะตีโจทย์ใหม่ให้คุณเห็นทิศทางที่ชัดขึ้น
           </p>
         </Reveal>
         <Reveal delay={0.2}>
-          <Link to="/contact" className="mt-10 inline-flex items-center gap-3 bg-grad text-background px-7 py-4 label-mono hover:opacity-90 transition-opacity">
-            Book Clarity Audit <ArrowRight className="w-4 h-4" />
+          <Link to="/contact" className="mt-10 inline-flex items-center gap-3 bg-accent-solid text-accent-foreground px-7 py-4 label-mono hover:opacity-90 transition-opacity">
+            Let's Talk <ArrowRight className="w-4 h-4" />
           </Link>
         </Reveal>
       </div>

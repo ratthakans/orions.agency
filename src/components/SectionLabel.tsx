@@ -6,8 +6,8 @@ interface Props {
 
 const SectionLabel = ({ number, label, className = "" }: Props) => (
   <div className={`flex items-center gap-3 ${className}`}>
-    <span className="h-px w-10 divider-grad" />
-    <span className="label-mono text-grad-soft">
+    <span className="h-px w-10 bg-accent" />
+    <span className="label-mono text-accent">
       {number} — {label}
     </span>
   </div>

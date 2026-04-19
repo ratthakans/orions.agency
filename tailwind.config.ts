@@ -51,10 +51,10 @@ export default {
         },
       },
       fontFamily: {
-        display: ["Unbounded", "Inter", "IBM Plex Sans Thai", "sans-serif"],
-        body: ["Inter", "IBM Plex Sans Thai", "sans-serif"],
-        mono: ["JetBrains Mono", "monospace"],
-        thai: ["IBM Plex Sans Thai", "Inter", "sans-serif"],
+        display: ["Unbounded", "IBM Plex Sans Thai", "sans-serif"],
+        body: ["IBM Plex Sans Thai", "sans-serif"],
+        mono: ["IBM Plex Mono", "JetBrains Mono", "monospace"],
+        thai: ["IBM Plex Sans Thai", "sans-serif"],
         brand: ["Unbounded", "sans-serif"],
       },
       borderRadius: {

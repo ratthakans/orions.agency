@@ -135,30 +135,28 @@ const Index = () => (
       </div>
     </section>
 
-    {/* THE POINT OF VIEW */}
+    {/* WHO IS ØRIONS */}
     <section className="px-6 md:px-10 py-20 md:py-32">
-      <SectionHeader left="04 — THE POINT OF VIEW" />
+      <SectionHeader left="04 — WHO IS ØRIONS" right="creative agency from bangkok" />
 
-      <div className="mt-12 grid grid-cols-1 md:grid-cols-12 gap-10">
+      <div className="mt-12 grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-center">
         <div className="md:col-span-7 order-2 md:order-1">
-          <div className="aspect-[4/3] overflow-hidden bg-surface-2">
-            <img src={povCrosswalk} alt="A busy crosswalk with people in motion" className="w-full h-full object-cover" />
+          <div className="aspect-[4/5] overflow-hidden bg-surface-2">
+            <img src={whoOrionsTeam} alt="ØRIONS team standing on a Bangkok rooftop with the city skyline" className="w-full h-full object-cover" />
           </div>
         </div>
         <div className="md:col-span-5 order-1 md:order-2 space-y-8">
           <Reveal>
-            <p className="text-[16px] md:text-[18px] leading-[1.7] font-thai">
-              <strong className="font-display normal-case font-bold">ปัญหาของหลายธุรกิจวันนี้</strong> ไม่ใช่การทำไม่พอ แต่คือการทำมากเกินไป โดยไม่ได้ความชัดเจนกลับมา
-            </p>
+            <h2 className="font-display text-[36px] md:text-[56px] leading-[0.95] tracking-[-0.03em]">
+              Creative Agency<br />from Bangkok.
+            </h2>
           </Reveal>
-          <Reveal delay={0.1}>
-            <p className="text-[16px] md:text-[18px] leading-[1.7] font-thai">
-              <strong className="font-display normal-case font-bold">สิ่งที่หายไปทุกวัน</strong> ไม่ใช่แค่งบประมาณ แต่คือเวลาของทีม พลังงาน และความหมาย ที่ถูกใช้ไปกับ digital waste
-            </p>
+          <Reveal delay={0.15}>
+            <div className="hairline w-16" />
           </Reveal>
           <Reveal delay={0.2}>
-            <p className="text-[16px] md:text-[18px] leading-[1.7] font-thai">
-              <strong className="font-display normal-case font-bold">ØRIONS</strong> ไม่ได้เข้ามาเพื่อสร้าง noise เพิ่ม แต่เข้ามาเพื่อลด digital waste ด้วยงานที่คิดมาดี ทำมาคม และมีคุณภาพพอจะจบงานได้ตรงจุด
+            <p className="text-[16px] md:text-[18px] leading-[1.75] font-thai text-muted-foreground">
+              เราคือนักแก้ปัญหาที่นำความรวดเร็วแบบ <span className="font-display normal-case font-bold text-foreground">Bangkok Energy</span> มาผสานกับ <span className="font-display normal-case font-bold text-foreground">Logical Standard</span> ระดับสากล เราเชื่อมช่องว่างระหว่าง <span className="text-foreground font-medium">"ไอเดียที่ดูดี"</span> กับ <span className="text-foreground font-medium">"ผลลัพธ์ทางธุรกิจที่วัดผลได้"</span> เพื่อลดงบประมาณที่สูญเปล่าและสร้างผลกระทบที่แท้จริงให้กับแบรนด์
             </p>
           </Reveal>
         </div>

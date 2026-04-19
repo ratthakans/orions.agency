@@ -117,7 +117,7 @@ const Index = () => (
           <Reveal>
             <div className="flex items-center gap-3">
               <span className="block w-8 h-px bg-foreground" />
-              <p className="index-badge text-foreground">03 — THE VICIOUS CYCLE</p>
+              <p className="index-badge text-foreground">THE VICIOUS CYCLE</p>
             </div>
           </Reveal>
           <Reveal delay={0.1}>
@@ -139,16 +139,14 @@ const Index = () => (
           {pressures.map((p, i) => (
             <Reveal key={p.label} delay={0.2 + i * 0.1}>
               <div className={`group relative py-8 md:py-10 ${i === 0 ? "border-t" : ""} border-b border-foreground transition-colors duration-500 hover:bg-foreground hover:text-background cursor-default overflow-hidden`}>
-                <div className="absolute top-3 right-3 md:top-4 md:right-4 font-mono text-[11px] tracking-[0.08em] text-muted-foreground transition-colors duration-500 group-hover:text-background/60">
-                  0{i + 1} / 03
-                </div>
                 <div className="absolute bottom-3 right-3 md:bottom-4 md:right-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500">
                   <ArrowUpRight className="w-5 h-5" />
                 </div>
                 <div className="grid grid-cols-12 gap-4 md:gap-6 items-baseline px-2 md:px-4">
                   <div className="col-span-12 md:col-span-4">
                     <CountUp to={p.stat} prefix={p.prefix} suffix={p.suffix} decimals={p.decimals}
-                      className="font-display text-[64px] md:text-[96px] leading-[0.9] tracking-[-0.04em] block transition-transform duration-500 group-hover:-translate-y-1" />
+                      className="font-display text-[72px] md:text-[112px] leading-[0.9] tracking-[-0.04em] block transition-transform duration-500 group-hover:-translate-y-1"
+                      suffixClassName={p.suffix === "x" ? "" : "text-[40px] md:text-[56px] tracking-normal ml-1 align-baseline text-muted-foreground group-hover:text-background/70"} />
                   </div>
                   <div className="col-span-12 md:col-span-8">
                     <div className="index-badge text-foreground transition-colors duration-500 group-hover:text-background">{p.label}</div>

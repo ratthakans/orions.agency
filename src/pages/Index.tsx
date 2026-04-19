@@ -72,19 +72,38 @@ const Index = () => (
     </section>
 
     {/* THE VICIOUS CYCLE + PRESSURE */}
-    <section className="px-6 md:px-10 min-h-screen flex flex-col justify-center py-20 md:py-28 bg-surface border-y border-foreground">
-      <div className="max-w-[1400px] mx-auto w-full">
+    <section className="relative px-6 md:px-10 min-h-screen flex flex-col justify-center py-20 md:py-28 bg-surface border-y border-foreground overflow-hidden">
+      <div className="max-w-[1400px] mx-auto w-full relative z-10">
         <Reveal>
-          <blockquote className="font-thai text-[24px] md:text-[40px] leading-[1.4] font-normal text-center max-w-[1100px] mx-auto">
-            หลายแบรนด์ติดอยู่ใน <span className="font-display normal-case">Vicious Cycle</span> ทำงานหนักขึ้น จ่ายแพงขึ้น แต่ได้ผลลัพธ์เท่าเดิม เพราะกติกาของโลกเปลี่ยนไปแล้ว
-          </blockquote>
+          <p className="index-badge text-muted-foreground text-center">02 — THE PRESSURE</p>
         </Reveal>
 
-        <div className="mt-16 md:mt-24 grid grid-cols-1 md:grid-cols-3 gap-px bg-foreground border border-foreground">
+        <Reveal delay={0.1}>
+          <h2 className="mt-6 md:mt-8 font-thai text-[28px] md:text-[56px] leading-[1.25] tracking-[-0.02em] font-normal text-center max-w-[1100px] mx-auto">
+            หลายธุรกิจติดอยู่ใน <span className="font-display normal-case font-medium tracking-[-0.03em]">"วงจรอุบาท <span className="text-muted-foreground">(VICIOUS CYCLE)"</span></span>
+            <br className="hidden md:block" />
+            <span className="block mt-3 md:mt-4 text-muted-foreground text-[20px] md:text-[36px]">
+              ทำงานหนักขึ้น จ่ายแพงขึ้น แต่ได้ผลลัพธ์เท่าเดิม
+            </span>
+          </h2>
+        </Reveal>
+
+        <Reveal delay={0.2}>
+          <div className="mt-10 md:mt-14 flex items-center justify-center gap-4">
+            <div className="hairline w-12" />
+            <span className="index-badge text-muted-foreground">3 จุดตายที่กัดกินงบประมาณ</span>
+            <div className="hairline w-12" />
+          </div>
+        </Reveal>
+
+        <div className="mt-10 md:mt-14 grid grid-cols-1 md:grid-cols-3 gap-px bg-foreground border border-foreground">
           {pressures.map((p, i) => (
-            <Reveal key={p.label} delay={i * 0.1}>
+            <Reveal key={p.label} delay={0.3 + i * 0.1}>
               <div className="group bg-background p-8 md:p-10 h-full transition-colors duration-500 hover:bg-foreground hover:text-background cursor-default">
-                <div className="index-badge text-muted-foreground transition-colors duration-500 group-hover:text-background/60">{p.label}</div>
+                <div className="flex items-center justify-between">
+                  <div className="index-badge text-muted-foreground transition-colors duration-500 group-hover:text-background/60">{p.label}</div>
+                  <div className="font-mono text-[11px] text-muted-foreground transition-colors duration-500 group-hover:text-background/60">0{i + 1}</div>
+                </div>
                 <CountUp to={p.stat} prefix={p.prefix} suffix={p.suffix} decimals={p.decimals}
                   className="mt-8 font-display text-[64px] md:text-[96px] leading-[0.9] tracking-[-0.04em] block transition-transform duration-500 group-hover:-translate-y-1" />
                 <p className="mt-8 text-[14px] md:text-[15px] leading-[1.65] text-muted-foreground font-thai transition-colors duration-500 group-hover:text-background/80">{p.body}</p>

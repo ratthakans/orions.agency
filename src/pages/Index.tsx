@@ -100,22 +100,27 @@ const Index = () => (
         </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16">
-          <div className="md:col-span-3">
+          <div className="md:col-span-5">
             <Reveal>
-              <div className="font-display text-grad text-[64px] md:text-[88px] leading-[0.9] tracking-[-0.04em]">
-                01
-              </div>
-              <div className="mt-4 label-mono text-muted-foreground">THE STAGNATION</div>
-              <div className="mt-12 hidden md:block">
-                <div className="hairline w-12 mb-3" />
-                <p className="font-mono text-[10px] italic text-muted-foreground/60 leading-relaxed">
-                  Source: ØRIONS<br />Industry Observation, 2025
-                </p>
+              <div className="relative aspect-[4/5] image-overlay-soft overflow-hidden">
+                <img src={povCrosswalk} alt="Bangkok crosswalk motion blur" className="absolute inset-0 w-full h-full object-cover image-warm" />
+                <div className="absolute top-6 left-6 right-6 flex items-start justify-between">
+                  <div className="font-display text-grad text-[64px] md:text-[88px] leading-[0.9] tracking-[-0.04em]">
+                    01
+                  </div>
+                  <span className="label-mono text-foreground/90">THE STAGNATION</span>
+                </div>
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="hairline w-12 mb-3 bg-foreground/40" />
+                  <p className="font-mono text-[10px] italic text-foreground/80 leading-relaxed">
+                    Source: ØRIONS · Industry Observation, 2025
+                  </p>
+                </div>
               </div>
             </Reveal>
           </div>
 
-          <div className="md:col-span-9 md:border-l md:border-border md:pl-12">
+          <div className="md:col-span-7">
             <Reveal delay={0.15}>
               <blockquote>
                 <p className="font-thai text-[26px] md:text-[40px] leading-[1.35] font-normal max-w-[820px]">

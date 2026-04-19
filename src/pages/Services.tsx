@@ -116,11 +116,11 @@ const Services = () => (
       title={<>Applied <span className="text-gradient">solutions</span>.</>}
     />
 
-    <section className="px-6 md:px-10 pb-10">
+    <section className="px-6 md:px-10">
       <div className="border-t border-foreground">
         {services.map((s) => (
           <Reveal key={s.n}>
-            <article className="group py-24 md:py-32 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 border-b border-soft transition-colors duration-500">
+            <article className="group py-16 md:py-24 grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 border-b border-soft transition-colors duration-500">
               <header className="lg:col-span-4">
                 <div className="font-display text-[80px] md:text-[120px] leading-[0.85] tracking-[-0.04em] transition-transform duration-500 group-hover:translate-x-1 text-muted-foreground/40 group-hover:text-foreground">
                   {s.n}

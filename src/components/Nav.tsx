@@ -3,6 +3,7 @@ import { NavLink, Link, useLocation } from "react-router-dom";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import Magnetic from "./Magnetic";
 
+
 const links = [
   { label: "Services", to: "/services" },
   { label: "Work", to: "/work" },
@@ -50,25 +51,17 @@ const Nav = () => {
 
         <nav className="hidden md:flex items-center gap-10">
           {links.map((l) => (
-            <Magnetic key={l.to} strength={5} className="inline-block">
-              <NavLink
-                to={l.to}
-                className={({ isActive }) =>
-                  `index-badge relative pb-1 inline-flex items-center gap-2 transition-colors duration-300 ${
-                    isActive
-                      ? "text-foreground after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-0.5 after:h-[2px] after:bg-gradient-accent"
-                      : "text-muted-foreground hover:text-[hsl(var(--accent-to))]"
-                  }`
-                }
-              >
-                {({ isActive }) => (
-                  <>
-                    {isActive && <span className="w-1 h-1 rounded-full accent-dot" />}
-                    <span>{l.label}</span>
-                  </>
-                )}
-              </NavLink>
-            </Magnetic>
+            <NavLink
+              key={l.to}
+              to={l.to}
+              className={({ isActive }) =>
+                `index-badge transition-colors duration-200 ${
+                  isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                }`
+              }
+            >
+              {l.label}
+            </NavLink>
           ))}
         </nav>
 

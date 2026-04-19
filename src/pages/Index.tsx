@@ -4,6 +4,7 @@ import Reveal from "@/components/Reveal";
 import SectionLabel from "@/components/SectionLabel";
 import CountUp from "@/components/CountUp";
 import SEO from "@/components/SEO";
+import Typewriter from "@/components/Typewriter";
 
 const pressures = [
   { stat: 1.7, suffix: "s", decimals: 1, label: "ATTENTION SPAN", title: "ไม่ถึง 2 วินาที", body: "คือเวลาที่คุณมีในการหยุดลูกค้า ก่อนจะถูกปัดทิ้ง" },
@@ -29,7 +30,7 @@ const Index = () => (
           <div className="label-mono text-grad-soft mb-8">EST. BANGKOK · 2024</div>
         </Reveal>
         <Reveal delay={0.05}>
-          <h1 className="font-brand text-[16vw] md:text-[110px] leading-[0.88] tracking-[-0.05em] text-grad">
+          <h1 className="font-brand text-[16vw] md:text-[110px] leading-[0.88] tracking-[-0.05em] text-foreground">
             ØRIONS
           </h1>
         </Reveal>
@@ -41,9 +42,10 @@ const Index = () => (
           </div>
         </Reveal>
         <Reveal delay={0.3}>
-          <p className="mt-8 font-display normal-case-force italic text-[18px] md:text-[22px] font-light text-foreground/90">
-            Practical. Bold. <span className="text-grad">Done.</span>
-          </p>
+          <Typewriter
+            text="Practical. Bold. Done."
+            className="mt-8 font-thai text-[18px] md:text-[22px] font-light text-foreground/90"
+          />
         </Reveal>
       </div>
 

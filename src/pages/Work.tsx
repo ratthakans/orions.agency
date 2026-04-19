@@ -5,6 +5,7 @@ import SectionHeader from "@/components/SectionHeader";
 import SelectedWorkReel from "@/components/SelectedWorkReel";
 import VideoReel, { type VideoReelItem } from "@/components/VideoReel";
 import LongFormStack from "@/components/LongFormStack";
+import MusicMarquee, { type MusicItem } from "@/components/MusicMarquee";
 import CTA from "@/components/CTA";
 import SEO from "@/components/SEO";
 import hongmove from "@/assets/hongmove.png";
@@ -33,6 +34,33 @@ const socialCommercials: VideoReelItem[] = [
   { tag: "Esports", name: "BURIRAM ESPORT", body: "สร้างตัวตนทีม Esport ไทยให้ก้าวสู่เวทีระดับภูมิภาค", videoId: "KwHy9KieUxg" },
   { tag: "Healthcare", name: "SIRIRAJ HOSPITAL", body: "Storytelling ที่สื่อสารความน่าเชื่อถือของสถาบันการแพทย์ชั้นนำ", videoId: "z5JyydIxOwo" },
   { tag: "Automotive", name: "AUDI THAILAND", body: "High-end Production ที่ตีความ Premium Mobility ในแบบไทย", videoId: "_aEZ3MWhjV4" },
+];
+
+const musicRow1: MusicItem[] = [
+  { videoId: "sCjPTr0CfXc" },
+  { videoId: "YQb_ueBfplM" },
+  { videoId: "p4JICbYbDow" },
+  { videoId: "ysrayxcXoF8" },
+  { videoId: "GH-hH8PXQ5E" },
+  { videoId: "OVU8YA9zLns" },
+];
+
+const musicRow2: MusicItem[] = [
+  { videoId: "WyDvMegEqBQ" },
+  { videoId: "XMUshHa10xI" },
+  { videoId: "EmitC7dokS0" },
+  { videoId: "ey-M7sCsz-o" },
+  { videoId: "2VNNdj4UjXY" },
+  { videoId: "i2xgZRTqK_c" },
+];
+
+const musicRow3: MusicItem[] = [
+  { videoId: "LKFAtp_oxf0" },
+  { videoId: "YBXpSXAkej4" },
+  { videoId: "n2_rKXXzg8w" },
+  { videoId: "IOJV7hOB-9c" },
+  { videoId: "WFEAPxB47qc" },
+  { videoId: "8K6iMvHI_F8" },
 ];
 
 const entertainmentLongForm: VideoReelItem[] = [
@@ -100,6 +128,27 @@ const Work = () => (
         </span>
       </div>
       <LongFormStack items={entertainmentLongForm} />
+    </section>
+
+    {/* MUSIC & CREATIVE CONTENT — auto-scrolling marquees */}
+    <section className="relative py-16 md:py-20 border-t border-foreground overflow-hidden">
+      <div className="px-6 md:px-10 flex items-end justify-between gap-6 flex-wrap mb-8 md:mb-10">
+        <h2
+          className="font-display leading-[1] tracking-[-0.02em]"
+          style={{ fontSize: "clamp(24px, 3vw, 40px)" }}
+        >
+          Music &amp; <span className="italic opacity-70">Creative Content</span>
+        </h2>
+        <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
+          18 films · music · culture · loop
+        </span>
+      </div>
+
+      <div className="space-y-5 md:space-y-7">
+        <MusicMarquee items={musicRow1} direction="left" speed={45} />
+        <MusicMarquee items={musicRow2} direction="right" speed={35} stagger cardClass="w-[240px] md:w-[300px]" />
+        <MusicMarquee items={musicRow3} direction="left" speed={50} cardClass="w-[280px] md:w-[340px]" />
+      </div>
     </section>
 
     {/* CTA */}

@@ -1,4 +1,3 @@
-import { Instagram, Facebook } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import PageHero from "@/components/PageHero";
 import SectionHeader from "@/components/SectionHeader";
@@ -27,25 +26,20 @@ type Person = {
   role: string;
   name: string;
   img: string;
-  ig: string;
-  fb: string;
 };
 
-const leadership: Person[] = [
-  { role: "Founder", name: "Ratthakan Suwanphakdee", img: founderImg, ig: "https://instagram.com/orions.bkk", fb: "https://facebook.com/orions.bkk" },
-  { role: "CEO", name: "Kanakhom Kittisakulnam", img: ceoImg, ig: "https://instagram.com/orions.bkk", fb: "https://facebook.com/orions.bkk" },
+const team: Person[] = [
+  { role: "Founder", name: "Ratthakan Suwanphakdee", img: founderImg },
+  { role: "CEO", name: "Kanakhom Kittisakulnam", img: ceoImg },
+  { role: "Creative Director", name: "Manrut Rojrattanavichai", img: cdImg },
+  { role: "Creative", name: "Akaphant Apirugpong", img: creativeImg },
+  { role: "Project Manager", name: "Namfon Kamnoedklang", img: pmImg },
+  { role: "Editor", name: "Achitpon Repaichit", img: editorImg },
+  { role: "DOP", name: "Teerawat Singkam", img: dopImg },
+  { role: "Director", name: "Niti Paladkong", img: directorImg },
 ];
 
-const crew: Person[] = [
-  { role: "Creative Director", name: "Manrut Rojrattanavichai", img: cdImg, ig: "https://instagram.com/orions.bkk", fb: "https://facebook.com/orions.bkk" },
-  { role: "Creative", name: "Akaphant Apirugpong", img: creativeImg, ig: "https://instagram.com/orions.bkk", fb: "https://facebook.com/orions.bkk" },
-  { role: "Project Manager", name: "Namfon Kamnoedklang", img: pmImg, ig: "https://instagram.com/orions.bkk", fb: "https://facebook.com/orions.bkk" },
-  { role: "Editor", name: "Achitpon Repaichit", img: editorImg, ig: "https://instagram.com/orions.bkk", fb: "https://facebook.com/orions.bkk" },
-  { role: "DOP", name: "Teerawat Singkam", img: dopImg, ig: "https://instagram.com/orions.bkk", fb: "https://facebook.com/orions.bkk" },
-  { role: "Director", name: "Niti Paladkong", img: directorImg, ig: "https://instagram.com/orions.bkk", fb: "https://facebook.com/orions.bkk" },
-];
-
-const PersonCard = ({ p, index, large = false }: { p: Person; index: number; large?: boolean }) => (
+const PersonCard = ({ p, index }: { p: Person; index: number }) => (
   <Reveal delay={index * 0.04}>
     <div className="bg-background h-full flex flex-col group">
       <div className="relative w-full aspect-[4/5] overflow-hidden bg-surface">
@@ -53,45 +47,29 @@ const PersonCard = ({ p, index, large = false }: { p: Person; index: number; lar
           src={p.img}
           alt={`${p.name} — ${p.role} at ØRIONS`}
           loading="lazy"
-          width={768}
-          height={960}
-          className="absolute inset-0 w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-[1.02]"
+          width={640}
+          height={800}
+          className="absolute inset-0 w-full h-full object-cover grayscale contrast-[1.05] brightness-95 transition-all duration-700 group-hover:grayscale-0 group-hover:scale-[1.02]"
         />
-        <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
-          <span className="index-badge text-background bg-foreground/70 px-1.5 py-0.5">{String(index + 1).padStart(2, "0")}</span>
-          <span className="font-mono text-[10px] text-background bg-foreground/70 px-1.5 py-0.5">ØRIONS</span>
+        {/* unify tone across photos */}
+        <div className="absolute inset-0 bg-foreground/10 mix-blend-multiply pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-foreground/75 via-foreground/0 to-transparent pointer-events-none" />
+
+        <div className="absolute top-2 left-2 right-2 flex items-center justify-between">
+          <span className="index-badge text-background bg-foreground/60 px-1.5 py-0.5">
+            {String(index + 1).padStart(2, "0")}
+          </span>
+          <span className="font-mono text-[9px] text-background bg-foreground/60 px-1.5 py-0.5">ØRIONS</span>
+        </div>
+
+        {/* Role overlay on image */}
+        <div className="absolute bottom-2 left-2 right-2">
+          <div className="index-badge text-background/85">{p.role}</div>
         </div>
       </div>
-      <div className="pt-5 pb-1 flex items-start justify-between gap-4">
-        <div>
-          <div className="index-badge text-muted-foreground">{p.role}</div>
-          <div
-            className={`mt-2 font-display tracking-[-0.02em] leading-[1.05] ${
-              large ? "text-[24px] md:text-[32px]" : "text-[18px] md:text-[22px]"
-            }`}
-          >
-            {p.name}
-          </div>
-        </div>
-        <div className="flex items-center gap-2 pt-1 shrink-0">
-          <a
-            href={p.ig}
-            target="_blank"
-            rel="noreferrer"
-            aria-label={`${p.name} on Instagram`}
-            className="w-8 h-8 border border-foreground flex items-center justify-center hover:bg-foreground hover:text-background transition-colors"
-          >
-            <Instagram className="w-3.5 h-3.5" />
-          </a>
-          <a
-            href={p.fb}
-            target="_blank"
-            rel="noreferrer"
-            aria-label={`${p.name} on Facebook`}
-            className="w-8 h-8 border border-foreground flex items-center justify-center hover:bg-foreground hover:text-background transition-colors"
-          >
-            <Facebook className="w-3.5 h-3.5" />
-          </a>
+      <div className="pt-3 pb-1">
+        <div className="font-display tracking-[-0.02em] leading-[1.1] text-[13px] md:text-[15px]">
+          {p.name}
         </div>
       </div>
     </div>
@@ -188,24 +166,17 @@ const About = () => (
 
     {/* TEAM */}
     <section className="px-6 md:px-10 py-24 md:py-32">
-      <SectionHeader index="02" left="TEAM" right={`${leadership.length + crew.length} PEOPLE`} />
+      <SectionHeader index="02" left="TEAM" right={`${team.length} PEOPLE`} />
       <Reveal>
-        <h2 className="mt-12 font-display leading-[0.92] tracking-[-0.03em] max-w-[900px]" style={{ fontSize: "clamp(40px, 6vw, 72px)" }}>
+        <h2 className="mt-12 font-display leading-[0.92] tracking-[-0.03em] max-w-[900px]" style={{ fontSize: "clamp(36px, 5vw, 64px)" }}>
           People behind<br />the output<span className="text-muted-foreground">.</span>
         </h2>
       </Reveal>
 
-      {/* Leadership */}
-      <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
-        {leadership.map((p, i) => (
-          <PersonCard key={p.name} p={p} index={i} large />
-        ))}
-      </div>
-
-      {/* Crew */}
-      <div className="mt-16 grid grid-cols-2 md:grid-cols-3 gap-8">
-        {crew.map((p, i) => (
-          <PersonCard key={p.name} p={p} index={i + 2} />
+      {/* 4 cols × 2 rows */}
+      <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
+        {team.map((p, i) => (
+          <PersonCard key={p.name} p={p} index={i} />
         ))}
       </div>
     </section>

@@ -133,22 +133,6 @@ const Work = () => (
         </span>
       </div>
       <LongFormStack items={entertainmentLongForm} />
-
-      {/* เถื่อน TRAVEL — series row */}
-      <div className="mt-16 md:mt-20">
-        <div className="flex items-end justify-between gap-6 flex-wrap">
-          <h3
-            className="font-display leading-[1] tracking-[-0.02em]"
-            style={{ fontSize: "clamp(20px, 2.2vw, 30px)" }}
-          >
-            เถื่อน <span className="italic opacity-70">TRAVEL</span>
-          </h3>
-          <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
-            {String(thuanTravel.length).padStart(2, "0")} episodes · travel series
-          </span>
-        </div>
-        <VideoReel items={thuanTravel} />
-      </div>
     </section>
 
     {/* MUSIC & CREATIVE CONTENT — auto-scrolling marquees */}

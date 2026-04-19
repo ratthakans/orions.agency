@@ -154,45 +154,39 @@ const Index = () => (
       </div>
     </section>
 
-    {/* 04 — WHO IS ØRIONS — full-bleed image left, manifesto right */}
-    <section className="relative border-t border-foreground">
-      <div className="grid grid-cols-1 md:grid-cols-12 min-h-[80vh]">
-        {/* Image kiss-edge */}
-        <div className="md:col-span-7 relative overflow-hidden bg-surface-2 order-2 md:order-1 border-t md:border-t-0 md:border-r border-foreground">
-          <img src={whoOrionsTeam} alt="ØRIONS team in Bangkok" className="absolute inset-0 w-full h-full object-cover" />
-          {/* Vertical anchor text */}
-          <div aria-hidden className="hidden md:flex absolute right-4 top-6 bottom-6 items-center">
-            <span className="font-display text-[11px] tracking-[0.3em] text-background/80 [writing-mode:vertical-rl] rotate-180">
-              BANGKOK / 2024 / ØRIONS
-            </span>
+    {/* 04 — WHO IS ØRIONS — balanced split, smaller image */}
+    <section className="relative border-t border-foreground px-6 md:px-10 py-20 md:py-28">
+      <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-start">
+        {/* Image — contained, 3/4 ratio */}
+        <div className="md:col-span-5 order-2 md:order-1">
+          <div className="aspect-[3/4] overflow-hidden bg-surface-2 border border-foreground">
+            <img src={whoOrionsTeam} alt="ØRIONS team in Bangkok" className="w-full h-full object-cover" />
           </div>
         </div>
 
         {/* Manifesto column */}
-        <div className="md:col-span-5 order-1 md:order-2 px-6 md:px-12 py-16 md:py-24 flex flex-col justify-between">
-          <div>
-            <div className="flex items-center gap-3">
-              <span className="block w-8 h-px bg-foreground" />
-              <p className="index-badge text-foreground">04 — WHO IS ØRIONS</p>
-            </div>
-            <Reveal delay={0.1}>
-              <h2 className="mt-10 font-display text-[40px] md:text-[64px] leading-[0.95] tracking-[-0.04em]">
-                Creative Agency<br />from Bangkok.
-              </h2>
-            </Reveal>
-            <Reveal delay={0.2}>
-              <div className="hairline w-16 mt-8" />
-            </Reveal>
-            <Reveal delay={0.25}>
-              <p className="mt-8 text-[16px] md:text-[18px] leading-[1.8] font-thai text-muted-foreground">
-                เราคือนักแก้ปัญหาที่นำความรวดเร็วแบบ <span className="font-display normal-case font-bold text-foreground">Bangkok Energy</span> มาผสานกับ <span className="font-display normal-case font-bold text-foreground">Logical Standard</span> ระดับสากล เชื่อมช่องว่างระหว่าง <span className="text-foreground font-medium">"ไอเดียที่ดูดี"</span> กับ <span className="text-foreground font-medium">"ผลลัพธ์ทางธุรกิจที่วัดผลได้"</span>
-              </p>
-            </Reveal>
+        <div className="md:col-span-7 order-1 md:order-2">
+          <div className="flex items-center gap-3">
+            <span className="block w-8 h-px bg-foreground" />
+            <p className="index-badge text-foreground">04 — WHO IS ØRIONS</p>
           </div>
+          <Reveal delay={0.1}>
+            <h2 className="mt-8 font-display text-[40px] md:text-[64px] leading-[0.95] tracking-[-0.04em]">
+              Creative Agency<br />from Bangkok.
+            </h2>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <div className="hairline w-16 mt-8" />
+          </Reveal>
+          <Reveal delay={0.25}>
+            <p className="mt-8 text-[16px] md:text-[18px] leading-[1.8] font-thai text-muted-foreground max-w-[560px]">
+              เราคือนักแก้ปัญหาที่นำความรวดเร็วแบบ <span className="font-display normal-case font-bold text-foreground">Bangkok Energy</span> มาผสานกับ <span className="font-display normal-case font-bold text-foreground">Logical Standard</span> ระดับสากล เชื่อมช่องว่างระหว่าง <span className="text-foreground font-medium">"ไอเดียที่ดูดี"</span> กับ <span className="text-foreground font-medium">"ผลลัพธ์ทางธุรกิจที่วัดผลได้"</span>
+            </p>
+          </Reveal>
 
           {/* Stats */}
           <Reveal delay={0.35}>
-            <div className="mt-12 grid grid-cols-3 border-t border-foreground pt-6">
+            <div className="mt-12 grid grid-cols-3 border-t border-foreground pt-6 max-w-[560px]">
               {[
                 { v: "12+", l: "YEARS" },
                 { v: "40+", l: "BRANDS" },

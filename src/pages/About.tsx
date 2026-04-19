@@ -2,6 +2,7 @@ import Reveal from "@/components/Reveal";
 import PageHero from "@/components/PageHero";
 import SectionHeader from "@/components/SectionHeader";
 import CTA from "@/components/CTA";
+import ClosingCTA from "@/components/ClosingCTA";
 import SEO from "@/components/SEO";
 import FlipNumber from "@/components/FlipNumber";
 import ConstellationLine from "@/components/ConstellationLine";
@@ -114,7 +115,7 @@ const About = () => (
     />
 
     {/* WHO IS ØRIONS — image dominant */}
-    <section className="relative px-6 md:px-10 py-16 md:py-24">
+    <section className="relative px-6 md:px-10 py-20 md:py-28">
       <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start">
         <div className="md:col-span-7 order-2 md:order-1">
           <Reveal>
@@ -158,7 +159,7 @@ const About = () => (
                 { v: 40, suffix: "+", l: "BRANDS" },
                 { v: null, suffix: "∞", l: "IDEAS APPLIED" },
               ].map((s, i) => (
-                <div key={s.l} className={i > 0 ? "border-l border-soft pl-3 md:pl-4" : ""}>
+                <div key={s.l} className={`min-w-0 ${i > 0 ? "border-l border-soft pl-3 md:pl-4" : ""}`}>
                   <div className="num-display text-[28px] md:text-[44px]">
                     {s.v !== null ? (
                       <FlipNumber to={s.v} suffix={s.suffix} suffixClassName="ml-0.5" />
@@ -166,7 +167,7 @@ const About = () => (
                       <span>{s.suffix}</span>
                     )}
                   </div>
-                  <div className="mt-2 index-badge text-muted-foreground">{s.l}</div>
+                  <div className="mt-2 font-mono text-[9px] md:text-[10px] tracking-[0.12em] uppercase text-muted-foreground">{s.l}</div>
                 </div>
               ))}
             </div>
@@ -177,7 +178,7 @@ const About = () => (
 
     {/* THE MEANING OF THE LINE — editorial asymmetric */}
     <section className="relative px-6 md:px-10 bg-surface overflow-hidden">
-      <div className="border-t border-foreground py-16 md:py-24">
+      <div className="border-t border-foreground py-20 md:py-28">
       {/* Decorative oversized line — top right, rotated, intentional mark */}
       <div className="pointer-events-none absolute -top-10 -right-20 select-none">
         <div
@@ -265,7 +266,7 @@ const About = () => (
         <Reveal delay={0.35}>
           <div className="mt-12 pt-8 border-t border-foreground flex flex-col md:flex-row md:items-end justify-between gap-8">
             <p className="font-display tracking-[-0.02em] leading-[1.15] h-display-xs max-w-[680px]">
-              หยุดเดา แล้วเริ่ม<span className="text-gradient"> ลากเส้น </span>ที่ถูกต้องไปกับเรา<span className="text-muted-foreground">.</span>
+              หยุดเดา แล้วเริ่ม<span className="font-bold"> ลากเส้น </span>ที่ถูกต้องไปกับเรา<span className="text-muted-foreground">.</span>
             </p>
             <div className="md:text-right shrink-0">
               <div className="index-badge text-muted-foreground">— SIGNED</div>
@@ -281,7 +282,7 @@ const About = () => (
 
     {/* THE 6 METHODS */}
     <section className="px-6 md:px-10 bg-foreground text-background">
-      <div className="border-t border-background/40 py-16 md:py-24">
+      <div className="border-t border-background/40 py-20 md:py-28">
       <SectionHeader index="01" left="METHOD" right="06 STEPS" variant="dark" />
       <Reveal>
         <h2 className="mt-12 font-display h-display-md max-w-[900px]">
@@ -346,7 +347,7 @@ const About = () => (
 
     {/* TEAM */}
     <section className="px-6 md:px-10">
-      <div className="border-t border-foreground py-16 md:py-24">
+      <div className="border-t border-foreground py-20 md:py-28">
       <SectionHeader index="02" left="TEAM" right={`${team.length} PEOPLE`} />
       <Reveal>
         <h2 className="mt-12 font-display h-display-md max-w-[900px]">
@@ -380,37 +381,18 @@ const About = () => (
       </div>
     </section>
 
-    {/* CTA — editorial close, centered & calm */}
-    <section className="relative px-6 md:px-10">
-      <div className="border-t border-foreground py-16 md:py-20 max-w-[760px] mx-auto text-center">
-        <Reveal>
-          <div className="index-badge text-muted-foreground mb-6">READY WHEN YOU ARE</div>
-        </Reveal>
-        <Reveal delay={0.05}>
-          <h2 className="font-display h-display-sm text-balance">
-            Stop guessing<span className="text-muted-foreground">.</span><br />
-            Start <span className="text-gradient">applying</span><span className="text-muted-foreground">.</span>
-          </h2>
-        </Reveal>
-        <Reveal delay={0.2}>
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-5">
-            <CTA to="/contact#audit">Request ØRIONS Audit (Free)</CTA>
-            <CTA to="/contact" variant="ghost">Or start a conversation</CTA>
-          </div>
-        </Reveal>
-        <Reveal delay={0.3}>
-          <div className="mt-12 inline-flex items-center gap-6 md:gap-8 font-mono text-[11px] md:text-[12px] tracking-[0.2em] uppercase text-muted-foreground">
-            <a href="mailto:hello@orions.agency" className="hover:text-foreground transition-colors">
-              hello@orions.agency
-            </a>
-            <span aria-hidden className="block w-px h-3 bg-muted-foreground" />
-            <a href="tel:+66923905464" className="hover:text-foreground transition-colors">
-              +66 92 390 5464
-            </a>
-          </div>
-        </Reveal>
-      </div>
-    </section>
+    <ClosingCTA
+      title={
+        <>
+          Stop guessing<span className="text-muted-foreground">.</span><br />
+          Start <span className="text-gradient">applying</span><span className="text-muted-foreground">.</span>
+        </>
+      }
+      ctas={[
+        { label: "Request ØRIONS Audit (Free)", to: "/contact#audit" },
+        { label: "Or start a conversation", to: "/contact", variant: "ghost" },
+      ]}
+    />
   </div>
 );
 

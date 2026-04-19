@@ -119,17 +119,17 @@ const Contact = () => {
             <form onSubmit={submit} className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2">
               <div className="md:col-span-1">
                 <label className="index-badge text-muted-foreground">01 / NAME</label>
-                <input required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Your name"
+                <input required autoComplete="name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Your name"
                   className={`w-full ${inputCls}`} />
               </div>
               <div className="md:col-span-1">
                 <label className="index-badge text-muted-foreground">02 / COMPANY</label>
-                <input required value={form.company} onChange={(e) => setForm({ ...form, company: e.target.value })} placeholder="Company"
+                <input required autoComplete="organization" value={form.company} onChange={(e) => setForm({ ...form, company: e.target.value })} placeholder="Company"
                   className={`w-full ${inputCls}`} />
               </div>
               <div className="md:col-span-2 mt-4">
                 <label className="index-badge text-muted-foreground">03 / EMAIL</label>
-                <input required type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="you@company.com"
+                <input required type="email" autoComplete="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="you@company.com"
                   className={`w-full ${inputCls}`} />
               </div>
               <div className="md:col-span-2 mt-4">
@@ -138,7 +138,7 @@ const Contact = () => {
                   className={`w-full ${inputCls} resize-none`} />
               </div>
               <button type="submit"
-                className="md:col-span-2 mt-8 inline-flex items-center justify-between bg-foreground text-background px-7 py-5 index-badge hover:opacity-90 transition-opacity">
+                className="md:col-span-2 mt-8 inline-flex items-center justify-between bg-foreground text-background px-7 py-5 index-badge hover:opacity-95 transition-opacity">
                 <span>Send inquiry</span>
                 <ArrowUpRight className="w-4 h-4" />
               </button>

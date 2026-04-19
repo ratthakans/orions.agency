@@ -82,7 +82,7 @@ const Nav = () => {
       </div>
 
       {/* Scroll progress hairline */}
-      <div className="absolute bottom-0 left-0 h-px bg-gradient-accent transition-[width] duration-150" style={{ width: `${progress}%` }} />
+      <div className="absolute bottom-0 left-0 h-px bg-foreground transition-[width] duration-150" style={{ width: `${progress}%` }} />
 
       {open && (
         <div className="md:hidden border-t border-foreground bg-background">

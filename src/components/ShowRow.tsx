@@ -85,8 +85,8 @@ const ShowRow = ({ show, index, isLast }: Props) => {
                   <Play className="w-4 h-4 ml-0.5" fill="currentColor" />
                 </div>
               </div>
-              <div className="absolute bottom-0 left-0 right-0 px-3 py-2 bg-gradient-to-t from-background/85 to-transparent">
-                <span className="font-mono text-[9px] tracking-[0.22em] uppercase text-foreground/80">
+              <div className="absolute bottom-0 left-0 right-0 px-3 py-2 bg-gradient-to-t from-foreground/80 to-transparent">
+                <span className="font-mono text-[9px] tracking-[0.22em] uppercase text-background/90">
                   {active.label}
                 </span>
               </div>

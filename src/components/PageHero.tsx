@@ -24,7 +24,7 @@ const PageHero = ({
   asymmetric = true,
   verticalLabel,
 }: Props) => (
-  <section className="relative px-6 md:px-10 pt-28 md:pt-32 pb-20 md:pb-28">
+  <section className="relative px-6 md:px-10 pt-32 md:pt-36 pb-20 md:pb-28">
     <CropMarks />
     {verticalLabel && <VerticalLabel side="left">{verticalLabel}</VerticalLabel>}
 

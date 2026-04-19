@@ -2,6 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import PageHero from "@/components/PageHero";
 import CTA from "@/components/CTA";
+import ClosingCTA from "@/components/ClosingCTA";
 import SEO from "@/components/SEO";
 
 const SITE_URL = "https://orions.agency";
@@ -144,9 +145,9 @@ const Services = () => (
       <div className="border-t border-foreground">
         {services.map((s) => (
           <Reveal key={s.n}>
-            <article className="group py-16 md:py-24 grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 border-b border-soft transition-colors duration-500">
+            <article className="group py-20 md:py-28 grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 border-b border-soft transition-colors duration-500">
               <header className="lg:col-span-4">
-                <div className="num-display text-[72px] md:text-[120px] transition-transform duration-500 group-hover:translate-x-1 text-muted-foreground/40 group-hover:text-foreground">
+                <div className="num-display text-[56px] md:text-[120px] transition-transform duration-500 group-hover:translate-x-1 text-muted-foreground/40 group-hover:text-foreground">
                   {s.n}
                 </div>
                 <h2 className="mt-8 font-display h-display-xs">
@@ -187,7 +188,7 @@ const Services = () => (
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-foreground border border-foreground">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-foreground border border-foreground">
                   {s.stats.map((st) => (
                     <div key={st.l} className="bg-background text-foreground p-6">
                       <div className="num-display text-[28px] md:text-[40px]">{st.v}</div>
@@ -206,40 +207,15 @@ const Services = () => (
       </div>
     </section>
 
-    {/* CTA — editorial close, centered & calm */}
-    <section className="relative px-6 md:px-10">
-      <div className="border-t border-foreground py-16 md:py-20 max-w-[760px] mx-auto text-center">
-        <Reveal>
-          <div className="index-badge text-muted-foreground mb-6">READY WHEN YOU ARE</div>
-        </Reveal>
-        <Reveal delay={0.05}>
-          <h2 className="font-display h-display-sm text-balance">
-            Have a problem<br />worth <span className="text-muted-foreground">solving.</span>
-          </h2>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <p className="mt-8 max-w-[520px] mx-auto text-[15px] leading-[1.7] text-muted-foreground font-thai">
-            เริ่มจากการคุยสั้นๆ เราจะช่วยชี้จุดตันและทางรอดให้ภายใน 60 นาที
-          </p>
-        </Reveal>
-        <Reveal delay={0.2}>
-          <div className="mt-8 flex justify-center">
-            <CTA to="/contact">Start a project</CTA>
-          </div>
-        </Reveal>
-        <Reveal delay={0.3}>
-          <div className="mt-12 inline-flex items-center gap-6 md:gap-8 font-mono text-[11px] md:text-[12px] tracking-[0.2em] uppercase text-muted-foreground">
-            <a href="mailto:hello@orions.agency" className="hover:text-foreground transition-colors">
-              hello@orions.agency
-            </a>
-            <span aria-hidden className="block w-px h-3 bg-muted-foreground" />
-            <a href="tel:+66923905464" className="hover:text-foreground transition-colors">
-              +66 92 390 5464
-            </a>
-          </div>
-        </Reveal>
-      </div>
-    </section>
+    <ClosingCTA
+      title={
+        <>
+          Have a problem<br />worth <span className="text-muted-foreground">solving.</span>
+        </>
+      }
+      description="เริ่มจากการคุยสั้นๆ เราจะช่วยชี้จุดตันและทางรอดให้ภายใน 60 นาที"
+      ctas={[{ label: "Start a project", to: "/contact" }]}
+    />
   </div>
 );
 

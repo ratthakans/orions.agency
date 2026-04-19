@@ -7,6 +7,7 @@ import VideoReel, { type VideoReelItem } from "@/components/VideoReel";
 import ShowRow, { type Show } from "@/components/ShowRow";
 
 import CTA from "@/components/CTA";
+import ClosingCTA from "@/components/ClosingCTA";
 import SEO from "@/components/SEO";
 import hongmove from "@/assets/hongmove.webp";
 import rtaf from "@/assets/rtaf.webp";
@@ -153,7 +154,7 @@ const Work = () => (
 
     {/* SELECTED WORK */}
     <section className="relative px-6 md:px-10">
-      <div className="border-t border-foreground py-16 md:py-24">
+      <div className="border-t border-foreground py-20 md:py-28">
       <SectionHeader left="SELECTED WORK" right="applied creative in action" />
       <SelectedWorkReel projects={heroProjects} />
 
@@ -182,7 +183,7 @@ const Work = () => (
 
     {/* ENTERTAINMENT & LONG-FORM — editorial alternating stack */}
     <section className="relative px-6 md:px-10">
-      <div className="border-t border-foreground py-16 md:py-24">
+      <div className="border-t border-foreground py-20 md:py-28">
       <div className="flex items-end justify-between gap-6 flex-wrap">
         <h2 className="font-display h-display-sm">
           Entertainment &amp; <span className="text-muted-foreground">Long-form</span>
@@ -199,15 +200,15 @@ const Work = () => (
       </div>
     </section>
 
-    {/* MUSIC & CREATIVE CONTENT — auto-scrolling marquees */}
+    {/* MUSIC & CREATIVE CONTENT — three reels, manual scroll */}
     <section className="relative px-6 md:px-10 overflow-hidden">
-      <div className="border-t border-foreground py-16 md:py-24">
+      <div className="border-t border-foreground py-20 md:py-28">
       <div className="flex items-end justify-between gap-6 flex-wrap mb-8 md:mb-10">
         <h2 className="font-display h-display-sm">
           Music &amp; <span className="text-muted-foreground">Creative Content</span>
         </h2>
         <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
-          18 films · music · culture
+          17 films · music · culture
         </span>
       </div>
 
@@ -225,36 +226,17 @@ const Work = () => (
       </div>
     </section>
 
-    {/* CTA — editorial close, centered & calm */}
-    <section className="relative px-6 md:px-10">
-      <div className="border-t border-foreground py-16 md:py-20 max-w-[760px] mx-auto text-center">
-        <Reveal>
-          <div className="index-badge text-muted-foreground mb-6">READY WHEN YOU ARE</div>
-        </Reveal>
-        <Reveal delay={0.05}>
-          <h2 className="font-display h-display-sm text-balance">
-            Have a project<br />in <span className="text-muted-foreground">mind.</span>
-          </h2>
-        </Reveal>
-        <Reveal delay={0.2}>
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-5">
-            <CTA to="/contact">Start a conversation</CTA>
-            <CTA to="/contact#audit" variant="ghost">Or request the audit</CTA>
-          </div>
-        </Reveal>
-        <Reveal delay={0.3}>
-          <div className="mt-12 inline-flex items-center gap-6 md:gap-8 font-mono text-[11px] md:text-[12px] tracking-[0.2em] uppercase text-muted-foreground">
-            <a href="mailto:hello@orions.agency" className="hover:text-foreground transition-colors">
-              hello@orions.agency
-            </a>
-            <span aria-hidden className="block w-px h-3 bg-muted-foreground" />
-            <a href="tel:+66923905464" className="hover:text-foreground transition-colors">
-              +66 92 390 5464
-            </a>
-          </div>
-        </Reveal>
-      </div>
-    </section>
+    <ClosingCTA
+      title={
+        <>
+          Have a project<br />in <span className="text-muted-foreground">mind.</span>
+        </>
+      }
+      ctas={[
+        { label: "Start a conversation", to: "/contact" },
+        { label: "Or request the audit", to: "/contact#audit", variant: "ghost" },
+      ]}
+    />
   </div>
 );
 

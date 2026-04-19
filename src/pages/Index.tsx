@@ -11,6 +11,7 @@ import RotatingHeadline from "@/components/RotatingHeadline";
 import SelectedWorkReel from "@/components/SelectedWorkReel";
 import VideoReel, { type VideoReelItem } from "@/components/VideoReel";
 import CTA from "@/components/CTA";
+import ClosingCTA from "@/components/ClosingCTA";
 import KineticWordmark from "@/components/KineticWordmark";
 import hongmove from "@/assets/hongmove.webp";
 import rtaf from "@/assets/rtaf.webp";
@@ -76,7 +77,7 @@ const Index = () => (
         </Reveal>
 
         <Reveal delay={0.3}>
-          <div className="mt-6 font-display h-display-xs text-foreground">
+          <div className="mt-6 font-display text-foreground text-[15px] md:text-[22px] tracking-[0.04em] uppercase max-w-full overflow-hidden">
             <RotatingHeadline
               items={[
                 "PRACTICAL · BOLD · DONE",
@@ -106,7 +107,7 @@ const Index = () => (
 
     {/* 03 — THE VICIOUS CYCLE */}
     <section className="relative px-6 md:px-10">
-      <div className="border-t border-foreground py-16 md:py-24 max-w-[1400px] mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
+      <div className="border-t border-foreground py-20 md:py-28 max-w-[1400px] mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
         <div className="md:col-span-5 md:sticky md:top-32 md:self-start">
           <Reveal>
             <SectionHeader left="WHY BUDGETS KEEP LEAKING" />
@@ -131,20 +132,14 @@ const Index = () => (
             <Reveal key={p.label} delay={0.2 + i * 0.1}>
               <div className={`group relative py-10 md:py-14 ${i === 0 ? "border-t" : ""} border-b border-soft cursor-default`}>
                 <div className="grid grid-cols-12 gap-6 md:gap-8 items-start px-2 md:px-6">
-                  <div className="col-span-2 md:col-span-1 pt-3">
-                    <span className="font-mono text-[11px] tracking-[0.12em] text-muted-foreground">
-                      0{i + 1}
-                    </span>
-                  </div>
-
-                  <div className="col-span-10 md:col-span-4">
+                  <div className="col-span-12 md:col-span-5">
                     <FlipNumber
                       to={p.stat}
                       prefix={p.prefix}
                       suffix={p.suffix}
                       decimals={p.decimals}
-                      className="num-display text-[56px] md:text-[88px] transition-transform duration-500 group-hover:-translate-y-1"
-                      suffixClassName="text-[24px] md:text-[36px] tracking-normal ml-1 align-baseline text-muted-foreground"
+                      className="num-display text-[44px] md:text-[88px] transition-transform duration-500 group-hover:-translate-y-1"
+                      suffixClassName="text-[20px] md:text-[36px] tracking-normal ml-1 align-baseline text-muted-foreground"
                     />
                   </div>
 
@@ -167,7 +162,7 @@ const Index = () => (
 
     {/* APPLIED SOLUTIONS — the offer */}
     <section className="relative px-6 md:px-10 bg-foreground text-background">
-      <div className="border-t border-background/40 py-16 md:py-24">
+      <div className="border-t border-background/40 py-20 md:py-28">
       <Reveal>
         <h2 className="font-display h-display-md">
           Applied Solutions<span className="text-background/60">.</span>
@@ -198,7 +193,7 @@ const Index = () => (
 
     {/* SELECTED WORK */}
     <section className="relative px-6 md:px-10">
-      <div className="border-t border-foreground py-16 md:py-24">
+      <div className="border-t border-foreground py-20 md:py-28">
       <SectionHeader left="SELECTED WORK" right="applied creative in action" />
 
       <SelectedWorkReel projects={heroProjects} />
@@ -236,38 +231,19 @@ const Index = () => (
     </section>
 
 
-    {/* CLOSING — centered editorial CTA, unified with Work/About/Services */}
-    <section className="relative px-6 md:px-10">
-      <div className="border-t border-foreground py-16 md:py-20 max-w-[760px] mx-auto text-center">
-        <Reveal>
-          <div className="index-badge text-muted-foreground mb-6">READY WHEN YOU ARE</div>
-        </Reveal>
-        <Reveal delay={0.05}>
-          <h2 className="font-display h-display-sm text-balance">
-            Stop guessing<span className="text-muted-foreground">.</span>
-            <br />
-            Start <span className="text-gradient">applying</span><span className="text-muted-foreground">.</span>
-          </h2>
-        </Reveal>
-        <Reveal delay={0.2}>
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-5">
-            <CTA to="/contact#audit">Request the Audit</CTA>
-            <CTA to="/contact" variant="ghost">Or start a project</CTA>
-          </div>
-        </Reveal>
-        <Reveal delay={0.3}>
-          <div className="mt-12 inline-flex items-center gap-6 md:gap-8 font-mono text-[11px] md:text-[12px] tracking-[0.2em] uppercase text-muted-foreground">
-            <a href="mailto:hello@orions.agency" className="hover:text-foreground transition-colors">
-              hello@orions.agency
-            </a>
-            <span aria-hidden className="block w-px h-3 bg-muted-foreground" />
-            <a href="tel:+66923905464" className="hover:text-foreground transition-colors">
-              +66 92 390 5464
-            </a>
-          </div>
-        </Reveal>
-      </div>
-    </section>
+    <ClosingCTA
+      title={
+        <>
+          Stop guessing<span className="text-muted-foreground">.</span>
+          <br />
+          Start <span className="text-gradient">applying</span><span className="text-muted-foreground">.</span>
+        </>
+      }
+      ctas={[
+        { label: "Request the Audit", to: "/contact#audit" },
+        { label: "Or start a project", to: "/contact", variant: "ghost" },
+      ]}
+    />
   </div>
 );
 

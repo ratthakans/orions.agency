@@ -4,7 +4,6 @@ import Reveal from "@/components/Reveal";
 import SectionLabel from "@/components/SectionLabel";
 import PageHero from "@/components/PageHero";
 import SEO from "@/components/SEO";
-import aboutBw from "@/assets/pov-crosswalk.jpg";
 
 const About = () => (
   <div>
@@ -19,19 +18,8 @@ const About = () => (
 
     {/* FORMULA */}
     <section className="px-6 md:px-12 py-24 md:py-32 border-t border-border">
-      <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-center">
-        <Reveal className="md:col-span-5">
-          <div className="relative aspect-[4/5] image-overlay-soft overflow-hidden">
-            <img src={aboutBw} alt="Bangkok streets" className="absolute inset-0 w-full h-full object-cover image-warm-bw" />
-            <div className="absolute bottom-6 left-6 right-6">
-              <div className="hairline w-12 mb-3 bg-foreground/40" />
-              <p className="font-mono text-[10px] italic text-foreground/80 leading-relaxed">
-                Bangkok · 2024
-              </p>
-            </div>
-          </div>
-        </Reveal>
-        <Reveal className="md:col-span-7">
+      <div className="max-w-[1100px] mx-auto">
+        <Reveal>
           <div className="border-grad p-10 md:p-16 relative">
             <div className="font-display text-[24px] md:text-[36px] tracking-tight leading-[1.2]">
               <span className="text-grad">BANGKOK ENERGY</span>
@@ -92,14 +80,13 @@ const About = () => (
             { t: "ØRIONS", s: "กลยุทธ์ × งานผลิต", b: "เชื่อมการคิดกับการทำ ให้ธุรกิจขยับไปข้างหน้าได้จริง", muted: false },
           ].map((c, i) => (
             <Reveal key={c.t} delay={i * 0.1}>
-              <div className={`p-8 md:p-10 h-full border relative ${c.muted ? "bg-background border-border" : "bg-surface-2 border-foreground/20"}`}>
-                {!c.muted && <div className="absolute top-0 left-0 right-0 h-px bg-grad" />}
-                <div className={`label-mono ${c.muted ? "text-muted-foreground" : "text-grad-soft"}`}>
+              <div className={`p-8 md:p-10 h-full border ${c.muted ? "bg-background border-border" : "bg-grad text-background border-transparent md:scale-[1.03] shadow-[0_30px_80px_-30px_hsl(var(--grad-2)/0.5)]"}`}>
+                <div className={`label-mono ${c.muted ? "text-muted-foreground" : "text-background/80"}`}>
                   {c.muted ? "VS" : "OUR APPROACH"}
                 </div>
-                <h3 className={`mt-6 font-display text-[26px] md:text-[32px] ${c.muted ? "" : "text-grad"}`}>{c.t}</h3>
-                <div className="mt-3 font-display text-[17px] font-thai text-foreground">{c.s}</div>
-                <p className="mt-4 text-[14px] leading-[1.7] font-thai text-muted-foreground">{c.b}</p>
+                <h3 className={`mt-6 font-display text-[26px] md:text-[32px] ${c.muted ? "" : "text-background"}`}>{c.t}</h3>
+                <div className={`mt-3 font-display text-[17px] font-thai ${c.muted ? "text-muted-foreground" : "text-background"}`}>{c.s}</div>
+                <p className={`mt-4 text-[14px] leading-[1.7] font-thai ${c.muted ? "text-muted-foreground/80" : "text-background/90"}`}>{c.b}</p>
               </div>
             </Reveal>
           ))}

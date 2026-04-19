@@ -1,86 +1,140 @@
 import { Link } from "react-router-dom";
 import { Instagram, Facebook, Mail } from "lucide-react";
 
+const clients = [
+  "DEMOCRAT PARTY",
+  "GCOO",
+  "MY HOTEL",
+  "HONG MOVE",
+  "RTAF",
+  "KHAO YAI CC",
+  "HEAVY ORGANIZER",
+  "LEICESTER CITY",
+  "AUDI THAILAND",
+  "BURIRAM ESPORT",
+  "SIRIRAJ HOSPITAL",
+  "THAI PBS",
+  "เถื่อน TRAVEL",
+  "THE UPGRADE",
+];
+
 const Footer = () => (
-  <footer className="bg-foreground text-background px-6 md:px-10 pt-20 md:pt-28 pb-8">
-    {/* Top: index header */}
-    <div className="border-t border-background/30 pt-3 pb-3 flex items-center justify-between gap-6">
-      <span className="index-badge font-bold inline-flex items-center gap-3">
-        <span className="opacity-60 font-mono">∞</span>
-        <span className="block w-4 h-px bg-background/40" />
-        <span>SIGN-OFF</span>
-      </span>
-      <span className="index-badge font-medium opacity-60 hidden sm:inline">ØRIONS · BANGKOK · TH</span>
-    </div>
-
-    {/* Editorial row: index links + contact */}
-    <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12">
-      <div className="md:col-span-4">
-        <div className="index-badge opacity-60">— INDEX</div>
-        <ul className="mt-6 space-y-3 font-display text-[18px] md:text-[22px] leading-[1.1]">
-          <li><Link to="/services" className="inline-block hover:translate-x-1 transition-transform duration-300">Services <span className="opacity-50">↗</span></Link></li>
-          <li><Link to="/work" className="inline-block hover:translate-x-1 transition-transform duration-300">Work <span className="opacity-50">↗</span></Link></li>
-          <li><Link to="/about" className="inline-block hover:translate-x-1 transition-transform duration-300">About <span className="opacity-50">↗</span></Link></li>
-          <li><Link to="/contact" className="inline-block hover:translate-x-1 transition-transform duration-300">Contact <span className="opacity-50">↗</span></Link></li>
-        </ul>
+  <footer className="bg-foreground text-background">
+    {/* Top section: navigation + contact */}
+    <div className="px-6 md:px-10 pt-20 md:pt-28 pb-16 md:pb-20">
+      {/* Index header */}
+      <div className="border-t border-background/20 pt-3 pb-3 flex items-center justify-between gap-6">
+        <span className="index-badge font-bold inline-flex items-center gap-3 opacity-90">
+          <span className="opacity-50 font-mono">∞</span>
+          <span className="block w-4 h-px bg-background/30" />
+          <span>SIGN-OFF</span>
+        </span>
+        <span className="index-badge font-medium opacity-50 hidden sm:inline">ØRIONS · BANGKOK · TH</span>
       </div>
 
-      <div className="md:col-span-4">
-        <div className="index-badge opacity-60">— CONTACT</div>
-        <ul className="mt-6 space-y-4 text-[14px] leading-[1.5]">
-          <li>
-            <div className="index-badge opacity-50 mb-1">EMAIL</div>
-            <a href="mailto:hello@orions.agency" className="font-display text-[16px] md:text-[18px] hover:opacity-70 transition-opacity break-all">
-              hello@orions.agency
-            </a>
-          </li>
-          <li>
-            <div className="index-badge opacity-50 mb-1">TEL</div>
-            <a href="tel:+66923905464" className="font-display text-[16px] md:text-[18px] hover:opacity-70 transition-opacity">
-              +66 92 390 5464
-            </a>
-          </li>
-        </ul>
-      </div>
+      {/* Two-column editorial: links / contact */}
+      <div className="mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
+        {/* Index links */}
+        <div className="md:col-span-5">
+          <div className="index-badge opacity-50">— INDEX</div>
+          <ul className="mt-8 grid grid-cols-2 gap-y-4 gap-x-8 font-display text-[20px] md:text-[26px] leading-[1.1] tracking-[-0.02em]">
+            {[
+              { to: "/services", label: "Services" },
+              { to: "/work", label: "Work" },
+              { to: "/about", label: "About" },
+              { to: "/contact", label: "Contact" },
+            ].map((l) => (
+              <li key={l.to}>
+                <Link
+                  to={l.to}
+                  className="group inline-flex items-center gap-2 hover:opacity-70 transition-opacity"
+                >
+                  <span>{l.label}</span>
+                  <span className="opacity-30 group-hover:opacity-100 group-hover:translate-x-0.5 -translate-x-1 transition-all duration-300">↗</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-      <div className="md:col-span-4">
-        <div className="index-badge opacity-60">— STUDIO</div>
-        <p className="mt-6 font-thai text-[14px] leading-[1.6] opacity-90">
-          246/8 Soi Yothinphatthana<br />
-          Bang Kapi, Bangkok 10240<br />
-          Thailand
-        </p>
-        <div className="mt-6 flex items-center gap-3">
-          <a href="https://instagram.com/orions.bkk" target="_blank" rel="noreferrer" aria-label="Instagram"
-             className="w-9 h-9 border border-background/40 flex items-center justify-center hover:bg-background hover:text-foreground transition-colors">
-            <Instagram className="w-4 h-4" />
-          </a>
-          <a href="https://facebook.com/orions.bkk" target="_blank" rel="noreferrer" aria-label="Facebook"
-             className="w-9 h-9 border border-background/40 flex items-center justify-center hover:bg-background hover:text-foreground transition-colors">
-            <Facebook className="w-4 h-4" />
-          </a>
-          <a href="mailto:hello@orions.agency" aria-label="Email"
-             className="w-9 h-9 border border-background/40 flex items-center justify-center hover:bg-background hover:text-foreground transition-colors">
-            <Mail className="w-4 h-4" />
-          </a>
+        {/* Contact block */}
+        <div className="md:col-span-7 md:pl-12 md:border-l border-background/20 grid grid-cols-1 sm:grid-cols-2 gap-10">
+          <div>
+            <div className="index-badge opacity-50">— REACH</div>
+            <div className="mt-8 space-y-6">
+              <div>
+                <div className="index-badge opacity-40 mb-1">EMAIL</div>
+                <a href="mailto:hello@orions.agency" className="font-display text-[16px] md:text-[18px] hover:opacity-70 transition-opacity break-all">
+                  hello@orions.agency
+                </a>
+              </div>
+              <div>
+                <div className="index-badge opacity-40 mb-1">TEL</div>
+                <a href="tel:+66923905464" className="font-display text-[16px] md:text-[18px] hover:opacity-70 transition-opacity">
+                  +66 92 390 5464
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div className="index-badge opacity-50">— STUDIO</div>
+            <p className="mt-8 font-thai text-[14px] leading-[1.7] opacity-80">
+              246/8 Soi Yothinphatthana<br />
+              Bang Kapi, Bangkok 10240<br />
+              Thailand
+            </p>
+            <div className="mt-8 flex items-center gap-2.5">
+              <a href="https://instagram.com/orions.bkk" target="_blank" rel="noreferrer" aria-label="Instagram"
+                 className="w-9 h-9 border border-background/30 flex items-center justify-center hover:bg-background hover:text-foreground hover:border-background transition-colors">
+                <Instagram className="w-4 h-4" />
+              </a>
+              <a href="https://facebook.com/orions.bkk" target="_blank" rel="noreferrer" aria-label="Facebook"
+                 className="w-9 h-9 border border-background/30 flex items-center justify-center hover:bg-background hover:text-foreground hover:border-background transition-colors">
+                <Facebook className="w-4 h-4" />
+              </a>
+              <a href="mailto:hello@orions.agency" aria-label="Email"
+                 className="w-9 h-9 border border-background/30 flex items-center justify-center hover:bg-background hover:text-foreground hover:border-background transition-colors">
+                <Mail className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
+    {/* Client marquee — subtle, hairline-bordered */}
+    <div className="border-y border-background/15 py-4 overflow-hidden">
+      <div className="marquee">
+        {[0, 1].map((k) => (
+          <div key={k} className="marquee-track" aria-hidden={k === 1}>
+            {clients.map((c, i) => (
+              <span key={`${k}-${i}`} className="index-badge opacity-40 hover:opacity-90 transition-opacity flex items-center gap-12 whitespace-nowrap">
+                <span>{c}</span>
+                <span className="opacity-50">✦</span>
+              </span>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+
     {/* Massive editorial wordmark */}
-    <Link to="/" aria-label="ØRIONS home" className="block mt-20 md:mt-28 group">
-      <span
-        className="font-brand block leading-[0.82] tracking-[-0.05em] transition-opacity duration-500 group-hover:opacity-90"
-        style={{ fontSize: "clamp(80px, 19vw, 280px)" }}
-      >
-        ØRIONS
-      </span>
-    </Link>
+    <div className="px-6 md:px-10 pt-12 md:pt-16">
+      <Link to="/" aria-label="ØRIONS home" className="block group">
+        <span
+          className="font-brand block leading-[0.82] tracking-[-0.05em] transition-opacity duration-500 group-hover:opacity-90"
+          style={{ fontSize: "clamp(80px, 19vw, 280px)" }}
+        >
+          ØRIONS
+        </span>
+      </Link>
+    </div>
 
     {/* Legal row */}
-    <div className="mt-10 border-t border-background/30 pt-5 flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
-      <p className="index-badge opacity-80">PRACTICAL · BOLD · DONE</p>
-      <p className="font-mono text-[10px] opacity-60">
+    <div className="px-6 md:px-10 pb-8 mt-10 pt-5 border-t border-background/15 flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
+      <p className="index-badge opacity-70">PRACTICAL · BOLD · DONE</p>
+      <p className="font-mono text-[10px] opacity-50">
         © {new Date().getFullYear()} ØRIONS · TAX ID 0105568220629 · BANGKOK · TH
       </p>
     </div>

@@ -1,88 +1,89 @@
 
 
-## About Page — Visual Refinement Plan
+## Site-wide Audit — สิ่งที่หลุด tone & แผนแก้
 
-ผมไป review หน้า About แล้ว (โครงสร้างปัจจุบัน 5 sections: Hero → WHO IS ØRIONS → MEANING OF THE LINE → 6 METHODS → TEAM → CTA). ตอนนี้ functional แต่ยังขาด **rhythm, hierarchy, และ editorial moment** ที่ทำให้รู้สึก "premium agency" จริงๆ
-
-นี่คือสิ่งที่จะปรับ — focus ที่ **visual impact + editorial polish** โดยไม่เปลี่ยน content
+ตรวจครบ 6 หน้า (Index, Services, Work, About, Contact, NotFound) + Footer/Nav แล้ว นี่คือ inconsistencies ที่เจอ **เรียงตามความรุนแรง**
 
 ---
 
-### 1. Hero — เพิ่ม editorial weight
+### 🔴 Critical — ต้องแก้
 
-**ตอนนี้**: ใช้ `PageHero` ธรรมดาเหมือนหน้าอื่น
-**เปลี่ยน**:
-- เพิ่ม **meta strip** ใต้ title: `EST. 2014 · BANGKOK · APPLIED CREATIVE` (3 columns hairline-divided, mono uppercase)
-- เพิ่ม **scroll cue** มุมล่างขวา: `↓ SCROLL` + animated dot
+#### 1. Email/Phone ไม่ตรงกันทั่วเว็บ
+- **About** CTA: `hello@orions.co` · `+66 (0) 00 000 0000` (placeholder!)
+- **Contact**: `hello@orions.agency` · `+66 92 390 5464`
+- **Footer**: `hello@orions.agency` · `+66 92 390 5464`
+- **แก้**: About → ใช้ `hello@orions.agency` + `+66 92 390 5464` ให้ตรงกับ Contact/Footer
 
-### 2. WHO IS ØRIONS — สลับ visual weight
+#### 2. About — `import SectionHeader` แต่ไม่ได้ใช้
+- เคย refactor แล้วลืมลบ → unused import ใน 6 METHODS section ใช้ `<div>` เอง ไม่ใช้ SectionHeader → **inconsistent กับหน้าอื่น** (Index/Work ใช้ SectionHeader)
+- **แก้**: เปลี่ยน 6 METHODS และ TEAM ใน About ให้ใช้ `<SectionHeader>` component (consistent กับ Index/Work)
 
-**ตอนนี้**: รูป 5 cols, text 7 cols → รูปเล็กไป, ดูเป็น "thumbnail"
-**เปลี่ยน**:
-- สลับเป็น **รูป 7 cols (ใหญ่กว่า), text 5 cols** — รูป team สำคัญพอที่จะ dominate
-- เพิ่ม **caption strip** ใต้รูป: `01 — ØRIONS TEAM · BANGKOK STUDIO · 2024`
-- Stats 3 ช่อง: เปลี่ยน label ให้ visual interest มากขึ้น — ใส่ tiny vertical line คั่นแต่ละ stat (`|` แทน grid divider)
-- ตัวเลข `10+ / 40+ / ∞` → ใช้ `FlipNumber` component ที่มีอยู่แล้ว ให้ animate ตอน scroll เข้าจอ
-
-### 3. MEANING OF THE LINE — ยกระดับเป็น editorial moment
-
-**ตอนนี้**: 3 columns เรียงเท่ากัน แม้ fix grid แล้วแต่ยัง "flat"
-**เปลี่ยน**:
-- **Asymmetric layout**: column 01 (The Line) span 5/12, column 02 (The Connector) span 4/12 with **offset top -40px**, column 03 (The Meaning) span 3/12 with **offset top -80px** — staircase composition แบบ editorial magazine
-- **Typography contrast**: column 01 ใช้ font display ใหญ่กว่า (anchor), 02-03 เป็น body
-- เพิ่ม **constellation line SVG** ลากเชื่อม 3 columns (เส้นบางๆ มี dot ที่จุดเชื่อม) — concept "ลากเส้นเชื่อมดาว" จริงๆ visualize ออกมา
-- Pull quote: เพิ่ม **drop cap** ตัวแรก "ด" ขนาดใหญ่ (font display, 4-5 lines tall, float left)
-- Background `―` mark: ขยับไปอยู่มุมขวาบน (rotate -15deg) แทนกลางจอ → ดู intentional ไม่ใช่ background pattern
-
-### 4. THE 6 METHODS — เพิ่ม depth
-
-**ตอนนี้**: 6 cards เรียงเท่ากัน hover แค่เปลี่ยนสี
-**เปลี่ยน**:
-- เพิ่ม **connecting line** บนสุดของ card row: เส้นที่มี 6 dots ตามตัวอักษร O-R-I-O-N-S (visualize "method as journey")
-- Card hover: เพิ่ม **corner mark** (CornerMarks component มีอยู่แล้ว) ปรากฏมุมทั้ง 4 → ดู technical/precise
-- ตัวอักษรใหญ่ (`O R I O N S`): เพิ่ม **outline variant** — บน hover เปลี่ยนจาก solid → outline (text-stroke effect) → ดู kinetic
-- เพิ่ม **process arrow** `→` ระหว่าง card บน desktop (absolute positioned, hairline)
-
-### 5. TEAM — Editorial roster
-
-**ตอนนี้**: 4×2 grid, photos แบบ portrait card
-**เปลี่ยน**:
-- เพิ่ม **section intro stat**: "8 PEOPLE · 1 MISSION" ใหญ่ๆ ก่อน grid
-- PersonCard: เพิ่ม **role number prefix** ใหญ่ขึ้น (เช่น `01/08` มุมบนซ้าย) แทน badge เล็กๆ
-- เพิ่ม **hover detail**: เลื่อน cursor บน card → reveal "years at ØRIONS" หรือ "specialty" ที่ overlay ล่าง (slide-up จากใต้รูป)
-- เพิ่ม **alternating offset** บน desktop: row 2 เลื่อนลง 40px → break grid uniformity → ดู editorial มากขึ้น
-
-### 6. CTA section — Final statement
-
-**ตอนนี้**: heading + button ธรรมดา
-**เปลี่ยน**:
-- เปลี่ยนเป็น **full-bleed dark section** (`bg-foreground text-background`) เหมือน 6 METHODS → bookend หน้า
-- เพิ่ม **giant arrow** `→` (clamp 200-400px) อยู่หลัง heading เป็น decorative
-- เพิ่ม **secondary action**: "Or explore our work →" link ใต้ CTA หลัก
-- เพิ่ม **email + tel** เล็กๆ ด้านขวา: `hello@orions.co · +66...`
+#### 3. Hero structure ไม่สอดคล้องกัน
+- **About**: ใช้ `PageHero` + custom meta strip + scroll cue
+- **Services / Work / Contact**: ใช้ `PageHero` เปล่าๆ
+- **Index**: hero เอง (custom)
+- **แก้**: ลบ meta strip + scroll cue ออกจาก About hero (มันเป็น one-off ที่หน้าอื่นไม่มี) → เก็บแค่ `PageHero` ธรรมดาให้เหมือน Services/Work/Contact
 
 ---
 
-### Files to edit
+### 🟡 Moderate — tone หลุด
 
-- `src/pages/About.tsx` — sections 1-6 ทั้งหมด
-- (อาจเพิ่ม) `src/components/ConstellationLine.tsx` — SVG component สำหรับ section 3 & 4
+#### 4. Services CTA — โครงสร้าง grid แปลก
+- ใช้ `mt-12 grid grid-cols-1 md:grid-cols-12` แต่มีแค่ `md:col-span-8` อันเดียว → grid ไม่จำเป็น, มี `mt-12` ติดมาจาก paste ที่ลืมลบ
+- ไม่มี `border-t border-foreground` separator เหมือนหน้าอื่น → CTA ลอย ไม่มี anchor
+- **แก้**: เพิ่ม `border-t border-foreground`, ลบ grid wrapper เหลือ container ปกติ, เพิ่ม email/tel hairline footer style เหมือน About CTA (คงทรง centered/calm)
+
+#### 5. Work CTA — minimal เกินไป
+- มีแค่ heading + button → เทียบกับ Index/About CTA ที่มี hairline + secondary action → ดู "ขาด"
+- **แก้**: เพิ่ม `READY WHEN YOU ARE` eyebrow + secondary CTA (`Or request the audit →`) ให้ matched กับ Index closing pattern
+
+#### 6. About — มี `MANIFESTO · 01` badge ขวาบน แต่ section อื่นไม่มี numbering แบบนี้
+- ขัดกับ user request เดิมที่ขอเอา "UNTIL SOMEONE DRAWS THE LINE" ออก → badge นี้ก็ตระกูลเดียวกัน รก
+- **แก้**: ลบ `MANIFESTO · 01` badge ออก เหลือแค่ `THE MEANING OF THE LINE`
+
+#### 7. About hero — `SCROLL` cue ซ้ำซ้อนกับหน้า Index
+- Index มี SCROLL cue กลางล่าง, About มีอันที่มุมขวาล่าง → คนละ pattern → confusing
+- **แก้**: ลบออก (cleanup ตามข้อ 3)
 
 ---
 
-### What stays untouched
+### 🟢 Minor — polish
 
-- Content (copy ไทย/อังกฤษทั้งหมด เก็บเดิม)
-- Color tokens, typography utilities
-- Component library (CTA, Reveal, SectionHeader, FlipNumber, CornerMarks — reuse all)
-- Newsprint aesthetic (zero radius, hairlines, no glow/shadow)
+#### 8. Contact — `DIRECT` label vs Footer ใช้ `Reach`
+- Inconsistent — เลือกอันเดียว
+- **แก้**: Contact ใช้ `DIRECT LINE` (เก็บไว้ — ชัดเจนกว่า), Footer คงไว้ ok
+
+#### 9. About TEAM heading — `8 PEOPLE · 1 MISSION · NO HANDOFF` 
+- ใช้ inline number `08` ใหญ่กับ mono caption — ok แต่ duplicate กับ `${team.length} PEOPLE` ในเดิม
+- แก้: เก็บไว้ ดี — แค่ตรวจ alignment
+
+#### 10. Index hero — `BANGKOK · 2019—` ใน rotating headline
+- About meta strip บอก `EST. 2014` (ก่อนเอาออก) → ปีไม่ตรง
+- **แก้**: เลือก year เดียว — ปัจจุบัน About จะถูกลบ meta strip → ใช้ `2019—` ใน Index เป็น source of truth (หรือ user confirm year ที่ถูก)
 
 ---
 
-### Priority (ถ้าอยากทำเป็นรอบๆ)
+### แผนแก้ — 3 รอบ
 
-**Round 1 — High impact**: #3 (MEANING asymmetric + constellation), #5 (TEAM offset + hover reveal), #6 (CTA dark bookend)
-**Round 2 — Polish**: #1 (Hero meta strip), #2 (WHO swap + flip stats), #4 (METHODS connecting dots)
+**Round 1 (critical, 5 นาที)**
+- About: แก้ email/tel ให้ตรง (`hello@orions.agency`, `+66 92 390 5464`)
+- About: ลบ meta strip + scroll cue ออกจาก hero
+- About: ลบ `MANIFESTO · 01` badge
+- About: ลบ unused `SectionHeader` import หรือใช้จริงใน 6 METHODS/TEAM
 
-แนะนำเริ่ม **Round 1 ก่อน** — 3 changes นี้จะเปลี่ยน feel ของหน้าเยอะที่สุด
+**Round 2 (consistency, 5 นาที)**
+- Services CTA: เพิ่ม `border-t`, simplify grid, เพิ่ม contact line เหมือน About
+- Work CTA: เพิ่ม eyebrow + secondary CTA pattern เหมือน Index closing
+
+**Round 3 (optional)**
+- ตรวจ year `2019—` vs `2014` — ขอ user confirm
+
+### Files
+- `src/pages/About.tsx` — Rounds 1
+- `src/pages/Services.tsx` — Round 2
+- `src/pages/Work.tsx` — Round 2
+
+### คำถาม
+- ปีก่อตั้ง ØRIONS คือ **2014** หรือ **2019**? (เจอทั้ง 2 ในเว็บ)
+- จะให้ทำทั้ง 3 รอบรวดเดียว หรือเลือกเฉพาะ Round 1 (critical) ก่อน?
 

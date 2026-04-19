@@ -11,6 +11,8 @@ import approachRunning from "@/assets/approach-running.jpg";
 import approachTaxi from "@/assets/approach-taxi.jpg";
 import hongmove from "@/assets/hongmove.png";
 import rtaf from "@/assets/rtaf.jpg";
+import khaoyai from "@/assets/khaoyai.jpg";
+import democrat from "@/assets/democrat.jpg";
 import whatVortex from "@/assets/what-vortex.jpg";
 import whatSkater from "@/assets/what-skater.jpg";
 import whatWindow from "@/assets/what-window.jpg";

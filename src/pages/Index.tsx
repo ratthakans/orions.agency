@@ -314,102 +314,33 @@ const Index = () => (
     </section>
 
 
-    {/* CLOSING — ØRIONS AUDIT + LET'S WORK merged */}
-    <section className="relative bg-foreground text-background overflow-hidden border-t border-foreground">
-      <div className="px-6 md:px-10 pt-6 pb-3 flex items-center justify-between border-b border-background/20">
-        <span className="index-badge font-bold">ØRIONS AUDIT × LET'S WORK</span>
-        <span className="index-badge font-medium opacity-60 hidden sm:inline">FREE · LIMITED · BANGKOK</span>
+    {/* CLOSING — clean two-line CTA strip */}
+    <section className="relative bg-foreground text-background border-t border-foreground px-6 md:px-10 py-24 md:py-40">
+      <div className="border-t border-background/30 pt-3 pb-3 flex items-center justify-between gap-6">
+        <span className="index-badge font-bold inline-flex items-center gap-3">
+          <span className="opacity-60 font-mono">07</span>
+          <span className="block w-4 h-px bg-background/40" />
+          <span>UNSTUCK</span>
+        </span>
+        <span className="index-badge font-medium opacity-60 hidden sm:inline">PRACTICAL · BOLD · DONE</span>
       </div>
 
-      {/* Massive headline */}
       <Reveal delay={0.05}>
-        <div className="px-6 md:px-10 pt-20 md:pt-32 pb-10 md:pb-16">
-          <h2 className="font-display text-[16vw] md:text-[15vw] leading-[0.85] tracking-[-0.05em]">
-            UNSTUCK<br /><span className="opacity-40">YOUR BIZ.</span>
-          </h2>
-          <p className="mt-10 font-thai text-[18px] md:text-[24px] max-w-[640px] leading-[1.5] opacity-80">
-            Stop guessing. Start applying. — <span className="font-bold text-background">Practical. Bold. Done.</span>
-          </p>
-        </div>
+        <h2 className="mt-16 md:mt-24 font-display leading-[0.86] tracking-[-0.05em]" style={{ fontSize: "clamp(56px, 11vw, 132px)" }}>
+          Stop guessing.<br /><span className="opacity-50">Start applying.</span>
+        </h2>
       </Reveal>
 
-      {/* AUDIT highlight band */}
-      <div className="border-t border-background/20 grid grid-cols-1 lg:grid-cols-12">
-        <div className="lg:col-span-7 p-8 md:p-14 lg:border-r lg:border-background/20">
-          <div className="flex items-center gap-4 mb-8">
-            <span className="index-badge bg-background text-foreground px-3 py-1">FREE DIAGNOSTIC</span>
-            <span className="index-badge opacity-60">60 MIN · NO STRINGS</span>
-          </div>
-          <Reveal>
-            <h3 className="font-display text-[44px] md:text-[88px] leading-[0.9] tracking-[-0.04em]">
-              ØRIONS Audit. <span className="opacity-50">Free.</span>
-            </h3>
-          </Reveal>
-          <Reveal delay={0.15}>
-            <p className="mt-8 max-w-[560px] text-[16px] md:text-[18px] leading-[1.65] font-thai opacity-85">
-              เราไม่ได้มาขอโอกาส แต่มาเพื่อชี้ <span className="font-bold">"จุดตาย"</span> และหา <span className="font-bold">"ทางรอด"</span> ให้ธุรกิจของคุณ — รับเฉพาะธุรกิจที่ต้องการเปลี่ยนแปลงจริง
-            </p>
-          </Reveal>
+      <Reveal delay={0.15}>
+        <div className="mt-12 md:mt-16 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+          <Link to="/contact#audit" className="inline-flex items-center gap-3 bg-background text-foreground px-7 py-4 index-badge hover:opacity-90 transition-opacity">
+            Request the ØRIONS Audit <ArrowUpRight className="w-4 h-4" />
+          </Link>
+          <Link to="/contact" className="inline-flex items-center gap-2 index-badge text-background border-b border-background pb-1 hover:opacity-60 transition-opacity">
+            Or start a project <ArrowUpRight className="w-3.5 h-3.5" />
+          </Link>
         </div>
-
-        <ul className="lg:col-span-5 flex flex-col border-t lg:border-t-0 border-background/20">
-          {[
-            { n: "01", t: "Diagnose", b: "วิเคราะห์จุดตันและจุดที่งบรั่วไหลด้วยตรรกะและข้อมูลจริง" },
-            { n: "02", t: "Roadmap", b: "แนวทางแก้ไขเบื้องต้น พร้อมลำดับความสำคัญที่ต้องลงมือ" },
-            { n: "03", t: "No Pitch", b: "ไม่มีค่าใช้จ่าย ไม่มี deck ขายของ — ตรงประเด็นเท่านั้น" },
-          ].map((it, i) => (
-            <li key={it.n} className={`p-6 md:p-8 ${i > 0 ? "border-t border-background/20" : ""} flex-1`}>
-              <div className="flex items-baseline justify-between">
-                <span className="index-badge opacity-60">{it.n}</span>
-                <ArrowUpRight className="w-4 h-4 opacity-40" />
-              </div>
-              <div className="mt-4 font-display text-[20px] md:text-[24px] tracking-[-0.02em]">{it.t}</div>
-              <p className="mt-2 text-[13px] md:text-[14px] leading-[1.65] font-thai opacity-75">{it.b}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {/* Action row — 2 paths */}
-      <div className="grid grid-cols-1 md:grid-cols-12 border-t border-background/20">
-        <Link to="/contact#audit" className="md:col-span-7 group p-8 md:p-12 flex items-center justify-between border-b md:border-b-0 md:border-r border-background/20 hover:bg-background hover:text-foreground transition-colors">
-          <div>
-            <div className="index-badge opacity-60 group-hover:opacity-100">FREE</div>
-            <div className="mt-3 font-display text-[28px] md:text-[44px] tracking-[-0.03em] leading-[0.95]">Request your Audit →</div>
-          </div>
-          <ArrowUpRight className="w-8 h-8 md:w-12 md:h-12 transition-transform duration-500 group-hover:rotate-45" />
-        </Link>
-        <Link to="/contact" className="md:col-span-5 group p-8 md:p-12 flex items-center justify-between hover:bg-background hover:text-foreground transition-colors">
-          <div>
-            <div className="index-badge opacity-60 group-hover:opacity-100">START</div>
-            <div className="mt-3 font-display text-[24px] md:text-[32px] tracking-[-0.03em] leading-[0.95]">Start a project →</div>
-          </div>
-          <ArrowUpRight className="w-6 h-6 md:w-8 md:h-8 transition-transform duration-500 group-hover:rotate-45" />
-        </Link>
-      </div>
-
-      {/* Footer meta */}
-      <div className="grid grid-cols-1 md:grid-cols-3 border-t border-background/20">
-        <div className="p-6 md:p-10 md:border-r border-background/20">
-          <div className="index-badge opacity-60">EMAIL</div>
-          <a href="mailto:hello@orions.agency" className="mt-3 block font-display text-[16px] md:text-[18px] hover:underline">
-            hello@orions.agency
-          </a>
-        </div>
-        <div className="p-6 md:p-10 md:border-r border-background/20 border-t md:border-t-0">
-          <div className="index-badge opacity-60">PHONE</div>
-          <a href="tel:+66923905464" className="mt-3 block font-display text-[16px] md:text-[18px] hover:underline">
-            +66 92 390 5464
-          </a>
-        </div>
-        <div className="p-6 md:p-10 border-t md:border-t-0 border-background/20">
-          <div className="index-badge opacity-60">STUDIO</div>
-          <p className="mt-3 text-[13px] md:text-[14px] font-mono opacity-70 leading-relaxed">
-            246/8 SOI YOTHINPHATTHANA<br />
-            BANG KAPI · BANGKOK 10240
-          </p>
-        </div>
-      </div>
+      </Reveal>
     </section>
   </div>
 );

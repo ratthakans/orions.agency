@@ -21,15 +21,19 @@ const Contact = () => {
       <SEO title="Contact — ØRIONS" description="Let's talk. We'll point out the dead-end and the way out." path="/contact" />
 
       <section className="px-6 md:px-10 pt-28 md:pt-32 pb-16 md:pb-24">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10">
-          <div className="md:col-span-9">
-            <Reveal>
-              <h1 className="font-display text-[48px] md:text-[96px] leading-[0.95] tracking-[-0.04em]">
-                Tell us what's stuck.
-              </h1>
-            </Reveal>
-          </div>
-        </div>
+        <Reveal>
+          <h1 className="font-display text-[56px] md:text-[128px] leading-[0.86] tracking-[-0.05em]">
+            Tell us<br />
+            what's{" "}
+            <span
+              className="italic font-normal"
+              style={{ fontFamily: "'Cutive', serif", textTransform: "none", letterSpacing: "-0.02em" }}
+            >
+              stuck
+            </span>
+            <span className="text-muted-foreground">.</span>
+          </h1>
+        </Reveal>
       </section>
 
       {/* ØRIONS AUDIT — featured anchor card */}
@@ -37,7 +41,13 @@ const Contact = () => {
         <Reveal>
           <div className="border border-foreground bg-foreground text-background grid grid-cols-1 lg:grid-cols-12">
             <div className="lg:col-span-7 p-8 md:p-12 lg:border-r lg:border-background/20">
-              <div className="index-badge opacity-70">FREE DIAGNOSTIC · LIMITED SLOTS</div>
+              <div className="index-badge opacity-90 inline-flex items-center gap-2.5">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-background opacity-75"></span>
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-background"></span>
+                </span>
+                FREE DIAGNOSTIC · LIMITED SLOTS
+              </div>
               <h2 className="mt-6 font-display text-[36px] md:text-[56px] leading-[0.95] tracking-[-0.03em]">
                 ØRIONS Audit.<br />Free.
               </h2>

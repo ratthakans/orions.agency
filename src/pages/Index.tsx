@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import CountUp from "@/components/CountUp";
+import FlipNumber from "@/components/FlipNumber";
+import ScrollMarquee from "@/components/ScrollMarquee";
 import SectionHeader from "@/components/SectionHeader";
 import SEO from "@/components/SEO";
 import RotatingHeadline from "@/components/RotatingHeadline";
@@ -98,20 +100,11 @@ const Index = () => (
       </div>
     </section>
 
-    {/* MARQUEE */}
+    {/* MARQUEE — scroll-velocity coupled */}
     <section className="border-y border-foreground py-3 overflow-hidden">
-      <div className="marquee">
-        {[0, 1].map((k) => (
-          <div key={k} className="marquee-track" aria-hidden={k === 1}>
-            {["BRAND DIRECTION", "CREATIVE DIRECTION", "DIGITAL EXPERIENCE", "FILM & PRODUCTION", "BANGKOK ↔ WORLD"].map((w, i) => (
-              <span key={i} className="font-display text-[14px] md:text-[16px] leading-none tracking-[0.04em] flex items-center gap-12">
-                <span>{w}</span>
-                <span className="text-muted-foreground">✦</span>
-              </span>
-            ))}
-          </div>
-        ))}
-      </div>
+      <ScrollMarquee
+        items={["BRAND DIRECTION", "CREATIVE DIRECTION", "DIGITAL EXPERIENCE", "FILM & PRODUCTION", "BANGKOK ↔ WORLD"]}
+      />
     </section>
 
     {/* 03 — THE VICIOUS CYCLE */}

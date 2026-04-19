@@ -4,6 +4,12 @@ import Reveal from "@/components/Reveal";
 import SectionLabel from "@/components/SectionLabel";
 import PageHero from "@/components/PageHero";
 import SEO from "@/components/SEO";
+import portrait1 from "@/assets/portrait-1.jpg";
+import portrait2 from "@/assets/portrait-2.jpg";
+import portrait3 from "@/assets/portrait-3.jpg";
+import unlockRunning from "@/assets/unlock-running.jpg";
+
+const serviceImages = [portrait1, portrait2, portrait3, unlockRunning];
 
 const services = [
   {
@@ -114,15 +120,21 @@ const Services = () => (
     {/* SERVICE STACK */}
     <section className="px-6 md:px-12 pb-10 border-t border-border">
       <div className="max-w-[1400px] mx-auto divide-y divide-border">
-        {services.map((s) => (
+        {services.map((s, idx) => (
           <Reveal key={s.n}>
             <article className="py-20 md:py-28 grid grid-cols-1 lg:grid-cols-12 gap-10">
               {/* Left rail */}
               <header className="lg:col-span-4">
-                <div className="font-display text-grad text-[60px] md:text-[96px] leading-none tracking-[-0.04em]">
-                  {s.n}
+                <div className="relative aspect-[4/5] mb-8 image-overlay-soft overflow-hidden">
+                  <img src={serviceImages[idx]} alt={s.title} className="absolute inset-0 w-full h-full object-cover image-warm" />
+                  <div className="absolute top-5 left-5 right-5 flex items-start justify-between">
+                    <div className="font-display text-grad text-[60px] md:text-[88px] leading-none tracking-[-0.04em]">
+                      {s.n}
+                    </div>
+                    <span className="label-mono text-foreground/90">{s.title.toUpperCase()}</span>
+                  </div>
                 </div>
-                <h2 className="mt-6 font-display text-[28px] md:text-[32px] leading-[1.05]">
+                <h2 className="font-display text-[28px] md:text-[32px] leading-[1.05]">
                   {s.title}
                 </h2>
                 <p className="mt-4 font-display italic text-muted-foreground text-[16px] md:text-[18px] font-light normal-case-force">

@@ -4,6 +4,18 @@ import Reveal from "@/components/Reveal";
 import SectionLabel from "@/components/SectionLabel";
 import PageHero from "@/components/PageHero";
 import SEO from "@/components/SEO";
+import gravityTaxi from "@/assets/gravity-taxi.jpg";
+import unlockRunning from "@/assets/unlock-running.jpg";
+import povCrosswalk from "@/assets/pov-crosswalk.jpg";
+import portrait1 from "@/assets/portrait-1.jpg";
+import portrait2 from "@/assets/portrait-2.jpg";
+import portrait3 from "@/assets/portrait-3.jpg";
+import heroBicycle from "@/assets/hero-bicycle.jpg";
+
+const heroImages = [gravityTaxi, unlockRunning, povCrosswalk];
+const selectedImages = [portrait1, portrait2, portrait3, heroBicycle];
+const commercialImages = [unlockRunning, portrait3, gravityTaxi];
+const longformImages = [heroBicycle, povCrosswalk, portrait2];
 
 const heroProjects = [
   { name: "HONGMOVE", category: "APPLIED UTILITY", body: "เปลี่ยนความซับซ้อนให้ดูง่าย ระบบสื่อสาร Seamless สำหรับ Taxi VIP", impact: "+25%", impactLabel: "CONVERSION CLARITY" },
@@ -49,7 +61,9 @@ const Work = () => (
           {heroProjects.map((p, i) => (
             <Reveal key={p.name} delay={i * 0.1}>
               <article className="group bg-background border border-border ring-grad-hover transition-all duration-300">
-                <div className="aspect-[16/10] bg-grad-radial relative overflow-hidden after:absolute after:inset-0 after:bg-background/55 group-hover:after:bg-background/35 after:transition-colors" />
+                <div className="aspect-[16/10] bg-surface-2 relative overflow-hidden image-overlay-soft">
+                  <img src={heroImages[i]} alt={p.name} className="absolute inset-0 w-full h-full object-cover image-warm transition-transform duration-700 group-hover:scale-[1.02]" />
+                </div>
                 <div className="p-6 md:p-8">
                   <div className="label-mono text-grad-soft">{p.category}</div>
                   <h3 className="mt-4 font-display text-[26px]">{p.name}</h3>
@@ -74,7 +88,9 @@ const Work = () => (
           {selectedWorks.map((w, i) => (
             <Reveal key={w.name} delay={(i % 2) * 0.1}>
               <article className="group flex border border-border ring-grad-hover transition-colors">
-                <div className="w-[40%] aspect-square bg-grad-radial relative overflow-hidden shrink-0 after:absolute after:inset-0 after:bg-background/55" />
+                <div className="w-[40%] aspect-square bg-surface-2 relative overflow-hidden shrink-0 image-overlay-soft">
+                  <img src={selectedImages[i]} alt={w.name} className="absolute inset-0 w-full h-full object-cover image-warm" />
+                </div>
                 <div className="p-6 md:p-8 flex flex-col justify-center">
                   <div className="label-mono text-grad-soft">{w.category}</div>
                   <h3 className="mt-3 font-display text-[22px] md:text-[26px]">{w.name}</h3>
@@ -100,8 +116,9 @@ const Work = () => (
           {commercials.map((c, i) => (
             <Reveal key={c.name} delay={i * 0.1}>
               <article className="group bg-background border border-border ring-grad-hover transition-colors">
-                <div className="aspect-video bg-grad-radial relative overflow-hidden flex items-center justify-center before:absolute before:inset-0 before:bg-background/55">
-                  <div className="relative z-10 w-12 h-12 border border-foreground/60 flex items-center justify-center group-hover:bg-foreground transition-colors">
+                <div className="aspect-video bg-surface-2 relative overflow-hidden flex items-center justify-center image-overlay-soft">
+                  <img src={commercialImages[i]} alt={c.name} className="absolute inset-0 w-full h-full object-cover image-warm" />
+                  <div className="relative z-10 w-12 h-12 border border-foreground/80 flex items-center justify-center group-hover:bg-foreground transition-colors backdrop-blur-sm">
                     <Play className="w-4 h-4 text-foreground group-hover:text-background" fill="currentColor" />
                   </div>
                 </div>
@@ -130,8 +147,9 @@ const Work = () => (
           {longform.map((l, i) => (
             <Reveal key={l.name} delay={i * 0.1}>
               <article className="group bg-surface border border-border ring-grad-hover transition-colors">
-                <div className="aspect-video bg-grad-radial relative overflow-hidden flex items-center justify-center before:absolute before:inset-0 before:bg-background/55">
-                  <div className="relative z-10 w-12 h-12 border border-foreground/60 flex items-center justify-center group-hover:bg-foreground transition-colors">
+                <div className="aspect-video bg-surface-2 relative overflow-hidden flex items-center justify-center image-overlay-soft">
+                  <img src={longformImages[i]} alt={l.name} className="absolute inset-0 w-full h-full object-cover image-warm" />
+                  <div className="relative z-10 w-12 h-12 border border-foreground/80 flex items-center justify-center group-hover:bg-foreground transition-colors backdrop-blur-sm">
                     <Play className="w-4 h-4 text-foreground group-hover:text-background" fill="currentColor" />
                   </div>
                 </div>

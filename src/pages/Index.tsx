@@ -3,6 +3,10 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import CountUp from "@/components/CountUp";
 import SEO from "@/components/SEO";
+import heroBicycle from "@/assets/hero-bicycle.jpg";
+import povCrosswalk from "@/assets/pov-crosswalk.jpg";
+import unlockRunning from "@/assets/unlock-running.jpg";
+import gravityTaxi from "@/assets/gravity-taxi.jpg";
 
 const pressures = [
   { stat: 1.7, suffix: "s", decimals: 1, label: "ATTENTION SPAN", title: "ไม่ถึง 2 วินาที", body: "คือเวลาที่คุณมีในการหยุดลูกค้า ก่อนจะถูกปัดทิ้ง" },
@@ -21,11 +25,16 @@ const Index = () => (
   <div id="top">
     <SEO title="ØRIONS — Applied Creative Agency" description="Practical. Bold. Done. Creative Engineering from Bangkok." path="/" />
 
-    {/* HERO — Editorial split */}
+    {/* HERO — Editorial split with cinematic background */}
     <section className="relative min-h-screen flex flex-col px-6 md:px-12 pt-28 md:pt-32 pb-10 overflow-hidden">
+      {/* Cinematic background */}
+      <div className="absolute inset-0 image-overlay">
+        <img src={heroBicycle} alt="" className="absolute inset-0 w-full h-full object-cover image-warm" />
+      </div>
+
       {/* Top meta bar */}
       <Reveal>
-        <div className="flex items-center justify-between border-b border-border pb-4">
+        <div className="relative flex items-center justify-between border-b border-foreground/15 pb-4">
           <span className="index-badge">◐ INDEX 01 / 13</span>
           <span className="index-badge text-foreground/80 hidden sm:inline">APPLIED CREATIVE AGENCY</span>
           <span className="index-badge">EST. 2024 — BKK</span>
@@ -33,7 +42,7 @@ const Index = () => (
       </Reveal>
 
       {/* Wordmark — left aligned */}
-      <div className="flex-1 flex flex-col justify-center">
+      <div className="relative flex-1 flex flex-col justify-center">
         <Reveal delay={0.05}>
           <h1 className="font-brand text-grad text-[20vw] md:text-[18vw] lg:text-[17vw] leading-[0.85] tracking-[-0.06em] text-left">
             ØRIONS
@@ -58,7 +67,7 @@ const Index = () => (
 
       {/* Bottom meta bar */}
       <Reveal delay={0.3}>
-        <div className="flex items-end justify-between border-t border-border pt-4 mt-8">
+        <div className="relative flex items-end justify-between border-t border-foreground/15 pt-4 mt-8">
           <span className="index-badge">EST. BANGKOK · 2024 · ORIONS.AGENCY</span>
           <a href="#stagnation" className="index-badge text-foreground hover:text-grad transition-colors flex items-center gap-2">
             <span>↓ NEXT — THE STAGNATION</span>
@@ -91,22 +100,27 @@ const Index = () => (
         </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16">
-          <div className="md:col-span-3">
+          <div className="md:col-span-5">
             <Reveal>
-              <div className="font-display text-grad text-[64px] md:text-[88px] leading-[0.9] tracking-[-0.04em]">
-                01
-              </div>
-              <div className="mt-4 label-mono text-muted-foreground">THE STAGNATION</div>
-              <div className="mt-12 hidden md:block">
-                <div className="hairline w-12 mb-3" />
-                <p className="font-mono text-[10px] italic text-muted-foreground/60 leading-relaxed">
-                  Source: ØRIONS<br />Industry Observation, 2025
-                </p>
+              <div className="relative aspect-[4/5] image-overlay-soft overflow-hidden">
+                <img src={povCrosswalk} alt="Bangkok crosswalk motion blur" className="absolute inset-0 w-full h-full object-cover image-warm" />
+                <div className="absolute top-6 left-6 right-6 flex items-start justify-between">
+                  <div className="font-display text-grad text-[64px] md:text-[88px] leading-[0.9] tracking-[-0.04em]">
+                    01
+                  </div>
+                  <span className="label-mono text-foreground/90">THE STAGNATION</span>
+                </div>
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="hairline w-12 mb-3 bg-foreground/40" />
+                  <p className="font-mono text-[10px] italic text-foreground/80 leading-relaxed">
+                    Source: ØRIONS · Industry Observation, 2025
+                  </p>
+                </div>
               </div>
             </Reveal>
           </div>
 
-          <div className="md:col-span-9 md:border-l md:border-border md:pl-12">
+          <div className="md:col-span-7">
             <Reveal delay={0.15}>
               <blockquote>
                 <p className="font-thai text-[26px] md:text-[40px] leading-[1.35] font-normal max-w-[820px]">
@@ -241,12 +255,11 @@ const Index = () => (
           {/* Large feature */}
           <Reveal className="md:col-span-7">
             <Link to="/work" className="group block bg-background border border-border ring-grad-hover transition-all duration-300 h-full">
-              <div className="aspect-[4/3] bg-surface-2 relative overflow-hidden">
-                <div className="absolute inset-0 bg-grad-radial opacity-30" />
-                <div className="absolute inset-0 grain opacity-30" />
-                <div className="absolute top-6 left-6 label-mono text-foreground/60">FEATURED · 01</div>
-                <div className="absolute bottom-6 right-6">
-                  <ArrowUpRight className="w-6 h-6 text-foreground/60 group-hover:text-grad transition-colors" />
+              <div className="aspect-[4/3] bg-surface-2 relative overflow-hidden image-overlay-soft">
+                <img src={gravityTaxi} alt="HONGMOVE — Taxi VIP" className="absolute inset-0 w-full h-full object-cover image-warm" />
+                <div className="absolute top-6 left-6 label-mono text-foreground/90 z-10">FEATURED · 01</div>
+                <div className="absolute bottom-6 right-6 z-10">
+                  <ArrowUpRight className="w-6 h-6 text-foreground/90 group-hover:text-grad transition-colors" />
                 </div>
               </div>
               <div className="p-8 md:p-10">
@@ -268,15 +281,15 @@ const Index = () => (
           {/* Two stacked */}
           <div className="md:col-span-5 grid grid-cols-1 gap-6">
             {[
-              { name: "RTAF", category: "APPLIED IMAGE", body: "ปรับโฉมภาพลักษณ์ผ่าน High-end Production", impact: "2×", impactLabel: "ENGAGEMENT", n: "02" },
-              { name: "KHAO YAI", category: "APPLIED AESTHETIC", body: "เปลี่ยนสนามกอล์ฟดั้งเดิมสู่ประสบการณ์พรีเมียม", impact: "30%", impactLabel: "DECISION SPEED", n: "03" },
+              { name: "RTAF", category: "APPLIED IMAGE", body: "ปรับโฉมภาพลักษณ์ผ่าน High-end Production", impact: "2×", impactLabel: "ENGAGEMENT", n: "02", img: unlockRunning },
+              { name: "KHAO YAI", category: "APPLIED AESTHETIC", body: "เปลี่ยนสนามกอล์ฟดั้งเดิมสู่ประสบการณ์พรีเมียม", impact: "30%", impactLabel: "DECISION SPEED", n: "03", img: povCrosswalk },
             ].map((p, i) => (
               <Reveal key={p.name} delay={(i + 1) * 0.1}>
                 <Link to="/work" className="group block bg-background border border-border ring-grad-hover transition-all duration-300 h-full">
                   <div className="grid grid-cols-5 h-full">
-                    <div className="col-span-2 aspect-square bg-surface-2 relative overflow-hidden">
-                      <div className="absolute inset-0 bg-grad-radial opacity-25" />
-                      <div className="absolute top-3 left-3 label-mono text-foreground/60">FT · {p.n}</div>
+                    <div className="col-span-2 aspect-square bg-surface-2 relative overflow-hidden image-overlay-soft">
+                      <img src={p.img} alt={p.name} className="absolute inset-0 w-full h-full object-cover image-warm" />
+                      <div className="absolute top-3 left-3 label-mono text-foreground/90 z-10">FT · {p.n}</div>
                     </div>
                     <div className="col-span-3 p-6 flex flex-col justify-between">
                       <div>

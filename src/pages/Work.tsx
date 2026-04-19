@@ -75,8 +75,7 @@ const Work = () => (
     <PageHero
       eyebrowNumber=""
       eyebrowLabel=""
-      title="Sharper ideas. Real outcomes."
-      subtitle="งานที่เราเลือกมาเพื่อแสดงวิธีคิดของ ØRIONS — ตั้งแต่การวางกลยุทธ์ การออกแบบการสื่อสาร ไปจนถึงงานผลิตที่สร้างผลลัพธ์จริง"
+      title={"Sharper ideas.\nReal outcomes."}
     />
 
     {/* FEATURED VIDEO REEL */}

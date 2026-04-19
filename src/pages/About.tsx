@@ -396,33 +396,26 @@ const About = () => (
       </div>
     </section>
 
-    {/* CTA — editorial close, centered & calm */}
-    <section className="relative px-6 md:px-10 py-28 md:py-40 border-t border-foreground">
-      <div className="max-w-[900px] mx-auto text-center">
-        <Reveal>
-          <h2 className="font-display h-display-lg text-balance">
-            Stop guessing.<br />
-            Start <span className="italic text-gradient">applying</span><span className="text-muted-foreground">.</span>
-          </h2>
-        </Reveal>
-
-        <Reveal delay={0.2}>
-          <div className="mt-12 flex justify-center">
-            <CTA to="/contact#audit">Request ØRIONS Audit (Free)</CTA>
-          </div>
-        </Reveal>
-
-        <Reveal delay={0.3}>
-          <div className="mt-14 inline-flex items-center gap-6 md:gap-8 font-mono text-[11px] md:text-[12px] tracking-[0.2em] uppercase text-muted-foreground">
-            <a href="mailto:hello@orions.co" className="hover:text-foreground transition-colors">
-              hello@orions.co
-            </a>
-            <span aria-hidden className="block w-px h-3 bg-foreground/30" />
-            <a href="tel:+66000000000" className="hover:text-foreground transition-colors">
-              +66 (0) 00 000 0000
-            </a>
-          </div>
-        </Reveal>
+    {/* CTA */}
+    <section className="px-6 md:px-10 py-24 md:py-32 border-t border-foreground">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
+        <div className="md:col-span-8">
+          <Reveal>
+            <h2 className="font-display h-display-md">
+              Stop guessing.<br />Start applying.
+            </h2>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="mt-8 max-w-[480px] text-[15px] leading-[1.7] text-muted-foreground font-thai">
+              เริ่มจากการคุยสั้นๆ เราจะช่วยชี้จุดตันและทางรอดให้ภายใน 60 นาที
+            </p>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <div className="mt-10">
+              <CTA to="/contact#audit">Request ØRIONS Audit (Free)</CTA>
+            </div>
+          </Reveal>
+        </div>
       </div>
     </section>
   </div>

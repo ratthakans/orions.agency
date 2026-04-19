@@ -5,7 +5,7 @@ import SectionHeader from "@/components/SectionHeader";
 import SelectedWorkReel from "@/components/SelectedWorkReel";
 import VideoReel, { type VideoReelItem } from "@/components/VideoReel";
 import LongFormStack from "@/components/LongFormStack";
-import MusicMarquee, { type MusicItem } from "@/components/MusicMarquee";
+
 import CTA from "@/components/CTA";
 import SEO from "@/components/SEO";
 import hongmove from "@/assets/hongmove.png";
@@ -36,31 +36,31 @@ const socialCommercials: VideoReelItem[] = [
   { tag: "Automotive", name: "AUDI THAILAND", body: "High-end Production ที่ตีความ Premium Mobility ในแบบไทย", videoId: "_aEZ3MWhjV4" },
 ];
 
-const musicRow1: MusicItem[] = [
-  { videoId: "sCjPTr0CfXc" },
-  { videoId: "YQb_ueBfplM" },
-  { videoId: "p4JICbYbDow" },
-  { videoId: "ysrayxcXoF8" },
-  { videoId: "GH-hH8PXQ5E" },
-  { videoId: "OVU8YA9zLns" },
+const musicRow1: VideoReelItem[] = [
+  { tag: "Music Video", name: "MV · 01", body: "Original music video production", videoId: "sCjPTr0CfXc" },
+  { tag: "Music Video", name: "MV · 02", body: "Original music video production", videoId: "YQb_ueBfplM" },
+  { tag: "Music Video", name: "MV · 03", body: "Original music video production", videoId: "p4JICbYbDow" },
+  { tag: "Music Video", name: "MV · 04", body: "Original music video production", videoId: "ysrayxcXoF8" },
+  { tag: "Music Video", name: "MV · 05", body: "Original music video production", videoId: "GH-hH8PXQ5E" },
+  { tag: "Music Video", name: "MV · 06", body: "Original music video production", videoId: "OVU8YA9zLns" },
 ];
 
-const musicRow2: MusicItem[] = [
-  { videoId: "WyDvMegEqBQ" },
-  { videoId: "XMUshHa10xI" },
-  { videoId: "EmitC7dokS0" },
-  { videoId: "ey-M7sCsz-o" },
-  { videoId: "2VNNdj4UjXY" },
-  { videoId: "i2xgZRTqK_c" },
+const musicRow2: VideoReelItem[] = [
+  { tag: "Visual Single", name: "VS · 01", body: "Creative content for music release", videoId: "WyDvMegEqBQ" },
+  { tag: "Visual Single", name: "VS · 02", body: "Creative content for music release", videoId: "XMUshHa10xI" },
+  { tag: "Visual Single", name: "VS · 03", body: "Creative content for music release", videoId: "EmitC7dokS0" },
+  { tag: "Visual Single", name: "VS · 04", body: "Creative content for music release", videoId: "ey-M7sCsz-o" },
+  { tag: "Visual Single", name: "VS · 05", body: "Creative content for music release", videoId: "2VNNdj4UjXY" },
+  { tag: "Visual Single", name: "VS · 06", body: "Creative content for music release", videoId: "i2xgZRTqK_c" },
 ];
 
-const musicRow3: MusicItem[] = [
-  { videoId: "LKFAtp_oxf0" },
-  { videoId: "YBXpSXAkej4" },
-  { videoId: "n2_rKXXzg8w" },
-  { videoId: "IOJV7hOB-9c" },
-  { videoId: "WFEAPxB47qc" },
-  { videoId: "8K6iMvHI_F8" },
+const musicRow3: VideoReelItem[] = [
+  { tag: "Creative Cut", name: "CC · 01", body: "Creative storytelling cut", videoId: "LKFAtp_oxf0" },
+  { tag: "Creative Cut", name: "CC · 02", body: "Creative storytelling cut", videoId: "YBXpSXAkej4" },
+  { tag: "Creative Cut", name: "CC · 03", body: "Creative storytelling cut", videoId: "n2_rKXXzg8w" },
+  { tag: "Creative Cut", name: "CC · 04", body: "Creative storytelling cut", videoId: "IOJV7hOB-9c" },
+  { tag: "Creative Cut", name: "CC · 05", body: "Creative storytelling cut", videoId: "WFEAPxB47qc" },
+  { tag: "Creative Cut", name: "CC · 06", body: "Creative storytelling cut", videoId: "8K6iMvHI_F8" },
 ];
 
 const entertainmentLongForm: VideoReelItem[] = [
@@ -144,10 +144,31 @@ const Work = () => (
         </span>
       </div>
 
-      <div className="px-6 md:px-10 space-y-12 md:space-y-20">
-        <MusicMarquee items={musicRow1} variant="mosaic" label="Row 01 · Music Videos" />
-        <MusicMarquee items={musicRow2} variant="stagger" label="Row 02 · Visual Singles" />
-        <MusicMarquee items={musicRow3} variant="ribbon" label="Row 03 · Creative Cuts" />
+      <div className="space-y-10 md:space-y-14">
+        <div>
+          <div className="px-6 md:px-10 mb-3 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
+            Row 01 · Music Videos
+          </div>
+          <div className="px-6 md:px-10">
+            <VideoReel items={musicRow1} />
+          </div>
+        </div>
+        <div>
+          <div className="px-6 md:px-10 mb-3 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
+            Row 02 · Visual Singles
+          </div>
+          <div className="px-6 md:px-10">
+            <VideoReel items={musicRow2} />
+          </div>
+        </div>
+        <div>
+          <div className="px-6 md:px-10 mb-3 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
+            Row 03 · Creative Cuts
+          </div>
+          <div className="px-6 md:px-10">
+            <VideoReel items={musicRow3} />
+          </div>
+        </div>
       </div>
     </section>
 

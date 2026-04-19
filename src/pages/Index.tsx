@@ -14,6 +14,7 @@ import hongmove from "@/assets/hongmove.png";
 import rtaf from "@/assets/rtaf.jpg";
 import khaoyai from "@/assets/khaoyai.jpg";
 import democrat from "@/assets/democrat.jpg";
+import gcoo from "@/assets/gcoo.jpg";
 import whatVortex from "@/assets/what-vortex.jpg";
 import whatSkater from "@/assets/what-skater.jpg";
 import whatWindow from "@/assets/what-window.jpg";
@@ -34,7 +35,7 @@ const appliedSolutions = [
 
 const worksAcrossIndustries = [
   { tag: "Political Communication", name: "DEMOCRAT PARTY", body: "การสื่อสารเชิงกลยุทธ์ภายใต้เงื่อนไขที่ท้าทาย", img: democrat },
-  { tag: "Mobility", name: "GCOO", body: "Localization ระบบการเดินทางคนเมือง", img: whatWindow },
+  { tag: "Mobility", name: "GCOO", body: "Localization ระบบการเดินทางคนเมือง", img: gcoo },
   { tag: "Hospitality Tech", name: "MY HOTEL", body: "Smart Hotel ที่ใช้งานได้จริงรายแรกของไทย", img: whatVortex },
   { tag: "National Campaign", name: "HEAVY ORGANIZER", body: "แคมเปญสื่อสารระดับประเทศที่สร้างแรงกระเพื่อมจริง", img: approachRunning },
 ];

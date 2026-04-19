@@ -15,13 +15,13 @@ const PageHero = ({ eyebrowNumber, eyebrowLabel, title, subtitle }: Props) => (
         <SectionLabel number={eyebrowNumber} label={eyebrowLabel} />
       </Reveal>
       <Reveal delay={0.1}>
-        <h1 className="mt-8 font-display text-[36px] md:text-[72px] leading-[0.95] max-w-[1100px] tracking-[-0.03em]">
+        <h1 className="mt-8 display-l max-w-[1100px] text-foreground">
           {title}
         </h1>
       </Reveal>
       {subtitle && (
         <Reveal delay={0.2}>
-          <p className="mt-8 max-w-[720px] text-[16px] md:text-[19px] leading-[1.7] text-muted-foreground font-thai">
+          <p className="mt-8 max-w-[720px] body-l text-muted-foreground font-thai">
             {subtitle}
           </p>
         </Reveal>

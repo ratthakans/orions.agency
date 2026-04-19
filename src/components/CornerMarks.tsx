@@ -15,10 +15,10 @@ const Mark = ({ className }: { className: string }) => (
 
 const CornerMarks = () => (
   <>
-    <Mark className="top-9 left-3" />
-    <Mark className="top-9 right-3 rotate-90" />
-    <Mark className="bottom-3 left-3 -rotate-90" />
-    <Mark className="bottom-3 right-3 rotate-180" />
+    <Mark className="hidden md:block top-28 left-3" />
+    <Mark className="hidden md:block top-28 right-3 rotate-90" />
+    <Mark className="hidden md:block bottom-3 left-3 -rotate-90" />
+    <Mark className="hidden md:block bottom-3 right-3 rotate-180" />
   </>
 );
 

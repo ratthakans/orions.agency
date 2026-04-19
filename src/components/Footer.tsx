@@ -4,7 +4,7 @@ import { Instagram, Facebook, Mail } from "lucide-react";
 const Footer = () => (
   <footer className="bg-foreground text-background">
     <div className="px-6 md:px-10 pb-8">
-      <div className="border-t border-background/40 pt-12 md:pt-14">
+      <div className="border-t border-background/40 pt-14 md:pt-16">
       {/* Main grid: nav / contact / studio */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
         <div>

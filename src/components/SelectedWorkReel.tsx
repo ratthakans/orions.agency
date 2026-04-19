@@ -161,7 +161,7 @@ const SelectedWorkReel = ({ projects, size = "lg" }: Props) => {
                     </div>
                     {p.stat && (
                       <div className="text-right">
-                        <div className={`font-display ${statSize} leading-none tracking-[-0.04em] text-gradient`}>
+                        <div className={`font-display ${statSize} leading-none tracking-[-0.04em]`}>
                           {p.stat}
                         </div>
                         {p.statLabel && (

@@ -10,6 +10,7 @@ import whoOrionsTeam from "@/assets/who-orions-team.jpg";
 import approachRunning from "@/assets/approach-running.jpg";
 import approachTaxi from "@/assets/approach-taxi.jpg";
 import hongmove from "@/assets/hongmove.png";
+import rtaf from "@/assets/rtaf.jpg";
 import whatVortex from "@/assets/what-vortex.jpg";
 import whatSkater from "@/assets/what-skater.jpg";
 import whatWindow from "@/assets/what-window.jpg";
@@ -45,7 +46,7 @@ const worksStorytelling = [
 
 const heroProjects = [
   { tag: "MOBILITY", name: "HONGMOVE", body: "เปลี่ยนความซับซ้อนให้ดูง่าย ระบบสื่อสาร Seamless สำหรับ Taxi VIP", stat: "+25%", statLabel: "CONVERSION CLARITY", img: hongmove },
-  { tag: "DEFENCE", name: "RTAF", body: "ยึดความน่าเชื่อถือคืนมา ปรับโฉมภาพลักษณ์ผ่าน High-end Production", stat: "2×", statLabel: "ENGAGEMENT QUALITY", img: whatVortex },
+  { tag: "DEFENCE", name: "RTAF", body: "ยึดความน่าเชื่อถือคืนมา ปรับโฉมภาพลักษณ์ผ่าน High-end Production", stat: "2×", statLabel: "ENGAGEMENT QUALITY", img: rtaf },
   { tag: "HOSPITALITY", name: "KHAO YAI", body: "ยกระดับด้วยรสนิยม เปลี่ยนสนามกอล์ฟดั้งเดิมสู่ประสบการณ์พรีเมียม", stat: "30%", statLabel: "DECISION SPEED", img: approachRunning },
 ];
 

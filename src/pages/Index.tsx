@@ -13,6 +13,7 @@ import VideoReel, { type VideoReelItem } from "@/components/VideoReel";
 import CTA from "@/components/CTA";
 import ClosingCTA from "@/components/ClosingCTA";
 import KineticWordmark from "@/components/KineticWordmark";
+import HeroVideoGrid from "@/components/HeroVideoGrid";
 import hongmove from "@/assets/hongmove.webp";
 import rtaf from "@/assets/rtaf.webp";
 import khaoyai from "@/assets/khaoyai.jpg";
@@ -64,10 +65,11 @@ const Index = () => (
     <SEO title="ØRIONS — Sharper ideas. Clearer direction." description="Idea-led Creative Agency. We help brands cut through the noise with sharper ideas and clearer direction." path="/" />
 
     {/* HERO — Editorial cover */}
-    <section className="relative px-6 md:px-10 min-h-screen flex flex-col items-center justify-center text-center">
-      <div className="flex flex-col items-center justify-center">
+    <section className="relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden">
+      <HeroVideoGrid />
+      <div className="relative z-10 flex flex-col items-center justify-center px-6 md:px-10 mix-blend-difference text-background">
         <Reveal delay={0.05}>
-          <h1 className="font-brand h-display-xl text-foreground">
+          <h1 className="font-brand h-display-xl">
             ØRIONS
           </h1>
         </Reveal>
@@ -77,7 +79,7 @@ const Index = () => (
         </Reveal>
 
         <Reveal delay={0.3}>
-          <div className="mt-6 font-display text-foreground text-[15px] md:text-[22px] tracking-[0.04em] uppercase max-w-full overflow-hidden">
+          <div className="mt-6 font-display text-[15px] md:text-[22px] tracking-[0.04em] uppercase max-w-full overflow-hidden">
             <RotatingHeadline
               items={[
                 "PRACTICAL · BOLD · DONE",
@@ -90,9 +92,9 @@ const Index = () => (
         </Reveal>
       </div>
 
-      <div className="absolute bottom-8 md:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground">
+      <div className="absolute z-10 bottom-8 md:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 mix-blend-difference text-background">
         <span className="index-badge">SCROLL</span>
-        <span className="block w-px h-10 bg-foreground/40 animate-pulse" />
+        <span className="block w-px h-10 bg-background/60 animate-pulse" />
       </div>
     </section>
 

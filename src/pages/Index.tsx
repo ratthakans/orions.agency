@@ -191,6 +191,13 @@ const Index = () => (
       </div>
     </section>
 
+    {/* MASTERY IN STORYTELLING — 21:9 cinematic video (full bleed, no divider) */}
+    <section className="relative w-full overflow-hidden bg-foreground">
+      <div className="relative w-full overflow-hidden" style={{ aspectRatio: "21 / 9" }}>
+        <YouTubeFacade videoId="u4r7Szy3uxI" title="Mastery in Storytelling" ambient />
+      </div>
+    </section>
+
     {/* SELECTED WORK */}
     <section className="relative px-6 md:px-10">
       <div className="border-t border-foreground py-20 md:py-28">
@@ -203,13 +210,6 @@ const Index = () => (
         <SelectedWorkReel projects={worksAcrossIndustries} size="sm" />
       </div>
 
-      </div>
-    </section>
-
-    {/* MASTERY IN STORYTELLING — 21:9 cinematic video (full bleed, no divider) */}
-    <section className="relative w-full overflow-hidden bg-foreground">
-      <div className="relative w-full overflow-hidden" style={{ aspectRatio: "21 / 9" }}>
-        <YouTubeFacade videoId="u4r7Szy3uxI" title="Mastery in Storytelling" ambient />
       </div>
     </section>
 

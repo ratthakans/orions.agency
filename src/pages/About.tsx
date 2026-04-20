@@ -6,7 +6,7 @@ import ClosingCTA from "@/components/ClosingCTA";
 import SEO from "@/components/SEO";
 import FlipNumber from "@/components/FlipNumber";
 import ConstellationLine from "@/components/ConstellationLine";
-import whoOrionsTeam from "@/assets/who-orions-team.webp";
+import whoOrionsTeam from "@/assets/orions-team.jpg";
 
 const SITE_URL = "https://orions.agency";
 import founderImg from "@/assets/team/founder.jpg";

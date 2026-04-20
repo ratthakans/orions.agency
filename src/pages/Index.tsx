@@ -21,7 +21,6 @@ import gcoo from "@/assets/gcoo.webp";
 import myhotel from "@/assets/myhotel.webp";
 import heavyOrganizer from "@/assets/heavy-organizer.webp";
 import YouTubeFacade from "@/components/YouTubeFacade";
-import HeroVideoMask from "@/components/HeroVideoMask";
 
 const pressures = [
   { stat: 1.7, suffix: "s", decimals: 1, label: "ATTENTION SPAN", body: "คุณมีเวลาไม่ถึง 2 วินาทีในการหยุดลูกค้าก่อนจะถูกปัดทิ้ง" },
@@ -65,20 +64,20 @@ const Index = () => (
     <SEO title="ØRIONS — Sharper ideas. Clearer direction." description="Idea-led Creative Agency. We help brands cut through the noise with sharper ideas and clearer direction." path="/" />
 
     {/* HERO — Editorial cover */}
-    <section className="relative min-h-screen w-full overflow-hidden bg-background">
-      {/* Video plays inside the wordmark cutout */}
-      <HeroVideoMask videoId="u4r7Szy3uxI" text="ØRIONS" />
-
-      {/* SR-only h1 for SEO/a11y (visual wordmark is in SVG) */}
-      <h1 className="sr-only">ØRIONS — Applied Creative Agency</h1>
-
-      {/* Eyebrow + rotating headline below the wordmark */}
-      <div className="absolute inset-x-0 bottom-24 md:bottom-28 flex flex-col items-center text-center px-6 z-10 pointer-events-none">
-        <Reveal delay={0.2}>
-          <p className="index-badge">APPLIED CREATIVE AGENCY</p>
+    <section className="relative px-6 md:px-10 min-h-screen flex flex-col items-center justify-center text-center">
+      <div className="flex flex-col items-center justify-center">
+        <Reveal delay={0.05}>
+          <h1 className="font-brand h-display-xl text-foreground">
+            ØRIONS
+          </h1>
         </Reveal>
+
+        <Reveal delay={0.2}>
+          <p className="mt-8 index-badge">APPLIED CREATIVE AGENCY</p>
+        </Reveal>
+
         <Reveal delay={0.3}>
-          <div className="mt-4 font-display text-foreground text-[15px] md:text-[22px] tracking-[0.04em] uppercase max-w-full overflow-hidden">
+          <div className="mt-6 font-display text-foreground text-[15px] md:text-[22px] tracking-[0.04em] uppercase max-w-full overflow-hidden">
             <RotatingHeadline
               items={[
                 "PRACTICAL · BOLD · DONE",
@@ -91,7 +90,7 @@ const Index = () => (
         </Reveal>
       </div>
 
-      <div className="absolute bottom-8 md:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground z-10">
+      <div className="absolute bottom-8 md:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground">
         <span className="index-badge">SCROLL</span>
         <span className="block w-px h-10 bg-foreground/40 animate-pulse" />
       </div>

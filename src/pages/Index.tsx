@@ -13,6 +13,7 @@ import VideoReel, { type VideoReelItem } from "@/components/VideoReel";
 import CTA from "@/components/CTA";
 import ClosingCTA from "@/components/ClosingCTA";
 import KineticWordmark from "@/components/KineticWordmark";
+import HeroVideoGrid from "@/components/HeroVideoGrid";
 import hongmove from "@/assets/hongmove.webp";
 import rtaf from "@/assets/rtaf.webp";
 import khaoyai from "@/assets/khaoyai.jpg";

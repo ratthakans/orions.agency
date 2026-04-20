@@ -200,16 +200,21 @@ const Index = () => (
 
     {/* SELECTED WORK */}
     <section className="relative px-6 md:px-10">
-      <div className="border-t border-foreground py-20 md:py-28">
-      <SectionHeader left="SELECTED WORK" right="applied creative in action" />
-
-      <SelectedWorkReel projects={heroProjects} />
-
-      {/* Applied Creative Across Industries — small reel */}
-      <div className="mt-12">
-        <SelectedWorkReel projects={worksAcrossIndustries} size="sm" />
+      <div className="border-t border-foreground py-16 md:py-20">
+        <h2 className="font-display h-display-sm">
+          Selected <span className="text-muted-foreground">Work</span>
+        </h2>
+        <SelectedWorkReel projects={heroProjects} />
       </div>
+    </section>
 
+    {/* APPLIED CREATIVE ACROSS INDUSTRIES */}
+    <section className="relative px-6 md:px-10">
+      <div className="border-t border-foreground py-16 md:py-20">
+        <h2 className="font-display h-display-sm">
+          Applied Creative <span className="text-muted-foreground">Across Industries</span>
+        </h2>
+        <SelectedWorkReel projects={worksAcrossIndustries} size="sm" />
       </div>
     </section>
 

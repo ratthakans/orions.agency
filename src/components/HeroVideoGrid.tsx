@@ -7,7 +7,7 @@ interface VideoItem {
 
 const videos: VideoItem[] = [
   { id: "Oz3id2nOmDE", start: 1085 },
-  { id: "T8j2S_Zewes", start: 21 },
+  { id: "vjuXICAVBSU", start: 0 },
   { id: "aD13HQnrCks", start: 8 },
   { id: "nFNVN8uE2dI", start: 6 },
 ];

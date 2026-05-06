@@ -1,6 +1,5 @@
 import Reveal from "@/components/Reveal";
 import PageHero from "@/components/PageHero";
-import SectionHeader from "@/components/SectionHeader";
 import ClosingCTA from "@/components/ClosingCTA";
 import SEO from "@/components/SEO";
 import FlipNumber from "@/components/FlipNumber";
@@ -216,8 +215,8 @@ const About = () => (
               {groups.map((g) => (
                 <div key={g.label}>
                   <div className="flex items-baseline justify-between border-t border-foreground pt-3">
-                    <span className="index-badge">{g.label}</span>
-                    <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
+                    <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground">— {g.label}</span>
+                    <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">
                       {String(g.people.length).padStart(2, "0")} {g.people.length === 1 ? "PERSON" : "PEOPLE"}
                     </span>
                   </div>

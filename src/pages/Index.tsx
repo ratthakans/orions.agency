@@ -4,8 +4,8 @@ import ScrollMarquee from "@/components/ScrollMarquee";
 import SEO from "@/components/SEO";
 import RotatingHeadline from "@/components/RotatingHeadline";
 import ClosingCTA from "@/components/ClosingCTA";
+import HeroVideoGrid from "@/components/HeroVideoGrid";
 import YouTubeFacade from "@/components/YouTubeFacade";
-import CTA from "@/components/CTA";
 
 const pressures = [
   { stat: 71, suffix: "%", decimals: 0, label: "OF SOCIAL IMAGES", body: "AI-generated. คุณต้องมี real content ที่ทำให้แบรนด์ยังโดดออกมาได้" },
@@ -83,114 +83,17 @@ const Index = () => (
     />
 
     {/* HERO */}
-    <section className="relative min-h-screen flex flex-col overflow-hidden">
-      {/* Top announcement marquee */}
-      <div className="border-b border-foreground bg-foreground text-background py-2.5 overflow-hidden">
-        <ScrollMarquee
-          items={[
-            "✦ NOW BOOKING — Q3 2026",
-            "BOUTIQUE CREATIVE AGENCY · BANGKOK",
-            "FROM HELLO → LIVE IN 4 WEEKS",
-            "F&B · FASHION · HOSPITALITY",
-          ]}
-        />
-      </div>
-
-      {/* Hero body */}
-      <div className="flex-1 flex items-center px-6 md:px-10">
-        <div className="w-full max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 py-20 md:py-28 items-center">
-          {/* Left: meta column */}
-          <aside className="md:col-span-3 flex flex-col gap-10">
-            <Reveal>
-              <div>
-                <div className="index-badge text-muted-foreground">[ 01 — INTRO ]</div>
-                <div className="mt-4 hairline w-10" />
-              </div>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <p className="font-thai text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground max-w-[260px]">
-                Boutique creative agency จาก Bangkok สำหรับแบรนด์ที่ไม่อยากดูเหมือนใคร
-              </p>
-            </Reveal>
-            <Reveal delay={0.2}>
-              <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
-                <div>EST. 2026</div>
-                <div className="mt-1">13°45′N · 100°31′E</div>
-              </div>
-            </Reveal>
-          </aside>
-
-          {/* Center: headline */}
-          <div className="md:col-span-9">
-            <Reveal delay={0.05}>
-              <h1 className="font-display h-display-lg">
-                We don&apos;t chase{" "}
-                <span className="relative inline-block italic">
-                  trends
-                  <svg
-                    aria-hidden="true"
-                    viewBox="0 0 220 22"
-                    preserveAspectRatio="none"
-                    className="absolute left-0 -bottom-2 w-full h-[14px] md:h-[18px]"
-                  >
-                    <defs>
-                      <linearGradient id="hero-underline" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stopColor="hsl(var(--accent-from))" />
-                        <stop offset="100%" stopColor="hsl(var(--accent-to))" />
-                      </linearGradient>
-                    </defs>
-                    <path
-                      d="M2 14 C 50 4, 120 22, 218 8"
-                      fill="none"
-                      stroke="url(#hero-underline)"
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                      className="reveal-underline"
-                    />
-                  </svg>
-                </span>
-                ,<br />we <span className="italic">build</span> them.
-              </h1>
-            </Reveal>
-
-            <Reveal delay={0.25}>
-              <div className="mt-10 max-w-[640px] font-thai text-[17px] md:text-[20px] leading-[1.55] text-foreground/90">
-                Branding, content, และ paid ads สำหรับ F&amp;B, fashion, และ hospitality —
-                <span className="text-muted-foreground"> ทำงานจริงโดยทีมเดียว ไม่มีมือเปลี่ยน.</span>
-              </div>
-            </Reveal>
-
-            <Reveal delay={0.4}>
-              <div className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-4">
-                <CTA to="/contact">Start the conversation</CTA>
-                <CTA to="/services" variant="ghost">See services &amp; pricing</CTA>
-              </div>
-            </Reveal>
-
-            <Reveal delay={0.55}>
-              <div className="mt-16 pt-8 border-t border-soft grid grid-cols-3 gap-6 max-w-[640px]">
-                <div>
-                  <div className="num-display text-[28px] md:text-[36px]">40<span className="text-muted-foreground">+</span></div>
-                  <div className="mt-2 index-badge text-muted-foreground">BRANDS LAUNCHED</div>
-                </div>
-                <div>
-                  <div className="num-display text-[28px] md:text-[36px]">4<span className="text-muted-foreground text-[18px] md:text-[22px]">w</span></div>
-                  <div className="mt-2 index-badge text-muted-foreground">HELLO → LIVE</div>
-                </div>
-                <div>
-                  <div className="num-display text-[28px] md:text-[36px]">11</div>
-                  <div className="mt-2 index-badge text-muted-foreground">IN-HOUSE TEAM</div>
-                </div>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </div>
-
-      {/* Bottom rotating eyebrow */}
-      <div className="px-6 md:px-10 pb-8 md:pb-10">
-        <div className="flex items-end justify-between gap-6 border-t border-foreground pt-5">
-          <div className="font-display text-[12px] md:text-[15px] tracking-[0.04em] uppercase max-w-full overflow-hidden">
+    <section className="relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden">
+      <HeroVideoGrid />
+      <div className="relative z-10 flex flex-col items-center justify-center px-6 md:px-10 mix-blend-difference text-background">
+        <Reveal delay={0.05}>
+          <h1 className="font-brand h-display-xl">ØRIONS</h1>
+        </Reveal>
+        <Reveal delay={0.2}>
+          <p className="mt-8 index-badge">BOUTIQUE CREATIVE AGENCY</p>
+        </Reveal>
+        <Reveal delay={0.3}>
+          <div className="mt-6 font-display text-[15px] md:text-[22px] tracking-[0.04em] uppercase max-w-full overflow-hidden">
             <RotatingHeadline
               items={[
                 "BRANDING · CONTENT · PAID ADS",
@@ -200,11 +103,11 @@ const Index = () => (
               ]}
             />
           </div>
-          <div className="hidden md:flex items-center gap-3 text-muted-foreground">
-            <span className="index-badge">SCROLL</span>
-            <span className="block w-px h-8 bg-foreground/40 animate-pulse" />
-          </div>
-        </div>
+        </Reveal>
+      </div>
+      <div className="absolute z-10 bottom-8 md:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 mix-blend-difference text-background">
+        <span className="index-badge">SCROLL</span>
+        <span className="block w-px h-10 bg-background/60 animate-pulse" />
       </div>
     </section>
 

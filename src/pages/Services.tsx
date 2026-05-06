@@ -11,7 +11,7 @@ const services = [
     title: "Branding",
     lead: "Identity that works across every touchpoint.",
     detail:
-      "ตั้งแต่ตั้งชื่อ ออกแบบ logo ระบบภาพ ไปจนถึง brand book ที่ทีมและคู่ค้าใช้งานจริงได้ — ทุกชิ้นถูกออกแบบให้ทำงานทั้งบน feed, store, และ packaging โดยไม่หลุดเสียงแบรนด์",
+      "From naming to logo to a brand book your team and partners actually use — built to hold up across feed, store, and packaging.",
     items: ["Naming · Logo · Marks", "Visual identity system", "Brand guidelines + book", "Launch toolkit"],
   },
   {
@@ -19,7 +19,7 @@ const services = [
     title: "Content",
     lead: "Photo, video, and design that earn the scroll.",
     detail:
-      "ถ่ายเอง ตัดเอง ออกแบบเอง — ไม่ส่งต่อ ทีม in-house ของเราถ่าย photo, video, reels, motion graphics และจัดการ asset library ให้แบรนด์ของคุณมีคลังพร้อมใช้ตลอดทั้งปี",
+      "Shot, cut, and designed in-house — photo, video, reels, motion graphics, and a managed asset library that keeps your brand stocked year-round.",
     items: ["Photo + video shoots", "Reels + short-form video", "Graphic + motion design", "Asset libraries"],
   },
   {
@@ -27,7 +27,7 @@ const services = [
     title: "Social media",
     lead: "Strategy, posting, community, and paid ads.",
     detail:
-      "วางกลยุทธ์ → โพสต์รายวัน → ดูแลคอมมูนิตี้ → รัน paid ads ทั้งหมดอยู่ภายใต้ทีมเดียว — ไม่มี hand-off, ไม่มี telephone game, รายงานผลทุกเดือน",
+      "Strategy → daily posting → community → paid ads, all under one team. No hand-off, no telephone game, reported every month.",
     items: ["Strategy + content calendar", "Daily posting + scheduling", "Community management", "Paid ads (Meta, TikTok)"],
   },
 ];

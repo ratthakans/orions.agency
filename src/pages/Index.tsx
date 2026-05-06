@@ -91,14 +91,14 @@ const Index = () => (
         </Reveal>
       </div>
 
-      {/* Bottom service marquee — infinite loop */}
+      {/* Bottom service marquee — 3 categories, infinite loop */}
       <div className="relative border-t border-background/15 py-5">
         <SimpleMarquee
-          duration={50}
-          items={[
-            "BRANDING — Naming · Logo · Brand guidelines",
-            "CONTENT — Photo · Video · Short-form · Graphic · Motion design",
-            "SOCIAL MEDIA — Strategy · Content calendar · Daily posting · Paid ads",
+          duration={55}
+          categories={[
+            { title: "Branding",     items: ["Naming", "Logo", "Brand guidelines"] },
+            { title: "Content",      items: ["Photo", "Video", "Short-form video", "Graphic", "Motion design"] },
+            { title: "Social Media", items: ["Strategy", "Content calendar", "Daily posting", "Paid ads"] },
           ]}
         />
       </div>

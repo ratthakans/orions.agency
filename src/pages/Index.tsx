@@ -1,132 +1,141 @@
-import { Link } from "react-router-dom";
-import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
-import CountUp from "@/components/CountUp";
 import FlipNumber from "@/components/FlipNumber";
 import ScrollMarquee from "@/components/ScrollMarquee";
-import SectionHeader from "@/components/SectionHeader";
-import BigSectionNumber from "@/components/BigSectionNumber";
 import SEO from "@/components/SEO";
 import RotatingHeadline from "@/components/RotatingHeadline";
-import SelectedWorkReel from "@/components/SelectedWorkReel";
-import VideoReel, { type VideoReelItem } from "@/components/VideoReel";
-import CTA from "@/components/CTA";
 import ClosingCTA from "@/components/ClosingCTA";
-import KineticWordmark from "@/components/KineticWordmark";
 import HeroVideoGrid from "@/components/HeroVideoGrid";
-import hongmove from "@/assets/hongmove.webp";
-import rtaf from "@/assets/rtaf.webp";
-import khaoyai from "@/assets/khaoyai.jpg";
-import democrat from "@/assets/democrat.webp";
-import gcoo from "@/assets/gcoo.webp";
-import myhotel from "@/assets/myhotel.webp";
-import heavyOrganizer from "@/assets/heavy-organizer.webp";
 import YouTubeFacade from "@/components/YouTubeFacade";
 
 const pressures = [
-  { stat: 1.7, suffix: "s", decimals: 1, label: "ATTENTION SPAN", body: "คุณมีเวลาไม่ถึง 2 วินาทีในการหยุดลูกค้าก่อนจะถูกปัดทิ้ง" },
-  { stat: 41, prefix: "", suffix: "%", decimals: 0, label: "DIGITAL INFLATION", body: "ค่าโฆษณาแพงขึ้นเกือบเท่าตัว แต่ประสิทธิภาพกลับสวนทาง" },
-  { stat: 4.6, suffix: "×", decimals: 1, label: "DIGITAL WASTE", body: "ขยะดิจิทัลล้นโลก จนงานที่ไม่มีคุณภาพถูกกลบหายไปหมด" },
+  { stat: 71, suffix: "%", decimals: 0, label: "OF SOCIAL IMAGES", body: "AI-generated. คุณต้องมี real content ที่ทำให้แบรนด์ยังโดดออกมาได้" },
+  { stat: 20, suffix: "%", decimals: 0, label: "META CPM RISE · YoY", body: "ค่าโฆษณาแพงขึ้นทุกปี — creative ต้องทำงานหนักกว่าเดิมเพื่อ convert" },
+  { stat: 8, suffix: "s", decimals: 0, label: "ATTENTION SPAN", body: "แปดวินาที. คุณต้อง hook ให้ติดก่อน thumb จะเลื่อนผ่าน" },
 ];
 
-const appliedSolutions = [
-  { n: "01", title: "Creative Solution", body: "วางกลยุทธ์และหาทางออกใหม่ๆ เมื่อธุรกิจมาถึงจุดตัน" },
-  { n: "02", title: "Applied Communication", body: "การสื่อสารที่ประยุกต์ให้เข้ากับพฤติกรรมจริง เพื่อหยุดนิ้วโป้งลูกค้า" },
-  { n: "03", title: "Social Media Marketing", body: "บริหารจัดการช่องทางการตลาด เพื่อสร้างตัวตนและยอดขาย" },
-  { n: "04", title: "High Impact Production", body: "งานผลิตคุณภาพสูงระดับสากล เพื่อสร้างภาพจำที่ทรงพลัง" },
+const threeThings = [
+  {
+    n: "01",
+    title: "Branding",
+    lead: "Identity that works across every touchpoint.",
+    items: ["Naming · Logo · Marks", "Visual identity system", "Brand guidelines + book", "Launch toolkit"],
+  },
+  {
+    n: "02",
+    title: "Content",
+    lead: "Photo, video, and design that earn the scroll.",
+    items: ["Photo + video shoots", "Reels + short-form video", "Graphic + motion design", "Asset libraries"],
+  },
+  {
+    n: "03",
+    title: "Social media",
+    lead: "Strategy, posting, community, and paid ads.",
+    items: ["Strategy + content calendar", "Daily posting + scheduling", "Community management", "Paid ads (Meta, TikTok)"],
+  },
 ];
 
-
-const worksAcrossIndustries = [
-  { tag: "Political Communication", name: "DEMOCRAT PARTY", body: "การสื่อสารเชิงกลยุทธ์ภายใต้เงื่อนไขที่ท้าทาย", img: democrat },
-  { tag: "Mobility", name: "GCOO", body: "Localization ระบบการเดินทางคนเมือง", img: gcoo },
-  { tag: "Hospitality Tech", name: "MY HOTEL", body: "Smart Hotel ที่ใช้งานได้จริงรายแรกของไทย", img: myhotel },
-  { tag: "National Campaign", name: "HEAVY ORGANIZER", body: "แคมเปญสื่อสารระดับประเทศที่สร้างแรงกระเพื่อมจริง", img: heavyOrganizer },
+const steps = [
+  { n: "01", title: "Listen", body: "30-min call. Honest fit-check." },
+  { n: "02", title: "Plan", body: "Short proposal. Real numbers." },
+  { n: "03", title: "Build", body: "Strategy, identity, content, ads." },
+  { n: "04", title: "Run", body: "Monthly reports. Real results." },
 ];
 
-// (worksHighImpact moved to /work)
-
-const socialCommercials: VideoReelItem[] = [
-  { tag: "Sports · Football", name: "LEICESTER CITY", body: "แคมเปญสื่อสารแบรนด์ระดับสากล สำหรับสโมสรฟุตบอลพรีเมียร์ลีก", videoId: "T8j2S_Zewes" },
-  { tag: "Esports", name: "BURIRAM ESPORT", body: "สร้างตัวตนทีม Esport ไทยให้ก้าวสู่เวทีระดับภูมิภาค", videoId: "KwHy9KieUxg" },
-  { tag: "Healthcare", name: "SIRIRAJ HOSPITAL", body: "Storytelling ที่สื่อสารความน่าเชื่อถือของสถาบันการแพทย์ชั้นนำ", videoId: "z5JyydIxOwo" },
-  { tag: "Automotive", name: "AUDI THAILAND", body: "High-end Production ที่ตีความ Premium Mobility ในแบบไทย", videoId: "_aEZ3MWhjV4" },
+const testimonials = [
+  {
+    niche: "F&B",
+    stat: "+62%",
+    statLabel: "BOOKINGS",
+    quote: "They got our brand voice right from day one. Bookings up 62% in three months.",
+    name: "Cedric C.",
+    handle: "Maison Lumière · @maisonlumiere",
+  },
+  {
+    niche: "FASHION",
+    stat: "11d",
+    statLabel: "TO SELL OUT",
+    quote: "Sold out our first drop in eleven days. No paid ads needed.",
+    name: "Estelle S.",
+    handle: "Saint Manor · @saintmanor",
+  },
+  {
+    niche: "HOSPITALITY",
+    stat: "−41%",
+    statLabel: "COST / BOOKING",
+    quote: "Cut our cost per booking by 41%. Bookings still up.",
+    name: "Shimpei M.",
+    handle: "Hôtel Vergé · @hotelverge",
+  },
 ];
 
-const heroProjects = [
-  { tag: "MOBILITY", name: "HONGMOVE", body: "เปลี่ยนความซับซ้อนให้ดูง่าย ระบบสื่อสาร Seamless สำหรับ Taxi VIP", stat: "+25%", statLabel: "CONVERSION CLARITY", img: hongmove },
-  { tag: "DEFENCE", name: "RTAF", body: "ยึดความน่าเชื่อถือคืนมา ปรับโฉมภาพลักษณ์ผ่าน High-end Production", stat: "2×", statLabel: "ENGAGEMENT QUALITY", img: rtaf },
-  { tag: "HOSPITALITY", name: "KHAO YAI", body: "ยกระดับด้วยรสนิยม เปลี่ยนสนามกอล์ฟดั้งเดิมสู่ประสบการณ์พรีเมียม", stat: "30%", statLabel: "DECISION SPEED", img: khaoyai },
+const trustedBy = [
+  "MAISON LUMIÈRE", "SAINT MANOR", "HÔTEL VERGÉ", "CALA / BKK",
+  "NORTH MERIDIAN", "AT.09", "CAFÉ ORSAY", "STUDIO — KIN",
+  "PLAYA NORTE", "CASA · SOL", "MARLOW & CO.", "UNION BKK",
 ];
-
 
 const Index = () => (
   <div id="top">
-    <SEO title="ØRIONS — Sharper ideas. Clearer direction." description="Idea-led Creative Agency. We help brands cut through the noise with sharper ideas and clearer direction." path="/" />
+    <SEO
+      title="ØRIONS — Boutique creative agency · F&B · Fashion · Hospitality"
+      description="Branding, content, and paid ads for unique brands. From hello, live in 4 weeks. Bangkok. From THB 50k/mo."
+      path="/"
+    />
 
-    {/* HERO — Editorial cover */}
+    {/* HERO */}
     <section className="relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden">
       <HeroVideoGrid />
       <div className="relative z-10 flex flex-col items-center justify-center px-6 md:px-10 mix-blend-difference text-background">
         <Reveal delay={0.05}>
-          <h1 className="font-brand h-display-xl">
-            ØRIONS
-          </h1>
+          <h1 className="font-brand h-display-xl">ØRIONS</h1>
         </Reveal>
-
         <Reveal delay={0.2}>
-          <p className="mt-8 index-badge">APPLIED CREATIVE AGENCY</p>
+          <p className="mt-8 index-badge">BOUTIQUE CREATIVE AGENCY</p>
         </Reveal>
-
         <Reveal delay={0.3}>
           <div className="mt-6 font-display text-[15px] md:text-[22px] tracking-[0.04em] uppercase max-w-full overflow-hidden">
             <RotatingHeadline
               items={[
-                "PRACTICAL · BOLD · DONE",
-                "FROM IDEA → FINAL CUT",
-                "ONE TEAM · NO HANDOFF",
-                "BANGKOK · 2019—",
+                "BRANDING · CONTENT · PAID ADS",
+                "F&B · FASHION · HOSPITALITY",
+                "FROM HELLO → LIVE IN 4 WEEKS",
+                "BANGKOK · EST. 2026",
               ]}
             />
           </div>
         </Reveal>
       </div>
-
       <div className="absolute z-10 bottom-8 md:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 mix-blend-difference text-background">
         <span className="index-badge">SCROLL</span>
         <span className="block w-px h-10 bg-background/60 animate-pulse" />
       </div>
     </section>
 
-    {/* MARQUEE — scroll-velocity coupled */}
+    {/* MARQUEE */}
     <section className="px-6 md:px-10 overflow-hidden">
       <div className="border-y border-foreground py-3">
-        <ScrollMarquee
-          items={["BRAND DIRECTION", "CREATIVE DIRECTION", "DIGITAL EXPERIENCE", "FILM & PRODUCTION", "BANGKOK ↔ WORLD"]}
-        />
+        <ScrollMarquee items={["BRANDING", "CONTENT", "SOCIAL MEDIA", "PAID ADS", "BANGKOK ↔ EST. 2026"]} />
       </div>
     </section>
 
-    {/* 03 — THE VICIOUS CYCLE */}
+    {/* WHAT YOU'RE UP AGAINST */}
     <section className="relative px-6 md:px-10">
       <div className="border-t border-foreground py-20 md:py-28 max-w-[1400px] mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
         <div className="md:col-span-5 md:sticky md:top-32 md:self-start">
           <Reveal>
-            <SectionHeader left="WHY BUDGETS KEEP LEAKING" />
+            <p className="index-badge">02 — THE LANDSCAPE</p>
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="mt-6 font-display h-display-md text-foreground">
-              The Vicious Cycle<span className="text-muted-foreground">.</span>
+            <h2 className="mt-6 font-display h-display-md">
+              What you&apos;re up <span className="text-muted-foreground">against.</span>
             </h2>
           </Reveal>
           <Reveal delay={0.15}>
-            <p className="mt-6 font-thai text-[17px] md:text-[20px] leading-[1.6] text-foreground max-w-[460px]">
-              หลายธุรกิจติดอยู่ใน<span className="font-semibold">"วงจรอุบาท"</span> จ่ายแพงขึ้น แต่ได้ผลลัพธ์เท่าเดิม
+            <p className="mt-6 font-thai text-[17px] md:text-[20px] leading-[1.6] max-w-[460px]">
+              Social ทุกวันนี้ <span className="font-semibold">เสียงดังขึ้น แพงขึ้น สั้นลง</span> — เราออกแบบงานให้ทำงานในสภาพแวดล้อมแบบนี้
             </p>
           </Reveal>
-          <Reveal delay={0.3}>
-            <div className="mt-12 hairline w-16" />
-          </Reveal>
+          <Reveal delay={0.3}><div className="mt-12 hairline w-16" /></Reveal>
         </div>
 
         <div className="md:col-span-7 flex flex-col">
@@ -137,18 +146,14 @@ const Index = () => (
                   <div className="col-span-12 md:col-span-5">
                     <FlipNumber
                       to={p.stat}
-                      prefix={p.prefix}
                       suffix={p.suffix}
                       decimals={p.decimals}
                       className="num-display text-[44px] md:text-[88px] transition-transform duration-500 group-hover:-translate-y-1"
                       suffixClassName="text-[20px] md:text-[36px] tracking-normal ml-1 align-baseline text-muted-foreground"
                     />
                   </div>
-
                   <div className="col-span-12 md:col-span-7 md:pt-3">
-                    <div className="index-badge text-foreground">
-                      {p.label}
-                    </div>
+                    <div className="index-badge text-foreground">{p.label}</div>
                     <div className="mt-3 hairline w-8" />
                     <p className="mt-4 text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground font-thai max-w-[420px]">
                       {p.body}
@@ -162,93 +167,142 @@ const Index = () => (
       </div>
     </section>
 
-    {/* APPLIED SOLUTIONS — the offer */}
+    {/* THREE THINGS, PROPERLY */}
     <section className="relative px-6 md:px-10 bg-foreground text-background">
       <div className="border-t border-background/40 py-20 md:py-28">
-      <Reveal>
-        <h2 className="font-display h-display-md">
-          Applied Solutions<span className="text-background/60">.</span>
-        </h2>
-      </Reveal>
+        <Reveal>
+          <p className="index-badge opacity-70">03 — WHAT WE DO</p>
+        </Reveal>
+        <Reveal delay={0.05}>
+          <h2 className="mt-6 font-display h-display-md">
+            Three things, <span className="italic">properly</span><span className="text-background/60">.</span>
+          </h2>
+        </Reveal>
 
-      <div className="mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-background/30 border border-background/30">
-        {appliedSolutions.map((s, i) => (
-          <Reveal key={s.n} delay={0.05 * i}>
-            <article className="group h-full p-7 md:p-9 bg-foreground text-background flex flex-col">
-              <div className="flex items-baseline justify-between">
-                <div className="font-mono text-[11px] tracking-[0.12em] opacity-60">{s.n}</div>
-                <ArrowUpRight className="w-4 h-4 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500" />
-              </div>
-              <h3 className="mt-12 font-display h-display-2xs transition-transform duration-500 group-hover:translate-x-1">
-                {s.title}
-              </h3>
-              <div className="mt-6 hairline w-8 bg-background/40" />
-              <p className="mt-6 text-[14px] leading-[1.7] font-thai opacity-80">
-                {s.body}
-              </p>
-            </article>
-          </Reveal>
-        ))}
-      </div>
+        <div className="mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-3 gap-px bg-background/30 border border-background/30">
+          {threeThings.map((s, i) => (
+            <Reveal key={s.n} delay={0.05 * i}>
+              <article className="group h-full p-7 md:p-9 bg-foreground text-background flex flex-col">
+                <div className="font-mono text-[11px] tracking-[0.12em] opacity-60">— {s.n}</div>
+                <h3 className="mt-12 font-display italic h-display-2xs">{s.title}</h3>
+                <p className="mt-4 text-[13px] tracking-[0.02em] text-accent-from font-thai" style={{ color: "hsl(var(--accent-from))" }}>{s.lead}</p>
+                <div className="mt-6 hairline w-8 bg-background/40" />
+                <ul className="mt-6 space-y-2.5 text-[14px] leading-[1.6] font-thai opacity-90">
+                  {s.items.map((it) => (
+                    <li key={it}>— {it}</li>
+                  ))}
+                </ul>
+              </article>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
 
-    {/* MASTERY IN STORYTELLING — 21:9 cinematic video (full bleed, no divider) */}
+    {/* MASTERY VIDEO 21:9 */}
     <section className="relative w-full overflow-hidden bg-foreground">
       <div className="relative w-full overflow-hidden" style={{ aspectRatio: "21 / 9" }}>
-        <YouTubeFacade videoId="u4r7Szy3uxI" title="Mastery in Storytelling" ambient />
+        <YouTubeFacade videoId="u4r7Szy3uxI" title="Work in motion" ambient />
       </div>
     </section>
 
-    {/* SELECTED WORK */}
+    {/* FROM HELLO, LIVE IN 4 WEEKS */}
     <section className="relative px-6 md:px-10">
-      <div className="border-t border-foreground py-16 md:py-20">
-        <h2 className="font-display h-display-sm">
-          Selected <span className="text-muted-foreground">Work</span>
-        </h2>
-        <SelectedWorkReel projects={heroProjects} />
+      <div className="border-t border-foreground py-20 md:py-28">
+        <Reveal>
+          <p className="index-badge">04 — HOW IT GOES</p>
+        </Reveal>
+        <Reveal delay={0.05}>
+          <h2 className="mt-6 font-display h-display-md">
+            From hello, live in <span className="italic text-muted-foreground">4 weeks.</span>
+          </h2>
+        </Reveal>
+
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-4 gap-px bg-foreground border border-foreground">
+          {steps.map((st) => (
+            <Reveal key={st.n}>
+              <div className="bg-background p-7 md:p-8 h-full flex flex-col">
+                <span className="font-mono text-[11px] tracking-[0.12em] text-muted-foreground">— {st.n}</span>
+                <h3 className="mt-10 font-display italic text-[28px] md:text-[36px] tracking-[-0.02em]">{st.title}.</h3>
+                <p className="mt-6 text-[14px] leading-[1.6] font-thai text-muted-foreground">{st.body}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
 
-    {/* APPLIED CREATIVE ACROSS INDUSTRIES */}
+    {/* WHAT CLIENTS SAY */}
     <section className="relative px-6 md:px-10">
-      <div className="border-t border-foreground py-16 md:py-20">
-        <h2 className="font-display h-display-sm">
-          Applied Creative <span className="text-muted-foreground">Across Industries</span>
-        </h2>
-        <SelectedWorkReel projects={worksAcrossIndustries} size="sm" />
+      <div className="border-t border-foreground py-20 md:py-28">
+        <Reveal>
+          <p className="index-badge">05 — RESULTS</p>
+        </Reveal>
+        <Reveal delay={0.05}>
+          <h2 className="mt-6 font-display h-display-md">
+            What clients <span className="italic text-muted-foreground">say.</span>
+          </h2>
+        </Reveal>
+
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-px bg-foreground border border-foreground">
+          {testimonials.map((t) => (
+            <Reveal key={t.name}>
+              <article className="bg-background p-7 md:p-9 h-full flex flex-col">
+                <div className="index-badge text-muted-foreground">{t.niche}</div>
+                <div className="mt-12">
+                  <div className="num-display text-[48px] md:text-[72px] leading-none" style={{ color: "hsl(var(--accent-from))" }}>{t.stat}</div>
+                  <div className="mt-3 index-badge text-muted-foreground">{t.statLabel}</div>
+                </div>
+                <div className="mt-8 hairline w-8" />
+                <p className="mt-6 font-thai italic text-[16px] leading-[1.65] flex-1">&ldquo;{t.quote}&rdquo;</p>
+                <div className="mt-8 pt-5 border-t border-soft">
+                  <div className="font-display text-[15px] tracking-[-0.01em]">{t.name}</div>
+                  <div className="mt-1 font-mono text-[10px] tracking-[0.12em] uppercase text-muted-foreground">{t.handle}</div>
+                </div>
+              </article>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
 
-    {/* SOCIAL & COMMERCIALS — video reel */}
+    {/* TRUSTED BY */}
     <section className="relative px-6 md:px-10">
-      <div className="border-t border-foreground py-16 md:py-20">
-      <h2 className="font-display h-display-sm">
-        Social &amp; <span className="text-muted-foreground">Commercials</span>
-      </h2>
-      <VideoReel items={socialCommercials} />
+      <div className="border-t border-foreground py-20 md:py-28">
+        <Reveal>
+          <p className="index-badge">06 — TRUSTED BY</p>
+        </Reveal>
+        <Reveal delay={0.05}>
+          <h2 className="mt-6 font-display h-display-md">
+            40+ brands across <br className="hidden md:block" />F&B, fashion, and <span className="italic text-muted-foreground">hospitality.</span>
+          </h2>
+        </Reveal>
 
-
-      <div className="mt-12 flex justify-end">
-        <Link to="/work" className="inline-flex items-center gap-3 index-badge text-muted-foreground hover:text-foreground transition-colors">
-          VIEW ALL WORK <ArrowUpRight className="w-4 h-4" />
-        </Link>
-      </div>
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-px bg-foreground border border-foreground">
+          {trustedBy.map((name) => (
+            <div key={name} className="bg-background h-24 md:h-28 flex items-center justify-center px-4 text-center">
+              <span className="font-display text-[12px] md:text-[14px] tracking-[0.02em] text-muted-foreground">{name}</span>
+            </div>
+          ))}
+        </div>
+        <p className="mt-6 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground text-right">
+          [ Selected · Q2 2026 ]
+        </p>
       </div>
     </section>
-
 
     <ClosingCTA
+      eyebrow="✦ NOW BOOKING — Q3 2026"
       title={
         <>
-          Stop guessing<span className="text-muted-foreground">.</span>
-          <br />
-          Start <span className="text-gradient">applying</span><span className="text-muted-foreground">.</span>
+          Tell us about <br />
+          <span className="italic">the brand</span><span className="text-muted-foreground">.</span>
         </>
       }
+      description="30-min discovery call. Free. We reply within 24 hours."
       ctas={[
-        { label: "Request the Audit", to: "/contact#audit" },
-        { label: "Or start a project", to: "/contact", variant: "ghost" },
+        { label: "Start the conversation", to: "/contact" },
+        { label: "See services & pricing", to: "/services", variant: "ghost" },
       ]}
     />
   </div>

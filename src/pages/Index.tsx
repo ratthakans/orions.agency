@@ -37,13 +37,6 @@ const trustedBy = [
   "PLAYA NORTE","CASA · SOL","MARLOW & CO.","UNION BKK",
 ];
 
-const whyUs = [
-  { n: "01", title: "Small team. Your team.",     body: "You talk to who's doing the work. No telephone game." },
-  { n: "02", title: "Strategy before pretty.",    body: "We plan before we post." },
-  { n: "03", title: "Ads inside the plan.",       body: "Paid ads built into your strategy from day one." },
-  { n: "04", title: "Built for boutique brands.", body: "We work with brands who care about quality." },
-];
-
 const Index = () => (
   <div id="top">
     <SEO

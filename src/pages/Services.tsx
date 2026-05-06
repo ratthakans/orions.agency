@@ -196,34 +196,8 @@ const Services = () => (
       eyebrow="SERVICES · INDEX"
       verticalLabel="/ 02 · SERVICES"
       title={<>Three things, <span className={accent}>properly.</span></>}
+      titleSize="md"
     />
-
-    {/* OVERVIEW — three-card grid mirroring Index */}
-    <section className="relative px-6 md:px-10 bg-foreground text-background">
-      <div className="border-t border-background/30 py-20 md:py-28 max-w-[1200px] mx-auto">
-        <Reveal><p className="index-badge text-background/60">— 01 · WHAT WE DO</p></Reveal>
-        <Reveal delay={0.05}>
-          <h2 className="mt-6 font-display h-display-sm">
-            One team, <span className={accent}>no handoff.</span>
-          </h2>
-        </Reveal>
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-px bg-background/20 border border-background/20">
-          {services.map((s) => (
-            <Reveal key={s.n}>
-              <article className="h-full p-7 md:p-8 bg-foreground text-background flex flex-col">
-                <div className="font-mono text-[10px] tracking-[0.2em] opacity-50">— {s.n}</div>
-                <h3 className={`mt-10 font-display ${accent} text-[22px] md:text-[26px] tracking-[-0.02em]`}>{s.title}</h3>
-                <p className="mt-3 font-thai text-[13px] text-background/65">{s.lead}</p>
-                <div className="mt-6 hairline w-8 bg-background/30" />
-                <ul className="mt-6 space-y-2 text-[13px] leading-[1.6] font-thai text-background/85">
-                  {s.items.map((it) => <li key={it}>— {it}</li>)}
-                </ul>
-              </article>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
 
     {/* KICKSTART — Audit */}
     <section className="px-6 md:px-10">
@@ -370,30 +344,13 @@ const Services = () => (
       </div>
     </section>
 
-    {/* FULL DETAILS LINK */}
-    <section className="relative px-6 md:px-10">
-      <div className="border-t border-foreground py-16 md:py-20 max-w-[1200px] mx-auto flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-        <div>
-          <p className="index-badge text-muted-foreground">— 05 · MORE</p>
-          <h3 className="mt-4 font-display text-[22px] md:text-[28px] tracking-[-0.02em] max-w-[520px]">
-            Add-ons, FAQs, ad-spend caps.
-          </h3>
-        </div>
-        <a
-          href="/pricing"
-          className="group inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.25em] uppercase border-b border-foreground/30 hover:border-foreground pb-1 transition-colors self-start md:self-end"
-        >
-          <span>View full pricing page</span>
-          <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-        </a>
-      </div>
-    </section>
-
     <ClosingCTA
-      eyebrow="✦ NOW BOOKING — Q3 2026"
       title={<>Tell us about <span className={accent}>the brand.</span></>}
       description="30-min discovery call. Free. We reply within 24 hours."
-      ctas={[{ label: "Start the conversation", to: "/contact" }]}
+      ctas={[
+        { label: "Start the conversation", to: "/contact" },
+        { label: "See services & pricing", to: "/services", variant: "ghost" },
+      ]}
     />
   </div>
 );

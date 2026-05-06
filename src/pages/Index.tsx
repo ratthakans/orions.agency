@@ -4,7 +4,6 @@ import ScrollMarquee from "@/components/ScrollMarquee";
 import SEO from "@/components/SEO";
 import RotatingHeadline from "@/components/RotatingHeadline";
 import ClosingCTA from "@/components/ClosingCTA";
-import HeroVideoGrid from "@/components/HeroVideoGrid";
 import YouTubeFacade from "@/components/YouTubeFacade";
 
 const pressures = [

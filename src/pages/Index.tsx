@@ -47,12 +47,6 @@ const Index = () => (
 
     {/* HERO — DARK, minimal */}
     <section className="relative min-h-screen flex flex-col bg-black text-background overflow-hidden">
-      {/* Animated gradient aurora background */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 opacity-[0.22]">
-        <div className="absolute -top-[20%] -left-[10%] w-[70vw] h-[70vw] rounded-full bg-gradient-accent blur-[120px] animate-aurora-1" />
-        <div className="absolute -bottom-[20%] -right-[10%] w-[60vw] h-[60vw] rounded-full bg-gradient-accent blur-[120px] animate-aurora-2" />
-        <div className="absolute top-[30%] left-[40%] w-[40vw] h-[40vw] rounded-full bg-gradient-accent blur-[120px] animate-aurora-3" />
-      </div>
 
       <div className="relative flex-1 flex flex-col items-center justify-center text-center px-6 md:px-10">
         <Reveal>

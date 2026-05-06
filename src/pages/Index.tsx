@@ -118,10 +118,10 @@ const Index = () => (
           {threeThings.map((s, i) => (
             <Reveal key={s.n} delay={0.08 * i}>
               <article
-                className={`relative h-full py-10 md:py-12 md:px-8 flex flex-col ${i > 0 ? "md:border-l border-background/20" : ""}`}
+                className={`group relative h-full py-10 md:py-12 md:px-8 flex flex-col transition-opacity duration-300 hover:opacity-100 md:[&:hover~*]:opacity-60 ${i > 0 ? "md:border-l border-background/20" : ""}`}
               >
-                <div className="font-mono text-[10px] tracking-[0.2em] opacity-50">— {s.n}</div>
-                <h3 className={`mt-6 font-display ${accent} text-[24px] md:text-[28px] tracking-[-0.02em]`}>{s.title}</h3>
+                <div className="font-mono text-[10px] tracking-[0.2em] text-background/50">— {s.n}</div>
+                <h3 className="mt-6 font-display text-background text-[24px] md:text-[28px] tracking-[-0.02em]">{s.title}</h3>
                 <p className="mt-3 font-thai text-[14px] leading-[1.7] text-background/65 max-w-[300px]">{s.lead}</p>
                 <ul className="mt-8 space-y-3 font-thai text-[13px] leading-[1.7] text-background/85 border-t border-background/15 pt-5">
                   {s.items.map((it, j) => (
@@ -157,8 +157,7 @@ const Index = () => (
           {steps.map((st, i) => (
             <Reveal key={st.n} delay={0.08 * i}>
               <div className="relative">
-                <span aria-hidden className="block h-px w-10 bg-gradient-accent mb-6 origin-left animate-[grow_900ms_cubic-bezier(0.76,0,0.24,1)_forwards]" />
-                <div className={`font-mono text-[10px] tracking-[0.2em] ${accent}`}>— {st.n}</div>
+                <div className="font-mono text-[10px] tracking-[0.2em] text-background/50">— {st.n}</div>
                 <h3 className="mt-6 font-display text-[22px] md:text-[26px] tracking-[-0.02em] text-background">
                   {st.title}.
                 </h3>
@@ -187,9 +186,8 @@ const Index = () => (
             return (
               <div
                 key={name}
-                className={`group relative aspect-[2/1] flex items-center justify-center text-center px-4 overflow-hidden cursor-default border-soft ${(i % 6) !== 5 ? "border-r" : ""} ${i < trustedBy.length - 6 ? "border-b" : ""}`}
+                className={`group relative aspect-[2/1] flex items-center justify-center text-center px-4 cursor-default border-soft transition-opacity duration-300 hover:opacity-100 md:[&:hover~*]:opacity-60 ${(i % 6) !== 5 ? "border-r" : ""} ${i < trustedBy.length - 6 ? "border-b" : ""}`}
               >
-                <span aria-hidden className="absolute inset-0 bg-foreground translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]" />
                 {logo ? (
                   <span className="relative flex items-center gap-2.5">
                     <img
@@ -198,12 +196,12 @@ const Index = () => (
                       className="h-7 md:h-8 w-auto object-contain transition-[filter,opacity] duration-300 opacity-70 grayscale group-hover:opacity-100 group-hover:grayscale-0"
                       loading="lazy"
                     />
-                    <span className="font-display text-[10px] md:text-[11px] tracking-[0.04em] text-muted-foreground transition-colors duration-300 group-hover:text-background">
+                    <span className="font-display text-[10px] md:text-[11px] tracking-[0.04em] text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
                       {name}
                     </span>
                   </span>
                 ) : (
-                  <span className="relative font-display text-[11px] md:text-[12px] tracking-[0.04em] text-muted-foreground transition-colors duration-300 group-hover:text-background">
+                  <span className="relative font-display text-[11px] md:text-[12px] tracking-[0.04em] text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
                     {name}
                   </span>
                 )}

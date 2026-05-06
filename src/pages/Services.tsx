@@ -202,16 +202,8 @@ const Services = () => (
       </span>
 
       <div className="px-6 md:px-10 pt-28 md:pt-32 pb-12 md:pb-16 max-w-[1400px] mx-auto">
-        {/* Top meta strip */}
-        <Reveal>
-          <div className="border-t border-background/25 pt-3 pb-3 flex items-center justify-between font-mono text-[10px] tracking-[0.3em] uppercase">
-            <span className="text-background">SERVICES · INDEX</span>
-            <span className="hidden sm:inline text-background/50">ØRIONS · BANGKOK · 2026</span>
-          </div>
-        </Reveal>
-
         {/* Title block */}
-        <div className="mt-12 md:mt-16 grid grid-cols-12">
+        <div className="border-t border-background/25 pt-12 md:pt-16 grid grid-cols-12">
           <div className="col-span-12 md:col-span-10 md:col-start-2">
             <Reveal delay={0.08}>
               <h1 className="font-display h-display-md text-balance">
@@ -225,9 +217,15 @@ const Services = () => (
         <Reveal delay={0.2}>
           <ul className="mt-14 md:mt-20 border-t border-background/25 pt-5 grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-4">
             {services.map((s) => (
-              <li key={s.n} className="flex items-baseline gap-3">
-                <span className="font-mono text-[10px] tracking-[0.25em] text-background/40 tabular-nums">— {s.n}</span>
-                <span className="font-display text-[16px] md:text-[18px] tracking-[-0.01em]">{s.title}.</span>
+              <li key={s.n}>
+                <a
+                  href={`#svc-${s.n}`}
+                  className="group flex items-baseline gap-3 hover:opacity-70 transition-opacity"
+                >
+                  <span className="font-mono text-[10px] tracking-[0.25em] text-background/40 tabular-nums">— {s.n}</span>
+                  <span className="font-display text-[16px] md:text-[18px] tracking-[-0.01em]">{s.title}.</span>
+                  <span aria-hidden className="font-mono text-[12px] text-background/40 transition-transform duration-300 group-hover:translate-x-1">↓</span>
+                </a>
               </li>
             ))}
           </ul>
@@ -238,10 +236,7 @@ const Services = () => (
     {/* KICKSTART — Audit */}
     <section className="px-6 md:px-10">
       <div className="border-t border-foreground max-w-[1200px] mx-auto py-16 md:py-24">
-        <Reveal>
-          <p className="index-badge text-muted-foreground">— 02 · THE KICKSTART</p>
-        </Reveal>
-        <div className="mt-6 grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12">
           <div className="lg:col-span-5">
             <Reveal delay={0.05}>
               <h2 className="font-display h-display-sm">
@@ -292,26 +287,17 @@ const Services = () => (
             Honest pricing, <span className={accent}>start from.</span>
           </h2>
         </Reveal>
-        <Reveal delay={0.1}>
-          <p className="mt-6 max-w-[640px] font-thai text-[15px] leading-[1.7] text-muted-foreground">
-            ราคาด้านล่างคือจุดเริ่มต้น — final scope &amp; quote ขึ้นกับ deliverables ของแต่ละโปรเจกต์ พูดคุยกับเราเพื่อรับใบเสนอราคาเฉพาะแบรนด์ของคุณ.
-          </p>
-        </Reveal>
-
         <div className="mt-16 space-y-20 md:space-y-28">
           {serviceTables.map((svc) => (
             <Reveal key={svc.n}>
-              <article>
+              <article id={`svc-${svc.n}`} className="scroll-mt-24">
                 {/* Service header */}
                 <header className="border-t border-foreground pt-6 grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-end pb-8">
                   <div className="lg:col-span-2">
                     <div className="num-display text-[44px] md:text-[72px] leading-none">{svc.n}</div>
                   </div>
-                  <div className="lg:col-span-5">
+                  <div className="lg:col-span-10">
                     <h3 className="font-display h-display-xs">{svc.title}.</h3>
-                  </div>
-                  <div className="lg:col-span-5">
-                    <p className={`font-thai text-[14px] md:text-[15px] leading-[1.7] ${accent}`}>{svc.lead}</p>
                   </div>
                 </header>
 

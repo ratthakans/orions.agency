@@ -51,13 +51,13 @@ const serviceTables: ServiceTable[] = [
   {
     n: "01",
     title: "Branding",
-    lead: "การลากเส้นสร้างตัวตน — เปลี่ยนจากจุดสว่างที่กระจัดกระจาย ให้กลายเป็นภาพลักษณ์ที่มีความหมาย.",
+    lead: "Identity that ships.",
     tiers: [
       {
         name: "Essential Look",
         from: "Start from THB 150,000",
         unit: "/ project",
-        forWho: "ธุรกิจเริ่มต้นที่ต้องการความ ‘แพง’ และ ‘มาตรฐาน’ ทันที",
+        forWho: "เริ่มต้นแบรนด์ใหม่ — ต้องการดู ‘แพง’ และ ‘มาตรฐาน’ ตั้งแต่วันแรก.",
         includes: [
           "Logo + marks",
           "Color + typography system",
@@ -69,7 +69,7 @@ const serviceTables: ServiceTable[] = [
         name: "Full Brand System",
         from: "Start from THB 350,000",
         unit: "/ project",
-        forWho: "ธุรกิจที่ต้องการยึดหัวหาดในตลาดและสร้างความเชื่อมั่นระยะยาว",
+        forWho: "ยึดหัวหาดในตลาด — ระบบแบรนด์ครบทุกจุดสัมผัส.",
         includes: [
           "Everything in Essential",
           "Brand voice + verbal system",
@@ -82,13 +82,13 @@ const serviceTables: ServiceTable[] = [
   {
     n: "02",
     title: "Content Production",
-    lead: "งานคราฟต์หยุดนิ้วโป้ง — ผลิตเฉพาะสิ่งที่จำเป็นและสร้าง impact ไม่ทำขยะดิจิทัล.",
+    lead: "Work that earns the scroll.",
     tiers: [
       {
         name: "High-Impact Assets",
         from: "Start from THB 60,000",
         unit: "/ project",
-        forWho: "แบรนด์ที่ต้องการชุดภาพ/วิดีโอสั้นที่หยุดสายตาภายใน 1.7 วินาที",
+        forWho: "ชุด photo / short-form video ที่หยุดนิ้วโป้งใน 1.7 วินาที.",
         includes: [
           "Photo or short-form video × 3–5",
           "Concept + art direction",
@@ -100,7 +100,7 @@ const serviceTables: ServiceTable[] = [
         name: "Master Story",
         from: "Start from THB 180,000",
         unit: "/ project",
-        forWho: "แบรนด์ที่ต้องการ brand film / documentary สร้างความศรัทธา",
+        forWho: "Brand film / documentary สำหรับสร้างความศรัทธาในระยะยาว.",
         includes: [
           "Brand film or documentary",
           "Script + storyboard",
@@ -113,13 +113,13 @@ const serviceTables: ServiceTable[] = [
   {
     n: "03",
     title: "Social Media",
-    lead: "ดูแลต่อเนื่องอย่างมีชั้นเชิง — บริหารจัดการโซเชียลมีเดียด้วยตรรกะและรสนิยม.",
+    lead: "Run monthly. Reported clearly.",
     tiers: [
       {
         name: "Foundation",
         from: "Start from THB 50,000",
         unit: "/ month",
-        forWho: "เน้นความนิ่ง ภูมิฐาน รักษาภาพลักษณ์ผู้นำ",
+        forWho: "รักษาภาพลักษณ์ — โพสต์สม่ำเสมอ ดูแลคอมมูนิตี้.",
         includes: [
           "8–10 high-quality posts / month",
           "Content calendar + copy",
@@ -131,7 +131,7 @@ const serviceTables: ServiceTable[] = [
         name: "Growth",
         from: "Start from THB 80,000",
         unit: "/ month",
-        forWho: "เน้นการเติบโตและการเข้าถึงตลาดใหม่",
+        forWho: "ขยายฐานลูกค้าใหม่ — รัน paid ads + content เต็มรูปแบบ.",
         includes: [
           "Everything in Foundation",
           "Short-form video production",
@@ -143,7 +143,7 @@ const serviceTables: ServiceTable[] = [
         name: "Mastery",
         from: "Start from THB 120,000",
         unit: "/ month",
-        forWho: "ดูแลครบวงจรเหมือนมีแผนกการตลาดส่วนตัว",
+        forWho: "ดูแลครบวงจร — เหมือนมีแผนกการตลาดส่วนตัว.",
         includes: [
           "Everything in Growth",
           "Senior consultant direction",
@@ -235,41 +235,54 @@ const Services = () => (
 
     {/* KICKSTART — Audit */}
     <section className="px-6 md:px-10">
-      <div className="border-t border-foreground max-w-[1200px] mx-auto py-16 md:py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12">
-          <div className="lg:col-span-5">
+      <div className="border-t border-foreground max-w-[1200px] mx-auto py-20 md:py-28">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-10 lg:gap-x-12">
+          {/* Left: title + price block */}
+          <div className="lg:col-span-5 flex flex-col">
             <Reveal delay={0.05}>
-              <h2 className="font-display h-display-sm">
+              <span aria-hidden className="block h-px w-12 bg-gradient-accent mb-8 origin-left animate-[grow_900ms_cubic-bezier(0.76,0,0.24,1)_forwards]" />
+              <p className="index-badge text-muted-foreground">— 02 · KICKSTART</p>
+              <h2 className="mt-5 font-display h-display-sm">
                 ØRIONS <span className={accent}>Audit.</span>
               </h2>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <p className="mt-6 font-thai text-[15px] leading-[1.7] text-muted-foreground max-w-[420px]">
-                ทางด่วนหาจุดตัน — เหมาะสำหรับธุรกิจที่ต้องการทิศทางที่แน่นอนก่อนเริ่มลงทุน.
+              <p className="mt-5 font-thai text-[14px] leading-[1.7] text-muted-foreground max-w-[400px]">
+                ทางด่วนหาจุดตัน — รู้ทิศทางก่อนลงทุนใหญ่.
               </p>
             </Reveal>
-          </div>
-          <div className="lg:col-span-7">
             <Reveal delay={0.15}>
-              <div className="border-t border-foreground pt-6 grid grid-cols-2 gap-x-8 gap-y-6">
-                <div>
-                  <div className="index-badge text-muted-foreground">PRICE</div>
-                  <div className="mt-2 font-mono text-[18px] md:text-[20px]">THB 30,000</div>
-                  <div className="mt-1 text-[12px] font-thai text-muted-foreground">นำไปหักลบกับ phase ถัดไปได้</div>
+              <div className="mt-10 border-t border-foreground pt-5 flex items-baseline gap-4">
+                <div className={`font-display ${accent} text-[40px] md:text-[56px] leading-none tracking-[-0.04em] tabular-nums`}>
+                  30K
                 </div>
-                <div>
-                  <div className="index-badge text-muted-foreground">TIMELINE</div>
-                  <div className="mt-2 font-mono text-[18px] md:text-[20px]">1–2 weeks</div>
-                </div>
-                <div className="col-span-2">
-                  <div className="index-badge text-muted-foreground">WHAT YOU GET</div>
-                  <ul className="mt-3 space-y-2 text-[14px] font-thai">
-                    <li className="border-b border-soft pb-2">— วิเคราะห์จุดที่งบรั่วไหลและจุดที่แบรนด์นิ่ง</li>
-                    <li className="border-b border-soft pb-2">— 1-Page Roadmap เพื่อปลดล็อกธุรกิจ</li>
-                    <li className="border-b border-soft pb-2">— Working session 1 ครั้งกับทีม ØRIONS</li>
-                  </ul>
+                <div className="flex-1">
+                  <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">THB · 1–2 weeks</div>
+                  <div className="mt-1 font-thai text-[12px] text-muted-foreground">หักลบกับ phase ถัดไปได้</div>
                 </div>
               </div>
+            </Reveal>
+          </div>
+          {/* Right: WHAT YOU GET — emphasized */}
+          <div className="lg:col-span-7 lg:border-l border-foreground lg:pl-12">
+            <Reveal delay={0.2}>
+              <div className="flex items-baseline justify-between">
+                <div className="index-badge text-muted-foreground">WHAT YOU GET</div>
+                <div className={`font-mono text-[10px] tracking-[0.2em] ${accent}`}>03 DELIVERABLES</div>
+              </div>
+              <ul className="mt-8 space-y-0">
+                {[
+                  { k: "01", t: "Brand & Spend Audit", body: "วิเคราะห์จุดที่งบรั่วไหล และจุดที่แบรนด์นิ่งในตลาด." },
+                  { k: "02", t: "1-Page Roadmap",      body: "แผนปลดล็อก 90 วัน — ลำดับความสำคัญ + ผลที่คาดหวัง." },
+                  { k: "03", t: "Working Session",     body: "1 ชั่วโมงกับทีม ØRIONS ส่งต่องานเชิงกลยุทธ์." },
+                ].map((it, i) => (
+                  <li key={it.k} className="group grid grid-cols-12 gap-4 items-start py-5 border-t border-soft last:border-b">
+                    <span className={`col-span-2 md:col-span-1 font-mono text-[11px] tracking-[0.2em] ${accent} tabular-nums pt-1`}>— {it.k}</span>
+                    <div className="col-span-10 md:col-span-11">
+                      <h4 className="font-display text-[16px] md:text-[18px] tracking-[-0.01em]">{it.t}.</h4>
+                      <p className="mt-2 font-thai text-[13px] leading-[1.65] text-muted-foreground">{it.body}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </Reveal>
           </div>
         </div>
@@ -278,62 +291,87 @@ const Services = () => (
 
     {/* PRICE TABLES — per service */}
     <section className="px-6 md:px-10">
-      <div className="border-t border-foreground max-w-[1200px] mx-auto py-16 md:py-24">
-        <Reveal>
-          <p className="index-badge text-muted-foreground">— 03 · SERVICES &amp; PRICING</p>
-        </Reveal>
+      <div className="border-t border-foreground max-w-[1200px] mx-auto py-20 md:py-28">
         <Reveal delay={0.05}>
-          <h2 className="mt-6 font-display h-display-sm max-w-[820px]">
+          <h2 className="font-display h-display-sm max-w-[820px]">
             Honest pricing, <span className={accent}>start from.</span>
           </h2>
         </Reveal>
-        <div className="mt-16 space-y-20 md:space-y-28">
+
+        <div className="mt-20 md:mt-24 space-y-24 md:space-y-32">
           {serviceTables.map((svc) => (
-            <Reveal key={svc.n}>
-              <article id={`svc-${svc.n}`} className="scroll-mt-24">
-                {/* Service header */}
-                <header className="border-t border-foreground pt-6 grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-end pb-8">
-                  <div className="lg:col-span-2">
-                    <div className="num-display text-[44px] md:text-[72px] leading-none">{svc.n}</div>
+            <article key={svc.n} id={`svc-${svc.n}`} className="scroll-mt-24">
+              {/* Service header — mirrors Index three-things */}
+              <Reveal>
+                <header className="border-t border-foreground pt-6 pb-10 grid grid-cols-1 md:grid-cols-12 gap-y-4 items-end">
+                  <div className="md:col-span-2">
+                    <div className="font-mono text-[10px] tracking-[0.25em] text-muted-foreground">— {svc.n} / 03</div>
                   </div>
-                  <div className="lg:col-span-10">
+                  <div className="md:col-span-6">
                     <h3 className="font-display h-display-xs">{svc.title}.</h3>
                   </div>
+                  <div className="md:col-span-4 md:text-right">
+                    <p className={`font-mono text-[11px] tracking-[0.2em] uppercase ${accent}`}>{svc.lead}</p>
+                  </div>
                 </header>
+              </Reveal>
 
-                {/* Tier table */}
-                <div className={`grid grid-cols-1 ${svc.tiers.length === 3 ? "md:grid-cols-3" : "md:grid-cols-2"} gap-px bg-foreground/15 border border-foreground/15`}>
-                  {svc.tiers.map((t) => (
-                    <div key={t.name} className="bg-background p-7 md:p-8 flex flex-col">
-                      <div className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground">{svc.title}</div>
-                      <h4 className="mt-3 font-display text-[20px] md:text-[24px] tracking-[-0.02em]">{t.name}.</h4>
+              {/* Tiers — featured middle (or last if 2) */}
+              <div className={`grid grid-cols-1 ${svc.tiers.length === 3 ? "md:grid-cols-3" : "md:grid-cols-2"} border-t border-foreground`}>
+                {svc.tiers.map((t, i) => {
+                  const featured = svc.tiers.length === 3 ? i === 1 : i === 1;
+                  return (
+                    <Reveal key={t.name} delay={0.08 * i}>
+                      <div
+                        className={`relative h-full p-7 md:p-9 flex flex-col ${i > 0 ? "md:border-l border-soft" : ""} ${featured ? "bg-foreground text-background" : "bg-background"}`}
+                      >
+                        <span aria-hidden className={`block h-px w-12 mb-7 origin-left ${featured ? "bg-background/30" : "bg-gradient-accent"}`} />
+                        <div className="flex items-baseline justify-between">
+                          <div className={`font-mono text-[10px] tracking-[0.2em] ${featured ? "text-background/50" : "text-muted-foreground"}`}>
+                            — {String(i + 1).padStart(2, "0")}
+                          </div>
+                          {featured && (
+                            <div className={`font-mono text-[10px] tracking-[0.25em] ${accent}`}>★ POPULAR</div>
+                          )}
+                        </div>
+                        <h4 className={`mt-5 font-display text-[22px] md:text-[26px] tracking-[-0.02em] ${featured ? "" : ""}`}>{t.name}.</h4>
+                        <p className={`mt-3 font-thai text-[13px] leading-[1.65] ${featured ? "text-background/65" : "text-muted-foreground"}`}>
+                          {t.forWho}
+                        </p>
 
-                      <div className="mt-6 border-t border-foreground pt-4">
-                        <div className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground">{t.from.split(" ").slice(0, 2).join(" ")}</div>
-                        <div className="mt-2 font-mono text-[20px] md:text-[24px]">
-                          {t.from.replace("Start from ", "")}
-                          {t.unit && <span className="text-[13px] text-muted-foreground"> {t.unit}</span>}
+                        {/* Price */}
+                        <div className={`mt-7 pt-5 border-t ${featured ? "border-background/20" : "border-foreground"} flex items-baseline gap-3`}>
+                          <div className={`font-mono text-[10px] tracking-[0.25em] ${featured ? "text-background/50" : "text-muted-foreground"}`}>FROM</div>
+                          <div className={`font-display ${accent} text-[28px] md:text-[34px] leading-none tracking-[-0.03em] tabular-nums`}>
+                            {t.from.replace("Start from THB ", "")}
+                          </div>
+                          <div className={`font-mono text-[10px] tracking-[0.2em] ${featured ? "text-background/50" : "text-muted-foreground"}`}>
+                            THB {t.unit?.replace("/ ", "/")}
+                          </div>
+                        </div>
+
+                        {/* Includes */}
+                        <div className={`mt-8 pt-5 border-t ${featured ? "border-background/15" : "border-soft"}`}>
+                          <div className={`font-mono text-[10px] tracking-[0.25em] uppercase mb-4 ${featured ? "text-background/60" : "text-muted-foreground"}`}>
+                            What you get
+                          </div>
+                          <ul className="space-y-3">
+                            {t.includes.map((it, j) => (
+                              <li key={it} className="flex items-baseline gap-3 font-thai text-[13.5px] leading-[1.6]">
+                                <span className={`font-mono text-[9px] tracking-[0.18em] tabular-nums ${featured ? "text-background/40" : "text-muted-foreground/60"}`}>
+                                  ·{String(j + 1).padStart(2, "0")}
+                                </span>
+                                <span>{it}</span>
+                              </li>
+                            ))}
+                          </ul>
                         </div>
                       </div>
-
-                      <p className="mt-5 font-thai text-[13px] leading-[1.65] text-muted-foreground">{t.forWho}</p>
-
-                      <div className="mt-6 border-t border-soft pt-4">
-                        <div className="index-badge text-muted-foreground">INCLUDES</div>
-                        <ul className="mt-3 space-y-2 text-[13.5px] font-thai">
-                          {t.includes.map((it) => (
-                            <li key={it} className="flex gap-3 border-b border-soft pb-2">
-                              <span className="text-muted-foreground">—</span>
-                              <span>{it}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </article>
-            </Reveal>
+                    </Reveal>
+                  );
+                })}
+              </div>
+            </article>
           ))}
         </div>
       </div>
@@ -341,22 +379,25 @@ const Services = () => (
 
     {/* PROCESS — dark, mirrors Index pattern */}
     <section className="relative px-6 md:px-10 bg-foreground text-background">
-      <div className="border-t border-background/30 py-20 md:py-28 max-w-[1200px] mx-auto">
-        <Reveal><p className="index-badge text-background/60">— 04 · PROCESS</p></Reveal>
+      <div className="border-t border-background/30 py-24 md:py-32 max-w-[1200px] mx-auto">
         <Reveal delay={0.05}>
-          <h2 className="mt-6 font-display h-display-sm">
+          <h2 className="font-display h-display-sm">
             From hello, live in <span className={accent}>4 weeks.</span>
           </h2>
         </Reveal>
-        <div className="mt-16 pt-8 border-t border-background/30 grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8">
-          {steps.map((st) => (
-            <Reveal key={st.n}>
-              <div>
-                <div className={`font-mono text-[10px] tracking-[0.2em] ${accent}`}>— {st.n}</div>
-                <h3 className="mt-5 font-display text-[22px] md:text-[26px] tracking-[-0.02em] text-background">
+        <div className="mt-16 pt-10 border-t border-background/30 grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8">
+          {steps.map((st, i) => (
+            <Reveal key={st.n} delay={0.08 * i}>
+              <div className="relative">
+                <span aria-hidden className="block h-px w-10 bg-gradient-accent mb-6 origin-left animate-[grow_900ms_cubic-bezier(0.76,0,0.24,1)_forwards]" />
+                <div className="flex items-baseline justify-between">
+                  <div className={`font-mono text-[10px] tracking-[0.2em] ${accent}`}>— {st.n}</div>
+                  <div className="font-mono text-[10px] tracking-[0.2em] opacity-40">0{i + 1}/04</div>
+                </div>
+                <h3 className="mt-6 font-display text-[22px] md:text-[26px] tracking-[-0.02em] text-background">
                   {st.title}.
                 </h3>
-                <p className="mt-3 text-[13px] leading-[1.55] font-thai text-background/65">
+                <p className="mt-3 font-thai text-[14px] leading-[1.7] text-background/65">
                   {st.body}
                 </p>
               </div>

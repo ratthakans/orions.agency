@@ -93,7 +93,7 @@ const Index = () => (
 
       {/* Bottom service marquee — infinite loop */}
       <div className="relative border-t border-background/15 py-5">
-        <SimpleMarquee duration={45} items={["BRANDING", "CONTENT", "SOCIAL MEDIA"]} />
+        <SimpleMarquee duration={32} items={["BRANDING", "CONTENT", "SOCIAL MEDIA"]} />
       </div>
     </section>
 
@@ -101,7 +101,7 @@ const Index = () => (
     <section className="relative px-6 md:px-10">
       <div className="border-t border-foreground py-20 md:py-28 max-w-[1200px] mx-auto">
         <Reveal>
-          <p className="index-badge text-muted-foreground">— 02</p>
+          <p className="index-badge text-muted-foreground">— 02 · THE LANDSCAPE</p>
         </Reveal>
         <Reveal delay={0.05}>
           <h2 className="mt-6 font-display h-display-sm">

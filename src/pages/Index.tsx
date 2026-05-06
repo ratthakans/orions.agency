@@ -7,9 +7,9 @@ import ClosingCTA from "@/components/ClosingCTA";
 import YouTubeFacade from "@/components/YouTubeFacade";
 
 const pressures = [
-  { stat: 71, suffix: "%", decimals: 0, label: "OF SOCIAL IMAGES", body: "AI-generated. คุณต้องมี real content ที่ทำให้แบรนด์ยังโดดออกมาได้" },
-  { stat: 20, suffix: "%", decimals: 0, label: "META CPM RISE · YoY", body: "ค่าโฆษณาแพงขึ้นทุกปี — creative ต้องทำงานหนักกว่าเดิมเพื่อ convert" },
-  { stat: 8, suffix: "s", decimals: 0, label: "ATTENTION SPAN", body: "แปดวินาที. คุณต้อง hook ให้ติดก่อน thumb จะเลื่อนผ่าน" },
+  { stat: 71, suffix: "%", decimals: 0, label: "OF SOCIAL IMAGES", body: "AI-generated. You need real content to stand out." },
+  { stat: 20, suffix: "%", decimals: 0, label: "META CPM RISE, YoY", body: "Ads cost more. You need creative that converts." },
+  { stat: 8, suffix: "s", decimals: 0, label: "ATTENTION SPAN", body: "Eight seconds. You need to hook them fast." },
 ];
 
 const threeThings = [
@@ -119,18 +119,10 @@ const Index = () => (
     <section className="relative px-6 md:px-10">
       <div className="border-t border-foreground py-20 md:py-28 max-w-[1400px] mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
         <div className="md:col-span-5 md:sticky md:top-32 md:self-start">
-          <Reveal>
-            <p className="index-badge">02 — THE LANDSCAPE</p>
-          </Reveal>
           <Reveal delay={0.1}>
             <h2 className="mt-6 font-display h-display-md">
               What you&apos;re up <span className="text-muted-foreground">against.</span>
             </h2>
-          </Reveal>
-          <Reveal delay={0.15}>
-            <p className="mt-6 font-thai text-[17px] md:text-[20px] leading-[1.6] max-w-[460px]">
-              Social ทุกวันนี้ <span className="font-semibold">เสียงดังขึ้น แพงขึ้น สั้นลง</span> — เราออกแบบงานให้ทำงานในสภาพแวดล้อมแบบนี้
-            </p>
           </Reveal>
           <Reveal delay={0.3}><div className="mt-12 hairline w-16" /></Reveal>
         </div>

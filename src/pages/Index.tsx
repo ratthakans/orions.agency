@@ -118,15 +118,15 @@ const Index = () => (
           {threeThings.map((s, i) => (
             <Reveal key={s.n} delay={0.08 * i}>
               <article
-                className={`group relative h-full py-10 md:py-12 md:px-8 flex flex-col transition-opacity duration-300 hover:opacity-100 md:[&:hover~*]:opacity-60 ${i > 0 ? "md:border-l border-background/20" : ""}`}
+                className={`relative h-full py-10 md:py-12 md:px-8 flex flex-col ${i > 0 ? "md:border-l border-background/20" : ""}`}
               >
                 <div className="font-mono text-[10px] tracking-[0.2em] text-background/50">— {s.n}</div>
-                <h3 className="mt-6 font-display text-background text-[24px] md:text-[28px] tracking-[-0.02em]">{s.title}</h3>
-                <p className="mt-3 font-thai text-[14px] leading-[1.7] text-background/65 max-w-[300px]">{s.lead}</p>
-                <ul className="mt-8 space-y-3 font-thai text-[13px] leading-[1.7] text-background/85 border-t border-background/15 pt-5">
-                  {s.items.map((it, j) => (
+                <h3 className="mt-6 font-display text-[22px] md:text-[26px] tracking-[-0.02em]">{s.title}</h3>
+                <p className="mt-3 font-thai text-[14px] leading-[1.7] text-background/70 max-w-[300px]">{s.lead}</p>
+                <ul className="mt-8 space-y-3 font-thai text-[13px] leading-[1.7] text-background/85 border-t border-background/20 pt-5">
+                  {s.items.map((it) => (
                     <li key={it} className="flex items-baseline gap-3">
-                      <span className="font-mono text-[9px] tracking-[0.18em] opacity-40 tabular-nums">·{String(j + 1).padStart(2, "0")}</span>
+                      <span className="font-mono text-[10px] opacity-40">·</span>
                       <span>{it}</span>
                     </li>
                   ))}
@@ -139,7 +139,7 @@ const Index = () => (
     </section>
 
     {/* MASTERY VIDEO */}
-    <section className="relative w-full overflow-hidden bg-foreground">
+    <section className="relative w-full overflow-hidden bg-foreground border-y border-background/20">
       <div className="relative w-full overflow-hidden" style={{ aspectRatio: "21 / 9" }}>
         <YouTubeFacade videoId="u4r7Szy3uxI" title="Work in motion" ambient />
       </div>
@@ -161,7 +161,7 @@ const Index = () => (
                 <h3 className="mt-6 font-display text-[22px] md:text-[26px] tracking-[-0.02em] text-background">
                   {st.title}.
                 </h3>
-                <p className="mt-3 font-thai text-[14px] leading-[1.7] text-background/65">
+                <p className="mt-3 font-thai text-[14px] leading-[1.7] text-background/70 max-w-[300px]">
                   {st.body}
                 </p>
               </div>
@@ -186,22 +186,22 @@ const Index = () => (
             return (
               <div
                 key={name}
-                className={`group relative aspect-[2/1] flex items-center justify-center text-center px-4 cursor-default border-soft transition-opacity duration-300 hover:opacity-100 md:[&:hover~*]:opacity-60 ${(i % 6) !== 5 ? "border-r" : ""} ${i < trustedBy.length - 6 ? "border-b" : ""}`}
+                className={`relative aspect-[2/1] flex items-center justify-center text-center px-4 cursor-default border-soft ${(i % 6) !== 5 ? "border-r" : ""} ${i < trustedBy.length - 6 ? "border-b" : ""}`}
               >
                 {logo ? (
-                  <span className="relative flex items-center gap-2.5">
+                  <span className="flex items-center gap-2.5">
                     <img
                       src={logo}
                       alt={name}
-                      className="h-7 md:h-8 w-auto object-contain transition-[filter,opacity] duration-300 opacity-70 grayscale group-hover:opacity-100 group-hover:grayscale-0"
+                      className="h-7 md:h-8 w-auto object-contain opacity-70 grayscale"
                       loading="lazy"
                     />
-                    <span className="font-display text-[10px] md:text-[11px] tracking-[0.04em] text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
+                    <span className="font-display text-[10px] md:text-[11px] tracking-[0.04em] text-muted-foreground">
                       {name}
                     </span>
                   </span>
                 ) : (
-                  <span className="relative font-display text-[11px] md:text-[12px] tracking-[0.04em] text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
+                  <span className="font-display text-[11px] md:text-[12px] tracking-[0.04em] text-muted-foreground">
                     {name}
                   </span>
                 )}

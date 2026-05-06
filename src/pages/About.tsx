@@ -15,6 +15,7 @@ import dopImg from "@/assets/team/dop.jpg";
 import directorImg from "@/assets/team/director.jpg";
 
 const SITE_URL = "https://orions.agency";
+const accent = "text-gradient";
 
 type Person = { role: string; name: string; img?: string };
 
@@ -116,7 +117,7 @@ const About = () => (
     <PageHero
       eyebrow="ABOUT · INDEX"
       verticalLabel="/ 04 · ABOUT"
-      title={<>A <span className="italic text-muted-foreground">boutique</span><br />creative agency.</>}
+      title={<>A <span className={accent}>boutique</span><br />creative agency.</>}
     />
 
     {/* WHO IS ØRIONS */}
@@ -138,20 +139,16 @@ const About = () => (
         </div>
 
         <div className="md:col-span-5 order-1 md:order-2">
-          <div className="flex items-center gap-3">
-            <span className="block w-8 h-px bg-foreground" />
-            <p className="index-badge text-foreground">WHO IS ØRIONS</p>
-          </div>
+          <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">— WHO IS ØRIONS</p>
           <Reveal delay={0.1}>
-            <h2 className="mt-8 font-display h-display-md">
-              Boutique <span className="italic">creative</span> agency
-              <span className="block mt-3 font-mono text-[14px] md:text-[16px] tracking-[0.04em] text-muted-foreground uppercase">from Bangkok · est. 2026</span>
+            <h2 className="mt-8 font-display h-display-sm">
+              Boutique <span className={accent}>creative</span> agency.
+              <span className="block mt-4 font-mono text-[12px] md:text-[14px] tracking-[0.2em] text-muted-foreground uppercase">From Bangkok · Est. 2026</span>
             </h2>
           </Reveal>
-          <Reveal delay={0.2}><div className="hairline w-16 mt-8" /></Reveal>
           <Reveal delay={0.25}>
-            <p className="mt-8 text-[16px] md:text-[18px] leading-[1.8] font-thai text-muted-foreground">
-              We help unique brands grow on social — through <span className="text-foreground font-medium">branding, content, and paid ads</span>. Built for <span className="text-foreground font-medium">F&amp;B, fashion, and hospitality</span> brands who care about quality.
+            <p className="mt-8 font-thai text-[15px] md:text-[16px] leading-[1.7] text-foreground/70">
+              We help unique brands grow on social — through <span className="text-foreground">branding, content, and paid ads</span>. Built for <span className="text-foreground">F&amp;B, fashion, and hospitality</span> brands who care about quality.
             </p>
           </Reveal>
 
@@ -163,10 +160,10 @@ const About = () => (
                 { v: 4, suffix: "wk", l: "TO LIVE" },
               ].map((s, i) => (
                 <div key={s.l} className={`min-w-0 ${i > 0 ? "border-l border-soft pl-3 md:pl-4" : ""}`}>
-                  <div className="num-display text-[28px] md:text-[44px]">
+                  <div className={`font-display ${accent} text-[28px] md:text-[44px] leading-none tracking-[-0.04em] tabular-nums`}>
                     <FlipNumber to={s.v} suffix={s.suffix} suffixClassName="ml-0.5" />
                   </div>
-                  <div className="mt-2 font-mono text-[9px] md:text-[10px] tracking-[0.12em] uppercase text-muted-foreground">{s.l}</div>
+                  <div className="mt-2 font-mono text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-muted-foreground">{s.l}</div>
                 </div>
               ))}
             </div>
@@ -177,24 +174,20 @@ const About = () => (
 
     {/* WHY US */}
     <section className="relative px-6 md:px-10 bg-foreground text-background">
-      <div className="border-t border-background/40 py-20 md:py-28">
-        <Reveal>
-          <p className="index-badge opacity-70">02 — WHY US</p>
-        </Reveal>
+      <div className="border-t border-background/30 py-24 md:py-32 max-w-[1200px] mx-auto">
         <Reveal delay={0.05}>
-          <h2 className="mt-6 font-display h-display-md">
-            Why <span className="italic" style={{ color: "hsl(var(--accent-from))" }}>us?</span>
+          <h2 className="font-display h-display-sm">
+            Why <span className={accent}>us?</span>
           </h2>
         </Reveal>
 
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-px bg-background/30 border border-background/30">
-          {whyUs.map((w) => (
-            <Reveal key={w.n}>
-              <article className="bg-foreground p-7 md:p-10 h-full flex flex-col">
-                <span className="font-mono text-[11px] tracking-[0.12em] opacity-60">— {w.n}</span>
-                <h3 className="mt-10 font-display italic text-[28px] md:text-[40px] tracking-[-0.02em] leading-[1.05]">{w.title}</h3>
-                <div className="mt-6 hairline w-8 bg-background/40" />
-                <p className="mt-6 text-[14px] md:text-[15px] leading-[1.7] font-thai opacity-85">{w.body}</p>
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 border-t border-background/30">
+          {whyUs.map((w, i) => (
+            <Reveal key={w.n} delay={0.08 * i}>
+              <article className={`relative h-full py-10 md:py-12 md:px-8 flex flex-col ${i % 2 === 1 ? "md:border-l border-background/20" : ""} ${i < 2 ? "md:border-b border-background/20" : ""}`}>
+                <div className="font-mono text-[10px] tracking-[0.2em] text-background/50">— {w.n}</div>
+                <h3 className="mt-6 font-display text-[22px] md:text-[26px] tracking-[-0.02em]">{w.title}</h3>
+                <p className="mt-3 font-thai text-[14px] leading-[1.7] text-background/70 max-w-[300px]">{w.body}</p>
               </article>
             </Reveal>
           ))}
@@ -204,15 +197,14 @@ const About = () => (
 
     {/* THE TEAM */}
     <section className="px-6 md:px-10">
-      <div className="border-t border-foreground py-20 md:py-28">
-        <SectionHeader index="03" left="THE TEAM" right={`${totalPeople} PEOPLE · IN-HOUSE`} />
-        <Reveal>
-          <h2 className="mt-12 font-display h-display-md max-w-[900px]">
-            <FlipNumber to={totalPeople} className="num-display italic" /> people, <span className="italic text-muted-foreground">in-house.</span>
+      <div className="border-t border-foreground py-24 md:py-32">
+        <Reveal delay={0.05}>
+          <h2 className="font-display h-display-sm max-w-[900px]">
+            <FlipNumber to={totalPeople} className={`font-display ${accent} tabular-nums`} /> people, <span className={accent}>in-house.</span>
           </h2>
         </Reveal>
         <Reveal delay={0.1}>
-          <p className="mt-6 max-w-[640px] font-thai text-[16px] md:text-[18px] leading-[1.7] text-muted-foreground">
+          <p className="mt-6 max-w-[520px] font-thai text-[15px] md:text-[16px] leading-[1.7] text-foreground/70">
             You'll work directly with the people building your brand. No account-manager middle layer.
           </p>
         </Reveal>
@@ -244,15 +236,12 @@ const About = () => (
     </section>
 
     <ClosingCTA
-      eyebrow="✦ NOW BOOKING — Q3 2026"
-      title={
-        <>
-          Tell us about <br />
-          <span className="italic">the brand</span><span className="text-muted-foreground">.</span>
-        </>
-      }
+      title={<>Tell us about <span className={accent}>the brand.</span></>}
       description="30-min discovery call. Free. We reply within 24 hours."
-      ctas={[{ label: "Start the conversation", to: "/contact" }]}
+      ctas={[
+        { label: "Start the conversation", to: "/contact" },
+        { label: "See services & pricing", to: "/services", variant: "ghost" },
+      ]}
     />
   </div>
 );

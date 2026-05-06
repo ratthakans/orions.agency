@@ -25,12 +25,6 @@ const steps = [
   { n: "04", title: "Run",    body: "Monthly reports. Real results." },
 ];
 
-const testimonials = [
-  { niche: "F&B",         stat: "+62%", statLabel: "BOOKINGS",      quote: "They got our brand voice right from day one. Bookings up 62% in three months.", name: "Cedric C.",  handle: "Maison Lumière · @maisonlumiere" },
-  { niche: "FASHION",     stat: "11d",  statLabel: "TO SELL OUT",   quote: "Sold out our first drop in eleven days. No paid ads needed.",                  name: "Estelle S.", handle: "Saint Manor · @saintmanor" },
-  { niche: "HOSPITALITY", stat: "−41%", statLabel: "COST / BOOKING",quote: "Cut our cost per booking by 41%. Bookings still up.",                           name: "Shimpei M.", handle: "Hôtel Vergé · @hotelverge" },
-];
-
 const trustedBy = [
   "MAISON LUMIÈRE","SAINT MANOR","HÔTEL VERGÉ","CALA / BKK",
   "NORTH MERIDIAN","AT.09","CAFÉ ORSAY","STUDIO — KIN",
@@ -150,37 +144,6 @@ const Index = () => (
                   {st.body}
                 </p>
               </div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    {/* TESTIMONIALS */}
-    <section className="relative px-6 md:px-10">
-      <div className="border-t border-foreground py-24 md:py-32 max-w-[1200px] mx-auto">
-        <Reveal delay={0.05}>
-          <h2 className="font-display h-display-sm">
-            What clients <span className={accent}>say.</span>
-          </h2>
-        </Reveal>
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 border-t border-foreground">
-          {testimonials.map((t, i) => (
-            <Reveal key={t.name}>
-              <article className={`py-10 md:py-12 md:px-8 h-full flex flex-col ${i > 0 ? "md:border-l border-soft" : ""}`}>
-                <div className="flex justify-between items-baseline">
-                  <div className={`font-mono text-[10px] tracking-[0.2em] ${accent}`}>{t.niche}</div>
-                  <div className="text-right">
-                    <div className={`font-display ${accent} text-[24px] md:text-[28px] leading-none tracking-[-0.02em]`}>{t.stat}</div>
-                    <div className="mt-1 font-mono text-[8px] tracking-[0.2em] text-muted-foreground">{t.statLabel}</div>
-                  </div>
-                </div>
-                <p className="mt-8 font-thai text-[14px] leading-[1.7] flex-1 text-foreground/85">{t.quote}</p>
-                <div className="mt-8 pt-4 border-t border-soft">
-                  <div className="font-display text-[14px] tracking-[-0.01em]">{t.name}</div>
-                  <div className="mt-1 font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground">{t.handle}</div>
-                </div>
-              </article>
             </Reveal>
           ))}
         </div>

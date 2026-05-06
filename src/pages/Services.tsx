@@ -11,7 +11,7 @@ const services = [
     title: "Branding",
     lead: "Identity that works across every touchpoint.",
     detail:
-      "ตั้งแต่ตั้งชื่อ ออกแบบ logo ระบบภาพ ไปจนถึง brand book ที่ทีมและคู่ค้าใช้งานจริงได้ — ทุกชิ้นถูกออกแบบให้ทำงานทั้งบน feed, store, และ packaging โดยไม่หลุดเสียงแบรนด์",
+      "From naming to logo to a brand book your team and partners actually use — built to hold up across feed, store, and packaging.",
     items: ["Naming · Logo · Marks", "Visual identity system", "Brand guidelines + book", "Launch toolkit"],
   },
   {
@@ -19,7 +19,7 @@ const services = [
     title: "Content",
     lead: "Photo, video, and design that earn the scroll.",
     detail:
-      "ถ่ายเอง ตัดเอง ออกแบบเอง — ไม่ส่งต่อ ทีม in-house ของเราถ่าย photo, video, reels, motion graphics และจัดการ asset library ให้แบรนด์ของคุณมีคลังพร้อมใช้ตลอดทั้งปี",
+      "Shot, cut, and designed in-house — photo, video, reels, motion graphics, and a managed asset library that keeps your brand stocked year-round.",
     items: ["Photo + video shoots", "Reels + short-form video", "Graphic + motion design", "Asset libraries"],
   },
   {
@@ -27,7 +27,7 @@ const services = [
     title: "Social media",
     lead: "Strategy, posting, community, and paid ads.",
     detail:
-      "วางกลยุทธ์ → โพสต์รายวัน → ดูแลคอมมูนิตี้ → รัน paid ads ทั้งหมดอยู่ภายใต้ทีมเดียว — ไม่มี hand-off, ไม่มี telephone game, รายงานผลทุกเดือน",
+      "Strategy → daily posting → community → paid ads, all under one team. No hand-off, no telephone game, reported every month.",
     items: ["Strategy + content calendar", "Daily posting + scheduling", "Community management", "Paid ads (Meta, TikTok)"],
   },
 ];
@@ -57,7 +57,7 @@ const serviceTables: ServiceTable[] = [
         name: "Essential Look",
         from: "Start from THB 150,000",
         unit: "/ project",
-        forWho: "เริ่มต้นแบรนด์ใหม่ — ต้องการดู ‘แพง’ และ ‘มาตรฐาน’ ตั้งแต่วันแรก.",
+        forWho: "New brands that need to look premium and credible from day one.",
         includes: [
           "Logo + marks",
           "Color + typography system",
@@ -69,7 +69,7 @@ const serviceTables: ServiceTable[] = [
         name: "Full Brand System",
         from: "Start from THB 350,000",
         unit: "/ project",
-        forWho: "ยึดหัวหาดในตลาด — ระบบแบรนด์ครบทุกจุดสัมผัส.",
+        forWho: "Category leaders building a complete brand system across every touchpoint.",
         includes: [
           "Everything in Essential",
           "Brand voice + verbal system",
@@ -88,7 +88,7 @@ const serviceTables: ServiceTable[] = [
         name: "High-Impact Assets",
         from: "Start from THB 60,000",
         unit: "/ project",
-        forWho: "ชุด photo / short-form video ที่หยุดนิ้วโป้งใน 1.7 วินาที.",
+        forWho: "Photo and short-form video that stops the thumb in 1.7 seconds.",
         includes: [
           "Photo or short-form video × 3–5",
           "Concept + art direction",
@@ -100,7 +100,7 @@ const serviceTables: ServiceTable[] = [
         name: "Master Story",
         from: "Start from THB 180,000",
         unit: "/ project",
-        forWho: "Brand film / documentary สำหรับสร้างความศรัทธาในระยะยาว.",
+        forWho: "Brand film or documentary that earns trust for the long run.",
         includes: [
           "Brand film or documentary",
           "Script + storyboard",
@@ -119,7 +119,7 @@ const serviceTables: ServiceTable[] = [
         name: "Foundation",
         from: "Start from THB 50,000",
         unit: "/ month",
-        forWho: "รักษาภาพลักษณ์ — โพสต์สม่ำเสมอ ดูแลคอมมูนิตี้.",
+        forWho: "Steady, on-brand presence — consistent posting and community care.",
         includes: [
           "8–10 high-quality posts / month",
           "Content calendar + copy",
@@ -131,7 +131,7 @@ const serviceTables: ServiceTable[] = [
         name: "Growth",
         from: "Start from THB 80,000",
         unit: "/ month",
-        forWho: "ขยายฐานลูกค้าใหม่ — รัน paid ads + content เต็มรูปแบบ.",
+        forWho: "Expanding reach — full content engine plus performance ads.",
         includes: [
           "Everything in Foundation",
           "Short-form video production",
@@ -143,7 +143,7 @@ const serviceTables: ServiceTable[] = [
         name: "Mastery",
         from: "Start from THB 120,000",
         unit: "/ month",
-        forWho: "ดูแลครบวงจร — เหมือนมีแผนกการตลาดส่วนตัว.",
+        forWho: "End-to-end ownership — like an in-house marketing department.",
         includes: [
           "Everything in Growth",
           "Senior consultant direction",
@@ -241,13 +241,9 @@ const Services = () => (
           <div className="lg:col-span-5 flex flex-col">
             <Reveal delay={0.05}>
               <span aria-hidden className="block h-px w-12 bg-gradient-accent mb-8 origin-left animate-[grow_900ms_cubic-bezier(0.76,0,0.24,1)_forwards]" />
-              <p className="index-badge text-muted-foreground">— 02 · KICKSTART</p>
-              <h2 className="mt-5 font-display h-display-sm">
+              <h2 className="font-display h-display-sm">
                 ØRIONS <span className={accent}>Audit.</span>
               </h2>
-              <p className="mt-5 font-thai text-[14px] leading-[1.7] text-muted-foreground max-w-[400px]">
-                ทางด่วนหาจุดตัน — รู้ทิศทางก่อนลงทุนใหญ่.
-              </p>
             </Reveal>
             <Reveal delay={0.15}>
               <div className="mt-10 border-t border-foreground pt-5 flex items-baseline gap-4">
@@ -256,7 +252,7 @@ const Services = () => (
                 </div>
                 <div className="flex-1">
                   <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">THB · 1–2 weeks</div>
-                  <div className="mt-1 font-thai text-[12px] text-muted-foreground">หักลบกับ phase ถัดไปได้</div>
+                  <div className="mt-1 font-mono text-[11px] text-muted-foreground">Credited toward the next phase</div>
                 </div>
               </div>
             </Reveal>
@@ -270,15 +266,15 @@ const Services = () => (
               </div>
               <ul className="mt-8 space-y-0">
                 {[
-                  { k: "01", t: "Brand & Spend Audit", body: "วิเคราะห์จุดที่งบรั่วไหล และจุดที่แบรนด์นิ่งในตลาด." },
-                  { k: "02", t: "1-Page Roadmap",      body: "แผนปลดล็อก 90 วัน — ลำดับความสำคัญ + ผลที่คาดหวัง." },
-                  { k: "03", t: "Working Session",     body: "1 ชั่วโมงกับทีม ØRIONS ส่งต่องานเชิงกลยุทธ์." },
+                  { k: "01", t: "Brand & Spend Audit", body: "Where the budget leaks and where the brand stalls in the market." },
+                  { k: "02", t: "1-Page Roadmap",      body: "A 90-day unlock plan — priorities, sequence, and expected outcomes." },
+                  { k: "03", t: "Working Session",     body: "One hour with the ØRIONS team to hand off the strategy." },
                 ].map((it, i) => (
                   <li key={it.k} className="group grid grid-cols-12 gap-4 items-start py-5 border-t border-soft last:border-b">
                     <span className={`col-span-2 md:col-span-1 font-mono text-[11px] tracking-[0.2em] ${accent} tabular-nums pt-1`}>— {it.k}</span>
                     <div className="col-span-10 md:col-span-11">
                       <h4 className="font-display text-[16px] md:text-[18px] tracking-[-0.01em]">{it.t}.</h4>
-                      <p className="mt-2 font-thai text-[13px] leading-[1.65] text-muted-foreground">{it.body}</p>
+                      <p className="mt-2 text-[13px] leading-[1.65] text-muted-foreground">{it.body}</p>
                     </div>
                   </li>
                 ))}
@@ -335,7 +331,7 @@ const Services = () => (
                           )}
                         </div>
                         <h4 className={`mt-5 font-display text-[22px] md:text-[26px] tracking-[-0.02em] ${featured ? "" : ""}`}>{t.name}.</h4>
-                        <p className={`mt-3 font-thai text-[13px] leading-[1.65] ${featured ? "text-background/65" : "text-muted-foreground"}`}>
+                        <p className={`mt-3 text-[13px] leading-[1.65] ${featured ? "text-background/65" : "text-muted-foreground"}`}>
                           {t.forWho}
                         </p>
 
@@ -357,7 +353,7 @@ const Services = () => (
                           </div>
                           <ul className="space-y-3">
                             {t.includes.map((it, j) => (
-                              <li key={it} className="flex items-baseline gap-3 font-thai text-[13.5px] leading-[1.6]">
+                              <li key={it} className="flex items-baseline gap-3 text-[13.5px] leading-[1.6]">
                                 <span className={`font-mono text-[9px] tracking-[0.18em] tabular-nums ${featured ? "text-background/40" : "text-muted-foreground/60"}`}>
                                   ·{String(j + 1).padStart(2, "0")}
                                 </span>
@@ -397,7 +393,7 @@ const Services = () => (
                 <h3 className="mt-6 font-display text-[22px] md:text-[26px] tracking-[-0.02em] text-background">
                   {st.title}.
                 </h3>
-                <p className="mt-3 font-thai text-[14px] leading-[1.7] text-background/65">
+                <p className="mt-3 text-[14px] leading-[1.7] text-background/65">
                   {st.body}
                 </p>
               </div>

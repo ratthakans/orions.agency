@@ -196,34 +196,8 @@ const Services = () => (
       eyebrow="SERVICES · INDEX"
       verticalLabel="/ 02 · SERVICES"
       title={<>Three things, <span className={accent}>properly.</span></>}
+      titleSize="md"
     />
-
-    {/* OVERVIEW — three-card grid mirroring Index */}
-    <section className="relative px-6 md:px-10 bg-foreground text-background">
-      <div className="border-t border-background/30 py-20 md:py-28 max-w-[1200px] mx-auto">
-        <Reveal><p className="index-badge text-background/60">— 01 · WHAT WE DO</p></Reveal>
-        <Reveal delay={0.05}>
-          <h2 className="mt-6 font-display h-display-sm">
-            One team, <span className={accent}>no handoff.</span>
-          </h2>
-        </Reveal>
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-px bg-background/20 border border-background/20">
-          {services.map((s) => (
-            <Reveal key={s.n}>
-              <article className="h-full p-7 md:p-8 bg-foreground text-background flex flex-col">
-                <div className="font-mono text-[10px] tracking-[0.2em] opacity-50">— {s.n}</div>
-                <h3 className={`mt-10 font-display ${accent} text-[22px] md:text-[26px] tracking-[-0.02em]`}>{s.title}</h3>
-                <p className="mt-3 font-thai text-[13px] text-background/65">{s.lead}</p>
-                <div className="mt-6 hairline w-8 bg-background/30" />
-                <ul className="mt-6 space-y-2 text-[13px] leading-[1.6] font-thai text-background/85">
-                  {s.items.map((it) => <li key={it}>— {it}</li>)}
-                </ul>
-              </article>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
 
     {/* KICKSTART — Audit */}
     <section className="px-6 md:px-10">

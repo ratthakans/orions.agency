@@ -76,7 +76,7 @@ const Index = () => (
     <section className="relative px-6 md:px-10">
       <div className="border-t border-foreground py-20 md:py-28 max-w-[1200px] mx-auto">
         <Reveal>
-          <p className="index-badge text-muted-foreground">THE LANDSCAPE</p>
+          <p className="index-badge text-muted-foreground" />
         </Reveal>
         <Reveal delay={0.05}>
           <h2 className="mt-6 font-display h-display-sm">
@@ -137,7 +137,6 @@ const Index = () => (
     {/* PROCESS — DARK */}
     <section className="relative px-6 md:px-10 bg-foreground text-background">
       <div className="border-t border-background/30 py-20 md:py-28 max-w-[1200px] mx-auto">
-        <Reveal><p className="index-badge text-background/60">— 05</p></Reveal>
         <Reveal delay={0.05}>
           <h2 className="mt-6 font-display h-display-sm">
             From hello, live in <span className={accent}>4 weeks.</span>
@@ -164,7 +163,6 @@ const Index = () => (
     {/* TESTIMONIALS */}
     <section className="relative px-6 md:px-10">
       <div className="border-t border-foreground py-20 md:py-28 max-w-[1200px] mx-auto">
-        <Reveal><p className="index-badge text-muted-foreground">— 06</p></Reveal>
         <Reveal delay={0.05}>
           <h2 className="mt-6 font-display h-display-sm">
             What clients <span className={accent}>say.</span>

@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 
 const taglines = [
-  "NOW · TAKING Q2 2026 PROJECTS",
-  "FROM IDEA → FINAL CUT",
-  "ONE TEAM · NO HANDOFF",
+  "✦ NOW BOOKING — Q3 2026",
+  "FROM HELLO → LIVE IN 4 WEEKS",
+  "11 PEOPLE · IN-HOUSE",
+  "F&B · FASHION · HOSPITALITY",
 ];
 
 const StudioStatusBar = () => {

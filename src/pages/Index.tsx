@@ -46,7 +46,7 @@ const Index = () => (
     />
 
     {/* HERO — DARK, minimal */}
-    <section className="relative min-h-screen flex flex-col bg-foreground text-background overflow-hidden">
+    <section className="relative min-h-screen flex flex-col bg-black text-background overflow-hidden">
       {/* Animated gradient aurora background */}
       <div aria-hidden className="pointer-events-none absolute inset-0 opacity-[0.22]">
         <div className="absolute -top-[20%] -left-[10%] w-[70vw] h-[70vw] rounded-full bg-gradient-accent blur-[120px] animate-aurora-1" />

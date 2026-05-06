@@ -4,6 +4,7 @@ import ClosingCTA from "@/components/ClosingCTA";
 import YouTubeFacade from "@/components/YouTubeFacade";
 import SimpleMarquee from "@/components/SimpleMarquee";
 import CountUp from "@/components/CountUp";
+import TypingLoop from "@/components/TypingLoop";
 
 const accent = "text-gradient";
 
@@ -56,7 +57,14 @@ const Index = () => (
         </Reveal>
         <Reveal delay={0.25}>
           <p className="mt-12 md:mt-16 font-display text-[14px] md:text-[18px] tracking-[-0.01em]">
-            A boutique <span className={accent}>creative agency.</span>
+            A boutique{" "}
+            <TypingLoop
+              text="creative agency."
+              className={`${accent} inline-block`}
+              typeSpeed={110}
+              deleteSpeed={55}
+              holdMs={2000}
+            />
           </p>
         </Reveal>
       </div>

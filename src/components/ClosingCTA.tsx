@@ -23,8 +23,8 @@ const ClosingCTA = ({
   title,
   description,
   ctas,
-  email = "hello@orions.agency",
-  phone = "+66 92 390 5464",
+  email,
+  phone,
 }: Props) => (
   <section className="relative px-6 md:px-10">
     <div className="border-t border-foreground py-16 md:py-20 max-w-[760px] mx-auto text-center">
@@ -50,17 +50,23 @@ const ClosingCTA = ({
           ))}
         </div>
       </Reveal>
-      <Reveal delay={0.3}>
-        <div className="mt-12 inline-flex items-center gap-6 md:gap-8 font-mono text-[11px] md:text-[12px] tracking-[0.2em] uppercase text-muted-foreground">
-          <a href={`mailto:${email}`} className="hover:text-foreground transition-colors break-all">
-            {email}
-          </a>
-          <span aria-hidden className="block w-px h-3 bg-muted-foreground" />
-          <a href={`tel:${phone.replace(/\s+/g, "")}`} className="hover:text-foreground transition-colors">
-            {phone}
-          </a>
-        </div>
-      </Reveal>
+      {(email || phone) && (
+        <Reveal delay={0.3}>
+          <div className="mt-12 inline-flex items-center gap-6 md:gap-8 font-mono text-[11px] md:text-[12px] tracking-[0.2em] uppercase text-muted-foreground">
+            {email && (
+              <a href={`mailto:${email}`} className="hover:text-foreground transition-colors break-all">
+                {email}
+              </a>
+            )}
+            {email && phone && <span aria-hidden className="block w-px h-3 bg-muted-foreground" />}
+            {phone && (
+              <a href={`tel:${phone.replace(/\s+/g, "")}`} className="hover:text-foreground transition-colors">
+                {phone}
+              </a>
+            )}
+          </div>
+        </Reveal>
+      )}
     </div>
   </section>
 );

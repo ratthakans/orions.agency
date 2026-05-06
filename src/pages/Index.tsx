@@ -2,7 +2,7 @@ import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import ClosingCTA from "@/components/ClosingCTA";
 import YouTubeFacade from "@/components/YouTubeFacade";
-import ScrollMarquee from "@/components/ScrollMarquee";
+import SimpleMarquee from "@/components/SimpleMarquee";
 
 const accent = "text-gradient";
 
@@ -91,9 +91,16 @@ const Index = () => (
         </Reveal>
       </div>
 
-      {/* Bottom service marquee */}
+      {/* Bottom service marquee — infinite loop */}
       <div className="relative border-t border-background/15 py-5">
-        <ScrollMarquee items={["BRANDING", "CONTENT", "SOCIAL MEDIA"]} baseSpeed={45} />
+        <SimpleMarquee
+          duration={50}
+          items={[
+            "BRANDING — Naming · Logo · Brand guidelines",
+            "CONTENT — Photo · Video · Short-form · Graphic · Motion design",
+            "SOCIAL MEDIA — Strategy · Content calendar · Daily posting · Paid ads",
+          ]}
+        />
       </div>
     </section>
 

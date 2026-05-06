@@ -3,13 +3,14 @@ import SEO from "@/components/SEO";
 import ClosingCTA from "@/components/ClosingCTA";
 import YouTubeFacade from "@/components/YouTubeFacade";
 import SimpleMarquee from "@/components/SimpleMarquee";
+import CountUp from "@/components/CountUp";
 
 const accent = "text-gradient";
 
 const pressures = [
-  { stat: "71%", label: "OF SOCIAL IMAGES", body: "AI-generated. You need real content to stand out." },
-  { stat: "20%", label: "META CPM RISE, YoY", body: "Ads cost more. You need creative that converts." },
-  { stat: "8s",  label: "ATTENTION SPAN",   body: "Eight seconds. You need to hook them fast." },
+  { value: 71, suffix: "%", label: "OF SOCIAL IMAGES", body: "AI-generated. You need real content to stand out." },
+  { value: 20, suffix: "%", label: "META CPM RISE, YoY", body: "Ads cost more. You need creative that converts." },
+  { value: 8,  suffix: "s", label: "ATTENTION SPAN",   body: "Eight seconds. You need to hook them fast." },
 ];
 
 const threeThings = [
@@ -40,7 +41,7 @@ const Index = () => (
     />
 
     {/* HERO — DARK, minimal */}
-    <section className="relative min-h-screen flex flex-col bg-black text-background overflow-hidden">
+    <section className="relative min-h-screen flex flex-col bg-foreground text-background overflow-hidden">
 
       <div className="relative flex-1 flex flex-col items-center justify-center text-center px-6 md:px-10">
         <Reveal>
@@ -78,9 +79,12 @@ const Index = () => (
           {pressures.map((p, i) => (
             <Reveal key={p.label} delay={0.08 * i}>
               <div className={`py-10 md:py-12 md:px-8 h-full ${i > 0 ? "md:border-l border-soft" : ""}`}>
-                <div className={`font-display ${accent} text-[48px] md:text-[64px] leading-[1] tracking-[-0.04em]`}>
-                  {p.stat}
-                </div>
+                <CountUp
+                  to={p.value}
+                  suffix={p.suffix}
+                  duration={1600}
+                  className={`font-display ${accent} text-[48px] md:text-[64px] leading-[1] tracking-[-0.04em] tabular-nums`}
+                />
                 <div className="mt-6 index-badge text-muted-foreground">{p.label}</div>
                 <p className="mt-4 font-thai text-[14px] leading-[1.7] text-foreground/70 max-w-[300px]">
                   {p.body}
@@ -103,13 +107,24 @@ const Index = () => (
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 border-t border-background/30">
           {threeThings.map((s, i) => (
             <Reveal key={s.n}>
-              <article className={`h-full py-10 md:py-12 md:px-8 flex flex-col ${i > 0 ? "md:border-l border-background/20" : ""}`}>
-                <div className="font-mono text-[10px] tracking-[0.2em] opacity-50">— {s.n}</div>
-                <h3 className={`mt-8 font-display ${accent} text-[20px] md:text-[24px] tracking-[-0.02em]`}>{s.title}</h3>
-                <p className="mt-3 font-thai text-[14px] leading-[1.7] text-background/65 max-w-[300px]">{s.lead}</p>
-                <ul className="mt-6 space-y-2 font-thai text-[13px] leading-[1.7] text-background/85">
-                  {s.items.map((it) => <li key={it}>— {it}</li>)}
+              <article
+                className={`group/svc relative h-full py-10 md:py-12 md:px-8 flex flex-col cursor-default transition-colors duration-500 hover:bg-background hover:text-foreground ${i > 0 ? "md:border-l border-background/20" : ""}`}
+              >
+                <div className="font-mono text-[10px] tracking-[0.2em] opacity-50 transition-opacity group-hover/svc:opacity-70">— {s.n}</div>
+                <h3 className={`mt-8 font-display ${accent} text-[20px] md:text-[24px] tracking-[-0.02em] transition-transform duration-500 group-hover/svc:-translate-y-0.5`}>{s.title}</h3>
+                <p className="mt-3 font-thai text-[14px] leading-[1.7] text-background/65 group-hover/svc:text-foreground/70 transition-colors max-w-[300px]">{s.lead}</p>
+                <ul className="mt-6 space-y-2 font-thai text-[13px] leading-[1.7] text-background/85 group-hover/svc:text-foreground/90 transition-colors">
+                  {s.items.map((it, j) => (
+                    <li
+                      key={it}
+                      className="opacity-70 translate-y-1 transition-all duration-500 group-hover/svc:opacity-100 group-hover/svc:translate-y-0"
+                      style={{ transitionDelay: `${j * 60}ms` }}
+                    >
+                      — {it}
+                    </li>
+                  ))}
                 </ul>
+                <span aria-hidden className={`pointer-events-none absolute left-0 top-0 h-px w-0 group-hover/svc:w-full bg-gradient-accent transition-[width] duration-700`} />
               </article>
             </Reveal>
           ))}

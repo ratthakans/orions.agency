@@ -80,12 +80,27 @@ export default {
           "0%": { backgroundPosition: "-200% 0" },
           "100%": { backgroundPosition: "200% 0" },
         },
+        "aurora-1": {
+          "0%, 100%": { transform: "translate(0,0) scale(1)" },
+          "50%":      { transform: "translate(8%, 6%) scale(1.15)" },
+        },
+        "aurora-2": {
+          "0%, 100%": { transform: "translate(0,0) scale(1.1)" },
+          "50%":      { transform: "translate(-10%, -8%) scale(0.95)" },
+        },
+        "aurora-3": {
+          "0%, 100%": { transform: "translate(0,0) scale(0.9)" },
+          "50%":      { transform: "translate(-6%, 10%) scale(1.2)" },
+        },
       },
       animation: {
         "fade-up": "fade-up 0.7s ease-out forwards",
         "fade-in": "fade-in 0.5s ease-out forwards",
         "scroll-bounce": "scroll-bounce 2s ease-in-out infinite",
         "shimmer": "shimmer 8s linear infinite",
+        "aurora-1": "aurora-1 18s ease-in-out infinite",
+        "aurora-2": "aurora-2 22s ease-in-out infinite",
+        "aurora-3": "aurora-3 26s ease-in-out infinite",
       },
     },
   },

@@ -45,7 +45,7 @@ const TypingLoop = ({
   return (
     <span className={className} aria-label={text}>
       {display}
-      <span className="inline-block w-[0.08em] h-[0.9em] align-[-0.08em] ml-1 bg-foreground animate-pulse" />
+      <span className="inline-block w-[0.08em] h-[0.9em] align-[-0.08em] ml-1 animate-pulse" style={{ background: "currentColor" }} />
     </span>
   );
 };

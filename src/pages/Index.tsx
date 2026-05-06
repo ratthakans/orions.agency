@@ -4,7 +4,6 @@ import ScrollMarquee from "@/components/ScrollMarquee";
 import SEO from "@/components/SEO";
 import RotatingHeadline from "@/components/RotatingHeadline";
 import ClosingCTA from "@/components/ClosingCTA";
-import HeroVideoGrid from "@/components/HeroVideoGrid";
 import YouTubeFacade from "@/components/YouTubeFacade";
 
 const pressures = [
@@ -83,9 +82,8 @@ const Index = () => (
     />
 
     {/* HERO */}
-    <section className="relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden">
-      <HeroVideoGrid />
-      <div className="relative z-10 flex flex-col items-center justify-center px-6 md:px-10 mix-blend-difference text-background">
+    <section className="relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden bg-background">
+      <div className="relative z-10 flex flex-col items-center justify-center px-6 md:px-10">
         <Reveal delay={0.05}>
           <h1 className="font-brand h-display-xl">ØRIONS</h1>
         </Reveal>
@@ -96,18 +94,17 @@ const Index = () => (
           <div className="mt-6 font-display text-[15px] md:text-[22px] tracking-[0.04em] uppercase max-w-full overflow-hidden">
             <RotatingHeadline
               items={[
-                "BRANDING · CONTENT · PAID ADS",
-                "F&B · FASHION · HOSPITALITY",
-                "FROM HELLO → LIVE IN 4 WEEKS",
                 "BANGKOK · EST. 2026",
+                "HELP THE BRANDS GROW ON THROUGH",
+                "BRANDING · CONTENT · SOCIAL MEDIA",
               ]}
             />
           </div>
         </Reveal>
       </div>
-      <div className="absolute z-10 bottom-8 md:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 mix-blend-difference text-background">
+      <div className="absolute z-10 bottom-8 md:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
         <span className="index-badge">SCROLL</span>
-        <span className="block w-px h-10 bg-background/60 animate-pulse" />
+        <span className="block w-px h-10 bg-foreground/60 animate-pulse" />
       </div>
     </section>
 

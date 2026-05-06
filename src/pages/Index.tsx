@@ -37,19 +37,6 @@ const trustedBy = [
   "PLAYA NORTE","CASA · SOL","MARLOW & CO.","UNION BKK",
 ];
 
-const whyUs = [
-  { n: "01", title: "Small team. Your team.",     body: "You talk to who's doing the work. No telephone game." },
-  { n: "02", title: "Strategy before pretty.",    body: "We plan before we post." },
-  { n: "03", title: "Ads inside the plan.",       body: "Paid ads built into your strategy from day one." },
-  { n: "04", title: "Built for boutique brands.", body: "We work with brands who care about quality." },
-];
-
-const tiers = [
-  { label: "STARTER",      title: "Standard",  sub: "Start strong. Build consistency.",           price: "THB 50k",  summary: "Strategy, content, and monthly posting for brands building their presence on social.", hero: false },
-  { label: "MOST POPULAR", title: "Pro",       sub: "Grow with strategy, content, and paid ads.", price: "THB 80k",  summary: "Full strategy, content production, community management, and paid ads — managed end-to-end.", hero: true  },
-  { label: "PREMIUM",      title: "Exclusive", sub: "Full-service. Brand to bottom-funnel.",      price: "THB 120k", summary: "Branding, content, ads, and senior creative direction. For brands going all-in.", hero: false },
-];
-
 const Index = () => (
   <div id="top">
     <SEO
@@ -254,102 +241,6 @@ const Index = () => (
         <p className="mt-4 font-mono text-[9px] tracking-[0.2em] uppercase text-muted-foreground">
           [ Selected · Q2 2026 ]
         </p>
-      </div>
-    </section>
-
-    {/* WHY US */}
-    <section className="relative px-6 md:px-10">
-      <div className="border-t border-foreground py-20 md:py-28 max-w-[1200px] mx-auto">
-        <Reveal><p className="index-badge text-muted-foreground">— 08</p></Reveal>
-        <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 items-start">
-          <Reveal>
-            <h2 className="font-display h-display-sm">
-              Why <span className={accent}>us?</span>
-            </h2>
-          </Reveal>
-          <div className="md:col-span-2 md:border-l border-foreground md:pl-10">
-            <ul>
-              {whyUs.map((w, i) => (
-                <Reveal key={w.n} delay={0.05 * i}>
-                  <li className={`grid grid-cols-[auto,1fr] gap-8 py-6 ${i < whyUs.length - 1 ? "border-b border-soft" : ""}`}>
-                    <div className={`font-display ${accent} text-[28px] leading-[1] tracking-[-0.02em] tabular-nums`}>{w.n}</div>
-                    <div>
-                      <div className="font-display text-[16px] md:text-[18px] tracking-[-0.01em]">{w.title}</div>
-                      <p className="mt-2 font-thai text-[13px] leading-[1.6] text-foreground/70">{w.body}</p>
-                    </div>
-                  </li>
-                </Reveal>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    {/* PRICING */}
-    <section className="relative px-6 md:px-10">
-      <div className="border-t border-foreground py-20 md:py-28 max-w-[1200px] mx-auto">
-        <Reveal><p className="index-badge text-muted-foreground">— 09 · PRICING</p></Reveal>
-        <Reveal delay={0.05}>
-          <h2 className="mt-6 font-display h-display-sm">
-            Honest <span className={accent}>pricing.</span>
-          </h2>
-        </Reveal>
-
-        <Reveal delay={0.1}>
-          <div className="mt-12 pb-3 flex items-baseline gap-3 border-b border-foreground">
-            <span className={`font-mono text-[10px] tracking-[0.2em] ${accent}`}>RETAINERS</span>
-            <span className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground">(monthly)</span>
-          </div>
-        </Reveal>
-
-        <div className="grid grid-cols-1 md:grid-cols-3">
-          {tiers.map((t, i) => (
-            <Reveal key={t.title} delay={0.05 * i}>
-              <div className={`p-7 md:p-8 h-full flex flex-col ${t.hero ? "bg-foreground text-background" : ""} ${!t.hero && i < 2 ? "md:border-r border-soft" : ""}`}>
-                <div className={`font-mono text-[10px] tracking-[0.2em] ${accent}`}>{t.label}</div>
-                <h3 className={`mt-4 font-display text-[22px] md:text-[26px] tracking-[-0.02em] ${t.hero ? "text-background" : "text-foreground"}`}>{t.title}</h3>
-                <p className={`mt-3 font-thai text-[13px] ${t.hero ? "text-background/65" : "text-muted-foreground"}`}>{t.sub}</p>
-                <div className="mt-7 flex items-baseline gap-2">
-                  <span className={`font-mono text-[10px] tracking-[0.15em] ${t.hero ? "text-background/60" : "text-muted-foreground"}`}>From</span>
-                  <span className={`font-display tracking-[-0.02em] ${t.hero ? "text-background text-[32px]" : "text-foreground text-[28px]"}`}>{t.price}</span>
-                </div>
-                <div className={`mt-1 font-mono text-[10px] tracking-[0.15em] ${t.hero ? "text-background/60" : "text-muted-foreground"}`}>Per month</div>
-                <div className={`mt-6 border-t ${t.hero ? "border-background/25" : "border-soft"}`} />
-                <p className={`mt-6 font-thai text-[13px] leading-[1.6] flex-1 ${t.hero ? "text-background/90" : "text-foreground/80"}`}>{t.summary}</p>
-                <div className={`mt-8 font-mono text-[9px] tracking-[0.2em] uppercase ${t.hero ? "text-background/50" : "text-muted-foreground"}`}>
-                  Custom scope on request.
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-
-        <Reveal delay={0.2}>
-          <div className="mt-16">
-            <div className="pb-3 flex items-baseline gap-3 border-b border-foreground">
-              <span className={`font-mono text-[10px] tracking-[0.2em] ${accent}`}>STARTUP</span>
-              <span className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground">(get going fast)</span>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-[1fr,2fr,auto] gap-6 py-6 items-baseline border-b border-soft">
-              <div className="font-display text-[18px] tracking-[-0.01em]">Quick start.</div>
-              <div className="font-thai text-[13px] text-foreground/75">Brand audit + content plan, ready to roll in 2 weeks.</div>
-              <div className={`font-display ${accent} text-[18px] tracking-[-0.01em] md:text-right`}>From THB 30k</div>
-            </div>
-          </div>
-        </Reveal>
-
-        <Reveal delay={0.25}>
-          <div className="mt-10 flex justify-center">
-            <a
-              href="/pricing"
-              className="group inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.25em] uppercase border-b border-foreground/30 hover:border-foreground pb-1 transition-colors"
-            >
-              <span>View full pricing &amp; details</span>
-              <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-            </a>
-          </div>
-        </Reveal>
       </div>
     </section>
 

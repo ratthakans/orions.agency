@@ -5,6 +5,7 @@ import YouTubeFacade from "@/components/YouTubeFacade";
 import SimpleMarquee from "@/components/SimpleMarquee";
 import CountUp from "@/components/CountUp";
 import TypingLoop from "@/components/TypingLoop";
+import rtafLogo from "@/assets/rtaf-emblem.png";
 
 const accent = "text-gradient";
 
@@ -28,10 +29,11 @@ const steps = [
 ];
 
 const trustedBy = [
-  "MAISON LUMIÈRE","SAINT MANOR","HÔTEL VERGÉ","CALA / BKK",
+  { name: "ROYAL THAI AIR FORCE", logo: rtafLogo },
+  "SAINT MANOR","HÔTEL VERGÉ","CALA / BKK",
   "NORTH MERIDIAN","AT.09","CAFÉ ORSAY","STUDIO — KIN",
   "PLAYA NORTE","CASA · SOL","MARLOW & CO.","UNION BKK",
-];
+] as Array<string | { name: string; logo: string }>;
 
 const Index = () => (
   <div id="top">
@@ -181,17 +183,35 @@ const Index = () => (
           </h2>
         </Reveal>
         <div className="mt-16 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 border border-soft">
-          {trustedBy.map((name, i) => (
-            <div
-              key={name}
-              className={`group relative aspect-[2/1] flex items-center justify-center text-center px-4 overflow-hidden cursor-default border-soft ${(i % 6) !== 5 ? "border-r" : ""} ${i < trustedBy.length - 6 ? "border-b" : ""}`}
-            >
-              <span aria-hidden className="absolute inset-0 bg-foreground translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]" />
-              <span className="relative font-display text-[11px] md:text-[12px] tracking-[0.04em] text-muted-foreground transition-colors duration-300 group-hover:text-background">
-                {name}
-              </span>
-            </div>
-          ))}
+          {trustedBy.map((entry, i) => {
+            const name = typeof entry === "string" ? entry : entry.name;
+            const logo = typeof entry === "string" ? null : entry.logo;
+            return (
+              <div
+                key={name}
+                className={`group relative aspect-[2/1] flex items-center justify-center text-center px-4 overflow-hidden cursor-default border-soft ${(i % 6) !== 5 ? "border-r" : ""} ${i < trustedBy.length - 6 ? "border-b" : ""}`}
+              >
+                <span aria-hidden className="absolute inset-0 bg-foreground translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]" />
+                {logo ? (
+                  <span className="relative flex items-center gap-2.5">
+                    <img
+                      src={logo}
+                      alt={name}
+                      className="h-7 md:h-8 w-auto object-contain transition-[filter,opacity] duration-300 opacity-70 grayscale group-hover:opacity-100 group-hover:grayscale-0"
+                      loading="lazy"
+                    />
+                    <span className="font-display text-[10px] md:text-[11px] tracking-[0.04em] text-muted-foreground transition-colors duration-300 group-hover:text-background">
+                      {name}
+                    </span>
+                  </span>
+                ) : (
+                  <span className="relative font-display text-[11px] md:text-[12px] tracking-[0.04em] text-muted-foreground transition-colors duration-300 group-hover:text-background">
+                    {name}
+                  </span>
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

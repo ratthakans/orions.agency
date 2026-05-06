@@ -76,7 +76,7 @@ const Index = () => (
     <section className="relative px-6 md:px-10">
       <div className="border-t border-foreground py-20 md:py-28 max-w-[1200px] mx-auto">
         <Reveal>
-          <p className="index-badge text-muted-foreground">— 02 · THE LANDSCAPE</p>
+          <p className="index-badge text-muted-foreground">THE LANDSCAPE</p>
         </Reveal>
         <Reveal delay={0.05}>
           <h2 className="mt-6 font-display h-display-sm">
@@ -109,11 +109,6 @@ const Index = () => (
             We don&apos;t post for the sake of posting.<br />
             We build <span className={accent}>for results.</span>
           </p>
-        </Reveal>
-        <Reveal delay={0.15}>
-          <div className="mt-16 pt-5 border-t border-soft font-mono text-[10px] tracking-[0.3em] text-muted-foreground">
-            — THE ORIONS APPROACH
-          </div>
         </Reveal>
       </div>
     </section>

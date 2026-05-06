@@ -2,6 +2,7 @@ import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import ClosingCTA from "@/components/ClosingCTA";
 import YouTubeFacade from "@/components/YouTubeFacade";
+import ScrollMarquee from "@/components/ScrollMarquee";
 
 const accent = "text-gradient";
 
@@ -65,15 +66,22 @@ const Index = () => (
 
     {/* HERO — DARK, minimal */}
     <section className="relative min-h-screen flex flex-col bg-foreground text-background overflow-hidden">
-      <div className="flex-1 flex flex-col items-center justify-center text-center px-6 md:px-10">
+      {/* Animated gradient aurora background */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 opacity-[0.22]">
+        <div className="absolute -top-[20%] -left-[10%] w-[70vw] h-[70vw] rounded-full bg-gradient-accent blur-[120px] animate-aurora-1" />
+        <div className="absolute -bottom-[20%] -right-[10%] w-[60vw] h-[60vw] rounded-full bg-gradient-accent blur-[120px] animate-aurora-2" />
+        <div className="absolute top-[30%] left-[40%] w-[40vw] h-[40vw] rounded-full bg-gradient-accent blur-[120px] animate-aurora-3" />
+      </div>
+
+      <div className="relative flex-1 flex flex-col items-center justify-center text-center px-6 md:px-10">
         <Reveal>
           <p className="font-mono text-[10px] tracking-[0.4em] text-background/60 mb-10 md:mb-14">
-            EST. 2026
+            BANGKOK · EST. 2026
           </p>
         </Reveal>
         <Reveal delay={0.1}>
-          <h1 className="font-brand h-display-xl leading-[0.85]">
-            <span>ØRI</span><span className={accent}>O</span><span>NS</span>
+          <h1 className="font-brand h-display-xl leading-[0.85] text-background">
+            ØRIONS
           </h1>
         </Reveal>
         <Reveal delay={0.25}>
@@ -82,11 +90,10 @@ const Index = () => (
           </p>
         </Reveal>
       </div>
-      <div className="px-6 md:px-10 py-6 border-t border-background/15 flex justify-between font-mono text-[10px] tracking-[0.3em] text-background/50">
-        <span>BANGKOK</span>
-        <a href="mailto:hello@orions.agency" className="hover:text-background transition-colors">
-          HELLO@ORIONS.AGENCY
-        </a>
+
+      {/* Bottom service marquee */}
+      <div className="relative border-t border-background/15 py-5">
+        <ScrollMarquee items={["BRANDING", "CONTENT", "SOCIAL MEDIA"]} baseSpeed={45} />
       </div>
     </section>
 

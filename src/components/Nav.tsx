@@ -51,22 +51,32 @@ const Nav = () => {
               key={l.to}
               to={l.to}
               className={({ isActive }) =>
-                `index-badge transition-colors duration-200 ${
-                  isActive ? "text-background" : "text-background/60 hover:text-background"
+                `index-badge relative py-1 transition-colors duration-300 group ${
+                  isActive ? "text-background" : "text-background/55 hover:text-background"
                 }`
               }
             >
-              {l.label}
+              {({ isActive }) => (
+                <>
+                  <span>{l.label}</span>
+                  <span
+                    aria-hidden
+                    className={`pointer-events-none absolute left-0 right-0 -bottom-0.5 h-px bg-gradient-accent origin-left transition-transform duration-300 ease-out ${
+                      isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                    }`}
+                  />
+                </>
+              )}
             </NavLink>
           ))}
         </nav>
 
         <Link
           to="/contact"
-          className="hidden md:inline-flex items-center gap-2 index-badge bg-gradient-accent text-background px-4 py-2.5 transition-opacity duration-200 hover:opacity-85"
+          className="group hidden md:inline-flex items-center gap-2 index-badge bg-gradient-accent text-background px-4 py-2.5 transition-all duration-300 hover:gap-3 hover:opacity-90"
         >
           <span>Let's Talk</span>
-          <ArrowUpRight className="w-3.5 h-3.5" />
+          <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
         </Link>
 
         <button

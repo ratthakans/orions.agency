@@ -128,6 +128,23 @@
     color: transparent;
     -webkit-text-fill-color: transparent;
   }
+  /* Gemini classic gradient — blue → purple → pink */
+  .text-gradient-gemini {
+    background-image: linear-gradient(110deg, #4285F4 0%, #9B72F2 55%, #D96570 100%);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    animation: gemini-shift 8s ease-in-out infinite;
+  }
+  @keyframes gemini-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50%      { background-position: 100% 50%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .text-gradient-gemini { animation: none; }
+  }
   .accent-dot {
     background-color: hsl(var(--accent-from));
   }

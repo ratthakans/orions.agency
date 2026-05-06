@@ -147,8 +147,8 @@ const Index = () => (
                       to={p.stat}
                       suffix={p.suffix}
                       decimals={p.decimals}
-                      className="num-display text-[44px] md:text-[88px] transition-all duration-500 group-hover:-translate-y-1 group-hover:text-[hsl(var(--accent-from))]"
-                      suffixClassName="text-[20px] md:text-[36px] tracking-normal ml-1 align-baseline text-muted-foreground transition-colors duration-500 group-hover:text-[hsl(var(--accent-from))]"
+                      className="num-display text-gradient-gemini text-[44px] md:text-[88px] transition-transform duration-500 group-hover:-translate-y-1"
+                      suffixClassName="text-gradient-gemini text-[20px] md:text-[36px] tracking-normal ml-1 align-baseline"
                     />
                   </div>
                   <div className="col-span-12 md:col-span-7 md:pt-3 transition-transform duration-500 group-hover:translate-x-1">

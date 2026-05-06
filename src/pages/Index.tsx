@@ -292,51 +292,6 @@ const Index = () => (
       </div>
     </section>
 
-    {/* TEAM */}
-    <section className="relative px-6 md:px-10">
-      <div className="border-t border-foreground py-20 md:py-28 max-w-[1200px] mx-auto">
-        <Reveal><p className="index-badge text-muted-foreground">— 09</p></Reveal>
-        <div className="mt-6 grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-16">
-          <div className="md:col-span-2">
-            <Reveal>
-              <h2 className="font-display h-display-sm">
-                The <span className={accent}>team.</span>
-              </h2>
-            </Reveal>
-            <Reveal delay={0.05}>
-              <div className={`mt-8 font-display ${accent} text-[96px] md:text-[128px] leading-[0.9] tracking-[-0.04em]`}>11</div>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <div className="mt-3 font-display text-[16px] md:text-[18px]">people, in-house.</div>
-            </Reveal>
-            <Reveal delay={0.15}>
-              <p className="mt-3 font-thai text-[13px] text-muted-foreground max-w-[320px]">
-                You&apos;ll work directly with the people building your brand.
-              </p>
-            </Reveal>
-          </div>
-          <div className="md:col-span-3 md:border-l border-foreground md:pl-10 flex flex-col gap-8">
-            {teamGroups.map((g) => (
-              <Reveal key={g.label}>
-                <div>
-                  <div className={`font-mono text-[10px] tracking-[0.2em] ${accent}`}>{g.label}</div>
-                  <div className="mt-3 border-t border-soft" />
-                  <p className="mt-4 font-display text-[14px] md:text-[16px] leading-[1.6] tracking-[-0.01em]">
-                    {g.roles.map((r, i) => (
-                      <span key={r}>
-                        {r}
-                        {i < g.roles.length - 1 && <span className="text-muted-foreground mx-2">·</span>}
-                      </span>
-                    ))}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-
     {/* PRICING */}
     <section className="relative px-6 md:px-10">
       <div className="border-t border-foreground py-20 md:py-28 max-w-[1200px] mx-auto">

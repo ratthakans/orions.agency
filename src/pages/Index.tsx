@@ -157,11 +157,15 @@ const Index = () => (
           </h2>
         </Reveal>
         <div className="mt-16 pt-10 border-t border-background/30 grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8">
-          {steps.map((st) => (
-            <Reveal key={st.n}>
-              <div>
-                <div className={`font-mono text-[10px] tracking-[0.2em] ${accent}`}>— {st.n}</div>
-                <h3 className="mt-5 font-display text-[20px] md:text-[24px] tracking-[-0.02em] text-background">
+          {steps.map((st, i) => (
+            <Reveal key={st.n} delay={0.08 * i}>
+              <div className="relative">
+                <span aria-hidden className="block h-px w-10 bg-gradient-accent mb-6 origin-left animate-[grow_900ms_cubic-bezier(0.76,0,0.24,1)_forwards]" />
+                <div className="flex items-baseline justify-between">
+                  <div className={`font-mono text-[10px] tracking-[0.2em] ${accent}`}>— {st.n}</div>
+                  <div className="font-mono text-[10px] tracking-[0.2em] opacity-40">0{i + 1}/04</div>
+                </div>
+                <h3 className="mt-6 font-display text-[22px] md:text-[26px] tracking-[-0.02em] text-background">
                   {st.title}.
                 </h3>
                 <p className="mt-3 font-thai text-[14px] leading-[1.7] text-background/65">
@@ -184,8 +188,14 @@ const Index = () => (
         </Reveal>
         <div className="mt-16 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 border border-soft">
           {trustedBy.map((name, i) => (
-            <div key={name} className={`aspect-[2/1] flex items-center justify-center text-center px-4 border-soft ${(i % 6) !== 5 ? "border-r" : ""} ${i < trustedBy.length - 6 ? "border-b" : ""}`}>
-              <span className="font-display text-[11px] md:text-[12px] tracking-[0.04em] text-muted-foreground">{name}</span>
+            <div
+              key={name}
+              className={`group relative aspect-[2/1] flex items-center justify-center text-center px-4 overflow-hidden cursor-default border-soft ${(i % 6) !== 5 ? "border-r" : ""} ${i < trustedBy.length - 6 ? "border-b" : ""}`}
+            >
+              <span aria-hidden className="absolute inset-0 bg-foreground translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]" />
+              <span className="relative font-display text-[11px] md:text-[12px] tracking-[0.04em] text-muted-foreground transition-colors duration-300 group-hover:text-background">
+                {name}
+              </span>
             </div>
           ))}
         </div>

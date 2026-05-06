@@ -193,15 +193,7 @@ const Services = () => (
 
     {/* HERO — dark editorial */}
     <section className="relative bg-foreground text-background overflow-hidden">
-      {/* vertical edge label */}
-      <span
-        aria-hidden
-        className="pointer-events-none hidden md:flex absolute top-1/2 left-3 -translate-y-1/2 -rotate-90 origin-center font-mono text-[10px] tracking-[0.32em] uppercase text-background/40 whitespace-nowrap"
-      >
-        / 02 · SERVICES
-      </span>
-
-      <div className="px-6 md:px-10 pt-28 md:pt-32 pb-12 md:pb-16 max-w-[1400px] mx-auto">
+      <div className="px-6 md:px-10 pt-32 md:pt-40 pb-16 md:pb-24 max-w-[1400px] mx-auto">
         {/* Title block */}
         <div className="border-t border-background/25 pt-12 md:pt-16 grid grid-cols-12">
           <div className="col-span-12 md:col-span-10 md:col-start-2">
@@ -214,29 +206,31 @@ const Services = () => (
         </div>
 
         {/* Bottom service index */}
-        <Reveal delay={0.2}>
-          <ul className="mt-14 md:mt-20 border-t border-background/25 pt-5 grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-4">
-            {services.map((s) => (
-              <li key={s.n}>
+        <ul className="mt-16 md:mt-24 border-t border-background/25 pt-5 grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-4">
+          {services.map((s, i) => (
+            <Reveal key={s.n} delay={0.2 + i * 0.08}>
+              <li>
                 <a
                   href={`#svc-${s.n}`}
-                  className="group flex items-baseline gap-3 hover:opacity-70 transition-opacity"
+                  className="group inline-flex items-baseline gap-3 relative"
                 >
                   <span className="font-mono text-[10px] tracking-[0.25em] text-background/40 tabular-nums">— {s.n}</span>
-                  <span className="font-display text-[16px] md:text-[18px] tracking-[-0.01em]">{s.title}.</span>
-                  <span aria-hidden className="font-mono text-[12px] text-background/40 transition-transform duration-300 group-hover:translate-x-1">↓</span>
+                  <span className="relative font-display text-[16px] md:text-[18px] tracking-[-0.01em]">
+                    {s.title}.
+                    <span aria-hidden className="absolute left-0 -bottom-1 h-px w-full bg-background scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]" />
+                  </span>
                 </a>
               </li>
-            ))}
-          </ul>
-        </Reveal>
+            </Reveal>
+          ))}
+        </ul>
       </div>
     </section>
 
     {/* KICKSTART — Audit */}
     <section className="px-6 md:px-10">
-      <div className="border-t border-foreground max-w-[1200px] mx-auto py-20 md:py-28">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-10 lg:gap-x-12">
+      <div className="border-t border-foreground max-w-[1200px] mx-auto py-28 md:py-36">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-12 lg:gap-x-20">
           {/* Left: title + price block */}
           <div className="lg:col-span-5 flex flex-col">
             <Reveal delay={0.05}>
@@ -260,17 +254,15 @@ const Services = () => (
           {/* Right: WHAT YOU GET — emphasized */}
           <div className="lg:col-span-7 lg:border-l border-foreground lg:pl-12">
             <Reveal delay={0.2}>
-              <div className="flex items-baseline justify-between">
-                <div className="index-badge text-muted-foreground">WHAT YOU GET</div>
-                <div className={`font-mono text-[10px] tracking-[0.2em] ${accent}`}>03 DELIVERABLES</div>
-              </div>
+              <div className="index-badge text-muted-foreground">WHAT YOU GET</div>
               <ul className="mt-8 space-y-0">
                 {[
                   { k: "01", t: "Brand & Spend Audit", body: "Where the budget leaks and where the brand stalls in the market." },
                   { k: "02", t: "1-Page Roadmap",      body: "A 90-day unlock plan — priorities, sequence, and expected outcomes." },
                   { k: "03", t: "Working Session",     body: "One hour with the ØRIONS team to hand off the strategy." },
                 ].map((it, i) => (
-                  <li key={it.k} className="group grid grid-cols-12 gap-4 items-start py-5 border-t border-soft last:border-b">
+                  <li key={it.k} className="group relative grid grid-cols-12 gap-4 items-start py-6 border-t border-soft last:border-b transition-[padding] duration-300 ease-out hover:pl-3">
+                    <span aria-hidden className="absolute left-0 top-1/2 -translate-y-1/2 h-8 w-0 bg-gradient-accent transition-[width] duration-300 ease-out group-hover:w-[3px]" />
                     <span className={`col-span-2 md:col-span-1 font-mono text-[11px] tracking-[0.2em] ${accent} tabular-nums pt-1`}>— {it.k}</span>
                     <div className="col-span-10 md:col-span-11">
                       <h4 className="font-display text-[16px] md:text-[18px] tracking-[-0.01em]">{it.t}.</h4>
@@ -287,30 +279,31 @@ const Services = () => (
 
     {/* PRICE TABLES — per service */}
     <section className="px-6 md:px-10">
-      <div className="border-t border-foreground max-w-[1200px] mx-auto py-20 md:py-28">
+      <div className="border-t border-foreground max-w-[1200px] mx-auto py-28 md:py-36">
         <Reveal delay={0.05}>
           <h2 className="font-display h-display-sm max-w-[820px]">
             Honest pricing, <span className={accent}>start from.</span>
           </h2>
         </Reveal>
 
-        <div className="mt-20 md:mt-24 space-y-24 md:space-y-32">
+        <div className="mt-20 md:mt-28 space-y-28 md:space-y-40">
           {serviceTables.map((svc) => (
             <article key={svc.n} id={`svc-${svc.n}`} className="scroll-mt-24">
-              {/* Service header — mirrors Index three-things */}
-              <Reveal>
-                <header className="border-t border-foreground pt-6 pb-10 grid grid-cols-1 md:grid-cols-12 gap-y-4 items-end">
-                  <div className="md:col-span-2">
-                    <div className="font-mono text-[10px] tracking-[0.25em] text-muted-foreground">— {svc.n} / 03</div>
+              {/* Calmer service header — giant numeral + title only */}
+              <header className="border-t border-foreground pt-8 pb-12 grid grid-cols-12 gap-x-6 items-end">
+                <Reveal>
+                  <div className="col-span-3 md:col-span-2">
+                    <div className={`num-display ${accent} text-[56px] md:text-[96px] leading-[0.85] tracking-[-0.04em]`}>
+                      {svc.n}
+                    </div>
                   </div>
-                  <div className="md:col-span-6">
+                </Reveal>
+                <Reveal delay={0.08}>
+                  <div className="col-span-9 md:col-span-10">
                     <h3 className="font-display h-display-xs">{svc.title}.</h3>
                   </div>
-                  <div className="md:col-span-4 md:text-right">
-                    <p className={`font-mono text-[11px] tracking-[0.2em] uppercase ${accent}`}>{svc.lead}</p>
-                  </div>
-                </header>
-              </Reveal>
+                </Reveal>
+              </header>
 
               {/* Tiers — featured middle (or last if 2) */}
               <div className={`grid grid-cols-1 ${svc.tiers.length === 3 ? "md:grid-cols-3" : "md:grid-cols-2"} border-t border-foreground`}>
@@ -319,48 +312,50 @@ const Services = () => (
                   return (
                     <Reveal key={t.name} delay={0.08 * i}>
                       <div
-                        className={`relative h-full p-7 md:p-9 flex flex-col ${i > 0 ? "md:border-l border-soft" : ""} ${featured ? "bg-foreground text-background" : "bg-background"}`}
+                        className={`group relative h-full p-8 md:p-12 flex flex-col overflow-hidden ${i > 0 ? "md:border-l border-soft" : ""} ${featured ? "bg-foreground text-background" : "bg-background hover:text-background"} transition-colors duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]`}
                       >
-                        <span aria-hidden className={`block h-px w-12 mb-7 origin-left ${featured ? "bg-background/30" : "bg-gradient-accent"}`} />
-                        <div className="flex items-baseline justify-between">
-                          <div className={`font-mono text-[10px] tracking-[0.2em] ${featured ? "text-background/50" : "text-muted-foreground"}`}>
-                            — {String(i + 1).padStart(2, "0")}
-                          </div>
-                          {featured && (
-                            <div className={`font-mono text-[10px] tracking-[0.25em] ${accent}`}>★ POPULAR</div>
+                        {/* Hover sweep — only for non-featured */}
+                        {!featured && (
+                          <span
+                            aria-hidden
+                            className="absolute inset-0 bg-foreground translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
+                          />
+                        )}
+                        <div className="relative flex flex-col h-full">
+                          {featured ? (
+                            <div className={`font-mono text-[10px] tracking-[0.25em] ${accent} mb-7`}>★ POPULAR</div>
+                          ) : (
+                            <span aria-hidden className="block h-px w-12 mb-7 bg-gradient-accent" />
                           )}
-                        </div>
-                        <h4 className={`mt-5 font-display text-[22px] md:text-[26px] tracking-[-0.02em] ${featured ? "" : ""}`}>{t.name}.</h4>
-                        <p className={`mt-3 text-[13px] leading-[1.65] ${featured ? "text-background/65" : "text-muted-foreground"}`}>
-                          {t.forWho}
-                        </p>
+                          <h4 className="font-display text-[22px] md:text-[28px] tracking-[-0.02em]">{t.name}.</h4>
+                          <p className={`mt-3 text-[13px] leading-[1.65] ${featured ? "text-background/65" : "text-muted-foreground group-hover:text-background/65"} transition-colors duration-500`}>
+                            {t.forWho}
+                          </p>
 
-                        {/* Price */}
-                        <div className={`mt-7 pt-5 border-t ${featured ? "border-background/20" : "border-foreground"} flex items-baseline gap-3`}>
-                          <div className={`font-mono text-[10px] tracking-[0.25em] ${featured ? "text-background/50" : "text-muted-foreground"}`}>FROM</div>
-                          <div className={`font-display ${accent} text-[28px] md:text-[34px] leading-none tracking-[-0.03em] tabular-nums`}>
-                            {t.from.replace("Start from THB ", "")}
+                          {/* Price */}
+                          <div className={`mt-8 pt-5 border-t ${featured ? "border-background/20" : "border-foreground group-hover:border-background/20"} transition-colors duration-500 flex items-baseline gap-3`}>
+                            <div className={`font-display ${accent} text-[32px] md:text-[40px] leading-none tracking-[-0.03em] tabular-nums`}>
+                              {t.from.replace("Start from THB ", "")}
+                            </div>
+                            <div className={`font-mono text-[10px] tracking-[0.2em] ${featured ? "text-background/50" : "text-muted-foreground group-hover:text-background/50"} transition-colors duration-500`}>
+                              THB {t.unit?.replace("/ ", "/")}
+                            </div>
                           </div>
-                          <div className={`font-mono text-[10px] tracking-[0.2em] ${featured ? "text-background/50" : "text-muted-foreground"}`}>
-                            THB {t.unit?.replace("/ ", "/")}
-                          </div>
-                        </div>
 
-                        {/* Includes */}
-                        <div className={`mt-8 pt-5 border-t ${featured ? "border-background/15" : "border-soft"}`}>
-                          <div className={`font-mono text-[10px] tracking-[0.25em] uppercase mb-4 ${featured ? "text-background/60" : "text-muted-foreground"}`}>
-                            What you get
+                          {/* Includes */}
+                          <div className={`mt-10 pt-6 border-t ${featured ? "border-background/15" : "border-soft group-hover:border-background/15"} transition-colors duration-500`}>
+                            <div className={`font-mono text-[10px] tracking-[0.25em] uppercase mb-5 ${featured ? "text-background/60" : "text-muted-foreground group-hover:text-background/60"} transition-colors duration-500`}>
+                              What you get
+                            </div>
+                            <ul className="space-y-3">
+                              {t.includes.map((it) => (
+                                <li key={it} className="flex items-baseline gap-3 text-[14px] leading-[1.6]">
+                                  <span className={`${featured ? "text-background/40" : "text-muted-foreground/60 group-hover:text-background/40"} transition-colors duration-500`}>—</span>
+                                  <span>{it}</span>
+                                </li>
+                              ))}
+                            </ul>
                           </div>
-                          <ul className="space-y-3">
-                            {t.includes.map((it, j) => (
-                              <li key={it} className="flex items-baseline gap-3 text-[13.5px] leading-[1.6]">
-                                <span className={`font-mono text-[9px] tracking-[0.18em] tabular-nums ${featured ? "text-background/40" : "text-muted-foreground/60"}`}>
-                                  ·{String(j + 1).padStart(2, "0")}
-                                </span>
-                                <span>{it}</span>
-                              </li>
-                            ))}
-                          </ul>
                         </div>
                       </div>
                     </Reveal>
@@ -375,7 +370,7 @@ const Services = () => (
 
     {/* PROCESS — dark, mirrors Index pattern */}
     <section className="relative px-6 md:px-10 bg-foreground text-background">
-      <div className="border-t border-background/30 py-24 md:py-32 max-w-[1200px] mx-auto">
+      <div className="border-t border-background/30 py-28 md:py-36 max-w-[1200px] mx-auto">
         <Reveal delay={0.05}>
           <h2 className="font-display h-display-sm">
             From hello, live in <span className={accent}>4 weeks.</span>
@@ -386,10 +381,7 @@ const Services = () => (
             <Reveal key={st.n} delay={0.08 * i}>
               <div className="relative">
                 <span aria-hidden className="block h-px w-10 bg-gradient-accent mb-6 origin-left animate-[grow_900ms_cubic-bezier(0.76,0,0.24,1)_forwards]" />
-                <div className="flex items-baseline justify-between">
-                  <div className={`font-mono text-[10px] tracking-[0.2em] ${accent}`}>— {st.n}</div>
-                  <div className="font-mono text-[10px] tracking-[0.2em] opacity-40">0{i + 1}/04</div>
-                </div>
+                <div className={`font-mono text-[10px] tracking-[0.2em] ${accent}`}>— {st.n}</div>
                 <h3 className="mt-6 font-display text-[22px] md:text-[26px] tracking-[-0.02em] text-background">
                   {st.title}.
                 </h3>

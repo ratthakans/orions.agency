@@ -104,7 +104,6 @@ const Index = () => (
     {/* THREE THINGS — DARK */}
     <section className="relative px-6 md:px-10 bg-foreground text-background">
       <div className="border-t border-background/30 py-20 md:py-28 max-w-[1200px] mx-auto">
-        <Reveal><p className="index-badge text-background/60">— 04</p></Reveal>
         <Reveal delay={0.05}>
           <h2 className="mt-6 font-display h-display-sm">
             Three things, <span className={accent}>properly.</span>
@@ -197,16 +196,10 @@ const Index = () => (
     {/* TRUSTED BY */}
     <section className="relative px-6 md:px-10">
       <div className="border-t border-foreground py-20 md:py-28 max-w-[1200px] mx-auto">
-        <Reveal><p className="index-badge text-muted-foreground">— 07</p></Reveal>
         <Reveal delay={0.05}>
           <h2 className="mt-6 font-display h-display-sm">
             Trusted <span className={accent}>by.</span>
           </h2>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <p className="mt-3 font-thai text-[14px] text-muted-foreground">
-            40+ brands across F&amp;B, fashion, and hospitality.
-          </p>
         </Reveal>
         <div className="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 border border-soft">
           {trustedBy.map((name, i) => (
@@ -215,14 +208,10 @@ const Index = () => (
             </div>
           ))}
         </div>
-        <p className="mt-4 font-mono text-[9px] tracking-[0.2em] uppercase text-muted-foreground">
-          [ Selected · Q2 2026 ]
-        </p>
       </div>
     </section>
 
     <ClosingCTA
-      eyebrow="✦ NOW BOOKING — Q3 2026"
       title={<>Tell us about <span className={accent}>the brand.</span></>}
       description="30-min discovery call. Free. We reply within 24 hours."
       ctas={[

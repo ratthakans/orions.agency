@@ -43,9 +43,10 @@
 
     --radius: 0px;
 
-    /* Sunset Ink — single accent gradient (Bangkok temple lacquer → editorial amber) */
-    --accent-from: 12 100% 59%;   /* #FF4D2E vermilion */
-    --accent-to:   42 100% 50%;   /* #FFB800 amber */
+    /* Gemini-style accent gradient (blue → violet → pink) */
+    --accent-from: 217 89% 61%;   /* #4285F4 blue */
+    --accent-mid:  274 44% 62%;   /* #9B72CB violet */
+    --accent-to:   353 60% 63%;   /* #D96570 pink */
   }
 }
 
@@ -119,10 +120,10 @@
 
   /* Sunset Ink accent — used sparingly */
   .bg-gradient-accent {
-    background-image: linear-gradient(135deg, hsl(var(--accent-from)), hsl(var(--accent-to)));
+    background-image: linear-gradient(120deg, hsl(var(--accent-from)), hsl(var(--accent-mid)), hsl(var(--accent-to)));
   }
   .text-gradient {
-    background-image: linear-gradient(135deg, hsl(var(--accent-from)), hsl(var(--accent-to)));
+    background-image: linear-gradient(120deg, hsl(var(--accent-from)), hsl(var(--accent-mid)), hsl(var(--accent-to)));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;

@@ -74,21 +74,21 @@ const Index = () => (
 
     {/* WHAT YOU'RE UP AGAINST */}
     <section className="relative px-6 md:px-10">
-      <div className="border-t border-foreground py-20 md:py-28 max-w-[1200px] mx-auto">
+      <div className="border-t border-foreground py-24 md:py-32 max-w-[1200px] mx-auto">
         <Reveal delay={0.05}>
-          <h2 className="mt-6 font-display h-display-sm">
+          <h2 className="font-display h-display-sm">
             What you&apos;re <span className={accent}>up against.</span>
           </h2>
         </Reveal>
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 border-t border-foreground">
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 border-t border-foreground">
           {pressures.map((p, i) => (
             <Reveal key={p.label} delay={0.08 * i}>
               <div className={`py-10 md:py-12 md:px-8 h-full ${i > 0 ? "md:border-l border-soft" : ""}`}>
-                <div className={`font-display ${accent} text-[56px] md:text-[72px] leading-[1] tracking-[-0.04em]`}>
+                <div className={`font-display ${accent} text-[48px] md:text-[64px] leading-[1] tracking-[-0.04em]`}>
                   {p.stat}
                 </div>
                 <div className="mt-6 index-badge text-muted-foreground">{p.label}</div>
-                <p className="mt-4 text-[14px] leading-[1.6] text-foreground/75 font-thai max-w-[300px]">
+                <p className="mt-4 font-thai text-[14px] leading-[1.7] text-foreground/70 max-w-[300px]">
                   {p.body}
                 </p>
               </div>
@@ -100,21 +100,20 @@ const Index = () => (
 
     {/* THREE THINGS — DARK */}
     <section className="relative px-6 md:px-10 bg-foreground text-background">
-      <div className="border-t border-background/30 py-20 md:py-28 max-w-[1200px] mx-auto">
+      <div className="border-t border-background/30 py-24 md:py-32 max-w-[1200px] mx-auto">
         <Reveal delay={0.05}>
-          <h2 className="mt-6 font-display h-display-sm">
+          <h2 className="font-display h-display-sm">
             Three things, <span className={accent}>properly.</span>
           </h2>
         </Reveal>
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-px bg-background/20 border border-background/20">
-          {threeThings.map((s) => (
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 border-t border-background/30">
+          {threeThings.map((s, i) => (
             <Reveal key={s.n}>
-              <article className="h-full p-7 md:p-8 bg-foreground text-background flex flex-col">
+              <article className={`h-full py-10 md:py-12 md:px-8 flex flex-col ${i > 0 ? "md:border-l border-background/20" : ""}`}>
                 <div className="font-mono text-[10px] tracking-[0.2em] opacity-50">— {s.n}</div>
-                <h3 className={`mt-10 font-display ${accent} text-[22px] md:text-[26px] tracking-[-0.02em]`}>{s.title}</h3>
-                <p className="mt-3 font-thai text-[13px] text-background/65">{s.lead}</p>
-                <div className="mt-6 hairline w-8 bg-background/30" />
-                <ul className="mt-6 space-y-2 text-[13px] leading-[1.6] font-thai text-background/85">
+                <h3 className={`mt-8 font-display ${accent} text-[20px] md:text-[24px] tracking-[-0.02em]`}>{s.title}</h3>
+                <p className="mt-3 font-thai text-[14px] leading-[1.7] text-background/65 max-w-[300px]">{s.lead}</p>
+                <ul className="mt-6 space-y-2 font-thai text-[13px] leading-[1.7] text-background/85">
                   {s.items.map((it) => <li key={it}>— {it}</li>)}
                 </ul>
               </article>
@@ -133,21 +132,21 @@ const Index = () => (
 
     {/* PROCESS — DARK */}
     <section className="relative px-6 md:px-10 bg-foreground text-background">
-      <div className="border-t border-background/30 py-20 md:py-28 max-w-[1200px] mx-auto">
+      <div className="border-t border-background/30 py-24 md:py-32 max-w-[1200px] mx-auto">
         <Reveal delay={0.05}>
-          <h2 className="mt-6 font-display h-display-sm">
+          <h2 className="font-display h-display-sm">
             From hello, live in <span className={accent}>4 weeks.</span>
           </h2>
         </Reveal>
-        <div className="mt-16 pt-8 border-t border-background/30 grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8">
+        <div className="mt-16 pt-10 border-t border-background/30 grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8">
           {steps.map((st) => (
             <Reveal key={st.n}>
               <div>
                 <div className={`font-mono text-[10px] tracking-[0.2em] ${accent}`}>— {st.n}</div>
-                <h3 className="mt-5 font-display text-[22px] md:text-[26px] tracking-[-0.02em] text-background">
+                <h3 className="mt-5 font-display text-[20px] md:text-[24px] tracking-[-0.02em] text-background">
                   {st.title}.
                 </h3>
-                <p className="mt-3 text-[13px] leading-[1.55] font-thai text-background/65">
+                <p className="mt-3 font-thai text-[14px] leading-[1.7] text-background/65">
                   {st.body}
                 </p>
               </div>
@@ -159,26 +158,26 @@ const Index = () => (
 
     {/* TESTIMONIALS */}
     <section className="relative px-6 md:px-10">
-      <div className="border-t border-foreground py-20 md:py-28 max-w-[1200px] mx-auto">
+      <div className="border-t border-foreground py-24 md:py-32 max-w-[1200px] mx-auto">
         <Reveal delay={0.05}>
-          <h2 className="mt-6 font-display h-display-sm">
+          <h2 className="font-display h-display-sm">
             What clients <span className={accent}>say.</span>
           </h2>
         </Reveal>
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 border-t border-foreground">
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 border-t border-foreground">
           {testimonials.map((t, i) => (
             <Reveal key={t.name}>
-              <article className={`p-7 md:p-8 h-full flex flex-col ${i > 0 ? "md:border-l border-soft" : ""}`}>
+              <article className={`py-10 md:py-12 md:px-8 h-full flex flex-col ${i > 0 ? "md:border-l border-soft" : ""}`}>
                 <div className="flex justify-between items-baseline">
                   <div className={`font-mono text-[10px] tracking-[0.2em] ${accent}`}>{t.niche}</div>
                   <div className="text-right">
-                    <div className={`font-display ${accent} text-[28px] leading-none tracking-[-0.02em]`}>{t.stat}</div>
+                    <div className={`font-display ${accent} text-[24px] md:text-[28px] leading-none tracking-[-0.02em]`}>{t.stat}</div>
                     <div className="mt-1 font-mono text-[8px] tracking-[0.2em] text-muted-foreground">{t.statLabel}</div>
                   </div>
                 </div>
-                <p className="mt-8 font-thai text-[15px] leading-[1.55] flex-1 text-foreground/85">{t.quote}</p>
-                <div className="mt-7 pt-4 border-t border-soft">
-                  <div className="font-display text-[13px] tracking-[-0.01em]">{t.name}</div>
+                <p className="mt-8 font-thai text-[14px] leading-[1.7] flex-1 text-foreground/85">{t.quote}</p>
+                <div className="mt-8 pt-4 border-t border-soft">
+                  <div className="font-display text-[14px] tracking-[-0.01em]">{t.name}</div>
                   <div className="mt-1 font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground">{t.handle}</div>
                 </div>
               </article>
@@ -190,13 +189,13 @@ const Index = () => (
 
     {/* TRUSTED BY */}
     <section className="relative px-6 md:px-10">
-      <div className="border-t border-foreground py-20 md:py-28 max-w-[1200px] mx-auto">
+      <div className="border-t border-foreground py-24 md:py-32 max-w-[1200px] mx-auto">
         <Reveal delay={0.05}>
-          <h2 className="mt-6 font-display h-display-sm">
+          <h2 className="font-display h-display-sm">
             Trusted <span className={accent}>by.</span>
           </h2>
         </Reveal>
-        <div className="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 border border-soft">
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 border border-soft">
           {trustedBy.map((name, i) => (
             <div key={name} className={`aspect-[2/1] flex items-center justify-center text-center px-4 border-soft ${(i % 6) !== 5 ? "border-r" : ""} ${i < trustedBy.length - 6 ? "border-b" : ""}`}>
               <span className="font-display text-[11px] md:text-[12px] tracking-[0.04em] text-muted-foreground">{name}</span>

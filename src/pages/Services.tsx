@@ -344,30 +344,13 @@ const Services = () => (
       </div>
     </section>
 
-    {/* FULL DETAILS LINK */}
-    <section className="relative px-6 md:px-10">
-      <div className="border-t border-foreground py-16 md:py-20 max-w-[1200px] mx-auto flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-        <div>
-          <p className="index-badge text-muted-foreground">— 05 · MORE</p>
-          <h3 className="mt-4 font-display text-[22px] md:text-[28px] tracking-[-0.02em] max-w-[520px]">
-            Add-ons, FAQs, ad-spend caps.
-          </h3>
-        </div>
-        <a
-          href="/pricing"
-          className="group inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.25em] uppercase border-b border-foreground/30 hover:border-foreground pb-1 transition-colors self-start md:self-end"
-        >
-          <span>View full pricing page</span>
-          <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-        </a>
-      </div>
-    </section>
-
     <ClosingCTA
-      eyebrow="✦ NOW BOOKING — Q3 2026"
       title={<>Tell us about <span className={accent}>the brand.</span></>}
       description="30-min discovery call. Free. We reply within 24 hours."
-      ctas={[{ label: "Start the conversation", to: "/contact" }]}
+      ctas={[
+        { label: "Start the conversation", to: "/contact" },
+        { label: "See services & pricing", to: "/services", variant: "ghost" },
+      ]}
     />
   </div>
 );

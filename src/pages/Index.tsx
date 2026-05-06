@@ -101,18 +101,6 @@ const Index = () => (
       </div>
     </section>
 
-    {/* QUOTE */}
-    <section className="relative px-6 md:px-10">
-      <div className="border-t border-foreground py-28 md:py-36 max-w-[1200px] mx-auto">
-        <Reveal>
-          <p className="mt-2 font-display h-display-sm max-w-[900px]">
-            We don&apos;t post for the sake of posting.<br />
-            We build <span className={accent}>for results.</span>
-          </p>
-        </Reveal>
-      </div>
-    </section>
-
     {/* THREE THINGS — DARK */}
     <section className="relative px-6 md:px-10 bg-foreground text-background">
       <div className="border-t border-background/30 py-20 md:py-28 max-w-[1200px] mx-auto">

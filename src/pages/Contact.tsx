@@ -5,6 +5,15 @@ import PageHero from "@/components/PageHero";
 import SEO from "@/components/SEO";
 import { toast } from "sonner";
 
+const accent = "text-gradient";
+
+const whyUs = [
+  { n: "01", title: "Small team. Your team.",     body: "You talk to who's doing the work. No telephone game." },
+  { n: "02", title: "Strategy before pretty.",    body: "We plan before we post." },
+  { n: "03", title: "Ads inside the plan.",       body: "Paid ads built into your strategy from day one." },
+  { n: "04", title: "Built for boutique brands.", body: "We work with brands who care about quality." },
+];
+
 const Contact = () => {
   const [form, setForm] = useState({ name: "", company: "", email: "", brief: "" });
   const submit = (e: React.FormEvent) => {
@@ -169,6 +178,35 @@ const Contact = () => {
               </p>
             </div>
           </Reveal>
+        </div>
+      </section>
+
+      {/* WHY US */}
+      <section className="relative px-6 md:px-10">
+        <div className="border-t border-foreground py-20 md:py-28 max-w-[1200px] mx-auto">
+          <Reveal><p className="index-badge text-muted-foreground">— WHY US</p></Reveal>
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 items-start">
+            <Reveal>
+              <h2 className="font-display h-display-sm">
+                Why <span className={accent}>us?</span>
+              </h2>
+            </Reveal>
+            <div className="md:col-span-2 md:border-l border-foreground md:pl-10">
+              <ul>
+                {whyUs.map((w, i) => (
+                  <Reveal key={w.n} delay={0.05 * i}>
+                    <li className={`grid grid-cols-[auto,1fr] gap-8 py-6 ${i < whyUs.length - 1 ? "border-b border-soft" : ""}`}>
+                      <div className={`font-display ${accent} text-[28px] leading-[1] tracking-[-0.02em] tabular-nums`}>{w.n}</div>
+                      <div>
+                        <div className="font-display text-[16px] md:text-[18px] tracking-[-0.01em]">{w.title}</div>
+                        <p className="mt-2 font-thai text-[13px] leading-[1.6] text-foreground/70">{w.body}</p>
+                      </div>
+                    </li>
+                  </Reveal>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
     </div>

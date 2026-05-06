@@ -87,7 +87,7 @@ const PersonCard = ({ p, index, total }: { p: Person; index: number; total: numb
           <span className="font-mono text-[9px] tracking-[0.2em] text-background/70">ØRIONS</span>
         </div>
         <div className="absolute bottom-3 left-3 right-3">
-          <div className="index-badge text-background/90">{p.role}</div>
+          <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-background/90">{p.role}</div>
         </div>
       </div>
       <div className="pt-3 pb-1">

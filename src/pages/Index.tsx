@@ -25,12 +25,6 @@ const steps = [
   { n: "04", title: "Run",    body: "Monthly reports. Real results." },
 ];
 
-const testimonials = [
-  { niche: "F&B",         stat: "+62%", statLabel: "BOOKINGS",      quote: "They got our brand voice right from day one. Bookings up 62% in three months.", name: "Cedric C.",  handle: "Maison Lumière · @maisonlumiere" },
-  { niche: "FASHION",     stat: "11d",  statLabel: "TO SELL OUT",   quote: "Sold out our first drop in eleven days. No paid ads needed.",                  name: "Estelle S.", handle: "Saint Manor · @saintmanor" },
-  { niche: "HOSPITALITY", stat: "−41%", statLabel: "COST / BOOKING",quote: "Cut our cost per booking by 41%. Bookings still up.",                           name: "Shimpei M.", handle: "Hôtel Vergé · @hotelverge" },
-];
-
 const trustedBy = [
   "MAISON LUMIÈRE","SAINT MANOR","HÔTEL VERGÉ","CALA / BKK",
   "NORTH MERIDIAN","AT.09","CAFÉ ORSAY","STUDIO — KIN",

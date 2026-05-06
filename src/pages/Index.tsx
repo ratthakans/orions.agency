@@ -120,8 +120,6 @@ const Index = () => (
               <article
                 className={`relative h-full py-10 md:py-12 md:px-8 flex flex-col ${i > 0 ? "md:border-l border-background/20" : ""}`}
               >
-                {/* Animated accent rule */}
-                <span aria-hidden className="block h-px w-12 bg-gradient-accent mb-8 animate-[grow_900ms_cubic-bezier(0.76,0,0.24,1)_forwards] origin-left" />
                 <div className="font-mono text-[10px] tracking-[0.2em] opacity-50">— {s.n}</div>
                 <h3 className={`mt-6 font-display ${accent} text-[24px] md:text-[28px] tracking-[-0.02em]`}>{s.title}</h3>
                 <p className="mt-3 font-thai text-[14px] leading-[1.7] text-background/65 max-w-[300px]">{s.lead}</p>

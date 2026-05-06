@@ -120,10 +120,7 @@ const Index = () => (
               >
                 {/* Animated accent rule */}
                 <span aria-hidden className="block h-px w-12 bg-gradient-accent mb-8 animate-[grow_900ms_cubic-bezier(0.76,0,0.24,1)_forwards] origin-left" />
-                <div className="flex items-baseline justify-between">
-                  <div className="font-mono text-[10px] tracking-[0.2em] opacity-50">— {s.n}</div>
-                  <div className={`font-mono text-[10px] tracking-[0.2em] ${accent}`}>0{i + 1}/03</div>
-                </div>
+                <div className="font-mono text-[10px] tracking-[0.2em] opacity-50">— {s.n}</div>
                 <h3 className={`mt-6 font-display ${accent} text-[24px] md:text-[28px] tracking-[-0.02em]`}>{s.title}</h3>
                 <p className="mt-3 font-thai text-[14px] leading-[1.7] text-background/65 max-w-[300px]">{s.lead}</p>
                 <ul className="mt-8 space-y-3 font-thai text-[13px] leading-[1.7] text-background/85 border-t border-background/15 pt-5">
@@ -161,10 +158,7 @@ const Index = () => (
             <Reveal key={st.n} delay={0.08 * i}>
               <div className="relative">
                 <span aria-hidden className="block h-px w-10 bg-gradient-accent mb-6 origin-left animate-[grow_900ms_cubic-bezier(0.76,0,0.24,1)_forwards]" />
-                <div className="flex items-baseline justify-between">
-                  <div className={`font-mono text-[10px] tracking-[0.2em] ${accent}`}>— {st.n}</div>
-                  <div className="font-mono text-[10px] tracking-[0.2em] opacity-40">0{i + 1}/04</div>
-                </div>
+                <div className={`font-mono text-[10px] tracking-[0.2em] ${accent}`}>— {st.n}</div>
                 <h3 className="mt-6 font-display text-[22px] md:text-[26px] tracking-[-0.02em] text-background">
                   {st.title}.
                 </h3>

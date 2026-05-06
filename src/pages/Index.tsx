@@ -289,7 +289,7 @@ const Index = () => (
     {/* PRICING */}
     <section className="relative px-6 md:px-10">
       <div className="border-t border-foreground py-20 md:py-28 max-w-[1200px] mx-auto">
-        <Reveal><p className="index-badge text-muted-foreground">— 10</p></Reveal>
+        <Reveal><p className="index-badge text-muted-foreground">— 09 · PRICING</p></Reveal>
         <Reveal delay={0.05}>
           <h2 className="mt-6 font-display h-display-sm">
             Honest <span className={accent}>pricing.</span>
@@ -336,6 +336,18 @@ const Index = () => (
               <div className="font-thai text-[13px] text-foreground/75">Brand audit + content plan, ready to roll in 2 weeks.</div>
               <div className={`font-display ${accent} text-[18px] tracking-[-0.01em] md:text-right`}>From THB 30k</div>
             </div>
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.25}>
+          <div className="mt-10 flex justify-center">
+            <a
+              href="/pricing"
+              className="group inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.25em] uppercase border-b border-foreground/30 hover:border-foreground pb-1 transition-colors"
+            >
+              <span>View full pricing &amp; details</span>
+              <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+            </a>
           </div>
         </Reveal>
       </div>

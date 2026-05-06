@@ -43,9 +43,6 @@ const Nav = () => {
       <div className="px-6 md:px-10 h-[64px] flex items-center justify-between">
         <Link to="/" className="flex items-baseline gap-2 text-foreground">
           <span className="font-brand text-[20px] md:text-[22px] tracking-[-0.02em]">ØRIONS</span>
-          <span className="font-mono text-[10px] tracking-[0.12em] text-muted-foreground hidden sm:inline">
-            [{idx}/05]
-          </span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-10">

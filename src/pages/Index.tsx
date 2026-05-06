@@ -95,7 +95,7 @@ const Index = () => (
             <RotatingHeadline
               items={[
                 "BANGKOK · EST. 2026",
-                "HELP THE BRANDS GROW ON THROUGH",
+                "HELP BRANDS GROW THROUGH",
                 "BRANDING · CONTENT · SOCIAL MEDIA",
               ]}
             />

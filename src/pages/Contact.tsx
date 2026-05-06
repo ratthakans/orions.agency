@@ -36,10 +36,9 @@ const Contact = () => {
       <PageHero
         eyebrow="CONTACT · INDEX"
         verticalLabel="/ 05 · CONTACT"
-        title={<>Tell us<br />what's <span className="text-muted-foreground">stuck.</span></>}
+        title={<>Tell us about<br /><span className="italic text-muted-foreground">the brand.</span></>}
       />
 
-      {/* ØRIONS AUDIT — featured anchor card */}
       <section id="audit" className="px-6 md:px-10 py-16 md:py-24 scroll-mt-24">
         {/* Live availability marquee */}
         <Reveal>
@@ -48,13 +47,13 @@ const Contact = () => {
               <div className="marquee-track index-badge text-foreground items-center">
                 {Array.from({ length: 2 }).flatMap((_, loop) =>
                   [
-                    { dot: true, text: "3 audit slots left this month" },
-                    { text: "New inquiry · Bangkok · F&B brand" },
-                    { text: "Audit booked · Property developer" },
-                    { dot: true, text: "Next opening · Apr 24" },
-                    { text: "New inquiry · Skincare DTC" },
-                    { text: "Audit booked · B2B SaaS" },
+                    { dot: true, text: "Now booking — Q3 2026" },
+                    { text: "New inquiry · F&B · Bangkok" },
+                    { text: "Discovery booked · Fashion drop" },
                     { dot: true, text: "Reply within 24h" },
+                    { text: "New inquiry · Boutique hotel" },
+                    { text: "Discovery booked · Café group" },
+                    { dot: true, text: "30-min · Free · Honest" },
                     { text: "New inquiry · Hospitality group" },
                   ].map((item, i) => (
                     <span key={`${loop}-${i}`} className="inline-flex items-center gap-3 shrink-0">
@@ -84,23 +83,23 @@ const Contact = () => {
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full opacity-75" style={{ backgroundColor: "hsl(var(--accent-from))" }}></span>
                   <span className="relative inline-flex h-2 w-2 rounded-full" style={{ backgroundColor: "hsl(var(--accent-from))" }}></span>
                 </span>
-                FREE DIAGNOSTIC · LIMITED SLOTS
+                ✦ NOW BOOKING — Q3 2026
               </div>
               <h2 className="mt-6 font-display h-display-sm">
-                ØRIONS Audit<span className="text-background/60">.</span><br />Free<span className="text-background/60">.</span>
+                30-min discovery<span className="text-background/60">.</span><br /><span className="italic">Free</span><span className="text-background/60">.</span>
               </h2>
               <p className="mt-6 max-w-[520px] text-[15px] md:text-[16px] leading-[1.7] font-thai text-background/85">
-                เราไม่ได้มาขอโอกาส แต่มาเพื่อชี้ 'จุดตาย' และหา 'ทางรอด' ให้ธุรกิจของคุณ — รับเฉพาะธุรกิจที่ต้องการความเปลี่ยนแปลงจริงๆ เท่านั้น
+                Tell us about the brand. We'll reply within 24 hours with an honest fit-check — และถ้าเหมาะ เราจะส่ง short proposal พร้อมตัวเลขจริงให้
               </p>
               <a href="#inquiry" className="mt-10 inline-flex items-center gap-3 bg-background text-foreground px-7 py-4 index-badge hover:bg-muted-foreground hover:text-background transition-colors">
-                Request your audit <ArrowUpRight className="w-4 h-4" />
+                Book the call <ArrowUpRight className="w-4 h-4" />
               </a>
             </div>
             <ul className="lg:col-span-5 p-8 md:p-12 space-y-6">
               {[
-                { n: "01", t: "60-min Diagnostic", b: "วิเคราะห์จุดตันและจุดที่งบรั่วไหลด้วยตรรกะและข้อมูล" },
-                { n: "02", t: "Applied Roadmap", b: "แนวทางแก้ไขเบื้องต้น พร้อมลำดับความสำคัญ" },
-                { n: "03", t: "No Strings", b: "ไม่มีค่าใช้จ่าย ไม่มี pitch deck — ตรงประเด็นเท่านั้น" },
+                { n: "01", t: "30-min call", b: "เราฟังก่อน — เข้าใจแบรนด์ เข้าใจเป้าหมาย" },
+                { n: "02", t: "Honest fit-check", b: "ถ้าไม่เหมาะ เราจะบอกตรง ๆ ไม่มี pitch deck" },
+                { n: "03", t: "Short proposal", b: "ถ้าเหมาะ ส่งตัวเลขจริงและ scope ภายใน 1 สัปดาห์" },
               ].map((it) => (
                 <li key={it.n} className="border-t border-background/20 pt-5">
                   <div className="index-badge text-background/60">{it.n}</div>

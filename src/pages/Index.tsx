@@ -44,12 +44,6 @@ const whyUs = [
   { n: "04", title: "Built for boutique brands.", body: "We work with brands who care about quality." },
 ];
 
-const teamGroups = [
-  { label: "LEADERSHIP",            roles: ["Founder", "Managing Director"] },
-  { label: "STRATEGY & ACCOUNT",    roles: ["Account Executive","Project Manager","Marketing Strategist"] },
-  { label: "CREATIVE & PRODUCTION", roles: ["Creative Director","Creative Senior","Creative","Editor","DOP","Social Media Manager"] },
-];
-
 const tiers = [
   { label: "STARTER",      title: "Standard",  sub: "Start strong. Build consistency.",           price: "THB 50k",  summary: "Strategy, content, and monthly posting for brands building their presence on social.", hero: false },
   { label: "MOST POPULAR", title: "Pro",       sub: "Grow with strategy, content, and paid ads.", price: "THB 80k",  summary: "Full strategy, content production, community management, and paid ads — managed end-to-end.", hero: true  },
@@ -93,7 +87,7 @@ const Index = () => (
 
       {/* Bottom service marquee — infinite loop */}
       <div className="relative border-t border-background/15 py-5">
-        <SimpleMarquee duration={45} items={["BRANDING", "CONTENT", "SOCIAL MEDIA"]} />
+        <SimpleMarquee duration={32} items={["BRANDING", "CONTENT", "SOCIAL MEDIA"]} />
       </div>
     </section>
 
@@ -101,7 +95,7 @@ const Index = () => (
     <section className="relative px-6 md:px-10">
       <div className="border-t border-foreground py-20 md:py-28 max-w-[1200px] mx-auto">
         <Reveal>
-          <p className="index-badge text-muted-foreground">— 02</p>
+          <p className="index-badge text-muted-foreground">— 02 · THE LANDSCAPE</p>
         </Reveal>
         <Reveal delay={0.05}>
           <h2 className="mt-6 font-display h-display-sm">
@@ -292,55 +286,10 @@ const Index = () => (
       </div>
     </section>
 
-    {/* TEAM */}
-    <section className="relative px-6 md:px-10">
-      <div className="border-t border-foreground py-20 md:py-28 max-w-[1200px] mx-auto">
-        <Reveal><p className="index-badge text-muted-foreground">— 09</p></Reveal>
-        <div className="mt-6 grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-16">
-          <div className="md:col-span-2">
-            <Reveal>
-              <h2 className="font-display h-display-sm">
-                The <span className={accent}>team.</span>
-              </h2>
-            </Reveal>
-            <Reveal delay={0.05}>
-              <div className={`mt-8 font-display ${accent} text-[96px] md:text-[128px] leading-[0.9] tracking-[-0.04em]`}>11</div>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <div className="mt-3 font-display text-[16px] md:text-[18px]">people, in-house.</div>
-            </Reveal>
-            <Reveal delay={0.15}>
-              <p className="mt-3 font-thai text-[13px] text-muted-foreground max-w-[320px]">
-                You&apos;ll work directly with the people building your brand.
-              </p>
-            </Reveal>
-          </div>
-          <div className="md:col-span-3 md:border-l border-foreground md:pl-10 flex flex-col gap-8">
-            {teamGroups.map((g) => (
-              <Reveal key={g.label}>
-                <div>
-                  <div className={`font-mono text-[10px] tracking-[0.2em] ${accent}`}>{g.label}</div>
-                  <div className="mt-3 border-t border-soft" />
-                  <p className="mt-4 font-display text-[14px] md:text-[16px] leading-[1.6] tracking-[-0.01em]">
-                    {g.roles.map((r, i) => (
-                      <span key={r}>
-                        {r}
-                        {i < g.roles.length - 1 && <span className="text-muted-foreground mx-2">·</span>}
-                      </span>
-                    ))}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-
     {/* PRICING */}
     <section className="relative px-6 md:px-10">
       <div className="border-t border-foreground py-20 md:py-28 max-w-[1200px] mx-auto">
-        <Reveal><p className="index-badge text-muted-foreground">— 10</p></Reveal>
+        <Reveal><p className="index-badge text-muted-foreground">— 09 · PRICING</p></Reveal>
         <Reveal delay={0.05}>
           <h2 className="mt-6 font-display h-display-sm">
             Honest <span className={accent}>pricing.</span>
@@ -387,6 +336,18 @@ const Index = () => (
               <div className="font-thai text-[13px] text-foreground/75">Brand audit + content plan, ready to roll in 2 weeks.</div>
               <div className={`font-display ${accent} text-[18px] tracking-[-0.01em] md:text-right`}>From THB 30k</div>
             </div>
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.25}>
+          <div className="mt-10 flex justify-center">
+            <a
+              href="/pricing"
+              className="group inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.25em] uppercase border-b border-foreground/30 hover:border-foreground pb-1 transition-colors"
+            >
+              <span>View full pricing &amp; details</span>
+              <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+            </a>
           </div>
         </Reveal>
       </div>

@@ -212,12 +212,11 @@ const Services = () => (
               <li>
                 <a
                   href={`#svc-${s.n}`}
-                  className="group inline-flex items-baseline gap-3 relative"
+                  className="group inline-flex items-baseline gap-3 transition-opacity hover:opacity-70"
                 >
-                  <span className="font-mono text-[10px] tracking-[0.25em] text-background/40 tabular-nums">— {s.n}</span>
-                  <span className="relative font-display text-[16px] md:text-[18px] tracking-[-0.01em]">
+                  <span className="font-mono text-[10px] tracking-[0.25em] text-background/50 tabular-nums">— {s.n}</span>
+                  <span className="font-display text-[16px] md:text-[18px] tracking-[-0.01em]">
                     {s.title}.
-                    <span aria-hidden className="absolute left-0 -bottom-1 h-px w-full bg-background scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]" />
                   </span>
                 </a>
               </li>

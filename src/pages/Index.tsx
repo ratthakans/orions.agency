@@ -1,10 +1,17 @@
 import Reveal from "@/components/Reveal";
+import FlipNumber from "@/components/FlipNumber";
 import ScrollMarquee from "@/components/ScrollMarquee";
 import SEO from "@/components/SEO";
 import RotatingHeadline from "@/components/RotatingHeadline";
 import ClosingCTA from "@/components/ClosingCTA";
 import HeroVideoGrid from "@/components/HeroVideoGrid";
 import YouTubeFacade from "@/components/YouTubeFacade";
+
+const pressures = [
+  { stat: 71, suffix: "%", decimals: 0, label: "OF SOCIAL IMAGES", body: "AI-generated. คุณต้องมี real content ที่ทำให้แบรนด์ยังโดดออกมาได้" },
+  { stat: 20, suffix: "%", decimals: 0, label: "META CPM RISE · YoY", body: "ค่าโฆษณาแพงขึ้นทุกปี — creative ต้องทำงานหนักกว่าเดิมเพื่อ convert" },
+  { stat: 8, suffix: "s", decimals: 0, label: "ATTENTION SPAN", body: "แปดวินาที. คุณต้อง hook ให้ติดก่อน thumb จะเลื่อนผ่าน" },
+];
 
 const threeThings = [
   {
@@ -108,6 +115,55 @@ const Index = () => (
     <section className="px-6 md:px-10 overflow-hidden">
       <div className="border-y border-foreground py-3">
         <ScrollMarquee items={["BRANDING", "CONTENT", "SOCIAL MEDIA", "PAID ADS", "BANGKOK ↔ EST. 2026"]} />
+      </div>
+    </section>
+
+    {/* WHAT YOU'RE UP AGAINST */}
+    <section className="relative px-6 md:px-10">
+      <div className="border-t border-foreground py-20 md:py-28 max-w-[1400px] mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
+        <div className="md:col-span-5 md:sticky md:top-32 md:self-start">
+          <Reveal>
+            <p className="index-badge">02 — THE LANDSCAPE</p>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <h2 className="mt-6 font-display h-display-md">
+              What you&apos;re up <span className="text-muted-foreground">against.</span>
+            </h2>
+          </Reveal>
+          <Reveal delay={0.15}>
+            <p className="mt-6 font-thai text-[17px] md:text-[20px] leading-[1.6] max-w-[460px]">
+              Social ทุกวันนี้ <span className="font-semibold">เสียงดังขึ้น แพงขึ้น สั้นลง</span> — เราออกแบบงานให้ทำงานในสภาพแวดล้อมแบบนี้
+            </p>
+          </Reveal>
+          <Reveal delay={0.3}><div className="mt-12 hairline w-16" /></Reveal>
+        </div>
+
+        <div className="md:col-span-7 flex flex-col">
+          {pressures.map((p, i) => (
+            <Reveal key={p.label} delay={0.2 + i * 0.1}>
+              <div className={`group relative py-10 md:py-14 ${i === 0 ? "border-t" : ""} border-b border-soft cursor-default`}>
+                <div className="grid grid-cols-12 gap-6 md:gap-8 items-start px-2 md:px-6">
+                  <div className="col-span-12 md:col-span-5">
+                    <FlipNumber
+                      to={p.stat}
+                      suffix={p.suffix}
+                      decimals={p.decimals}
+                      className="num-display text-[44px] md:text-[88px] transition-transform duration-500 group-hover:-translate-y-1"
+                      suffixClassName="text-[20px] md:text-[36px] tracking-normal ml-1 align-baseline text-muted-foreground"
+                    />
+                  </div>
+                  <div className="col-span-12 md:col-span-7 md:pt-3">
+                    <div className="index-badge text-foreground">{p.label}</div>
+                    <div className="mt-3 hairline w-8" />
+                    <p className="mt-4 text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground font-thai max-w-[420px]">
+                      {p.body}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
 

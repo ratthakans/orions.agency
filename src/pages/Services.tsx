@@ -1,5 +1,4 @@
 import Reveal from "@/components/Reveal";
-import PageHero from "@/components/PageHero";
 import ClosingCTA from "@/components/ClosingCTA";
 import SEO from "@/components/SEO";
 
@@ -192,12 +191,56 @@ const Services = () => (
       ]}
     />
 
-    <PageHero
-      eyebrow="SERVICES · INDEX"
-      verticalLabel="/ 02 · SERVICES"
-      title={<>Three things, <span className={accent}>properly.</span></>}
-      titleSize="md"
-    />
+    {/* HERO — dark editorial */}
+    <section className="relative bg-foreground text-background overflow-hidden">
+      {/* vertical edge label */}
+      <span
+        aria-hidden
+        className="pointer-events-none hidden md:flex absolute top-1/2 left-3 -translate-y-1/2 -rotate-90 origin-center font-mono text-[10px] tracking-[0.32em] uppercase text-background/40 whitespace-nowrap"
+      >
+        / 02 · SERVICES
+      </span>
+
+      <div className="px-6 md:px-10 pt-32 md:pt-36 pb-16 md:pb-20 max-w-[1400px] mx-auto">
+        {/* Top meta strip */}
+        <Reveal>
+          <div className="border-t border-background/25 pt-3 pb-3 flex items-center justify-between font-mono text-[10px] tracking-[0.3em] uppercase">
+            <span className="text-background">SERVICES · INDEX</span>
+            <span className="hidden sm:inline text-background/50">ØRIONS · BANGKOK · 2026</span>
+          </div>
+        </Reveal>
+
+        {/* Title block */}
+        <div className="mt-16 md:mt-24 grid grid-cols-12 gap-y-10">
+          <div className="col-span-12 md:col-span-9 md:col-start-2">
+            <Reveal delay={0.08}>
+              <h1 className="font-display h-display-lg text-balance">
+                Three things, <span className={accent}>properly.</span>
+              </h1>
+            </Reveal>
+          </div>
+          <div className="col-span-12 md:col-span-5 md:col-start-7">
+            <Reveal delay={0.18}>
+              <p className="font-thai text-[15px] md:text-[17px] leading-[1.7] text-background/70 max-w-[520px]">
+                Branding, content และ social — ดูแลโดยทีมเดียวตั้งแต่ต้นจนจบ. ไม่มี hand-off, ไม่มีเส้นหลุด.
+              </p>
+            </Reveal>
+          </div>
+        </div>
+
+        {/* Bottom service index */}
+        <Reveal delay={0.28}>
+          <ul className="mt-20 md:mt-28 border-t border-background/25 pt-5 grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-4">
+            {services.map((s) => (
+              <li key={s.n} className="flex items-baseline gap-3">
+                <span className="font-mono text-[10px] tracking-[0.25em] text-background/40 tabular-nums">— {s.n}</span>
+                <span className="font-display text-[16px] md:text-[18px] tracking-[-0.01em]">{s.title}.</span>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+      </div>
+    </section>
 
     {/* KICKSTART — Audit */}
     <section className="px-6 md:px-10">

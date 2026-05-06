@@ -4,6 +4,8 @@ import ClosingCTA from "@/components/ClosingCTA";
 import SEO from "@/components/SEO";
 import YouTubeFacade from "@/components/YouTubeFacade";
 
+const accent = "text-gradient";
+
 const SITE_URL = "https://orions.agency";
 
 const testimonials = [
@@ -58,7 +60,7 @@ const Work = () => (
     <PageHero
       eyebrow="WORK · INDEX"
       verticalLabel="/ 03 · WORK"
-      title={<>Real brands<span className="text-muted-foreground">.</span><br />Real <span className="italic text-muted-foreground">results.</span></>}
+      title={<>Real brands.<br />Real <span className={accent}>results.</span></>}
     />
 
     {/* COMING SOON BANNER */}
@@ -67,13 +69,13 @@ const Work = () => (
         <Reveal>
           <div className="border border-foreground bg-foreground text-background p-8 md:p-12 grid grid-cols-1 md:grid-cols-12 gap-6">
             <div className="md:col-span-7">
-              <div className="index-badge opacity-70">✦ NEW CHAPTER · 2026</div>
+              <div className="font-mono text-[10px] tracking-[0.2em] text-background/60">— NEW CHAPTER · 2026</div>
               <h2 className="mt-6 font-display h-display-sm">
-                Full case studies <br className="hidden md:block" />launching <span className="italic" style={{ color: "hsl(var(--accent-from))" }}>Q3 2026</span>.
+                Full case studies <br className="hidden md:block" />launching <span className={accent}>Q3 2026.</span>
               </h2>
             </div>
             <div className="md:col-span-5 md:border-l md:border-background/20 md:pl-8 flex flex-col justify-center">
-              <p className="font-thai text-[15px] leading-[1.7] opacity-85">
+              <p className="font-thai text-[15px] leading-[1.7] text-background/70">
                 เรากำลังจัด case studies ใหม่ของ F&amp;B, fashion และ hospitality ให้พร้อมเผยแพร่ — ในระหว่างนี้ ลองอ่านเสียงจากลูกค้าด้านล่าง
               </p>
             </div>
@@ -84,30 +86,24 @@ const Work = () => (
 
     {/* WHAT CLIENTS SAY */}
     <section className="px-6 md:px-10">
-      <div className="border-t border-foreground py-20 md:py-28">
-        <Reveal>
-          <p className="index-badge">01 — RESULTS</p>
-        </Reveal>
+      <div className="border-t border-foreground py-24 md:py-32 max-w-[1200px] mx-auto">
         <Reveal delay={0.05}>
-          <h2 className="mt-6 font-display h-display-md">
-            What clients <span className="italic text-muted-foreground">say.</span>
+          <h2 className="font-display h-display-sm">
+            What clients <span className={accent}>say.</span>
           </h2>
         </Reveal>
 
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-px bg-foreground border border-foreground">
-          {testimonials.map((t) => (
-            <Reveal key={t.name}>
-              <article className="bg-background p-7 md:p-9 h-full flex flex-col">
-                <div className="index-badge text-muted-foreground">{t.niche}</div>
-                <div className="mt-12">
-                  <div className="num-display text-[48px] md:text-[72px] leading-none" style={{ color: "hsl(var(--accent-from))" }}>{t.stat}</div>
-                  <div className="mt-3 index-badge text-muted-foreground">{t.statLabel}</div>
-                </div>
-                <div className="mt-8 hairline w-8" />
-                <p className="mt-6 font-thai italic text-[16px] leading-[1.65] flex-1">&ldquo;{t.quote}&rdquo;</p>
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 border-t border-foreground">
+          {testimonials.map((t, i) => (
+            <Reveal key={t.name} delay={0.08 * i}>
+              <article className={`relative h-full py-10 md:py-12 md:px-8 flex flex-col ${i > 0 ? "md:border-l border-soft" : ""}`}>
+                <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">— {t.niche}</div>
+                <div className={`mt-8 font-display ${accent} text-[48px] md:text-[64px] leading-[1] tracking-[-0.04em] tabular-nums`}>{t.stat}</div>
+                <div className="mt-4 font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">{t.statLabel}</div>
+                <p className="mt-8 font-thai text-[14px] leading-[1.7] text-foreground/70 flex-1">&ldquo;{t.quote}&rdquo;</p>
                 <div className="mt-8 pt-5 border-t border-soft">
                   <div className="font-display text-[15px] tracking-[-0.01em]">{t.name}</div>
-                  <div className="mt-1 font-mono text-[10px] tracking-[0.12em] uppercase text-muted-foreground">{t.handle}</div>
+                  <div className="mt-1 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">{t.handle}</div>
                 </div>
               </article>
             </Reveal>
@@ -117,7 +113,7 @@ const Work = () => (
     </section>
 
     {/* AMBIENT 21:9 */}
-    <section className="relative w-full overflow-hidden bg-foreground">
+    <section className="relative w-full overflow-hidden bg-foreground border-y border-background/20">
       <div className="relative w-full overflow-hidden" style={{ aspectRatio: "21 / 9" }}>
         <YouTubeFacade videoId="u4r7Szy3uxI" title="Work in motion" ambient />
       </div>
@@ -125,39 +121,36 @@ const Work = () => (
 
     {/* TRUSTED BY */}
     <section className="px-6 md:px-10">
-      <div className="border-t border-foreground py-20 md:py-28">
-        <Reveal>
-          <p className="index-badge">02 — TRUSTED BY</p>
-        </Reveal>
+      <div className="border-t border-foreground py-24 md:py-32 max-w-[1200px] mx-auto">
         <Reveal delay={0.05}>
-          <h2 className="mt-6 font-display h-display-md">
-            40+ brands across <br className="hidden md:block" />F&B, fashion, and <span className="italic text-muted-foreground">hospitality.</span>
+          <h2 className="font-display h-display-sm">
+            40+ brands across F&amp;B, fashion, <br className="hidden md:block" />and <span className={accent}>hospitality.</span>
           </h2>
         </Reveal>
 
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-px bg-foreground border border-foreground">
-          {trustedBy.map((name) => (
-            <div key={name} className="bg-background h-24 md:h-28 flex items-center justify-center px-4 text-center">
-              <span className="font-display text-[12px] md:text-[14px] tracking-[0.02em] text-muted-foreground">{name}</span>
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 border border-soft">
+          {trustedBy.map((name, i) => (
+            <div
+              key={name}
+              className={`relative aspect-[2/1] flex items-center justify-center text-center px-4 cursor-default border-soft ${(i % 6) !== 5 ? "border-r" : ""} ${i < trustedBy.length - 6 ? "border-b" : ""}`}
+            >
+              <span className="font-display text-[11px] md:text-[12px] tracking-[0.04em] text-muted-foreground">{name}</span>
             </div>
           ))}
         </div>
-        <p className="mt-6 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground text-right">
+        <p className="mt-6 font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground text-right">
           [ Selected · Q2 2026 ]
         </p>
       </div>
     </section>
 
     <ClosingCTA
-      eyebrow="✦ NOW BOOKING — Q3 2026"
-      title={
-        <>
-          Tell us about <br />
-          <span className="italic">the brand</span><span className="text-muted-foreground">.</span>
-        </>
-      }
+      title={<>Tell us about <span className={accent}>the brand.</span></>}
       description="30-min discovery call. Free. We reply within 24 hours."
-      ctas={[{ label: "Start the conversation", to: "/contact" }]}
+      ctas={[
+        { label: "Start the conversation", to: "/contact" },
+        { label: "See services & pricing", to: "/services", variant: "ghost" },
+      ]}
     />
   </div>
 );

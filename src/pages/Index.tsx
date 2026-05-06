@@ -120,7 +120,7 @@ const Index = () => (
       <div className="border-t border-foreground py-20 md:py-28 max-w-[1400px] mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
         <div className="md:col-span-5 md:sticky md:top-32 md:self-start">
           <Reveal delay={0.1}>
-            <h2 className="font-display h-display-lg">
+            <h2 className="font-display h-display-md">
               What you&apos;re up <span className="text-muted-foreground">against.</span>
             </h2>
           </Reveal>

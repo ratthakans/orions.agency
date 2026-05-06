@@ -116,8 +116,16 @@ const Index = () => (
     </section>
 
     {/* WHAT YOU'RE UP AGAINST */}
-    <section className="relative px-6 md:px-10">
-      <div className="border-t border-foreground py-20 md:py-28 max-w-[1400px] mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
+    <section className="relative">
+      {/* Top ticker — newsroom feed */}
+      <div className="border-y border-foreground py-3 overflow-hidden bg-background">
+        <ScrollMarquee
+          baseSpeed={50}
+          items={["NOISE", "AI · 71% OF IMAGES", "CPM ↑ 20% YoY", "8-SECOND ATTENTION", "ADS COST MORE", "REAL CONTENT WINS"]}
+        />
+      </div>
+
+      <div className="px-6 md:px-10 py-20 md:py-28 max-w-[1400px] mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
         <div className="md:col-span-5 md:sticky md:top-32 md:self-start">
           <Reveal delay={0.1}>
             <h2 className="font-display h-display-md">
@@ -130,18 +138,20 @@ const Index = () => (
         <div className="md:col-span-7 flex flex-col">
           {pressures.map((p, i) => (
             <Reveal key={p.label} delay={0.2 + i * 0.1}>
-              <div className={`group relative py-10 md:py-14 ${i === 0 ? "border-t" : ""} border-b border-soft cursor-default`}>
+              <div className={`group relative py-10 md:py-14 ${i === 0 ? "border-t" : ""} border-b border-soft cursor-default overflow-hidden`}>
+                {/* hover sweep hairline */}
+                <span className="pointer-events-none absolute left-0 bottom-0 h-px w-0 bg-foreground transition-[width] duration-700 ease-out group-hover:w-full" />
                 <div className="grid grid-cols-12 gap-6 md:gap-8 items-start px-2 md:px-6">
                   <div className="col-span-12 md:col-span-5">
                     <FlipNumber
                       to={p.stat}
                       suffix={p.suffix}
                       decimals={p.decimals}
-                      className="num-display text-[44px] md:text-[88px] transition-transform duration-500 group-hover:-translate-y-1"
-                      suffixClassName="text-[20px] md:text-[36px] tracking-normal ml-1 align-baseline text-muted-foreground"
+                      className="num-display text-[44px] md:text-[88px] transition-all duration-500 group-hover:-translate-y-1 group-hover:text-[hsl(var(--accent-from))]"
+                      suffixClassName="text-[20px] md:text-[36px] tracking-normal ml-1 align-baseline text-muted-foreground transition-colors duration-500 group-hover:text-[hsl(var(--accent-from))]"
                     />
                   </div>
-                  <div className="col-span-12 md:col-span-7 md:pt-3">
+                  <div className="col-span-12 md:col-span-7 md:pt-3 transition-transform duration-500 group-hover:translate-x-1">
                     <div className="index-badge text-foreground">{p.label}</div>
                     <div className="mt-3 hairline w-8" />
                     <p className="mt-4 text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground font-thai max-w-[420px]">
@@ -153,6 +163,14 @@ const Index = () => (
             </Reveal>
           ))}
         </div>
+      </div>
+
+      {/* Bottom ticker — reverse order for visual counter-flow */}
+      <div className="border-y border-foreground py-3 overflow-hidden bg-background">
+        <ScrollMarquee
+          baseSpeed={40}
+          items={["REAL CONTENT WINS", "ADS COST MORE", "8-SECOND ATTENTION", "CPM ↑ 20% YoY", "AI · 71% OF IMAGES", "NOISE"]}
+        />
       </div>
     </section>
 

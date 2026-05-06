@@ -44,12 +44,6 @@ const whyUs = [
   { n: "04", title: "Built for boutique brands.", body: "We work with brands who care about quality." },
 ];
 
-const teamGroups = [
-  { label: "LEADERSHIP",            roles: ["Founder", "Managing Director"] },
-  { label: "STRATEGY & ACCOUNT",    roles: ["Account Executive","Project Manager","Marketing Strategist"] },
-  { label: "CREATIVE & PRODUCTION", roles: ["Creative Director","Creative Senior","Creative","Editor","DOP","Social Media Manager"] },
-];
-
 const tiers = [
   { label: "STARTER",      title: "Standard",  sub: "Start strong. Build consistency.",           price: "THB 50k",  summary: "Strategy, content, and monthly posting for brands building their presence on social.", hero: false },
   { label: "MOST POPULAR", title: "Pro",       sub: "Grow with strategy, content, and paid ads.", price: "THB 80k",  summary: "Full strategy, content production, community management, and paid ads — managed end-to-end.", hero: true  },

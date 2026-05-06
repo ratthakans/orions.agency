@@ -331,7 +331,7 @@ const Services = () => (
                           )}
                         </div>
                         <h4 className={`mt-5 font-display text-[22px] md:text-[26px] tracking-[-0.02em] ${featured ? "" : ""}`}>{t.name}.</h4>
-                        <p className={`mt-3 font-thai text-[13px] leading-[1.65] ${featured ? "text-background/65" : "text-muted-foreground"}`}>
+                        <p className={`mt-3 text-[13px] leading-[1.65] ${featured ? "text-background/65" : "text-muted-foreground"}`}>
                           {t.forWho}
                         </p>
 
@@ -353,7 +353,7 @@ const Services = () => (
                           </div>
                           <ul className="space-y-3">
                             {t.includes.map((it, j) => (
-                              <li key={it} className="flex items-baseline gap-3 font-thai text-[13.5px] leading-[1.6]">
+                              <li key={it} className="flex items-baseline gap-3 text-[13.5px] leading-[1.6]">
                                 <span className={`font-mono text-[9px] tracking-[0.18em] tabular-nums ${featured ? "text-background/40" : "text-muted-foreground/60"}`}>
                                   ·{String(j + 1).padStart(2, "0")}
                                 </span>
@@ -393,7 +393,7 @@ const Services = () => (
                 <h3 className="mt-6 font-display text-[22px] md:text-[26px] tracking-[-0.02em] text-background">
                   {st.title}.
                 </h3>
-                <p className="mt-3 font-thai text-[14px] leading-[1.7] text-background/65">
+                <p className="mt-3 text-[14px] leading-[1.7] text-background/65">
                   {st.body}
                 </p>
               </div>

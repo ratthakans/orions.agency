@@ -29,11 +29,8 @@ const Footer = () => (
       </div>
 
       {/* Mega wordmark */}
-      <Link to="/" aria-label="ØRIONS — Home" className="block mt-12 md:mt-16">
-        <span
-          className="block font-brand leading-[0.82] tracking-[-0.04em] text-background select-none whitespace-nowrap"
-          style={{ fontSize: "clamp(96px, 22vw, 320px)" }}
-        >
+      <Link to="/" aria-label="ØRIONS — Home" className="block mt-10 md:mt-14">
+        <span className="block font-brand h-display-xl text-background select-none whitespace-nowrap leading-[0.82]">
           ØRIONS
         </span>
       </Link>

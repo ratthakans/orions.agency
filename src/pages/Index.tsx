@@ -1,17 +1,10 @@
 import Reveal from "@/components/Reveal";
-import FlipNumber from "@/components/FlipNumber";
 import ScrollMarquee from "@/components/ScrollMarquee";
 import SEO from "@/components/SEO";
 import RotatingHeadline from "@/components/RotatingHeadline";
 import ClosingCTA from "@/components/ClosingCTA";
 import HeroVideoGrid from "@/components/HeroVideoGrid";
 import YouTubeFacade from "@/components/YouTubeFacade";
-
-const pressures = [
-  { stat: 71, suffix: "%", decimals: 0, label: "OF SOCIAL IMAGES", body: "AI-generated. คุณต้องมี real content ที่ทำให้แบรนด์ยังโดดออกมาได้" },
-  { stat: 20, suffix: "%", decimals: 0, label: "META CPM RISE · YoY", body: "ค่าโฆษณาแพงขึ้นทุกปี — creative ต้องทำงานหนักกว่าเดิมเพื่อ convert" },
-  { stat: 8, suffix: "s", decimals: 0, label: "ATTENTION SPAN", body: "แปดวินาที. คุณต้อง hook ให้ติดก่อน thumb จะเลื่อนผ่าน" },
-];
 
 const threeThings = [
   {

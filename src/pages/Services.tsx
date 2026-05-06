@@ -212,12 +212,11 @@ const Services = () => (
               <li>
                 <a
                   href={`#svc-${s.n}`}
-                  className="group inline-flex items-baseline gap-3 relative"
+                  className="group inline-flex items-baseline gap-3 transition-opacity hover:opacity-70"
                 >
-                  <span className="font-mono text-[10px] tracking-[0.25em] text-background/40 tabular-nums">— {s.n}</span>
-                  <span className="relative font-display text-[16px] md:text-[18px] tracking-[-0.01em]">
+                  <span className="font-mono text-[10px] tracking-[0.25em] text-background/50 tabular-nums">— {s.n}</span>
+                  <span className="font-display text-[16px] md:text-[18px] tracking-[-0.01em]">
                     {s.title}.
-                    <span aria-hidden className="absolute left-0 -bottom-1 h-px w-full bg-background scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]" />
                   </span>
                 </a>
               </li>
@@ -234,7 +233,6 @@ const Services = () => (
           {/* Left: title + price block */}
           <div className="lg:col-span-5 flex flex-col">
             <Reveal delay={0.05}>
-              <span aria-hidden className="block h-px w-12 bg-gradient-accent mb-8 origin-left animate-[grow_900ms_cubic-bezier(0.76,0,0.24,1)_forwards]" />
               <h2 className="font-display h-display-sm">
                 ØRIONS <span className={accent}>Audit.</span>
               </h2>
@@ -254,19 +252,18 @@ const Services = () => (
           {/* Right: WHAT YOU GET — emphasized */}
           <div className="lg:col-span-7 lg:border-l border-foreground lg:pl-12">
             <Reveal delay={0.2}>
-              <div className="index-badge text-muted-foreground">WHAT YOU GET</div>
+              <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">— WHAT YOU GET</div>
               <ul className="mt-8 space-y-0">
                 {[
                   { k: "01", t: "Brand & Spend Audit", body: "Where the budget leaks and where the brand stalls in the market." },
                   { k: "02", t: "1-Page Roadmap",      body: "A 90-day unlock plan — priorities, sequence, and expected outcomes." },
                   { k: "03", t: "Working Session",     body: "One hour with the ØRIONS team to hand off the strategy." },
                 ].map((it, i) => (
-                  <li key={it.k} className="group relative grid grid-cols-12 gap-4 items-start py-6 border-t border-soft last:border-b transition-[padding] duration-300 ease-out hover:pl-3">
-                    <span aria-hidden className="absolute left-0 top-1/2 -translate-y-1/2 h-8 w-0 bg-gradient-accent transition-[width] duration-300 ease-out group-hover:w-[3px]" />
-                    <span className={`col-span-2 md:col-span-1 font-mono text-[11px] tracking-[0.2em] ${accent} tabular-nums pt-1`}>— {it.k}</span>
+                  <li key={it.k} className="grid grid-cols-12 gap-4 items-start py-6 border-t border-soft last:border-b">
+                    <span className="col-span-2 md:col-span-1 font-mono text-[10px] tracking-[0.2em] text-muted-foreground tabular-nums pt-1">— {it.k}</span>
                     <div className="col-span-10 md:col-span-11">
                       <h4 className="font-display text-[16px] md:text-[18px] tracking-[-0.01em]">{it.t}.</h4>
-                      <p className="mt-2 text-[13px] leading-[1.65] text-muted-foreground">{it.body}</p>
+                      <p className="mt-2 font-thai text-[13px] leading-[1.65] text-foreground/70">{it.body}</p>
                     </div>
                   </li>
                 ))}
@@ -312,50 +309,39 @@ const Services = () => (
                   return (
                     <Reveal key={t.name} delay={0.08 * i}>
                       <div
-                        className={`group relative h-full p-8 md:p-12 flex flex-col overflow-hidden ${i > 0 ? "md:border-l border-soft" : ""} ${featured ? "bg-foreground text-background" : "bg-background hover:text-background"} transition-colors duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]`}
+                        className={`relative h-full p-8 md:p-12 flex flex-col ${i > 0 ? "md:border-l border-soft" : ""} ${featured ? "bg-foreground text-background" : "bg-background"}`}
                       >
-                        {/* Hover sweep — only for non-featured */}
-                        {!featured && (
-                          <span
-                            aria-hidden
-                            className="absolute inset-0 bg-foreground translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
-                          />
-                        )}
-                        <div className="relative flex flex-col h-full">
-                          {featured ? (
-                            <div className={`font-mono text-[10px] tracking-[0.25em] ${accent} mb-7`}>★ POPULAR</div>
-                          ) : (
-                            <span aria-hidden className="block h-px w-12 mb-7 bg-gradient-accent" />
-                          )}
-                          <h4 className="font-display text-[22px] md:text-[28px] tracking-[-0.02em]">{t.name}.</h4>
-                          <p className={`mt-3 text-[13px] leading-[1.65] ${featured ? "text-background/65" : "text-muted-foreground group-hover:text-background/65"} transition-colors duration-500`}>
-                            {t.forWho}
-                          </p>
+                        <div className={`font-mono text-[10px] tracking-[0.2em] uppercase mb-7 ${featured ? "text-background/60" : "text-muted-foreground"}`}>
+                          — {featured ? "POPULAR" : "OPTION"}
+                        </div>
+                        <h4 className="font-display text-[22px] md:text-[26px] tracking-[-0.02em]">{t.name}.</h4>
+                        <p className={`mt-3 font-thai text-[13px] leading-[1.65] ${featured ? "text-background/70" : "text-foreground/70"}`}>
+                          {t.forWho}
+                        </p>
 
-                          {/* Price */}
-                          <div className={`mt-8 pt-5 border-t ${featured ? "border-background/20" : "border-foreground group-hover:border-background/20"} transition-colors duration-500 flex items-baseline gap-3`}>
-                            <div className={`font-display ${accent} text-[32px] md:text-[40px] leading-none tracking-[-0.03em] tabular-nums`}>
-                              {t.from.replace("Start from THB ", "")}
-                            </div>
-                            <div className={`font-mono text-[10px] tracking-[0.2em] ${featured ? "text-background/50" : "text-muted-foreground group-hover:text-background/50"} transition-colors duration-500`}>
-                              THB {t.unit?.replace("/ ", "/")}
-                            </div>
+                        {/* Price */}
+                        <div className={`mt-8 pt-5 border-t ${featured ? "border-background/20" : "border-soft"} flex items-baseline gap-3`}>
+                          <div className={`font-display text-[32px] md:text-[40px] leading-none tracking-[-0.03em] tabular-nums`}>
+                            {t.from.replace("Start from THB ", "")}
                           </div>
+                          <div className={`font-mono text-[10px] tracking-[0.2em] ${featured ? "text-background/50" : "text-muted-foreground"}`}>
+                            THB {t.unit?.replace("/ ", "/")}
+                          </div>
+                        </div>
 
-                          {/* Includes */}
-                          <div className={`mt-10 pt-6 border-t ${featured ? "border-background/15" : "border-soft group-hover:border-background/15"} transition-colors duration-500`}>
-                            <div className={`font-mono text-[10px] tracking-[0.25em] uppercase mb-5 ${featured ? "text-background/60" : "text-muted-foreground group-hover:text-background/60"} transition-colors duration-500`}>
-                              What you get
-                            </div>
-                            <ul className="space-y-3">
-                              {t.includes.map((it) => (
-                                <li key={it} className="flex items-baseline gap-3 text-[14px] leading-[1.6]">
-                                  <span className={`${featured ? "text-background/40" : "text-muted-foreground/60 group-hover:text-background/40"} transition-colors duration-500`}>—</span>
-                                  <span>{it}</span>
-                                </li>
-                              ))}
-                            </ul>
+                        {/* Includes */}
+                        <div className={`mt-10 pt-6 border-t ${featured ? "border-background/20" : "border-soft"}`}>
+                          <div className={`font-mono text-[10px] tracking-[0.2em] uppercase mb-5 ${featured ? "text-background/60" : "text-muted-foreground"}`}>
+                            — What you get
                           </div>
+                          <ul className="space-y-3 font-thai">
+                            {t.includes.map((it) => (
+                              <li key={it} className="flex items-baseline gap-3 text-[13px] leading-[1.7]">
+                                <span className={`font-mono text-[10px] ${featured ? "text-background/40" : "text-muted-foreground/60"}`}>·</span>
+                                <span>{it}</span>
+                              </li>
+                            ))}
+                          </ul>
                         </div>
                       </div>
                     </Reveal>
@@ -380,12 +366,11 @@ const Services = () => (
           {steps.map((st, i) => (
             <Reveal key={st.n} delay={0.08 * i}>
               <div className="relative">
-                <span aria-hidden className="block h-px w-10 bg-gradient-accent mb-6 origin-left animate-[grow_900ms_cubic-bezier(0.76,0,0.24,1)_forwards]" />
-                <div className={`font-mono text-[10px] tracking-[0.2em] ${accent}`}>— {st.n}</div>
-                <h3 className="mt-6 font-display text-[22px] md:text-[26px] tracking-[-0.02em] text-background">
+                <div className="font-mono text-[10px] tracking-[0.2em] text-background/50">— {st.n}</div>
+                <h3 className="mt-6 font-display text-[22px] md:text-[26px] tracking-[-0.02em]">
                   {st.title}.
                 </h3>
-                <p className="mt-3 text-[14px] leading-[1.7] text-background/65">
+                <p className="mt-3 font-thai text-[14px] leading-[1.7] text-background/70 max-w-[300px]">
                   {st.body}
                 </p>
               </div>

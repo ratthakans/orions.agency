@@ -9,14 +9,12 @@ interface Props {
  * track translates by exactly -50%, so the loop has no visible jump.
  */
 const SimpleMarquee = ({ items, duration = 35, className }: Props) => {
-  const doubled = [...items, ...items];
+  // quadruple to ensure a long enough track for seamless loop on wide viewports
+  const doubled = [...items, ...items, ...items, ...items];
   return (
     <div
       className={`marquee group/marquee ${className ?? ""}`}
-      style={{
-        maskImage: "linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent)",
-        WebkitMaskImage: "linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent)",
-      }}
+      style={{ maskImage: "none", WebkitMaskImage: "none" }}
     >
       <div
         className="flex shrink-0 items-center whitespace-nowrap"

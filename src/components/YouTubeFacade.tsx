@@ -14,7 +14,7 @@ interface Props {
  * Massively reduces initial JS payload (saves ~500KB per embed).
  */
 const YouTubeFacade = ({ videoId, title = "Video", className = "", ambient = false }: Props) => {
-  const [active, setActive] = useState(false);
+  const [active, setActive] = useState(ambient);
   const thumb = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
 
   if (active) {

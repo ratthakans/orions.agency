@@ -4,6 +4,7 @@ import ClosingCTA from "@/components/ClosingCTA";
 import YouTubeFacade from "@/components/YouTubeFacade";
 import SimpleMarquee from "@/components/SimpleMarquee";
 import CountUp from "@/components/CountUp";
+import TypingLoop from "@/components/TypingLoop";
 
 const accent = "text-gradient";
 
@@ -56,7 +57,14 @@ const Index = () => (
         </Reveal>
         <Reveal delay={0.25}>
           <p className="mt-12 md:mt-16 font-display text-[14px] md:text-[18px] tracking-[-0.01em]">
-            A boutique <span className={accent}>creative agency.</span>
+            A boutique{" "}
+            <TypingLoop
+              text="creative agency."
+              className={`${accent} inline-block`}
+              typeSpeed={110}
+              deleteSpeed={55}
+              holdMs={2000}
+            />
           </p>
         </Reveal>
       </div>
@@ -106,25 +114,26 @@ const Index = () => (
         </Reveal>
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 border-t border-background/30">
           {threeThings.map((s, i) => (
-            <Reveal key={s.n}>
+            <Reveal key={s.n} delay={0.08 * i}>
               <article
-                className={`group/svc relative h-full py-10 md:py-12 md:px-8 flex flex-col cursor-default transition-colors duration-500 hover:bg-background hover:text-foreground ${i > 0 ? "md:border-l border-background/20" : ""}`}
+                className={`relative h-full py-10 md:py-12 md:px-8 flex flex-col ${i > 0 ? "md:border-l border-background/20" : ""}`}
               >
-                <div className="font-mono text-[10px] tracking-[0.2em] opacity-50 transition-opacity group-hover/svc:opacity-70">— {s.n}</div>
-                <h3 className={`mt-8 font-display ${accent} text-[20px] md:text-[24px] tracking-[-0.02em] transition-transform duration-500 group-hover/svc:-translate-y-0.5`}>{s.title}</h3>
-                <p className="mt-3 font-thai text-[14px] leading-[1.7] text-background/65 group-hover/svc:text-foreground/70 transition-colors max-w-[300px]">{s.lead}</p>
-                <ul className="mt-6 space-y-2 font-thai text-[13px] leading-[1.7] text-background/85 group-hover/svc:text-foreground/90 transition-colors">
+                {/* Animated accent rule */}
+                <span aria-hidden className="block h-px w-12 bg-gradient-accent mb-8 animate-[grow_900ms_cubic-bezier(0.76,0,0.24,1)_forwards] origin-left" />
+                <div className="flex items-baseline justify-between">
+                  <div className="font-mono text-[10px] tracking-[0.2em] opacity-50">— {s.n}</div>
+                  <div className={`font-mono text-[10px] tracking-[0.2em] ${accent}`}>0{i + 1}/03</div>
+                </div>
+                <h3 className={`mt-6 font-display ${accent} text-[24px] md:text-[28px] tracking-[-0.02em]`}>{s.title}</h3>
+                <p className="mt-3 font-thai text-[14px] leading-[1.7] text-background/65 max-w-[300px]">{s.lead}</p>
+                <ul className="mt-8 space-y-3 font-thai text-[13px] leading-[1.7] text-background/85 border-t border-background/15 pt-5">
                   {s.items.map((it, j) => (
-                    <li
-                      key={it}
-                      className="opacity-70 translate-y-1 transition-all duration-500 group-hover/svc:opacity-100 group-hover/svc:translate-y-0"
-                      style={{ transitionDelay: `${j * 60}ms` }}
-                    >
-                      — {it}
+                    <li key={it} className="flex items-baseline gap-3">
+                      <span className="font-mono text-[9px] tracking-[0.18em] opacity-40 tabular-nums">·{String(j + 1).padStart(2, "0")}</span>
+                      <span>{it}</span>
                     </li>
                   ))}
                 </ul>
-                <span aria-hidden className={`pointer-events-none absolute left-0 top-0 h-px w-0 group-hover/svc:w-full bg-gradient-accent transition-[width] duration-700`} />
               </article>
             </Reveal>
           ))}
@@ -148,11 +157,15 @@ const Index = () => (
           </h2>
         </Reveal>
         <div className="mt-16 pt-10 border-t border-background/30 grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8">
-          {steps.map((st) => (
-            <Reveal key={st.n}>
-              <div>
-                <div className={`font-mono text-[10px] tracking-[0.2em] ${accent}`}>— {st.n}</div>
-                <h3 className="mt-5 font-display text-[20px] md:text-[24px] tracking-[-0.02em] text-background">
+          {steps.map((st, i) => (
+            <Reveal key={st.n} delay={0.08 * i}>
+              <div className="relative">
+                <span aria-hidden className="block h-px w-10 bg-gradient-accent mb-6 origin-left animate-[grow_900ms_cubic-bezier(0.76,0,0.24,1)_forwards]" />
+                <div className="flex items-baseline justify-between">
+                  <div className={`font-mono text-[10px] tracking-[0.2em] ${accent}`}>— {st.n}</div>
+                  <div className="font-mono text-[10px] tracking-[0.2em] opacity-40">0{i + 1}/04</div>
+                </div>
+                <h3 className="mt-6 font-display text-[22px] md:text-[26px] tracking-[-0.02em] text-background">
                   {st.title}.
                 </h3>
                 <p className="mt-3 font-thai text-[14px] leading-[1.7] text-background/65">
@@ -175,8 +188,14 @@ const Index = () => (
         </Reveal>
         <div className="mt-16 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 border border-soft">
           {trustedBy.map((name, i) => (
-            <div key={name} className={`aspect-[2/1] flex items-center justify-center text-center px-4 border-soft ${(i % 6) !== 5 ? "border-r" : ""} ${i < trustedBy.length - 6 ? "border-b" : ""}`}>
-              <span className="font-display text-[11px] md:text-[12px] tracking-[0.04em] text-muted-foreground">{name}</span>
+            <div
+              key={name}
+              className={`group relative aspect-[2/1] flex items-center justify-center text-center px-4 overflow-hidden cursor-default border-soft ${(i % 6) !== 5 ? "border-r" : ""} ${i < trustedBy.length - 6 ? "border-b" : ""}`}
+            >
+              <span aria-hidden className="absolute inset-0 bg-foreground translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]" />
+              <span className="relative font-display text-[11px] md:text-[12px] tracking-[0.04em] text-muted-foreground transition-colors duration-300 group-hover:text-background">
+                {name}
+              </span>
             </div>
           ))}
         </div>

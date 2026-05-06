@@ -4,31 +4,37 @@ interface Props {
   className?: string;
 }
 
-/** Pure-CSS infinite marquee — constant speed, no scroll coupling. */
-const SimpleMarquee = ({ items, duration = 40, className }: Props) => (
-  <div
-    className={`marquee ${className ?? ""}`}
-    style={{
-      maskImage: "linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent)",
-      WebkitMaskImage: "linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent)",
-    }}
-  >
-    {[0, 1].map((k) => (
+/**
+ * Seamless infinite marquee. Items are duplicated within a single track and the
+ * track translates by exactly -50%, so the loop has no visible jump.
+ */
+const SimpleMarquee = ({ items, duration = 35, className }: Props) => {
+  const doubled = [...items, ...items];
+  return (
+    <div
+      className={`marquee group/marquee ${className ?? ""}`}
+      style={{
+        maskImage: "linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent)",
+        WebkitMaskImage: "linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent)",
+      }}
+    >
       <div
-        key={k}
-        className="flex gap-16 shrink-0 pr-16 whitespace-nowrap items-center"
+        className="flex shrink-0 items-center whitespace-nowrap"
         style={{ animation: `marquee ${duration}s linear infinite` }}
-        aria-hidden={k === 1}
       >
-        {items.map((it, i) => (
-          <span key={i} className="flex items-center gap-16">
-            <span className="font-display text-[13px] md:text-[15px] tracking-[0.12em] uppercase">{it}</span>
-            <span className="text-background/40">✦</span>
+        {doubled.map((it, i) => (
+          <span key={i} className="flex items-center" aria-hidden={i >= items.length}>
+            <span className="group/item inline-block px-10 md:px-14 transition-transform duration-300 ease-out hover:scale-[1.08]">
+              <span className="font-display text-[13px] md:text-[15px] tracking-[0.14em] uppercase text-background/55 transition-colors duration-300 group-hover/item:text-background">
+                {it}
+              </span>
+            </span>
+            <span className="text-background/30 select-none">✦</span>
           </span>
         ))}
       </div>
-    ))}
-  </div>
-);
+    </div>
+  );
+};
 
 export default SimpleMarquee;

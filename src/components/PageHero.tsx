@@ -13,6 +13,8 @@ interface Props {
   asymmetric?: boolean;
   /** 90° edge label, e.g. "/ 02 SERVICES" */
   verticalLabel?: string;
+  /** Size for the title. Default 'lg'. */
+  titleSize?: "lg" | "md" | "sm";
 }
 
 /** Unified editorial hero — single source of truth for inner page heroes */
@@ -23,6 +25,7 @@ const PageHero = ({
   meta = "ØRIONS · BANGKOK",
   asymmetric = true,
   verticalLabel,
+  titleSize = "lg",
 }: Props) => (
   <section className="relative px-6 md:px-10 pt-32 md:pt-36 pb-20 md:pb-28">
     <CropMarks />
@@ -39,7 +42,7 @@ const PageHero = ({
       <div className={asymmetric ? "grid grid-cols-1 md:grid-cols-12 gap-8" : ""}>
         <div className={asymmetric ? "md:col-span-10 md:col-start-2" : ""}>
           <Reveal delay={0.1}>
-            <h1 className="font-display h-display-lg">
+            <h1 className={`font-display h-display-${titleSize}`}>
               {title}
             </h1>
           </Reveal>

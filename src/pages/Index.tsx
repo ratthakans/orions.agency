@@ -165,13 +165,6 @@ const Index = () => (
         </div>
       </div>
 
-      {/* Bottom ticker — reverse order for visual counter-flow */}
-      <div className="border-y border-foreground py-3 overflow-hidden bg-background">
-        <ScrollMarquee
-          baseSpeed={40}
-          items={["REAL CONTENT WINS", "ADS COST MORE", "8-SECOND ATTENTION", "CPM ↑ 20% YoY", "AI · 71% OF IMAGES", "NOISE"]}
-        />
-      </div>
     </section>
 
     {/* THREE THINGS, PROPERLY */}

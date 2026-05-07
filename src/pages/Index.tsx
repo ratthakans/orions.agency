@@ -342,13 +342,35 @@ const Index = () => (
         <SimpleMarquee
           duration={42}
           items={[
-            "07 PROJECTS LIVE",
-            "05 INDUSTRIES",
             "FROM IDEA TO FINAL CUT",
-            "BANGKOK — EST. 2026",
             "ONE TEAM · NO HANDOFF",
+            "07 PROJECTS LIVE",
           ]}
         />
+      </div>
+    </section>
+
+    {/* IMAGE STRIP — full-bleed proof of craft, between hero and work */}
+    <section className="relative bg-foreground">
+      <div className="grid grid-cols-3 gap-px bg-background/10">
+        {[selectedWork[3], selectedWork[1], selectedWork[6]].map((w, i) => (
+          <div
+            key={w.n}
+            className="relative overflow-hidden bg-foreground"
+            style={{ aspectRatio: "4 / 5" }}
+          >
+            <img
+              src={w.img}
+              alt={w.title}
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-cover grayscale"
+            />
+            <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between font-mono text-[9px] tracking-[0.25em] text-background/95 mix-blend-difference">
+              <span>— {String(i + 1).padStart(2, "0")} / 03</span>
+              <span>{w.niche}</span>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
 

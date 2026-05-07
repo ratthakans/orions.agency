@@ -3,7 +3,6 @@ import ClosingCTA from "@/components/ClosingCTA";
 import SEO from "@/components/SEO";
 import TypingLoop from "@/components/TypingLoop";
 import SimpleMarquee from "@/components/SimpleMarquee";
-import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 
 const SITE_URL = "https://orions.agency";
@@ -242,13 +241,6 @@ const serviceTables: ServiceTable[] = [
   },
 ];
 
-const steps = [
-  { n: "01", title: "Listen", body: "30-min call. Honest fit-check." },
-  { n: "02", title: "Plan",   body: "Short proposal. Real numbers." },
-  { n: "03", title: "Build",  body: "Strategy, identity, content, ads." },
-  { n: "04", title: "Run",    body: "Monthly reports. Real results." },
-];
-
 const Services = () => (
   <div>
     <SEO
@@ -278,27 +270,27 @@ const Services = () => (
       ]}
     />
 
-    {/* HERO — dark, mirrors Index hero pattern */}
-    <section className="relative min-h-[80vh] flex flex-col bg-foreground text-background overflow-hidden">
-      <div className="relative flex-1 flex flex-col items-center justify-center text-center px-6 md:px-10 pt-32 pb-20">
+    {/* HERO — dark, compact */}
+    <section className="relative bg-foreground text-background overflow-hidden">
+      <div className="relative flex flex-col items-center justify-center text-center px-6 md:px-10 pt-32 md:pt-36 pb-16 md:pb-20">
         <Reveal>
-          <p className="font-mono text-[10px] tracking-[0.4em] text-background/60 mb-10 md:mb-14">
+          <p className="font-mono text-[10px] tracking-[0.4em] text-background/60 mb-8 md:mb-10">
             — SERVICES · 03 PRACTICES
           </p>
         </Reveal>
         <Reveal delay={0.1}>
-          <h1 className="font-display h-display-lg leading-[0.95] text-balance max-w-[1100px]">
+          <h1 className="font-display h-display-md leading-[0.95] text-balance max-w-[900px]">
             Three things, <span className={accent}>properly.</span>
           </h1>
         </Reveal>
         <Reveal delay={0.25}>
-          <p className="mt-10 md:mt-14 font-display text-[14px] md:text-[18px] tracking-[-0.01em] max-w-[640px]">
+          <p className="mt-8 md:mt-10 font-display text-[13px] md:text-[16px] tracking-[-0.01em] max-w-[560px]">
             Branding, content & social — built by{" "}
             <TypingLoop text="one team" className={accent} />
           </p>
         </Reveal>
       </div>
-      <div className="relative border-t border-background/15 py-5">
+      <div className="relative border-t border-background/15 py-4">
         <SimpleMarquee
           duration={42}
           items={[
@@ -493,62 +485,6 @@ const Services = () => (
             <li className="flex items-baseline gap-3"><span className="font-mono text-[10px] text-muted-foreground/60">·</span><span>1-page 90-day roadmap</span></li>
             <li className="flex items-baseline gap-3"><span className="font-mono text-[10px] text-muted-foreground/60">·</span><span>1-hour working session</span></li>
           </ul>
-        </div>
-      </div>
-    </section>
-
-    {/* PROCESS — light, mirrors Index right→left animated timeline */}
-    <section className="relative px-6 md:px-10">
-      <div className="border-t border-foreground py-24 md:py-32 max-w-[1200px] mx-auto">
-        <Reveal delay={0.05}>
-          <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground mb-4">
-            — PROCESS
-          </div>
-          <h2 className="font-display h-display-sm">
-            From hello, live in <span className={accent}>4 weeks.</span>
-          </h2>
-        </Reveal>
-
-        <div className="mt-16 relative">
-          <motion.div
-            className="absolute top-[14px] left-0 right-0 h-px bg-foreground/30 origin-right"
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 1.1, ease: [0.76, 0, 0.24, 1] }}
-            aria-hidden
-          />
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-y-12 md:gap-x-8">
-            {steps.map((st, i) => {
-              const delay = 0.15 + (steps.length - 1 - i) * 0.12;
-              return (
-                <motion.div
-                  key={st.n}
-                  initial={{ opacity: 0, x: 40 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-80px" }}
-                  transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay }}
-                  className="group relative pt-10 cursor-default"
-                >
-                  <motion.span
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={{ once: true, margin: "-80px" }}
-                    transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1], delay: delay + 0.1 }}
-                    className="absolute top-[8px] left-0 w-3.5 h-3.5 bg-background border border-foreground group-hover:bg-gradient-accent group-hover:border-transparent transition-colors"
-                    aria-hidden
-                  />
-                  <div className="font-mono text-[10px] tracking-[0.25em] text-muted-foreground">— {st.n}</div>
-                  <h3 className="mt-4 font-display text-[22px] md:text-[26px] tracking-[-0.02em] group-hover:text-gradient transition-colors">
-                    {st.title}.
-                  </h3>
-                  <p className="mt-3 font-thai text-[14px] leading-[1.7] text-muted-foreground max-w-[260px]">
-                    {st.body}
-                  </p>
-                </motion.div>
-              );
-            })}
-          </div>
         </div>
       </div>
     </section>

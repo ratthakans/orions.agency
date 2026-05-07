@@ -793,57 +793,6 @@ const Services = () => (
             </Reveal>
           </div>
         </div>
-
-        {/* Process strip */}
-        <div className="mt-24 md:mt-32">
-          <Reveal>
-            <div className="flex items-baseline justify-between border-t border-background/30 pt-5">
-              <p className="font-mono text-[10px] tracking-[0.4em] text-background/55">— PROCESS</p>
-              <p className="font-mono text-[10px] tracking-[0.3em] text-background/45 hidden sm:block">FROM HELLO · LIVE IN 4 WEEKS</p>
-            </div>
-          </Reveal>
-          <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-y-10">
-            {process.map((p, i) => (
-              <Reveal key={p.n} delay={0.06 * i}>
-                <div className={`md:px-6 ${i > 0 ? "md:border-l border-background/15" : ""}`}>
-                  <div className="font-mono text-[10px] tracking-[0.3em] text-background/55">{p.n}</div>
-                  <h3 className="mt-3 font-display text-[18px] md:text-[20px] tracking-[-0.02em]">{p.title}.</h3>
-                  <p className="mt-2 font-thai text-[13px] leading-[1.65] text-background/65">{p.body}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-
-    {/* FAQ — simple accordion */}
-    <section className="px-6 md:px-10">
-      <div className="max-w-[860px] mx-auto py-16 md:py-20">
-        <Reveal>
-          <div className="flex items-baseline gap-4 border-t border-foreground pt-4">
-            <p className="font-mono text-[10px] tracking-[0.4em] text-muted-foreground">— QUESTIONS</p>
-            <h2 className="font-display text-[20px] md:text-[26px] tracking-[-0.02em]">
-              Things you might <span className={accent}>be wondering.</span>
-            </h2>
-          </div>
-        </Reveal>
-
-        <Accordion type="single" collapsible className="mt-8">
-          {faqs.map((f, i) => (
-            <AccordionItem key={f.q} value={`faq-${i}`} className="border-b border-soft">
-              <AccordionTrigger className="group py-4 hover:no-underline text-left [&>svg]:hidden">
-                <div className="flex items-center gap-4 w-full">
-                  <span className="font-display text-[14px] md:text-[15px] tracking-[-0.01em] flex-1">{f.q}</span>
-                  <Plus className="w-3 h-3 text-foreground/50 transition-transform duration-300 group-data-[state=open]:rotate-45 shrink-0" />
-                </div>
-              </AccordionTrigger>
-              <AccordionContent className="pb-5">
-                <p className="font-thai text-[13px] leading-[1.7] text-foreground/70 max-w-[680px]">{f.a}</p>
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
       </div>
     </section>
 

@@ -1,6 +1,10 @@
 import Reveal from "@/components/Reveal";
 import ClosingCTA from "@/components/ClosingCTA";
 import SEO from "@/components/SEO";
+import TypingLoop from "@/components/TypingLoop";
+import SimpleMarquee from "@/components/SimpleMarquee";
+import { motion } from "framer-motion";
+import { Check } from "lucide-react";
 
 const SITE_URL = "https://orions.agency";
 const accent = "text-gradient";
@@ -34,16 +38,21 @@ const services = [
 
 type Tier = {
   name: string;
-  from: string;        // "Start from THB 150,000"
-  unit?: string;       // "/ project" or "/ month"
+  from: string;            // "Start from THB 150,000"
+  unit?: string;           // "/ project" or "/ month"
   forWho: string;
-  includes: string[];
+  timeline: string;        // e.g. "3–4 weeks"
+  deliverables: string;    // short phrase summary
+  includes: string[];      // detailed list of what's inside
+  bestFor?: string[];      // example brand types
+  highlight?: boolean;     // visually highlighted tier
 };
 
 type ServiceTable = {
   n: string;
   title: string;
   lead: string;
+  intro: string;
   tiers: Tier[];
 };
 
@@ -52,30 +61,50 @@ const serviceTables: ServiceTable[] = [
     n: "01",
     title: "Branding",
     lead: "Identity that ships.",
+    intro:
+      "Built to hold up across feed, store and packaging. Strategy first, then a system your team and partners can actually use day one.",
     tiers: [
       {
         name: "Essential Look",
         from: "Start from THB 150,000",
         unit: "/ project",
         forWho: "New brands that need to look premium and credible from day one.",
+        timeline: "3–4 weeks",
+        deliverables: "Core identity kit · 1 round of revision",
         includes: [
-          "Logo + marks",
-          "Color + typography system",
-          "Business card",
-          "Basic brand guideline",
+          "Discovery workshop (2 hours, founders + key team)",
+          "1 logo direction, refined to final master file",
+          "Primary + secondary color palette (HEX, RGB, CMYK, Pantone)",
+          "Type system: display + body pair, full hierarchy",
+          "Business card + email signature template",
+          "12-page brand guideline PDF",
+          "Source files: AI, SVG, PNG, PDF",
         ],
+        bestFor: ["Café · single-location restaurant", "Indie fashion label", "Boutique stay (under 20 keys)"],
       },
       {
         name: "Full Brand System",
         from: "Start from THB 350,000",
         unit: "/ project",
         forWho: "Category leaders building a complete brand system across every touchpoint.",
+        timeline: "6–8 weeks",
+        deliverables: "End-to-end brand system + launch toolkit",
         includes: [
-          "Everything in Essential",
-          "Brand voice + verbal system",
-          "Key visual / ad system",
-          "Launch plan + rollout toolkit",
+          "Everything in Essential Look",
+          "Brand strategy: positioning, audience, competitive map",
+          "Verbal identity: tone of voice, key messages, naming conventions",
+          "3 logo directions explored, refined to final",
+          "Extended palette: surfaces, semantic + accent system",
+          "Iconography + illustration direction",
+          "Photography art direction + 1 sample shoot brief",
+          "Key visual / ad template system (3 layouts × 5 sizes)",
+          "Packaging or signage design (1 application)",
+          "Social launch kit: 12 templates, 5 reels covers",
+          "60-page brand book + Figma library",
+          "Launch plan with rollout checklist",
         ],
+        bestFor: ["Hotel group · resort", "Multi-outlet F&B brand", "Fashion label scaling to retail"],
+        highlight: true,
       },
     ],
   },
@@ -83,30 +112,64 @@ const serviceTables: ServiceTable[] = [
     n: "02",
     title: "Content Production",
     lead: "Work that earns the scroll.",
+    intro:
+      "Shot, cut and designed in-house. One team handles concept, production and post — so the work stays on-brand from brief to final cut.",
     tiers: [
       {
         name: "High-Impact Assets",
         from: "Start from THB 60,000",
         unit: "/ project",
         forWho: "Photo and short-form video that stops the thumb in 1.7 seconds.",
+        timeline: "2–3 weeks",
+        deliverables: "1 shoot day · 3–5 finished assets",
         includes: [
-          "Photo or short-form video × 3–5",
-          "Concept + art direction",
-          "Shoot day + post-production",
-          "Platform-ready exports",
+          "Pre-pro: concept, mood, shot list, call sheet",
+          "1 shoot day (up to 8 hours, 1 location)",
+          "Director, DP, photographer, 1 stylist",
+          "3–5 finished short-form videos (15–30s) OR 15–25 hero photos",
+          "Color grade + sound design",
+          "Captions burned-in (TH + EN)",
+          "Platform-ready exports: Reels, TikTok, Shorts, feed, story",
         ],
+        bestFor: ["Menu launch", "Seasonal campaign", "Always-on content refresh"],
+      },
+      {
+        name: "Monthly Content",
+        from: "Start from THB 90,000",
+        unit: "/ month",
+        forWho: "A steady stream of on-brand assets without the back-and-forth.",
+        timeline: "Monthly cycle, 2-week onboarding",
+        deliverables: "1 shoot/mo · 8–12 assets/mo",
+        includes: [
+          "Monthly content calendar tied to your campaigns",
+          "1 shoot day per month (half-day for additional)",
+          "8–12 short-form videos OR 20+ photos per month",
+          "Graphic design: feed posts, story templates, carousels",
+          "Light motion graphics for key launches",
+          "Asset library managed in Drive / Frame.io",
+          "Monthly review + content review meeting",
+        ],
+        bestFor: ["Hotels · always-on F&B", "DTC fashion", "Membership clubs"],
+        highlight: true,
       },
       {
         name: "Master Story",
         from: "Start from THB 180,000",
         unit: "/ project",
         forWho: "Brand film or documentary that earns trust for the long run.",
+        timeline: "6–10 weeks",
+        deliverables: "1 hero film (60–180s) + cut-downs",
         includes: [
-          "Brand film or documentary",
-          "Script + storyboard",
-          "Full production crew",
-          "Color, sound, finishing",
+          "Story development: research, interviews, treatment",
+          "Script + storyboard, locked with you before shoot",
+          "2–3 shoot days, full crew (director, DP, sound, gaffer, AD)",
+          "Original music or licensed score",
+          "Pro color (DaVinci) + sound mix",
+          "1 hero edit (60–180s) + 3 social cut-downs (15s / 30s / 9:16)",
+          "Behind-the-scenes mini-doc (optional add-on)",
+          "Master files + delivery on every channel spec",
         ],
+        bestFor: ["Brand anniversary / repositioning", "Founder story", "New property launch"],
       },
     ],
   },
@@ -114,42 +177,66 @@ const serviceTables: ServiceTable[] = [
     n: "03",
     title: "Social Media",
     lead: "Run monthly. Reported clearly.",
+    intro:
+      "Strategy → daily posting → community → paid ads, all under one team. Reported monthly with the numbers that matter to your business — not vanity metrics.",
     tiers: [
       {
         name: "Foundation",
         from: "Start from THB 50,000",
         unit: "/ month",
         forWho: "Steady, on-brand presence — consistent posting and community care.",
+        timeline: "3-month minimum, monthly billing",
+        deliverables: "8–10 posts/mo + 1 channel managed",
         includes: [
-          "8–10 high-quality posts / month",
-          "Content calendar + copy",
-          "Community management (light)",
-          "Monthly report",
+          "1 channel managed (IG or TikTok or Facebook)",
+          "Monthly content calendar + caption writing (TH + EN)",
+          "8–10 high-quality posts per month (mix of static + reel)",
+          "Hashtag + posting strategy",
+          "Community management: replies within 12 hours, business hours",
+          "Monthly report: reach, follower growth, top posts, learnings",
+          "1 strategy call per month (45 min)",
         ],
+        bestFor: ["Boutique hotels", "Single-outlet F&B", "Emerging fashion labels"],
       },
       {
         name: "Growth",
         from: "Start from THB 80,000",
         unit: "/ month",
         forWho: "Expanding reach — full content engine plus performance ads.",
+        timeline: "3-month minimum · 6-month recommended",
+        deliverables: "Multi-channel · paid ads · bi-weekly review",
         includes: [
-          "Everything in Foundation",
-          "Short-form video production",
-          "Paid ads strategy + management",
-          "Bi-weekly performance review",
+          "Everything in Foundation, across 2 channels",
+          "12–16 posts per month including dedicated short-form video",
+          "Short-form video production (4–6 reels/mo, in-house)",
+          "Paid ads: strategy, setup, creative, weekly optimization",
+          "Ad spend management up to THB 150,000/mo (spend not included)",
+          "Pixel / conversion tracking setup",
+          "Bi-weekly performance review + creative iteration",
+          "Quarterly strategy reset",
         ],
+        bestFor: ["Hotel groups", "Multi-outlet F&B chains", "Fashion brands scaling DTC"],
+        highlight: true,
       },
       {
         name: "Mastery",
         from: "Start from THB 120,000",
         unit: "/ month",
         forWho: "End-to-end ownership — like an in-house marketing department.",
+        timeline: "6-month minimum · annual partnership",
+        deliverables: "Always-on team · senior direction · weekly syncs",
         includes: [
-          "Everything in Growth",
-          "Senior consultant direction",
-          "Full-funnel paid media",
-          "Weekly strategy syncs",
+          "Everything in Growth, across 3+ channels",
+          "20+ posts per month + always-on short-form pipeline",
+          "Senior consultant: brand, content, paid lead",
+          "Full-funnel paid media: Meta, TikTok, Google, retargeting",
+          "Ad spend management up to THB 500,000/mo",
+          "Influencer + creator collabs (sourcing + management)",
+          "Email / CRM lifecycle support",
+          "Weekly strategy syncs + monthly executive readout",
+          "Priority on production days + crisis response",
         ],
+        bestFor: ["Hospitality groups", "Established fashion houses", "Premium F&B operators"],
       },
     ],
   },
@@ -191,38 +278,64 @@ const Services = () => (
       ]}
     />
 
-    {/* HERO — dark, single clear message */}
-    <section className="relative bg-foreground text-background">
-      <div className="px-6 md:px-10 pt-40 md:pt-48 pb-24 md:pb-32 max-w-[1200px] mx-auto">
-        <Reveal delay={0.05}>
-          <p className="font-mono text-[10px] tracking-[0.4em] text-background/60 mb-10">
-            — SERVICES
+    {/* HERO — dark, mirrors Index hero pattern */}
+    <section className="relative min-h-[80vh] flex flex-col bg-foreground text-background overflow-hidden">
+      <div className="relative flex-1 flex flex-col items-center justify-center text-center px-6 md:px-10 pt-32 pb-20">
+        <Reveal>
+          <p className="font-mono text-[10px] tracking-[0.4em] text-background/60 mb-10 md:mb-14">
+            — SERVICES · 03 PRACTICES
           </p>
         </Reveal>
         <Reveal delay={0.1}>
-          <h1 className="font-display h-display-md text-balance max-w-[900px]">
+          <h1 className="font-display h-display-lg leading-[0.95] text-balance max-w-[1100px]">
             Three things, <span className={accent}>properly.</span>
           </h1>
         </Reveal>
-        <Reveal delay={0.2}>
-          <p className="mt-8 font-thai text-[15px] md:text-[17px] leading-[1.65] text-background/70 max-w-[560px]">
-            Branding, content, and social media — managed end-to-end by one team.
-            No handoff. Live in 4 weeks.
+        <Reveal delay={0.25}>
+          <p className="mt-10 md:mt-14 font-display text-[14px] md:text-[18px] tracking-[-0.01em] max-w-[640px]">
+            Branding, content & social — built by{" "}
+            <TypingLoop text="one team" className={accent} />
           </p>
         </Reveal>
       </div>
+      <div className="relative border-t border-background/15 py-5">
+        <SimpleMarquee
+          duration={42}
+          items={[
+            "BRANDING",
+            "CONTENT PRODUCTION",
+            "SOCIAL MEDIA",
+            "PAID ADS",
+            "ONE TEAM · NO HANDOFF",
+          ]}
+        />
+      </div>
     </section>
 
-    {/* WHAT WE DO — three services overview, light */}
+    {/* WHAT WE DO — light, three services overview with anchor jumps */}
     <section className="px-6 md:px-10">
       <div className="max-w-[1200px] mx-auto py-24 md:py-32">
-        <div className="grid grid-cols-1 md:grid-cols-3 border-t border-foreground">
+        <Reveal delay={0.05}>
+          <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground mb-4">
+            — WHAT WE DO
+          </div>
+          <h2 className="font-display h-display-sm max-w-[820px]">
+            Three practices, <span className={accent}>one studio.</span>
+          </h2>
+        </Reveal>
+
+        <div className="mt-14 md:mt-16 grid grid-cols-1 md:grid-cols-3 border-t border-foreground">
           {services.map((s, i) => (
             <Reveal key={s.n} delay={0.08 * i}>
-              <article className={`h-full py-10 md:py-12 md:px-8 flex flex-col ${i > 0 ? "md:border-l border-soft" : ""}`}>
+              <a
+                href={`#svc-${s.n}`}
+                className={`group h-full py-10 md:py-12 md:px-8 flex flex-col ${i > 0 ? "md:border-l border-soft" : ""}`}
+              >
                 <div className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground">— {s.n}</div>
-                <h2 className="mt-6 font-display text-[22px] md:text-[26px] tracking-[-0.02em]">{s.title}.</h2>
-                <p className="mt-3 font-thai text-[14px] leading-[1.7] text-foreground/70 max-w-[300px]">{s.lead}</p>
+                <h3 className="mt-6 font-display text-[22px] md:text-[26px] tracking-[-0.02em] group-hover:text-gradient transition-colors">
+                  {s.title}.
+                </h3>
+                <p className="mt-3 font-thai text-[14px] leading-[1.7] text-foreground/70 max-w-[320px]">{s.lead}</p>
                 <ul className="mt-8 space-y-3 font-thai text-[13px] leading-[1.7] border-t border-soft pt-5">
                   {s.items.map((it) => (
                     <li key={it} className="flex items-baseline gap-3">
@@ -231,59 +344,117 @@ const Services = () => (
                     </li>
                   ))}
                 </ul>
-              </article>
+                <span className="mt-8 font-mono text-[10px] tracking-[0.3em] uppercase text-foreground/60 group-hover:text-foreground transition-colors">
+                  Jump to packages →
+                </span>
+              </a>
             </Reveal>
           ))}
         </div>
       </div>
     </section>
 
-    {/* PRICING — single clear table */}
-    <section className="px-6 md:px-10">
-      <div className="max-w-[1200px] mx-auto py-24 md:py-32">
+    {/* PRICING — dark, detailed package cards */}
+    <section className="relative bg-foreground text-background px-6 md:px-10">
+      <div className="border-t border-background/30 py-24 md:py-32 max-w-[1280px] mx-auto">
         <Reveal delay={0.05}>
-          <p className="font-mono text-[10px] tracking-[0.4em] text-muted-foreground mb-6">— PRICING</p>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <h2 className="font-display h-display-sm max-w-[820px]">
+          <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-background/55 mb-4">
+            — PACKAGES & PRICING
+          </div>
+          <h2 className="font-display h-display-sm max-w-[900px]">
             Honest pricing, <span className={accent}>start from.</span>
           </h2>
+          <p className="mt-6 font-thai text-[14px] md:text-[15px] leading-[1.7] text-background/70 max-w-[640px]">
+            Every engagement starts with a 30-min call. We&apos;ll tell you which package fits — or build a custom scope if none does.
+          </p>
         </Reveal>
 
-        <div className="mt-16 md:mt-20 space-y-16 md:space-y-20">
+        <div className="mt-16 md:mt-20 space-y-20 md:space-y-28">
           {serviceTables.map((svc) => (
             <article key={svc.n} id={`svc-${svc.n}`} className="scroll-mt-24">
-              <header className="flex items-baseline gap-4 border-t border-foreground pt-5 pb-8">
-                <span className="font-mono text-[10px] tracking-[0.25em] text-muted-foreground tabular-nums">— {svc.n}</span>
-                <h3 className="font-display text-[22px] md:text-[28px] tracking-[-0.02em]">{svc.title}.</h3>
-              </header>
+              <Reveal delay={0.05}>
+                <header className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-baseline border-t border-background/30 pt-6 pb-10 md:pb-12">
+                  <div className="md:col-span-1 font-mono text-[10px] tracking-[0.25em] text-background/45 tabular-nums">
+                    — {svc.n}
+                  </div>
+                  <h3 className="md:col-span-5 font-display text-[28px] md:text-[40px] tracking-[-0.02em] leading-[1.05]">
+                    {svc.title}.
+                  </h3>
+                  <p className="md:col-span-6 font-thai text-[14px] md:text-[15px] leading-[1.75] text-background/70">
+                    {svc.intro}
+                  </p>
+                </header>
+              </Reveal>
 
-              <div className={`grid grid-cols-1 ${svc.tiers.length === 3 ? "md:grid-cols-3" : "md:grid-cols-2"} border-t border-soft`}>
+              <div className={`grid grid-cols-1 ${svc.tiers.length === 3 ? "md:grid-cols-3" : "md:grid-cols-2"} border-t border-background/15`}>
                 {svc.tiers.map((t, i) => (
                   <Reveal key={t.name} delay={0.06 * i}>
-                    <div className={`h-full p-8 md:p-10 flex flex-col ${i > 0 ? "md:border-l border-soft" : ""}`}>
-                      <h4 className="font-display text-[18px] md:text-[20px] tracking-[-0.02em]">{t.name}.</h4>
-                      <p className="mt-2 font-thai text-[13px] leading-[1.65] text-foreground/70 min-h-[3em]">
+                    <div className={`relative h-full p-8 md:p-10 flex flex-col ${i > 0 ? "md:border-l border-background/15" : ""}`}>
+                      {t.highlight && (
+                        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-accent" aria-hidden />
+                      )}
+                      <div className="flex items-center justify-between">
+                        <h4 className="font-display text-[20px] md:text-[22px] tracking-[-0.02em]">{t.name}.</h4>
+                        {t.highlight && (
+                          <span className="font-mono text-[9px] tracking-[0.3em] uppercase text-background bg-foreground/0 border border-background/40 px-2 py-1">
+                            Most chosen
+                          </span>
+                        )}
+                      </div>
+
+                      <p className="mt-3 font-thai text-[13px] leading-[1.7] text-background/70 min-h-[3.5em]">
                         {t.forWho}
                       </p>
 
-                      <div className="mt-8 pt-5 border-t border-soft flex items-baseline gap-2">
-                        <div className="font-display text-[28px] md:text-[34px] leading-none tracking-[-0.03em] tabular-nums">
-                          {t.from.replace("Start from THB ", "")}
+                      <div className="mt-7 pt-5 border-t border-background/15">
+                        <div className="flex items-baseline gap-2">
+                          <div className="font-display text-[34px] md:text-[42px] leading-none tracking-[-0.03em] tabular-nums">
+                            {t.from.replace("Start from THB ", "")}
+                          </div>
+                          <div className="font-mono text-[10px] tracking-[0.2em] text-background/55">
+                            THB {t.unit?.replace("/ ", "/")}
+                          </div>
                         </div>
-                        <div className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground">
-                          THB {t.unit?.replace("/ ", "/")}
+                        <div className="mt-2 font-mono text-[9px] tracking-[0.25em] uppercase text-background/45">
+                          Start from
                         </div>
                       </div>
 
-                      <ul className="mt-8 space-y-2.5 font-thai">
-                        {t.includes.map((it) => (
-                          <li key={it} className="flex items-baseline gap-3 text-[13px] leading-[1.7]">
-                            <span className="font-mono text-[10px] text-muted-foreground/60">·</span>
-                            <span>{it}</span>
-                          </li>
-                        ))}
-                      </ul>
+                      <dl className="mt-7 grid grid-cols-2 gap-y-3 gap-x-4 border-t border-background/15 pt-5 font-mono text-[10px] tracking-[0.05em]">
+                        <dt className="text-background/45 uppercase tracking-[0.2em]">Timeline</dt>
+                        <dd className="text-background/85 text-right">{t.timeline}</dd>
+                        <dt className="text-background/45 uppercase tracking-[0.2em]">Delivers</dt>
+                        <dd className="text-background/85 text-right">{t.deliverables}</dd>
+                      </dl>
+
+                      <div className="mt-7 pt-5 border-t border-background/15">
+                        <div className="font-mono text-[9px] tracking-[0.3em] uppercase text-background/45 mb-4">
+                          What&apos;s included
+                        </div>
+                        <ul className="space-y-2.5">
+                          {t.includes.map((it) => (
+                            <li key={it} className="flex items-start gap-3 font-thai text-[13px] leading-[1.6] text-background/85">
+                              <Check className="w-3 h-3 mt-1 shrink-0 text-background/50" />
+                              <span>{it}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      {t.bestFor && (
+                        <div className="mt-7 pt-5 border-t border-background/15">
+                          <div className="font-mono text-[9px] tracking-[0.3em] uppercase text-background/45 mb-3">
+                            Best for
+                          </div>
+                          <ul className="space-y-1.5">
+                            {t.bestFor.map((b) => (
+                              <li key={b} className="font-mono text-[10px] tracking-[0.05em] text-background/65">
+                                — {b}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
                     </div>
                   </Reveal>
                 ))}
@@ -291,10 +462,16 @@ const Services = () => (
             </article>
           ))}
         </div>
+
+        <Reveal delay={0.05}>
+          <p className="mt-16 font-mono text-[10px] tracking-[0.25em] uppercase text-background/45 max-w-[640px]">
+            * All prices in THB, exclude 7% VAT. Ad spend, third-party licensing, talent fees and travel billed at cost.
+          </p>
+        </Reveal>
       </div>
     </section>
 
-    {/* AUDIT — compact promo strip */}
+    {/* AUDIT — compact promo strip, light */}
     <section className="px-6 md:px-10">
       <div className="max-w-[1200px] mx-auto py-24 md:py-32">
         <div className="border-y border-foreground py-12 md:py-16 grid grid-cols-1 md:grid-cols-12 gap-y-8 md:gap-x-12 items-center">
@@ -320,28 +497,58 @@ const Services = () => (
       </div>
     </section>
 
-    {/* PROCESS — dark, mirrors Index pattern */}
-    <section className="relative px-6 md:px-10 bg-foreground text-background">
-      <div className="border-t border-background/30 py-28 md:py-36 max-w-[1200px] mx-auto">
+    {/* PROCESS — light, mirrors Index right→left animated timeline */}
+    <section className="relative px-6 md:px-10">
+      <div className="border-t border-foreground py-24 md:py-32 max-w-[1200px] mx-auto">
         <Reveal delay={0.05}>
+          <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground mb-4">
+            — PROCESS
+          </div>
           <h2 className="font-display h-display-sm">
             From hello, live in <span className={accent}>4 weeks.</span>
           </h2>
         </Reveal>
-        <div className="mt-16 pt-10 border-t border-background/30 grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8">
-          {steps.map((st, i) => (
-            <Reveal key={st.n} delay={0.08 * i}>
-              <div className="relative">
-                <div className="font-mono text-[10px] tracking-[0.2em] text-background/50">— {st.n}</div>
-                <h3 className="mt-6 font-display text-[22px] md:text-[26px] tracking-[-0.02em]">
-                  {st.title}.
-                </h3>
-                <p className="mt-3 font-thai text-[14px] leading-[1.7] text-background/70 max-w-[300px]">
-                  {st.body}
-                </p>
-              </div>
-            </Reveal>
-          ))}
+
+        <div className="mt-16 relative">
+          <motion.div
+            className="absolute top-[14px] left-0 right-0 h-px bg-foreground/30 origin-right"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 1.1, ease: [0.76, 0, 0.24, 1] }}
+            aria-hidden
+          />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-y-12 md:gap-x-8">
+            {steps.map((st, i) => {
+              const delay = 0.15 + (steps.length - 1 - i) * 0.12;
+              return (
+                <motion.div
+                  key={st.n}
+                  initial={{ opacity: 0, x: 40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay }}
+                  className="group relative pt-10 cursor-default"
+                >
+                  <motion.span
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true, margin: "-80px" }}
+                    transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1], delay: delay + 0.1 }}
+                    className="absolute top-[8px] left-0 w-3.5 h-3.5 bg-background border border-foreground group-hover:bg-gradient-accent group-hover:border-transparent transition-colors"
+                    aria-hidden
+                  />
+                  <div className="font-mono text-[10px] tracking-[0.25em] text-muted-foreground">— {st.n}</div>
+                  <h3 className="mt-4 font-display text-[22px] md:text-[26px] tracking-[-0.02em] group-hover:text-gradient transition-colors">
+                    {st.title}.
+                  </h3>
+                  <p className="mt-3 font-thai text-[14px] leading-[1.7] text-muted-foreground max-w-[260px]">
+                    {st.body}
+                  </p>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

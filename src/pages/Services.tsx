@@ -4,12 +4,6 @@ import SEO from "@/components/SEO";
 import SimpleMarquee from "@/components/SimpleMarquee";
 import CTA from "@/components/CTA";
 import { ArrowUpRight, Plus } from "lucide-react";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 
 const SITE_URL = "https://orions.agency";
 const accent = "text-gradient";
@@ -428,48 +422,6 @@ const serviceTables: ServiceTable[] = [
         ],
       },
     ],
-  },
-];
-
-const process = [
-  { n: "01", title: "Listen", body: "30-min call. Honest fit-check." },
-  { n: "02", title: "Plan", body: "Short proposal. Real numbers." },
-  { n: "03", title: "Build", body: "Strategy, identity, content, ads." },
-  { n: "04", title: "Run", body: "Monthly reports. Real results." },
-];
-
-const faqs = [
-  {
-    q: "Can I customize a package?",
-    a: "Yes. Pick a base package and add what you need. Every Social retainer has transparent add-ons. Branding and Content can be quoted custom.",
-  },
-  {
-    q: "What if I don't like the first draft?",
-    a: "Every package includes 2 rounds of revision. If you're unsure, start with an Audit first.",
-  },
-  {
-    q: "Can I cancel my Social retainer?",
-    a: "Foundation — after 3 months, month-to-month. Growth — after 3 months, 30-day notice. Mastery — after 6 months, 30-day notice.",
-  },
-  {
-    q: "Will I work with junior staff?",
-    a: "No. Founder oversees every project. Same team from kickoff to delivery.",
-  },
-  {
-    q: "Do you do websites or SEO?",
-    a: "Not directly. We recommend trusted partners — no markup, no commission.",
-  },
-  {
-    q: "What if I'm not Café / D2C / Tech?",
-    a: "We work with any consumer-facing brand. Best fit — brands that care about how they look and how they're talked about.",
-  },
-  {
-    q: "How fast can we start?",
-    a: "Audit — 7 days from booking. Branding — 4–10 weeks depending on tier. Social retainer — first post live within 14 days.",
-  },
-  {
-    q: "What payment terms?",
-    a: "Branding & Content — 50% deposit, 50% on delivery. Social retainer — monthly in advance. Bank transfer or credit card.",
   },
 ];
 

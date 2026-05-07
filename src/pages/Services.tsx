@@ -195,7 +195,7 @@ const Services = () => (
     <section className="relative bg-foreground text-background overflow-hidden">
       <div className="px-6 md:px-10 pt-32 md:pt-40 pb-16 md:pb-24 max-w-[1400px] mx-auto">
         {/* Title block */}
-        <div className="border-t border-background/25 pt-12 md:pt-16 grid grid-cols-12">
+        <div className="grid grid-cols-12">
           <div className="col-span-12 md:col-span-10 md:col-start-2">
             <Reveal delay={0.08}>
               <h1 className="font-display h-display-md text-balance">
@@ -206,7 +206,7 @@ const Services = () => (
         </div>
 
         {/* Bottom service index */}
-        <ul className="mt-16 md:mt-24 border-t border-background/25 pt-5 grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-4">
+        <ul className="mt-16 md:mt-24 grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-4">
           {services.map((s, i) => (
             <Reveal key={s.n} delay={0.2 + i * 0.08}>
               <li>

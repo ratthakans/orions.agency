@@ -167,10 +167,10 @@ const SelectedWorkRail = () => {
                       <div className="font-mono text-[9px] tracking-[0.25em] text-background/55">
                         — {w.scope}
                       </div>
-                      <div className={`mt-2 font-display ${accent} text-[34px] md:text-[42px] leading-[1] tracking-[-0.03em] tabular-nums`}>
+                      <div className={`mt-2 font-display ${accent} text-[20px] md:text-[24px] leading-[1.05] tracking-[-0.02em] tabular-nums`}>
                         {w.impact}
                       </div>
-                      <h3 className="mt-3 font-display text-[15px] md:text-[16px] tracking-[-0.01em] leading-tight text-background/85">
+                      <h3 className="mt-3 font-display text-[13px] md:text-[14px] tracking-[-0.005em] leading-tight text-background/85">
                         {w.title}
                       </h3>
                       <p className="mt-2 font-mono text-[9px] leading-[1.6] text-background/55 line-clamp-3">

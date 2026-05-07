@@ -4,8 +4,14 @@ import SEO from "@/components/SEO";
 import TypingLoop from "@/components/TypingLoop";
 import SimpleMarquee from "@/components/SimpleMarquee";
 import CTA from "@/components/CTA";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Plus } from "lucide-react";
 import { Link } from "react-router-dom";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const SITE_URL = "https://orions.agency";
 const accent = "text-gradient";

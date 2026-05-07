@@ -7,6 +7,7 @@ import SEO from "@/components/SEO";
 import ClosingCTA from "@/components/ClosingCTA";
 import YouTubeFacade from "@/components/YouTubeFacade";
 import SimpleMarquee from "@/components/SimpleMarquee";
+import TypingLoop from "@/components/TypingLoop";
 
 import workHongmove from "@/assets/hongmove.png";
 import workKhaoyai from "@/assets/golf-hero.jpg";
@@ -29,13 +30,13 @@ type Work = {
 };
 
 const selectedWork: Work[] = [
-  { n: "01", title: "Hongmove",            niche: "PROPTECH",   scope: "Brand identity · Web · Content",     impact: "+312% sign-ups · 4 weeks",        body: "Rebuilt the brand system end-to-end — logo, guidelines, marketing site and launch content for the new rental platform.", img: workHongmove },
-  { n: "02", title: "Khaoyai Country Club", niche: "HOSPITALITY", scope: "Photo · Video · Social",            impact: "+48% member inquiries",           body: "Lifestyle shoot and short-form video for the course rebrand — clubhouse, fairways, and member experience.", img: workKhaoyai },
-  { n: "03", title: "MyHotel",             niche: "HOSPITALITY", scope: "Brand · Content · Paid ads",         impact: "−37% cost per booking",           body: "Monthly content pillars and Meta paid ads for the hotel chain — creative tuned to lower cost per booking.", img: workMyHotel },
-  { n: "04", title: "Royal Thai Air Force", niche: "GOVERNMENT",  scope: "Film · Production · Post",          impact: "2.1M views · national broadcast", body: "Full production and post for an official RTAF film — managed end-to-end from shoot to final cut.", img: workRtaf },
-  { n: "05", title: "Democrat Party",      niche: "POLITICS",    scope: "Campaign · Film · Social",           impact: "12M+ impressions · 30 days",      body: "National campaign creative — film, photo and social content built for fast turnaround across every platform.", img: workDemocrat },
-  { n: "06", title: "Heavy Organizer",     niche: "EVENTS",      scope: "Brand · Event film · Recap",         impact: "+88% ticket conversion",          body: "Brand films and event recaps for live productions — capture, edit and roll out across the full social cycle.", img: workHeavy },
-  { n: "07", title: "GCOO",                niche: "MOBILITY",    scope: "Brand · Content · Launch campaign",  impact: "+540% app downloads · 6 weeks",   body: "Launch campaign for the e-scooter sharing app — brand-led content, OOH visuals and short-form social rollout.", img: workGcoo },
+  { n: "01", title: "Hongmove",            niche: "PROPTECH",    scope: "Brand · Web · Content",       impact: "+312% sign-ups",        body: "End-to-end brand system, marketing site and launch content for the new rental platform.", img: workHongmove },
+  { n: "02", title: "Khaoyai Country Club", niche: "HOSPITALITY", scope: "Photo · Video · Social",      impact: "+48% inquiries",        body: "Lifestyle shoot and short-form video for the club rebrand.", img: workKhaoyai },
+  { n: "03", title: "MyHotel",             niche: "HOSPITALITY", scope: "Content · Paid ads",          impact: "−37% cost / booking",   body: "Monthly content and Meta ads tuned to lower cost per booking.", img: workMyHotel },
+  { n: "04", title: "Royal Thai Air Force", niche: "GOVERNMENT",  scope: "Film · Production · Post",    impact: "2.1M views",            body: "Full production and post for an official RTAF film, end to end.", img: workRtaf },
+  { n: "05", title: "Democrat Party",      niche: "POLITICS",    scope: "Campaign · Film · Social",    impact: "12M+ impressions",      body: "National campaign creative — fast turnaround across every platform.", img: workDemocrat },
+  { n: "06", title: "Heavy Organizer",     niche: "EVENTS",      scope: "Brand · Event film · Recap",  impact: "+88% conversion",       body: "Brand films and event recaps for live productions.", img: workHeavy },
+  { n: "07", title: "GCOO",                niche: "MOBILITY",    scope: "Brand · Launch campaign",     impact: "+540% downloads",       body: "Launch campaign for the e-scooter sharing app — brand, OOH and social.", img: workGcoo },
 ];
 
 const services = [

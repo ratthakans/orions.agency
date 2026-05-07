@@ -163,20 +163,14 @@ const SelectedWorkRail = () => {
                       <span>{w.niche}</span>
                     </div>
 
-                    {/* Bottom panel — slides up on hover, ~52% height */}
+                    {/* Bottom panel — slides up on hover, scope + impact only */}
                     <div className="absolute inset-x-0 bottom-0 bg-foreground text-background translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out p-5 md:p-6">
                       <div className="font-mono text-[9px] tracking-[0.25em] text-background/55">
                         — {w.scope}
                       </div>
-                      <div className={`mt-2 font-display ${accent} text-[20px] md:text-[24px] leading-[1.05] tracking-[-0.02em] tabular-nums`}>
+                      <div className={`mt-3 font-display ${accent} text-[22px] md:text-[26px] leading-[1.05] tracking-[-0.02em] tabular-nums`}>
                         {w.impact}
                       </div>
-                      <h3 className="mt-3 font-display text-[13px] md:text-[14px] tracking-[-0.005em] leading-tight text-background/85">
-                        {w.title}
-                      </h3>
-                      <p className="mt-2 font-mono text-[9px] leading-[1.6] text-background/55 line-clamp-3">
-                        {w.body}
-                      </p>
                     </div>
                   </div>
 

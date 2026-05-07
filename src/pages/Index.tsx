@@ -3,16 +3,22 @@ import SEO from "@/components/SEO";
 import ClosingCTA from "@/components/ClosingCTA";
 import YouTubeFacade from "@/components/YouTubeFacade";
 import SimpleMarquee from "@/components/SimpleMarquee";
-import CountUp from "@/components/CountUp";
 import TypingLoop from "@/components/TypingLoop";
+import { Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
 import rtafLogo from "@/assets/rtaf-emblem.png";
+import workSaintManor from "@/assets/studio-look-your-best.jpg";
+import workHotelVerge from "@/assets/hospitality-hero.jpg";
+import workCala from "@/assets/golf-lifestyle.jpg";
+import workNorthMeridian from "@/assets/concert-hero.jpg";
 
 const accent = "text-gradient";
 
-const pressures = [
-  { value: 71, suffix: "%", label: "OF SOCIAL IMAGES", body: "AI-generated. You need real content to stand out." },
-  { value: 20, suffix: "%", label: "META CPM RISE, YoY", body: "Ads cost more. You need creative that converts." },
-  { value: 8,  suffix: "s", label: "ATTENTION SPAN",   body: "Eight seconds. You need to hook them fast." },
+const selectedWork = [
+  { n: "01", title: "Saint Manor",     niche: "FASHION",     result: "Sold out drop in 11 days", img: workSaintManor },
+  { n: "02", title: "Hôtel Vergé",     niche: "HOSPITALITY", result: "−41% cost per booking",    img: workHotelVerge },
+  { n: "03", title: "Maison Lumière",  niche: "F&B",         result: "+62% bookings in 3 months", img: workNorthMeridian },
+  { n: "04", title: "Cala / BKK",      niche: "LIFESTYLE",   result: "Brand + launch campaign",   img: workCala },
 ];
 
 const threeThings = [
@@ -58,15 +64,16 @@ const Index = () => (
           </h1>
         </Reveal>
         <Reveal delay={0.25}>
-          <p className="mt-12 md:mt-16 font-display text-[14px] md:text-[18px] tracking-[-0.01em]">
+          <p className="mt-12 md:mt-16 font-display text-[14px] md:text-[18px] tracking-[-0.01em] max-w-[640px]">
             A boutique{" "}
             <TypingLoop
-              text="creative agency."
+              text="creative agency"
               className={`${accent} inline-block`}
               typeSpeed={110}
               deleteSpeed={55}
               holdMs={2000}
             />
+            {" "}for F&amp;B, fashion &amp; hospitality.
           </p>
         </Reveal>
       </div>
@@ -77,29 +84,47 @@ const Index = () => (
       </div>
     </section>
 
-    {/* WHAT YOU'RE UP AGAINST */}
+    {/* SELECTED WORK */}
     <section className="relative px-6 md:px-10">
       <div className="border-t border-foreground py-24 md:py-32 max-w-[1200px] mx-auto">
         <Reveal delay={0.05}>
-          <h2 className="font-display h-display-sm">
-            What you&apos;re <span className={accent}>up against.</span>
-          </h2>
+          <div className="flex items-end justify-between gap-8 flex-wrap">
+            <h2 className="font-display h-display-sm">
+              Selected <span className={accent}>work.</span>
+            </h2>
+            <Link
+              to="/work"
+              className="font-mono text-[10px] tracking-[0.3em] uppercase text-foreground/70 hover:text-foreground inline-flex items-center gap-2 border-b border-foreground/30 pb-1"
+            >
+              All work <ArrowUpRight className="w-3 h-3" />
+            </Link>
+          </div>
         </Reveal>
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 border-t border-foreground">
-          {pressures.map((p, i) => (
-            <Reveal key={p.label} delay={0.08 * i}>
-              <div className={`py-10 md:py-12 md:px-8 h-full ${i > 0 ? "md:border-l border-soft" : ""}`}>
-                <CountUp
-                  to={p.value}
-                  suffix={p.suffix}
-                  duration={1600}
-                  className={`font-display ${accent} text-[48px] md:text-[64px] leading-[1] tracking-[-0.04em] tabular-nums`}
-                />
-                <div className="mt-6 index-badge text-muted-foreground">{p.label}</div>
-                <p className="mt-4 font-thai text-[14px] leading-[1.7] text-foreground/70 max-w-[300px]">
-                  {p.body}
-                </p>
-              </div>
+
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          {selectedWork.map((w, i) => (
+            <Reveal key={w.n} delay={0.06 * i}>
+              <Link to="/work" className="group block">
+                <div className="relative w-full overflow-hidden bg-muted" style={{ aspectRatio: "4 / 5" }}>
+                  <img
+                    src={w.img}
+                    alt={`${w.title} — ${w.result}`}
+                    loading="lazy"
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-out scale-100 group-hover:scale-[1.02]"
+                  />
+                  <div className="absolute top-4 left-4 font-mono text-[10px] tracking-[0.2em] text-background/90 mix-blend-difference">
+                    — {w.n} · {w.niche}
+                  </div>
+                </div>
+                <div className="mt-5 flex items-baseline justify-between gap-6">
+                  <h3 className="font-display text-[20px] md:text-[24px] tracking-[-0.02em]">
+                    {w.title}
+                  </h3>
+                  <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground text-right">
+                    {w.result}
+                  </span>
+                </div>
+              </Link>
             </Reveal>
           ))}
         </div>

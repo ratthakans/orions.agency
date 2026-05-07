@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowUpRight, ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowUpRight, ArrowLeft, ArrowRight, Plus, Minus } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import ClosingCTA from "@/components/ClosingCTA";
@@ -38,9 +38,45 @@ const selectedWork: Work[] = [
 ];
 
 const services = [
-  { n: "01", title: "Branding",     lead: "Identity that works across every touchpoint." },
-  { n: "02", title: "Content",      lead: "Photo, video, and design that earn the scroll." },
-  { n: "03", title: "Social media", lead: "Strategy, posting, community, and paid ads." },
+  {
+    n: "01",
+    title: "Branding",
+    lead: "Identity that works across every touchpoint.",
+    body: "ระบบแบรนด์ที่ใช้งานจริง — ตั้งแต่ logo, type, color, ไปจนถึง guideline ที่ทีมและพาร์ทเนอร์หยิบไปใช้ได้เลย",
+    bullets: [
+      "Logo system & brand guidelines",
+      "Visual identity · color · typography",
+      "Naming, tone of voice, key messages",
+      "Brand rollout: print, digital, packaging",
+    ],
+    href: "/services#svc-01",
+  },
+  {
+    n: "02",
+    title: "Content",
+    lead: "Photo, video, and design that earn the scroll.",
+    body: "โปรดักชันในบ้านครบวงจร — ถ่ายภาพ, วิดีโอ, ตัดต่อ, กราฟิก ทำงานเป็นทีมเดียวกันตั้งแต่ pre ถึง post",
+    bullets: [
+      "Photo & video production",
+      "Short-form (Reels, TikTok, Shorts)",
+      "Brand films & commercials",
+      "Design, motion, post-production",
+    ],
+    href: "/services#svc-02",
+  },
+  {
+    n: "03",
+    title: "Social media",
+    lead: "Strategy, posting, community, and paid ads.",
+    body: "วางแผน เนื้อหา ลงโพสต์ ตอบคอมเมนต์ และยิงแอด — รายงานผลทุกเดือนด้วยตัวเลขจริง",
+    bullets: [
+      "Content strategy & monthly planning",
+      "Copywriting & community management",
+      "Meta / TikTok / Google paid ads",
+      "Monthly reporting & optimization",
+    ],
+    href: "/services#svc-03",
+  },
 ];
 
 const steps = [

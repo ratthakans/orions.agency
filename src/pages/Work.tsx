@@ -1,5 +1,4 @@
 import Reveal from "@/components/Reveal";
-import PageHero from "@/components/PageHero";
 import ClosingCTA from "@/components/ClosingCTA";
 import SEO from "@/components/SEO";
 import YouTubeFacade from "@/components/YouTubeFacade";
@@ -57,11 +56,24 @@ const Work = () => (
       }}
     />
 
-    <PageHero
-      eyebrow="WORK · INDEX"
-      verticalLabel="/ 03 · WORK"
-      title={<>Real brands.<br />Real <span className={accent}>results.</span></>}
-    />
+    {/* HERO — dark, single clear message */}
+    <section className="relative bg-foreground text-background">
+      <div className="px-6 md:px-10 pt-40 md:pt-48 pb-24 md:pb-32 max-w-[1200px] mx-auto">
+        <Reveal delay={0.05}>
+          <p className="font-mono text-[10px] tracking-[0.4em] text-background/60 mb-10">— WORK</p>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <h1 className="font-display h-display-md text-balance max-w-[900px]">
+            Real brands. Real <span className={accent}>results.</span>
+          </h1>
+        </Reveal>
+        <Reveal delay={0.2}>
+          <p className="mt-8 font-thai text-[15px] md:text-[17px] leading-[1.65] text-background/70 max-w-[560px]">
+            Selected results across F&amp;B, fashion, and hospitality. Full case studies launching Q3 2026.
+          </p>
+        </Reveal>
+      </div>
+    </section>
 
     {/* COMING SOON BANNER */}
     <section className="px-6 md:px-10">

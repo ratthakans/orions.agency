@@ -2,11 +2,40 @@ import Reveal from "@/components/Reveal";
 import ClosingCTA from "@/components/ClosingCTA";
 import SEO from "@/components/SEO";
 import YouTubeFacade from "@/components/YouTubeFacade";
+import { Link } from "react-router-dom";
+
+import workHongmove from "@/assets/hongmove.png";
+import workKhaoyai from "@/assets/golf-hero.jpg";
+import workMyHotel from "@/assets/myhotel.png";
+import workRtaf from "@/assets/rtaf.jpg";
+import workDemocrat from "@/assets/democrat.jpg";
+import workHeavy from "@/assets/heavy-organizer.jpg";
+import workGcoo from "@/assets/gcoo.jpg";
 import hongmoveLogo from "@/assets/logos/hongmove.png";
 
 const accent = "text-gradient";
 
 const SITE_URL = "https://orions.agency";
+
+type Project = {
+  n: string;
+  title: string;
+  niche: string;
+  scope: string;
+  impact: string;
+  body: string;
+  img: string;
+};
+
+const projects: Project[] = [
+  { n: "01", title: "Hongmove",             niche: "PROPTECH",    scope: "Brand · Web · Content",      impact: "+312% sign-ups",      body: "End-to-end brand system, marketing site and launch content for the new rental platform.", img: workHongmove },
+  { n: "02", title: "Khaoyai Country Club", niche: "HOSPITALITY", scope: "Photo · Video · Social",     impact: "+48% inquiries",      body: "Lifestyle shoot and short-form video for the club rebrand.", img: workKhaoyai },
+  { n: "03", title: "MyHotel",              niche: "HOSPITALITY", scope: "Content · Paid ads",         impact: "−37% cost / booking", body: "Monthly content and Meta ads tuned to lower cost per booking.", img: workMyHotel },
+  { n: "04", title: "Royal Thai Air Force", niche: "GOVERNMENT",  scope: "Film · Production · Post",   impact: "2.1M views",          body: "Full production and post for an official RTAF film, end to end.", img: workRtaf },
+  { n: "05", title: "Democrat Party",       niche: "POLITICS",    scope: "Campaign · Film · Social",   impact: "12M+ impressions",    body: "National campaign creative — fast turnaround across every platform.", img: workDemocrat },
+  { n: "06", title: "Heavy Organizer",      niche: "EVENTS",      scope: "Brand · Event film · Recap", impact: "+88% conversion",     body: "Brand films and event recaps for live productions.", img: workHeavy },
+  { n: "07", title: "GCOO",                 niche: "MOBILITY",    scope: "Brand · Launch campaign",    impact: "+540% downloads",     body: "Launch campaign for the e-scooter sharing app — brand, OOH and social.", img: workGcoo },
+];
 
 const testimonials = [
   {
@@ -87,23 +116,71 @@ const Work = () => (
     </section>
 
     {/* COMING SOON BANNER */}
+    {/* PROJECT GRID — one card per client */}
     <section className="px-6 md:px-10">
-      <div className="border-t border-foreground py-16 md:py-20">
+      <div className="border-t border-foreground py-20 md:py-28 max-w-[1280px] mx-auto">
         <Reveal>
-          <div className="border border-foreground bg-foreground text-background p-8 md:p-12 grid grid-cols-1 md:grid-cols-12 gap-6">
-            <div className="md:col-span-7">
-              <div className="font-mono text-[10px] tracking-[0.2em] text-background/60">— NEW CHAPTER · 2026</div>
-              <h2 className="mt-6 font-display h-display-sm">
-                Full case studies <br className="hidden md:block" />launching <span className={accent}>Q3 2026.</span>
+          <div className="flex items-end justify-between gap-8 flex-wrap">
+            <div>
+              <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground mb-4">
+                — SELECTED PROJECTS
+              </div>
+              <h2 className="font-display h-display-sm">
+                {projects.length} brands. <span className={accent}>One team.</span>
               </h2>
             </div>
-            <div className="md:col-span-5 md:border-l md:border-background/20 md:pl-8 flex flex-col justify-center">
-              <p className="font-thai text-[15px] leading-[1.7] text-background/70">
-                เรากำลังจัด case studies ใหม่ของ F&amp;B, fashion และ hospitality ให้พร้อมเผยแพร่ — ในระหว่างนี้ ลองอ่านเสียงจากลูกค้าด้านล่าง
-              </p>
-            </div>
+            <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
+              UPDATED · Q2 2026
+            </p>
           </div>
         </Reveal>
+
+        <div className="mt-14 md:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {projects.map((w, i) => (
+            <Reveal key={w.n} delay={0.04 * i}>
+              <Link to="/work" className="group block">
+                <div className="relative w-full overflow-hidden bg-muted" style={{ aspectRatio: "4 / 5" }}>
+                  <img
+                    src={w.img}
+                    alt={`${w.title} — ${w.scope}`}
+                    loading="lazy"
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-out group-hover:scale-[1.04]"
+                  />
+                  <div className="absolute top-3 left-3 right-3 flex items-center justify-between font-mono text-[9px] tracking-[0.25em] text-background/95 mix-blend-difference">
+                    <span>— {w.n}</span>
+                    <span>{w.niche}</span>
+                  </div>
+                  <div className="absolute inset-x-0 bottom-0 bg-foreground text-background translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out p-5 md:p-6">
+                    <div className="font-mono text-[9px] tracking-[0.25em] text-background/55">
+                      — {w.scope}
+                    </div>
+                    <div className={`mt-2 font-display ${accent} text-[20px] md:text-[24px] leading-[1.05] tracking-[-0.02em] tabular-nums`}>
+                      {w.impact}
+                    </div>
+                    <h3 className="mt-3 font-display text-[13px] md:text-[14px] tracking-[-0.005em] leading-tight text-background/85">
+                      {w.title}
+                    </h3>
+                    <p className="mt-2 font-mono text-[9px] leading-[1.6] text-background/55 line-clamp-3">
+                      {w.body}
+                    </p>
+                  </div>
+                </div>
+                <div className="mt-4 flex items-baseline justify-between gap-3">
+                  <h3 className="font-display text-[15px] md:text-[16px] tracking-[-0.01em] truncate">
+                    {w.title}
+                  </h3>
+                  <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-muted-foreground shrink-0">
+                    {w.niche}
+                  </span>
+                </div>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
+
+        <p className="mt-12 font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
+          [ More case studies launching Q3 2026 ]
+        </p>
       </div>
     </section>
 

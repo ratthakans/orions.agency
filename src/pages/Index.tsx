@@ -229,6 +229,84 @@ const SelectedWorkRail = () => {
   );
 };
 
+const ServicesAccordion = () => {
+  const [open, setOpen] = useState<string | null>("01");
+  return (
+    <div className="mt-16 border-t border-background/30">
+      {services.map((s, i) => {
+        const isOpen = open === s.n;
+        return (
+          <Reveal key={s.n} delay={0.06 * i}>
+            <div className="border-b border-background/15">
+              <button
+                type="button"
+                onClick={() => setOpen(isOpen ? null : s.n)}
+                aria-expanded={isOpen}
+                className="group w-full grid grid-cols-12 gap-6 items-baseline py-8 md:py-10 text-left hover:bg-background/[0.03] transition-colors px-2 -mx-2"
+              >
+                <div className="col-span-2 md:col-span-1 font-mono text-[10px] tracking-[0.25em] text-background/45">
+                  {s.n}
+                </div>
+                <div className="col-span-9 md:col-span-5">
+                  <h3 className="font-display text-[28px] md:text-[40px] tracking-[-0.02em] leading-[1.05]">
+                    {s.title}
+                  </h3>
+                </div>
+                <div className="hidden md:block col-span-5 font-thai text-[14px] md:text-[15px] leading-[1.65] text-background/70">
+                  {s.lead}
+                </div>
+                <div className="col-span-1 flex justify-end items-center">
+                  {isOpen ? (
+                    <Minus className="w-5 h-5 text-background/70" />
+                  ) : (
+                    <Plus className="w-5 h-5 text-background/50 group-hover:text-background transition-colors" />
+                  )}
+                </div>
+              </button>
+
+              <div
+                className={`grid transition-[grid-template-rows] duration-500 ease-out ${
+                  isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                }`}
+              >
+                <div className="overflow-hidden">
+                  <div className="grid grid-cols-12 gap-6 pb-10 md:pb-12 px-2 -mx-2">
+                    <div className="hidden md:block md:col-span-1" />
+                    <div className="col-span-12 md:col-span-6">
+                      <p className="font-thai text-[15px] md:text-[16px] leading-[1.75] text-background/80">
+                        {s.body}
+                      </p>
+                    </div>
+                    <div className="col-span-12 md:col-span-5">
+                      <ul className="space-y-2 mb-6">
+                        {s.bullets.map((b) => (
+                          <li
+                            key={b}
+                            className="font-mono text-[11px] tracking-[0.05em] text-background/70 flex gap-3"
+                          >
+                            <span className="text-background/40">—</span>
+                            <span>{b}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <Link
+                        to={s.href}
+                        className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase text-background border-b border-background/40 hover:border-background pb-1 transition-colors"
+                      >
+                        View {s.title} <ArrowUpRight className="w-3 h-3" />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        );
+      })}
+    </div>
+  );
+};
+
 const Index = () => (
   <div id="top">
     <SEO

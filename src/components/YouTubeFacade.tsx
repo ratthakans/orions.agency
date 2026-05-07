@@ -23,12 +23,12 @@ const YouTubeFacade = ({ videoId, title = "Video", className = "", ambient = fal
       : `autoplay=1&modestbranding=1&rel=0&playsinline=1`;
     return (
       <iframe
-        className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none ${className}`}
+        className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${className}`}
         style={{
-          width: "max(100%, calc(100vh * 16 / 9))",
-          height: "max(100%, calc(100vw * 9 / 16))",
-          minWidth: "177.78%",
-          minHeight: "177.78%",
+          width: "max(100%, calc((100% * 16 / 9) * (9 / 21)))",
+          aspectRatio: "16 / 9",
+          minWidth: "100%",
+          minHeight: "100%",
         }}
         src={`https://www.youtube.com/embed/${videoId}?${params}`}
         title={title}

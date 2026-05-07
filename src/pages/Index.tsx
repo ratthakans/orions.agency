@@ -469,7 +469,7 @@ const Index = () => (
                 key={name}
                 className="border-r border-b border-background/15 aspect-[5/2] flex items-center justify-center px-4 py-6 group"
               >
-                <span className="font-display text-[13px] md:text-[15px] tracking-[0.08em] uppercase text-background/55 group-hover:text-background transition-colors text-center">
+                <span className="font-display text-[13px] md:text-[15px] tracking-[0.08em] uppercase text-background/55 group-hover:text-gradient transition-colors text-center">
                   {name}
                 </span>
               </li>

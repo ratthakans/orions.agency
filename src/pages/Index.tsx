@@ -116,7 +116,7 @@ const SelectedWorkRail = () => {
 
   return (
     <section className="relative px-6 md:px-10">
-      <div className="border-t border-foreground py-24 md:py-32 max-w-[1280px] mx-auto">
+      <div className="border-t border-foreground py-24 md:py-32 max-w-[1200px] mx-auto">
         <Reveal delay={0.05}>
           <div className="flex items-end justify-between gap-8 flex-wrap">
             <div>
@@ -140,7 +140,7 @@ const SelectedWorkRail = () => {
           ref={railRef}
           className="mt-14 -mx-6 md:-mx-10 overflow-x-auto scroll-smooth snap-x snap-mandatory hide-scrollbar"
         >
-          <div className="flex gap-5 md:gap-6 px-6 md:px-10 pb-2">
+          <div className="flex gap-5 md:gap-6 px-6 md:px-16 pb-2">
             {selectedWork.map((w, i) => (
               <Reveal key={w.n} delay={0.04 * i}>
                 <Link
@@ -166,13 +166,13 @@ const SelectedWorkRail = () => {
                       <div className="font-mono text-[9px] tracking-[0.25em] text-background/55">
                         — {w.scope}
                       </div>
-                      <h3 className="mt-3 font-display text-[18px] md:text-[20px] tracking-[-0.01em] leading-tight">
-                        {w.title}
-                      </h3>
-                      <div className={`mt-3 font-display ${accent} text-[22px] md:text-[26px] leading-[1.05] tracking-[-0.02em] tabular-nums`}>
+                      <div className={`mt-2 font-display ${accent} text-[34px] md:text-[42px] leading-[1] tracking-[-0.03em] tabular-nums`}>
                         {w.impact}
                       </div>
-                      <p className="mt-3 font-mono text-[10px] leading-[1.65] text-background/65 line-clamp-3">
+                      <h3 className="mt-3 font-display text-[15px] md:text-[16px] tracking-[-0.01em] leading-tight text-background/85">
+                        {w.title}
+                      </h3>
+                      <p className="mt-2 font-mono text-[9px] leading-[1.6] text-background/55 line-clamp-3">
                         {w.body}
                       </p>
                     </div>
@@ -190,7 +190,7 @@ const SelectedWorkRail = () => {
                 </Link>
               </Reveal>
             ))}
-            <div className="shrink-0 w-1 md:w-4" aria-hidden />
+            <div className="shrink-0 w-6 md:w-16" aria-hidden />
           </div>
         </div>
 

@@ -362,20 +362,13 @@ const Index = () => (
     <section className="relative px-6 md:px-10 bg-foreground text-background">
       <div className="border-t border-background/30 py-24 md:py-32 max-w-[1280px] mx-auto">
         <Reveal delay={0.05}>
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
-            <div className="md:col-span-7">
-              <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-background/55 mb-4">
-                — WHAT WE DO
-              </div>
-              <h2 className="font-display h-display-sm">
-                Three things, <span className={accent}>properly.</span>
-              </h2>
+          <div>
+            <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-background/55 mb-4">
+              — WHAT WE DO
             </div>
-            <div className="md:col-span-5">
-              <p className="font-thai text-[14px] leading-[1.7] text-background/65">
-                ไม่รับงานทุกอย่าง — เราโฟกัส 3 ขาที่ต่อเนื่องกัน เพื่อให้แบรนด์ออกมาเป็นเสียงเดียว ตั้งแต่ identity จนถึงโพสต์สุดท้ายที่คุณยิงแอด
-              </p>
-            </div>
+            <h2 className="font-display h-display-sm">
+              Three things, <span className={accent}>properly.</span>
+            </h2>
           </div>
         </Reveal>
 

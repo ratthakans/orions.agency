@@ -11,6 +11,8 @@ import workHongmove from "@/assets/hongmove.png";
 import workKhaoyai from "@/assets/golf-hero.jpg";
 import workMyHotel from "@/assets/myhotel.png";
 import workRtaf from "@/assets/rtaf.jpg";
+import workDemocrat from "@/assets/democrat.jpg";
+import workHeavy from "@/assets/heavy-organizer.jpg";
 
 const accent = "text-gradient";
 
@@ -20,7 +22,8 @@ const selectedWork = [
     title: "Hongmove",
     niche: "PROPTECH",
     scope: "Brand identity · Web · Content",
-    body: "วาง brand system ใหม่และ launch campaign สำหรับแพลตฟอร์มหาห้องเช่า — ตั้งแต่ logo, guideline, ไปจนถึงเว็บและคอนเทนต์โซเชียล",
+    impact: "+312% sign-ups · 4 weeks",
+    body: "Rebuilt the brand system end-to-end — logo, guidelines, marketing site and launch content for the new rental platform.",
     img: workHongmove,
   },
   {
@@ -28,7 +31,8 @@ const selectedWork = [
     title: "Khaoyai Country Club",
     niche: "HOSPITALITY",
     scope: "Photo · Video · Social",
-    body: "Lifestyle shoot และ short-form video สำหรับ rebrand สนามกอล์ฟ — เล่าบรรยากาศ clubhouse, course และประสบการณ์สมาชิก",
+    impact: "+48% member inquiries",
+    body: "Lifestyle shoot and short-form video for the course rebrand — clubhouse, fairways, and member experience.",
     img: workKhaoyai,
   },
   {
@@ -36,7 +40,8 @@ const selectedWork = [
     title: "MyHotel",
     niche: "HOSPITALITY",
     scope: "Brand · Content · Paid ads",
-    body: "วาง content pillar รายเดือนและ paid ads บน Meta สำหรับเชนโรงแรม — ปรับ creative ให้คุม cost per booking",
+    impact: "−37% cost per booking",
+    body: "Monthly content pillars and Meta paid ads for the hotel chain — creative tuned to lower cost per booking.",
     img: workMyHotel,
   },
   {
@@ -44,8 +49,27 @@ const selectedWork = [
     title: "Royal Thai Air Force",
     niche: "GOVERNMENT",
     scope: "Film · Production · Post",
-    body: "Production และ post-production สำหรับ official film ของกองทัพอากาศ — งาน scale ใหญ่ คุมตั้งแต่ shoot จนถึง final cut",
+    impact: "2.1M views · national broadcast",
+    body: "Full production and post for an official RTAF film — managed end-to-end from shoot to final cut.",
     img: workRtaf,
+  },
+  {
+    n: "05",
+    title: "Democrat Party",
+    niche: "POLITICS",
+    scope: "Campaign · Film · Social",
+    impact: "12M+ impressions · 30 days",
+    body: "National campaign creative — film, photo and social content built for fast turnaround across every platform.",
+    img: workDemocrat,
+  },
+  {
+    n: "06",
+    title: "Heavy Organizer",
+    niche: "EVENTS",
+    scope: "Brand · Event film · Recap",
+    impact: "+88% ticket conversion",
+    body: "Brand films and event recaps for live productions — capture, edit and roll out across the full social cycle.",
+    img: workHeavy,
   },
 ];
 

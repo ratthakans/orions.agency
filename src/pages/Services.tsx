@@ -239,7 +239,7 @@ const Services = () => (
     </section>
 
     {/* PRICING — single clear table */}
-    <section className="px-6 md:px-10 bg-surface">
+    <section className="px-6 md:px-10">
       <div className="max-w-[1200px] mx-auto py-24 md:py-32">
         <Reveal delay={0.05}>
           <p className="font-mono text-[10px] tracking-[0.4em] text-muted-foreground mb-6">— PRICING</p>
@@ -261,7 +261,7 @@ const Services = () => (
               <div className={`grid grid-cols-1 ${svc.tiers.length === 3 ? "md:grid-cols-3" : "md:grid-cols-2"} border-t border-soft`}>
                 {svc.tiers.map((t, i) => (
                   <Reveal key={t.name} delay={0.06 * i}>
-                    <div className={`h-full p-8 md:p-10 flex flex-col bg-background ${i > 0 ? "md:border-l border-soft" : ""}`}>
+                    <div className={`h-full p-8 md:p-10 flex flex-col ${i > 0 ? "md:border-l border-soft" : ""}`}>
                       <h4 className="font-display text-[18px] md:text-[20px] tracking-[-0.02em]">{t.name}.</h4>
                       <p className="mt-2 font-thai text-[13px] leading-[1.65] text-foreground/70 min-h-[3em]">
                         {t.forWho}

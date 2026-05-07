@@ -4,8 +4,14 @@ import SEO from "@/components/SEO";
 import TypingLoop from "@/components/TypingLoop";
 import SimpleMarquee from "@/components/SimpleMarquee";
 import CTA from "@/components/CTA";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Plus } from "lucide-react";
 import { Link } from "react-router-dom";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const SITE_URL = "https://orions.agency";
 const accent = "text-gradient";
@@ -634,146 +640,133 @@ const Services = () => (
       </div>
     </section>
 
-    {/* PRICING */}
+    {/* PRICING — simplified: rows that expand on demand */}
     <section id="pricing" className="relative bg-foreground text-background px-6 md:px-10 scroll-mt-20">
-      <div className="border-t border-background/30 py-24 md:py-32 max-w-[1320px] mx-auto">
+      <div className="border-t border-background/30 py-24 md:py-32 max-w-[1240px] mx-auto">
         <Reveal delay={0.05}>
           <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-background/55 mb-4">
             — PRICING
           </div>
-          <h2 className="font-display h-display-sm max-w-[900px]">
-            Honest pricing, <span className={accent}>no surprises.</span>
-          </h2>
-          <p className="mt-6 font-thai text-[14px] md:text-[15px] leading-[1.75] text-background/70 max-w-[640px]">
-            We show our prices because we believe trust starts with transparency.
-          </p>
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-end">
+            <h2 className="md:col-span-7 font-display h-display-sm">
+              Honest pricing, <span className={accent}>no surprises.</span>
+            </h2>
+            <p className="md:col-span-5 font-thai text-[14px] leading-[1.75] text-background/70">
+              Click any tier to see what's inside. All prices in THB, exclude 7% VAT.
+            </p>
+          </div>
         </Reveal>
 
-        <div className="mt-16 md:mt-20 space-y-24 md:space-y-32">
+        <div className="mt-16 md:mt-20 space-y-20 md:space-y-24">
           {serviceTables.map((svc) => (
             <article key={svc.n} id={`svc-${svc.n}`} className="scroll-mt-24">
               <Reveal delay={0.05}>
-                <header className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-baseline border-t border-background/30 pt-6 pb-10 md:pb-12">
-                  <div className="md:col-span-1 font-mono text-[10px] tracking-[0.25em] text-background/45 tabular-nums">
-                    — {svc.n}
-                  </div>
-                  <h3 className="md:col-span-5 font-display text-[28px] md:text-[40px] tracking-[-0.02em] leading-[1.05]">
-                    {svc.title}.
-                  </h3>
-                  <p className="md:col-span-6 font-thai text-[14px] md:text-[15px] leading-[1.75] text-background/70">
-                    {svc.intro}
-                  </p>
+                <header className="border-t border-background/30 pt-5 pb-8 flex items-baseline gap-6">
+                  <span className="font-mono text-[10px] tracking-[0.25em] text-background/45 tabular-nums">— {svc.n}</span>
+                  <h3 className="font-display text-[24px] md:text-[32px] tracking-[-0.02em]">{svc.title}.</h3>
                 </header>
               </Reveal>
 
-              <div className={`grid grid-cols-1 ${svc.tiers.length === 3 ? "md:grid-cols-3" : "md:grid-cols-2"} border-t border-background/15`}>
-                {svc.tiers.map((t, i) => (
-                  <Reveal key={t.name} delay={0.06 * i}>
-                    <div className={`relative h-full p-7 md:p-9 flex flex-col ${i > 0 ? "md:border-l border-background/15" : ""} ${t.highlight ? "bg-background/[0.04]" : ""}`}>
-                      <div className="flex items-baseline justify-between gap-3">
-                        <h4 className="font-display text-[20px] md:text-[22px] tracking-[-0.02em]">{t.name}.</h4>
-                        {t.highlight && (
-                          <span className="font-mono text-[9px] tracking-[0.3em] uppercase text-background/50">
-                            ★ most popular
-                          </span>
-                        )}
-                      </div>
-
-                      <p className="mt-3 font-thai text-[13px] leading-[1.7] text-background/65 min-h-[3.5em]">
-                        {t.tagline}
-                      </p>
-
-                      <div className="mt-8">
-                        <div className="flex items-baseline gap-2">
-                          <div className={`font-display text-[36px] md:text-[44px] leading-none tracking-[-0.04em] tabular-nums ${t.highlight ? accent : ""}`}>
+              <Accordion type="single" collapsible className="border-t border-background/15">
+                {svc.tiers.map((t) => (
+                  <AccordionItem key={t.name} value={t.name} className="border-b border-background/15">
+                    <AccordionTrigger className="group py-6 md:py-7 hover:no-underline [&>svg]:hidden">
+                      <div className="grid grid-cols-12 gap-4 w-full items-baseline text-left">
+                        <div className="col-span-12 md:col-span-5 flex items-baseline gap-3">
+                          <h4 className="font-display text-[18px] md:text-[22px] tracking-[-0.02em]">{t.name}.</h4>
+                          {t.highlight && (
+                            <span className="font-mono text-[9px] tracking-[0.3em] uppercase text-background/50">★ popular</span>
+                          )}
+                        </div>
+                        <p className="col-span-12 md:col-span-4 font-thai text-[12.5px] leading-[1.6] text-background/60 hidden md:block">
+                          {t.tagline}
+                        </p>
+                        <div className="col-span-10 md:col-span-2 flex items-baseline gap-1.5">
+                          <span className={`font-display text-[20px] md:text-[24px] leading-none tracking-[-0.03em] tabular-nums ${t.highlight ? accent : ""}`}>
                             {t.price}
-                          </div>
-                          <div className="font-mono text-[10px] tracking-[0.2em] text-background/55">
-                            THB {t.unit}
-                          </div>
+                          </span>
+                          <span className="font-mono text-[10px] tracking-[0.2em] text-background/50">{t.unit}</span>
                         </div>
-                        {(t.timeline || t.lockIn) && (
-                          <div className="mt-3 font-mono text-[10px] tracking-[0.2em] uppercase text-background/50">
-                            {t.timeline ? `Timeline: ${t.timeline}` : t.lockIn}
-                          </div>
-                        )}
-                      </div>
-
-                      <div className="mt-8 space-y-7 flex-1">
-                        {t.groups.map((g) => (
-                          <div key={g.heading}>
-                            <div className="font-mono text-[9px] tracking-[0.3em] uppercase text-background/40 mb-3">
-                              — {g.heading}
-                            </div>
-                            <ul className="space-y-2">
-                              {g.items.map((it) => (
-                                <li key={it} className="flex items-baseline gap-3 font-thai text-[12.5px] leading-[1.65] text-background/85">
-                                  <span className="font-mono text-[10px] text-background/35 shrink-0">·</span>
-                                  <span>{it}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        ))}
-
-                        {t.bonuses && (
-                          <div>
-                            <div className="font-mono text-[9px] tracking-[0.3em] uppercase text-background/40 mb-3">
-                              — bonuses
-                            </div>
-                            <ul className="space-y-2">
-                              {t.bonuses.map((it) => (
-                                <li key={it} className="flex items-baseline gap-3 font-thai text-[12.5px] leading-[1.65] text-background/85">
-                                  <span className="font-mono text-[10px] text-background/55 shrink-0">✓</span>
-                                  <span>{it}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
-
-                        {t.guarantees && (
-                          <div>
-                            <div className="font-mono text-[9px] tracking-[0.3em] uppercase text-background/40 mb-3">
-                              — guarantees
-                            </div>
-                            <ul className="space-y-2">
-                              {t.guarantees.map((it) => (
-                                <li key={it} className="flex items-baseline gap-3 font-thai text-[12.5px] leading-[1.65] text-background/85">
-                                  <span className="font-mono text-[10px] text-background/55 shrink-0">✓</span>
-                                  <span>{it}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
-                      </div>
-
-                      {t.addOns && (
-                        <div className="mt-8 pt-6 border-t border-background/15">
-                          <div className="font-mono text-[9px] tracking-[0.3em] uppercase text-background/40 mb-3">
-                            — add-ons
-                          </div>
-                          <ul className="space-y-1.5">
-                            {t.addOns.map((it) => (
-                              <li key={it} className="font-thai text-[12px] leading-[1.6] text-background/65">
-                                {it}
-                              </li>
-                            ))}
-                          </ul>
+                        <div className="col-span-2 md:col-span-1 flex justify-end">
+                          <Plus className="w-4 h-4 text-background/60 transition-transform duration-300 group-data-[state=open]:rotate-45" />
                         </div>
-                      )}
-                    </div>
-                  </Reveal>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="pb-10">
+                      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 pt-2">
+                        <div className="md:col-span-4">
+                          <p className="font-thai text-[13px] leading-[1.7] text-background/70 md:hidden mb-5">{t.tagline}</p>
+                          <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-background/50">
+                            {t.timeline ? `Timeline · ${t.timeline}` : t.lockIn}
+                          </div>
+                          {t.bonuses && (
+                            <ul className="mt-6 space-y-2">
+                              {t.bonuses.map((b) => (
+                                <li key={b} className="flex items-baseline gap-2.5 font-thai text-[12.5px] leading-[1.65] text-background/80">
+                                  <span className="font-mono text-[10px] text-background/45 shrink-0">+</span>
+                                  <span>{b}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                          {t.guarantees && (
+                            <ul className="mt-4 space-y-2">
+                              {t.guarantees.map((b) => (
+                                <li key={b} className="flex items-baseline gap-2.5 font-thai text-[12.5px] leading-[1.65] text-background/80">
+                                  <span className="font-mono text-[10px] text-background/45 shrink-0">✓</span>
+                                  <span>{b}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                        </div>
+
+                        <div className="md:col-span-5 space-y-6">
+                          {t.groups.map((g) => (
+                            <div key={g.heading}>
+                              <div className="font-mono text-[9px] tracking-[0.3em] uppercase text-background/40 mb-3">
+                                — {g.heading}
+                              </div>
+                              <ul className="space-y-1.5">
+                                {g.items.map((it) => (
+                                  <li key={it} className="flex items-baseline gap-3 font-thai text-[13px] leading-[1.65] text-background/85">
+                                    <span className="font-mono text-[10px] text-background/35 shrink-0">·</span>
+                                    <span>{it}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          ))}
+                        </div>
+
+                        <div className="md:col-span-3">
+                          {t.addOns && (
+                            <>
+                              <div className="font-mono text-[9px] tracking-[0.3em] uppercase text-background/40 mb-3">
+                                — add-ons
+                              </div>
+                              <ul className="space-y-1.5">
+                                {t.addOns.map((it) => (
+                                  <li key={it} className="font-thai text-[12px] leading-[1.55] text-background/60">
+                                    {it}
+                                  </li>
+                                ))}
+                              </ul>
+                            </>
+                          )}
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
                 ))}
-              </div>
+              </Accordion>
             </article>
           ))}
         </div>
 
         <Reveal delay={0.05}>
           <p className="mt-16 font-mono text-[10px] tracking-[0.25em] uppercase text-background/45 max-w-[640px]">
-            * All prices in THB, exclude 7% VAT. Ad spend, third-party licensing, talent fees and travel billed at cost.
+            * Ad spend, third-party licensing, talent fees and travel billed at cost.
           </p>
         </Reveal>
       </div>
@@ -846,7 +839,7 @@ const Services = () => (
       </div>
     </section>
 
-    {/* FAQ */}
+    {/* FAQ — accordion */}
     <section className="px-6 md:px-10">
       <div className="max-w-[1200px] mx-auto py-24 md:py-32">
         <Reveal>
@@ -858,16 +851,24 @@ const Services = () => (
           </h2>
         </Reveal>
 
-        <div className="mt-14 border-t border-foreground">
-          {faqs.map((f) => (
-            <Reveal key={f.q}>
-              <div className="grid grid-cols-1 md:grid-cols-[1fr,2fr] gap-6 md:gap-12 py-8 border-b border-soft">
-                <div className="font-display text-[18px] md:text-[22px] tracking-[-0.01em]">{f.q}</div>
-                <p className="font-thai text-[14px] md:text-[15px] leading-[1.75] text-foreground/80">{f.a}</p>
-              </div>
-            </Reveal>
+        <Accordion type="single" collapsible className="mt-14 border-t border-foreground">
+          {faqs.map((f, i) => (
+            <AccordionItem key={f.q} value={`faq-${i}`} className="border-b border-soft">
+              <AccordionTrigger className="group py-6 md:py-7 hover:no-underline text-left [&>svg]:hidden">
+                <div className="flex items-baseline gap-6 w-full">
+                  <span className="font-mono text-[10px] tracking-[0.25em] text-muted-foreground tabular-nums shrink-0">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="font-display text-[17px] md:text-[20px] tracking-[-0.01em] flex-1">{f.q}</span>
+                  <Plus className="w-4 h-4 text-foreground/60 transition-transform duration-300 group-data-[state=open]:rotate-45 shrink-0" />
+                </div>
+              </AccordionTrigger>
+              <AccordionContent className="pb-7 pl-12 md:pl-14">
+                <p className="font-thai text-[14px] md:text-[15px] leading-[1.75] text-foreground/75 max-w-[760px]">{f.a}</p>
+              </AccordionContent>
+            </AccordionItem>
           ))}
-        </div>
+        </Accordion>
       </div>
     </section>
 

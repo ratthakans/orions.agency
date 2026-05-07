@@ -1,7 +1,6 @@
 import Reveal from "@/components/Reveal";
 import ClosingCTA from "@/components/ClosingCTA";
 import SEO from "@/components/SEO";
-import TypingLoop from "@/components/TypingLoop";
 import SimpleMarquee from "@/components/SimpleMarquee";
 import CTA from "@/components/CTA";
 import { ArrowUpRight, Plus } from "lucide-react";

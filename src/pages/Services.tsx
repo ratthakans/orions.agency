@@ -767,37 +767,31 @@ const Services = () => (
       </div>
     </section>
 
-    {/* WHY ØRIONS */}
-    <section className="px-6 md:px-10">
-      <div className="max-w-[1200px] mx-auto py-24 md:py-32">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-start border-t border-foreground pt-12 md:pt-16">
+    {/* WHY + PROCESS — combined */}
+    <section className="bg-foreground text-background px-6 md:px-10">
+      <div className="max-w-[1240px] mx-auto py-24 md:py-32">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-start border-t border-background/30 pt-10 md:pt-14">
           <div className="md:col-span-5">
             <Reveal>
-              <p className="font-mono text-[10px] tracking-[0.4em] text-muted-foreground mb-4">— WHY ØRIONS</p>
+              <p className="font-mono text-[10px] tracking-[0.4em] text-background/55 mb-4">— WHY ØRIONS</p>
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="font-display h-display-sm">
                 One team. <br /><span className={accent}>No handoff.</span>
               </h2>
             </Reveal>
-          </div>
-          <div className="md:col-span-7 space-y-6">
-            <Reveal delay={0.1}>
-              <p className="font-thai text-[15px] leading-[1.8] text-foreground/80">
-                Most agencies split your project across departments. Brief gets lost. Quality drifts. Timelines slip.
-              </p>
-              <p className="mt-4 font-display text-[18px] md:text-[20px] tracking-[-0.01em]">
-                We don&apos;t do that.
-              </p>
-              <p className="mt-4 font-thai text-[14px] leading-[1.8] text-foreground/70">
+            <Reveal delay={0.15}>
+              <p className="mt-8 font-thai text-[14px] leading-[1.8] text-background/70 max-w-[420px]">
                 The team that takes your brief is the team that ships your work. Founder-led. Always.
               </p>
             </Reveal>
-            <Reveal delay={0.2}>
-              <ul className="mt-8 pt-8 border-t border-soft space-y-3">
+          </div>
+          <div className="md:col-span-7">
+            <Reveal delay={0.1}>
+              <ul className="space-y-3">
                 {whyPoints.map((p) => (
-                  <li key={p} className="flex items-baseline gap-3 font-thai text-[14px] leading-[1.7] text-foreground/85">
-                    <span className="font-mono text-[10px] text-foreground/50 shrink-0">✓</span>
+                  <li key={p} className="flex items-baseline gap-3 font-thai text-[14px] leading-[1.7] text-background/85 border-b border-background/15 pb-3">
+                    <span className="font-mono text-[10px] text-background/45 shrink-0">—</span>
                     <span>{p}</span>
                   </li>
                 ))}
@@ -805,31 +799,26 @@ const Services = () => (
             </Reveal>
           </div>
         </div>
-      </div>
-    </section>
 
-    {/* PROCESS */}
-    <section className="bg-foreground text-background px-6 md:px-10">
-      <div className="max-w-[1200px] mx-auto py-24 md:py-32">
-        <Reveal>
-          <p className="font-mono text-[10px] tracking-[0.4em] text-background/55 mb-4">— PROCESS</p>
-        </Reveal>
-        <Reveal delay={0.05}>
-          <h2 className="font-display h-display-sm max-w-[900px]">
-            From hello, <span className={accent}>live in 4 weeks.</span>
-          </h2>
-        </Reveal>
-
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-4 border-t border-background/30">
-          {process.map((p, i) => (
-            <Reveal key={p.n} delay={0.06 * i}>
-              <div className={`py-10 md:py-12 md:px-8 ${i > 0 ? "md:border-l border-background/15" : ""}`}>
-                <div className="font-mono text-[10px] tracking-[0.3em] text-background/55">— {p.n}</div>
-                <h3 className="mt-6 font-display text-[24px] md:text-[28px] tracking-[-0.02em]">{p.title}.</h3>
-                <p className="mt-3 font-thai text-[13.5px] leading-[1.7] text-background/70">{p.body}</p>
-              </div>
-            </Reveal>
-          ))}
+        {/* Process strip */}
+        <div className="mt-24 md:mt-32">
+          <Reveal>
+            <div className="flex items-baseline justify-between border-t border-background/30 pt-5">
+              <p className="font-mono text-[10px] tracking-[0.4em] text-background/55">— PROCESS</p>
+              <p className="font-mono text-[10px] tracking-[0.3em] text-background/45 hidden sm:block">FROM HELLO · LIVE IN 4 WEEKS</p>
+            </div>
+          </Reveal>
+          <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-y-10">
+            {process.map((p, i) => (
+              <Reveal key={p.n} delay={0.06 * i}>
+                <div className={`md:px-6 ${i > 0 ? "md:border-l border-background/15" : ""}`}>
+                  <div className="font-mono text-[10px] tracking-[0.3em] text-background/55">{p.n}</div>
+                  <h3 className="mt-3 font-display text-[18px] md:text-[20px] tracking-[-0.02em]">{p.title}.</h3>
+                  <p className="mt-2 font-thai text-[13px] leading-[1.65] text-background/65">{p.body}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </div>
     </section>

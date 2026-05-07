@@ -64,15 +64,16 @@ const Index = () => (
           </h1>
         </Reveal>
         <Reveal delay={0.25}>
-          <p className="mt-12 md:mt-16 font-display text-[14px] md:text-[18px] tracking-[-0.01em]">
+          <p className="mt-12 md:mt-16 font-display text-[14px] md:text-[18px] tracking-[-0.01em] max-w-[640px]">
             A boutique{" "}
             <TypingLoop
-              text="creative agency."
+              text="creative agency"
               className={`${accent} inline-block`}
               typeSpeed={110}
               deleteSpeed={55}
               holdMs={2000}
             />
+            {" "}for F&amp;B, fashion &amp; hospitality.
           </p>
         </Reveal>
       </div>

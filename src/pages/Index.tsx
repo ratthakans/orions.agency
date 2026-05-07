@@ -42,7 +42,7 @@ const services = [
     n: "01",
     title: "Branding",
     lead: "Identity that works across every touchpoint.",
-    body: "ระบบแบรนด์ที่ใช้งานจริง — ตั้งแต่ logo, type, color, ไปจนถึง guideline ที่ทีมและพาร์ทเนอร์หยิบไปใช้ได้เลย",
+    body: "A working brand system — from logo, type and color to a guideline your team and partners can pick up and use right away.",
     bullets: [
       "Logo system & brand guidelines",
       "Visual identity · color · typography",
@@ -55,7 +55,7 @@ const services = [
     n: "02",
     title: "Content",
     lead: "Photo, video, and design that earn the scroll.",
-    body: "โปรดักชันในบ้านครบวงจร — ถ่ายภาพ, วิดีโอ, ตัดต่อ, กราฟิก ทำงานเป็นทีมเดียวกันตั้งแต่ pre ถึง post",
+    body: "Full in-house production — photo, video, edit and graphics, working as one team from pre to post.",
     bullets: [
       "Photo & video production",
       "Short-form (Reels, TikTok, Shorts)",
@@ -68,7 +68,7 @@ const services = [
     n: "03",
     title: "Social media",
     lead: "Strategy, posting, community, and paid ads.",
-    body: "วางแผน เนื้อหา ลงโพสต์ ตอบคอมเมนต์ และยิงแอด — รายงานผลทุกเดือนด้วยตัวเลขจริง",
+    body: "Plan, post, manage community and run paid ads — with monthly reports backed by real numbers.",
     bullets: [
       "Content strategy & monthly planning",
       "Copywriting & community management",
@@ -230,7 +230,7 @@ const SelectedWorkRail = () => {
 };
 
 const ServicesAccordion = () => {
-  const [open, setOpen] = useState<string | null>("01");
+  const [open, setOpen] = useState<string | null>(null);
   return (
     <div className="mt-16 border-t border-background/30">
       {services.map((s, i) => {
@@ -273,7 +273,7 @@ const ServicesAccordion = () => {
                   <div className="grid grid-cols-12 gap-6 pb-10 md:pb-12 px-2 -mx-2">
                     <div className="hidden md:block md:col-span-1" />
                     <div className="col-span-12 md:col-span-6">
-                      <p className="font-thai text-[15px] md:text-[16px] leading-[1.75] text-background/80">
+                      <p className="text-[15px] md:text-[16px] leading-[1.75] text-background/80">
                         {s.body}
                       </p>
                     </div>

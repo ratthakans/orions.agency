@@ -489,62 +489,6 @@ const Services = () => (
       </div>
     </section>
 
-    {/* PROCESS — light, mirrors Index right→left animated timeline */}
-    <section className="relative px-6 md:px-10">
-      <div className="border-t border-foreground py-24 md:py-32 max-w-[1200px] mx-auto">
-        <Reveal delay={0.05}>
-          <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground mb-4">
-            — PROCESS
-          </div>
-          <h2 className="font-display h-display-sm">
-            From hello, live in <span className={accent}>4 weeks.</span>
-          </h2>
-        </Reveal>
-
-        <div className="mt-16 relative">
-          <motion.div
-            className="absolute top-[14px] left-0 right-0 h-px bg-foreground/30 origin-right"
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 1.1, ease: [0.76, 0, 0.24, 1] }}
-            aria-hidden
-          />
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-y-12 md:gap-x-8">
-            {steps.map((st, i) => {
-              const delay = 0.15 + (steps.length - 1 - i) * 0.12;
-              return (
-                <motion.div
-                  key={st.n}
-                  initial={{ opacity: 0, x: 40 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-80px" }}
-                  transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay }}
-                  className="group relative pt-10 cursor-default"
-                >
-                  <motion.span
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={{ once: true, margin: "-80px" }}
-                    transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1], delay: delay + 0.1 }}
-                    className="absolute top-[8px] left-0 w-3.5 h-3.5 bg-background border border-foreground group-hover:bg-gradient-accent group-hover:border-transparent transition-colors"
-                    aria-hidden
-                  />
-                  <div className="font-mono text-[10px] tracking-[0.25em] text-muted-foreground">— {st.n}</div>
-                  <h3 className="mt-4 font-display text-[22px] md:text-[26px] tracking-[-0.02em] group-hover:text-gradient transition-colors">
-                    {st.title}.
-                  </h3>
-                  <p className="mt-3 font-thai text-[14px] leading-[1.7] text-muted-foreground max-w-[260px]">
-                    {st.body}
-                  </p>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-    </section>
-
     <ClosingCTA
       title={<>Tell us about <span className={accent}>the brand.</span></>}
       description="30-min discovery call. Free. We reply within 24 hours."

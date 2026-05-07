@@ -218,13 +218,12 @@ const Index = () => (
           </p>
         </Reveal>
 
-        {/* Scroll cue */}
-        <Reveal delay={0.5}>
-          <div className="absolute bottom-24 md:bottom-28 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3">
-            <div className="font-mono text-[9px] tracking-[0.4em] text-background/50">SCROLL</div>
-            <div className="w-px h-10 bg-background/30 animate-pulse" />
-          </div>
-        </Reveal>
+      </div>
+
+      {/* Scroll cue — pinned to hero bottom, above marquee */}
+      <div className="pointer-events-none absolute bottom-20 md:bottom-24 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3">
+        <div className="font-mono text-[9px] tracking-[0.4em] text-background/45">SCROLL</div>
+        <div className="w-px h-10 bg-background/25" />
       </div>
 
       {/* Bottom proof marquee */}

@@ -3,6 +3,7 @@ import ClosingCTA from "@/components/ClosingCTA";
 import SEO from "@/components/SEO";
 import TypingLoop from "@/components/TypingLoop";
 import SimpleMarquee from "@/components/SimpleMarquee";
+import CTA from "@/components/CTA";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -14,44 +15,42 @@ const services = [
     n: "01",
     title: "Branding",
     lead: "Identity that works across every touchpoint.",
-    detail:
-      "From naming to logo to a brand book your team and partners actually use — built to hold up across feed, store, and packaging.",
-    items: ["Naming · Logo · Marks", "Visual identity system", "Brand guidelines + book", "Launch toolkit"],
+    items: ["Logo + visual identity system", "Brand voice + messaging", "Guidelines + launch toolkit"],
+    from: "From THB 150,000",
   },
   {
     n: "02",
     title: "Content",
     lead: "Photo, video, and design that earn the scroll.",
-    detail:
-      "Shot, cut, and designed in-house — photo, video, reels, motion graphics, and a managed asset library that keeps your brand stocked year-round.",
-    items: ["Photo + video shoots", "Reels + short-form video", "Graphic + motion design", "Asset libraries"],
+    items: ["Photo + video shoots", "Reels + short-form video", "Brand films + asset libraries"],
+    from: "From THB 55,000",
   },
   {
     n: "03",
-    title: "Social media",
-    lead: "Strategy, posting, community, and paid ads.",
-    detail:
-      "Strategy → daily posting → community → paid ads, all under one team. No hand-off, no telephone game, reported every month.",
-    items: ["Strategy + content calendar", "Daily posting + scheduling", "Community management", "Paid ads (Meta, TikTok)"],
+    title: "Social Media",
+    lead: "Strategy, content, community, and ads.",
+    items: ["Daily posting + content creation", "Community management", "Paid ads (Meta + TikTok)"],
+    from: "From THB 45,000 / month",
   },
 ];
 
 type Tier = {
   name: string;
-  from: string;            // "Start from THB 150,000"
-  unit?: string;           // "/ project" or "/ month"
-  forWho: string;
-  timeline: string;        // e.g. "3–4 weeks"
-  deliverables: string;    // short phrase summary
-  includes: string[];      // detailed list of what's inside
-  bestFor?: string[];      // example brand types
-  highlight?: boolean;     // visually highlighted tier
+  tagline: string;
+  price: string;          // "150,000"
+  unit: string;           // "/ project" or "/ month"
+  timeline?: string;
+  lockIn?: string;
+  groups: { heading: string; items: string[] }[];
+  bonuses?: string[];
+  guarantees?: string[];
+  addOns?: string[];
+  highlight?: boolean;
 };
 
 type ServiceTable = {
   n: string;
   title: string;
-  lead: string;
   intro: string;
   tiers: Tier[];
 };
@@ -60,193 +59,429 @@ const serviceTables: ServiceTable[] = [
   {
     n: "01",
     title: "Branding",
-    lead: "Identity that ships.",
     intro:
-      "Built to hold up across feed, store and packaging. Strategy first, then a system your team and partners can actually use day one.",
+      "Identity systems built to hold up across feed, store and packaging — strategy first, then a system your team can actually use.",
     tiers: [
       {
         name: "Essential Look",
-        from: "Start from THB 150,000",
+        tagline: "New brands that need to look premium and credible from day one.",
+        price: "150,000",
         unit: "/ project",
-        forWho: "New brands that need to look premium and credible from day one.",
-        timeline: "3–4 weeks",
-        deliverables: "Core identity kit · 1 round of revision",
-        includes: [
-          "Discovery workshop (2 hours, founders + key team)",
-          "1 logo direction, refined to final master file",
-          "Primary + secondary color palette (HEX, RGB, CMYK, Pantone)",
-          "Type system: display + body pair, full hierarchy",
-          "Business card + email signature template",
-          "12-page brand guideline PDF",
-          "Source files: AI, SVG, PNG, PDF",
+        timeline: "4–5 weeks",
+        groups: [
+          {
+            heading: "What's included",
+            items: [
+              "Logo system (3 directions)",
+              "Color + typography system",
+              "Stationery suite (business card, letterhead, invoice template, email signature)",
+              "Brand guideline (20 pages)",
+              "Social media template kit (10 designs)",
+            ],
+          },
         ],
-        bestFor: ["Café · single-location restaurant", "Indie fashion label", "Boutique stay (under 20 keys)"],
+        bonuses: [
+          "Lock-in 30% rebrand discount within 24 months",
+          "30-day post-delivery support",
+        ],
+        addOns: [
+          "PowerPoint / Keynote template — 15,000",
+          "Photography style guide — 25,000",
+        ],
+      },
+      {
+        name: "Brand Plus",
+        tagline: "Brands that need voice, visual system, and a campaign-ready toolkit.",
+        price: "220,000",
+        unit: "/ project",
+        timeline: "6–7 weeks",
+        groups: [
+          {
+            heading: "What's included",
+            items: [
+              "Everything in Essential Look",
+              "Brand voice + key messaging framework",
+              "Key visual / campaign system (1 set)",
+              "Extended brand guideline (30–35 pages)",
+              "Packaging direction (1 SKU)",
+            ],
+          },
+        ],
+        bonuses: [
+          "60-day post-delivery support",
+          "15% off Master Story video within 12 months",
+          "20% off Social retainer for first 6 months",
+        ],
+        highlight: true,
       },
       {
         name: "Full Brand System",
-        from: "Start from THB 350,000",
+        tagline: "Category leaders building a complete brand system across every touchpoint.",
+        price: "320,000",
         unit: "/ project",
-        forWho: "Category leaders building a complete brand system across every touchpoint.",
-        timeline: "6–8 weeks",
-        deliverables: "End-to-end brand system + launch toolkit",
-        includes: [
-          "Everything in Essential Look",
-          "Brand strategy: positioning, audience, competitive map",
-          "Verbal identity: tone of voice, key messages, naming conventions",
-          "3 logo directions explored, refined to final",
-          "Extended palette: surfaces, semantic + accent system",
-          "Iconography + illustration direction",
-          "Photography art direction + 1 sample shoot brief",
-          "Key visual / ad template system (3 layouts × 5 sizes)",
-          "Packaging or signage design (1 application)",
-          "Social launch kit: 12 templates, 5 reels covers",
-          "60-page brand book + Figma library",
-          "Launch plan with rollout checklist",
+        timeline: "8–10 weeks",
+        groups: [
+          {
+            heading: "What's included",
+            items: [
+              "Everything in Brand Plus",
+              "Complete key visual / ad system (3 campaigns)",
+              "Brand film script + concept",
+              "Full launch plan + rollout toolkit",
+            ],
+          },
         ],
-        bestFor: ["Hotel group · resort", "Multi-outlet F&B brand", "Fashion label scaling to retail"],
-        highlight: true,
+        bonuses: [
+          "90-day post-delivery support",
+          "15% off Master Story video within 12 months",
+          "10% off Social retainer for first 6 months",
+        ],
+        addOns: [
+          "Environmental design direction — 30,000",
+          "Web design direction — 35,000",
+          "Packaging system (3 SKU) — 50,000",
+          "PR launch consultation — 25,000",
+        ],
       },
     ],
   },
   {
     n: "02",
     title: "Content Production",
-    lead: "Work that earns the scroll.",
     intro:
       "Shot, cut and designed in-house. One team handles concept, production and post — so the work stays on-brand from brief to final cut.",
     tiers: [
       {
         name: "High-Impact Assets",
-        from: "Start from THB 60,000",
+        tagline: "Photo and short-form video that stops the thumb in 1.7 seconds.",
+        price: "55,000",
         unit: "/ project",
-        forWho: "Photo and short-form video that stops the thumb in 1.7 seconds.",
         timeline: "2–3 weeks",
-        deliverables: "1 shoot day · 3–5 finished assets",
-        includes: [
-          "Pre-pro: concept, mood, shot list, call sheet",
-          "1 shoot day (up to 8 hours, 1 location)",
-          "Director, DP, photographer, 1 stylist",
-          "3–5 finished short-form videos (15–30s) OR 15–25 hero photos",
-          "Color grade + sound design",
-          "Captions burned-in (TH + EN)",
-          "Platform-ready exports: Reels, TikTok, Shorts, feed, story",
+        groups: [
+          {
+            heading: "What's included",
+            items: [
+              "Full-day shoot (8 hours)",
+              "15–18 photos",
+              "4–5 short-form videos",
+              "Mood board + shot list",
+              "Hashtag list per asset",
+              "Asset organization in Google Drive",
+              "2 rounds revision",
+            ],
+          },
         ],
-        bestFor: ["Menu launch", "Seasonal campaign", "Always-on content refresh"],
+        bonuses: [
+          "Asset usage rights — lifetime",
+          "20% off your second shoot within 6 months",
+        ],
       },
       {
-        name: "Monthly Content",
-        from: "Start from THB 90,000",
-        unit: "/ month",
-        forWho: "A steady stream of on-brand assets without the back-and-forth.",
-        timeline: "Monthly cycle, 2-week onboarding",
-        deliverables: "1 shoot/mo · 8–12 assets/mo",
-        includes: [
-          "Monthly content calendar tied to your campaigns",
-          "1 shoot day per month (half-day for additional)",
-          "8–12 short-form videos OR 20+ photos per month",
-          "Graphic design: feed posts, story templates, carousels",
-          "Light motion graphics for key launches",
-          "Asset library managed in Drive / Frame.io",
-          "Monthly review + content review meeting",
+        name: "Brand Story",
+        tagline: "A short-form brand video that earns trust and works across every platform.",
+        price: "95,000",
+        unit: "/ project",
+        timeline: "3–4 weeks",
+        groups: [
+          {
+            heading: "What's included",
+            items: [
+              "Brand video (60–75 seconds, 1 hero version)",
+              "2 platform variants (vertical or horizontal)",
+              "Photo set (10–12 shots from the same shoot)",
+              "Lightweight script + storyboard",
+              "Subtitles in one language (Thai or English)",
+              "Color grading + sound design",
+            ],
+          },
         ],
-        bestFor: ["Hotels · always-on F&B", "DTC fashion", "Membership clubs"],
+        bonuses: [
+          "Concept approval round before shoot day",
+          "2 rounds revision",
+        ],
+        addOns: [
+          "30-second teaser version — 12,000",
+          "Subtitles in 2nd language — 8,000",
+          "Both vertical + horizontal versions — 15,000",
+        ],
         highlight: true,
       },
       {
         name: "Master Story",
-        from: "Start from THB 180,000",
+        tagline: "A brand film built to last 18–24 months.",
+        price: "165,000",
         unit: "/ project",
-        forWho: "Brand film or documentary that earns trust for the long run.",
-        timeline: "6–10 weeks",
-        deliverables: "1 hero film (60–180s) + cut-downs",
-        includes: [
-          "Story development: research, interviews, treatment",
-          "Script + storyboard, locked with you before shoot",
-          "2–3 shoot days, full crew (director, DP, sound, gaffer, AD)",
-          "Original music or licensed score",
-          "Pro color (DaVinci) + sound mix",
-          "1 hero edit (60–180s) + 3 social cut-downs (15s / 30s / 9:16)",
-          "Behind-the-scenes mini-doc (optional add-on)",
-          "Master files + delivery on every channel spec",
+        timeline: "5–6 weeks",
+        groups: [
+          {
+            heading: "What's included",
+            items: [
+              "Brand film (90 seconds – 2 minutes)",
+              "DSLR / mirrorless production",
+              "Full script + storyboard",
+              "Director + DP + sound team",
+              "Photo set (10–12 shots)",
+              "BTS content (3–5 clips)",
+              "2 edits: hero version + 30-second",
+              "Subtitles in one language",
+            ],
+          },
         ],
-        bestFor: ["Brand anniversary / repositioning", "Founder story", "New property launch"],
+        bonuses: [
+          "Concept + storyboard approval rounds",
+          "2 rounds revision",
+        ],
+        addOns: [
+          "Cinema-grade equipment upgrade — 35,000",
+          "Extended photo set (20–25 shots) — 25,000",
+          "15-second cut — 10,000",
+          "PR press kit — 25,000",
+          "Founder portrait set — 25,000",
+        ],
       },
     ],
   },
   {
     n: "03",
     title: "Social Media",
-    lead: "Run monthly. Reported clearly.",
     intro:
-      "Strategy → daily posting → community → paid ads, all under one team. Reported monthly with the numbers that matter to your business — not vanity metrics.",
+      "Strategy → daily posting → community → paid ads, all under one team. Reported monthly with the numbers that matter.",
     tiers: [
       {
         name: "Foundation",
-        from: "Start from THB 50,000",
+        tagline: "Steady, on-brand presence — content, community, and consistent posting.",
+        price: "45,000",
         unit: "/ month",
-        forWho: "Steady, on-brand presence — consistent posting and community care.",
-        timeline: "3-month minimum, monthly billing",
-        deliverables: "8–10 posts/mo + 1 channel managed",
-        includes: [
-          "1 channel managed (IG or TikTok or Facebook)",
-          "Monthly content calendar + caption writing (TH + EN)",
-          "8–10 high-quality posts per month (mix of static + reel)",
-          "Hashtag + posting strategy",
-          "Community management: replies within 12 hours, business hours",
-          "Monthly report: reach, follower growth, top posts, learnings",
-          "1 strategy call per month (45 min)",
+        lockIn: "3 months minimum, then month-to-month",
+        groups: [
+          {
+            heading: "Monthly",
+            items: [
+              "6–8 high-quality posts",
+              "1 platform (your choice: IG or FB)",
+              "Platform-specific captions",
+              "Hashtag strategy",
+              "Community management (response < 24 hours)",
+              "DM management",
+              "Monthly performance report",
+            ],
+          },
+          {
+            heading: "Quarterly",
+            items: [
+              "Mini-shoot (5–7 fresh assets, 2–3 hours)",
+              "Trend report",
+              "Strategy call",
+            ],
+          },
         ],
-        bestFor: ["Boutique hotels", "Single-outlet F&B", "Emerging fashion labels"],
+        bonuses: [
+          "Lock-in price for 6 months",
+          "Audit at 50% off when signing 6-month contract (7,500)",
+          "Same team end-to-end",
+        ],
+        addOns: [
+          "2nd platform — 15,000 / month",
+          "Monthly trend report (vs quarterly) — 5,000 / month",
+          "Monthly strategy call — 5,000 / month",
+          "Half-day quarterly shoot (vs mini) — 5,000 / month",
+        ],
       },
       {
         name: "Growth",
-        from: "Start from THB 80,000",
+        tagline: "Foundation + paid ads engine + monthly content videos.",
+        price: "75,000",
         unit: "/ month",
-        forWho: "Expanding reach — full content engine plus performance ads.",
-        timeline: "3-month minimum · 6-month recommended",
-        deliverables: "Multi-channel · paid ads · bi-weekly review",
-        includes: [
-          "Everything in Foundation, across 2 channels",
-          "12–16 posts per month including dedicated short-form video",
-          "Short-form video production (4–6 reels/mo, in-house)",
-          "Paid ads: strategy, setup, creative, weekly optimization",
-          "Ad spend management up to THB 150,000/mo (spend not included)",
-          "Pixel / conversion tracking setup",
-          "Bi-weekly performance review + creative iteration",
-          "Quarterly strategy reset",
+        lockIn: "3 months minimum, then month-to-month",
+        groups: [
+          {
+            heading: "Strategy & reporting",
+            items: [
+              "1–2 strategy calls per month",
+              "Monthly performance review",
+              "Monthly competitor benchmark",
+            ],
+          },
+          {
+            heading: "Content creation",
+            items: [
+              "10–12 posts per month",
+              "2 platforms (IG + FB or IG + TikTok)",
+              "3–4 short-form videos per month",
+              "Custom design templates",
+              "Platform-specific captions",
+            ],
+          },
+          {
+            heading: "Community",
+            items: [
+              "Response < 8 hours",
+              "DM management + lead tracking",
+            ],
+          },
+          {
+            heading: "Paid ads",
+            items: [
+              "Meta Ads management",
+              "Audience research + persona",
+              "Creative A/B testing",
+              "Conversion tracking + pixel setup",
+              "Bi-weekly ad optimization",
+            ],
+          },
+          {
+            heading: "Production",
+            items: [
+              "Quarterly half-day shoot (10–12 fresh assets)",
+            ],
+          },
         ],
-        bestFor: ["Hotel groups", "Multi-outlet F&B chains", "Fashion brands scaling DTC"],
+        bonuses: [
+          "Lock-in 75K price for 12 months",
+          "Audit at 50% off when signing 6-month contract (7,500)",
+          "First post live within 14 days",
+        ],
+        guarantees: [
+          "Cancel anytime after first 3 months (30-day notice)",
+          "Same team end-to-end",
+        ],
+        addOns: [
+          "TikTok Ads management — 12,000 / month",
+          "LINE Ads management — 12,000 / month",
+          "Monthly shoot (vs quarterly) — 12,000 / month",
+          "3rd platform — 12,000 / month",
+          "Bi-weekly performance review — 8,000 / month",
+          "2 extra videos per month — 10,000 / month",
+        ],
         highlight: true,
       },
       {
         name: "Mastery",
-        from: "Start from THB 120,000",
+        tagline: "Premium retainer — full content engine, multi-channel ads, and senior strategy.",
+        price: "175,000",
         unit: "/ month",
-        forWho: "End-to-end ownership — like an in-house marketing department.",
-        timeline: "6-month minimum · annual partnership",
-        deliverables: "Always-on team · senior direction · weekly syncs",
-        includes: [
-          "Everything in Growth, across 3+ channels",
-          "20+ posts per month + always-on short-form pipeline",
-          "Senior consultant: brand, content, paid lead",
-          "Full-funnel paid media: Meta, TikTok, Google, retargeting",
-          "Ad spend management up to THB 500,000/mo",
-          "Influencer + creator collabs (sourcing + management)",
-          "Email / CRM lifecycle support",
-          "Weekly strategy syncs + monthly executive readout",
-          "Priority on production days + crisis response",
+        lockIn: "6 months minimum, then month-to-month",
+        groups: [
+          {
+            heading: "Strategy",
+            items: [
+              "Everything in Growth",
+              "Bi-weekly strategy syncs",
+              "Monthly deep-dive performance review",
+              "Quarterly business review with founder",
+            ],
+          },
+          {
+            heading: "Content creation",
+            items: [
+              "15–18 posts per month",
+              "3 platforms (IG + FB + TikTok)",
+              "6–8 short-form videos per month",
+              "Stories strategy + templates",
+            ],
+          },
+          {
+            heading: "Community",
+            items: [
+              "Response < 4 hours",
+              "DM + lead tracking + CRM integration",
+              "UGC management + reposting",
+            ],
+          },
+          {
+            heading: "Paid ads",
+            items: [
+              "Meta + TikTok Ads management",
+              "Audience research + persona development",
+              "A/B testing",
+              "Conversion tracking + landing page consultation",
+            ],
+          },
+          {
+            heading: "Production",
+            items: [
+              "Monthly half-day shoot (12–15 assets)",
+            ],
+          },
         ],
-        bestFor: ["Hospitality groups", "Established fashion houses", "Premium F&B operators"],
+        bonuses: [
+          "Lock-in 175K price for 12 months",
+          "Free Brand Audit (15K value)",
+          "Priority WhatsApp / LINE founder access",
+          "First post live within 14 days",
+        ],
+        guarantees: [
+          "Same team end-to-end",
+          "Founder-level oversight",
+          "Cancel after first 6 months (30-day notice)",
+        ],
+        addOns: [
+          "LINE Ads management — 15,000 / month",
+          "Google Ads management — 18,000 / month",
+          "English content (multi-language) — 25,000 / month",
+          "Monthly full-day shoot (vs half-day) — 15,000 / month",
+          "Weekly strategy syncs — 15,000 / month",
+        ],
       },
     ],
   },
 ];
 
+const process = [
+  { n: "01", title: "Listen", body: "30-min call. Honest fit-check." },
+  { n: "02", title: "Plan", body: "Short proposal. Real numbers." },
+  { n: "03", title: "Build", body: "Strategy, identity, content, ads." },
+  { n: "04", title: "Run", body: "Monthly reports. Real results." },
+];
+
+const faqs = [
+  {
+    q: "Can I customize a package?",
+    a: "Most clients pick a base package and add what they need. Every Social retainer has add-ons listed transparently. Branding and Content can be quoted custom — talk to us.",
+  },
+  {
+    q: "What if I don't like the first draft?",
+    a: "Every package includes 2 rounds of revision. We've never had a client unhappy with the second round. If you're concerned, start with an Audit.",
+  },
+  {
+    q: "Can I cancel my Social retainer?",
+    a: "Foundation: after 3 months, month-to-month. Growth: after 3 months, 30-day notice. Mastery: after 6 months, 30-day notice.",
+  },
+  {
+    q: "Will I work with junior staff?",
+    a: "No. Founder oversees every project. Same team from start to finish — no handoffs.",
+  },
+  {
+    q: "Do you do websites or SEO?",
+    a: "Not directly. For Social retainer clients, we'll recommend trusted partners (no markup, no commission).",
+  },
+  {
+    q: "What if I'm not Café / D2C / Tech?",
+    a: "We work with any consumer-facing brand. Best fit: brands that care about how they look + how they're talked about.",
+  },
+  {
+    q: "How fast can we start?",
+    a: "Audit: 7 days from booking. Branding: 4–10 weeks depending on tier. Social retainer: first post live within 14 days.",
+  },
+  {
+    q: "What payment terms?",
+    a: "Branding & Content: 50% deposit, 50% on delivery. Social retainer: monthly in advance. Bank transfer or credit card.",
+  },
+];
+
+const whyPoints = [
+  "Honest pricing on the website",
+  "First draft within agreed timeline — or it's on us",
+  "Same team from kickoff to delivery",
+  "Direct founder access via LINE / WhatsApp",
+  "Cancel retainers anytime after the lock-in period",
+];
+
 const Services = () => (
   <div>
     <SEO
-      title="Services — ØRIONS"
-      description="Branding, content, and paid ads — managed end-to-end. One team, no handoff. Live in 4 weeks."
+      title="Services & Pricing — ØRIONS"
+      description="Branding, content, and social media — managed end-to-end by one team. No handoff. Live in 4 weeks. Honest pricing from THB 45,000."
       path="/services"
       schema={[
         {
@@ -271,12 +506,12 @@ const Services = () => (
       ]}
     />
 
-    {/* HERO — dark, compact */}
+    {/* HERO */}
     <section className="relative bg-foreground text-background overflow-hidden">
       <div className="relative flex flex-col items-center justify-center text-center px-6 md:px-10 pt-32 md:pt-36 pb-16 md:pb-20">
         <Reveal>
           <p className="font-mono text-[10px] tracking-[0.4em] text-background/60 mb-8 md:mb-10">
-            — SERVICES · 03 PRACTICES
+            — SERVICES
           </p>
         </Reveal>
         <Reveal delay={0.1}>
@@ -285,18 +520,20 @@ const Services = () => (
           </h1>
         </Reveal>
         <Reveal delay={0.25}>
-          <p className="mt-8 md:mt-10 font-display text-[13px] md:text-[16px] tracking-[-0.01em] max-w-[560px]">
-            Branding, content & social — built by{" "}
-            <TypingLoop text="one team" className={accent} />
+          <p className="mt-8 md:mt-10 font-display text-[13px] md:text-[16px] tracking-[-0.01em] max-w-[620px]">
+            Branding, content, and social media — managed end-to-end by{" "}
+            <TypingLoop text="one team" className={accent} />. No handoff. Live in 4 weeks.
           </p>
         </Reveal>
         <Reveal delay={0.35}>
-          <div className="mt-12 md:mt-14 border-t border-b border-background/20 py-3 px-6 flex items-center gap-6 md:gap-10 font-mono text-[10px] tracking-[0.3em] uppercase tabular-nums text-background/70">
-            <span>03 Practices</span>
-            <span className="text-background/30">·</span>
-            <span>01 Studio</span>
-            <span className="text-background/30">·</span>
-            <span>From <span className="text-background">THB 50K</span></span>
+          <div className="mt-10 md:mt-12 flex flex-col sm:flex-row items-center gap-4">
+            <CTA to="/contact" variant="invert">Start with an Audit</CTA>
+            <a
+              href="#pricing"
+              className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase text-background/80 hover:text-background border-b border-background/40 hover:border-background pb-1 transition-colors"
+            >
+              See pricing ↓
+            </a>
           </div>
         </Reveal>
       </div>
@@ -314,35 +551,33 @@ const Services = () => (
       </div>
     </section>
 
-    {/* WHAT WE DO — light, three services overview with anchor jumps */}
+    {/* SERVICE OVERVIEW */}
     <section className="px-6 md:px-10">
       <div className="max-w-[1200px] mx-auto py-24 md:py-32">
-        <Reveal delay={0.05}>
-          <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground mb-4">
-            — WHAT WE DO
-          </div>
-          <h2 className="font-display h-display-sm max-w-[820px]">
-            Three practices, <span className={accent}>one studio.</span>
-          </h2>
-        </Reveal>
-
-        <div className="mt-14 md:mt-16 grid grid-cols-1 md:grid-cols-3 border-t border-foreground">
+        <div className="grid grid-cols-1 md:grid-cols-3 border-t border-foreground">
           {services.map((s, i) => (
             <Reveal key={s.n} delay={0.08 * i}>
               <a
                 href={`#svc-${s.n}`}
-                className={`group h-full py-12 md:py-16 md:px-8 flex flex-col ${i > 0 ? "md:border-l border-soft" : ""}`}
+                className={`group h-full py-12 md:py-14 md:px-8 flex flex-col ${i > 0 ? "md:border-l border-soft" : ""}`}
               >
-                <div className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground">— {s.n}</div>
-                <div className="mt-6 font-display text-[72px] md:text-[96px] leading-[0.9] tracking-[-0.04em] tabular-nums text-foreground/10 group-hover:text-gradient transition-colors">
-                  {s.n}
-                </div>
-                <h3 className="mt-6 font-display text-[24px] md:text-[28px] tracking-[-0.02em]">
+                <div className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground">— {s.n}</div>
+                <h3 className="mt-6 font-display text-[28px] md:text-[36px] tracking-[-0.02em]">
                   {s.title}.
                 </h3>
-                <p className="mt-4 font-thai text-[14px] leading-[1.7] text-foreground/70 max-w-[320px]">{s.lead}</p>
-                <span className="mt-auto pt-10 inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase text-foreground/60 group-hover:text-foreground transition-colors">
-                  Jump to packages <ArrowUpRight className="w-3 h-3" />
+                <p className="mt-3 font-thai text-[14px] leading-[1.7] text-foreground/70 max-w-[340px]">
+                  {s.lead}
+                </p>
+                <ul className="mt-6 space-y-2">
+                  {s.items.map((it) => (
+                    <li key={it} className="flex items-baseline gap-3 font-thai text-[13px] leading-[1.6] text-foreground/75">
+                      <span className="text-muted-foreground">·</span>
+                      <span>{it}</span>
+                    </li>
+                  ))}
+                </ul>
+                <span className="mt-auto pt-10 inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase text-foreground/70 group-hover:text-foreground transition-colors">
+                  {s.from} <ArrowUpRight className="w-3 h-3" />
                 </span>
               </a>
             </Reveal>
@@ -351,18 +586,66 @@ const Services = () => (
       </div>
     </section>
 
-    {/* PRICING — dark, detailed package cards */}
-    <section className="relative bg-foreground text-background px-6 md:px-10">
-      <div className="border-t border-background/30 py-24 md:py-32 max-w-[1280px] mx-auto">
+    {/* AUDIT — START HERE */}
+    <section className="px-6 md:px-10">
+      <div className="max-w-[1200px] mx-auto pb-24 md:pb-32">
+        <div className="border-y border-foreground py-12 md:py-16 grid grid-cols-1 md:grid-cols-12 gap-y-10 md:gap-x-12">
+          <div className="md:col-span-5">
+            <p className="font-mono text-[10px] tracking-[0.4em] text-muted-foreground mb-4">— START HERE</p>
+            <h2 className="font-display h-display-sm">
+              ØRIONS <span className={accent}>Audit.</span>
+            </h2>
+            <p className="mt-5 font-thai text-[14px] leading-[1.7] text-foreground/70 max-w-[380px]">
+              Not ready for a full engagement? Start with a 1-week audit. Credited 100% toward your next phase.
+            </p>
+            <div className="mt-8 flex items-baseline gap-3">
+              <div className={`font-display ${accent} text-[48px] md:text-[64px] leading-none tracking-[-0.04em] tabular-nums`}>15K</div>
+              <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">THB</div>
+            </div>
+          </div>
+
+          <div className="md:col-span-7 md:border-l border-soft md:pl-12">
+            <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground mb-5">
+              — what you get in 7 days
+            </div>
+            <ul className="space-y-3 font-thai text-[13.5px] leading-[1.7]">
+              {[
+                "Brand & social audit report (5–6 pages)",
+                "Top 3 problems + Top 3 opportunities",
+                "30-day quick-win plan",
+                "Competitor teardown (1 brand)",
+                "1-hour working session with founder",
+                "Action checklist (10 items)",
+              ].map((it) => (
+                <li key={it} className="flex items-baseline gap-3">
+                  <span className="font-mono text-[10px] text-muted-foreground/60 shrink-0">—</span>
+                  <span>{it}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-8 font-thai text-[13px] italic text-foreground/70">
+              ✓ 100% credit-back if you continue with us within 60 days
+            </p>
+            <div className="mt-8">
+              <CTA to="/contact">Book Audit</CTA>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* PRICING */}
+    <section id="pricing" className="relative bg-foreground text-background px-6 md:px-10 scroll-mt-20">
+      <div className="border-t border-background/30 py-24 md:py-32 max-w-[1320px] mx-auto">
         <Reveal delay={0.05}>
           <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-background/55 mb-4">
-            — PACKAGES & PRICING
+            — PRICING
           </div>
           <h2 className="font-display h-display-sm max-w-[900px]">
-            Honest pricing, <span className={accent}>start from.</span>
+            Honest pricing, <span className={accent}>no surprises.</span>
           </h2>
-          <p className="mt-6 font-thai text-[14px] md:text-[15px] leading-[1.7] text-background/70 max-w-[640px]">
-            Every engagement starts with a 30-min call. We&apos;ll tell you which package fits — or build a custom scope if none does.
+          <p className="mt-6 font-thai text-[14px] md:text-[15px] leading-[1.75] text-background/70 max-w-[640px]">
+            We show our prices because we believe trust starts with transparency.
           </p>
         </Reveal>
 
@@ -386,52 +669,99 @@ const Services = () => (
               <div className={`grid grid-cols-1 ${svc.tiers.length === 3 ? "md:grid-cols-3" : "md:grid-cols-2"} border-t border-background/15`}>
                 {svc.tiers.map((t, i) => (
                   <Reveal key={t.name} delay={0.06 * i}>
-                    <div className={`relative h-full p-8 md:p-12 flex flex-col ${i > 0 ? "md:border-l border-background/15" : ""} ${t.highlight ? "bg-background/[0.04]" : ""}`}>
+                    <div className={`relative h-full p-7 md:p-9 flex flex-col ${i > 0 ? "md:border-l border-background/15" : ""} ${t.highlight ? "bg-background/[0.04]" : ""}`}>
                       <div className="flex items-baseline justify-between gap-3">
-                        <h4 className="font-display text-[22px] md:text-[24px] tracking-[-0.02em]">{t.name}.</h4>
+                        <h4 className="font-display text-[20px] md:text-[22px] tracking-[-0.02em]">{t.name}.</h4>
                         {t.highlight && (
                           <span className="font-mono text-[9px] tracking-[0.3em] uppercase text-background/50">
-                            — most chosen
+                            ★ most popular
                           </span>
                         )}
                       </div>
 
                       <p className="mt-3 font-thai text-[13px] leading-[1.7] text-background/65 min-h-[3.5em]">
-                        {t.forWho}
+                        {t.tagline}
                       </p>
 
-                      <div className="mt-10">
+                      <div className="mt-8">
                         <div className="flex items-baseline gap-2">
-                          <div className={`font-display text-[40px] md:text-[52px] leading-none tracking-[-0.04em] tabular-nums ${t.highlight ? accent : ""}`}>
-                            {t.from.replace("Start from THB ", "")}
+                          <div className={`font-display text-[36px] md:text-[44px] leading-none tracking-[-0.04em] tabular-nums ${t.highlight ? accent : ""}`}>
+                            {t.price}
                           </div>
                           <div className="font-mono text-[10px] tracking-[0.2em] text-background/55">
-                            THB {t.unit?.replace("/ ", "/")}
+                            THB {t.unit}
                           </div>
                         </div>
-                        <div className="mt-3 font-mono text-[10px] tracking-[0.2em] uppercase text-background/50 tabular-nums">
-                          {t.timeline} · {t.deliverables}
-                        </div>
+                        {(t.timeline || t.lockIn) && (
+                          <div className="mt-3 font-mono text-[10px] tracking-[0.2em] uppercase text-background/50">
+                            {t.timeline ? `Timeline: ${t.timeline}` : t.lockIn}
+                          </div>
+                        )}
                       </div>
 
-                      <div className="mt-10">
-                        <div className="font-mono text-[9px] tracking-[0.3em] uppercase text-background/40 mb-5">
-                          — what&apos;s included
-                        </div>
-                        <ul className="space-y-3">
-                          {t.includes.map((it) => (
-                            <li key={it} className="flex items-baseline gap-3 font-thai text-[13px] leading-[1.65] text-background/85">
-                              <span className="font-mono text-[10px] text-background/35 shrink-0">—</span>
-                              <span>{it}</span>
-                            </li>
-                          ))}
-                        </ul>
+                      <div className="mt-8 space-y-7 flex-1">
+                        {t.groups.map((g) => (
+                          <div key={g.heading}>
+                            <div className="font-mono text-[9px] tracking-[0.3em] uppercase text-background/40 mb-3">
+                              — {g.heading}
+                            </div>
+                            <ul className="space-y-2">
+                              {g.items.map((it) => (
+                                <li key={it} className="flex items-baseline gap-3 font-thai text-[12.5px] leading-[1.65] text-background/85">
+                                  <span className="font-mono text-[10px] text-background/35 shrink-0">·</span>
+                                  <span>{it}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+
+                        {t.bonuses && (
+                          <div>
+                            <div className="font-mono text-[9px] tracking-[0.3em] uppercase text-background/40 mb-3">
+                              — bonuses
+                            </div>
+                            <ul className="space-y-2">
+                              {t.bonuses.map((it) => (
+                                <li key={it} className="flex items-baseline gap-3 font-thai text-[12.5px] leading-[1.65] text-background/85">
+                                  <span className="font-mono text-[10px] text-background/55 shrink-0">✓</span>
+                                  <span>{it}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+
+                        {t.guarantees && (
+                          <div>
+                            <div className="font-mono text-[9px] tracking-[0.3em] uppercase text-background/40 mb-3">
+                              — guarantees
+                            </div>
+                            <ul className="space-y-2">
+                              {t.guarantees.map((it) => (
+                                <li key={it} className="flex items-baseline gap-3 font-thai text-[12.5px] leading-[1.65] text-background/85">
+                                  <span className="font-mono text-[10px] text-background/55 shrink-0">✓</span>
+                                  <span>{it}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
                       </div>
 
-                      {t.bestFor && (
-                        <p className="mt-10 pt-6 font-thai italic text-[12px] leading-[1.7] text-background/55">
-                          Best for: {t.bestFor.join(" · ")}
-                        </p>
+                      {t.addOns && (
+                        <div className="mt-8 pt-6 border-t border-background/15">
+                          <div className="font-mono text-[9px] tracking-[0.3em] uppercase text-background/40 mb-3">
+                            — add-ons
+                          </div>
+                          <ul className="space-y-1.5">
+                            {t.addOns.map((it) => (
+                              <li key={it} className="font-thai text-[12px] leading-[1.6] text-background/65">
+                                {it}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       )}
                     </div>
                   </Reveal>
@@ -449,36 +779,94 @@ const Services = () => (
       </div>
     </section>
 
-    {/* AUDIT — compact promo strip, light */}
+    {/* WHY ØRIONS */}
     <section className="px-6 md:px-10">
       <div className="max-w-[1200px] mx-auto py-24 md:py-32">
-        <div className="border-y border-foreground py-12 md:py-16 grid grid-cols-1 md:grid-cols-12 gap-y-8 md:gap-x-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-start border-t border-foreground pt-12 md:pt-16">
           <div className="md:col-span-5">
-            <p className="font-mono text-[10px] tracking-[0.4em] text-muted-foreground mb-4">— KICKSTART</p>
-            <h2 className="font-display h-display-sm">
-              ØRIONS <span className={accent}>Audit.</span>
-            </h2>
-            <p className="mt-4 font-thai text-[14px] leading-[1.7] text-foreground/70 max-w-[360px]">
-              Not ready for a full engagement? Start with a 1–2 week audit. Credited toward the next phase.
-            </p>
+            <Reveal>
+              <p className="font-mono text-[10px] tracking-[0.4em] text-muted-foreground mb-4">— WHY ØRIONS</p>
+            </Reveal>
+            <Reveal delay={0.05}>
+              <h2 className="font-display h-display-sm">
+                One team. <br /><span className={accent}>No handoff.</span>
+              </h2>
+            </Reveal>
           </div>
-          <div className="md:col-span-3 flex items-baseline gap-3">
-            <div className={`font-display ${accent} text-[48px] md:text-[64px] leading-none tracking-[-0.04em] tabular-nums`}>30K</div>
-            <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">THB</div>
+          <div className="md:col-span-7 space-y-6">
+            <Reveal delay={0.1}>
+              <p className="font-thai text-[15px] leading-[1.8] text-foreground/80">
+                Most agencies split your project across departments. Brief gets lost. Quality drifts. Timelines slip.
+              </p>
+              <p className="mt-4 font-display text-[18px] md:text-[20px] tracking-[-0.01em]">
+                We don&apos;t do that.
+              </p>
+              <p className="mt-4 font-thai text-[14px] leading-[1.8] text-foreground/70">
+                The team that takes your brief is the team that ships your work. Founder-led. Always.
+              </p>
+            </Reveal>
+            <Reveal delay={0.2}>
+              <ul className="mt-8 pt-8 border-t border-soft space-y-3">
+                {whyPoints.map((p) => (
+                  <li key={p} className="flex items-baseline gap-3 font-thai text-[14px] leading-[1.7] text-foreground/85">
+                    <span className="font-mono text-[10px] text-foreground/50 shrink-0">✓</span>
+                    <span>{p}</span>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
           </div>
-          <div className="md:col-span-4 flex flex-col gap-5">
-            <ul className="space-y-2 font-thai text-[13px] leading-[1.7]">
-              <li className="flex items-baseline gap-3"><span className="font-mono text-[10px] text-muted-foreground/60">—</span><span>Brand &amp; spend audit</span></li>
-              <li className="flex items-baseline gap-3"><span className="font-mono text-[10px] text-muted-foreground/60">—</span><span>1-page 90-day roadmap</span></li>
-              <li className="flex items-baseline gap-3"><span className="font-mono text-[10px] text-muted-foreground/60">—</span><span>1-hour working session</span></li>
-            </ul>
-            <Link
-              to="/contact"
-              className="self-start inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase text-foreground border-b border-foreground/40 hover:border-foreground pb-1 transition-colors"
-            >
-              Book the audit <ArrowUpRight className="w-3 h-3" />
-            </Link>
-          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* PROCESS */}
+    <section className="bg-foreground text-background px-6 md:px-10">
+      <div className="max-w-[1200px] mx-auto py-24 md:py-32">
+        <Reveal>
+          <p className="font-mono text-[10px] tracking-[0.4em] text-background/55 mb-4">— PROCESS</p>
+        </Reveal>
+        <Reveal delay={0.05}>
+          <h2 className="font-display h-display-sm max-w-[900px]">
+            From hello, <span className={accent}>live in 4 weeks.</span>
+          </h2>
+        </Reveal>
+
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-4 border-t border-background/30">
+          {process.map((p, i) => (
+            <Reveal key={p.n} delay={0.06 * i}>
+              <div className={`py-10 md:py-12 md:px-8 ${i > 0 ? "md:border-l border-background/15" : ""}`}>
+                <div className="font-mono text-[10px] tracking-[0.3em] text-background/55">— {p.n}</div>
+                <h3 className="mt-6 font-display text-[24px] md:text-[28px] tracking-[-0.02em]">{p.title}.</h3>
+                <p className="mt-3 font-thai text-[13.5px] leading-[1.7] text-background/70">{p.body}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* FAQ */}
+    <section className="px-6 md:px-10">
+      <div className="max-w-[1200px] mx-auto py-24 md:py-32">
+        <Reveal>
+          <p className="font-mono text-[10px] tracking-[0.4em] text-muted-foreground mb-4">— QUESTIONS</p>
+        </Reveal>
+        <Reveal delay={0.05}>
+          <h2 className="font-display h-display-sm max-w-[900px]">
+            Things you might <br /><span className={accent}>be wondering.</span>
+          </h2>
+        </Reveal>
+
+        <div className="mt-14 border-t border-foreground">
+          {faqs.map((f) => (
+            <Reveal key={f.q}>
+              <div className="grid grid-cols-1 md:grid-cols-[1fr,2fr] gap-6 md:gap-12 py-8 border-b border-soft">
+                <div className="font-display text-[18px] md:text-[22px] tracking-[-0.01em]">{f.q}</div>
+                <p className="font-thai text-[14px] md:text-[15px] leading-[1.75] text-foreground/80">{f.a}</p>
+              </div>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>

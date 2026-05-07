@@ -252,8 +252,7 @@ const Services = () => (
           {/* Right: WHAT YOU GET — emphasized */}
           <div className="lg:col-span-7 lg:border-l border-foreground lg:pl-12">
             <Reveal delay={0.2}>
-              <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">— WHAT YOU GET</div>
-              <ul className="mt-8 space-y-0">
+              <ul className="space-y-0">
                 {[
                   { k: "01", t: "Brand & Spend Audit", body: "Where the budget leaks and where the brand stalls in the market." },
                   { k: "02", t: "1-Page Roadmap",      body: "A 90-day unlock plan — priorities, sequence, and expected outcomes." },

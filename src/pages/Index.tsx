@@ -301,31 +301,7 @@ const Index = () => (
           </div>
         </Reveal>
 
-        <div className="mt-16 border-t border-background/30">
-          {services.map((s, i) => (
-            <Reveal key={s.n} delay={0.06 * i}>
-              <Link
-                to="/services"
-                className="group grid grid-cols-12 gap-6 items-baseline py-8 md:py-10 border-b border-background/15 hover:bg-background/[0.03] transition-colors px-2 -mx-2"
-              >
-                <div className="col-span-2 md:col-span-1 font-mono text-[10px] tracking-[0.25em] text-background/45">
-                  {s.n}
-                </div>
-                <div className="col-span-10 md:col-span-5">
-                  <h3 className="font-display text-[28px] md:text-[40px] tracking-[-0.02em] leading-[1.05]">
-                    {s.title}
-                  </h3>
-                </div>
-                <div className="col-span-12 md:col-span-5 font-thai text-[14px] md:text-[15px] leading-[1.65] text-background/70">
-                  {s.lead}
-                </div>
-                <div className="hidden md:flex col-span-1 justify-end">
-                  <ArrowUpRight className="w-5 h-5 text-background/50 group-hover:text-background group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all" />
-                </div>
-              </Link>
-            </Reveal>
-          ))}
-        </div>
+        <ServicesAccordion />
       </div>
     </section>
 

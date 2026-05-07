@@ -3,7 +3,6 @@ import ClosingCTA from "@/components/ClosingCTA";
 import SEO from "@/components/SEO";
 import TypingLoop from "@/components/TypingLoop";
 import SimpleMarquee from "@/components/SimpleMarquee";
-import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 
 const SITE_URL = "https://orions.agency";
@@ -242,13 +241,6 @@ const serviceTables: ServiceTable[] = [
   },
 ];
 
-const steps = [
-  { n: "01", title: "Listen", body: "30-min call. Honest fit-check." },
-  { n: "02", title: "Plan",   body: "Short proposal. Real numbers." },
-  { n: "03", title: "Build",  body: "Strategy, identity, content, ads." },
-  { n: "04", title: "Run",    body: "Monthly reports. Real results." },
-];
-
 const Services = () => (
   <div>
     <SEO
@@ -278,27 +270,27 @@ const Services = () => (
       ]}
     />
 
-    {/* HERO — dark, mirrors Index hero pattern */}
-    <section className="relative min-h-[80vh] flex flex-col bg-foreground text-background overflow-hidden">
-      <div className="relative flex-1 flex flex-col items-center justify-center text-center px-6 md:px-10 pt-32 pb-20">
+    {/* HERO — dark, compact */}
+    <section className="relative bg-foreground text-background overflow-hidden">
+      <div className="relative flex flex-col items-center justify-center text-center px-6 md:px-10 pt-32 md:pt-36 pb-16 md:pb-20">
         <Reveal>
-          <p className="font-mono text-[10px] tracking-[0.4em] text-background/60 mb-10 md:mb-14">
+          <p className="font-mono text-[10px] tracking-[0.4em] text-background/60 mb-8 md:mb-10">
             — SERVICES · 03 PRACTICES
           </p>
         </Reveal>
         <Reveal delay={0.1}>
-          <h1 className="font-display h-display-lg leading-[0.95] text-balance max-w-[1100px]">
+          <h1 className="font-display h-display-md leading-[0.95] text-balance max-w-[900px]">
             Three things, <span className={accent}>properly.</span>
           </h1>
         </Reveal>
         <Reveal delay={0.25}>
-          <p className="mt-10 md:mt-14 font-display text-[14px] md:text-[18px] tracking-[-0.01em] max-w-[640px]">
+          <p className="mt-8 md:mt-10 font-display text-[13px] md:text-[16px] tracking-[-0.01em] max-w-[560px]">
             Branding, content & social — built by{" "}
             <TypingLoop text="one team" className={accent} />
           </p>
         </Reveal>
       </div>
-      <div className="relative border-t border-background/15 py-5">
+      <div className="relative border-t border-background/15 py-4">
         <SimpleMarquee
           duration={42}
           items={[

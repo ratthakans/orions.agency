@@ -73,7 +73,7 @@ const Nav = () => {
 
         <Link
           to="/contact"
-          className="group hidden md:inline-flex items-center gap-2 index-badge bg-background text-foreground px-4 py-2.5 transition-all duration-300 hover:gap-3 hover:opacity-90"
+          className="group hidden md:inline-flex items-center gap-2 index-badge bg-background text-foreground px-4 py-2.5 border border-background transition-all duration-300 hover:gap-3 hover:bg-foreground hover:text-background"
         >
           <span>Let's Talk</span>
           <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />

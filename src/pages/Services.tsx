@@ -514,7 +514,7 @@ const Services = () => (
 
     {/* HERO */}
     <section className="relative bg-foreground text-background overflow-hidden">
-      <div className="relative flex flex-col items-center justify-center text-center px-6 md:px-10 pt-32 md:pt-36 pb-16 md:pb-20">
+      <div className="relative flex flex-col items-center justify-center text-center px-6 md:px-10 pt-32 md:pt-40 pb-20 md:pb-28">
         <Reveal>
           <p className="font-mono text-[10px] tracking-[0.4em] text-background/60 mb-8 md:mb-10">
             — SERVICES
@@ -522,25 +522,8 @@ const Services = () => (
         </Reveal>
         <Reveal delay={0.1}>
           <h1 className="font-display h-display-md leading-[0.95] text-balance max-w-[900px]">
-            Three things, <span className={accent}>properly.</span>
+            Three things,<br /><span className={accent}>properly.</span>
           </h1>
-        </Reveal>
-        <Reveal delay={0.25}>
-          <p className="mt-8 md:mt-10 font-display text-[13px] md:text-[16px] tracking-[-0.01em] max-w-[620px]">
-            Branding, content, and social media — managed end-to-end by{" "}
-            <TypingLoop text="one team" className={accent} />. No handoff. Live in 4 weeks.
-          </p>
-        </Reveal>
-        <Reveal delay={0.35}>
-          <div className="mt-10 md:mt-12 flex flex-col sm:flex-row items-center gap-4">
-            <CTA to="/contact" variant="invert">Start with an Audit</CTA>
-            <a
-              href="#pricing"
-              className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase text-background/80 hover:text-background border-b border-background/40 hover:border-background pb-1 transition-colors"
-            >
-              See pricing ↓
-            </a>
-          </div>
         </Reveal>
       </div>
       <div className="relative border-t border-background/15 py-4">
@@ -557,29 +540,35 @@ const Services = () => (
       </div>
     </section>
 
-    {/* SERVICE OVERVIEW — compact jump-strip */}
+    {/* SERVICE OVERVIEW — editorial big-number index */}
     <section className="px-6 md:px-10">
-      <div className="max-w-[1200px] mx-auto pt-20 md:pt-28 pb-12 md:pb-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 border-y border-foreground">
+      <div className="max-w-[1240px] mx-auto pt-24 md:pt-32 pb-16 md:pb-20">
+        <div className="border-y border-foreground divide-y divide-[hsl(var(--border-soft))]">
           {services.map((s, i) => (
-            <Reveal key={s.n} delay={0.06 * i}>
+            <Reveal key={s.n} delay={0.05 * i}>
               <a
                 href={`#svc-${s.n}`}
-                className={`group h-full py-10 md:py-12 md:px-8 flex flex-col justify-between gap-8 ${i > 0 ? "md:border-l border-soft" : ""}`}
+                className="group block py-10 md:py-14"
               >
-                <div>
-                  <div className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground">— {s.n}</div>
-                  <h3 className="mt-5 font-display text-[24px] md:text-[30px] tracking-[-0.02em]">
-                    {s.title}.
-                  </h3>
-                  <p className="mt-3 font-thai text-[13.5px] leading-[1.7] text-foreground/70 max-w-[320px]">
+                <div className="grid grid-cols-12 gap-4 md:gap-8 items-center">
+                  <div className="col-span-12 md:col-span-2 font-display num-display text-[64px] md:text-[88px] text-foreground/15 group-hover:text-foreground transition-colors duration-500 leading-none tabular-nums">
+                    {s.n}
+                  </div>
+                  <div className="col-span-12 md:col-span-5">
+                    <h3 className="font-display text-[34px] md:text-[52px] tracking-[-0.03em] leading-[0.95]">
+                      {s.title}<span className={accent}>.</span>
+                    </h3>
+                  </div>
+                  <p className="col-span-10 md:col-span-4 font-thai text-[14px] md:text-[15px] leading-[1.7] text-foreground/70">
                     {s.lead}
                   </p>
+                  <div className="col-span-2 md:col-span-1 flex justify-end">
+                    <ArrowUpRight className="w-6 h-6 md:w-8 md:h-8 text-foreground/40 group-hover:text-foreground transition-all duration-500 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                  </div>
                 </div>
-                <span className="inline-flex items-center justify-between gap-2 font-mono text-[10px] tracking-[0.3em] uppercase text-foreground/70 group-hover:text-foreground transition-colors">
-                  <span>{s.from}</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </span>
+                <div className="mt-6 md:mt-8 flex items-center gap-6">
+                  <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground">{s.from}</span>
+                </div>
               </a>
             </Reveal>
           ))}

@@ -385,7 +385,7 @@ const Index = () => (
 
     {/* PROCESS — LIGHT, horizontal timeline */}
     <section className="relative px-6 md:px-10">
-      <div className="border-t border-foreground py-24 md:py-32 max-w-[1280px] mx-auto">
+      <div className="border-t border-foreground py-24 md:py-32 max-w-[1200px] mx-auto">
         <Reveal delay={0.05}>
           <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground mb-4">
             — PROCESS
@@ -396,12 +396,36 @@ const Index = () => (
         </Reveal>
 
         <div className="mt-16 relative">
-          <div className="absolute top-[14px] left-0 right-0 h-px bg-foreground/15" aria-hidden />
+          {/* Animated hairline — sweeps right→left on view */}
+          <motion.div
+            className="absolute top-[14px] left-0 right-0 h-px bg-foreground/30 origin-right"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 1.1, ease: [0.76, 0, 0.24, 1] }}
+            aria-hidden
+          />
           <div className="grid grid-cols-2 md:grid-cols-4 gap-y-12 md:gap-x-8">
-            {steps.map((st, i) => (
-              <Reveal key={st.n} delay={0.06 * i}>
-                <div className="relative pt-10">
-                  <span className="absolute top-[8px] left-0 w-3.5 h-3.5 bg-background border border-foreground" aria-hidden />
+            {steps.map((st, i) => {
+              // reverse order so animation reads right→left
+              const delay = 0.15 + (steps.length - 1 - i) * 0.12;
+              return (
+                <motion.div
+                  key={st.n}
+                  initial={{ opacity: 0, x: 40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay }}
+                  className="relative pt-10"
+                >
+                  <motion.span
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true, margin: "-80px" }}
+                    transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1], delay: delay + 0.1 }}
+                    className="absolute top-[8px] left-0 w-3.5 h-3.5 bg-background border border-foreground"
+                    aria-hidden
+                  />
                   <div className="font-mono text-[10px] tracking-[0.25em] text-muted-foreground">— {st.n}</div>
                   <h3 className="mt-4 font-display text-[22px] md:text-[26px] tracking-[-0.02em]">
                     {st.title}.
@@ -409,9 +433,9 @@ const Index = () => (
                   <p className="mt-3 font-thai text-[14px] leading-[1.7] text-muted-foreground max-w-[260px]">
                     {st.body}
                   </p>
-                </div>
-              </Reveal>
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -419,8 +443,8 @@ const Index = () => (
 
     {/* TRUSTED BY — single logo marquee, clients only */}
     <section className="relative bg-foreground text-background">
-      <div className="border-t border-background/20 py-14 md:py-16">
-        <div className="px-6 md:px-10 max-w-[1280px] mx-auto mb-8 flex items-baseline justify-between gap-6 flex-wrap">
+      <div className="border-t border-background/20 py-20 md:py-24">
+        <div className="px-6 md:px-10 max-w-[1200px] mx-auto mb-10 flex items-baseline justify-between gap-6 flex-wrap">
           <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-background/55">
             — TRUSTED BY · SELECTED CLIENTS
           </div>
@@ -428,10 +452,20 @@ const Index = () => (
             2024 — 2026
           </div>
         </div>
-        <SimpleMarquee
-          duration={48}
-          items={selectedWork.map((w) => w.title.toUpperCase())}
-        />
+        <div className="px-6 md:px-10 max-w-[1200px] mx-auto">
+          <ul className="grid grid-cols-2 md:grid-cols-4 border-t border-l border-background/15">
+            {selectedWork.map((w) => (
+              <li
+                key={w.n}
+                className="border-r border-b border-background/15 aspect-[5/2] flex items-center justify-center px-4 py-6 group"
+              >
+                <span className="font-display text-[13px] md:text-[15px] tracking-[0.08em] uppercase text-background/55 group-hover:text-background transition-colors text-center">
+                  {w.title}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
 

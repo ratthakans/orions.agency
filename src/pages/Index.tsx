@@ -7,18 +7,46 @@ import TypingLoop from "@/components/TypingLoop";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import rtafLogo from "@/assets/rtaf-emblem.png";
-import workSaintManor from "@/assets/studio-look-your-best.jpg";
-import workHotelVerge from "@/assets/hospitality-hero.jpg";
-import workCala from "@/assets/golf-lifestyle.jpg";
-import workNorthMeridian from "@/assets/concert-hero.jpg";
+import workHongmove from "@/assets/hongmove.png";
+import workKhaoyai from "@/assets/golf-hero.jpg";
+import workMyHotel from "@/assets/myhotel.png";
+import workRtaf from "@/assets/rtaf.jpg";
 
 const accent = "text-gradient";
 
 const selectedWork = [
-  { n: "01", title: "Saint Manor",     niche: "FASHION",     result: "Sold out drop in 11 days", img: workSaintManor },
-  { n: "02", title: "Hôtel Vergé",     niche: "HOSPITALITY", result: "−41% cost per booking",    img: workHotelVerge },
-  { n: "03", title: "Maison Lumière",  niche: "F&B",         result: "+62% bookings in 3 months", img: workNorthMeridian },
-  { n: "04", title: "Cala / BKK",      niche: "LIFESTYLE",   result: "Brand + launch campaign",   img: workCala },
+  {
+    n: "01",
+    title: "Hongmove",
+    niche: "PROPTECH",
+    scope: "Brand identity · Web · Content",
+    body: "วาง brand system ใหม่และ launch campaign สำหรับแพลตฟอร์มหาห้องเช่า — ตั้งแต่ logo, guideline, ไปจนถึงเว็บและคอนเทนต์โซเชียล",
+    img: workHongmove,
+  },
+  {
+    n: "02",
+    title: "Khaoyai Country Club",
+    niche: "HOSPITALITY",
+    scope: "Photo · Video · Social",
+    body: "Lifestyle shoot และ short-form video สำหรับ rebrand สนามกอล์ฟ — เล่าบรรยากาศ clubhouse, course และประสบการณ์สมาชิก",
+    img: workKhaoyai,
+  },
+  {
+    n: "03",
+    title: "MyHotel",
+    niche: "HOSPITALITY",
+    scope: "Brand · Content · Paid ads",
+    body: "วาง content pillar รายเดือนและ paid ads บน Meta สำหรับเชนโรงแรม — ปรับ creative ให้คุม cost per booking",
+    img: workMyHotel,
+  },
+  {
+    n: "04",
+    title: "Royal Thai Air Force",
+    niche: "GOVERNMENT",
+    scope: "Film · Production · Post",
+    body: "Production และ post-production สำหรับ official film ของกองทัพอากาศ — งาน scale ใหญ่ คุมตั้งแต่ shoot จนถึง final cut",
+    img: workRtaf,
+  },
 ];
 
 const threeThings = [
@@ -101,27 +129,46 @@ const Index = () => (
           </div>
         </Reveal>
 
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-6">
           {selectedWork.map((w, i) => (
             <Reveal key={w.n} delay={0.06 * i}>
               <Link to="/work" className="group block">
-                <div className="relative w-full overflow-hidden bg-muted" style={{ aspectRatio: "4 / 5" }}>
+                <div className="relative w-full overflow-hidden bg-muted" style={{ aspectRatio: "3 / 4" }}>
                   <img
                     src={w.img}
-                    alt={`${w.title} — ${w.result}`}
+                    alt={`${w.title} — ${w.scope}`}
                     loading="lazy"
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-out scale-100 group-hover:scale-[1.02]"
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-out group-hover:scale-[1.03]"
                   />
-                  <div className="absolute top-4 left-4 font-mono text-[10px] tracking-[0.2em] text-background/90 mix-blend-difference">
+                  <div className="absolute top-3 left-3 font-mono text-[9px] tracking-[0.2em] text-background/90 mix-blend-difference">
                     — {w.n} · {w.niche}
                   </div>
+
+                  {/* Slide-in detail panel from right */}
+                  <div
+                    className="absolute inset-y-0 right-0 w-full bg-foreground text-background translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out p-5 flex flex-col justify-end"
+                  >
+                    <div className="font-mono text-[9px] tracking-[0.25em] text-background/60">
+                      — {w.scope}
+                    </div>
+                    <h3 className="mt-3 font-display text-[16px] md:text-[18px] tracking-[-0.01em] leading-tight">
+                      {w.title}
+                    </h3>
+                    <p className="mt-3 font-thai text-[12px] leading-[1.65] text-background/75">
+                      {w.body}
+                    </p>
+                    <div className="mt-5 inline-flex items-center gap-1.5 font-mono text-[9px] tracking-[0.25em] uppercase text-background/80 border-t border-background/20 pt-3">
+                      View case <ArrowUpRight className="w-3 h-3" />
+                    </div>
+                  </div>
                 </div>
-                <div className="mt-5 flex items-baseline justify-between gap-6">
-                  <h3 className="font-display text-[20px] md:text-[24px] tracking-[-0.02em]">
+
+                <div className="mt-3 flex items-baseline justify-between gap-3">
+                  <h3 className="font-display text-[14px] md:text-[15px] tracking-[-0.01em]">
                     {w.title}
                   </h3>
-                  <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground text-right">
-                    {w.result}
+                  <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-muted-foreground">
+                    {w.niche}
                   </span>
                 </div>
               </Link>

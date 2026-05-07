@@ -557,33 +557,28 @@ const Services = () => (
       </div>
     </section>
 
-    {/* SERVICE OVERVIEW */}
+    {/* SERVICE OVERVIEW — compact jump-strip */}
     <section className="px-6 md:px-10">
-      <div className="max-w-[1200px] mx-auto py-24 md:py-32">
-        <div className="grid grid-cols-1 md:grid-cols-3 border-t border-foreground">
+      <div className="max-w-[1200px] mx-auto pt-20 md:pt-28 pb-12 md:pb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 border-y border-foreground">
           {services.map((s, i) => (
-            <Reveal key={s.n} delay={0.08 * i}>
+            <Reveal key={s.n} delay={0.06 * i}>
               <a
                 href={`#svc-${s.n}`}
-                className={`group h-full py-12 md:py-14 md:px-8 flex flex-col ${i > 0 ? "md:border-l border-soft" : ""}`}
+                className={`group h-full py-10 md:py-12 md:px-8 flex flex-col justify-between gap-8 ${i > 0 ? "md:border-l border-soft" : ""}`}
               >
-                <div className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground">— {s.n}</div>
-                <h3 className="mt-6 font-display text-[28px] md:text-[36px] tracking-[-0.02em]">
-                  {s.title}.
-                </h3>
-                <p className="mt-3 font-thai text-[14px] leading-[1.7] text-foreground/70 max-w-[340px]">
-                  {s.lead}
-                </p>
-                <ul className="mt-6 space-y-2">
-                  {s.items.map((it) => (
-                    <li key={it} className="flex items-baseline gap-3 font-thai text-[13px] leading-[1.6] text-foreground/75">
-                      <span className="text-muted-foreground">·</span>
-                      <span>{it}</span>
-                    </li>
-                  ))}
-                </ul>
-                <span className="mt-auto pt-10 inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase text-foreground/70 group-hover:text-foreground transition-colors">
-                  {s.from} <ArrowUpRight className="w-3 h-3" />
+                <div>
+                  <div className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground">— {s.n}</div>
+                  <h3 className="mt-5 font-display text-[24px] md:text-[30px] tracking-[-0.02em]">
+                    {s.title}.
+                  </h3>
+                  <p className="mt-3 font-thai text-[13.5px] leading-[1.7] text-foreground/70 max-w-[320px]">
+                    {s.lead}
+                  </p>
+                </div>
+                <span className="inline-flex items-center justify-between gap-2 font-mono text-[10px] tracking-[0.3em] uppercase text-foreground/70 group-hover:text-foreground transition-colors">
+                  <span>{s.from}</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </span>
               </a>
             </Reveal>

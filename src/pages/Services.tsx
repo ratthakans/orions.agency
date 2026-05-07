@@ -623,137 +623,144 @@ const Services = () => (
       </div>
     </section>
 
-    {/* PRICING — simplified: rows that expand on demand */}
-    <section id="pricing" className="relative bg-foreground text-background px-6 md:px-10 scroll-mt-20">
-      <div className="border-t border-background/30 py-24 md:py-32 max-w-[1240px] mx-auto">
-        <Reveal delay={0.05}>
-          <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-background/55 mb-4">
-            — PRICING
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-end">
-            <h2 className="md:col-span-7 font-display h-display-sm">
-              Honest pricing, <span className={accent}>no surprises.</span>
-            </h2>
-            <p className="md:col-span-5 font-thai text-[14px] leading-[1.75] text-background/70">
-              Click any tier to see what's inside. All prices in THB, exclude 7% VAT.
-            </p>
-          </div>
-        </Reveal>
-
-        <div className="mt-16 md:mt-20 space-y-20 md:space-y-24">
-          {serviceTables.map((svc) => (
-            <article key={svc.n} id={`svc-${svc.n}`} className="scroll-mt-24">
-              <Reveal delay={0.05}>
-                <header className="border-t border-background/30 pt-5 pb-8 flex items-baseline gap-6">
-                  <span className="font-mono text-[10px] tracking-[0.25em] text-background/45 tabular-nums">— {svc.n}</span>
-                  <h3 className="font-display text-[24px] md:text-[32px] tracking-[-0.02em]">{svc.title}.</h3>
-                </header>
+    {/* PRICING — one section per service, 3 cards each, alternating bg */}
+    <div id="pricing">
+      {serviceTables.map((svc, idx) => {
+        const dark = idx % 2 === 1; // svc 02 = dark, 01/03 = light
+        const fg = dark ? "background" : "foreground";
+        const muted = dark ? "background/60" : "muted-foreground";
+        const lineSoft = dark ? "background/15" : "border-soft";
+        return (
+          <section
+            key={svc.n}
+            id={`svc-${svc.n}`}
+            className={`scroll-mt-20 px-6 md:px-10 ${dark ? "bg-foreground text-background" : ""}`}
+          >
+            <div className="max-w-[1240px] mx-auto py-24 md:py-32">
+              <Reveal>
+                <div className={`flex items-baseline justify-between border-t pt-5 ${dark ? "border-background/30" : "border-foreground"}`}>
+                  <span className={`font-mono text-[10px] tracking-[0.3em] uppercase ${dark ? "text-background/55" : "text-muted-foreground"}`}>
+                    — {svc.n} · {svc.title.toUpperCase()}
+                  </span>
+                  <span className={`font-mono text-[10px] tracking-[0.3em] uppercase hidden sm:inline ${dark ? "text-background/45" : "text-muted-foreground"}`}>
+                    3 PACKAGES
+                  </span>
+                </div>
               </Reveal>
 
-              <Accordion type="single" collapsible className="border-t border-background/15">
-                {svc.tiers.map((t) => (
-                  <AccordionItem key={t.name} value={t.name} className="border-b border-background/15">
-                    <AccordionTrigger className="group py-6 md:py-7 hover:no-underline [&>svg]:hidden">
-                      <div className="grid grid-cols-12 gap-4 w-full items-baseline text-left">
-                        <div className="col-span-12 md:col-span-5 flex items-baseline gap-3">
-                          <h4 className="font-display text-[18px] md:text-[22px] tracking-[-0.02em]">{t.name}.</h4>
-                          {t.highlight && (
-                            <span className="font-mono text-[9px] tracking-[0.3em] uppercase text-background/50">★ popular</span>
-                          )}
-                        </div>
-                        <p className="col-span-12 md:col-span-4 font-thai text-[12.5px] leading-[1.6] text-background/60 hidden md:block">
-                          {t.tagline}
-                        </p>
-                        <div className="col-span-10 md:col-span-2 flex items-baseline gap-1.5">
-                          <span className={`font-display text-[20px] md:text-[24px] leading-none tracking-[-0.03em] tabular-nums ${t.highlight ? accent : ""}`}>
+              <div className="mt-10 md:mt-14 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-end">
+                <Reveal delay={0.05} className="md:col-span-7">
+                  <h2 className="font-display h-display-sm">
+                    {svc.title.split(" ")[0]}<span className={accent}>.</span>
+                  </h2>
+                </Reveal>
+                <Reveal delay={0.1} className="md:col-span-5">
+                  <p className={`font-thai text-[14px] leading-[1.75] ${dark ? "text-background/70" : "text-foreground/70"}`}>
+                    {svc.intro}
+                  </p>
+                </Reveal>
+              </div>
+
+              <div className={`mt-14 md:mt-16 grid grid-cols-1 md:grid-cols-3 border-t ${dark ? "border-background/30" : "border-foreground"}`}>
+                {svc.tiers.map((t, i) => (
+                  <Reveal key={t.name} delay={0.06 * i}>
+                    <article
+                      className={`relative h-full p-7 md:p-8 flex flex-col ${
+                        i > 0 ? (dark ? "md:border-l border-background/15" : "md:border-l border-soft") : ""
+                      } ${t.highlight ? (dark ? "bg-background/[0.05]" : "bg-foreground/[0.04]") : ""}`}
+                    >
+                      {t.highlight && (
+                        <div className={`absolute top-0 left-0 right-0 h-px ${dark ? "bg-background/60" : "bg-foreground"}`} />
+                      )}
+
+                      <header className="flex items-baseline justify-between gap-3">
+                        <h3 className="font-display text-[20px] md:text-[24px] tracking-[-0.02em]">{t.name}.</h3>
+                        {t.highlight && (
+                          <span className={`font-mono text-[9px] tracking-[0.3em] uppercase ${dark ? "text-background/55" : "text-muted-foreground"}`}>
+                            ★ popular
+                          </span>
+                        )}
+                      </header>
+
+                      <p className={`mt-3 font-thai text-[13px] leading-[1.7] min-h-[3.5em] ${dark ? "text-background/65" : "text-foreground/65"}`}>
+                        {t.tagline}
+                      </p>
+
+                      <div className="mt-7">
+                        <div className="flex items-baseline gap-2">
+                          <span className={`font-display text-[34px] md:text-[40px] leading-none tracking-[-0.04em] tabular-nums ${t.highlight ? accent : ""}`}>
                             {t.price}
                           </span>
-                          <span className="font-mono text-[10px] tracking-[0.2em] text-background/50">{t.unit}</span>
+                          <span className={`font-mono text-[10px] tracking-[0.2em] ${dark ? "text-background/55" : "text-muted-foreground"}`}>
+                            THB {t.unit}
+                          </span>
                         </div>
-                        <div className="col-span-2 md:col-span-1 flex justify-end">
-                          <Plus className="w-4 h-4 text-background/60 transition-transform duration-300 group-data-[state=open]:rotate-45" />
+                        <div className={`mt-2 font-mono text-[10px] tracking-[0.2em] uppercase ${dark ? "text-background/50" : "text-muted-foreground"}`}>
+                          {t.timeline ? `Timeline · ${t.timeline}` : t.lockIn}
                         </div>
                       </div>
-                    </AccordionTrigger>
-                    <AccordionContent className="pb-10">
-                      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 pt-2">
-                        <div className="md:col-span-4">
-                          <p className="font-thai text-[13px] leading-[1.7] text-background/70 md:hidden mb-5">{t.tagline}</p>
-                          <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-background/50">
-                            {t.timeline ? `Timeline · ${t.timeline}` : t.lockIn}
-                          </div>
-                          {t.bonuses && (
-                            <ul className="mt-6 space-y-2">
-                              {t.bonuses.map((b) => (
-                                <li key={b} className="flex items-baseline gap-2.5 font-thai text-[12.5px] leading-[1.65] text-background/80">
-                                  <span className="font-mono text-[10px] text-background/45 shrink-0">+</span>
-                                  <span>{b}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          )}
-                          {t.guarantees && (
-                            <ul className="mt-4 space-y-2">
-                              {t.guarantees.map((b) => (
-                                <li key={b} className="flex items-baseline gap-2.5 font-thai text-[12.5px] leading-[1.65] text-background/80">
-                                  <span className="font-mono text-[10px] text-background/45 shrink-0">✓</span>
-                                  <span>{b}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          )}
-                        </div>
 
-                        <div className="md:col-span-5 space-y-6">
-                          {t.groups.map((g) => (
-                            <div key={g.heading}>
-                              <div className="font-mono text-[9px] tracking-[0.3em] uppercase text-background/40 mb-3">
-                                — {g.heading}
-                              </div>
-                              <ul className="space-y-1.5">
-                                {g.items.map((it) => (
-                                  <li key={it} className="flex items-baseline gap-3 font-thai text-[13px] leading-[1.65] text-background/85">
-                                    <span className="font-mono text-[10px] text-background/35 shrink-0">·</span>
-                                    <span>{it}</span>
-                                  </li>
-                                ))}
-                              </ul>
+                      <div className={`mt-7 pt-7 border-t ${dark ? "border-background/15" : "border-soft"} flex-1 space-y-6`}>
+                        {t.groups.map((g) => (
+                          <div key={g.heading}>
+                            <div className={`font-mono text-[9px] tracking-[0.3em] uppercase mb-3 ${dark ? "text-background/45" : "text-muted-foreground"}`}>
+                              — {g.heading}
                             </div>
-                          ))}
-                        </div>
+                            <ul className="space-y-1.5">
+                              {g.items.map((it) => (
+                                <li key={it} className={`flex items-baseline gap-3 font-thai text-[13px] leading-[1.65] ${dark ? "text-background/85" : "text-foreground/85"}`}>
+                                  <span className={`font-mono text-[10px] shrink-0 ${dark ? "text-background/35" : "text-muted-foreground/60"}`}>·</span>
+                                  <span>{it}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
 
-                        <div className="md:col-span-3">
-                          {t.addOns && (
-                            <>
-                              <div className="font-mono text-[9px] tracking-[0.3em] uppercase text-background/40 mb-3">
-                                — add-ons
-                              </div>
+                      {(t.bonuses || t.addOns) && (
+                        <details className="mt-6 group">
+                          <summary className={`cursor-pointer list-none flex items-center justify-between font-mono text-[10px] tracking-[0.3em] uppercase ${dark ? "text-background/65 hover:text-background" : "text-foreground/65 hover:text-foreground"} border-t ${dark ? "border-background/15" : "border-soft"} pt-5 transition-colors`}>
+                            <span>More details</span>
+                            <Plus className="w-3.5 h-3.5 transition-transform duration-300 group-open:rotate-45" />
+                          </summary>
+                          <div className="mt-4 space-y-4">
+                            {t.bonuses && (
                               <ul className="space-y-1.5">
-                                {t.addOns.map((it) => (
-                                  <li key={it} className="font-thai text-[12px] leading-[1.55] text-background/60">
-                                    {it}
+                                {t.bonuses.map((b) => (
+                                  <li key={b} className={`flex items-baseline gap-2.5 font-thai text-[12.5px] leading-[1.6] ${dark ? "text-background/75" : "text-foreground/75"}`}>
+                                    <span className={`font-mono text-[10px] shrink-0 ${dark ? "text-background/45" : "text-muted-foreground"}`}>+</span>
+                                    <span>{b}</span>
                                   </li>
                                 ))}
                               </ul>
-                            </>
-                          )}
-                        </div>
-                      </div>
-                    </AccordionContent>
-                  </AccordionItem>
+                            )}
+                            {t.addOns && (
+                              <div>
+                                <div className={`font-mono text-[9px] tracking-[0.3em] uppercase mb-2 ${dark ? "text-background/45" : "text-muted-foreground"}`}>
+                                  — add-ons
+                                </div>
+                                <ul className="space-y-1">
+                                  {t.addOns.map((it) => (
+                                    <li key={it} className={`font-thai text-[12px] leading-[1.55] ${dark ? "text-background/60" : "text-foreground/60"}`}>
+                                      {it}
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            )}
+                          </div>
+                        </details>
+                      )}
+                    </article>
+                  </Reveal>
                 ))}
-              </Accordion>
-            </article>
-          ))}
-        </div>
-
-        <Reveal delay={0.05}>
-          <p className="mt-16 font-mono text-[10px] tracking-[0.25em] uppercase text-background/45 max-w-[640px]">
-            * Ad spend, third-party licensing, talent fees and travel billed at cost.
-          </p>
-        </Reveal>
-      </div>
-    </section>
+              </div>
+            </div>
+          </section>
+        );
+      })}
+    </div>
 
     {/* WHY + PROCESS — combined */}
     <section className="bg-foreground text-background px-6 md:px-10">

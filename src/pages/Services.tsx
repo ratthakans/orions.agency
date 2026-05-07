@@ -575,29 +575,29 @@ const Services = () => (
       </div>
     </section>
 
-    {/* AUDIT — START HERE */}
-    <section className="px-6 md:px-10">
-      <div className="max-w-[1200px] mx-auto pb-24 md:pb-32">
-        <div className="border-y border-foreground py-12 md:py-16 grid grid-cols-1 md:grid-cols-12 gap-y-10 md:gap-x-12">
+    {/* AUDIT — START HERE (dark) */}
+    <section className="bg-foreground text-background px-6 md:px-10">
+      <div className="max-w-[1240px] mx-auto py-24 md:py-32">
+        <div className="border-y border-background/30 py-12 md:py-16 grid grid-cols-1 md:grid-cols-12 gap-y-10 md:gap-x-12">
           <div className="md:col-span-5">
-            <p className="font-mono text-[10px] tracking-[0.4em] text-muted-foreground mb-4">— START HERE</p>
+            <p className="font-mono text-[10px] tracking-[0.4em] text-background/55 mb-4">— START HERE</p>
             <h2 className="font-display h-display-sm">
               ØRIONS <span className={accent}>Audit.</span>
             </h2>
-            <p className="mt-5 font-thai text-[14px] leading-[1.7] text-foreground/70 max-w-[380px]">
+            <p className="mt-5 font-thai text-[14px] leading-[1.7] text-background/70 max-w-[380px]">
               Not ready for a full engagement? Start with a 1-week audit. Credited 100% toward your next phase.
             </p>
             <div className="mt-8 flex items-baseline gap-3">
               <div className={`font-display ${accent} text-[48px] md:text-[64px] leading-none tracking-[-0.04em] tabular-nums`}>15K</div>
-              <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">THB</div>
+              <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-background/55">THB</div>
             </div>
           </div>
 
-          <div className="md:col-span-7 md:border-l border-soft md:pl-12">
-            <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground mb-5">
+          <div className="md:col-span-7 md:border-l border-background/15 md:pl-12">
+            <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-background/55 mb-5">
               — what you get in 7 days
             </div>
-            <ul className="space-y-3 font-thai text-[13.5px] leading-[1.7]">
+            <ul className="space-y-3 font-thai text-[13.5px] leading-[1.7] text-background/85">
               {[
                 "Brand & social audit report (5–6 pages)",
                 "Top 3 problems + Top 3 opportunities",
@@ -607,16 +607,16 @@ const Services = () => (
                 "Action checklist (10 items)",
               ].map((it) => (
                 <li key={it} className="flex items-baseline gap-3">
-                  <span className="font-mono text-[10px] text-muted-foreground/60 shrink-0">—</span>
+                  <span className="font-mono text-[10px] text-background/45 shrink-0">—</span>
                   <span>{it}</span>
                 </li>
               ))}
             </ul>
-            <p className="mt-8 font-thai text-[13px] italic text-foreground/70">
+            <p className="mt-8 font-thai text-[13px] italic text-background/65">
               ✓ 100% credit-back if you continue with us within 60 days
             </p>
             <div className="mt-8">
-              <CTA to="/contact">Book Audit</CTA>
+              <CTA to="/contact" variant="invert">Book Audit</CTA>
             </div>
           </div>
         </div>

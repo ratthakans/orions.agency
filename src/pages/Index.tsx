@@ -163,20 +163,14 @@ const SelectedWorkRail = () => {
                       <span>{w.niche}</span>
                     </div>
 
-                    {/* Bottom panel — slides up on hover, ~52% height */}
+                    {/* Bottom panel — slides up on hover, scope + impact only */}
                     <div className="absolute inset-x-0 bottom-0 bg-foreground text-background translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out p-5 md:p-6">
                       <div className="font-mono text-[9px] tracking-[0.25em] text-background/55">
                         — {w.scope}
                       </div>
-                      <div className={`mt-2 font-display ${accent} text-[20px] md:text-[24px] leading-[1.05] tracking-[-0.02em] tabular-nums`}>
+                      <div className={`mt-3 font-display ${accent} text-[22px] md:text-[26px] leading-[1.05] tracking-[-0.02em] tabular-nums`}>
                         {w.impact}
                       </div>
-                      <h3 className="mt-3 font-display text-[13px] md:text-[14px] tracking-[-0.005em] leading-tight text-background/85">
-                        {w.title}
-                      </h3>
-                      <p className="mt-2 font-mono text-[9px] leading-[1.6] text-background/55 line-clamp-3">
-                        {w.body}
-                      </p>
                     </div>
                   </div>
 
@@ -348,13 +342,35 @@ const Index = () => (
         <SimpleMarquee
           duration={42}
           items={[
-            "07 PROJECTS LIVE",
-            "05 INDUSTRIES",
             "FROM IDEA TO FINAL CUT",
-            "BANGKOK — EST. 2026",
             "ONE TEAM · NO HANDOFF",
+            "07 PROJECTS LIVE",
           ]}
         />
+      </div>
+    </section>
+
+    {/* IMAGE STRIP — full-bleed proof of craft, between hero and work */}
+    <section className="relative bg-foreground">
+      <div className="grid grid-cols-3 gap-px bg-background/10">
+        {[selectedWork[3], selectedWork[1], selectedWork[6]].map((w, i) => (
+          <div
+            key={w.n}
+            className="relative overflow-hidden bg-foreground"
+            style={{ aspectRatio: "4 / 5" }}
+          >
+            <img
+              src={w.img}
+              alt={w.title}
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-cover grayscale"
+            />
+            <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between font-mono text-[9px] tracking-[0.25em] text-background/95 mix-blend-difference">
+              <span>— {String(i + 1).padStart(2, "0")} / 03</span>
+              <span>{w.niche}</span>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
 
@@ -380,10 +396,32 @@ const Index = () => (
     </section>
 
     {/* MASTERY VIDEO */}
-    <section className="relative w-full overflow-hidden bg-foreground border-y border-background/20">
+    <section className="relative w-full overflow-hidden bg-foreground">
+      <div className="h-px w-full bg-background/15" aria-hidden />
       <div className="relative w-full overflow-hidden" style={{ aspectRatio: "21 / 9" }}>
         <YouTubeFacade videoId="u4r7Szy3uxI" title="Work in motion" ambient />
+        {/* Top label */}
+        <div className="pointer-events-none absolute top-4 md:top-6 left-4 md:left-10 right-4 md:right-10 flex items-start justify-between font-mono text-[10px] tracking-[0.3em] uppercase text-background/85 mix-blend-difference">
+          <span>— SHOWREEL · 2026</span>
+          <span>02:14</span>
+        </div>
+        {/* Bottom film card */}
+        <div className="pointer-events-none absolute bottom-0 left-0 right-0 px-4 md:px-10 py-4 md:py-6 flex items-end justify-between gap-6 bg-gradient-to-t from-foreground/80 to-transparent">
+          <div className="text-background">
+            <div className="font-mono text-[9px] tracking-[0.3em] uppercase text-background/65 mb-2">
+              — WORK IN MOTION
+            </div>
+            <div className="font-display text-[18px] md:text-[28px] tracking-[-0.02em] leading-[1.05]">
+              From idea to <span className={accent}>final cut.</span>
+            </div>
+          </div>
+          <div className="hidden md:flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase text-background/65">
+            <span className="w-2 h-2 bg-background/60" />
+            SOUND ON
+          </div>
+        </div>
       </div>
+      <div className="h-px w-full bg-background/15" aria-hidden />
     </section>
 
     {/* PROCESS — LIGHT, horizontal timeline */}
@@ -444,15 +482,30 @@ const Index = () => (
       </div>
     </section>
 
+    {/* PULL QUOTE — manifesto moment between Process and Trusted */}
+    <section className="relative px-6 md:px-10">
+      <div className="border-t border-foreground py-24 md:py-32 max-w-[1200px] mx-auto">
+        <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground mb-6">
+          — MANIFESTO
+        </div>
+        <Reveal>
+          <p className="font-display h-display-md max-w-[1000px] tracking-[-0.03em] leading-[1.02]">
+            We don&apos;t pitch decks.{" "}
+            <span className={accent}>We ship work.</span>
+          </p>
+        </Reveal>
+        <div className="mt-8 font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground">
+          — ØRIONS · BANGKOK
+        </div>
+      </div>
+    </section>
+
     {/* TRUSTED BY — single logo marquee, clients only */}
     <section className="relative bg-foreground text-background">
-      <div className="border-t border-background/20 py-20 md:py-24">
-        <div className="px-6 md:px-10 max-w-[1200px] mx-auto mb-10 flex items-baseline justify-between gap-6 flex-wrap">
+      <div className="border-t border-background/20 py-16 md:py-20">
+        <div className="px-6 md:px-10 max-w-[1200px] mx-auto mb-8">
           <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-background/55">
-            — TRUSTED BY · SELECTED CLIENTS
-          </div>
-          <div className="font-mono text-[10px] tracking-[0.25em] uppercase text-background/45">
-            2024 — 2026
+            — TRUSTED BY
           </div>
         </div>
         <div className="px-6 md:px-10 max-w-[1200px] mx-auto">
@@ -460,14 +513,10 @@ const Index = () => (
             {[
               ...selectedWork.map((w) => w.title),
               "Sundara",
-              "Veranda",
-              "North Loop",
-              "Aroi & Co.",
-              "Sala Studios",
-            ].map((name) => (
+            ].slice(0, 8).map((name) => (
               <li
                 key={name}
-                className="border-r border-b border-background/15 aspect-[5/2] flex items-center justify-center px-4 py-6 group"
+                className="border-r border-b border-background/15 aspect-[5/2] flex items-center justify-center px-4 py-4 group"
               >
                 <span className="font-display text-[13px] md:text-[15px] tracking-[0.08em] uppercase text-background/55 group-hover:text-gradient transition-colors text-center">
                   {name}
@@ -475,6 +524,9 @@ const Index = () => (
               </li>
             ))}
           </ul>
+          <div className="mt-6 flex justify-end font-mono text-[9px] tracking-[0.25em] uppercase text-background/45">
+            2024 — 2026 · SELECTED CLIENTS
+          </div>
         </div>
       </div>
     </section>

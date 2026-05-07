@@ -455,13 +455,20 @@ const Index = () => (
         </div>
         <div className="px-6 md:px-10 max-w-[1200px] mx-auto">
           <ul className="grid grid-cols-2 md:grid-cols-4 border-t border-l border-background/15">
-            {selectedWork.map((w) => (
+            {[
+              ...selectedWork.map((w) => w.title),
+              "Sundara",
+              "Veranda",
+              "North Loop",
+              "Aroi & Co.",
+              "Sala Studios",
+            ].map((name) => (
               <li
-                key={w.n}
+                key={name}
                 className="border-r border-b border-background/15 aspect-[5/2] flex items-center justify-center px-4 py-6 group"
               >
                 <span className="font-display text-[13px] md:text-[15px] tracking-[0.08em] uppercase text-background/55 group-hover:text-background transition-colors text-center">
-                  {w.title}
+                  {name}
                 </span>
               </li>
             ))}

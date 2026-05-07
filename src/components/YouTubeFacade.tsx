@@ -23,7 +23,11 @@ const YouTubeFacade = ({ videoId, title = "Video", className = "", ambient = fal
       : `autoplay=1&modestbranding=1&rel=0&playsinline=1`;
     return (
       <iframe
-        className={`absolute inset-0 w-full h-full ${className}`}
+        className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${className}`}
+        style={{
+          width: "100%",
+          aspectRatio: "16 / 9",
+        }}
         src={`https://www.youtube.com/embed/${videoId}?${params}`}
         title={title}
         allow="autoplay; encrypted-media; picture-in-picture"

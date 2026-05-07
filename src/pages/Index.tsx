@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight, ArrowLeft, ArrowRight, Plus, Minus } from "lucide-react";
+import { motion } from "framer-motion";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import ClosingCTA from "@/components/ClosingCTA";
@@ -42,7 +43,7 @@ const services = [
     n: "01",
     title: "Branding",
     lead: "Identity that works across every touchpoint.",
-    body: "ระบบแบรนด์ที่ใช้งานจริง — ตั้งแต่ logo, type, color, ไปจนถึง guideline ที่ทีมและพาร์ทเนอร์หยิบไปใช้ได้เลย",
+    body: "A working brand system — from logo, type and color to a guideline your team and partners can pick up and use right away.",
     bullets: [
       "Logo system & brand guidelines",
       "Visual identity · color · typography",
@@ -55,7 +56,7 @@ const services = [
     n: "02",
     title: "Content",
     lead: "Photo, video, and design that earn the scroll.",
-    body: "โปรดักชันในบ้านครบวงจร — ถ่ายภาพ, วิดีโอ, ตัดต่อ, กราฟิก ทำงานเป็นทีมเดียวกันตั้งแต่ pre ถึง post",
+    body: "Full in-house production — photo, video, edit and graphics, working as one team from pre to post.",
     bullets: [
       "Photo & video production",
       "Short-form (Reels, TikTok, Shorts)",
@@ -68,7 +69,7 @@ const services = [
     n: "03",
     title: "Social media",
     lead: "Strategy, posting, community, and paid ads.",
-    body: "วางแผน เนื้อหา ลงโพสต์ ตอบคอมเมนต์ และยิงแอด — รายงานผลทุกเดือนด้วยตัวเลขจริง",
+    body: "Plan, post, manage community and run paid ads — with monthly reports backed by real numbers.",
     bullets: [
       "Content strategy & monthly planning",
       "Copywriting & community management",
@@ -116,7 +117,7 @@ const SelectedWorkRail = () => {
 
   return (
     <section className="relative px-6 md:px-10">
-      <div className="border-t border-foreground py-24 md:py-32 max-w-[1280px] mx-auto">
+      <div className="border-t border-foreground py-24 md:py-32 max-w-[1200px] mx-auto">
         <Reveal delay={0.05}>
           <div className="flex items-end justify-between gap-8 flex-wrap">
             <div>
@@ -140,7 +141,7 @@ const SelectedWorkRail = () => {
           ref={railRef}
           className="mt-14 -mx-6 md:-mx-10 overflow-x-auto scroll-smooth snap-x snap-mandatory hide-scrollbar"
         >
-          <div className="flex gap-5 md:gap-6 px-6 md:px-10 pb-2">
+          <div className="flex gap-5 md:gap-6 px-6 md:px-16 pb-2">
             {selectedWork.map((w, i) => (
               <Reveal key={w.n} delay={0.04 * i}>
                 <Link
@@ -166,13 +167,13 @@ const SelectedWorkRail = () => {
                       <div className="font-mono text-[9px] tracking-[0.25em] text-background/55">
                         — {w.scope}
                       </div>
-                      <h3 className="mt-3 font-display text-[18px] md:text-[20px] tracking-[-0.01em] leading-tight">
-                        {w.title}
-                      </h3>
-                      <div className={`mt-3 font-display ${accent} text-[22px] md:text-[26px] leading-[1.05] tracking-[-0.02em] tabular-nums`}>
+                      <div className={`mt-2 font-display ${accent} text-[34px] md:text-[42px] leading-[1] tracking-[-0.03em] tabular-nums`}>
                         {w.impact}
                       </div>
-                      <p className="mt-3 font-mono text-[10px] leading-[1.65] text-background/65 line-clamp-3">
+                      <h3 className="mt-3 font-display text-[15px] md:text-[16px] tracking-[-0.01em] leading-tight text-background/85">
+                        {w.title}
+                      </h3>
+                      <p className="mt-2 font-mono text-[9px] leading-[1.6] text-background/55 line-clamp-3">
                         {w.body}
                       </p>
                     </div>
@@ -190,7 +191,7 @@ const SelectedWorkRail = () => {
                 </Link>
               </Reveal>
             ))}
-            <div className="shrink-0 w-1 md:w-4" aria-hidden />
+            <div className="shrink-0 w-6 md:w-16" aria-hidden />
           </div>
         </div>
 
@@ -230,7 +231,7 @@ const SelectedWorkRail = () => {
 };
 
 const ServicesAccordion = () => {
-  const [open, setOpen] = useState<string | null>("01");
+  const [open, setOpen] = useState<string | null>(null);
   return (
     <div className="mt-16 border-t border-background/30">
       {services.map((s, i) => {
@@ -273,7 +274,7 @@ const ServicesAccordion = () => {
                   <div className="grid grid-cols-12 gap-6 pb-10 md:pb-12 px-2 -mx-2">
                     <div className="hidden md:block md:col-span-1" />
                     <div className="col-span-12 md:col-span-6">
-                      <p className="font-thai text-[15px] md:text-[16px] leading-[1.75] text-background/80">
+                      <p className="text-[15px] md:text-[16px] leading-[1.75] text-background/80">
                         {s.body}
                       </p>
                     </div>
@@ -362,20 +363,13 @@ const Index = () => (
     <section className="relative px-6 md:px-10 bg-foreground text-background">
       <div className="border-t border-background/30 py-24 md:py-32 max-w-[1280px] mx-auto">
         <Reveal delay={0.05}>
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
-            <div className="md:col-span-7">
-              <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-background/55 mb-4">
-                — WHAT WE DO
-              </div>
-              <h2 className="font-display h-display-sm">
-                Three things, <span className={accent}>properly.</span>
-              </h2>
+          <div>
+            <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-background/55 mb-4">
+              — WHAT WE DO
             </div>
-            <div className="md:col-span-5">
-              <p className="font-thai text-[14px] leading-[1.7] text-background/65">
-                ไม่รับงานทุกอย่าง — เราโฟกัส 3 ขาที่ต่อเนื่องกัน เพื่อให้แบรนด์ออกมาเป็นเสียงเดียว ตั้งแต่ identity จนถึงโพสต์สุดท้ายที่คุณยิงแอด
-              </p>
-            </div>
+            <h2 className="font-display h-display-sm">
+              Three things, <span className={accent}>properly.</span>
+            </h2>
           </div>
         </Reveal>
 
@@ -392,7 +386,7 @@ const Index = () => (
 
     {/* PROCESS — LIGHT, horizontal timeline */}
     <section className="relative px-6 md:px-10">
-      <div className="border-t border-foreground py-24 md:py-32 max-w-[1280px] mx-auto">
+      <div className="border-t border-foreground py-24 md:py-32 max-w-[1200px] mx-auto">
         <Reveal delay={0.05}>
           <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground mb-4">
             — PROCESS
@@ -403,12 +397,36 @@ const Index = () => (
         </Reveal>
 
         <div className="mt-16 relative">
-          <div className="absolute top-[14px] left-0 right-0 h-px bg-foreground/15" aria-hidden />
+          {/* Animated hairline — sweeps right→left on view */}
+          <motion.div
+            className="absolute top-[14px] left-0 right-0 h-px bg-foreground/30 origin-right"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 1.1, ease: [0.76, 0, 0.24, 1] }}
+            aria-hidden
+          />
           <div className="grid grid-cols-2 md:grid-cols-4 gap-y-12 md:gap-x-8">
-            {steps.map((st, i) => (
-              <Reveal key={st.n} delay={0.06 * i}>
-                <div className="relative pt-10">
-                  <span className="absolute top-[8px] left-0 w-3.5 h-3.5 bg-background border border-foreground" aria-hidden />
+            {steps.map((st, i) => {
+              // reverse order so animation reads right→left
+              const delay = 0.15 + (steps.length - 1 - i) * 0.12;
+              return (
+                <motion.div
+                  key={st.n}
+                  initial={{ opacity: 0, x: 40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay }}
+                  className="relative pt-10"
+                >
+                  <motion.span
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true, margin: "-80px" }}
+                    transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1], delay: delay + 0.1 }}
+                    className="absolute top-[8px] left-0 w-3.5 h-3.5 bg-background border border-foreground"
+                    aria-hidden
+                  />
                   <div className="font-mono text-[10px] tracking-[0.25em] text-muted-foreground">— {st.n}</div>
                   <h3 className="mt-4 font-display text-[22px] md:text-[26px] tracking-[-0.02em]">
                     {st.title}.
@@ -416,9 +434,9 @@ const Index = () => (
                   <p className="mt-3 font-thai text-[14px] leading-[1.7] text-muted-foreground max-w-[260px]">
                     {st.body}
                   </p>
-                </div>
-              </Reveal>
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -426,8 +444,8 @@ const Index = () => (
 
     {/* TRUSTED BY — single logo marquee, clients only */}
     <section className="relative bg-foreground text-background">
-      <div className="border-t border-background/20 py-14 md:py-16">
-        <div className="px-6 md:px-10 max-w-[1280px] mx-auto mb-8 flex items-baseline justify-between gap-6 flex-wrap">
+      <div className="border-t border-background/20 py-20 md:py-24">
+        <div className="px-6 md:px-10 max-w-[1200px] mx-auto mb-10 flex items-baseline justify-between gap-6 flex-wrap">
           <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-background/55">
             — TRUSTED BY · SELECTED CLIENTS
           </div>
@@ -435,10 +453,20 @@ const Index = () => (
             2024 — 2026
           </div>
         </div>
-        <SimpleMarquee
-          duration={48}
-          items={selectedWork.map((w) => w.title.toUpperCase())}
-        />
+        <div className="px-6 md:px-10 max-w-[1200px] mx-auto">
+          <ul className="grid grid-cols-2 md:grid-cols-4 border-t border-l border-background/15">
+            {selectedWork.map((w) => (
+              <li
+                key={w.n}
+                className="border-r border-b border-background/15 aspect-[5/2] flex items-center justify-center px-4 py-6 group"
+              >
+                <span className="font-display text-[13px] md:text-[15px] tracking-[0.08em] uppercase text-background/55 group-hover:text-background transition-colors text-center">
+                  {w.title}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
 

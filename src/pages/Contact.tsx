@@ -37,7 +37,10 @@ const Contact = () => {
     }
     setErrors({});
     setSubmitting(true);
-    const { error } = await supabase.from("contact_inquiries").insert(parsed.data);
+    const { name, company, email, brief } = parsed.data;
+    const { error } = await supabase
+      .from("contact_inquiries")
+      .insert({ name: name!, company: company!, email: email!, brief: brief! });
     setSubmitting(false);
     if (error) {
       toast.error("ส่งไม่สำเร็จ ลองใหม่อีกครั้งหรืออีเมลหาเราที่ hello@orions.agency");

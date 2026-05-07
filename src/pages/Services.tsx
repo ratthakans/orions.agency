@@ -311,9 +311,6 @@ const Services = () => (
                       <div
                         className={`relative h-full p-8 md:p-12 flex flex-col ${i > 0 ? "md:border-l border-soft" : ""} ${featured ? "bg-foreground text-background" : "bg-background"}`}
                       >
-                        <div className={`font-mono text-[10px] tracking-[0.2em] uppercase mb-7 ${featured ? "text-background/60" : "text-muted-foreground"}`}>
-                          — {featured ? "POPULAR" : "OPTION"}
-                        </div>
                         <h4 className="font-display text-[22px] md:text-[26px] tracking-[-0.02em]">{t.name}.</h4>
                         <p className={`mt-3 font-thai text-[13px] leading-[1.65] ${featured ? "text-background/70" : "text-foreground/70"}`}>
                           {t.forWho}
@@ -331,9 +328,6 @@ const Services = () => (
 
                         {/* Includes */}
                         <div className={`mt-10 pt-6 border-t ${featured ? "border-background/20" : "border-soft"}`}>
-                          <div className={`font-mono text-[10px] tracking-[0.2em] uppercase mb-5 ${featured ? "text-background/60" : "text-muted-foreground"}`}>
-                            — What you get
-                          </div>
                           <ul className="space-y-3 font-thai">
                             {t.includes.map((it) => (
                               <li key={it} className="flex items-baseline gap-3 text-[13px] leading-[1.7]">

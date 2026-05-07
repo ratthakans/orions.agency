@@ -1,59 +1,49 @@
-# Review: หน้า Services
+## /services — แผนปรับ
 
-## โทนโดยรวม — ผ่าน ไม่หลุด แต่ยัง "ไม่คม" เท่าหน้าแรก
+### 1. ย่อ QUESTIONS (FAQ) ให้เล็กลง
+ปัจจุบัน: H2 ใหญ่ (`h-display-sm` ~64–80px), padding section 24/32, แต่ละ row 20–24px + plus icon 16px.
 
-**สิ่งที่ทำได้ดีแล้ว**
-- Dark hero + marquee → ต่อเนื่องกับ Index ดี
-- Hairlines, zero-radius, tabular-nums, mono labels → on-brand
-- Anchor jumps จาก What We Do → Packages เป็น UX ที่ฉลาด
-- รายละเอียดแต่ละ tier ครบมาก (timeline / delivers / includes / best for)
+ปรับเป็น:
+- ลดความกว้าง wrapper จาก `max-w-[1100px]` → `max-w-[860px]`
+- ลด padding section: `py-24 md:py-32` → `py-16 md:py-20`
+- ลด heading: เปลี่ยนจาก `h-display-sm` ใหญ่ ๆ → `text-[22px] md:text-[28px]` พร้อม eyebrow `— QUESTIONS` เล็ก ๆ ด้านบน (รวมเป็น header เดียว ไม่ใช่ 2 ชั้น)
+- ลดขนาด question rows: `text-[16px] md:text-[19px]` → `text-[14px] md:text-[15px]`, padding `py-5 md:py-6` → `py-4`
+- ลด plus icon `w-4 h-4` → `w-3 h-3`
+- ลดขนาดคำตอบ: `text-[14px]` → `text-[13px]`, `pb-6` → `pb-5`
+- เอา label `8 ANSWERS` ออก (noise)
+- ตัด margin `mt-14` ระหว่าง heading กับ accordion → `mt-8`
 
-**จุดที่หลุดโทน / ยังไม่สวยพอ**
+ผลลัพธ์: FAQ จะดูเป็น utility block เล็ก ๆ ท้ายหน้า ไม่แย่งความสำคัญจาก Pricing
 
-1. **Pricing cards แน่นเกินไป** — แต่ละการ์ดมี 5 บล็อกซ้อนกัน (header → price → meta → includes → best for) คั่นด้วย `border-t border-background/15` ทุกบล็อก ทำให้รู้สึกเหมือน spec sheet ไม่ใช่ editorial. หน้าแรกใช้ negative space เยอะกว่ามาก
-2. **"Most chosen" badge** — กล่อง `border px-2 py-1` ดูเหมือน UI component ทั่วไป ไม่ใช่ ØRIONS อย่างอื่นในเว็บไม่มี badge แบบนี้เลย
-3. **Lucide `Check` icon** — ของอื่นทั้งเว็บใช้ `·` หรือ `—` เป็น bullet (mono) การมี check ✓ ทำให้รู้สึกเหมือน SaaS pricing page
-4. **Highlight bar (gradient line บนสุดของ tier)** — เป็น visual ที่ไม่มีที่อื่น และ gradient accent ใช้เยอะไปนิด (memory บอก "used sparingly")
-5. **Hero สั้นมาก** — ตอนนี้แค่ eyebrow + h1 + 1 บรรทัด ดูบางเกินสำหรับหน้าหลัก service ขาด anchor visual / number block ที่หน้าแรกมี
-6. **What We Do กับ Pricing ซ้ำซ้อน** — บล็อก What We Do แสดง 4 bullets ของแต่ละบริการ, แล้ว Pricing ก็เปิดด้วย intro paragraph อีกที. รู้สึก redundant
-7. **Section rhythm** — ตอนนี้ Dark → Light → Dark → Light → CTA สลับดี แต่ Pricing dark block ยาวมาก (มี 7 cards รวม) ทำให้ scroll fatigue
+### 2. คำแนะนำ design อื่น ๆ ของหน้า services
 
-## แผนปรับ
+A. **Service Overview (index 01/02/03)** — ตอนนี้ตัวเลขใหญ่ `text-[88px]` กับ title `text-[52px]` ซ้อนกัน ชนกันหนัก
+   - ลด number → `text-[64px] md:text-[72px]` และให้สีเป็น `foreground/10` เพื่อเป็นพื้นหลัง
+   - title คงไว้ แต่ขยับ lead ขึ้นมาเป็น sub-title ใต้ title (md:col-span-5 + col-span-12 ของ lead) เพื่อให้ scan ง่าย
 
-### A. Hero — ให้มี "น้ำหนัก" มากขึ้น (ไม่ใช่ใหญ่ขึ้น)
-- คงขนาด `h-display-md` เดิม
-- เพิ่ม row ตัวเลขด้านล่าง subline แบบ editorial:
-  ```
-  03 PRACTICES   ·   01 STUDIO   ·   THB 50K — START
-  ```
-- ใช้ font-mono tabular-nums, hairline บน-ล่าง
+B. **Pricing cards** — 3 sections ติดกัน (light → dark → light) ดูยาวเกินไป + การ์ด highlight ใช้พื้น `bg-foreground/[0.04]` เบาจนแทบไม่เห็น
+   - เพิ่ม contrast ของ highlight: ใช้ hairline บน + ขวา-ซ้าย หรือใส่ `· popular` chip ที่มี border ชัดขึ้น
+   - แนะนำให้ pricing 3 sections ใช้พื้นเดียวกันทั้งหมด (light) แล้วแยกด้วย eyebrow + section number ใหญ่ ๆ แทน — จะทำให้ scroll สบายตาขึ้น และสีดำไปเก็บไว้แค่ Hero / Audit / Why เพื่อ rhythm สลับ light-dark-light-dark-light ที่ชัด
+   - หรือถ้าจะเก็บ alternating ให้ pricing 02 (dark) เพิ่ม top padding ตัดด้วย hairline 2 เส้นบน-ล่างเพื่อแยกจาก section อื่น
 
-### B. What We Do — ทำให้เป็น index จริง ๆ
-- ลด bullets list ออก (ย้ายไปอยู่ใน Pricing เท่านั้น)
-- แสดงแค่: number, title, lead, "Jump →"
-- เพิ่ม large number `01 / 02 / 03` แบบ display เพื่อให้ scan ง่าย เหมือน chapter index
+C. **Audit section (dark)** — ตัวเลข `15K` ใหญ่ดี แต่ตอนนี้ลอย ๆ ข้าง list
+   - แนะนำใส่ `· THB / 7 DAYS · CREDIT 100%` เป็น meta strip ใต้ราคาเป็น hairline เพื่อให้กลายเป็น "ticket" ชัดขึ้น
 
-### C. Pricing cards — ลด structure, เพิ่ม breathing room
-- ลบ "Most chosen" badge → ใช้แค่ background tint อ่อน ๆ บนการ์ด highlight
-- ลบ gradient hairline บน highlight tier
-- เปลี่ยน `Check` icon → `—` (mono dash) ให้ตรงกับที่อื่นในเว็บ
-- ยุบ "Timeline / Delivers" จาก dl table → inline meta line ใต้ราคา (`3–4 weeks · 1 round revision`)
-- ลบ border-t ทุกบล็อก — ใช้แค่ spacing แยก (negative space)
-- ย้าย "Best for" เป็น footer line เล็ก ๆ italic font-thai
+D. **Why + Process (combined dark)** — section นี้ยาวมาก (`py-24 md:py-32` + space-y-3 ใน list + process strip อีก `mt-24`)
+   - ลด `mt-24 md:mt-32` ระหว่าง Why กับ Process → `mt-16 md:mt-20`
+   - Why list ตอนนี้เป็น 5 bullet ที่อ่านเหมือนคำสัญญา — ลองทำเป็น 5 บรรทัดคู่ (label + value) เช่น `PRICING · Honest, on the website` เพื่อให้รู้สึกเป็น manifest ไม่ใช่ checklist
 
-### D. Section transitions — break Pricing dark block
-- หลัง service "01 Branding" ใส่ thin divider strip (light line) เพื่อ pause visually
-- หรือ: ทำ Pricing เป็น 3 sections สลับ dark/light/dark (แต่อาจจะมากไป — แนะนำ option แรก)
+E. **Spacing rhythm รวม** — ตอนนี้เกือบทุก section ใช้ `py-24 md:py-32` ทำให้รู้สึก flat
+   - แนะนำใช้ scale 3 ระดับ: hero/feature `py-28 md:py-36`, content `py-20 md:py-28`, utility (FAQ, audit summary) `py-16 md:py-20`
 
-### E. Audit strip
-- เพิ่ม CTA button จริง ๆ (ตอนนี้แค่ตัวเลข 30K + bullets, ไม่มี action)
-- "Book the audit →" link ไป /contact
+F. **Service overview → pricing jump** — ปัจจุบันคลิก `01` กระโดดข้าม Audit ไป Pricing โดยตรง อาจสับสน
+   - เพิ่ม anchor link "↓ See pricing" หรือ scroll ที่ smooth + sticky mini-nav บน mobile (eyebrow `01 BRANDING / 02 CONTENT / 03 SOCIAL`) ตอน scroll อยู่ในช่วง pricing — ช่วย orientate มาก
 
-### F. เสริม "creative agency" feel
-- ใส่ vertical label ด้านซ้ายของ Pricing section (`/ 02 PACKAGES`) เหมือน PageHero pattern
-- หรือ CornerMarks รอบ Pricing block
+### 3. ขอบเขตการแก้ในรอบนี้
+- FAQ ย่อขนาด (จุดที่ user ขอ) — implement แน่นอน
+- ข้ออื่น ๆ (A–F) เป็นคำแนะนำ — รอเลือกข้อที่อยากให้ทำ
 
-## ขอ confirm 2 เรื่องก่อนลงมือ
-
-1. **Pricing card refactor** — ยอมให้ลด "Check icon", "Most chosen badge", และยุบ Timeline/Delivers เป็น inline ไหม?
-2. **What We Do** — ตัด 4-bullets list ออกจริงไหม (ย้ายไปอยู่ใน Pricing เต็ม ๆ ที่เดียว)?
+### Technical
+- ไฟล์เดียว: `src/pages/Services.tsx`
+- ไม่แตะ data, schema, route, components อื่น
+- ใช้ tokens เดิม (semantic colors, font utilities)

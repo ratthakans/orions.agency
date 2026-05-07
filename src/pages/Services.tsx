@@ -819,30 +819,27 @@ const Services = () => (
 
     {/* FAQ — simple accordion */}
     <section className="px-6 md:px-10">
-      <div className="max-w-[1100px] mx-auto py-24 md:py-32">
+      <div className="max-w-[860px] mx-auto py-16 md:py-20">
         <Reveal>
-          <div className="flex items-baseline justify-between border-t border-foreground pt-5">
+          <div className="flex items-baseline gap-4 border-t border-foreground pt-4">
             <p className="font-mono text-[10px] tracking-[0.4em] text-muted-foreground">— QUESTIONS</p>
-            <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground hidden sm:inline">{faqs.length} ANSWERS</p>
+            <h2 className="font-display text-[20px] md:text-[26px] tracking-[-0.02em]">
+              Things you might <span className={accent}>be wondering.</span>
+            </h2>
           </div>
         </Reveal>
-        <Reveal delay={0.05}>
-          <h2 className="mt-10 md:mt-14 font-display h-display-sm max-w-[760px]">
-            Things you might <span className={accent}>be wondering.</span>
-          </h2>
-        </Reveal>
 
-        <Accordion type="single" collapsible className="mt-14">
+        <Accordion type="single" collapsible className="mt-8">
           {faqs.map((f, i) => (
             <AccordionItem key={f.q} value={`faq-${i}`} className="border-b border-soft">
-              <AccordionTrigger className="group py-5 md:py-6 hover:no-underline text-left [&>svg]:hidden">
+              <AccordionTrigger className="group py-4 hover:no-underline text-left [&>svg]:hidden">
                 <div className="flex items-center gap-4 w-full">
-                  <span className="font-display text-[16px] md:text-[19px] tracking-[-0.01em] flex-1">{f.q}</span>
-                  <Plus className="w-4 h-4 text-foreground/50 transition-transform duration-300 group-data-[state=open]:rotate-45 shrink-0" />
+                  <span className="font-display text-[14px] md:text-[15px] tracking-[-0.01em] flex-1">{f.q}</span>
+                  <Plus className="w-3 h-3 text-foreground/50 transition-transform duration-300 group-data-[state=open]:rotate-45 shrink-0" />
                 </div>
               </AccordionTrigger>
-              <AccordionContent className="pb-6">
-                <p className="font-thai text-[14px] leading-[1.75] text-foreground/70 max-w-[720px]">{f.a}</p>
+              <AccordionContent className="pb-5">
+                <p className="font-thai text-[13px] leading-[1.7] text-foreground/70 max-w-[680px]">{f.a}</p>
               </AccordionContent>
             </AccordionItem>
           ))}

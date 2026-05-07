@@ -1,11 +1,9 @@
 import Reveal from "@/components/Reveal";
 import ClosingCTA from "@/components/ClosingCTA";
 import SEO from "@/components/SEO";
-import TypingLoop from "@/components/TypingLoop";
 import SimpleMarquee from "@/components/SimpleMarquee";
 import CTA from "@/components/CTA";
 import { ArrowUpRight, Plus } from "lucide-react";
-import { Link } from "react-router-dom";
 import {
   Accordion,
   AccordionContent,
@@ -514,7 +512,7 @@ const Services = () => (
 
     {/* HERO */}
     <section className="relative bg-foreground text-background overflow-hidden">
-      <div className="relative flex flex-col items-center justify-center text-center px-6 md:px-10 pt-32 md:pt-36 pb-16 md:pb-20">
+      <div className="relative flex flex-col items-center justify-center text-center px-6 md:px-10 pt-32 md:pt-40 pb-20 md:pb-28">
         <Reveal>
           <p className="font-mono text-[10px] tracking-[0.4em] text-background/60 mb-8 md:mb-10">
             — SERVICES
@@ -522,25 +520,8 @@ const Services = () => (
         </Reveal>
         <Reveal delay={0.1}>
           <h1 className="font-display h-display-md leading-[0.95] text-balance max-w-[900px]">
-            Three things, <span className={accent}>properly.</span>
+            Three things,<br /><span className={accent}>properly.</span>
           </h1>
-        </Reveal>
-        <Reveal delay={0.25}>
-          <p className="mt-8 md:mt-10 font-display text-[13px] md:text-[16px] tracking-[-0.01em] max-w-[620px]">
-            Branding, content, and social media — managed end-to-end by{" "}
-            <TypingLoop text="one team" className={accent} />. No handoff. Live in 4 weeks.
-          </p>
-        </Reveal>
-        <Reveal delay={0.35}>
-          <div className="mt-10 md:mt-12 flex flex-col sm:flex-row items-center gap-4">
-            <CTA to="/contact" variant="invert">Start with an Audit</CTA>
-            <a
-              href="#pricing"
-              className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase text-background/80 hover:text-background border-b border-background/40 hover:border-background pb-1 transition-colors"
-            >
-              See pricing ↓
-            </a>
-          </div>
         </Reveal>
       </div>
       <div className="relative border-t border-background/15 py-4">
@@ -557,29 +538,35 @@ const Services = () => (
       </div>
     </section>
 
-    {/* SERVICE OVERVIEW — compact jump-strip */}
+    {/* SERVICE OVERVIEW — editorial big-number index */}
     <section className="px-6 md:px-10">
-      <div className="max-w-[1200px] mx-auto pt-20 md:pt-28 pb-12 md:pb-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 border-y border-foreground">
+      <div className="max-w-[1240px] mx-auto pt-24 md:pt-32 pb-16 md:pb-20">
+        <div className="border-y border-foreground divide-y divide-[hsl(var(--border-soft))]">
           {services.map((s, i) => (
-            <Reveal key={s.n} delay={0.06 * i}>
+            <Reveal key={s.n} delay={0.05 * i}>
               <a
                 href={`#svc-${s.n}`}
-                className={`group h-full py-10 md:py-12 md:px-8 flex flex-col justify-between gap-8 ${i > 0 ? "md:border-l border-soft" : ""}`}
+                className="group block py-10 md:py-14"
               >
-                <div>
-                  <div className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground">— {s.n}</div>
-                  <h3 className="mt-5 font-display text-[24px] md:text-[30px] tracking-[-0.02em]">
-                    {s.title}.
-                  </h3>
-                  <p className="mt-3 font-thai text-[13.5px] leading-[1.7] text-foreground/70 max-w-[320px]">
+                <div className="grid grid-cols-12 gap-4 md:gap-8 items-center">
+                  <div className="col-span-12 md:col-span-2 font-display num-display text-[64px] md:text-[88px] text-foreground/15 group-hover:text-foreground transition-colors duration-500 leading-none tabular-nums">
+                    {s.n}
+                  </div>
+                  <div className="col-span-12 md:col-span-5">
+                    <h3 className="font-display text-[34px] md:text-[52px] tracking-[-0.03em] leading-[0.95]">
+                      {s.title}<span className={accent}>.</span>
+                    </h3>
+                  </div>
+                  <p className="col-span-10 md:col-span-4 font-thai text-[14px] md:text-[15px] leading-[1.7] text-foreground/70">
                     {s.lead}
                   </p>
+                  <div className="col-span-2 md:col-span-1 flex justify-end">
+                    <ArrowUpRight className="w-6 h-6 md:w-8 md:h-8 text-foreground/40 group-hover:text-foreground transition-all duration-500 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                  </div>
                 </div>
-                <span className="inline-flex items-center justify-between gap-2 font-mono text-[10px] tracking-[0.3em] uppercase text-foreground/70 group-hover:text-foreground transition-colors">
-                  <span>{s.from}</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </span>
+                <div className="mt-6 md:mt-8 flex items-center gap-6">
+                  <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground">{s.from}</span>
+                </div>
               </a>
             </Reveal>
           ))}
@@ -587,29 +574,29 @@ const Services = () => (
       </div>
     </section>
 
-    {/* AUDIT — START HERE */}
-    <section className="px-6 md:px-10">
-      <div className="max-w-[1200px] mx-auto pb-24 md:pb-32">
-        <div className="border-y border-foreground py-12 md:py-16 grid grid-cols-1 md:grid-cols-12 gap-y-10 md:gap-x-12">
+    {/* AUDIT — START HERE (dark) */}
+    <section className="bg-foreground text-background px-6 md:px-10">
+      <div className="max-w-[1240px] mx-auto py-24 md:py-32">
+        <div className="border-y border-background/30 py-12 md:py-16 grid grid-cols-1 md:grid-cols-12 gap-y-10 md:gap-x-12">
           <div className="md:col-span-5">
-            <p className="font-mono text-[10px] tracking-[0.4em] text-muted-foreground mb-4">— START HERE</p>
+            <p className="font-mono text-[10px] tracking-[0.4em] text-background/55 mb-4">— START HERE</p>
             <h2 className="font-display h-display-sm">
               ØRIONS <span className={accent}>Audit.</span>
             </h2>
-            <p className="mt-5 font-thai text-[14px] leading-[1.7] text-foreground/70 max-w-[380px]">
+            <p className="mt-5 font-thai text-[14px] leading-[1.7] text-background/70 max-w-[380px]">
               Not ready for a full engagement? Start with a 1-week audit. Credited 100% toward your next phase.
             </p>
             <div className="mt-8 flex items-baseline gap-3">
               <div className={`font-display ${accent} text-[48px] md:text-[64px] leading-none tracking-[-0.04em] tabular-nums`}>15K</div>
-              <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">THB</div>
+              <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-background/55">THB</div>
             </div>
           </div>
 
-          <div className="md:col-span-7 md:border-l border-soft md:pl-12">
-            <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground mb-5">
+          <div className="md:col-span-7 md:border-l border-background/15 md:pl-12">
+            <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-background/55 mb-5">
               — what you get in 7 days
             </div>
-            <ul className="space-y-3 font-thai text-[13.5px] leading-[1.7]">
+            <ul className="space-y-3 font-thai text-[13.5px] leading-[1.7] text-background/85">
               {[
                 "Brand & social audit report (5–6 pages)",
                 "Top 3 problems + Top 3 opportunities",
@@ -619,153 +606,160 @@ const Services = () => (
                 "Action checklist (10 items)",
               ].map((it) => (
                 <li key={it} className="flex items-baseline gap-3">
-                  <span className="font-mono text-[10px] text-muted-foreground/60 shrink-0">—</span>
+                  <span className="font-mono text-[10px] text-background/45 shrink-0">—</span>
                   <span>{it}</span>
                 </li>
               ))}
             </ul>
-            <p className="mt-8 font-thai text-[13px] italic text-foreground/70">
+            <p className="mt-8 font-thai text-[13px] italic text-background/65">
               ✓ 100% credit-back if you continue with us within 60 days
             </p>
             <div className="mt-8">
-              <CTA to="/contact">Book Audit</CTA>
+              <CTA to="/contact" variant="invert">Book Audit</CTA>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    {/* PRICING — simplified: rows that expand on demand */}
-    <section id="pricing" className="relative bg-foreground text-background px-6 md:px-10 scroll-mt-20">
-      <div className="border-t border-background/30 py-24 md:py-32 max-w-[1240px] mx-auto">
-        <Reveal delay={0.05}>
-          <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-background/55 mb-4">
-            — PRICING
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-end">
-            <h2 className="md:col-span-7 font-display h-display-sm">
-              Honest pricing, <span className={accent}>no surprises.</span>
-            </h2>
-            <p className="md:col-span-5 font-thai text-[14px] leading-[1.75] text-background/70">
-              Click any tier to see what's inside. All prices in THB, exclude 7% VAT.
-            </p>
-          </div>
-        </Reveal>
-
-        <div className="mt-16 md:mt-20 space-y-20 md:space-y-24">
-          {serviceTables.map((svc) => (
-            <article key={svc.n} id={`svc-${svc.n}`} className="scroll-mt-24">
-              <Reveal delay={0.05}>
-                <header className="border-t border-background/30 pt-5 pb-8 flex items-baseline gap-6">
-                  <span className="font-mono text-[10px] tracking-[0.25em] text-background/45 tabular-nums">— {svc.n}</span>
-                  <h3 className="font-display text-[24px] md:text-[32px] tracking-[-0.02em]">{svc.title}.</h3>
-                </header>
+    {/* PRICING — one section per service, 3 cards each, alternating bg */}
+    <div id="pricing">
+      {serviceTables.map((svc, idx) => {
+        const dark = idx % 2 === 1; // svc 02 = dark, 01/03 = light
+        const fg = dark ? "background" : "foreground";
+        const muted = dark ? "background/60" : "muted-foreground";
+        const lineSoft = dark ? "background/15" : "border-soft";
+        return (
+          <section
+            key={svc.n}
+            id={`svc-${svc.n}`}
+            className={`scroll-mt-20 px-6 md:px-10 ${dark ? "bg-foreground text-background" : ""}`}
+          >
+            <div className="max-w-[1240px] mx-auto py-24 md:py-32">
+              <Reveal>
+                <div className={`flex items-baseline justify-between border-t pt-5 ${dark ? "border-background/30" : "border-foreground"}`}>
+                  <span className={`font-mono text-[10px] tracking-[0.3em] uppercase ${dark ? "text-background/55" : "text-muted-foreground"}`}>
+                    — {svc.n} · {svc.title.toUpperCase()}
+                  </span>
+                  <span className={`font-mono text-[10px] tracking-[0.3em] uppercase hidden sm:inline ${dark ? "text-background/45" : "text-muted-foreground"}`}>
+                    3 PACKAGES
+                  </span>
+                </div>
               </Reveal>
 
-              <Accordion type="single" collapsible className="border-t border-background/15">
-                {svc.tiers.map((t) => (
-                  <AccordionItem key={t.name} value={t.name} className="border-b border-background/15">
-                    <AccordionTrigger className="group py-6 md:py-7 hover:no-underline [&>svg]:hidden">
-                      <div className="grid grid-cols-12 gap-4 w-full items-baseline text-left">
-                        <div className="col-span-12 md:col-span-5 flex items-baseline gap-3">
-                          <h4 className="font-display text-[18px] md:text-[22px] tracking-[-0.02em]">{t.name}.</h4>
-                          {t.highlight && (
-                            <span className="font-mono text-[9px] tracking-[0.3em] uppercase text-background/50">★ popular</span>
-                          )}
-                        </div>
-                        <p className="col-span-12 md:col-span-4 font-thai text-[12.5px] leading-[1.6] text-background/60 hidden md:block">
-                          {t.tagline}
-                        </p>
-                        <div className="col-span-10 md:col-span-2 flex items-baseline gap-1.5">
-                          <span className={`font-display text-[20px] md:text-[24px] leading-none tracking-[-0.03em] tabular-nums ${t.highlight ? accent : ""}`}>
+              <div className="mt-10 md:mt-14 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-end">
+                <Reveal delay={0.05} className="md:col-span-7">
+                  <h2 className="font-display h-display-sm">
+                    {svc.title.split(" ")[0]}<span className={accent}>.</span>
+                  </h2>
+                </Reveal>
+                <Reveal delay={0.1} className="md:col-span-5">
+                  <p className={`font-thai text-[14px] leading-[1.75] ${dark ? "text-background/70" : "text-foreground/70"}`}>
+                    {svc.intro}
+                  </p>
+                </Reveal>
+              </div>
+
+              <div className={`mt-14 md:mt-16 grid grid-cols-1 md:grid-cols-3 border-t ${dark ? "border-background/30" : "border-foreground"}`}>
+                {svc.tiers.map((t, i) => (
+                  <Reveal key={t.name} delay={0.06 * i}>
+                    <article
+                      className={`relative h-full p-7 md:p-8 flex flex-col ${
+                        i > 0 ? (dark ? "md:border-l border-background/15" : "md:border-l border-soft") : ""
+                      } ${t.highlight ? (dark ? "bg-background/[0.05]" : "bg-foreground/[0.04]") : ""}`}
+                    >
+                      {t.highlight && (
+                        <div className={`absolute top-0 left-0 right-0 h-px ${dark ? "bg-background/60" : "bg-foreground"}`} />
+                      )}
+
+                      <header className="flex items-baseline justify-between gap-3">
+                        <h3 className="font-display text-[20px] md:text-[24px] tracking-[-0.02em]">{t.name}.</h3>
+                        {t.highlight && (
+                          <span className={`font-mono text-[9px] tracking-[0.3em] uppercase ${dark ? "text-background/55" : "text-muted-foreground"}`}>
+                            ★ popular
+                          </span>
+                        )}
+                      </header>
+
+                      <p className={`mt-3 font-thai text-[13px] leading-[1.7] min-h-[3.5em] ${dark ? "text-background/65" : "text-foreground/65"}`}>
+                        {t.tagline}
+                      </p>
+
+                      <div className="mt-7">
+                        <div className="flex items-baseline gap-2">
+                          <span className={`font-display text-[34px] md:text-[40px] leading-none tracking-[-0.04em] tabular-nums ${t.highlight ? accent : ""}`}>
                             {t.price}
                           </span>
-                          <span className="font-mono text-[10px] tracking-[0.2em] text-background/50">{t.unit}</span>
+                          <span className={`font-mono text-[10px] tracking-[0.2em] ${dark ? "text-background/55" : "text-muted-foreground"}`}>
+                            THB {t.unit}
+                          </span>
                         </div>
-                        <div className="col-span-2 md:col-span-1 flex justify-end">
-                          <Plus className="w-4 h-4 text-background/60 transition-transform duration-300 group-data-[state=open]:rotate-45" />
+                        <div className={`mt-2 font-mono text-[10px] tracking-[0.2em] uppercase ${dark ? "text-background/50" : "text-muted-foreground"}`}>
+                          {t.timeline ? `Timeline · ${t.timeline}` : t.lockIn}
                         </div>
                       </div>
-                    </AccordionTrigger>
-                    <AccordionContent className="pb-10">
-                      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 pt-2">
-                        <div className="md:col-span-4">
-                          <p className="font-thai text-[13px] leading-[1.7] text-background/70 md:hidden mb-5">{t.tagline}</p>
-                          <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-background/50">
-                            {t.timeline ? `Timeline · ${t.timeline}` : t.lockIn}
-                          </div>
-                          {t.bonuses && (
-                            <ul className="mt-6 space-y-2">
-                              {t.bonuses.map((b) => (
-                                <li key={b} className="flex items-baseline gap-2.5 font-thai text-[12.5px] leading-[1.65] text-background/80">
-                                  <span className="font-mono text-[10px] text-background/45 shrink-0">+</span>
-                                  <span>{b}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          )}
-                          {t.guarantees && (
-                            <ul className="mt-4 space-y-2">
-                              {t.guarantees.map((b) => (
-                                <li key={b} className="flex items-baseline gap-2.5 font-thai text-[12.5px] leading-[1.65] text-background/80">
-                                  <span className="font-mono text-[10px] text-background/45 shrink-0">✓</span>
-                                  <span>{b}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          )}
-                        </div>
 
-                        <div className="md:col-span-5 space-y-6">
-                          {t.groups.map((g) => (
-                            <div key={g.heading}>
-                              <div className="font-mono text-[9px] tracking-[0.3em] uppercase text-background/40 mb-3">
-                                — {g.heading}
-                              </div>
-                              <ul className="space-y-1.5">
-                                {g.items.map((it) => (
-                                  <li key={it} className="flex items-baseline gap-3 font-thai text-[13px] leading-[1.65] text-background/85">
-                                    <span className="font-mono text-[10px] text-background/35 shrink-0">·</span>
-                                    <span>{it}</span>
-                                  </li>
-                                ))}
-                              </ul>
+                      <div className={`mt-7 pt-7 border-t ${dark ? "border-background/15" : "border-soft"} flex-1 space-y-6`}>
+                        {t.groups.map((g) => (
+                          <div key={g.heading}>
+                            <div className={`font-mono text-[9px] tracking-[0.3em] uppercase mb-3 ${dark ? "text-background/45" : "text-muted-foreground"}`}>
+                              — {g.heading}
                             </div>
-                          ))}
-                        </div>
+                            <ul className="space-y-1.5">
+                              {g.items.map((it) => (
+                                <li key={it} className={`flex items-baseline gap-3 font-thai text-[13px] leading-[1.65] ${dark ? "text-background/85" : "text-foreground/85"}`}>
+                                  <span className={`font-mono text-[10px] shrink-0 ${dark ? "text-background/35" : "text-muted-foreground/60"}`}>·</span>
+                                  <span>{it}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
 
-                        <div className="md:col-span-3">
-                          {t.addOns && (
-                            <>
-                              <div className="font-mono text-[9px] tracking-[0.3em] uppercase text-background/40 mb-3">
-                                — add-ons
-                              </div>
+                      {(t.bonuses || t.addOns) && (
+                        <details className="mt-6 group">
+                          <summary className={`cursor-pointer list-none flex items-center justify-between font-mono text-[10px] tracking-[0.3em] uppercase ${dark ? "text-background/65 hover:text-background" : "text-foreground/65 hover:text-foreground"} border-t ${dark ? "border-background/15" : "border-soft"} pt-5 transition-colors`}>
+                            <span>More details</span>
+                            <Plus className="w-3.5 h-3.5 transition-transform duration-300 group-open:rotate-45" />
+                          </summary>
+                          <div className="mt-4 space-y-4">
+                            {t.bonuses && (
                               <ul className="space-y-1.5">
-                                {t.addOns.map((it) => (
-                                  <li key={it} className="font-thai text-[12px] leading-[1.55] text-background/60">
-                                    {it}
+                                {t.bonuses.map((b) => (
+                                  <li key={b} className={`flex items-baseline gap-2.5 font-thai text-[12.5px] leading-[1.6] ${dark ? "text-background/75" : "text-foreground/75"}`}>
+                                    <span className={`font-mono text-[10px] shrink-0 ${dark ? "text-background/45" : "text-muted-foreground"}`}>+</span>
+                                    <span>{b}</span>
                                   </li>
                                 ))}
                               </ul>
-                            </>
-                          )}
-                        </div>
-                      </div>
-                    </AccordionContent>
-                  </AccordionItem>
+                            )}
+                            {t.addOns && (
+                              <div>
+                                <div className={`font-mono text-[9px] tracking-[0.3em] uppercase mb-2 ${dark ? "text-background/45" : "text-muted-foreground"}`}>
+                                  — add-ons
+                                </div>
+                                <ul className="space-y-1">
+                                  {t.addOns.map((it) => (
+                                    <li key={it} className={`font-thai text-[12px] leading-[1.55] ${dark ? "text-background/60" : "text-foreground/60"}`}>
+                                      {it}
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            )}
+                          </div>
+                        </details>
+                      )}
+                    </article>
+                  </Reveal>
                 ))}
-              </Accordion>
-            </article>
-          ))}
-        </div>
-
-        <Reveal delay={0.05}>
-          <p className="mt-16 font-mono text-[10px] tracking-[0.25em] uppercase text-background/45 max-w-[640px]">
-            * Ad spend, third-party licensing, talent fees and travel billed at cost.
-          </p>
-        </Reveal>
-      </div>
-    </section>
+              </div>
+            </div>
+          </section>
+        );
+      })}
+    </div>
 
     {/* WHY + PROCESS — combined */}
     <section className="bg-foreground text-background px-6 md:px-10">
@@ -823,32 +817,32 @@ const Services = () => (
       </div>
     </section>
 
-    {/* FAQ — accordion */}
+    {/* FAQ — simple accordion */}
     <section className="px-6 md:px-10">
-      <div className="max-w-[1200px] mx-auto py-24 md:py-32">
+      <div className="max-w-[1100px] mx-auto py-24 md:py-32">
         <Reveal>
-          <p className="font-mono text-[10px] tracking-[0.4em] text-muted-foreground mb-4">— QUESTIONS</p>
+          <div className="flex items-baseline justify-between border-t border-foreground pt-5">
+            <p className="font-mono text-[10px] tracking-[0.4em] text-muted-foreground">— QUESTIONS</p>
+            <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground hidden sm:inline">{faqs.length} ANSWERS</p>
+          </div>
         </Reveal>
         <Reveal delay={0.05}>
-          <h2 className="font-display h-display-sm max-w-[900px]">
-            Things you might <br /><span className={accent}>be wondering.</span>
+          <h2 className="mt-10 md:mt-14 font-display h-display-sm max-w-[760px]">
+            Things you might <span className={accent}>be wondering.</span>
           </h2>
         </Reveal>
 
-        <Accordion type="single" collapsible className="mt-14 border-t border-foreground">
+        <Accordion type="single" collapsible className="mt-14">
           {faqs.map((f, i) => (
             <AccordionItem key={f.q} value={`faq-${i}`} className="border-b border-soft">
-              <AccordionTrigger className="group py-6 md:py-7 hover:no-underline text-left [&>svg]:hidden">
-                <div className="flex items-baseline gap-6 w-full">
-                  <span className="font-mono text-[10px] tracking-[0.25em] text-muted-foreground tabular-nums shrink-0">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="font-display text-[17px] md:text-[20px] tracking-[-0.01em] flex-1">{f.q}</span>
-                  <Plus className="w-4 h-4 text-foreground/60 transition-transform duration-300 group-data-[state=open]:rotate-45 shrink-0" />
+              <AccordionTrigger className="group py-5 md:py-6 hover:no-underline text-left [&>svg]:hidden">
+                <div className="flex items-center gap-4 w-full">
+                  <span className="font-display text-[16px] md:text-[19px] tracking-[-0.01em] flex-1">{f.q}</span>
+                  <Plus className="w-4 h-4 text-foreground/50 transition-transform duration-300 group-data-[state=open]:rotate-45 shrink-0" />
                 </div>
               </AccordionTrigger>
-              <AccordionContent className="pb-7 pl-12 md:pl-14">
-                <p className="font-thai text-[14px] md:text-[15px] leading-[1.75] text-foreground/75 max-w-[760px]">{f.a}</p>
+              <AccordionContent className="pb-6">
+                <p className="font-thai text-[14px] leading-[1.75] text-foreground/70 max-w-[720px]">{f.a}</p>
               </AccordionContent>
             </AccordionItem>
           ))}

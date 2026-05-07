@@ -7,6 +7,7 @@ import SEO from "@/components/SEO";
 import ClosingCTA from "@/components/ClosingCTA";
 import YouTubeFacade from "@/components/YouTubeFacade";
 import SimpleMarquee from "@/components/SimpleMarquee";
+import TypingLoop from "@/components/TypingLoop";
 
 import workHongmove from "@/assets/hongmove.png";
 import workKhaoyai from "@/assets/golf-hero.jpg";
@@ -29,13 +30,13 @@ type Work = {
 };
 
 const selectedWork: Work[] = [
-  { n: "01", title: "Hongmove",            niche: "PROPTECH",   scope: "Brand identity · Web · Content",     impact: "+312% sign-ups · 4 weeks",        body: "Rebuilt the brand system end-to-end — logo, guidelines, marketing site and launch content for the new rental platform.", img: workHongmove },
-  { n: "02", title: "Khaoyai Country Club", niche: "HOSPITALITY", scope: "Photo · Video · Social",            impact: "+48% member inquiries",           body: "Lifestyle shoot and short-form video for the course rebrand — clubhouse, fairways, and member experience.", img: workKhaoyai },
-  { n: "03", title: "MyHotel",             niche: "HOSPITALITY", scope: "Brand · Content · Paid ads",         impact: "−37% cost per booking",           body: "Monthly content pillars and Meta paid ads for the hotel chain — creative tuned to lower cost per booking.", img: workMyHotel },
-  { n: "04", title: "Royal Thai Air Force", niche: "GOVERNMENT",  scope: "Film · Production · Post",          impact: "2.1M views · national broadcast", body: "Full production and post for an official RTAF film — managed end-to-end from shoot to final cut.", img: workRtaf },
-  { n: "05", title: "Democrat Party",      niche: "POLITICS",    scope: "Campaign · Film · Social",           impact: "12M+ impressions · 30 days",      body: "National campaign creative — film, photo and social content built for fast turnaround across every platform.", img: workDemocrat },
-  { n: "06", title: "Heavy Organizer",     niche: "EVENTS",      scope: "Brand · Event film · Recap",         impact: "+88% ticket conversion",          body: "Brand films and event recaps for live productions — capture, edit and roll out across the full social cycle.", img: workHeavy },
-  { n: "07", title: "GCOO",                niche: "MOBILITY",    scope: "Brand · Content · Launch campaign",  impact: "+540% app downloads · 6 weeks",   body: "Launch campaign for the e-scooter sharing app — brand-led content, OOH visuals and short-form social rollout.", img: workGcoo },
+  { n: "01", title: "Hongmove",            niche: "PROPTECH",    scope: "Brand · Web · Content",       impact: "+312% sign-ups",        body: "End-to-end brand system, marketing site and launch content for the new rental platform.", img: workHongmove },
+  { n: "02", title: "Khaoyai Country Club", niche: "HOSPITALITY", scope: "Photo · Video · Social",      impact: "+48% inquiries",        body: "Lifestyle shoot and short-form video for the club rebrand.", img: workKhaoyai },
+  { n: "03", title: "MyHotel",             niche: "HOSPITALITY", scope: "Content · Paid ads",          impact: "−37% cost / booking",   body: "Monthly content and Meta ads tuned to lower cost per booking.", img: workMyHotel },
+  { n: "04", title: "Royal Thai Air Force", niche: "GOVERNMENT",  scope: "Film · Production · Post",    impact: "2.1M views",            body: "Full production and post for an official RTAF film, end to end.", img: workRtaf },
+  { n: "05", title: "Democrat Party",      niche: "POLITICS",    scope: "Campaign · Film · Social",    impact: "12M+ impressions",      body: "National campaign creative — fast turnaround across every platform.", img: workDemocrat },
+  { n: "06", title: "Heavy Organizer",     niche: "EVENTS",      scope: "Brand · Event film · Recap",  impact: "+88% conversion",       body: "Brand films and event recaps for live productions.", img: workHeavy },
+  { n: "07", title: "GCOO",                niche: "MOBILITY",    scope: "Brand · Launch campaign",     impact: "+540% downloads",       body: "Launch campaign for the e-scooter sharing app — brand, OOH and social.", img: workGcoo },
 ];
 
 const services = [
@@ -329,7 +330,8 @@ const Index = () => (
         </Reveal>
         <Reveal delay={0.25}>
           <p className="mt-12 md:mt-16 font-display text-[14px] md:text-[18px] tracking-[-0.01em] max-w-[640px]">
-            A boutique <span className={accent}>creative agency</span> for F&amp;B, fashion &amp; hospitality.
+            A boutique{" "}
+            <TypingLoop text="creative agency" className={accent} />
           </p>
         </Reveal>
 
@@ -417,18 +419,18 @@ const Index = () => (
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-80px" }}
                   transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay }}
-                  className="relative pt-10"
+                  className="group relative pt-10 cursor-default"
                 >
                   <motion.span
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true, margin: "-80px" }}
                     transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1], delay: delay + 0.1 }}
-                    className="absolute top-[8px] left-0 w-3.5 h-3.5 bg-background border border-foreground"
+                    className="absolute top-[8px] left-0 w-3.5 h-3.5 bg-background border border-foreground group-hover:bg-gradient-accent group-hover:border-transparent transition-colors"
                     aria-hidden
                   />
                   <div className="font-mono text-[10px] tracking-[0.25em] text-muted-foreground">— {st.n}</div>
-                  <h3 className="mt-4 font-display text-[22px] md:text-[26px] tracking-[-0.02em]">
+                  <h3 className="mt-4 font-display text-[22px] md:text-[26px] tracking-[-0.02em] group-hover:text-gradient transition-colors">
                     {st.title}.
                   </h3>
                   <p className="mt-3 font-thai text-[14px] leading-[1.7] text-muted-foreground max-w-[260px]">
@@ -467,7 +469,7 @@ const Index = () => (
                 key={name}
                 className="border-r border-b border-background/15 aspect-[5/2] flex items-center justify-center px-4 py-6 group"
               >
-                <span className="font-display text-[13px] md:text-[15px] tracking-[0.08em] uppercase text-background/55 group-hover:text-background transition-colors text-center">
+                <span className="font-display text-[13px] md:text-[15px] tracking-[0.08em] uppercase text-background/55 group-hover:text-gradient transition-colors text-center">
                   {name}
                 </span>
               </li>

@@ -153,52 +153,55 @@ const Index = () => (
           </div>
         </Reveal>
 
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-6">
-          {selectedWork.map((w, i) => (
-            <Reveal key={w.n} delay={0.06 * i}>
-              <Link to="/work" className="group block">
-                <div className="relative w-full overflow-hidden bg-muted" style={{ aspectRatio: "3 / 4" }}>
-                  <img
-                    src={w.img}
-                    alt={`${w.title} — ${w.scope}`}
-                    loading="lazy"
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-out group-hover:scale-[1.03]"
-                  />
-                  <div className="absolute top-3 left-3 font-mono text-[9px] tracking-[0.2em] text-background/90 mix-blend-difference">
-                    — {w.n} · {w.niche}
-                  </div>
-
-                  {/* Slide-in detail panel from right */}
-                  <div
-                    className="absolute inset-y-0 right-0 w-full bg-foreground text-background translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out p-5 flex flex-col justify-end"
-                  >
-                    <div className="font-mono text-[9px] tracking-[0.25em] text-background/60">
-                      — {w.scope}
+        <div className="mt-16 -mx-6 md:-mx-10 overflow-x-auto scroll-smooth snap-x snap-mandatory hide-scrollbar">
+          <div className="flex gap-5 md:gap-6 px-6 md:px-10 pb-2">
+            {selectedWork.map((w, i) => (
+              <Reveal key={w.n} delay={0.04 * i}>
+                <Link
+                  to="/work"
+                  className="group block snap-start shrink-0 w-[240px] md:w-[280px]"
+                >
+                  <div className="relative w-full overflow-hidden bg-muted" style={{ aspectRatio: "3 / 4" }}>
+                    <img
+                      src={w.img}
+                      alt={`${w.title} — ${w.scope}`}
+                      loading="lazy"
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-out group-hover:scale-[1.03]"
+                    />
+                    <div className="absolute top-3 left-3 font-mono text-[9px] tracking-[0.2em] text-background/90 mix-blend-difference">
+                      — {w.n} · {w.niche}
                     </div>
-                    <h3 className="mt-3 font-display text-[16px] md:text-[18px] tracking-[-0.01em] leading-tight">
-                      {w.title}
-                    </h3>
-                    <p className="mt-3 font-thai text-[12px] leading-[1.65] text-background/75">
-                      {w.body}
-                    </p>
-                    <div className="mt-5 inline-flex items-center gap-1.5 font-mono text-[9px] tracking-[0.25em] uppercase text-background/80 border-t border-background/20 pt-3">
-                      View case <ArrowUpRight className="w-3 h-3" />
+
+                    {/* Slide-in detail panel from right */}
+                    <div
+                      className="absolute inset-y-0 right-0 w-full bg-foreground text-background translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out p-5 flex flex-col justify-end"
+                    >
+                      <div className="font-mono text-[9px] tracking-[0.25em] text-background/60">
+                        — {w.scope}
+                      </div>
+                      <h3 className="mt-3 font-display text-[16px] md:text-[18px] tracking-[-0.01em] leading-tight">
+                        {w.title}
+                      </h3>
+                      <div className={`mt-3 font-display ${accent} text-[20px] md:text-[24px] leading-[1.05] tracking-[-0.02em] tabular-nums`}>
+                        {w.impact}
+                      </div>
+                      <p className="mt-3 font-mono text-[10px] leading-[1.65] text-background/70">
+                        {w.body}
+                      </p>
+                      <div className="mt-5 inline-flex items-center gap-1.5 font-mono text-[9px] tracking-[0.25em] uppercase text-background/80 border-t border-background/20 pt-3">
+                        View case <ArrowUpRight className="w-3 h-3" />
+                      </div>
                     </div>
                   </div>
-                </div>
-
-                <div className="mt-3 flex items-baseline justify-between gap-3">
-                  <h3 className="font-display text-[14px] md:text-[15px] tracking-[-0.01em]">
-                    {w.title}
-                  </h3>
-                  <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-muted-foreground">
-                    {w.niche}
-                  </span>
-                </div>
-              </Link>
-            </Reveal>
-          ))}
+                </Link>
+              </Reveal>
+            ))}
+            <div className="shrink-0 w-1 md:w-4" aria-hidden />
+          </div>
         </div>
+        <p className="mt-6 font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground">
+          [ Drag · scroll → ]
+        </p>
       </div>
     </section>
 

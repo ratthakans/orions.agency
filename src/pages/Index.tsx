@@ -7,18 +7,46 @@ import TypingLoop from "@/components/TypingLoop";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import rtafLogo from "@/assets/rtaf-emblem.png";
-import workSaintManor from "@/assets/studio-look-your-best.jpg";
-import workHotelVerge from "@/assets/hospitality-hero.jpg";
-import workCala from "@/assets/golf-lifestyle.jpg";
-import workNorthMeridian from "@/assets/concert-hero.jpg";
+import workHongmove from "@/assets/hongmove.png";
+import workKhaoyai from "@/assets/golf-hero.jpg";
+import workMyHotel from "@/assets/myhotel.png";
+import workRtaf from "@/assets/rtaf.jpg";
 
 const accent = "text-gradient";
 
 const selectedWork = [
-  { n: "01", title: "Saint Manor",     niche: "FASHION",     result: "Sold out drop in 11 days", img: workSaintManor },
-  { n: "02", title: "Hôtel Vergé",     niche: "HOSPITALITY", result: "−41% cost per booking",    img: workHotelVerge },
-  { n: "03", title: "Maison Lumière",  niche: "F&B",         result: "+62% bookings in 3 months", img: workNorthMeridian },
-  { n: "04", title: "Cala / BKK",      niche: "LIFESTYLE",   result: "Brand + launch campaign",   img: workCala },
+  {
+    n: "01",
+    title: "Hongmove",
+    niche: "PROPTECH",
+    scope: "Brand identity · Web · Content",
+    body: "วาง brand system ใหม่และ launch campaign สำหรับแพลตฟอร์มหาห้องเช่า — ตั้งแต่ logo, guideline, ไปจนถึงเว็บและคอนเทนต์โซเชียล",
+    img: workHongmove,
+  },
+  {
+    n: "02",
+    title: "Khaoyai Country Club",
+    niche: "HOSPITALITY",
+    scope: "Photo · Video · Social",
+    body: "Lifestyle shoot และ short-form video สำหรับ rebrand สนามกอล์ฟ — เล่าบรรยากาศ clubhouse, course และประสบการณ์สมาชิก",
+    img: workKhaoyai,
+  },
+  {
+    n: "03",
+    title: "MyHotel",
+    niche: "HOSPITALITY",
+    scope: "Brand · Content · Paid ads",
+    body: "วาง content pillar รายเดือนและ paid ads บน Meta สำหรับเชนโรงแรม — ปรับ creative ให้คุม cost per booking",
+    img: workMyHotel,
+  },
+  {
+    n: "04",
+    title: "Royal Thai Air Force",
+    niche: "GOVERNMENT",
+    scope: "Film · Production · Post",
+    body: "Production และ post-production สำหรับ official film ของกองทัพอากาศ — งาน scale ใหญ่ คุมตั้งแต่ shoot จนถึง final cut",
+    img: workRtaf,
+  },
 ];
 
 const threeThings = [

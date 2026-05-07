@@ -1,5 +1,4 @@
 import Reveal from "@/components/Reveal";
-import PageHero from "@/components/PageHero";
 import ClosingCTA from "@/components/ClosingCTA";
 import SEO from "@/components/SEO";
 import FlipNumber from "@/components/FlipNumber";
@@ -113,11 +112,24 @@ const About = () => (
       }}
     />
 
-    <PageHero
-      eyebrow="ABOUT · INDEX"
-      verticalLabel="/ 04 · ABOUT"
-      title={<>A <span className={accent}>boutique</span><br />creative agency.</>}
-    />
+    {/* HERO — dark, single clear message */}
+    <section className="relative bg-foreground text-background">
+      <div className="px-6 md:px-10 pt-40 md:pt-48 pb-24 md:pb-32 max-w-[1200px] mx-auto">
+        <Reveal delay={0.05}>
+          <p className="font-mono text-[10px] tracking-[0.4em] text-background/60 mb-10">— ABOUT</p>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <h1 className="font-display h-display-md text-balance max-w-[900px]">
+            A boutique <span className={accent}>creative</span> agency.
+          </h1>
+        </Reveal>
+        <Reveal delay={0.2}>
+          <p className="mt-8 font-thai text-[15px] md:text-[17px] leading-[1.65] text-background/70 max-w-[560px]">
+            11 people, in-house in Bangkok. Branding, content, and paid ads — for F&amp;B, fashion, and hospitality brands.
+          </p>
+        </Reveal>
+      </div>
+    </section>
 
     {/* WHO IS ØRIONS */}
     <section className="relative px-6 md:px-10 py-20 md:py-28">

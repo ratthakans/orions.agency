@@ -419,18 +419,18 @@ const Index = () => (
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-80px" }}
                   transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay }}
-                  className="relative pt-10"
+                  className="group relative pt-10 cursor-default"
                 >
                   <motion.span
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true, margin: "-80px" }}
                     transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1], delay: delay + 0.1 }}
-                    className="absolute top-[8px] left-0 w-3.5 h-3.5 bg-background border border-foreground"
+                    className="absolute top-[8px] left-0 w-3.5 h-3.5 bg-background border border-foreground group-hover:bg-gradient-accent group-hover:border-transparent transition-colors"
                     aria-hidden
                   />
                   <div className="font-mono text-[10px] tracking-[0.25em] text-muted-foreground">— {st.n}</div>
-                  <h3 className="mt-4 font-display text-[22px] md:text-[26px] tracking-[-0.02em]">
+                  <h3 className="mt-4 font-display text-[22px] md:text-[26px] tracking-[-0.02em] group-hover:text-gradient transition-colors">
                     {st.title}.
                   </h3>
                   <p className="mt-3 font-thai text-[14px] leading-[1.7] text-muted-foreground max-w-[260px]">

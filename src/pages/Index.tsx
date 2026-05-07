@@ -330,7 +330,8 @@ const Index = () => (
         </Reveal>
         <Reveal delay={0.25}>
           <p className="mt-12 md:mt-16 font-display text-[14px] md:text-[18px] tracking-[-0.01em] max-w-[640px]">
-            A boutique <span className={accent}>creative agency</span> for F&amp;B, fashion &amp; hospitality.
+            A boutique{" "}
+            <TypingLoop text="creative agency" className={accent} />
           </p>
         </Reveal>
 

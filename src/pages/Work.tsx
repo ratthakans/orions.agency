@@ -2,6 +2,7 @@ import Reveal from "@/components/Reveal";
 import ClosingCTA from "@/components/ClosingCTA";
 import SEO from "@/components/SEO";
 import YouTubeFacade from "@/components/YouTubeFacade";
+import hongmoveLogo from "@/assets/logos/hongmove.png";
 
 const accent = "text-gradient";
 
@@ -34,10 +35,20 @@ const testimonials = [
   },
 ];
 
-const trustedBy = [
-  "MAISON LUMIÈRE", "SAINT MANOR", "HÔTEL VERGÉ", "CALA / BKK",
-  "NORTH MERIDIAN", "AT.09", "CAFÉ ORSAY", "STUDIO — KIN",
-  "PLAYA NORTE", "CASA · SOL", "MARLOW & CO.", "UNION BKK",
+type TrustedBrand = { name: string; logo?: string };
+const trustedBy: TrustedBrand[] = [
+  { name: "HONGMOVE", logo: hongmoveLogo },
+  { name: "MAISON LUMIÈRE" },
+  { name: "SAINT MANOR" },
+  { name: "HÔTEL VERGÉ" },
+  { name: "CALA / BKK" },
+  { name: "NORTH MERIDIAN" },
+  { name: "AT.09" },
+  { name: "CAFÉ ORSAY" },
+  { name: "STUDIO — KIN" },
+  { name: "PLAYA NORTE" },
+  { name: "CASA · SOL" },
+  { name: "MARLOW & CO." },
 ];
 
 const Work = () => (
@@ -141,12 +152,21 @@ const Work = () => (
         </Reveal>
 
         <div className="mt-16 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 border border-soft">
-          {trustedBy.map((name, i) => (
+          {trustedBy.map((brand, i) => (
             <div
-              key={name}
+              key={brand.name}
               className={`relative aspect-[2/1] flex items-center justify-center text-center px-4 cursor-default border-soft ${(i % 6) !== 5 ? "border-r" : ""} ${i < trustedBy.length - 6 ? "border-b" : ""}`}
             >
-              <span className="font-display text-[11px] md:text-[12px] tracking-[0.04em] text-muted-foreground">{name}</span>
+              {brand.logo ? (
+                <img
+                  src={brand.logo}
+                  alt={brand.name}
+                  loading="lazy"
+                  className="max-h-8 md:max-h-10 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
+                />
+              ) : (
+                <span className="font-display text-[11px] md:text-[12px] tracking-[0.04em] text-muted-foreground">{brand.name}</span>
+              )}
             </div>
           ))}
         </div>

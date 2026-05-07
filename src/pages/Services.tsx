@@ -4,7 +4,6 @@ import SEO from "@/components/SEO";
 import SimpleMarquee from "@/components/SimpleMarquee";
 import CTA from "@/components/CTA";
 import { ArrowUpRight, Plus } from "lucide-react";
-import { Link } from "react-router-dom";
 import {
   Accordion,
   AccordionContent,

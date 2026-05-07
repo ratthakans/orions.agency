@@ -13,6 +13,7 @@ import workMyHotel from "@/assets/myhotel.png";
 import workRtaf from "@/assets/rtaf.jpg";
 import workDemocrat from "@/assets/democrat.jpg";
 import workHeavy from "@/assets/heavy-organizer.jpg";
+import workGcoo from "@/assets/gcoo.jpg";
 
 const accent = "text-gradient";
 
@@ -70,6 +71,15 @@ const selectedWork = [
     impact: "+88% ticket conversion",
     body: "Brand films and event recaps for live productions — capture, edit and roll out across the full social cycle.",
     img: workHeavy,
+  },
+  {
+    n: "07",
+    title: "GCOO",
+    niche: "MOBILITY",
+    scope: "Brand · Content · Launch campaign",
+    impact: "+540% app downloads · 6 weeks",
+    body: "Launch campaign for the e-scooter sharing app — brand-led content, OOH visuals and short-form social rollout.",
+    img: workGcoo,
   },
 ];
 

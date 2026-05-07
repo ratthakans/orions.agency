@@ -3,7 +3,8 @@ import ClosingCTA from "@/components/ClosingCTA";
 import SEO from "@/components/SEO";
 import TypingLoop from "@/components/TypingLoop";
 import SimpleMarquee from "@/components/SimpleMarquee";
-import { Check } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const SITE_URL = "https://orions.agency";
 const accent = "text-gradient";
@@ -289,6 +290,15 @@ const Services = () => (
             <TypingLoop text="one team" className={accent} />
           </p>
         </Reveal>
+        <Reveal delay={0.35}>
+          <div className="mt-12 md:mt-14 border-t border-b border-background/20 py-3 px-6 flex items-center gap-6 md:gap-10 font-mono text-[10px] tracking-[0.3em] uppercase tabular-nums text-background/70">
+            <span>03 Practices</span>
+            <span className="text-background/30">·</span>
+            <span>01 Studio</span>
+            <span className="text-background/30">·</span>
+            <span>From <span className="text-background">THB 50K</span></span>
+          </div>
+        </Reveal>
       </div>
       <div className="relative border-t border-background/15 py-4">
         <SimpleMarquee
@@ -321,23 +331,18 @@ const Services = () => (
             <Reveal key={s.n} delay={0.08 * i}>
               <a
                 href={`#svc-${s.n}`}
-                className={`group h-full py-10 md:py-12 md:px-8 flex flex-col ${i > 0 ? "md:border-l border-soft" : ""}`}
+                className={`group h-full py-12 md:py-16 md:px-8 flex flex-col ${i > 0 ? "md:border-l border-soft" : ""}`}
               >
                 <div className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground">— {s.n}</div>
-                <h3 className="mt-6 font-display text-[22px] md:text-[26px] tracking-[-0.02em] group-hover:text-gradient transition-colors">
+                <div className="mt-6 font-display text-[72px] md:text-[96px] leading-[0.9] tracking-[-0.04em] tabular-nums text-foreground/10 group-hover:text-gradient transition-colors">
+                  {s.n}
+                </div>
+                <h3 className="mt-6 font-display text-[24px] md:text-[28px] tracking-[-0.02em]">
                   {s.title}.
                 </h3>
-                <p className="mt-3 font-thai text-[14px] leading-[1.7] text-foreground/70 max-w-[320px]">{s.lead}</p>
-                <ul className="mt-8 space-y-3 font-thai text-[13px] leading-[1.7] border-t border-soft pt-5">
-                  {s.items.map((it) => (
-                    <li key={it} className="flex items-baseline gap-3">
-                      <span className="font-mono text-[10px] text-muted-foreground/60">·</span>
-                      <span>{it}</span>
-                    </li>
-                  ))}
-                </ul>
-                <span className="mt-8 font-mono text-[10px] tracking-[0.3em] uppercase text-foreground/60 group-hover:text-foreground transition-colors">
-                  Jump to packages →
+                <p className="mt-4 font-thai text-[14px] leading-[1.7] text-foreground/70 max-w-[320px]">{s.lead}</p>
+                <span className="mt-auto pt-10 inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase text-foreground/60 group-hover:text-foreground transition-colors">
+                  Jump to packages <ArrowUpRight className="w-3 h-3" />
                 </span>
               </a>
             </Reveal>
@@ -361,7 +366,7 @@ const Services = () => (
           </p>
         </Reveal>
 
-        <div className="mt-16 md:mt-20 space-y-20 md:space-y-28">
+        <div className="mt-16 md:mt-20 space-y-24 md:space-y-32">
           {serviceTables.map((svc) => (
             <article key={svc.n} id={`svc-${svc.n}`} className="scroll-mt-24">
               <Reveal delay={0.05}>
@@ -381,52 +386,42 @@ const Services = () => (
               <div className={`grid grid-cols-1 ${svc.tiers.length === 3 ? "md:grid-cols-3" : "md:grid-cols-2"} border-t border-background/15`}>
                 {svc.tiers.map((t, i) => (
                   <Reveal key={t.name} delay={0.06 * i}>
-                    <div className={`relative h-full p-8 md:p-10 flex flex-col ${i > 0 ? "md:border-l border-background/15" : ""}`}>
-                      {t.highlight && (
-                        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-accent" aria-hidden />
-                      )}
-                      <div className="flex items-center justify-between">
-                        <h4 className="font-display text-[20px] md:text-[22px] tracking-[-0.02em]">{t.name}.</h4>
+                    <div className={`relative h-full p-8 md:p-12 flex flex-col ${i > 0 ? "md:border-l border-background/15" : ""} ${t.highlight ? "bg-background/[0.04]" : ""}`}>
+                      <div className="flex items-baseline justify-between gap-3">
+                        <h4 className="font-display text-[22px] md:text-[24px] tracking-[-0.02em]">{t.name}.</h4>
                         {t.highlight && (
-                          <span className="font-mono text-[9px] tracking-[0.3em] uppercase text-background bg-foreground/0 border border-background/40 px-2 py-1">
-                            Most chosen
+                          <span className="font-mono text-[9px] tracking-[0.3em] uppercase text-background/50">
+                            — most chosen
                           </span>
                         )}
                       </div>
 
-                      <p className="mt-3 font-thai text-[13px] leading-[1.7] text-background/70 min-h-[3.5em]">
+                      <p className="mt-3 font-thai text-[13px] leading-[1.7] text-background/65 min-h-[3.5em]">
                         {t.forWho}
                       </p>
 
-                      <div className="mt-7 pt-5 border-t border-background/15">
+                      <div className="mt-10">
                         <div className="flex items-baseline gap-2">
-                          <div className="font-display text-[34px] md:text-[42px] leading-none tracking-[-0.03em] tabular-nums">
+                          <div className={`font-display text-[40px] md:text-[52px] leading-none tracking-[-0.04em] tabular-nums ${t.highlight ? accent : ""}`}>
                             {t.from.replace("Start from THB ", "")}
                           </div>
                           <div className="font-mono text-[10px] tracking-[0.2em] text-background/55">
                             THB {t.unit?.replace("/ ", "/")}
                           </div>
                         </div>
-                        <div className="mt-2 font-mono text-[9px] tracking-[0.25em] uppercase text-background/45">
-                          Start from
+                        <div className="mt-3 font-mono text-[10px] tracking-[0.2em] uppercase text-background/50 tabular-nums">
+                          {t.timeline} · {t.deliverables}
                         </div>
                       </div>
 
-                      <dl className="mt-7 grid grid-cols-2 gap-y-3 gap-x-4 border-t border-background/15 pt-5 font-mono text-[10px] tracking-[0.05em]">
-                        <dt className="text-background/45 uppercase tracking-[0.2em]">Timeline</dt>
-                        <dd className="text-background/85 text-right">{t.timeline}</dd>
-                        <dt className="text-background/45 uppercase tracking-[0.2em]">Delivers</dt>
-                        <dd className="text-background/85 text-right">{t.deliverables}</dd>
-                      </dl>
-
-                      <div className="mt-7 pt-5 border-t border-background/15">
-                        <div className="font-mono text-[9px] tracking-[0.3em] uppercase text-background/45 mb-4">
-                          What&apos;s included
+                      <div className="mt-10">
+                        <div className="font-mono text-[9px] tracking-[0.3em] uppercase text-background/40 mb-5">
+                          — what&apos;s included
                         </div>
-                        <ul className="space-y-2.5">
+                        <ul className="space-y-3">
                           {t.includes.map((it) => (
-                            <li key={it} className="flex items-start gap-3 font-thai text-[13px] leading-[1.6] text-background/85">
-                              <Check className="w-3 h-3 mt-1 shrink-0 text-background/50" />
+                            <li key={it} className="flex items-baseline gap-3 font-thai text-[13px] leading-[1.65] text-background/85">
+                              <span className="font-mono text-[10px] text-background/35 shrink-0">—</span>
                               <span>{it}</span>
                             </li>
                           ))}
@@ -434,18 +429,9 @@ const Services = () => (
                       </div>
 
                       {t.bestFor && (
-                        <div className="mt-7 pt-5 border-t border-background/15">
-                          <div className="font-mono text-[9px] tracking-[0.3em] uppercase text-background/45 mb-3">
-                            Best for
-                          </div>
-                          <ul className="space-y-1.5">
-                            {t.bestFor.map((b) => (
-                              <li key={b} className="font-mono text-[10px] tracking-[0.05em] text-background/65">
-                                — {b}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
+                        <p className="mt-10 pt-6 font-thai italic text-[12px] leading-[1.7] text-background/55">
+                          Best for: {t.bestFor.join(" · ")}
+                        </p>
                       )}
                     </div>
                   </Reveal>
@@ -480,11 +466,19 @@ const Services = () => (
             <div className={`font-display ${accent} text-[48px] md:text-[64px] leading-none tracking-[-0.04em] tabular-nums`}>30K</div>
             <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">THB</div>
           </div>
-          <ul className="md:col-span-4 space-y-2 font-thai text-[13px] leading-[1.7]">
-            <li className="flex items-baseline gap-3"><span className="font-mono text-[10px] text-muted-foreground/60">·</span><span>Brand &amp; spend audit</span></li>
-            <li className="flex items-baseline gap-3"><span className="font-mono text-[10px] text-muted-foreground/60">·</span><span>1-page 90-day roadmap</span></li>
-            <li className="flex items-baseline gap-3"><span className="font-mono text-[10px] text-muted-foreground/60">·</span><span>1-hour working session</span></li>
-          </ul>
+          <div className="md:col-span-4 flex flex-col gap-5">
+            <ul className="space-y-2 font-thai text-[13px] leading-[1.7]">
+              <li className="flex items-baseline gap-3"><span className="font-mono text-[10px] text-muted-foreground/60">—</span><span>Brand &amp; spend audit</span></li>
+              <li className="flex items-baseline gap-3"><span className="font-mono text-[10px] text-muted-foreground/60">—</span><span>1-page 90-day roadmap</span></li>
+              <li className="flex items-baseline gap-3"><span className="font-mono text-[10px] text-muted-foreground/60">—</span><span>1-hour working session</span></li>
+            </ul>
+            <Link
+              to="/contact"
+              className="self-start inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase text-foreground border-b border-foreground/40 hover:border-foreground pb-1 transition-colors"
+            >
+              Book the audit <ArrowUpRight className="w-3 h-3" />
+            </Link>
+          </div>
         </div>
       </div>
     </section>

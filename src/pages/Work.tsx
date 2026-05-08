@@ -3,6 +3,7 @@ import ClosingCTA from "@/components/ClosingCTA";
 import SEO from "@/components/SEO";
 import YouTubeFacade from "@/components/YouTubeFacade";
 import { Link } from "react-router-dom";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 import workHongmove from "@/assets/hongmove.png";
 import workKhaoyai from "@/assets/golf-hero.jpg";
@@ -61,6 +62,30 @@ const testimonials = [
     quote: "Cut our cost per booking by 41%. Bookings still up.",
     name: "Shimpei M.",
     handle: "Hôtel Vergé · @hotelverge",
+  },
+  {
+    niche: "PROPTECH",
+    stat: "+312%",
+    statLabel: "SIGN-UPS",
+    quote: "Launch landed exactly the way we pictured it. Sign-ups tripled in the first month.",
+    name: "Pailin R.",
+    handle: "Hongmove · @hongmove",
+  },
+  {
+    niche: "EVENTS",
+    stat: "+88%",
+    statLabel: "CONVERSION",
+    quote: "Recap films that actually sold the next show. Conversion jumped 88%.",
+    name: "Tee K.",
+    handle: "Heavy Organizer · @heavy.org",
+  },
+  {
+    niche: "MOBILITY",
+    stat: "+540%",
+    statLabel: "DOWNLOADS",
+    quote: "From zero to 540% growth in app downloads. The team made it look easy.",
+    name: "Min S.",
+    handle: "GCOO · @gcoo.app",
   },
 ];
 
@@ -135,7 +160,7 @@ const Work = () => (
           </div>
         </Reveal>
 
-        <div className="mt-14 md:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="mt-14 md:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {projects.map((w, i) => (
             <Reveal key={w.n} delay={0.04 * i}>
               <Link to="/work" className="group block">
@@ -188,27 +213,40 @@ const Work = () => (
     <section className="px-6 md:px-10">
       <div className="border-t border-foreground py-24 md:py-32 max-w-[1200px] mx-auto">
         <Reveal delay={0.05}>
-          <h2 className="font-display h-display-sm">
-            What clients <span className={accent}>say.</span>
-          </h2>
+          <div className="flex items-end justify-between gap-8 flex-wrap">
+            <h2 className="font-display h-display-sm">
+              What clients <span className={accent}>say.</span>
+            </h2>
+            <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
+              {testimonials.length} VOICES · SLIDE →
+            </p>
+          </div>
         </Reveal>
 
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 border-t border-foreground">
-          {testimonials.map((t, i) => (
-            <Reveal key={t.name} delay={0.08 * i}>
-              <article className={`relative h-full py-10 md:py-12 md:px-8 flex flex-col ${i > 0 ? "md:border-l border-soft" : ""}`}>
-                <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">— {t.niche}</div>
-                <div className={`mt-8 font-display ${accent} text-[48px] md:text-[64px] leading-[1] tracking-[-0.04em] tabular-nums`}>{t.stat}</div>
-                <div className="mt-4 font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">{t.statLabel}</div>
-                <p className="mt-8 font-thai text-[14px] leading-[1.7] text-foreground/70 flex-1">&ldquo;{t.quote}&rdquo;</p>
-                <div className="mt-8 pt-5 border-t border-soft">
-                  <div className="font-display text-[15px] tracking-[-0.01em]">{t.name}</div>
-                  <div className="mt-1 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">{t.handle}</div>
-                </div>
-              </article>
-            </Reveal>
-          ))}
-        </div>
+        <Reveal delay={0.1}>
+          <Carousel opts={{ align: "start", loop: false }} className="mt-16 border-t border-foreground">
+            <CarouselContent className="ml-0">
+              {testimonials.map((t, i) => (
+                <CarouselItem key={t.name} className="pl-0 basis-full md:basis-1/2 lg:basis-1/3">
+                  <article className={`relative h-full py-10 md:py-12 md:px-8 flex flex-col ${i > 0 ? "md:border-l border-soft" : ""}`}>
+                    <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">— {t.niche}</div>
+                    <div className={`mt-8 font-display ${accent} text-[48px] md:text-[64px] leading-[1] tracking-[-0.04em] tabular-nums`}>{t.stat}</div>
+                    <div className="mt-4 font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">{t.statLabel}</div>
+                    <p className="mt-8 font-thai text-[14px] leading-[1.7] text-foreground/70 flex-1">&ldquo;{t.quote}&rdquo;</p>
+                    <div className="mt-8 pt-5 border-t border-soft">
+                      <div className="font-display text-[15px] tracking-[-0.01em]">{t.name}</div>
+                      <div className="mt-1 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">{t.handle}</div>
+                    </div>
+                  </article>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="mt-8 flex items-center justify-end gap-3">
+              <CarouselPrevious className="static translate-y-0 h-10 w-10 rounded-none border-foreground" />
+              <CarouselNext className="static translate-y-0 h-10 w-10 rounded-none border-foreground" />
+            </div>
+          </Carousel>
+        </Reveal>
       </div>
     </section>
 
@@ -219,35 +257,35 @@ const Work = () => (
       </div>
     </section>
 
-    {/* TRUSTED BY */}
-    <section className="px-6 md:px-10">
-      <div className="border-t border-foreground py-24 md:py-32 max-w-[1200px] mx-auto">
+    {/* TRUSTED BY — dark */}
+    <section className="bg-foreground text-background px-6 md:px-10">
+      <div className="border-t border-background/20 py-24 md:py-32 max-w-[1200px] mx-auto">
         <Reveal delay={0.05}>
           <h2 className="font-display h-display-sm">
             40+ brands across F&amp;B, fashion, <br className="hidden md:block" />and <span className={accent}>hospitality.</span>
           </h2>
         </Reveal>
 
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 border border-soft">
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 border border-background/15">
           {trustedBy.map((brand, i) => (
             <div
               key={brand.name}
-              className={`relative aspect-[2/1] flex items-center justify-center text-center px-4 cursor-default border-soft ${(i % 6) !== 5 ? "border-r" : ""} ${i < trustedBy.length - 6 ? "border-b" : ""}`}
+              className={`relative aspect-[2/1] flex items-center justify-center text-center px-4 cursor-default ${(i % 6) !== 5 ? "border-r border-background/15" : ""} ${i < trustedBy.length - 6 ? "border-b border-background/15" : ""}`}
             >
               {brand.logo ? (
                 <img
                   src={brand.logo}
                   alt={brand.name}
                   loading="lazy"
-                  className="max-h-8 md:max-h-10 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
+                  className="max-h-8 md:max-h-10 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity invert"
                 />
               ) : (
-                <span className="font-display text-[11px] md:text-[12px] tracking-[0.04em] text-muted-foreground">{brand.name}</span>
+                <span className="font-display text-[11px] md:text-[12px] tracking-[0.04em] text-background/55">{brand.name}</span>
               )}
             </div>
           ))}
         </div>
-        <p className="mt-6 font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground text-right">
+        <p className="mt-6 font-mono text-[10px] tracking-[0.2em] uppercase text-background/45 text-right">
           [ Selected · Q2 2026 ]
         </p>
       </div>

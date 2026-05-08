@@ -62,6 +62,30 @@ const testimonials = [
     name: "Shimpei M.",
     handle: "Hôtel Vergé · @hotelverge",
   },
+  {
+    niche: "PROPTECH",
+    stat: "+312%",
+    statLabel: "SIGN-UPS",
+    quote: "Launch landed exactly the way we pictured it. Sign-ups tripled in the first month.",
+    name: "Pailin R.",
+    handle: "Hongmove · @hongmove",
+  },
+  {
+    niche: "EVENTS",
+    stat: "+88%",
+    statLabel: "CONVERSION",
+    quote: "Recap films that actually sold the next show. Conversion jumped 88%.",
+    name: "Tee K.",
+    handle: "Heavy Organizer · @heavy.org",
+  },
+  {
+    niche: "MOBILITY",
+    stat: "+540%",
+    statLabel: "DOWNLOADS",
+    quote: "From zero to 540% growth in app downloads. The team made it look easy.",
+    name: "Min S.",
+    handle: "GCOO · @gcoo.app",
+  },
 ];
 
 type TrustedBrand = { name: string; logo?: string };
@@ -135,7 +159,7 @@ const Work = () => (
           </div>
         </Reveal>
 
-        <div className="mt-14 md:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="mt-14 md:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {projects.map((w, i) => (
             <Reveal key={w.n} delay={0.04 * i}>
               <Link to="/work" className="group block">

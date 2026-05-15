@@ -77,7 +77,7 @@ const Work = () => (
       <div className="max-w-[1280px] mx-auto pt-32 md:pt-40 pb-20 md:pb-28">
         <PageMark index="01" total="04" />
         <Reveal>
-          <h1 className="font-serif text-[44px] md:text-[80px] lg:text-[112px] leading-[1.0] tracking-[-0.03em] max-w-[18ch]">
+          <h1 className="font-serif text-[52px] md:text-[88px] lg:text-[112px] leading-[1.0] tracking-[-0.03em] max-w-[18ch]">
             Real brands. Real <em className="text-orion italic">results.</em>
           </h1>
         </Reveal>
@@ -94,7 +94,7 @@ const Work = () => (
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <PageMark index="02" total="04" />
         <Reveal>
-          <h2 className="font-serif text-[40px] md:text-[72px] lg:text-[96px] leading-[1.0] tracking-[-0.03em]">
+          <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em]">
             {projects.length} brands. <em className="text-orion italic">One team.</em>
           </h2>
         </Reveal>
@@ -145,7 +145,7 @@ const Work = () => (
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <PageMark index="03" total="04" />
         <Reveal>
-          <h2 className="font-serif text-[40px] md:text-[72px] lg:text-[96px] leading-[1.0] tracking-[-0.03em]">
+          <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em]">
             What clients <em className="text-orion italic">say.</em>
           </h2>
         </Reveal>
@@ -186,7 +186,7 @@ const Work = () => (
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <PageMark index="04" total="04" />
         <Reveal>
-          <h2 className="font-serif text-[40px] md:text-[72px] lg:text-[96px] leading-[1.0] tracking-[-0.03em] max-w-[20ch]">
+          <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em] max-w-[20ch]">
             40+ brands across F&amp;B, fashion, and <em className="text-orion italic">hospitality.</em>
           </h2>
         </Reveal>

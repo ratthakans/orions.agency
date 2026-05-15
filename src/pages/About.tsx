@@ -33,7 +33,7 @@ const About = () => (
       <div className="max-w-[1280px] mx-auto pt-32 md:pt-40 pb-20 md:pb-28">
         <PageMark index="01" total="02" />
         <Reveal>
-          <h1 className="font-serif text-[44px] md:text-[80px] lg:text-[112px] leading-[1.0] tracking-[-0.03em] max-w-[16ch]">
+          <h1 className="font-serif text-[52px] md:text-[88px] lg:text-[112px] leading-[1.0] tracking-[-0.03em] max-w-[16ch]">
             A boutique creative <em className="text-orion italic">agency.</em>
           </h1>
         </Reveal>
@@ -55,12 +55,12 @@ const About = () => (
           <span className="font-serif italic text-orion text-[64px] md:text-[88px] leading-none block -mb-4 md:-mb-6">“</span>
         </Reveal>
         <Reveal delay={0.1}>
-          <p className="font-serif text-[40px] md:text-[72px] lg:text-[96px] leading-[1.05] tracking-[-0.03em]">
+          <p className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.05] tracking-[-0.03em]">
             From idea to <em className="text-orion italic">final cut</em> —
           </p>
         </Reveal>
         <Reveal delay={0.2}>
-          <p className="mt-2 md:mt-4 font-serif text-[40px] md:text-[72px] lg:text-[96px] leading-[1.05] tracking-[-0.03em]">
+          <p className="mt-2 md:mt-4 font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.05] tracking-[-0.03em]">
             one team, <em className="text-orion italic">no handoff.</em>
           </p>
         </Reveal>

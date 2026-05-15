@@ -132,19 +132,19 @@ const Index = () => (
 
       <div className="flex-1 flex flex-col items-center justify-center text-center px-6 md:px-10 py-16">
         <Reveal>
-          <h1 className="font-serif text-[44px] md:text-[88px] lg:text-[112px] leading-[1.0] tracking-[-0.03em] max-w-[16ch]">
+          <h1 className="font-serif text-[56px] md:text-[104px] lg:text-[136px] leading-[1.0] tracking-[-0.03em] max-w-[16ch]">
             Creative that <em className="text-orion italic">moves numbers.</em>
           </h1>
         </Reveal>
 
         <Reveal delay={0.35}>
-          <p className="mt-6 md:mt-8 font-serif italic text-[15px] md:text-[18px] text-background/70 max-w-[560px] mx-auto leading-[1.55]">
+          <p className="mt-8 md:mt-10 font-serif italic text-[18px] md:text-[22px] text-background/70 max-w-[600px] mx-auto leading-[1.5]">
             A boutique creative agency — work that hits the brief, the numbers, and the eye.
           </p>
         </Reveal>
 
         <Reveal delay={0.5}>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <div className="mt-12 md:mt-14 flex flex-wrap items-center justify-center gap-4">
             <Link
               to="/contact"
               className="group inline-flex items-center gap-3 bg-background text-foreground px-7 py-4 btn-label border border-background hover:gap-4 transition-all duration-300"
@@ -175,7 +175,7 @@ const Index = () => (
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <PageMark index="02" />
         <Reveal>
-          <h2 className="font-serif text-[44px] md:text-[80px] lg:text-[104px] leading-[1.0] tracking-[-0.03em] max-w-[14ch]">
+          <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em] max-w-[14ch]">
             Why brands <em className="text-orion italic">stall.</em>
           </h2>
         </Reveal>
@@ -207,7 +207,7 @@ const Index = () => (
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <PageMark index="03" />
         <Reveal>
-          <h2 className="font-serif text-[44px] md:text-[80px] lg:text-[104px] leading-[1.0] tracking-[-0.03em]">
+          <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em]">
             Three things, <em className="text-orion italic">properly.</em>
           </h2>
         </Reveal>
@@ -248,7 +248,7 @@ const Index = () => (
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <PageMark index="04" />
         <Reveal>
-          <h2 className="font-serif text-[44px] md:text-[80px] lg:text-[96px] leading-[1.0] tracking-[-0.03em] max-w-[16ch]">
+          <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em] max-w-[16ch]">
             From audit to <em className="text-orion italic">scale.</em>
           </h2>
         </Reveal>
@@ -281,7 +281,7 @@ const Index = () => (
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <PageMark index="05" />
         <Reveal>
-          <h2 className="font-serif text-[44px] md:text-[80px] lg:text-[96px] leading-[1.0] tracking-[-0.03em]">
+          <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em]">
             Selected <em className="text-orion italic">work.</em>
           </h2>
         </Reveal>
@@ -331,7 +331,7 @@ const Index = () => (
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <PageMark index="06" />
         <Reveal>
-          <h2 className="font-serif text-[44px] md:text-[80px] lg:text-[104px] leading-[1.0] tracking-[-0.03em]">
+          <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em]">
             What clients <em className="text-orion italic">say.</em>
           </h2>
         </Reveal>
@@ -376,7 +376,7 @@ const Index = () => (
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <PageMark index="07" />
         <Reveal>
-          <h2 className="font-serif text-[44px] md:text-[80px] lg:text-[104px] leading-[1.0] tracking-[-0.03em]">
+          <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em]">
             Trusted <em className="text-orion italic">by.</em>
           </h2>
         </Reveal>
@@ -413,7 +413,7 @@ const Index = () => (
         </div>
 
         <Reveal>
-          <h2 className="font-serif text-[44px] md:text-[80px] lg:text-[104px] leading-[1.0] tracking-[-0.03em]">
+          <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em]">
             Why <em className="text-orion italic">us?</em>
           </h2>
         </Reveal>
@@ -442,7 +442,7 @@ const Index = () => (
             </p>
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="font-serif text-[44px] md:text-[80px] lg:text-[96px] leading-[1.0] tracking-[-0.03em]">
+            <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em]">
               Let's make something <em className="text-orion italic">that works.</em>
             </h2>
           </Reveal>

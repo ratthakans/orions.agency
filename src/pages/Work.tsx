@@ -110,7 +110,7 @@ const Work = () => (
                     loading="lazy"
                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-out group-hover:scale-[1.04]"
                   />
-                  <div className="absolute top-3 left-3 right-3 flex items-center justify-between font-mono text-[9px] tracking-[0.3em] text-background/95 mix-blend-difference">
+                  <div className="absolute top-3 left-3 right-3 flex items-center justify-between font-mono text-[10px] tracking-[0.18em] text-background/95 mix-blend-difference">
                     <span>— {w.n}</span>
                     <span>{w.niche}</span>
                   </div>
@@ -123,7 +123,7 @@ const Work = () => (
                     {w.impact}
                   </span>
                 </div>
-                <p className="mt-2 font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">
+                <p className="mt-2 font-mono text-[10px] tracking-[0.12em] uppercase text-muted-foreground">
                   — {w.scope}
                 </p>
                 <p className="mt-3 font-thai text-[14px] leading-[1.65] text-foreground/70">
@@ -134,7 +134,7 @@ const Work = () => (
           ))}
         </div>
 
-        <p className="mt-16 font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
+        <p className="mt-16 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
           [ More case studies launching Q3 2026 ]
         </p>
       </div>
@@ -156,11 +156,11 @@ const Work = () => (
               {testimonials.map((t, i) => (
                 <CarouselItem key={t.name} className="pl-0 basis-full md:basis-1/2 lg:basis-1/3">
                   <article className={`relative h-full py-10 md:py-12 md:px-8 flex flex-col ${i > 0 ? "md:border-l border-soft" : ""}`}>
-                    <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-orion">— {t.niche}</div>
+                    <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-orion">— {t.niche}</div>
                     <div className="mt-6 font-serif italic text-orion text-[56px] md:text-[72px] leading-[1] tracking-[-0.04em] tabular-nums">
                       {t.stat}
                     </div>
-                    <div className="mt-3 font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground">{t.statLabel}</div>
+                    <div className="mt-3 font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">{t.statLabel}</div>
                     <p className="mt-8 font-serif italic text-[18px] md:text-[20px] leading-[1.45] tracking-[-0.005em] flex-1">
                       &ldquo;{t.quote}&rdquo;
                     </p>

@@ -1,36 +1,46 @@
-## Changes
+## Issues found
 
-### 1 · Revert ORIONS hero
-- Hero `<h1>` กลับเป็น `font-serif` (Instrument Serif) แบบเดิม + ตัว O สีส้ม italic
-- Sizes กลับเป็น `text-[20vw] md:text-[18vw] lg:text-[16vw]`
+1. **Navbar links** — ใช้ `index-badge` (Unbounded uppercase 11px tracking 0.04em). Unbounded เป็น display หนา ใช้กับเมนูเล็กๆ อ่านยาก + ไม่ flow กับ headline serif/CTA serif
+2. **`hello@orions.agency`** ที่ hero footer — ใช้ `font-mono uppercase tracking-[0.3em]` กลายเป็น `H E L L O @ O R I O N S . A G E N C Y` อ่านไม่ออก (อีเมลไม่ควร uppercase + ห่าง)
+3. **ทั่วทั้งไซต์** — `tracking-[0.25em]` และ `tracking-[0.3em]` ใช้พร่ำเพรื่อกับ JetBrains Mono ทำให้ตัวอักษรห่างเกินไป โดยเฉพาะตอนรวมกับ Thai หรือ email/URL
 
-### 2 · ลบ proof bar
-- ลบทั้ง section "+3.2× REACH LIFT / 40+ BRANDS / 4 WK" ที่อยู่ใต้ marquee
-- อัปเดตเลข section: หน้า Index จาก 9 → 8 sections (footer counter `01/08`, mark indices)
-- ลบ `outcomes` array (ไม่ใช้แล้ว)
+---
 
-### 3 · ปรับ font ปุ่มให้สอดคล้อง
-ตอนนี้ปุ่มใช้ `index-badge` = **Unbounded uppercase 11px** ซึ่งดูแข็งและไม่เข้ากับ headline ที่เป็น Instrument Serif italic
+## Fixes
 
-**เปลี่ยนเป็น:** ปุ่มทั้งหมดใช้ **Instrument Serif italic** (font-serif) ขนาด ~16-17px ไม่ uppercase ให้ flow กับ headline
+### A · Nav menu typography
+- เปลี่ยน nav links จาก `index-badge` → **Instrument Serif italic 16px ไม่ uppercase** (= class `btn-label` ที่มีอยู่แล้ว) เพื่อ flow กับ CTA และ headline
+- Mobile menu links ก็เปลี่ยนเหมือนกัน
+- Logo `ØRIONS` คงเป็น Unbounded (ตามที่ user บอก)
+- Announcement bar คง mono ไว้ แต่ลด tracking 0.25em → 0.15em
 
-**ขอบเขต:** ปุ่ม CTA ทุกที่
-- Nav: "Get a free proposal"
-- Hero: "Get a free proposal", "See pricing →"
-- Hero mobile menu CTA
-- Pricing section: "See full breakdown", "Get a free proposal"
-- Bottom dark CTA: "Get a free proposal"
-- หน้าอื่นๆ (Services, Work, About, Contact, ClosingCTA, StickyMobileCTA)
+### B · Hero footer email
+- `hello@orions.agency` → เปลี่ยนเป็น **Instrument Serif italic ตัวพิมพ์เล็กตามจริง ไม่มี tracking พิเศษ** ให้อ่านได้ลื่น
+- `01 / 07` คง mono แต่ลด tracking 0.3em → 0.18em
 
-**คงเป็น Unbounded mono เฉพาะ:** eyebrow labels, page numbers (01/08), section marks, announcement bar, stats tabular numbers — เพราะเป็น utility text ไม่ใช่ CTA
+### C · Global tracking audit (ลดความห่าง)
+ปรับ token ให้พอดี — ทุกแห่งที่ใช้กับ `font-mono uppercase`:
+- `tracking-[0.3em]` → `tracking-[0.18em]`  
+- `tracking-[0.25em]` → `tracking-[0.14em]`
+- `tracking-[0.22em]` → `tracking-[0.14em]`
+- `tracking-[0.2em]`  → `tracking-[0.12em]`
 
-### Files
-- `src/pages/Index.tsx` — revert hero, remove proof bar section, renumber, swap button classes
-- `src/components/Nav.tsx` — swap CTA button class
-- `src/components/ClosingCTA.tsx` — swap button class
-- `src/components/StickyMobileCTA.tsx` — swap button class
-- `src/pages/Services.tsx`, `About.tsx`, `Work.tsx`, `Contact.tsx` — swap CTA buttons
+ขอบเขตไฟล์:
+- `src/index.css` (`.index-badge`, `.label-mono`, `.label-soft` ลด tracking 0.04em ยังโอเค — แต่ถ้าใช้ uppercase ขนาดเล็กให้เพิ่มเป็น 0.06em เพื่อ legibility)
+- `src/pages/Index.tsx`
+- `src/pages/Services.tsx`
+- `src/pages/Contact.tsx`
+- `src/pages/About.tsx`, `src/pages/Work.tsx`
+- `src/components/PageMark.tsx`
+- `src/components/SectionHeader.tsx`, `PageHero.tsx`, `ClosingCTA.tsx`
 
-### Out of scope
-- ไม่เปลี่ยน layout, สี, content อื่น
-- ไม่แตะ `index-badge` utility (ยังใช้กับ labels ที่ไม่ใช่ปุ่ม)
+### D · ขนาด+contrast เล็กน้อย
+- `text-[9px]` ที่มี uppercase ขยับเป็น `text-[10px]` ทุกที่ (อ่านไม่ออกบน retina)
+- `text-background/55` ใน hero footer → `text-background/70` เพิ่ม contrast
+
+---
+
+## Out of scope
+- ไม่เปลี่ยน layout, สี, content, headline
+- ไม่แตะ Unbounded (logo) และ Instrument Serif (headline)
+- ไม่ refactor token system ใหญ่

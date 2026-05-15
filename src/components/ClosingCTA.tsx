@@ -52,7 +52,7 @@ const ClosingCTA = ({
       </Reveal>
       {(email || phone) && (
         <Reveal delay={0.3}>
-          <div className="mt-12 inline-flex items-center gap-6 md:gap-8 font-mono text-[11px] md:text-[12px] tracking-[0.2em] uppercase text-muted-foreground">
+          <div className="mt-12 inline-flex items-center gap-6 md:gap-8 font-mono text-[11px] md:text-[12px] tracking-[0.12em] uppercase text-muted-foreground">
             {email && (
               <a href={`mailto:${email}`} className="hover:text-foreground transition-colors break-all">
                 {email}

@@ -43,7 +43,7 @@ const Nav = () => {
       {/* Announcement bar — Klar-style */}
       <div className="bg-orion text-background">
         <div className="px-6 md:px-10 h-7 flex items-center justify-center text-center overflow-hidden">
-          <p className="font-mono text-[10px] tracking-[0.25em] uppercase whitespace-nowrap">
+          <p className="font-mono text-[10px] tracking-[0.14em] uppercase whitespace-nowrap">
             Q3 2026 BOOKING — 30-MIN CALL, FREE · REPLY IN 24H
           </p>
         </div>

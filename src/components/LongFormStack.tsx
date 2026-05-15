@@ -41,7 +41,7 @@ const LongFormStack = ({ items }: Props) => {
               >
                 {num}
               </span>
-              <span className="font-mono text-[9px] tracking-[0.22em] uppercase text-muted-foreground">
+              <span className="font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">
                 {it.tag}
               </span>
             </div>
@@ -93,7 +93,7 @@ const LongFormStack = ({ items }: Props) => {
                 {it.body}
               </p>
               <div
-                className={`mt-2 inline-flex items-center gap-1.5 font-mono text-[9px] tracking-[0.22em] uppercase text-muted-foreground group-hover:text-foreground transition-colors ${
+                className={`mt-2 inline-flex items-center gap-1.5 font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground group-hover:text-foreground transition-colors ${
                   isOdd ? "md:flex-row-reverse" : ""
                 }`}
               >

@@ -182,11 +182,11 @@ const PackageCard = ({ p }: { p: Pkg }) => (
   <Reveal>
     <article className={`relative bg-background border border-foreground p-7 md:p-9 h-full flex flex-col ${p.ribbon === "★ MOST POPULAR" ? "md:-translate-y-3 md:shadow-[0_0_0_1px_hsl(var(--orion))]" : ""}`}>
       {p.ribbon && (
-        <div className="absolute -top-px left-0 bg-orion text-background px-4 py-1 font-mono text-[9px] tracking-[0.25em] uppercase">
+        <div className="absolute -top-px left-0 bg-orion text-background px-4 py-1 font-mono text-[10px] tracking-[0.14em] uppercase">
           {p.ribbon}
         </div>
       )}
-      <div className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground">{p.badge}</div>
+      <div className="font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">{p.badge}</div>
       <h3 className={`mt-5 font-serif italic tracking-[-0.02em] leading-none ${p.ribbon === "★ MOST POPULAR" ? "text-[48px] md:text-[60px]" : "text-[40px] md:text-[52px]"}`}>{p.name}</h3>
       <div className="mt-6 flex items-baseline gap-2">
         <span className={`font-serif text-orion tracking-[-0.03em] tabular-nums ${p.ribbon === "★ MOST POPULAR" ? "text-[44px] md:text-[56px]" : "text-[36px] md:text-[44px]"}`}>{p.price}</span>
@@ -195,7 +195,7 @@ const PackageCard = ({ p }: { p: Pkg }) => (
       <p className="mt-3 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">{p.contract}</p>
 
       <div className="mt-6 border-t border-soft pt-5">
-        <p className="font-mono text-[9.5px] tracking-[0.25em] uppercase text-muted-foreground">Best for</p>
+        <p className="font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">Best for</p>
         <p className="mt-2 font-thai text-[14px] leading-[1.5] text-foreground">{p.bestFor}</p>
       </div>
 
@@ -211,7 +211,7 @@ const PackageCard = ({ p }: { p: Pkg }) => (
       </ul>
       <Link
         to="/contact"
-        className="mt-8 group inline-flex items-center justify-between border-t border-foreground pt-5 font-mono text-[10px] tracking-[0.25em] uppercase hover:opacity-60 transition-opacity"
+        className="mt-8 group inline-flex items-center justify-between border-t border-foreground pt-5 font-mono text-[10px] tracking-[0.14em] uppercase hover:opacity-60 transition-opacity"
       >
         <span>Book a call</span>
         <ArrowUpRight className="w-3.5 h-3.5" />
@@ -256,13 +256,13 @@ const Services = () => {
           </Reveal>
           <Reveal delay={0.15}>
             <div className="mt-10 flex flex-wrap gap-3 items-center">
-              <a href="#packages" className="group inline-flex items-center gap-2 bg-foreground text-background px-6 py-3.5 font-mono text-[10px] tracking-[0.25em] uppercase hover:bg-orion transition-colors">
+              <a href="#packages" className="group inline-flex items-center gap-2 bg-foreground text-background px-6 py-3.5 font-mono text-[10px] tracking-[0.14em] uppercase hover:bg-orion transition-colors">
                 See packages <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
-              <Link to="/contact" className="group inline-flex items-center gap-2 border border-foreground px-6 py-3.5 font-mono text-[10px] tracking-[0.25em] uppercase hover:bg-foreground hover:text-background transition-colors">
+              <Link to="/contact" className="group inline-flex items-center gap-2 border border-foreground px-6 py-3.5 font-mono text-[10px] tracking-[0.14em] uppercase hover:bg-foreground hover:text-background transition-colors">
                 Get a free proposal
               </Link>
-              <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground ml-1">
+              <span className="font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground ml-1">
                 ↳ ตอบกลับใน 24 ชม. · ปรึกษาฟรี 30 นาที
               </span>
             </div>
@@ -280,7 +280,7 @@ const Services = () => {
                 Pick yours in <em className="text-orion italic">30 seconds.</em>
               </h2>
             </Reveal>
-            <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground">VALID 30 DAYS</p>
+            <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">VALID 30 DAYS</p>
           </div>
           <Reveal delay={0.1}>
             <p className="mt-8 font-serif italic text-[18px] md:text-[20px] text-muted-foreground max-w-[640px] leading-[1.5]">
@@ -292,13 +292,13 @@ const Services = () => {
             {packages.map((p) => <PackageCard key={p.key} p={p} />)}
           </div>
 
-          <p className="mt-10 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground text-center">
+          <p className="mt-10 font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground text-center">
             All packages include — Strategy · In-house production · Monthly report · 24h response
           </p>
 
           {/* Package details accordion */}
           <div className="mt-20 md:mt-24">
-            <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground mb-6">— PACKAGE DETAILS</p>
+            <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground mb-6">— PACKAGE DETAILS</p>
             <div className="border-t border-foreground">
               {packages.map((p) => {
                 const isOpen = openPkg === p.key;
@@ -310,7 +310,7 @@ const Services = () => {
                       aria-expanded={isOpen}
                       className="group w-full grid grid-cols-12 gap-6 items-baseline py-7 md:py-9 text-left hover:bg-foreground/[0.03] transition-colors px-2 -mx-2"
                     >
-                      <div className="col-span-2 md:col-span-1 font-mono text-[10px] tracking-[0.25em] text-muted-foreground">
+                      <div className="col-span-2 md:col-span-1 font-mono text-[10px] tracking-[0.14em] text-muted-foreground">
                         {p.badge.split(" · ")[0]}
                       </div>
                       <div className="col-span-9 md:col-span-5">
@@ -360,7 +360,7 @@ const Services = () => {
             {capabilities.map((c, i) => (
               <Reveal key={c.title} delay={i * 0.06}>
                 <div className={`py-10 md:py-12 md:px-10 ${i > 0 ? "md:border-l border-foreground border-t md:border-t-0" : ""}`}>
-                  <div className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground">{c.tag}</div>
+                  <div className="font-mono text-[10px] tracking-[0.18em] text-muted-foreground">{c.tag}</div>
                   <h3 className="mt-8 font-serif italic text-[40px] md:text-[48px] leading-[1] tracking-[-0.02em]">{c.title}</h3>
                   <p className="mt-6 font-serif italic text-orion text-[16px] md:text-[18px] leading-[1.4] max-w-[24ch]">"{c.line}"</p>
                   <p className="mt-4 font-thai text-[14px] leading-[1.7] text-muted-foreground">{c.desc}</p>
@@ -369,7 +369,7 @@ const Services = () => {
                       <li key={it} className="flex gap-3"><span className="text-muted-foreground">—</span><span>{it}</span></li>
                     ))}
                   </ul>
-                  <p className="mt-7 font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">{c.selected}</p>
+                  <p className="mt-7 font-mono text-[10px] tracking-[0.12em] uppercase text-muted-foreground">{c.selected}</p>
                 </div>
               </Reveal>
             ))}
@@ -391,10 +391,10 @@ const Services = () => {
             {process4.map((s, i) => (
               <Reveal key={s.n} delay={0.04 * i}>
                 <div className="grid grid-cols-12 gap-4 md:gap-6 items-baseline border-b border-foreground/15 py-7 md:py-9 group hover:bg-foreground/[0.025] transition-colors">
-                  <div className="col-span-2 md:col-span-1 font-mono text-[10px] tracking-[0.25em] text-muted-foreground">{s.n}</div>
+                  <div className="col-span-2 md:col-span-1 font-mono text-[10px] tracking-[0.14em] text-muted-foreground">{s.n}</div>
                   <div className="col-span-10 md:col-span-3 font-serif italic text-[28px] md:text-[40px] tracking-[-0.02em] leading-[1.05]">{s.t}.</div>
                   <div className="col-span-12 md:col-span-6 font-thai text-[14px] md:text-[15px] leading-[1.65] text-foreground/75">{s.d}</div>
-                  <div className="col-span-12 md:col-span-2 md:text-right font-mono text-[10px] tracking-[0.22em] uppercase text-orion">{s.w}</div>
+                  <div className="col-span-12 md:col-span-2 md:text-right font-mono text-[10px] tracking-[0.14em] uppercase text-orion">{s.w}</div>
                 </div>
               </Reveal>
             ))}
@@ -423,7 +423,7 @@ const Services = () => {
                     className="w-full flex items-baseline justify-between gap-6 py-6 md:py-8 text-left hover:opacity-70 transition-opacity"
                   >
                     <span className="font-serif italic text-[20px] md:text-[26px] tracking-[-0.01em] flex-1 leading-[1.25]">
-                      <span className="font-mono text-[10px] tracking-[0.25em] text-muted-foreground mr-3 not-italic">0{i + 1}</span>
+                      <span className="font-mono text-[10px] tracking-[0.14em] text-muted-foreground mr-3 not-italic">0{i + 1}</span>
                       {f.q}
                     </span>
                     {isOpen ? <Minus className="w-4 h-4 shrink-0" /> : <Plus className="w-4 h-4 shrink-0 text-foreground/50" />}

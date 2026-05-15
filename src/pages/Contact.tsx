@@ -91,7 +91,7 @@ const Contact = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Form */}
           <Reveal className="lg:col-span-7">
-            <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground mb-6">— INQUIRY</p>
+            <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground mb-6">— INQUIRY</p>
             <h2 className="font-serif text-[36px] md:text-[56px] lg:text-[64px] leading-[1.0] tracking-[-0.03em] max-w-[520px]">
               Send us a <em className="text-orion italic">brief.</em>
             </h2>
@@ -106,7 +106,7 @@ const Contact = () => {
                 { key: "email",   label: "Email",   type: "email", ph: "you@company.com",      ac: "email",        span: "md:col-span-2" },
               ].map((f, i) => (
                 <div key={f.key} className={f.span}>
-                  <label className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground">
+                  <label className="font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">
                     — 0{i + 1} / {f.label}
                   </label>
                   <input
@@ -128,7 +128,7 @@ const Contact = () => {
               ))}
 
               <div className="md:col-span-2">
-                <label className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground">
+                <label className="font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">
                   — 04 / Brief
                 </label>
                 <textarea
@@ -148,7 +148,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={submitting}
-                className="md:col-span-2 mt-4 inline-flex items-center justify-between bg-foreground text-background px-7 py-5 font-mono text-[10px] tracking-[0.25em] uppercase hover:opacity-90 transition-opacity disabled:opacity-50"
+                className="md:col-span-2 mt-4 inline-flex items-center justify-between bg-foreground text-background px-7 py-5 font-mono text-[10px] tracking-[0.14em] uppercase hover:opacity-90 transition-opacity disabled:opacity-50"
               >
                 <span>{submitting ? "Sending…" : "Send inquiry"}</span>
                 <ArrowUpRight className="w-4 h-4" />
@@ -160,25 +160,25 @@ const Contact = () => {
           <Reveal delay={0.1} className="lg:col-span-5 pt-12 md:pt-16 lg:border-l lg:border-soft lg:pl-12 space-y-10">
             <p className="font-mono text-[10px] tracking-[0.4em] text-muted-foreground">— DIRECT</p>
             <div>
-              <div className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground">EMAIL</div>
+              <div className="font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">EMAIL</div>
               <a href="mailto:hello@orions.agency" className="mt-3 block font-display text-[20px] md:text-[24px] tracking-[-0.01em] hover:opacity-60 transition-opacity break-all">
                 hello@orions.agency
               </a>
             </div>
             <div>
-              <div className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground">TELEPHONE</div>
+              <div className="font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">TELEPHONE</div>
               <a href="tel:+66923905464" className="mt-3 block font-display text-[20px] md:text-[24px] tracking-[-0.01em] hover:opacity-60 transition-opacity">
                 +66 92 390 5464
               </a>
             </div>
             <div>
-              <div className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground">CHAT — 1-TAP</div>
+              <div className="font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">CHAT — 1-TAP</div>
               <div className="mt-3 flex flex-wrap gap-2">
                 <a
                   href="https://line.me/ti/p/~orions"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 border border-foreground px-4 py-2.5 font-mono text-[10px] tracking-[0.22em] uppercase hover:bg-foreground hover:text-background transition-colors"
+                  className="inline-flex items-center gap-2 border border-foreground px-4 py-2.5 font-mono text-[10px] tracking-[0.14em] uppercase hover:bg-foreground hover:text-background transition-colors"
                 >
                   <MessageCircle className="w-3.5 h-3.5" />
                   <span>LINE</span>
@@ -187,14 +187,14 @@ const Contact = () => {
                   href="https://wa.me/66923905464"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 border border-foreground px-4 py-2.5 font-mono text-[10px] tracking-[0.22em] uppercase hover:bg-foreground hover:text-background transition-colors"
+                  className="inline-flex items-center gap-2 border border-foreground px-4 py-2.5 font-mono text-[10px] tracking-[0.14em] uppercase hover:bg-foreground hover:text-background transition-colors"
                 >
                   <MessageCircle className="w-3.5 h-3.5" />
                   <span>WhatsApp</span>
                 </a>
                 <a
                   href="tel:+66923905464"
-                  className="inline-flex items-center gap-2 border border-foreground px-4 py-2.5 font-mono text-[10px] tracking-[0.22em] uppercase hover:bg-foreground hover:text-background transition-colors"
+                  className="inline-flex items-center gap-2 border border-foreground px-4 py-2.5 font-mono text-[10px] tracking-[0.14em] uppercase hover:bg-foreground hover:text-background transition-colors"
                 >
                   <Phone className="w-3.5 h-3.5" />
                   <span>Call</span>
@@ -202,7 +202,7 @@ const Contact = () => {
               </div>
             </div>
             <div>
-              <div className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground">STUDIO</div>
+              <div className="font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">STUDIO</div>
               <p className="mt-3 font-thai text-[14px] leading-[1.7] text-foreground/70">
                 246/8 Soi Yothinphatthana 3<br />
                 Khlong Chan, Bang Kapi<br />
@@ -210,7 +210,7 @@ const Contact = () => {
               </p>
             </div>
             <div className="pt-8 border-t border-soft">
-              <div className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground">RESPONSE</div>
+              <div className="font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">RESPONSE</div>
               <p className="mt-3 font-thai text-[14px] leading-[1.7] text-foreground/70">
                 We reply within <span className="text-foreground">24 hours</span>, Mon–Fri.
               </p>

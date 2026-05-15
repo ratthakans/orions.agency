@@ -86,17 +86,17 @@ const ShowRow = ({ show, index, isLast }: Props) => {
                 </div>
               </div>
               <div className="absolute bottom-0 left-0 right-0 px-3 py-2 bg-gradient-to-t from-foreground/80 to-transparent">
-                <span className="font-mono text-[9px] tracking-[0.22em] uppercase text-background/90">
+                <span className="font-mono text-[10px] tracking-[0.14em] uppercase text-background/90">
                   {active.label}
                 </span>
               </div>
             </button>
           ) : (
             <div className="absolute inset-0 w-full h-full flex flex-col items-center justify-center bg-surface-2">
-              <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
+              <span className="font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">
                 Coming soon
               </span>
-              <span className="mt-1 font-mono text-[10px] tracking-[0.22em] uppercase text-foreground/50">
+              <span className="mt-1 font-mono text-[10px] tracking-[0.14em] uppercase text-foreground/50">
                 {active.label}
               </span>
             </div>
@@ -113,7 +113,7 @@ const ShowRow = ({ show, index, isLast }: Props) => {
           >
             {num}
           </span>
-          <span className="font-mono text-[9px] tracking-[0.22em] uppercase text-muted-foreground">
+          <span className="font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">
             {show.meta}
           </span>
         </div>
@@ -164,7 +164,7 @@ const ShowRow = ({ show, index, isLast }: Props) => {
           )}
         </div>
 
-        <div className={`mt-3 flex items-center gap-3 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground ${isOdd ? "md:justify-end" : ""}`}>
+        <div className={`mt-3 flex items-center gap-3 font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground ${isOdd ? "md:justify-end" : ""}`}>
           <span>{String(show.episodes.length).padStart(2, "0")} EP</span>
           <span className="block w-6 h-px bg-foreground/30" />
           <span className="inline-flex items-center gap-1.5 text-foreground/70 group-hover:text-foreground transition-colors">

@@ -7,7 +7,6 @@ const links = [
   { label: "Services", to: "/services" },
   { label: "Work", to: "/work" },
   { label: "About", to: "/about" },
-  { label: "Contact", to: "/contact" },
 ];
 
 const pageIndex: Record<string, string> = {
@@ -39,8 +38,16 @@ const Nav = () => {
   const idx = pageIndex[pathname] ?? "··";
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-foreground/95 backdrop-blur-sm border-b border-background/10">
-      <div className="px-6 md:px-10 h-[64px] flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 z-50">
+      {/* Announcement bar — Klar-style */}
+      <div className="bg-gradient-accent text-foreground">
+        <div className="px-6 md:px-10 h-7 flex items-center justify-center text-center overflow-hidden">
+          <p className="font-mono text-[10px] tracking-[0.25em] uppercase whitespace-nowrap">
+            NOW BOOKING FOR Q3 2026 — 30-min discovery call, free
+          </p>
+        </div>
+      </div>
+      <div className="bg-foreground/95 backdrop-blur-sm border-b border-background/10 px-6 md:px-10 h-[64px] flex items-center justify-between">
         <Link to="/" className="flex items-baseline gap-2 text-background">
           <span className="font-brand text-[20px] md:text-[22px] tracking-[-0.02em]">ØRIONS</span>
         </Link>
@@ -75,7 +82,7 @@ const Nav = () => {
           to="/contact"
           className="group hidden md:inline-flex items-center gap-2 index-badge bg-background text-foreground px-4 py-2.5 border border-background transition-all duration-300 hover:gap-3 hover:bg-foreground hover:text-background"
         >
-          <span>Let's Talk</span>
+          <span>Work with us</span>
           <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
         </Link>
 
@@ -100,7 +107,7 @@ const Nav = () => {
               </NavLink>
             ))}
             <Link to="/contact" className="index-badge bg-background text-foreground px-4 py-3 inline-block w-fit">
-              Let's Talk ↗
+              Work with us ↗
             </Link>
           </div>
         </div>

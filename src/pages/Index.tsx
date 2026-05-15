@@ -124,7 +124,8 @@ const Index = () => (
     {/* ========================================================== */}
     {/* 01 · COVER — black                                          */}
     {/* ========================================================== */}
-    <section className="relative min-h-screen flex flex-col bg-foreground text-background overflow-hidden">
+    <section className="relative min-h-screen flex flex-col bg-foreground text-background overflow-hidden texture-paper">
+      <div className="rule-gradient absolute top-0 left-0 right-0" />
       <div className="px-6 md:px-10 pt-8 md:pt-10 flex items-center justify-between font-mono text-[10px] tracking-[0.12em] uppercase text-background/70">
         <span>EST. 2026</span>
         <span className="hidden sm:inline">CAPABILITIES — 2026</span>
@@ -132,31 +133,31 @@ const Index = () => (
 
       <div className="flex-1 flex flex-col items-center justify-center text-center px-6 md:px-10 py-16">
         <Reveal>
-          <h1 className="font-serif text-[56px] md:text-[104px] lg:text-[136px] leading-[1.0] tracking-[-0.03em] max-w-[16ch]">
-            Creative that <em className="text-gemini italic">moves numbers.</em>
+          <h1 className="text-[64px] md:text-[120px] lg:text-[160px] leading-[0.88] tracking-[-0.025em] max-w-[14ch]">
+            Creative that <em className="text-gemini">moves.</em>
           </h1>
         </Reveal>
 
         <Reveal delay={0.35}>
-          <p className="mt-8 md:mt-10 font-serif italic text-[18px] md:text-[22px] text-background/70 max-w-[600px] mx-auto leading-[1.5]">
-            A boutique creative agency — work that hits the brief, the numbers, and the eye.
+          <p className="mt-10 md:mt-12 text-[12px] md:text-[13px] tracking-[0.32em] uppercase text-background/65 font-mono">
+            Brand · Content · Ads — Bangkok
           </p>
         </Reveal>
 
         <Reveal delay={0.5}>
-          <div className="mt-12 md:mt-14 flex flex-wrap items-center justify-center gap-4">
+          <div className="mt-14 md:mt-16 flex flex-wrap items-center justify-center gap-5">
             <Link
               to="/contact"
-              className="group inline-flex items-center gap-3 bg-background text-foreground px-7 py-4 btn-label border border-background hover:gap-4 transition-all duration-300"
+              className="group inline-flex items-center gap-3 bg-background text-foreground px-8 py-4 btn-label border border-background hover:gap-4 transition-all duration-300"
             >
-              <span>Get a free growth audit</span>
+              <span>Free Audit</span>
               <ArrowUpRight className="w-4 h-4" />
             </Link>
             <Link
               to="/work"
               className="group inline-flex items-center gap-2 btn-label text-background/80 border-b border-background/40 pb-1 hover:text-background hover:border-background transition-colors"
             >
-              See results →
+              Work →
             </Link>
           </div>
         </Reveal>
@@ -171,12 +172,12 @@ const Index = () => (
     {/* ========================================================== */}
     {/* 03 · WHAT YOU'RE UP AGAINST — stats                         */}
     {/* ========================================================== */}
-    <section className="px-6 md:px-10">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+    <section className="px-6 md:px-12">
+      <div className="max-w-[1240px] mx-auto py-28 md:py-40">
         <PageMark index="02" />
         <Reveal>
-          <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em] max-w-[14ch]">
-            Why brands <em className="text-gemini italic">stall.</em>
+          <h2 className="text-[48px] md:text-[80px] lg:text-[104px] leading-[0.92] tracking-[-0.02em] max-w-[12ch]">
+            Why brands <em className="text-gemini">stall.</em>
           </h2>
         </Reveal>
 
@@ -184,7 +185,7 @@ const Index = () => (
           {stats.map((s, i) => (
             <Reveal key={s.label} delay={i * 0.08}>
               <div className={`py-10 md:py-14 md:px-10 ${i > 0 ? "md:border-l border-foreground border-t md:border-t-0" : ""}`}>
-                <div className="font-serif text-[64px] md:text-[88px] leading-none tracking-[-0.04em] tabular-nums">
+                <div className="num-display text-[72px] md:text-[112px] leading-none tabular-nums">
                   {s.n}
                 </div>
                 <div className="mt-6 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
@@ -197,18 +198,19 @@ const Index = () => (
             </Reveal>
           ))}
         </div>
+        <div className="rule-gradient mt-24 md:mt-32" />
       </div>
     </section>
 
     {/* ========================================================== */}
     {/* 04 · THREE THINGS, PROPERLY — services                      */}
     {/* ========================================================== */}
-    <section className="px-6 md:px-10 border-t border-foreground">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+    <section className="px-6 md:px-12 border-t border-foreground">
+      <div className="max-w-[1240px] mx-auto py-28 md:py-40">
         <PageMark index="03" />
         <Reveal>
-          <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em]">
-            Three things, <em className="text-gemini italic">properly.</em>
+          <h2 className="text-[48px] md:text-[80px] lg:text-[104px] leading-[0.92] tracking-[-0.02em]">
+            Three things. <em className="text-gemini">Properly.</em>
           </h2>
         </Reveal>
 
@@ -217,10 +219,10 @@ const Index = () => (
             <Reveal key={s.en} delay={i * 0.08}>
               <div className={`py-10 md:py-12 md:px-10 ${i > 0 ? "md:border-l border-foreground border-t md:border-t-0" : ""}`}>
                 <div className="font-mono text-[10px] tracking-[0.18em] text-muted-foreground">— {s.n}</div>
-                <h3 className="mt-8 font-serif italic text-[40px] md:text-[48px] leading-[1] tracking-[-0.02em]">
+                <h3 className="mt-8 text-[40px] md:text-[56px] leading-[0.95] tracking-[-0.018em]">
                   {s.en}
                 </h3>
-                <p className="mt-6 font-serif italic text-orion text-[16px] md:text-[17px] leading-[1.4]">
+                <p className="mt-6 text-orion text-[15px] md:text-[16px] leading-[1.4] tracking-[0.04em] uppercase font-mono">
                   {s.tagline}
                 </p>
                 <p className="mt-3 font-thai text-[14px] leading-[1.65] text-muted-foreground">
@@ -244,12 +246,12 @@ const Index = () => (
     {/* ========================================================== */}
     {/* 05 · 4-WEEK PROCESS                                         */}
     {/* ========================================================== */}
-    <section className="px-6 md:px-10 border-t border-foreground">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+    <section className="px-6 md:px-12 border-t border-foreground">
+      <div className="max-w-[1240px] mx-auto py-28 md:py-40">
         <PageMark index="04" />
         <Reveal>
-          <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em] max-w-[16ch]">
-            From audit to <em className="text-gemini italic">scale.</em>
+          <h2 className="text-[48px] md:text-[80px] lg:text-[104px] leading-[0.92] tracking-[-0.02em] max-w-[14ch]">
+            Audit → <em className="text-gemini">Scale.</em>
           </h2>
         </Reveal>
 
@@ -261,7 +263,7 @@ const Index = () => (
                   <span>— {p.n}</span>
                   <span className="text-orion">✦</span>
                 </div>
-                <h3 className="mt-8 font-serif italic text-[44px] md:text-[56px] leading-[1] tracking-[-0.02em]">
+                <h3 className="mt-8 text-[40px] md:text-[56px] leading-[0.95] tracking-[-0.018em]">
                   {p.en}.
                 </h3>
                 <p className="mt-6 font-thai text-[14px] leading-[1.65] text-muted-foreground">
@@ -277,12 +279,12 @@ const Index = () => (
     {/* ========================================================== */}
     {/* 06 · SELECTED WORK                                          */}
     {/* ========================================================== */}
-    <section className="px-6 md:px-10 border-t border-foreground">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+    <section className="px-6 md:px-12 border-t border-foreground">
+      <div className="max-w-[1240px] mx-auto py-28 md:py-40">
         <PageMark index="05" />
         <Reveal>
-          <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em]">
-            Selected <em className="text-gemini italic">work.</em>
+          <h2 className="text-[48px] md:text-[80px] lg:text-[104px] leading-[0.92] tracking-[-0.02em]">
+            Selected <em className="text-gemini">work.</em>
           </h2>
         </Reveal>
 
@@ -301,7 +303,7 @@ const Index = () => (
                       />
                     </div>
                     <div className="mt-4 flex items-baseline justify-between gap-3">
-                      <h3 className="font-serif italic text-[20px] md:text-[22px] tracking-[-0.01em] truncate">
+                      <h3 className="text-[18px] md:text-[22px] tracking-[-0.01em] truncate">
                         {w.title}
                       </h3>
                       <span className="font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground shrink-0">
@@ -327,12 +329,12 @@ const Index = () => (
     {/* ========================================================== */}
     {/* 07 · WHAT CLIENTS SAY                                       */}
     {/* ========================================================== */}
-    <section className="px-6 md:px-10 border-t border-foreground">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+    <section className="px-6 md:px-12 border-t border-foreground">
+      <div className="max-w-[1240px] mx-auto py-28 md:py-40">
         <PageMark index="06" />
         <Reveal>
-          <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em]">
-            What clients <em className="text-gemini italic">say.</em>
+          <h2 className="text-[48px] md:text-[80px] lg:text-[104px] leading-[0.92] tracking-[-0.02em]">
+            Clients <em className="text-gemini">say.</em>
           </h2>
         </Reveal>
 

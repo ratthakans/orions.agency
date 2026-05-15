@@ -171,7 +171,7 @@ const Index = () => (
     {/* ========================================================== */}
     {/* 03 · WHAT YOU'RE UP AGAINST — stats                         */}
     {/* ========================================================== */}
-    <section className="px-6 md:px-10">
+    <section className="relative px-6 md:px-10 bg-surface">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <PageMark index="02" />
         <Reveal>
@@ -203,7 +203,7 @@ const Index = () => (
     {/* ========================================================== */}
     {/* 04 · THREE THINGS, PROPERLY — services                      */}
     {/* ========================================================== */}
-    <section className="px-6 md:px-10 border-t border-foreground">
+    <section className="relative px-6 md:px-10 border-t border-foreground bg-background">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <PageMark index="03" />
         <Reveal>
@@ -244,7 +244,7 @@ const Index = () => (
     {/* ========================================================== */}
     {/* 05 · 4-WEEK PROCESS                                         */}
     {/* ========================================================== */}
-    <section className="px-6 md:px-10 border-t border-foreground">
+    <section className="relative px-6 md:px-10 border-t border-foreground bg-surface-2">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <PageMark index="04" />
         <Reveal>
@@ -277,7 +277,7 @@ const Index = () => (
     {/* ========================================================== */}
     {/* 06 · SELECTED WORK                                          */}
     {/* ========================================================== */}
-    <section className="px-6 md:px-10 border-t border-foreground">
+    <section className="relative px-6 md:px-10 border-t border-foreground bg-background">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <PageMark index="05" />
         <Reveal>
@@ -327,7 +327,7 @@ const Index = () => (
     {/* ========================================================== */}
     {/* 07 · WHAT CLIENTS SAY                                       */}
     {/* ========================================================== */}
-    <section className="px-6 md:px-10 border-t border-foreground">
+    <section className="relative px-6 md:px-10 border-t border-foreground bg-surface">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <PageMark index="06" />
         <Reveal>
@@ -372,7 +372,7 @@ const Index = () => (
     {/* ========================================================== */}
     {/* 08 · TRUSTED BY                                             */}
     {/* ========================================================== */}
-    <section className="px-6 md:px-10 border-t border-foreground">
+    <section className="relative px-6 md:px-10 border-t border-foreground bg-background">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <PageMark index="07" />
         <Reveal>
@@ -405,7 +405,7 @@ const Index = () => (
     {/* ========================================================== */}
     {/* 10 · WHY US + CTA                                           */}
     {/* ========================================================== */}
-    <section className="px-6 md:px-10 border-t border-foreground/12 bg-background text-foreground">
+    <section className="relative px-6 md:px-10 border-t border-foreground/12 bg-surface text-foreground">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <div className="flex items-center justify-between font-mono text-[10px] tracking-[0.18em] uppercase text-foreground/55 mb-12 md:mb-16">
           <span className="flex items-center gap-3">ORIONS <span className="text-foreground">✦</span></span>

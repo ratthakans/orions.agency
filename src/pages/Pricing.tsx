@@ -231,7 +231,7 @@ const PackageCard = ({ p }: { p: Pkg }) => (
   <Reveal>
     <article className={`relative bg-background border border-foreground p-7 md:p-9 h-full flex flex-col ${p.ribbon === "★ MOST POPULAR" ? "md:-translate-y-3 md:shadow-[0_0_0_1px_hsl(var(--orion))]" : ""}`}>
       {p.ribbon && (
-        <div className="absolute -top-px left-0 bg-orion text-background px-4 py-1 font-mono text-[10px] tracking-[0.14em] uppercase">
+        <div className="absolute -top-px left-0 bg-foreground text-foreground px-4 py-1 font-mono text-[10px] tracking-[0.14em] uppercase">
           {p.ribbon}
         </div>
       )}
@@ -266,7 +266,7 @@ const SearchCard = ({ p }: { p: SearchPkg }) => (
   <Reveal>
     <article className="relative bg-background border border-foreground p-7 md:p-8 h-full flex flex-col">
       {p.ribbon && (
-        <div className="absolute -top-px left-0 bg-orion text-background px-3 py-1 font-mono text-[10px] tracking-[0.14em] uppercase">
+        <div className="absolute -top-px left-0 bg-foreground text-foreground px-3 py-1 font-mono text-[10px] tracking-[0.14em] uppercase">
           {p.ribbon}
         </div>
       )}
@@ -361,10 +361,10 @@ const Pricing = () => {
           </Reveal>
           <Reveal delay={0.15}>
             <div className="mt-8 flex flex-wrap gap-3 items-center">
-              <a href="#social" className="group inline-flex items-center gap-2 bg-foreground text-background px-6 py-3.5 font-mono text-[10px] tracking-[0.14em] uppercase hover:bg-orion transition-colors">
+              <a href="#social" className="group inline-flex items-center gap-2 bg-background text-foreground px-6 py-3.5 font-mono text-[10px] tracking-[0.14em] uppercase hover:bg-foreground hover:text-background transition-colors">
                 See packages <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
-              <Link to="/contact" className="group inline-flex items-center gap-2 border border-foreground px-6 py-3.5 font-mono text-[10px] tracking-[0.14em] uppercase hover:bg-foreground hover:text-background transition-colors">
+              <Link to="/contact" className="group inline-flex items-center gap-2 border border-foreground px-6 py-3.5 font-mono text-[10px] tracking-[0.14em] uppercase hover:bg-background hover:text-foreground transition-colors">
                 Get a free proposal
               </Link>
             </div>
@@ -421,9 +421,9 @@ const Pricing = () => {
                     <th className="text-left py-5 px-4 font-serif italic text-[20px] md:text-[24px] tracking-[-0.01em] w-[22%]">
                       Starter
                     </th>
-                    <th className="relative text-left py-5 px-4 font-serif italic text-[20px] md:text-[24px] tracking-[-0.01em] w-[22%] bg-foreground/[0.04]">
+                    <th className="relative text-left py-5 px-4 font-serif italic text-[20px] md:text-[24px] tracking-[-0.01em] w-[22%] bg-background/[0.04]">
                       Pro
-                      <span className="absolute -top-px left-0 bg-orion text-background px-2 py-[2px] font-mono text-[9px] tracking-[0.18em] uppercase">
+                      <span className="absolute -top-px left-0 bg-foreground text-foreground px-2 py-[2px] font-mono text-[9px] tracking-[0.18em] uppercase">
                         ★ Popular
                       </span>
                     </th>
@@ -448,7 +448,7 @@ const Pricing = () => {
                           <td className="py-4 px-4 font-mono text-[12.5px] tabular-nums text-foreground/85">
                             <span className={r.starter === "—" ? "text-foreground/30" : ""}>{r.starter}</span>
                           </td>
-                          <td className="py-4 px-4 font-mono text-[12.5px] tabular-nums bg-foreground/[0.04] text-foreground/90">
+                          <td className="py-4 px-4 font-mono text-[12.5px] tabular-nums bg-background/[0.04] text-foreground/90">
                             <span className={r.pro === "—" ? "text-foreground/30" : ""}>{r.pro}</span>
                           </td>
                           <td className="py-4 px-4 pr-6 md:pr-4 font-mono text-[12.5px] tabular-nums text-foreground/85">

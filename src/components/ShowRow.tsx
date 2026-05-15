@@ -79,14 +79,14 @@ const ShowRow = ({ show, index, isLast }: Props) => {
                 loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
               />
-              <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors duration-500" />
+              <div className="absolute inset-0 bg-background/0 group-hover:bg-background/10 transition-colors duration-500" />
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-11 h-11 md:w-12 md:h-12 rounded-full border border-background/80 bg-background/10 flex items-center justify-center text-background mix-blend-difference transition-transform duration-500 group-hover:scale-110">
+                <div className="w-11 h-11 md:w-12 md:h-12 rounded-full border border-foreground/80 bg-background/10 flex items-center justify-center text-foreground mix-blend-difference transition-transform duration-500 group-hover:scale-110">
                   <Play className="w-4 h-4 ml-0.5" fill="currentColor" />
                 </div>
               </div>
               <div className="absolute bottom-0 left-0 right-0 px-3 py-2 bg-gradient-to-t from-foreground/80 to-transparent">
-                <span className="font-mono text-[10px] tracking-[0.14em] uppercase text-background/90">
+                <span className="font-mono text-[10px] tracking-[0.14em] uppercase text-foreground/90">
                   {active.label}
                 </span>
               </div>
@@ -143,7 +143,7 @@ const ShowRow = ({ show, index, isLast }: Props) => {
                 aria-label={`Select ${ep.label}`}
                 className={`font-mono text-[10px] tracking-[0.18em] uppercase px-2 py-1 border transition-colors ${
                   isActive
-                    ? "border-foreground bg-foreground text-background"
+                    ? "border-foreground bg-background text-foreground"
                     : playable
                     ? "border-foreground/30 text-foreground/70 hover:border-foreground hover:text-foreground"
                     : "border-foreground/15 text-muted-foreground/60 cursor-not-allowed"
@@ -166,7 +166,7 @@ const ShowRow = ({ show, index, isLast }: Props) => {
 
         <div className={`mt-3 flex items-center gap-3 font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground ${isOdd ? "md:justify-end" : ""}`}>
           <span>{String(show.episodes.length).padStart(2, "0")} EP</span>
-          <span className="block w-6 h-px bg-foreground/30" />
+          <span className="block w-6 h-px bg-background/30" />
           <span className="inline-flex items-center gap-1.5 text-foreground/70 group-hover:text-foreground transition-colors">
             Watch <ArrowUpRight className="w-3 h-3 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </span>

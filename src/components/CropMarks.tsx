@@ -7,8 +7,8 @@ const Mark = ({ pos }: { pos: string }) => (
     aria-hidden
     className={`absolute w-3 h-3 ${pos}`}
   >
-    <span className="absolute top-0 left-0 w-3 h-px bg-foreground/30" />
-    <span className="absolute top-0 left-0 w-px h-3 bg-foreground/30" />
+    <span className="absolute top-0 left-0 w-3 h-px bg-background/30" />
+    <span className="absolute top-0 left-0 w-px h-3 bg-background/30" />
   </span>
 );
 

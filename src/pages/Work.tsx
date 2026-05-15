@@ -110,7 +110,7 @@ const Work = () => (
                     loading="lazy"
                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-out group-hover:scale-[1.04]"
                   />
-                  <div className="absolute top-3 left-3 right-3 flex items-center justify-between font-mono text-[10px] tracking-[0.18em] text-background/95 mix-blend-difference">
+                  <div className="absolute top-3 left-3 right-3 flex items-center justify-between font-mono text-[10px] tracking-[0.18em] text-foreground/95 mix-blend-difference">
                     <span>— {w.n}</span>
                     <span>{w.niche}</span>
                   </div>

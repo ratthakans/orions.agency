@@ -161,7 +161,7 @@ const Contact = () => {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="md:col-span-2 mt-4 inline-flex items-center justify-center gap-3 bg-foreground text-background px-7 py-4 btn-label hover:bg-orion transition-colors disabled:opacity-50"
+                    className="md:col-span-2 mt-4 inline-flex items-center justify-center gap-3 bg-background text-foreground px-7 py-4 btn-label hover:bg-foreground hover:text-background transition-colors disabled:opacity-50"
                   >
                     <span>{submitting ? "Sending…" : "Send inquiry"}</span>
                     <ArrowUpRight className="w-4 h-4" />

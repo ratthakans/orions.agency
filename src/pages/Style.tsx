@@ -111,7 +111,7 @@ const Style = () => (
       </div>
 
       <div className="mt-8 border border-foreground">
-        <div className="h-24 bg-gradient-accent flex items-end p-3 text-background">
+        <div className="h-24 bg-gradient-accent flex items-end p-3 text-foreground">
           <span className="index-badge font-bold">Sunset Ink — gradient</span>
         </div>
         <div className="px-3 py-2 font-mono text-[10px] tracking-[0.08em] text-muted-foreground border-t border-foreground">
@@ -128,7 +128,7 @@ const Style = () => (
           <div className="index-badge text-muted-foreground mb-6">primary</div>
           <CTA to="/style">Request the Audit</CTA>
         </div>
-        <div className="border border-foreground p-6 md:p-8 bg-foreground text-background">
+        <div className="border border-foreground p-6 md:p-8 bg-background text-foreground">
           <div className="index-badge opacity-60 mb-6">invert (on dark)</div>
           <CTA to="/style" variant="invert">Request the Audit</CTA>
         </div>
@@ -151,7 +151,7 @@ const Style = () => (
           <div className="index-badge text-muted-foreground mb-6">variant="light" · soft</div>
           <SectionHeader left="THE PROCESS" right="06 STEPS" soft />
         </div>
-        <div className="border border-foreground p-6 md:p-8 bg-foreground text-background">
+        <div className="border border-foreground p-6 md:p-8 bg-background text-foreground">
           <div className="index-badge opacity-60 mb-6">variant="dark"</div>
           <SectionHeader index="02" left="METHOD" right="06 STEPS" variant="dark" />
         </div>
@@ -187,7 +187,7 @@ const Style = () => (
       </div>
     </section>
 
-    <section className="px-6 md:px-10 py-24 md:py-32 border-t border-foreground bg-foreground text-background">
+    <section className="px-6 md:px-10 py-24 md:py-32 border-t border-foreground bg-background text-foreground">
       <Reveal>
         <h2 className="font-display h-display-md max-w-[800px]">
           End of <span className="italic">reference</span><span className="opacity-60">.</span>

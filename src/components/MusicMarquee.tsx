@@ -68,7 +68,7 @@ const MusicMarquee = ({ items, label, variant = "mosaic" }: Props) => {
         {label && (
           <div className="hidden md:flex col-span-12 md:col-span-12 -mb-2 items-center justify-between">
             <div className="flex items-center gap-3">
-              <span className="block w-6 h-px bg-foreground/40" />
+              <span className="block w-6 h-px bg-background/40" />
               <span className="font-mono text-[10px] tracking-[0.28em] uppercase text-muted-foreground">
                 {label}
               </span>
@@ -102,29 +102,29 @@ const MusicMarquee = ({ items, label, variant = "mosaic" }: Props) => {
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/0 to-background/0 opacity-60 group-hover:opacity-90 transition-opacity duration-500" />
 
               {/* Index */}
-              <div className="absolute top-2.5 left-3 font-mono text-[10px] tracking-[0.14em] uppercase text-background mix-blend-difference opacity-80">
+              <div className="absolute top-2.5 left-3 font-mono text-[10px] tracking-[0.14em] uppercase text-foreground mix-blend-difference opacity-80">
                 ({num})
               </div>
 
               {/* Hover label */}
-              <div className="absolute top-2.5 right-3 font-mono text-[10px] tracking-[0.14em] uppercase text-background mix-blend-difference opacity-0 translate-y-1 group-hover:opacity-90 group-hover:translate-y-0 transition-all duration-500">
+              <div className="absolute top-2.5 right-3 font-mono text-[10px] tracking-[0.14em] uppercase text-foreground mix-blend-difference opacity-0 translate-y-1 group-hover:opacity-90 group-hover:translate-y-0 transition-all duration-500">
                 Watch ↗
               </div>
 
               {/* Play badge — slides up on hover */}
               <div className="absolute inset-x-0 bottom-0 p-3 md:p-4 flex items-end justify-between">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 md:w-9 md:h-9 rounded-full border border-background/80 bg-background/10 flex items-center justify-center text-background mix-blend-difference transition-transform duration-500 group-hover:scale-110">
+                  <div className="w-8 h-8 md:w-9 md:h-9 rounded-full border border-foreground/80 bg-background/10 flex items-center justify-center text-foreground mix-blend-difference transition-transform duration-500 group-hover:scale-110">
                     <Play className="w-3 h-3 md:w-3.5 md:h-3.5 ml-0.5" fill="currentColor" />
                   </div>
-                  <span className="font-mono text-[10px] tracking-[0.14em] uppercase text-background mix-blend-difference opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500">
+                  <span className="font-mono text-[10px] tracking-[0.14em] uppercase text-foreground mix-blend-difference opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500">
                     Play
                   </span>
                 </div>
               </div>
 
               {/* Bottom progress bar fill on hover */}
-              <span className="absolute bottom-0 left-0 h-px w-0 bg-foreground transition-[width] duration-[900ms] ease-out group-hover:w-full" />
+              <span className="absolute bottom-0 left-0 h-px w-0 bg-background transition-[width] duration-[900ms] ease-out group-hover:w-full" />
             </button>
           );
         })}
@@ -141,7 +141,7 @@ const MusicMarquee = ({ items, label, variant = "mosaic" }: Props) => {
             type="button"
             onClick={() => setOpenId(null)}
             aria-label="Close"
-            className="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 md:w-11 md:h-11 border border-foreground flex items-center justify-center hover:bg-foreground hover:text-background transition-colors z-10"
+            className="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 md:w-11 md:h-11 border border-foreground flex items-center justify-center hover:bg-background hover:text-foreground transition-colors z-10"
           >
             <X className="w-4 h-4" />
           </button>

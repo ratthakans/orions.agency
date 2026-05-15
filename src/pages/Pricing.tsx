@@ -186,7 +186,7 @@ const PackageCard = ({ p }: { p: Pkg }) => (
   </Reveal>
 );
 
-const Services = () => {
+const Pricing = () => {
   const [openPkg, setOpenPkg] = useState<string | null>("pro");
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 

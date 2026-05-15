@@ -3,10 +3,9 @@ import { ArrowUpRight } from "lucide-react";
 import { z } from "zod";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
+import PageMark from "@/components/PageMark";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
-
-const accent = "text-gradient";
 
 const inquirySchema = z.object({
   name:    z.string().trim().min(1, "Please tell us your name").max(100, "Name is too long"),
@@ -68,19 +67,17 @@ const Contact = () => {
         }}
       />
 
-      {/* HERO — dark, single clear message */}
-      <section className="relative bg-foreground text-background">
-        <div className="px-6 md:px-10 pt-40 md:pt-48 pb-24 md:pb-32 max-w-[1200px] mx-auto">
-          <Reveal delay={0.05}>
-            <p className="font-mono text-[10px] tracking-[0.4em] text-background/60 mb-10">— CONTACT</p>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <h1 className="font-display h-display-md text-balance max-w-[900px]">
-              Tell us about <span className={accent}>the brand.</span>
+      {/* 01 · HERO */}
+      <section className="px-6 md:px-10">
+        <div className="max-w-[1280px] mx-auto pt-32 md:pt-40 pb-20 md:pb-28">
+          <PageMark index="01" total="02" />
+          <Reveal>
+            <h1 className="font-serif text-[44px] md:text-[80px] lg:text-[112px] leading-[1.0] tracking-[-0.03em] max-w-[14ch]">
+              Tell us about <em className="text-orion italic">the brand.</em>
             </h1>
           </Reveal>
-          <Reveal delay={0.2}>
-            <p className="mt-8 font-thai text-[15px] md:text-[17px] leading-[1.65] text-background/70 max-w-[560px]">
+          <Reveal delay={0.1}>
+            <p className="mt-10 font-serif italic text-[18px] md:text-[22px] text-muted-foreground max-w-[640px] leading-[1.5]">
               30-min discovery call. Free. We reply within 24 hours — with an honest fit-check.
             </p>
           </Reveal>
@@ -88,13 +85,15 @@ const Contact = () => {
       </section>
 
       {/* INQUIRY — form + direct contact, single clean section */}
-      <section className="px-6 md:px-10">
-        <div className="max-w-[1200px] mx-auto py-24 md:py-32 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 border-t border-foreground">
+      <section className="px-6 md:px-10 border-t border-foreground">
+        <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+          <PageMark index="02" total="02" />
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Form */}
-          <Reveal className="lg:col-span-7 pt-12 md:pt-16">
-            <p className="font-mono text-[10px] tracking-[0.4em] text-muted-foreground mb-6">— INQUIRY</p>
-            <h2 className="font-display h-display-sm max-w-[520px]">
-              Send us a <span className={accent}>brief.</span>
+          <Reveal className="lg:col-span-7">
+            <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground mb-6">— INQUIRY</p>
+            <h2 className="font-serif text-[36px] md:text-[56px] lg:text-[64px] leading-[1.0] tracking-[-0.03em] max-w-[520px]">
+              Send us a <em className="text-orion italic">brief.</em>
             </h2>
             <p className="mt-6 max-w-[480px] font-thai text-[14px] leading-[1.7] text-foreground/70">
               Tell us about your brand. We'll reply within 24 hours with an honest fit-check.
@@ -187,6 +186,7 @@ const Contact = () => {
               </p>
             </div>
           </Reveal>
+          </div>
         </div>
       </section>
     </div>

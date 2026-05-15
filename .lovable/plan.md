@@ -1,86 +1,85 @@
-# Plan — Simplify to Klar level + Services per PDF
+# แผนปรับหน้าแรก (`src/pages/Index.tsx`) ให้เรียบแบบ Klar
 
-## Goal
-ลด noise ของเว็บให้เรียบเหมือน klarstudiobkk.com (1–2 sections ต่อหน้า, hero ใหญ่, copy สั้น, CTA เดียว, marquee เป็น accent) และจัดเนื้อหา Services/Pricing ตาม `ORIONS_Final_Master.pdf` ตรงๆ
+แก้เฉพาะ `src/pages/Index.tsx` ไม่แตะไฟล์อื่น
 
-## โครงสร้างหน้า (หลังปรับ)
+## หลักการภาษา (สำคัญ — แก้ปัญหาที่บอกว่า "มั่ว")
+
+ตัดสินใจชัดต่อ element แทนที่จะ "ไทย·อังกฤษ" ในประโยคเดียว:
+
+- **Eyebrows / labels / nav-style** → English เท่านั้น (`SELECTED WORK`, `WHAT WE DO`, `TRUSTED BY`)
+- **Headlines (h1/h2)** → English เท่านั้น (Klar-style: สั้น คม)
+- **Body / sub-copy / button** → ไทยเท่านั้น
+- ห้ามผสมกลางประโยคแบบ "ดูบริการของเรา · See services"
+
+## 1) HERO (Cover)
+
+- **ตัดออก**: TypingLoop, ประโยค `Boutique creative agency · เล่าแบรนด์ให้คนจำ`, scroll cue (`SCROLL` + เส้น)
+- **เก็บ**: eyebrow `BANGKOK · EST. 2026`, wordmark `ØRIONS`, marquee ล่าง
+- **เพิ่ม sub สั้นๆใต้ wordmark**: `Boutique creative agency` (บรรทัดเดียว ไม่มี typing)
+- **ปุ่ม**: เปลี่ยนเป็น `ดูบริการของเรา` (ไทยล้วน, ไม่มี · See services)
+
+## 2) SERVICES — เหลือ 4 ตัว
+
+ลบ Strategy ออก เหลือ:
 
 ```
-Home        Services        Work        About        Contact
-  └ hero      └ 3 packages    └ grid      └ 1 hero      └ form
-  └ marquee   └ add-ons       └ marquee   └ marquee     └ details
-              └ commitments
-              └ FAQ
+01  BRANDING            วางตัวตนแบรนด์ให้คมและจำง่าย
+02  CONTENT PRODUCTION  ถ่ายทำ ตัดต่อ ครบจบในทีมเดียว
+03  SOCIAL MEDIA        ดูแลคอนเทนต์ครบทุกแพลตฟอร์ม
+04  PAID ADS            ยิงแอดให้คุ้ม ทุกบาทมีเหตุผล
 ```
 
-ลบ `/pricing` และ `/style` ออกจาก nav (Pricing รวมไปอยู่ใน Services, Style เก็บไว้แต่ไม่ลิงก์)
+- Grid: `lg:grid-cols-4` (เดิม 5)
+- Eyebrow: `— WHAT WE DO` (ตัด "บริการของเรา" ทิ้ง)
+- Headline: `One team. From idea to final cut.` (English ล้วน, ตัด accent gradient ตรงกลางที่ทำให้ดูรก)
+- Link มุมขวา: `View all` (English สั้น)
 
-## 1) Global — Klar-style chrome
+## 3) SELECTED WORK — 6 cards
 
-- **Announcement bar** (บนสุด): `NOW BOOKING FOR Q3 2026 — 30-min discovery call, free`
-- **Nav** เหลือ: `Home · Services · Work · About` + ปุ่ม `WORK WITH US` (→ /contact)  
-  ตัด Pricing ออกจาก nav
-- **Bottom marquee** บนทุกหน้า (เหมือน Klar): `SOCIAL MEDIA — BRANDING — CONTENT — PAID ADS —`
+- **เพิ่ม 2 cards**: Heavy Organizer (มี asset `heavy-organizer.jpg` แล้ว), พลวัต (Phalang — ใช้ `democrat.jpg` เป็น placeholder ก่อนเพราะยังไม่มี asset เฉพาะ — **ขอ confirm ภาพที่จะใช้**)
+- **Eyebrow ใช้ตามที่สั่ง**: `— แบรนด์จริง ผลลัพธ์จริง` (เป็น eyebrow ภาษาไทยล้วน แทน `SELECTED WORK · งานที่ผ่านมา`)
+- **ตัดออก**: headline `แบรนด์จริง ผลลัพธ์จริง.` (เพราะย้ายขึ้นไปเป็น eyebrow แล้ว) → headline เปลี่ยนเป็น `Selected work.` (English สั้น)
+- **ตัด label มุมขวา** `6 CASES · SLIDE →` ทิ้ง (รก)
+- Card overlay: เก็บ scope/impact/title ตามเดิม, **ตัด body ไทยใน overlay ออก** (ทำให้ card สะอาดขึ้นแบบ Klar)
+- Footer carousel: ลบลิงก์ "ดูงานทั้งหมด" — เหลือแค่ปุ่ม prev/next
 
-## 2) Home (`/`) — เหลือแค่ 3 sections
+ลำดับ 6 cards:
+```
+01 Hongmove        PROPTECH      +312% sign-ups
+02 Democrat Party  POLITICS      12M+ impressions
+03 RTAF            GOVERNMENT    2.1M views
+04 GCOO            MOBILITY      +540% downloads
+05 Heavy Organizer EVENTS        +88% conversion
+06 พลวัต           POLITICS      [ขอ stat ที่จะใส่]
+```
 
-ตัดทิ้ง: Selected Work rail, Three Things accordion, Mastery video, Process timeline, Trusted-by grid, ClosingCTA
+## 4) TRUSTED BY — เรียบสุด
 
-เก็บ/ปรับเป็น:
-1. **Hero** — เต็มจอ, eyebrow `BANGKOK · EST. 2026`, headline `From idea to final cut.`, sub 1 บรรทัด, ปุ่ม `SEE OUR SERVICES`
-2. **Marquee** services tags
-3. **Closing strip** — บรรทัดเดียว + ปุ่ม `Work with us`
+- **ตัด headline ยาว** `40+ แบรนด์ไว้ใจเรา ทั่ว F&B...` ทิ้งทั้งหมด
+- **ตัด label** `[ Selected · Q2 2026 ]` ทิ้ง
+- เหลือแค่: eyebrow เล็กๆ `— TRUSTED BY` + grid logos
+- Logos 18 ตัวเหมือนเดิม
 
-## 3) Services (`/services`) — จาก PDF
+## 5) CTA ปิดท้าย
 
-โครง section ตามเอกสาร (เรียบ แต่ครบ):
-1. **Hero** — `Service Proposal — Social · Content · Brand`
-2. **About ØRIONS** (Page 2) — paragraph เดียว + 6-step process strip (Strategy → Planning → Approval → Production → Publish → Optimize)
-3. **3 Packages** (Page 3) — 3 การ์ดเรียงแนวนอน: Starter 29k / Pro 59k ★ / Elite 119k ♛ พร้อม tagline สั้น
-4. **Comparison table** (Page 3-4) — ตารางเปรียบเทียบครบทุกแถวจาก PDF
-5. **Package details** (Page 5-11) — accordion 3 อัน เปิดเพื่อดู deliverables, strategy, reporting, terms
-6. **Add-ons** (Page 12-15) — grid: SEO 18k, AEO 22k, Bundle 35k (SAVE 10k), Production rates, Crisis PR, Email setup
-7. **Commitments** (Page 16) — 4 บรรทัดสั้น
-8. **FAQ** (Page 17) — accordion
-9. **Terms** (Page 18) — bullet list สั้น
-10. **Next steps + CTA** (Page 19-20) — `LET'S START` + email `hello@orions.agency`
+- Eyebrow: `— LET'S TALK` (สั้นกว่า `READY WHEN YOU ARE`)
+- Headline: `From idea to final cut.` (English, ตรงกับ brand line)
+- Sub ไทย: `ทีมเดียว ไม่ต้องส่งต่อ คุยฟรี 30 นาที`
+- ปุ่มเดียว (ตัดปุ่มที่สอง `Services` ออก เพราะรก): `เริ่มคุยกับเรา` → `/contact`
 
-ลบ Process / Questions sections (ตามที่เคยขอไว้)  
-หน้านี้แทนที่ทั้ง `Services.tsx` เดิม **และ** `Pricing.tsx` (ลบไฟล์ Pricing + route)
+## สรุปการตัดทอน (Klar-ness)
 
-## 4) Work (`/work`) — เก็บโครงปัจจุบัน
+| ตัด                              | เหตุผล             |
+|----------------------------------|--------------------|
+| TypingLoop                       | รบกวนสายตา         |
+| Scroll cue                       | ไม่จำเป็น          |
+| Strategy service                 | เหลือ 4 ตามสั่ง    |
+| Body ไทยใน work card overlay     | sparse แบบ Klar    |
+| Headline trusted by ยาว 2 บรรทัด | ตามที่สั่ง         |
+| ปุ่มที่สองใน CTA                 | single CTA = Klar  |
+| ทุก `EN · TH` slash mix          | แยกภาษาตาม element |
 
-- ตัด Selected Projects 4-column grid และ Testimonials carousel ที่เพิ่งทำไว้แล้ว — เก็บไว้
-- ลบ section ที่ไม่จำเป็น (intro ยาว, stats) ให้เหลือ: Hero → Cards grid → Testimonials → Trusted-by dark → CTA
+## คำถามก่อนลงมือ
 
-## 5) About (`/about`)
-
-ลดเหลือ: Hero (philosophy 1 ย่อหน้า) → Team grid 1 row → Marquee → CTA
-
-## 6) Contact (`/contact`)
-
-ลดเหลือ: Hero สั้น → Form (name/email/budget/message) → Email + LINE + ที่อยู่ + tax ID
-
-## ไฟล์ที่จะแตะ
-
-- `src/App.tsx` — ลบ route `/pricing`
-- `src/components/Nav.tsx` — เพิ่ม announcement bar, เปลี่ยน CTA เป็น "WORK WITH US"
-- `src/components/Footer.tsx` — เรียบขึ้น (ตรวจอีกที)
-- `src/pages/Index.tsx` — เขียนใหม่สั้นๆ
-- `src/pages/Services.tsx` — เขียนใหม่ตาม PDF
-- `src/pages/Work.tsx` — ตัด section ส่วนเกิน
-- `src/pages/About.tsx` — ตัดให้สั้น
-- `src/pages/Contact.tsx` — ตัดให้สั้น
-- ลบ `src/pages/Pricing.tsx`
-
-## หมายเหตุ design
-
-- Light cream `#F5F2EC` + ink `#0F0F0F` + Sunset Ink accent ตามเดิม
-- Hairlines, zero radius, ไม่มีเงา/glow
-- ใช้ `PageHero`, `SectionHeader`, `CTA`, `Reveal`, `SimpleMarquee` เดิมทุก section — ไม่สร้าง component ใหม่
-
-## คำถามก่อนเริ่ม
-
-1. ราคา **add-ons** ใน PDF บางอันไม่ครบ (Production, Crisis PR เป็น "Quote ตามเคส") — ใส่ตาม PDF ตรงๆ ใช่ไหม?
-2. ตัวเลขใน announcement bar (`NOW BOOKING FOR Q3 2026`) อยากให้เขียนว่าอะไร?
-3. หน้า **Work** อยากให้ตัด section ไหนบ้าง หรือเก็บโครงปัจจุบันทั้งหมด?
+1. **พลวัต** — ใช้ภาพไหน? (ตอนนี้ไม่มี asset เฉพาะ จะใช้ democrat.jpg เป็น placeholder ได้ไหม หรือมีรูปจะส่งให้?)
+2. **stat ของพลวัต** จะใส่อะไร (เช่น `8M+ impressions`)?

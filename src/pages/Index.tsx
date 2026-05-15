@@ -1,32 +1,33 @@
 import { Link } from "react-router-dom";
-import { ArrowUpRight, Sparkles, Camera, Megaphone, LineChart, Palette } from "lucide-react";
+import { ArrowUpRight, Camera, Megaphone, Palette, Sparkles } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SimpleMarquee from "@/components/SimpleMarquee";
-import TypingLoop from "@/components/TypingLoop";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 import workHongmove from "@/assets/hongmove.png";
 import workDemocrat from "@/assets/democrat.jpg";
 import workRtaf from "@/assets/rtaf.jpg";
 import workGcoo from "@/assets/gcoo.jpg";
+import workHeavy from "@/assets/heavy-organizer.jpg";
 import hongmoveLogo from "@/assets/logos/hongmove.png";
 
 const accent = "text-gradient";
 
 const services = [
-  { icon: Palette,    en: "Branding",     th: "วางตัวตนแบรนด์ให้คมและจำง่าย",  tag: "01" },
-  { icon: Camera,     en: "Content",      th: "ถ่ายทำ ตัดต่อ ครบจบในทีมเดียว",  tag: "02" },
-  { icon: Megaphone,  en: "Paid Ads",     th: "ยิงแอดให้คุ้ม ทุกบาทมีเหตุผล",   tag: "03" },
-  { icon: LineChart,  en: "Strategy",     th: "วางแผน วัดผล ปรับจริงทุกเดือน",  tag: "04" },
-  { icon: Sparkles,   en: "Social Media", th: "ดูแลคอนเทนต์ครบทุกแพลตฟอร์ม",   tag: "05" },
+  { icon: Palette,    en: "Branding",           th: "วางตัวตนแบรนด์ให้คมและจำง่าย",  tag: "01" },
+  { icon: Camera,     en: "Content Production", th: "ถ่ายทำ ตัดต่อ ครบจบในทีมเดียว",  tag: "02" },
+  { icon: Sparkles,   en: "Social Media",       th: "ดูแลคอนเทนต์ครบทุกแพลตฟอร์ม",   tag: "03" },
+  { icon: Megaphone,  en: "Paid Ads",           th: "ยิงแอดให้คุ้ม ทุกบาทมีเหตุผล",   tag: "04" },
 ];
 
 const projects = [
-  { n: "01", title: "Hongmove",             niche: "PROPTECH",   scope: "Brand · Web · Content",     impact: "+312% sign-ups",      body: "เปิดตัวแพลตฟอร์มเช่าบ้านครบทั้งระบบแบรนด์ เว็บไซต์ และคอนเทนต์", img: workHongmove },
-  { n: "02", title: "Democrat Party",       niche: "POLITICS",   scope: "Campaign · Film · Social",  impact: "12M+ impressions",    body: "แคมเปญระดับชาติ ตัดต่อไว ส่งทันทุกแพลตฟอร์ม",                  img: workDemocrat },
-  { n: "03", title: "Royal Thai Air Force", niche: "GOVERNMENT", scope: "Film · Production · Post",  impact: "2.1M views",          body: "งานโปรดักชันและโพสต์โปรดักชันของหนังทางการ RTAF",            img: workRtaf },
-  { n: "04", title: "GCOO",                 niche: "MOBILITY",   scope: "Brand · Launch campaign",   impact: "+540% downloads",     body: "แคมเปญเปิดตัวแอป e-scooter ครบทั้งแบรนด์ OOH และโซเชียล",     img: workGcoo },
+  { n: "01", title: "Hongmove",             niche: "PROPTECH",   scope: "Brand · Web · Content",     impact: "+312% sign-ups",      img: workHongmove },
+  { n: "02", title: "Democrat Party",       niche: "POLITICS",   scope: "Campaign · Film · Social",  impact: "12M+ impressions",    img: workDemocrat },
+  { n: "03", title: "Royal Thai Air Force", niche: "GOVERNMENT", scope: "Film · Production · Post",  impact: "2.1M views",          img: workRtaf },
+  { n: "04", title: "GCOO",                 niche: "MOBILITY",   scope: "Brand · Launch campaign",   impact: "+540% downloads",     img: workGcoo },
+  { n: "05", title: "Heavy Organizer",      niche: "EVENTS",     scope: "Brand · Event film · Recap", impact: "+88% conversion",    img: workHeavy },
+  { n: "06", title: "พลวัต",                niche: "POLITICS",   scope: "Campaign · Film · Social",  impact: "8M+ impressions",     img: workDemocrat },
 ];
 
 type TrustedBrand = { name: string; logo?: string };
@@ -62,8 +63,8 @@ const Index = () => (
           <h1 className="font-brand h-display-xl leading-[0.85] text-background">ØRIONS</h1>
         </Reveal>
         <Reveal delay={0.25}>
-          <p className="mt-12 md:mt-16 font-display text-[14px] md:text-[18px] tracking-[-0.01em] max-w-[640px]">
-            Boutique <TypingLoop text="creative agency" className={accent} /> · เล่าแบรนด์ให้คนจำ
+          <p className="mt-12 md:mt-16 font-display text-[14px] md:text-[18px] tracking-[-0.01em] text-background/80">
+            Boutique creative agency
           </p>
         </Reveal>
         <Reveal delay={0.4}>
@@ -71,21 +72,16 @@ const Index = () => (
             to="/services"
             className="mt-14 group inline-flex items-center gap-3 bg-background text-foreground px-7 py-4 index-badge border border-background hover:gap-4 transition-all duration-300"
           >
-            <span>ดูบริการของเรา · See services</span>
+            <span>ดูบริการของเรา</span>
             <ArrowUpRight className="w-4 h-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </Link>
         </Reveal>
       </div>
 
-      <div className="pointer-events-none absolute bottom-20 md:bottom-24 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3">
-        <div className="font-mono text-[9px] tracking-[0.4em] text-background/45">SCROLL</div>
-        <div className="w-px h-10 bg-background/25" />
-      </div>
-
       <div className="relative border-t border-background/15 py-5">
         <SimpleMarquee
           duration={42}
-          items={["SOCIAL MEDIA", "BRANDING", "CONTENT PRODUCTION", "PAID ADVERTISING", "STRATEGY"]}
+          items={["SOCIAL MEDIA", "BRANDING", "CONTENT PRODUCTION", "PAID ADVERTISING"]}
         />
       </div>
     </section>
@@ -97,23 +93,23 @@ const Index = () => (
           <div className="flex items-end justify-between gap-8 flex-wrap">
             <div>
               <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground mb-4">
-                — WHAT WE DO · บริการของเรา
+                — WHAT WE DO
               </div>
               <h2 className="font-display h-display-sm">
-                ทีมเดียว จบครบ <span className={accent}>ตั้งแต่ idea ถึง final cut.</span>
+                One team. From idea to <span className={accent}>final cut.</span>
               </h2>
             </div>
             <Link
               to="/services"
               className="group inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground hover:text-foreground transition-colors"
             >
-              ดูทั้งหมด · All services
+              View all
               <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </Link>
           </div>
         </Reveal>
 
-        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 border-t border-l border-foreground">
+        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t border-l border-foreground">
           {services.map((s, i) => (
             <Reveal key={s.en} delay={0.04 * i}>
               <div className="group relative h-full p-6 md:p-7 border-r border-b border-foreground hover:bg-foreground hover:text-background transition-colors duration-300">
@@ -132,22 +128,17 @@ const Index = () => (
       </div>
     </section>
 
-    {/* SELECTED WORK — slide right */}
+    {/* SELECTED WORK */}
     <section className="px-6 md:px-10">
       <div className="border-t border-foreground py-20 md:py-28 max-w-[1280px] mx-auto">
         <Reveal>
-          <div className="flex items-end justify-between gap-8 flex-wrap">
-            <div>
-              <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground mb-4">
-                — SELECTED WORK · งานที่ผ่านมา
-              </div>
-              <h2 className="font-display h-display-sm">
-                แบรนด์จริง <span className={accent}>ผลลัพธ์จริง.</span>
-              </h2>
+          <div>
+            <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground mb-4">
+              — แบรนด์จริง ผลลัพธ์จริง
             </div>
-            <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
-              {projects.length} CASES · SLIDE →
-            </p>
+            <h2 className="font-display h-display-sm">
+              Selected <span className={accent}>work.</span>
+            </h2>
           </div>
         </Reveal>
 
@@ -178,9 +169,6 @@ const Index = () => (
                         <h3 className="mt-3 font-display text-[13px] md:text-[14px] tracking-[-0.005em] leading-tight text-background/85">
                           {w.title}
                         </h3>
-                        <p className="mt-2 font-thai text-[11px] leading-[1.6] text-background/55 line-clamp-3">
-                          {w.body}
-                        </p>
                       </div>
                     </div>
                     <div className="mt-4 flex items-baseline justify-between gap-3">
@@ -195,18 +183,9 @@ const Index = () => (
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <div className="mt-8 flex items-center justify-between gap-4">
-              <Link
-                to="/work"
-                className="group inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground hover:text-foreground transition-colors"
-              >
-                ดูงานทั้งหมด · See all work
-                <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </Link>
-              <div className="flex gap-3">
-                <CarouselPrevious className="static translate-y-0 h-10 w-10 rounded-none border-foreground" />
-                <CarouselNext className="static translate-y-0 h-10 w-10 rounded-none border-foreground" />
-              </div>
+            <div className="mt-8 flex items-center justify-end gap-3">
+              <CarouselPrevious className="static translate-y-0 h-10 w-10 rounded-none border-foreground" />
+              <CarouselNext className="static translate-y-0 h-10 w-10 rounded-none border-foreground" />
             </div>
           </Carousel>
         </Reveal>
@@ -215,20 +194,14 @@ const Index = () => (
 
     {/* TRUSTED BY */}
     <section className="bg-foreground text-background px-6 md:px-10">
-      <div className="border-t border-background/20 py-24 md:py-32 max-w-[1280px] mx-auto">
+      <div className="border-t border-background/20 py-20 md:py-24 max-w-[1280px] mx-auto">
         <Reveal delay={0.05}>
-          <div className="flex items-end justify-between gap-8 flex-wrap">
-            <h2 className="font-display h-display-sm max-w-[820px]">
-              40+ แบรนด์ไว้ใจเรา <br className="hidden md:block" />
-              ทั่ว F&amp;B, fashion, <span className={accent}>และ hospitality.</span>
-            </h2>
-            <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-background/45">
-              [ Selected · Q2 2026 ]
-            </p>
+          <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-background/55 mb-10">
+            — TRUSTED BY
           </div>
         </Reveal>
 
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 border border-background/15">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 border border-background/15">
           {trustedBy.map((brand, i) => {
             const cols = 6;
             const isLastCol = (i % cols) === cols - 1;
@@ -262,36 +235,27 @@ const Index = () => (
       <div className="border-t border-foreground py-20 md:py-28 max-w-[900px] mx-auto text-center">
         <Reveal>
           <p className="font-mono text-[10px] tracking-[0.4em] uppercase text-muted-foreground mb-8">
-            — READY WHEN YOU ARE
+            — LET'S TALK
           </p>
         </Reveal>
         <Reveal delay={0.05}>
           <h2 className="font-display h-display-md text-balance">
-            เริ่มจากไอเดีย <span className={accent}>จบที่ final cut.</span>
+            From idea to <span className={accent}>final cut.</span>
           </h2>
         </Reveal>
         <Reveal delay={0.15}>
-          <p className="mt-8 font-thai text-[15px] md:text-[16px] leading-[1.7] text-muted-foreground max-w-[520px] mx-auto">
-            ทีมเดียว ไม่ต้องส่งต่อ คุยฟรี 30 นาที ตอบกลับใน 24 ชั่วโมง
+          <p className="mt-8 font-thai text-[15px] md:text-[16px] leading-[1.7] text-muted-foreground max-w-[480px] mx-auto">
+            ทีมเดียว ไม่ต้องส่งต่อ คุยฟรี 30 นาที
           </p>
         </Reveal>
         <Reveal delay={0.25}>
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              to="/contact"
-              className="group inline-flex items-center gap-3 bg-foreground text-background px-7 py-4 index-badge border border-foreground hover:gap-4 transition-all duration-300"
-            >
-              <span>เริ่มคุยกับเรา · Work with us</span>
-              <ArrowUpRight className="w-4 h-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            </Link>
-            <Link
-              to="/services"
-              className="group inline-flex items-center gap-3 px-7 py-4 index-badge border border-foreground hover:bg-foreground hover:text-background transition-all duration-300"
-            >
-              <span>ดูบริการ · Services</span>
-              <ArrowUpRight className="w-4 h-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            </Link>
-          </div>
+          <Link
+            to="/contact"
+            className="mt-10 group inline-flex items-center gap-3 bg-foreground text-background px-7 py-4 index-badge border border-foreground hover:gap-4 transition-all duration-300"
+          >
+            <span>เริ่มคุยกับเรา</span>
+            <ArrowUpRight className="w-4 h-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          </Link>
         </Reveal>
       </div>
     </section>

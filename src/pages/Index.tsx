@@ -138,13 +138,13 @@ const Index = () => (
         </Reveal>
 
         <Reveal delay={0.35}>
-          <p className="mt-6 md:mt-8 font-serif italic text-[15px] md:text-[18px] text-background/70 max-w-[560px] mx-auto leading-[1.55]">
+          <p className="mt-8 md:mt-10 font-serif italic text-[18px] md:text-[22px] text-background/70 max-w-[600px] mx-auto leading-[1.5]">
             A boutique creative agency — work that hits the brief, the numbers, and the eye.
           </p>
         </Reveal>
 
         <Reveal delay={0.5}>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <div className="mt-12 md:mt-14 flex flex-wrap items-center justify-center gap-4">
             <Link
               to="/contact"
               className="group inline-flex items-center gap-3 bg-background text-foreground px-7 py-4 btn-label border border-background hover:gap-4 transition-all duration-300"

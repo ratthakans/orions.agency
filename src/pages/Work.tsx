@@ -1,7 +1,6 @@
 import Reveal from "@/components/Reveal";
 import ClosingCTA from "@/components/ClosingCTA";
 import SEO from "@/components/SEO";
-import YouTubeFacade from "@/components/YouTubeFacade";
 import { Link } from "react-router-dom";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
@@ -140,7 +139,6 @@ const Work = () => (
       </div>
     </section>
 
-    {/* COMING SOON BANNER */}
     {/* PROJECT GRID — one card per client */}
     <section className="px-6 md:px-10">
       <div className="border-t border-foreground py-20 md:py-28 max-w-[1280px] mx-auto">
@@ -247,13 +245,6 @@ const Work = () => (
             </div>
           </Carousel>
         </Reveal>
-      </div>
-    </section>
-
-    {/* AMBIENT 21:9 */}
-    <section className="relative w-full overflow-hidden bg-foreground border-y border-background/20">
-      <div className="relative w-full overflow-hidden" style={{ aspectRatio: "21 / 9" }}>
-        <YouTubeFacade videoId="u4r7Szy3uxI" title="Work in motion" ambient />
       </div>
     </section>
 

@@ -165,7 +165,7 @@ const Index = () => (
               <ArrowUpRight className="w-4 h-4" />
             </Link>
             <Link
-              to="/services#packages"
+              to="/pricing"
               className="group inline-flex items-center gap-2 btn-label text-background/80 border-b border-background/40 pb-1 hover:text-background hover:border-background transition-colors"
             >
               See pricing →
@@ -461,7 +461,7 @@ const Index = () => (
 
         <Reveal delay={0.2}>
           <div className="mt-12 flex flex-wrap items-center gap-5">
-            <Link to="/services#packages" className="group inline-flex items-center gap-3 bg-foreground text-background px-7 py-4 btn-label border border-foreground hover:bg-orion hover:border-orion transition-colors">
+            <Link to="/pricing" className="group inline-flex items-center gap-3 bg-foreground text-background px-7 py-4 btn-label border border-foreground hover:bg-orion hover:border-orion transition-colors">
               <span>See full breakdown</span>
               <ArrowUpRight className="w-4 h-4" />
             </Link>

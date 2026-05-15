@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import { Plus, Minus, ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
@@ -270,8 +270,8 @@ const Pricing = () => {
                 </thead>
                 <tbody>
                   {compareGroups.map((g) => (
-                    <>
-                      <tr key={`g-${g.title}`}>
+                    <Fragment key={g.title}>
+                      <tr>
                         <td colSpan={4} className="pt-7 pb-2 pl-6 md:pl-4 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
                           — {g.title}
                         </td>
@@ -292,7 +292,7 @@ const Pricing = () => {
                           </td>
                         </tr>
                       ))}
-                    </>
+                    </Fragment>
                   ))}
                 </tbody>
               </table>

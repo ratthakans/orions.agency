@@ -44,7 +44,7 @@ const Nav = () => {
       <div className="bg-orion text-background">
         <div className="px-6 md:px-10 h-7 flex items-center justify-center text-center overflow-hidden">
           <p className="font-mono text-[10px] tracking-[0.25em] uppercase whitespace-nowrap">
-            NOW BOOKING FOR Q3 2026 — 30-min discovery call, free
+            Q3 2026 BOOKING — 30-MIN CALL, FREE · REPLY IN 24H
           </p>
         </div>
       </div>

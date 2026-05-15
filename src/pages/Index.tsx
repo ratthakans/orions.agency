@@ -107,7 +107,6 @@ const whyUs = [
   { n: "01", en: "Small team. Your team.", th: "คุยกับคนทำจริง ไม่มี telephone game" },
   { n: "02", en: "Strategy before pretty.", th: "วางแผนก่อนโพสต์ ไม่ทำสวยอย่างเดียว" },
   { n: "03", en: "Ads inside the plan.",    th: "แอดอยู่ในกลยุทธ์ตั้งแต่วันแรก" },
-  { n: "04", en: "Built for boutique.",     th: "ทำเพื่อแบรนด์ที่แคร์เรื่องคุณภาพ" },
 ];
 
 const outcomes = [
@@ -145,20 +144,20 @@ const Index = () => (
 
       <div className="flex-1 flex flex-col items-center justify-center text-center px-6 md:px-10 py-16">
         <Reveal>
-          <h1 className="font-serif leading-[0.85] tracking-[-0.04em] text-[20vw] md:text-[18vw] lg:text-[16vw]">
-            ORI<span className="text-orion italic">O</span>NS
+          <h1 className="font-brand leading-[0.85] tracking-[-0.06em] text-[18vw] md:text-[16vw] lg:text-[14vw]">
+            ORI<span className="text-orion">Ø</span>NS
           </h1>
         </Reveal>
 
         <Reveal delay={0.2}>
-          <p className="mt-12 md:mt-16 font-serif text-[28px] md:text-[44px] lg:text-[52px] leading-[1.1] tracking-[-0.02em]">
+          <p className="mt-10 md:mt-14 font-serif text-[28px] md:text-[44px] lg:text-[52px] leading-[1.1] tracking-[-0.02em]">
             A <em className="text-orion italic">boutique</em> creative agency.
           </p>
         </Reveal>
 
         <Reveal delay={0.35}>
-          <p className="mt-6 md:mt-8 font-serif italic text-[15px] md:text-[18px] text-background/70 max-w-[640px] mx-auto leading-[1.55]">
-            We help unique brands grow on social — through branding, content, and paid ads.
+          <p className="mt-6 md:mt-8 font-serif italic text-[15px] md:text-[18px] text-background/70 max-w-[560px] mx-auto leading-[1.55]">
+            Branding, content, and paid ads — for brands that care.
           </p>
         </Reveal>
 
@@ -178,14 +177,11 @@ const Index = () => (
               See pricing →
             </Link>
           </div>
-          <p className="mt-5 font-mono text-[10px] tracking-[0.25em] uppercase text-background/55 text-center">
-            ↳ Reply within 24h · Free 30-min call
-          </p>
         </Reveal>
       </div>
 
       <div className="px-6 md:px-10 pb-8 md:pb-10 flex items-end justify-between font-mono text-[10px] tracking-[0.3em] uppercase text-background/55 border-t border-background/15 pt-6">
-        <span>01 / 09</span>
+        <span>01 / 08</span>
         <span>hello@orions.agency</span>
       </div>
     </section>
@@ -199,14 +195,31 @@ const Index = () => (
     </div>
 
     {/* ========================================================== */}
-    {/* 02 · WHAT YOU'RE UP AGAINST — stats                         */}
+    {/* 02 · OUTCOMES — proof bar (moved up)                        */}
+    {/* ========================================================== */}
+    <section className="border-b border-foreground bg-surface">
+      <div className="max-w-[1280px] mx-auto px-6 md:px-10 py-14 md:py-20 grid grid-cols-1 md:grid-cols-3">
+        {outcomes.map((o, i) => (
+          <Reveal key={o.label} delay={0.05 * i}>
+            <div className={`px-2 md:px-8 py-6 md:py-2 ${i > 0 ? "md:border-l border-foreground/20" : ""}`}>
+              <div className="font-brand text-orion tracking-[-0.04em] leading-none text-[56px] md:text-[80px] lg:text-[96px] tabular-nums">{o.num}</div>
+              <div className="mt-5 font-mono text-[10px] tracking-[0.25em] uppercase text-foreground">{o.label}</div>
+              <div className="mt-1 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">{o.sub}</div>
+            </div>
+          </Reveal>
+        ))}
+      </div>
+    </section>
+
+    {/* ========================================================== */}
+    {/* 03 · WHAT YOU'RE UP AGAINST — stats                         */}
     {/* ========================================================== */}
     <section className="px-6 md:px-10">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <PageMark index="02" />
+        <PageMark index="03" />
         <Reveal>
           <h2 className="font-serif text-[44px] md:text-[80px] lg:text-[104px] leading-[1.0] tracking-[-0.03em] max-w-[14ch]">
-            What you're up <em className="text-orion italic">against.</em>
+            The <em className="text-orion italic">reality.</em>
           </h2>
         </Reveal>
 
@@ -231,33 +244,6 @@ const Index = () => (
     </section>
 
     {/* ========================================================== */}
-    {/* 03 · APPROACH — quote                                       */}
-    {/* ========================================================== */}
-    <section className="px-6 md:px-10 border-t border-foreground">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-36">
-        <PageMark index="03" />
-        <Reveal>
-          <span className="font-serif italic text-orion text-[64px] md:text-[88px] leading-none block -mb-4 md:-mb-6">“</span>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <p className="font-serif text-[40px] md:text-[80px] lg:text-[104px] leading-[1.05] tracking-[-0.03em]">
-            We don't post for the sake of <em className="text-orion italic">posting.</em>
-          </p>
-        </Reveal>
-        <Reveal delay={0.2}>
-          <p className="mt-4 md:mt-6 font-serif text-[40px] md:text-[80px] lg:text-[104px] leading-[1.05] tracking-[-0.03em]">
-            We build for <em className="text-orion italic">results.</em>
-          </p>
-        </Reveal>
-        <Reveal delay={0.3}>
-          <div className="mt-16 pt-6 border-t border-dashed border-foreground/30 font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
-            — THE ORIONS APPROACH
-          </div>
-        </Reveal>
-      </div>
-    </section>
-
-    {/* ========================================================== */}
     {/* 04 · THREE THINGS, PROPERLY — services                      */}
     {/* ========================================================== */}
     <section className="px-6 md:px-10 border-t border-foreground">
@@ -265,7 +251,7 @@ const Index = () => (
         <PageMark index="04" />
         <Reveal>
           <h2 className="font-serif text-[44px] md:text-[80px] lg:text-[104px] leading-[1.0] tracking-[-0.03em]">
-            Three things, <em className="text-orion italic">properly.</em>
+            Three things. <em className="text-orion italic">Done right.</em>
           </h2>
         </Reveal>
 
@@ -306,7 +292,7 @@ const Index = () => (
         <PageMark index="05" />
         <Reveal>
           <h2 className="font-serif text-[44px] md:text-[80px] lg:text-[96px] leading-[1.0] tracking-[-0.03em] max-w-[16ch]">
-            From hello, <em className="text-orion italic">live in 4 weeks.</em>
+            Live in <em className="text-orion italic">4 weeks.</em>
           </h2>
         </Reveal>
 
@@ -339,7 +325,7 @@ const Index = () => (
         <PageMark index="06" />
         <Reveal>
           <h2 className="font-serif text-[44px] md:text-[80px] lg:text-[96px] leading-[1.0] tracking-[-0.03em]">
-            Brands we've <em className="text-orion italic">built.</em>
+            Selected <em className="text-orion italic">work.</em>
           </h2>
         </Reveal>
 
@@ -386,7 +372,7 @@ const Index = () => (
         <PageMark index="07" />
         <Reveal>
           <h2 className="font-serif text-[44px] md:text-[80px] lg:text-[104px] leading-[1.0] tracking-[-0.03em]">
-            What clients <em className="text-orion italic">say.</em>
+            <em className="text-orion italic">Clients.</em>
           </h2>
         </Reveal>
 
@@ -424,37 +410,15 @@ const Index = () => (
     </section>
 
     {/* ========================================================== */}
-    {/* 08 · OUTCOMES — proof bar                                   */}
-    {/* ========================================================== */}
-    <section className="border-y border-foreground bg-surface">
-      <div className="max-w-[1280px] mx-auto px-6 md:px-10 py-14 md:py-20 grid grid-cols-1 md:grid-cols-3">
-        {outcomes.map((o, i) => (
-          <Reveal key={o.label} delay={0.05 * i}>
-            <div className={`px-2 md:px-8 py-6 md:py-2 ${i > 0 ? "md:border-l border-foreground/20" : ""}`}>
-              <div className="font-serif text-orion tracking-[-0.04em] leading-none text-[64px] md:text-[88px] lg:text-[104px] tabular-nums">{o.num}</div>
-              <div className="mt-5 font-mono text-[10px] tracking-[0.25em] uppercase text-foreground">{o.label}</div>
-              <div className="mt-1 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">{o.sub}</div>
-            </div>
-          </Reveal>
-        ))}
-      </div>
-    </section>
-
-    {/* ========================================================== */}
-    {/* 09 · TRUSTED BY                                             */}
+    {/* 08 · TRUSTED BY                                             */}
     {/* ========================================================== */}
     <section className="px-6 md:px-10 border-t border-foreground">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <PageMark index="09" />
+        <PageMark index="08" />
         <Reveal>
           <h2 className="font-serif text-[44px] md:text-[80px] lg:text-[104px] leading-[1.0] tracking-[-0.03em]">
             Trusted <em className="text-orion italic">by.</em>
           </h2>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <p className="mt-6 font-serif italic text-muted-foreground text-[18px] md:text-[20px]">
-            40+ brands across F&amp;B, fashion, and hospitality.
-          </p>
         </Reveal>
 
         <div className="mt-14 md:mt-20 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-10 gap-y-12 md:gap-y-16">
@@ -479,19 +443,19 @@ const Index = () => (
     </section>
 
     {/* ========================================================== */}
-    {/* 10 · PRICING TEASER                                         */}
+    {/* 09 · PRICING TEASER                                         */}
     {/* ========================================================== */}
     <section className="px-6 md:px-10 border-t border-foreground">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <PageMark index="10" />
+        <PageMark index="09" />
         <Reveal>
           <h2 className="font-serif text-[44px] md:text-[80px] lg:text-[96px] leading-[1.0] tracking-[-0.03em] max-w-[18ch]">
-            Pricing that <em className="text-orion italic">makes sense.</em>
+            <em className="text-orion italic">Pricing.</em>
           </h2>
         </Reveal>
         <Reveal delay={0.1}>
-          <p className="mt-8 font-serif italic text-[18px] md:text-[20px] text-muted-foreground max-w-[640px] leading-[1.55]">
-            Monthly retainer · ทีมเดียวจบ · ยกเลิก/ปรับขนาดได้ทุกรอบสัญญา.
+          <p className="mt-8 font-serif italic text-[18px] md:text-[20px] text-muted-foreground max-w-[560px] leading-[1.55]">
+            Monthly retainer. Cancel anytime.
           </p>
         </Reveal>
 
@@ -533,13 +497,13 @@ const Index = () => (
     </section>
 
     {/* ========================================================== */}
-    {/* 11 · WHY US + CTA                                           */}
+    {/* 10 · WHY US + CTA                                           */}
     {/* ========================================================== */}
     <section className="px-6 md:px-10 border-t border-foreground bg-foreground text-background">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <div className="flex items-center justify-between font-mono text-[10px] tracking-[0.3em] uppercase text-background/55 mb-12 md:mb-16">
           <span className="flex items-center gap-3">ORIONS <span className="text-orion">✦</span></span>
-          <span>11 / 11</span>
+          <span>10 / 10</span>
         </div>
 
         <Reveal>
@@ -548,7 +512,7 @@ const Index = () => (
           </h2>
         </Reveal>
 
-        <div className="mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 md:gap-y-14">
+        <div className="mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-10 md:gap-y-14">
           {whyUs.map((w, i) => (
             <Reveal key={w.n} delay={i * 0.06}>
               <div className="border-t border-background/25 pt-6">
@@ -573,12 +537,12 @@ const Index = () => (
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="font-serif text-[44px] md:text-[80px] lg:text-[96px] leading-[1.0] tracking-[-0.03em]">
-              Tell us about <em className="text-orion italic">the brand.</em>
+              Let's <em className="text-orion italic">talk.</em>
             </h2>
           </Reveal>
           <Reveal delay={0.2}>
             <p className="mt-8 font-serif italic text-[18px] md:text-[22px] text-background/75 max-w-[640px] mx-auto leading-[1.5]">
-              30-min discovery call. Free. We reply within 24 hours.
+              30-min call. Free. Reply in 24h.
             </p>
           </Reveal>
           <Reveal delay={0.3}>
@@ -590,21 +554,6 @@ const Index = () => (
               <ArrowUpRight className="w-4 h-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </Link>
           </Reveal>
-
-          <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 text-left max-w-[720px] mx-auto pt-10 border-t border-background/20">
-            <div>
-              <div className="font-mono text-[10px] tracking-[0.3em] text-background/50">EMAIL</div>
-              <div className="mt-2 font-serif italic text-[18px]">hello@orions.agency</div>
-            </div>
-            <div>
-              <div className="font-mono text-[10px] tracking-[0.3em] text-background/50">PHONE</div>
-              <div className="mt-2 font-serif italic text-[18px]">+66 92 390 5464</div>
-            </div>
-            <div>
-              <div className="font-mono text-[10px] tracking-[0.3em] text-background/50">ONLINE</div>
-              <div className="mt-2 font-serif italic text-[18px]">orions.agency</div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

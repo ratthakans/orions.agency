@@ -1,118 +1,86 @@
 import { useState, useEffect } from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
-import { Menu, X, ArrowUpRight } from "lucide-react";
-
 
 const links = [
   { label: "Services", to: "/services" },
-  { label: "Pricing", to: "/pricing" },
   { label: "Work", to: "/work" },
+  { label: "Pricing", to: "/pricing" },
   { label: "About", to: "/about" },
+  { label: "Contact", to: "/contact" },
 ];
-
-const pageIndex: Record<string, string> = {
-  "/": "01",
-  "/services": "02",
-  "/work": "03",
-  "/about": "04",
-  "/contact": "05",
-};
 
 const Nav = () => {
   const [open, setOpen] = useState(false);
-  const [progress, setProgress] = useState(0);
   const { pathname } = useLocation();
 
   useEffect(() => { setOpen(false); }, [pathname]);
 
   useEffect(() => {
-    const onScroll = () => {
-      const h = document.documentElement;
-      const max = h.scrollHeight - h.clientHeight;
-      setProgress(max > 0 ? (h.scrollTop / max) * 100 : 0);
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  const idx = pageIndex[pathname] ?? "··";
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
-      {/* Announcement bar — Klar-style */}
-      <div className="bg-orion text-background">
-        <div className="px-6 md:px-10 h-7 flex items-center justify-center text-center overflow-hidden">
-          <p className="font-mono text-[10px] tracking-[0.14em] uppercase whitespace-nowrap">
-            Q3 2026 BOOKING — 30-MIN CALL, FREE · REPLY IN 24H
-          </p>
-        </div>
-      </div>
-      <div className="bg-foreground/95 backdrop-blur-sm border-b border-background/10 px-6 md:px-10 h-[64px] flex items-center justify-between">
-        <Link to="/" className="flex items-baseline gap-2 text-background">
-          <span className="font-brand text-[20px] md:text-[22px] tracking-[-0.02em]">ØRIONS</span>
-        </Link>
-
-        <nav className="hidden md:flex items-center gap-10">
-          {links.map((l) => (
-            <NavLink
-              key={l.to}
-              to={l.to}
-              className={({ isActive }) =>
-                `btn-label relative py-1 transition-colors duration-300 group ${
-                  isActive ? "text-background" : "text-background/55 hover:text-background"
-                }`
-              }
-            >
-              {({ isActive }) => (
-                <>
-                  <span>{l.label}</span>
-                  <span
-                    aria-hidden
-                    className={`pointer-events-none absolute left-0 right-0 -bottom-0.5 h-px bg-orion origin-left transition-transform duration-300 ease-out ${
-                      isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
-                    }`}
-                  />
-                </>
-              )}
-            </NavLink>
-          ))}
-        </nav>
-
-        <Link
-          to="/contact"
-          className="group hidden md:inline-flex items-center gap-2 btn-label bg-background text-foreground px-4 py-2.5 border border-background transition-all duration-300 hover:gap-3 hover:bg-foreground hover:text-background"
-        >
-          <span>Get a free proposal</span>
-          <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+      <div className="px-6 md:px-10 h-[72px] flex items-center justify-between">
+        <Link to="/" className="font-brand text-[14px] md:text-[15px] text-foreground">
+          ØRIONS
         </Link>
 
         <button
-          aria-label="Menu"
+          aria-label={open ? "Close menu" : "Open menu"}
           onClick={() => setOpen((v) => !v)}
-          className="md:hidden text-background"
+          className="relative w-8 h-8 flex flex-col items-end justify-center gap-[6px] text-foreground"
         >
-          {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          <span
+            className={`block h-px bg-foreground transition-all duration-300 ${
+              open ? "w-6 rotate-45 translate-y-[3.5px]" : "w-6"
+            }`}
+          />
+          <span
+            className={`block h-px bg-foreground transition-all duration-300 ${
+              open ? "w-6 -rotate-45 -translate-y-[3.5px]" : "w-4"
+            }`}
+          />
         </button>
       </div>
 
-      {/* Scroll progress hairline */}
-      <div className="absolute bottom-0 left-0 h-px bg-orion transition-[width] duration-150" style={{ width: `${progress}%` }} />
-
-      {open && (
-        <div className="md:hidden border-t border-background/10 bg-foreground">
-          <div className="px-6 py-6 flex flex-col gap-5">
-            {links.map((l) => (
-              <NavLink key={l.to} to={l.to} className="btn-label text-background">
+      {/* Full-screen overlay menu */}
+      <div
+        className={`fixed inset-0 bg-background transition-opacity duration-500 ${
+          open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+        style={{ top: 0 }}
+      >
+        <div className="h-full flex flex-col px-6 md:px-10 pt-[72px]">
+          <nav className="flex-1 flex flex-col items-center justify-center gap-4 md:gap-6">
+            {links.map((l, i) => (
+              <NavLink
+                key={l.to}
+                to={l.to}
+                className={({ isActive }) =>
+                  `font-serif italic text-[44px] md:text-[80px] leading-[1.05] tracking-[-0.02em] transition-opacity duration-300 ${
+                    isActive ? "opacity-100" : "opacity-60 hover:opacity-100"
+                  }`
+                }
+                style={{ transitionDelay: open ? `${i * 40}ms` : "0ms" }}
+              >
                 {l.label}
               </NavLink>
             ))}
-            <Link to="/contact" className="btn-label bg-background text-foreground px-4 py-3 inline-block w-fit">
-              Get a free proposal ↗
-            </Link>
+          </nav>
+          <div className="pb-10 flex items-center justify-between font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
+            <a href="mailto:hello@orions.agency" className="hover:text-foreground transition-colors">
+              hello@orions.agency
+            </a>
+            <span className="hidden sm:inline">BANGKOK · ICT</span>
           </div>
         </div>
-      )}
+      </div>
     </header>
   );
 };

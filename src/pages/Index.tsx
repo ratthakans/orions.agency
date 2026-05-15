@@ -95,7 +95,7 @@ const Index = () => (
                 — WHAT WE DO
               </div>
               <h2 className="font-display h-display-sm">
-                One team. From idea to <span className={accent}>final cut.</span>
+                สี่สิ่งที่เราทำ <span className={accent}>ให้แบรนด์คุณ.</span>
               </h2>
             </div>
             <Link
@@ -108,22 +108,25 @@ const Index = () => (
           </div>
         </Reveal>
 
-        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t border-l border-foreground">
+        <ul className="mt-14 md:mt-20 border-t border-foreground">
           {services.map((s, i) => (
             <Reveal key={s.en} delay={0.04 * i}>
-              <div className="group relative h-full p-6 md:p-7 border-r border-b border-foreground hover:bg-foreground hover:text-background transition-colors duration-300">
-                <div className="flex items-center justify-between">
-                  <s.icon className="w-5 h-5" strokeWidth={1.25} />
-                  <span className="font-mono text-[9px] tracking-[0.25em] text-muted-foreground group-hover:text-background/55">— {s.tag}</span>
+              <li className="group border-b border-foreground">
+                <div className="grid grid-cols-[auto_1fr] md:grid-cols-[80px_1fr_1fr] items-baseline gap-x-6 md:gap-x-10 py-7 md:py-9 transition-[padding,color] duration-300 group-hover:md:pl-4">
+                  <span className="font-mono text-[11px] tracking-[0.25em] text-muted-foreground self-center">
+                    {s.n}
+                  </span>
+                  <h3 className="font-display text-[24px] md:text-[40px] leading-[1.05] tracking-[-0.02em] transition-colors duration-300 group-hover:text-gradient">
+                    {s.en}
+                  </h3>
+                  <p className="col-span-2 md:col-span-1 mt-2 md:mt-0 font-thai text-[14px] md:text-[15px] leading-[1.65] text-muted-foreground md:text-right">
+                    {s.th}
+                  </p>
                 </div>
-                <h3 className="mt-10 font-display text-[20px] md:text-[22px] tracking-[-0.01em]">{s.en}</h3>
-                <p className="mt-3 font-thai text-[13px] leading-[1.65] text-muted-foreground group-hover:text-background/70">
-                  {s.th}
-                </p>
-              </div>
+              </li>
             </Reveal>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
 
@@ -133,10 +136,10 @@ const Index = () => (
         <Reveal>
           <div>
             <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground mb-4">
-              — แบรนด์จริง ผลลัพธ์จริง
+              — SELECTED WORK
             </div>
             <h2 className="font-display h-display-sm">
-              Selected <span className={accent}>work.</span>
+              แบรนด์จริง <span className={accent}>ผลลัพธ์จริง.</span>
             </h2>
           </div>
         </Reveal>

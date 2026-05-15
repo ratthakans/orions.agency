@@ -59,7 +59,7 @@ const Nav = () => {
               key={l.to}
               to={l.to}
               className={({ isActive }) =>
-                `index-badge relative py-1 transition-colors duration-300 group ${
+                `btn-label relative py-1 transition-colors duration-300 group ${
                   isActive ? "text-background" : "text-background/55 hover:text-background"
                 }`
               }
@@ -103,7 +103,7 @@ const Nav = () => {
         <div className="md:hidden border-t border-background/10 bg-foreground">
           <div className="px-6 py-6 flex flex-col gap-5">
             {links.map((l) => (
-              <NavLink key={l.to} to={l.to} className="index-badge text-background">
+              <NavLink key={l.to} to={l.to} className="btn-label text-background">
                 {l.label}
               </NavLink>
             ))}

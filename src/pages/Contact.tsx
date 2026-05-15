@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, MessageCircle, Phone } from "lucide-react";
 import { z } from "zod";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
@@ -170,6 +170,36 @@ const Contact = () => {
               <a href="tel:+66923905464" className="mt-3 block font-display text-[20px] md:text-[24px] tracking-[-0.01em] hover:opacity-60 transition-opacity">
                 +66 92 390 5464
               </a>
+            </div>
+            <div>
+              <div className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground">CHAT — 1-TAP</div>
+              <div className="mt-3 flex flex-wrap gap-2">
+                <a
+                  href="https://line.me/ti/p/~orions"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 border border-foreground px-4 py-2.5 font-mono text-[10px] tracking-[0.22em] uppercase hover:bg-foreground hover:text-background transition-colors"
+                >
+                  <MessageCircle className="w-3.5 h-3.5" />
+                  <span>LINE</span>
+                </a>
+                <a
+                  href="https://wa.me/66923905464"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 border border-foreground px-4 py-2.5 font-mono text-[10px] tracking-[0.22em] uppercase hover:bg-foreground hover:text-background transition-colors"
+                >
+                  <MessageCircle className="w-3.5 h-3.5" />
+                  <span>WhatsApp</span>
+                </a>
+                <a
+                  href="tel:+66923905464"
+                  className="inline-flex items-center gap-2 border border-foreground px-4 py-2.5 font-mono text-[10px] tracking-[0.22em] uppercase hover:bg-foreground hover:text-background transition-colors"
+                >
+                  <Phone className="w-3.5 h-3.5" />
+                  <span>Call</span>
+                </a>
+              </div>
             </div>
             <div>
               <div className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground">STUDIO</div>

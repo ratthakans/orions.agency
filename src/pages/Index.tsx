@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
-import SimpleMarquee from "@/components/SimpleMarquee";
 import PageMark from "@/components/PageMark";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
@@ -164,17 +163,9 @@ const Index = () => (
 
       <div className="px-6 md:px-10 pb-8 md:pb-10 flex items-end justify-between border-t border-background/15 pt-6">
         <span className="font-mono text-[10px] tracking-[0.12em] uppercase text-background/70">01 / 07</span>
-        <a href="mailto:hello@orions.agency" className="font-serif italic text-[15px] md:text-[17px] text-background/80 hover:text-background transition-colors">hello@orions.agency</a>
+        <a href="mailto:hello@orions.agency" className="font-mono text-[10px] tracking-[0.18em] uppercase text-background/80 hover:text-background transition-colors">hello@orions.agency</a>
       </div>
     </section>
-
-    {/* marquee bridge */}
-    <div className="bg-foreground text-background border-t border-background/15 py-5">
-      <SimpleMarquee
-        duration={42}
-        items={["BRANDING", "CONTENT PRODUCTION", "SOCIAL MEDIA", "PAID ADVERTISING"]}
-      />
-    </div>
 
     {/* ========================================================== */}
     {/* 03 · WHAT YOU'RE UP AGAINST — stats                         */}

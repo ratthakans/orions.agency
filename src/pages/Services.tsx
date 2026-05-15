@@ -62,12 +62,12 @@ const Services = () => (
         <PageMark index="01" total="03" />
         <Reveal>
           <h1 className="font-serif text-[44px] md:text-[80px] lg:text-[104px] leading-[1.0] tracking-[-0.03em] max-w-[14ch]">
-            Built to <em className="text-orion italic">grow brands.</em>
+            A boutique creative <em className="text-orion italic">agency.</em>
           </h1>
         </Reveal>
         <Reveal delay={0.1}>
           <p className="mt-8 font-serif italic text-[18px] md:text-[22px] text-muted-foreground max-w-[640px] leading-[1.5]">
-            Brand · Content · Paid media — one in-house team, measured in ROAS, CAC, and retention.
+            Brand · Content · Paid media — one in-house team. Crafted to hit the brief, the numbers, and the eye.
           </p>
         </Reveal>
         <Reveal delay={0.15}>

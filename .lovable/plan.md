@@ -1,68 +1,106 @@
-## Goal
-Redesign **Services** ให้ขายของชัดขึ้น — เป็น **creative agency ที่ขับ growth ให้ลูกค้า** ไม่ใช่ studio โชว์ craft อย่างเดียว
+## เป้าหมาย
+ทำให้เว็บ ØRIONS รู้สึกเป็น **marketing agency** ที่เข้าถึงง่ายขึ้น (clear CTA, ชัดเจนว่าทำอะไร–ราคาเท่าไหร่–เริ่มยังไง) และตรวจให้ทุกหน้าพูดภาษาเดียวกัน ไม่ขัดกันเอง
 
-## Insight
-ตอนนี้หน้านี้เหมือน pricing page. ขาด 3 อย่างที่ทำให้ลูกค้ากดติดต่อ:
-1. **Outcome** — ทำแล้วได้อะไร (ยอดขาย/ engagement/ leads)
-2. **Proof** — ใครเชื่อเราแล้วได้ผล (logos + ตัวเลขจริง)
-3. **Clarity** — เลือก package ไหน ใน 5 วิ
+## ปัญหาที่เจอตอน audit
 
-## โครงใหม่ 6 sections
+**1. ความไม่สอดคล้องระหว่างหน้า (Index ↔ Services)**
+
+| เรื่อง | Index (หน้าแรก) | Services | ปัญหา |
+|---|---|---|---|
+| ชื่อบริการ | Branding · Content · Social media | Brand · Film · Social | ใช้คำคนละชุด |
+| Process | 4 ขั้น (Listen → Plan → Build → Run) | 6 ขั้น (Strategy → … → Optimize) | ตัวเลข/ชื่อขั้นไม่ตรง |
+| Timeline promise | "live in **4 weeks**" | "live in **4–6 weeks**" | ตัวเลขขัดกัน |
+| Positioning | "**boutique** creative agency" | "**Full-service** creative agency" | tone คนละทาง |
+| ตัวเลข proof | 71% / 20% / 8s (market stats) | +3.2× / 40+ / 4–6wk (our outcomes) | คนละชุด ไม่เสริมกัน |
+| Capability blocks | 3-col grid (compact) | Zigzag ใหญ่ + รูป grayscale | ซ้ำเนื้อหา 90% |
+
+**2. Access / UX ที่ทำให้ลูกค้าตัดสินใจช้า**
+- หน้าแรก**ไม่บอกราคา**เลย ต้องไปหน้า Services ถึงเห็น → เพิ่ม friction
+- Nav ไม่มีลิงก์ตรงไป `#packages` หรือ "Pricing"
+- CTA หลักทั้งเว็บใช้ "Work with us" / "Book a free audit" / "See packages" / "Book a call" — สี่แบบ ไม่ consistent
+- Sticky CTA / WhatsApp / LINE ไม่มี (ตลาดไทย agency ส่วนใหญ่มี)
+- Services hero ยาว ต้อง scroll 2 จอกว่าจะถึง pricing
+
+**3. Marketing-agency feel ที่ขาด**
+- ไม่มี "Get a free proposal/audit" form ลอยอยู่
+- ไม่มี response-time promise ("ตอบใน 24 ชม.")
+- ไม่มี trust signal บนหน้าแรกแบบเร็ว ๆ (logo bar เป็น text-only)
+- ไม่มี outcome/case-result แบบตัวเลขในหน้าแรก (Index มีแต่ market stats — เป็น "ปัญหา" ไม่ใช่ "ผลของเรา")
+
+---
+
+## แผนแก้ — 3 ส่วน
+
+### A · Unify ภาษา (1 source of truth)
 
 ```
-01  HERO          Promise + outcome ชัดบรรทัดเดียว
-02  OUTCOMES      3 ตัวเลขที่ลูกค้าได้ (proof bar)
-03  WHAT WE DO    3 services × outcome (Brand→trust, Film→reach, Social→sales)
-04  PROCESS       6 steps + timeline "live in 4–6 weeks"
-05  PACKAGES      3 tier — Pro เด่นกลาง + accordion details (เอา comparison ออก)
-06  FAQ + CTA     เดิม
+Service names  →  Branding · Content · Social
+Process        →  4 ขั้น (Listen · Plan · Build · Run) ทุกหน้า
+Timeline       →  "Live in 4 weeks" ทุกที่
+Positioning    →  "Boutique creative agency — Bangkok"
+Primary CTA    →  "Get a free proposal" (เปลี่ยน "Book a free audit" / "Work with us" ทั้งหมด)
+Secondary CTA  →  "See pricing →" (anchor /services#packages)
 ```
 
-## รายละเอียด
+แก้ไฟล์: `Nav.tsx`, `Index.tsx`, `Services.tsx`, `About.tsx`, `Work.tsx`, `Contact.tsx`, `ClosingCTA.tsx`
 
-### 01 · HERO
-- Eyebrow: `— SERVICES · 2026`
-- Headline serif (3 บรรทัด): `Creative that *sells.*` / `Content that *scales.*` / `Brands people *remember.*`
-- Sub 1 บรรทัด: "Full-service creative agency — strategy, film, social. ทีมเดียวจบ."
-- 2 CTA: `See packages →` (anchor 05) · `Book a free audit` (→ /contact)
+### B · Access — ทำให้ติดต่อง่ายขึ้น
 
-### 02 · OUTCOMES — proof bar (ใหม่)
-Strip เต็มความกว้าง bg cream, hairline บนล่าง, 3 คอลัมน์:
-- `+3.2×` — Average reach lift in 90 days
-- `40+` — Brands launched since 2019
-- `4–6 wk` — From kickoff to live
-ตัวเลข font-serif ใหญ่ orion · ใต้ตัวเลข caption mono
+1. **Nav** เพิ่มเมนู `Pricing` (ลิงก์ `/services#packages`) ระหว่าง Services กับ Work
+2. **Sticky bottom bar** (มือถือ) — `Get free proposal` + `LINE` 2 ปุ่ม fix bottom
+3. **Index — เพิ่ม "Pricing teaser" section** ก่อน CTA ปิด: 3 tier ราคาแบบย่อ (29k / 59k / 119k) + ปุ่ม "See full breakdown →"
+4. **Response promise** ใต้ทุก CTA หลัก: `"ตอบกลับใน 24 ชม. · ปรึกษาฟรี 30 นาที"`
+5. **Contact** เพิ่ม WhatsApp / LINE / โทร แบบ 1-tap (ไม่ใช่แค่ form)
 
-### 03 · WHAT WE DO — outcome-led
-Zigzag 3 บล็อก ภาพจริง + outcome นำหน้า deliverables:
-- **Brand** — img `work-atlas.jpg` · *"Identity ที่ลูกค้าจำได้ใน 3 วินาที."* · Naming · Logo · System · Guideline · Launch kit · _Selected: Hongmove · Atlas · Sera_
-- **Film & Photo** — img `concert-hero.jpg` · *"คอนเทนต์ที่ดูจบแล้วอยากแชร์."* · Director · DOP · Studio · Edit · Color · Sound · _Selected: RTAF · Heavy_
-- **Social & Paid** — img `work-koha.jpg` · *"โพสต์ที่ขายของได้จริง — วัดผลทุกบาท."* · Strategy · Calendar · Daily · Community · Meta + TikTok ads · _Selected: MyHotel · GCOO · Khaoyai_
+### C · Marketing-agency feel
 
-### 04 · PROCESS — schedule of work
-Headline: `From hello, *live in 4–6 weeks.*`
-6 rows hairline เต็มกว้าง: `01` mono · `Strategy.` serif italic · คำอธิบายไทยสั้น · `Week 1` mono ขวา
-(แทน grid 6 col ตัวเลขเปล่า)
+1. **Index hero** เพิ่ม sub-line ที่ตอบ "ทำอะไร · ให้ใคร · ผลคืออะไร"
+   ```
+   We help boutique brands grow on social.
+   Branding, content, paid ads — one team.
+   → ตัวอย่างผล: +62% bookings · sold out 11 วัน · −41% CPA
+   ```
+2. **Outcomes bar ย้ายมา Index** (section ใหม่ระหว่าง testimonials กับ work):
+   `+3.2×` reach lift · `40+` brands · `4 weeks` to live
+3. **Services hero ย่อ** — ลด headline 3 บรรทัดเหลือ 1–2 บรรทัด + แสดง "เริ่มต้น 29,000 บาท/เดือน" ใต้ headline ทันที
+4. **Packages section ขึ้นสูงขึ้น** ใน Services — ย้ายมาเป็น section 02 (หลัง hero) แทนที่จะอยู่ section 05 ลูกค้าเห็นราคาภายใน 1 scroll
+5. **เพิ่ม "What you get in week 1"** card ใน Services — concrete, ลดความกลัวว่าจ่ายแล้วไม่รู้ได้อะไร
+6. **Logo bar** ใน Index ใส่โลโก้จริง (เริ่มจาก hongmove ที่มีอยู่) แทน text-only
 
-### 05 · PACKAGES — "Pick yours in 30 seconds"
-- Helper บนสุด: `→ ไม่แน่ใจ? เริ่มที่ Pro. คุ้มที่สุดใน 3 เดือน.`
-- 3 tier เดิม (Starter / Pro / Elite) — ราคา/รายละเอียดเดิม
-- Pro การ์ดกลาง: ribbon `★ MOST POPULAR` orion + เน้นราคาใหญ่ขึ้น (font-serif text-orion ใหญ่กว่าเดิม)
-- แต่ละการ์ด: มี 1 บรรทัด **"Best for:"** ก่อน highlights (เช่น Starter = "ธุรกิจเริ่ม IG/TikTok", Pro = "แบรนด์โต wantvolume + ads", Elite = "Launch / rebrand เต็มรูปแบบ")
-- **เอา comparison table ออก** — ใช้ accordion details เดิมแทน
-- ใต้การ์ด: 1 บรรทัด `All packages include — Strategy · In-house production · Monthly report`
+---
 
-### 06 · FAQ + CTA
-- เพิ่ม 1 FAQ ใหม่บนสุด: *"ผลลัพธ์เห็นเมื่อไหร่?"* — "30 วันแรกเห็น traction · 90 วันเห็นยอด"
-- ClosingCTA เดิม
+## โครง Services ใหม่ (จาก 6 → 5 sections)
 
-### Marquee strip (ก่อน CTA)
-SimpleMarquee: `BRANDING ✦ FILM ✦ SOCIAL ✦ PAID ADS ✦ STRATEGY ✦ PHOTOGRAPHY` — สอดคล้อง Index
+```
+01  HERO         1-line promise + ราคาเริ่มต้น + 2 CTA
+02  PACKAGES     3 การ์ด (Pro กลาง) + accordion details   ← ย้ายขึ้น
+03  WHAT WE DO   3 services (ใช้ชื่อเดียวกับ Index)
+04  PROCESS      4 ขั้น (เหมือน Index, ขยายความ + week)   ← ลดจาก 6
+05  FAQ + CTA    คงเดิม
+```
+
+ตัด: outcomes bar (ย้ายไป Index), zigzag image blocks ใหญ่ (ใช้ 3-col แบบ Index แทน), marquee ก่อน CTA ซ้ำกับ Nav announcement
+
+## ไฟล์ที่จะแก้
+
+```
+src/components/Nav.tsx              + Pricing menu
+src/components/StickyMobileCTA.tsx  + (ใหม่) bottom bar
+src/components/ClosingCTA.tsx       unify CTA copy
+src/pages/Index.tsx                 + outcomes bar, pricing teaser, real logos
+src/pages/Services.tsx              ย้าย packages ขึ้น, ลด process เป็น 4, sync ชื่อ
+src/pages/About.tsx                 sync ชื่อ service / CTA copy
+src/pages/Work.tsx                  sync CTA copy
+src/pages/Contact.tsx               + LINE/WhatsApp 1-tap
+```
 
 ## Out of scope
-- ไม่แตะหน้าอื่น · ไม่เปลี่ยนราคา/รายการใน package · ไม่เพิ่ม assets ใหม่
+- ไม่เปลี่ยนราคา, ไม่เปลี่ยน design system (font/สี/spacing tokens), ไม่เพิ่ม assets ใหม่นอกจากใช้โลโก้/รูปที่มีอยู่
+- ไม่แตะ backend / form logic เดิม
 
-## Files
-- edit: `src/pages/Services.tsx` (full rewrite)
+---
 
-ตัวเลขใน OUTCOMES (3.2× / 40+ / 4–6wk) เป็น placeholder — ขอตัวเลขจริงจากคุณ หรือให้ใช้ที่เสนอไป?
+**ขอยืนยัน 3 ข้อก่อนลงมือ:**
+1. ใช้ **4-week timeline** (ตาม Index) หรือ **4–6 weeks** (ตาม Services) เป็นมาตรฐาน?
+2. ชื่อบริการใช้ **Branding / Content / Social** (Index) หรือ **Brand / Film / Social** (Services)?
+3. Primary CTA copy ใช้ `"Get a free proposal"` หรือคงไว้ที่ `"Book a free audit"`?

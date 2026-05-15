@@ -124,8 +124,8 @@ const Index = () => (
     {/* ========================================================== */}
     {/* 01 · COVER — black                                          */}
     {/* ========================================================== */}
-    <section className="relative min-h-screen flex flex-col bg-foreground text-background overflow-hidden">
-      <div className="px-6 md:px-10 pt-8 md:pt-10 flex items-center justify-between font-mono text-[10px] tracking-[0.12em] uppercase text-background/70">
+    <section className="relative min-h-screen flex flex-col bg-background text-foreground overflow-hidden">
+      <div className="px-6 md:px-10 pt-8 md:pt-10 flex items-center justify-between font-mono text-[10px] tracking-[0.12em] uppercase text-foreground/60">
         <span>EST. 2026</span>
         <span className="hidden sm:inline">CAPABILITIES — 2026</span>
       </div>
@@ -138,7 +138,7 @@ const Index = () => (
         </Reveal>
 
         <Reveal delay={0.35}>
-          <p className="mt-8 md:mt-10 font-serif italic text-[18px] md:text-[22px] text-background/70 max-w-[600px] mx-auto leading-[1.5]">
+          <p className="mt-8 md:mt-10 font-serif italic text-[18px] md:text-[22px] text-foreground/70 max-w-[600px] mx-auto leading-[1.5]">
             A boutique creative agency — work that hits the brief, the numbers, and the eye.
           </p>
         </Reveal>
@@ -147,14 +147,14 @@ const Index = () => (
           <div className="mt-12 md:mt-14 flex flex-wrap items-center justify-center gap-4">
             <Link
               to="/contact"
-              className="group inline-flex items-center gap-3 bg-background text-foreground px-7 py-4 btn-label border border-background hover:gap-4 transition-all duration-300"
+              className="group inline-flex items-center gap-3 bg-foreground text-background px-7 py-4 btn-label border border-foreground hover:opacity-90 hover:gap-4 transition-all duration-300"
             >
               <span>Get a free growth audit</span>
               <ArrowUpRight className="w-4 h-4" />
             </Link>
             <Link
               to="/work"
-              className="group inline-flex items-center gap-2 btn-label text-background/80 border-b border-background/40 pb-1 hover:text-background hover:border-background transition-colors"
+              className="group inline-flex items-center gap-2 btn-label text-foreground/70 border-b border-foreground/30 pb-1 hover:text-foreground hover:border-foreground transition-colors"
             >
               See results →
             </Link>
@@ -162,9 +162,9 @@ const Index = () => (
         </Reveal>
       </div>
 
-      <div className="px-6 md:px-10 pb-8 md:pb-10 flex items-end justify-between border-t border-background/15 pt-6">
-        <span className="font-mono text-[10px] tracking-[0.12em] uppercase text-background/70">01 / 07</span>
-        <a href="mailto:hello@orions.agency" className="font-mono text-[10px] tracking-[0.18em] uppercase text-background/80 hover:text-background transition-colors">hello@orions.agency</a>
+      <div className="px-6 md:px-10 pb-8 md:pb-10 flex items-end justify-between border-t border-foreground/12 pt-6">
+        <span className="font-mono text-[10px] tracking-[0.12em] uppercase text-foreground/60">01 / 07</span>
+        <a href="mailto:hello@orions.agency" className="font-mono text-[10px] tracking-[0.18em] uppercase text-foreground/70 hover:text-foreground transition-colors">hello@orions.agency</a>
       </div>
     </section>
 
@@ -190,7 +190,7 @@ const Index = () => (
                 <div className="mt-6 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
                   {s.label}
                 </div>
-                <p className="mt-3 font-thai text-[14px] md:text-[15px] leading-[1.65] text-foreground/80 max-w-[28ch]">
+                <p className="mt-3 font-thai text-[14px] md:text-[15px] leading-[1.65] text-background/80 max-w-[28ch]">
                   {s.th}
                 </p>
               </div>
@@ -405,10 +405,10 @@ const Index = () => (
     {/* ========================================================== */}
     {/* 10 · WHY US + CTA                                           */}
     {/* ========================================================== */}
-    <section className="px-6 md:px-10 border-t border-foreground bg-foreground text-background">
+    <section className="px-6 md:px-10 border-t border-foreground/12 bg-background text-foreground">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <div className="flex items-center justify-between font-mono text-[10px] tracking-[0.18em] uppercase text-background/55 mb-12 md:mb-16">
-          <span className="flex items-center gap-3">ORIONS <span className="text-orion">✦</span></span>
+        <div className="flex items-center justify-between font-mono text-[10px] tracking-[0.18em] uppercase text-foreground/55 mb-12 md:mb-16">
+          <span className="flex items-center gap-3">ORIONS <span className="text-foreground">✦</span></span>
           <span>09 / 09</span>
         </div>
 
@@ -421,12 +421,12 @@ const Index = () => (
         <div className="mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 md:gap-y-14">
           {whyUs.map((w, i) => (
             <Reveal key={w.n} delay={i * 0.06}>
-              <div className="border-t border-background/25 pt-6">
-                <div className="font-mono text-[10px] tracking-[0.18em] text-background/55">— {w.n}</div>
+              <div className="border-t border-foreground/15 pt-6">
+                <div className="font-mono text-[10px] tracking-[0.18em] text-foreground/55">— {w.n}</div>
                 <h3 className="mt-4 font-serif italic text-[28px] md:text-[36px] leading-[1.1] tracking-[-0.02em]">
                   {w.en}
                 </h3>
-                <p className="mt-3 font-thai text-[14px] md:text-[15px] leading-[1.65] text-background/70">
+                <p className="mt-3 font-thai text-[14px] md:text-[15px] leading-[1.65] text-foreground/70">
                   {w.th}
                 </p>
               </div>
@@ -435,9 +435,9 @@ const Index = () => (
         </div>
 
         {/* CTA inside dark */}
-        <div className="mt-24 md:mt-32 border-t border-background/25 pt-16 md:pt-24 text-center">
+        <div className="mt-24 md:mt-32 border-t border-foreground/15 pt-16 md:pt-24 text-center">
           <Reveal>
-            <p className="font-mono text-[10px] tracking-[0.4em] uppercase text-orion mb-8">
+            <p className="font-mono text-[10px] tracking-[0.4em] uppercase text-foreground/60 mb-8">
               ✦ NOW BOOKING — 2026
             </p>
           </Reveal>
@@ -447,14 +447,14 @@ const Index = () => (
             </h2>
           </Reveal>
           <Reveal delay={0.2}>
-            <p className="mt-8 font-serif italic text-[18px] md:text-[22px] text-background/75 max-w-[640px] mx-auto leading-[1.5]">
+            <p className="mt-8 font-serif italic text-[18px] md:text-[22px] text-foreground/75 max-w-[640px] mx-auto leading-[1.5]">
               30-min discovery call. Free. We reply within 24 hours.
             </p>
           </Reveal>
           <Reveal delay={0.3}>
             <Link
               to="/contact"
-              className="mt-10 group inline-flex items-center gap-3 bg-background text-foreground px-7 py-4 btn-label border border-background hover:gap-4 transition-all duration-300"
+              className="mt-10 group inline-flex items-center gap-3 bg-foreground text-background px-7 py-4 btn-label border border-foreground hover:gap-4 transition-all duration-300"
             >
               <span>Start a project</span>
               <ArrowUpRight className="w-4 h-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />

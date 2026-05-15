@@ -20,7 +20,7 @@ const CTA = ({ to, href, variant = "primary", children, className = "", external
     variant === "primary"
       ? "group relative inline-flex items-center gap-3 bg-foreground text-background px-7 py-4 btn-label overflow-hidden border border-foreground transition-colors duration-500 hover:text-foreground"
       : variant === "invert"
-      ? "group relative inline-flex items-center gap-3 bg-background text-foreground px-7 py-4 btn-label overflow-hidden border border-background transition-colors duration-500 hover:text-background"
+      ? "group relative inline-flex items-center gap-3 bg-foreground text-background px-7 py-4 btn-label overflow-hidden border border-foreground transition-colors duration-500 hover:text-foreground"
       : "group inline-flex items-center gap-2 btn-label text-foreground border-b border-foreground pb-1 hover:opacity-70 transition-opacity";
 
   const cls = `${base} ${className}`;
@@ -30,7 +30,7 @@ const CTA = ({ to, href, variant = "primary", children, className = "", external
     variant === "primary"
       ? "absolute inset-0 bg-background -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
       : variant === "invert"
-      ? "absolute inset-0 bg-foreground -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
+      ? "absolute inset-0 bg-background -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
       : "";
 
   const inner = (

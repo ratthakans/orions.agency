@@ -49,8 +49,8 @@ const Contact = () => {
     setForm({ name: "", company: "", email: "", brief: "" });
   };
 
-  const inputCls = "w-full bg-transparent border-b border-foreground/40 px-0 py-3 text-[15px] text-foreground placeholder:text-foreground/45 focus:outline-none focus:border-foreground transition-colors font-thai";
-  const labelCls = "font-mono text-[10px] tracking-[0.14em] uppercase text-foreground/70";
+  const inputCls = "w-full bg-transparent border-b border-background/40 px-0 py-3 text-[15px] text-foreground placeholder:text-foreground/45 focus:outline-none focus:border-foreground transition-colors font-thai";
+  const labelCls = "font-mono text-[10px] tracking-[0.14em] uppercase text-background/70";
 
   return (
     <div>
@@ -161,7 +161,7 @@ const Contact = () => {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="md:col-span-2 mt-4 inline-flex items-center justify-center gap-3 bg-foreground text-background px-7 py-4 btn-label hover:bg-orion transition-colors disabled:opacity-50"
+                    className="md:col-span-2 mt-4 inline-flex items-center justify-center gap-3 bg-foreground text-background px-7 py-4 btn-label hover:bg-foreground hover:text-background transition-colors disabled:opacity-50"
                   >
                     <span>{submitting ? "Sending…" : "Send inquiry"}</span>
                     <ArrowUpRight className="w-4 h-4" />
@@ -203,7 +203,7 @@ const Contact = () => {
 
                 <div className="mt-8 pt-6 border-t border-dashed border-foreground/25">
                   <div className="font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">Studio</div>
-                  <p className="mt-3 font-thai text-[14px] leading-[1.7] text-foreground/80">
+                  <p className="mt-3 font-thai text-[14px] leading-[1.7] text-background/80">
                     246/8 Soi Yothinphatthana 3<br />
                     Khlong Chan, Bang Kapi<br />
                     Bangkok 10240, Thailand

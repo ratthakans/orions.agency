@@ -30,10 +30,10 @@ const HeroVideoGrid = () => {
     <div
       ref={ref}
       aria-hidden
-      className="absolute inset-0 grid grid-cols-2 md:grid-cols-4 gap-1 md:gap-2 bg-foreground"
+      className="absolute inset-0 grid grid-cols-2 md:grid-cols-4 gap-1 md:gap-2 bg-background"
     >
       {videos.map((v, i) => (
-        <div key={v.id + i} className="relative overflow-hidden bg-foreground">
+        <div key={v.id + i} className="relative overflow-hidden bg-background">
           {load && (
             <iframe
               title={`bg-${i}`}
@@ -46,7 +46,7 @@ const HeroVideoGrid = () => {
             />
           )}
           {/* dim overlay to keep typography readable */}
-          <div className="absolute inset-0 bg-foreground/30" />
+          <div className="absolute inset-0 bg-background/30" />
         </div>
       ))}
     </div>

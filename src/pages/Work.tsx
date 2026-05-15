@@ -126,7 +126,7 @@ const Work = () => (
                 <p className="mt-2 font-mono text-[10px] tracking-[0.12em] uppercase text-muted-foreground">
                   — {w.scope}
                 </p>
-                <p className="mt-3 font-thai text-[14px] leading-[1.65] text-foreground/70">
+                <p className="mt-3 font-thai text-[14px] leading-[1.65] text-background/70">
                   {w.body}
                 </p>
               </Link>

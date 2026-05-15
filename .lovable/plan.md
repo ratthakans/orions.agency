@@ -1,104 +1,73 @@
-## เป้าหมาย
-Re-align เว็บกับ **ØRIONS Master Deck V6.6** — เลิกทดลอง Gemini/Plus Jakarta แล้วกลับสู่ identity ของแบรนด์จริง: **Dark editorial · Unbounded + IBM Plex · ไม่มี gradient สี** ให้เว็บรู้สึกเป็นตัวเองและพรีเมียมเหมือน pitch deck
-
-หลักการจาก deck:
-- Dark canvas (ดำสนิท) + paper-grain texture บางๆ
-- Type duo: **Unbounded** (display, ตัวหนา compressed) + **IBM Plex Sans / Plex Sans Thai** (body)
-- Mono labels ใช้ IBM Plex Mono (eyebrow, meta)
-- **ไม่มีสี accent** — ใช้ขาว/ดำ/เทาเท่านั้น เน้นข้อความด้วย **bold weight** และ **italic** แทนการใช้สี
-- Hairlines, zero radius, generous whitespace, ภาพ 1:1 / 16:9 ขอบคม
+## ปัญหาตอนนี้
+- หัวข้อใช้ Unbounded **800 (Black) + tracking ติดลบเยอะ** → อ่านยาก ตัวอักษรชนกัน โดยเฉพาะภาษาไทยที่ผสมกับอังกฤษ
+- ใช้ **italic** ทุกที่เพื่อเน้นคำ (`text-gemini italic`, `font-serif`, `italic font-semibold`) → ดูรก ไม่เป็น identity
+- ทุก section พื้นหลังเดียวกัน (`#0A0A0A`) → ไม่มีจังหวะ แยกไม่ออกว่าเปลี่ยน section
+- Paper grain opacity 5% screen blend → แทบมองไม่เห็นบนดำ ไม่รู้สึกว่าเป็นกระดาษ
 
 ---
 
-## ระบบใหม่
+## สิ่งที่จะแก้
 
-### Palette (เลิก Gemini ทั้งหมด)
-| Token | ใหม่ |
-|---|---|
-| `--background` | `#0A0A0A` (ดำสนิท ตามดีค) |
-| `--foreground` | `#FAFAFA` |
-| `--surface` | `#141414` |
-| `--muted-foreground` | `#A3A3A3` |
-| `--border` | `#FFFFFF` 12% (hairline บนดำ) |
-| `--border-soft` | `#FFFFFF` 6% |
-| **Accent** | **ไม่มี** — ใช้ `bold` weight + `italic` แทน |
+### 1) Typography — Unbounded Normal + UPPERCASE
+ใน `src/index.css`:
+- `h1, h2, h3...` → `font-weight: 400` (เปลี่ยนจาก 800), `text-transform: uppercase`, `letter-spacing: 0.02em` (จากลบเป็นบวก เพื่อให้ตัวอักษรหายใจ)
+- `.font-display` → `font-weight: 400`, `uppercase`, `letter-spacing: 0.01em`
+- `.font-brand` (wordmark ØRIONS) → คงน้ำหนักหนักไว้ที่ 700 เพราะเป็น logo
+- Type scale `.h-display-*` → `line-height` เพิ่มเป็น `0.95–1.1` (จาก 0.85) เพื่อให้อ่านง่าย
+- Body Thai (`.font-thai`) → คงเดิม IBM Plex Sans Thai 400 (อ่านง่ายแล้ว)
 
-ลบทุก: `--gemini-*`, `--accent-from/mid/to`, `--orion-orange`, `.text-gemini`, `.bg-orion`, gradient utilities
+### 2) ลบ Italic ทั้งหมด
+Find/replace ทุกหน้า + components:
+- `italic font-semibold` → `font-semibold` (เน้นด้วย bold weight อย่างเดียว)
+- `text-gemini italic` → `font-semibold`
+- `font-serif` → ลบ class
+- `.font-serif` ใน CSS → เปลี่ยนเป็น non-italic medium weight
+- `.text-gemini` → ลบ italic
 
-### Fonts (กลับเข้า deck spec)
-| Use | ใหม่ |
-|---|---|
-| Display H1/H2 | **Unbounded** 700/800 — `letter-spacing: -0.04em` |
-| Body Eng | **IBM Plex Sans** 400/500/600 |
-| Body Thai | **IBM Plex Sans Thai** 400/500/700 |
-| Mono labels | **IBM Plex Mono** 400/500 (เปลี่ยนจาก JetBrains Mono) |
-| Italic accent | IBM Plex Sans **italic 600** (ไม่ใช่ gradient text) |
+ไฟล์ที่กระทบ: `Index.tsx`, `Services.tsx`, `About.tsx`, `Work.tsx`, `Pricing.tsx`, `Contact.tsx`, `ClosingCTA.tsx`, `index.css`
 
-ลบ: Plus Jakarta Sans, JetBrains Mono, Instrument Serif
+### 3) สลับ Section พื้นหลัง — ให้มีจังหวะ
+สร้าง pattern แบ่ง section ชัดเจนใน `Index.tsx` (และหน้าอื่นที่ยาว):
+```
+Hero        → bg-background     (#0A0A0A ดำ)
+Services    → bg-surface        (#141414 เทาเข้ม)
+Work        → bg-background     (#0A0A0A)
+Stats       → bg-surface-2      (#1C1C1C อ่อนกว่า)
+Process     → bg-background
+ClosingCTA  → bg-foreground text-background  (กลับขั้ว ขาว)
+```
+แต่ละ section คั่นด้วย hairline `white/12%` + `SectionHeader` index number
 
-### Shape & motion
-- Zero radius **คงเดิม**
-- Hairlines ทุกตัวเปลี่ยนเป็น `white/12%` แทนดำ
-- Paper-grain noise overlay 3% (มีอยู่แล้ว แค่ปรับ blend → `screen` บนดำ)
-- ไม่มี shadow / glow / gradient bg / pill button
+### 4) Paper Grain — ให้รู้สึกชัดขึ้น
+ใน `.grain::before`:
+- Opacity `0.05 → 0.12`
+- Blend mode `screen → overlay` (จะเห็น texture ชัดขึ้นบนพื้นดำ)
+- Background-size `180px → 140px` (ลายละเอียดขึ้น)
+- ใช้ noise SVG ที่ละเอียดกว่า (เพิ่ม fractal noise inline SVG แทน base64 PNG เดิม)
+- เพิ่ม `.grain-strong` utility สำหรับ section ที่อยากเน้น texture (opacity 0.18)
 
----
+### 5) Section Header ปรับเล็กน้อย
+- Index number (`01`, `02`...) ใช้ Unbounded 400 uppercase ให้สอดคล้อง
+- เพิ่มระยะห่าง padding-top ของแต่ละ section เป็น `py-24 md:py-32` (จาก py-20) เพื่อให้หายใจ
 
-## ไฟล์ที่แก้
-
-### 1) `index.html`
-- Font link → `Unbounded:wght@600;700;800;900&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,500;1,600&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap`
-- ลบ `Plus Jakarta Sans`, `JetBrains Mono`
-
-### 2) `src/index.css`
-- เปลี่ยน `:root` → dark tokens (default dark, ลบ light variant)
-- `body { background: #0A0A0A; color: #FAFAFA; font-family: 'IBM Plex Sans', 'IBM Plex Sans Thai' }`
-- `h1,h2 { font-family: 'Unbounded'; font-weight: 800 }`
-- `.font-display` → Unbounded 800
-- `.font-mono` → IBM Plex Mono
-- `.font-thai` → IBM Plex Sans Thai
-- `.font-serif` → ลบ (deck ไม่มี serif)
-- `.text-orion` / `.bg-orion` / `.text-gemini` / `.bg-gemini` / `.text-gradient` / `.bg-gradient-accent` → **ลบทั้งหมด**
-- `.label-mono` / `.index-badge` → IBM Plex Mono uppercase tracking 0.08em
-- Paper grain `mix-blend-mode: screen` opacity 4%
-- Selection สีกลับด้าน
-
-### 3) `tailwind.config.ts`
-- ลบ `colors.orion`, `colors.gemini`
-- Default dark theme (ไม่ต้องมี light)
-- Border default → `hsl(0 0% 100% / 0.12)`
-
-### 4) Component sweep (find/replace)
-- `text-gemini italic` → `italic font-semibold` (ทุกหน้า — Index, Services, About, Work, Pricing, Contact, ClosingCTA)
-- `text-orion` → ลบ (เป็น white โดย default)
-- `bg-orion` → `bg-foreground` (status bar เป็นขาวบนดำ หรือแถบดำ + text ขาว)
-- `font-serif` → ลบ class นี้ออกทุกที่ (เพราะลบจาก CSS แล้ว — H1/H2 จะใช้ Unbounded อัตโนมัติ)
-
-### 5) สไตล์ตาม deck (เพิ่ม polish)
-- **ØRIONS wordmark** ทุกที่ → ใช้ Unbounded 800 ตัวใหญ่ เช่นใน hero และ footer (เหมือนหน้าแรก deck)
-- **Italic emphasis pattern** ใน body text: คำสำคัญใช้ `italic font-semibold` (เลียนแบบ deck "**Creative Agency**", "**social vicious cycle**", "**ทุกอย่างก็จบ**")
-- **Stat block** style จาก deck p.8: ตัวเลข Unbounded 800 ใหญ่ + label IBM Plex Mono เล็ก uppercase — apply กับ stats sections
-- **Eyebrow + arrow** pattern (`IMPACT SNAPSHOT ↗`) — ใช้กับ section header ทุกที่
-
-### 6) Memory
-- `mem://index.md` Core: rewrite → Dark editorial, Unbounded + IBM Plex Sans/Thai/Mono, no accent color, italic+bold for emphasis
-- `mem://style/aesthetic` + `mem://style/typography`: rewrite ตาม deck V6.6
-- ลบ refs ทั้งหมดเรื่อง Gemini, Plus Jakarta, vermilion, Sunset Ink, cream paper
+### 6) Memory update
+- `mem://style/typography` → Unbounded **400 UPPERCASE**, ไม่มี italic, tracking +0.01em
+- `mem://style/aesthetic` → ระบุ section alternation pattern (background ↔ surface ↔ surface-2)
+- Core: ลบ italic emphasis rule, เพิ่ม uppercase rule
 
 ---
 
-## สิ่งที่ **ไม่** เปลี่ยน
-- Layout/grid, hairline structure, zero-radius
-- Type scale utilities (`.h-display-xl/lg/md/sm/xs`)
-- Components, routing, copy, backend
-- Reveal animations, page transitions
+## สิ่งที่ไม่เปลี่ยน
+- Layout grid, hairlines, zero radius, color palette (ดำ/ขาว/เทา)
+- Components, routing, copy, backend, animations
+- Font family (Unbounded + IBM Plex Sans/Thai/Mono)
 
 ---
 
 ## ผลลัพธ์
-- เว็บ = ส่วนต่อขยายของ deck (Brand consistency 100%)
-- ตัด noise สี ออกจน identity เด่น = **typographic confidence**
-- Unbounded หนาๆ + Plex italic = signature ที่ไม่เหมือนใคร
-- ทุกอย่าง breathe + minimal เหมือนเดิม แต่ feels more *ØRIONS*
+- หัวข้อ Unbounded Normal UPPERCASE + tracking โปร่ง = อ่านง่าย ดูเป็นแบรนด์ editorial / fashion house
+- ไม่มี italic = สะอาด เด็ดขาด
+- Section สลับสี + grain ชัด = มีจังหวะ ไม่งง รู้ว่าจบ section ไหน
+- Paper texture เห็นได้ = รู้สึกเป็นสิ่งพิมพ์จริง ไม่ใช่ flat dark
 
-ลุยได้เลยถ้า OK
+OK ลุยได้

@@ -110,6 +110,18 @@ const whyUs = [
   { n: "04", en: "Built for boutique.",     th: "ทำเพื่อแบรนด์ที่แคร์เรื่องคุณภาพ" },
 ];
 
+const outcomes = [
+  { num: "+3.2×", label: "Reach lift",      sub: "in first 90 days" },
+  { num: "40+",   label: "Brands launched", sub: "since 2019" },
+  { num: "4 wk",  label: "From hello to live", sub: "average kickoff" },
+];
+
+const pricingTiers = [
+  { name: "Starter", price: "29,000",  best: "เริ่มต้นบน IG / TikTok" },
+  { name: "Pro",     price: "59,000",  best: "โต volume + ads", popular: true },
+  { name: "Elite",   price: "119,000", best: "Launch / rebrand เต็มรูปแบบ" },
+];
+
 /* ------------------------------------------------------------------ */
 /* COMPONENT                                                           */
 /* ------------------------------------------------------------------ */

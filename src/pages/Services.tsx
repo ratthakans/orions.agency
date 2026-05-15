@@ -9,42 +9,42 @@ const SITE_URL = "https://orions.agency";
 const capabilities = [
   {
     tag: "— 01 / BRANDING",
-    title: "Branding.",
-    line: "Identity ที่ลูกค้าจำได้ใน 3 วินาที.",
-    desc: "Naming, logo, system, guideline, launch kit — สร้างแบรนด์ที่ขายได้ตั้งแต่ครั้งแรกที่เห็น.",
-    items: ["Naming & Strategy", "Logo & Identity", "Visual System", "Brand Guideline", "Launch Kit"],
+    title: "Brand.",
+    line: "แบรนด์ที่ลูกค้าเลือกซื้อ ไม่ใช่แค่จำได้.",
+    desc: "Positioning, naming, identity, messaging, launch kit — วางแบรนด์ที่ขายของได้ตั้งแต่วันแรก ไม่ใช่แค่ดูดี.",
+    items: ["Positioning + Audience", "Naming & Identity", "Visual System", "Messaging + Tone", "Launch Kit"],
     selected: "Selected · Hongmove · Atlas · Sera",
   },
   {
     tag: "— 02 / CONTENT",
     title: "Content.",
-    line: "คอนเทนต์ที่ดูจบแล้วอยากแชร์.",
-    desc: "Director, DOP, studio, edit, color, sound — งานโปรดักชันครบจบในทีมเดียว.",
-    items: ["Photo + Video Shoots", "Reels + Short-form", "Edit · Color · Sound", "Graphic + Motion", "Asset Libraries"],
+    line: "คอนเทนต์ที่ดันยอด ไม่ใช่แค่ยอดวิว.",
+    desc: "Director, DOP, studio, edit, color, sound — โปรดักชันครบทีมเดียว ออกแบบเพื่อ CTR · watch-time · conversion.",
+    items: ["Performance Creative", "Photo + Video Shoots", "Reels + Short-form", "Edit · Color · Sound", "Graphic + Motion"],
     selected: "Selected · RTAF · Heavy",
   },
   {
-    tag: "— 03 / SOCIAL",
-    title: "Social.",
-    line: "โพสต์ที่ขายของได้จริง — วัดผลทุกบาท.",
-    desc: "Strategy, calendar, daily content, community, Meta + TikTok ads — โตด้วยตัวเลข ไม่ใช่ความรู้สึก.",
-    items: ["Strategy + Calendar", "Daily Posting", "Community Mgmt", "Meta + TikTok Ads", "Monthly Report"],
+    tag: "— 03 / PAID MEDIA",
+    title: "Ads.",
+    line: "ยิงแอดที่ลด CAC จริง — รายงานทุกบาท.",
+    desc: "Strategy, funnel, daily content, community, Meta · TikTok · Google ads — โตด้วยตัวเลข ไม่ใช่ความรู้สึก.",
+    items: ["Funnel + KPI Strategy", "Meta + TikTok + Google", "Daily Posting + Community", "Creative Optimisation", "Monthly ROAS Report"],
     selected: "Selected · MyHotel · GCOO · Khaoyai",
   },
 ];
 
 const process4 = [
-  { n: "01", t: "Listen", d: "คุย 30 นาที เช็กว่าเหมาะกันมั้ย ฟรี — เข้าใจธุรกิจ ตลาด คู่แข่ง.", w: "Week 1" },
-  { n: "02", t: "Plan",   d: "เสนอแผนสั้นๆ ตัวเลขจริง ไม่ขายฝัน — strategy, calendar, KPI.",   w: "Week 1–2" },
-  { n: "03", t: "Build",  d: "ถ่าย ตัด สี เสียง — สร้างแบรนด์ คอนเทนต์ และแอด ด้วยทีม in-house.", w: "Week 2–4" },
-  { n: "04", t: "Run",    d: "รันงาน รายงานทุกเดือน วัดผลจริง — ปรับคอนเทนต์ ปรับแอดต่อเนื่อง.", w: "Ongoing" },
+  { n: "01", t: "Diagnose", d: "Free 30-min growth audit — เข้าใจธุรกิจ ตลาด คู่แข่ง และตัวเลขปัจจุบัน.", w: "Week 1" },
+  { n: "02", t: "Plan",     d: "Strategy + funnel + KPI ที่จับต้องได้ ไม่ขายฝัน — มีตัวเลขเป้าหมายจริง.", w: "Week 1–2" },
+  { n: "03", t: "Build",    d: "ถ่าย ตัด สี เสียง — สร้างแบรนด์ คอนเทนต์ และ ad creatives ด้วยทีม in-house.", w: "Week 2–4" },
+  { n: "04", t: "Scale",    d: "รันแอด ปรับ creative รายงาน ROAS · CAC · retention ทุกเดือน วัดผลจริง.", w: "Ongoing" },
 ];
 
 const Services = () => (
   <div>
     <SEO
       title="Services — ØRIONS"
-      description="Branding, content, and social — one in-house team. Live in 4 weeks. Bangkok creative agency."
+      description="Brand, content, and paid media — one in-house team. Engineered for growth. Bangkok creative agency."
       path="/services"
       schema={{
         "@context": "https://schema.org",
@@ -62,18 +62,18 @@ const Services = () => (
         <PageMark index="01" total="03" />
         <Reveal>
           <h1 className="font-serif text-[44px] md:text-[80px] lg:text-[104px] leading-[1.0] tracking-[-0.03em] max-w-[14ch]">
-            Three things. <em className="text-orion italic">Done right.</em>
+            Built to <em className="text-orion italic">grow brands.</em>
           </h1>
         </Reveal>
         <Reveal delay={0.1}>
           <p className="mt-8 font-serif italic text-[18px] md:text-[22px] text-muted-foreground max-w-[640px] leading-[1.5]">
-            Branding · Content · Social — one in-house team, one team to talk to. Live in 4 weeks.
+            Brand · Content · Paid media — one in-house team, measured in ROAS, CAC, and retention.
           </p>
         </Reveal>
         <Reveal delay={0.15}>
           <div className="mt-10 flex flex-wrap gap-4 items-center">
             <Link to="/contact" className="group inline-flex items-center gap-3 bg-foreground text-background px-7 py-4 btn-label hover:bg-orion transition-colors">
-              <span>Get a free proposal</span>
+              <span>Get a free growth audit</span>
               <ArrowUpRight className="w-4 h-4" />
             </Link>
             <Link to="/pricing" className="group inline-flex items-center gap-2 btn-label text-foreground border-b border-foreground pb-1 hover:opacity-70 transition-opacity">
@@ -90,7 +90,7 @@ const Services = () => (
         <PageMark index="02" total="03" />
         <Reveal>
           <h2 className="font-serif text-[40px] md:text-[72px] lg:text-[96px] leading-[1.0] tracking-[-0.03em] max-w-[14ch]">
-            What we <em className="text-orion italic">do.</em>
+            What we <em className="text-orion italic">grow.</em>
           </h2>
         </Reveal>
 

@@ -17,48 +17,48 @@ import hongmoveLogo from "@/assets/logos/hongmove.png";
 /* ------------------------------------------------------------------ */
 
 const stats = [
-  { n: "71%", label: "OF SOCIAL IMAGES",   th: "เป็นภาพ AI — ต้องใช้คอนเทนต์จริงเพื่อโดดเด่น" },
-  { n: "20%", label: "META CPM RISE, YoY", th: "แอดแพงขึ้น — ต้องใช้ creative ที่แปลงยอด" },
-  { n: "8s",  label: "ATTENTION SPAN",     th: "แค่แปดวินาที — ต้องฮุกให้ติดตั้งแต่ภาพแรก" },
+  { n: "71%", label: "OF SOCIAL IMAGES ARE AI",   th: "ฟีดเต็มไปด้วยภาพ AI — แบรนด์โตได้ด้วย creative จริงที่แปลงยอด" },
+  { n: "20%", label: "META CPM RISE, YoY",        th: "แอดแพงขึ้นทุกปี — ต้องใช้ creative ที่ลด CAC ไม่ใช่เผาเงิน" },
+  { n: "8s",  label: "TO WIN OR LOSE A CUSTOMER", th: "แค่แปดวินาที — hook ที่ขายได้ ต้องวางตั้งแต่กลยุทธ์ ไม่ใช่ตอนตัดต่อ" },
 ];
 
 const services = [
   {
     n: "01",
-    en: "Branding",
-    tagline: "Identity that works across every touchpoint.",
-    th: "วางตัวตนแบรนด์ให้คมและจำง่ายในทุก touchpoint",
-    items: ["Naming · Logo · Marks", "Visual identity system", "Brand guidelines + book", "Launch toolkit"],
+    en: "Brand that converts",
+    tagline: "Positioning, identity, and messaging built to sell — not just to look good.",
+    th: "แบรนด์ที่ลูกค้าเลือกซื้อ ไม่ใช่แค่จำได้ — วาง positioning, identity, และ messaging ที่ขายของ",
+    items: ["Positioning + audience", "Naming · Logo · System", "Messaging + tone", "Launch toolkit"],
   },
   {
     n: "02",
-    en: "Content",
-    tagline: "Photo, video, and design that earn the scroll.",
-    th: "ถ่ายทำ ตัดต่อ ออกแบบ ครบจบในทีมเดียว",
-    items: ["Photo + video shoots", "Reels + short-form video", "Graphic + motion design", "Asset libraries"],
+    en: "Content that performs",
+    tagline: "Photo, video, and design — engineered for CTR, watch-time, and conversion.",
+    th: "คอนเทนต์ที่ดันยอด ไม่ใช่แค่ยอดวิว — ออกแบบเพื่อ CTR, watch-time, และ conversion",
+    items: ["Performance creative", "Reels + short-form", "Photo + video shoots", "Graphic + motion"],
   },
   {
     n: "03",
-    en: "Social media",
-    tagline: "Strategy, posting, community, and paid ads.",
-    th: "วางแผน โพสต์ ดูแลคอมมูฯ และยิงแอด",
-    items: ["Strategy + content calendar", "Daily posting + scheduling", "Community management", "Paid ads (Meta, TikTok)"],
+    en: "Ads that scale",
+    tagline: "Meta, TikTok, and Google paid media — measured weekly, optimised monthly.",
+    th: "ยิงแอด Meta · TikTok · Google — รายงาน ROAS, CAC, retention ทุกเดือน วัดผลจริง",
+    items: ["Funnel + KPI strategy", "Meta + TikTok + Google ads", "Community + organic", "Monthly KPI report"],
   },
 ];
 
 const process = [
-  { n: "01", en: "Listen", th: "คุย 30 นาที เช็กว่าเหมาะกันมั้ย ฟรี" },
-  { n: "02", en: "Plan",   th: "เสนอแผนสั้นๆ ตัวเลขจริง ไม่ขายฝัน" },
-  { n: "03", en: "Build",  th: "สร้างแบรนด์ คอนเทนต์ และแอด" },
-  { n: "04", en: "Run",    th: "รันงาน รายงานทุกเดือน วัดผลจริง" },
+  { n: "01", en: "Diagnose", th: "Free 30-min growth audit — เข้าใจธุรกิจ ตลาด คู่แข่ง และตัวเลขปัจจุบัน" },
+  { n: "02", en: "Plan",     th: "Strategy + funnel + KPI ที่จับต้องได้ ไม่ขายฝัน — มีตัวเลขเป้าหมายจริง" },
+  { n: "03", en: "Build",    th: "สร้างแบรนด์ คอนเทนต์ และ ad creatives ด้วยทีม in-house" },
+  { n: "04", en: "Scale",    th: "รันแอด ปรับ creative รายงาน ROAS · CAC · retention ทุกเดือน" },
 ];
 
 const projects = [
-  { n: "01", title: "Hongmove",             niche: "PROPTECH",   img: workHongmove },
-  { n: "02", title: "Democrat Party",       niche: "POLITICS",   img: workDemocrat },
-  { n: "03", title: "Royal Thai Air Force", niche: "GOVERNMENT", img: workRtaf },
-  { n: "04", title: "GCOO",                 niche: "MOBILITY",   img: workGcoo },
-  { n: "05", title: "Heavy Organizer",      niche: "EVENTS",     img: workHeavy },
+  { n: "01", title: "Hongmove",             niche: "PROPTECH",   img: workHongmove, metric: "+180% LEADS / 90D" },
+  { n: "02", title: "Democrat Party",       niche: "POLITICS",   img: workDemocrat, metric: "12.4M REACH" },
+  { n: "03", title: "Royal Thai Air Force", niche: "GOVERNMENT", img: workRtaf,     metric: "3.2M VIEWS" },
+  { n: "04", title: "GCOO",                 niche: "MOBILITY",   img: workGcoo,     metric: "−38% CPL" },
+  { n: "05", title: "Heavy Organizer",      niche: "EVENTS",     img: workHeavy,    metric: "SOLD-OUT TOUR" },
 ];
 
 const testimonials = [
@@ -103,9 +103,17 @@ const trustedBy: TrustedBrand[] = [
 ];
 
 const whyUs = [
-  { n: "01", en: "Small team. Your team.", th: "คุยกับคนทำจริง ไม่มี telephone game" },
-  { n: "02", en: "Strategy before pretty.", th: "วางแผนก่อนโพสต์ ไม่ทำสวยอย่างเดียว" },
-  { n: "03", en: "Ads inside the plan.",    th: "แอดอยู่ในกลยุทธ์ตั้งแต่วันแรก" },
+  { n: "01", en: "Strategy before pretty.", th: "เริ่มจาก funnel และ KPI ก่อน — งานสวยมาทีหลัง" },
+  { n: "02", en: "Creative built for ads.", th: "ทุกชิ้นออกแบบให้รันใน paid media ได้ทันที — ไม่ใช่ asset โชว์" },
+  { n: "03", en: "Numbers we report on.",   th: "ROAS · CAC · retention ทุกเดือน ไม่ใช่แค่ likes กับ reach" },
+  { n: "04", en: "Small team. Your team.",  th: "คุยกับคนทำจริง ไม่มี account manager คั่น ไม่มี telephone game" },
+];
+
+const proof = [
+  { n: "4.2×", label: "AVG ROAS — META + TIKTOK" },
+  { n: "+62%", label: "BOOKINGS — F&B CLIENT, 90D" },
+  { n: "−41%", label: "CAC — HOSPITALITY CLIENT" },
+  { n: "28",   label: "BRANDS SHIPPED" },
 ];
 
 /* ------------------------------------------------------------------ */
@@ -115,8 +123,8 @@ const whyUs = [
 const Index = () => (
   <div id="top">
     <SEO
-      title="ØRIONS — Boutique creative agency · Bangkok"
-      description="A boutique Bangkok agency. We help unique brands grow on social — through branding, content, and paid ads."
+      title="ØRIONS — Creative agency built for growth · Bangkok"
+      description="Bangkok creative agency. Brand, content, and paid media — engineered to grow boutique brands. ROAS reported monthly."
       path="/"
     />
 
@@ -132,13 +140,13 @@ const Index = () => (
       <div className="flex-1 flex flex-col items-center justify-center text-center px-6 md:px-10 py-16">
         <Reveal>
           <h1 className="font-serif text-[44px] md:text-[88px] lg:text-[112px] leading-[1.0] tracking-[-0.03em] max-w-[16ch]">
-            A <em className="text-orion italic">boutique</em> creative agency.
+            Creative that <em className="text-orion italic">moves numbers.</em>
           </h1>
         </Reveal>
 
         <Reveal delay={0.35}>
           <p className="mt-6 md:mt-8 font-serif italic text-[15px] md:text-[18px] text-background/70 max-w-[560px] mx-auto leading-[1.55]">
-            Branding, content, and paid ads — for brands that care.
+            Brand, content, and paid media — engineered to grow boutique brands.
           </p>
         </Reveal>
 
@@ -148,14 +156,14 @@ const Index = () => (
               to="/contact"
               className="group inline-flex items-center gap-3 bg-background text-foreground px-7 py-4 btn-label border border-background hover:gap-4 transition-all duration-300"
             >
-              <span>Get a free proposal</span>
+              <span>Get a free growth audit</span>
               <ArrowUpRight className="w-4 h-4" />
             </Link>
             <Link
-              to="/pricing#social"
+              to="/work"
               className="group inline-flex items-center gap-2 btn-label text-background/80 border-b border-background/40 pb-1 hover:text-background hover:border-background transition-colors"
             >
-              See pricing →
+              See results →
             </Link>
           </div>
         </Reveal>
@@ -168,6 +176,28 @@ const Index = () => (
     </section>
 
     {/* ========================================================== */}
+    {/* 02 · PROOF BAR                                              */}
+    {/* ========================================================== */}
+    <section className="px-6 md:px-10 border-t border-foreground bg-background">
+      <div className="max-w-[1280px] mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4">
+          {proof.map((p, i) => (
+            <Reveal key={p.label} delay={i * 0.05}>
+              <div className={`py-10 md:py-12 px-4 md:px-8 ${i > 0 ? "md:border-l border-foreground/15" : ""} ${i % 2 === 1 ? "border-l border-foreground/15 md:border-l" : ""} ${i >= 2 ? "border-t border-foreground/15 md:border-t-0" : ""}`}>
+                <div className="font-serif text-[40px] md:text-[56px] leading-none tracking-[-0.04em] tabular-nums">
+                  {p.n}
+                </div>
+                <div className="mt-4 font-mono text-[9px] md:text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
+                  {p.label}
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* ========================================================== */}
     {/* 03 · WHAT YOU'RE UP AGAINST — stats                         */}
     {/* ========================================================== */}
     <section className="px-6 md:px-10">
@@ -175,7 +205,7 @@ const Index = () => (
         <PageMark index="02" />
         <Reveal>
           <h2 className="font-serif text-[44px] md:text-[80px] lg:text-[104px] leading-[1.0] tracking-[-0.03em] max-w-[14ch]">
-            The <em className="text-orion italic">reality.</em>
+            Why brands <em className="text-orion italic">stall.</em>
           </h2>
         </Reveal>
 
@@ -207,7 +237,7 @@ const Index = () => (
         <PageMark index="03" />
         <Reveal>
           <h2 className="font-serif text-[44px] md:text-[80px] lg:text-[104px] leading-[1.0] tracking-[-0.03em]">
-            Three things. <em className="text-orion italic">Done right.</em>
+            How we <em className="text-orion italic">grow brands.</em>
           </h2>
         </Reveal>
 
@@ -248,7 +278,7 @@ const Index = () => (
         <PageMark index="04" />
         <Reveal>
           <h2 className="font-serif text-[44px] md:text-[80px] lg:text-[96px] leading-[1.0] tracking-[-0.03em] max-w-[16ch]">
-            Live in <em className="text-orion italic">4 weeks.</em>
+            From audit to <em className="text-orion italic">scale.</em>
           </h2>
         </Reveal>
 
@@ -307,6 +337,9 @@ const Index = () => (
                         {w.niche}
                       </span>
                     </div>
+                    <div className="mt-2 font-mono text-[10px] tracking-[0.14em] uppercase text-orion">
+                      {w.metric}
+                    </div>
                   </Link>
                 </CarouselItem>
               ))}
@@ -328,7 +361,7 @@ const Index = () => (
         <PageMark index="06" />
         <Reveal>
           <h2 className="font-serif text-[44px] md:text-[80px] lg:text-[104px] leading-[1.0] tracking-[-0.03em]">
-            <em className="text-orion italic">Clients.</em>
+            Results, <em className="text-orion italic">not likes.</em>
           </h2>
         </Reveal>
 
@@ -414,7 +447,7 @@ const Index = () => (
           </h2>
         </Reveal>
 
-        <div className="mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-10 md:gap-y-14">
+        <div className="mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 md:gap-y-14">
           {whyUs.map((w, i) => (
             <Reveal key={w.n} delay={i * 0.06}>
               <div className="border-t border-background/25 pt-6">
@@ -434,17 +467,17 @@ const Index = () => (
         <div className="mt-24 md:mt-32 border-t border-background/25 pt-16 md:pt-24 text-center">
           <Reveal>
             <p className="font-mono text-[10px] tracking-[0.4em] uppercase text-orion mb-8">
-              ✦ NOW BOOKING — Q3 2026
+              ✦ FREE 30-MIN GROWTH AUDIT
             </p>
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="font-serif text-[44px] md:text-[80px] lg:text-[96px] leading-[1.0] tracking-[-0.03em]">
-              Let's <em className="text-orion italic">talk.</em>
+              Let's grow <em className="text-orion italic">your numbers.</em>
             </h2>
           </Reveal>
           <Reveal delay={0.2}>
             <p className="mt-8 font-serif italic text-[18px] md:text-[22px] text-background/75 max-w-[640px] mx-auto leading-[1.5]">
-              30-min call. Free. Reply in 24h.
+              30-min audit. Free. We reply within 24h with a growth diagnosis.
             </p>
           </Reveal>
           <Reveal delay={0.3}>
@@ -452,7 +485,7 @@ const Index = () => (
               to="/contact"
               className="mt-10 group inline-flex items-center gap-3 bg-background text-foreground px-7 py-4 btn-label border border-background hover:gap-4 transition-all duration-300"
             >
-              <span>Get a free proposal</span>
+              <span>Get a free growth audit</span>
               <ArrowUpRight className="w-4 h-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </Link>
           </Reveal>

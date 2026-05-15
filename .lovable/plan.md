@@ -1,38 +1,36 @@
-## 1 · Remove Marquee on Home
+## Goal
+Make Contact match Services exactly — same hero style, same section rhythm, same typographic system. The previous pass aligned Contact to PageHero (Unbounded), but Services uses serif-italic display + PageMark + hairline-bordered sections. Bring Contact into that exact pattern.
 
-`src/pages/Index.tsx`
-- Remove the "marquee bridge" block (the `<SimpleMarquee>` strip with BRANDING · CONTENT PRODUCTION · SOCIAL MEDIA · PAID ADVERTISING) between Hero and section 02.
-- Remove the now-unused `import SimpleMarquee from "@/components/SimpleMarquee"`.
+## Edits — `src/pages/Contact.tsx`
 
-## 2 · Redesign Contact to match the rest of the site
+**1 · Hero (mirror Services hero)**
+- Drop `<PageHero>`. Restore the inline hero pattern:
+  - `<section className="px-6 md:px-10">` + `max-w-[1280px] mx-auto pt-32 md:pt-40 pb-16 md:pb-24`
+  - `<PageMark index="01" total="02" />`
+  - `<h1 className="font-serif text-[44px] md:text-[80px] lg:text-[104px] leading-[1.0] tracking-[-0.03em] max-w-[14ch]">Tell us about <em className="text-orion italic">the brand.</em></h1>`
+  - Subtitle: `font-serif italic text-[18px] md:text-[22px] text-muted-foreground max-w-[640px] leading-[1.5]` — "30-min discovery call. Free. We reply within 24 hours — with an honest fit-check."
+  - Quick chip row (replaces hero CTAs from Services): 3 ghost links — Email · Call · LINE — using `btn-label border-b border-foreground` pattern.
 
-Today Contact uses its own inline hero (`font-serif` italic + `PageMark` + custom paddings). Other inner pages (`About`, `Services`, `Work`, `Pricing`) use the unified `PageHero` (Unbounded display + asymmetric grid + vertical label + crop marks). The fix is to align Contact with that system.
+**2 · Section 02 — Send a brief (form) — mirror "What we do"**
+- `<section className="px-6 md:px-10 border-t border-foreground">` + `py-20 md:py-28`
+- `<PageMark index="02" total="02" />`
+- Title: `<h2 className="font-serif text-[40px] md:text-[72px] lg:text-[96px] leading-[1.0] tracking-[-0.03em] max-w-[14ch]">Send a <em className="text-orion italic">brief.</em></h2>`
+- Below: 12-col grid hairline border-top wrapper (`mt-16 md:mt-24 border-t border-foreground`) with two columns separated by a vertical hairline (`md:border-l border-foreground`), matching the 3-up capability row pattern but as 7/5 split:
+  - **Left (col-span-7)** — Form. Tag `— FORM` (mono 10px), then form fields. Inputs: transparent + `border-b border-foreground/40`, `font-thai text-[15px]`. Labels in mono 10px uppercase. Submit button styled like Services hero CTA: `bg-foreground text-background px-7 py-4 btn-label hover:bg-orion transition-colors` with `ArrowUpRight`.
+  - **Right (col-span-5)** — Direct contact card with same internal rhythm as a Services capability:
+    - Mono tag `— DIRECT`
+    - Serif italic title `Direct.` (`font-serif italic text-[40px] md:text-[48px]`)
+    - Pull-quote line `font-serif italic text-orion` — "ตอบกลับใน 24 ชั่วโมง — Mon–Fri."
+    - Thai body desc
+    - Hairline-dashed list: Email / Phone / LINE / WhatsApp / Studio (each row mono label + value).
 
-`src/pages/Contact.tsx`
-- Replace the manual hero block with `<PageHero>`:
-  - `eyebrow="— 01 / CONTACT"`, `verticalLabel="/ 06 CONTACT"`, `titleSize="lg"`
-  - `title`: `Tell us about <em class="text-orion italic font-serif">the brand.</em>` (Unbounded base, single italic accent — same pattern as About/Services).
-  - `subtitle`: short Thai+EN body in `font-thai` (no italic serif).
-- Wrap form section with `SectionHeader` (light variant) using `index="02"`, `kicker="— INQUIRY"`, `title="Send us a brief."` so it matches the section markers used on Services/Pricing.
-- Form heading: switch from `font-serif italic` to `font-display` `h-display-md` (consistent with other section titles).
-- Direct-contact column: keep structure but change labels to the standard `index-badge` style; email/phone use `font-display` (not Instrument Serif italic).
-- Submit button: replace ad-hoc styled `<button>` with the shared `<CTA variant="primary">` component for visual parity with other pages.
+**3 · Closing**
+- Append `<ClosingCTA>` (same component used at the bottom of Services) with title "Prefer a quick call?" → CTAs: "Call now" (tel:), "Email us" (mailto:, ghost). This closes the page in the Services rhythm.
 
-## 3 · Improve overall legibility
-
-Memory mandates the existing palette/fonts — we only adjust **weights and contrast**, no font swaps.
-
-`src/index.css`
-- `body`: `font-weight: 400 → 450` (via `font-feature-settings` + `font-weight: 450` for variable weight; keeps Thai script legible).
-- `.font-thai`: `font-weight: 400 → 500`, add `letter-spacing: 0.005em` and `line-height: 1.7` baseline so Thai body copy reads heavier.
-- New utility `.body-muted` = `text-foreground/85` (replaces ad-hoc `text-foreground/70` and `text-muted-foreground` for paragraph copy where contrast is currently too low).
-- `.label-soft` / `index-badge`: bump muted color from `text-muted-foreground` → custom `hsl(var(--foreground) / 0.7)` for stronger small-caps.
-- Adjust `--muted-foreground` token: raise lightness contrast against the cream bg (e.g. from very light grey to mid-ink ~ `0 0% 30%`) so all `text-muted-foreground` paragraphs become readable in one shot.
-
-Component-level cleanup (only where small italic serif body copy hurts legibility):
-- `Index.tsx` hero email line: replace `font-serif italic` small text with `font-mono` index-badge style (matches the marker row).
-- Contact "30-min discovery call…" paragraph: drop `font-serif italic`, use `font-thai` + `body-muted`.
+**4 · Cleanup**
+- Remove `PageHero` and `SectionHeader` imports.
+- Keep `PageMark`, add `ClosingCTA` import.
+- Keep zod/supabase logic and toast behavior unchanged.
 
 ## Out of scope
-
-Brand fonts, color palette, page structure on Index/Services/Work/Pricing, Footer, Nav.
+Form fields, validation, submission logic, design tokens, fonts, other pages.

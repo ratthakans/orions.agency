@@ -12,131 +12,308 @@ import workGcoo from "@/assets/gcoo.jpg";
 import workHeavy from "@/assets/heavy-organizer.jpg";
 import hongmoveLogo from "@/assets/logos/hongmove.png";
 
+/* ------------------------------------------------------------------ */
+/* DATA                                                                */
+/* ------------------------------------------------------------------ */
+
+const stats = [
+  { n: "71%", label: "OF SOCIAL IMAGES",   th: "เป็นภาพ AI — ต้องใช้คอนเทนต์จริงเพื่อโดดเด่น" },
+  { n: "20%", label: "META CPM RISE, YoY", th: "แอดแพงขึ้น — ต้องใช้ creative ที่แปลงยอด" },
+  { n: "8s",  label: "ATTENTION SPAN",     th: "แค่แปดวินาที — ต้องฮุกให้ติดตั้งแต่ภาพแรก" },
+];
+
 const services = [
-  { n: "01", en: "Branding",           th: "วางตัวตนแบรนด์ให้คมและจำง่าย" },
-  { n: "02", en: "Content Production", th: "ถ่ายทำ ตัดต่อ ครบจบในทีมเดียว" },
-  { n: "03", en: "Social Media",       th: "ดูแลคอนเทนต์ครบทุกแพลตฟอร์ม" },
-  { n: "04", en: "Paid Ads",           th: "ยิงแอดให้คุ้ม ทุกบาทมีเหตุผล" },
+  {
+    n: "01",
+    en: "Branding",
+    tagline: "Identity that works across every touchpoint.",
+    th: "วางตัวตนแบรนด์ให้คมและจำง่ายในทุก touchpoint",
+    items: ["Naming · Logo · Marks", "Visual identity system", "Brand guidelines + book", "Launch toolkit"],
+  },
+  {
+    n: "02",
+    en: "Content",
+    tagline: "Photo, video, and design that earn the scroll.",
+    th: "ถ่ายทำ ตัดต่อ ออกแบบ ครบจบในทีมเดียว",
+    items: ["Photo + video shoots", "Reels + short-form video", "Graphic + motion design", "Asset libraries"],
+  },
+  {
+    n: "03",
+    en: "Social media",
+    tagline: "Strategy, posting, community, and paid ads.",
+    th: "วางแผน โพสต์ ดูแลคอมมูฯ และยิงแอด",
+    items: ["Strategy + content calendar", "Daily posting + scheduling", "Community management", "Paid ads (Meta, TikTok)"],
+  },
+];
+
+const process = [
+  { n: "01", en: "Listen", th: "คุย 30 นาที เช็กว่าเหมาะกันมั้ย ฟรี" },
+  { n: "02", en: "Plan",   th: "เสนอแผนสั้นๆ ตัวเลขจริง ไม่ขายฝัน" },
+  { n: "03", en: "Build",  th: "สร้างแบรนด์ คอนเทนต์ และแอด" },
+  { n: "04", en: "Run",    th: "รันงาน รายงานทุกเดือน วัดผลจริง" },
 ];
 
 const projects = [
-  { n: "01", title: "Hongmove",             niche: "PROPTECH",   scope: "Brand · Web · Content",     impact: "+312% sign-ups",      img: workHongmove },
-  { n: "02", title: "Democrat Party",       niche: "POLITICS",   scope: "Campaign · Film · Social",  impact: "12M+ impressions",    img: workDemocrat },
-  { n: "03", title: "Royal Thai Air Force", niche: "GOVERNMENT", scope: "Film · Production · Post",  impact: "2.1M views",          img: workRtaf },
-  { n: "04", title: "GCOO",                 niche: "MOBILITY",   scope: "Brand · Launch campaign",   impact: "+540% downloads",     img: workGcoo },
-  { n: "05", title: "Heavy Organizer",      niche: "EVENTS",     scope: "Brand · Event film · Recap", impact: "+88% conversion",    img: workHeavy },
+  { n: "01", title: "Hongmove",             niche: "PROPTECH",   img: workHongmove },
+  { n: "02", title: "Democrat Party",       niche: "POLITICS",   img: workDemocrat },
+  { n: "03", title: "Royal Thai Air Force", niche: "GOVERNMENT", img: workRtaf },
+  { n: "04", title: "GCOO",                 niche: "MOBILITY",   img: workGcoo },
+  { n: "05", title: "Heavy Organizer",      niche: "EVENTS",     img: workHeavy },
+];
+
+const testimonials = [
+  {
+    sector: "F&B",
+    stat: "+62%",
+    statLabel: "BOOKINGS",
+    quote: "They got our brand voice right from day one. Bookings up 62% in three months.",
+    name: "Cedric C.",
+    handle: "Maison Lumière · @maisonlumiere",
+  },
+  {
+    sector: "FASHION",
+    stat: "11d",
+    statLabel: "TO SELL OUT",
+    quote: "Sold out our first drop in eleven days. No paid ads needed.",
+    name: "Estelle S.",
+    handle: "Saint Manor · @saintmanor",
+  },
+  {
+    sector: "HOSPITALITY",
+    stat: "−41%",
+    statLabel: "COST/BOOKING",
+    quote: "Cut our cost per booking by 41%. Bookings still up.",
+    name: "Shimpei M.",
+    handle: "Hôtel Vergé · @hotelverge",
+  },
 ];
 
 type TrustedBrand = { name: string; logo?: string };
 const trustedBy: TrustedBrand[] = [
   { name: "HONGMOVE", logo: hongmoveLogo },
-  { name: "RTAF" }, { name: "DEMOCRAT" }, { name: "GCOO" },
   { name: "MAISON LUMIÈRE" }, { name: "SAINT MANOR" },
-  { name: "HÔTEL VERGÉ" }, { name: "CALA / BKK" },
+  { name: "HÔTEL VERGÉ" },    { name: "CALA / BKK" },
   { name: "NORTH MERIDIAN" }, { name: "AT.09" },
-  { name: "CAFÉ ORSAY" }, { name: "STUDIO — KIN" },
-  { name: "PLAYA NORTE" }, { name: "CASA · SOL" },
-  { name: "MARLOW & CO." }, { name: "HEAVY ORG." },
-  { name: "MYHOTEL" }, { name: "KHAOYAI CC" },
+  { name: "CAFÉ ORSAY" },     { name: "STUDIO — KIN" },
+  { name: "PLAYA NORTE" },    { name: "CASA · SOL" },
+  { name: "MARLOW & CO." },   { name: "UNION BKK" },
+  { name: "RTAF" },           { name: "DEMOCRAT" },
+  { name: "GCOO" },           { name: "HEAVY ORG." },
+  { name: "MYHOTEL" },
 ];
+
+const whyUs = [
+  { n: "01", en: "Small team. Your team.", th: "คุยกับคนทำจริง ไม่มี telephone game" },
+  { n: "02", en: "Strategy before pretty.", th: "วางแผนก่อนโพสต์ ไม่ทำสวยอย่างเดียว" },
+  { n: "03", en: "Ads inside the plan.",    th: "แอดอยู่ในกลยุทธ์ตั้งแต่วันแรก" },
+  { n: "04", en: "Built for boutique.",     th: "ทำเพื่อแบรนด์ที่แคร์เรื่องคุณภาพ" },
+];
+
+/* ------------------------------------------------------------------ */
+/* COMPONENT                                                           */
+/* ------------------------------------------------------------------ */
+
+const PageMark = ({ index }: { index: string }) => (
+  <div className="flex items-center justify-between font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground mb-12 md:mb-16">
+    <span className="flex items-center gap-3">ORIONS <span className="text-orion">✦</span></span>
+    <span>{index} / 09</span>
+  </div>
+);
 
 const Index = () => (
   <div id="top">
     <SEO
       title="ØRIONS — Boutique creative agency · Bangkok"
-      description="A boutique Bangkok agency for branding, content and paid ads. From idea to final cut — one team, no handoff."
+      description="A boutique Bangkok agency. We help unique brands grow on social — through branding, content, and paid ads."
       path="/"
     />
 
-    {/* COVER — split layout, image left, quote right */}
-    <section className="relative min-h-screen flex flex-col">
-      <div className="flex-1 grid grid-cols-1 md:grid-cols-2">
-        {/* Left: full-bleed mockup image (replace with team/studio photo) */}
-        <div className="relative bg-muted overflow-hidden order-2 md:order-1 min-h-[55vh] md:min-h-0">
-          <img
-            src={workDemocrat}
-            alt="ØRIONS studio"
-            className="absolute inset-0 w-full h-full object-cover grayscale"
-          />
-        </div>
-
-        {/* Right: quote */}
-        <div className="relative flex flex-col justify-center px-6 md:px-14 lg:px-20 py-20 md:py-0 order-1 md:order-2">
-          <Reveal>
-            <p className="font-mono text-[10px] tracking-[0.4em] uppercase text-muted-foreground mb-10 md:mb-14">
-              — BANGKOK · EST. 2026
-            </p>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <h1 className="font-display text-[34px] md:text-[48px] lg:text-[60px] leading-[1.05] tracking-[-0.025em] text-balance">
-              We don't just shoot content,<br />
-              <span className="italic font-light">we shape brands.</span>
-            </h1>
-          </Reveal>
-          <Reveal delay={0.25}>
-            <p className="mt-10 md:mt-12 font-thai text-[15px] md:text-[17px] leading-[1.7] text-muted-foreground max-w-[420px]">
-              ทีมเดียว ครบจบ ตั้งแต่ไอเดียถึง final cut.
-            </p>
-          </Reveal>
-        </div>
+    {/* ========================================================== */}
+    {/* 01 · COVER — black                                          */}
+    {/* ========================================================== */}
+    <section className="relative min-h-screen flex flex-col bg-foreground text-background overflow-hidden">
+      <div className="px-6 md:px-10 pt-8 md:pt-10 flex items-center justify-between font-mono text-[10px] tracking-[0.3em] uppercase text-background/55">
+        <span>EST. 2026</span>
+        <span className="hidden sm:inline">CAPABILITIES — 2026</span>
       </div>
 
-      <div className="relative border-t border-foreground/15 py-5">
-        <SimpleMarquee
-          duration={42}
-          items={["SOCIAL MEDIA", "BRANDING", "CONTENT PRODUCTION", "PAID ADVERTISING"]}
-        />
-      </div>
-    </section>
-
-    {/* SERVICES */}
-    <section className="px-6 md:px-10">
-      <div className="border-t border-foreground py-24 md:py-32 max-w-[1280px] mx-auto">
+      <div className="flex-1 flex flex-col items-center justify-center text-center px-6 md:px-10 py-16">
         <Reveal>
-          <div>
-            <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground mb-4">
-              — WHAT WE DO
-            </div>
-            <h2 className="font-display h-display-xs">
-              สี่สิ่งที่เราทำ ให้แบรนด์คุณ.
-            </h2>
-          </div>
+          <h1 className="font-serif leading-[0.85] tracking-[-0.04em] text-[20vw] md:text-[18vw] lg:text-[16vw]">
+            ORI<span className="text-orion italic">O</span>NS
+          </h1>
         </Reveal>
 
-        <ul className="mt-16 md:mt-24 border-t border-foreground">
-          {services.map((s, i) => (
-            <Reveal key={s.en} delay={0.04 * i}>
-              <li className="group border-b border-foreground">
-                <div className="grid grid-cols-[auto_1fr] md:grid-cols-[80px_1fr_1fr] items-baseline gap-x-6 md:gap-x-10 py-7 md:py-9 transition-[padding,color] duration-300 group-hover:md:pl-4">
-                  <span className="font-mono text-[11px] tracking-[0.25em] text-muted-foreground self-center">
-                    {s.n}
-                  </span>
-                  <h3 className="font-display text-[24px] md:text-[40px] leading-[1.05] tracking-[-0.02em]">
-                    {s.en}
-                  </h3>
-                  <p className="col-span-2 md:col-span-1 mt-2 md:mt-0 font-thai text-[14px] md:text-[15px] leading-[1.65] text-muted-foreground md:text-right">
-                    {s.th}
-                  </p>
-                </div>
-              </li>
-            </Reveal>
-          ))}
-        </ul>
+        <Reveal delay={0.2}>
+          <p className="mt-12 md:mt-16 font-serif text-[28px] md:text-[44px] lg:text-[52px] leading-[1.1] tracking-[-0.02em]">
+            A <em className="text-orion italic">boutique</em> creative agency.
+          </p>
+        </Reveal>
+
+        <Reveal delay={0.35}>
+          <p className="mt-6 md:mt-8 font-serif italic text-[15px] md:text-[18px] text-background/70 max-w-[640px] mx-auto leading-[1.55]">
+            We help unique brands grow on social — through branding, content, and paid ads.
+          </p>
+        </Reveal>
+      </div>
+
+      <div className="px-6 md:px-10 pb-8 md:pb-10 flex items-end justify-between font-mono text-[10px] tracking-[0.3em] uppercase text-background/55 border-t border-background/15 pt-6">
+        <span>01 / 09</span>
+        <span>hello@orions.agency</span>
       </div>
     </section>
 
-    {/* SELECTED WORK */}
+    {/* marquee bridge */}
+    <div className="bg-foreground text-background border-t border-background/15 py-5">
+      <SimpleMarquee
+        duration={42}
+        items={["BRANDING", "CONTENT PRODUCTION", "SOCIAL MEDIA", "PAID ADVERTISING"]}
+      />
+    </div>
+
+    {/* ========================================================== */}
+    {/* 02 · WHAT YOU'RE UP AGAINST — stats                         */}
+    {/* ========================================================== */}
     <section className="px-6 md:px-10">
-      <div className="border-t border-foreground py-24 md:py-32 max-w-[1280px] mx-auto">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+        <PageMark index="02" />
         <Reveal>
-          <div>
-            <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground mb-4">
-              — SELECTED WORK
-            </div>
-            <h2 className="font-display h-display-xs">
-              แบรนด์จริง ผลลัพธ์จริง.
-            </h2>
+          <h2 className="font-serif text-[44px] md:text-[80px] lg:text-[104px] leading-[1.0] tracking-[-0.03em] max-w-[14ch]">
+            What you're up <em className="text-orion italic">against.</em>
+          </h2>
+        </Reveal>
+
+        <div className="mt-16 md:mt-24 border-t border-foreground grid grid-cols-1 md:grid-cols-3">
+          {stats.map((s, i) => (
+            <Reveal key={s.label} delay={i * 0.08}>
+              <div className={`py-10 md:py-14 md:px-10 ${i > 0 ? "md:border-l border-foreground border-t md:border-t-0" : ""}`}>
+                <div className="font-serif text-[64px] md:text-[88px] leading-none tracking-[-0.04em] tabular-nums">
+                  {s.n}
+                </div>
+                <div className="mt-6 font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
+                  {s.label}
+                </div>
+                <p className="mt-3 font-thai text-[14px] md:text-[15px] leading-[1.65] text-foreground/80 max-w-[28ch]">
+                  {s.th}
+                </p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* ========================================================== */}
+    {/* 03 · APPROACH — quote                                       */}
+    {/* ========================================================== */}
+    <section className="px-6 md:px-10 border-t border-foreground">
+      <div className="max-w-[1280px] mx-auto py-24 md:py-36">
+        <PageMark index="03" />
+        <Reveal>
+          <span className="font-serif italic text-orion text-[64px] md:text-[88px] leading-none block -mb-4 md:-mb-6">“</span>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <p className="font-serif text-[40px] md:text-[80px] lg:text-[104px] leading-[1.05] tracking-[-0.03em]">
+            We don't post for the sake of <em className="text-orion italic">posting.</em>
+          </p>
+        </Reveal>
+        <Reveal delay={0.2}>
+          <p className="mt-4 md:mt-6 font-serif text-[40px] md:text-[80px] lg:text-[104px] leading-[1.05] tracking-[-0.03em]">
+            We build for <em className="text-orion italic">results.</em>
+          </p>
+        </Reveal>
+        <Reveal delay={0.3}>
+          <div className="mt-16 pt-6 border-t border-dashed border-foreground/30 font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
+            — THE ORIONS APPROACH
           </div>
+        </Reveal>
+      </div>
+    </section>
+
+    {/* ========================================================== */}
+    {/* 04 · THREE THINGS, PROPERLY — services                      */}
+    {/* ========================================================== */}
+    <section className="px-6 md:px-10 border-t border-foreground">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+        <PageMark index="04" />
+        <Reveal>
+          <h2 className="font-serif text-[44px] md:text-[80px] lg:text-[104px] leading-[1.0] tracking-[-0.03em]">
+            Three things, <em className="text-orion italic">properly.</em>
+          </h2>
+        </Reveal>
+
+        <div className="mt-16 md:mt-24 border-t border-foreground grid grid-cols-1 md:grid-cols-3">
+          {services.map((s, i) => (
+            <Reveal key={s.en} delay={i * 0.08}>
+              <div className={`py-10 md:py-12 md:px-10 ${i > 0 ? "md:border-l border-foreground border-t md:border-t-0" : ""}`}>
+                <div className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground">— {s.n}</div>
+                <h3 className="mt-8 font-serif italic text-[40px] md:text-[48px] leading-[1] tracking-[-0.02em]">
+                  {s.en}
+                </h3>
+                <p className="mt-6 font-serif italic text-orion text-[16px] md:text-[17px] leading-[1.4]">
+                  {s.tagline}
+                </p>
+                <p className="mt-3 font-thai text-[14px] leading-[1.65] text-muted-foreground">
+                  {s.th}
+                </p>
+                <ul className="mt-8 pt-6 border-t border-dashed border-foreground/25 space-y-2 font-thai text-[14px] text-foreground/85">
+                  {s.items.map((it) => (
+                    <li key={it} className="flex gap-3">
+                      <span className="text-muted-foreground">—</span>
+                      <span>{it}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* ========================================================== */}
+    {/* 05 · 4-WEEK PROCESS                                         */}
+    {/* ========================================================== */}
+    <section className="px-6 md:px-10 border-t border-foreground">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+        <PageMark index="05" />
+        <Reveal>
+          <h2 className="font-serif text-[44px] md:text-[80px] lg:text-[96px] leading-[1.0] tracking-[-0.03em] max-w-[16ch]">
+            From hello, <em className="text-orion italic">live in 4 weeks.</em>
+          </h2>
+        </Reveal>
+
+        <div className="mt-16 md:mt-24 border-t border-foreground grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+          {process.map((p, i) => (
+            <Reveal key={p.en} delay={i * 0.06}>
+              <div className={`py-10 md:py-12 md:px-8 ${i > 0 ? "lg:border-l border-foreground border-t lg:border-t-0" : ""} ${i > 0 && i < 2 ? "sm:border-l sm:border-t-0" : ""} ${i === 2 ? "sm:border-l-0 sm:border-t lg:border-t-0 lg:border-l" : ""} ${i === 3 ? "sm:border-l sm:border-t lg:border-t-0" : ""}`}>
+                <div className="flex items-center gap-3 font-mono text-[10px] tracking-[0.3em] text-muted-foreground">
+                  <span>— {p.n}</span>
+                  <span className="text-orion">✦</span>
+                </div>
+                <h3 className="mt-8 font-serif italic text-[44px] md:text-[56px] leading-[1] tracking-[-0.02em]">
+                  {p.en}.
+                </h3>
+                <p className="mt-6 font-thai text-[14px] leading-[1.65] text-muted-foreground">
+                  {p.th}
+                </p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* ========================================================== */}
+    {/* 06 · SELECTED WORK                                          */}
+    {/* ========================================================== */}
+    <section className="px-6 md:px-10 border-t border-foreground">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+        <PageMark index="06" />
+        <Reveal>
+          <h2 className="font-serif text-[44px] md:text-[80px] lg:text-[96px] leading-[1.0] tracking-[-0.03em]">
+            Brands we've <em className="text-orion italic">built.</em>
+          </h2>
         </Reveal>
 
         <Reveal delay={0.1}>
@@ -148,13 +325,13 @@ const Index = () => (
                     <div className="relative w-full overflow-hidden bg-muted" style={{ aspectRatio: "4 / 5" }}>
                       <img
                         src={w.img}
-                        alt={`${w.title} — ${w.scope}`}
+                        alt={w.title}
                         loading="lazy"
                         className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-out group-hover:scale-[1.04]"
                       />
                     </div>
                     <div className="mt-4 flex items-baseline justify-between gap-3">
-                      <h3 className="font-display text-[15px] md:text-[16px] tracking-[-0.01em] truncate">
+                      <h3 className="font-serif italic text-[20px] md:text-[22px] tracking-[-0.01em] truncate">
                         {w.title}
                       </h3>
                       <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-muted-foreground shrink-0">
@@ -174,21 +351,71 @@ const Index = () => (
       </div>
     </section>
 
-    {/* TRUSTED BY — light, borderless logo wall */}
-    <section className="px-6 md:px-10">
-      <div className="border-t border-foreground py-24 md:py-32 max-w-[1280px] mx-auto">
+    {/* ========================================================== */}
+    {/* 07 · WHAT CLIENTS SAY                                       */}
+    {/* ========================================================== */}
+    <section className="px-6 md:px-10 border-t border-foreground">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+        <PageMark index="07" />
         <Reveal>
-          <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
-            — TRUSTED BY
-          </div>
+          <h2 className="font-serif text-[44px] md:text-[80px] lg:text-[104px] leading-[1.0] tracking-[-0.03em]">
+            What clients <em className="text-orion italic">say.</em>
+          </h2>
+        </Reveal>
+
+        <div className="mt-16 md:mt-24 border-t border-foreground grid grid-cols-1 md:grid-cols-3">
+          {testimonials.map((t, i) => (
+            <Reveal key={t.name} delay={i * 0.08}>
+              <div className={`py-10 md:py-12 md:px-10 ${i > 0 ? "md:border-l border-foreground border-t md:border-t-0" : ""}`}>
+                <div className="font-mono text-[10px] tracking-[0.3em] text-orion">{t.sector}</div>
+
+                <div className="mt-8 flex items-start justify-between gap-4">
+                  <span className="font-serif italic text-orion text-[40px] leading-none -mt-2">“</span>
+                  <div className="text-right">
+                    <div className="font-serif italic text-orion text-[36px] md:text-[44px] leading-none tracking-[-0.02em] tabular-nums">
+                      {t.stat}
+                    </div>
+                    <div className="mt-2 font-mono text-[9px] tracking-[0.25em] uppercase text-muted-foreground">
+                      {t.statLabel}
+                    </div>
+                  </div>
+                </div>
+
+                <p className="mt-4 font-serif italic text-[18px] md:text-[20px] leading-[1.45] tracking-[-0.005em]">
+                  {t.quote}
+                </p>
+
+                <div className="mt-12 pt-6 border-t border-dashed border-foreground/25">
+                  <div className="font-serif italic text-[18px]">{t.name}</div>
+                  <div className="mt-1 font-thai text-[12px] text-muted-foreground">{t.handle}</div>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* ========================================================== */}
+    {/* 08 · TRUSTED BY                                             */}
+    {/* ========================================================== */}
+    <section className="px-6 md:px-10 border-t border-foreground">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+        <PageMark index="08" />
+        <Reveal>
+          <h2 className="font-serif text-[44px] md:text-[80px] lg:text-[104px] leading-[1.0] tracking-[-0.03em]">
+            Trusted <em className="text-orion italic">by.</em>
+          </h2>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <p className="mt-6 font-serif italic text-muted-foreground text-[18px] md:text-[20px]">
+            40+ brands across F&amp;B, fashion, and hospitality.
+          </p>
         </Reveal>
 
         <div className="mt-14 md:mt-20 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-10 gap-y-12 md:gap-y-16">
           {trustedBy.map((brand) => (
-            <div
-              key={brand.name}
-              className="flex items-center justify-center text-center cursor-default"
-            >
+            <div key={brand.name} className="flex items-center justify-center text-center cursor-default">
               {brand.logo ? (
                 <img
                   src={brand.logo}
@@ -197,7 +424,7 @@ const Index = () => (
                   className="max-h-7 md:max-h-8 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity"
                 />
               ) : (
-                <span className="font-display text-[11px] md:text-[12px] tracking-[0.06em] text-muted-foreground hover:text-foreground transition-colors">
+                <span className="font-serif italic text-[14px] md:text-[16px] text-muted-foreground hover:text-foreground transition-colors">
                   {brand.name}
                 </span>
               )}
@@ -207,33 +434,80 @@ const Index = () => (
       </div>
     </section>
 
-    {/* CTA */}
-    <section className="relative px-6 md:px-10">
-      <div className="border-t border-foreground py-24 md:py-36 max-w-[900px] mx-auto text-center">
+    {/* ========================================================== */}
+    {/* 09 · WHY US + CTA                                           */}
+    {/* ========================================================== */}
+    <section className="px-6 md:px-10 border-t border-foreground bg-foreground text-background">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+        <div className="flex items-center justify-between font-mono text-[10px] tracking-[0.3em] uppercase text-background/55 mb-12 md:mb-16">
+          <span className="flex items-center gap-3">ORIONS <span className="text-orion">✦</span></span>
+          <span>09 / 09</span>
+        </div>
+
         <Reveal>
-          <p className="font-mono text-[10px] tracking-[0.4em] uppercase text-muted-foreground mb-8">
-            — LET'S TALK
-          </p>
-        </Reveal>
-        <Reveal delay={0.05}>
-          <h2 className="font-display h-display-md text-balance">
-            เริ่มจากไอเดีย จบที่ final cut.
+          <h2 className="font-serif text-[44px] md:text-[80px] lg:text-[104px] leading-[1.0] tracking-[-0.03em]">
+            Why <em className="text-orion italic">us?</em>
           </h2>
         </Reveal>
-        <Reveal delay={0.15}>
-          <p className="mt-8 font-thai text-[15px] md:text-[16px] leading-[1.7] text-muted-foreground max-w-[480px] mx-auto">
-            ทีมเดียว ไม่ต้องส่งต่อ คุยฟรี 30 นาที
-          </p>
-        </Reveal>
-        <Reveal delay={0.25}>
-          <Link
-            to="/contact"
-            className="mt-10 group inline-flex items-center gap-3 bg-foreground text-background px-7 py-4 index-badge border border-foreground hover:gap-4 transition-all duration-300"
-          >
-            <span>เริ่มคุยกับเรา</span>
-            <ArrowUpRight className="w-4 h-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-          </Link>
-        </Reveal>
+
+        <div className="mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 md:gap-y-14">
+          {whyUs.map((w, i) => (
+            <Reveal key={w.n} delay={i * 0.06}>
+              <div className="border-t border-background/25 pt-6">
+                <div className="font-mono text-[10px] tracking-[0.3em] text-background/55">— {w.n}</div>
+                <h3 className="mt-4 font-serif italic text-[28px] md:text-[36px] leading-[1.1] tracking-[-0.02em]">
+                  {w.en}
+                </h3>
+                <p className="mt-3 font-thai text-[14px] md:text-[15px] leading-[1.65] text-background/70">
+                  {w.th}
+                </p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        {/* CTA inside dark */}
+        <div className="mt-24 md:mt-32 border-t border-background/25 pt-16 md:pt-24 text-center">
+          <Reveal>
+            <p className="font-mono text-[10px] tracking-[0.4em] uppercase text-orion mb-8">
+              ✦ NOW BOOKING — Q3 2026
+            </p>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <h2 className="font-serif text-[44px] md:text-[80px] lg:text-[96px] leading-[1.0] tracking-[-0.03em]">
+              Tell us about <em className="text-orion italic">the brand.</em>
+            </h2>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <p className="mt-8 font-serif italic text-[18px] md:text-[22px] text-background/75 max-w-[640px] mx-auto leading-[1.5]">
+              30-min discovery call. Free. We reply within 24 hours.
+            </p>
+          </Reveal>
+          <Reveal delay={0.3}>
+            <Link
+              to="/contact"
+              className="mt-10 group inline-flex items-center gap-3 bg-background text-foreground px-7 py-4 index-badge border border-background hover:gap-4 transition-all duration-300"
+            >
+              <span>เริ่มคุยกับเรา</span>
+              <ArrowUpRight className="w-4 h-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </Link>
+          </Reveal>
+
+          <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 text-left max-w-[720px] mx-auto pt-10 border-t border-background/20">
+            <div>
+              <div className="font-mono text-[10px] tracking-[0.3em] text-background/50">EMAIL</div>
+              <div className="mt-2 font-serif italic text-[18px]">hello@orions.agency</div>
+            </div>
+            <div>
+              <div className="font-mono text-[10px] tracking-[0.3em] text-background/50">PHONE</div>
+              <div className="mt-2 font-serif italic text-[18px]">+66 92 390 5464</div>
+            </div>
+            <div>
+              <div className="font-mono text-[10px] tracking-[0.3em] text-background/50">ONLINE</div>
+              <div className="mt-2 font-serif italic text-[18px]">orions.agency</div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </div>

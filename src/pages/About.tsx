@@ -6,10 +6,10 @@ import PageMark from "@/components/PageMark";
 const SITE_URL = "https://orions.agency";
 
 const principles = [
-  { n: "01", en: "One team, no handoff.",     th: "ทีมเดียวตั้งแต่กลยุทธ์ ถ่ายทำ ตัดต่อ ถึงยิงแอด — ไม่มีการส่งต่องานให้ vendor หลายเจ้า" },
-  { n: "02", en: "Strategy before pretty.",   th: "เริ่มจากเป้าหมายธุรกิจ ไม่ใช่แค่งานสวย — วัดผลทุกชิ้นที่ปล่อยออกไป" },
-  { n: "03", en: "Built for boutique.",       th: "เลือกทำกับแบรนด์ที่แคร์เรื่องคุณภาพ ไม่รับงานเยอะจนงานเสีย" },
-  { n: "04", en: "In-house production.",      th: "Studio · DOP · Editor · Designer อยู่ที่เดียวกัน คุมคุณภาพและเวลาได้จริง" },
+  { n: "01", en: "Strategy before pretty.",   th: "เริ่มจาก funnel · audience · KPI ก่อน — งานสวยมาทีหลัง วัดผลทุกชิ้นที่ปล่อย" },
+  { n: "02", en: "We measure what we make.",  th: "รายงาน ROAS · CAC · retention ทุกเดือน ไม่ใช่แค่ likes กับ reach" },
+  { n: "03", en: "One team, no handoff.",     th: "ทีมเดียวตั้งแต่กลยุทธ์ ถ่ายทำ ตัดต่อ ถึงยิงแอด — ไม่มีส่งต่อ vendor" },
+  { n: "04", en: "Built for boutique.",       th: "รับลูกค้าจำกัดต่อไตรมาส — ทำงานกับแบรนด์ที่แคร์เรื่องคุณภาพและการเติบโต" },
 ];
 
 const About = () => (
@@ -34,12 +34,12 @@ const About = () => (
         <PageMark index="01" total="02" />
         <Reveal>
           <h1 className="font-serif text-[44px] md:text-[80px] lg:text-[112px] leading-[1.0] tracking-[-0.03em] max-w-[16ch]">
-            A <em className="text-orion italic">boutique</em> creative agency.
+            A creative agency <em className="text-orion italic">built for growth.</em>
           </h1>
         </Reveal>
         <Reveal delay={0.1}>
           <p className="mt-10 font-serif italic text-[18px] md:text-[22px] text-muted-foreground max-w-[640px] leading-[1.5]">
-            In-house in Bangkok. Branding, content, and paid ads — for F&amp;B, fashion, and hospitality brands.
+            In-house in Bangkok. Brand, content, and paid media — engineered to grow F&amp;B, fashion, and hospitality brands.
           </p>
         </Reveal>
       </div>
@@ -81,13 +81,13 @@ const About = () => (
             </div>
             <div className="md:col-span-7 font-thai text-[15px] md:text-[16px] leading-[1.8] text-foreground/80 space-y-5">
               <p>
-                ØRIONS คือ creative agency เล็กๆ ในกรุงเทพ — ครอบคลุม branding, content production และ paid ads ครบในทีมเดียว ไม่ส่งต่อ vendor หลายเจ้า
+                ØRIONS คือ creative agency เล็กๆ ในกรุงเทพ — ครอบคลุม strategy, branding, content production และ paid media ครบในทีมเดียว ไม่ส่งต่อ vendor หลายเจ้า
               </p>
               <p>
-                เราเชื่อว่างานคุณภาพมาจากการที่คนทำเข้าใจแบรนด์จริงๆ — ทุกโปรเจกต์คุณจะได้คุยกับคนที่ทำงานนั้นโดยตรง ไม่มี account manager คั่นกลาง
+                เป้าหมายของเราไม่ใช่แค่ทำงานสวย — แต่คือทำให้แบรนด์โต วัดผลได้ทุกบาท ทุกชิ้นที่ปล่อยออกไปมี KPI กำกับ
               </p>
               <p className="text-foreground/60">
-                เลือกทำกับแบรนด์ใน F&amp;B, fashion และ hospitality ที่แคร์เรื่องคุณภาพ — รับลูกค้าจำกัดต่อไตรมาสเพื่อให้แต่ละงานได้เวลาเต็มที่
+                เลือกทำกับแบรนด์ใน F&amp;B, fashion และ hospitality ที่แคร์เรื่องคุณภาพและการเติบโต — รับลูกค้าจำกัดต่อไตรมาสเพื่อให้แต่ละงานได้เวลาเต็มที่
               </p>
             </div>
           </div>

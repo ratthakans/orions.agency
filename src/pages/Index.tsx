@@ -17,40 +17,40 @@ import hongmoveLogo from "@/assets/logos/hongmove.png";
 /* ------------------------------------------------------------------ */
 
 const stats = [
-  { n: "71%", label: "OF SOCIAL IMAGES ARE AI",   th: "ฟีดเต็มไปด้วยภาพ AI — แบรนด์โตได้ด้วย creative จริงที่แปลงยอด" },
-  { n: "20%", label: "META CPM RISE, YoY",        th: "แอดแพงขึ้นทุกปี — ต้องใช้ creative ที่ลด CAC ไม่ใช่เผาเงิน" },
-  { n: "8s",  label: "TO WIN OR LOSE A CUSTOMER", th: "แค่แปดวินาที — hook ที่ขายได้ ต้องวางตั้งแต่กลยุทธ์ ไม่ใช่ตอนตัดต่อ" },
+  { n: "71%", label: "AI IMAGES",   th: "ฟีดเต็มไปด้วย AI" },
+  { n: "20%", label: "CPM RISE",    th: "แอดแพงขึ้นทุกปี" },
+  { n: "8s",  label: "TO HOOK",     th: "แปดวิ ขาย หรือ ลืม" },
 ];
 
 const services = [
   {
     n: "01",
     en: "Brand.",
-    tagline: "Identity that's remembered — and chosen. Beautiful and built to sell.",
-    th: "Identity ที่จำได้ และเลือกซื้อ — สวย ขายได้ ทั้งสองอย่าง",
-    items: ["Positioning + audience", "Naming · Logo · System", "Messaging + tone", "Launch toolkit"],
+    tagline: "Remembered. Chosen.",
+    th: "จำได้ ขายได้",
+    items: ["Positioning", "Naming · Logo", "Messaging", "Launch kit"],
   },
   {
     n: "02",
     en: "Content.",
-    tagline: "Photo, video, and design — crafted to look right and to perform.",
-    th: "คอนเทนต์ที่ทั้งสวย และดันยอด — craft + performance ในชิ้นเดียว",
-    items: ["Performance creative", "Reels + short-form", "Photo + video shoots", "Graphic + motion"],
+    tagline: "Looks right. Performs.",
+    th: "สวย และขายได้",
+    items: ["Performance creative", "Reels", "Photo · video", "Motion"],
   },
   {
     n: "03",
     en: "Ads.",
-    tagline: "Paid media built around the creative — not assets bolted onto a media plan.",
-    th: "ยิงแอดด้วย creative ที่ทำมาเพื่อ paid — ไม่ใช่ asset โชว์",
-    items: ["Funnel + KPI strategy", "Meta + TikTok + Google ads", "Community + organic", "Monthly KPI report"],
+    tagline: "Built for paid. Not bolted on.",
+    th: "ทำมาเพื่อยิงจริง",
+    items: ["Funnel · KPI", "Meta · TikTok · Google", "Organic", "Monthly report"],
   },
 ];
 
 const process = [
-  { n: "01", en: "Diagnose", th: "Free 30-min growth audit — เข้าใจธุรกิจ ตลาด คู่แข่ง และตัวเลขปัจจุบัน" },
-  { n: "02", en: "Plan",     th: "Strategy + funnel + KPI ที่จับต้องได้ ไม่ขายฝัน — มีตัวเลขเป้าหมายจริง" },
-  { n: "03", en: "Build",    th: "สร้างแบรนด์ คอนเทนต์ และ ad creatives ด้วยทีม in-house" },
-  { n: "04", en: "Scale",    th: "รันแอด ปรับ creative รายงาน ROAS · CAC · retention ทุกเดือน" },
+  { n: "01", en: "Diagnose", th: "Audit ฟรี 30 นาที" },
+  { n: "02", en: "Plan",     th: "Strategy · Funnel · KPI" },
+  { n: "03", en: "Build",    th: "Brand · Content · Ads" },
+  { n: "04", en: "Scale",    th: "ROAS · CAC · Retention" },
 ];
 
 const projects = [
@@ -66,7 +66,7 @@ const testimonials = [
     sector: "F&B",
     stat: "+62%",
     statLabel: "BOOKINGS",
-    quote: "They got our brand voice right from day one. Bookings up 62% in three months.",
+    quote: "Voice nailed. Bookings up 62% in 90 days.",
     name: "Cedric C.",
     handle: "Maison Lumière · @maisonlumiere",
   },
@@ -74,7 +74,7 @@ const testimonials = [
     sector: "FASHION",
     stat: "11d",
     statLabel: "TO SELL OUT",
-    quote: "Sold out our first drop in eleven days. No paid ads needed.",
+    quote: "Sold out in 11 days. Zero ads.",
     name: "Estelle S.",
     handle: "Saint Manor · @saintmanor",
   },
@@ -82,7 +82,7 @@ const testimonials = [
     sector: "HOSPITALITY",
     stat: "−41%",
     statLabel: "COST/BOOKING",
-    quote: "Cut our cost per booking by 41%. Bookings still up.",
+    quote: "Cost per booking −41%. Volume up.",
     name: "Shimpei M.",
     handle: "Hôtel Vergé · @hotelverge",
   },
@@ -103,10 +103,10 @@ const trustedBy: TrustedBrand[] = [
 ];
 
 const whyUs = [
-  { n: "01", en: "Strategy before pretty.", th: "เริ่มจาก funnel และ KPI ก่อน — งานสวยมาทีหลัง" },
-  { n: "02", en: "Creative built for ads.", th: "ทุกชิ้นออกแบบให้รันใน paid media ได้ทันที — ไม่ใช่ asset โชว์" },
-  { n: "03", en: "We measure what we make.", th: "วัดผลทุกชิ้น — ROAS · CAC · retention เพื่อให้ creative ดีขึ้นเรื่อยๆ ไม่ใช่ขาย report" },
-  { n: "04", en: "Small team. Your team.",  th: "คุยกับคนทำจริง ไม่มี account manager คั่น ไม่มี telephone game" },
+  { n: "01", en: "Strategy first.",     th: "Funnel · KPI ก่อนงานสวย" },
+  { n: "02", en: "Built for ads.",      th: "ทุกชิ้นรัน paid ได้จริง" },
+  { n: "03", en: "We measure.",         th: "ROAS · CAC · Retention" },
+  { n: "04", en: "Small team. Yours.",  th: "คุยกับคนทำจริง" },
 ];
 
 /* ------------------------------------------------------------------ */

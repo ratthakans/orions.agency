@@ -193,15 +193,15 @@ const Services = () => {
   return (
     <div>
       <SEO
-        title="Services & Packages — ØRIONS"
-        description="Creative agency. Brand, film, social. 3 packages: Starter 29k, Pro 59k, Elite 119k. ทีมเดียวจบ — strategy, production, ads."
-        path="/services"
+        title="Pricing — ØRIONS"
+        description="3 monthly packages: Starter 29k, Pro 59k, Elite 119k. ทีมเดียวจบ — strategy, production, ads. Cancel anytime."
+        path="/pricing"
         schema={{
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
             { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
-            { "@type": "ListItem", position: 2, name: "Services", item: `${SITE_URL}/services` },
+            { "@type": "ListItem", position: 2, name: "Pricing", item: `${SITE_URL}/pricing` },
           ],
         }}
       />
@@ -209,10 +209,10 @@ const Services = () => {
       {/* 01 · HERO — short + show starting price */}
       <section className="px-6 md:px-10">
         <div className="max-w-[1280px] mx-auto pt-32 md:pt-40 pb-16 md:pb-24">
-          <PageMark index="01" total="05" />
+          <PageMark index="01" total="03" />
           <Reveal>
             <h1 className="font-serif text-[44px] md:text-[80px] lg:text-[104px] leading-[1.0] tracking-[-0.03em] max-w-[18ch]">
-              Pricing that <em className="text-orion italic">makes sense.</em>
+              <em className="text-orion italic">Pricing.</em>
             </h1>
           </Reveal>
           <Reveal delay={0.1}>
@@ -239,7 +239,7 @@ const Services = () => {
       {/* 02 · PACKAGES — moved up so visitors see pricing fast */}
       <section id="packages" className="px-6 md:px-10 border-t border-foreground">
         <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-          <PageMark index="02" total="05" />
+          <PageMark index="02" total="03" />
           <div className="flex items-end justify-between gap-8 flex-wrap">
             <Reveal>
               <h2 className="font-serif text-[40px] md:text-[72px] lg:text-[96px] leading-[1.0] tracking-[-0.03em] max-w-[16ch]">
@@ -312,66 +312,10 @@ const Services = () => {
         </div>
       </section>
 
-      {/* 03 · WHAT WE DO — 3-col, no images, sync names with Index */}
-      <section className="px-6 md:px-10 border-t border-foreground">
-        <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-          <PageMark index="03" total="05" />
-          <Reveal>
-            <h2 className="font-serif text-[40px] md:text-[72px] lg:text-[96px] leading-[1.0] tracking-[-0.03em] max-w-[14ch]">
-              Three things, <em className="text-orion italic">properly.</em>
-            </h2>
-          </Reveal>
-
-          <div className="mt-16 md:mt-24 border-t border-foreground grid grid-cols-1 md:grid-cols-3">
-            {capabilities.map((c, i) => (
-              <Reveal key={c.title} delay={i * 0.06}>
-                <div className={`py-10 md:py-12 md:px-10 ${i > 0 ? "md:border-l border-foreground border-t md:border-t-0" : ""}`}>
-                  <div className="font-mono text-[10px] tracking-[0.18em] text-muted-foreground">{c.tag}</div>
-                  <h3 className="mt-8 font-serif italic text-[40px] md:text-[48px] leading-[1] tracking-[-0.02em]">{c.title}</h3>
-                  <p className="mt-6 font-serif italic text-orion text-[16px] md:text-[18px] leading-[1.4] max-w-[24ch]">"{c.line}"</p>
-                  <p className="mt-4 font-thai text-[14px] leading-[1.7] text-muted-foreground">{c.desc}</p>
-                  <ul className="mt-7 pt-6 border-t border-dashed border-foreground/25 space-y-2 font-thai text-[14px] text-foreground/85">
-                    {c.items.map((it) => (
-                      <li key={it} className="flex gap-3"><span className="text-muted-foreground">—</span><span>{it}</span></li>
-                    ))}
-                  </ul>
-                  <p className="mt-7 font-mono text-[10px] tracking-[0.12em] uppercase text-muted-foreground">{c.selected}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 04 · PROCESS — 4 steps, matches Index */}
-      <section className="px-6 md:px-10 border-t border-foreground">
-        <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-          <PageMark index="04" total="05" />
-          <Reveal>
-            <h2 className="font-serif text-[40px] md:text-[72px] lg:text-[96px] leading-[1.0] tracking-[-0.03em] max-w-[16ch]">
-              From hello, <em className="text-orion italic">live in 4 weeks.</em>
-            </h2>
-          </Reveal>
-
-          <div className="mt-14 md:mt-20 border-t border-foreground">
-            {process4.map((s, i) => (
-              <Reveal key={s.n} delay={0.04 * i}>
-                <div className="grid grid-cols-12 gap-4 md:gap-6 items-baseline border-b border-foreground/15 py-7 md:py-9 group hover:bg-foreground/[0.025] transition-colors">
-                  <div className="col-span-2 md:col-span-1 font-mono text-[10px] tracking-[0.14em] text-muted-foreground">{s.n}</div>
-                  <div className="col-span-10 md:col-span-3 font-serif italic text-[28px] md:text-[40px] tracking-[-0.02em] leading-[1.05]">{s.t}.</div>
-                  <div className="col-span-12 md:col-span-6 font-thai text-[14px] md:text-[15px] leading-[1.65] text-foreground/75">{s.d}</div>
-                  <div className="col-span-12 md:col-span-2 md:text-right font-mono text-[10px] tracking-[0.14em] uppercase text-orion">{s.w}</div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 05 · FAQ */}
+      {/* 03 · FAQ */}
       <section className="px-6 md:px-10 border-t border-foreground">
         <div className="max-w-[1000px] mx-auto py-20 md:py-28">
-          <PageMark index="05" total="05" />
+          <PageMark index="03" total="03" />
           <Reveal>
             <h2 className="font-serif text-[40px] md:text-[72px] lg:text-[96px] leading-[1.0] tracking-[-0.03em]">
               คำถามที่ <em className="text-orion italic">พบบ่อย.</em>
@@ -421,4 +365,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default Pricing;

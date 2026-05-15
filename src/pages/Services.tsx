@@ -10,7 +10,7 @@ const capabilities = [
   {
     tag: "— 01 / BRANDING",
     title: "Brand.",
-    line: "แบรนด์ที่ลูกค้าเลือกซื้อ ไม่ใช่แค่จำได้.",
+    line: "Identity ที่จำได้ — และเลือกซื้อ.",
     desc: "Positioning, naming, identity, messaging, launch kit — วางแบรนด์ที่ขายของได้ตั้งแต่วันแรก ไม่ใช่แค่ดูดี.",
     items: ["Positioning + Audience", "Naming & Identity", "Visual System", "Messaging + Tone", "Launch Kit"],
     selected: "Selected · Hongmove · Atlas · Sera",
@@ -18,7 +18,7 @@ const capabilities = [
   {
     tag: "— 02 / CONTENT",
     title: "Content.",
-    line: "คอนเทนต์ที่ดันยอด ไม่ใช่แค่ยอดวิว.",
+    line: "คอนเทนต์ที่ทั้งสวย — และดันยอด.",
     desc: "Director, DOP, studio, edit, color, sound — โปรดักชันครบทีมเดียว ออกแบบเพื่อ CTR · watch-time · conversion.",
     items: ["Performance Creative", "Photo + Video Shoots", "Reels + Short-form", "Edit · Color · Sound", "Graphic + Motion"],
     selected: "Selected · RTAF · Heavy",

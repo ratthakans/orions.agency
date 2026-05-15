@@ -62,7 +62,7 @@ const Services = () => (
         <PageMark index="01" total="03" />
         <Reveal>
           <h1 className="font-serif text-[52px] md:text-[88px] lg:text-[112px] leading-[1.0] tracking-[-0.03em] max-w-[14ch]">
-            A boutique creative <em className="text-orion italic">agency.</em>
+            A boutique creative <em className="text-gemini italic">agency.</em>
           </h1>
         </Reveal>
         <Reveal delay={0.1}>
@@ -90,7 +90,7 @@ const Services = () => (
         <PageMark index="02" total="03" />
         <Reveal>
           <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em] max-w-[14ch]">
-            What we <em className="text-orion italic">grow.</em>
+            What we <em className="text-gemini italic">grow.</em>
           </h2>
         </Reveal>
 
@@ -121,7 +121,7 @@ const Services = () => (
         <PageMark index="03" total="03" />
         <Reveal>
           <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em] max-w-[16ch]">
-            Live in <em className="text-orion italic">4 weeks.</em>
+            Live in <em className="text-gemini italic">4 weeks.</em>
           </h2>
         </Reveal>
 
@@ -142,7 +142,7 @@ const Services = () => (
 
     <ClosingCTA
       eyebrow="NEXT STEPS"
-      title={<>Tell us about <em className="text-orion italic">the brand.</em></>}
+      title={<>Tell us about <em className="text-gemini italic">the brand.</em></>}
       description="30-min discovery call. Free. We reply within 24 hours."
       ctas={[
         { label: "Get a free proposal", to: "/contact" },

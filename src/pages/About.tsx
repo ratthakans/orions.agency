@@ -2,7 +2,6 @@ import Reveal from "@/components/Reveal";
 import ClosingCTA from "@/components/ClosingCTA";
 import SEO from "@/components/SEO";
 import FlipNumber from "@/components/FlipNumber";
-import whoOrionsTeam from "@/assets/orions-team.jpg";
 import founderImg from "@/assets/team/founder.jpg";
 import ceoImg from "@/assets/team/ceo.jpg";
 import cdImg from "@/assets/team/creative-director.jpg";
@@ -48,13 +47,6 @@ const groups: Group[] = [
 ];
 
 const totalPeople = groups.reduce((sum, g) => sum + g.people.length, 0);
-
-const whyUs = [
-  { n: "01", title: "Small team. Your team.", body: "You talk to who's doing the work. No telephone game." },
-  { n: "02", title: "Strategy before pretty.", body: "We plan before we post." },
-  { n: "03", title: "Ads inside the plan.", body: "Paid ads built into your strategy from day one." },
-  { n: "04", title: "Built for boutique brands.", body: "We work with brands who care about quality." },
-];
 
 const PersonCard = ({ p, index, total }: { p: Person; index: number; total: number }) => (
   <Reveal delay={index * 0.04}>
@@ -128,81 +120,6 @@ const About = () => (
             11 people, in-house in Bangkok. Branding, content, and paid ads — for F&amp;B, fashion, and hospitality brands.
           </p>
         </Reveal>
-      </div>
-    </section>
-
-    {/* WHO IS ØRIONS */}
-    <section className="relative px-6 md:px-10 py-20 md:py-28">
-      <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start">
-        <div className="md:col-span-7 order-2 md:order-1">
-          <Reveal>
-            <div className="aspect-[4/5] md:aspect-[5/4] overflow-hidden bg-surface-2 border border-foreground">
-              <img src={whoOrionsTeam} alt="ØRIONS team in Bangkok" loading="lazy" decoding="async" className="w-full h-full object-cover" />
-            </div>
-          </Reveal>
-          <Reveal delay={0.15}>
-            <div className="mt-3 flex items-center justify-between font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">
-              <span>01 — ØRIONS TEAM</span>
-              <span>BANGKOK STUDIO</span>
-              <span>EST. 2026</span>
-            </div>
-          </Reveal>
-        </div>
-
-        <div className="md:col-span-5 order-1 md:order-2">
-          <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">— WHO IS ØRIONS</p>
-          <Reveal delay={0.1}>
-            <h2 className="mt-8 font-display h-display-sm">
-              Boutique <span className={accent}>creative</span> agency.
-              <span className="block mt-4 font-mono text-[12px] md:text-[14px] tracking-[0.2em] text-muted-foreground uppercase">From Bangkok · Est. 2026</span>
-            </h2>
-          </Reveal>
-          <Reveal delay={0.25}>
-            <p className="mt-8 font-thai text-[15px] md:text-[16px] leading-[1.7] text-foreground/70">
-              We help unique brands grow on social — through <span className="text-foreground">branding, content, and paid ads</span>. Built for <span className="text-foreground">F&amp;B, fashion, and hospitality</span> brands who care about quality.
-            </p>
-          </Reveal>
-
-          <Reveal delay={0.35}>
-            <div className="mt-12 border-t border-foreground pt-6 grid grid-cols-3 gap-3 md:gap-4">
-              {[
-                { v: 11, suffix: "", l: "PEOPLE · IN-HOUSE" },
-                { v: 40, suffix: "+", l: "BRANDS" },
-                { v: 4, suffix: "wk", l: "TO LIVE" },
-              ].map((s, i) => (
-                <div key={s.l} className={`min-w-0 ${i > 0 ? "border-l border-soft pl-3 md:pl-4" : ""}`}>
-                  <div className={`font-display ${accent} text-[28px] md:text-[44px] leading-none tracking-[-0.04em] tabular-nums`}>
-                    <FlipNumber to={s.v} suffix={s.suffix} suffixClassName="ml-0.5" />
-                  </div>
-                  <div className="mt-2 font-mono text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-muted-foreground">{s.l}</div>
-                </div>
-              ))}
-            </div>
-          </Reveal>
-        </div>
-      </div>
-    </section>
-
-    {/* WHY US */}
-    <section className="relative px-6 md:px-10 bg-foreground text-background">
-      <div className="border-t border-background/30 py-24 md:py-32 max-w-[1200px] mx-auto">
-        <Reveal delay={0.05}>
-          <h2 className="font-display h-display-sm">
-            Why <span className={accent}>us?</span>
-          </h2>
-        </Reveal>
-
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 border-t border-background/30">
-          {whyUs.map((w, i) => (
-            <Reveal key={w.n} delay={0.08 * i}>
-              <article className={`relative h-full py-10 md:py-12 md:px-8 flex flex-col ${i % 2 === 1 ? "md:border-l border-background/20" : ""} ${i < 2 ? "md:border-b border-background/20" : ""}`}>
-                <div className="font-mono text-[10px] tracking-[0.2em] text-background/50">— {w.n}</div>
-                <h3 className="mt-6 font-display text-[22px] md:text-[26px] tracking-[-0.02em]">{w.title}</h3>
-                <p className="mt-3 font-thai text-[14px] leading-[1.7] text-background/70 max-w-[300px]">{w.body}</p>
-              </article>
-            </Reveal>
-          ))}
-        </div>
       </div>
     </section>
 

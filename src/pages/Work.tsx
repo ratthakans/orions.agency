@@ -216,7 +216,7 @@ const Work = () => (
       title={<>Tell us about <em className="text-orion italic">the brand.</em></>}
       description="30-min discovery call. Free. We reply within 24 hours."
       ctas={[
-        { label: "Start the conversation", to: "/contact" },
+        { label: "Get a free proposal", to: "/contact" },
         { label: "See services & pricing", to: "/services", variant: "ghost" },
       ]}
     />

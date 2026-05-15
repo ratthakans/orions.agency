@@ -110,6 +110,18 @@ const whyUs = [
   { n: "04", en: "Built for boutique.",     th: "ทำเพื่อแบรนด์ที่แคร์เรื่องคุณภาพ" },
 ];
 
+const outcomes = [
+  { num: "+3.2×", label: "Reach lift",      sub: "in first 90 days" },
+  { num: "40+",   label: "Brands launched", sub: "since 2019" },
+  { num: "4 wk",  label: "From hello to live", sub: "average kickoff" },
+];
+
+const pricingTiers = [
+  { name: "Starter", price: "29,000",  best: "เริ่มต้นบน IG / TikTok" },
+  { name: "Pro",     price: "59,000",  best: "โต volume + ads", popular: true },
+  { name: "Elite",   price: "119,000", best: "Launch / rebrand เต็มรูปแบบ" },
+];
+
 /* ------------------------------------------------------------------ */
 /* COMPONENT                                                           */
 /* ------------------------------------------------------------------ */
@@ -147,6 +159,27 @@ const Index = () => (
         <Reveal delay={0.35}>
           <p className="mt-6 md:mt-8 font-serif italic text-[15px] md:text-[18px] text-background/70 max-w-[640px] mx-auto leading-[1.55]">
             We help unique brands grow on social — through branding, content, and paid ads.
+          </p>
+        </Reveal>
+
+        <Reveal delay={0.5}>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+            <Link
+              to="/contact"
+              className="group inline-flex items-center gap-3 bg-background text-foreground px-7 py-4 index-badge border border-background hover:gap-4 transition-all duration-300"
+            >
+              <span>Get a free proposal</span>
+              <ArrowUpRight className="w-4 h-4" />
+            </Link>
+            <Link
+              to="/services#packages"
+              className="group inline-flex items-center gap-2 index-badge text-background/80 border-b border-background/40 pb-1 hover:text-background hover:border-background transition-colors"
+            >
+              See pricing →
+            </Link>
+          </div>
+          <p className="mt-5 font-mono text-[10px] tracking-[0.25em] uppercase text-background/55 text-center">
+            ↳ Reply within 24h · Free 30-min call
           </p>
         </Reveal>
       </div>
@@ -391,11 +424,28 @@ const Index = () => (
     </section>
 
     {/* ========================================================== */}
-    {/* 08 · TRUSTED BY                                             */}
+    {/* 08 · OUTCOMES — proof bar                                   */}
+    {/* ========================================================== */}
+    <section className="border-y border-foreground bg-surface">
+      <div className="max-w-[1280px] mx-auto px-6 md:px-10 py-14 md:py-20 grid grid-cols-1 md:grid-cols-3">
+        {outcomes.map((o, i) => (
+          <Reveal key={o.label} delay={0.05 * i}>
+            <div className={`px-2 md:px-8 py-6 md:py-2 ${i > 0 ? "md:border-l border-foreground/20" : ""}`}>
+              <div className="font-serif text-orion tracking-[-0.04em] leading-none text-[64px] md:text-[88px] lg:text-[104px] tabular-nums">{o.num}</div>
+              <div className="mt-5 font-mono text-[10px] tracking-[0.25em] uppercase text-foreground">{o.label}</div>
+              <div className="mt-1 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">{o.sub}</div>
+            </div>
+          </Reveal>
+        ))}
+      </div>
+    </section>
+
+    {/* ========================================================== */}
+    {/* 09 · TRUSTED BY                                             */}
     {/* ========================================================== */}
     <section className="px-6 md:px-10 border-t border-foreground">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <PageMark index="08" />
+        <PageMark index="09" />
         <Reveal>
           <h2 className="font-serif text-[44px] md:text-[80px] lg:text-[104px] leading-[1.0] tracking-[-0.03em]">
             Trusted <em className="text-orion italic">by.</em>
@@ -429,13 +479,67 @@ const Index = () => (
     </section>
 
     {/* ========================================================== */}
-    {/* 09 · WHY US + CTA                                           */}
+    {/* 10 · PRICING TEASER                                         */}
+    {/* ========================================================== */}
+    <section className="px-6 md:px-10 border-t border-foreground">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+        <PageMark index="10" />
+        <Reveal>
+          <h2 className="font-serif text-[44px] md:text-[80px] lg:text-[96px] leading-[1.0] tracking-[-0.03em] max-w-[18ch]">
+            Pricing that <em className="text-orion italic">makes sense.</em>
+          </h2>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <p className="mt-8 font-serif italic text-[18px] md:text-[20px] text-muted-foreground max-w-[640px] leading-[1.55]">
+            Monthly retainer · ทีมเดียวจบ · ยกเลิก/ปรับขนาดได้ทุกรอบสัญญา.
+          </p>
+        </Reveal>
+
+        <div className="mt-14 md:mt-20 border-t border-foreground grid grid-cols-1 md:grid-cols-3">
+          {pricingTiers.map((t, i) => (
+            <Reveal key={t.name} delay={i * 0.06}>
+              <div className={`relative py-10 md:py-12 md:px-10 ${i > 0 ? "md:border-l border-foreground border-t md:border-t-0" : ""} ${t.popular ? "bg-foreground/[0.03]" : ""}`}>
+                {t.popular && (
+                  <div className="absolute top-0 left-0 bg-orion text-background px-4 py-1 font-mono text-[9px] tracking-[0.25em] uppercase">
+                    ★ MOST POPULAR
+                  </div>
+                )}
+                <div className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground">— 0{i + 1}</div>
+                <h3 className="mt-8 font-serif italic text-[40px] md:text-[48px] leading-[1] tracking-[-0.02em]">{t.name}</h3>
+                <div className="mt-6 flex items-baseline gap-2">
+                  <span className="font-serif text-orion text-[36px] md:text-[44px] tracking-[-0.03em] tabular-nums">{t.price}</span>
+                  <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">THB / เดือน</span>
+                </div>
+                <p className="mt-6 pt-5 border-t border-dashed border-foreground/25 font-thai text-[14px] leading-[1.65] text-muted-foreground">
+                  Best for · {t.best}
+                </p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal delay={0.2}>
+          <div className="mt-12 flex flex-wrap items-center gap-5">
+            <Link to="/services#packages" className="group inline-flex items-center gap-3 bg-foreground text-background px-7 py-4 index-badge border border-foreground hover:bg-orion hover:border-orion transition-colors">
+              <span>See full breakdown</span>
+              <ArrowUpRight className="w-4 h-4" />
+            </Link>
+            <Link to="/contact" className="group inline-flex items-center gap-2 index-badge text-foreground border-b border-foreground pb-1 hover:opacity-70 transition-opacity">
+              Get a free proposal →
+            </Link>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+
+    {/* ========================================================== */}
+    {/* 11 · WHY US + CTA                                           */}
     {/* ========================================================== */}
     <section className="px-6 md:px-10 border-t border-foreground bg-foreground text-background">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <div className="flex items-center justify-between font-mono text-[10px] tracking-[0.3em] uppercase text-background/55 mb-12 md:mb-16">
           <span className="flex items-center gap-3">ORIONS <span className="text-orion">✦</span></span>
-          <span>09 / 09</span>
+          <span>11 / 11</span>
         </div>
 
         <Reveal>
@@ -482,7 +586,7 @@ const Index = () => (
               to="/contact"
               className="mt-10 group inline-flex items-center gap-3 bg-background text-foreground px-7 py-4 index-badge border border-background hover:gap-4 transition-all duration-300"
             >
-              <span>เริ่มคุยกับเรา</span>
+              <span>Get a free proposal</span>
               <ArrowUpRight className="w-4 h-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </Link>
           </Reveal>

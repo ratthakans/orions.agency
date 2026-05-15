@@ -586,7 +586,7 @@ const Index = () => (
               to="/contact"
               className="mt-10 group inline-flex items-center gap-3 bg-background text-foreground px-7 py-4 index-badge border border-background hover:gap-4 transition-all duration-300"
             >
-              <span>เริ่มคุยกับเรา</span>
+              <span>Get a free proposal</span>
               <ArrowUpRight className="w-4 h-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </Link>
           </Reveal>

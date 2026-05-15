@@ -25,23 +25,23 @@ const stats = [
 const services = [
   {
     n: "01",
-    en: "Brand that converts",
-    tagline: "Positioning, identity, and messaging built to sell — not just to look good.",
-    th: "แบรนด์ที่ลูกค้าเลือกซื้อ ไม่ใช่แค่จำได้ — วาง positioning, identity, และ messaging ที่ขายของ",
+    en: "Brand.",
+    tagline: "Identity that's remembered — and chosen. Beautiful and built to sell.",
+    th: "Identity ที่จำได้ และเลือกซื้อ — สวย ขายได้ ทั้งสองอย่าง",
     items: ["Positioning + audience", "Naming · Logo · System", "Messaging + tone", "Launch toolkit"],
   },
   {
     n: "02",
-    en: "Content that performs",
-    tagline: "Photo, video, and design — engineered for CTR, watch-time, and conversion.",
-    th: "คอนเทนต์ที่ดันยอด ไม่ใช่แค่ยอดวิว — ออกแบบเพื่อ CTR, watch-time, และ conversion",
+    en: "Content.",
+    tagline: "Photo, video, and design — crafted to look right and to perform.",
+    th: "คอนเทนต์ที่ทั้งสวย และดันยอด — craft + performance ในชิ้นเดียว",
     items: ["Performance creative", "Reels + short-form", "Photo + video shoots", "Graphic + motion"],
   },
   {
     n: "03",
-    en: "Ads that scale",
-    tagline: "Meta, TikTok, and Google paid media — measured weekly, optimised monthly.",
-    th: "ยิงแอด Meta · TikTok · Google — รายงาน ROAS, CAC, retention ทุกเดือน วัดผลจริง",
+    en: "Ads.",
+    tagline: "Paid media built around the creative — not assets bolted onto a media plan.",
+    th: "ยิงแอดด้วย creative ที่ทำมาเพื่อ paid — ไม่ใช่ asset โชว์",
     items: ["Funnel + KPI strategy", "Meta + TikTok + Google ads", "Community + organic", "Monthly KPI report"],
   },
 ];
@@ -54,11 +54,11 @@ const process = [
 ];
 
 const projects = [
-  { n: "01", title: "Hongmove",             niche: "PROPTECH",   img: workHongmove, metric: "+180% LEADS / 90D" },
-  { n: "02", title: "Democrat Party",       niche: "POLITICS",   img: workDemocrat, metric: "12.4M REACH" },
-  { n: "03", title: "Royal Thai Air Force", niche: "GOVERNMENT", img: workRtaf,     metric: "3.2M VIEWS" },
-  { n: "04", title: "GCOO",                 niche: "MOBILITY",   img: workGcoo,     metric: "−38% CPL" },
-  { n: "05", title: "Heavy Organizer",      niche: "EVENTS",     img: workHeavy,    metric: "SOLD-OUT TOUR" },
+  { n: "01", title: "Hongmove",             niche: "PROPTECH",   img: workHongmove, metric: "BRAND · CAMPAIGN" },
+  { n: "02", title: "Democrat Party",       niche: "POLITICS",   img: workDemocrat, metric: "CAMPAIGN · DIGITAL" },
+  { n: "03", title: "Royal Thai Air Force", niche: "GOVERNMENT", img: workRtaf,     metric: "FILM · IDENTITY" },
+  { n: "04", title: "GCOO",                 niche: "MOBILITY",   img: workGcoo,     metric: "LAUNCH · CONTENT" },
+  { n: "05", title: "Heavy Organizer",      niche: "EVENTS",     img: workHeavy,    metric: "EVENT · IDENTITY" },
 ];
 
 const testimonials = [
@@ -105,15 +105,8 @@ const trustedBy: TrustedBrand[] = [
 const whyUs = [
   { n: "01", en: "Strategy before pretty.", th: "เริ่มจาก funnel และ KPI ก่อน — งานสวยมาทีหลัง" },
   { n: "02", en: "Creative built for ads.", th: "ทุกชิ้นออกแบบให้รันใน paid media ได้ทันที — ไม่ใช่ asset โชว์" },
-  { n: "03", en: "Numbers we report on.",   th: "ROAS · CAC · retention ทุกเดือน ไม่ใช่แค่ likes กับ reach" },
+  { n: "03", en: "We measure what we make.", th: "วัดผลทุกชิ้น — ROAS · CAC · retention เพื่อให้ creative ดีขึ้นเรื่อยๆ ไม่ใช่ขาย report" },
   { n: "04", en: "Small team. Your team.",  th: "คุยกับคนทำจริง ไม่มี account manager คั่น ไม่มี telephone game" },
-];
-
-const proof = [
-  { n: "4.2×", label: "AVG ROAS — META + TIKTOK" },
-  { n: "+62%", label: "BOOKINGS — F&B CLIENT, 90D" },
-  { n: "−41%", label: "CAC — HOSPITALITY CLIENT" },
-  { n: "28",   label: "BRANDS SHIPPED" },
 ];
 
 /* ------------------------------------------------------------------ */
@@ -146,7 +139,7 @@ const Index = () => (
 
         <Reveal delay={0.35}>
           <p className="mt-6 md:mt-8 font-serif italic text-[15px] md:text-[18px] text-background/70 max-w-[560px] mx-auto leading-[1.55]">
-            Brand, content, and paid media — engineered to grow boutique brands.
+            A boutique creative agency — work that hits the brief, the numbers, and the eye.
           </p>
         </Reveal>
 
@@ -172,28 +165,6 @@ const Index = () => (
       <div className="px-6 md:px-10 pb-8 md:pb-10 flex items-end justify-between border-t border-background/15 pt-6">
         <span className="font-mono text-[10px] tracking-[0.12em] uppercase text-background/70">01 / 07</span>
         <a href="mailto:hello@orions.agency" className="font-mono text-[10px] tracking-[0.18em] uppercase text-background/80 hover:text-background transition-colors">hello@orions.agency</a>
-      </div>
-    </section>
-
-    {/* ========================================================== */}
-    {/* 02 · PROOF BAR                                              */}
-    {/* ========================================================== */}
-    <section className="px-6 md:px-10 border-t border-foreground bg-background">
-      <div className="max-w-[1280px] mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-4">
-          {proof.map((p, i) => (
-            <Reveal key={p.label} delay={i * 0.05}>
-              <div className={`py-10 md:py-12 px-4 md:px-8 ${i > 0 ? "md:border-l border-foreground/15" : ""} ${i % 2 === 1 ? "border-l border-foreground/15 md:border-l" : ""} ${i >= 2 ? "border-t border-foreground/15 md:border-t-0" : ""}`}>
-                <div className="font-serif text-[40px] md:text-[56px] leading-none tracking-[-0.04em] tabular-nums">
-                  {p.n}
-                </div>
-                <div className="mt-4 font-mono text-[9px] md:text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
-                  {p.label}
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
       </div>
     </section>
 
@@ -237,7 +208,7 @@ const Index = () => (
         <PageMark index="03" />
         <Reveal>
           <h2 className="font-serif text-[44px] md:text-[80px] lg:text-[104px] leading-[1.0] tracking-[-0.03em]">
-            How we <em className="text-orion italic">grow brands.</em>
+            Three things, <em className="text-orion italic">properly.</em>
           </h2>
         </Reveal>
 
@@ -361,7 +332,7 @@ const Index = () => (
         <PageMark index="06" />
         <Reveal>
           <h2 className="font-serif text-[44px] md:text-[80px] lg:text-[104px] leading-[1.0] tracking-[-0.03em]">
-            Results, <em className="text-orion italic">not likes.</em>
+            What clients <em className="text-orion italic">say.</em>
           </h2>
         </Reveal>
 
@@ -467,17 +438,17 @@ const Index = () => (
         <div className="mt-24 md:mt-32 border-t border-background/25 pt-16 md:pt-24 text-center">
           <Reveal>
             <p className="font-mono text-[10px] tracking-[0.4em] uppercase text-orion mb-8">
-              ✦ FREE 30-MIN GROWTH AUDIT
+              ✦ NOW BOOKING — 2026
             </p>
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="font-serif text-[44px] md:text-[80px] lg:text-[96px] leading-[1.0] tracking-[-0.03em]">
-              Let's grow <em className="text-orion italic">your numbers.</em>
+              Let's make something <em className="text-orion italic">that works.</em>
             </h2>
           </Reveal>
           <Reveal delay={0.2}>
             <p className="mt-8 font-serif italic text-[18px] md:text-[22px] text-background/75 max-w-[640px] mx-auto leading-[1.5]">
-              30-min audit. Free. We reply within 24h with a growth diagnosis.
+              30-min discovery call. Free. We reply within 24 hours.
             </p>
           </Reveal>
           <Reveal delay={0.3}>
@@ -485,7 +456,7 @@ const Index = () => (
               to="/contact"
               className="mt-10 group inline-flex items-center gap-3 bg-background text-foreground px-7 py-4 btn-label border border-background hover:gap-4 transition-all duration-300"
             >
-              <span>Get a free growth audit</span>
+              <span>Start a project</span>
               <ArrowUpRight className="w-4 h-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </Link>
           </Reveal>

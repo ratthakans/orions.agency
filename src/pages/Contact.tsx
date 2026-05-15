@@ -3,7 +3,8 @@ import { ArrowUpRight, MessageCircle, Phone } from "lucide-react";
 import { z } from "zod";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
-import PageMark from "@/components/PageMark";
+import PageHero from "@/components/PageHero";
+import SectionHeader from "@/components/SectionHeader";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -49,7 +50,7 @@ const Contact = () => {
     setForm({ name: "", company: "", email: "", brief: "" });
   };
 
-  const inputCls = "bg-transparent border-b border-foreground/30 px-0 py-3 text-[15px] placeholder:text-muted-foreground focus:outline-none focus:border-foreground focus:placeholder:opacity-40 transition-colors font-thai";
+  const inputCls = "bg-transparent border-b border-foreground/40 px-0 py-3 text-[15px] text-foreground placeholder:text-foreground/50 focus:outline-none focus:border-foreground transition-colors font-thai";
 
   return (
     <div>
@@ -68,34 +69,25 @@ const Contact = () => {
       />
 
       {/* 01 · HERO */}
-      <section className="px-6 md:px-10">
-        <div className="max-w-[1280px] mx-auto pt-32 md:pt-40 pb-20 md:pb-28">
-          <PageMark index="01" total="02" />
-          <Reveal>
-            <h1 className="font-serif text-[44px] md:text-[80px] lg:text-[112px] leading-[1.0] tracking-[-0.03em] max-w-[14ch]">
-              Tell us about <em className="text-orion italic">the brand.</em>
-            </h1>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <p className="mt-10 font-serif italic text-[18px] md:text-[22px] text-muted-foreground max-w-[640px] leading-[1.5]">
-              30-min discovery call. Free. We reply within 24 hours — with an honest fit-check.
-            </p>
-          </Reveal>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="— 01 / CONTACT"
+        verticalLabel="/ 06 CONTACT"
+        titleSize="lg"
+        title={<>Tell us about <em className="font-serif italic text-orion">the brand.</em></>}
+        subtitle="30-min discovery call. Free. We reply within 24 hours — with an honest fit-check."
+      />
 
       {/* INQUIRY — form + direct contact, single clean section */}
-      <section className="px-6 md:px-10 border-t border-foreground">
+      <section className="px-6 md:px-10">
         <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-          <PageMark index="02" total="02" />
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+          <SectionHeader index="02" left="— INQUIRY" right="ØRIONS · BANGKOK" />
+          <div className="mt-16 md:mt-20 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Form */}
           <Reveal className="lg:col-span-7">
-            <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground mb-6">— INQUIRY</p>
-            <h2 className="font-serif text-[36px] md:text-[56px] lg:text-[64px] leading-[1.0] tracking-[-0.03em] max-w-[520px]">
-              Send us a <em className="text-orion italic">brief.</em>
+            <h2 className="font-display h-display-md max-w-[520px]">
+              Send us a <em className="font-serif italic text-orion normal-case">brief.</em>
             </h2>
-            <p className="mt-6 max-w-[480px] font-thai text-[14px] leading-[1.7] text-foreground/70">
+            <p className="mt-6 max-w-[480px] font-thai text-[15px] body-muted">
               Tell us about your brand. We'll reply within 24 hours with an honest fit-check.
             </p>
 
@@ -106,7 +98,7 @@ const Contact = () => {
                 { key: "email",   label: "Email",   type: "email", ph: "you@company.com",      ac: "email",        span: "md:col-span-2" },
               ].map((f, i) => (
                 <div key={f.key} className={f.span}>
-                  <label className="font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">
+                  <label className="font-mono text-[10px] tracking-[0.14em] uppercase text-foreground/70">
                     — 0{i + 1} / {f.label}
                   </label>
                   <input
@@ -128,7 +120,7 @@ const Contact = () => {
               ))}
 
               <div className="md:col-span-2">
-                <label className="font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">
+                <label className="font-mono text-[10px] tracking-[0.14em] uppercase text-foreground/70">
                   — 04 / Brief
                 </label>
                 <textarea
@@ -148,31 +140,31 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={submitting}
-                className="md:col-span-2 mt-4 inline-flex items-center justify-between bg-foreground text-background px-7 py-5 font-mono text-[10px] tracking-[0.14em] uppercase hover:opacity-90 transition-opacity disabled:opacity-50"
+                className="group md:col-span-2 mt-4 inline-flex items-center justify-between bg-foreground text-background px-7 py-5 btn-label hover:opacity-90 transition-opacity disabled:opacity-50"
               >
                 <span>{submitting ? "Sending…" : "Send inquiry"}</span>
-                <ArrowUpRight className="w-4 h-4" />
+                <ArrowUpRight className="w-4 h-4 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1" />
               </button>
             </form>
           </Reveal>
 
           {/* Direct contact */}
           <Reveal delay={0.1} className="lg:col-span-5 pt-12 md:pt-16 lg:border-l lg:border-soft lg:pl-12 space-y-10">
-            <p className="font-mono text-[10px] tracking-[0.4em] text-muted-foreground">— DIRECT</p>
+            <p className="font-mono text-[10px] tracking-[0.4em] uppercase text-foreground/70">— DIRECT</p>
             <div>
-              <div className="font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">EMAIL</div>
-              <a href="mailto:hello@orions.agency" className="mt-3 block font-display text-[20px] md:text-[24px] tracking-[-0.01em] hover:opacity-60 transition-opacity break-all">
+              <div className="font-mono text-[10px] tracking-[0.14em] uppercase text-foreground/70">EMAIL</div>
+              <a href="mailto:hello@orions.agency" className="mt-3 block font-display text-[18px] md:text-[22px] hover:opacity-60 transition-opacity break-all">
                 hello@orions.agency
               </a>
             </div>
             <div>
-              <div className="font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">TELEPHONE</div>
-              <a href="tel:+66923905464" className="mt-3 block font-display text-[20px] md:text-[24px] tracking-[-0.01em] hover:opacity-60 transition-opacity">
+              <div className="font-mono text-[10px] tracking-[0.14em] uppercase text-foreground/70">TELEPHONE</div>
+              <a href="tel:+66923905464" className="mt-3 block font-display text-[18px] md:text-[22px] hover:opacity-60 transition-opacity">
                 +66 92 390 5464
               </a>
             </div>
             <div>
-              <div className="font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">CHAT — 1-TAP</div>
+              <div className="font-mono text-[10px] tracking-[0.14em] uppercase text-foreground/70">CHAT — 1-TAP</div>
               <div className="mt-3 flex flex-wrap gap-2">
                 <a
                   href="https://line.me/ti/p/~orions"
@@ -202,16 +194,16 @@ const Contact = () => {
               </div>
             </div>
             <div>
-              <div className="font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">STUDIO</div>
-              <p className="mt-3 font-thai text-[14px] leading-[1.7] text-foreground/70">
+              <div className="font-mono text-[10px] tracking-[0.14em] uppercase text-foreground/70">STUDIO</div>
+              <p className="mt-3 font-thai text-[14px] body-muted">
                 246/8 Soi Yothinphatthana 3<br />
                 Khlong Chan, Bang Kapi<br />
                 Bangkok 10240, Thailand
               </p>
             </div>
             <div className="pt-8 border-t border-soft">
-              <div className="font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">RESPONSE</div>
-              <p className="mt-3 font-thai text-[14px] leading-[1.7] text-foreground/70">
+              <div className="font-mono text-[10px] tracking-[0.14em] uppercase text-foreground/70">RESPONSE</div>
+              <p className="mt-3 font-thai text-[14px] body-muted">
                 We reply within <span className="text-foreground">24 hours</span>, Mon–Fri.
               </p>
             </div>

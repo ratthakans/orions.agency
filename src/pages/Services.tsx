@@ -5,16 +5,56 @@ import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import PageMark from "@/components/PageMark";
 import ClosingCTA from "@/components/ClosingCTA";
+import SimpleMarquee from "@/components/SimpleMarquee";
+import workAtlas from "@/assets/work-atlas.jpg";
+import concertHero from "@/assets/concert-hero.jpg";
+import workKoha from "@/assets/work-koha.jpg";
 
 const SITE_URL = "https://orions.agency";
 
+const outcomes = [
+  { num: "+3.2×", label: "Average reach lift", sub: "in first 90 days" },
+  { num: "40+",   label: "Brands launched",    sub: "since 2019" },
+  { num: "4–6",   label: "Weeks to live",      sub: "from kickoff" },
+];
+
+const capabilities = [
+  {
+    tag: "— 01 / BRAND",
+    title: "Brand.",
+    line: "Identity ที่ลูกค้าจำได้ใน 3 วินาที.",
+    desc: "Naming, logo, system, guideline, launch kit — สร้างแบรนด์ที่ขายได้ตั้งแต่ครั้งแรกที่เห็น.",
+    items: ["Naming & Strategy", "Logo & Identity", "Visual System", "Brand Guideline", "Launch Kit"],
+    selected: "Selected · Hongmove · Atlas · Sera",
+    img: workAtlas,
+  },
+  {
+    tag: "— 02 / FILM & PHOTO",
+    title: "Film.",
+    line: "คอนเทนต์ที่ดูจบแล้วอยากแชร์.",
+    desc: "Director, DOP, studio, edit, color, sound — งานโปรดักชันครบจบในทีมเดียว.",
+    items: ["Director & DOP", "Studio & Crew", "Edit & Color", "Sound Design", "Stills & Motion"],
+    selected: "Selected · RTAF · Heavy",
+    img: concertHero,
+  },
+  {
+    tag: "— 03 / SOCIAL & PAID",
+    title: "Social.",
+    line: "โพสต์ที่ขายของได้จริง — วัดผลทุกบาท.",
+    desc: "Strategy, calendar, daily content, community, Meta + TikTok ads — โตด้วยตัวเลข ไม่ใช่ความรู้สึก.",
+    items: ["Content Strategy", "Calendar & Daily", "Community Mgmt", "Meta + TikTok Ads", "Monthly Report"],
+    selected: "Selected · MyHotel · GCOO · Khaoyai",
+    img: workKoha,
+  },
+];
+
 const process6 = [
-  { n: "01", t: "Strategy" },
-  { n: "02", t: "Planning" },
-  { n: "03", t: "Approval" },
-  { n: "04", t: "Production" },
-  { n: "05", t: "Publish" },
-  { n: "06", t: "Optimize" },
+  { n: "01", t: "Strategy",   d: "ทำความเข้าใจธุรกิจ ตลาด คู่แข่ง — วาง positioning ที่ชัด.", w: "Week 1" },
+  { n: "02", t: "Planning",   d: "Content pillars, calendar, KPI — แผนที่นำไปใช้ได้จริง.",      w: "Week 1–2" },
+  { n: "03", t: "Approval",   d: "Mood, script, storyboard — ตกลงก่อนถ่าย ไม่มี surprise.",     w: "Week 2" },
+  { n: "04", t: "Production", d: "ถ่าย ตัด สี เสียง — ทีม in-house ทั้งหมด.",                   w: "Week 3–4" },
+  { n: "05", t: "Publish",    d: "ลงตามแผน, boost ตาม budget, ตอบลูกค้าให้.",                   w: "Week 4" },
+  { n: "06", t: "Optimize",   d: "อ่านตัวเลข ปรับคอนเทนต์ ปรับแอด — ทุกเดือน.",                w: "Ongoing" },
 ];
 
 type Pkg = {
@@ -23,6 +63,7 @@ type Pkg = {
   name: string;
   price: string;
   unit: string;
+  bestFor: string;
   tagline: string;
   contract: string;
   highlights: string[];
@@ -37,7 +78,8 @@ const packages: Pkg[] = [
     name: "Starter",
     price: "29,000",
     unit: "THB / เดือน",
-    tagline: "สำหรับธุรกิจเริ่มต้น — ทดลองได้ ไม่ผูกมัด",
+    bestFor: "ธุรกิจเริ่มต้นบน IG / TikTok",
+    tagline: "ทดลองได้ ไม่ผูกมัด — เริ่มต้นเล็ก โตไปด้วยกัน.",
     contract: "ขั้นต่ำ 1 เดือน",
     highlights: [
       "10 Static posts",
@@ -68,9 +110,10 @@ const packages: Pkg[] = [
     name: "Pro",
     price: "59,000",
     unit: "THB / เดือน",
-    tagline: "Most Popular — คุ้มที่สุด เห็นผลจริง",
+    bestFor: "แบรนด์ที่ต้องการ volume + ads ที่วัดผลได้",
+    tagline: "Most Popular — คุ้มที่สุดใน 3 เดือนแรก.",
     contract: "ขั้นต่ำ 3 เดือน",
-    ribbon: "★ POPULAR",
+    ribbon: "★ MOST POPULAR",
     highlights: [
       "15 Static posts · 15 Stories",
       "30 Reels / TikTok · 10 Photos",
@@ -106,7 +149,8 @@ const packages: Pkg[] = [
     name: "Elite",
     price: "119,000",
     unit: "THB / เดือน",
-    tagline: "Full Premium Service — ที่ปรึกษาเชิงกลยุทธ์",
+    bestFor: "Launch / rebrand เต็มรูปแบบ + ที่ปรึกษาเชิงกลยุทธ์",
+    tagline: "Full Premium Service — ทีมประจำที่ขับ growth.",
     contract: "ขั้นต่ำ 6 เดือน",
     ribbon: "♛ PREMIUM",
     highlights: [
@@ -141,36 +185,8 @@ const packages: Pkg[] = [
   },
 ];
 
-const compareRows: { label: string; values: [string, string, string] }[] = [
-  { label: "Static Posts",            values: ["10", "15", "20"] },
-  { label: "IG / FB Stories",         values: ["—", "15 / เดือน", "Daily (30)"] },
-  { label: "Reels / TikTok (9:16)",   values: ["15", "30", "30 (3 Hero)"] },
-  { label: "Horizontal Video (16:9)", values: ["—", "—", "1 ตัว ≤ 3 นาที"] },
-  { label: "Photography",             values: ["—", "10 / เดือน", "20–30 / เดือน"] },
-  { label: "Production Days",         values: ["1", "2", "3 (Full Crew)"] },
-  { label: "Copywriting",             values: ["Standard", "CTA + Hook", "ระดับโฆษณา"] },
-  { label: "Platform Coverage",       values: ["1", "2", "สูงสุด 4"] },
-  { label: "Strategy Meetup",         values: ["1× / mo", "2× / mo", "4× / mo"] },
-  { label: "Community Mgmt",          values: ["≤ 6 ชม.", "≤ 3 ชม.", "≤ 1 ชม."] },
-  { label: "Ads Management",          values: ["Add-on", "ฟรี ≤ 50k", "ฟรี ≤ 100k"] },
-  { label: "Brand Manual",            values: ["—", "—", "✓"] },
-  { label: "Dedicated Account Mgr",   values: ["—", "Shared", "✓"] },
-  { label: "Revisions",               values: ["1 / ชิ้น", "2 / ชิ้น", "3 Major + ∞ Minor"] },
-  { label: "Contract ขั้นต่ำ",         values: ["1 เดือน", "3 เดือน", "6 เดือน"] },
-];
-
-const addons = [
-  { name: "SEO Package",            price: "18,000 THB / mo",   note: "On-page · Technical · Content briefs · Monthly report" },
-  { name: "AEO Package",            price: "22,000 THB / mo",   note: "AI search optimization · Citation tracking · LLM-friendly content" },
-  { name: "SEO + AEO Bundle",       price: "35,000 THB / mo",   note: "ทุกอย่างใน SEO + AEO · SAVE 10,000 · Quarterly Strategy Workshop", featured: true },
-  { name: "Production · Photo",     price: "เริ่ม 25,000",       note: "Half-day shoot · Edit · Delivery in 7 วัน" },
-  { name: "Production · Video",     price: "เริ่ม 45,000",       note: "Full crew · 1 day shoot · Edit + Color + Sound" },
-  { name: "Email Marketing Setup",  price: "เริ่ม 18,000",       note: "Setup ระบบ + Template + Automation flow" },
-  { name: "Crisis Management / PR", price: "Quote ตามเคส",       note: "จัดการประเด็นที่กระทบแบรนด์" },
-  { name: "Influencer Campaign",    price: "10% ของ budget",     note: "Sourcing · Negotiation · Coordination · Reporting" },
-];
-
 const faqs = [
+  { q: "ผลลัพธ์เห็นเมื่อไหร่?", a: "30 วันแรก — เห็น traction (reach, engagement, save) · 90 วัน — เห็นผลกับยอดขาย / leads · เรารายงานตัวเลขจริงทุกเดือน ไม่ใช่ vanity metrics." },
   { q: "ใครเป็นเจ้าของไฟล์ต้นฉบับ (Raw Files)?", a: "ลูกค้าเป็นเจ้าของ final deliverables ทั้งหมด · Raw files (footage, source) ส่งมอบเมื่อจบสัญญา หรือซื้อเพิ่ม 15,000 THB ต่อเดือนของงาน" },
   { q: "ถ้าผลลัพธ์ไม่เป็นไปตามที่คาด?", a: "เราใช้ first-month review — ถ้าไม่พอใจ ปรับ scope ได้ทันที หรือยกเลิกโดยไม่มีค่าใช้จ่ายเพิ่ม" },
   { q: "ปรับแพ็กเกจระหว่างสัญญาได้ไหม?", a: "อัปเกรดได้ทุกเมื่อ · ดาวน์เกรดทำได้เมื่อจบรอบสัญญาปัจจุบัน" },
@@ -180,20 +196,27 @@ const faqs = [
 
 const PackageCard = ({ p }: { p: Pkg }) => (
   <Reveal>
-    <article className={`relative bg-background border border-foreground p-7 md:p-9 h-full flex flex-col ${p.ribbon ? "md:-translate-y-2" : ""}`}>
+    <article className={`relative bg-background border border-foreground p-7 md:p-9 h-full flex flex-col ${p.ribbon === "★ MOST POPULAR" ? "md:-translate-y-3 md:shadow-[0_0_0_1px_hsl(var(--orion))]" : ""}`}>
       {p.ribbon && (
         <div className="absolute -top-px left-0 bg-orion text-background px-4 py-1 font-mono text-[9px] tracking-[0.25em] uppercase">
           {p.ribbon}
         </div>
       )}
       <div className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground">{p.badge}</div>
-      <h3 className="mt-5 font-serif italic text-[40px] md:text-[52px] tracking-[-0.02em] leading-none">{p.name}</h3>
+      <h3 className={`mt-5 font-serif italic tracking-[-0.02em] leading-none ${p.ribbon === "★ MOST POPULAR" ? "text-[48px] md:text-[60px]" : "text-[40px] md:text-[52px]"}`}>{p.name}</h3>
       <div className="mt-6 flex items-baseline gap-2">
-        <span className="font-serif text-orion text-[36px] md:text-[44px] tracking-[-0.03em] tabular-nums">{p.price}</span>
+        <span className={`font-serif text-orion tracking-[-0.03em] tabular-nums ${p.ribbon === "★ MOST POPULAR" ? "text-[44px] md:text-[56px]" : "text-[36px] md:text-[44px]"}`}>{p.price}</span>
         <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">{p.unit}</span>
       </div>
       <p className="mt-3 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">{p.contract}</p>
-      <p className="mt-6 font-thai text-[14px] leading-[1.65] text-foreground/75 border-t border-soft pt-5">{p.tagline}</p>
+
+      <div className="mt-6 border-t border-soft pt-5">
+        <p className="font-mono text-[9.5px] tracking-[0.25em] uppercase text-muted-foreground">Best for</p>
+        <p className="mt-2 font-thai text-[14px] leading-[1.5] text-foreground">{p.bestFor}</p>
+      </div>
+
+      <p className="mt-5 font-serif italic text-[15px] leading-[1.55] text-foreground/70">{p.tagline}</p>
+
       <ul className="mt-6 space-y-3 flex-1">
         {p.highlights.map((h) => (
           <li key={h} className="flex gap-3 font-thai text-[13.5px] leading-[1.55] text-foreground/80">
@@ -221,7 +244,7 @@ const Services = () => {
     <div>
       <SEO
         title="Services & Packages — ØRIONS"
-        description="3 packages: Starter 29k, Pro 59k, Elite 119k. Social media, content production, brand strategy. Add-ons: SEO/AEO, production, PR."
+        description="Creative agency. Brand, film, social. 3 packages: Starter 29k, Pro 59k, Elite 119k. ทีมเดียวจบ — strategy, production, ads."
         path="/services"
         schema={{
           "@context": "https://schema.org",
@@ -235,37 +258,109 @@ const Services = () => {
 
       {/* 01 · HERO */}
       <section className="px-6 md:px-10">
-        <div className="max-w-[1280px] mx-auto pt-32 md:pt-40 pb-20 md:pb-28">
+        <div className="max-w-[1280px] mx-auto pt-32 md:pt-40 pb-16 md:pb-24">
           <PageMark index="01" total="06" />
           <Reveal>
-            <h1 className="font-serif text-[44px] md:text-[80px] lg:text-[112px] leading-[1.0] tracking-[-0.03em] max-w-[14ch]">
-              Social · Content · <em className="text-orion italic">Brand.</em>
+            <h1 className="font-serif text-[44px] md:text-[80px] lg:text-[112px] leading-[1.0] tracking-[-0.03em]">
+              Creative that <em className="text-orion italic">sells.</em><br />
+              Content that <em className="text-orion italic">scales.</em><br />
+              Brands people <em className="text-orion italic">remember.</em>
             </h1>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="mt-10 font-serif italic text-[18px] md:text-[22px] text-muted-foreground max-w-[640px] leading-[1.5]">
-              3 แพ็กเกจ ออกแบบให้เหมาะกับธุรกิจในแต่ละช่วงของการเติบโต — ปรับเปลี่ยนได้เมื่อโตขึ้น
+              Full-service creative agency — strategy, film, social. ทีมเดียวจบ ตั้งแต่ idea ถึง live.
             </p>
+          </Reveal>
+          <Reveal delay={0.15}>
+            <div className="mt-10 flex flex-wrap gap-3">
+              <a href="#packages" className="group inline-flex items-center gap-2 bg-foreground text-background px-6 py-3.5 font-mono text-[10px] tracking-[0.25em] uppercase hover:bg-orion transition-colors">
+                See packages <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+              <Link to="/contact" className="group inline-flex items-center gap-2 border border-foreground px-6 py-3.5 font-mono text-[10px] tracking-[0.25em] uppercase hover:bg-foreground hover:text-background transition-colors">
+                Book a free audit
+              </Link>
+            </div>
           </Reveal>
         </div>
       </section>
 
-      {/* 02 · 6-STEP PROCESS */}
+      {/* 02 · OUTCOMES — proof bar */}
+      <section className="border-y border-foreground bg-[hsl(var(--cream))]">
+        <div className="max-w-[1280px] mx-auto px-6 md:px-10 py-14 md:py-20 grid grid-cols-1 md:grid-cols-3">
+          {outcomes.map((o, i) => (
+            <Reveal key={o.label} delay={0.05 * i}>
+              <div className={`px-2 md:px-8 py-6 md:py-2 ${i > 0 ? "md:border-l border-foreground/20" : ""}`}>
+                <div className="font-serif text-orion tracking-[-0.04em] leading-none text-[64px] md:text-[88px] lg:text-[104px] tabular-nums">{o.num}</div>
+                <div className="mt-5 font-mono text-[10px] tracking-[0.25em] uppercase text-foreground">{o.label}</div>
+                <div className="mt-1 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">{o.sub}</div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* 03 · WHAT WE DO — outcome-led */}
       <section className="px-6 md:px-10 border-t border-foreground">
         <div className="max-w-[1280px] mx-auto py-20 md:py-28">
           <PageMark index="02" total="06" />
           <Reveal>
-            <h2 className="font-serif text-[40px] md:text-[72px] lg:text-[96px] leading-[1.0] tracking-[-0.03em]">
-              How we <em className="text-orion italic">work.</em>
+            <h2 className="font-serif text-[40px] md:text-[72px] lg:text-[96px] leading-[1.0] tracking-[-0.03em] max-w-[14ch]">
+              What we <em className="text-orion italic">do.</em>
             </h2>
           </Reveal>
 
-          <div className="mt-16 md:mt-20 border-t border-foreground grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+          <div className="mt-16 md:mt-24 space-y-20 md:space-y-32">
+            {capabilities.map((c, i) => {
+              const flip = i % 2 === 1;
+              return (
+                <Reveal key={c.title}>
+                  <div className="grid grid-cols-12 gap-6 md:gap-10 items-center">
+                    <div className={`col-span-12 md:col-span-6 ${flip ? "md:order-2" : ""}`}>
+                      <div className="aspect-[4/5] md:aspect-[5/6] overflow-hidden bg-foreground/5">
+                        <img src={c.img} alt={c.title} className="w-full h-full object-cover grayscale hover:grayscale-0 transition-[filter] duration-700" loading="lazy" />
+                      </div>
+                    </div>
+                    <div className={`col-span-12 md:col-span-6 ${flip ? "md:order-1" : ""}`}>
+                      <div className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground">{c.tag}</div>
+                      <h3 className="mt-4 font-serif text-[48px] md:text-[80px] leading-[0.95] tracking-[-0.03em]">{c.title}</h3>
+                      <p className="mt-6 font-serif italic text-orion text-[22px] md:text-[28px] leading-[1.3] max-w-[20ch]">"{c.line}"</p>
+                      <p className="mt-5 font-thai text-[15px] leading-[1.7] text-foreground/75 max-w-[44ch]">{c.desc}</p>
+                      <ul className="mt-7 grid grid-cols-2 gap-x-6 gap-y-2 max-w-[420px]">
+                        {c.items.map((it) => (
+                          <li key={it} className="flex gap-2 font-mono text-[11px] tracking-[0.04em] text-foreground/75">
+                            <span className="text-orion">→</span>{it}
+                          </li>
+                        ))}
+                      </ul>
+                      <p className="mt-7 font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">{c.selected}</p>
+                    </div>
+                  </div>
+                </Reveal>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* 04 · PROCESS — schedule */}
+      <section className="px-6 md:px-10 border-t border-foreground">
+        <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+          <PageMark index="03" total="06" />
+          <Reveal>
+            <h2 className="font-serif text-[40px] md:text-[72px] lg:text-[96px] leading-[1.0] tracking-[-0.03em] max-w-[16ch]">
+              From hello, <em className="text-orion italic">live in 4–6 weeks.</em>
+            </h2>
+          </Reveal>
+
+          <div className="mt-14 md:mt-20 border-t border-foreground">
             {process6.map((s, i) => (
-              <Reveal key={s.n} delay={0.05 * i}>
-                <div className={`py-8 md:py-12 px-5 md:px-6 border-foreground/20 ${i > 0 ? "border-l" : ""} ${i >= 2 ? "md:border-t" : ""} ${i >= 3 ? "lg:border-t-0" : ""}`}>
-                  <div className="font-mono text-[10px] tracking-[0.25em] text-muted-foreground">— {s.n}</div>
-                  <div className="mt-6 font-serif italic text-[24px] md:text-[28px] tracking-[-0.01em]">{s.t}.</div>
+              <Reveal key={s.n} delay={0.04 * i}>
+                <div className="grid grid-cols-12 gap-4 md:gap-6 items-baseline border-b border-foreground/15 py-6 md:py-8 group hover:bg-foreground/[0.025] transition-colors">
+                  <div className="col-span-2 md:col-span-1 font-mono text-[10px] tracking-[0.25em] text-muted-foreground">{s.n}</div>
+                  <div className="col-span-10 md:col-span-3 font-serif italic text-[26px] md:text-[36px] tracking-[-0.02em] leading-[1.05]">{s.t}.</div>
+                  <div className="col-span-12 md:col-span-6 font-thai text-[14px] md:text-[15px] leading-[1.65] text-foreground/75">{s.d}</div>
+                  <div className="col-span-12 md:col-span-2 md:text-right font-mono text-[10px] tracking-[0.22em] uppercase text-orion">{s.w}</div>
                 </div>
               </Reveal>
             ))}
@@ -273,59 +368,31 @@ const Services = () => {
         </div>
       </section>
 
-      {/* 03 · 3 PACKAGES */}
-      <section className="px-6 md:px-10 border-t border-foreground">
+      {/* 05 · PACKAGES */}
+      <section id="packages" className="px-6 md:px-10 border-t border-foreground">
         <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-          <PageMark index="03" total="06" />
+          <PageMark index="04" total="06" />
           <div className="flex items-end justify-between gap-8 flex-wrap">
             <Reveal>
-              <h2 className="font-serif text-[40px] md:text-[72px] lg:text-[96px] leading-[1.0] tracking-[-0.03em]">
-                3 ระดับ. <em className="text-orion italic">เลือกที่ใช่.</em>
+              <h2 className="font-serif text-[40px] md:text-[72px] lg:text-[96px] leading-[1.0] tracking-[-0.03em] max-w-[16ch]">
+                Pick yours in <em className="text-orion italic">30 seconds.</em>
               </h2>
             </Reveal>
             <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground">VALID 30 DAYS</p>
           </div>
-
-          <div className="mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            {packages.map((p) => <PackageCard key={p.key} p={p} />)}
-          </div>
-        </div>
-      </section>
-
-      {/* 04 · COMPARE */}
-      <section className="px-6 md:px-10 border-t border-foreground">
-        <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-          <PageMark index="04" total="06" />
-          <Reveal>
-            <h2 className="font-serif text-[40px] md:text-[72px] lg:text-[96px] leading-[1.0] tracking-[-0.03em]">
-              Side by <em className="text-orion italic">side.</em>
-            </h2>
+          <Reveal delay={0.1}>
+            <p className="mt-8 font-serif italic text-[18px] md:text-[20px] text-muted-foreground max-w-[640px] leading-[1.5]">
+              → ไม่แน่ใจ? เริ่มที่ <em className="text-orion not-italic font-serif">Pro</em>. คุ้มที่สุดใน 3 เดือนแรก.
+            </p>
           </Reveal>
 
-          <div className="mt-14 md:mt-20 overflow-x-auto">
-            <table className="w-full min-w-[720px] border-collapse">
-              <thead>
-                <tr className="border-y border-foreground">
-                  <th className="text-left py-5 pr-4 font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground w-[28%]">Feature</th>
-                  <th className="text-left py-5 px-4 font-serif italic text-[18px] md:text-[22px] tracking-[-0.01em] w-[24%]">Starter</th>
-                  <th className="text-left py-5 px-4 font-serif italic text-orion text-[18px] md:text-[22px] tracking-[-0.01em] w-[24%]">Pro ★</th>
-                  <th className="text-left py-5 px-4 font-serif italic text-[18px] md:text-[22px] tracking-[-0.01em] w-[24%]">Elite ♛</th>
-                </tr>
-              </thead>
-              <tbody>
-                {compareRows.map((r) => (
-                  <tr key={r.label} className="border-b border-soft">
-                    <td className="py-3.5 pr-4 font-thai text-[13.5px] text-foreground/80">{r.label}</td>
-                    {r.values.map((v, i) => (
-                      <td key={i} className={`py-3.5 px-4 font-mono text-[11.5px] tracking-[0.04em] ${i === 1 ? "text-orion" : "text-foreground/75"}`}>
-                        {v}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div className="mt-14 md:mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-stretch">
+            {packages.map((p) => <PackageCard key={p.key} p={p} />)}
           </div>
+
+          <p className="mt-10 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground text-center">
+            All packages include — Strategy · In-house production · Monthly report
+          </p>
 
           {/* Package details accordion */}
           <div className="mt-20 md:mt-24">
@@ -377,42 +444,10 @@ const Services = () => {
         </div>
       </section>
 
-      {/* 05 · ADD-ONS */}
-      <section className="px-6 md:px-10 border-t border-foreground">
-        <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-          <PageMark index="05" total="06" />
-          <Reveal>
-            <h2 className="font-serif text-[40px] md:text-[72px] lg:text-[96px] leading-[1.0] tracking-[-0.03em]">
-              Pay as <em className="text-orion italic">you go.</em>
-            </h2>
-          </Reveal>
-          <p className="mt-8 max-w-[560px] font-serif italic text-[18px] md:text-[20px] text-muted-foreground leading-[1.55]">
-            เสริมแพ็กเกจหลักด้วยบริการเฉพาะทาง — ไม่มีค่าผูกมัด · ลูกค้า Elite ได้ส่วนลด 20% ทุก add-on
-          </p>
-
-          <div className="mt-14 grid grid-cols-1 md:grid-cols-2 border-t border-l border-foreground/20">
-            {addons.map((a) => (
-              <Reveal key={a.name}>
-                <div className={`relative border-r border-b border-foreground/20 p-7 md:p-9 h-full ${a.featured ? "bg-foreground text-background" : ""}`}>
-                  {a.featured && (
-                    <div className="absolute top-0 right-0 bg-orion text-background px-3 py-1 font-mono text-[9px] tracking-[0.25em] uppercase">
-                      SAVE 10K
-                    </div>
-                  )}
-                  <h3 className={`font-serif italic text-[22px] md:text-[28px] tracking-[-0.01em] ${a.featured ? "text-background" : ""}`}>{a.name}</h3>
-                  <div className="mt-3 font-serif text-orion text-[24px] md:text-[28px] tracking-[-0.02em] tabular-nums">{a.price}</div>
-                  <p className={`mt-4 font-thai text-[13.5px] leading-[1.65] ${a.featured ? "text-background/70" : "text-foreground/65"}`}>{a.note}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* 06 · FAQ */}
       <section className="px-6 md:px-10 border-t border-foreground">
         <div className="max-w-[1000px] mx-auto py-20 md:py-28">
-          <PageMark index="06" total="06" />
+          <PageMark index="05" total="06" />
           <Reveal>
             <h2 className="font-serif text-[40px] md:text-[72px] lg:text-[96px] leading-[1.0] tracking-[-0.03em]">
               คำถามที่ <em className="text-orion italic">พบบ่อย.</em>
@@ -445,6 +480,14 @@ const Services = () => {
             })}
           </div>
         </div>
+      </section>
+
+      {/* Marquee strip */}
+      <section className="bg-foreground text-background border-y border-foreground py-6 overflow-hidden">
+        <SimpleMarquee
+          items={["BRANDING", "FILM PRODUCTION", "SOCIAL MEDIA", "PAID ADS", "STRATEGY", "PHOTOGRAPHY"]}
+          duration={45}
+        />
       </section>
 
       <ClosingCTA

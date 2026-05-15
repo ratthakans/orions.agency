@@ -16,7 +16,7 @@ const socials = [
 const Footer = () => {
   const year = new Date().getFullYear();
   return (
-    <footer className="bg-background text-foreground overflow-hidden">
+    <footer className="bg-foreground text-background overflow-hidden">
       <div className="px-6 md:px-10 pt-16 md:pt-20 pb-6 max-w-[1200px] mx-auto">
         {/* Top row — contact + nav */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10">

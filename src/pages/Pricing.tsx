@@ -361,7 +361,7 @@ const Pricing = () => {
           </Reveal>
           <Reveal delay={0.15}>
             <div className="mt-8 flex flex-wrap gap-3 items-center">
-              <a href="#social" className="group inline-flex items-center gap-2 bg-background text-foreground px-6 py-3.5 font-mono text-[10px] tracking-[0.14em] uppercase hover:bg-foreground hover:text-background transition-colors">
+              <a href="#social" className="group inline-flex items-center gap-2 bg-foreground text-background px-6 py-3.5 font-mono text-[10px] tracking-[0.14em] uppercase hover:bg-foreground hover:text-background transition-colors">
                 See packages <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
               <Link to="/contact" className="group inline-flex items-center gap-2 border border-foreground px-6 py-3.5 font-mono text-[10px] tracking-[0.14em] uppercase hover:bg-background hover:text-foreground transition-colors">

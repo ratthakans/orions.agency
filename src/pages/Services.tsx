@@ -72,7 +72,7 @@ const Services = () => (
         </Reveal>
         <Reveal delay={0.15}>
           <div className="mt-10 flex flex-wrap gap-4 items-center">
-            <Link to="/contact" className="group inline-flex items-center gap-3 bg-background text-foreground px-7 py-4 btn-label hover:bg-foreground hover:text-background transition-colors">
+            <Link to="/contact" className="group inline-flex items-center gap-3 bg-foreground text-background px-7 py-4 btn-label hover:bg-foreground hover:text-background transition-colors">
               <span>Get a free growth audit</span>
               <ArrowUpRight className="w-4 h-4" />
             </Link>

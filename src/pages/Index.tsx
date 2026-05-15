@@ -124,7 +124,7 @@ const Index = () => (
     {/* ========================================================== */}
     {/* 01 · COVER — black                                          */}
     {/* ========================================================== */}
-    <section className="relative min-h-screen flex flex-col bg-background text-foreground overflow-hidden">
+    <section className="relative min-h-screen flex flex-col bg-foreground text-background overflow-hidden">
       <div className="px-6 md:px-10 pt-8 md:pt-10 flex items-center justify-between font-mono text-[10px] tracking-[0.12em] uppercase text-foreground/70">
         <span>EST. 2026</span>
         <span className="hidden sm:inline">CAPABILITIES — 2026</span>
@@ -147,7 +147,7 @@ const Index = () => (
           <div className="mt-12 md:mt-14 flex flex-wrap items-center justify-center gap-4">
             <Link
               to="/contact"
-              className="group inline-flex items-center gap-3 bg-background text-foreground px-7 py-4 btn-label border border-foreground hover:gap-4 transition-all duration-300"
+              className="group inline-flex items-center gap-3 bg-foreground text-background px-7 py-4 btn-label border border-foreground hover:gap-4 transition-all duration-300"
             >
               <span>Get a free growth audit</span>
               <ArrowUpRight className="w-4 h-4" />
@@ -405,7 +405,7 @@ const Index = () => (
     {/* ========================================================== */}
     {/* 10 · WHY US + CTA                                           */}
     {/* ========================================================== */}
-    <section className="px-6 md:px-10 border-t border-foreground bg-background text-foreground">
+    <section className="px-6 md:px-10 border-t border-foreground bg-foreground text-background">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <div className="flex items-center justify-between font-mono text-[10px] tracking-[0.18em] uppercase text-foreground/55 mb-12 md:mb-16">
           <span className="flex items-center gap-3">ORIONS <span className="text-orion">✦</span></span>
@@ -454,7 +454,7 @@ const Index = () => (
           <Reveal delay={0.3}>
             <Link
               to="/contact"
-              className="mt-10 group inline-flex items-center gap-3 bg-background text-foreground px-7 py-4 btn-label border border-foreground hover:gap-4 transition-all duration-300"
+              className="mt-10 group inline-flex items-center gap-3 bg-foreground text-background px-7 py-4 btn-label border border-foreground hover:gap-4 transition-all duration-300"
             >
               <span>Start a project</span>
               <ArrowUpRight className="w-4 h-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />

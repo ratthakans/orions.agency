@@ -151,7 +151,7 @@ const SelectedWorkReel = ({ projects, size = "lg" }: Props) => {
                 </div>
 
                 {/* Stats overlay */}
-                <div className="absolute inset-x-0 bottom-0 bg-background text-foreground translate-y-full group-hover:translate-y-0 transition-transform duration-[600ms] ease-[cubic-bezier(0.76,0,0.24,1)]">
+                <div className="absolute inset-x-0 bottom-0 bg-foreground text-background translate-y-full group-hover:translate-y-0 transition-transform duration-[600ms] ease-[cubic-bezier(0.76,0,0.24,1)]">
                   <div className={`${overlayPad} grid ${p.stat ? "grid-cols-[1fr_auto]" : "grid-cols-1"} gap-4 items-end border-t border-foreground/20`}>
                     <div>
                       <div className="font-mono text-[10px] tracking-[0.18em] uppercase opacity-60">{p.tag}</div>

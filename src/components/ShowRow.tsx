@@ -143,7 +143,7 @@ const ShowRow = ({ show, index, isLast }: Props) => {
                 aria-label={`Select ${ep.label}`}
                 className={`font-mono text-[10px] tracking-[0.18em] uppercase px-2 py-1 border transition-colors ${
                   isActive
-                    ? "border-foreground bg-background text-foreground"
+                    ? "border-foreground bg-foreground text-background"
                     : playable
                     ? "border-foreground/30 text-foreground/70 hover:border-foreground hover:text-foreground"
                     : "border-foreground/15 text-muted-foreground/60 cursor-not-allowed"

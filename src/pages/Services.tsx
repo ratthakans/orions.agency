@@ -5,7 +5,6 @@ import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import PageMark from "@/components/PageMark";
 import ClosingCTA from "@/components/ClosingCTA";
-import SimpleMarquee from "@/components/SimpleMarquee";
 const SITE_URL = "https://orions.agency";
 
 const capabilities = [

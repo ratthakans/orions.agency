@@ -1,77 +1,104 @@
-# Swiss Gradient — ØRIONS v3
+## เป้าหมาย
+ปรับ ØRIONS → **Quiet Gemini** — เอา Gemini palette + Plus Jakarta Sans มาใช้บน foundation **minimal · clean · breathing space** ที่มีอยู่
 
-A typographic Swiss layout (strict grid, hairlines, tabular numbers) on a textured paper, with Gemini gradient used as the single hero accent. All display type is **UPPERCASE Unbounded**, body is **IBM Plex Sans / IBM Plex Sans Thai**. Copy is cut hard — fewer words, more white space.
+หลักการ: Gemini *เป็นจิตวิญญาณ* ไม่ใช่ skin — gradient ใช้เฉพาะจุด, ไม่มี glow/blur orb, ไม่มี gradient เต็มแถบ, เก็บ whitespace เดิมไว้ทั้งหมด
 
 ---
 
-## 1. Typography (rewire fonts)
+## ระบบใหม่ (restrained)
 
-`src/index.css`
-- Body / paragraphs → `IBM Plex Sans` (EN) + `IBM Plex Sans Thai` (TH), weight 400.
-- All H1–H6 → `Unbounded`, weight 600/700, **UPPERCASE**, `letter-spacing: -0.01em`, `line-height: 0.95`.
-- Remap utilities so existing markup adopts the new system without per-page churn:
-  - `.font-serif` → Unbounded UPPERCASE 600 (no italic, no serif).
-  - `.font-display` / `.font-brand` → Unbounded UPPERCASE 700.
-  - `.font-thai` → IBM Plex Sans Thai 400, `text-transform: none`.
-  - `.btn-label` → IBM Plex Sans 500, UPPERCASE, tracked `0.08em`.
-- Italic `<em>` inside headings: keep gradient, **drop italic** (Unbounded italic is weak) — render as the same weight with `.text-gemini`.
-- Drop Plus Jakarta Sans import.
-
-## 2. Color & gradient (Swiss restraint)
-
-- Keep paper background `#F5F2EC`, ink `#0F0F0F`.
-- Gradient (`#4285F4 → #9B72CB → #D96570`) used **only** for:
-  - the accent word in each section H1/H2 (already wired via `.text-gemini`),
-  - the top status hairline / progress bar,
-  - one full-bleed gradient rule (1px) under the cover hero,
-  - `accent-dot` and `text-orion` micro-marks.
-- No glow orbs, no large gradient fills, no rounded shapes.
-
-## 3. Texture (paper grain + subtle noise)
-
-- Strengthen existing `.grain` overlay from `opacity .03` → `.05`, swap noise PNG for a finer 256×256 monochrome noise tile.
-- Add `.texture-paper` utility: layered SVG noise + a 1px hairline cross-grid (every 80px) at 4% opacity, applied to dark hero and dark CTA sections only.
-- Add `.rule-gradient`: 1px horizontal full-bleed gradient line for section transitions (used 2–3× per page max).
-
-## 4. Swiss grid & spacing
-
-- Tighten container to `max-w-[1240px]`, gutters `px-6 md:px-12`.
-- All sections: 12-column conceptual grid via existing flex/grid; align headlines flush-left, move the section index (`01 / 07`) to top-left rail in `font-mono` 10px.
-- Increase vertical breathing: `py-20 md:py-28` → `py-28 md:py-40`.
-- Replace dashed dividers with solid `border-foreground` hairlines.
-
-## 5. Copy condensation (fewer words)
-
-Rewrite headlines + sublines on `src/pages/Index.tsx` (and apply same trim to the other pages' heroes). Examples:
-
-| Section | Before | After |
+### สี
+| Token | เดิม | ใหม่ |
 |---|---|---|
-| Hero H1 | "Creative that *moves numbers.*" | "CREATIVE THAT *MOVES.*" |
-| Hero subline | "A boutique creative agency — work that hits the brief, the numbers, and the eye." | "BRAND. CONTENT. ADS. — BANGKOK." |
-| Stats H2 | "Why brands *stall.*" | "WHY BRANDS *STALL.*" |
-| Stat captions (TH) | full sentence | 6–8 words max |
-| Services H2 | "Three things, *properly.*" | "THREE THINGS. *PROPERLY.*" |
-| Service taglines | 2 lines | 1 line, ≤ 9 words |
-| Process H2 | "From audit to *scale.*" | "AUDIT → *SCALE.*" |
-| Process step copy | full TH sentence | 4–6 words |
-| Work H2 | "Selected *work.*" | "SELECTED *WORK.*" |
-| Testimonials H2 | "What clients *say.*" | "CLIENTS *SAY.*" |
-| Closing CTA | long sentence | "LET'S *MOVE.*" + single CTA |
+| `--background` dark | `#0F0F0F` | คงเดิม |
+| `--background` light | `#F5F2EC` cream | `#FAFAFA` (ลด warmth นิด) |
+| `--accent / orion` | `#E94B2A` vermilion solid | `#4285F4` Gemini Blue solid (ใช้แทน vermilion ในที่ที่ต้อง solid) |
+| Gradient accent | — | `linear-gradient(110deg, #4285F4, #9B72CB, #D96570)` — **ใช้เฉพาะ italic word ใน H1 และ moments สำคัญ** |
 
-Other pages (`About`, `Services`, `Work`, `Pricing`, `Contact`, `ClosingCTA`): only update H1 + lead paragraph to UPPERCASE-condensed form; keep body content intact in this pass.
+**กฎเข้ม:**
+- Gradient = ใช้กับ italic accent word ใน headline เท่านั้น (ไม่ใช้กับ background, button, border)
+- Solid Gemini Blue = แทนตำแหน่งที่ vermilion เคยอยู่ทุกที่ (label, mono eyebrow, hover state)
+- ไม่มี glow / blur orb / aurora background
+- ไม่มี gradient bar กว้างๆ — top status bar ใช้สี solid ดำ/น้ำเงินเรียบ
 
-## 6. Components touched
+### Font
+| Use | เดิม | ใหม่ |
+|---|---|---|
+| H1/H2 base | Instrument Serif (regular) | **Plus Jakarta Sans 600** (clean, geometric humanist) |
+| Italic accent ใน headline | Instrument Serif italic + vermilion | **Plus Jakarta Sans italic 500** + Gemini gradient text |
+| Body Eng | IBM Plex Sans / Plex Thai | **Plus Jakarta Sans** |
+| Body Thai | IBM Plex Sans Thai | คงเดิม |
+| Mono labels | JetBrains Mono | คงเดิม |
 
-- `src/index.css` — fonts, utilities, grain, gradient rule.
-- `index.html` — swap Google Fonts link to `Unbounded` + `IBM Plex Sans` + `IBM Plex Sans Thai` + `JetBrains Mono`.
-- `src/pages/Index.tsx` — copy trim + grid spacing.
-- `src/pages/{About,Services,Work,Pricing,Contact}.tsx` — H1 + lead trim only.
-- `src/components/ClosingCTA.tsx` — condense.
-- No new components, no routing, no backend changes.
+→ ทิ้ง serif romantic ออก เพราะ Gemini มี soul แบบ humanist sans ที่อ่านสบาย ไม่ดราม่า
 
-## Out of scope
+### Radius / shape / shadows
+- Hairline borders **คงเดิมทั้งหมด**
+- Buttons: **คง zero-radius เดิม** (ไม่ใช้ pill — pill จะดูเหมือน Google product มากเกินจน lose ØRIONS DNA)
+- ไม่มี shadow / glass / blur ทุกที่
+- Whitespace ทุก section คงเดิม (เพิ่ง standardize type scale ไป)
 
-- No layout restructure beyond spacing/grid tightening.
-- No new images, no hero video.
-- No animation library swap (existing `Reveal` stays).
-- No dark-mode rework.
+---
+
+## ไฟล์ที่แก้
+
+### 1) `index.html`
+- เพิ่ม Google Font `Plus Jakarta Sans:wght@400;500;600;700;800;ital`
+- ลบ `Instrument Serif`
+- คง IBM Plex Sans Thai + JetBrains Mono
+
+### 2) `src/index.css`
+- `:root` — เปลี่ยน `--orion` HSL จาก vermilion → Gemini Blue (`hsl(217 89% 61%)`)
+- เพิ่ม `--gemini-blue / --gemini-purple / --gemini-pink` HSL tokens
+- `.font-serif` → map ไป `Plus Jakarta Sans` (italic ก็ใช้ตัวนี้ + italic)
+- `body` font-family → Plus Jakarta Sans + IBM Plex Sans Thai fallback
+- เพิ่ม utility:
+  ```
+  .text-gemini { background: linear-gradient(110deg, #4285F4, #9B72CB, #D96570);
+                 -webkit-background-clip: text; background-clip: text; color: transparent; }
+  ```
+
+### 3) `tailwind.config.ts`
+- `colors.orion` → คงชื่อไว้ (เพื่อไม่ break) แต่ map HSL ไป Gemini Blue
+- เพิ่ม `colors.gemini.{blue, purple, pink}`
+
+### 4) Headline accents — เปลี่ยน pattern
+ทุกที่ที่เป็น `<em className="text-orion italic">...</em>` → `<em className="text-gemini italic">...</em>`
+
+ไฟล์ที่กระทบ:
+- `src/pages/Index.tsx` — H1 + H2 ทุก section
+- `src/pages/Services.tsx`, `About.tsx`, `Work.tsx`, `Pricing.tsx`, `Contact.tsx`
+- `src/components/ClosingCTA.tsx`
+
+→ font-serif italic จะ render เป็น Plus Jakarta italic + Gemini gradient text
+
+### 5) Status bar (top, ทุกหน้า)
+- เดิม: `bg-orion` vermilion solid → ใหม่: คง solid แต่เป็น `bg-foreground` (ดำ) + text Gemini Blue **หรือ** ใช้ Gemini Blue solid
+- **ไม่ใช้** gradient เพื่อรักษา minimal
+
+### 6) ตำแหน่งที่ใช้ vermilion เป็น solid (mono labels, eyebrows, hover)
+- หาแทบทุก `text-orion` ที่ไม่ใช่ italic accent → เปลี่ยนเป็น `text-[#4285F4]` (Gemini Blue solid)
+- ตัวอย่าง: process step `<span className="text-orion">✦</span>`, eyebrow `text-orion`, sector tag
+
+### 7) Memory update
+- `mem://index.md` Core: ปรับ palette + font ตามใหม่ — เน้นย้ำว่า **Gemini quiet, not Gemini product**
+- `mem://style/aesthetic` + `mem://style/typography`: rewrite
+
+---
+
+## สิ่งที่ **ไม่** เปลี่ยน
+- Layout, grid, hairline borders, zero-radius
+- Whitespace ทุก section
+- Type scale (เพิ่ง standardize)
+- Copy ทุกตัว
+- Components, routing, backend
+- ไม่มี orb / glow / shadow / pill / glassmorphism
+
+---
+
+## ผลลัพธ์
+- รู้สึก clean modern เหมือน Google AI product page **แต่** ยังคง breathing space และ editorial discipline
+- Gemini gradient เห็นแค่ตอน *italic moment* — เด่นเพราะใช้น้อย
+- ทุกอย่างยังหายใจได้ ไม่อึดอัด
+
+ลุยได้เลยถ้า OK

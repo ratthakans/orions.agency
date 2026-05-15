@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowUpRight, Camera, Megaphone, Palette, Sparkles } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SimpleMarquee from "@/components/SimpleMarquee";
@@ -15,10 +15,10 @@ import hongmoveLogo from "@/assets/logos/hongmove.png";
 const accent = "text-gradient";
 
 const services = [
-  { icon: Palette,    en: "Branding",           th: "วางตัวตนแบรนด์ให้คมและจำง่าย",  tag: "01" },
-  { icon: Camera,     en: "Content Production", th: "ถ่ายทำ ตัดต่อ ครบจบในทีมเดียว",  tag: "02" },
-  { icon: Sparkles,   en: "Social Media",       th: "ดูแลคอนเทนต์ครบทุกแพลตฟอร์ม",   tag: "03" },
-  { icon: Megaphone,  en: "Paid Ads",           th: "ยิงแอดให้คุ้ม ทุกบาทมีเหตุผล",   tag: "04" },
+  { n: "01", en: "Branding",           th: "วางตัวตนแบรนด์ให้คมและจำง่าย" },
+  { n: "02", en: "Content Production", th: "ถ่ายทำ ตัดต่อ ครบจบในทีมเดียว" },
+  { n: "03", en: "Social Media",       th: "ดูแลคอนเทนต์ครบทุกแพลตฟอร์ม" },
+  { n: "04", en: "Paid Ads",           th: "ยิงแอดให้คุ้ม ทุกบาทมีเหตุผล" },
 ];
 
 const projects = [
@@ -27,7 +27,6 @@ const projects = [
   { n: "03", title: "Royal Thai Air Force", niche: "GOVERNMENT", scope: "Film · Production · Post",  impact: "2.1M views",          img: workRtaf },
   { n: "04", title: "GCOO",                 niche: "MOBILITY",   scope: "Brand · Launch campaign",   impact: "+540% downloads",     img: workGcoo },
   { n: "05", title: "Heavy Organizer",      niche: "EVENTS",     scope: "Brand · Event film · Recap", impact: "+88% conversion",    img: workHeavy },
-  { n: "06", title: "พลวัต",                niche: "POLITICS",   scope: "Campaign · Film · Social",  impact: "8M+ impressions",     img: workDemocrat },
 ];
 
 type TrustedBrand = { name: string; logo?: string };

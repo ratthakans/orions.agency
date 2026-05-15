@@ -191,7 +191,7 @@ const Pricing = () => {
       {/* 01 · HERO */}
       <section className="px-6 md:px-10">
         <div className="max-w-[1280px] mx-auto pt-32 md:pt-40 pb-16 md:pb-24">
-          <PageMark index="01" total="04" />
+          <PageMark index="01" total="05" />
           <Reveal>
             <h1 className="font-serif text-[44px] md:text-[80px] lg:text-[104px] leading-[1.0] tracking-[-0.03em] max-w-[18ch]">
               <em className="text-orion italic">Pricing.</em>
@@ -218,7 +218,7 @@ const Pricing = () => {
       {/* 02 · PACKAGES */}
       <section id="packages" className="px-6 md:px-10 border-t border-foreground">
         <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-          <PageMark index="02" total="04" />
+          <PageMark index="02" total="05" />
           <Reveal>
             <h2 className="font-serif text-[40px] md:text-[72px] lg:text-[88px] leading-[1.0] tracking-[-0.03em]">
               <em className="text-orion italic">Packages.</em>
@@ -234,7 +234,7 @@ const Pricing = () => {
       {/* 03 · ADD-ONS */}
       <section className="px-6 md:px-10 border-t border-foreground">
         <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-          <PageMark index="03" total="04" />
+          <PageMark index="03" total="05" />
           <Reveal>
             <h2 className="font-serif text-[40px] md:text-[72px] lg:text-[88px] leading-[1.0] tracking-[-0.03em]">
               <em className="text-orion italic">Add-ons.</em>
@@ -270,7 +270,7 @@ const Pricing = () => {
       {/* 04 · FAQ */}
       <section className="px-6 md:px-10 border-t border-foreground">
         <div className="max-w-[1000px] mx-auto py-20 md:py-28">
-          <PageMark index="04" total="04" />
+          <PageMark index="04" total="05" />
           <Reveal>
             <h2 className="font-serif text-[40px] md:text-[72px] lg:text-[88px] leading-[1.0] tracking-[-0.03em]">
               คำถามที่ <em className="text-orion italic">พบบ่อย.</em>

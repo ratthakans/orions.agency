@@ -131,7 +131,7 @@ const Index = () => (
     {/* 01 · COVER — black                                          */}
     {/* ========================================================== */}
     <section className="relative min-h-screen flex flex-col bg-foreground text-background overflow-hidden">
-      <div className="px-6 md:px-10 pt-8 md:pt-10 flex items-center justify-between font-mono text-[10px] tracking-[0.18em] uppercase text-background/55">
+      <div className="px-6 md:px-10 pt-8 md:pt-10 flex items-center justify-between font-mono text-[10px] tracking-[0.12em] uppercase text-background/70">
         <span>EST. 2026</span>
         <span className="hidden sm:inline">CAPABILITIES — 2026</span>
       </div>
@@ -174,9 +174,9 @@ const Index = () => (
         </Reveal>
       </div>
 
-      <div className="px-6 md:px-10 pb-8 md:pb-10 flex items-end justify-between font-mono text-[10px] tracking-[0.18em] uppercase text-background/55 border-t border-background/15 pt-6">
-        <span>01 / 07</span>
-        <span>hello@orions.agency</span>
+      <div className="px-6 md:px-10 pb-8 md:pb-10 flex items-end justify-between border-t border-background/15 pt-6">
+        <span className="font-mono text-[10px] tracking-[0.12em] uppercase text-background/70">01 / 07</span>
+        <a href="mailto:hello@orions.agency" className="font-serif italic text-[15px] md:text-[17px] text-background/80 hover:text-background transition-colors">hello@orions.agency</a>
       </div>
     </section>
 

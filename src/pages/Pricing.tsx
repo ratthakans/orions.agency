@@ -316,7 +316,7 @@ const ServiceTable = ({ rows }: { rows: Service[] }) => (
 
 const SectionHeading = ({ children }: { children: React.ReactNode }) => (
   <Reveal>
-    <h2 className="font-serif text-[40px] md:text-[72px] lg:text-[88px] leading-[1.0] tracking-[-0.03em]">
+    <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em]">
       <em className="text-orion italic">{children}</em>
     </h2>
   </Reveal>
@@ -350,7 +350,7 @@ const Pricing = () => {
         <div className="max-w-[1280px] mx-auto pt-28 md:pt-32 pb-10 md:pb-14">
           <PageMark index="01" total="08" />
           <Reveal>
-            <h1 className="font-serif text-[44px] md:text-[80px] lg:text-[104px] leading-[1.0] tracking-[-0.03em] max-w-[18ch]">
+            <h1 className="font-serif text-[52px] md:text-[88px] lg:text-[112px] leading-[1.0] tracking-[-0.03em] max-w-[18ch]">
               <em className="text-orion italic">Pricing.</em>
             </h1>
           </Reveal>
@@ -524,7 +524,7 @@ const Pricing = () => {
         <div className="max-w-[1000px] mx-auto py-20 md:py-28">
           <PageMark index="08" total="08" />
           <Reveal>
-            <h2 className="font-serif text-[40px] md:text-[72px] lg:text-[88px] leading-[1.0] tracking-[-0.03em]">
+            <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em]">
               คำถามที่ <em className="text-orion italic">พบบ่อย.</em>
             </h2>
           </Reveal>

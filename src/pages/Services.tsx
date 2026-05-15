@@ -61,7 +61,7 @@ const Services = () => (
       <div className="max-w-[1280px] mx-auto pt-32 md:pt-40 pb-16 md:pb-24">
         <PageMark index="01" total="03" />
         <Reveal>
-          <h1 className="font-serif text-[44px] md:text-[80px] lg:text-[104px] leading-[1.0] tracking-[-0.03em] max-w-[14ch]">
+          <h1 className="font-serif text-[52px] md:text-[88px] lg:text-[112px] leading-[1.0] tracking-[-0.03em] max-w-[14ch]">
             A boutique creative <em className="text-orion italic">agency.</em>
           </h1>
         </Reveal>
@@ -89,7 +89,7 @@ const Services = () => (
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <PageMark index="02" total="03" />
         <Reveal>
-          <h2 className="font-serif text-[40px] md:text-[72px] lg:text-[96px] leading-[1.0] tracking-[-0.03em] max-w-[14ch]">
+          <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em] max-w-[14ch]">
             What we <em className="text-orion italic">grow.</em>
           </h2>
         </Reveal>
@@ -120,7 +120,7 @@ const Services = () => (
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <PageMark index="03" total="03" />
         <Reveal>
-          <h2 className="font-serif text-[40px] md:text-[72px] lg:text-[96px] leading-[1.0] tracking-[-0.03em] max-w-[16ch]">
+          <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em] max-w-[16ch]">
             Live in <em className="text-orion italic">4 weeks.</em>
           </h2>
         </Reveal>

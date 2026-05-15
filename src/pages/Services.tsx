@@ -6,55 +6,40 @@ import SEO from "@/components/SEO";
 import PageMark from "@/components/PageMark";
 import ClosingCTA from "@/components/ClosingCTA";
 import SimpleMarquee from "@/components/SimpleMarquee";
-import workAtlas from "@/assets/work-atlas.jpg";
-import concertHero from "@/assets/concert-hero.jpg";
-import workKoha from "@/assets/work-koha.jpg";
-
 const SITE_URL = "https://orions.agency";
-
-const outcomes = [
-  { num: "+3.2×", label: "Average reach lift", sub: "in first 90 days" },
-  { num: "40+",   label: "Brands launched",    sub: "since 2019" },
-  { num: "4–6",   label: "Weeks to live",      sub: "from kickoff" },
-];
 
 const capabilities = [
   {
-    tag: "— 01 / BRAND",
-    title: "Brand.",
+    tag: "— 01 / BRANDING",
+    title: "Branding.",
     line: "Identity ที่ลูกค้าจำได้ใน 3 วินาที.",
     desc: "Naming, logo, system, guideline, launch kit — สร้างแบรนด์ที่ขายได้ตั้งแต่ครั้งแรกที่เห็น.",
     items: ["Naming & Strategy", "Logo & Identity", "Visual System", "Brand Guideline", "Launch Kit"],
     selected: "Selected · Hongmove · Atlas · Sera",
-    img: workAtlas,
   },
   {
-    tag: "— 02 / FILM & PHOTO",
-    title: "Film.",
+    tag: "— 02 / CONTENT",
+    title: "Content.",
     line: "คอนเทนต์ที่ดูจบแล้วอยากแชร์.",
     desc: "Director, DOP, studio, edit, color, sound — งานโปรดักชันครบจบในทีมเดียว.",
-    items: ["Director & DOP", "Studio & Crew", "Edit & Color", "Sound Design", "Stills & Motion"],
+    items: ["Photo + Video Shoots", "Reels + Short-form", "Edit · Color · Sound", "Graphic + Motion", "Asset Libraries"],
     selected: "Selected · RTAF · Heavy",
-    img: concertHero,
   },
   {
-    tag: "— 03 / SOCIAL & PAID",
+    tag: "— 03 / SOCIAL",
     title: "Social.",
     line: "โพสต์ที่ขายของได้จริง — วัดผลทุกบาท.",
     desc: "Strategy, calendar, daily content, community, Meta + TikTok ads — โตด้วยตัวเลข ไม่ใช่ความรู้สึก.",
-    items: ["Content Strategy", "Calendar & Daily", "Community Mgmt", "Meta + TikTok Ads", "Monthly Report"],
+    items: ["Strategy + Calendar", "Daily Posting", "Community Mgmt", "Meta + TikTok Ads", "Monthly Report"],
     selected: "Selected · MyHotel · GCOO · Khaoyai",
-    img: workKoha,
   },
 ];
 
-const process6 = [
-  { n: "01", t: "Strategy",   d: "ทำความเข้าใจธุรกิจ ตลาด คู่แข่ง — วาง positioning ที่ชัด.", w: "Week 1" },
-  { n: "02", t: "Planning",   d: "Content pillars, calendar, KPI — แผนที่นำไปใช้ได้จริง.",      w: "Week 1–2" },
-  { n: "03", t: "Approval",   d: "Mood, script, storyboard — ตกลงก่อนถ่าย ไม่มี surprise.",     w: "Week 2" },
-  { n: "04", t: "Production", d: "ถ่าย ตัด สี เสียง — ทีม in-house ทั้งหมด.",                   w: "Week 3–4" },
-  { n: "05", t: "Publish",    d: "ลงตามแผน, boost ตาม budget, ตอบลูกค้าให้.",                   w: "Week 4" },
-  { n: "06", t: "Optimize",   d: "อ่านตัวเลข ปรับคอนเทนต์ ปรับแอด — ทุกเดือน.",                w: "Ongoing" },
+const process4 = [
+  { n: "01", t: "Listen", d: "คุย 30 นาที เช็กว่าเหมาะกันมั้ย ฟรี — เข้าใจธุรกิจ ตลาด คู่แข่ง.", w: "Week 1" },
+  { n: "02", t: "Plan",   d: "เสนอแผนสั้นๆ ตัวเลขจริง ไม่ขายฝัน — strategy, calendar, KPI.",   w: "Week 1–2" },
+  { n: "03", t: "Build",  d: "ถ่าย ตัด สี เสียง — สร้างแบรนด์ คอนเทนต์ และแอด ด้วยทีม in-house.", w: "Week 2–4" },
+  { n: "04", t: "Run",    d: "รันงาน รายงานทุกเดือน วัดผลจริง — ปรับคอนเทนต์ ปรับแอดต่อเนื่อง.", w: "Ongoing" },
 ];
 
 type Pkg = {

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Unbounded:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -43,16 +43,15 @@
 
     --radius: 0px;
 
-    /* Gemini-style accent gradient (blue → violet → pink) */
-    --accent-from: 217 89% 61%;   /* #4285F4 blue */
-    --accent-mid:  274 44% 62%;   /* #9B72CB violet */
-    --accent-to:   353 60% 63%;   /* #D96570 pink */
-
-    /* Solo accent — Gemini Blue (replaces vermilion). Keeps `--orion-orange` name to avoid breaking tokens. */
-    --orion-orange: 217 89% 61%;  /* #4285F4 Gemini Blue */
-    --gemini-blue:   217 89% 61%; /* #4285F4 */
-    --gemini-purple: 274 44% 62%; /* #9B72CB */
-    --gemini-pink:   353 60% 63%; /* #D96570 */
+    /* Collins-style: no accent color on UI. All accents = ink black.
+       Tokens kept (mapped to foreground) so existing classes keep working. */
+    --accent-from: 0 0% 6%;
+    --accent-mid:  0 0% 6%;
+    --accent-to:   0 0% 6%;
+    --orion-orange:  0 0% 6%;
+    --gemini-blue:   0 0% 6%;
+    --gemini-purple: 0 0% 6%;
+    --gemini-pink:   0 0% 6%;
   }
 }
 
@@ -61,60 +60,55 @@
   html { scroll-behavior: smooth; }
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Plus Jakarta Sans', 'IBM Plex Sans Thai', 'Inter', sans-serif;
+    font-family: 'Inter', 'IBM Plex Sans Thai', sans-serif;
     font-size: 16px;
     line-height: 1.65;
-    font-weight: 450;
+    font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Plus Jakarta Sans', 'IBM Plex Sans Thai', sans-serif;
+    font-family: 'Cormorant Garamond', 'IBM Plex Sans Thai', serif;
     font-weight: 600;
-    letter-spacing: -0.02em;
-    line-height: 1;
+    letter-spacing: -0.015em;
+    line-height: 1.02;
     text-wrap: balance;
   }
 }
 
 @layer utilities {
-  .font-display { font-family: 'Plus Jakarta Sans', 'IBM Plex Sans Thai', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
-  .font-body    { font-family: 'Plus Jakarta Sans', 'IBM Plex Sans Thai', sans-serif; }
+  .font-display { font-family: 'Cormorant Garamond', 'IBM Plex Sans Thai', serif; font-weight: 600; letter-spacing: -0.015em; }
+  .font-body    { font-family: 'Inter', 'IBM Plex Sans Thai', sans-serif; }
   .font-mono    { font-family: 'JetBrains Mono', monospace; }
-  .font-thai    { font-family: 'IBM Plex Sans Thai', 'Plus Jakarta Sans', sans-serif; text-transform: none; font-weight: 400; letter-spacing: 0.005em; line-height: 1.7; }
+  .font-thai    { font-family: 'IBM Plex Sans Thai', 'Inter', sans-serif; text-transform: none; font-weight: 400; letter-spacing: 0.005em; line-height: 1.7; }
   .body-muted   { color: hsl(var(--foreground) / 0.85); }
-  .font-brand   { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; letter-spacing: -0.025em; }
-  .font-serif   { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; letter-spacing: -0.015em; text-transform: none; }
-  .text-orion   { color: hsl(var(--gemini-blue)); }
-  .bg-orion     { background-color: hsl(var(--gemini-blue)); }
-  .text-gemini {
-    background: linear-gradient(110deg, #4285F4 0%, #9B72CB 50%, #D96570 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-  }
+  .font-brand   { font-family: 'Inter', sans-serif; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; }
+  .font-serif   { font-family: 'Cormorant Garamond', 'IBM Plex Sans Thai', serif; font-weight: 500; letter-spacing: -0.01em; text-transform: none; }
+  /* Collins-style: no accent color. Italic does the lifting. */
+  .text-orion   { color: hsl(var(--foreground)); }
+  .bg-orion     { background-color: hsl(var(--foreground)); }
+  .text-gemini  { color: hsl(var(--foreground)); }
 
   .label-mono {
-    @apply font-display text-[11px] tracking-[0.04em];
-    font-weight: 700;
+    @apply font-mono text-[10px] tracking-[0.18em] uppercase;
+    font-weight: 500;
   }
   .index-badge {
-    @apply font-display text-[11px] tracking-[0.04em] uppercase;
-    font-weight: 700;
+    @apply font-mono text-[10px] tracking-[0.18em] uppercase;
+    font-weight: 500;
   }
   .label-soft {
-    @apply font-display text-[11px] tracking-[0.04em] uppercase text-muted-foreground;
+    @apply font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground;
     font-weight: 500;
   }
 
-  /* CTA / button label — flows with serif headlines */
+  /* CTA / button label — clean Inter, normal case */
   .btn-label {
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 14px;
-    letter-spacing: -0.005em;
+    letter-spacing: 0;
     text-transform: none;
     line-height: 1;
   }
@@ -128,13 +122,13 @@
     text-wrap: balance;
     font-feature-settings: "ss01", "ss02";
   }
-  .h-display-xl  { font-size: clamp(56px, 14vw, 180px); line-height: 0.85; letter-spacing: -0.04em; }
-  .h-display-lg  { font-size: clamp(40px, 11vw, 132px); line-height: 0.9;  letter-spacing: -0.04em; }
-  .h-display-md  { font-size: clamp(32px, 6.5vw, 88px); line-height: 0.95; letter-spacing: -0.03em; }
-  .h-display-sm  { font-size: clamp(24px, 4vw, 48px);   line-height: 1.05; letter-spacing: -0.02em; }
-  .h-display-xs  { font-size: clamp(20px, 2.6vw, 32px); line-height: 1.1;  letter-spacing: -0.02em; }
-  .h-display-2xs { font-size: clamp(16px, 1.6vw, 22px); line-height: 1.2;  letter-spacing: -0.01em; }
-  .num-display   { font-family: 'Unbounded', sans-serif; font-weight: 700; letter-spacing: -0.04em; line-height: 0.9; font-feature-settings: "tnum"; }
+  .h-display-xl  { font-size: clamp(56px, 13vw, 168px); line-height: 0.95; letter-spacing: -0.025em; }
+  .h-display-lg  { font-size: clamp(40px, 10vw, 124px); line-height: 0.98; letter-spacing: -0.02em; }
+  .h-display-md  { font-size: clamp(32px, 6.5vw, 88px); line-height: 1.02; letter-spacing: -0.018em; }
+  .h-display-sm  { font-size: clamp(24px, 4vw, 48px);   line-height: 1.1;  letter-spacing: -0.012em; }
+  .h-display-xs  { font-size: clamp(20px, 2.6vw, 32px); line-height: 1.15; letter-spacing: -0.01em; }
+  .h-display-2xs { font-size: clamp(16px, 1.6vw, 22px); line-height: 1.25; letter-spacing: -0.005em; }
+  .num-display   { font-family: 'Cormorant Garamond', serif; font-weight: 600; letter-spacing: -0.02em; line-height: 0.95; font-feature-settings: "tnum"; }
 
   .bg-surface   { background-color: hsl(var(--surface)); }
   .bg-surface-2 { background-color: hsl(var(--surface-2)); }
@@ -145,19 +139,15 @@
   .hairline     { height: 1px; background: hsl(var(--foreground)); }
   .hairline-soft{ height: 1px; background: hsl(var(--border-soft)); }
 
-  /* Sunset Ink accent — used sparingly */
+  /* Mono-only — gradient utilities flattened to ink */
   .bg-gradient-accent {
-    background-image: linear-gradient(120deg, hsl(var(--accent-from)), hsl(var(--accent-mid)), hsl(var(--accent-to)));
+    background-color: hsl(var(--foreground));
   }
   .text-gradient {
-    background-image: linear-gradient(120deg, hsl(var(--accent-from)), hsl(var(--accent-mid)), hsl(var(--accent-to)));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
+    color: hsl(var(--foreground));
   }
   .accent-dot {
-    background-color: hsl(var(--accent-from));
+    background-color: hsl(var(--foreground));
   }
 
   /* Marquee */

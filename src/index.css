@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -47,6 +47,9 @@
     --accent-from: 217 89% 61%;   /* #4285F4 blue */
     --accent-mid:  274 44% 62%;   /* #9B72CB violet */
     --accent-to:   353 60% 63%;   /* #D96570 pink */
+
+    /* Deck — Sunset vermilion (used on accent words) */
+    --orion-orange: 14 90% 55%;   /* ~#F25A24 */
   }
 }
 
@@ -78,6 +81,9 @@
   .font-mono    { font-family: 'JetBrains Mono', monospace; }
   .font-thai    { font-family: 'IBM Plex Sans Thai', sans-serif; text-transform: none; font-weight: 400; }
   .font-brand   { font-family: 'Unbounded', sans-serif; font-weight: 700; letter-spacing: -0.01em; text-transform: uppercase; }
+  .font-serif   { font-family: 'Instrument Serif', 'Times New Roman', serif; font-weight: 400; letter-spacing: -0.01em; text-transform: none; }
+  .text-orion   { color: hsl(var(--orion-orange)); }
+  .bg-orion     { background-color: hsl(var(--orion-orange)); }
 
   .label-mono {
     @apply font-display text-[11px] tracking-[0.04em];

@@ -28,7 +28,7 @@ const Nav = () => {
     <header className="fixed top-0 left-0 right-0 z-50">
       <div
         className="px-6 md:px-10 h-[72px] flex items-center justify-between"
-        style={{ mixBlendMode: open ? "normal" : "difference" }}
+        style={{ mixBlendMode: "difference" }}
       >
         <Link to="/" className="font-brand text-[14px] md:text-[15px] text-white">
           ØRIONS

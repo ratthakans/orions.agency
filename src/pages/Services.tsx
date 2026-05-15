@@ -10,7 +10,7 @@ const capabilities = [
   {
     tag: "— 01 / BRANDING",
     title: "Brand.",
-    line: "แบรนด์ที่ลูกค้าเลือกซื้อ ไม่ใช่แค่จำได้.",
+    line: "Identity ที่จำได้ — และเลือกซื้อ.",
     desc: "Positioning, naming, identity, messaging, launch kit — วางแบรนด์ที่ขายของได้ตั้งแต่วันแรก ไม่ใช่แค่ดูดี.",
     items: ["Positioning + Audience", "Naming & Identity", "Visual System", "Messaging + Tone", "Launch Kit"],
     selected: "Selected · Hongmove · Atlas · Sera",
@@ -18,7 +18,7 @@ const capabilities = [
   {
     tag: "— 02 / CONTENT",
     title: "Content.",
-    line: "คอนเทนต์ที่ดันยอด ไม่ใช่แค่ยอดวิว.",
+    line: "คอนเทนต์ที่ทั้งสวย — และดันยอด.",
     desc: "Director, DOP, studio, edit, color, sound — โปรดักชันครบทีมเดียว ออกแบบเพื่อ CTR · watch-time · conversion.",
     items: ["Performance Creative", "Photo + Video Shoots", "Reels + Short-form", "Edit · Color · Sound", "Graphic + Motion"],
     selected: "Selected · RTAF · Heavy",
@@ -62,12 +62,12 @@ const Services = () => (
         <PageMark index="01" total="03" />
         <Reveal>
           <h1 className="font-serif text-[44px] md:text-[80px] lg:text-[104px] leading-[1.0] tracking-[-0.03em] max-w-[14ch]">
-            Built to <em className="text-orion italic">grow brands.</em>
+            A boutique creative <em className="text-orion italic">agency.</em>
           </h1>
         </Reveal>
         <Reveal delay={0.1}>
           <p className="mt-8 font-serif italic text-[18px] md:text-[22px] text-muted-foreground max-w-[640px] leading-[1.5]">
-            Brand · Content · Paid media — one in-house team, measured in ROAS, CAC, and retention.
+            Brand · Content · Paid media — one in-house team. Crafted to hit the brief, the numbers, and the eye.
           </p>
         </Reveal>
         <Reveal delay={0.15}>

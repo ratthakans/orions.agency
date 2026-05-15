@@ -34,7 +34,7 @@ const About = () => (
         <PageMark index="01" total="02" />
         <Reveal>
           <h1 className="font-serif text-[44px] md:text-[80px] lg:text-[112px] leading-[1.0] tracking-[-0.03em] max-w-[16ch]">
-            A creative agency <em className="text-orion italic">built for growth.</em>
+            A boutique creative <em className="text-orion italic">agency.</em>
           </h1>
         </Reveal>
         <Reveal delay={0.1}>

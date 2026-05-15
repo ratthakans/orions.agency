@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowUpRight, Camera, Megaphone, Palette, Sparkles } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SimpleMarquee from "@/components/SimpleMarquee";
@@ -15,10 +15,10 @@ import hongmoveLogo from "@/assets/logos/hongmove.png";
 const accent = "text-gradient";
 
 const services = [
-  { icon: Palette,    en: "Branding",           th: "วางตัวตนแบรนด์ให้คมและจำง่าย",  tag: "01" },
-  { icon: Camera,     en: "Content Production", th: "ถ่ายทำ ตัดต่อ ครบจบในทีมเดียว",  tag: "02" },
-  { icon: Sparkles,   en: "Social Media",       th: "ดูแลคอนเทนต์ครบทุกแพลตฟอร์ม",   tag: "03" },
-  { icon: Megaphone,  en: "Paid Ads",           th: "ยิงแอดให้คุ้ม ทุกบาทมีเหตุผล",   tag: "04" },
+  { n: "01", en: "Branding",           th: "วางตัวตนแบรนด์ให้คมและจำง่าย" },
+  { n: "02", en: "Content Production", th: "ถ่ายทำ ตัดต่อ ครบจบในทีมเดียว" },
+  { n: "03", en: "Social Media",       th: "ดูแลคอนเทนต์ครบทุกแพลตฟอร์ม" },
+  { n: "04", en: "Paid Ads",           th: "ยิงแอดให้คุ้ม ทุกบาทมีเหตุผล" },
 ];
 
 const projects = [
@@ -27,7 +27,6 @@ const projects = [
   { n: "03", title: "Royal Thai Air Force", niche: "GOVERNMENT", scope: "Film · Production · Post",  impact: "2.1M views",          img: workRtaf },
   { n: "04", title: "GCOO",                 niche: "MOBILITY",   scope: "Brand · Launch campaign",   impact: "+540% downloads",     img: workGcoo },
   { n: "05", title: "Heavy Organizer",      niche: "EVENTS",     scope: "Brand · Event film · Recap", impact: "+88% conversion",    img: workHeavy },
-  { n: "06", title: "พลวัต",                niche: "POLITICS",   scope: "Campaign · Film · Social",  impact: "8M+ impressions",     img: workDemocrat },
 ];
 
 type TrustedBrand = { name: string; logo?: string };
@@ -96,7 +95,7 @@ const Index = () => (
                 — WHAT WE DO
               </div>
               <h2 className="font-display h-display-sm">
-                One team. From idea to <span className={accent}>final cut.</span>
+                สี่สิ่งที่เราทำ <span className={accent}>ให้แบรนด์คุณ.</span>
               </h2>
             </div>
             <Link
@@ -109,22 +108,25 @@ const Index = () => (
           </div>
         </Reveal>
 
-        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t border-l border-foreground">
+        <ul className="mt-14 md:mt-20 border-t border-foreground">
           {services.map((s, i) => (
             <Reveal key={s.en} delay={0.04 * i}>
-              <div className="group relative h-full p-6 md:p-7 border-r border-b border-foreground hover:bg-foreground hover:text-background transition-colors duration-300">
-                <div className="flex items-center justify-between">
-                  <s.icon className="w-5 h-5" strokeWidth={1.25} />
-                  <span className="font-mono text-[9px] tracking-[0.25em] text-muted-foreground group-hover:text-background/55">— {s.tag}</span>
+              <li className="group border-b border-foreground">
+                <div className="grid grid-cols-[auto_1fr] md:grid-cols-[80px_1fr_1fr] items-baseline gap-x-6 md:gap-x-10 py-7 md:py-9 transition-[padding,color] duration-300 group-hover:md:pl-4">
+                  <span className="font-mono text-[11px] tracking-[0.25em] text-muted-foreground self-center">
+                    {s.n}
+                  </span>
+                  <h3 className="font-display text-[24px] md:text-[40px] leading-[1.05] tracking-[-0.02em] transition-colors duration-300 group-hover:text-gradient">
+                    {s.en}
+                  </h3>
+                  <p className="col-span-2 md:col-span-1 mt-2 md:mt-0 font-thai text-[14px] md:text-[15px] leading-[1.65] text-muted-foreground md:text-right">
+                    {s.th}
+                  </p>
                 </div>
-                <h3 className="mt-10 font-display text-[20px] md:text-[22px] tracking-[-0.01em]">{s.en}</h3>
-                <p className="mt-3 font-thai text-[13px] leading-[1.65] text-muted-foreground group-hover:text-background/70">
-                  {s.th}
-                </p>
-              </div>
+              </li>
             </Reveal>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
 
@@ -134,10 +136,10 @@ const Index = () => (
         <Reveal>
           <div>
             <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground mb-4">
-              — แบรนด์จริง ผลลัพธ์จริง
+              — SELECTED WORK
             </div>
             <h2 className="font-display h-display-sm">
-              Selected <span className={accent}>work.</span>
+              แบรนด์จริง <span className={accent}>ผลลัพธ์จริง.</span>
             </h2>
           </div>
         </Reveal>
@@ -196,12 +198,17 @@ const Index = () => (
     <section className="bg-foreground text-background px-6 md:px-10">
       <div className="border-t border-background/20 py-20 md:py-24 max-w-[1280px] mx-auto">
         <Reveal delay={0.05}>
-          <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-background/55 mb-10">
-            — TRUSTED BY
+          <div>
+            <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-background/55 mb-4">
+              — TRUSTED BY
+            </div>
+            <h2 className="font-display h-display-sm">
+              แบรนด์ที่ <span className={accent}>เลือกเรา.</span>
+            </h2>
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 border border-background/15">
+        <div className="mt-12 md:mt-14 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 border border-background/15">
           {trustedBy.map((brand, i) => {
             const cols = 6;
             const isLastCol = (i % cols) === cols - 1;
@@ -240,7 +247,7 @@ const Index = () => (
         </Reveal>
         <Reveal delay={0.05}>
           <h2 className="font-display h-display-md text-balance">
-            From idea to <span className={accent}>final cut.</span>
+            เริ่มจากไอเดีย <span className={accent}>จบที่ final cut.</span>
           </h2>
         </Reveal>
         <Reveal delay={0.15}>

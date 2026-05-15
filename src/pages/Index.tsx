@@ -133,7 +133,7 @@ const Index = () => (
       <div className="flex-1 flex flex-col items-center justify-center text-center px-6 md:px-10 py-16">
         <Reveal>
           <h1 className="font-serif text-[56px] md:text-[104px] lg:text-[136px] leading-[1.0] tracking-[-0.03em] max-w-[16ch]">
-            Creative that <em className="text-orion italic">moves numbers.</em>
+            Creative that <em className="text-gemini italic">moves numbers.</em>
           </h1>
         </Reveal>
 
@@ -176,7 +176,7 @@ const Index = () => (
         <PageMark index="02" />
         <Reveal>
           <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em] max-w-[14ch]">
-            Why brands <em className="text-orion italic">stall.</em>
+            Why brands <em className="text-gemini italic">stall.</em>
           </h2>
         </Reveal>
 
@@ -208,7 +208,7 @@ const Index = () => (
         <PageMark index="03" />
         <Reveal>
           <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em]">
-            Three things, <em className="text-orion italic">properly.</em>
+            Three things, <em className="text-gemini italic">properly.</em>
           </h2>
         </Reveal>
 
@@ -249,7 +249,7 @@ const Index = () => (
         <PageMark index="04" />
         <Reveal>
           <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em] max-w-[16ch]">
-            From audit to <em className="text-orion italic">scale.</em>
+            From audit to <em className="text-gemini italic">scale.</em>
           </h2>
         </Reveal>
 
@@ -282,7 +282,7 @@ const Index = () => (
         <PageMark index="05" />
         <Reveal>
           <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em]">
-            Selected <em className="text-orion italic">work.</em>
+            Selected <em className="text-gemini italic">work.</em>
           </h2>
         </Reveal>
 
@@ -332,7 +332,7 @@ const Index = () => (
         <PageMark index="06" />
         <Reveal>
           <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em]">
-            What clients <em className="text-orion italic">say.</em>
+            What clients <em className="text-gemini italic">say.</em>
           </h2>
         </Reveal>
 
@@ -377,7 +377,7 @@ const Index = () => (
         <PageMark index="07" />
         <Reveal>
           <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em]">
-            Trusted <em className="text-orion italic">by.</em>
+            Trusted <em className="text-gemini italic">by.</em>
           </h2>
         </Reveal>
 
@@ -414,7 +414,7 @@ const Index = () => (
 
         <Reveal>
           <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em]">
-            Why <em className="text-orion italic">us?</em>
+            Why <em className="text-gemini italic">us?</em>
           </h2>
         </Reveal>
 
@@ -443,7 +443,7 @@ const Index = () => (
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em]">
-              Let's make something <em className="text-orion italic">that works.</em>
+              Let's make something <em className="text-gemini italic">that works.</em>
             </h2>
           </Reveal>
           <Reveal delay={0.2}>

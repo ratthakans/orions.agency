@@ -317,7 +317,7 @@ const ServiceTable = ({ rows }: { rows: Service[] }) => (
 const SectionHeading = ({ children }: { children: React.ReactNode }) => (
   <Reveal>
     <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em]">
-      <em className="text-orion italic">{children}</em>
+      <em className="text-gemini italic">{children}</em>
     </h2>
   </Reveal>
 );
@@ -351,7 +351,7 @@ const Pricing = () => {
           <PageMark index="01" total="08" />
           <Reveal>
             <h1 className="font-serif text-[52px] md:text-[88px] lg:text-[112px] leading-[1.0] tracking-[-0.03em] max-w-[18ch]">
-              <em className="text-orion italic">Pricing.</em>
+              <em className="text-gemini italic">Pricing.</em>
             </h1>
           </Reveal>
           <Reveal delay={0.1}>
@@ -525,7 +525,7 @@ const Pricing = () => {
           <PageMark index="08" total="08" />
           <Reveal>
             <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em]">
-              คำถามที่ <em className="text-orion italic">พบบ่อย.</em>
+              คำถามที่ <em className="text-gemini italic">พบบ่อย.</em>
             </h2>
           </Reveal>
 
@@ -559,7 +559,7 @@ const Pricing = () => {
 
       <ClosingCTA
         eyebrow="NEXT STEPS"
-        title={<>Tell us about <em className="text-orion italic">the brand.</em></>}
+        title={<>Tell us about <em className="text-gemini italic">the brand.</em></>}
         description="30-min discovery call. Free. We reply within 24 hours."
         ctas={[
           { label: "Get a free proposal", to: "/contact" },

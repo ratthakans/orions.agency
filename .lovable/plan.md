@@ -1,79 +1,97 @@
 
-## A · ตารางเปรียบเทียบ (Pricing page)
+## Goal
 
-แทรก section ใหม่ **"Compare."** ระหว่าง `02 · Packages` กับ `03 · Add-ons` → กลายเป็น section 03, Add-ons → 04, FAQ → 05 (อัปเดต `PageMark total="05"`).
+หน้า `/pricing` เข้าถึงเร็ว · เห็นแพ็กเกจหลัก (Social Media) ทันที · แล้วเลื่อนลงไปดูแพ็กเกจอื่น ๆ ได้ครบ. รวมแพ็กเกจที่หายไปจาก PDF เข้ามาด้วย.
 
-### Layout
+## ราคาที่ขาดอยู่ (จาก ORIONS_Final_Master)
 
-ตารางเส้น hairline 4 คอลัมน์: `Feature | Starter | Pro | Elite` — sticky header, mobile = horizontal scroll, ไม่มีพื้นหลัง/เงา/มุมโค้ง (ตามดีไซน์ system).
+**Search & AI Visibility**
+- SEO Package — 20,000 / mo
+- AEO Package — 25,000 / mo
+- SEO + AEO Bundle — **35,000 / mo** (Save 10,000)
+- Elite ได้ส่วนลด 20% (SEO 16k / AEO 20k / Bundle 28k)
 
-### แถวเปรียบเทียบ (อิงจาก `details` เดิมในประวัติ)
+**Production**
+- Long-form Video (3–5 min) — 15,000 / คลิป
+- TVC / Commercial — เริ่ม 50,000
+- Podcast Production — 12,000 / EP
+- Professional Photoshoot — 15,000 / วัน
+- Brand Film (3–5 min) — เริ่ม 80,000
+- Drone Aerial — 8,000 / ครั้ง
 
-```text
-Feature                          Starter        Pro              Elite
-───────────────────────────────────────────────────────────────────────────────
-Price (THB / mo)                 29,000         59,000           119,000
-Minimum contract                 1 mo           3 mo             6 mo
-─── Content ──────────────────────────────────────────────────────────────────
-Static posts                     10             15               20
-Stories (IG / FB)                —              15               Daily (30)
-Reels / TikTok (9:16)            15             30               30 (3 Hero)
-Horizontal video (16:9)          —              —                1 / mo
-Photography                      —              10               20–30
-─── Production ───────────────────────────────────────────────────────────────
-Production days                  1              2                3 (full crew)
-Platforms covered                1              2                up to 4
-─── Strategy ─────────────────────────────────────────────────────────────────
-Strategy meetup                  1× / mo        2× / mo          4× / mo
-Trend report                     Monthly        Bi-weekly        2× / mo + alerts
-Content calendar                 —              Monthly          Monthly + QBR
-Brand manual                     —              —                ✓
-─── Ads & Community ─────────────────────────────────────────────────────────
-Ads management                   Add-on (3,500) Free ≤ 50k       Free ≤ 100k
-Community mgmt response          ≤ 6 hr         ≤ 3 hr           ≤ 1 hr
-Dedicated account mgr            —              Shared           ✓
-─── Delivery ─────────────────────────────────────────────────────────────────
-Revisions                        1 / piece      2 / piece        3 major + ∞ minor
-Performance bonus                —              —                ROAS > 5× → 5%
+**Web & Digital**
+- Landing Page — 20,000
+- Website (5–7 pages) — เริ่ม 60,000
+- LINE OA Setup — 12,000
+- E-commerce Setup — เริ่ม 35,000
+
+**Marketing & Strategy**
+- Influencer / KOL Mgmt — 10% ของ budget
+- Email Marketing Setup — เริ่ม 18,000
+- Workshop ทีมลูกค้า (½ วัน) — 18,000
+- Brand Strategy Workshop (full day) — 45,000
+- Crisis Mgmt / PR — Quote per case
+- Raw Files Delivery — 15,000 / mo (มีแล้ว)
+- Ads Management Add-on — 3,500 / mo (มีแล้ว)
+
+## Plan
+
+### A · Flow ที่เข้าถึงเร็วขึ้น
+
+**1. Hero ย่อให้สั้นมาก** (เห็น packages ใน fold เดียว)
+- ลดระยะ `pt-32 md:pt-40` → `pt-28 md:pt-32`, `pb-16 md:pb-24` → `pb-10 md:pb-14`
+- ใส่ **jump-nav แถวเดียว** ใต้ปุ่ม CTA: `Social Media · Search + AI · Production · Web · Marketing · FAQ` (แต่ละอันเป็น anchor link ไปยัง section นั้น) — ใช้ `font-mono text-[10px] tracking-[0.14em] uppercase` คั่นด้วย `·`
+- ลบบรรทัด tagline ยาว (ที่เพิ่งแก้ไป) ให้เหลือ 1 บรรทัดสั้นจริง ๆ
+
+**2. Section 02 ยังเป็น Social Media Packages เหมือนเดิม** — anchor `#social` (อยู่แค่หลัง hero ทันที = "easy to access" ตามที่ขอ)
+
+**3. Home → Pricing teaser** เปลี่ยน CTA เป็น `/pricing#social` เพื่อ scroll ตรงไปแพ็กเกจ Social Media
+
+### B · เพิ่ม section ใหม่ครบทุกแพ็กเกจ
+
+โครงใหม่ของ `/pricing`:
+
+```
+01 · Hero (สั้นมาก + jump nav)
+02 · Social Media Packages    #social     (Starter / Pro / Elite — เหมือนเดิม)
+03 · Compare table                        (เหมือนเดิม)
+04 · Search + AI Visibility   #search     (SEO / AEO / Bundle — 3 cards)
+05 · Production               #production (ตาราง 6 บริการ)
+06 · Web & Digital            #web        (ตาราง 4 บริการ)
+07 · Marketing & Strategy     #marketing  (ตาราง 6 บริการ)
+08 · FAQ                      #faq
 ```
 
-**Visual cues:**
-- `—` = ไม่มี (muted)
-- ตัวเลข + `✓` ใช้ `tabular-nums`
-- Column header Pro มี `bg-foreground/[0.03]` เบา ๆ + ribbon `★ MOST POPULAR`
-- Row group dividers (Content / Production / Strategy / Ads / Delivery) = หัว group เล็ก ๆ uppercase mono
-- ไม่มี border ทุกเส้น — แค่ horizontal hairlines ระหว่างแถว
+อัปเดต `PageMark total="08"` ทุกที่ (เลิกใช้ section "Add-ons" แยก — รวมเป็น Marketing & Strategy แทน, รวม Raw Files + Ads Mgmt Add-on เข้าไปเป็นแถวในตาราง).
 
-### Add-ons: คงตารางเดิมไว้
+#### Section 04 · Search + AI Visibility (3 cards)
 
-เพิ่มหมายเหตุใต้ตาราง compare: *"Need more? See Add-ons below."* เพื่อเชื่อม section.
+ใช้ pattern เดียวกับ social media `PackageCard` (ย่อขนาด ~80% เพื่อแยกระดับสายตา):
+- SEO — 20,000 THB / mo · `Keyword research · On-page · Backlinks · Local SEO`
+- AEO — 25,000 THB / mo · `AI visibility audit · Q&A content · Citation tracking · LLM optimization` · ribbon "NEW"
+- Bundle — 35,000 THB / mo · ribbon "★ SAVE 10K" · `ทุกอย่างใน SEO + AEO · Unified report · Quarterly workshop`
 
-## B · Footer cleanup (ยังไม่ apply ของรอบก่อน)
+หมายเหตุใต้ section: *"Elite ได้ส่วนลด 20% — SEO 16k · AEO 20k · Bundle 28k"*
 
-ตอนนี้ `Footer.tsx` ยังเป็น:
-- email = `font-display` (Unbounded uppercase look)
-- "— ØRIONS · BANGKOK" = `tracking-[0.4em]`
-- nav/socials = `font-mono uppercase`
-- ไม่มี link `Pricing`
+#### Section 05–07 · ตาราง 3 คอลัมน์ (Service · Detail · Price)
 
-### แก้
+ใช้ pattern เดียวกับตาราง Add-ons เดิม (hairline, font-serif italic ชื่อ, font-thai รายละเอียด, font-serif text-orion ราคา).
 
-- `tracking-[0.4em]` → `tracking-[0.14em]`
-- email → `font-serif italic` (Instrument Serif), ลด size เป็น `text-[24px] md:text-[34px]`, lowercase
-- nav links + socials → ใช้ class `btn-label` (Instrument Serif italic, no uppercase, 16px)
-- เพิ่ม `{ to: "/pricing", label: "Pricing" }` ใน `navLinks` (วางก่อน Work หรือหลัง Services)
-- Legal row: `tracking-[0.14em]` (ไม่ใช่ 0.4em อยู่แล้วใน 0.14 — ok)
-- คั่น socials กับ nav ด้วยจุด · เพื่อความสอดคล้อง
+หัว section ใช้ heading style เดียวกัน: *"Production."*, *"Web & Digital."*, *"Marketing."* (italic, sunset ink)
 
-ผลลัพธ์: footer จะเข้ากับ hero footer (`hello@orions.agency` แบบ italic serif) และปุ่มทั่วเว็บที่ใช้ `btn-label` แล้ว.
+### C · ปรับเนื้อหา/Footer/อื่น ๆ
 
-## Files
+- ลบ section "03 · ADD-ONS" เดิม (ข้อมูลย้ายไป Marketing & Strategy + Production)
+- FAQ ยังเหลือ 4 ข้อเดิม
+- ไม่แตะ Footer / Nav / หน้าอื่น
 
-- **Edit** `src/pages/Pricing.tsx` — เพิ่ม section Compare, อัปเดต `PageMark total="05"` ทุกที่
-- **Edit** `src/components/Footer.tsx` — refactor typography + เพิ่ม Pricing link
+### Files
 
-## Out of scope
+- **Edit** `src/pages/Pricing.tsx` — ย่อ hero + เพิ่ม jump nav + 4 section ใหม่ (Search+AI, Production, Web, Marketing) + อัปเดต `PageMark total="08"` + ลบ section Add-ons เดิม + เพิ่ม anchor `#social`
+- **Edit** `src/pages/Index.tsx` — Pricing teaser CTA → `/pricing#social`
 
-- ไม่แก้ราคา/แพ็กเกจจริง
-- ไม่แตะ design system / palette
-- ไม่แตะหน้าอื่น
+### Out of scope
+
+- ไม่แตะ design system / palette / typography
+- ไม่แตะ Services, About, Work, Footer, Nav
+- ไม่เปลี่ยนราคาที่มีอยู่

@@ -1,98 +1,22 @@
 import Reveal from "@/components/Reveal";
 import ClosingCTA from "@/components/ClosingCTA";
 import SEO from "@/components/SEO";
-import FlipNumber from "@/components/FlipNumber";
-import founderImg from "@/assets/team/founder.jpg";
-import ceoImg from "@/assets/team/ceo.jpg";
-import cdImg from "@/assets/team/creative-director.jpg";
-import creativeImg from "@/assets/team/creative.jpg";
-import pmImg from "@/assets/team/pm.jpg";
-import editorImg from "@/assets/team/editor.jpg";
-import dopImg from "@/assets/team/dop.jpg";
-import directorImg from "@/assets/team/director.jpg";
+import PageMark from "@/components/PageMark";
 
 const SITE_URL = "https://orions.agency";
-const accent = "text-gradient";
 
-type Person = { role: string; name: string; img?: string };
-
-type Group = { label: string; people: Person[] };
-
-const groups: Group[] = [
-  {
-    label: "Leadership",
-    people: [
-      { role: "Founder", name: "Ratthakan Suwanphakdee", img: founderImg },
-      { role: "Managing Director", name: "Kanakhom Kittisakulnam", img: ceoImg },
-    ],
-  },
-  {
-    label: "Strategy & Account",
-    people: [
-      { role: "Account Executive", name: "Namfon Kamnoedklang", img: pmImg },
-      { role: "Project Manager", name: "Niti Paladkong", img: directorImg },
-      { role: "Marketing Strategist", name: "Akaphant Apirugpong", img: creativeImg },
-    ],
-  },
-  {
-    label: "Creative & Production",
-    people: [
-      { role: "Creative Director", name: "Manrut Rojrattanavichai", img: cdImg },
-      { role: "Creative Senior", name: "—", img: undefined },
-      { role: "Creative Editor", name: "Achitpon Repaichit", img: editorImg },
-      { role: "DOP", name: "Teerawat Singkam", img: dopImg },
-      { role: "Social Media Manager", name: "—", img: undefined },
-    ],
-  },
+const principles = [
+  { n: "01", en: "One team, no handoff.",     th: "ทีมเดียวตั้งแต่กลยุทธ์ ถ่ายทำ ตัดต่อ ถึงยิงแอด — ไม่มีการส่งต่องานให้ vendor หลายเจ้า" },
+  { n: "02", en: "Strategy before pretty.",   th: "เริ่มจากเป้าหมายธุรกิจ ไม่ใช่แค่งานสวย — วัดผลทุกชิ้นที่ปล่อยออกไป" },
+  { n: "03", en: "Built for boutique.",       th: "เลือกทำกับแบรนด์ที่แคร์เรื่องคุณภาพ ไม่รับงานเยอะจนงานเสีย" },
+  { n: "04", en: "In-house production.",      th: "Studio · DOP · Editor · Designer อยู่ที่เดียวกัน คุมคุณภาพและเวลาได้จริง" },
 ];
-
-const totalPeople = groups.reduce((sum, g) => sum + g.people.length, 0);
-
-const PersonCard = ({ p, index, total }: { p: Person; index: number; total: number }) => (
-  <Reveal delay={index * 0.04}>
-    <div className="bg-background h-full flex flex-col group">
-      <div className="relative w-full aspect-[4/5] overflow-hidden bg-surface">
-        {p.img ? (
-          <img
-            src={p.img}
-            alt={`${p.name} — ${p.role} at ØRIONS`}
-            loading="lazy"
-            width={640}
-            height={800}
-            className="absolute inset-0 w-full h-full object-cover grayscale contrast-[1.05] brightness-95 transition-all duration-700 group-hover:grayscale-0 group-hover:scale-[1.03]"
-          />
-        ) : (
-          <div className="absolute inset-0 flex items-center justify-center bg-surface-2">
-            <span className="font-display italic text-[44px] text-muted-foreground/40">
-              {p.role.split(" ").map((w) => w[0]).join("").slice(0, 2)}
-            </span>
-          </div>
-        )}
-        <div className="absolute inset-0 bg-foreground/10 mix-blend-multiply pointer-events-none transition-opacity duration-500 group-hover:opacity-0" />
-        <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/10 to-transparent pointer-events-none" />
-        <div className="absolute top-3 left-3 right-3 flex items-start justify-between">
-          <span className="font-display text-background text-[18px] md:text-[22px] leading-none tracking-[-0.02em]">
-            {String(index + 1).padStart(2, "0")}
-            <span className="text-background/50 text-[12px] md:text-[14px]">/{String(total).padStart(2, "0")}</span>
-          </span>
-          <span className="font-mono text-[9px] tracking-[0.2em] text-background/70">ØRIONS</span>
-        </div>
-        <div className="absolute bottom-3 left-3 right-3">
-          <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-background/90">{p.role}</div>
-        </div>
-      </div>
-      <div className="pt-3 pb-1">
-        <div className="font-display tracking-[-0.02em] leading-[1.1] text-[13px] md:text-[15px]">{p.name}</div>
-      </div>
-    </div>
-  </Reveal>
-);
 
 const About = () => (
   <div>
     <SEO
       title="About — ØRIONS"
-      description="A boutique creative agency in Bangkok. 11 people, in-house. Branding, content, and paid ads for F&B, fashion, and hospitality brands."
+      description="A boutique creative agency in Bangkok. In-house branding, content, and paid ads for F&B, fashion, and hospitality brands."
       path="/about"
       schema={{
         "@context": "https://schema.org",
@@ -104,67 +28,92 @@ const About = () => (
       }}
     />
 
-    {/* HERO — dark, single clear message */}
-    <section className="relative bg-foreground text-background">
-      <div className="px-6 md:px-10 pt-40 md:pt-48 pb-24 md:pb-32 max-w-[1200px] mx-auto">
-        <Reveal delay={0.05}>
-          <p className="font-mono text-[10px] tracking-[0.4em] text-background/60 mb-10">— ABOUT</p>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <h1 className="font-display h-display-md text-balance max-w-[900px]">
-            A boutique <span className={accent}>creative</span> agency.
+    {/* 01 · HERO */}
+    <section className="px-6 md:px-10">
+      <div className="max-w-[1280px] mx-auto pt-32 md:pt-40 pb-20 md:pb-28">
+        <PageMark index="01" total="02" />
+        <Reveal>
+          <h1 className="font-serif text-[44px] md:text-[80px] lg:text-[112px] leading-[1.0] tracking-[-0.03em] max-w-[16ch]">
+            A <em className="text-orion italic">boutique</em> creative agency.
           </h1>
         </Reveal>
-        <Reveal delay={0.2}>
-          <p className="mt-8 font-thai text-[15px] md:text-[17px] leading-[1.65] text-background/70 max-w-[560px]">
-            11 people, in-house in Bangkok. Branding, content, and paid ads — for F&amp;B, fashion, and hospitality brands.
+        <Reveal delay={0.1}>
+          <p className="mt-10 font-serif italic text-[18px] md:text-[22px] text-muted-foreground max-w-[640px] leading-[1.5]">
+            In-house in Bangkok. Branding, content, and paid ads — for F&amp;B, fashion, and hospitality brands.
           </p>
         </Reveal>
       </div>
     </section>
 
-    {/* THE TEAM */}
-    <section className="px-6 md:px-10">
-      <div className="border-t border-foreground py-24 md:py-32">
-        <Reveal delay={0.05}>
-          <h2 className="font-display h-display-sm max-w-[900px]">
-            <FlipNumber to={totalPeople} className={`font-display ${accent} tabular-nums`} /> people, <span className={accent}>in-house.</span>
-          </h2>
+    {/* 02 · MANIFESTO */}
+    <section className="px-6 md:px-10 border-t border-foreground">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+        <PageMark index="02" total="02" />
+
+        {/* Big quote */}
+        <Reveal>
+          <span className="font-serif italic text-orion text-[64px] md:text-[88px] leading-none block -mb-4 md:-mb-6">“</span>
         </Reveal>
         <Reveal delay={0.1}>
-          <p className="mt-6 max-w-[520px] font-thai text-[15px] md:text-[16px] leading-[1.7] text-foreground/70">
-            You'll work directly with the people building your brand. No account-manager middle layer.
+          <p className="font-serif text-[40px] md:text-[72px] lg:text-[96px] leading-[1.05] tracking-[-0.03em]">
+            From idea to <em className="text-orion italic">final cut</em> —
           </p>
         </Reveal>
+        <Reveal delay={0.2}>
+          <p className="mt-2 md:mt-4 font-serif text-[40px] md:text-[72px] lg:text-[96px] leading-[1.05] tracking-[-0.03em]">
+            one team, <em className="text-orion italic">no handoff.</em>
+          </p>
+        </Reveal>
+        <Reveal delay={0.3}>
+          <div className="mt-10 pt-6 border-t border-dashed border-foreground/30 font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
+            — THE ORIONS PHILOSOPHY
+          </div>
+        </Reveal>
 
-        {(() => {
-          let runningIdx = 0;
-          return (
-            <div className="mt-16 space-y-16">
-              {groups.map((g) => (
-                <div key={g.label}>
-                  <div className="flex items-baseline justify-between border-t border-foreground pt-3">
-                    <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground">— {g.label}</span>
-                    <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">
-                      {String(g.people.length).padStart(2, "0")} {g.people.length === 1 ? "PERSON" : "PEOPLE"}
-                    </span>
-                  </div>
-                  <div className="mt-8 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-5">
-                    {g.people.map((p) => {
-                      const i = runningIdx++;
-                      return <PersonCard key={`${g.label}-${p.role}-${i}`} p={p} index={i} total={totalPeople} />;
-                    })}
-                  </div>
-                </div>
-              ))}
+        {/* Sub paragraph */}
+        <Reveal delay={0.35}>
+          <div className="mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-12 gap-10">
+            <div className="md:col-span-5">
+              <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground">— WHO WE ARE</p>
+              <h3 className="mt-6 font-serif italic text-[28px] md:text-[36px] leading-[1.15] tracking-[-0.02em]">
+                A small studio for brands that care.
+              </h3>
             </div>
-          );
-        })()}
+            <div className="md:col-span-7 font-thai text-[15px] md:text-[16px] leading-[1.8] text-foreground/80 space-y-5">
+              <p>
+                ØRIONS คือ creative agency เล็กๆ ในกรุงเทพ — ครอบคลุม branding, content production และ paid ads ครบในทีมเดียว ไม่ส่งต่อ vendor หลายเจ้า
+              </p>
+              <p>
+                เราเชื่อว่างานคุณภาพมาจากการที่คนทำเข้าใจแบรนด์จริงๆ — ทุกโปรเจกต์คุณจะได้คุยกับคนที่ทำงานนั้นโดยตรง ไม่มี account manager คั่นกลาง
+              </p>
+              <p className="text-foreground/60">
+                เลือกทำกับแบรนด์ใน F&amp;B, fashion และ hospitality ที่แคร์เรื่องคุณภาพ — รับลูกค้าจำกัดต่อไตรมาสเพื่อให้แต่ละงานได้เวลาเต็มที่
+              </p>
+            </div>
+          </div>
+        </Reveal>
+
+        {/* Principles grid */}
+        <div className="mt-20 md:mt-28 border-t border-foreground grid grid-cols-1 md:grid-cols-2">
+          {principles.map((p, i) => (
+            <Reveal key={p.n} delay={i * 0.06}>
+              <div className={`py-10 md:py-14 md:px-10 ${i > 0 ? "border-t border-foreground" : ""} ${i === 1 ? "md:border-t-0 md:border-l" : ""} ${i === 2 ? "md:border-l-0" : ""} ${i === 3 ? "md:border-l" : ""}`}>
+                <div className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground">— {p.n}</div>
+                <h3 className="mt-6 font-serif italic text-[28px] md:text-[40px] leading-[1.1] tracking-[-0.02em]">
+                  {p.en}
+                </h3>
+                <p className="mt-4 font-thai text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground max-w-[40ch]">
+                  {p.th}
+                </p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
 
     <ClosingCTA
-      title={<>Tell us about <span className={accent}>the brand.</span></>}
+      title={<>Tell us about <em className="text-orion italic">the brand.</em></>}
       description="30-min discovery call. Free. We reply within 24 hours."
       ctas={[
         { label: "Start the conversation", to: "/contact" },

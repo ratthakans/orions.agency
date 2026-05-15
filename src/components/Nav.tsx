@@ -40,7 +40,7 @@ const Nav = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       {/* Announcement bar — Klar-style */}
-      <div className="bg-gradient-accent text-foreground">
+      <div className="bg-orion text-background">
         <div className="px-6 md:px-10 h-7 flex items-center justify-center text-center overflow-hidden">
           <p className="font-mono text-[10px] tracking-[0.25em] uppercase whitespace-nowrap">
             NOW BOOKING FOR Q3 2026 — 30-min discovery call, free
@@ -68,7 +68,7 @@ const Nav = () => {
                   <span>{l.label}</span>
                   <span
                     aria-hidden
-                    className={`pointer-events-none absolute left-0 right-0 -bottom-0.5 h-px bg-gradient-accent origin-left transition-transform duration-300 ease-out ${
+                    className={`pointer-events-none absolute left-0 right-0 -bottom-0.5 h-px bg-orion origin-left transition-transform duration-300 ease-out ${
                       isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                     }`}
                   />
@@ -96,7 +96,7 @@ const Nav = () => {
       </div>
 
       {/* Scroll progress hairline */}
-      <div className="absolute bottom-0 left-0 h-px bg-gradient-accent transition-[width] duration-150" style={{ width: `${progress}%` }} />
+      <div className="absolute bottom-0 left-0 h-px bg-orion transition-[width] duration-150" style={{ width: `${progress}%` }} />
 
       {open && (
         <div className="md:hidden border-t border-background/10 bg-foreground">

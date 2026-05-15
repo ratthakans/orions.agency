@@ -1,88 +1,49 @@
-# Redesign หน้าแรก — Clean Minimal (Klar-inspired)
+## Goal
+ปรับ Services / Work / About / Contact ให้เป็น tone เดียวกับหน้าแรกใหม่ — editorial newsprint, **Instrument Serif** + `text-orion italic` accent, `PageMark NN / NN`, hairline grids, ไม่มี `text-gradient` เหลืออยู่ทั้งโปรเจกต์
 
-แก้ไฟล์เดียว: `src/pages/Index.tsx`  
-หลักการ: **เว้นวรรคเยอะขึ้น, ตัดของซ้ำซ้อน, รูปนำ, ตัวอักษรน้อยลง**
+## Shared building blocks
+1. แยก `PageMark` จาก `Index.tsx` → `src/components/PageMark.tsx` (props: `index`, `total`) reuse ทุกหน้า
+2. Refactor `ClosingCTA` → headline serif + `<em className="text-orion italic">` แทน `text-gradient`
+3. `Nav.tsx`: เปลี่ยน announcement bar + scroll progress จาก `bg-gradient-accent` → `bg-orion`
 
----
+## Page: Services (`/services`) — rhythm `01–06 / 06`
+- ลบ `accent = "text-gradient"` ทั้งหมด, headline เป็น `font-serif` + `text-orion italic`
+- **01 · Hero**: light cream, PageMark, `Social · Content · Brand.` (Brand. = orion italic)
+- **02 · Approach** (เดิม About): serif headline italic accent
+- **03 · Process 6 ขั้น**: hairline grid 6 คอลัมน์เหมือน stats หน้า Index, ตัวเลข serif ใหญ่ + label mono
+- **04 · 3 Packages**: light section (ลบ dark bg), การ์ด hairline ink, ราคา serif `text-orion`, ribbon ใช้ ink/orion
+- **05 · Comparison table**: hairline rows, Pro column highlight `text-orion`
+- **06 · Add-ons + Commitments + FAQ**: serif sub-headlines, accordion hairline
+- ปิดด้วย `ClosingCTA` ใหม่
 
-## 1) HERO — Split layout + mockup image
+## Page: Work (`/work`) — rhythm `01–04 / 04`
+- ลบ `accent`, headline serif italic + orion
+- **01 · Hero**: light, PageMark, `Real brands. Real results.` (results = orion italic)
+- **02 · Selected projects grid**: serif italic h2, การ์ด 4/5 grayscale→color คงไว้ แต่ overlay drawer เป็น ink/cream + impact stat serif `text-orion` tabular
+- **03 · Testimonials carousel**: stat ใหญ่ `font-serif text-orion`
+- **04 · Trusted by**: เปลี่ยนจาก dark → light hairline grid (ลบ `bg-foreground`, ลบ `invert` บน logo), headline serif italic accent
+- ClosingCTA
 
-เปลี่ยนจาก hero แบบ centered บน background ดำ → **split 50/50** แบบ Klar
+## Page: About (`/about`) — rhythm `01–02 / 02`
+- **เอา section Team ออกทั้งหมด** (ลบ groups data, PersonCard, FlipNumber, รูป team, import ทั้งหมดที่เกี่ยวข้อง)
+- **01 · Hero**: light, PageMark, `A boutique creative agency.` (boutique = orion italic serif), sub thai
+- **02 · Manifesto / Approach**: section ใหม่แทน team — serif italic headline ใหญ่ (เช่น "From idea to final cut — *one team, no handoff.*") + paragraph thai สั้นๆ อธิบาย philosophy + in-house production (ดึง copy จาก mem://features/about-page) จัด layout 12-col แบบ Index section 02/04 ของหน้าแรก
+- ClosingCTA
 
-```
-┌──────────────────────┬──────────────────────┐
-│                      │  — BANGKOK · 2026    │
-│                      │                      │
-│   [B&W mockup        │  We don't just       │
-│    portrait/team     │  shoot content,      │
-│    image, full       │  we shape brands.    │
-│    height]           │                      │
-│                      │  ทีมเดียว ครบจบ      │
-│                      │  ตั้งแต่ไอเดีย       │
-│                      │  ถึง final cut.      │
-│                      │                      │
-└──────────────────────┴──────────────────────┘
-   marquee bar (เดิม)
-```
+## Page: Contact — touch-up เท่านั้น
+- ตรวจ headline ใดที่ยังเป็น `text-gradient` หรือ `font-display` ใหญ่ → เปลี่ยนเป็น serif + orion italic
+- โครงสร้างฟอร์ม/ช่องทางติดต่อคงเดิม
 
-**Spec:**
-- ซ้าย: รูป grayscale full-bleed (ใช้ `workHongmove` หรือ `workDemocrat` เป็น mockup ก่อน — comment บอกผู้ใช้ว่าเปลี่ยนเป็นรูปทีมจริงทีหลังได้)
-- ขวา: cream background, ตัวหนังสือชิดซ้าย เว้นบนเยอะ
-- **ตัด**: wordmark `ØRIONS` ขนาดยักษ์ออก (ไปอยู่ที่ Nav แล้ว), ตัด tagline `Boutique creative agency` (ซ้ำกับ headline)
-- **ตัดปุ่ม** `ดูบริการของเรา` → แทนด้วย **quote เท่ๆ**:
-  > *"We don't just shoot content,  
-  > we shape brands."*  
-  
-  ใต้ quote เป็น Thai sub สั้นๆ: `ทีมเดียว ครบจบ ตั้งแต่ไอเดียถึง final cut.`
-  
-  ไม่มีปุ่ม CTA ใน hero — ให้ scroll ลงไปเจอเอง (Klar มีปุ่มเดียวเล็กๆ; เราจะเอา CTA หลักไปไว้ section สุดท้าย)
-- Marquee bar เดิม คงไว้
+## Global cleanup
+- `rg "text-gradient" src` → แทน/ลบทุกจุด
+- `rg "bg-gradient-accent" src` → แทนด้วย `bg-orion` หรือเอาออก
+- คง tokens ใน `index.css` เดิม (มี `--orion-orange`, `.font-serif`, `.text-orion` ครบแล้ว)
 
-## 2) WHAT WE DO — บางลง
+## Out of scope
+- ไม่แตะ schema / routing / business logic
+- ไม่เพิ่ม assets ใหม่
+- ไม่แตะหน้า Style / NotFound
 
-- คงโครง editorial list 4 แถว
-- **ตัด**: link `View all →` มุมบนขวา (รก, มี CTA หลักท้ายหน้าแล้ว)
-- **ลดขนาด headline**: `h-display-sm` → `h-display-xs`
-- เว้น padding section ลงเล็กน้อย (`py-20 md:py-28` → `py-24 md:py-32`)
-- เอา accent gradient ที่ "ให้แบรนด์คุณ" ออก — Klar ใช้สีน้อยมาก, ให้ headline เป็นสีเดียว
-
-## 3) SELECTED WORK — ลดข้อมูลในการ์ด
-
-- คงโครง carousel + 5 cards
-- **ตัดข้อมูลในการ์ด**: เอา overlay บนการ์ด (scope/impact/title bottom drawer) ออก — เหลือแค่รูปสะอาดๆ
-- ใต้รูปเหลือแค่: **ชื่อโปรเจกต์** + **niche** (มีอยู่แล้ว) — ตัด overlay ตัวเลข `— 01 / NICHE` ทับรูปออก
-- ตัด `accent` gradient ตรง impact (ไม่ใช้แล้ว เพราะตัด overlay)
-- Hover: รูปจาก grayscale → color (คงไว้ — เท่และ minimal)
-
-## 4) TRUSTED BY — เบาขึ้น
-
-- **ตัด headline** `แบรนด์ที่เลือกเรา.` ออก — เหลือแค่ eyebrow `— TRUSTED BY` พอ (Klar ก็ใช้แบบนี้)
-- ตัด border ของ grid ออก ให้เป็น logo ลอยๆ มี gap แทน
-- ลด background contrast: เปลี่ยนจาก `bg-foreground text-background` → คง cream bg เหมือน section อื่น (ไม่สลับโทน, flow ลื่นกว่า)
-
-## 5) CTA — เก็บไว้, simplify
-
-- คงโครงเดิม (eyebrow + headline + sub + ปุ่ม)
-- **ตัด accent gradient** ที่ `จบที่ final cut.` — เป็นสีเดียว
-- คงปุ่ม `เริ่มคุยกับเรา` (เป็นปุ่มเดียวของหน้านี้แล้ว)
-
----
-
-## สรุปสิ่งที่ตัดออก (ลดความรก)
-
-- Hero: wordmark ยักษ์, tagline, ปุ่ม CTA → แทนด้วย **รูป + quote**
-- Services: link "View all", accent gradient
-- Work: overlay บนรูป (3 ชั้น: ตัวเลขมุมบน, drawer ล่าง)
-- Trusted by: headline ไทย, border grid, dark section
-- CTA: accent gradient
-
-## สิ่งที่เพิ่ม
-
-- รูป mockup grayscale ใน hero (ใช้ `workDemocrat` เป็น placeholder — ผู้ใช้เปลี่ยนเป็นรูปทีม/studio ทีหลังได้ง่าย)
-- Quote เท่ๆ แทนปุ่ม
-- Whitespace มากขึ้นทุก section
-
-## ผลลัพธ์
-
-หน้าจะมี **rhythm** แบบ Klar: รูปใหญ่นำ → quote → list สะอาด → grid งาน → logo wall เบา → CTA  
-ตัวอักษรน้อยลง ~30%, สีเดียวตลอด, ไม่มี gradient, ไม่มี dark section สลับ
+## Files
+- **new**: `src/components/PageMark.tsx`
+- **edit**: `src/pages/Index.tsx` (ใช้ shared PageMark), `src/pages/Services.tsx`, `src/pages/Work.tsx`, `src/pages/About.tsx` (ลบ team + เพิ่ม manifesto), `src/pages/Contact.tsx` (touch-up), `src/components/ClosingCTA.tsx`, `src/components/Nav.tsx`

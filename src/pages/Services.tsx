@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Plus, Minus, Check, ArrowUpRight } from "lucide-react";
+import { Plus, Minus, ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
+import PageMark from "@/components/PageMark";
 import ClosingCTA from "@/components/ClosingCTA";
 
-const accent = "text-gradient";
 const SITE_URL = "https://orions.agency";
 
 const process6 = [
@@ -142,45 +142,32 @@ const packages: Pkg[] = [
 ];
 
 const compareRows: { label: string; values: [string, string, string] }[] = [
-  { label: "Static Posts",          values: ["10", "15", "20"] },
-  { label: "IG / FB Stories",       values: ["—", "15 / เดือน", "Daily (30)"] },
-  { label: "Reels / TikTok (9:16)", values: ["15", "30", "30 (3 Hero)"] },
+  { label: "Static Posts",            values: ["10", "15", "20"] },
+  { label: "IG / FB Stories",         values: ["—", "15 / เดือน", "Daily (30)"] },
+  { label: "Reels / TikTok (9:16)",   values: ["15", "30", "30 (3 Hero)"] },
   { label: "Horizontal Video (16:9)", values: ["—", "—", "1 ตัว ≤ 3 นาที"] },
-  { label: "Photography",           values: ["—", "10 / เดือน", "20–30 / เดือน"] },
-  { label: "Production Days",       values: ["1", "2", "3 (Full Crew)"] },
-  { label: "Copywriting",           values: ["Standard", "CTA + Hook", "ระดับโฆษณา"] },
-  { label: "Hashtag Research",      values: ["Basic", "Strategic", "Premium + Tracking"] },
-  { label: "Platform Coverage",     values: ["1", "2", "สูงสุด 4"] },
-  { label: "Strategy Meetup",       values: ["1× / mo", "2× / mo", "4× / mo"] },
-  { label: "Trend Report",          values: ["Monthly", "ทุก 2 สัปดาห์", "2× + Alerts"] },
-  { label: "Community Mgmt",        values: ["≤ 6 ชม.", "≤ 3 ชม.", "≤ 1 ชม."] },
-  { label: "Ads Management",        values: ["Add-on", "ฟรี ≤ 50k", "ฟรี ≤ 100k"] },
-  { label: "Brand Manual",          values: ["—", "—", "✓"] },
-  { label: "Competitor Analysis",   values: ["—", "Quarterly", "Deep-dive monthly"] },
-  { label: "Dedicated Account Mgr", values: ["—", "Shared", "✓"] },
-  { label: "Backup Team",           values: ["—", "✓", "✓ + Priority"] },
-  { label: "Revisions",             values: ["1 / ชิ้น", "2 / ชิ้น", "3 Major + ∞ Minor"] },
-  { label: "Onboarding",            values: ["Basic Setup", "Strategy Workshop", "Full Discovery"] },
-  { label: "Performance Bonus",     values: ["—", "—", "✓"] },
-  { label: "Contract ขั้นต่ำ",       values: ["1 เดือน", "3 เดือน", "6 เดือน"] },
+  { label: "Photography",             values: ["—", "10 / เดือน", "20–30 / เดือน"] },
+  { label: "Production Days",         values: ["1", "2", "3 (Full Crew)"] },
+  { label: "Copywriting",             values: ["Standard", "CTA + Hook", "ระดับโฆษณา"] },
+  { label: "Platform Coverage",       values: ["1", "2", "สูงสุด 4"] },
+  { label: "Strategy Meetup",         values: ["1× / mo", "2× / mo", "4× / mo"] },
+  { label: "Community Mgmt",          values: ["≤ 6 ชม.", "≤ 3 ชม.", "≤ 1 ชม."] },
+  { label: "Ads Management",          values: ["Add-on", "ฟรี ≤ 50k", "ฟรี ≤ 100k"] },
+  { label: "Brand Manual",            values: ["—", "—", "✓"] },
+  { label: "Dedicated Account Mgr",   values: ["—", "Shared", "✓"] },
+  { label: "Revisions",               values: ["1 / ชิ้น", "2 / ชิ้น", "3 Major + ∞ Minor"] },
+  { label: "Contract ขั้นต่ำ",         values: ["1 เดือน", "3 เดือน", "6 เดือน"] },
 ];
 
 const addons = [
-  { name: "SEO Package",          price: "18,000 THB / mo", note: "On-page · Technical · Content briefs · Monthly report" },
-  { name: "AEO Package",          price: "22,000 THB / mo", note: "AI search optimization · Citation tracking · LLM-friendly content" },
-  { name: "SEO + AEO Bundle",     price: "35,000 THB / mo", note: "ทุกอย่างใน SEO + AEO · SAVE 10,000 · Quarterly Strategy Workshop", featured: true },
-  { name: "Production · Photo",   price: "เริ่ม 25,000",    note: "Half-day shoot · Edit · Delivery in 7 วัน" },
-  { name: "Production · Video",   price: "เริ่ม 45,000",    note: "Full crew · 1 day shoot · Edit + Color + Sound" },
-  { name: "Email Marketing Setup", price: "เริ่ม 18,000",   note: "Setup ระบบ + Template + Automation flow" },
-  { name: "Crisis Management / PR", price: "Quote ตามเคส",   note: "จัดการประเด็นที่กระทบแบรนด์" },
-  { name: "Influencer Campaign",  price: "10% ของ budget",   note: "Sourcing · Negotiation · Coordination · Reporting" },
-];
-
-const commitments = [
-  "Response · ภายใน 24 ชม. ในวันทำการ",
-  "On-time delivery · ส่ง Content Calendar ทุกวันที่ 25",
-  "Confidentiality · NDA พร้อมเซ็นทุกโครงการ",
-  "Industry Exclusivity · ไม่รับคู่แข่งโดยตรงในพื้นที่เดียวกัน",
+  { name: "SEO Package",            price: "18,000 THB / mo",   note: "On-page · Technical · Content briefs · Monthly report" },
+  { name: "AEO Package",            price: "22,000 THB / mo",   note: "AI search optimization · Citation tracking · LLM-friendly content" },
+  { name: "SEO + AEO Bundle",       price: "35,000 THB / mo",   note: "ทุกอย่างใน SEO + AEO · SAVE 10,000 · Quarterly Strategy Workshop", featured: true },
+  { name: "Production · Photo",     price: "เริ่ม 25,000",       note: "Half-day shoot · Edit · Delivery in 7 วัน" },
+  { name: "Production · Video",     price: "เริ่ม 45,000",       note: "Full crew · 1 day shoot · Edit + Color + Sound" },
+  { name: "Email Marketing Setup",  price: "เริ่ม 18,000",       note: "Setup ระบบ + Template + Automation flow" },
+  { name: "Crisis Management / PR", price: "Quote ตามเคส",       note: "จัดการประเด็นที่กระทบแบรนด์" },
+  { name: "Influencer Campaign",    price: "10% ของ budget",     note: "Sourcing · Negotiation · Coordination · Reporting" },
 ];
 
 const faqs = [
@@ -195,14 +182,14 @@ const PackageCard = ({ p }: { p: Pkg }) => (
   <Reveal>
     <article className={`relative bg-background border border-foreground p-7 md:p-9 h-full flex flex-col ${p.ribbon ? "md:-translate-y-2" : ""}`}>
       {p.ribbon && (
-        <div className="absolute -top-px left-0 bg-foreground text-background px-4 py-1 font-mono text-[9px] tracking-[0.25em] uppercase">
+        <div className="absolute -top-px left-0 bg-orion text-background px-4 py-1 font-mono text-[9px] tracking-[0.25em] uppercase">
           {p.ribbon}
         </div>
       )}
       <div className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground">{p.badge}</div>
-      <h3 className="mt-5 font-display text-[34px] md:text-[44px] tracking-[-0.02em] leading-none">{p.name}</h3>
+      <h3 className="mt-5 font-serif italic text-[40px] md:text-[52px] tracking-[-0.02em] leading-none">{p.name}</h3>
       <div className="mt-6 flex items-baseline gap-2">
-        <span className={`font-display ${accent} text-[36px] md:text-[44px] tracking-[-0.03em] tabular-nums`}>{p.price}</span>
+        <span className="font-serif text-orion text-[36px] md:text-[44px] tracking-[-0.03em] tabular-nums">{p.price}</span>
         <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">{p.unit}</span>
       </div>
       <p className="mt-3 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">{p.contract}</p>
@@ -210,7 +197,7 @@ const PackageCard = ({ p }: { p: Pkg }) => (
       <ul className="mt-6 space-y-3 flex-1">
         {p.highlights.map((h) => (
           <li key={h} className="flex gap-3 font-thai text-[13.5px] leading-[1.55] text-foreground/80">
-            <Check className="w-3.5 h-3.5 mt-1 shrink-0 text-foreground/60" />
+            <span className="text-orion mt-[2px]">—</span>
             <span>{h}</span>
           </li>
         ))}
@@ -246,57 +233,39 @@ const Services = () => {
         }}
       />
 
-      {/* HERO */}
-      <section className="relative bg-foreground text-background">
-        <div className="px-6 md:px-10 pt-40 md:pt-48 pb-24 md:pb-32 max-w-[1200px] mx-auto">
-          <Reveal delay={0.05}>
-            <p className="font-mono text-[10px] tracking-[0.4em] text-background/60 mb-10">— SERVICE PROPOSAL</p>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <h1 className="font-display h-display-md text-balance max-w-[900px]">
-              Social · Content · <span className={accent}>Brand.</span>
+      {/* 01 · HERO */}
+      <section className="px-6 md:px-10">
+        <div className="max-w-[1280px] mx-auto pt-32 md:pt-40 pb-20 md:pb-28">
+          <PageMark index="01" total="06" />
+          <Reveal>
+            <h1 className="font-serif text-[44px] md:text-[80px] lg:text-[112px] leading-[1.0] tracking-[-0.03em] max-w-[14ch]">
+              Social · Content · <em className="text-orion italic">Brand.</em>
             </h1>
           </Reveal>
-          <Reveal delay={0.2}>
-            <p className="mt-8 font-thai text-[15px] md:text-[17px] leading-[1.65] text-background/70 max-w-[620px]">
+          <Reveal delay={0.1}>
+            <p className="mt-10 font-serif italic text-[18px] md:text-[22px] text-muted-foreground max-w-[640px] leading-[1.5]">
               3 แพ็กเกจ ออกแบบให้เหมาะกับธุรกิจในแต่ละช่วงของการเติบโต — ปรับเปลี่ยนได้เมื่อโตขึ้น
             </p>
           </Reveal>
         </div>
       </section>
 
-      {/* ABOUT + 6-STEP PROCESS */}
-      <section className="px-6 md:px-10">
-        <div className="border-t border-foreground py-20 md:py-28 max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-10">
-          <div className="md:col-span-5">
-            <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground mb-4">— 01 · ABOUT</p>
-            <Reveal>
-              <h2 className="font-display h-display-sm">
-                Creative agency, <span className={accent}>full-service.</span>
-              </h2>
-            </Reveal>
-          </div>
-          <div className="md:col-span-7">
-            <Reveal delay={0.1}>
-              <p className="font-thai text-[15px] md:text-[16px] leading-[1.75] text-foreground/75">
-                ØRIONS คือ Creative Agency ที่เชื่อว่าทุกแบรนด์มีเรื่องราวที่ควรค่าแก่การเล่า — เรามุ่งมั่นเป็นพันธมิตรที่ช่วยให้แบรนด์ของคุณเติบโตอย่างยั่งยืน ไม่ใช่แค่การผลิตคอนเทนต์ แต่คือการวางกลยุทธ์ การสร้างตัวตน และการสื่อสารที่สร้างผลลัพธ์จริง
-              </p>
-              <p className="mt-5 font-thai text-[14.5px] leading-[1.75] text-foreground/65">
-                ทีมเราครอบคลุมตั้งแต่ Creative Strategist, Content Creator, Video Producer, Designer ไปจนถึง Performance Marketing Specialist — รวมทุกความเชี่ยวชาญไว้ในที่เดียว
-              </p>
-            </Reveal>
-          </div>
-        </div>
+      {/* 02 · 6-STEP PROCESS */}
+      <section className="px-6 md:px-10 border-t border-foreground">
+        <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+          <PageMark index="02" total="06" />
+          <Reveal>
+            <h2 className="font-serif text-[40px] md:text-[72px] lg:text-[96px] leading-[1.0] tracking-[-0.03em]">
+              How we <em className="text-orion italic">work.</em>
+            </h2>
+          </Reveal>
 
-        {/* 6-step process strip */}
-        <div className="border-t border-foreground py-14 md:py-20 max-w-[1200px] mx-auto">
-          <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground mb-8">— PROCESS</p>
-          <div className="grid grid-cols-2 md:grid-cols-6 border-t border-foreground/30">
+          <div className="mt-16 md:mt-20 border-t border-foreground grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
             {process6.map((s, i) => (
               <Reveal key={s.n} delay={0.05 * i}>
-                <div className={`py-6 md:py-8 ${i > 0 ? "md:border-l border-foreground/15" : ""} ${i % 2 === 1 ? "border-l border-foreground/15 md:border-l" : ""}`}>
-                  <div className="font-mono text-[10px] tracking-[0.25em] text-muted-foreground px-4">{s.n}</div>
-                  <div className="mt-3 px-4 font-display text-[18px] md:text-[20px] tracking-[-0.01em]">{s.t}</div>
+                <div className={`py-8 md:py-12 px-5 md:px-6 border-foreground/20 ${i > 0 ? "border-l" : ""} ${i >= 2 ? "md:border-t" : ""} ${i >= 3 ? "lg:border-t-0" : ""}`}>
+                  <div className="font-mono text-[10px] tracking-[0.25em] text-muted-foreground">— {s.n}</div>
+                  <div className="mt-6 font-serif italic text-[24px] md:text-[28px] tracking-[-0.01em]">{s.t}.</div>
                 </div>
               </Reveal>
             ))}
@@ -304,51 +273,43 @@ const Services = () => {
         </div>
       </section>
 
-      {/* 3 PACKAGES */}
-      <section className="px-6 md:px-10 bg-foreground text-background">
-        <div className="border-t border-background/30 py-24 md:py-32 max-w-[1280px] mx-auto">
-          <div className="flex items-end justify-between gap-8 flex-wrap mb-14">
-            <div>
-              <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-background/55 mb-4">— 02 · PACKAGES</p>
-              <Reveal>
-                <h2 className="font-display h-display-sm">
-                  3 ระดับ. <span className={accent}>เลือกที่ใช่.</span>
-                </h2>
-              </Reveal>
-            </div>
-            <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-background/45">
-              VALID 30 DAYS
-            </p>
+      {/* 03 · 3 PACKAGES */}
+      <section className="px-6 md:px-10 border-t border-foreground">
+        <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+          <PageMark index="03" total="06" />
+          <div className="flex items-end justify-between gap-8 flex-wrap">
+            <Reveal>
+              <h2 className="font-serif text-[40px] md:text-[72px] lg:text-[96px] leading-[1.0] tracking-[-0.03em]">
+                3 ระดับ. <em className="text-orion italic">เลือกที่ใช่.</em>
+              </h2>
+            </Reveal>
+            <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground">VALID 30 DAYS</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 text-foreground">
+          <div className="mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {packages.map((p) => <PackageCard key={p.key} p={p} />)}
           </div>
         </div>
       </section>
 
-      {/* COMPARISON TABLE */}
-      <section className="px-6 md:px-10">
-        <div className="border-t border-foreground py-24 md:py-32 max-w-[1200px] mx-auto">
-          <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground mb-4">— COMPARE</p>
+      {/* 04 · COMPARE */}
+      <section className="px-6 md:px-10 border-t border-foreground">
+        <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+          <PageMark index="04" total="06" />
           <Reveal>
-            <h2 className="font-display h-display-sm">
-              Side by <span className={accent}>side.</span>
+            <h2 className="font-serif text-[40px] md:text-[72px] lg:text-[96px] leading-[1.0] tracking-[-0.03em]">
+              Side by <em className="text-orion italic">side.</em>
             </h2>
           </Reveal>
 
-          <div className="mt-14 overflow-x-auto">
+          <div className="mt-14 md:mt-20 overflow-x-auto">
             <table className="w-full min-w-[720px] border-collapse">
               <thead>
                 <tr className="border-y border-foreground">
-                  <th className="text-left py-4 pr-4 font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground w-[28%]">Feature</th>
-                  <th className="text-left py-4 px-4 font-display text-[14px] md:text-[16px] tracking-[-0.01em] w-[24%]">Starter</th>
-                  <th className="text-left py-4 px-4 font-display text-[14px] md:text-[16px] tracking-[-0.01em] w-[24%]">
-                    Pro <span className="font-mono text-[9px] tracking-[0.2em] text-muted-foreground">★</span>
-                  </th>
-                  <th className="text-left py-4 px-4 font-display text-[14px] md:text-[16px] tracking-[-0.01em] w-[24%]">
-                    Elite <span className="font-mono text-[9px] tracking-[0.2em] text-muted-foreground">♛</span>
-                  </th>
+                  <th className="text-left py-5 pr-4 font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground w-[28%]">Feature</th>
+                  <th className="text-left py-5 px-4 font-serif italic text-[18px] md:text-[22px] tracking-[-0.01em] w-[24%]">Starter</th>
+                  <th className="text-left py-5 px-4 font-serif italic text-orion text-[18px] md:text-[22px] tracking-[-0.01em] w-[24%]">Pro ★</th>
+                  <th className="text-left py-5 px-4 font-serif italic text-[18px] md:text-[22px] tracking-[-0.01em] w-[24%]">Elite ♛</th>
                 </tr>
               </thead>
               <tbody>
@@ -356,7 +317,7 @@ const Services = () => {
                   <tr key={r.label} className="border-b border-soft">
                     <td className="py-3.5 pr-4 font-thai text-[13.5px] text-foreground/80">{r.label}</td>
                     {r.values.map((v, i) => (
-                      <td key={i} className="py-3.5 px-4 font-mono text-[11.5px] tracking-[0.04em] text-foreground/75">
+                      <td key={i} className={`py-3.5 px-4 font-mono text-[11.5px] tracking-[0.04em] ${i === 1 ? "text-orion" : "text-foreground/75"}`}>
                         {v}
                       </td>
                     ))}
@@ -365,75 +326,67 @@ const Services = () => {
               </tbody>
             </table>
           </div>
-        </div>
-      </section>
 
-      {/* PACKAGE DEEP DIVE — accordion */}
-      <section className="px-6 md:px-10">
-        <div className="border-t border-foreground py-24 md:py-32 max-w-[1200px] mx-auto">
-          <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground mb-4">— PACKAGE DETAILS</p>
-          <Reveal>
-            <h2 className="font-display h-display-sm">
-              Everything <span className={accent}>included.</span>
-            </h2>
-          </Reveal>
-
-          <div className="mt-12 border-t border-foreground">
-            {packages.map((p) => {
-              const isOpen = openPkg === p.key;
-              return (
-                <div key={p.key} className="border-b border-foreground/15">
-                  <button
-                    type="button"
-                    onClick={() => setOpenPkg(isOpen ? null : p.key)}
-                    aria-expanded={isOpen}
-                    className="group w-full grid grid-cols-12 gap-6 items-baseline py-7 md:py-9 text-left hover:bg-foreground/[0.03] transition-colors px-2 -mx-2"
-                  >
-                    <div className="col-span-2 md:col-span-1 font-mono text-[10px] tracking-[0.25em] text-muted-foreground">
-                      {p.badge.split(" · ")[0]}
-                    </div>
-                    <div className="col-span-9 md:col-span-5">
-                      <h3 className="font-display text-[26px] md:text-[36px] tracking-[-0.02em] leading-[1.05]">{p.name}</h3>
-                    </div>
-                    <div className="hidden md:block col-span-5 font-mono text-[11px] tracking-[0.18em] uppercase text-muted-foreground">
-                      {p.price} {p.unit} · {p.contract}
-                    </div>
-                    <div className="col-span-1 flex justify-end">
-                      {isOpen ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5 text-foreground/50 group-hover:text-foreground transition-colors" />}
-                    </div>
-                  </button>
-                  <div className={`grid transition-[grid-template-rows] duration-500 ease-out ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
-                    <div className="overflow-hidden">
-                      <div className="grid grid-cols-12 gap-6 pb-10 px-2 -mx-2">
-                        <div className="hidden md:block md:col-span-1" />
-                        <ul className="col-span-12 md:col-span-11 grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-2.5">
-                          {p.details.map((d) => (
-                            <li key={d} className="flex gap-3 font-thai text-[13.5px] leading-[1.55] text-foreground/75">
-                              <span className="text-foreground/40">—</span>
-                              <span>{d}</span>
-                            </li>
-                          ))}
-                        </ul>
+          {/* Package details accordion */}
+          <div className="mt-20 md:mt-24">
+            <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground mb-6">— PACKAGE DETAILS</p>
+            <div className="border-t border-foreground">
+              {packages.map((p) => {
+                const isOpen = openPkg === p.key;
+                return (
+                  <div key={p.key} className="border-b border-foreground/15">
+                    <button
+                      type="button"
+                      onClick={() => setOpenPkg(isOpen ? null : p.key)}
+                      aria-expanded={isOpen}
+                      className="group w-full grid grid-cols-12 gap-6 items-baseline py-7 md:py-9 text-left hover:bg-foreground/[0.03] transition-colors px-2 -mx-2"
+                    >
+                      <div className="col-span-2 md:col-span-1 font-mono text-[10px] tracking-[0.25em] text-muted-foreground">
+                        {p.badge.split(" · ")[0]}
+                      </div>
+                      <div className="col-span-9 md:col-span-5">
+                        <h3 className="font-serif italic text-[28px] md:text-[40px] tracking-[-0.02em] leading-[1.05]">{p.name}</h3>
+                      </div>
+                      <div className="hidden md:block col-span-5 font-mono text-[11px] tracking-[0.18em] uppercase text-muted-foreground">
+                        {p.price} {p.unit} · {p.contract}
+                      </div>
+                      <div className="col-span-1 flex justify-end">
+                        {isOpen ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5 text-foreground/50 group-hover:text-foreground transition-colors" />}
+                      </div>
+                    </button>
+                    <div className={`grid transition-[grid-template-rows] duration-500 ease-out ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
+                      <div className="overflow-hidden">
+                        <div className="grid grid-cols-12 gap-6 pb-10 px-2 -mx-2">
+                          <div className="hidden md:block md:col-span-1" />
+                          <ul className="col-span-12 md:col-span-11 grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-2.5">
+                            {p.details.map((d) => (
+                              <li key={d} className="flex gap-3 font-thai text-[13.5px] leading-[1.55] text-foreground/75">
+                                <span className="text-foreground/40">—</span>
+                                <span>{d}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ADD-ONS */}
-      <section className="px-6 md:px-10">
-        <div className="border-t border-foreground py-24 md:py-32 max-w-[1200px] mx-auto">
-          <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground mb-4">— 03 · ADD-ONS</p>
+      {/* 05 · ADD-ONS */}
+      <section className="px-6 md:px-10 border-t border-foreground">
+        <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+          <PageMark index="05" total="06" />
           <Reveal>
-            <h2 className="font-display h-display-sm">
-              Pay as <span className={accent}>you go.</span>
+            <h2 className="font-serif text-[40px] md:text-[72px] lg:text-[96px] leading-[1.0] tracking-[-0.03em]">
+              Pay as <em className="text-orion italic">you go.</em>
             </h2>
           </Reveal>
-          <p className="mt-6 max-w-[520px] font-thai text-[14.5px] leading-[1.7] text-foreground/70">
+          <p className="mt-8 max-w-[560px] font-serif italic text-[18px] md:text-[20px] text-muted-foreground leading-[1.55]">
             เสริมแพ็กเกจหลักด้วยบริการเฉพาะทาง — ไม่มีค่าผูกมัด · ลูกค้า Elite ได้ส่วนลด 20% ทุก add-on
           </p>
 
@@ -442,12 +395,12 @@ const Services = () => {
               <Reveal key={a.name}>
                 <div className={`relative border-r border-b border-foreground/20 p-7 md:p-9 h-full ${a.featured ? "bg-foreground text-background" : ""}`}>
                   {a.featured && (
-                    <div className="absolute top-0 right-0 bg-gradient-accent text-foreground px-3 py-1 font-mono text-[9px] tracking-[0.25em] uppercase">
+                    <div className="absolute top-0 right-0 bg-orion text-background px-3 py-1 font-mono text-[9px] tracking-[0.25em] uppercase">
                       SAVE 10K
                     </div>
                   )}
-                  <h3 className={`font-display text-[20px] md:text-[24px] tracking-[-0.01em] ${a.featured ? "text-background" : ""}`}>{a.name}</h3>
-                  <div className={`mt-3 font-display ${a.featured ? "text-gradient" : accent} text-[22px] md:text-[26px] tracking-[-0.02em] tabular-nums`}>{a.price}</div>
+                  <h3 className={`font-serif italic text-[22px] md:text-[28px] tracking-[-0.01em] ${a.featured ? "text-background" : ""}`}>{a.name}</h3>
+                  <div className="mt-3 font-serif text-orion text-[24px] md:text-[28px] tracking-[-0.02em] tabular-nums">{a.price}</div>
                   <p className={`mt-4 font-thai text-[13.5px] leading-[1.65] ${a.featured ? "text-background/70" : "text-foreground/65"}`}>{a.note}</p>
                 </div>
               </Reveal>
@@ -456,39 +409,17 @@ const Services = () => {
         </div>
       </section>
 
-      {/* COMMITMENTS */}
-      <section className="px-6 md:px-10 bg-foreground text-background">
-        <div className="border-t border-background/30 py-20 md:py-28 max-w-[1200px] mx-auto">
-          <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-background/55 mb-4">— 04 · COMMITMENTS</p>
+      {/* 06 · FAQ */}
+      <section className="px-6 md:px-10 border-t border-foreground">
+        <div className="max-w-[1000px] mx-auto py-20 md:py-28">
+          <PageMark index="06" total="06" />
           <Reveal>
-            <h2 className="font-display h-display-sm">
-              ความเชื่อใจ <span className={accent}>เริ่มจากความรับผิดชอบ.</span>
-            </h2>
-          </Reveal>
-          <ul className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-y-2 border-t border-background/15">
-            {commitments.map((c, i) => (
-              <Reveal key={c} delay={0.05 * i}>
-                <li className={`py-6 md:py-8 px-1 md:px-2 border-b border-background/15 ${i % 2 === 1 ? "md:border-l border-background/15" : ""}`}>
-                  <span className="font-mono text-[10px] tracking-[0.25em] text-background/45 mr-4">0{i + 1}</span>
-                  <span className="font-thai text-[14.5px] leading-[1.65]">{c}</span>
-                </li>
-              </Reveal>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="px-6 md:px-10">
-        <div className="border-t border-foreground py-24 md:py-32 max-w-[1000px] mx-auto">
-          <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground mb-4">— 05 · FAQ</p>
-          <Reveal>
-            <h2 className="font-display h-display-sm">
-              คำถามที่ <span className={accent}>พบบ่อย.</span>
+            <h2 className="font-serif text-[40px] md:text-[72px] lg:text-[96px] leading-[1.0] tracking-[-0.03em]">
+              คำถามที่ <em className="text-orion italic">พบบ่อย.</em>
             </h2>
           </Reveal>
 
-          <div className="mt-12 border-t border-foreground">
+          <div className="mt-14 md:mt-20 border-t border-foreground">
             {faqs.map((f, i) => {
               const isOpen = openFaq === i;
               return (
@@ -496,10 +427,10 @@ const Services = () => {
                   <button
                     type="button"
                     onClick={() => setOpenFaq(isOpen ? null : i)}
-                    className="w-full flex items-baseline justify-between gap-6 py-6 md:py-7 text-left hover:opacity-70 transition-opacity"
+                    className="w-full flex items-baseline justify-between gap-6 py-6 md:py-8 text-left hover:opacity-70 transition-opacity"
                   >
-                    <span className="font-display text-[17px] md:text-[20px] tracking-[-0.01em] flex-1">
-                      <span className="font-mono text-[10px] tracking-[0.25em] text-muted-foreground mr-3">0{i + 1}</span>
+                    <span className="font-serif italic text-[20px] md:text-[26px] tracking-[-0.01em] flex-1 leading-[1.25]">
+                      <span className="font-mono text-[10px] tracking-[0.25em] text-muted-foreground mr-3 not-italic">0{i + 1}</span>
                       {f.q}
                     </span>
                     {isOpen ? <Minus className="w-4 h-4 shrink-0" /> : <Plus className="w-4 h-4 shrink-0 text-foreground/50" />}
@@ -516,35 +447,9 @@ const Services = () => {
         </div>
       </section>
 
-      {/* TERMS */}
-      <section className="px-6 md:px-10">
-        <div className="border-t border-foreground py-20 md:py-24 max-w-[1000px] mx-auto">
-          <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground mb-4">— 06 · TERMS</p>
-          <Reveal>
-            <h2 className="font-display text-[24px] md:text-[32px] tracking-[-0.02em]">
-              ข้อตกลงและเงื่อนไข
-            </h2>
-          </Reveal>
-          <ul className="mt-10 space-y-3.5 font-thai text-[14px] leading-[1.7] text-foreground/75 max-w-[720px]">
-            {[
-              "Payment · ชำระล่วงหน้าทุกวันที่ 25 ของเดือนก่อนหน้า",
-              "Onboarding Setup Fee · ไม่มี (รวมในแพ็กเกจแล้ว)",
-              "Industry Exclusivity · ตกลงร่วมกัน — ไม่รับคู่แข่งโดยตรงในพื้นที่เดียวกัน",
-              "Force Majeure · กรณีเหตุสุดวิสัย (algorithm เปลี่ยน, account ถูกแบนโดยไม่ใช่ความผิด, ภัยพิบัติ) ไม่ถือเป็นความรับผิดชอบของ ØRIONS",
-              "Cancellation · แจ้งล่วงหน้า 30 วัน · งานที่ผลิตเสร็จแล้วชำระเต็มจำนวน",
-            ].map((t) => (
-              <li key={t} className="flex gap-3">
-                <span className="text-foreground/40 shrink-0">—</span>
-                <span>{t}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
       <ClosingCTA
-        eyebrow="07 · NEXT STEPS"
-        title={<>เริ่มต้น <span className={accent}>ทำงานร่วมกัน.</span></>}
+        eyebrow="NEXT STEPS"
+        title={<>เริ่มต้น <em className="text-orion italic">ทำงานร่วมกัน.</em></>}
         description="ติดต่อทีมงานเพื่อนัด Kick-off Meeting · 30-min discovery call ฟรี"
         ctas={[
           { label: "Book a discovery call", to: "/contact" },

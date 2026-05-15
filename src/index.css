@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Unbounded:wght@400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -48,8 +48,11 @@
     --accent-mid:  274 44% 62%;   /* #9B72CB violet */
     --accent-to:   353 60% 63%;   /* #D96570 pink */
 
-    /* Deck — Sunset vermilion (used on accent words) */
-    --orion-orange: 14 90% 55%;   /* ~#F25A24 */
+    /* Solo accent — Gemini Blue (replaces vermilion). Keeps `--orion-orange` name to avoid breaking tokens. */
+    --orion-orange: 217 89% 61%;  /* #4285F4 Gemini Blue */
+    --gemini-blue:   217 89% 61%; /* #4285F4 */
+    --gemini-purple: 274 44% 62%; /* #9B72CB */
+    --gemini-pink:   353 60% 63%; /* #D96570 */
   }
 }
 
@@ -58,7 +61,7 @@
   html { scroll-behavior: smooth; }
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'IBM Plex Sans Thai', 'Inter', sans-serif;
+    font-family: 'Plus Jakarta Sans', 'IBM Plex Sans Thai', 'Inter', sans-serif;
     font-size: 16px;
     line-height: 1.65;
     font-weight: 450;
@@ -66,25 +69,31 @@
     -moz-osx-font-smoothing: grayscale;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Unbounded', 'IBM Plex Sans Thai', sans-serif;
-    font-weight: 700;
+    font-family: 'Plus Jakarta Sans', 'IBM Plex Sans Thai', sans-serif;
+    font-weight: 600;
     letter-spacing: -0.02em;
     line-height: 1;
     text-wrap: balance;
-    font-feature-settings: "ss01", "ss02";
   }
 }
 
 @layer utilities {
-  .font-display { font-family: 'Unbounded', 'IBM Plex Sans Thai', sans-serif; font-weight: 700; letter-spacing: -0.02em; text-transform: uppercase; }
-  .font-body    { font-family: 'IBM Plex Sans Thai', sans-serif; }
+  .font-display { font-family: 'Plus Jakarta Sans', 'IBM Plex Sans Thai', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
+  .font-body    { font-family: 'Plus Jakarta Sans', 'IBM Plex Sans Thai', sans-serif; }
   .font-mono    { font-family: 'JetBrains Mono', monospace; }
-  .font-thai    { font-family: 'IBM Plex Sans Thai', sans-serif; text-transform: none; font-weight: 500; letter-spacing: 0.005em; line-height: 1.7; }
+  .font-thai    { font-family: 'IBM Plex Sans Thai', 'Plus Jakarta Sans', sans-serif; text-transform: none; font-weight: 400; letter-spacing: 0.005em; line-height: 1.7; }
   .body-muted   { color: hsl(var(--foreground) / 0.85); }
-  .font-brand   { font-family: 'Unbounded', sans-serif; font-weight: 700; letter-spacing: -0.01em; text-transform: uppercase; }
-  .font-serif   { font-family: 'Instrument Serif', 'Times New Roman', serif; font-weight: 400; letter-spacing: -0.01em; text-transform: none; }
-  .text-orion   { color: hsl(var(--orion-orange)); }
-  .bg-orion     { background-color: hsl(var(--orion-orange)); }
+  .font-brand   { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; letter-spacing: -0.025em; }
+  .font-serif   { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; letter-spacing: -0.015em; text-transform: none; }
+  .text-orion   { color: hsl(var(--gemini-blue)); }
+  .bg-orion     { background-color: hsl(var(--gemini-blue)); }
+  .text-gemini {
+    background: linear-gradient(110deg, #4285F4 0%, #9B72CB 50%, #D96570 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
 
   .label-mono {
     @apply font-display text-[11px] tracking-[0.04em];
@@ -101,10 +110,10 @@
 
   /* CTA / button label — flows with serif headlines */
   .btn-label {
-    font-family: 'Instrument Serif', 'Times New Roman', serif;
-    font-style: italic;
-    font-weight: 400;
-    font-size: 17px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
     letter-spacing: -0.005em;
     text-transform: none;
     line-height: 1;

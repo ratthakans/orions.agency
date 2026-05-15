@@ -28,7 +28,7 @@ const Footer = () => {
               hello@orions.agency
             </a>
           </div>
-          <ul className="flex flex-wrap gap-x-7 gap-y-2 font-mono text-[10px] tracking-[0.25em] uppercase">
+          <ul className="flex flex-wrap gap-x-7 gap-y-2 font-mono text-[10px] tracking-[0.14em] uppercase">
             {navLinks.map((l) => (
               <li key={l.to}>
                 <Link to={l.to} className="hover:opacity-60 transition-opacity">{l.label}</Link>
@@ -45,7 +45,7 @@ const Footer = () => {
         </div>
 
         {/* Legal */}
-        <div className="mt-12 pt-5 border-t border-background/15 flex items-center justify-between gap-4 font-mono text-[9px] tracking-[0.22em] uppercase opacity-50">
+        <div className="mt-12 pt-5 border-t border-background/15 flex items-center justify-between gap-4 font-mono text-[10px] tracking-[0.14em] uppercase opacity-50">
           <p>© {year} ØRIONS</p>
           <p>Est. 2026</p>
         </div>

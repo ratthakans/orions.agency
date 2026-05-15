@@ -131,7 +131,7 @@ const Index = () => (
     {/* 01 · COVER — black                                          */}
     {/* ========================================================== */}
     <section className="relative min-h-screen flex flex-col bg-foreground text-background overflow-hidden">
-      <div className="px-6 md:px-10 pt-8 md:pt-10 flex items-center justify-between font-mono text-[10px] tracking-[0.3em] uppercase text-background/55">
+      <div className="px-6 md:px-10 pt-8 md:pt-10 flex items-center justify-between font-mono text-[10px] tracking-[0.12em] uppercase text-background/70">
         <span>EST. 2026</span>
         <span className="hidden sm:inline">CAPABILITIES — 2026</span>
       </div>
@@ -174,9 +174,9 @@ const Index = () => (
         </Reveal>
       </div>
 
-      <div className="px-6 md:px-10 pb-8 md:pb-10 flex items-end justify-between font-mono text-[10px] tracking-[0.3em] uppercase text-background/55 border-t border-background/15 pt-6">
-        <span>01 / 07</span>
-        <span>hello@orions.agency</span>
+      <div className="px-6 md:px-10 pb-8 md:pb-10 flex items-end justify-between border-t border-background/15 pt-6">
+        <span className="font-mono text-[10px] tracking-[0.12em] uppercase text-background/70">01 / 07</span>
+        <a href="mailto:hello@orions.agency" className="font-serif italic text-[15px] md:text-[17px] text-background/80 hover:text-background transition-colors">hello@orions.agency</a>
       </div>
     </section>
 
@@ -207,7 +207,7 @@ const Index = () => (
                 <div className="font-serif text-[64px] md:text-[88px] leading-none tracking-[-0.04em] tabular-nums">
                   {s.n}
                 </div>
-                <div className="mt-6 font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
+                <div className="mt-6 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
                   {s.label}
                 </div>
                 <p className="mt-3 font-thai text-[14px] md:text-[15px] leading-[1.65] text-foreground/80 max-w-[28ch]">
@@ -236,7 +236,7 @@ const Index = () => (
           {services.map((s, i) => (
             <Reveal key={s.en} delay={i * 0.08}>
               <div className={`py-10 md:py-12 md:px-10 ${i > 0 ? "md:border-l border-foreground border-t md:border-t-0" : ""}`}>
-                <div className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground">— {s.n}</div>
+                <div className="font-mono text-[10px] tracking-[0.18em] text-muted-foreground">— {s.n}</div>
                 <h3 className="mt-8 font-serif italic text-[40px] md:text-[48px] leading-[1] tracking-[-0.02em]">
                   {s.en}
                 </h3>
@@ -277,7 +277,7 @@ const Index = () => (
           {process.map((p, i) => (
             <Reveal key={p.en} delay={i * 0.06}>
               <div className={`py-10 md:py-12 md:px-8 ${i > 0 ? "lg:border-l border-foreground border-t lg:border-t-0" : ""} ${i > 0 && i < 2 ? "sm:border-l sm:border-t-0" : ""} ${i === 2 ? "sm:border-l-0 sm:border-t lg:border-t-0 lg:border-l" : ""} ${i === 3 ? "sm:border-l sm:border-t lg:border-t-0" : ""}`}>
-                <div className="flex items-center gap-3 font-mono text-[10px] tracking-[0.3em] text-muted-foreground">
+                <div className="flex items-center gap-3 font-mono text-[10px] tracking-[0.18em] text-muted-foreground">
                   <span>— {p.n}</span>
                   <span className="text-orion">✦</span>
                 </div>
@@ -324,7 +324,7 @@ const Index = () => (
                       <h3 className="font-serif italic text-[20px] md:text-[22px] tracking-[-0.01em] truncate">
                         {w.title}
                       </h3>
-                      <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-muted-foreground shrink-0">
+                      <span className="font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground shrink-0">
                         {w.niche}
                       </span>
                     </div>
@@ -357,7 +357,7 @@ const Index = () => (
           {testimonials.map((t, i) => (
             <Reveal key={t.name} delay={i * 0.08}>
               <div className={`py-10 md:py-12 md:px-10 ${i > 0 ? "md:border-l border-foreground border-t md:border-t-0" : ""}`}>
-                <div className="font-mono text-[10px] tracking-[0.3em] text-orion">{t.sector}</div>
+                <div className="font-mono text-[10px] tracking-[0.18em] text-orion">{t.sector}</div>
 
                 <div className="mt-8 flex items-start justify-between gap-4">
                   <span className="font-serif italic text-orion text-[40px] leading-none -mt-2">“</span>
@@ -365,7 +365,7 @@ const Index = () => (
                     <div className="font-serif italic text-orion text-[36px] md:text-[44px] leading-none tracking-[-0.02em] tabular-nums">
                       {t.stat}
                     </div>
-                    <div className="mt-2 font-mono text-[9px] tracking-[0.25em] uppercase text-muted-foreground">
+                    <div className="mt-2 font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">
                       {t.statLabel}
                     </div>
                   </div>
@@ -441,11 +441,11 @@ const Index = () => (
             <Reveal key={t.name} delay={i * 0.06}>
               <div className={`relative py-10 md:py-12 md:px-10 ${i > 0 ? "md:border-l border-foreground border-t md:border-t-0" : ""} ${t.popular ? "bg-foreground/[0.03]" : ""}`}>
                 {t.popular && (
-                  <div className="absolute top-0 left-0 bg-orion text-background px-4 py-1 font-mono text-[9px] tracking-[0.25em] uppercase">
+                  <div className="absolute top-0 left-0 bg-orion text-background px-4 py-1 font-mono text-[10px] tracking-[0.14em] uppercase">
                     ★ MOST POPULAR
                   </div>
                 )}
-                <div className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground">— 0{i + 1}</div>
+                <div className="font-mono text-[10px] tracking-[0.18em] text-muted-foreground">— 0{i + 1}</div>
                 <h3 className="mt-8 font-serif italic text-[40px] md:text-[48px] leading-[1] tracking-[-0.02em]">{t.name}</h3>
                 <div className="mt-6 flex items-baseline gap-2">
                   <span className="font-serif text-orion text-[36px] md:text-[44px] tracking-[-0.03em] tabular-nums">{t.price}</span>
@@ -478,7 +478,7 @@ const Index = () => (
     {/* ========================================================== */}
     <section className="px-6 md:px-10 border-t border-foreground bg-foreground text-background">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <div className="flex items-center justify-between font-mono text-[10px] tracking-[0.3em] uppercase text-background/55 mb-12 md:mb-16">
+        <div className="flex items-center justify-between font-mono text-[10px] tracking-[0.18em] uppercase text-background/55 mb-12 md:mb-16">
           <span className="flex items-center gap-3">ORIONS <span className="text-orion">✦</span></span>
           <span>09 / 09</span>
         </div>
@@ -493,7 +493,7 @@ const Index = () => (
           {whyUs.map((w, i) => (
             <Reveal key={w.n} delay={i * 0.06}>
               <div className="border-t border-background/25 pt-6">
-                <div className="font-mono text-[10px] tracking-[0.3em] text-background/55">— {w.n}</div>
+                <div className="font-mono text-[10px] tracking-[0.18em] text-background/55">— {w.n}</div>
                 <h3 className="mt-4 font-serif italic text-[28px] md:text-[36px] leading-[1.1] tracking-[-0.02em]">
                   {w.en}
                 </h3>

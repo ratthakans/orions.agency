@@ -65,7 +65,7 @@ const About = () => (
           </p>
         </Reveal>
         <Reveal delay={0.3}>
-          <div className="mt-10 pt-6 border-t border-dashed border-foreground/30 font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
+          <div className="mt-10 pt-6 border-t border-dashed border-foreground/30 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
             — THE ORIONS PHILOSOPHY
           </div>
         </Reveal>
@@ -74,7 +74,7 @@ const About = () => (
         <Reveal delay={0.35}>
           <div className="mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-12 gap-10">
             <div className="md:col-span-5">
-              <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground">— WHO WE ARE</p>
+              <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">— WHO WE ARE</p>
               <h3 className="mt-6 font-serif italic text-[28px] md:text-[36px] leading-[1.15] tracking-[-0.02em]">
                 A small studio for brands that care.
               </h3>
@@ -98,7 +98,7 @@ const About = () => (
           {principles.map((p, i) => (
             <Reveal key={p.n} delay={i * 0.06}>
               <div className={`py-10 md:py-14 md:px-10 ${i > 0 ? "border-t border-foreground" : ""} ${i === 1 ? "md:border-t-0 md:border-l" : ""} ${i === 2 ? "md:border-l-0" : ""} ${i === 3 ? "md:border-l" : ""}`}>
-                <div className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground">— {p.n}</div>
+                <div className="font-mono text-[10px] tracking-[0.18em] text-muted-foreground">— {p.n}</div>
                 <h3 className="mt-6 font-serif italic text-[28px] md:text-[40px] leading-[1.1] tracking-[-0.02em]">
                   {p.en}
                 </h3>

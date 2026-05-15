@@ -20,7 +20,7 @@ const BigSectionNumber = ({ n, label, className = "" }: Props) => (
       {n}
     </span>
     {label && (
-      <span className="font-mono text-[10px] md:text-[11px] tracking-[0.22em] uppercase text-muted-foreground pb-3 md:pb-5">
+      <span className="font-mono text-[10px] md:text-[11px] tracking-[0.14em] uppercase text-muted-foreground pb-3 md:pb-5">
         {label}
       </span>
     )}

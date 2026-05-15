@@ -1,84 +1,88 @@
-# Redesign หน้าแรก — เน้นไทย, สอดคล้อง, อ่านง่าย
+# Redesign หน้าแรก — Clean Minimal (Klar-inspired)
 
-แก้เฉพาะ `src/pages/Index.tsx`
+แก้ไฟล์เดียว: `src/pages/Index.tsx`  
+หลักการ: **เว้นวรรคเยอะขึ้น, ตัดของซ้ำซ้อน, รูปนำ, ตัวอักษรน้อยลง**
 
-## เปลี่ยนทิศทางภาษา (ลูกค้าไทย)
+---
 
-จากแผนก่อนที่ "headline = English" → ปรับใหม่เพราะลูกค้าคือคนไทย:
+## 1) HERO — Split layout + mockup image
 
-- **Headline หลัก** → ภาษาไทย (อ่านง่าย, จำง่ายสำหรับคนไทย)
-- **Eyebrow / labels mono** → English uppercase (ทำหน้าที่เป็น decorator แบบ editorial)
-- **Body / sub / button** → ไทย
-- **ชื่อบริการ / ชื่อเคส** → English (เพราะเป็นชื่อเฉพาะและสะอาดกว่า)
-- **Brand line `From idea to final cut.`** → คงไว้เพราะเป็น tagline แบรนด์
-
-แบบนี้ทุก section จะมี rhythm เดียวกัน: **EN eyebrow → TH headline → TH body**
-
-## 1) HERO
-
-- เก็บโครงเดิม
-- **Sub ใต้ wordmark** เปลี่ยนจาก `Boutique creative agency` → คงไว้ (เป็น tagline แบรนด์ภาษาเดียว)
-- ปุ่ม `ดูบริการของเรา` คงเดิม
-
-## 2) WHAT WE DO — redesign (เอา icon ออก)
-
-ออกแบบใหม่เป็นรายการ editorial แทน card grid:
+เปลี่ยนจาก hero แบบ centered บน background ดำ → **split 50/50** แบบ Klar
 
 ```
-— WHAT WE DO
-สี่สิ่งที่เราทำ ให้แบรนด์คุณ จำง่ายและขายได้.
-
-──────────────────────────────────────────────
-01   Branding              วางตัวตนแบรนด์ให้คมและจำง่าย
-──────────────────────────────────────────────
-02   Content Production    ถ่ายทำ ตัดต่อ ครบจบในทีมเดียว
-──────────────────────────────────────────────
-03   Social Media          ดูแลคอนเทนต์ครบทุกแพลตฟอร์ม
-──────────────────────────────────────────────
-04   Paid Ads              ยิงแอดให้คุ้ม ทุกบาทมีเหตุผล
-──────────────────────────────────────────────
-                                          View all →
+┌──────────────────────┬──────────────────────┐
+│                      │  — BANGKOK · 2026    │
+│                      │                      │
+│   [B&W mockup        │  We don't just       │
+│    portrait/team     │  shoot content,      │
+│    image, full       │  we shape brands.    │
+│    height]           │                      │
+│                      │  ทีมเดียว ครบจบ      │
+│                      │  ตั้งแต่ไอเดีย       │
+│                      │  ถึง final cut.      │
+│                      │                      │
+└──────────────────────┴──────────────────────┘
+   marquee bar (เดิม)
 ```
 
 **Spec:**
-- Layout: รายการแนวนอน 4 แถว, แต่ละแถว grid `[number] [name EN] [desc TH]`
-- Hover: ทั้งแถวขยับซ้าย/เปลี่ยนสี เป็น accent (Sunset Ink)
-- ไม่มี icon, ไม่มี border box, แค่ hairline divider บน-ล่างของแต่ละแถว
-- Typography:
-  - หมายเลข `01-04` → JetBrains Mono ขนาดเล็ก
-  - ชื่อบริการ → Unbounded display ขนาดใหญ่ (`text-[28px] md:text-[40px]`)
-  - คำอธิบาย → IBM Plex Sans Thai ขวาสุด, ขนาด body
-- Headline section เปลี่ยนเป็นไทย: `สี่สิ่งที่เราทำ.` (ตัด `One team. From idea to final cut.` เพราะใช้ที่ CTA แล้ว)
+- ซ้าย: รูป grayscale full-bleed (ใช้ `workHongmove` หรือ `workDemocrat` เป็น mockup ก่อน — comment บอกผู้ใช้ว่าเปลี่ยนเป็นรูปทีมจริงทีหลังได้)
+- ขวา: cream background, ตัวหนังสือชิดซ้าย เว้นบนเยอะ
+- **ตัด**: wordmark `ØRIONS` ขนาดยักษ์ออก (ไปอยู่ที่ Nav แล้ว), ตัด tagline `Boutique creative agency` (ซ้ำกับ headline)
+- **ตัดปุ่ม** `ดูบริการของเรา` → แทนด้วย **quote เท่ๆ**:
+  > *"We don't just shoot content,  
+  > we shape brands."*  
+  
+  ใต้ quote เป็น Thai sub สั้นๆ: `ทีมเดียว ครบจบ ตั้งแต่ไอเดียถึง final cut.`
+  
+  ไม่มีปุ่ม CTA ใน hero — ให้ scroll ลงไปเจอเอง (Klar มีปุ่มเดียวเล็กๆ; เราจะเอา CTA หลักไปไว้ section สุดท้าย)
+- Marquee bar เดิม คงไว้
 
-## 3) SELECTED WORK — เอา พลวัต ออก, เหลือ 5 cards
+## 2) WHAT WE DO — บางลง
 
-Cards: Hongmove, Democrat, RTAF, GCOO, Heavy Organizer
+- คงโครง editorial list 4 แถว
+- **ตัด**: link `View all →` มุมบนขวา (รก, มี CTA หลักท้ายหน้าแล้ว)
+- **ลดขนาด headline**: `h-display-sm` → `h-display-xs`
+- เว้น padding section ลงเล็กน้อย (`py-20 md:py-28` → `py-24 md:py-32`)
+- เอา accent gradient ที่ "ให้แบรนด์คุณ" ออก — Klar ใช้สีน้อยมาก, ให้ headline เป็นสีเดียว
 
-**ปรับ headline ให้สอดคล้อง:**
-- Eyebrow: `— SELECTED WORK` (ภาษาอังกฤษให้ตรง pattern)
-- Headline ภาษาไทย: `แบรนด์จริง ผลลัพธ์จริง.` (ย้ายกลับมาเป็น headline แทน eyebrow)
-- ตัดบรรทัด `Selected work.` ออก
+## 3) SELECTED WORK — ลดข้อมูลในการ์ด
 
-Card ทุกใบเหมือนเดิม (image + overlay, scope/impact/title)
+- คงโครง carousel + 5 cards
+- **ตัดข้อมูลในการ์ด**: เอา overlay บนการ์ด (scope/impact/title bottom drawer) ออก — เหลือแค่รูปสะอาดๆ
+- ใต้รูปเหลือแค่: **ชื่อโปรเจกต์** + **niche** (มีอยู่แล้ว) — ตัด overlay ตัวเลข `— 01 / NICHE` ทับรูปออก
+- ตัด `accent` gradient ตรง impact (ไม่ใช้แล้ว เพราะตัด overlay)
+- Hover: รูปจาก grayscale → color (คงไว้ — เท่และ minimal)
 
-## 4) TRUSTED BY
+## 4) TRUSTED BY — เบาขึ้น
 
-- Eyebrow `— TRUSTED BY` คงไว้
-- **เพิ่ม headline สั้นภาษาไทย**: `แบรนด์ที่เลือกเราแล้ว.` (เพื่อให้มี hierarchy เดียวกับ section อื่น — ตอนนี้มันโดดออกมาเพราะไม่มี headline)
-- Grid logos เหมือนเดิม
+- **ตัด headline** `แบรนด์ที่เลือกเรา.` ออก — เหลือแค่ eyebrow `— TRUSTED BY` พอ (Klar ก็ใช้แบบนี้)
+- ตัด border ของ grid ออก ให้เป็น logo ลอยๆ มี gap แทน
+- ลด background contrast: เปลี่ยนจาก `bg-foreground text-background` → คง cream bg เหมือน section อื่น (ไม่สลับโทน, flow ลื่นกว่า)
 
-## 5) CTA
+## 5) CTA — เก็บไว้, simplify
 
-- Eyebrow `— LET'S TALK` คงไว้
-- Headline เปลี่ยนเป็นไทย: `เริ่มจากไอเดีย จบที่ final cut.` (ผสมไทย-อังกฤษเฉพาะที่ tagline brand)
-- Sub ไทย, ปุ่ม `เริ่มคุยกับเรา` คงเดิม
+- คงโครงเดิม (eyebrow + headline + sub + ปุ่ม)
+- **ตัด accent gradient** ที่ `จบที่ final cut.` — เป็นสีเดียว
+- คงปุ่ม `เริ่มคุยกับเรา` (เป็นปุ่มเดียวของหน้านี้แล้ว)
 
-## ผลลัพธ์ rhythm ทุก section
+---
 
-```
-— EN EYEBROW (mono, เล็ก)
-Headline ภาษาไทย คมๆ. (display, ใหญ่)
-[content]
-```
+## สรุปสิ่งที่ตัดออก (ลดความรก)
 
-ทุก section จะ "อ่านเป็นจังหวะเดียวกัน" — คนไทยเข้าใช้ได้ทันที, English ถูกใช้เฉพาะที่เป็น decorator/brand voice
+- Hero: wordmark ยักษ์, tagline, ปุ่ม CTA → แทนด้วย **รูป + quote**
+- Services: link "View all", accent gradient
+- Work: overlay บนรูป (3 ชั้น: ตัวเลขมุมบน, drawer ล่าง)
+- Trusted by: headline ไทย, border grid, dark section
+- CTA: accent gradient
+
+## สิ่งที่เพิ่ม
+
+- รูป mockup grayscale ใน hero (ใช้ `workDemocrat` เป็น placeholder — ผู้ใช้เปลี่ยนเป็นรูปทีม/studio ทีหลังได้ง่าย)
+- Quote เท่ๆ แทนปุ่ม
+- Whitespace มากขึ้นทุก section
+
+## ผลลัพธ์
+
+หน้าจะมี **rhythm** แบบ Klar: รูปใหญ่นำ → quote → list สะอาด → grid งาน → logo wall เบา → CTA  
+ตัวอักษรน้อยลง ~30%, สีเดียวตลอด, ไม่มี gradient, ไม่มี dark section สลับ

@@ -12,8 +12,6 @@ import workGcoo from "@/assets/gcoo.jpg";
 import workHeavy from "@/assets/heavy-organizer.jpg";
 import hongmoveLogo from "@/assets/logos/hongmove.png";
 
-const accent = "text-gradient";
-
 const services = [
   { n: "01", en: "Branding",           th: "วางตัวตนแบรนด์ให้คมและจำง่าย" },
   { n: "02", en: "Content Production", th: "ถ่ายทำ ตัดต่อ ครบจบในทีมเดียว" },
@@ -50,34 +48,40 @@ const Index = () => (
       path="/"
     />
 
-    {/* COVER */}
-    <section className="relative min-h-screen flex flex-col bg-foreground text-background overflow-hidden">
-      <div className="relative flex-1 flex flex-col items-center justify-center text-center px-6 md:px-10">
-        <Reveal>
-          <p className="font-mono text-[10px] tracking-[0.4em] text-background/60 mb-10 md:mb-14">
-            BANGKOK · EST. 2026
-          </p>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <h1 className="font-brand h-display-xl leading-[0.85] text-background">ØRIONS</h1>
-        </Reveal>
-        <Reveal delay={0.25}>
-          <p className="mt-12 md:mt-16 font-display text-[14px] md:text-[18px] tracking-[-0.01em] text-background/80">
-            Boutique creative agency
-          </p>
-        </Reveal>
-        <Reveal delay={0.4}>
-          <Link
-            to="/services"
-            className="mt-14 group inline-flex items-center gap-3 bg-background text-foreground px-7 py-4 index-badge border border-background hover:gap-4 transition-all duration-300"
-          >
-            <span>ดูบริการของเรา</span>
-            <ArrowUpRight className="w-4 h-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-          </Link>
-        </Reveal>
+    {/* COVER — split layout, image left, quote right */}
+    <section className="relative min-h-screen flex flex-col">
+      <div className="flex-1 grid grid-cols-1 md:grid-cols-2">
+        {/* Left: full-bleed mockup image (replace with team/studio photo) */}
+        <div className="relative bg-muted overflow-hidden order-2 md:order-1 min-h-[55vh] md:min-h-0">
+          <img
+            src={workDemocrat}
+            alt="ØRIONS studio"
+            className="absolute inset-0 w-full h-full object-cover grayscale"
+          />
+        </div>
+
+        {/* Right: quote */}
+        <div className="relative flex flex-col justify-center px-6 md:px-14 lg:px-20 py-20 md:py-0 order-1 md:order-2">
+          <Reveal>
+            <p className="font-mono text-[10px] tracking-[0.4em] uppercase text-muted-foreground mb-10 md:mb-14">
+              — BANGKOK · EST. 2026
+            </p>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <h1 className="font-display text-[34px] md:text-[48px] lg:text-[60px] leading-[1.05] tracking-[-0.025em] text-balance">
+              We don't just shoot content,<br />
+              <span className="italic font-light">we shape brands.</span>
+            </h1>
+          </Reveal>
+          <Reveal delay={0.25}>
+            <p className="mt-10 md:mt-12 font-thai text-[15px] md:text-[17px] leading-[1.7] text-muted-foreground max-w-[420px]">
+              ทีมเดียว ครบจบ ตั้งแต่ไอเดียถึง final cut.
+            </p>
+          </Reveal>
+        </div>
       </div>
 
-      <div className="relative border-t border-background/15 py-5">
+      <div className="relative border-t border-foreground/15 py-5">
         <SimpleMarquee
           duration={42}
           items={["SOCIAL MEDIA", "BRANDING", "CONTENT PRODUCTION", "PAID ADVERTISING"]}
@@ -87,28 +91,19 @@ const Index = () => (
 
     {/* SERVICES */}
     <section className="px-6 md:px-10">
-      <div className="border-t border-foreground py-20 md:py-28 max-w-[1280px] mx-auto">
+      <div className="border-t border-foreground py-24 md:py-32 max-w-[1280px] mx-auto">
         <Reveal>
-          <div className="flex items-end justify-between gap-8 flex-wrap">
-            <div>
-              <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground mb-4">
-                — WHAT WE DO
-              </div>
-              <h2 className="font-display h-display-sm">
-                สี่สิ่งที่เราทำ <span className={accent}>ให้แบรนด์คุณ.</span>
-              </h2>
+          <div>
+            <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground mb-4">
+              — WHAT WE DO
             </div>
-            <Link
-              to="/services"
-              className="group inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground hover:text-foreground transition-colors"
-            >
-              View all
-              <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            </Link>
+            <h2 className="font-display h-display-xs">
+              สี่สิ่งที่เราทำ ให้แบรนด์คุณ.
+            </h2>
           </div>
         </Reveal>
 
-        <ul className="mt-14 md:mt-20 border-t border-foreground">
+        <ul className="mt-16 md:mt-24 border-t border-foreground">
           {services.map((s, i) => (
             <Reveal key={s.en} delay={0.04 * i}>
               <li className="group border-b border-foreground">
@@ -116,7 +111,7 @@ const Index = () => (
                   <span className="font-mono text-[11px] tracking-[0.25em] text-muted-foreground self-center">
                     {s.n}
                   </span>
-                  <h3 className="font-display text-[24px] md:text-[40px] leading-[1.05] tracking-[-0.02em] transition-colors duration-300 group-hover:text-gradient">
+                  <h3 className="font-display text-[24px] md:text-[40px] leading-[1.05] tracking-[-0.02em]">
                     {s.en}
                   </h3>
                   <p className="col-span-2 md:col-span-1 mt-2 md:mt-0 font-thai text-[14px] md:text-[15px] leading-[1.65] text-muted-foreground md:text-right">
@@ -132,20 +127,20 @@ const Index = () => (
 
     {/* SELECTED WORK */}
     <section className="px-6 md:px-10">
-      <div className="border-t border-foreground py-20 md:py-28 max-w-[1280px] mx-auto">
+      <div className="border-t border-foreground py-24 md:py-32 max-w-[1280px] mx-auto">
         <Reveal>
           <div>
             <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground mb-4">
               — SELECTED WORK
             </div>
-            <h2 className="font-display h-display-sm">
-              แบรนด์จริง <span className={accent}>ผลลัพธ์จริง.</span>
+            <h2 className="font-display h-display-xs">
+              แบรนด์จริง ผลลัพธ์จริง.
             </h2>
           </div>
         </Reveal>
 
         <Reveal delay={0.1}>
-          <Carousel opts={{ align: "start", loop: false }} className="mt-14 md:mt-16">
+          <Carousel opts={{ align: "start", loop: false }} className="mt-16 md:mt-20">
             <CarouselContent className="ml-0">
               {projects.map((w) => (
                 <CarouselItem key={w.n} className="pl-0 pr-6 md:pr-8 basis-[85%] sm:basis-1/2 lg:basis-1/3">
@@ -157,21 +152,6 @@ const Index = () => (
                         loading="lazy"
                         className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-out group-hover:scale-[1.04]"
                       />
-                      <div className="absolute top-3 left-3 right-3 flex items-center justify-between font-mono text-[9px] tracking-[0.25em] text-background/95 mix-blend-difference">
-                        <span>— {w.n}</span>
-                        <span>{w.niche}</span>
-                      </div>
-                      <div className="absolute inset-x-0 bottom-0 bg-foreground text-background translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out p-5 md:p-6">
-                        <div className="font-mono text-[9px] tracking-[0.25em] text-background/55">
-                          — {w.scope}
-                        </div>
-                        <div className={`mt-2 font-display ${accent} text-[20px] md:text-[24px] leading-[1.05] tracking-[-0.02em] tabular-nums`}>
-                          {w.impact}
-                        </div>
-                        <h3 className="mt-3 font-display text-[13px] md:text-[14px] tracking-[-0.005em] leading-tight text-background/85">
-                          {w.title}
-                        </h3>
-                      </div>
                     </div>
                     <div className="mt-4 flex items-baseline justify-between gap-3">
                       <h3 className="font-display text-[15px] md:text-[16px] tracking-[-0.01em] truncate">
@@ -194,52 +174,42 @@ const Index = () => (
       </div>
     </section>
 
-    {/* TRUSTED BY */}
-    <section className="bg-foreground text-background px-6 md:px-10">
-      <div className="border-t border-background/20 py-20 md:py-24 max-w-[1280px] mx-auto">
-        <Reveal delay={0.05}>
-          <div>
-            <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-background/55 mb-4">
-              — TRUSTED BY
-            </div>
-            <h2 className="font-display h-display-sm">
-              แบรนด์ที่ <span className={accent}>เลือกเรา.</span>
-            </h2>
+    {/* TRUSTED BY — light, borderless logo wall */}
+    <section className="px-6 md:px-10">
+      <div className="border-t border-foreground py-24 md:py-32 max-w-[1280px] mx-auto">
+        <Reveal>
+          <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
+            — TRUSTED BY
           </div>
         </Reveal>
 
-        <div className="mt-12 md:mt-14 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 border border-background/15">
-          {trustedBy.map((brand, i) => {
-            const cols = 6;
-            const isLastCol = (i % cols) === cols - 1;
-            const totalRows = Math.ceil(trustedBy.length / cols);
-            const currentRow = Math.floor(i / cols);
-            const isLastRow = currentRow === totalRows - 1;
-            return (
-              <div
-                key={brand.name}
-                className={`relative aspect-[2/1] flex items-center justify-center text-center px-4 cursor-default ${!isLastCol ? "border-r border-background/15" : ""} ${!isLastRow ? "border-b border-background/15" : ""}`}
-              >
-                {brand.logo ? (
-                  <img
-                    src={brand.logo}
-                    alt={brand.name}
-                    loading="lazy"
-                    className="max-h-8 md:max-h-10 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity invert"
-                  />
-                ) : (
-                  <span className="font-display text-[11px] md:text-[12px] tracking-[0.04em] text-background/55">{brand.name}</span>
-                )}
-              </div>
-            );
-          })}
+        <div className="mt-14 md:mt-20 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-10 gap-y-12 md:gap-y-16">
+          {trustedBy.map((brand) => (
+            <div
+              key={brand.name}
+              className="flex items-center justify-center text-center cursor-default"
+            >
+              {brand.logo ? (
+                <img
+                  src={brand.logo}
+                  alt={brand.name}
+                  loading="lazy"
+                  className="max-h-7 md:max-h-8 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity"
+                />
+              ) : (
+                <span className="font-display text-[11px] md:text-[12px] tracking-[0.06em] text-muted-foreground hover:text-foreground transition-colors">
+                  {brand.name}
+                </span>
+              )}
+            </div>
+          ))}
         </div>
       </div>
     </section>
 
     {/* CTA */}
     <section className="relative px-6 md:px-10">
-      <div className="border-t border-foreground py-20 md:py-28 max-w-[900px] mx-auto text-center">
+      <div className="border-t border-foreground py-24 md:py-36 max-w-[900px] mx-auto text-center">
         <Reveal>
           <p className="font-mono text-[10px] tracking-[0.4em] uppercase text-muted-foreground mb-8">
             — LET'S TALK
@@ -247,7 +217,7 @@ const Index = () => (
         </Reveal>
         <Reveal delay={0.05}>
           <h2 className="font-display h-display-md text-balance">
-            เริ่มจากไอเดีย <span className={accent}>จบที่ final cut.</span>
+            เริ่มจากไอเดีย จบที่ final cut.
           </h2>
         </Reveal>
         <Reveal delay={0.15}>

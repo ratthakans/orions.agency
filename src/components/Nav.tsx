@@ -5,6 +5,7 @@ import { Menu, X, ArrowUpRight } from "lucide-react";
 
 const links = [
   { label: "Services", to: "/services" },
+  { label: "Pricing", to: "/services#packages" },
   { label: "Work", to: "/work" },
   { label: "About", to: "/about" },
 ];
@@ -82,7 +83,7 @@ const Nav = () => {
           to="/contact"
           className="group hidden md:inline-flex items-center gap-2 index-badge bg-background text-foreground px-4 py-2.5 border border-background transition-all duration-300 hover:gap-3 hover:bg-foreground hover:text-background"
         >
-          <span>Work with us</span>
+          <span>Get a free proposal</span>
           <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
         </Link>
 
@@ -107,7 +108,7 @@ const Nav = () => {
               </NavLink>
             ))}
             <Link to="/contact" className="index-badge bg-background text-foreground px-4 py-3 inline-block w-fit">
-              Work with us ↗
+              Get a free proposal ↗
             </Link>
           </div>
         </div>

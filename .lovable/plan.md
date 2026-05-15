@@ -1,78 +1,79 @@
 
-## Goal
+## A · ตารางเปรียบเทียบ (Pricing page)
 
-หน้า `/pricing` → **ชัด · สะอาด · อ่านราคาได้ใน 5 วินาที**.
-รวมราคาทั้งหมดของ ØRIONS ไว้ที่หน้านี้หน้าเดียว ตัดคำบรรยายที่ไม่จำเป็นออก.
+แทรก section ใหม่ **"Compare."** ระหว่าง `02 · Packages` กับ `03 · Add-ons` → กลายเป็น section 03, Add-ons → 04, FAQ → 05 (อัปเดต `PageMark total="05"`).
 
-## ราคาทั้งหมดที่มีอยู่ (สรุป)
+### Layout
 
-| Item | Price | ที่อยู่ปัจจุบัน |
-|---|---|---|
-| Starter | 29,000 / เดือน | Pricing + Index (ซ้ำ) |
-| Pro | 59,000 / เดือน | Pricing + Index (ซ้ำ) |
-| Elite | 119,000 / เดือน | Pricing + Index (ซ้ำ) |
-| Ads Management Add-on | 3,500 / เดือน | ซ่อนใน Starter details |
-| Raw Files Delivery | 15,000 / เดือนของงาน | ซ่อนใน FAQ |
+ตารางเส้น hairline 4 คอลัมน์: `Feature | Starter | Pro | Elite` — sticky header, mobile = horizontal scroll, ไม่มีพื้นหลัง/เงา/มุมโค้ง (ตามดีไซน์ system).
 
-## Plan
+### แถวเปรียบเทียบ (อิงจาก `details` เดิมในประวัติ)
 
-### A · `Pricing.tsx` — ตัดให้สะอาด
+```text
+Feature                          Starter        Pro              Elite
+───────────────────────────────────────────────────────────────────────────────
+Price (THB / mo)                 29,000         59,000           119,000
+Minimum contract                 1 mo           3 mo             6 mo
+─── Content ──────────────────────────────────────────────────────────────────
+Static posts                     10             15               20
+Stories (IG / FB)                —              15               Daily (30)
+Reels / TikTok (9:16)            15             30               30 (3 Hero)
+Horizontal video (16:9)          —              —                1 / mo
+Photography                      —              10               20–30
+─── Production ───────────────────────────────────────────────────────────────
+Production days                  1              2                3 (full crew)
+Platforms covered                1              2                up to 4
+─── Strategy ─────────────────────────────────────────────────────────────────
+Strategy meetup                  1× / mo        2× / mo          4× / mo
+Trend report                     Monthly        Bi-weekly        2× / mo + alerts
+Content calendar                 —              Monthly          Monthly + QBR
+Brand manual                     —              —                ✓
+─── Ads & Community ─────────────────────────────────────────────────────────
+Ads management                   Add-on (3,500) Free ≤ 50k       Free ≤ 100k
+Community mgmt response          ≤ 6 hr         ≤ 3 hr           ≤ 1 hr
+Dedicated account mgr            —              Shared           ✓
+─── Delivery ─────────────────────────────────────────────────────────────────
+Revisions                        1 / piece      2 / piece        3 major + ∞ minor
+Performance bonus                —              —                ROAS > 5× → 5%
+```
 
-**Hero (01)**
-- เก็บ heading `Pricing.` (italic, sunset ink) เท่าเดิม
-- ลบ tagline ยาว "Branding · Content · Social — one team, one monthly retainer..." → เหลือบรรทัดเดียว: *"Monthly retainer · เริ่มต้น 29,000 บาท / เดือน"*
-- ลบบรรทัด "↳ ตอบกลับใน 24 ชม. · ปรึกษาฟรี 30 นาที" (ย้ายไปอยู่ใต้ปุ่ม Contact ที่หน้า Contact อยู่แล้ว)
-- เก็บ 2 ปุ่ม: `See packages` + `Get a free proposal`
+**Visual cues:**
+- `—` = ไม่มี (muted)
+- ตัวเลข + `✓` ใช้ `tabular-nums`
+- Column header Pro มี `bg-foreground/[0.03]` เบา ๆ + ribbon `★ MOST POPULAR`
+- Row group dividers (Content / Production / Strategy / Ads / Delivery) = หัว group เล็ก ๆ uppercase mono
+- ไม่มี border ทุกเส้น — แค่ horizontal hairlines ระหว่างแถว
 
-**Packages (02)**
-- ลบ heading ใหญ่ "Pick yours in 30 seconds." + sub "→ ไม่แน่ใจ? เริ่มที่ Pro..."
-- ใช้แค่ heading สั้น: *"Packages."* (ตามจังหวะ Pricing. / Add-ons. / FAQ.)
-- ลบ "VALID 30 DAYS" mark (vanity)
-- **Card cleanup** — ตัดสิ่งที่ไม่ใช่ราคา/ระยะสัญญา/highlights:
-  - ลบ `tagline` italic ("ทดลองได้ ไม่ผูกมัด...", "Most Popular — คุ้มที่สุด...", "Full Premium Service...")
-  - ลบ block "Best for ·" (ซ้ำกับ highlight แรก ๆ)
-  - เก็บ: badge / name / **price ใหญ่** / contract / highlights 4 บรรทัด / ปุ่ม Book a call
-- ลบบรรทัด "All packages include — Strategy · In-house production..." (ย้ายเป็น 1 แถว hairline เล็ก ๆ ใต้ตาราง add-ons แทน)
+### Add-ons: คงตารางเดิมไว้
 
-**Add-ons (03 — ใหม่)**
-- Heading: *"Add-ons."*
-- ตารางเส้น hairline เรียบ ๆ 3 คอลัมน์: ชื่อ · note สั้น · ราคา (`tabular-nums`, sunset ink)
+เพิ่มหมายเหตุใต้ตาราง compare: *"Need more? See Add-ons below."* เพื่อเชื่อม section.
 
-  ```text
-  Ads Management (Starter)        ≤ 30k budget               3,500   THB / mo
-  Raw Files Delivery              footage + source           15,000  THB / mo
-  Extra Production Day            +1 day, full crew          on request
-  Extra Platform                  +1 platform                on request
-  Rush Turnaround (48h)           outside calendar           on request
-  ```
-- บรรทัดเดียวใต้ตาราง: *"Pro / Elite include Ads Management (≤ 50k / ≤ 100k)."*
-- ลบบรรทัด "All packages include..." มารวมเป็นแถวสุดท้ายของตารางนี้แทน → *"All packages include — Strategy · Production · Monthly report · 24h response"*
+## B · Footer cleanup (ยังไม่ apply ของรอบก่อน)
 
-**Package Details accordion**
-- ลบทั้ง block "— PACKAGE DETAILS" accordion (ข้อมูลซ้ำกับ highlights + add-ons แล้ว และเป็นต้นเหตุของความรกหลัก)
-- ถ้าต้องการรายละเอียด → ผู้ใช้กด `Book a call` หรือไปหน้า Contact
+ตอนนี้ `Footer.tsx` ยังเป็น:
+- email = `font-display` (Unbounded uppercase look)
+- "— ØRIONS · BANGKOK" = `tracking-[0.4em]`
+- nav/socials = `font-mono uppercase`
+- ไม่มี link `Pricing`
 
-**FAQ (04)**
-- เก็บไว้แต่ลดจาก 6 → 4 ข้อสำคัญ: ผลลัพธ์เห็นเมื่อไหร่ / Raw files / ปรับแพ็กเกจ / Setup fee
-- ลบข้อ "ใครเป็นผู้โพสต์" + "ถ้าผลลัพธ์ไม่เป็นไปตามที่คาด" (รายละเอียดควรอยู่ในการคุย ไม่ใช่หน้า pricing)
-- อัปเดต `PageMark total` → `04`
+### แก้
 
-### B · `Index.tsx` — ลบบล็อกราคาซ้ำ
+- `tracking-[0.4em]` → `tracking-[0.14em]`
+- email → `font-serif italic` (Instrument Serif), ลด size เป็น `text-[24px] md:text-[34px]`, lowercase
+- nav links + socials → ใช้ class `btn-label` (Instrument Serif italic, no uppercase, 16px)
+- เพิ่ม `{ to: "/pricing", label: "Pricing" }` ใน `navLinks` (วางก่อน Work หรือหลัง Services)
+- Legal row: `tracking-[0.14em]` (ไม่ใช่ 0.4em อยู่แล้วใน 0.14 — ok)
+- คั่น socials กับ nav ด้วยจุด · เพื่อความสอดคล้อง
 
-- ลบ `pricingTiers` array (บรรทัด 112–116)
-- Section 09 PRICING TEASER → ย่อให้เหลือ:
-  - Heading `Pricing.`
-  - บรรทัดเดียว: *"3 packages · เริ่มต้น 29,000 บาท / เดือน"*
-  - ปุ่ม `See full pricing →` ไป `/pricing`
-- ไม่มีตัวเลข tier 3 ตัวที่หน้า Home อีกต่อไป
+ผลลัพธ์: footer จะเข้ากับ hero footer (`hello@orions.agency` แบบ italic serif) และปุ่มทั่วเว็บที่ใช้ `btn-label` แล้ว.
 
-### Files
+## Files
 
-- **Edit** `src/pages/Pricing.tsx` — ตัด tagline, ตัด "Best for", ตัด details accordion, เพิ่ม Add-ons table, ลด FAQ เหลือ 4 ข้อ, อัปเดต `PageMark total="04"`
-- **Edit** `src/pages/Index.tsx` — ย่อ section 09, ลบ `pricingTiers`
+- **Edit** `src/pages/Pricing.tsx` — เพิ่ม section Compare, อัปเดต `PageMark total="05"` ทุกที่
+- **Edit** `src/components/Footer.tsx` — refactor typography + เพิ่ม Pricing link
 
-### Out of scope
+## Out of scope
 
-- ไม่แก้ราคาจริง (29k / 59k / 119k / 3.5k / 15k คงเดิม)
-- ไม่แตะ design system / typography / palette / components
-- ไม่แตะ Services, About, Work, Footer, Nav
+- ไม่แก้ราคา/แพ็กเกจจริง
+- ไม่แตะ design system / palette
+- ไม่แตะหน้าอื่น

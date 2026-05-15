@@ -84,10 +84,11 @@
   .body-muted   { color: hsl(var(--foreground) / 0.85); }
   .font-brand   { font-family: 'Inter', sans-serif; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; }
   .font-serif   { font-family: 'Cormorant Garamond', 'IBM Plex Sans Thai', serif; font-weight: 500; letter-spacing: -0.01em; text-transform: none; }
-  /* Collins-style: no accent color. Italic does the lifting. */
-  .text-orion   { color: hsl(var(--foreground)); }
+  /* Collins-style: no accent color. Italic does the lifting.
+     Use `inherit` so italic accents on dark sections stay light, and on light sections stay dark. */
+  .text-orion   { color: inherit; }
   .bg-orion     { background-color: hsl(var(--foreground)); }
-  .text-gemini  { color: hsl(var(--foreground)); }
+  .text-gemini  { color: inherit; }
 
   .label-mono {
     @apply font-mono text-[10px] tracking-[0.18em] uppercase;

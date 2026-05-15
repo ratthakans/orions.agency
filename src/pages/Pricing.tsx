@@ -446,13 +446,13 @@ const Pricing = () => {
                             {r.label}
                           </td>
                           <td className="py-4 px-4 font-mono text-[12.5px] tabular-nums text-foreground/85">
-                            <span className={r.starter === "—" ? "text-FGTOKEN30" : ""}>{r.starter}</span>
+                            <span className={r.starter === "—" ? "text-foreground/30" : ""}>{r.starter}</span>
                           </td>
                           <td className="py-4 px-4 font-mono text-[12.5px] tabular-nums bg-background/[0.04] text-foreground/90">
-                            <span className={r.pro === "—" ? "text-FGTOKEN30" : ""}>{r.pro}</span>
+                            <span className={r.pro === "—" ? "text-foreground/30" : ""}>{r.pro}</span>
                           </td>
                           <td className="py-4 px-4 pr-6 md:pr-4 font-mono text-[12.5px] tabular-nums text-foreground/85">
-                            <span className={r.elite === "—" ? "text-FGTOKEN30" : ""}>{r.elite}</span>
+                            <span className={r.elite === "—" ? "text-foreground/30" : ""}>{r.elite}</span>
                           </td>
                         </tr>
                       ))}

@@ -108,7 +108,7 @@ const ShowRow = ({ show, index, isLast }: Props) => {
       <div className={`col-span-12 md:col-span-7 ${isOdd ? "md:order-1 md:text-right" : ""}`}>
         <div className={`flex items-center gap-3 ${isOdd ? "md:justify-end" : ""}`}>
           <span
-            className="font-display leading-none tracking-[-0.04em] text-FGTOKEN30 group-hover:text-foreground transition-colors duration-500"
+            className="font-display leading-none tracking-[-0.04em] text-foreground/30 group-hover:text-foreground transition-colors duration-500"
             style={{ fontSize: "clamp(22px, 2vw, 32px)" }}
           >
             {num}
@@ -145,7 +145,7 @@ const ShowRow = ({ show, index, isLast }: Props) => {
                   isActive
                     ? "border-foreground bg-foreground text-background"
                     : playable
-                    ? "border-FGTOKEN30 text-background/70 hover:border-foreground hover:text-foreground"
+                    ? "border-foreground/30 text-background/70 hover:border-foreground hover:text-foreground"
                     : "border-background/15 text-muted-foreground/60 cursor-not-allowed"
                 }`}
               >
@@ -157,7 +157,7 @@ const ShowRow = ({ show, index, isLast }: Props) => {
             <button
               type="button"
               onClick={() => setShowAll(true)}
-              className="font-mono text-[10px] tracking-[0.18em] uppercase px-2 py-1 border border-dashed border-FGTOKEN30 text-muted-foreground hover:text-foreground hover:border-foreground transition-colors"
+              className="font-mono text-[10px] tracking-[0.18em] uppercase px-2 py-1 border border-dashed border-foreground/30 text-muted-foreground hover:text-foreground hover:border-foreground transition-colors"
             >
               +{hiddenCount} more
             </button>

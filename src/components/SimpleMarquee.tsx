@@ -27,7 +27,7 @@ const SimpleMarquee = ({ items, duration = 35, className }: Props) => {
                 {it}
               </span>
             </span>
-            <span className="text-FGTOKEN30 select-none">✦</span>
+            <span className="text-foreground/30 select-none">✦</span>
           </span>
         ))}
       </div>

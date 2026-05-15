@@ -65,7 +65,7 @@ const About = () => (
           </p>
         </Reveal>
         <Reveal delay={0.3}>
-          <div className="mt-10 pt-6 border-t border-dashed border-FGTOKEN30 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
+          <div className="mt-10 pt-6 border-t border-dashed border-foreground/30 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
             — THE ORIONS PHILOSOPHY
           </div>
         </Reveal>
@@ -86,7 +86,7 @@ const About = () => (
               <p>
                 เป้าหมายของเราไม่ใช่แค่ทำงานสวย — แต่คือทำให้แบรนด์โต วัดผลได้ทุกบาท ทุกชิ้นที่ปล่อยออกไปมี KPI กำกับ
               </p>
-              <p className="text-FGTOKEN60">
+              <p className="text-foreground/60">
                 เลือกทำกับแบรนด์ใน F&amp;B, fashion และ hospitality ที่แคร์เรื่องคุณภาพและการเติบโต — รับลูกค้าจำกัดต่อไตรมาสเพื่อให้แต่ละงานได้เวลาเต็มที่
               </p>
             </div>

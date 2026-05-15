@@ -41,7 +41,7 @@ const Nav = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       {/* Announcement bar — Klar-style */}
-      <div className="bg-foreground text-foreground">
+      <div className="bg-foreground text-background">
         <div className="px-6 md:px-10 h-7 flex items-center justify-center text-center overflow-hidden">
           <p className="font-mono text-[10px] tracking-[0.14em] uppercase whitespace-nowrap">
             Q3 2026 BOOKING — 30-MIN CALL, FREE · REPLY IN 24H
@@ -60,7 +60,7 @@ const Nav = () => {
               to={l.to}
               className={({ isActive }) =>
                 `btn-label relative py-1 transition-colors duration-300 group ${
-                  isActive ? "text-foreground" : "text-background/55 hover:text-foreground"
+                  isActive ? "text-foreground" : "text-foreground/45 hover:text-foreground"
                 }`
               }
             >

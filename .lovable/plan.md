@@ -1,49 +1,86 @@
-## /services — แผนปรับ
+# Plan — Simplify to Klar level + Services per PDF
 
-### 1. ย่อ QUESTIONS (FAQ) ให้เล็กลง
-ปัจจุบัน: H2 ใหญ่ (`h-display-sm` ~64–80px), padding section 24/32, แต่ละ row 20–24px + plus icon 16px.
+## Goal
+ลด noise ของเว็บให้เรียบเหมือน klarstudiobkk.com (1–2 sections ต่อหน้า, hero ใหญ่, copy สั้น, CTA เดียว, marquee เป็น accent) และจัดเนื้อหา Services/Pricing ตาม `ORIONS_Final_Master.pdf` ตรงๆ
 
-ปรับเป็น:
-- ลดความกว้าง wrapper จาก `max-w-[1100px]` → `max-w-[860px]`
-- ลด padding section: `py-24 md:py-32` → `py-16 md:py-20`
-- ลด heading: เปลี่ยนจาก `h-display-sm` ใหญ่ ๆ → `text-[22px] md:text-[28px]` พร้อม eyebrow `— QUESTIONS` เล็ก ๆ ด้านบน (รวมเป็น header เดียว ไม่ใช่ 2 ชั้น)
-- ลดขนาด question rows: `text-[16px] md:text-[19px]` → `text-[14px] md:text-[15px]`, padding `py-5 md:py-6` → `py-4`
-- ลด plus icon `w-4 h-4` → `w-3 h-3`
-- ลดขนาดคำตอบ: `text-[14px]` → `text-[13px]`, `pb-6` → `pb-5`
-- เอา label `8 ANSWERS` ออก (noise)
-- ตัด margin `mt-14` ระหว่าง heading กับ accordion → `mt-8`
+## โครงสร้างหน้า (หลังปรับ)
 
-ผลลัพธ์: FAQ จะดูเป็น utility block เล็ก ๆ ท้ายหน้า ไม่แย่งความสำคัญจาก Pricing
+```
+Home        Services        Work        About        Contact
+  └ hero      └ 3 packages    └ grid      └ 1 hero      └ form
+  └ marquee   └ add-ons       └ marquee   └ marquee     └ details
+              └ commitments
+              └ FAQ
+```
 
-### 2. คำแนะนำ design อื่น ๆ ของหน้า services
+ลบ `/pricing` และ `/style` ออกจาก nav (Pricing รวมไปอยู่ใน Services, Style เก็บไว้แต่ไม่ลิงก์)
 
-A. **Service Overview (index 01/02/03)** — ตอนนี้ตัวเลขใหญ่ `text-[88px]` กับ title `text-[52px]` ซ้อนกัน ชนกันหนัก
-   - ลด number → `text-[64px] md:text-[72px]` และให้สีเป็น `foreground/10` เพื่อเป็นพื้นหลัง
-   - title คงไว้ แต่ขยับ lead ขึ้นมาเป็น sub-title ใต้ title (md:col-span-5 + col-span-12 ของ lead) เพื่อให้ scan ง่าย
+## 1) Global — Klar-style chrome
 
-B. **Pricing cards** — 3 sections ติดกัน (light → dark → light) ดูยาวเกินไป + การ์ด highlight ใช้พื้น `bg-foreground/[0.04]` เบาจนแทบไม่เห็น
-   - เพิ่ม contrast ของ highlight: ใช้ hairline บน + ขวา-ซ้าย หรือใส่ `· popular` chip ที่มี border ชัดขึ้น
-   - แนะนำให้ pricing 3 sections ใช้พื้นเดียวกันทั้งหมด (light) แล้วแยกด้วย eyebrow + section number ใหญ่ ๆ แทน — จะทำให้ scroll สบายตาขึ้น และสีดำไปเก็บไว้แค่ Hero / Audit / Why เพื่อ rhythm สลับ light-dark-light-dark-light ที่ชัด
-   - หรือถ้าจะเก็บ alternating ให้ pricing 02 (dark) เพิ่ม top padding ตัดด้วย hairline 2 เส้นบน-ล่างเพื่อแยกจาก section อื่น
+- **Announcement bar** (บนสุด): `NOW BOOKING FOR Q3 2026 — 30-min discovery call, free`
+- **Nav** เหลือ: `Home · Services · Work · About` + ปุ่ม `WORK WITH US` (→ /contact)  
+  ตัด Pricing ออกจาก nav
+- **Bottom marquee** บนทุกหน้า (เหมือน Klar): `SOCIAL MEDIA — BRANDING — CONTENT — PAID ADS —`
 
-C. **Audit section (dark)** — ตัวเลข `15K` ใหญ่ดี แต่ตอนนี้ลอย ๆ ข้าง list
-   - แนะนำใส่ `· THB / 7 DAYS · CREDIT 100%` เป็น meta strip ใต้ราคาเป็น hairline เพื่อให้กลายเป็น "ticket" ชัดขึ้น
+## 2) Home (`/`) — เหลือแค่ 3 sections
 
-D. **Why + Process (combined dark)** — section นี้ยาวมาก (`py-24 md:py-32` + space-y-3 ใน list + process strip อีก `mt-24`)
-   - ลด `mt-24 md:mt-32` ระหว่าง Why กับ Process → `mt-16 md:mt-20`
-   - Why list ตอนนี้เป็น 5 bullet ที่อ่านเหมือนคำสัญญา — ลองทำเป็น 5 บรรทัดคู่ (label + value) เช่น `PRICING · Honest, on the website` เพื่อให้รู้สึกเป็น manifest ไม่ใช่ checklist
+ตัดทิ้ง: Selected Work rail, Three Things accordion, Mastery video, Process timeline, Trusted-by grid, ClosingCTA
 
-E. **Spacing rhythm รวม** — ตอนนี้เกือบทุก section ใช้ `py-24 md:py-32` ทำให้รู้สึก flat
-   - แนะนำใช้ scale 3 ระดับ: hero/feature `py-28 md:py-36`, content `py-20 md:py-28`, utility (FAQ, audit summary) `py-16 md:py-20`
+เก็บ/ปรับเป็น:
+1. **Hero** — เต็มจอ, eyebrow `BANGKOK · EST. 2026`, headline `From idea to final cut.`, sub 1 บรรทัด, ปุ่ม `SEE OUR SERVICES`
+2. **Marquee** services tags
+3. **Closing strip** — บรรทัดเดียว + ปุ่ม `Work with us`
 
-F. **Service overview → pricing jump** — ปัจจุบันคลิก `01` กระโดดข้าม Audit ไป Pricing โดยตรง อาจสับสน
-   - เพิ่ม anchor link "↓ See pricing" หรือ scroll ที่ smooth + sticky mini-nav บน mobile (eyebrow `01 BRANDING / 02 CONTENT / 03 SOCIAL`) ตอน scroll อยู่ในช่วง pricing — ช่วย orientate มาก
+## 3) Services (`/services`) — จาก PDF
 
-### 3. ขอบเขตการแก้ในรอบนี้
-- FAQ ย่อขนาด (จุดที่ user ขอ) — implement แน่นอน
-- ข้ออื่น ๆ (A–F) เป็นคำแนะนำ — รอเลือกข้อที่อยากให้ทำ
+โครง section ตามเอกสาร (เรียบ แต่ครบ):
+1. **Hero** — `Service Proposal — Social · Content · Brand`
+2. **About ØRIONS** (Page 2) — paragraph เดียว + 6-step process strip (Strategy → Planning → Approval → Production → Publish → Optimize)
+3. **3 Packages** (Page 3) — 3 การ์ดเรียงแนวนอน: Starter 29k / Pro 59k ★ / Elite 119k ♛ พร้อม tagline สั้น
+4. **Comparison table** (Page 3-4) — ตารางเปรียบเทียบครบทุกแถวจาก PDF
+5. **Package details** (Page 5-11) — accordion 3 อัน เปิดเพื่อดู deliverables, strategy, reporting, terms
+6. **Add-ons** (Page 12-15) — grid: SEO 18k, AEO 22k, Bundle 35k (SAVE 10k), Production rates, Crisis PR, Email setup
+7. **Commitments** (Page 16) — 4 บรรทัดสั้น
+8. **FAQ** (Page 17) — accordion
+9. **Terms** (Page 18) — bullet list สั้น
+10. **Next steps + CTA** (Page 19-20) — `LET'S START` + email `hello@orions.agency`
 
-### Technical
-- ไฟล์เดียว: `src/pages/Services.tsx`
-- ไม่แตะ data, schema, route, components อื่น
-- ใช้ tokens เดิม (semantic colors, font utilities)
+ลบ Process / Questions sections (ตามที่เคยขอไว้)  
+หน้านี้แทนที่ทั้ง `Services.tsx` เดิม **และ** `Pricing.tsx` (ลบไฟล์ Pricing + route)
+
+## 4) Work (`/work`) — เก็บโครงปัจจุบัน
+
+- ตัด Selected Projects 4-column grid และ Testimonials carousel ที่เพิ่งทำไว้แล้ว — เก็บไว้
+- ลบ section ที่ไม่จำเป็น (intro ยาว, stats) ให้เหลือ: Hero → Cards grid → Testimonials → Trusted-by dark → CTA
+
+## 5) About (`/about`)
+
+ลดเหลือ: Hero (philosophy 1 ย่อหน้า) → Team grid 1 row → Marquee → CTA
+
+## 6) Contact (`/contact`)
+
+ลดเหลือ: Hero สั้น → Form (name/email/budget/message) → Email + LINE + ที่อยู่ + tax ID
+
+## ไฟล์ที่จะแตะ
+
+- `src/App.tsx` — ลบ route `/pricing`
+- `src/components/Nav.tsx` — เพิ่ม announcement bar, เปลี่ยน CTA เป็น "WORK WITH US"
+- `src/components/Footer.tsx` — เรียบขึ้น (ตรวจอีกที)
+- `src/pages/Index.tsx` — เขียนใหม่สั้นๆ
+- `src/pages/Services.tsx` — เขียนใหม่ตาม PDF
+- `src/pages/Work.tsx` — ตัด section ส่วนเกิน
+- `src/pages/About.tsx` — ตัดให้สั้น
+- `src/pages/Contact.tsx` — ตัดให้สั้น
+- ลบ `src/pages/Pricing.tsx`
+
+## หมายเหตุ design
+
+- Light cream `#F5F2EC` + ink `#0F0F0F` + Sunset Ink accent ตามเดิม
+- Hairlines, zero radius, ไม่มีเงา/glow
+- ใช้ `PageHero`, `SectionHeader`, `CTA`, `Reveal`, `SimpleMarquee` เดิมทุก section — ไม่สร้าง component ใหม่
+
+## คำถามก่อนเริ่ม
+
+1. ราคา **add-ons** ใน PDF บางอันไม่ครบ (Production, Crisis PR เป็น "Quote ตามเคส") — ใส่ตาม PDF ตรงๆ ใช่ไหม?
+2. ตัวเลขใน announcement bar (`NOW BOOKING FOR Q3 2026`) อยากให้เขียนว่าอะไร?
+3. หน้า **Work** อยากให้ตัด section ไหนบ้าง หรือเก็บโครงปัจจุบันทั้งหมด?

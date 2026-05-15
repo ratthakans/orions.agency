@@ -36,7 +36,7 @@ const LongFormStack = ({ items }: Props) => {
               }`}
             >
               <span
-                className="font-display leading-none tracking-[-0.04em] text-foreground/30 group-hover:text-foreground transition-colors duration-500"
+                className="font-display leading-none tracking-[-0.04em] text-FGTOKEN30 group-hover:text-foreground transition-colors duration-500"
                 style={{ fontSize: "clamp(24px, 2.4vw, 38px)" }}
               >
                 {num}

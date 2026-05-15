@@ -98,6 +98,17 @@
     font-weight: 500;
   }
 
+  /* CTA / button label — flows with serif headlines */
+  .btn-label {
+    font-family: 'Instrument Serif', 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 17px;
+    letter-spacing: -0.005em;
+    text-transform: none;
+    line-height: 1;
+  }
+
   /* === Display Type Scale (single source of truth) === */
   .h-display-xl,
   .h-display-lg,

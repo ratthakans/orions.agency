@@ -18,10 +18,10 @@ interface Props {
 const CTA = ({ to, href, variant = "primary", children, className = "", external, noMagnetic }: Props) => {
   const base =
     variant === "primary"
-      ? "group relative inline-flex items-center gap-3 bg-foreground text-background px-7 py-4 index-badge overflow-hidden border border-foreground transition-colors duration-500 hover:text-foreground"
+      ? "group relative inline-flex items-center gap-3 bg-foreground text-background px-7 py-4 btn-label overflow-hidden border border-foreground transition-colors duration-500 hover:text-foreground"
       : variant === "invert"
-      ? "group relative inline-flex items-center gap-3 bg-background text-foreground px-7 py-4 index-badge overflow-hidden border border-background transition-colors duration-500 hover:text-background"
-      : "group inline-flex items-center gap-2 index-badge text-foreground border-b border-foreground pb-1 hover:opacity-70 transition-opacity";
+      ? "group relative inline-flex items-center gap-3 bg-background text-foreground px-7 py-4 btn-label overflow-hidden border border-background transition-colors duration-500 hover:text-background"
+      : "group inline-flex items-center gap-2 btn-label text-foreground border-b border-foreground pb-1 hover:opacity-70 transition-opacity";
 
   const cls = `${base} ${className}`;
   const arrowSize = variant === "ghost" ? "w-3.5 h-3.5" : "w-4 h-4";

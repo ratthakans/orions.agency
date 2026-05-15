@@ -81,7 +81,7 @@ const Nav = () => {
 
         <Link
           to="/contact"
-          className="group hidden md:inline-flex items-center gap-2 index-badge bg-background text-foreground px-4 py-2.5 border border-background transition-all duration-300 hover:gap-3 hover:bg-foreground hover:text-background"
+          className="group hidden md:inline-flex items-center gap-2 btn-label bg-background text-foreground px-4 py-2.5 border border-background transition-all duration-300 hover:gap-3 hover:bg-foreground hover:text-background"
         >
           <span>Get a free proposal</span>
           <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -107,7 +107,7 @@ const Nav = () => {
                 {l.label}
               </NavLink>
             ))}
-            <Link to="/contact" className="index-badge bg-background text-foreground px-4 py-3 inline-block w-fit">
+            <Link to="/contact" className="btn-label bg-background text-foreground px-4 py-3 inline-block w-fit">
               Get a free proposal ↗
             </Link>
           </div>

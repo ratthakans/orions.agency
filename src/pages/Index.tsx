@@ -109,12 +109,6 @@ const whyUs = [
   { n: "03", en: "Ads inside the plan.",    th: "แอดอยู่ในกลยุทธ์ตั้งแต่วันแรก" },
 ];
 
-const outcomes = [
-  { num: "+3.2×", label: "Reach lift",      sub: "in first 90 days" },
-  { num: "40+",   label: "Brands launched", sub: "since 2019" },
-  { num: "4 wk",  label: "From hello to live", sub: "average kickoff" },
-];
-
 const pricingTiers = [
   { name: "Starter", price: "29,000",  best: "เริ่มต้นบน IG / TikTok" },
   { name: "Pro",     price: "59,000",  best: "โต volume + ads", popular: true },
@@ -144,13 +138,13 @@ const Index = () => (
 
       <div className="flex-1 flex flex-col items-center justify-center text-center px-6 md:px-10 py-16">
         <Reveal>
-          <h1 className="font-brand leading-[0.85] tracking-[-0.06em] text-[18vw] md:text-[16vw] lg:text-[14vw]">
-            ORI<span className="text-orion">Ø</span>NS
+          <h1 className="font-serif leading-[0.85] tracking-[-0.04em] text-[20vw] md:text-[18vw] lg:text-[16vw]">
+            ORI<span className="text-orion italic">O</span>NS
           </h1>
         </Reveal>
 
         <Reveal delay={0.2}>
-          <p className="mt-10 md:mt-14 font-serif text-[28px] md:text-[44px] lg:text-[52px] leading-[1.1] tracking-[-0.02em]">
+          <p className="mt-12 md:mt-16 font-serif text-[28px] md:text-[44px] lg:text-[52px] leading-[1.1] tracking-[-0.02em]">
             A <em className="text-orion italic">boutique</em> creative agency.
           </p>
         </Reveal>
@@ -165,14 +159,14 @@ const Index = () => (
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <Link
               to="/contact"
-              className="group inline-flex items-center gap-3 bg-background text-foreground px-7 py-4 index-badge border border-background hover:gap-4 transition-all duration-300"
+              className="group inline-flex items-center gap-3 bg-background text-foreground px-7 py-4 btn-label border border-background hover:gap-4 transition-all duration-300"
             >
               <span>Get a free proposal</span>
               <ArrowUpRight className="w-4 h-4" />
             </Link>
             <Link
               to="/services#packages"
-              className="group inline-flex items-center gap-2 index-badge text-background/80 border-b border-background/40 pb-1 hover:text-background hover:border-background transition-colors"
+              className="group inline-flex items-center gap-2 btn-label text-background/80 border-b border-background/40 pb-1 hover:text-background hover:border-background transition-colors"
             >
               See pricing →
             </Link>
@@ -181,7 +175,7 @@ const Index = () => (
       </div>
 
       <div className="px-6 md:px-10 pb-8 md:pb-10 flex items-end justify-between font-mono text-[10px] tracking-[0.3em] uppercase text-background/55 border-t border-background/15 pt-6">
-        <span>01 / 08</span>
+        <span>01 / 07</span>
         <span>hello@orions.agency</span>
       </div>
     </section>
@@ -195,28 +189,11 @@ const Index = () => (
     </div>
 
     {/* ========================================================== */}
-    {/* 02 · OUTCOMES — proof bar (moved up)                        */}
-    {/* ========================================================== */}
-    <section className="border-b border-foreground bg-surface">
-      <div className="max-w-[1280px] mx-auto px-6 md:px-10 py-14 md:py-20 grid grid-cols-1 md:grid-cols-3">
-        {outcomes.map((o, i) => (
-          <Reveal key={o.label} delay={0.05 * i}>
-            <div className={`px-2 md:px-8 py-6 md:py-2 ${i > 0 ? "md:border-l border-foreground/20" : ""}`}>
-              <div className="font-brand text-orion tracking-[-0.04em] leading-none text-[56px] md:text-[80px] lg:text-[96px] tabular-nums">{o.num}</div>
-              <div className="mt-5 font-mono text-[10px] tracking-[0.25em] uppercase text-foreground">{o.label}</div>
-              <div className="mt-1 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">{o.sub}</div>
-            </div>
-          </Reveal>
-        ))}
-      </div>
-    </section>
-
-    {/* ========================================================== */}
     {/* 03 · WHAT YOU'RE UP AGAINST — stats                         */}
     {/* ========================================================== */}
     <section className="px-6 md:px-10">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <PageMark index="03" />
+        <PageMark index="02" />
         <Reveal>
           <h2 className="font-serif text-[44px] md:text-[80px] lg:text-[104px] leading-[1.0] tracking-[-0.03em] max-w-[14ch]">
             The <em className="text-orion italic">reality.</em>
@@ -248,7 +225,7 @@ const Index = () => (
     {/* ========================================================== */}
     <section className="px-6 md:px-10 border-t border-foreground">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <PageMark index="04" />
+        <PageMark index="03" />
         <Reveal>
           <h2 className="font-serif text-[44px] md:text-[80px] lg:text-[104px] leading-[1.0] tracking-[-0.03em]">
             Three things. <em className="text-orion italic">Done right.</em>
@@ -289,7 +266,7 @@ const Index = () => (
     {/* ========================================================== */}
     <section className="px-6 md:px-10 border-t border-foreground">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <PageMark index="05" />
+        <PageMark index="04" />
         <Reveal>
           <h2 className="font-serif text-[44px] md:text-[80px] lg:text-[96px] leading-[1.0] tracking-[-0.03em] max-w-[16ch]">
             Live in <em className="text-orion italic">4 weeks.</em>
@@ -322,7 +299,7 @@ const Index = () => (
     {/* ========================================================== */}
     <section className="px-6 md:px-10 border-t border-foreground">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <PageMark index="06" />
+        <PageMark index="05" />
         <Reveal>
           <h2 className="font-serif text-[44px] md:text-[80px] lg:text-[96px] leading-[1.0] tracking-[-0.03em]">
             Selected <em className="text-orion italic">work.</em>
@@ -369,7 +346,7 @@ const Index = () => (
     {/* ========================================================== */}
     <section className="px-6 md:px-10 border-t border-foreground">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <PageMark index="07" />
+        <PageMark index="06" />
         <Reveal>
           <h2 className="font-serif text-[44px] md:text-[80px] lg:text-[104px] leading-[1.0] tracking-[-0.03em]">
             <em className="text-orion italic">Clients.</em>
@@ -414,7 +391,7 @@ const Index = () => (
     {/* ========================================================== */}
     <section className="px-6 md:px-10 border-t border-foreground">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <PageMark index="08" />
+        <PageMark index="07" />
         <Reveal>
           <h2 className="font-serif text-[44px] md:text-[80px] lg:text-[104px] leading-[1.0] tracking-[-0.03em]">
             Trusted <em className="text-orion italic">by.</em>
@@ -447,7 +424,7 @@ const Index = () => (
     {/* ========================================================== */}
     <section className="px-6 md:px-10 border-t border-foreground">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <PageMark index="09" />
+        <PageMark index="08" />
         <Reveal>
           <h2 className="font-serif text-[44px] md:text-[80px] lg:text-[96px] leading-[1.0] tracking-[-0.03em] max-w-[18ch]">
             <em className="text-orion italic">Pricing.</em>
@@ -484,11 +461,11 @@ const Index = () => (
 
         <Reveal delay={0.2}>
           <div className="mt-12 flex flex-wrap items-center gap-5">
-            <Link to="/services#packages" className="group inline-flex items-center gap-3 bg-foreground text-background px-7 py-4 index-badge border border-foreground hover:bg-orion hover:border-orion transition-colors">
+            <Link to="/services#packages" className="group inline-flex items-center gap-3 bg-foreground text-background px-7 py-4 btn-label border border-foreground hover:bg-orion hover:border-orion transition-colors">
               <span>See full breakdown</span>
               <ArrowUpRight className="w-4 h-4" />
             </Link>
-            <Link to="/contact" className="group inline-flex items-center gap-2 index-badge text-foreground border-b border-foreground pb-1 hover:opacity-70 transition-opacity">
+            <Link to="/contact" className="group inline-flex items-center gap-2 btn-label text-foreground border-b border-foreground pb-1 hover:opacity-70 transition-opacity">
               Get a free proposal →
             </Link>
           </div>
@@ -503,7 +480,7 @@ const Index = () => (
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <div className="flex items-center justify-between font-mono text-[10px] tracking-[0.3em] uppercase text-background/55 mb-12 md:mb-16">
           <span className="flex items-center gap-3">ORIONS <span className="text-orion">✦</span></span>
-          <span>10 / 10</span>
+          <span>09 / 09</span>
         </div>
 
         <Reveal>
@@ -548,7 +525,7 @@ const Index = () => (
           <Reveal delay={0.3}>
             <Link
               to="/contact"
-              className="mt-10 group inline-flex items-center gap-3 bg-background text-foreground px-7 py-4 index-badge border border-background hover:gap-4 transition-all duration-300"
+              className="mt-10 group inline-flex items-center gap-3 bg-background text-foreground px-7 py-4 btn-label border border-background hover:gap-4 transition-all duration-300"
             >
               <span>Get a free proposal</span>
               <ArrowUpRight className="w-4 h-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />

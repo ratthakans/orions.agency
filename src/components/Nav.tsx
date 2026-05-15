@@ -60,7 +60,7 @@ const Nav = () => {
               to={l.to}
               className={({ isActive }) =>
                 `btn-label relative py-1 transition-colors duration-300 group ${
-                  isActive ? "text-foreground" : "text-foreground/55 hover:text-foreground"
+                  isActive ? "text-foreground" : "text-background/55 hover:text-foreground"
                 }`
               }
             >

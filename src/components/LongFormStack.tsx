@@ -25,8 +25,8 @@ const LongFormStack = ({ items }: Props) => {
         return (
           <article
             key={it.videoId}
-            className={`group grid grid-cols-12 gap-3 md:gap-6 items-center py-4 md:py-5 border-t border-foreground/15 ${
-              i === items.length - 1 ? "border-b border-foreground/15" : ""
+            className={`group grid grid-cols-12 gap-3 md:gap-6 items-center py-4 md:py-5 border-t border-background/15 ${
+              i === items.length - 1 ? "border-b border-background/15" : ""
             }`}
           >
             {/* Index + meta */}

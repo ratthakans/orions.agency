@@ -128,10 +128,10 @@ const Services = () => (
         <div className="mt-14 md:mt-20 border-t border-foreground">
           {process4.map((s, i) => (
             <Reveal key={s.n} delay={0.04 * i}>
-              <div className="grid grid-cols-12 gap-4 md:gap-6 items-baseline border-b border-foreground/15 py-7 md:py-9 group hover:bg-background/[0.025] transition-colors">
+              <div className="grid grid-cols-12 gap-4 md:gap-6 items-baseline border-b border-background/15 py-7 md:py-9 group hover:bg-background/[0.025] transition-colors">
                 <div className="col-span-2 md:col-span-1 font-mono text-[10px] tracking-[0.14em] text-muted-foreground">{s.n}</div>
                 <div className="col-span-10 md:col-span-3 font-serif italic text-[28px] md:text-[40px] tracking-[-0.02em] leading-[1.05]">{s.t}.</div>
-                <div className="col-span-12 md:col-span-6 font-thai text-[14px] md:text-[15px] leading-[1.65] text-foreground/75">{s.d}</div>
+                <div className="col-span-12 md:col-span-6 font-thai text-[14px] md:text-[15px] leading-[1.65] text-background/75">{s.d}</div>
                 <div className="col-span-12 md:col-span-2 md:text-right font-mono text-[10px] tracking-[0.14em] uppercase text-orion">{s.w}</div>
               </div>
             </Reveal>

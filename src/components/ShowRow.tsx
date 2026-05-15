@@ -50,8 +50,8 @@ const ShowRow = ({ show, index, isLast }: Props) => {
 
   return (
     <article
-      className={`group grid grid-cols-12 gap-4 md:gap-10 items-center py-6 md:py-8 border-t border-foreground/15 ${
-        isLast ? "border-b border-foreground/15" : ""
+      className={`group grid grid-cols-12 gap-4 md:gap-10 items-center py-6 md:py-8 border-t border-background/15 ${
+        isLast ? "border-b border-background/15" : ""
       }`}
     >
       {/* Featured EP poster */}
@@ -145,8 +145,8 @@ const ShowRow = ({ show, index, isLast }: Props) => {
                   isActive
                     ? "border-foreground bg-foreground text-background"
                     : playable
-                    ? "border-foreground/30 text-foreground/70 hover:border-foreground hover:text-foreground"
-                    : "border-foreground/15 text-muted-foreground/60 cursor-not-allowed"
+                    ? "border-foreground/30 text-background/70 hover:border-foreground hover:text-foreground"
+                    : "border-background/15 text-muted-foreground/60 cursor-not-allowed"
                 }`}
               >
                 {ep.label}
@@ -167,7 +167,7 @@ const ShowRow = ({ show, index, isLast }: Props) => {
         <div className={`mt-3 flex items-center gap-3 font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground ${isOdd ? "md:justify-end" : ""}`}>
           <span>{String(show.episodes.length).padStart(2, "0")} EP</span>
           <span className="block w-6 h-px bg-background/30" />
-          <span className="inline-flex items-center gap-1.5 text-foreground/70 group-hover:text-foreground transition-colors">
+          <span className="inline-flex items-center gap-1.5 text-background/70 group-hover:text-foreground transition-colors">
             Watch <ArrowUpRight className="w-3 h-3 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </span>
         </div>

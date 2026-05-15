@@ -74,6 +74,59 @@ const addons: Addon[] = [
   { name: "Rush Turnaround (48h)", note: "outside calendar", price: "on request" },
 ];
 
+type Row = { label: string; starter: string; pro: string; elite: string };
+type Group = { title: string; rows: Row[] };
+const compareGroups: Group[] = [
+  {
+    title: "Headline",
+    rows: [
+      { label: "Price (THB / mo)", starter: "29,000", pro: "59,000", elite: "119,000" },
+      { label: "Minimum contract", starter: "1 mo", pro: "3 mo", elite: "6 mo" },
+    ],
+  },
+  {
+    title: "Content",
+    rows: [
+      { label: "Static posts", starter: "10", pro: "15", elite: "20" },
+      { label: "Stories (IG / FB)", starter: "—", pro: "15", elite: "Daily (30)" },
+      { label: "Reels / TikTok (9:16)", starter: "15", pro: "30", elite: "30 (3 Hero)" },
+      { label: "Horizontal video (16:9)", starter: "—", pro: "—", elite: "1 / mo" },
+      { label: "Photography", starter: "—", pro: "10", elite: "20–30" },
+    ],
+  },
+  {
+    title: "Production",
+    rows: [
+      { label: "Production days", starter: "1", pro: "2", elite: "3 (full crew)" },
+      { label: "Platforms covered", starter: "1", pro: "2", elite: "up to 4" },
+    ],
+  },
+  {
+    title: "Strategy",
+    rows: [
+      { label: "Strategy meetup", starter: "1× / mo", pro: "2× / mo", elite: "4× / mo" },
+      { label: "Trend report", starter: "Monthly", pro: "Bi-weekly", elite: "2× / mo + alerts" },
+      { label: "Content calendar", starter: "—", pro: "Monthly", elite: "Monthly + QBR" },
+      { label: "Brand manual", starter: "—", pro: "—", elite: "✓" },
+    ],
+  },
+  {
+    title: "Ads & Community",
+    rows: [
+      { label: "Ads management", starter: "Add-on (3,500)", pro: "Free ≤ 50k", elite: "Free ≤ 100k" },
+      { label: "Community mgmt response", starter: "≤ 6 hr", pro: "≤ 3 hr", elite: "≤ 1 hr" },
+      { label: "Dedicated account mgr", starter: "—", pro: "Shared", elite: "✓" },
+    ],
+  },
+  {
+    title: "Delivery",
+    rows: [
+      { label: "Revisions", starter: "1 / piece", pro: "2 / piece", elite: "3 major + ∞ minor" },
+      { label: "Performance bonus", starter: "—", pro: "—", elite: "ROAS > 5× → 5%" },
+    ],
+  },
+];
+
 const faqs = [
   { q: "ผลลัพธ์เห็นเมื่อไหร่?", a: "30 วันแรก — เห็น traction (reach, engagement, save) · 90 วัน — เห็นผลกับยอดขาย / leads · เรารายงานตัวเลขจริงทุกเดือน ไม่ใช่ vanity metrics." },
   { q: "ใครเป็นเจ้าของไฟล์ต้นฉบับ (Raw Files)?", a: "ลูกค้าเป็นเจ้าของ final deliverables ทั้งหมด · Raw files (footage, source) ส่งมอบเมื่อจบสัญญา หรือซื้อเพิ่ม 15,000 THB ต่อเดือนของงาน" },

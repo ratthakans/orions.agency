@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 const navLinks = [
   { to: "/services", label: "Services" },
+  { to: "/pricing", label: "Pricing" },
   { to: "/work", label: "Work" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
@@ -20,20 +21,21 @@ const Footer = () => {
         {/* Top row — contact + nav */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10">
           <div>
-            <p className="font-mono text-[10px] tracking-[0.4em] text-background/55 mb-5">— ØRIONS · BANGKOK</p>
+            <p className="font-mono text-[10px] tracking-[0.14em] uppercase text-background/55 mb-5">— ØRIONS · BANGKOK</p>
             <a
               href="mailto:hello@orions.agency"
-              className="font-display text-[22px] md:text-[32px] tracking-[-0.02em] hover:opacity-70 transition-opacity"
+              className="font-serif italic text-[24px] md:text-[34px] tracking-[-0.01em] hover:opacity-70 transition-opacity"
             >
               hello@orions.agency
             </a>
           </div>
-          <ul className="flex flex-wrap gap-x-7 gap-y-2 font-mono text-[10px] tracking-[0.14em] uppercase">
+          <ul className="flex flex-wrap items-baseline gap-x-6 gap-y-2 btn-label">
             {navLinks.map((l) => (
               <li key={l.to}>
                 <Link to={l.to} className="hover:opacity-60 transition-opacity">{l.label}</Link>
               </li>
             ))}
+            <li aria-hidden className="opacity-40">·</li>
             {socials.map((s) => (
               <li key={s.label}>
                 <a href={s.href} target="_blank" rel="noreferrer" className="opacity-70 hover:opacity-100 transition-opacity">

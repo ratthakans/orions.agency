@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import { Plus, Minus, ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
@@ -74,6 +74,59 @@ const addons: Addon[] = [
   { name: "Rush Turnaround (48h)", note: "outside calendar", price: "on request" },
 ];
 
+type Row = { label: string; starter: string; pro: string; elite: string };
+type Group = { title: string; rows: Row[] };
+const compareGroups: Group[] = [
+  {
+    title: "Headline",
+    rows: [
+      { label: "Price (THB / mo)", starter: "29,000", pro: "59,000", elite: "119,000" },
+      { label: "Minimum contract", starter: "1 mo", pro: "3 mo", elite: "6 mo" },
+    ],
+  },
+  {
+    title: "Content",
+    rows: [
+      { label: "Static posts", starter: "10", pro: "15", elite: "20" },
+      { label: "Stories (IG / FB)", starter: "—", pro: "15", elite: "Daily (30)" },
+      { label: "Reels / TikTok (9:16)", starter: "15", pro: "30", elite: "30 (3 Hero)" },
+      { label: "Horizontal video (16:9)", starter: "—", pro: "—", elite: "1 / mo" },
+      { label: "Photography", starter: "—", pro: "10", elite: "20–30" },
+    ],
+  },
+  {
+    title: "Production",
+    rows: [
+      { label: "Production days", starter: "1", pro: "2", elite: "3 (full crew)" },
+      { label: "Platforms covered", starter: "1", pro: "2", elite: "up to 4" },
+    ],
+  },
+  {
+    title: "Strategy",
+    rows: [
+      { label: "Strategy meetup", starter: "1× / mo", pro: "2× / mo", elite: "4× / mo" },
+      { label: "Trend report", starter: "Monthly", pro: "Bi-weekly", elite: "2× / mo + alerts" },
+      { label: "Content calendar", starter: "—", pro: "Monthly", elite: "Monthly + QBR" },
+      { label: "Brand manual", starter: "—", pro: "—", elite: "✓" },
+    ],
+  },
+  {
+    title: "Ads & Community",
+    rows: [
+      { label: "Ads management", starter: "Add-on (3,500)", pro: "Free ≤ 50k", elite: "Free ≤ 100k" },
+      { label: "Community mgmt response", starter: "≤ 6 hr", pro: "≤ 3 hr", elite: "≤ 1 hr" },
+      { label: "Dedicated account mgr", starter: "—", pro: "Shared", elite: "✓" },
+    ],
+  },
+  {
+    title: "Delivery",
+    rows: [
+      { label: "Revisions", starter: "1 / piece", pro: "2 / piece", elite: "3 major + ∞ minor" },
+      { label: "Performance bonus", starter: "—", pro: "—", elite: "ROAS > 5× → 5%" },
+    ],
+  },
+];
+
 const faqs = [
   { q: "ผลลัพธ์เห็นเมื่อไหร่?", a: "30 วันแรก — เห็น traction (reach, engagement, save) · 90 วัน — เห็นผลกับยอดขาย / leads · เรารายงานตัวเลขจริงทุกเดือน ไม่ใช่ vanity metrics." },
   { q: "ใครเป็นเจ้าของไฟล์ต้นฉบับ (Raw Files)?", a: "ลูกค้าเป็นเจ้าของ final deliverables ทั้งหมด · Raw files (footage, source) ส่งมอบเมื่อจบสัญญา หรือซื้อเพิ่ม 15,000 THB ต่อเดือนของงาน" },
@@ -138,7 +191,7 @@ const Pricing = () => {
       {/* 01 · HERO */}
       <section className="px-6 md:px-10">
         <div className="max-w-[1280px] mx-auto pt-32 md:pt-40 pb-16 md:pb-24">
-          <PageMark index="01" total="04" />
+          <PageMark index="01" total="05" />
           <Reveal>
             <h1 className="font-serif text-[44px] md:text-[80px] lg:text-[104px] leading-[1.0] tracking-[-0.03em] max-w-[18ch]">
               <em className="text-orion italic">Pricing.</em>
@@ -165,7 +218,7 @@ const Pricing = () => {
       {/* 02 · PACKAGES */}
       <section id="packages" className="px-6 md:px-10 border-t border-foreground">
         <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-          <PageMark index="02" total="04" />
+          <PageMark index="02" total="05" />
           <Reveal>
             <h2 className="font-serif text-[40px] md:text-[72px] lg:text-[88px] leading-[1.0] tracking-[-0.03em]">
               <em className="text-orion italic">Packages.</em>
@@ -178,10 +231,84 @@ const Pricing = () => {
         </div>
       </section>
 
-      {/* 03 · ADD-ONS */}
+      {/* 03 · COMPARE */}
       <section className="px-6 md:px-10 border-t border-foreground">
         <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-          <PageMark index="03" total="04" />
+          <PageMark index="03" total="05" />
+          <Reveal>
+            <h2 className="font-serif text-[40px] md:text-[72px] lg:text-[88px] leading-[1.0] tracking-[-0.03em]">
+              <em className="text-orion italic">Compare.</em>
+            </h2>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="mt-6 font-serif italic text-[17px] md:text-[19px] text-muted-foreground max-w-[560px] leading-[1.55]">
+              เห็นความต่างของทุกแพ็กเกจในตารางเดียว.
+            </p>
+          </Reveal>
+
+          <Reveal delay={0.15}>
+            <div className="mt-12 md:mt-16 -mx-6 md:mx-0 overflow-x-auto">
+              <table className="min-w-[760px] w-full border-collapse">
+                <thead>
+                  <tr className="border-y border-foreground">
+                    <th className="text-left py-5 pl-6 md:pl-4 pr-4 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground w-[34%]">
+                      Feature
+                    </th>
+                    <th className="text-left py-5 px-4 font-serif italic text-[20px] md:text-[24px] tracking-[-0.01em] w-[22%]">
+                      Starter
+                    </th>
+                    <th className="relative text-left py-5 px-4 font-serif italic text-[20px] md:text-[24px] tracking-[-0.01em] w-[22%] bg-foreground/[0.04]">
+                      Pro
+                      <span className="absolute -top-px left-0 bg-orion text-background px-2 py-[2px] font-mono text-[9px] tracking-[0.18em] uppercase">
+                        ★ Popular
+                      </span>
+                    </th>
+                    <th className="text-left py-5 px-4 pr-6 md:pr-4 font-serif italic text-[20px] md:text-[24px] tracking-[-0.01em] w-[22%]">
+                      Elite
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {compareGroups.map((g) => (
+                    <Fragment key={g.title}>
+                      <tr>
+                        <td colSpan={4} className="pt-7 pb-2 pl-6 md:pl-4 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
+                          — {g.title}
+                        </td>
+                      </tr>
+                      {g.rows.map((r) => (
+                        <tr key={`${g.title}-${r.label}`} className="border-t border-foreground/15">
+                          <td className="py-4 pl-6 md:pl-4 pr-4 font-thai text-[14px] leading-[1.5] text-foreground/80">
+                            {r.label}
+                          </td>
+                          <td className="py-4 px-4 font-mono text-[12.5px] tabular-nums text-foreground/85">
+                            <span className={r.starter === "—" ? "text-foreground/30" : ""}>{r.starter}</span>
+                          </td>
+                          <td className="py-4 px-4 font-mono text-[12.5px] tabular-nums bg-foreground/[0.04] text-foreground/90">
+                            <span className={r.pro === "—" ? "text-foreground/30" : ""}>{r.pro}</span>
+                          </td>
+                          <td className="py-4 px-4 pr-6 md:pr-4 font-mono text-[12.5px] tabular-nums text-foreground/85">
+                            <span className={r.elite === "—" ? "text-foreground/30" : ""}>{r.elite}</span>
+                          </td>
+                        </tr>
+                      ))}
+                    </Fragment>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </Reveal>
+
+          <p className="mt-8 font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">
+            Need more? See <a href="#addons" className="underline underline-offset-4 hover:text-foreground">Add-ons</a> below.
+          </p>
+        </div>
+      </section>
+
+      {/* 03 · ADD-ONS */}
+      <section id="addons" className="px-6 md:px-10 border-t border-foreground">
+        <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+          <PageMark index="04" total="05" />
           <Reveal>
             <h2 className="font-serif text-[40px] md:text-[72px] lg:text-[88px] leading-[1.0] tracking-[-0.03em]">
               <em className="text-orion italic">Add-ons.</em>
@@ -217,7 +344,7 @@ const Pricing = () => {
       {/* 04 · FAQ */}
       <section className="px-6 md:px-10 border-t border-foreground">
         <div className="max-w-[1000px] mx-auto py-20 md:py-28">
-          <PageMark index="04" total="04" />
+          <PageMark index="05" total="05" />
           <Reveal>
             <h2 className="font-serif text-[40px] md:text-[72px] lg:text-[88px] leading-[1.0] tracking-[-0.03em]">
               คำถามที่ <em className="text-orion italic">พบบ่อย.</em>

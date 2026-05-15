@@ -198,12 +198,17 @@ const Index = () => (
     <section className="bg-foreground text-background px-6 md:px-10">
       <div className="border-t border-background/20 py-20 md:py-24 max-w-[1280px] mx-auto">
         <Reveal delay={0.05}>
-          <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-background/55 mb-10">
-            — TRUSTED BY
+          <div>
+            <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-background/55 mb-4">
+              — TRUSTED BY
+            </div>
+            <h2 className="font-display h-display-sm">
+              แบรนด์ที่ <span className={accent}>เลือกเรา.</span>
+            </h2>
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 border border-background/15">
+        <div className="mt-12 md:mt-14 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 border border-background/15">
           {trustedBy.map((brand, i) => {
             const cols = 6;
             const isLastCol = (i % cols) === cols - 1;
@@ -242,7 +247,7 @@ const Index = () => (
         </Reveal>
         <Reveal delay={0.05}>
           <h2 className="font-display h-display-md text-balance">
-            From idea to <span className={accent}>final cut.</span>
+            เริ่มจากไอเดีย <span className={accent}>จบที่ final cut.</span>
           </h2>
         </Reveal>
         <Reveal delay={0.15}>

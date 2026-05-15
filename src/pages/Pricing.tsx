@@ -234,7 +234,7 @@ const Pricing = () => {
       {/* 03 · ADD-ONS */}
       <section className="px-6 md:px-10 border-t border-foreground">
         <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-          <PageMark index="03" total="05" />
+          <PageMark index="04" total="05" />
           <Reveal>
             <h2 className="font-serif text-[40px] md:text-[72px] lg:text-[88px] leading-[1.0] tracking-[-0.03em]">
               <em className="text-orion italic">Add-ons.</em>
@@ -270,7 +270,7 @@ const Pricing = () => {
       {/* 04 · FAQ */}
       <section className="px-6 md:px-10 border-t border-foreground">
         <div className="max-w-[1000px] mx-auto py-20 md:py-28">
-          <PageMark index="04" total="05" />
+          <PageMark index="05" total="05" />
           <Reveal>
             <h2 className="font-serif text-[40px] md:text-[72px] lg:text-[88px] leading-[1.0] tracking-[-0.03em]">
               คำถามที่ <em className="text-orion italic">พบบ่อย.</em>

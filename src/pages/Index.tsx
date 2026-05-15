@@ -132,15 +132,9 @@ const Index = () => (
 
       <div className="flex-1 flex flex-col items-center justify-center text-center px-6 md:px-10 py-16">
         <Reveal>
-          <h1 className="font-serif leading-[0.85] tracking-[-0.04em] text-[20vw] md:text-[18vw] lg:text-[16vw]">
-            ORI<span className="text-orion italic">O</span>NS
-          </h1>
-        </Reveal>
-
-        <Reveal delay={0.2}>
-          <p className="mt-12 md:mt-16 font-serif text-[28px] md:text-[44px] lg:text-[52px] leading-[1.1] tracking-[-0.02em]">
+          <h1 className="font-serif text-[44px] md:text-[88px] lg:text-[112px] leading-[1.0] tracking-[-0.03em] max-w-[16ch]">
             A <em className="text-orion italic">boutique</em> creative agency.
-          </p>
+          </h1>
         </Reveal>
 
         <Reveal delay={0.35}>

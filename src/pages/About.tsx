@@ -79,7 +79,7 @@ const About = () => (
                 A small studio for brands that care.
               </h3>
             </div>
-            <div className="md:col-span-7 font-thai text-[15px] md:text-[16px] leading-[1.8] text-background/80 space-y-5">
+            <div className="md:col-span-7 font-thai text-[15px] md:text-[16px] leading-[1.8] text-foreground/80 space-y-5">
               <p>
                 ØRIONS คือ creative agency เล็กๆ ในกรุงเทพ — ครอบคลุม strategy, branding, content production และ paid media ครบในทีมเดียว ไม่ส่งต่อ vendor หลายเจ้า
               </p>

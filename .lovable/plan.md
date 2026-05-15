@@ -1,73 +1,104 @@
-## ปัญหาตอนนี้
-- หัวข้อใช้ Unbounded **800 (Black) + tracking ติดลบเยอะ** → อ่านยาก ตัวอักษรชนกัน โดยเฉพาะภาษาไทยที่ผสมกับอังกฤษ
-- ใช้ **italic** ทุกที่เพื่อเน้นคำ (`text-gemini italic`, `font-serif`, `italic font-semibold`) → ดูรก ไม่เป็น identity
-- ทุก section พื้นหลังเดียวกัน (`#0A0A0A`) → ไม่มีจังหวะ แยกไม่ออกว่าเปลี่ยน section
-- Paper grain opacity 5% screen blend → แทบมองไม่เห็นบนดำ ไม่รู้สึกว่าเป็นกระดาษ
+## เป้าหมาย
+ปรับ ØRIONS → **Quiet Gemini** — เอา Gemini palette + Plus Jakarta Sans มาใช้บน foundation **minimal · clean · breathing space** ที่มีอยู่
+
+หลักการ: Gemini *เป็นจิตวิญญาณ* ไม่ใช่ skin — gradient ใช้เฉพาะจุด, ไม่มี glow/blur orb, ไม่มี gradient เต็มแถบ, เก็บ whitespace เดิมไว้ทั้งหมด
 
 ---
 
-## สิ่งที่จะแก้
+## ระบบใหม่ (restrained)
 
-### 1) Typography — Unbounded Normal + UPPERCASE
-ใน `src/index.css`:
-- `h1, h2, h3...` → `font-weight: 400` (เปลี่ยนจาก 800), `text-transform: uppercase`, `letter-spacing: 0.02em` (จากลบเป็นบวก เพื่อให้ตัวอักษรหายใจ)
-- `.font-display` → `font-weight: 400`, `uppercase`, `letter-spacing: 0.01em`
-- `.font-brand` (wordmark ØRIONS) → คงน้ำหนักหนักไว้ที่ 700 เพราะเป็น logo
-- Type scale `.h-display-*` → `line-height` เพิ่มเป็น `0.95–1.1` (จาก 0.85) เพื่อให้อ่านง่าย
-- Body Thai (`.font-thai`) → คงเดิม IBM Plex Sans Thai 400 (อ่านง่ายแล้ว)
+### สี
+| Token | เดิม | ใหม่ |
+|---|---|---|
+| `--background` dark | `#0F0F0F` | คงเดิม |
+| `--background` light | `#F5F2EC` cream | `#FAFAFA` (ลด warmth นิด) |
+| `--accent / orion` | `#E94B2A` vermilion solid | `#4285F4` Gemini Blue solid (ใช้แทน vermilion ในที่ที่ต้อง solid) |
+| Gradient accent | — | `linear-gradient(110deg, #4285F4, #9B72CB, #D96570)` — **ใช้เฉพาะ italic word ใน H1 และ moments สำคัญ** |
 
-### 2) ลบ Italic ทั้งหมด
-Find/replace ทุกหน้า + components:
-- `italic font-semibold` → `font-semibold` (เน้นด้วย bold weight อย่างเดียว)
-- `text-gemini italic` → `font-semibold`
-- `font-serif` → ลบ class
-- `.font-serif` ใน CSS → เปลี่ยนเป็น non-italic medium weight
-- `.text-gemini` → ลบ italic
+**กฎเข้ม:**
+- Gradient = ใช้กับ italic accent word ใน headline เท่านั้น (ไม่ใช้กับ background, button, border)
+- Solid Gemini Blue = แทนตำแหน่งที่ vermilion เคยอยู่ทุกที่ (label, mono eyebrow, hover state)
+- ไม่มี glow / blur orb / aurora background
+- ไม่มี gradient bar กว้างๆ — top status bar ใช้สี solid ดำ/น้ำเงินเรียบ
 
-ไฟล์ที่กระทบ: `Index.tsx`, `Services.tsx`, `About.tsx`, `Work.tsx`, `Pricing.tsx`, `Contact.tsx`, `ClosingCTA.tsx`, `index.css`
+### Font
+| Use | เดิม | ใหม่ |
+|---|---|---|
+| H1/H2 base | Instrument Serif (regular) | **Plus Jakarta Sans 600** (clean, geometric humanist) |
+| Italic accent ใน headline | Instrument Serif italic + vermilion | **Plus Jakarta Sans italic 500** + Gemini gradient text |
+| Body Eng | IBM Plex Sans / Plex Thai | **Plus Jakarta Sans** |
+| Body Thai | IBM Plex Sans Thai | คงเดิม |
+| Mono labels | JetBrains Mono | คงเดิม |
 
-### 3) สลับ Section พื้นหลัง — ให้มีจังหวะ
-สร้าง pattern แบ่ง section ชัดเจนใน `Index.tsx` (และหน้าอื่นที่ยาว):
-```
-Hero        → bg-background     (#0A0A0A ดำ)
-Services    → bg-surface        (#141414 เทาเข้ม)
-Work        → bg-background     (#0A0A0A)
-Stats       → bg-surface-2      (#1C1C1C อ่อนกว่า)
-Process     → bg-background
-ClosingCTA  → bg-foreground text-background  (กลับขั้ว ขาว)
-```
-แต่ละ section คั่นด้วย hairline `white/12%` + `SectionHeader` index number
+→ ทิ้ง serif romantic ออก เพราะ Gemini มี soul แบบ humanist sans ที่อ่านสบาย ไม่ดราม่า
 
-### 4) Paper Grain — ให้รู้สึกชัดขึ้น
-ใน `.grain::before`:
-- Opacity `0.05 → 0.12`
-- Blend mode `screen → overlay` (จะเห็น texture ชัดขึ้นบนพื้นดำ)
-- Background-size `180px → 140px` (ลายละเอียดขึ้น)
-- ใช้ noise SVG ที่ละเอียดกว่า (เพิ่ม fractal noise inline SVG แทน base64 PNG เดิม)
-- เพิ่ม `.grain-strong` utility สำหรับ section ที่อยากเน้น texture (opacity 0.18)
-
-### 5) Section Header ปรับเล็กน้อย
-- Index number (`01`, `02`...) ใช้ Unbounded 400 uppercase ให้สอดคล้อง
-- เพิ่มระยะห่าง padding-top ของแต่ละ section เป็น `py-24 md:py-32` (จาก py-20) เพื่อให้หายใจ
-
-### 6) Memory update
-- `mem://style/typography` → Unbounded **400 UPPERCASE**, ไม่มี italic, tracking +0.01em
-- `mem://style/aesthetic` → ระบุ section alternation pattern (background ↔ surface ↔ surface-2)
-- Core: ลบ italic emphasis rule, เพิ่ม uppercase rule
+### Radius / shape / shadows
+- Hairline borders **คงเดิมทั้งหมด**
+- Buttons: **คง zero-radius เดิม** (ไม่ใช้ pill — pill จะดูเหมือน Google product มากเกินจน lose ØRIONS DNA)
+- ไม่มี shadow / glass / blur ทุกที่
+- Whitespace ทุก section คงเดิม (เพิ่ง standardize type scale ไป)
 
 ---
 
-## สิ่งที่ไม่เปลี่ยน
-- Layout grid, hairlines, zero radius, color palette (ดำ/ขาว/เทา)
-- Components, routing, copy, backend, animations
-- Font family (Unbounded + IBM Plex Sans/Thai/Mono)
+## ไฟล์ที่แก้
+
+### 1) `index.html`
+- เพิ่ม Google Font `Plus Jakarta Sans:wght@400;500;600;700;800;ital`
+- ลบ `Instrument Serif`
+- คง IBM Plex Sans Thai + JetBrains Mono
+
+### 2) `src/index.css`
+- `:root` — เปลี่ยน `--orion` HSL จาก vermilion → Gemini Blue (`hsl(217 89% 61%)`)
+- เพิ่ม `--gemini-blue / --gemini-purple / --gemini-pink` HSL tokens
+- `.font-serif` → map ไป `Plus Jakarta Sans` (italic ก็ใช้ตัวนี้ + italic)
+- `body` font-family → Plus Jakarta Sans + IBM Plex Sans Thai fallback
+- เพิ่ม utility:
+  ```
+  .text-gemini { background: linear-gradient(110deg, #4285F4, #9B72CB, #D96570);
+                 -webkit-background-clip: text; background-clip: text; color: transparent; }
+  ```
+
+### 3) `tailwind.config.ts`
+- `colors.orion` → คงชื่อไว้ (เพื่อไม่ break) แต่ map HSL ไป Gemini Blue
+- เพิ่ม `colors.gemini.{blue, purple, pink}`
+
+### 4) Headline accents — เปลี่ยน pattern
+ทุกที่ที่เป็น `<em className="text-orion italic">...</em>` → `<em className="text-gemini italic">...</em>`
+
+ไฟล์ที่กระทบ:
+- `src/pages/Index.tsx` — H1 + H2 ทุก section
+- `src/pages/Services.tsx`, `About.tsx`, `Work.tsx`, `Pricing.tsx`, `Contact.tsx`
+- `src/components/ClosingCTA.tsx`
+
+→ font-serif italic จะ render เป็น Plus Jakarta italic + Gemini gradient text
+
+### 5) Status bar (top, ทุกหน้า)
+- เดิม: `bg-orion` vermilion solid → ใหม่: คง solid แต่เป็น `bg-foreground` (ดำ) + text Gemini Blue **หรือ** ใช้ Gemini Blue solid
+- **ไม่ใช้** gradient เพื่อรักษา minimal
+
+### 6) ตำแหน่งที่ใช้ vermilion เป็น solid (mono labels, eyebrows, hover)
+- หาแทบทุก `text-orion` ที่ไม่ใช่ italic accent → เปลี่ยนเป็น `text-[#4285F4]` (Gemini Blue solid)
+- ตัวอย่าง: process step `<span className="text-orion">✦</span>`, eyebrow `text-orion`, sector tag
+
+### 7) Memory update
+- `mem://index.md` Core: ปรับ palette + font ตามใหม่ — เน้นย้ำว่า **Gemini quiet, not Gemini product**
+- `mem://style/aesthetic` + `mem://style/typography`: rewrite
+
+---
+
+## สิ่งที่ **ไม่** เปลี่ยน
+- Layout, grid, hairline borders, zero-radius
+- Whitespace ทุก section
+- Type scale (เพิ่ง standardize)
+- Copy ทุกตัว
+- Components, routing, backend
+- ไม่มี orb / glow / shadow / pill / glassmorphism
 
 ---
 
 ## ผลลัพธ์
-- หัวข้อ Unbounded Normal UPPERCASE + tracking โปร่ง = อ่านง่าย ดูเป็นแบรนด์ editorial / fashion house
-- ไม่มี italic = สะอาด เด็ดขาด
-- Section สลับสี + grain ชัด = มีจังหวะ ไม่งง รู้ว่าจบ section ไหน
-- Paper texture เห็นได้ = รู้สึกเป็นสิ่งพิมพ์จริง ไม่ใช่ flat dark
+- รู้สึก clean modern เหมือน Google AI product page **แต่** ยังคง breathing space และ editorial discipline
+- Gemini gradient เห็นแค่ตอน *italic moment* — เด่นเพราะใช้น้อย
+- ทุกอย่างยังหายใจได้ ไม่อึดอัด
 
-OK ลุยได้
+ลุยได้เลยถ้า OK

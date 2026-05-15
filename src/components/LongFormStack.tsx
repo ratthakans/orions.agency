@@ -25,8 +25,8 @@ const LongFormStack = ({ items }: Props) => {
         return (
           <article
             key={it.videoId}
-            className={`group grid grid-cols-12 gap-3 md:gap-6 items-center py-4 md:py-5 border-t border-background/15 ${
-              i === items.length - 1 ? "border-b border-background/15" : ""
+            className={`group grid grid-cols-12 gap-3 md:gap-6 items-center py-4 md:py-5 border-t border-foreground/15 ${
+              i === items.length - 1 ? "border-b border-foreground/15" : ""
             }`}
           >
             {/* Index + meta */}
@@ -70,9 +70,9 @@ const LongFormStack = ({ items }: Props) => {
                       loading="lazy"
                       className="w-full h-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
                     />
-                    <div className="absolute inset-0 bg-background/0 group-hover:bg-background/10 transition-colors duration-500" />
+                    <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors duration-500" />
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-foreground/80 bg-background/10 flex items-center justify-center text-foreground mix-blend-difference transition-transform duration-500 group-hover:scale-110">
+                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-background/80 bg-background/10 flex items-center justify-center text-background mix-blend-difference transition-transform duration-500 group-hover:scale-110">
                         <Play className="w-3.5 h-3.5 md:w-4 md:h-4 ml-0.5" fill="currentColor" />
                       </div>
                     </div>

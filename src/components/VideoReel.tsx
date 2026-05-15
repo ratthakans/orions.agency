@@ -100,14 +100,14 @@ const VideoReel = ({ items, hideMeta = false, hideControls = false }: Props) => 
               <button
                 onClick={() => scrollBy(-1)}
                 aria-label="Previous"
-                className="w-9 h-9 md:w-10 md:h-10 border border-foreground flex items-center justify-center hover:bg-background hover:text-foreground transition-colors"
+                className="w-9 h-9 md:w-10 md:h-10 border border-foreground flex items-center justify-center hover:bg-foreground hover:text-background transition-colors"
               >
                 <ArrowUpRight className="w-4 h-4 -rotate-[135deg]" />
               </button>
               <button
                 onClick={() => scrollBy(1)}
                 aria-label="Next"
-                className="w-9 h-9 md:w-10 md:h-10 border border-foreground flex items-center justify-center hover:bg-background hover:text-foreground transition-colors"
+                className="w-9 h-9 md:w-10 md:h-10 border border-foreground flex items-center justify-center hover:bg-foreground hover:text-background transition-colors"
               >
                 <ArrowUpRight className="w-4 h-4 rotate-45" />
               </button>
@@ -154,24 +154,24 @@ const VideoReel = ({ items, hideMeta = false, hideControls = false }: Props) => 
                         className="w-full h-full object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
                       />
                     ) : (
-                      <div className="w-full h-full bg-background/10" />
+                      <div className="w-full h-full bg-foreground/10" />
                     )}
 
-                    <div className="absolute top-3 left-3 md:top-4 md:left-4 font-mono text-[10px] md:text-[11px] tracking-[0.18em] uppercase text-foreground mix-blend-difference">
+                    <div className="absolute top-3 left-3 md:top-4 md:left-4 font-mono text-[10px] md:text-[11px] tracking-[0.18em] uppercase text-background mix-blend-difference">
                       ({String(numIdx).padStart(2, "0")})
                     </div>
-                    <div className="absolute top-3 right-3 md:top-4 md:right-4 font-mono text-[9px] md:text-[10px] tracking-[0.18em] uppercase text-foreground mix-blend-difference">
+                    <div className="absolute top-3 right-3 md:top-4 md:right-4 font-mono text-[9px] md:text-[10px] tracking-[0.18em] uppercase text-background mix-blend-difference">
                       {it.tag}
                     </div>
 
                     {/* Play badge */}
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border border-foreground/80 bg-background/10 flex items-center justify-center text-foreground mix-blend-difference transition-transform duration-500 group-hover:scale-110">
+                      <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border border-background/80 bg-background/10 flex items-center justify-center text-background mix-blend-difference transition-transform duration-500 group-hover:scale-110">
                         <Play className="w-6 h-6 md:w-7 md:h-7 ml-1" fill="currentColor" />
                       </div>
                     </div>
 
-                    <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 flex items-end justify-between text-foreground mix-blend-difference">
+                    <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 flex items-end justify-between text-background mix-blend-difference">
                       <h3 className="font-display text-[24px] md:text-[34px] leading-[0.95] tracking-[-0.03em]">
                         {it.name}
                       </h3>
@@ -195,9 +195,9 @@ const VideoReel = ({ items, hideMeta = false, hideControls = false }: Props) => 
         })}
       </div>
 
-      <div className="mt-5 md:mt-6 h-px w-full bg-background/15 relative overflow-hidden">
+      <div className="mt-5 md:mt-6 h-px w-full bg-foreground/15 relative overflow-hidden">
         <div
-          className="absolute inset-y-0 left-0 bg-background transition-[width] duration-150"
+          className="absolute inset-y-0 left-0 bg-foreground transition-[width] duration-150"
           style={{ width: `${Math.max(8, progress * 100)}%` }}
         />
       </div>

@@ -18,9 +18,9 @@ const SectionHeader = ({ index, left, right, soft = false, variant = "light" }: 
   const isDark = variant === "dark";
   const lineColor = soft
     ? isDark ? "bg-background/30" : "bg-[hsl(var(--border-soft))]"
-    : isDark ? "bg-background/40" : "bg-background";
+    : isDark ? "bg-background/40" : "bg-foreground";
   const indexCls = isDark ? "opacity-60 font-mono" : "text-muted-foreground font-mono";
-  const ruleCls = isDark ? "block w-4 h-px bg-background/40" : "block w-4 h-px bg-background/40";
+  const ruleCls = isDark ? "block w-4 h-px bg-background/40" : "block w-4 h-px bg-foreground/40";
   const rightCls = isDark ? "opacity-60" : "text-muted-foreground";
 
   return (

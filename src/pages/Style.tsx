@@ -111,7 +111,7 @@ const Style = () => (
       </div>
 
       <div className="mt-8 border border-foreground">
-        <div className="h-24 bg-gradient-accent flex items-end p-3 text-foreground">
+        <div className="h-24 bg-gradient-accent flex items-end p-3 text-background">
           <span className="index-badge font-bold">Sunset Ink — gradient</span>
         </div>
         <div className="px-3 py-2 font-mono text-[10px] tracking-[0.08em] text-muted-foreground border-t border-foreground">

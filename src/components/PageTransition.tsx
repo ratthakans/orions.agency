@@ -52,7 +52,7 @@ const PageTransition = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -12 }}
                 transition={{ duration: 0.4, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-                className="flex items-baseline gap-4 text-foreground"
+                className="flex items-baseline gap-4 text-background"
               >
                 <span className="font-mono text-[11px] tracking-[0.12em] opacity-60">→</span>
                 <span className="font-display tracking-[-0.02em] text-[40px] md:text-[80px] leading-none">

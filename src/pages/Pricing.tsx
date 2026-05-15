@@ -231,7 +231,7 @@ const PackageCard = ({ p }: { p: Pkg }) => (
   <Reveal>
     <article className={`relative bg-background border border-foreground p-7 md:p-9 h-full flex flex-col ${p.ribbon === "★ MOST POPULAR" ? "md:-translate-y-3 md:shadow-[0_0_0_1px_hsl(var(--orion))]" : ""}`}>
       {p.ribbon && (
-        <div className="absolute -top-px left-0 bg-foreground text-foreground px-4 py-1 font-mono text-[10px] tracking-[0.14em] uppercase">
+        <div className="absolute -top-px left-0 bg-orion text-background px-4 py-1 font-mono text-[10px] tracking-[0.14em] uppercase">
           {p.ribbon}
         </div>
       )}
@@ -245,7 +245,7 @@ const PackageCard = ({ p }: { p: Pkg }) => (
 
       <ul className="mt-8 pt-6 border-t border-soft space-y-3 flex-1">
         {p.highlights.map((h) => (
-          <li key={h} className="flex gap-3 font-thai text-[14px] leading-[1.55] text-background/80">
+          <li key={h} className="flex gap-3 font-thai text-[14px] leading-[1.55] text-foreground/80">
             <span className="text-orion mt-[2px]">—</span>
             <span>{h}</span>
           </li>
@@ -266,7 +266,7 @@ const SearchCard = ({ p }: { p: SearchPkg }) => (
   <Reveal>
     <article className="relative bg-background border border-foreground p-7 md:p-8 h-full flex flex-col">
       {p.ribbon && (
-        <div className="absolute -top-px left-0 bg-foreground text-foreground px-3 py-1 font-mono text-[10px] tracking-[0.14em] uppercase">
+        <div className="absolute -top-px left-0 bg-orion text-background px-3 py-1 font-mono text-[10px] tracking-[0.14em] uppercase">
           {p.ribbon}
         </div>
       )}
@@ -278,7 +278,7 @@ const SearchCard = ({ p }: { p: SearchPkg }) => (
       </div>
       <ul className="mt-7 pt-5 border-t border-soft space-y-2.5 flex-1">
         {p.highlights.map((h) => (
-          <li key={h} className="flex gap-3 font-thai text-[13.5px] leading-[1.55] text-background/80">
+          <li key={h} className="flex gap-3 font-thai text-[13.5px] leading-[1.55] text-foreground/80">
             <span className="text-orion mt-[2px]">—</span>
             <span>{h}</span>
           </li>
@@ -298,7 +298,7 @@ const SearchCard = ({ p }: { p: SearchPkg }) => (
 const ServiceTable = ({ rows }: { rows: Service[] }) => (
   <div className="mt-12 md:mt-16 border-t border-foreground">
     {rows.map((s) => (
-      <div key={s.name} className="grid grid-cols-12 gap-4 md:gap-6 items-baseline py-6 md:py-7 border-b border-background/15">
+      <div key={s.name} className="grid grid-cols-12 gap-4 md:gap-6 items-baseline py-6 md:py-7 border-b border-foreground/15">
         <div className="col-span-12 md:col-span-5 font-serif italic text-[20px] md:text-[24px] tracking-[-0.01em] leading-[1.2]">
           {s.name}
         </div>
@@ -361,17 +361,17 @@ const Pricing = () => {
           </Reveal>
           <Reveal delay={0.15}>
             <div className="mt-8 flex flex-wrap gap-3 items-center">
-              <a href="#social" className="group inline-flex items-center gap-2 bg-foreground text-background px-6 py-3.5 font-mono text-[10px] tracking-[0.14em] uppercase hover:bg-foreground hover:text-background transition-colors">
+              <a href="#social" className="group inline-flex items-center gap-2 bg-foreground text-background px-6 py-3.5 font-mono text-[10px] tracking-[0.14em] uppercase hover:bg-orion transition-colors">
                 See packages <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
-              <Link to="/contact" className="group inline-flex items-center gap-2 border border-foreground px-6 py-3.5 font-mono text-[10px] tracking-[0.14em] uppercase hover:bg-background hover:text-foreground transition-colors">
+              <Link to="/contact" className="group inline-flex items-center gap-2 border border-foreground px-6 py-3.5 font-mono text-[10px] tracking-[0.14em] uppercase hover:bg-foreground hover:text-background transition-colors">
                 Get a free proposal
               </Link>
             </div>
           </Reveal>
           <Reveal delay={0.2}>
-            <nav className="mt-10 pt-6 border-t border-background/15 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">
-              <span className="text-background/40">Jump to —</span>
+            <nav className="mt-10 pt-6 border-t border-foreground/15 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">
+              <span className="text-foreground/40">Jump to —</span>
               {jumpNav.map((j, i) => (
                 <Fragment key={j.href}>
                   <a href={j.href} className="hover:text-foreground transition-colors">{j.label}</a>
@@ -421,9 +421,9 @@ const Pricing = () => {
                     <th className="text-left py-5 px-4 font-serif italic text-[20px] md:text-[24px] tracking-[-0.01em] w-[22%]">
                       Starter
                     </th>
-                    <th className="relative text-left py-5 px-4 font-serif italic text-[20px] md:text-[24px] tracking-[-0.01em] w-[22%] bg-background/[0.04]">
+                    <th className="relative text-left py-5 px-4 font-serif italic text-[20px] md:text-[24px] tracking-[-0.01em] w-[22%] bg-foreground/[0.04]">
                       Pro
-                      <span className="absolute -top-px left-0 bg-foreground text-foreground px-2 py-[2px] font-mono text-[9px] tracking-[0.18em] uppercase">
+                      <span className="absolute -top-px left-0 bg-orion text-background px-2 py-[2px] font-mono text-[9px] tracking-[0.18em] uppercase">
                         ★ Popular
                       </span>
                     </th>
@@ -441,14 +441,14 @@ const Pricing = () => {
                         </td>
                       </tr>
                       {g.rows.map((r) => (
-                        <tr key={`${g.title}-${r.label}`} className="border-t border-background/15">
-                          <td className="py-4 pl-6 md:pl-4 pr-4 font-thai text-[14px] leading-[1.5] text-background/80">
+                        <tr key={`${g.title}-${r.label}`} className="border-t border-foreground/15">
+                          <td className="py-4 pl-6 md:pl-4 pr-4 font-thai text-[14px] leading-[1.5] text-foreground/80">
                             {r.label}
                           </td>
                           <td className="py-4 px-4 font-mono text-[12.5px] tabular-nums text-foreground/85">
                             <span className={r.starter === "—" ? "text-foreground/30" : ""}>{r.starter}</span>
                           </td>
-                          <td className="py-4 px-4 font-mono text-[12.5px] tabular-nums bg-background/[0.04] text-foreground/90">
+                          <td className="py-4 px-4 font-mono text-[12.5px] tabular-nums bg-foreground/[0.04] text-foreground/90">
                             <span className={r.pro === "—" ? "text-foreground/30" : ""}>{r.pro}</span>
                           </td>
                           <td className="py-4 px-4 pr-6 md:pr-4 font-mono text-[12.5px] tabular-nums text-foreground/85">
@@ -533,7 +533,7 @@ const Pricing = () => {
             {faqs.map((f, i) => {
               const isOpen = openFaq === i;
               return (
-                <div key={f.q} className="border-b border-background/15">
+                <div key={f.q} className="border-b border-foreground/15">
                   <button
                     type="button"
                     onClick={() => setOpenFaq(isOpen ? null : i)}
@@ -547,7 +547,7 @@ const Pricing = () => {
                   </button>
                   <div className={`grid transition-[grid-template-rows] duration-400 ease-out ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
                     <div className="overflow-hidden">
-                      <p className="pb-7 md:pb-8 pl-12 md:pl-14 pr-10 font-thai text-[14px] leading-[1.75] text-background/70">{f.a}</p>
+                      <p className="pb-7 md:pb-8 pl-12 md:pl-14 pr-10 font-thai text-[14px] leading-[1.75] text-foreground/70">{f.a}</p>
                     </div>
                   </div>
                 </div>

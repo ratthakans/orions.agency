@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SimpleMarquee from "@/components/SimpleMarquee";
+import PageMark from "@/components/PageMark";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 import workHongmove from "@/assets/hongmove.png";
@@ -112,13 +113,6 @@ const whyUs = [
 /* ------------------------------------------------------------------ */
 /* COMPONENT                                                           */
 /* ------------------------------------------------------------------ */
-
-const PageMark = ({ index }: { index: string }) => (
-  <div className="flex items-center justify-between font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground mb-12 md:mb-16">
-    <span className="flex items-center gap-3">ORIONS <span className="text-orion">✦</span></span>
-    <span>{index} / 09</span>
-  </div>
-);
 
 const Index = () => (
   <div id="top">

@@ -70,6 +70,10 @@
     text-transform: uppercase;
     text-wrap: balance;
   }
+  /* Tame inline tight leadings on headings so uppercase Unbounded breathes */
+  h1 { line-height: 1.05 !important; letter-spacing: 0.005em !important; }
+  h2 { line-height: 1.08 !important; letter-spacing: 0.01em !important; }
+  h3 { line-height: 1.15 !important; letter-spacing: 0.02em !important; }
   /* Brand wants no italics anywhere — neutralise <em> and Tailwind .italic */
   em, i { font-style: normal; font-weight: 600; }
   .italic { font-style: normal !important; }
@@ -84,8 +88,16 @@
   .font-thai    { font-family: 'IBM Plex Sans Thai', 'IBM Plex Sans', sans-serif; text-transform: none; font-weight: 400; letter-spacing: 0.005em; line-height: 1.7; }
   .body-muted   { color: hsl(var(--foreground) / 0.85); }
   .font-brand   { font-family: 'Unbounded', sans-serif; font-weight: 700; letter-spacing: -0.01em; text-transform: uppercase; }
-  /* Legacy alias: now Unbounded normal uppercase, no italic */
-  .font-serif   { font-family: 'Unbounded', 'IBM Plex Sans Thai', sans-serif; font-style: normal; font-weight: 400; letter-spacing: 0.01em; text-transform: uppercase; }
+  /* Legacy alias used on body text — keep readable Plex Sans, no italic, no uppercase */
+  .font-serif   { font-family: 'IBM Plex Sans', 'IBM Plex Sans Thai', sans-serif; font-style: normal; font-weight: 500; text-transform: none; letter-spacing: 0; }
+  /* When .font-serif lands on a heading, render display Unbounded uppercase */
+  h1.font-serif, h2.font-serif, h3.font-serif, h4.font-serif {
+    font-family: 'Unbounded', 'IBM Plex Sans Thai', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.005em;
+    font-style: normal;
+  }
   .text-orion   { color: hsl(var(--foreground)); }
   .bg-orion     { background-color: hsl(var(--foreground)); color: hsl(var(--background)); }
   .text-gemini  { color: hsl(var(--foreground)); font-style: normal; font-weight: 600; }

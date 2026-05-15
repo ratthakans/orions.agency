@@ -1,104 +1,104 @@
 ## เป้าหมาย
-ปรับ ØRIONS → **Quiet Gemini** — เอา Gemini palette + Plus Jakarta Sans มาใช้บน foundation **minimal · clean · breathing space** ที่มีอยู่
+Re-align เว็บกับ **ØRIONS Master Deck V6.6** — เลิกทดลอง Gemini/Plus Jakarta แล้วกลับสู่ identity ของแบรนด์จริง: **Dark editorial · Unbounded + IBM Plex · ไม่มี gradient สี** ให้เว็บรู้สึกเป็นตัวเองและพรีเมียมเหมือน pitch deck
 
-หลักการ: Gemini *เป็นจิตวิญญาณ* ไม่ใช่ skin — gradient ใช้เฉพาะจุด, ไม่มี glow/blur orb, ไม่มี gradient เต็มแถบ, เก็บ whitespace เดิมไว้ทั้งหมด
+หลักการจาก deck:
+- Dark canvas (ดำสนิท) + paper-grain texture บางๆ
+- Type duo: **Unbounded** (display, ตัวหนา compressed) + **IBM Plex Sans / Plex Sans Thai** (body)
+- Mono labels ใช้ IBM Plex Mono (eyebrow, meta)
+- **ไม่มีสี accent** — ใช้ขาว/ดำ/เทาเท่านั้น เน้นข้อความด้วย **bold weight** และ **italic** แทนการใช้สี
+- Hairlines, zero radius, generous whitespace, ภาพ 1:1 / 16:9 ขอบคม
 
 ---
 
-## ระบบใหม่ (restrained)
+## ระบบใหม่
 
-### สี
-| Token | เดิม | ใหม่ |
-|---|---|---|
-| `--background` dark | `#0F0F0F` | คงเดิม |
-| `--background` light | `#F5F2EC` cream | `#FAFAFA` (ลด warmth นิด) |
-| `--accent / orion` | `#E94B2A` vermilion solid | `#4285F4` Gemini Blue solid (ใช้แทน vermilion ในที่ที่ต้อง solid) |
-| Gradient accent | — | `linear-gradient(110deg, #4285F4, #9B72CB, #D96570)` — **ใช้เฉพาะ italic word ใน H1 และ moments สำคัญ** |
+### Palette (เลิก Gemini ทั้งหมด)
+| Token | ใหม่ |
+|---|---|
+| `--background` | `#0A0A0A` (ดำสนิท ตามดีค) |
+| `--foreground` | `#FAFAFA` |
+| `--surface` | `#141414` |
+| `--muted-foreground` | `#A3A3A3` |
+| `--border` | `#FFFFFF` 12% (hairline บนดำ) |
+| `--border-soft` | `#FFFFFF` 6% |
+| **Accent** | **ไม่มี** — ใช้ `bold` weight + `italic` แทน |
 
-**กฎเข้ม:**
-- Gradient = ใช้กับ italic accent word ใน headline เท่านั้น (ไม่ใช้กับ background, button, border)
-- Solid Gemini Blue = แทนตำแหน่งที่ vermilion เคยอยู่ทุกที่ (label, mono eyebrow, hover state)
-- ไม่มี glow / blur orb / aurora background
-- ไม่มี gradient bar กว้างๆ — top status bar ใช้สี solid ดำ/น้ำเงินเรียบ
+ลบทุก: `--gemini-*`, `--accent-from/mid/to`, `--orion-orange`, `.text-gemini`, `.bg-orion`, gradient utilities
 
-### Font
-| Use | เดิม | ใหม่ |
-|---|---|---|
-| H1/H2 base | Instrument Serif (regular) | **Plus Jakarta Sans 600** (clean, geometric humanist) |
-| Italic accent ใน headline | Instrument Serif italic + vermilion | **Plus Jakarta Sans italic 500** + Gemini gradient text |
-| Body Eng | IBM Plex Sans / Plex Thai | **Plus Jakarta Sans** |
-| Body Thai | IBM Plex Sans Thai | คงเดิม |
-| Mono labels | JetBrains Mono | คงเดิม |
+### Fonts (กลับเข้า deck spec)
+| Use | ใหม่ |
+|---|---|
+| Display H1/H2 | **Unbounded** 700/800 — `letter-spacing: -0.04em` |
+| Body Eng | **IBM Plex Sans** 400/500/600 |
+| Body Thai | **IBM Plex Sans Thai** 400/500/700 |
+| Mono labels | **IBM Plex Mono** 400/500 (เปลี่ยนจาก JetBrains Mono) |
+| Italic accent | IBM Plex Sans **italic 600** (ไม่ใช่ gradient text) |
 
-→ ทิ้ง serif romantic ออก เพราะ Gemini มี soul แบบ humanist sans ที่อ่านสบาย ไม่ดราม่า
+ลบ: Plus Jakarta Sans, JetBrains Mono, Instrument Serif
 
-### Radius / shape / shadows
-- Hairline borders **คงเดิมทั้งหมด**
-- Buttons: **คง zero-radius เดิม** (ไม่ใช้ pill — pill จะดูเหมือน Google product มากเกินจน lose ØRIONS DNA)
-- ไม่มี shadow / glass / blur ทุกที่
-- Whitespace ทุก section คงเดิม (เพิ่ง standardize type scale ไป)
+### Shape & motion
+- Zero radius **คงเดิม**
+- Hairlines ทุกตัวเปลี่ยนเป็น `white/12%` แทนดำ
+- Paper-grain noise overlay 3% (มีอยู่แล้ว แค่ปรับ blend → `screen` บนดำ)
+- ไม่มี shadow / glow / gradient bg / pill button
 
 ---
 
 ## ไฟล์ที่แก้
 
 ### 1) `index.html`
-- เพิ่ม Google Font `Plus Jakarta Sans:wght@400;500;600;700;800;ital`
-- ลบ `Instrument Serif`
-- คง IBM Plex Sans Thai + JetBrains Mono
+- Font link → `Unbounded:wght@600;700;800;900&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,500;1,600&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap`
+- ลบ `Plus Jakarta Sans`, `JetBrains Mono`
 
 ### 2) `src/index.css`
-- `:root` — เปลี่ยน `--orion` HSL จาก vermilion → Gemini Blue (`hsl(217 89% 61%)`)
-- เพิ่ม `--gemini-blue / --gemini-purple / --gemini-pink` HSL tokens
-- `.font-serif` → map ไป `Plus Jakarta Sans` (italic ก็ใช้ตัวนี้ + italic)
-- `body` font-family → Plus Jakarta Sans + IBM Plex Sans Thai fallback
-- เพิ่ม utility:
-  ```
-  .text-gemini { background: linear-gradient(110deg, #4285F4, #9B72CB, #D96570);
-                 -webkit-background-clip: text; background-clip: text; color: transparent; }
-  ```
+- เปลี่ยน `:root` → dark tokens (default dark, ลบ light variant)
+- `body { background: #0A0A0A; color: #FAFAFA; font-family: 'IBM Plex Sans', 'IBM Plex Sans Thai' }`
+- `h1,h2 { font-family: 'Unbounded'; font-weight: 800 }`
+- `.font-display` → Unbounded 800
+- `.font-mono` → IBM Plex Mono
+- `.font-thai` → IBM Plex Sans Thai
+- `.font-serif` → ลบ (deck ไม่มี serif)
+- `.text-orion` / `.bg-orion` / `.text-gemini` / `.bg-gemini` / `.text-gradient` / `.bg-gradient-accent` → **ลบทั้งหมด**
+- `.label-mono` / `.index-badge` → IBM Plex Mono uppercase tracking 0.08em
+- Paper grain `mix-blend-mode: screen` opacity 4%
+- Selection สีกลับด้าน
 
 ### 3) `tailwind.config.ts`
-- `colors.orion` → คงชื่อไว้ (เพื่อไม่ break) แต่ map HSL ไป Gemini Blue
-- เพิ่ม `colors.gemini.{blue, purple, pink}`
+- ลบ `colors.orion`, `colors.gemini`
+- Default dark theme (ไม่ต้องมี light)
+- Border default → `hsl(0 0% 100% / 0.12)`
 
-### 4) Headline accents — เปลี่ยน pattern
-ทุกที่ที่เป็น `<em className="text-orion italic">...</em>` → `<em className="text-gemini italic">...</em>`
+### 4) Component sweep (find/replace)
+- `text-gemini italic` → `italic font-semibold` (ทุกหน้า — Index, Services, About, Work, Pricing, Contact, ClosingCTA)
+- `text-orion` → ลบ (เป็น white โดย default)
+- `bg-orion` → `bg-foreground` (status bar เป็นขาวบนดำ หรือแถบดำ + text ขาว)
+- `font-serif` → ลบ class นี้ออกทุกที่ (เพราะลบจาก CSS แล้ว — H1/H2 จะใช้ Unbounded อัตโนมัติ)
 
-ไฟล์ที่กระทบ:
-- `src/pages/Index.tsx` — H1 + H2 ทุก section
-- `src/pages/Services.tsx`, `About.tsx`, `Work.tsx`, `Pricing.tsx`, `Contact.tsx`
-- `src/components/ClosingCTA.tsx`
+### 5) สไตล์ตาม deck (เพิ่ม polish)
+- **ØRIONS wordmark** ทุกที่ → ใช้ Unbounded 800 ตัวใหญ่ เช่นใน hero และ footer (เหมือนหน้าแรก deck)
+- **Italic emphasis pattern** ใน body text: คำสำคัญใช้ `italic font-semibold` (เลียนแบบ deck "**Creative Agency**", "**social vicious cycle**", "**ทุกอย่างก็จบ**")
+- **Stat block** style จาก deck p.8: ตัวเลข Unbounded 800 ใหญ่ + label IBM Plex Mono เล็ก uppercase — apply กับ stats sections
+- **Eyebrow + arrow** pattern (`IMPACT SNAPSHOT ↗`) — ใช้กับ section header ทุกที่
 
-→ font-serif italic จะ render เป็น Plus Jakarta italic + Gemini gradient text
-
-### 5) Status bar (top, ทุกหน้า)
-- เดิม: `bg-orion` vermilion solid → ใหม่: คง solid แต่เป็น `bg-foreground` (ดำ) + text Gemini Blue **หรือ** ใช้ Gemini Blue solid
-- **ไม่ใช้** gradient เพื่อรักษา minimal
-
-### 6) ตำแหน่งที่ใช้ vermilion เป็น solid (mono labels, eyebrows, hover)
-- หาแทบทุก `text-orion` ที่ไม่ใช่ italic accent → เปลี่ยนเป็น `text-[#4285F4]` (Gemini Blue solid)
-- ตัวอย่าง: process step `<span className="text-orion">✦</span>`, eyebrow `text-orion`, sector tag
-
-### 7) Memory update
-- `mem://index.md` Core: ปรับ palette + font ตามใหม่ — เน้นย้ำว่า **Gemini quiet, not Gemini product**
-- `mem://style/aesthetic` + `mem://style/typography`: rewrite
+### 6) Memory
+- `mem://index.md` Core: rewrite → Dark editorial, Unbounded + IBM Plex Sans/Thai/Mono, no accent color, italic+bold for emphasis
+- `mem://style/aesthetic` + `mem://style/typography`: rewrite ตาม deck V6.6
+- ลบ refs ทั้งหมดเรื่อง Gemini, Plus Jakarta, vermilion, Sunset Ink, cream paper
 
 ---
 
 ## สิ่งที่ **ไม่** เปลี่ยน
-- Layout, grid, hairline borders, zero-radius
-- Whitespace ทุก section
-- Type scale (เพิ่ง standardize)
-- Copy ทุกตัว
-- Components, routing, backend
-- ไม่มี orb / glow / shadow / pill / glassmorphism
+- Layout/grid, hairline structure, zero-radius
+- Type scale utilities (`.h-display-xl/lg/md/sm/xs`)
+- Components, routing, copy, backend
+- Reveal animations, page transitions
 
 ---
 
 ## ผลลัพธ์
-- รู้สึก clean modern เหมือน Google AI product page **แต่** ยังคง breathing space และ editorial discipline
-- Gemini gradient เห็นแค่ตอน *italic moment* — เด่นเพราะใช้น้อย
-- ทุกอย่างยังหายใจได้ ไม่อึดอัด
+- เว็บ = ส่วนต่อขยายของ deck (Brand consistency 100%)
+- ตัด noise สี ออกจน identity เด่น = **typographic confidence**
+- Unbounded หนาๆ + Plex italic = signature ที่ไม่เหมือนใคร
+- ทุกอย่าง breathe + minimal เหมือนเดิม แต่ feels more *ØRIONS*
 
 ลุยได้เลยถ้า OK

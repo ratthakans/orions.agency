@@ -28,7 +28,7 @@
     --secondary-foreground: 0 0% 6%;
 
     --muted: 40 12% 92%;
-    --muted-foreground: 0 0% 38%;       /* #5F5F5F */
+    --muted-foreground: 0 0% 28%;       /* #474747 — bumped contrast for legibility */
 
     --accent: 0 0% 6%;
     --accent-foreground: 40 14% 96%;
@@ -61,7 +61,7 @@
     font-family: 'IBM Plex Sans Thai', 'Inter', sans-serif;
     font-size: 16px;
     line-height: 1.65;
-    font-weight: 400;
+    font-weight: 450;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -79,7 +79,8 @@
   .font-display { font-family: 'Unbounded', 'IBM Plex Sans Thai', sans-serif; font-weight: 700; letter-spacing: -0.02em; text-transform: uppercase; }
   .font-body    { font-family: 'IBM Plex Sans Thai', sans-serif; }
   .font-mono    { font-family: 'JetBrains Mono', monospace; }
-  .font-thai    { font-family: 'IBM Plex Sans Thai', sans-serif; text-transform: none; font-weight: 400; }
+  .font-thai    { font-family: 'IBM Plex Sans Thai', sans-serif; text-transform: none; font-weight: 500; letter-spacing: 0.005em; line-height: 1.7; }
+  .body-muted   { color: hsl(var(--foreground) / 0.85); }
   .font-brand   { font-family: 'Unbounded', sans-serif; font-weight: 700; letter-spacing: -0.01em; text-transform: uppercase; }
   .font-serif   { font-family: 'Instrument Serif', 'Times New Roman', serif; font-weight: 400; letter-spacing: -0.01em; text-transform: none; }
   .text-orion   { color: hsl(var(--orion-orange)); }

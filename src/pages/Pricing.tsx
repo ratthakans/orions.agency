@@ -231,8 +231,82 @@ const Pricing = () => {
         </div>
       </section>
 
-      {/* 03 · ADD-ONS */}
+      {/* 03 · COMPARE */}
       <section className="px-6 md:px-10 border-t border-foreground">
+        <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+          <PageMark index="03" total="05" />
+          <Reveal>
+            <h2 className="font-serif text-[40px] md:text-[72px] lg:text-[88px] leading-[1.0] tracking-[-0.03em]">
+              <em className="text-orion italic">Compare.</em>
+            </h2>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="mt-6 font-serif italic text-[17px] md:text-[19px] text-muted-foreground max-w-[560px] leading-[1.55]">
+              เห็นความต่างของทุกแพ็กเกจในตารางเดียว.
+            </p>
+          </Reveal>
+
+          <Reveal delay={0.15}>
+            <div className="mt-12 md:mt-16 -mx-6 md:mx-0 overflow-x-auto">
+              <table className="min-w-[760px] w-full border-collapse">
+                <thead>
+                  <tr className="border-y border-foreground">
+                    <th className="text-left py-5 pl-6 md:pl-4 pr-4 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground w-[34%]">
+                      Feature
+                    </th>
+                    <th className="text-left py-5 px-4 font-serif italic text-[20px] md:text-[24px] tracking-[-0.01em] w-[22%]">
+                      Starter
+                    </th>
+                    <th className="relative text-left py-5 px-4 font-serif italic text-[20px] md:text-[24px] tracking-[-0.01em] w-[22%] bg-foreground/[0.04]">
+                      Pro
+                      <span className="absolute -top-px left-0 bg-orion text-background px-2 py-[2px] font-mono text-[9px] tracking-[0.18em] uppercase">
+                        ★ Popular
+                      </span>
+                    </th>
+                    <th className="text-left py-5 px-4 pr-6 md:pr-4 font-serif italic text-[20px] md:text-[24px] tracking-[-0.01em] w-[22%]">
+                      Elite
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {compareGroups.map((g) => (
+                    <>
+                      <tr key={`g-${g.title}`}>
+                        <td colSpan={4} className="pt-7 pb-2 pl-6 md:pl-4 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
+                          — {g.title}
+                        </td>
+                      </tr>
+                      {g.rows.map((r) => (
+                        <tr key={`${g.title}-${r.label}`} className="border-t border-foreground/15">
+                          <td className="py-4 pl-6 md:pl-4 pr-4 font-thai text-[14px] leading-[1.5] text-foreground/80">
+                            {r.label}
+                          </td>
+                          <td className="py-4 px-4 font-mono text-[12.5px] tabular-nums text-foreground/85">
+                            <span className={r.starter === "—" ? "text-foreground/30" : ""}>{r.starter}</span>
+                          </td>
+                          <td className="py-4 px-4 font-mono text-[12.5px] tabular-nums bg-foreground/[0.04] text-foreground/90">
+                            <span className={r.pro === "—" ? "text-foreground/30" : ""}>{r.pro}</span>
+                          </td>
+                          <td className="py-4 px-4 pr-6 md:pr-4 font-mono text-[12.5px] tabular-nums text-foreground/85">
+                            <span className={r.elite === "—" ? "text-foreground/30" : ""}>{r.elite}</span>
+                          </td>
+                        </tr>
+                      ))}
+                    </>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </Reveal>
+
+          <p className="mt-8 font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">
+            Need more? See <a href="#addons" className="underline underline-offset-4 hover:text-foreground">Add-ons</a> below.
+          </p>
+        </div>
+      </section>
+
+      {/* 03 · ADD-ONS */}
+      <section id="addons" className="px-6 md:px-10 border-t border-foreground">
         <div className="max-w-[1280px] mx-auto py-20 md:py-28">
           <PageMark index="04" total="05" />
           <Reveal>

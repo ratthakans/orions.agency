@@ -109,12 +109,6 @@ const whyUs = [
   { n: "03", en: "Ads inside the plan.",    th: "แอดอยู่ในกลยุทธ์ตั้งแต่วันแรก" },
 ];
 
-const pricingTiers = [
-  { name: "Starter", price: "29,000",  best: "เริ่มต้นบน IG / TikTok" },
-  { name: "Pro",     price: "59,000",  best: "โต volume + ads", popular: true },
-  { name: "Elite",   price: "119,000", best: "Launch / rebrand เต็มรูปแบบ" },
-];
-
 /* ------------------------------------------------------------------ */
 /* COMPONENT                                                           */
 /* ------------------------------------------------------------------ */
@@ -432,37 +426,14 @@ const Index = () => (
         </Reveal>
         <Reveal delay={0.1}>
           <p className="mt-8 font-serif italic text-[18px] md:text-[20px] text-muted-foreground max-w-[560px] leading-[1.55]">
-            Monthly retainer. Cancel anytime.
+            3 packages · เริ่มต้น <span className="text-orion not-italic font-serif">29,000</span> บาท / เดือน.
           </p>
         </Reveal>
 
-        <div className="mt-14 md:mt-20 border-t border-foreground grid grid-cols-1 md:grid-cols-3">
-          {pricingTiers.map((t, i) => (
-            <Reveal key={t.name} delay={i * 0.06}>
-              <div className={`relative py-10 md:py-12 md:px-10 ${i > 0 ? "md:border-l border-foreground border-t md:border-t-0" : ""} ${t.popular ? "bg-foreground/[0.03]" : ""}`}>
-                {t.popular && (
-                  <div className="absolute top-0 left-0 bg-orion text-background px-4 py-1 font-mono text-[10px] tracking-[0.14em] uppercase">
-                    ★ MOST POPULAR
-                  </div>
-                )}
-                <div className="font-mono text-[10px] tracking-[0.18em] text-muted-foreground">— 0{i + 1}</div>
-                <h3 className="mt-8 font-serif italic text-[40px] md:text-[48px] leading-[1] tracking-[-0.02em]">{t.name}</h3>
-                <div className="mt-6 flex items-baseline gap-2">
-                  <span className="font-serif text-orion text-[36px] md:text-[44px] tracking-[-0.03em] tabular-nums">{t.price}</span>
-                  <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">THB / เดือน</span>
-                </div>
-                <p className="mt-6 pt-5 border-t border-dashed border-foreground/25 font-thai text-[14px] leading-[1.65] text-muted-foreground">
-                  Best for · {t.best}
-                </p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-
         <Reveal delay={0.2}>
-          <div className="mt-12 flex flex-wrap items-center gap-5">
+          <div className="mt-10 flex flex-wrap items-center gap-5">
             <Link to="/pricing" className="group inline-flex items-center gap-3 bg-foreground text-background px-7 py-4 btn-label border border-foreground hover:bg-orion hover:border-orion transition-colors">
-              <span>See full breakdown</span>
+              <span>See full pricing</span>
               <ArrowUpRight className="w-4 h-4" />
             </Link>
             <Link to="/contact" className="group inline-flex items-center gap-2 btn-label text-foreground border-b border-foreground pb-1 hover:opacity-70 transition-opacity">

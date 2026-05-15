@@ -161,6 +161,27 @@ const Index = () => (
             We help unique brands grow on social — through branding, content, and paid ads.
           </p>
         </Reveal>
+
+        <Reveal delay={0.5}>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+            <Link
+              to="/contact"
+              className="group inline-flex items-center gap-3 bg-background text-foreground px-7 py-4 index-badge border border-background hover:gap-4 transition-all duration-300"
+            >
+              <span>Get a free proposal</span>
+              <ArrowUpRight className="w-4 h-4" />
+            </Link>
+            <Link
+              to="/services#packages"
+              className="group inline-flex items-center gap-2 index-badge text-background/80 border-b border-background/40 pb-1 hover:text-background hover:border-background transition-colors"
+            >
+              See pricing →
+            </Link>
+          </div>
+          <p className="mt-5 font-mono text-[10px] tracking-[0.25em] uppercase text-background/55 text-center">
+            ↳ Reply within 24h · Free 30-min call
+          </p>
+        </Reveal>
       </div>
 
       <div className="px-6 md:px-10 pb-8 md:pb-10 flex items-end justify-between font-mono text-[10px] tracking-[0.3em] uppercase text-background/55 border-t border-background/15 pt-6">

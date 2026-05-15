@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800;900&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,500;1,600&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -64,27 +64,43 @@
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Unbounded', 'IBM Plex Sans Thai', sans-serif;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    line-height: 1;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    line-height: 1.05;
+    text-transform: uppercase;
     text-wrap: balance;
   }
+  /* Tame inline tight leadings on headings so uppercase Unbounded breathes */
+  h1 { line-height: 1.05 !important; letter-spacing: 0.005em !important; }
+  h2 { line-height: 1.08 !important; letter-spacing: 0.01em !important; }
+  h3 { line-height: 1.15 !important; letter-spacing: 0.02em !important; }
+  /* Brand wants no italics anywhere — neutralise <em> and Tailwind .italic */
+  em, i { font-style: normal; font-weight: 600; }
+  .italic { font-style: normal !important; }
   /* Override hairline border default to use white at low opacity on dark bg */
   * { border-color: hsl(0 0% 100% / 0.12); }
 }
 
 @layer utilities {
-  .font-display { font-family: 'Unbounded', 'IBM Plex Sans Thai', sans-serif; font-weight: 800; letter-spacing: -0.04em; }
+  .font-display { font-family: 'Unbounded', 'IBM Plex Sans Thai', sans-serif; font-weight: 400; letter-spacing: 0.01em; text-transform: uppercase; }
   .font-body    { font-family: 'IBM Plex Sans', 'IBM Plex Sans Thai', sans-serif; }
   .font-mono    { font-family: 'IBM Plex Mono', monospace; }
   .font-thai    { font-family: 'IBM Plex Sans Thai', 'IBM Plex Sans', sans-serif; text-transform: none; font-weight: 400; letter-spacing: 0.005em; line-height: 1.7; }
   .body-muted   { color: hsl(var(--foreground) / 0.85); }
-  .font-brand   { font-family: 'Unbounded', sans-serif; font-weight: 800; letter-spacing: -0.04em; }
-  /* Legacy aliases — kept so existing class usages keep rendering. No accent color anymore. */
-  .font-serif   { font-family: 'IBM Plex Sans', 'IBM Plex Sans Thai', sans-serif; font-style: italic; font-weight: 600; letter-spacing: -0.005em; }
+  .font-brand   { font-family: 'Unbounded', sans-serif; font-weight: 700; letter-spacing: -0.01em; text-transform: uppercase; }
+  /* Legacy alias used on body text — keep readable Plex Sans, no italic, no uppercase */
+  .font-serif   { font-family: 'IBM Plex Sans', 'IBM Plex Sans Thai', sans-serif; font-style: normal; font-weight: 500; text-transform: none; letter-spacing: 0; }
+  /* When .font-serif lands on a heading, render display Unbounded uppercase */
+  h1.font-serif, h2.font-serif, h3.font-serif, h4.font-serif {
+    font-family: 'Unbounded', 'IBM Plex Sans Thai', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.005em;
+    font-style: normal;
+  }
   .text-orion   { color: hsl(var(--foreground)); }
   .bg-orion     { background-color: hsl(var(--foreground)); color: hsl(var(--background)); }
-  .text-gemini  { color: hsl(var(--foreground)); font-style: italic; font-weight: 600; }
+  .text-gemini  { color: hsl(var(--foreground)); font-style: normal; font-weight: 600; }
   .bg-gemini    { background-color: hsl(var(--foreground)); color: hsl(var(--background)); }
 
   .label-mono {
@@ -130,13 +146,13 @@
     text-wrap: balance;
     font-feature-settings: "ss01", "ss02";
   }
-  .h-display-xl  { font-size: clamp(56px, 14vw, 180px); line-height: 0.85; letter-spacing: -0.04em; }
-  .h-display-lg  { font-size: clamp(40px, 11vw, 132px); line-height: 0.9;  letter-spacing: -0.04em; }
-  .h-display-md  { font-size: clamp(32px, 6.5vw, 88px); line-height: 0.95; letter-spacing: -0.03em; }
-  .h-display-sm  { font-size: clamp(24px, 4vw, 48px);   line-height: 1.05; letter-spacing: -0.02em; }
-  .h-display-xs  { font-size: clamp(20px, 2.6vw, 32px); line-height: 1.1;  letter-spacing: -0.02em; }
-  .h-display-2xs { font-size: clamp(16px, 1.6vw, 22px); line-height: 1.2;  letter-spacing: -0.01em; }
-  .num-display   { font-family: 'Unbounded', sans-serif; font-weight: 700; letter-spacing: -0.04em; line-height: 0.9; font-feature-settings: "tnum"; }
+  .h-display-xl  { font-size: clamp(48px, 11vw, 140px); line-height: 1.0;  letter-spacing: 0.01em; }
+  .h-display-lg  { font-size: clamp(36px, 8.5vw, 104px); line-height: 1.05; letter-spacing: 0.01em; }
+  .h-display-md  { font-size: clamp(28px, 5.5vw, 72px);  line-height: 1.1;  letter-spacing: 0.01em; }
+  .h-display-sm  { font-size: clamp(22px, 3.6vw, 42px);  line-height: 1.15; letter-spacing: 0.02em; }
+  .h-display-xs  { font-size: clamp(18px, 2.4vw, 28px);  line-height: 1.2;  letter-spacing: 0.02em; }
+  .h-display-2xs { font-size: clamp(15px, 1.6vw, 20px);  line-height: 1.3;  letter-spacing: 0.03em; }
+  .num-display   { font-family: 'Unbounded', sans-serif; font-weight: 400; letter-spacing: 0.01em; line-height: 0.95; font-feature-settings: "tnum"; }
 
   .bg-surface   { background-color: hsl(var(--surface)); }
   .bg-surface-2 { background-color: hsl(var(--surface-2)); }
@@ -149,7 +165,7 @@
 
   /* Legacy accent aliases — now monochrome */
   .bg-gradient-accent { background-color: hsl(var(--foreground)); }
-  .text-gradient { color: hsl(var(--foreground)); font-style: italic; font-weight: 600; }
+  .text-gradient { color: hsl(var(--foreground)); font-style: normal; font-weight: 600; }
   .accent-dot { background-color: hsl(var(--foreground)); }
 
   /* Marquee */
@@ -207,8 +223,18 @@
   position: fixed; inset: 0;
   pointer-events: none;
   z-index: 100;
-  opacity: 0.05;
-  mix-blend-mode: screen;
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwBAMAAAClLOS0AAAAElBMVEUAAAAAAAAAAAAAAAAAAAAAAADgKxmiAAAABnRSTlMFBQUFBQVWlpRqAAAASUlEQVQ4y2NgQALMDKiABUlABElAGEmAEUmADUlAAEmACklABUlADUmAAUkgAElABUlADUlABUkgAElABUlADUlABUlAAEmAAQDa+QIJ9RNwIAAAAABJRU5ErkJggg==");
-  background-size: 180px 180px;
+  opacity: 0.18;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.85'/></svg>");
+  background-size: 240px 240px;
+}
+.grain-strong::before {
+  content: '';
+  position: absolute; inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.10;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size: 200px 200px;
 }

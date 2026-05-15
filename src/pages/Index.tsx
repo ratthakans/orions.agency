@@ -408,37 +408,6 @@ const Index = () => (
     </section>
 
     {/* ========================================================== */}
-    {/* 09 · PRICING TEASER                                         */}
-    {/* ========================================================== */}
-    <section className="px-6 md:px-10 border-t border-foreground">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <PageMark index="08" />
-        <Reveal>
-          <h2 className="font-serif text-[44px] md:text-[80px] lg:text-[96px] leading-[1.0] tracking-[-0.03em] max-w-[18ch]">
-            <em className="text-orion italic">Pricing.</em>
-          </h2>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <p className="mt-8 font-serif italic text-[18px] md:text-[20px] text-muted-foreground max-w-[560px] leading-[1.55]">
-            3 packages · เริ่มต้น <span className="text-orion not-italic font-serif">29,000</span> บาท / เดือน.
-          </p>
-        </Reveal>
-
-        <Reveal delay={0.2}>
-          <div className="mt-10 flex flex-wrap items-center gap-5">
-            <Link to="/pricing#social" className="group inline-flex items-center gap-3 bg-foreground text-background px-7 py-4 btn-label border border-foreground hover:bg-orion hover:border-orion transition-colors">
-              <span>See full pricing</span>
-              <ArrowUpRight className="w-4 h-4" />
-            </Link>
-            <Link to="/contact" className="group inline-flex items-center gap-2 btn-label text-foreground border-b border-foreground pb-1 hover:opacity-70 transition-opacity">
-              Get a free proposal →
-            </Link>
-          </div>
-        </Reveal>
-      </div>
-    </section>
-
-    {/* ========================================================== */}
     {/* 10 · WHY US + CTA                                           */}
     {/* ========================================================== */}
     <section className="px-6 md:px-10 border-t border-foreground bg-foreground text-background">

@@ -345,9 +345,9 @@ const Index = () => (
                 <div className="font-mono text-[10px] tracking-[0.18em] text-orion">{t.sector}</div>
 
                 <div className="mt-8 flex items-start justify-between gap-4">
-                  <span className="font-serif italic text-orion text-[40px] leading-none -mt-2">“</span>
+                  <span className="text-orion text-[48px] leading-none -mt-2 font-serif">“</span>
                   <div className="text-right">
-                    <div className="font-serif italic text-orion text-[36px] md:text-[44px] leading-none tracking-[-0.02em] tabular-nums">
+                    <div className="num-display text-orion text-[36px] md:text-[48px] leading-none tabular-nums">
                       {t.stat}
                     </div>
                     <div className="mt-2 font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">
@@ -356,12 +356,12 @@ const Index = () => (
                   </div>
                 </div>
 
-                <p className="mt-4 font-serif italic text-[18px] md:text-[20px] leading-[1.45] tracking-[-0.005em]">
+                <p className="mt-4 font-serif text-[17px] md:text-[19px] leading-[1.5]">
                   {t.quote}
                 </p>
 
                 <div className="mt-12 pt-6 border-t border-dashed border-foreground/25">
-                  <div className="font-serif italic text-[18px]">{t.name}</div>
+                  <div className="font-serif text-[15px] font-medium">{t.name}</div>
                   <div className="mt-1 font-thai text-[12px] text-muted-foreground">{t.handle}</div>
                 </div>
               </div>
@@ -374,12 +374,12 @@ const Index = () => (
     {/* ========================================================== */}
     {/* 08 · TRUSTED BY                                             */}
     {/* ========================================================== */}
-    <section className="px-6 md:px-10 border-t border-foreground">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+    <section className="px-6 md:px-12 border-t border-foreground">
+      <div className="max-w-[1240px] mx-auto py-28 md:py-40">
         <PageMark index="07" />
         <Reveal>
-          <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em]">
-            Trusted <em className="text-gemini italic">by.</em>
+          <h2 className="text-[48px] md:text-[80px] lg:text-[104px] leading-[0.92] tracking-[-0.02em]">
+            Trusted <em className="text-gemini">by.</em>
           </h2>
         </Reveal>
 
@@ -394,7 +394,7 @@ const Index = () => (
                   className="max-h-7 md:max-h-8 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity"
                 />
               ) : (
-                <span className="font-serif italic text-[14px] md:text-[16px] text-muted-foreground hover:text-foreground transition-colors">
+                <span className="text-[11px] md:text-[12px] tracking-[0.12em] uppercase font-mono text-muted-foreground hover:text-foreground transition-colors">
                   {brand.name}
                 </span>
               )}
@@ -407,16 +407,16 @@ const Index = () => (
     {/* ========================================================== */}
     {/* 10 · WHY US + CTA                                           */}
     {/* ========================================================== */}
-    <section className="px-6 md:px-10 border-t border-foreground bg-foreground text-background">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+    <section className="px-6 md:px-12 border-t border-foreground bg-foreground text-background texture-paper">
+      <div className="max-w-[1240px] mx-auto py-28 md:py-40">
         <div className="flex items-center justify-between font-mono text-[10px] tracking-[0.18em] uppercase text-background/55 mb-12 md:mb-16">
           <span className="flex items-center gap-3">ORIONS <span className="text-orion">✦</span></span>
           <span>09 / 09</span>
         </div>
 
         <Reveal>
-          <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em]">
-            Why <em className="text-gemini italic">us?</em>
+          <h2 className="text-[48px] md:text-[80px] lg:text-[104px] leading-[0.92] tracking-[-0.02em]">
+            Why <em className="text-gemini">us.</em>
           </h2>
         </Reveal>
 
@@ -425,7 +425,7 @@ const Index = () => (
             <Reveal key={w.n} delay={i * 0.06}>
               <div className="border-t border-background/25 pt-6">
                 <div className="font-mono text-[10px] tracking-[0.18em] text-background/55">— {w.n}</div>
-                <h3 className="mt-4 font-serif italic text-[28px] md:text-[36px] leading-[1.1] tracking-[-0.02em]">
+                <h3 className="mt-4 text-[26px] md:text-[36px] leading-[0.95] tracking-[-0.015em]">
                   {w.en}
                 </h3>
                 <p className="mt-3 font-thai text-[14px] md:text-[15px] leading-[1.65] text-background/70">
@@ -444,21 +444,21 @@ const Index = () => (
             </p>
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em]">
-              Let's make something <em className="text-gemini italic">that works.</em>
+            <h2 className="text-[56px] md:text-[96px] lg:text-[120px] leading-[0.9] tracking-[-0.025em]">
+              Let's <em className="text-gemini">move.</em>
             </h2>
           </Reveal>
           <Reveal delay={0.2}>
-            <p className="mt-8 font-serif italic text-[18px] md:text-[22px] text-background/75 max-w-[640px] mx-auto leading-[1.5]">
-              30-min discovery call. Free. We reply within 24 hours.
+            <p className="mt-8 text-[12px] tracking-[0.32em] uppercase text-background/65 font-mono">
+              30 min · Free · Reply in 24h
             </p>
           </Reveal>
           <Reveal delay={0.3}>
             <Link
               to="/contact"
-              className="mt-10 group inline-flex items-center gap-3 bg-background text-foreground px-7 py-4 btn-label border border-background hover:gap-4 transition-all duration-300"
+              className="mt-10 group inline-flex items-center gap-3 bg-background text-foreground px-8 py-4 btn-label border border-background hover:gap-4 transition-all duration-300"
             >
-              <span>Start a project</span>
+              <span>Start</span>
               <ArrowUpRight className="w-4 h-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </Link>
           </Reveal>

@@ -271,6 +271,82 @@ const Services = () => {
         </div>
       </section>
 
+      {/* 02 · PACKAGES — moved up so visitors see pricing fast */}
+      <section id="packages" className="px-6 md:px-10 border-t border-foreground">
+        <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+          <PageMark index="02" total="05" />
+          <div className="flex items-end justify-between gap-8 flex-wrap">
+            <Reveal>
+              <h2 className="font-serif text-[40px] md:text-[72px] lg:text-[96px] leading-[1.0] tracking-[-0.03em] max-w-[16ch]">
+                Pick yours in <em className="text-orion italic">30 seconds.</em>
+              </h2>
+            </Reveal>
+            <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground">VALID 30 DAYS</p>
+          </div>
+          <Reveal delay={0.1}>
+            <p className="mt-8 font-serif italic text-[18px] md:text-[20px] text-muted-foreground max-w-[640px] leading-[1.5]">
+              → ไม่แน่ใจ? เริ่มที่ <em className="text-orion not-italic font-serif">Pro</em>. คุ้มที่สุดใน 3 เดือนแรก.
+            </p>
+          </Reveal>
+
+          <div className="mt-14 md:mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-stretch">
+            {packages.map((p) => <PackageCard key={p.key} p={p} />)}
+          </div>
+
+          <p className="mt-10 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground text-center">
+            All packages include — Strategy · In-house production · Monthly report · 24h response
+          </p>
+
+          {/* Package details accordion */}
+          <div className="mt-20 md:mt-24">
+            <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground mb-6">— PACKAGE DETAILS</p>
+            <div className="border-t border-foreground">
+              {packages.map((p) => {
+                const isOpen = openPkg === p.key;
+                return (
+                  <div key={p.key} className="border-b border-foreground/15">
+                    <button
+                      type="button"
+                      onClick={() => setOpenPkg(isOpen ? null : p.key)}
+                      aria-expanded={isOpen}
+                      className="group w-full grid grid-cols-12 gap-6 items-baseline py-7 md:py-9 text-left hover:bg-foreground/[0.03] transition-colors px-2 -mx-2"
+                    >
+                      <div className="col-span-2 md:col-span-1 font-mono text-[10px] tracking-[0.25em] text-muted-foreground">
+                        {p.badge.split(" · ")[0]}
+                      </div>
+                      <div className="col-span-9 md:col-span-5">
+                        <h3 className="font-serif italic text-[28px] md:text-[40px] tracking-[-0.02em] leading-[1.05]">{p.name}</h3>
+                      </div>
+                      <div className="hidden md:block col-span-5 font-mono text-[11px] tracking-[0.18em] uppercase text-muted-foreground">
+                        {p.price} {p.unit} · {p.contract}
+                      </div>
+                      <div className="col-span-1 flex justify-end">
+                        {isOpen ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5 text-foreground/50 group-hover:text-foreground transition-colors" />}
+                      </div>
+                    </button>
+                    <div className={`grid transition-[grid-template-rows] duration-500 ease-out ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
+                      <div className="overflow-hidden">
+                        <div className="grid grid-cols-12 gap-6 pb-10 px-2 -mx-2">
+                          <div className="hidden md:block md:col-span-1" />
+                          <ul className="col-span-12 md:col-span-11 grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-2.5">
+                            {p.details.map((d) => (
+                              <li key={d} className="flex gap-3 font-thai text-[13.5px] leading-[1.55] text-foreground/75">
+                                <span className="text-foreground/40">—</span>
+                                <span>{d}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 03 · WHAT WE DO — 3-col, no images, sync names with Index */}
       <section className="px-6 md:px-10 border-t border-foreground">
         <div className="max-w-[1280px] mx-auto py-20 md:py-28">
@@ -327,86 +403,10 @@ const Services = () => {
         </div>
       </section>
 
-      {/* 05 · PACKAGES */}
-      <section id="packages" className="px-6 md:px-10 border-t border-foreground">
-        <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-          <PageMark index="04" total="06" />
-          <div className="flex items-end justify-between gap-8 flex-wrap">
-            <Reveal>
-              <h2 className="font-serif text-[40px] md:text-[72px] lg:text-[96px] leading-[1.0] tracking-[-0.03em] max-w-[16ch]">
-                Pick yours in <em className="text-orion italic">30 seconds.</em>
-              </h2>
-            </Reveal>
-            <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground">VALID 30 DAYS</p>
-          </div>
-          <Reveal delay={0.1}>
-            <p className="mt-8 font-serif italic text-[18px] md:text-[20px] text-muted-foreground max-w-[640px] leading-[1.5]">
-              → ไม่แน่ใจ? เริ่มที่ <em className="text-orion not-italic font-serif">Pro</em>. คุ้มที่สุดใน 3 เดือนแรก.
-            </p>
-          </Reveal>
-
-          <div className="mt-14 md:mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-stretch">
-            {packages.map((p) => <PackageCard key={p.key} p={p} />)}
-          </div>
-
-          <p className="mt-10 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground text-center">
-            All packages include — Strategy · In-house production · Monthly report
-          </p>
-
-          {/* Package details accordion */}
-          <div className="mt-20 md:mt-24">
-            <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground mb-6">— PACKAGE DETAILS</p>
-            <div className="border-t border-foreground">
-              {packages.map((p) => {
-                const isOpen = openPkg === p.key;
-                return (
-                  <div key={p.key} className="border-b border-foreground/15">
-                    <button
-                      type="button"
-                      onClick={() => setOpenPkg(isOpen ? null : p.key)}
-                      aria-expanded={isOpen}
-                      className="group w-full grid grid-cols-12 gap-6 items-baseline py-7 md:py-9 text-left hover:bg-foreground/[0.03] transition-colors px-2 -mx-2"
-                    >
-                      <div className="col-span-2 md:col-span-1 font-mono text-[10px] tracking-[0.25em] text-muted-foreground">
-                        {p.badge.split(" · ")[0]}
-                      </div>
-                      <div className="col-span-9 md:col-span-5">
-                        <h3 className="font-serif italic text-[28px] md:text-[40px] tracking-[-0.02em] leading-[1.05]">{p.name}</h3>
-                      </div>
-                      <div className="hidden md:block col-span-5 font-mono text-[11px] tracking-[0.18em] uppercase text-muted-foreground">
-                        {p.price} {p.unit} · {p.contract}
-                      </div>
-                      <div className="col-span-1 flex justify-end">
-                        {isOpen ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5 text-foreground/50 group-hover:text-foreground transition-colors" />}
-                      </div>
-                    </button>
-                    <div className={`grid transition-[grid-template-rows] duration-500 ease-out ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
-                      <div className="overflow-hidden">
-                        <div className="grid grid-cols-12 gap-6 pb-10 px-2 -mx-2">
-                          <div className="hidden md:block md:col-span-1" />
-                          <ul className="col-span-12 md:col-span-11 grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-2.5">
-                            {p.details.map((d) => (
-                              <li key={d} className="flex gap-3 font-thai text-[13.5px] leading-[1.55] text-foreground/75">
-                                <span className="text-foreground/40">—</span>
-                                <span>{d}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 06 · FAQ */}
+      {/* 05 · FAQ */}
       <section className="px-6 md:px-10 border-t border-foreground">
         <div className="max-w-[1000px] mx-auto py-20 md:py-28">
-          <PageMark index="05" total="06" />
+          <PageMark index="05" total="05" />
           <Reveal>
             <h2 className="font-serif text-[40px] md:text-[72px] lg:text-[96px] leading-[1.0] tracking-[-0.03em]">
               คำถามที่ <em className="text-orion italic">พบบ่อย.</em>
@@ -441,20 +441,12 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Marquee strip */}
-      <section className="bg-foreground text-background border-y border-foreground py-6 overflow-hidden">
-        <SimpleMarquee
-          items={["BRANDING", "FILM PRODUCTION", "SOCIAL MEDIA", "PAID ADS", "STRATEGY", "PHOTOGRAPHY"]}
-          duration={45}
-        />
-      </section>
-
       <ClosingCTA
         eyebrow="NEXT STEPS"
-        title={<>เริ่มต้น <em className="text-orion italic">ทำงานร่วมกัน.</em></>}
-        description="ติดต่อทีมงานเพื่อนัด Kick-off Meeting · 30-min discovery call ฟรี"
+        title={<>Tell us about <em className="text-orion italic">the brand.</em></>}
+        description="30-min discovery call. Free. We reply within 24 hours."
         ctas={[
-          { label: "Book a discovery call", to: "/contact" },
+          { label: "Get a free proposal", to: "/contact" },
           { label: "See our work", to: "/work", variant: "ghost" },
         ]}
         email="hello@orions.agency"

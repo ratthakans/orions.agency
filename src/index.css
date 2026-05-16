@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Sarabun:wght@400;500;600&family=Taviraj:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Bai+Jamjuree:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -78,6 +78,9 @@
 
 @layer utilities {
   .font-display { font-family: 'Cormorant Garamond', 'IBM Plex Sans Thai', serif; font-weight: 600; letter-spacing: -0.015em; }
+  .font-th-sarabun { font-family: 'Sarabun', 'Cormorant Garamond', serif; }
+  .font-th-taviraj { font-family: 'Taviraj', 'Cormorant Garamond', serif; }
+  .font-th-baijam  { font-family: 'Bai Jamjuree', 'Inter', sans-serif; }
   .font-body    { font-family: 'Inter', 'IBM Plex Sans Thai', sans-serif; }
   .font-mono    { font-family: 'JetBrains Mono', monospace; }
   .font-thai    { font-family: 'IBM Plex Sans Thai', 'Inter', sans-serif; text-transform: none; font-weight: 400; letter-spacing: 0.005em; line-height: 1.7; }

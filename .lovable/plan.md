@@ -1,35 +1,94 @@
-# Thai Font A/B Page
+# Plan — ØRIONS rebuild (multi-page) with new design system
 
-สร้างหน้าเดียว `/type-thai` (ไม่ลิงก์จาก nav) เพื่อเทียบฟอนต์ไทย 3 ตัวเคียงข้างกันบน layout จริงของ ØRIONS
+## 1. New design system
 
-## เพิ่ม fonts
-แก้ `index.html` เพิ่ม Google Fonts:
-- Sarabun (400, 500, 600)
-- Taviraj (400, 500, 600 + italic)
-- Bai Jamjuree (400, 500, 600)
+**Colors** (replace Collins cream/ink + remove all "orion/gemini" tones):
+- `--background` Snow `#fdfdf9`
+- `--foreground` Black Russian `#0e0e0e`
+- `--accent` Cinnabar `#eb5939` (used for italic headline accents, mono labels, key numbers, hover states — sparingly)
+- `--muted-foreground` neutral grey derived from ink
+- Hairline `#0e0e0e / 15%`
+- Keep zero-radius, hairline-only, no shadows/gradients (rule unchanged)
 
-## เพิ่ม utility classes ใน `src/index.css`
-- `.font-th-sarabun`, `.font-th-taviraj`, `.font-th-baijam` (font-family override เฉพาะ block)
+**Typography** (full swap):
+| Role | Font |
+|---|---|
+| Display / UI / body | **Inter** (400/500/600) |
+| Editorial / serif headlines + italic accents | **Newsreader** (400 + italic 400/500) |
+| Mono labels, eyebrows, numerals | **IBM Plex Mono** (400/500) |
+| Thai fallback | **IBM Plex Sans Thai** (kept for Thai readability) |
 
-## หน้าใหม่ `src/pages/TypeThai.tsx`
-Layout: 3 คอลัมน์ (stack บน mobile) บน cream bg, hairline แบ่งคอลัมน์
+Replace existing `font-serif` (Cormorant) → Newsreader, `font-sans` → Inter, `font-mono` → IBM Plex Mono. Remove Sarabun + Cormorant + JetBrains Mono imports.
 
-แต่ละคอลัมน์มี:
-1. **Label มono** ด้านบน — ชื่อฟอนต์ + คู่กับ (serif/sans) + license
-2. **Headline ผสม** — `Cormorant Garamond` คำอังกฤษ + คำไทยด้วยฟอนต์นั้น เช่น *"From idea to <em>ภาพสุดท้าย</em> — one team"*
-3. **Sub copy** 1–2 บรรทัด ไทยล้วน
-4. **Body paragraph** ~4 บรรทัด (Tone Block ภาษาไทย)
-5. **Bullet list** บริการ
-6. **Numerals + mono row** (1234567890 / ๑๒๓๔๕๖๗๘๙๐)
-7. **CTA button** สไตล์ปัจจุบัน
+Update:
+- `index.html` Google Fonts link
+- `src/index.css` (tokens, font-family, base styles, `.h-display-*` utilities)
+- `tailwind.config.ts` (`fontFamily`, color tokens, remove `text-orion` / `text-gemini` legacy)
+- `mem://index.md`, `mem://style/aesthetic`, `mem://style/typography` updated to reflect Snow/Cinnabar + Inter/Newsreader/Plex Mono
 
-ด้านบนหน้า: PageHero สั้น ๆ "Thai Type Test" + บรรทัดอธิบายว่าให้สังเกตอะไร (น้ำหนัก, ความสูง x-height, การคู่กับ Cormorant/Inter)
+## 2. Page structure (NOT a single landing)
 
-ด้านล่าง: ตารางสรุปสั้น ๆ (character | feel | best for) + ช่องว่างให้เลือก
+Content from the uploaded HTML is broken into 6 routes. Each page has its own hero, mono section label, serif headline with Cinnabar italic accent.
 
-## Routing
-เพิ่ม route `/type-thai` ใน `src/App.tsx` (lazy import ถ้าใช้ pattern เดิม)
+```
+/                  Home — short index page
+                   • Hero: "Stories, refined."
+                   • Marquee of services
+                   • 4 framed links → Manifesto / Approach / Services / Health Check
+                   • Footer CTA
 
-## ไม่แตะ
-- Nav, หน้าอื่น, design tokens, memory, ฟอนต์หลัก
-- ไม่เปลี่ยน font ไทยจริงของไซต์จนกว่าคุณจะเลือก
+/manifesto         Section 01 Manifesto (dark bg)
+                   • "The New Landscape" + 3 pains
+                   • Big italic quote
+                   • Mission line in Cinnabar
+                   • Links to /approach
+
+/approach          Approach (groups sections 02–05)
+                   • 02 Three Pillars (3-col hairline grid)
+                   • 03 Data-Refined Creative
+                   • 04 The 6:3:1 System (huge serif formula)
+                   • 05 Beyond Content — Brand Journey
+
+/services          Services + Packages (sections 07 + 08)
+                   • Intro
+                   • 08 Packages — 3 tiers, hairline cards
+                   • 07 Find Your Tier — static decision matrix
+                     (no interactive quiz state — presented as a guide)
+                   • Promise (section 09) appended as trust block
+
+/health-check      Section 06 — interactive Creative Health Check
+                   • Multi-step questionnaire with progress bar
+                   • Radial result card
+                   • Local-state only (no backend)
+
+/contact           CTA + contact details
+                   • "Ready to refine your story?"
+                   • Mailto + studio info (kept from current Contact)
+```
+
+Retire / fold in:
+- `/about` → redirected to `/manifesto` (or kept as alias)
+- `/pricing` → redirected to `/services`
+- `/work`, `/style`, `/type-thai` — left as-is unless you want them removed (please confirm)
+
+## 3. Shared components to update
+
+- `Nav.tsx` — links: Manifesto · Approach · Services · Health Check · Contact
+- `PageHero.tsx` — restyle to mono eyebrow + Newsreader headline + Cinnabar italic
+- `SectionHeader.tsx` — mono label with leading hairline (as in source HTML)
+- `CTA.tsx` — pill button with Cinnabar fill variant
+- `Footer.tsx` — minor color swap
+
+## 4. Technical notes
+
+- All colors via HSL tokens in `index.css`; no hex in components.
+- Italic accents continue to use `<em className="italic">…</em>`; legacy `text-orion`/`text-gemini` classes get removed (now `text-accent`).
+- IBM Plex Sans Thai stays as Thai fallback only — Inter handles Latin, Newsreader handles serif Latin, Thai chars fall through to Plex Sans Thai.
+- Health Check uses local React state only (no DB).
+- SEO.tsx updated per-page titles/descriptions.
+
+## 5. Open questions
+
+1. Keep `/work`, `/style`, `/type-thai` pages or remove them?
+2. Health Check — keep multi-step interactive version, or simplify to static "10 signs" checklist?
+3. Home page — minimal index (as above) or even more minimal (hero + single CTA to Manifesto)?

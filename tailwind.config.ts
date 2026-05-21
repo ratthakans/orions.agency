@@ -52,11 +52,12 @@ export default {
         },
       },
       fontFamily: {
-        display: ["Unbounded", "Inter", "IBM Plex Sans Thai", "sans-serif"],
+        display: ["Inter", "IBM Plex Sans Thai", "sans-serif"],
         body: ["Inter", "IBM Plex Sans Thai", "sans-serif"],
-        mono: ["JetBrains Mono", "monospace"],
+        serif: ["Newsreader", "IBM Plex Sans Thai", "Georgia", "serif"],
+        mono: ["IBM Plex Mono", "ui-monospace", "monospace"],
         thai: ["IBM Plex Sans Thai", "Inter", "sans-serif"],
-        brand: ["Unbounded", "sans-serif"],
+        brand: ["Inter", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -2,10 +2,11 @@ import { useState, useEffect } from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
 
 const links = [
+  { label: "Manifesto", to: "/manifesto" },
+  { label: "Approach", to: "/approach" },
   { label: "Services", to: "/services" },
+  { label: "Health Check", to: "/health-check" },
   { label: "Work", to: "/work" },
-  { label: "Pricing", to: "/pricing" },
-  { label: "About", to: "/about" },
   { label: "Contact", to: "/contact" },
 ];
 

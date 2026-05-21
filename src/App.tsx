@@ -8,12 +8,11 @@ import Layout from "./components/Layout";
 import ScrollToTop from "./components/ScrollToTop";
 import Index from "./pages/Index";
 import Services from "./pages/Services";
-import Pricing from "./pages/Pricing";
+import Manifesto from "./pages/Manifesto";
+import Approach from "./pages/Approach";
+import HealthCheck from "./pages/HealthCheck";
 import Work from "./pages/Work";
-import About from "./pages/About";
 import Contact from "./pages/Contact";
-import Style from "./pages/Style";
-import TypeThai from "./pages/TypeThai";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,13 +27,12 @@ const App = () => (
         <Layout>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/manifesto" element={<Manifesto />} />
+            <Route path="/approach" element={<Approach />} />
             <Route path="/services" element={<Services />} />
-            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/health-check" element={<HealthCheck />} />
             <Route path="/work" element={<Work />} />
-            <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/style" element={<Style />} />
-            <Route path="/type-thai" element={<TypeThai />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>

@@ -5,8 +5,8 @@ const links = [
   { label: "Manifesto", to: "/manifesto" },
   { label: "Approach", to: "/approach" },
   { label: "Services", to: "/services" },
-  { label: "Health Check", to: "/health-check" },
   { label: "Work", to: "/work" },
+  { label: "Health Check", to: "/health-check" },
   { label: "Contact", to: "/contact" },
 ];
 
@@ -35,10 +35,43 @@ const Nav = () => {
           ØRIONS
         </Link>
 
+        {/* Desktop inline links */}
+        <nav className="hidden md:flex items-center gap-7">
+          {links.map((l) => {
+            const isContact = l.to === "/contact";
+            return (
+              <NavLink
+                key={l.to}
+                to={l.to}
+                className={({ isActive }) =>
+                  `relative font-mono text-[11px] tracking-[0.18em] uppercase text-white transition-opacity duration-200 ${
+                    isActive ? "opacity-100" : "opacity-60 hover:opacity-100"
+                  } ${isContact ? "inline-flex items-center gap-1.5" : ""}`
+                }
+              >
+                {({ isActive }) => (
+                  <>
+                    <span className="whitespace-nowrap">
+                      {l.label === "Health Check" ? "Health\u00a0Check" : l.label}
+                    </span>
+                    {isContact && <span aria-hidden>→</span>}
+                    {isActive && (
+                      <span
+                        aria-hidden
+                        className="absolute left-0 right-0 -bottom-1 h-px bg-cinnabar"
+                      />
+                    )}
+                  </>
+                )}
+              </NavLink>
+            );
+          })}
+        </nav>
+
         <button
           aria-label={open ? "Close menu" : "Open menu"}
           onClick={() => setOpen((v) => !v)}
-          className="relative w-8 h-8 flex flex-col items-end justify-center gap-[6px] text-white"
+          className="md:hidden relative w-8 h-8 flex flex-col items-end justify-center gap-[6px] text-white"
         >
           <span
             className={`block h-px bg-white transition-all duration-300 ${

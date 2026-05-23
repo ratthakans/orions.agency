@@ -1,59 +1,67 @@
 ## Plan
 
-### 1) Services — pricing wording
-- เปลี่ยนทั้ง 3 แพ็กเกจให้ใช้คำว่า **"Start from"** นำหน้าราคา
-  - Starter: `Start from ฿35,000`
-  - Pro: `Start from ฿69,000`
-  - Elite: `Start from ฿139,000`
-- ปรับขนาด/น้ำหนัก: คำว่า "Start from" เป็น mono caption เล็กๆ เหนือราคาเพื่อไม่ทำลายลำดับ visual
+### 1) Homepage — "Index" → mini-manifesto section
+ใน `src/pages/Index.tsx` แทนที่ section `01 — Index` (รายการ 4 ลิงก์ใหญ่) ด้วย **Mini-Manifesto** แบบย่อ:
+- mono label `01 — Manifesto`
+- headline editorial สั้น (serif) + ประโยคย่อย Thai
+- 3 ข้อย่อย (สอดคล้องกับ About): **ตัดส่วนเกิน · สกัดเนื้อแท้ · กลั่นกรองเรื่องราว** — แต่ละข้อมีคำอธิบายสั้น 1-2 บรรทัด
+- ปิดด้วย CTA inline: "Read the full manifesto →" → `/about`
+- (รายการ index pages 4 ลิงก์เดิม **ตัดออก** — Nav มีครบอยู่แล้ว)
 
-### 2) Diagnostic — ขยายเป็น 18 ข้อ + result page แบบละเอียด + แนะนำ package
-**Quiz expansion (18 questions, 3 ต่อ axis × 6 axes):**
-- เพิ่มคำถามอีก axis ละ 1 ข้อให้ครอบคลุมมิติย่อย เช่น Clarity เพิ่มเรื่อง positioning statement, Data เพิ่มเรื่อง measurement framework, Strategy เพิ่มเรื่อง competitor differentiation
-- ปรับ progress bar/axis dots ให้สะท้อน 18 ข้อ (state shape เป็น `Array(18)`)
+### 2) Homepage — Selected Work เปลี่ยนเป็น card grid เรียงกัน
+แทน layout 1 large + 3 stack ปัจจุบัน → **uniform card grid 4 ใบเรียงกัน**:
+- Desktop: `grid-cols-4`, Tablet: `grid-cols-2`, Mobile: `grid-cols-1`
+- ทุกการ์ดขนาดเท่ากัน (aspect ratio เดียวกัน, เช่น 4/5 หรือ 3/4) — รูป + meta (n + niche), title, impact
+- คงสไตล์ hairline border, hover scale, zero-radius
+- ปุ่ม "See all work →" คงไว้
 
-**Result page (ขยายจากเดิม):**
-- Overall score + tier (เดิม) — คงไว้
-- เพิ่ม **per-axis insight card** — แต่ละ axis แสดง:
-  - คะแนน + bar
-  - **คำวินิจฉัยสั้น (1-2 บรรทัด)** ตามช่วงคะแนน (Strong / Developing / Gap)
-  - **Next action** 1 ข้อต่อ axis (เช่น "สร้าง voice framework" / "วาง content calendar 90 วัน")
-- เพิ่ม **Recommended Package block** — เลือกแพ็กเกจตาม overall %:
-  - 0-44% → **Starter** (Data-Informed Loop)
-  - 45-74% → **Pro** (Data-Tested Loops)
-  - 75-100% → **Elite** (Data-Strategy Lab)
-  - การ์ดสรุปแพ็กเกจ + เหตุผลสั้น 2 บรรทัด + CTA "See full package →" → `/services`
-- เพิ่ม **Top 3 priority axes** (เรียงจาก gap มาก→น้อย) เป็น checklist เรียบๆ
-- CTA สุดท้าย: "Book a free consult" → `/contact`, "Take again" คงไว้
+### 3) เพิ่มหน้าใหม่ `/projects` (ØRIONS Startup Projects)
+หน้าใหม่เพื่อโชว์ในเครือ/startup projects:
+- ไฟล์: `src/pages/Projects.tsx`
+- Route ใหม่ใน `src/App.tsx`: `/projects` → `Projects`
+- เพิ่มลิงก์ใน `src/components/Nav.tsx` (และ Footer ถ้ามี) — label `"Projects"` หรือ `"Ventures"` (จะใช้ **Ventures** เพื่อสื่อ startup arm ชัดกว่า)
+- เพิ่มใน `public/sitemap.xml`
+- Content:
+  - Hero: mono `00 — Ventures`, headline editorial เช่น *"Studios build for clients. <em>We build for ourselves, too.</em>"* + ย่อย Thai
+  - 2 การ์ดใหญ่ (ขนาดเท่ากัน, asymmetric editorial หรือ 2-col grid):
+    1. **Routte** — `https://routte.to/` — tagline + 2-3 บรรทัด, tag (เช่น Travel · Itinerary), CTA "Visit →" เปิด tab ใหม่
+    2. **First Draft Pro** — `https://firstdraftpro.co/` — tagline + body, tag (Writing · AI), CTA "Visit →"
+  - Closing block: "More coming. Built in Bangkok by ØRIONS." + CTA contact
+- ใช้ design tokens เดิม (snow bg, cinnabar accent, hairlines, zero radius)
+- **หมายเหตุ:** content ของแต่ละ venture จะเขียน placeholder copy ที่เหมาะกับ domain (Routte = travel routing/itinerary, First Draft Pro = AI writing assistant) — ถ้าไม่ตรงกับจริง ผู้ใช้แก้ทีหลังได้
 
-### 3) Homepage — เพิ่ม section ใหม่ (4 sections ตามที่ user เลือก)
-ใส่ระหว่าง **Index links** กับ **footer**, เรียงตามลำดับ:
-
-1. **Selected Work** (preview 3-4 ชิ้น)
-   - mono label `02 — Selected Work`
-   - editorial grid: 1 large + 2 small (asymmetric) ใช้ placeholders จาก `/public` หรือดึงจาก Work page list
-   - link card → `/work`
-2. **Process — 6:3:1 System**
-   - mono label `03 — Process`
-   - 3 คอลัมน์ใหญ่: **6 Reels · 3 Static · 1 Hero** + คำอธิบายสั้นใต้แต่ละตัวเลขแบบ editorial
-   - หรือใช้ตัวเลข display ใหญ่ (font-serif h-display) เพื่อความ bold
-3. **Trusted by / Testimonials**
-   - mono label `04 — Trusted`
-   - 2 testimonial quotes แบบ pull-quote (serif italic ใหญ่) + ชื่อ/บริษัท
-   - แถบ logo wordmark grid (5-6 ชื่อ) ด้านล่าง — ใช้ text wordmarks (Inter tracked) ไม่ใช่ logo จริง เพราะยังไม่มี assets
-4. **Services preview** (3 tiers ย่อ)
-   - mono label `05 — Packages`
-   - 3 การ์ดเรียงแถวเดียว: tier symbol + ชื่อ + start from price + 1 บรรทัด tagline
-   - CTA: "See all packages →" → `/services`
-
-ปรับเลขที่ Index section ของ homepage ใหม่ให้ไม่ชน (Index เป็น `01`)
+### 4) About — เพิ่ม section "Our Team"
+ใน `src/pages/About.tsx` เพิ่ม section ใหม่ก่อน CTA สุดท้าย (หรือก่อน Beyond Content):
+- mono label `07 — Our Team`
+- headline: e.g. *"15 people. <em>One studio.</em>"*
+- ย่อยสั้นๆ
+- **Grid 15 ใบ** (responsive 2/3/5 cols) — แต่ละใบมี:
+  - Role label (mono, uppercase) เช่น "CEO", "Founder", "Creative Director"
+  - ชื่อ: **placeholder "—"** หรือ comment `{/* TODO: name */}` (ตามที่ user บอก "ยังไม่ต้องใส่ชื่อ เขียนเอาไว้กันลืม")
+- รายชื่อ roles ที่เก็บไว้ใน array (comment พี่ชื่อจริงไว้ในโค้ดสำหรับอ้างอิงภายหลัง):
+  1. CEO — พี่น้ำ
+  2. Founder — พี่เตอร์
+  3. Creative Director — พี่แมน
+  4. Marketing Director — พี่เรย์
+  5. Director — พี่โจ
+  6. Creative — พี่รมมี่
+  7. Ads Specialist — พี่เต้
+  8. Art Director — พี่โซนี่
+  9. Post Supervisor — พี่ชุ
+  10. Editor — พี่สตั้น
+  11. Project Coordinator — พี่ทีม
+  12. Social Media Manager — พี่เปอร์
+  13. DOP — พี่เต
+  14. Project Manager — พี่น้ำฝน
+  15. Admin — พี่เอธ
 
 ### Files
-- edit `src/pages/Services.tsx` (pricing wording)
-- edit `src/pages/HealthCheck.tsx` (18 questions, result page expansion, package recommendation logic)
-- edit `src/pages/Index.tsx` (เพิ่ม 4 sections)
-- ไม่ต้องสร้างไฟล์ใหม่ ไม่แตะ DB/backend
+- edit `src/pages/Index.tsx` — แทน Index section ด้วย mini-manifesto + เปลี่ยน Selected Work เป็น 4-card grid
+- create `src/pages/Projects.tsx` — หน้าใหม่ Ventures
+- edit `src/App.tsx` — เพิ่ม route `/projects`
+- edit `src/components/Nav.tsx` — เพิ่มลิงก์ Ventures
+- edit `src/components/Footer.tsx` — เพิ่มลิงก์ (ถ้ามี nav list)
+- edit `public/sitemap.xml` — เพิ่ม `/projects`
+- edit `src/pages/About.tsx` — เพิ่ม section `07 — Our Team`
 
-### หมายเหตุ
-- ทุก section ใช้ design tokens เดิม: snow bg, cinnabar accent, hairlines, zero radius, mono labels ตาม pattern `NN — Title`
-- Testimonials ใช้ placeholder content (จะใส่ "Replace with real quote" comment) เพราะยังไม่มีข้อมูลจริง — ถ้าต้องการ quote จริงสามารถส่งมาเปลี่ยนภายหลัง
+ไม่แตะ DB / backend / auth

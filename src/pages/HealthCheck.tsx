@@ -203,7 +203,7 @@ const HealthCheck = () => {
           <Reveal>
             <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
               <span className="block w-6 h-px bg-cinnabar" />
-              06 — The Diagnostic
+              01 — The Diagnostic
             </div>
           </Reveal>
           <Reveal delay={0.1}>

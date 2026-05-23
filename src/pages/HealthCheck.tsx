@@ -193,7 +193,7 @@ const HealthCheck = () => {
     <div>
       <SEO
         title="The Diagnostic — ØRIONS"
-        description="18 questions across 6 axes. 3 minutes. Get a refined-quality score + per-axis ins
+        description="18 questions across 6 axes. 3 minutes. Get a refined-quality score + per-axis insight + a recommended package."
         path="/diagnostic"
       />
 
@@ -215,7 +215,7 @@ const HealthCheck = () => {
             <p className="mt-10 max-w-[680px] font-thai text-[15px] md:text-[17px] leading-[1.7] text-muted-foreground">
               ตรวจสุขภาพแบรนด์ของคุณใน 6 มิติ — Brand Clarity, Content Consistency, Data Maturity, Creative Craft, Audience Connection, และ Strategic Direction.
               <br /><br />
-              12 คำถาม · ใช้เวลา 2 นาที · รับ Health Report ทันที
+              18 คำถาม · ใช้เวลา 3 นาที · รับ Health Report + แนะนำแพ็กเกจที่เหมาะกับคุณทันที
             </p>
           </Reveal>
         </div>

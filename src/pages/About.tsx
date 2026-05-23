@@ -27,12 +27,6 @@ const data = [
   { sym: "◒", en: "ฟังตัวเลข", th: "Performance Loop ที่ปรับ creative ตาม data จริง — ทุกชิ้นที่ส่งไป กลับมาเป็น insight สำหรับชิ้นต่อไป" },
 ];
 
-const loops = [
-  { n: "6", stage: "Open Funnel", en: "Short-form Videos", th: "ดึงสายตาจากความเงียบ เอาชนะ ADHD ด้วย Hook 3 วินาทีแรกที่กลั่นจาก Data" },
-  { n: "3", stage: "Build Core",  en: "Static Posts",      th: "เล่าเนื้อแท้ สร้างความเชื่อใจ ให้มนุษย์สัมผัสมนุษย์ — ไม่ใช่ AI" },
-  { n: "1", stage: "Close Deal",  en: "Horizontal Hero",   th: "งานชิ้นโบแดงที่สะกดใจ เปลี่ยนคนดูเป็นแฟนพันธุ์แท้" },
-];
-
 const beyond = [
   { sym: "◐", en: "Signature Campaign", th: "Big idea ที่ทำงานข้าม 6:3:1 Loop ทั้งหมด — เปลี่ยนเดือนธรรมดา ให้เป็นช่วงเวลาที่แบรนด์เป็นที่จดจำ" },
   { sym: "◑", en: "Audience Lifecycle", th: "จาก awareness → trust → purchase → loyalty — แต่ละ stage เราออกแบบ message ที่ใช่" },

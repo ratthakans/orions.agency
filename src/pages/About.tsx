@@ -39,6 +39,25 @@ const beyond = [
   { sym: "◒", en: "Long-term Bond",     th: "เพราะการได้ลูกค้าใหม่ ต้นทุน 5 เท่าของรักษาลูกค้าเก่า — เราสร้างความสัมพันธ์ที่อยู่ได้ยาว" },
 ];
 
+// Team — roles only for now (names kept in comments for future reference)
+const team = [
+  { role: "CEO" },                    // พี่น้ำ
+  { role: "Founder" },                // พี่เตอร์
+  { role: "Creative Director" },      // พี่แมน
+  { role: "Marketing Director" },     // พี่เรย์
+  { role: "Director" },               // พี่โจ
+  { role: "Creative" },               // พี่รมมี่
+  { role: "Ads Specialist" },         // พี่เต้
+  { role: "Art Director" },           // พี่โซนี่
+  { role: "Post Supervisor" },        // พี่ชุ
+  { role: "Editor" },                 // พี่สตั้น
+  { role: "Project Coordinator" },    // พี่ทีม
+  { role: "Social Media Manager" },   // พี่เปอร์
+  { role: "DOP" },                    // พี่เต
+  { role: "Project Manager" },        // พี่น้ำฝน
+  { role: "Admin" },                  // พี่เอธ
+];
+
 const SectionLabel = ({ index, label, tone = "ink" }: { index: string; label: string; tone?: "ink" | "snow" }) => (
   <Reveal>
     <div
@@ -254,8 +273,50 @@ const About = () => (
             </Reveal>
           ))}
         </div>
+      </div>
+    </section>
 
-        <Reveal delay={0.3}>
+    {/* 07 — OUR TEAM */}
+    <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+        <SectionLabel index="07" label="Our Team" />
+        <Reveal delay={0.1}>
+          <h2 className="mt-10 font-serif h-display-lg max-w-[22ch]">
+            15 people. <em className="italic text-cinnabar">One studio.</em>
+          </h2>
+        </Reveal>
+        <Reveal delay={0.2}>
+          <p className="mt-8 max-w-[640px] font-thai text-[15px] md:text-[17px] leading-[1.7] text-muted-foreground">
+            ทีมเล็ก ที่ผ่านมือคนทุกชิ้น — ตั้งแต่ idea, production, post และ delivery จบในที่เดียว
+          </p>
+        </Reveal>
+
+        <div className="mt-16 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-px bg-foreground/15 border border-foreground/15">
+          {team.map((m, i) => (
+            <Reveal key={`${m.role}-${i}`} delay={(i % 5) * 0.04}>
+              <div className="bg-background p-6 md:p-7 h-full flex flex-col justify-between min-h-[140px]">
+                <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">
+                  {String(i + 1).padStart(2, "0")}
+                </div>
+                <div>
+                  <div className="font-serif text-[18px] md:text-[20px] leading-[1.15] tracking-[-0.015em]">
+                    {m.role}
+                  </div>
+                  <div className="mt-2 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
+                    —
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* CTA */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+        <Reveal delay={0.1}>
           <div className="mt-24 flex flex-wrap items-center gap-5">
             <Link
               to="/services"

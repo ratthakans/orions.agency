@@ -41,11 +41,22 @@ const servicesPreview = [
   { sym: "◒", tier: "Elite",   name: "Data-Strategy Lab",  price: "Start from ฿139,000", tag: "Become a name remembered." },
 ];
 
-const indexLinks = [
-  { n: "01", to: "/about",       title: "About",          th: "สิ่งที่เราเชื่อ และวิธีที่เราทำงาน — Manifesto + Approach ในที่เดียว" },
-  { n: "02", to: "/services",    title: "Services",       th: "3 ระดับ · 1 เป้าหมาย — แพ็กเกจที่ออกแบบรอบ Content Loop" },
-  { n: "03", to: "/work",        title: "Work",           th: "Selected case studies — ผลงานที่เรา refined แล้วภูมิใจ" },
-  { n: "04", to: "/diagnostic",  title: "The Diagnostic", th: "12 คำถาม · 2 นาที — รู้ว่าแบรนด์คุณ refined แค่ไหน" },
+const manifestoPoints = [
+  {
+    n: "i.",
+    en: "ตัดส่วนเกิน",
+    th: "ในโลกที่ทุกคนตะโกนเหมือนกัน — เราเลือกที่จะเงียบลง เพื่อให้สิ่งที่พูดมีน้ำหนัก",
+  },
+  {
+    n: "ii.",
+    en: "สกัดเนื้อแท้",
+    th: "เราหา signal ในกองของ noise — เพื่อให้ทุกชิ้นที่ออกไป มีเหตุผลที่อยู่ตรงนั้น",
+  },
+  {
+    n: "iii.",
+    en: "กลั่นกรองเรื่องราว",
+    th: "เราคิดก่อนผลิต แก้ก่อนส่ง — ส่งมอบเฉพาะชิ้นที่เราภูมิใจให้แบรนด์ของคุณ",
+  },
 ];
 
 const marquee = ["Branding", "Social Media", "Creative Production", "Data-Refined", "Brand Journey"];
@@ -108,45 +119,50 @@ const Index = () => (
       </div>
     </section>
 
-    {/* INDEX of pages */}
+    {/* MINI MANIFESTO */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-24 md:py-32">
         <Reveal>
           <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
             <span className="block w-6 h-px bg-cinnabar" />
-            01 — Index
+            01 — Manifesto
           </div>
         </Reveal>
         <Reveal delay={0.1}>
-          <h2 className="mt-10 font-serif h-display-md max-w-[20ch]">
-            Four ways in. <em className="italic text-cinnabar">One studio.</em>
+          <h2 className="mt-10 font-serif h-display-md max-w-[22ch]">
+            Less, but <em className="italic text-cinnabar">refined.</em>
           </h2>
         </Reveal>
+        <Reveal delay={0.2}>
+          <p className="mt-8 max-w-[640px] font-thai text-[15px] md:text-[17px] leading-[1.7] text-muted-foreground">
+            เราไม่ใช่ content factory — เราคือ boutique studio ที่เชื่อในการทำงานสามขั้นตอนเดียวกันซ้ำๆ จนกว่าทุกชิ้นจะคมที่สุด
+          </p>
+        </Reveal>
 
-        <div className="mt-16 border-t border-foreground/20">
-          {indexLinks.map((l, i) => (
-            <Reveal key={l.to} delay={i * 0.06}>
-              <Link
-                to={l.to}
-                className="group block border-b border-foreground/20 py-8 md:py-10 grid grid-cols-12 gap-4 items-baseline transition-colors hover:bg-foreground/[0.02]"
-              >
-                <span className="col-span-2 md:col-span-1 font-mono text-[11px] tracking-[0.2em] text-cinnabar font-semibold">{l.n}</span>
-                <span className="col-span-10 md:col-span-4 font-serif text-[32px] md:text-[48px] tracking-[-0.02em] leading-[1] group-hover:italic group-hover:text-cinnabar transition-all">
-                  {l.title}
-                </span>
-                <span className="col-span-12 md:col-span-6 font-thai text-[14px] md:text-[15px] leading-[1.65] text-muted-foreground">
-                  {l.th}
-                </span>
-                <span className="col-span-12 md:col-span-1 md:justify-self-end opacity-50 group-hover:opacity-100 group-hover:text-cinnabar transition-all">
-                  <ArrowUpRight className="w-5 h-5" />
-                </span>
-              </Link>
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-px bg-foreground/15 border border-foreground/15">
+          {manifestoPoints.map((m, i) => (
+            <Reveal key={m.n} delay={i * 0.08}>
+              <div className="bg-background p-8 md:p-10 h-full flex flex-col">
+                <div className="font-serif italic text-cinnabar text-[18px]">{m.n}</div>
+                <h3 className="mt-8 font-serif text-[26px] md:text-[32px] leading-[1.15] tracking-[-0.02em]">
+                  {m.en}
+                </h3>
+                <p className="mt-5 font-thai text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">
+                  {m.th}
+                </p>
+              </div>
             </Reveal>
           ))}
         </div>
 
         <Reveal delay={0.3}>
-          <div className="mt-16 flex flex-wrap items-center gap-5">
+          <div className="mt-14 flex flex-wrap items-center gap-5">
+            <Link
+              to="/about"
+              className="group inline-flex items-center gap-2 btn-label border-b border-foreground pb-1 hover:text-cinnabar hover:border-cinnabar transition-colors"
+            >
+              Read the full manifesto →
+            </Link>
             <Link
               to="/contact"
               className="group inline-flex items-center gap-3 bg-cinnabar text-background px-7 py-4 btn-label hover:bg-foreground transition-colors duration-300"
@@ -154,12 +170,6 @@ const Index = () => (
               <span>Start a project</span>
               <ArrowUpRight className="w-4 h-4" />
             </Link>
-            <a
-              href="mailto:hello@orions.agency"
-              className="group inline-flex items-center gap-2 btn-label border-b border-foreground pb-1 hover:text-cinnabar hover:border-cinnabar transition-colors"
-            >
-              hello@orions.agency →
-            </a>
           </div>
         </Reveal>
       </div>
@@ -180,38 +190,21 @@ const Index = () => (
           </h2>
         </Reveal>
 
-        <div className="mt-16 grid grid-cols-12 gap-6 md:gap-8">
-          {/* Large hero */}
-          <Link to="/work" className="group col-span-12 md:col-span-8 block">
-            <div className="aspect-[16/10] overflow-hidden border border-foreground/15">
-              <img src={selectedWork[0].img} alt={selectedWork[0].title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" loading="lazy" />
-            </div>
-            <div className="mt-5 flex items-baseline justify-between gap-4">
-              <div>
-                <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">{selectedWork[0].n} — {selectedWork[0].niche}</div>
-                <div className="mt-2 font-serif text-[28px] md:text-[34px] tracking-[-0.02em] group-hover:italic group-hover:text-cinnabar transition-all">{selectedWork[0].title}</div>
+        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          {selectedWork.map((w) => (
+            <Link key={w.n} to="/work" className="group block">
+              <div className="aspect-[4/5] overflow-hidden border border-foreground/15">
+                <img src={w.img} alt={w.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" loading="lazy" />
               </div>
-              <div className="font-serif italic text-cinnabar text-[20px] md:text-[22px] shrink-0">{selectedWork[0].impact}</div>
-            </div>
-          </Link>
-
-          {/* Stack of 3 */}
-          <div className="col-span-12 md:col-span-4 flex flex-col gap-6 md:gap-8">
-            {selectedWork.slice(1).map((w) => (
-              <Link key={w.n} to="/work" className="group block">
-                <div className="aspect-[16/10] overflow-hidden border border-foreground/15">
-                  <img src={w.img} alt={w.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" loading="lazy" />
+              <div className="mt-4 flex items-baseline justify-between gap-3">
+                <div>
+                  <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">{w.n} — {w.niche}</div>
+                  <div className="mt-2 font-serif text-[22px] md:text-[24px] tracking-[-0.02em] leading-[1.05] group-hover:italic group-hover:text-cinnabar transition-all">{w.title}</div>
                 </div>
-                <div className="mt-3 flex items-baseline justify-between gap-3">
-                  <div>
-                    <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">{w.n} — {w.niche}</div>
-                    <div className="mt-1 font-serif text-[18px] md:text-[20px] tracking-[-0.01em] group-hover:italic group-hover:text-cinnabar transition-all">{w.title}</div>
-                  </div>
-                  <div className="font-serif italic text-cinnabar text-[14px] shrink-0">{w.impact}</div>
-                </div>
-              </Link>
-            ))}
-          </div>
+                <div className="font-serif italic text-cinnabar text-[16px] md:text-[18px] shrink-0">{w.impact}</div>
+              </div>
+            </Link>
+          ))}
         </div>
 
         <Reveal delay={0.2}>

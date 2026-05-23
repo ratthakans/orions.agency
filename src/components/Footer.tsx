@@ -5,6 +5,7 @@ const navLinks = [
   { to: "/services", label: "Services" },
   { to: "/diagnostic", label: "The Diagnostic" },
   { to: "/work", label: "Work" },
+  { to: "/projects", label: "Ventures" },
   { to: "/contact", label: "Contact" },
 ];
 

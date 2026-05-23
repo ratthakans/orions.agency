@@ -1,93 +1,74 @@
-## ภาพรวม
+## Goal
 
-Finetune 5 จุดที่กระทบ design system มากที่สุดจาก review — งานเป็น UI/presentation ล้วน ไม่แตะ business logic หรือ backend
-
----
-
-## 1. Renumber section labels ทั้งไซต์ให้ตรง navigation order
-
-ปัจจุบัน `01–05` ใน Index, `08/07/09` ใน Services, `06` ใน HealthCheck — ดูสุ่ม
-
-**ลำดับใหม่ตาม nav order:**
-
-| Section | Number |
-|---|---|
-| Index — Manifesto block | `01 — Manifesto` |
-| Index — Selected Work | `02 — Selected Work` |
-| Index — Process | `03 — Process` |
-| Index — Trusted | `04 — Trusted` |
-| Index — Packages preview | `05 — Packages` |
-| `/manifesto` page sections | `06 — …` |
-| `/approach` page | `07 — …` |
-| `/services` Packages | `08 — Packages` |
-| `/services` Find Your Tier | `09 — Find Your Tier` |
-| `/services` Add-ons | `10 — Add-ons` |
-| `/diagnostic` (health-check) | `11 — The Diagnostic` |
-| `/work` sections | `12 — …` |
-
-**Files:** `src/pages/Index.tsx`, `src/pages/Services.tsx`, `src/pages/HealthCheck.tsx`, `src/pages/Work.tsx`, `src/pages/About.tsx` (manifesto), `src/pages/Projects.tsx` (approach) — เช็คและปรับให้ตรง
+1. Switch Manifesto headings (Index + About "Our Promise") from Thai to English to match the rest of the H3 hierarchy.
+2. Clean up inconsistencies found in the cross-page review.
 
 ---
 
-## 2. เปลี่ยน Index → Manifesto block เป็น editorial vertical list
+## A) Manifesto → English headings
 
-ตอนนี้ Index มี 3-col grid ซ้ำ 3 ครั้ง (Manifesto, Process, Packages preview) → ทำให้ rhythm เดาได้
+### `src/pages/Index.tsx` — `manifestoPoints`
+Keep `i. / ii. / iii.` and Thai body copy. Replace `en` strings:
 
-**Change:** Manifesto block (i / ii / iii) เปลี่ยนเป็น **full-width numbered rows** แทน grid:
-- แต่ละข้อเป็น row เต็มความกว้าง `grid-cols-[80px_1fr_2fr]` (roman numeral · EN heading · TH body)
-- คั่นด้วย hairline
-- Roman numeral ใหญ่ Cinnabar serif italic
-- ให้ Process (6:3:1) คงเป็น 3-col grid อย่างเดิม → contrast ระหว่าง 2 sections ชัดขึ้น
+| # | now (TH)           | new (EN)            |
+|---|--------------------|---------------------|
+| i  | ตัดส่วนเกิน         | **Cut the Excess**       |
+| ii | สกัดเนื้อแท้         | **Extract the Essence**  |
+| iii | กลั่นกรองเรื่องราว | **Refine the Story**     |
 
-**File:** `src/pages/Index.tsx` (manifestoPoints render block)
+### `src/pages/About.tsx` — `promises` (Our Promise block, same pattern as Index now)
+Replace Thai phrases in `en` with English headlines; keep Thai body:
 
----
-
-## 3. Demote Bundle Discount band เป็น ink-on-snow
-
-Services มี Cinnabar full-bleed 2 อันใกล้กัน (Founder's Deal + Bundle Discount) → accent อิ่มตัว
-
-**Change:** Bundle Discount เปลี่ยนเป็น:
-- `bg-background` + `border-y border-foreground` (hairlines บนล่าง)
-- Headline ink, italic "15% off, instantly." เป็น Cinnabar
-- ปุ่ม "Get a Quote" เป็น ink button (`bg-foreground text-background`) hover Cinnabar
-- เก็บ Cinnabar full-bleed ไว้แค่ Founder's Deal อันเดียว
-
-**File:** `src/pages/Services.tsx`
+| # | now (TH)                              | new (EN)                  |
+|---|----------------------------------------|----------------------------|
+| i  | ทุกชิ้นที่เราส่ง คือชิ้นที่เราภูมิใจ | **Work we're proud of.**   |
+| ii | เราจะตรงเวลา                          | **Always on time.**        |
+| iii | เราจะโปร่งใส                         | **Radically transparent.** |
 
 ---
 
-## 4. Add-ons table polish
+## B) Cross-page consistency findings & fixes
 
-**Change:**
-- ราคาเปลี่ยนจาก `font-mono text-[12px]` → `font-serif text-[20px] tabular-nums tracking-[-0.01em]` (ติด editorial feel เดียวกับชื่อ)
-- Hover state: ลบ `hover:bg-surface`, เปลี่ยนเป็น Cinnabar underline ที่ชื่อ add-on (`group` + `group-hover:underline decoration-cinnabar`)
-- เพิ่ม `tabular-nums` ที่ ราคา column ให้ตัวเลขเรียง
+### B1 — Hero type scale (Work, Contact)
+`src/pages/Work.tsx` and `src/pages/Contact.tsx` hand-roll hero H1 with `text-[52px] md:text-[88px] lg:text-[112px]`. Every other page uses the shared `h-display-xl` utility.
+→ Replace inline sizes with `className="font-serif h-display-xl ..."` (keep `max-w-[Xch]`).
 
-**File:** `src/pages/Services.tsx`
+### B2 — Stray legacy color token (Contact)
+`src/pages/Contact.tsx` line 77 uses `text-gemini` for the italic accent. Memory says it maps to Cinnabar, but every other italic accent in the site reads `text-cinnabar`.
+→ Replace `text-gemini` → `text-cinnabar` (one occurrence).
+
+### B3 — Section label pattern (Work, Contact)
+Work + Contact use `<PageMark index="01" total="04" />`, which renders a different visual than the `font-mono text-[10px] tracking-[0.22em] uppercase` + `w-6 h-px bg-cinnabar` rule used on Index, Services, HealthCheck, About, Projects.
+→ Inside Work and Contact, replace `PageMark` calls with the inline label pattern (same component-less snippet used elsewhere) so all 7 pages share one section-label style. Keep `total` count off — labels are per-page sequential (01, 02, …) like the rest.
+
+### B4 — Dead ternaries in Services
+`src/pages/Services.tsx` has several `p.featured ? "text-cinnabar" : "text-cinnabar"` ternaries (lines ~144, ~162). Both branches equal.
+→ Simplify to plain `"text-cinnabar"`.
+
+### B5 — Unused components (cleanup, optional but recommended)
+`src/components/SectionHeader.tsx` and `src/components/SectionLabel.tsx` are no longer referenced — every page uses the inline `font-mono + w-6 h-px bg-cinnabar` snippet directly.
+→ Delete both files to avoid drift.
 
 ---
 
-## 5. Index hero — ลบ `whitespace-nowrap` + ปรับ metrics row
+## What stays the same (intentional consistency)
 
-- ลบ `whitespace-nowrap` จาก H1 "Stories, refined." (กัน overflow บน viewport แคบ)
-- Metrics row (6:3:1 / Data-Refined / Industry Exclusivity) — ลด emphasis: ใช้ `font-mono text-[11px]` ทั้งหมด, ไม่ใช่ serif 26px → focal point กลับมาที่ headline เดียว
-
-**File:** `src/pages/Index.tsx`
+- **Per-page section numbering** restarts at `01` on each page — this matches editorial convention and reads correctly with the new mono section labels. Keeping.
+- **About page's own 01–07** numbering stays (full manifesto page has its own scope).
+- Hero composition: Index = centered, all other pages = left-aligned. Intentional asymmetry.
+- Cinnabar italic accent in every page H1/H2. Strong signature, keeping.
 
 ---
-
-## Out of scope
-
-- ไม่แตะ SelectedWorkReel swap (action #4 จาก review เดิม) — เก็บไว้รอบหน้าเพราะกระทบ Work page ด้วย
-- ไม่แตะ navigation, routing, backend, content copy
-- ไม่เพิ่ม dependencies
 
 ## Files touched
 
-- `src/pages/Index.tsx`
-- `src/pages/Services.tsx`
-- `src/pages/HealthCheck.tsx`
-- `src/pages/Work.tsx`
-- `src/pages/About.tsx`
-- `src/pages/Projects.tsx`
+- `src/pages/Index.tsx` — manifesto EN headings (A)
+- `src/pages/About.tsx` — promise EN headings (A)
+- `src/pages/Work.tsx` — hero type + section label (B1, B3)
+- `src/pages/Contact.tsx` — hero type + color token + section label (B1, B2, B3)
+- `src/pages/Services.tsx` — dead ternary cleanup (B4)
+- `src/components/SectionHeader.tsx` — delete (B5)
+- `src/components/SectionLabel.tsx` — delete (B5)
+
+## Out of scope
+Copy rewrite, new sections, routing, backend, animations, layout changes.

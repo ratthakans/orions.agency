@@ -3,7 +3,6 @@ import { ArrowUpRight, MessageCircle, Phone, Mail } from "lucide-react";
 import { z } from "zod";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
-import PageMark from "@/components/PageMark";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -71,10 +70,15 @@ const Contact = () => {
       {/* 01 · HERO */}
       <section className="px-6 md:px-10">
         <div className="max-w-[1280px] mx-auto pt-32 md:pt-40 pb-16 md:pb-24">
-          <PageMark index="01" total="02" />
           <Reveal>
-            <h1 className="font-serif text-[52px] md:text-[88px] lg:text-[112px] leading-[1.0] tracking-[-0.03em] max-w-[14ch]">
-              Tell us about <em className="text-gemini italic">the brand.</em>
+            <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
+              <span className="block w-6 h-px bg-cinnabar" />
+              01 — Inquiry
+            </div>
+          </Reveal>
+          <Reveal delay={0.05}>
+            <h1 className="mt-10 font-serif h-display-xl max-w-[14ch]">
+              Tell us about <em className="italic text-cinnabar">the brand.</em>
             </h1>
           </Reveal>
           <Reveal delay={0.1}>
@@ -101,10 +105,15 @@ const Contact = () => {
       {/* 02 · INQUIRY — form + direct */}
       <section className="px-6 md:px-10 border-t border-foreground">
         <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-          <PageMark index="02" total="02" />
           <Reveal>
-            <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em] max-w-[14ch]">
-              Send a <em className="text-gemini italic">brief.</em>
+            <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
+              <span className="block w-6 h-px bg-cinnabar" />
+              02 — Brief
+            </div>
+          </Reveal>
+          <Reveal delay={0.05}>
+            <h2 className="mt-10 font-serif h-display-lg max-w-[14ch]">
+              Send a <em className="italic text-cinnabar">brief.</em>
             </h2>
           </Reveal>
 
@@ -114,7 +123,7 @@ const Contact = () => {
               <div className="py-10 md:py-12 md:pr-10">
                 <div className="font-mono text-[10px] tracking-[0.14em] text-muted-foreground">— FORM</div>
                 <h3 className="mt-8 font-serif italic text-[40px] md:text-[48px] leading-[1] tracking-[-0.02em]">Brief.</h3>
-                <p className="mt-6 font-serif italic text-orion text-[16px] md:text-[18px] leading-[1.4] max-w-[28ch]">"บอกเราว่าธุรกิจคุณติดอะไรอยู่ — เราตอบกลับภายใน 24 ชั่วโมง."</p>
+                <p className="mt-6 font-serif italic text-cinnabar text-[16px] md:text-[18px] leading-[1.4] max-w-[28ch]">"บอกเราว่าธุรกิจคุณติดอะไรอยู่ — เราตอบกลับภายใน 24 ชั่วโมง."</p>
 
                 <form onSubmit={submit} noValidate className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                   {[
@@ -175,7 +184,7 @@ const Contact = () => {
               <div className="py-10 md:py-12 md:pl-10">
                 <div className="font-mono text-[10px] tracking-[0.14em] text-muted-foreground">— DIRECT</div>
                 <h3 className="mt-8 font-serif italic text-[40px] md:text-[48px] leading-[1] tracking-[-0.02em]">Direct.</h3>
-                <p className="mt-6 font-serif italic text-orion text-[16px] md:text-[18px] leading-[1.4] max-w-[24ch]">"ตอบกลับภายใน 24 ชั่วโมง — Mon–Fri."</p>
+                <p className="mt-6 font-serif italic text-cinnabar text-[16px] md:text-[18px] leading-[1.4] max-w-[24ch]">"ตอบกลับภายใน 24 ชั่วโมง — Mon–Fri."</p>
                 <p className="mt-4 font-thai text-[14px] leading-[1.7] text-muted-foreground">
                   อยากคุยตรง ๆ ทักได้เลย ทุกช่องทาง — ทีมเราอ่านเอง ตอบเอง ไม่ผ่านบอท.
                 </p>
@@ -193,7 +202,7 @@ const Contact = () => {
                         href={row.href}
                         target={row.ext ? "_blank" : undefined}
                         rel={row.ext ? "noreferrer" : undefined}
-                        className="col-span-8 font-thai text-[15px] text-foreground hover:text-orion transition-colors break-all"
+                        className="col-span-8 font-thai text-[15px] text-foreground hover:text-cinnabar transition-colors break-all"
                       >
                         {row.v}
                       </a>

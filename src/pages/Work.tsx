@@ -1,7 +1,6 @@
 import Reveal from "@/components/Reveal";
 import ClosingCTA from "@/components/ClosingCTA";
 import SEO from "@/components/SEO";
-import PageMark from "@/components/PageMark";
 import { Link } from "react-router-dom";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
@@ -75,10 +74,15 @@ const Work = () => (
     {/* 01 · HERO */}
     <section className="px-6 md:px-10">
       <div className="max-w-[1280px] mx-auto pt-32 md:pt-40 pb-20 md:pb-28">
-        <PageMark index="01" total="04" />
         <Reveal>
-          <h1 className="font-serif text-[52px] md:text-[88px] lg:text-[112px] leading-[1.0] tracking-[-0.03em] max-w-[18ch]">
-            Real brands. Real <em className="text-gemini italic">results.</em>
+          <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
+            <span className="block w-6 h-px bg-cinnabar" />
+            01 — Selected Work
+          </div>
+        </Reveal>
+        <Reveal delay={0.05}>
+          <h1 className="mt-10 font-serif h-display-xl max-w-[18ch]">
+            Real brands. Real <em className="italic text-cinnabar">results.</em>
           </h1>
         </Reveal>
         <Reveal delay={0.1}>
@@ -92,10 +96,15 @@ const Work = () => (
     {/* 02 · SELECTED PROJECTS */}
     <section className="px-6 md:px-10 border-t border-foreground">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <PageMark index="02" total="04" />
         <Reveal>
-          <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em]">
-            {projects.length} brands. <em className="text-gemini italic">One team.</em>
+          <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
+            <span className="block w-6 h-px bg-cinnabar" />
+            02 — Projects
+          </div>
+        </Reveal>
+        <Reveal delay={0.05}>
+          <h2 className="mt-10 font-serif h-display-lg">
+            {projects.length} brands. <em className="italic text-cinnabar">One team.</em>
           </h2>
         </Reveal>
 
@@ -119,7 +128,7 @@ const Work = () => (
                   <h3 className="font-serif italic text-[22px] md:text-[26px] tracking-[-0.01em] truncate">
                     {w.title}
                   </h3>
-                  <span className="font-serif italic text-orion text-[20px] md:text-[24px] tabular-nums shrink-0">
+                  <span className="font-serif italic text-cinnabar text-[20px] md:text-[24px] tabular-nums shrink-0">
                     {w.impact}
                   </span>
                 </div>
@@ -143,10 +152,15 @@ const Work = () => (
     {/* 03 · WHAT CLIENTS SAY */}
     <section className="px-6 md:px-10 border-t border-foreground">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <PageMark index="03" total="04" />
         <Reveal>
-          <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em]">
-            What clients <em className="text-gemini italic">say.</em>
+          <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
+            <span className="block w-6 h-px bg-cinnabar" />
+            03 — Testimonials
+          </div>
+        </Reveal>
+        <Reveal delay={0.05}>
+          <h2 className="mt-10 font-serif h-display-lg">
+            What clients <em className="italic text-cinnabar">say.</em>
           </h2>
         </Reveal>
 
@@ -156,8 +170,8 @@ const Work = () => (
               {testimonials.map((t, i) => (
                 <CarouselItem key={t.name} className="pl-0 basis-full md:basis-1/2 lg:basis-1/3">
                   <article className={`relative h-full py-10 md:py-12 md:px-8 flex flex-col ${i > 0 ? "md:border-l border-soft" : ""}`}>
-                    <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-orion">— {t.niche}</div>
-                    <div className="mt-6 font-serif italic text-orion text-[56px] md:text-[72px] leading-[1] tracking-[-0.04em] tabular-nums">
+                    <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-cinnabar">— {t.niche}</div>
+                    <div className="mt-6 font-serif italic text-cinnabar text-[56px] md:text-[72px] leading-[1] tracking-[-0.04em] tabular-nums">
                       {t.stat}
                     </div>
                     <div className="mt-3 font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">{t.statLabel}</div>
@@ -184,10 +198,15 @@ const Work = () => (
     {/* 04 · TRUSTED BY */}
     <section className="px-6 md:px-10 border-t border-foreground">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <PageMark index="04" total="04" />
         <Reveal>
-          <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em] max-w-[20ch]">
-            40+ brands across F&amp;B, fashion, and <em className="text-gemini italic">hospitality.</em>
+          <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
+            <span className="block w-6 h-px bg-cinnabar" />
+            04 — Trusted By
+          </div>
+        </Reveal>
+        <Reveal delay={0.05}>
+          <h2 className="mt-10 font-serif h-display-lg max-w-[20ch]">
+            40+ brands across F&amp;B, fashion, and <em className="italic text-cinnabar">hospitality.</em>
           </h2>
         </Reveal>
 
@@ -213,7 +232,7 @@ const Work = () => (
     </section>
 
     <ClosingCTA
-      title={<>Tell us about <em className="text-gemini italic">the brand.</em></>}
+      title={<>Tell us about <em className="italic text-cinnabar">the brand.</em></>}
       description="30-min discovery call. Free. We reply within 24 hours."
       ctas={[
         { label: "Get a free proposal", to: "/contact" },

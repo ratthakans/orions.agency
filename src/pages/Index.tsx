@@ -4,10 +4,10 @@ import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 
 const indexLinks = [
-  { n: "01", to: "/manifesto",    title: "Manifesto",   th: "ทำไม Generic Content ถึงตายแล้ว — และเราเชื่ออะไรแทน" },
-  { n: "02", to: "/approach",     title: "Approach",    th: "Three pillars · Data-refined creative · 6:3:1 system" },
-  { n: "03", to: "/services",     title: "Services",    th: "3 ระดับ · 1 เป้าหมาย — แพ็กเกจที่ออกแบบรอบ Content Loop" },
-  { n: "04", to: "/health-check", title: "Health Check",th: "12 คำถาม · 2 นาที — รู้ว่าแบรนด์คุณ refined แค่ไหน" },
+  { n: "01", to: "/about",       title: "About",          th: "สิ่งที่เราเชื่อ และวิธีที่เราทำงาน — Manifesto + Approach ในที่เดียว" },
+  { n: "02", to: "/services",    title: "Services",       th: "3 ระดับ · 1 เป้าหมาย — แพ็กเกจที่ออกแบบรอบ Content Loop" },
+  { n: "03", to: "/work",        title: "Work",           th: "Selected case studies — ผลงานที่เรา refined แล้วภูมิใจ" },
+  { n: "04", to: "/diagnostic",  title: "The Diagnostic", th: "12 คำถาม · 2 นาที — รู้ว่าแบรนด์คุณ refined แค่ไหน" },
 ];
 
 const marquee = ["Branding", "Social Media", "Creative Production", "Data-Refined", "Brand Journey"];

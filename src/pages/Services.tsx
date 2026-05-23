@@ -208,10 +208,10 @@ const Services = () => (
         <Reveal delay={0.3}>
           <div className="mt-16 flex flex-wrap items-center gap-5">
             <Link
-              to="/health-check"
+              to="/diagnostic"
               className="group inline-flex items-center gap-3 bg-foreground text-background px-7 py-4 btn-label hover:bg-cinnabar transition-colors duration-300"
             >
-              <span>Take the Health Check</span>
+              <span>Take The Diagnostic</span>
               <ArrowUpRight className="w-4 h-4" />
             </Link>
             <Link

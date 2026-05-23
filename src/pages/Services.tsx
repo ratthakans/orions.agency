@@ -120,6 +120,9 @@ const Services = () => (
               </p>
 
               <div className="mt-10 pt-8 border-t border-current/20">
+                <div className={`font-mono text-[10px] tracking-[0.22em] uppercase mb-3 ${p.featured ? "text-background/60" : "text-muted-foreground"}`}>
+                  Start from
+                </div>
                 <div className="font-serif text-[42px] md:text-[48px] tracking-[-0.025em] leading-none">{p.price}</div>
                 <div className={`mt-2 font-mono text-[10px] tracking-[0.18em] uppercase ${p.featured ? "text-background/60" : "text-muted-foreground"}`}>
                   {p.sub}

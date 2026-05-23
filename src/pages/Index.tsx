@@ -138,15 +138,17 @@ const Index = () => (
           </p>
         </Reveal>
 
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-px bg-foreground/15 border border-foreground/15">
+        <div className="mt-16 border-t border-foreground/20">
           {manifestoPoints.map((m, i) => (
             <Reveal key={m.n} delay={i * 0.08}>
-              <div className="bg-background p-8 md:p-10 h-full flex flex-col">
-                <div className="font-serif italic text-cinnabar text-[18px]">{m.n}</div>
-                <h3 className="mt-8 font-serif text-[26px] md:text-[32px] leading-[1.15] tracking-[-0.02em]">
+              <div className="grid grid-cols-[64px_1fr] md:grid-cols-[100px_minmax(0,1fr)_minmax(0,2fr)] gap-x-6 md:gap-x-12 gap-y-3 items-baseline py-8 md:py-10 border-b border-foreground/20">
+                <div className="font-serif italic text-cinnabar text-[28px] md:text-[40px] leading-none tracking-[-0.02em]">
+                  {m.n}
+                </div>
+                <h3 className="font-serif text-[26px] md:text-[36px] leading-[1.1] tracking-[-0.02em] col-start-2 md:col-start-2">
                   {m.en}
                 </h3>
-                <p className="mt-5 font-thai text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">
+                <p className="font-thai text-[14px] md:text-[16px] leading-[1.7] text-muted-foreground col-span-2 md:col-span-1 md:col-start-3">
                   {m.th}
                 </p>
               </div>

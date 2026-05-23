@@ -1,28 +1,31 @@
-## Changes
+## Plan
 
-### 1. Navbar — solid black bar
-`src/components/Nav.tsx`
-- Remove `mixBlendMode: "difference"` from the top bar
-- Add `bg-foreground` (Black Russian) to the bar
-- Wordmark + links use `text-background` (Snow) directly, active underline stays Cinnabar
-- Mobile hamburger lines switch from `bg-white` → `bg-background`
-- Bar height stays `h-[72px]`; full-screen overlay menu unchanged
+### 1. New `/about` page (Manifesto + Approach combined)
+- Create `src/pages/About.tsx` that renders Manifesto content first, then Approach content, as one continuous narrative.
+- Keep all existing sections, copy, and components intact — just concatenate, re-number the mono section labels in sequence (01 → end), and remove the duplicate hero/closing CTA so it reads as one page.
+- SEO: title "About — ØRIONS", path `/about`, description blending manifesto + approach intent.
 
-### 2. Hero — centered, single-line headline
-`src/pages/Index.tsx`
-- Wrap hero inner container with `items-center text-center mx-auto` so eyebrow, headline, paragraph, and stat row are horizontally centered
-- Headline: remove `<br />` so "Stories, *refined.*" sits on one line; reduce headline size from `h-display-xl` → `h-display-lg` on small screens via the existing scale (still responsive), keeping it on one row on desktop ≥768px
-- Stat row (`6:3:1`, Data-Refined, Industry Exclusivity): center with `justify-center` and remove `max-w-[860px]` constraint or center it with `mx-auto`
-- Paragraph: `mx-auto` + `text-center`
+### 2. Rename Health Check → The Diagnostic
+- File stays `src/pages/HealthCheck.tsx` (component unchanged).
+- Update visible labels everywhere: hero "06 — The Diagnostic", SEO title "The Diagnostic — ØRIONS", nav link text "The Diagnostic".
+- Route changes from `/health-check` → `/diagnostic`. Old `/health-check` redirects to `/diagnostic` (Navigate component) so existing links don't 404.
 
-### 3. Contrast fixes (text that currently blends in)
-Audit and fix low-contrast text on Snow background:
-- `text-muted-foreground` is currently `hsl(0 0% 32%)` on `#FDFDF9` — acceptable but pale labels like `text-muted-foreground` on `bg-foreground/[0.02]` hover rows in `Index.tsx` look thin. Bump `--muted-foreground` from `0 0% 32%` → `0 0% 22%` in `src/index.css` for stronger editorial body contrast across all pages.
-- Confirm Footer / Index index-rows / mono labels read clearly after the bump.
+### 3. Routing & nav (`src/App.tsx`, `src/components/Nav.tsx`)
+- Add `<Route path="/about" element={<About />} />`.
+- Replace `/manifesto` and `/approach` routes with redirects to `/about`.
+- Remove `Manifesto` and `Approach` from nav `links[]`, add single `About → /about`.
+- Replace `Health Check → /health-check` with `The Diagnostic → /diagnostic`.
+- Final nav order: About · Services · Work · The Diagnostic · Contact.
+
+### 4. Internal link sweep
+- Update any `to="/manifesto"`, `to="/approach"`, `to="/health-check"` references across `src/pages/*` and components (Index, Footer, ClosingCTA, StickyMobileCTA, etc.) to the new paths.
+- Update `public/sitemap.xml` entries.
+
+### 5. Memory + old files
+- Keep `Manifesto.tsx` and `Approach.tsx` files for now (referenced by the new About page if we import sections, otherwise delete after extracting content into About.tsx). Plan: **delete** both after content is moved into `About.tsx` to avoid drift.
+- Update `mem://index.md` Core routes line to: `/`, `/about`, `/services`, `/diagnostic`, `/work`, `/contact`.
 
 ### Files touched
-- `src/components/Nav.tsx`
-- `src/pages/Index.tsx`
-- `src/index.css` (single token tweak)
-
-No routing, copy, or component-structure changes.
+- add: `src/pages/About.tsx`
+- edit: `src/App.tsx`, `src/components/Nav.tsx`, `src/pages/HealthCheck.tsx`, `src/components/Footer.tsx`, `src/components/ClosingCTA.tsx`, `src/components/StickyMobileCTA.tsx`, `src/pages/Index.tsx` (and any other files with old links), `public/sitemap.xml`, `mem://index.md`
+- delete: `src/pages/Manifesto.tsx`, `src/pages/Approach.tsx`

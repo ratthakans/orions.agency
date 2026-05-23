@@ -141,7 +141,7 @@ const Services = () => (
                   </span>
                 </div>
               )}
-              <div className={`font-mono text-[10px] tracking-[0.22em] uppercase ${p.featured ? "text-cinnabar" : "text-cinnabar"}`}>
+              <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">
                 {p.tier}
               </div>
               <h3 className="mt-8 font-serif text-[36px] md:text-[42px] leading-[1] tracking-[-0.02em]">
@@ -159,7 +159,7 @@ const Services = () => (
                 <div className={`mt-2 font-mono text-[10px] tracking-[0.18em] uppercase ${p.featured ? "text-background/60" : "text-muted-foreground"}`}>
                   {p.sub}
                 </div>
-                <div className={`mt-3 font-mono text-[10px] tracking-[0.18em] uppercase ${p.featured ? "text-cinnabar" : "text-cinnabar"}`}>
+                <div className="mt-3 font-mono text-[10px] tracking-[0.18em] uppercase text-cinnabar">
                   {p.annual}
                 </div>
               </div>
@@ -167,7 +167,7 @@ const Services = () => (
               <ul className="mt-8 space-y-3 flex-1">
                 {p.features.map((f) => (
                   <li key={f} className="flex gap-3 font-thai text-[14px] leading-[1.6]">
-                    <Check className={`w-4 h-4 mt-1 shrink-0 ${p.featured ? "text-cinnabar" : "text-cinnabar"}`} />
+                    <Check className="w-4 h-4 mt-1 shrink-0 text-cinnabar" />
                     <span className={p.featured ? "text-background/85" : "text-foreground/85"}>{f}</span>
                   </li>
                 ))}

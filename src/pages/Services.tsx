@@ -10,6 +10,7 @@ const packages = [
     tagline: "For brands taking their first refined steps.",
     price: "฿35,000",
     sub: "/ เดือน · สัญญา 1 เดือน · ไม่ผูกมัด",
+    annual: "Annual ฿350,000 · save 17%",
     features: [
       "1 Content Loop ครบวงจร — 6 Reels / 3 Static / 1 Horizontal",
       "Stories 6 + Photos 6 ครั้ง/เดือน",
@@ -28,8 +29,10 @@ const packages = [
     tagline: "For brands ready to cut through the noise.",
     price: "฿69,000",
     sub: "/ เดือน · สัญญาขั้นต่ำ 3 เดือน",
+    annual: "Annual ฿690,000 · save 17%",
     features: [
-      "2 Content Loops — 12 Reels / 6 Static / 2 Horizontal",
+      "12 Reels · 6 Static · 2 Hero Video · 12 Photos",
+      "Stories 12 ครั้ง/เดือน",
       "+ Quarterly Signature Campaign",
       "+ Quarterly Audience Lifecycle Map",
       "Persona Mapping + A/B Testing",
@@ -46,8 +49,10 @@ const packages = [
     tagline: "For brands becoming a name remembered.",
     price: "฿139,000",
     sub: "/ เดือน · สัญญาขั้นต่ำ 6 เดือน",
+    annual: "Annual ฿1,390,000 · save 17%",
     features: [
-      "Premium Media House — 24 Reels / 12 Static / 3 Signature Stories",
+      "24 Reels · 12 Static · 3 Signature Stories",
+      "Stories 16/mo · 24 Photos · 3 Production Days",
       "+ Quarterly Creative Lab (4hr workshop)",
       "+ Annual Audience Lifecycle Strategy",
       "+ Brand Manual (มูลค่า ฿30k · ฟรี)",
@@ -64,6 +69,33 @@ const tiers = [
   { sym: "◐", title: "เริ่มต้น",       th: "กำลังสร้างเสียงของแบรนด์เป็นครั้งแรก ยังไม่มีฐาน audience ที่ชัด",         match: "Starter" },
   { sym: "◑", title: "กำลังเติบโต",     th: "มีฐานแล้ว แต่ต้องตัดผ่าน noise ในตลาด — แข่งกับคู่แข่งหนัก",              match: "Pro" },
   { sym: "◒", title: "เป็นที่รู้จัก",   th: "แบรนด์มีตัวตนชัด ต้องการสร้าง legacy + เป็นที่จดจำในระดับอุตสาหกรรม",   match: "Elite" },
+];
+
+const addOnCategories = [
+  {
+    label: "Branding",
+    items: [
+      { name: "Brand Identity Package", italic: false, desc: "Logo + Brand Book + Color + Typography + Visual System", price: "From ฿80,000" },
+      { name: "Signature Campaign Concept", italic: true,  desc: "Big Idea across 6:3:1 Loop + Creative Direction + Strategy", price: "From ฿35,000" },
+      { name: "Brand Deep Dive Session", italic: false, desc: "Half-day workshop · focused area + Summary deck", price: "฿20,000" },
+    ],
+  },
+  {
+    label: "Social Media",
+    items: [
+      { name: "Community Management Plus", italic: false, desc: "Extended hours 8:00–23:00 + Active Outreach + Auto-reply", price: "฿8,000 / mo" },
+      { name: "Influencer / KOL Management", italic: true,  desc: "Selection + briefing + campaign management + reporting", price: "10% · min ฿10,000" },
+      { name: "Paid Ads Audit & Analyze", italic: false, desc: "Performance review + Recommendations + Optimization", price: "฿15,000" },
+    ],
+  },
+  {
+    label: "Creative Production",
+    items: [
+      { name: "Brand Film (3–5 min)", italic: true,  desc: "Cinematic short film with director + plot + full crew", price: "From ฿80,000" },
+      { name: "Commercial Video Production", italic: false, desc: "Script + cast + full crew · script-led brand video", price: "From ฿50,000" },
+      { name: "Professional Photoshoot", italic: false, desc: "Dedicated shoot + retouching 20–40 images", price: "฿15,000 / day" },
+    ],
+  },
 ];
 
 const Services = () => (

@@ -4,12 +4,12 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import { Navigate } from "react-router-dom";
 import Layout from "./components/Layout";
 import ScrollToTop from "./components/ScrollToTop";
 import Index from "./pages/Index";
 import Services from "./pages/Services";
-import Manifesto from "./pages/Manifesto";
-import Approach from "./pages/Approach";
+import About from "./pages/About";
 import HealthCheck from "./pages/HealthCheck";
 import Work from "./pages/Work";
 import Contact from "./pages/Contact";
@@ -27,10 +27,12 @@ const App = () => (
         <Layout>
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/manifesto" element={<Manifesto />} />
-            <Route path="/approach" element={<Approach />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/manifesto" element={<Navigate to="/about" replace />} />
+            <Route path="/approach" element={<Navigate to="/about" replace />} />
             <Route path="/services" element={<Services />} />
-            <Route path="/health-check" element={<HealthCheck />} />
+            <Route path="/diagnostic" element={<HealthCheck />} />
+            <Route path="/health-check" element={<Navigate to="/diagnostic" replace />} />
             <Route path="/work" element={<Work />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />

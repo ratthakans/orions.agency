@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
+import CountUp from "@/components/CountUp";
 import workHongmove from "@/assets/hongmove.png";
 import workRtaf from "@/assets/rtaf.jpg";
 import workDemocrat from "@/assets/democrat.jpg";
@@ -194,19 +195,44 @@ const Index = () => (
         <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {selectedWork.map((w) => (
             <Link key={w.n} to="/work" className="group block">
-              <div className="aspect-[4/5] overflow-hidden border border-foreground/15">
-                <img src={w.img} alt={w.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" loading="lazy" />
+              <div className="relative aspect-[4/5] overflow-hidden border border-foreground/15 bg-foreground">
+                <img src={w.img} alt={w.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-[1.04]" loading="lazy" />
+                <div className="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-foreground/85 backdrop-blur-sm text-background p-3 flex items-center justify-between font-mono text-[10px] tracking-[0.18em] uppercase">
+                  <span>{w.niche}</span>
+                  <span className="text-cinnabar">{w.impact}</span>
+                </div>
               </div>
               <div className="mt-4 flex items-baseline justify-between gap-3">
                 <div>
                   <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">{w.n} — {w.niche}</div>
                   <div className="mt-2 font-serif text-[22px] md:text-[24px] tracking-[-0.02em] leading-[1.05] group-hover:italic group-hover:text-cinnabar transition-all">{w.title}</div>
                 </div>
-                <div className="font-serif italic text-cinnabar text-[16px] md:text-[18px] shrink-0">{w.impact}</div>
+                <div className="font-serif italic text-cinnabar text-[16px] md:text-[18px] shrink-0 tabular-nums">{w.impact}</div>
               </div>
             </Link>
           ))}
         </div>
+
+        {/* Counter strip — creative × data signal */}
+        <Reveal delay={0.15}>
+          <div className="mt-16 border-y border-foreground/20 grid grid-cols-2 md:grid-cols-4">
+            {[
+              { v: 20, suf: "+", label: "Brands refined" },
+              { v: 6,  suf: ":3:1", label: "Content system" },
+              { v: 312, suf: "%", label: "Avg lift" },
+              { v: 24,  suf: "h", label: "Reply window" },
+            ].map((s, i) => (
+              <div key={s.label} className={`py-8 md:py-10 px-4 md:px-6 text-center ${i > 0 ? "border-l border-foreground/15" : ""}`}>
+                <div className="font-serif text-[36px] md:text-[56px] leading-none tracking-[-0.03em] tabular-nums text-cinnabar">
+                  <CountUp to={s.v} suffix={s.suf} />
+                </div>
+                <div className="mt-3 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
+                  {s.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </Reveal>
 
         <Reveal delay={0.2}>
           <div className="mt-14">
@@ -290,7 +316,7 @@ const Index = () => (
                 Selected partners
               </div>
               <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
-                18 brands refined · since 2026
+                20+ brands refined · since 2020
               </div>
             </div>
             <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-px bg-foreground/15 border border-foreground/15">
@@ -380,7 +406,7 @@ const Index = () => (
           <div className="lg:col-span-7">
             <Reveal delay={0.05}>
               <h2 className="font-serif h-display-md max-w-[22ch]">
-                Not sure where you stand? <em className="italic text-cinnabar">Find out in 5 minutes.</em>
+                Not sure where you stand? <em className="italic text-cinnabar">Find out in 3 minutes.</em>
               </h2>
             </Reveal>
             <Reveal delay={0.15}>
@@ -461,10 +487,12 @@ const Index = () => (
 
                   <div className="mt-6 space-y-4">
                     {[
-                      { label: "Clarity",     v: 82 },
-                      { label: "Consistency", v: 68 },
-                      { label: "Craft",       v: 74 },
-                      { label: "Conversion",  v: 61 },
+                      { label: "Clarity",      v: 82 },
+                      { label: "Consistency",  v: 68 },
+                      { label: "Data",         v: 71 },
+                      { label: "Craft",        v: 74 },
+                      { label: "Audience",     v: 65 },
+                      { label: "Strategy",     v: 70 },
                     ].map((a) => (
                       <div key={a.label}>
                         <div className="flex items-baseline justify-between mb-1.5">

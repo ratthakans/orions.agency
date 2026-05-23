@@ -159,6 +159,9 @@ const Services = () => (
                 <div className={`mt-2 font-mono text-[10px] tracking-[0.18em] uppercase ${p.featured ? "text-background/60" : "text-muted-foreground"}`}>
                   {p.sub}
                 </div>
+                <div className={`mt-3 font-mono text-[10px] tracking-[0.18em] uppercase ${p.featured ? "text-cinnabar" : "text-cinnabar"}`}>
+                  {p.annual}
+                </div>
               </div>
 
               <ul className="mt-8 space-y-3 flex-1">

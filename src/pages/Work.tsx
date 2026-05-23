@@ -118,7 +118,7 @@ const Work = () => (
                   <h3 className="font-serif italic text-[22px] md:text-[26px] tracking-[-0.01em] truncate">
                     {w.title}
                   </h3>
-                  <span className="font-serif italic text-orion text-[20px] md:text-[24px] tabular-nums shrink-0">
+                  <span className="font-serif italic text-cinnabar text-[20px] md:text-[24px] tabular-nums shrink-0">
                     {w.impact}
                   </span>
                 </div>
@@ -155,8 +155,8 @@ const Work = () => (
               {testimonials.map((t, i) => (
                 <CarouselItem key={t.name} className="pl-0 basis-full md:basis-1/2 lg:basis-1/3">
                   <article className={`relative h-full py-10 md:py-12 md:px-8 flex flex-col ${i > 0 ? "md:border-l border-soft" : ""}`}>
-                    <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-orion">— {t.niche}</div>
-                    <div className="mt-6 font-serif italic text-orion text-[56px] md:text-[72px] leading-[1] tracking-[-0.04em] tabular-nums">
+                    <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-cinnabar">— {t.niche}</div>
+                    <div className="mt-6 font-serif italic text-cinnabar text-[56px] md:text-[72px] leading-[1] tracking-[-0.04em] tabular-nums">
                       {t.stat}
                     </div>
                     <div className="mt-3 font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">{t.statLabel}</div>

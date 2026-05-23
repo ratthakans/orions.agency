@@ -114,7 +114,7 @@ const Contact = () => {
               <div className="py-10 md:py-12 md:pr-10">
                 <div className="font-mono text-[10px] tracking-[0.14em] text-muted-foreground">— FORM</div>
                 <h3 className="mt-8 font-serif italic text-[40px] md:text-[48px] leading-[1] tracking-[-0.02em]">Brief.</h3>
-                <p className="mt-6 font-serif italic text-orion text-[16px] md:text-[18px] leading-[1.4] max-w-[28ch]">"บอกเราว่าธุรกิจคุณติดอะไรอยู่ — เราตอบกลับภายใน 24 ชั่วโมง."</p>
+                <p className="mt-6 font-serif italic text-cinnabar text-[16px] md:text-[18px] leading-[1.4] max-w-[28ch]">"บอกเราว่าธุรกิจคุณติดอะไรอยู่ — เราตอบกลับภายใน 24 ชั่วโมง."</p>
 
                 <form onSubmit={submit} noValidate className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                   {[
@@ -175,7 +175,7 @@ const Contact = () => {
               <div className="py-10 md:py-12 md:pl-10">
                 <div className="font-mono text-[10px] tracking-[0.14em] text-muted-foreground">— DIRECT</div>
                 <h3 className="mt-8 font-serif italic text-[40px] md:text-[48px] leading-[1] tracking-[-0.02em]">Direct.</h3>
-                <p className="mt-6 font-serif italic text-orion text-[16px] md:text-[18px] leading-[1.4] max-w-[24ch]">"ตอบกลับภายใน 24 ชั่วโมง — Mon–Fri."</p>
+                <p className="mt-6 font-serif italic text-cinnabar text-[16px] md:text-[18px] leading-[1.4] max-w-[24ch]">"ตอบกลับภายใน 24 ชั่วโมง — Mon–Fri."</p>
                 <p className="mt-4 font-thai text-[14px] leading-[1.7] text-muted-foreground">
                   อยากคุยตรง ๆ ทักได้เลย ทุกช่องทาง — ทีมเราอ่านเอง ตอบเอง ไม่ผ่านบอท.
                 </p>
@@ -193,7 +193,7 @@ const Contact = () => {
                         href={row.href}
                         target={row.ext ? "_blank" : undefined}
                         rel={row.ext ? "noreferrer" : undefined}
-                        className="col-span-8 font-thai text-[15px] text-foreground hover:text-orion transition-colors break-all"
+                        className="col-span-8 font-thai text-[15px] text-foreground hover:text-cinnabar transition-colors break-all"
                       >
                         {row.v}
                       </a>

@@ -74,7 +74,7 @@ const Contact = () => {
           <PageMark index="01" total="02" />
           <Reveal>
             <h1 className="font-serif text-[52px] md:text-[88px] lg:text-[112px] leading-[1.0] tracking-[-0.03em] max-w-[14ch]">
-              Tell us about <em className="text-gemini italic">the brand.</em>
+              Tell us about <em className="italic text-cinnabar">the brand.</em>
             </h1>
           </Reveal>
           <Reveal delay={0.1}>
@@ -104,7 +104,7 @@ const Contact = () => {
           <PageMark index="02" total="02" />
           <Reveal>
             <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em] max-w-[14ch]">
-              Send a <em className="text-gemini italic">brief.</em>
+              Send a <em className="italic text-cinnabar">brief.</em>
             </h2>
           </Reveal>
 

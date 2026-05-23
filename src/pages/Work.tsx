@@ -77,7 +77,7 @@ const Work = () => (
         <PageMark index="01" total="04" />
         <Reveal>
           <h1 className="font-serif text-[52px] md:text-[88px] lg:text-[112px] leading-[1.0] tracking-[-0.03em] max-w-[18ch]">
-            Real brands. Real <em className="text-gemini italic">results.</em>
+            Real brands. Real <em className="italic text-cinnabar">results.</em>
           </h1>
         </Reveal>
         <Reveal delay={0.1}>
@@ -94,7 +94,7 @@ const Work = () => (
         <PageMark index="02" total="04" />
         <Reveal>
           <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em]">
-            {projects.length} brands. <em className="text-gemini italic">One team.</em>
+            {projects.length} brands. <em className="italic text-cinnabar">One team.</em>
           </h2>
         </Reveal>
 
@@ -145,7 +145,7 @@ const Work = () => (
         <PageMark index="03" total="04" />
         <Reveal>
           <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em]">
-            What clients <em className="text-gemini italic">say.</em>
+            What clients <em className="italic text-cinnabar">say.</em>
           </h2>
         </Reveal>
 
@@ -186,7 +186,7 @@ const Work = () => (
         <PageMark index="04" total="04" />
         <Reveal>
           <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em] max-w-[20ch]">
-            40+ brands across F&amp;B, fashion, and <em className="text-gemini italic">hospitality.</em>
+            40+ brands across F&amp;B, fashion, and <em className="italic text-cinnabar">hospitality.</em>
           </h2>
         </Reveal>
 
@@ -212,7 +212,7 @@ const Work = () => (
     </section>
 
     <ClosingCTA
-      title={<>Tell us about <em className="text-gemini italic">the brand.</em></>}
+      title={<>Tell us about <em className="italic text-cinnabar">the brand.</em></>}
       description="30-min discovery call. Free. We reply within 24 hours."
       ctas={[
         { label: "Get a free proposal", to: "/contact" },

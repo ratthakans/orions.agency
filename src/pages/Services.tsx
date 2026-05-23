@@ -300,15 +300,15 @@ const Services = () => (
                   {cat.items.map((item) => (
                     <div
                       key={item.name}
-                      className="grid grid-cols-1 md:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)_auto] gap-3 md:gap-10 items-baseline py-6 md:py-7 border-b border-foreground/20 transition-colors hover:bg-surface px-2 md:px-4 -mx-2 md:-mx-4"
+                      className="group grid grid-cols-1 md:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)_auto] gap-3 md:gap-10 items-baseline py-6 md:py-7 border-b border-foreground/20"
                     >
-                      <h3 className={`font-serif text-[20px] md:text-[24px] leading-[1.15] tracking-[-0.01em] ${item.italic ? "italic text-cinnabar" : ""}`}>
+                      <h3 className={`font-serif text-[20px] md:text-[24px] leading-[1.15] tracking-[-0.01em] transition-all ${item.italic ? "italic text-cinnabar" : "group-hover:italic group-hover:text-cinnabar"}`}>
                         {item.name}
                       </h3>
                       <p className="font-thai text-[14px] md:text-[15px] leading-[1.6] text-muted-foreground">
                         {item.desc}
                       </p>
-                      <div className="font-mono text-[12px] tracking-[0.15em] uppercase text-foreground whitespace-nowrap md:text-right">
+                      <div className="font-serif text-[20px] md:text-[22px] tracking-[-0.01em] tabular-nums text-foreground whitespace-nowrap md:text-right">
                         {item.price}
                       </div>
                     </div>
@@ -319,23 +319,24 @@ const Services = () => (
           ))}
         </div>
 
-        {/* Bundle Discount */}
+        {/* Bundle Discount — ink on snow, hairline band */}
         <Reveal delay={0.2}>
-          <div className="mt-16 bg-cinnabar text-background p-8 md:p-12 flex flex-col md:flex-row md:items-center justify-between gap-8">
+          <div className="mt-20 border-t border-b border-foreground py-10 md:py-14 flex flex-col md:flex-row md:items-center justify-between gap-8">
             <div>
-              <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-background/70">
+              <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar flex items-center gap-3">
+                <span className="block w-6 h-px bg-cinnabar" />
                 Bundle Discount
               </div>
-              <h4 className="mt-3 font-serif text-[28px] md:text-[36px] tracking-[-0.015em] leading-[1.05]">
-                Buy 3 add-ons or more — <em className="italic">15% off, instantly.</em>
+              <h4 className="mt-5 font-serif text-[28px] md:text-[40px] tracking-[-0.02em] leading-[1.05] max-w-[20ch]">
+                Buy 3 add-ons or more — <em className="italic text-cinnabar">15% off, instantly.</em>
               </h4>
-              <p className="mt-4 font-thai text-[14px] md:text-[15px] leading-[1.6] text-background/85 max-w-[560px]">
+              <p className="mt-4 font-thai text-[14px] md:text-[15px] leading-[1.6] text-muted-foreground max-w-[560px]">
                 Mix and match — package + add-ons ปรับให้เข้ากับโจทย์ของคุณ. คุยกับ Account Manager เพื่อขอใบเสนอราคา.
               </p>
             </div>
             <Link
               to="/contact"
-              className="group inline-flex items-center justify-between gap-4 px-7 py-4 btn-label border border-background bg-background text-cinnabar hover:bg-foreground hover:text-background hover:border-foreground transition-colors duration-300 shrink-0"
+              className="group inline-flex items-center justify-between gap-4 px-7 py-4 btn-label border border-foreground bg-foreground text-background hover:bg-cinnabar hover:border-cinnabar transition-colors duration-300 shrink-0"
             >
               <span>Get a Quote</span>
               <ArrowUpRight className="w-4 h-4" />

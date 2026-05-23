@@ -50,9 +50,7 @@ const Nav = () => {
               >
                 {({ isActive }) => (
                   <>
-                    <span className="whitespace-nowrap">
-                      {l.label === "The Diagnostic" ? "The\u00a0Diagnostic" : l.label}
-                    </span>
+                    <span className="whitespace-nowrap">{l.label}</span>
                     {isContact && <span aria-hidden>→</span>}
                     {isActive && (
                       <span

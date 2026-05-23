@@ -33,7 +33,11 @@ const testimonials = [
   },
 ];
 
-const trustedBy = ["Hongmove", "Khaoyai CC", "RTAF", "Democrat", "Heavy", "GCOO"];
+const trustedBy = [
+  "Hongmove", "Khaoyai CC", "RTAF", "Democrat", "Heavy", "GCOO",
+  "Sermsuk", "Bangkok Bank", "SCG", "CP All", "Thai Airways", "PTT",
+  "Central", "King Power", "AIS", "True", "Singha", "Chang",
+];
 
 const servicesPreview = [
   { sym: "◐", tier: "Starter", name: "Data-Informed Loop", price: "Start from ฿35,000", tag: "First refined steps." },
@@ -284,12 +288,20 @@ const Index = () => (
 
         <Reveal delay={0.2}>
           <div className="mt-20 border-t border-foreground/20 pt-10">
-            <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
-              Selected partners
+            <div className="flex items-baseline justify-between gap-6 flex-wrap">
+              <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
+                Selected partners
+              </div>
+              <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
+                18 brands refined · since 2026
+              </div>
             </div>
-            <div className="mt-8 grid grid-cols-2 md:grid-cols-6 gap-y-6 gap-x-8">
+            <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-px bg-foreground/15 border border-foreground/15">
               {trustedBy.map((name) => (
-                <div key={name} className="font-display text-[13px] tracking-[0.22em] uppercase text-foreground/70">
+                <div
+                  key={name}
+                  className="bg-background h-20 flex items-center justify-center px-3 text-center font-display text-[11px] md:text-[12px] tracking-[0.22em] uppercase text-foreground/60 hover:text-cinnabar transition-colors"
+                >
                   {name}
                 </div>
               ))}

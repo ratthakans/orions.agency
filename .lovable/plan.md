@@ -1,30 +1,28 @@
-## Navbar redesign — inline mono links
+## Changes
 
-อ้างอิงจาก https://qa5uxsm7zp73k.kimi.page — navbar เรียบง่ายมาก: wordmark ซ้าย + text links ขวา ไม่มี hamburger overlay บน desktop
+### 1. Navbar — solid black bar
+`src/components/Nav.tsx`
+- Remove `mixBlendMode: "difference"` from the top bar
+- Add `bg-foreground` (Black Russian) to the bar
+- Wordmark + links use `text-background` (Snow) directly, active underline stays Cinnabar
+- Mobile hamburger lines switch from `bg-white` → `bg-background`
+- Bar height stays `h-[72px]`; full-screen overlay menu unchanged
 
-### Layout
+### 2. Hero — centered, single-line headline
+`src/pages/Index.tsx`
+- Wrap hero inner container with `items-center text-center mx-auto` so eyebrow, headline, paragraph, and stat row are horizontally centered
+- Headline: remove `<br />` so "Stories, *refined.*" sits on one line; reduce headline size from `h-display-xl` → `h-display-lg` on small screens via the existing scale (still responsive), keeping it on one row on desktop ≥768px
+- Stat row (`6:3:1`, Data-Refined, Industry Exclusivity): center with `justify-center` and remove `max-w-[860px]` constraint or center it with `mx-auto`
+- Paragraph: `mx-auto` + `text-center`
 
-```
-┌──────────────────────────────────────────────────────────────────────────────┐
-│ ØRIONS         MANIFESTO  APPROACH  SERVICES  WORK  HEALTH CHECK   CONTACT → │
-└──────────────────────────────────────────────────────────────────────────────┘
-```
+### 3. Contrast fixes (text that currently blends in)
+Audit and fix low-contrast text on Snow background:
+- `text-muted-foreground` is currently `hsl(0 0% 32%)` on `#FDFDF9` — acceptable but pale labels like `text-muted-foreground` on `bg-foreground/[0.02]` hover rows in `Index.tsx` look thin. Bump `--muted-foreground` from `0 0% 32%` → `0 0% 22%` in `src/index.css` for stronger editorial body contrast across all pages.
+- Confirm Footer / Index index-rows / mono labels read clearly after the bump.
 
-- Fixed top, h-[72px], px-6 md:px-10
-- `mix-blend-difference` คงไว้ — อ่านได้ทั้งบน Snow และ section dark
-- ซ้าย: `ØRIONS` wordmark (Inter, tracked +0.16em uppercase, 14–15px) → `/`
-- ขวา (desktop ≥md): inline links
-  - `font-mono text-[11px] tracking-[0.18em] uppercase`
-  - gap-7 ระหว่างลิงก์
-  - opacity 60 default → 100 hover/active, transition 200ms
-  - Active route: Cinnabar 1px underline ใต้ตัวอักษร
-- **`Contact`** เป็นลิงก์สุดท้าย + ไอคอน arrow `→` เป็น CTA เน้นเล็กน้อย (ยังคงเป็น text, hairline เท่านั้น — ไม่มี button fill)
-- **`Health Check`** อยู่ใน top bar ด้วย (เป็น 2 คำ ใช้ non-breaking space)
+### Files touched
+- `src/components/Nav.tsx`
+- `src/pages/Index.tsx`
+- `src/index.css` (single token tweak)
 
-### Mobile (<md)
-
-เก็บ hamburger + full-screen overlay เดิมไว้ (จอเล็กรับ 6 ลิงก์ inline ไม่ไหว)
-
-### Files
-
-- `src/components/Nav.tsx` — only file changed
+No routing, copy, or component-structure changes.

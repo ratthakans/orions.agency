@@ -22,7 +22,7 @@ const Index = () => (
 
     {/* HERO */}
     <section className="relative min-h-screen flex flex-col">
-      <div className="flex-1 flex flex-col justify-center px-6 md:px-10 pt-32 pb-20 max-w-[1400px] mx-auto w-full">
+      <div className="flex-1 flex flex-col justify-center items-center text-center px-6 md:px-10 pt-32 pb-20 max-w-[1400px] mx-auto w-full">
         <Reveal>
           <div className="font-mono text-[11px] tracking-[0.22em] uppercase text-muted-foreground">
             Boutique Creative Studio · Est. 2026
@@ -30,20 +30,20 @@ const Index = () => (
         </Reveal>
 
         <Reveal delay={0.1}>
-          <h1 className="mt-10 font-serif h-display-xl leading-[0.92]">
-            Stories,<br /><em className="italic text-cinnabar">refined.</em>
+          <h1 className="mt-10 font-serif h-display-xl leading-[0.92] whitespace-nowrap">
+            Stories, <em className="italic text-cinnabar">refined.</em>
           </h1>
         </Reveal>
 
         <Reveal delay={0.25}>
-          <p className="mt-12 max-w-[640px] font-thai text-[17px] md:text-[20px] leading-[1.55] text-muted-foreground">
+          <p className="mt-12 max-w-[640px] mx-auto font-thai text-[17px] md:text-[20px] leading-[1.55] text-muted-foreground">
             เราไม่ผลิตให้ครบจำนวน เราไม่ตามเทรนด์ที่อัลกอริทึมเขียนบท —
             เราตัดส่วนเกิน สกัดเนื้อแท้ และกลั่นกรองเรื่องราว เพื่อให้แบรนด์คุณ ถึงคนที่ใช่
           </p>
         </Reveal>
 
         <Reveal delay={0.35}>
-          <div className="mt-16 flex flex-wrap gap-x-12 gap-y-6 border-t border-foreground/15 pt-8 max-w-[860px]">
+          <div className="mt-16 flex flex-wrap justify-center gap-x-12 gap-y-6 border-t border-foreground/15 pt-8 max-w-[860px] mx-auto">
             {[
               { en: "6 : 3 : 1",            sub: "Refined Content System" },
               { en: "Data-Refined",         sub: "Creative Process" },

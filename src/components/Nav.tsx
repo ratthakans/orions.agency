@@ -28,10 +28,9 @@ const Nav = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       <div
-        className="px-6 md:px-10 h-[72px] flex items-center justify-between"
-        style={{ mixBlendMode: "difference" }}
+        className="px-6 md:px-10 h-[72px] flex items-center justify-between bg-foreground"
       >
-        <Link to="/" className="font-brand text-[14px] md:text-[15px] text-white">
+        <Link to="/" className="font-brand text-[14px] md:text-[15px] text-background">
           ØRIONS
         </Link>
 
@@ -44,7 +43,7 @@ const Nav = () => {
                 key={l.to}
                 to={l.to}
                 className={({ isActive }) =>
-                  `relative font-mono text-[11px] tracking-[0.18em] uppercase text-white transition-opacity duration-200 ${
+                  `relative font-mono text-[11px] tracking-[0.18em] uppercase text-background transition-opacity duration-200 ${
                     isActive ? "opacity-100" : "opacity-60 hover:opacity-100"
                   } ${isContact ? "inline-flex items-center gap-1.5" : ""}`
                 }
@@ -71,15 +70,15 @@ const Nav = () => {
         <button
           aria-label={open ? "Close menu" : "Open menu"}
           onClick={() => setOpen((v) => !v)}
-          className="md:hidden relative w-8 h-8 flex flex-col items-end justify-center gap-[6px] text-white"
+          className="md:hidden relative w-8 h-8 flex flex-col items-end justify-center gap-[6px] text-background"
         >
           <span
-            className={`block h-px bg-white transition-all duration-300 ${
+            className={`block h-px bg-background transition-all duration-300 ${
               open ? "w-6 rotate-45 translate-y-[3.5px]" : "w-6"
             }`}
           />
           <span
-            className={`block h-px bg-white transition-all duration-300 ${
+            className={`block h-px bg-background transition-all duration-300 ${
               open ? "w-6 -rotate-45 -translate-y-[3.5px]" : "w-4"
             }`}
           />

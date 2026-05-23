@@ -1,67 +1,46 @@
 ## Plan
 
-### 1) Homepage — "Index" → mini-manifesto section
-ใน `src/pages/Index.tsx` แทนที่ section `01 — Index` (รายการ 4 ลิงก์ใหญ่) ด้วย **Mini-Manifesto** แบบย่อ:
-- mono label `01 — Manifesto`
-- headline editorial สั้น (serif) + ประโยคย่อย Thai
-- 3 ข้อย่อย (สอดคล้องกับ About): **ตัดส่วนเกิน · สกัดเนื้อแท้ · กลั่นกรองเรื่องราว** — แต่ละข้อมีคำอธิบายสั้น 1-2 บรรทัด
-- ปิดด้วย CTA inline: "Read the full manifesto →" → `/about`
-- (รายการ index pages 4 ลิงก์เดิม **ตัดออก** — Nav มีครบอยู่แล้ว)
+**1) Selected Partners — 18 logos, 6 cols × 3 rows**
 
-### 2) Homepage — Selected Work เปลี่ยนเป็น card grid เรียงกัน
-แทน layout 1 large + 3 stack ปัจจุบัน → **uniform card grid 4 ใบเรียงกัน**:
-- Desktop: `grid-cols-4`, Tablet: `grid-cols-2`, Mobile: `grid-cols-1`
-- ทุกการ์ดขนาดเท่ากัน (aspect ratio เดียวกัน, เช่น 4/5 หรือ 3/4) — รูป + meta (n + niche), title, impact
-- คงสไตล์ hairline border, hover scale, zero-radius
-- ปุ่ม "See all work →" คงไว้
+In `src/pages/Index.tsx`, expand `trustedBy` from 6 to 18 mockup names and render as `grid-cols-2 sm:grid-cols-3 md:grid-cols-6` with hairline dividers between cells (matrix style, zero radius).
 
-### 3) เพิ่มหน้าใหม่ `/projects` (ØRIONS Startup Projects)
-หน้าใหม่เพื่อโชว์ในเครือ/startup projects:
-- ไฟล์: `src/pages/Projects.tsx`
-- Route ใหม่ใน `src/App.tsx`: `/projects` → `Projects`
-- เพิ่มลิงก์ใน `src/components/Nav.tsx` (และ Footer ถ้ามี) — label `"Projects"` หรือ `"Ventures"` (จะใช้ **Ventures** เพื่อสื่อ startup arm ชัดกว่า)
-- เพิ่มใน `public/sitemap.xml`
-- Content:
-  - Hero: mono `00 — Ventures`, headline editorial เช่น *"Studios build for clients. <em>We build for ourselves, too.</em>"* + ย่อย Thai
-  - 2 การ์ดใหญ่ (ขนาดเท่ากัน, asymmetric editorial หรือ 2-col grid):
-    1. **Routte** — `https://routte.to/` — tagline + 2-3 บรรทัด, tag (เช่น Travel · Itinerary), CTA "Visit →" เปิด tab ใหม่
-    2. **First Draft Pro** — `https://firstdraftpro.co/` — tagline + body, tag (Writing · AI), CTA "Visit →"
-  - Closing block: "More coming. Built in Bangkok by ØRIONS." + CTA contact
-- ใช้ design tokens เดิม (snow bg, cinnabar accent, hairlines, zero radius)
-- **หมายเหตุ:** content ของแต่ละ venture จะเขียน placeholder copy ที่เหมาะกับ domain (Routte = travel routing/itinerary, First Draft Pro = AI writing assistant) — ถ้าไม่ตรงกับจริง ผู้ใช้แก้ทีหลังได้
+Mockup list (existing 6 + 12 new placeholders, mix of TH/EN):
+```
+Hongmove · Khaoyai CC · RTAF · Democrat · Heavy · GCOO
+Sermsuk · Bangkok Bank · SCG · CP All · Thai Airways · PTT
+Central · King Power · AIS · True · Singha · Chang
+```
+Each cell: same height (~`h-16`), centered, `font-display text-[12px] tracking-[0.22em] uppercase text-foreground/60`, hover → `text-cinnabar`. Hairline grid via `gap-px` on `bg-foreground/15` wrapper, cells `bg-background` (matches existing manifesto/process grid pattern).
 
-### 4) About — เพิ่ม section "Our Team"
-ใน `src/pages/About.tsx` เพิ่ม section ใหม่ก่อน CTA สุดท้าย (หรือก่อน Beyond Content):
-- mono label `07 — Our Team`
-- headline: e.g. *"15 people. <em>One studio.</em>"*
-- ย่อยสั้นๆ
-- **Grid 15 ใบ** (responsive 2/3/5 cols) — แต่ละใบมี:
-  - Role label (mono, uppercase) เช่น "CEO", "Founder", "Creative Director"
-  - ชื่อ: **placeholder "—"** หรือ comment `{/* TODO: name */}` (ตามที่ user บอก "ยังไม่ต้องใส่ชื่อ เขียนเอาไว้กันลืม")
-- รายชื่อ roles ที่เก็บไว้ใน array (comment พี่ชื่อจริงไว้ในโค้ดสำหรับอ้างอิงภายหลัง):
-  1. CEO — พี่น้ำ
-  2. Founder — พี่เตอร์
-  3. Creative Director — พี่แมน
-  4. Marketing Director — พี่เรย์
-  5. Director — พี่โจ
-  6. Creative — พี่รมมี่
-  7. Ads Specialist — พี่เต้
-  8. Art Director — พี่โซนี่
-  9. Post Supervisor — พี่ชุ
-  10. Editor — พี่สตั้น
-  11. Project Coordinator — พี่ทีม
-  12. Social Media Manager — พี่เปอร์
-  13. DOP — พี่เต
-  14. Project Manager — พี่น้ำฝน
-  15. Admin — พี่เอธ
+Add a small `font-mono` note above: "18 brands refined since 2026" for editorial weight.
+
+**2) Diagnostic Teaser — new homepage section**
+
+Insert a new `06 — Diagnostic` section between Packages (05) and the end of page, in `src/pages/Index.tsx`. Lead-gen oriented.
+
+Layout (split: left editorial copy, right benefit list):
+- Mono label: `06 — Diagnostic`
+- Headline (serif): `Not sure where you stand? *Find out in 5 minutes.*`
+- Thai sub: `18 คำถาม · 6 มิติแบรนด์ · ผลลัพธ์ + package ที่เหมาะกับคุณ ส่งให้ทันที`
+- 3 benefit bullets (mono labels + serif lines):
+  - `i.` Brand clarity score
+  - `ii.` Per-axis diagnosis
+  - `iii.` Recommended package
+- Primary CTA (Cinnabar): `Take The Diagnostic →` → `/diagnostic`
+- Secondary link: `See sample result →` (also → /diagnostic for now)
+- Right column: a stylized "result card" mockup (hairline frame, mono header `SAMPLE RESULT`, fake score `72 / 100`, 3 axis bars, package badge `→ Pro`) — purely decorative, reinforces the offer.
+
+Visual: matches existing section rhythm (`py-24 md:py-32`, `border-t border-foreground/15`, alternates surface via `bg-surface` to contrast Packages).
+
+**3) Renumber**
+
+The Diagnostic CTA already inside the Packages section ("Not sure? Take The Diagnostic →") — keep it; the new section reinforces the same lead-gen path further down.
 
 ### Files
-- edit `src/pages/Index.tsx` — แทน Index section ด้วย mini-manifesto + เปลี่ยน Selected Work เป็น 4-card grid
-- create `src/pages/Projects.tsx` — หน้าใหม่ Ventures
-- edit `src/App.tsx` — เพิ่ม route `/projects`
-- edit `src/components/Nav.tsx` — เพิ่มลิงก์ Ventures
-- edit `src/components/Footer.tsx` — เพิ่มลิงก์ (ถ้ามี nav list)
-- edit `public/sitemap.xml` — เพิ่ม `/projects`
-- edit `src/pages/About.tsx` — เพิ่ม section `07 — Our Team`
 
-ไม่แตะ DB / backend / auth
+- `src/pages/Index.tsx` — only file touched. Expand `trustedBy` array + grid markup; add `06 — Diagnostic` section before closing `</div>`.
+
+### Out of scope
+
+- No new route, no backend, no form on homepage (CTA routes to existing `/diagnostic`).
+- Real partner logos (mockup wordmarks only until brand assets supplied).

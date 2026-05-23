@@ -33,7 +33,11 @@ const testimonials = [
   },
 ];
 
-const trustedBy = ["Hongmove", "Khaoyai CC", "RTAF", "Democrat", "Heavy", "GCOO"];
+const trustedBy = [
+  "Hongmove", "Khaoyai CC", "RTAF", "Democrat", "Heavy", "GCOO",
+  "Sermsuk", "Bangkok Bank", "SCG", "CP All", "Thai Airways", "PTT",
+  "Central", "King Power", "AIS", "True", "Singha", "Chang",
+];
 
 const servicesPreview = [
   { sym: "◐", tier: "Starter", name: "Data-Informed Loop", price: "Start from ฿35,000", tag: "First refined steps." },
@@ -284,12 +288,20 @@ const Index = () => (
 
         <Reveal delay={0.2}>
           <div className="mt-20 border-t border-foreground/20 pt-10">
-            <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
-              Selected partners
+            <div className="flex items-baseline justify-between gap-6 flex-wrap">
+              <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
+                Selected partners
+              </div>
+              <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
+                18 brands refined · since 2026
+              </div>
             </div>
-            <div className="mt-8 grid grid-cols-2 md:grid-cols-6 gap-y-6 gap-x-8">
+            <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-px bg-foreground/15 border border-foreground/15">
               {trustedBy.map((name) => (
-                <div key={name} className="font-display text-[13px] tracking-[0.22em] uppercase text-foreground/70">
+                <div
+                  key={name}
+                  className="bg-background h-20 flex items-center justify-center px-3 text-center font-display text-[11px] md:text-[12px] tracking-[0.22em] uppercase text-foreground/60 hover:text-cinnabar transition-colors"
+                >
                   {name}
                 </div>
               ))}
@@ -353,6 +365,130 @@ const Index = () => (
             </Link>
           </div>
         </Reveal>
+      </div>
+    </section>
+
+    {/* DIAGNOSTIC TEASER — Lead gen */}
+    <section className="px-6 md:px-10 border-t border-foreground/15 bg-surface">
+      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+        <Reveal>
+          <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
+            <span className="block w-6 h-px bg-cinnabar" />
+            06 — Diagnostic
+          </div>
+        </Reveal>
+
+        <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          {/* Left — editorial copy */}
+          <div className="lg:col-span-7">
+            <Reveal delay={0.05}>
+              <h2 className="font-serif h-display-md max-w-[22ch]">
+                Not sure where you stand? <em className="italic text-cinnabar">Find out in 5 minutes.</em>
+              </h2>
+            </Reveal>
+            <Reveal delay={0.15}>
+              <p className="mt-8 max-w-[560px] font-thai text-[15px] md:text-[17px] leading-[1.7] text-muted-foreground">
+                18 คำถาม · 6 มิติแบรนด์ · ผลลัพธ์ + package ที่เหมาะกับคุณ ส่งให้ทันที — ไม่ต้องลงทะเบียน
+              </p>
+            </Reveal>
+
+            <Reveal delay={0.25}>
+              <ul className="mt-10 space-y-5 max-w-[520px]">
+                {[
+                  { n: "i.",   en: "Brand clarity score",     th: "วัดความคมของแบรนด์เป็นตัวเลข" },
+                  { n: "ii.",  en: "Per-axis diagnosis",      th: "วินิจฉัยจุดอ่อน-จุดแข็งราย\u200Bมิติ" },
+                  { n: "iii.", en: "Recommended package",     th: "แพ็กเกจที่เหมาะกับสถานะปัจจุบัน" },
+                ].map((b) => (
+                  <li key={b.n} className="flex gap-5 border-t border-foreground/15 pt-5">
+                    <span className="font-serif italic text-cinnabar text-[18px] shrink-0 w-8">{b.n}</span>
+                    <div>
+                      <div className="font-serif text-[20px] md:text-[22px] tracking-[-0.015em]">{b.en}</div>
+                      <div className="mt-1 font-thai text-[13px] md:text-[14px] text-muted-foreground">{b.th}</div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+
+            <Reveal delay={0.35}>
+              <div className="mt-12 flex flex-wrap items-center gap-5">
+                <Link
+                  to="/diagnostic"
+                  className="group inline-flex items-center gap-3 bg-cinnabar text-background px-7 py-4 btn-label hover:bg-foreground transition-colors duration-300"
+                >
+                  <span>Take The Diagnostic</span>
+                  <ArrowUpRight className="w-4 h-4" />
+                </Link>
+                <Link
+                  to="/diagnostic"
+                  className="group inline-flex items-center gap-2 btn-label border-b border-foreground pb-1 hover:text-cinnabar hover:border-cinnabar transition-colors"
+                >
+                  See sample result →
+                </Link>
+              </div>
+            </Reveal>
+          </div>
+
+          {/* Right — sample result mockup */}
+          <div className="lg:col-span-5">
+            <Reveal delay={0.2}>
+              <div className="border border-foreground/20 bg-background">
+                <div className="flex items-center justify-between px-5 py-3 border-b border-foreground/15">
+                  <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
+                    Sample result
+                  </div>
+                  <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">
+                    ◐ Live preview
+                  </div>
+                </div>
+
+                <div className="px-6 py-8">
+                  <div className="flex items-baseline justify-between gap-4 border-b border-foreground/15 pb-6">
+                    <div>
+                      <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
+                        Overall score
+                      </div>
+                      <div className="mt-2 font-serif text-[64px] md:text-[80px] leading-none tracking-[-0.03em]">
+                        72<span className="text-muted-foreground text-[28px] md:text-[36px]"> / 100</span>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
+                        Recommended
+                      </div>
+                      <div className="mt-2 font-serif italic text-cinnabar text-[22px] md:text-[26px]">
+                        → Pro tier
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-6 space-y-4">
+                    {[
+                      { label: "Clarity",     v: 82 },
+                      { label: "Consistency", v: 68 },
+                      { label: "Craft",       v: 74 },
+                      { label: "Conversion",  v: 61 },
+                    ].map((a) => (
+                      <div key={a.label}>
+                        <div className="flex items-baseline justify-between mb-1.5">
+                          <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-foreground/70">{a.label}</span>
+                          <span className="font-mono text-[10px] tracking-[0.22em] text-muted-foreground">{a.v}</span>
+                        </div>
+                        <div className="h-px bg-foreground/15 relative">
+                          <div className="absolute inset-y-0 left-0 bg-cinnabar h-px" style={{ width: `${a.v}%` }} />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="mt-8 pt-6 border-t border-foreground/15 font-thai text-[13px] leading-[1.7] text-muted-foreground">
+                    “แบรนด์ของคุณมีความคมในระดับดี — เหลือเพียงระบบคอนเทนต์ที่สม่ำเสมอ และ hero ที่จดจำได้”
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </div>
       </div>
     </section>
   </div>

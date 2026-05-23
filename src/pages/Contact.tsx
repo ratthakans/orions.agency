@@ -3,7 +3,6 @@ import { ArrowUpRight, MessageCircle, Phone, Mail } from "lucide-react";
 import { z } from "zod";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
-import PageMark from "@/components/PageMark";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -71,9 +70,14 @@ const Contact = () => {
       {/* 01 · HERO */}
       <section className="px-6 md:px-10">
         <div className="max-w-[1280px] mx-auto pt-32 md:pt-40 pb-16 md:pb-24">
-          <PageMark index="01" total="02" />
           <Reveal>
-            <h1 className="font-serif text-[52px] md:text-[88px] lg:text-[112px] leading-[1.0] tracking-[-0.03em] max-w-[14ch]">
+            <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
+              <span className="block w-6 h-px bg-cinnabar" />
+              01 — Inquiry
+            </div>
+          </Reveal>
+          <Reveal delay={0.05}>
+            <h1 className="mt-10 font-serif h-display-xl max-w-[14ch]">
               Tell us about <em className="italic text-cinnabar">the brand.</em>
             </h1>
           </Reveal>
@@ -101,9 +105,14 @@ const Contact = () => {
       {/* 02 · INQUIRY — form + direct */}
       <section className="px-6 md:px-10 border-t border-foreground">
         <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-          <PageMark index="02" total="02" />
           <Reveal>
-            <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em] max-w-[14ch]">
+            <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
+              <span className="block w-6 h-px bg-cinnabar" />
+              02 — Brief
+            </div>
+          </Reveal>
+          <Reveal delay={0.05}>
+            <h2 className="mt-10 font-serif h-display-lg max-w-[14ch]">
               Send a <em className="italic text-cinnabar">brief.</em>
             </h2>
           </Reveal>

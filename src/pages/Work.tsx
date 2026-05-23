@@ -74,9 +74,14 @@ const Work = () => (
     {/* 01 · HERO */}
     <section className="px-6 md:px-10">
       <div className="max-w-[1280px] mx-auto pt-32 md:pt-40 pb-20 md:pb-28">
-        <PageMark index="01" total="04" />
         <Reveal>
-          <h1 className="font-serif text-[52px] md:text-[88px] lg:text-[112px] leading-[1.0] tracking-[-0.03em] max-w-[18ch]">
+          <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
+            <span className="block w-6 h-px bg-cinnabar" />
+            01 — Selected Work
+          </div>
+        </Reveal>
+        <Reveal delay={0.05}>
+          <h1 className="mt-10 font-serif h-display-xl max-w-[18ch]">
             Real brands. Real <em className="italic text-cinnabar">results.</em>
           </h1>
         </Reveal>
@@ -91,9 +96,14 @@ const Work = () => (
     {/* 02 · SELECTED PROJECTS */}
     <section className="px-6 md:px-10 border-t border-foreground">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <PageMark index="02" total="04" />
         <Reveal>
-          <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em]">
+          <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
+            <span className="block w-6 h-px bg-cinnabar" />
+            02 — Projects
+          </div>
+        </Reveal>
+        <Reveal delay={0.05}>
+          <h2 className="mt-10 font-serif h-display-lg">
             {projects.length} brands. <em className="italic text-cinnabar">One team.</em>
           </h2>
         </Reveal>
@@ -142,9 +152,14 @@ const Work = () => (
     {/* 03 · WHAT CLIENTS SAY */}
     <section className="px-6 md:px-10 border-t border-foreground">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <PageMark index="03" total="04" />
         <Reveal>
-          <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em]">
+          <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
+            <span className="block w-6 h-px bg-cinnabar" />
+            03 — Testimonials
+          </div>
+        </Reveal>
+        <Reveal delay={0.05}>
+          <h2 className="mt-10 font-serif h-display-lg">
             What clients <em className="italic text-cinnabar">say.</em>
           </h2>
         </Reveal>
@@ -183,9 +198,14 @@ const Work = () => (
     {/* 04 · TRUSTED BY */}
     <section className="px-6 md:px-10 border-t border-foreground">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <PageMark index="04" total="04" />
         <Reveal>
-          <h2 className="font-serif text-[40px] md:text-[64px] lg:text-[80px] leading-[1.0] tracking-[-0.03em] max-w-[20ch]">
+          <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
+            <span className="block w-6 h-px bg-cinnabar" />
+            04 — Trusted By
+          </div>
+        </Reveal>
+        <Reveal delay={0.05}>
+          <h2 className="mt-10 font-serif h-display-lg max-w-[20ch]">
             40+ brands across F&amp;B, fashion, and <em className="italic text-cinnabar">hospitality.</em>
           </h2>
         </Reveal>

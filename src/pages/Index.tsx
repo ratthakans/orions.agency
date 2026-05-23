@@ -10,10 +10,10 @@ import workDemocrat from "@/assets/democrat.jpg";
 import workGcoo from "@/assets/gcoo.jpg";
 
 const selectedWork = [
-  { n: "01", title: "Hongmove",             niche: "PropTech",    impact: "+312%", img: workHongmove },
-  { n: "02", title: "Royal Thai Air Force", niche: "Government",  impact: "2.1M",  img: workRtaf },
-  { n: "03", title: "Democrat Party",       niche: "Politics",    impact: "12M+",  img: workDemocrat },
-  { n: "04", title: "GCOO",                 niche: "Mobility",    impact: "+540%", img: workGcoo },
+  { n: "01", slug: "hongmove",             title: "Hongmove",             niche: "PropTech",   impact: "+312%", img: workHongmove },
+  { n: "02", slug: "royal-thai-air-force", title: "Royal Thai Air Force", niche: "Government", impact: "2.1M",  img: workRtaf },
+  { n: "03", slug: "democrat-party",       title: "Democrat Party",       niche: "Politics",   impact: "12M+",  img: workDemocrat },
+  { n: "04", slug: "gcoo",                 title: "GCOO",                 niche: "Mobility",   impact: "+540%", img: workGcoo },
 ];
 
 const processSteps = [
@@ -199,7 +199,7 @@ const Index = () => (
 
         <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {selectedWork.map((w) => (
-            <Link key={w.n} to="/work" className="group block">
+            <Link key={w.n} to={`/work/${w.slug}`} className="group block">
               <div className="relative aspect-[4/5] overflow-hidden border border-foreground/15 bg-foreground">
                 <img src={w.img} alt={w.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-[1.04]" loading="lazy" />
                 <div className="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-foreground/85 backdrop-blur-sm text-background p-3 flex items-center justify-between font-mono text-[10px] tracking-[0.18em] uppercase">

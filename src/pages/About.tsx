@@ -104,22 +104,6 @@ const About = () => (
       </div>
     </section>
 
-    {/* Big quote */}
-    <section className="bg-foreground text-background border-t border-background/15">
-      <div className="max-w-[1280px] mx-auto px-6 md:px-10 py-28 md:py-40">
-        <Reveal>
-          <p className="font-serif italic text-[32px] md:text-[56px] lg:text-[68px] leading-[1.12] tracking-[-0.02em] max-w-[18ch]">
-            ในโลกที่ทุกคนตะโกนเหมือนกัน <em className="text-cinnabar">จนกลายเป็น Noise</em> — การตะโกนให้ดังขึ้น ไม่ใช่ทางออก
-          </p>
-        </Reveal>
-        <Reveal delay={0.15}>
-          <p className="mt-16 font-serif text-cinnabar text-[26px] md:text-[40px] leading-[1.2] tracking-[-0.01em]">
-            ตัดส่วนเกิน · สกัดเนื้อแท้ · กลั่นกรองเรื่องราว
-          </p>
-        </Reveal>
-      </div>
-    </section>
-
     {/* 02 — OUR PROMISE */}
     <section className="bg-background text-foreground border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 py-24 md:py-32">

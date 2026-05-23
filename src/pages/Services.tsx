@@ -20,6 +20,11 @@ const packages = [
       "1 แพลตฟอร์ม + Cross-post",
       "Free Onboarding + Brand Audit",
     ],
+    deliverables: "Reels 6 · Static 3 · Hero 1 · Stories 6 · Photos 6",
+    production: "1 production day · 2-person crew · Sony A7V",
+    strategy:   "Monthly Insight Snapshot · 3 competitors tracked",
+    reporting:  "Monthly performance report · 1 platform + cross-post",
+    bestFor:    "Brands launching their refined voice (0–10k followers)",
     cta: "Get Started",
     featured: false,
   },
@@ -40,6 +45,11 @@ const packages = [
       "Ads Management ฟรี ≤ ฿50k",
       "2 แพลตฟอร์ม + Monthly Report + QSR",
     ],
+    deliverables: "Reels 12 · Static 6 · Hero 2 · Stories 12 · Photos 12",
+    production: "2 production days · 3-person crew · pro lighting + Sony A7V",
+    strategy:   "Persona Mapping · A/B Testing · Quarterly Lifecycle Map",
+    reporting:  "Monthly report + QSR · 2 platforms · Ads mgmt ≤ ฿50k included",
+    bestFor:    "Growing brands cutting through the noise (10–100k followers)",
     cta: "Start with Pro",
     featured: true,
   },
@@ -60,15 +70,22 @@ const packages = [
       "Custom Dashboard + Dedicated AM",
       "Industry Exclusivity",
     ],
+    deliverables: "Reels 24 · Static 12 · Signature 3 · Stories 16 · Photos 24",
+    production: "3 production days · full crew · Brand Film every 6 months",
+    strategy:   "Quarterly Creative Lab · Annual Lifecycle Strategy · Brand Manual",
+    reporting:  "Custom Dashboard · Dedicated AM · Industry Exclusivity",
+    bestFor:    "Established brands building lasting legacy (100k+ followers)",
     cta: "Talk to Us",
     featured: false,
   },
 ];
 
-const tiers = [
-  { sym: "◐", title: "เริ่มต้น",       th: "กำลังสร้างเสียงของแบรนด์เป็นครั้งแรก ยังไม่มีฐาน audience ที่ชัด",         match: "Starter" },
-  { sym: "◑", title: "กำลังเติบโต",     th: "มีฐานแล้ว แต่ต้องตัดผ่าน noise ในตลาด — แข่งกับคู่แข่งหนัก",              match: "Pro" },
-  { sym: "◒", title: "เป็นที่รู้จัก",   th: "แบรนด์มีตัวตนชัด ต้องการสร้าง legacy + เป็นที่จดจำในระดับอุตสาหกรรม",   match: "Elite" },
+const compareRows = [
+  { label: "Loops / month",   starter: "1",       pro: "2 + Campaign", elite: "3 + Lab" },
+  { label: "Production Days", starter: "1",       pro: "2",            elite: "3" },
+  { label: "Team Size",       starter: "2 crew",  pro: "3 crew",       elite: "Full crew" },
+  { label: "Strategy Layer",  starter: "Insight", pro: "Persona + A/B", elite: "Lifecycle + Lab" },
+  { label: "Platforms",       starter: "1",       pro: "2",            elite: "Custom" },
 ];
 
 const addOnCategories = [
@@ -173,6 +190,27 @@ const Services = () => (
                 ))}
               </ul>
 
+              {/* Expanded detail groups */}
+              <div className={`mt-10 pt-8 border-t ${p.featured ? "border-background/20" : "border-foreground/15"} space-y-6`}>
+                {[
+                  { label: "Deliverables / mo", value: p.deliverables },
+                  { label: "Production",        value: p.production },
+                  { label: "Strategy & Data",   value: p.strategy },
+                  { label: "Reporting",         value: p.reporting },
+                  { label: "Best For",          value: p.bestFor },
+                ].map((row) => (
+                  <div key={row.label}>
+                    <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar flex items-center gap-3">
+                      <span className="block w-4 h-px bg-cinnabar" />
+                      {row.label}
+                    </div>
+                    <p className={`mt-2 font-thai text-[13px] md:text-[14px] leading-[1.6] ${p.featured ? "text-background/85" : "text-foreground/80"}`}>
+                      {row.value}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
               <Link
                 to="/contact"
                 className={`mt-10 group inline-flex items-center justify-between gap-3 px-6 py-4 btn-label border transition-colors duration-300 ${
@@ -188,6 +226,31 @@ const Services = () => (
           </Reveal>
         ))}
       </div>
+
+      {/* COMPARISON STRIP */}
+      <Reveal delay={0.15}>
+        <div className="max-w-[1280px] mx-auto mt-12 border border-foreground/20">
+          <div className="grid grid-cols-[1.2fr_1fr_1fr_1fr] bg-foreground text-background font-mono text-[10px] tracking-[0.22em] uppercase">
+            <div className="p-4 md:p-5">At a glance</div>
+            <div className="p-4 md:p-5 border-l border-background/20">Starter</div>
+            <div className="p-4 md:p-5 border-l border-background/20 text-cinnabar">Pro</div>
+            <div className="p-4 md:p-5 border-l border-background/20">Elite</div>
+          </div>
+          {compareRows.map((row, i) => (
+            <div
+              key={row.label}
+              className={`grid grid-cols-[1.2fr_1fr_1fr_1fr] ${i > 0 ? "border-t border-foreground/15" : ""} font-thai text-[13px] md:text-[14px]`}
+            >
+              <div className="p-4 md:p-5 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
+                {row.label}
+              </div>
+              <div className="p-4 md:p-5 border-l border-foreground/15">{row.starter}</div>
+              <div className="p-4 md:p-5 border-l border-foreground/15 bg-foreground/[0.03] text-foreground">{row.pro}</div>
+              <div className="p-4 md:p-5 border-l border-foreground/15">{row.elite}</div>
+            </div>
+          ))}
+        </div>
+      </Reveal>
 
       {/* Founder's deal */}
       <Reveal delay={0.2}>
@@ -208,68 +271,13 @@ const Services = () => (
       </Reveal>
     </section>
 
-    {/* FIND YOUR TIER — guide */}
-    <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
-        <Reveal>
-          <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
-            <span className="block w-6 h-px bg-cinnabar" />
-            02 — Find Your Tier
-          </div>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <h2 className="mt-10 font-serif h-display-lg">
-            ตอนนี้ — เลือก<br /><em className="italic text-cinnabar">tier</em> ที่ใช่.
-          </h2>
-        </Reveal>
-        <Reveal delay={0.2}>
-          <p className="mt-10 max-w-[680px] font-thai text-[16px] md:text-[18px] leading-[1.7] text-muted-foreground">
-            แบรนด์ของคุณอยู่ช่วงไหน — เลือก stage ที่ใกล้ที่สุด เราจะเสนอ tier ที่เหมาะกับจังหวะการเติบโต
-          </p>
-        </Reveal>
-
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-px bg-foreground/15 border border-foreground/15">
-          {tiers.map((t, i) => (
-            <Reveal key={t.title} delay={i * 0.08}>
-              <div className="bg-background p-10 md:p-12 h-full flex flex-col">
-                <div className="text-cinnabar text-[40px] leading-none">{t.sym}</div>
-                <h3 className="mt-8 font-serif text-[28px] md:text-[32px] leading-[1.1] tracking-[-0.02em]">{t.title}</h3>
-                <p className="mt-5 font-thai text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground flex-1">{t.th}</p>
-                <div className="mt-8 pt-6 border-t border-foreground/15 font-mono text-[10px] tracking-[0.2em] uppercase">
-                  → Match: <span className="text-cinnabar">{t.match}</span>
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-
-        <Reveal delay={0.3}>
-          <div className="mt-16 flex flex-wrap items-center gap-5">
-            <Link
-              to="/diagnostic"
-              className="group inline-flex items-center gap-3 bg-foreground text-background px-7 py-4 btn-label hover:bg-cinnabar transition-colors duration-300"
-            >
-              <span>Take The Diagnostic</span>
-              <ArrowUpRight className="w-4 h-4" />
-            </Link>
-            <Link
-              to="/contact"
-              className="group inline-flex items-center gap-2 btn-label border-b border-foreground pb-1 hover:text-cinnabar hover:border-cinnabar transition-colors"
-            >
-              Talk to us first →
-            </Link>
-          </div>
-        </Reveal>
-      </div>
-    </section>
-
     {/* ADD-ONS — editorial table */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-24 md:py-32">
         <Reveal>
           <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
             <span className="block w-6 h-px bg-cinnabar" />
-            03 — Add-ons
+            02 — Add-ons
           </div>
         </Reveal>
         <Reveal delay={0.1}>

@@ -142,6 +142,40 @@ const Services = () => (
             แพ็กเกจของเราออกแบบตามจำนวน Content Loop + Data Depth + Strategic Layer — ยิ่งสูง ยิ่งครอบคลุม Brand Journey
           </p>
         </Reveal>
+
+        {/* 6:3:1 interactive visualizer */}
+        <Reveal delay={0.3}>
+          <div className="mt-16 border border-foreground/20">
+            <div className="grid grid-cols-[6fr_3fr_1fr]">
+              {[
+                { n: "6", label: "Reels",  hint: "Short-form ที่ขับเคลื่อนการค้นพบ", tone: "light" },
+                { n: "3", label: "Static", hint: "Editorial ที่ให้บริบทและอยู่นานกว่าหนึ่งวัน", tone: "mid" },
+                { n: "1", label: "Hero",   hint: "Signature story รายเดือน — กำหนดทิศทาง", tone: "dark" },
+              ].map((b, i) => (
+                <div
+                  key={b.label}
+                  className={`group relative p-6 md:p-8 min-h-[140px] flex flex-col justify-between transition-colors duration-500 ${
+                    b.tone === "dark" ? "bg-foreground text-background" :
+                    b.tone === "mid"  ? "bg-foreground/[0.06]" :
+                                        "bg-background"
+                  } ${i > 0 ? "border-l border-foreground/20" : ""} hover:bg-cinnabar hover:text-background`}
+                >
+                  <div className="flex items-baseline justify-between">
+                    <span className="font-serif text-[48px] md:text-[64px] leading-none tracking-[-0.04em] tabular-nums">{b.n}</span>
+                    <span className="font-mono text-[10px] tracking-[0.22em] uppercase opacity-70">{b.label}</span>
+                  </div>
+                  <p className="mt-4 font-thai text-[12px] md:text-[13px] leading-[1.55] opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    {b.hint}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <div className="border-t border-foreground/20 px-5 py-3 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center justify-between">
+              <span>One refined loop · per month</span>
+              <span className="hidden md:inline">Hover to expand</span>
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
 

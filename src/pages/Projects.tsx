@@ -45,7 +45,7 @@ const Projects = () => (
         <Reveal>
           <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-background/55 flex items-center gap-3">
             <span className="block w-6 h-px bg-cinnabar" />
-            00 — Ventures
+            01 — Ventures
           </div>
         </Reveal>
         <Reveal delay={0.1}>

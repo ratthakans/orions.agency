@@ -112,7 +112,7 @@ const Services = () => (
         <Reveal>
           <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
             <span className="block w-6 h-px bg-cinnabar" />
-            08 — Packages
+            01 — Packages
           </div>
         </Reveal>
         <Reveal delay={0.1}>
@@ -214,7 +214,7 @@ const Services = () => (
         <Reveal>
           <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
             <span className="block w-6 h-px bg-cinnabar" />
-            07 — Find Your Tier
+            02 — Find Your Tier
           </div>
         </Reveal>
         <Reveal delay={0.1}>
@@ -269,7 +269,7 @@ const Services = () => (
         <Reveal>
           <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
             <span className="block w-6 h-px bg-cinnabar" />
-            09 — Add-ons
+            03 — Add-ons
           </div>
         </Reveal>
         <Reveal delay={0.1}>

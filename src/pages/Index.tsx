@@ -329,7 +329,7 @@ const Index = () => (
               <div className={`p-8 md:p-10 h-full flex flex-col ${i > 0 ? "md:border-l border-foreground/20 border-t md:border-t-0" : ""} ${p.featured ? "bg-foreground text-background" : "bg-background"}`}>
                 <div className="flex items-baseline justify-between gap-3">
                   <div className="text-cinnabar text-[28px] leading-none">{p.sym}</div>
-                  <div className={`font-mono text-[10px] tracking-[0.22em] uppercase ${p.featured ? "text-cinnabar" : "text-cinnabar"}`}>{p.tier}</div>
+                  <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">{p.tier}</div>
                 </div>
                 <h3 className="mt-8 font-serif text-[28px] md:text-[32px] leading-[1.1] tracking-[-0.02em]">
                   {p.name}

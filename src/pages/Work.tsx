@@ -1,7 +1,6 @@
 import Reveal from "@/components/Reveal";
 import ClosingCTA from "@/components/ClosingCTA";
 import SEO from "@/components/SEO";
-import PageMark from "@/components/PageMark";
 import { Link } from "react-router-dom";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 

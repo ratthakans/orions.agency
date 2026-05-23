@@ -90,9 +90,9 @@ const HealthCheck = () => {
   return (
     <div>
       <SEO
-        title="Creative Health Check — ØRIONS"
+        title="The Diagnostic — ØRIONS"
         description="12 questions across 6 axes. 2 minutes. Get a refined-quality score for your brand."
-        path="/health-check"
+        path="/diagnostic"
       />
 
       {/* HERO */}
@@ -101,7 +101,7 @@ const HealthCheck = () => {
           <Reveal>
             <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
               <span className="block w-6 h-px bg-cinnabar" />
-              06 — Creative Health Check
+              06 — The Diagnostic
             </div>
           </Reveal>
           <Reveal delay={0.1}>

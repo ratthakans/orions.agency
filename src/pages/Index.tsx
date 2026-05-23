@@ -73,113 +73,51 @@ const Index = () => (
       path="/"
     />
 
-    {/* HERO — Collins-quiet: headline lives alone in optical center */}
-    <section className="relative min-h-screen grid place-items-center px-6 md:px-10">
-      <div className="w-full max-w-[1400px] text-center pt-32 pb-24">
+    {/* HERO */}
+    <section className="relative min-h-screen flex flex-col">
+      <div className="flex-1 flex flex-col justify-center items-center text-center px-6 md:px-10 pt-32 pb-20 max-w-[1400px] mx-auto w-full">
         <Reveal>
-          <h1 className="font-serif h-display-xl leading-[0.92] whitespace-nowrap">
-            Stories, <em className="italic text-cinnabar">refined.</em>
-          </h1>
-        </Reveal>
-
-        <Reveal delay={0.2}>
-          <p className="mt-12 max-w-[560px] mx-auto font-thai text-[16px] md:text-[18px] leading-[1.6] text-muted-foreground">
-            ตัดส่วนเกิน สกัดเนื้อแท้ กลั่นกรองเรื่องราว — เพื่อให้แบรนด์คุณถึงคนที่ใช่
-          </p>
-        </Reveal>
-
-        <Reveal delay={0.35}>
-          <div className="mt-20 flex flex-wrap justify-center items-center gap-x-5 gap-y-2 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
-            <span>Est. 2026 · Bangkok</span>
-            <span className="text-cinnabar">◐</span>
-            <span>By invitation · Industry-exclusive</span>
-            <span className="text-cinnabar">◐</span>
-            <span>Refined, not scaled</span>
-          </div>
-        </Reveal>
-      </div>
-    </section>
-
-    {/* FEATURED — Ink full-bleed drop (Collins-style) */}
-    <section className="bg-foreground text-background px-6 md:px-10 py-24 md:py-40 border-t border-background/10">
-      <div className="max-w-[1400px] mx-auto">
-        <Reveal>
-          <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-background/60 flex items-center gap-3">
-            <span className="block w-6 h-px bg-cinnabar" />
-            00 — Featured
+          <div className="font-mono text-[11px] tracking-[0.22em] uppercase text-muted-foreground">
+            Boutique Creative Studio · Est. 2026
           </div>
         </Reveal>
 
         <Reveal delay={0.1}>
-          <Link to="/work" className="group block mt-12 md:mt-16">
-            <div className="aspect-[16/9] overflow-hidden">
-              <img
-                src={workHongmove}
-                alt="Hongmove — featured case"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
-                loading="eager"
-              />
-            </div>
+          <h1 className="mt-10 font-serif h-display-xl leading-[0.92] whitespace-nowrap">
+            Stories, <em className="italic text-cinnabar">refined.</em>
+          </h1>
+        </Reveal>
 
-            <div className="mt-10 md:mt-14 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 md:gap-16 items-end border-t border-background/15 pt-8">
-              <div>
-                <h2 className="font-serif h-display-md leading-[1.0] tracking-[-0.015em]">
-                  Hongmove<em className="italic text-cinnabar">.</em>
-                </h2>
-                <div className="mt-4 font-mono text-[10px] tracking-[0.22em] uppercase text-background/60">
-                  PropTech · Bangkok
-                </div>
-              </div>
-              <div className="md:text-right">
-                <div className="font-serif text-cinnabar text-[48px] md:text-[64px] leading-none tracking-[-0.02em]">
-                  +312%
-                </div>
-                <div className="mt-2 font-mono text-[10px] tracking-[0.22em] uppercase text-background/60">
-                  Qualified leads
-                </div>
-              </div>
-            </div>
+        <Reveal delay={0.25}>
+          <p className="mt-12 max-w-[640px] mx-auto font-thai text-[17px] md:text-[20px] leading-[1.55] text-muted-foreground">
+            เราไม่ผลิตให้ครบจำนวน เราไม่ตามเทรนด์ที่อัลกอริทึมเขียนบท —
+            เราตัดส่วนเกิน สกัดเนื้อแท้ และกลั่นกรองเรื่องราว เพื่อให้แบรนด์คุณ ถึงคนที่ใช่
+          </p>
+        </Reveal>
 
-            <div className="mt-10 inline-flex items-center gap-2 btn-label border-b border-background/40 pb-1 group-hover:text-cinnabar group-hover:border-cinnabar transition-colors">
-              See the case <ArrowUpRight className="w-4 h-4" />
-            </div>
-          </Link>
+        <Reveal delay={0.35}>
+          <div className="mt-16 flex flex-wrap justify-center gap-x-12 gap-y-6 border-t border-foreground/15 pt-8 max-w-[860px] mx-auto">
+            {[
+              { en: "6 : 3 : 1",            sub: "Refined Content System" },
+              { en: "Data-Refined",         sub: "Creative Process" },
+              { en: "Industry Exclusivity", sub: "For Elite clients" },
+            ].map((m) => (
+              <div key={m.en}>
+                <div className="font-serif text-[22px] md:text-[26px] tracking-[-0.015em]">{m.en}</div>
+                <div className="mt-1 font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">{m.sub}</div>
+              </div>
+            ))}
+          </div>
         </Reveal>
       </div>
-    </section>
 
-    {/* MARQUEE */}
-    <section>
+      {/* Marquee */}
       <div className="border-y border-foreground/20 py-6 overflow-hidden whitespace-nowrap">
         <div className="inline-flex gap-16 animate-[marquee_38s_linear_infinite] will-change-transform">
           {[...marquee, ...marquee, ...marquee, ...marquee].map((m, i) => (
             <span key={i} className="font-serif text-[22px] md:text-[34px] tracking-[-0.01em] inline-flex items-center gap-16">
               {m} <span className="text-cinnabar">◐</span>
             </span>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    {/* OPERATING PRINCIPLES — relocated from hero */}
-    <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <Reveal>
-          <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
-            <span className="block w-6 h-px bg-cinnabar" />
-            Operating principles
-          </div>
-        </Reveal>
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16">
-          {[
-            { en: "6 : 3 : 1",            sub: "Refined Content System" },
-            { en: "Data-Refined",         sub: "Creative Process" },
-            { en: "Industry Exclusivity", sub: "For Elite clients" },
-          ].map((m) => (
-            <div key={m.en} className="border-t border-foreground/15 pt-6">
-              <div className="font-serif text-[26px] md:text-[32px] tracking-[-0.015em]">{m.en}</div>
-              <div className="mt-2 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">{m.sub}</div>
-            </div>
           ))}
         </div>
       </div>

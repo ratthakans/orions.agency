@@ -1,38 +1,24 @@
 import Reveal from "@/components/Reveal";
 import ClosingCTA from "@/components/ClosingCTA";
 import SEO from "@/components/SEO";
+import { Link } from "react-router-dom";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
-import workHongmove from "@/assets/hongmove.png";
-import workKhaoyai from "@/assets/golf-hero.jpg";
-import workMyHotel from "@/assets/myhotel.png";
-import workRtaf from "@/assets/rtaf.jpg";
-import workDemocrat from "@/assets/democrat.jpg";
-import workHeavy from "@/assets/heavy-organizer.jpg";
-import workGcoo from "@/assets/gcoo.jpg";
 import hongmoveLogo from "@/assets/logos/hongmove.png";
+import { caseStudies } from "@/data/caseStudies";
 
 const SITE_URL = "https://orions.agency";
 
-type Project = {
-  n: string;
-  title: string;
-  niche: string;
-  scope: string;
-  impact: string;
-  body: string;
-  img: string;
-};
-
-const projects: Project[] = [
-  { n: "01", title: "Hongmove",             niche: "PROPTECH",    scope: "Brand · Web · Content",      impact: "+312%",     body: "End-to-end brand system, marketing site and launch content for the new rental platform.", img: workHongmove },
-  { n: "02", title: "Khaoyai Country Club", niche: "HOSPITALITY", scope: "Photo · Video · Social",     impact: "+48%",      body: "Lifestyle shoot and short-form video for the club rebrand.",                                img: workKhaoyai },
-  { n: "03", title: "MyHotel",              niche: "HOSPITALITY", scope: "Content · Paid ads",         impact: "−37%",      body: "Monthly content and Meta ads tuned to lower cost per booking.",                            img: workMyHotel },
-  { n: "04", title: "Royal Thai Air Force", niche: "GOVERNMENT",  scope: "Film · Production · Post",   impact: "2.1M",      body: "Full production and post for an official RTAF film, end to end.",                          img: workRtaf },
-  { n: "05", title: "Democrat Party",       niche: "POLITICS",    scope: "Campaign · Film · Social",   impact: "12M+",      body: "National campaign creative — fast turnaround across every platform.",                      img: workDemocrat },
-  { n: "06", title: "Heavy Organizer",      niche: "EVENTS",      scope: "Brand · Event film · Recap", impact: "+88%",      body: "Brand films and event recaps for live productions.",                                       img: workHeavy },
-  { n: "07", title: "GCOO",                 niche: "MOBILITY",    scope: "Brand · Launch campaign",    impact: "+540%",     body: "Launch campaign for the e-scooter sharing app — brand, OOH and social.",                   img: workGcoo },
-];
+const projects = caseStudies.map((c) => ({
+  n: c.n,
+  slug: c.slug,
+  title: c.title,
+  niche: c.niche.toUpperCase(),
+  scope: c.scope,
+  impact: c.impact,
+  body: c.summary,
+  img: c.cover,
+}));
 
 const testimonials = [
   { niche: "F&B",         stat: "+62%", statLabel: "BOOKINGS",       quote: "They got our brand voice right from day one. Bookings up 62% in three months.", name: "Cedric C.",  handle: "Maison Lumière · @maisonlumiere" },
@@ -110,7 +96,7 @@ const Work = () => (
         <div className="mt-16 md:mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-14 md:gap-y-20">
           {projects.map((w, i) => (
             <Reveal key={w.n} delay={0.04 * i}>
-              <article className="group block">
+              <Link to={`/work/${w.slug}`} className="group block">
                 <div className="relative w-full overflow-hidden bg-muted" style={{ aspectRatio: "4 / 5" }}>
                   <img
                     src={w.img}
@@ -137,7 +123,7 @@ const Work = () => (
                 <p className="mt-3 font-thai text-[14px] leading-[1.65] text-foreground/70">
                   {w.body}
                 </p>
-              </article>
+              </Link>
             </Reveal>
           ))}
         </div>

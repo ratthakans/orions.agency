@@ -12,6 +12,7 @@ import Services from "./pages/Services";
 import About from "./pages/About";
 import HealthCheck from "./pages/HealthCheck";
 import Work from "./pages/Work";
+import CaseStudy from "./pages/CaseStudy";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
@@ -35,6 +36,7 @@ const App = () => (
             <Route path="/diagnostic" element={<HealthCheck />} />
             <Route path="/health-check" element={<Navigate to="/diagnostic" replace />} />
             <Route path="/work" element={<Work />} />
+            <Route path="/work/:slug" element={<CaseStudy />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/ventures" element={<Navigate to="/projects" replace />} />
             <Route path="/contact" element={<Contact />} />

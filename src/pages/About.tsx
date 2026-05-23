@@ -128,51 +128,37 @@ const About = () => (
       </div>
     </section>
 
-    {/* 03 — THREE PILLARS */}
-    <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto pt-24 md:pt-32 pb-20 md:pb-28">
-        <SectionLabel index="03" label="Three Pillars" />
+    {/* 03 — HOW WE REFINE (Pillars + Data) */}
+    <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+        <SectionLabel index="03" label="How We Refine" />
         <Reveal delay={0.1}>
-          <h2 className="mt-10 font-serif h-display-lg max-w-[20ch]">
-            เราไม่ใช่ content factory —<br />
-            เราคือ <em className="italic text-cinnabar">พาร์ทเนอร์</em> ที่เข้าใจแบรนด์คุณ
+          <h2 className="mt-10 font-serif h-display-lg">
+            สาม <em className="italic text-cinnabar">เสาหลัก.</em><br />หนึ่ง process.
           </h2>
         </Reveal>
         <Reveal delay={0.2}>
           <p className="mt-10 max-w-[720px] font-thai text-[16px] md:text-[18px] leading-[1.7] text-muted-foreground">
-            Boutique Creative Studio ที่ทำงานกับแบรนด์ละเอียดทุกชิ้น — ใส่ใจรายละเอียด คิดก่อนทำ กลั่นกรองทุกชิ้นจนคมที่สุด
+            Craft · Strategy · Story — สามเสาหลักที่ขับเคลื่อนทุกชิ้นงาน. และก่อนทุกชิ้นจะเริ่ม เราฟังก่อน เพราะ "Refined" ไม่ใช่แค่ภาพสวย แต่คือชิ้นงานที่ผ่านการกลั่นจากเสียงจริงของคนที่ใช่
           </p>
         </Reveal>
 
-        <div className="mt-20 border-t border-foreground/20 grid grid-cols-1 md:grid-cols-3">
+        {/* Pillars — compact strip */}
+        <div className="mt-16 border-t border-foreground/20 grid grid-cols-1 md:grid-cols-3">
           {pillars.map((p, i) => (
-            <Reveal key={p.en} delay={i * 0.08}>
-              <div className={`py-12 md:px-10 ${i > 0 ? "md:border-l border-foreground/20 border-t md:border-t-0" : ""}`}>
-                <div className="text-cinnabar text-[40px] leading-none">{p.sym}</div>
-                <h3 className="mt-10 font-serif text-[28px] md:text-[34px] leading-[1.1] tracking-[-0.02em]">{p.en}</h3>
-                <p className="mt-5 font-thai text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">{p.th}</p>
+            <Reveal key={p.en} delay={i * 0.06}>
+              <div className={`py-8 md:py-10 md:px-8 flex items-baseline gap-5 ${i > 0 ? "md:border-l border-foreground/20 border-t md:border-t-0" : ""}`}>
+                <div className="text-cinnabar text-[28px] leading-none shrink-0">{p.sym}</div>
+                <div>
+                  <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">Pillar 0{i + 1}</div>
+                  <h3 className="mt-2 font-serif text-[24px] md:text-[28px] leading-[1.1] tracking-[-0.02em]">{p.en}</h3>
+                </div>
               </div>
             </Reveal>
           ))}
         </div>
-      </div>
-    </section>
 
-    {/* 04 — DATA REFINED */}
-    <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
-        <SectionLabel index="04" label="Data-Refined Creative" />
-        <Reveal delay={0.1}>
-          <h2 className="mt-10 font-serif h-display-lg">
-            Creative ที่ดี<br />เริ่มจาก <em className="italic text-cinnabar">Data</em> ที่ลึก.
-          </h2>
-        </Reveal>
-        <Reveal delay={0.2}>
-          <p className="mt-10 max-w-[720px] font-thai text-[16px] md:text-[18px] leading-[1.7] text-muted-foreground">
-            ก่อนทุกชิ้นจะเริ่ม — เราฟังก่อน เพราะ "Refined" ไม่ใช่แค่ภาพสวย แต่คือชิ้นงานที่ผ่านการกลั่นจากเสียงจริงของคนที่ใช่
-          </p>
-        </Reveal>
-
+        {/* Data — full cards */}
         <div className="mt-20 grid grid-cols-1 md:grid-cols-3 border border-foreground/20">
           {data.map((d, i) => (
             <Reveal key={d.en} delay={i * 0.08}>
@@ -187,47 +173,10 @@ const About = () => (
       </div>
     </section>
 
-    {/* 05 — THE SYSTEM */}
+    {/* 04 — BEYOND CONTENT */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-24 md:py-32">
-        <SectionLabel index="05" label="The System" />
-        <Reveal delay={0.1}>
-          <h2 className="mt-10 font-serif h-display-lg">
-            เราไม่ขายจำนวน —<br />เราขาย <em className="italic text-cinnabar">ระบบ.</em>
-          </h2>
-        </Reveal>
-        <Reveal delay={0.2}>
-          <p className="mt-10 max-w-[720px] font-thai text-[16px] md:text-[18px] leading-[1.7] text-muted-foreground">
-            ทุกแพ็กเกจของ ØRIONS ออกแบบผ่าน Content Loop ที่ทำงานร่วมกันอย่างมีกลยุทธ์
-          </p>
-        </Reveal>
-
-        <Reveal delay={0.25}>
-          <div className="mt-12 md:mt-16 font-serif text-cinnabar tracking-[-0.04em] leading-none"
-               style={{ fontSize: "clamp(96px, 18vw, 260px)" }}>
-            6<span className="text-foreground">:</span>3<span className="text-foreground">:</span>1
-          </div>
-        </Reveal>
-
-        <div className="mt-20 border-t border-foreground/20 grid grid-cols-1 md:grid-cols-3">
-          {loops.map((l, i) => (
-            <Reveal key={l.n} delay={i * 0.08}>
-              <div className={`py-12 md:px-10 ${i > 0 ? "md:border-l border-foreground/20 border-t md:border-t-0" : ""}`}>
-                <div className="font-serif text-cinnabar text-[72px] md:text-[88px] leading-none">{l.n}</div>
-                <div className="mt-6 font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">{l.stage}</div>
-                <h3 className="mt-3 font-serif text-[26px] md:text-[30px] leading-[1.1] tracking-[-0.02em]">{l.en}</h3>
-                <p className="mt-5 font-thai text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">{l.th}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    {/* 06 — BEYOND CONTENT */}
-    <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
-        <SectionLabel index="06" label="Beyond Content" />
+        <SectionLabel index="04" label="Beyond Content" />
         <Reveal delay={0.1}>
           <h2 className="mt-10 font-serif h-display-lg max-w-[22ch]">
             เราไม่ได้สร้างแค่คอนเทนต์ —<br />
@@ -254,10 +203,10 @@ const About = () => (
       </div>
     </section>
 
-    {/* 07 — OUR TEAM */}
+    {/* 05 — OUR TEAM */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-24 md:py-32">
-        <SectionLabel index="07" label="Our Team" />
+        <SectionLabel index="05" label="Our Team" />
         <Reveal delay={0.1}>
           <h2 className="mt-10 font-serif h-display-lg max-w-[22ch]">
             15 people. <em className="italic text-cinnabar">One studio.</em>

@@ -206,7 +206,7 @@ const Work = () => (
         </Reveal>
         <Reveal delay={0.05}>
           <h2 className="mt-10 font-serif h-display-lg max-w-[20ch]">
-            40+ brands across F&amp;B, fashion, and <em className="italic text-cinnabar">hospitality.</em>
+            20+ brands across F&amp;B, fashion, and <em className="italic text-cinnabar">hospitality.</em>
           </h2>
         </Reveal>
 

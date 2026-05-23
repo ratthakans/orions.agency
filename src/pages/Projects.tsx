@@ -1,7 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
-import { Link } from "react-router-dom";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
+import ClosingCTA from "@/components/ClosingCTA";
 
 type Venture = {
   n: string;
@@ -102,38 +102,15 @@ const Projects = () => (
       </div>
     </section>
 
-    {/* CLOSING */}
-    <section className="px-6 md:px-10 border-t border-foreground/15 bg-surface">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
-        <Reveal>
-          <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
-            <span className="block w-6 h-px bg-cinnabar" />
-            More coming
-          </div>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <h2 className="mt-10 font-serif h-display-md max-w-[22ch]">
-            Built in Bangkok. <em className="italic text-cinnabar">Shipped by ØRIONS.</em>
-          </h2>
-        </Reveal>
-        <Reveal delay={0.2}>
-          <p className="mt-8 max-w-[640px] font-thai text-[15px] md:text-[17px] leading-[1.7] text-muted-foreground">
-            มี idea ที่อยากร่วม build, invest หรือ collaborate? คุยกับเราได้เสมอ
-          </p>
-        </Reveal>
-        <Reveal delay={0.3}>
-          <div className="mt-12 flex flex-wrap items-center gap-5">
-            <Link
-              to="/contact"
-              className="group inline-flex items-center gap-3 bg-foreground text-background px-7 py-4 btn-label hover:bg-cinnabar transition-colors duration-300"
-            >
-              <span>Get in touch</span>
-              <ArrowUpRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </Reveal>
-      </div>
-    </section>
+    <ClosingCTA
+      eyebrow="MORE COMING"
+      title={<>Built in Bangkok. <em className="italic text-cinnabar">Shipped by ØRIONS.</em></>}
+      description="มี idea ที่อยากร่วม build, invest หรือ collaborate? คุยกับเราได้เสมอ"
+      ctas={[
+        { label: "Get in touch", to: "/contact" },
+        { label: "See services", to: "/services", variant: "ghost" },
+      ]}
+    />
   </div>
 );
 

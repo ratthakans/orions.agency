@@ -20,6 +20,11 @@ const packages = [
       "1 แพลตฟอร์ม + Cross-post",
       "Free Onboarding + Brand Audit",
     ],
+    deliverables: "Reels 6 · Static 3 · Hero 1 · Stories 6 · Photos 6",
+    production: "1 production day · 2-person crew · Sony A7V",
+    strategy:   "Monthly Insight Snapshot · 3 competitors tracked",
+    reporting:  "Monthly performance report · 1 platform + cross-post",
+    bestFor:    "Brands launching their refined voice (0–10k followers)",
     cta: "Get Started",
     featured: false,
   },
@@ -40,6 +45,11 @@ const packages = [
       "Ads Management ฟรี ≤ ฿50k",
       "2 แพลตฟอร์ม + Monthly Report + QSR",
     ],
+    deliverables: "Reels 12 · Static 6 · Hero 2 · Stories 12 · Photos 12",
+    production: "2 production days · 3-person crew · pro lighting + Sony A7V",
+    strategy:   "Persona Mapping · A/B Testing · Quarterly Lifecycle Map",
+    reporting:  "Monthly report + QSR · 2 platforms · Ads mgmt ≤ ฿50k included",
+    bestFor:    "Growing brands cutting through the noise (10–100k followers)",
     cta: "Start with Pro",
     featured: true,
   },
@@ -60,15 +70,22 @@ const packages = [
       "Custom Dashboard + Dedicated AM",
       "Industry Exclusivity",
     ],
+    deliverables: "Reels 24 · Static 12 · Signature 3 · Stories 16 · Photos 24",
+    production: "3 production days · full crew · Brand Film every 6 months",
+    strategy:   "Quarterly Creative Lab · Annual Lifecycle Strategy · Brand Manual",
+    reporting:  "Custom Dashboard · Dedicated AM · Industry Exclusivity",
+    bestFor:    "Established brands building lasting legacy (100k+ followers)",
     cta: "Talk to Us",
     featured: false,
   },
 ];
 
-const tiers = [
-  { sym: "◐", title: "เริ่มต้น",       th: "กำลังสร้างเสียงของแบรนด์เป็นครั้งแรก ยังไม่มีฐาน audience ที่ชัด",         match: "Starter" },
-  { sym: "◑", title: "กำลังเติบโต",     th: "มีฐานแล้ว แต่ต้องตัดผ่าน noise ในตลาด — แข่งกับคู่แข่งหนัก",              match: "Pro" },
-  { sym: "◒", title: "เป็นที่รู้จัก",   th: "แบรนด์มีตัวตนชัด ต้องการสร้าง legacy + เป็นที่จดจำในระดับอุตสาหกรรม",   match: "Elite" },
+const compareRows = [
+  { label: "Loops / month",   starter: "1",       pro: "2 + Campaign", elite: "3 + Lab" },
+  { label: "Production Days", starter: "1",       pro: "2",            elite: "3" },
+  { label: "Team Size",       starter: "2 crew",  pro: "3 crew",       elite: "Full crew" },
+  { label: "Strategy Layer",  starter: "Insight", pro: "Persona + A/B", elite: "Lifecycle + Lab" },
+  { label: "Platforms",       starter: "1",       pro: "2",            elite: "Custom" },
 ];
 
 const addOnCategories = [

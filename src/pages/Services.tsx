@@ -10,6 +10,7 @@ const packages = [
     tagline: "For brands taking their first refined steps.",
     price: "฿35,000",
     sub: "/ เดือน · สัญญา 1 เดือน · ไม่ผูกมัด",
+    annual: "Annual ฿350,000 · save 17%",
     features: [
       "1 Content Loop ครบวงจร — 6 Reels / 3 Static / 1 Horizontal",
       "Stories 6 + Photos 6 ครั้ง/เดือน",
@@ -28,8 +29,10 @@ const packages = [
     tagline: "For brands ready to cut through the noise.",
     price: "฿69,000",
     sub: "/ เดือน · สัญญาขั้นต่ำ 3 เดือน",
+    annual: "Annual ฿690,000 · save 17%",
     features: [
-      "2 Content Loops — 12 Reels / 6 Static / 2 Horizontal",
+      "12 Reels · 6 Static · 2 Hero Video · 12 Photos",
+      "Stories 12 ครั้ง/เดือน",
       "+ Quarterly Signature Campaign",
       "+ Quarterly Audience Lifecycle Map",
       "Persona Mapping + A/B Testing",
@@ -46,8 +49,10 @@ const packages = [
     tagline: "For brands becoming a name remembered.",
     price: "฿139,000",
     sub: "/ เดือน · สัญญาขั้นต่ำ 6 เดือน",
+    annual: "Annual ฿1,390,000 · save 17%",
     features: [
-      "Premium Media House — 24 Reels / 12 Static / 3 Signature Stories",
+      "24 Reels · 12 Static · 3 Signature Stories",
+      "Stories 16/mo · 24 Photos · 3 Production Days",
       "+ Quarterly Creative Lab (4hr workshop)",
       "+ Annual Audience Lifecycle Strategy",
       "+ Brand Manual (มูลค่า ฿30k · ฟรี)",
@@ -64,6 +69,33 @@ const tiers = [
   { sym: "◐", title: "เริ่มต้น",       th: "กำลังสร้างเสียงของแบรนด์เป็นครั้งแรก ยังไม่มีฐาน audience ที่ชัด",         match: "Starter" },
   { sym: "◑", title: "กำลังเติบโต",     th: "มีฐานแล้ว แต่ต้องตัดผ่าน noise ในตลาด — แข่งกับคู่แข่งหนัก",              match: "Pro" },
   { sym: "◒", title: "เป็นที่รู้จัก",   th: "แบรนด์มีตัวตนชัด ต้องการสร้าง legacy + เป็นที่จดจำในระดับอุตสาหกรรม",   match: "Elite" },
+];
+
+const addOnCategories = [
+  {
+    label: "Branding",
+    items: [
+      { name: "Brand Identity Package", italic: false, desc: "Logo + Brand Book + Color + Typography + Visual System", price: "From ฿80,000" },
+      { name: "Signature Campaign Concept", italic: true,  desc: "Big Idea across 6:3:1 Loop + Creative Direction + Strategy", price: "From ฿35,000" },
+      { name: "Brand Deep Dive Session", italic: false, desc: "Half-day workshop · focused area + Summary deck", price: "฿20,000" },
+    ],
+  },
+  {
+    label: "Social Media",
+    items: [
+      { name: "Community Management Plus", italic: false, desc: "Extended hours 8:00–23:00 + Active Outreach + Auto-reply", price: "฿8,000 / mo" },
+      { name: "Influencer / KOL Management", italic: true,  desc: "Selection + briefing + campaign management + reporting", price: "10% · min ฿10,000" },
+      { name: "Paid Ads Audit & Analyze", italic: false, desc: "Performance review + Recommendations + Optimization", price: "฿15,000" },
+    ],
+  },
+  {
+    label: "Creative Production",
+    items: [
+      { name: "Brand Film (3–5 min)", italic: true,  desc: "Cinematic short film with director + plot + full crew", price: "From ฿80,000" },
+      { name: "Commercial Video Production", italic: false, desc: "Script + cast + full crew · script-led brand video", price: "From ฿50,000" },
+      { name: "Professional Photoshoot", italic: false, desc: "Dedicated shoot + retouching 20–40 images", price: "฿15,000 / day" },
+    ],
+  },
 ];
 
 const Services = () => (
@@ -126,6 +158,9 @@ const Services = () => (
                 <div className="font-serif text-[42px] md:text-[48px] tracking-[-0.025em] leading-none">{p.price}</div>
                 <div className={`mt-2 font-mono text-[10px] tracking-[0.18em] uppercase ${p.featured ? "text-background/60" : "text-muted-foreground"}`}>
                   {p.sub}
+                </div>
+                <div className={`mt-3 font-mono text-[10px] tracking-[0.18em] uppercase ${p.featured ? "text-cinnabar" : "text-cinnabar"}`}>
+                  {p.annual}
                 </div>
               </div>
 
@@ -222,6 +257,88 @@ const Services = () => (
               className="group inline-flex items-center gap-2 btn-label border-b border-foreground pb-1 hover:text-cinnabar hover:border-cinnabar transition-colors"
             >
               Talk to us first →
+            </Link>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+
+    {/* ADD-ONS — editorial table */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+        <Reveal>
+          <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
+            <span className="block w-6 h-px bg-cinnabar" />
+            09 — Add-ons
+          </div>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <h2 className="mt-10 font-serif h-display-lg max-w-[16ch]">
+            Beyond the<br /><em className="italic text-cinnabar">package.</em>
+          </h2>
+        </Reveal>
+        <Reveal delay={0.2}>
+          <p className="mt-10 max-w-[680px] font-thai text-[16px] md:text-[18px] leading-[1.7] text-muted-foreground">
+            Standalone services — ไม่ต้องอัปเกรด package ก็เลือกใช้ได้. เหมาะกับแบรนด์ที่มีเป้าหมายเฉพาะ หรือต้องการเพิ่มช่องทางใหม่.
+          </p>
+        </Reveal>
+        <Reveal delay={0.25}>
+          <p className="mt-4 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
+            All prices exclude VAT 7% · one-time fees unless marked monthly
+          </p>
+        </Reveal>
+
+        <div className="mt-16 space-y-16 md:space-y-20">
+          {addOnCategories.map((cat, ci) => (
+            <Reveal key={cat.label} delay={ci * 0.05}>
+              <div>
+                <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar flex items-center gap-3 mb-6">
+                  <span className="block w-6 h-px bg-cinnabar" />
+                  {cat.label}
+                </div>
+                <div className="border-t border-foreground/20">
+                  {cat.items.map((item) => (
+                    <div
+                      key={item.name}
+                      className="grid grid-cols-1 md:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)_auto] gap-3 md:gap-10 items-baseline py-6 md:py-7 border-b border-foreground/20 transition-colors hover:bg-surface px-2 md:px-4 -mx-2 md:-mx-4"
+                    >
+                      <h3 className={`font-serif text-[20px] md:text-[24px] leading-[1.15] tracking-[-0.01em] ${item.italic ? "italic text-cinnabar" : ""}`}>
+                        {item.name}
+                      </h3>
+                      <p className="font-thai text-[14px] md:text-[15px] leading-[1.6] text-muted-foreground">
+                        {item.desc}
+                      </p>
+                      <div className="font-mono text-[12px] tracking-[0.15em] uppercase text-foreground whitespace-nowrap md:text-right">
+                        {item.price}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        {/* Bundle Discount */}
+        <Reveal delay={0.2}>
+          <div className="mt-16 bg-cinnabar text-background p-8 md:p-12 flex flex-col md:flex-row md:items-center justify-between gap-8">
+            <div>
+              <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-background/70">
+                Bundle Discount
+              </div>
+              <h4 className="mt-3 font-serif text-[28px] md:text-[36px] tracking-[-0.015em] leading-[1.05]">
+                Buy 3 add-ons or more — <em className="italic">15% off, instantly.</em>
+              </h4>
+              <p className="mt-4 font-thai text-[14px] md:text-[15px] leading-[1.6] text-background/85 max-w-[560px]">
+                Mix and match — package + add-ons ปรับให้เข้ากับโจทย์ของคุณ. คุยกับ Account Manager เพื่อขอใบเสนอราคา.
+              </p>
+            </div>
+            <Link
+              to="/contact"
+              className="group inline-flex items-center justify-between gap-4 px-7 py-4 btn-label border border-background bg-background text-cinnabar hover:bg-foreground hover:text-background hover:border-foreground transition-colors duration-300 shrink-0"
+            >
+              <span>Get a Quote</span>
+              <ArrowUpRight className="w-4 h-4" />
             </Link>
           </div>
         </Reveal>

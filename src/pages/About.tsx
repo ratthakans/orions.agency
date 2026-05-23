@@ -244,7 +244,7 @@ const About = () => (
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <Reveal delay={0.1}>
-          <div className="mt-24 flex flex-wrap items-center gap-5">
+          <div className="flex flex-wrap items-center gap-5">
             <Link
               to="/services"
               className="group inline-flex items-center gap-3 bg-foreground text-background px-7 py-4 btn-label hover:bg-cinnabar transition-colors duration-300"

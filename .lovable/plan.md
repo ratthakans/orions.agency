@@ -1,74 +1,63 @@
-## Goal
+## A) About — ลดความซ้ำซ้อนและความยาว
 
-1. Switch Manifesto headings (Index + About "Our Promise") from Thai to English to match the rest of the H3 hierarchy.
-2. Clean up inconsistencies found in the cross-page review.
+**Diagnosis:** หน้า About ปัจจุบันยาว 7 sections (~341 บรรทัด). มี 2 จุดซ้ำซ้อนกับ Index ชัดเจน + 1 จุดซ้ำในตัวเอง:
 
----
+| # | Section | สถานะ | เหตุผล |
+|---|---------|------|-------|
+| 01 | Manifesto + 3 Pains | **เก็บ** | unique, ลึกกว่า Index |
+| — | Big quote "ตัดส่วนเกิน · สกัดเนื้อแท้ · กลั่นกรองเรื่องราว" | **ตัดทิ้ง** | ซ้ำกับ Manifesto i/ii/iii ของ Index แบบคำต่อคำ |
+| 02 | Our Promise | **เก็บ** | unique |
+| 03 | Three Pillars (Craft/Strategy/Story) | **ยุบรวมเข้า 04** | concept ทับกับ Data-Refined + ทำให้ flow ช้า |
+| 04 | Data-Refined Creative | **เก็บ + ขยาย** | รับ Pillars เข้ามาเป็น sub-layer |
+| 05 | The System 6:3:1 | **ตัดเหลือ inline reference** | section นี้มีอยู่บน Index (Process) แล้ว — เก็บไว้แค่บรรทัดเดียว + ลิงก์ |
+| 06 | Beyond Content | **เก็บ** | unique |
+| 07 | Our Team | **เก็บ** | unique |
+| — | CTA ปิด | **เก็บ** | |
 
-## A) Manifesto → English headings
+**ผลลัพธ์:** จาก 7 sections → **5 sections** (Manifesto · Promise · Data+Pillars · Beyond · Team). สั้นลง ~30%, ไม่มี content ที่ผู้ใช้เคยอ่านบน Index ซ้ำอีก.
 
-### `src/pages/Index.tsx` — `manifestoPoints`
-Keep `i. / ii. / iii.` and Thai body copy. Replace `en` strings:
-
-| # | now (TH)           | new (EN)            |
-|---|--------------------|---------------------|
-| i  | ตัดส่วนเกิน         | **Cut the Excess**       |
-| ii | สกัดเนื้อแท้         | **Extract the Essence**  |
-| iii | กลั่นกรองเรื่องราว | **Refine the Story**     |
-
-### `src/pages/About.tsx` — `promises` (Our Promise block, same pattern as Index now)
-Replace Thai phrases in `en` with English headlines; keep Thai body:
-
-| # | now (TH)                              | new (EN)                  |
-|---|----------------------------------------|----------------------------|
-| i  | ทุกชิ้นที่เราส่ง คือชิ้นที่เราภูมิใจ | **Work we're proud of.**   |
-| ii | เราจะตรงเวลา                          | **Always on time.**        |
-| iii | เราจะโปร่งใส                         | **Radically transparent.** |
+**รายละเอียดการรวม Pillars → Data:**
+ทำเป็น 2-tier layout ใน section เดียว — ด้านบน 3 pillars (Craft/Strategy/Story) เป็นแถบสั้น (icon + heading only, ไม่มี body), ด้านล่าง 3 data steps (ฟังคน/ฟังตลาด/ฟังตัวเลข) เป็น cards เต็มแบบเดิม. Header เปลี่ยนเป็น "How We Refine" รวม 2 ชั้นเข้าด้วยกัน.
 
 ---
 
-## B) Cross-page consistency findings & fixes
+## B) Services — ตัด "Find Your Tier" + เติม detail ใน packages
 
-### B1 — Hero type scale (Work, Contact)
-`src/pages/Work.tsx` and `src/pages/Contact.tsx` hand-roll hero H1 with `text-[52px] md:text-[88px] lg:text-[112px]`. Every other page uses the shared `h-display-xl` utility.
-→ Replace inline sizes with `className="font-serif h-display-xl ..."` (keep `max-w-[Xch]`).
+**B1. ตัด section 02 "Find Your Tier" ออก**
+ลบทั้ง block (◐เริ่มต้น / ◑กำลังเติบโต / ◒เป็นที่รู้จัก + CTA Diagnostic). เหตุผล: หน้า Diagnostic มี diagnostic flow ที่ทำหน้าที่นี้ดีกว่า + ลด redundancy. Renumber section ที่เหลือ: **01 Packages · 02 Add-ons** (เดิม 03).
 
-### B2 — Stray legacy color token (Contact)
-`src/pages/Contact.tsx` line 77 uses `text-gemini` for the italic accent. Memory says it maps to Cinnabar, but every other italic accent in the site reads `text-cinnabar`.
-→ Replace `text-gemini` → `text-cinnabar` (one occurrence).
+**B2. เติมรายละเอียดให้ทุก package**
+ขยาย card แต่ละ tier เพิ่ม sub-groups ใหม่ ใต้ features list:
 
-### B3 — Section label pattern (Work, Contact)
-Work + Contact use `<PageMark index="01" total="04" />`, which renders a different visual than the `font-mono text-[10px] tracking-[0.22em] uppercase` + `w-6 h-px bg-cinnabar` rule used on Index, Services, HealthCheck, About, Projects.
-→ Inside Work and Contact, replace `PageMark` calls with the inline label pattern (same component-less snippet used elsewhere) so all 7 pages share one section-label style. Keep `total` count off — labels are per-page sequential (01, 02, …) like the rest.
+```
+[ Tier + Name + Tagline + Price ]
+[ INCLUDES — 7-8 bullets เดิม ]
++ [ DELIVERABLES / MONTH — สรุปจำนวนชิ้นเป็นตาราง compact ]
+   เช่น  Reels 6 · Static 3 · Hero 1 · Stories 6 · Photos 6
++ [ PRODUCTION — ทีม + วันถ่าย + อุปกรณ์ ]
+   เช่น  1 production day · 2-person crew · Sony A7V
++ [ STRATEGY & DATA — insight layer ]
+   เช่น  Monthly Insight Snapshot · 3 competitors tracked
++ [ REPORTING — what you receive ]
+   เช่น  Monthly performance report · 1 platform + cross-post
++ [ BEST FOR — 1 บรรทัดบอก fit ]
+   เช่น  Brands launching their refined voice (0-10k followers)
+```
 
-### B4 — Dead ternaries in Services
-`src/pages/Services.tsx` has several `p.featured ? "text-cinnabar" : "text-cinnabar"` ternaries (lines ~144, ~162). Both branches equal.
-→ Simplify to plain `"text-cinnabar"`.
+แต่ละ sub-group ใช้ mono label เล็ก (`text-[10px] tracking-[0.22em] uppercase text-cinnabar`) + hairline divider ระหว่างกลุ่ม. รักษา editorial feel — ไม่ใช่ comparison table.
 
-### B5 — Unused components (cleanup, optional but recommended)
-`src/components/SectionHeader.tsx` and `src/components/SectionLabel.tsx` are no longer referenced — every page uses the inline `font-mono + w-6 h-px bg-cinnabar` snippet directly.
-→ Delete both files to avoid drift.
-
----
-
-## What stays the same (intentional consistency)
-
-- **Per-page section numbering** restarts at `01` on each page — this matches editorial convention and reads correctly with the new mono section labels. Keeping.
-- **About page's own 01–07** numbering stays (full manifesto page has its own scope).
-- Hero composition: Index = centered, all other pages = left-aligned. Intentional asymmetry.
-- Cinnabar italic accent in every page H1/H2. Strong signature, keeping.
+**B3. เพิ่ม comparison strip ใต้ packages (optional addition)**
+mini-table 1 แถวเทียบ 3 tiers แบบ at-a-glance: Loops/mo · Production Days · Team Size · Strategy Layer. ช่วย scan โดยไม่ต้องอ่าน 3 cards ละเอียด.
 
 ---
 
 ## Files touched
 
-- `src/pages/Index.tsx` — manifesto EN headings (A)
-- `src/pages/About.tsx` — promise EN headings (A)
-- `src/pages/Work.tsx` — hero type + section label (B1, B3)
-- `src/pages/Contact.tsx` — hero type + color token + section label (B1, B2, B3)
-- `src/pages/Services.tsx` — dead ternary cleanup (B4)
-- `src/components/SectionHeader.tsx` — delete (B5)
-- `src/components/SectionLabel.tsx` — delete (B5)
+- `src/pages/About.tsx` — ลบ big quote band, ลบ section 03 Three Pillars (ย้าย 3 pillar headings เข้า 04), ลบ section 05 The System (เหลือ inline reference + link to "/", "/services"), renumber 01→02→03→04→05
+- `src/pages/Services.tsx` — ลบ "Find Your Tier" section + tiers array, เพิ่ม deliverables/production/strategy/reporting/bestFor fields ใน packages array, ขยาย card markup, เพิ่ม mini comparison strip, renumber 01→02
 
 ## Out of scope
-Copy rewrite, new sections, routing, backend, animations, layout changes.
+- Copy rewrite อื่น
+- Pricing change
+- Add-ons / Bundle discount blocks
+- Routing, backend, animation, layout system

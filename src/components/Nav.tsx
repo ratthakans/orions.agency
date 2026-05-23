@@ -2,11 +2,10 @@ import { useState, useEffect } from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
 
 const links = [
-  { label: "Manifesto", to: "/manifesto" },
-  { label: "Approach", to: "/approach" },
+  { label: "About", to: "/about" },
   { label: "Services", to: "/services" },
   { label: "Work", to: "/work" },
-  { label: "Health Check", to: "/health-check" },
+  { label: "The Diagnostic", to: "/diagnostic" },
   { label: "Contact", to: "/contact" },
 ];
 
@@ -51,7 +50,7 @@ const Nav = () => {
                 {({ isActive }) => (
                   <>
                     <span className="whitespace-nowrap">
-                      {l.label === "Health Check" ? "Health\u00a0Check" : l.label}
+                      {l.label === "The Diagnostic" ? "The\u00a0Diagnostic" : l.label}
                     </span>
                     {isContact && <span aria-hidden>→</span>}
                     {isActive && (

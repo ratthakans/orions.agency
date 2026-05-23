@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import CountUp from "@/components/CountUp";
+import KineticWordmark from "@/components/KineticWordmark";
 import workHongmove from "@/assets/hongmove.png";
 import workRtaf from "@/assets/rtaf.jpg";
 import workDemocrat from "@/assets/democrat.jpg";
@@ -83,8 +84,12 @@ const Index = () => (
           </div>
         </Reveal>
 
-        <Reveal delay={0.1}>
-          <h1 className="mt-10 font-serif h-display-xl leading-[0.92] text-balance">
+        <div className="mt-12 w-full">
+          <KineticWordmark />
+        </div>
+
+        <Reveal delay={0.4}>
+          <h1 className="mt-8 font-serif text-[28px] md:text-[40px] leading-[1.05] tracking-[-0.02em]">
             Stories, <em className="italic text-cinnabar">refined.</em>
           </h1>
         </Reveal>

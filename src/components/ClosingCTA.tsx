@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import Reveal from "./Reveal";
 import CTA from "./CTA";
+import Magnetic from "./Magnetic";
 
 interface CTAItem {
   label: string;
@@ -44,9 +45,11 @@ const ClosingCTA = ({
       <Reveal delay={0.2}>
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-5">
           {ctas.map((c) => (
-            <CTA key={c.label} to={c.to} variant={c.variant}>
-              {c.label}
-            </CTA>
+            <Magnetic key={c.label} strength={10}>
+              <CTA to={c.to} variant={c.variant}>
+                {c.label}
+              </CTA>
+            </Magnetic>
           ))}
         </div>
       </Reveal>

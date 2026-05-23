@@ -39,6 +39,25 @@ const beyond = [
   { sym: "◒", en: "Long-term Bond",     th: "เพราะการได้ลูกค้าใหม่ ต้นทุน 5 เท่าของรักษาลูกค้าเก่า — เราสร้างความสัมพันธ์ที่อยู่ได้ยาว" },
 ];
 
+// Team — roles only for now (names kept in comments for future reference)
+const team = [
+  { role: "CEO" },                    // พี่น้ำ
+  { role: "Founder" },                // พี่เตอร์
+  { role: "Creative Director" },      // พี่แมน
+  { role: "Marketing Director" },     // พี่เรย์
+  { role: "Director" },               // พี่โจ
+  { role: "Creative" },               // พี่รมมี่
+  { role: "Ads Specialist" },         // พี่เต้
+  { role: "Art Director" },           // พี่โซนี่
+  { role: "Post Supervisor" },        // พี่ชุ
+  { role: "Editor" },                 // พี่สตั้น
+  { role: "Project Coordinator" },    // พี่ทีม
+  { role: "Social Media Manager" },   // พี่เปอร์
+  { role: "DOP" },                    // พี่เต
+  { role: "Project Manager" },        // พี่น้ำฝน
+  { role: "Admin" },                  // พี่เอธ
+];
+
 const SectionLabel = ({ index, label, tone = "ink" }: { index: string; label: string; tone?: "ink" | "snow" }) => (
   <Reveal>
     <div

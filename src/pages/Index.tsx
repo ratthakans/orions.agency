@@ -83,7 +83,7 @@ const Index = () => (
         </Reveal>
 
         <Reveal delay={0.1}>
-          <h1 className="mt-10 font-serif h-display-xl leading-[0.92] whitespace-nowrap">
+          <h1 className="mt-10 font-serif h-display-xl leading-[0.92] text-balance">
             Stories, <em className="italic text-cinnabar">refined.</em>
           </h1>
         </Reveal>
@@ -96,17 +96,12 @@ const Index = () => (
         </Reveal>
 
         <Reveal delay={0.35}>
-          <div className="mt-16 flex flex-wrap justify-center gap-x-12 gap-y-6 border-t border-foreground/15 pt-8 max-w-[860px] mx-auto">
-            {[
-              { en: "6 : 3 : 1",            sub: "Refined Content System" },
-              { en: "Data-Refined",         sub: "Creative Process" },
-              { en: "Industry Exclusivity", sub: "For Elite clients" },
-            ].map((m) => (
-              <div key={m.en}>
-                <div className="font-serif text-[22px] md:text-[26px] tracking-[-0.015em]">{m.en}</div>
-                <div className="mt-1 font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">{m.sub}</div>
-              </div>
-            ))}
+          <div className="mt-16 flex flex-wrap justify-center gap-x-10 gap-y-3 border-t border-foreground/15 pt-6 max-w-[860px] mx-auto font-mono text-[11px] tracking-[0.22em] uppercase text-muted-foreground">
+            <span><span className="text-cinnabar">6 : 3 : 1</span> · Refined Content System</span>
+            <span className="opacity-40">/</span>
+            <span>Data-Refined Process</span>
+            <span className="opacity-40">/</span>
+            <span>Industry Exclusivity</span>
           </div>
         </Reveal>
       </div>

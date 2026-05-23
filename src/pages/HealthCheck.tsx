@@ -4,7 +4,7 @@ import { ArrowUpRight, RotateCcw } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 
-/* 6 axes, 2 questions each = 12 questions */
+/* 6 axes, 3 questions each = 18 questions */
 const axes = [
   { name: "Brand Clarity",       short: "Clarity" },
   { name: "Content Consistency", short: "Consistency" },
@@ -315,6 +315,57 @@ const HealthCheck = () => {
                   <div className="mt-2 font-mono text-[9px] tracking-[0.22em] uppercase text-muted-foreground">Refined Quality</div>
                 </div>
               </div>
+
+              {/* Radar chart — 6 axes */}
+              {(() => {
+                const cx = 140, cy = 140, R = 110;
+                const n = axisScores.length;
+                const pts = axisScores.map((a, i) => {
+                  const pct = a.max ? a.score / a.max : 0;
+                  const angle = -Math.PI / 2 + (i * 2 * Math.PI) / n;
+                  return {
+                    x: cx + Math.cos(angle) * R * pct,
+                    y: cy + Math.sin(angle) * R * pct,
+                    lx: cx + Math.cos(angle) * (R + 18),
+                    ly: cy + Math.sin(angle) * (R + 18),
+                    label: axes[a.axis].short,
+                  };
+                });
+                const rings = [0.25, 0.5, 0.75, 1];
+                const spokes = Array.from({ length: n }, (_, i) => {
+                  const a = -Math.PI / 2 + (i * 2 * Math.PI) / n;
+                  return { x: cx + Math.cos(a) * R, y: cy + Math.sin(a) * R };
+                });
+                const path = pts.map((p, i) => `${i === 0 ? "M" : "L"}${p.x},${p.y}`).join(" ") + " Z";
+                return (
+                  <div className="mt-12 flex justify-center">
+                    <svg viewBox="0 0 280 280" width="320" height="320" className="overflow-visible">
+                      {rings.map((r) => (
+                        <circle key={r} cx={cx} cy={cy} r={R * r} fill="none" stroke="hsl(var(--foreground) / 0.12)" />
+                      ))}
+                      {spokes.map((s, i) => (
+                        <line key={i} x1={cx} y1={cy} x2={s.x} y2={s.y} stroke="hsl(var(--foreground) / 0.12)" />
+                      ))}
+                      <path d={path} fill="hsl(var(--accent) / 0.18)" stroke="hsl(var(--accent))" strokeWidth="1.5" />
+                      {pts.map((p, i) => (
+                        <g key={i}>
+                          <circle cx={p.x} cy={p.y} r="3" fill="hsl(var(--accent))" />
+                          <text
+                            x={p.lx}
+                            y={p.ly}
+                            textAnchor={p.lx > cx + 5 ? "start" : p.lx < cx - 5 ? "end" : "middle"}
+                            dominantBaseline="middle"
+                            className="fill-muted-foreground"
+                            style={{ font: "10px ui-monospace, monospace", letterSpacing: "0.18em", textTransform: "uppercase" }}
+                          >
+                            {p.label}
+                          </text>
+                        </g>
+                      ))}
+                    </svg>
+                  </div>
+                );
+              })()}
 
               <div className="mt-10">
                 <div className="font-serif italic text-cinnabar text-[28px] md:text-[36px] tracking-[-0.01em]">{result.tier}</div>

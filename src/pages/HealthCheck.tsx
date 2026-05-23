@@ -323,32 +323,116 @@ const HealthCheck = () => {
                 </p>
               </div>
 
-              {/* Axis breakdown */}
-              <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-3 text-left">
-                {axisScores.map((a) => {
-                  const pct = Math.round((a.score / a.max) * 100);
-                  return (
-                    <div key={a.axis} className="border-t border-foreground/15 pt-4">
-                      <div className="flex items-center justify-between">
-                        <span className="font-mono text-[10px] tracking-[0.2em] uppercase">{axes[a.axis].name}</span>
-                        <span className="font-serif text-[18px] tabular-nums">{pct}%</span>
+              {/* Per-axis insight cards */}
+              <div className="mt-16 text-left">
+                <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3 justify-center">
+                  <span className="block w-6 h-px bg-cinnabar" />
+                  Per-Axis Diagnosis
+                </div>
+                <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-px bg-foreground/15 border border-foreground/15">
+                  {axisScores.map((a) => {
+                    const pct = a.max ? Math.round((a.score / a.max) * 100) : 0;
+                    const v = axisVerdict(a.axis, pct);
+                    const tone =
+                      v.label === "Strong" ? "text-cinnabar" :
+                      v.label === "Developing" ? "text-foreground" :
+                      "text-muted-foreground";
+                    return (
+                      <div key={a.axis} className="bg-background p-6 md:p-7">
+                        <div className="flex items-center justify-between">
+                          <span className="font-mono text-[10px] tracking-[0.2em] uppercase">{axes[a.axis].name}</span>
+                          <span className="font-serif text-[20px] tabular-nums">{pct}%</span>
+                        </div>
+                        <div className="mt-3 h-px bg-foreground/10 overflow-hidden">
+                          <div className="h-full bg-cinnabar" style={{ width: `${pct}%` }} />
+                        </div>
+                        <div className={`mt-4 font-mono text-[10px] tracking-[0.22em] uppercase ${tone}`}>
+                          {v.label}
+                        </div>
+                        <p className="mt-2 font-thai text-[13px] md:text-[14px] leading-[1.65] text-foreground/85">
+                          {v.text}
+                        </p>
+                        <div className="mt-4 pt-4 border-t border-foreground/15">
+                          <div className="font-mono text-[9px] tracking-[0.22em] uppercase text-muted-foreground">Next action</div>
+                          <p className="mt-1 font-thai text-[13px] leading-[1.6]">→ {v.action}</p>
+                        </div>
                       </div>
-                      <div className="mt-2 h-px bg-foreground/10 overflow-hidden">
-                        <div className="h-full bg-cinnabar" style={{ width: `${pct}%` }} />
-                      </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+                </div>
               </div>
 
+              {/* Top 3 priorities */}
+              {(() => {
+                const ranked = [...axisScores]
+                  .map((a) => ({ ...a, pct: a.max ? Math.round((a.score / a.max) * 100) : 0 }))
+                  .sort((a, b) => a.pct - b.pct)
+                  .slice(0, 3);
+                return (
+                  <div className="mt-16 text-left max-w-[720px] mx-auto">
+                    <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
+                      <span className="block w-6 h-px bg-cinnabar" />
+                      Top 3 Priorities
+                    </div>
+                    <ol className="mt-8 border-t border-foreground/15">
+                      {ranked.map((a, idx) => {
+                        const v = axisVerdict(a.axis, a.pct);
+                        return (
+                          <li key={a.axis} className="border-b border-foreground/15 py-5 grid grid-cols-12 gap-4 items-baseline">
+                            <span className="col-span-2 md:col-span-1 font-mono text-[11px] tracking-[0.2em] text-cinnabar font-semibold">0{idx + 1}</span>
+                            <span className="col-span-10 md:col-span-4 font-serif text-[20px] md:text-[22px] tracking-[-0.01em]">{axes[a.axis].name}</span>
+                            <span className="col-span-12 md:col-span-7 font-thai text-[14px] leading-[1.65] text-muted-foreground">→ {v.action}</span>
+                          </li>
+                        );
+                      })}
+                    </ol>
+                  </div>
+                );
+              })()}
+
+              {/* Recommended package */}
+              {(() => {
+                const rec = recommendPackage(overallPct);
+                return (
+                  <div className="mt-16 text-left max-w-[860px] mx-auto bg-foreground text-background p-8 md:p-12">
+                    <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar flex items-center gap-3">
+                      <span className="block w-6 h-px bg-cinnabar" />
+                      Recommended for you
+                    </div>
+                    <div className="mt-6 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+                      <div>
+                        <div className="font-mono text-[11px] tracking-[0.22em] uppercase text-background/70">{rec.tier}</div>
+                        <h3 className="mt-3 font-serif text-[36px] md:text-[44px] tracking-[-0.02em] leading-[1.05]">
+                          {rec.name}
+                        </h3>
+                      </div>
+                      <div className="font-mono text-[11px] tracking-[0.22em] uppercase text-background/70">
+                        {rec.price}
+                      </div>
+                    </div>
+                    <p className="mt-6 font-thai text-[14px] md:text-[16px] leading-[1.7] text-background/85 max-w-[640px]">
+                      {rec.why}
+                    </p>
+                    <div className="mt-8 flex flex-wrap gap-5">
+                      <Link
+                        to="/services"
+                        className="group inline-flex items-center gap-3 bg-cinnabar text-background px-7 py-4 btn-label hover:bg-background hover:text-foreground transition-colors duration-300"
+                      >
+                        <span>See full package</span>
+                        <ArrowUpRight className="w-4 h-4" />
+                      </Link>
+                      <Link
+                        to="/contact"
+                        className="group inline-flex items-center gap-2 btn-label border-b border-background/60 pb-1 text-background hover:text-cinnabar hover:border-cinnabar transition-colors"
+                      >
+                        Book a free consult →
+                      </Link>
+                    </div>
+                  </div>
+                );
+              })()}
+
               <div className="mt-14 flex flex-wrap items-center justify-center gap-5">
-                <Link
-                  to="/services"
-                  className="group inline-flex items-center gap-3 bg-cinnabar text-background px-7 py-4 btn-label hover:bg-foreground transition-colors duration-300"
-                >
-                  <span>Find your tier next</span>
-                  <ArrowUpRight className="w-4 h-4" />
-                </Link>
                 <button
                   onClick={restart}
                   className="group inline-flex items-center gap-2 btn-label text-muted-foreground hover:text-foreground transition-colors"

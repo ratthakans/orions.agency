@@ -1,7 +1,6 @@
 import Reveal from "@/components/Reveal";
 import ClosingCTA from "@/components/ClosingCTA";
 import SEO from "@/components/SEO";
-import { Link } from "react-router-dom";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 import workHongmove from "@/assets/hongmove.png";
@@ -111,7 +110,7 @@ const Work = () => (
         <div className="mt-16 md:mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-14 md:gap-y-20">
           {projects.map((w, i) => (
             <Reveal key={w.n} delay={0.04 * i}>
-              <Link to="/work" className="group block">
+              <article className="group block">
                 <div className="relative w-full overflow-hidden bg-muted" style={{ aspectRatio: "4 / 5" }}>
                   <img
                     src={w.img}
@@ -138,7 +137,7 @@ const Work = () => (
                 <p className="mt-3 font-thai text-[14px] leading-[1.65] text-foreground/70">
                   {w.body}
                 </p>
-              </Link>
+              </article>
             </Reveal>
           ))}
         </div>

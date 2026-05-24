@@ -85,22 +85,22 @@ const Index = () => (
     />
 
     {/* HERO — Collins-style: massive serif, all whitespace */}
-    <section className="relative min-h-screen flex flex-col justify-center px-6 md:px-10">
-      <div className="max-w-[1400px] mx-auto w-full text-center pt-[20vh] pb-[18vh]">
+    <section className="relative min-h-[100svh] flex flex-col px-6 md:px-10">
+      <div className="max-w-[1400px] mx-auto w-full flex-1 flex flex-col justify-center items-center text-center pt-32 md:pt-40 pb-20 md:pb-28">
         <Reveal>
           <h1 className="font-serif h-display-xl leading-[0.92] tracking-[-0.04em]">
             Stories, <em className="italic text-cinnabar">refined.</em>
           </h1>
         </Reveal>
         <Reveal delay={0.2}>
-          <p className="mt-12 md:mt-16 font-serif italic text-[18px] md:text-[22px] text-muted-foreground">
+          <p className="mt-16 md:mt-20 font-serif italic text-[18px] md:text-[22px] text-muted-foreground">
             Independent editorial studio. Bangkok. — Boutique Creative Agency.
           </p>
         </Reveal>
 
         {/* Credentials strip — laurel-style */}
         <Reveal delay={0.35}>
-          <div className="mt-[18vh] md:mt-[22vh] flex items-center justify-center gap-5 md:gap-7 font-mono text-[10px] md:text-[11px] tracking-[0.22em] uppercase text-muted-foreground">
+          <div className="mt-20 md:mt-24 flex items-center justify-center gap-5 md:gap-7 font-mono text-[10px] md:text-[11px] tracking-[0.22em] uppercase text-muted-foreground">
             <Laurel side="left" />
             <span>Six&nbsp;years</span>
             <span aria-hidden className="opacity-40">·</span>

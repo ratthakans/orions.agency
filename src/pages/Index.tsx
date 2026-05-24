@@ -2,18 +2,15 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
-import CountUp from "@/components/CountUp";
 import SectionLabel from "@/components/SectionLabel";
 import workHongmove from "@/assets/hongmove.png";
 import workRtaf from "@/assets/rtaf.jpg";
 import workDemocrat from "@/assets/democrat.jpg";
-import workGcoo from "@/assets/gcoo.jpg";
 
 const selectedWork = [
-  { n: "01", slug: "hongmove",             title: "Hongmove",             niche: "PropTech",   impact: "+312%", img: workHongmove },
-  { n: "02", slug: "royal-thai-air-force", title: "Royal Thai Air Force", niche: "Government", impact: "2.1M",  img: workRtaf },
-  { n: "03", slug: "democrat-party",       title: "Democrat Party",       niche: "Politics",   impact: "12M+",  img: workDemocrat },
-  { n: "04", slug: "gcoo",                 title: "GCOO",                 niche: "Mobility",   impact: "+540%", img: workGcoo },
+  { n: "01", slug: "hongmove",             title: "Hongmove",             niche: "PropTech",   year: "2025", impact: "+312% sign-ups",   img: workHongmove },
+  { n: "02", slug: "royal-thai-air-force", title: "Royal Thai Air Force", niche: "Government", year: "2024", impact: "2.1M reach",        img: workRtaf },
+  { n: "03", slug: "democrat-party",       title: "Democrat Party",       niche: "Politics",   year: "2023", impact: "12M+ impressions",  img: workDemocrat },
 ];
 
 const processSteps = [
@@ -65,8 +62,6 @@ const manifestoPoints = [
   },
 ];
 
-const marquee = ["Branding", "Social Media", "Creative Production", "Data-Refined", "Brand Journey"];
-
 const Index = () => (
   <div>
     <SEO
@@ -75,58 +70,32 @@ const Index = () => (
       path="/"
     />
 
-    {/* HERO */}
-    <section className="relative min-h-screen flex flex-col">
-      <div className="flex-1 flex flex-col justify-center items-center text-center px-6 md:px-10 pt-32 pb-20 max-w-[1400px] mx-auto w-full">
+    {/* HERO — Collins-style: massive serif, all whitespace */}
+    <section className="relative min-h-screen flex flex-col justify-center px-6 md:px-10">
+      <div className="max-w-[1400px] mx-auto w-full text-center pt-[20vh] pb-[18vh]">
         <Reveal>
-          <div className="font-mono text-[11px] tracking-[0.22em] uppercase text-muted-foreground">
-            Boutique Creative Studio · Est. 2026
-          </div>
-        </Reveal>
-
-        <div className="mt-12 w-full">
-          <h1 className="font-brand h-display-xl text-foreground leading-none">ØRIONS</h1>
-        </div>
-
-        <Reveal delay={0.4}>
-          <h2 className="mt-8 font-serif text-[28px] md:text-[40px] leading-[1.05] tracking-[-0.02em]">
+          <h1 className="font-serif h-display-xl leading-[0.92] tracking-[-0.04em]">
             Stories, <em className="italic text-cinnabar">refined.</em>
-          </h2>
+          </h1>
         </Reveal>
-
-        <Reveal delay={0.25}>
-          <p className="mt-12 max-w-[640px] mx-auto font-thai text-[17px] md:text-[20px] leading-[1.55] text-muted-foreground">
-            เราไม่ผลิตให้ครบจำนวน เราไม่ตามเทรนด์ที่อัลกอริทึมเขียนบท —
-            เราตัดส่วนเกิน สกัดเนื้อแท้ และกลั่นกรองเรื่องราว เพื่อให้แบรนด์คุณ ถึงคนที่ใช่
+        <Reveal delay={0.2}>
+          <p className="mt-12 md:mt-16 font-serif italic text-[18px] md:text-[22px] text-muted-foreground">
+            Independent editorial studio. Bangkok.
           </p>
         </Reveal>
 
+        {/* Credentials strip — laurel-style */}
         <Reveal delay={0.35}>
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 border-t border-foreground/20 max-w-[860px] mx-auto w-full font-mono text-[11px] tracking-[0.22em] uppercase text-muted-foreground">
-            {[
-              { k: "6 : 3 : 1", v: "Refined Content System", accent: true },
-              { k: "Data",       v: "Refined Process" },
-              { k: "Exclusive",  v: "One per industry" },
-            ].map((c, i) => (
-              <div key={c.v} className={`py-5 md:py-6 px-4 text-center md:text-left ${i > 0 ? "md:border-l border-foreground/15 border-t md:border-t-0" : ""}`}>
-                <div className={c.accent ? "text-cinnabar" : "text-foreground"}>{c.k}</div>
-                <div className="mt-1 opacity-70">{c.v}</div>
-              </div>
-            ))}
+          <div className="mt-[18vh] md:mt-[22vh] flex items-center justify-center gap-5 md:gap-7 font-mono text-[10px] md:text-[11px] tracking-[0.22em] uppercase text-muted-foreground">
+            <Laurel side="left" />
+            <span>Six&nbsp;years</span>
+            <span aria-hidden className="opacity-40">·</span>
+            <span>40+&nbsp;brands</span>
+            <span aria-hidden className="opacity-40">·</span>
+            <span>Bangkok</span>
+            <Laurel side="right" />
           </div>
         </Reveal>
-      </div>
-
-      {/* Marquee */}
-      <div className="border-y border-foreground py-6 overflow-hidden whitespace-nowrap">
-        <div className="inline-flex gap-14 animate-[marquee_60s_linear_infinite] will-change-transform">
-          {[...marquee, ...marquee].map((m, i) => (
-            <span key={i} className="font-serif text-[22px] md:text-[34px] tracking-[-0.01em] inline-flex items-center gap-14 shrink-0">
-              <span>{m}</span>
-              <span aria-hidden className="text-cinnabar text-[14px] leading-none">✦</span>
-            </span>
-          ))}
-        </div>
       </div>
     </section>
 
@@ -184,67 +153,45 @@ const Index = () => (
     </section>
 
     {/* SELECTED WORK */}
-    <section className="px-6 md:px-10 border-t border-foreground bg-surface">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
-        <SectionLabel index="02" label="Selected Work" />
-        <Reveal delay={0.1}>
-          <h2 className="mt-10 font-serif h-display-md max-w-[20ch]">
-            Refined for brands <em className="italic text-cinnabar">we believe in.</em>
-          </h2>
-        </Reveal>
-
-        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-          {selectedWork.map((w) => (
-            <Link key={w.n} to={`/work/${w.slug}`} className="group block">
-              <div className="relative aspect-[4/5] overflow-hidden border border-foreground/15 bg-foreground">
-                <img src={w.img} alt={w.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-500" loading="lazy" />
-                <div className="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-foreground/85 backdrop-blur-sm text-background p-3 flex items-center justify-between font-mono text-[10px] tracking-[0.18em] uppercase">
-                  <span>{w.niche}</span>
-                  <span className="text-cinnabar">{w.impact}</span>
-                </div>
-              </div>
-              <div className="mt-4 flex items-baseline justify-between gap-3">
-                <div>
-                  <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">{w.n} — {w.niche}</div>
-                  <div className="mt-2 font-serif text-[22px] md:text-[24px] tracking-[-0.02em] leading-[1.05] group-hover:italic group-hover:text-cinnabar transition-all">{w.title}</div>
-                </div>
-                <div className="font-serif italic text-cinnabar text-[16px] md:text-[18px] shrink-0 tabular-nums">{w.impact}</div>
-              </div>
-            </Link>
-          ))}
+    <section className="px-6 md:px-10 border-t border-foreground/12">
+      <div className="max-w-[1400px] mx-auto py-20 md:py-28">
+        <div className="flex items-end justify-between gap-6 flex-wrap">
+          <SectionLabel index="02" label="Selected Work" />
+          <Link
+            to="/work"
+            className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Index of work →
+          </Link>
         </div>
 
-        {/* Counter strip — creative × data signal */}
-        <Reveal delay={0.15}>
-          <div className="mt-16 border-y border-foreground/20 grid grid-cols-2 md:grid-cols-4">
-            {[
-              { v: 20, suf: "+", label: "Brands refined" },
-              { v: 6,  suf: ":3:1", label: "Content system" },
-              { v: 312, suf: "%", label: "Avg lift" },
-              { v: 24,  suf: "h", label: "Reply window" },
-            ].map((s, i) => (
-              <div key={s.label} className={`py-8 md:py-10 px-4 md:px-6 text-center ${i > 0 ? "border-l border-foreground/15" : ""}`}>
-                <div className="font-serif text-[36px] md:text-[56px] leading-none tracking-[-0.03em] tabular-nums text-cinnabar">
-                  <CountUp to={s.v} suffix={s.suf} />
+        <div className="mt-12 md:mt-16 space-y-24 md:space-y-32">
+          {selectedWork.map((w) => (
+            <Reveal key={w.n}>
+              <Link to={`/work/${w.slug}`} className="group block">
+                <div className="relative w-full overflow-hidden bg-foreground/[0.04]" style={{ aspectRatio: "21 / 9" }}>
+                  <img
+                    src={w.img}
+                    alt={w.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-700"
+                  />
                 </div>
-                <div className="mt-3 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
-                  {s.label}
+                <div className="mt-6 grid grid-cols-12 gap-6 items-baseline">
+                  <div className="col-span-12 md:col-span-2 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
+                    — {w.n} / {w.year}
+                  </div>
+                  <h3 className="col-span-12 md:col-span-7 font-serif text-[28px] md:text-[44px] leading-[1.05] tracking-[-0.02em] group-hover:italic group-hover:text-cinnabar transition-all">
+                    {w.title}
+                  </h3>
+                  <div className="col-span-12 md:col-span-3 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground md:text-right">
+                    {w.niche} · {w.impact}
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </Reveal>
-
-        <Reveal delay={0.2}>
-          <div className="mt-14">
-            <Link
-              to="/work"
-              className="group inline-flex items-center gap-2 btn-label border-b border-foreground pb-1 hover:text-cinnabar hover:border-cinnabar transition-colors"
-            >
-              See all work →
-            </Link>
-          </div>
-        </Reveal>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
 

@@ -1,0 +1,16 @@
+---
+name: 6/3/1 — One System Everywhere
+description: Core design principle 6:3:1 (60/30/10) governs content rhythm, color distribution, typography hierarchy, and layout across all pages
+type: design
+---
+6:3:1 (also 60:30:10) is the studio's single governing ratio. Apply across 4 layers:
+
+1. Content rhythm — 6 Reels / 3 Static / 1 Hero per monthly loop.
+2. Color (60/30/10) — 60% Snow bg / 30% Ink foreground / 10% Cinnabar accent only. Cinnabar must never exceed ~10% of any viewport. Avoid full-bleed cinnabar — prefer hairline bands (border-y border-cinnabar + ink text + cinnabar accent).
+3. Typography — 6 units body / 3 units mono meta / 1 display headline per section (max).
+4. Layout — 6/3/1 split on 10-col grids when possible (feature : supporting : meta).
+
+Signature element: Index hero uses grid-cols-10 6/3/1 cinnabar hairline ratio bar — reuse this pattern.
+
+Why: Single recognizable rule ties content strategy to visual identity.
+How to apply: Before any full-bleed accent block, ask "does this push cinnabar past 10%?" — if yes, convert to hairline band.

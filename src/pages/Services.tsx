@@ -296,18 +296,22 @@ const Services = () => (
 
       {/* Founder's deal */}
       <Reveal delay={0.2}>
-        <div className="max-w-[1280px] mx-auto mt-12 bg-cinnabar text-background p-8 md:p-12 flex flex-col md:flex-row md:items-center justify-between gap-8">
+        <div className="max-w-[1280px] mx-auto mt-12 border-y border-cinnabar bg-background text-foreground px-6 md:px-10 py-8 md:py-10 flex flex-col md:flex-row md:items-center justify-between gap-8">
           <div>
-            <h4 className="font-serif text-[24px] md:text-[28px] tracking-[-0.015em]">
-              Founder's Deal — <em className="italic">20 รายแรก</em>
+            <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar flex items-center gap-3">
+              <span className="block w-6 h-px bg-cinnabar" />
+              Founder's Deal · 20 Slots
+            </div>
+            <h4 className="mt-4 font-serif text-[24px] md:text-[28px] tracking-[-0.015em]">
+              <em className="italic text-cinnabar">20 รายแรก</em> เท่านั้น
             </h4>
-            <p className="mt-3 font-thai text-[14px] md:text-[15px] leading-[1.6] text-background/85 max-w-[560px]">
+            <p className="mt-3 font-thai text-[14px] md:text-[15px] leading-[1.6] text-muted-foreground max-w-[560px]">
               3 เดือนแรกที่ ฿29,000/เดือน (Save ฿18,000) + ฟรี Brand Audit Report (มูลค่า ฿8,000)
             </p>
           </div>
           <div className="text-right shrink-0">
-            <div className="font-serif text-[64px] md:text-[80px] leading-none tracking-[-0.03em]">20</div>
-            <div className="mt-2 font-mono text-[10px] tracking-[0.22em] uppercase text-background/70">Slots Only</div>
+            <div className="font-serif italic text-cinnabar text-[64px] md:text-[80px] leading-none tracking-[-0.03em] tabular-nums">20</div>
+            <div className="mt-2 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">Slots Only</div>
           </div>
         </div>
       </Reveal>

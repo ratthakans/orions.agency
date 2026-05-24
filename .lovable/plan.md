@@ -1,80 +1,74 @@
-## 1. Index hero — fix spacing & centering (priority)
 
-`src/pages/Index.tsx` Hero section currently combines `min-h-screen` + `flex justify-center` + extra `pt-[20vh] pb-[18vh]` + `mt-[18vh] md:mt-[22vh]` on credentials. The double vertical padding pushes content low and crowds the bottom.
+## Concept: 6/3/1 — One System, Everywhere
 
-Fix:
-- Replace section with: `min-h-[100svh] flex flex-col px-6 md:px-10`
-- Inner container: `max-w-[1400px] mx-auto w-full flex-1 flex flex-col justify-center items-center text-center pt-32 md:pt-40 pb-20 md:pb-28` (matches the rest of the site's hero rhythm + uses safe top/bottom)
-- Drop the `pt-[20vh] pb-[18vh]` and the `mt-[18vh] md:mt-[22vh]` — replace with a single `mt-16 md:mt-20` between headline and tagline, and `mt-20 md:mt-24` before credentials
-- Headline keeps `h-display-xl leading-[0.92] tracking-[-0.04em]`
-- Result: headline optically centered with clear, equal top/bottom breathing room.
-
-## 2. Standardize section vertical rhythm
-
-Two rhythms exist:
-- `py-24 md:py-32` — Index, Services, Projects
-- `py-20 md:py-28` — Work, CaseStudy
-
-Pick **`py-24 md:py-32`** as canonical (more editorial). Update Work.tsx (4 occurrences) and CaseStudy.tsx (6 occurrences).
-
-## 3. Standardize hairline borders
-
-Currently mixed: `border-foreground/10`, `/15`, `/20`, and solid `border-foreground`.
-
-Canon:
-- **`border-foreground/15`** — all section dividers and editorial hairlines
-- **`border-foreground/20`** — card/table grids only (Services packages, comparison table)
-- **`border-cinnabar`** — accent only (featured package, active states)
-- Remove all solid `border-foreground` section dividers → `/15`
-
-Files: Work.tsx, CaseStudy.tsx, Services.tsx, Index.tsx (Trusted section uses `border-foreground bg-surface` — change to `/15` and drop the `bg-surface` to keep the all-dark scope).
-
-## 4. Standardize section H2 sizing
-
-Mixed: `h-display-md`, `h-display-lg`, raw `text-[56px] md:text-[88px]`.
-
-Canon:
-- **Page H1 (hero)** → `h-display-xl`
-- **Section H2** → `h-display-md`
-- **Featured/closing H2** → `h-display-lg` (sparing)
-- Replace raw inline sizes in Projects.tsx line 79 with `h-display-lg`
-- Audit Work.tsx (uses `h-display-lg` for every section → demote intermediate ones to `h-display-md`)
-
-## 5. Standardize Thai body text
-
-Mixed `text-[15px]/[16px]/[17px] md:text-[17px]/[18px]`.
-
-Canon:
-- **Lede paragraph** (right under H1/H2): `font-thai text-[16px] md:text-[18px] leading-[1.7] text-muted-foreground`
-- **Body paragraph**: `font-thai text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground`
-- Apply across all pages.
-
-## 6. Standardize buttons
-
-Canon (already used):
-- **Primary**: `inline-flex items-center gap-3 bg-cinnabar text-background px-7 py-4 btn-label hover:opacity-90 transition-opacity`
-- **Secondary**: `inline-flex items-center gap-2 btn-label border-b border-foreground pb-1 hover:text-cinnabar hover:border-cinnabar transition-colors`
-- Update Services package CTA from `px-6 py-4` → `px-7 py-4` for parity.
-
-## 7. Sub-tagline consistency
-
-The standardized subtitle "Independent editorial studio. Bangkok. — Boutique Creative Agency." appears on Services/Work/Projects/Contact/HealthCheck but **not Index hero**. Either add it under Index hero (small, italic, muted) or remove from sub-pages. Recommendation: keep on sub-pages only — Index has its own "Stories, refined." voice.
+ใช้สัดส่วน **6 : 3 : 1** (หรือ **60 : 30 : 10**) เป็นกฎเดียวที่ขับเคลื่อนทุก layer ของไซต์ — ไม่ใช่แค่ content loop ของ services
 
 ---
 
-## Files to edit
+## ตีความ 6/3/1 ใน 4 เลเยอร์
 
-- `src/pages/Index.tsx` — hero rewrite, Trusted border fix
-- `src/pages/Work.tsx` — section rhythm, border tokens, H2 sizing
-- `src/pages/CaseStudy.tsx` — section rhythm, border tokens
-- `src/pages/Services.tsx` — border tokens, button padding
-- `src/pages/Projects.tsx` — H2 sizing
-- `src/pages/HealthCheck.tsx` — border tokens
-- `src/pages/Contact.tsx` — body text sizing (audit)
+**1. Content rhythm (มีอยู่แล้ว — Services)**
+- 6 Reels (discovery) · 3 Static (context) · 1 Hero (signature)
+- คงไว้ — เป็น anchor ของ concept
 
-No design-system / `index.css` changes needed — all tokens already exist.
+**2. Color distribution (60/30/10) — ปรับใหม่**
+- **60% Snow** `#fdfdf9` — background หลักทุกหน้า
+- **30% Ink** `#0e0e0e` — typography, hairlines, foreground
+- **10% Cinnabar** `#eb5939` — accent เท่านั้น (italic emphasis, section labels, CTA primary, hover state)
+- **ตรวจ:** ทุกหน้า cinnabar ไม่เกิน 10% ของพื้นที่ visible. ปัจจุบัน Services มี Founder's Deal full-bleed cinnabar + Bundle band hairline + Featured Package card border — รวมเกิน 10% บน viewport เดียว → ลด Founder's Deal เป็น hairline band แบบเดียวกับ Bundle
 
-## Out of scope
-- No content/copy changes
-- No new components or routes
-- No color palette changes
+**3. Typography hierarchy (6/3/1)**
+- **6 units body** (font-thai/serif body 14–18px) — เนื้อหาหลัก
+- **3 units meta** (font-mono 10–11px tracking +0.22em uppercase) — labels, captions
+- **1 unit display** (h-display-xl/lg/md serif) — headline ต่อ section ไม่เกิน 1 ตัว
+- **กฎ:** 1 section = 1 display headline เท่านั้น. ปัจจุบัน CaseStudy บางที่มี H2 ซ้อนใน sub-block → ลดเป็น serif body หรือ mono label
+
+**4. Layout proportion (6/3/1 grid)**
+- Hero/feature block : supporting : meta = 6 : 3 : 1 columns บน 10-col grid
+- ปัจจุบัน Selected Work bento grid ใช้ 8/4/5/7 — ปรับเป็น **6/4 row 1, 3/7 row 2** (= 6/3/1 family bias)
+- Services packages: Pro card กลาง = featured (1 unit เด่น), Starter+Elite = supporting (3+3 = 6 unit รวม) — มีอยู่แล้ว ✓
+
+---
+
+## Implementation plan — 3 phases
+
+### Phase 1: เพิ่ม visual proof ของ 6/3/1 บนหน้า Index
+ใส่ **6/3/1 ratio bar** ที่ Hero หรือใต้ Approach section — เป็น visual signature ของ studio
+- Hairline 10-column bar: 6 col cinnabar full · 3 col cinnabar 55% · 1 col cinnabar 25%
+- พร้อม mono label: `6 — Reels · 3 — Static · 1 — Hero` หรือ `60 — Snow · 30 — Ink · 10 — Cinnabar`
+- ทำให้ concept มองเห็นได้ทันทีตั้งแต่หน้าแรก (ไม่ต้องไปดูที่ Services)
+
+### Phase 2: Color audit — บังคับสัดส่วน 60/30/10
+- **Services:** Founder's Deal block เปลี่ยนจาก full cinnabar bg → hairline band (ขอบบน-ล่าง cinnabar + ตัวหนังสือ ink) เหมือน Bundle Discount
+- **Index Capabilities/Approach:** ตรวจไม่ให้มี cinnabar background ขนาดใหญ่ — คงไว้แค่ text accent + 1px hairline
+- **CaseStudy:** CTA tile cinnabar ขนาดใหญ่ใน Selected Work grid → ลดเหลือ hairline border + cinnabar text เท่านั้น (เก็บ full cinnabar ไว้แค่ closing CTA)
+
+### Phase 3: Section structure ทุกหน้า ใช้ 6/3/1
+ทุก section ใหม่/แก้ ปฏิบัติตาม:
+- **6 บรรทัด** body content
+- **3 บรรทัด** mono meta (label + caption + small note)
+- **1 บรรทัด** display headline
+- ตรวจ Manifesto, Approach, HealthCheck ว่าทุก section มี hierarchy นี้ครบ (ไม่ใช่ headline ติดกัน 3 ตัว)
+
+---
+
+## ขอบเขตของแผนนี้ (ถ้าอนุมัติ)
+
+**ทำในรอบนี้:**
+1. เพิ่ม **6/3/1 ratio bar** ที่หน้า Index (Hero footer หรือ Approach intro) — Phase 1
+2. แก้ Founder's Deal ใน Services เป็น hairline band — Phase 2 (จุดเดียวที่เด่นชัด)
+3. แก้ CaseStudy "All case studies" CTA tile ลด full cinnabar → hairline + accent text — Phase 2
+
+**ไม่ทำในรอบนี้ (รอ approve แยก):**
+- Phase 3 audit ทุก section (ใหญ่ — ต้องดูทุกหน้า)
+- Layout grid refactor (Selected Work bento)
+
+**Memory update:** บันทึก `mem://core/six-three-one` เป็น core principle เพื่อให้ทุกการแก้ในอนาคต follow สัดส่วนนี้อัตโนมัติ
+
+---
+
+## ไฟล์ที่จะแก้ (ถ้าอนุมัติ Phase 1+2 subset)
+- `src/pages/Index.tsx` — เพิ่ม ratio bar
+- `src/pages/Services.tsx` — Founder's Deal → hairline band
+- `src/pages/CaseStudy.tsx` — CTA tile audit
+- `mem://core/six-three-one` — บันทึก principle ใหม่

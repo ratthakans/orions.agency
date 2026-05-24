@@ -134,6 +134,27 @@ const Index = () => (
             </p>
           </Reveal>
         </div>
+
+        {/* 6 : 3 : 1 ratio bar — studio signature */}
+        <Reveal delay={0.34}>
+          <div className="mt-16 md:mt-20 max-w-[760px] border-t border-b border-foreground/15 py-6">
+            <div className="flex items-center justify-between font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
+              <span className="text-cinnabar">— 6 : 3 : 1</span>
+              <span className="hidden md:inline">One refined loop · per month</span>
+              <span>60 / 30 / 10</span>
+            </div>
+            <div className="mt-4 grid grid-cols-10 h-[3px]">
+              <div className="col-span-6 bg-cinnabar" />
+              <div className="col-span-3 bg-cinnabar/55 border-l border-background" />
+              <div className="col-span-1 bg-cinnabar/25 border-l border-background" />
+            </div>
+            <div className="mt-3 grid grid-cols-10 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
+              <div className="col-span-6">6 — Reels</div>
+              <div className="col-span-3">3 — Static</div>
+              <div className="col-span-1 text-right">1 — Hero</div>
+            </div>
+          </div>
+        </Reveal>
         <Reveal delay={0.32}>
           <div className="mt-12 flex flex-wrap items-center gap-5">
             <Link
@@ -282,16 +303,17 @@ const Index = () => (
               {/* CTA tile */}
               <Link
                 to="/work"
-                className="group relative block md:col-span-7 md:row-span-3 bg-cinnabar text-background p-8 md:p-10 flex flex-col justify-between overflow-hidden"
+                className="group relative block md:col-span-7 md:row-span-3 bg-background border border-foreground/15 p-8 md:p-10 flex flex-col justify-between overflow-hidden hover:border-cinnabar transition-colors duration-500"
               >
-                <div className="font-mono text-[10px] tracking-[0.22em] uppercase opacity-80">
-                  — All case studies
+                <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar flex items-center gap-3">
+                  <span className="block w-6 h-px bg-cinnabar" />
+                  All case studies
                 </div>
                 <div className="flex items-end justify-between gap-6">
                   <h3 className="font-serif text-[28px] md:text-[40px] leading-[1.05] tracking-[-0.02em] max-w-[16ch]">
-                    See the full <em className="italic">index of work</em>
+                    See the full <em className="italic text-cinnabar">index of work</em>
                   </h3>
-                  <ArrowUpRight className="w-8 h-8 md:w-10 md:h-10 shrink-0 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                  <ArrowUpRight className="w-8 h-8 md:w-10 md:h-10 shrink-0 text-cinnabar group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </div>
               </Link>
             </div>

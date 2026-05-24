@@ -192,30 +192,30 @@ const Services = () => (
       <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-3 border border-foreground/20">
         {packages.map((p, i) => (
           <Reveal key={p.tier} delay={i * 0.08}>
-            <div className={`relative p-10 md:p-12 h-full flex flex-col ${i > 0 ? "md:border-l border-foreground/20 border-t md:border-t-0" : ""} ${p.featured ? "bg-surface text-foreground border-cinnabar" : "bg-background"}`}>
+            <div className={`relative p-10 md:p-12 h-full flex flex-col bg-background ${i > 0 ? "md:border-l border-foreground/20 border-t md:border-t-0" : ""} ${p.featured ? "md:-my-px md:-mx-px border border-cinnabar" : ""}`}>
               {p.featured && (
                 <div className="absolute top-0 left-0 right-0 -translate-y-1/2 flex justify-center">
                   <span className="bg-cinnabar text-background font-mono text-[10px] tracking-[0.22em] uppercase px-4 py-2">
-                    Most Popular
+                    Featured Package
                   </span>
                 </div>
               )}
               <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">
                 {p.tier}
               </div>
-              <h3 className="mt-8 font-serif text-[36px] md:text-[42px] leading-[1] tracking-[-0.02em]">
-                {p.name[0]}<br /><em className="italic">{p.name[1]}</em>
+              <h3 className="mt-8 font-serif text-[48px] md:text-[56px] leading-[1] tracking-[-0.02em]">
+                <em className="italic">{p.name[0]}</em>
               </h3>
-              <p className={`mt-5 font-serif italic text-[15px] md:text-[16px] leading-[1.5] ${p.featured ? "text-foreground/70" : "text-muted-foreground"}`}>
+              <p className="mt-5 font-serif italic text-[15px] md:text-[16px] leading-[1.5] text-muted-foreground">
                 {p.tagline}
               </p>
 
               <div className="mt-10 pt-8 border-t border-current/20">
-                <div className={`font-mono text-[10px] tracking-[0.22em] uppercase mb-3 ${p.featured ? "text-foreground/60" : "text-muted-foreground"}`}>
+                <div className="font-mono text-[10px] tracking-[0.22em] uppercase mb-3 text-muted-foreground">
                   Start from
                 </div>
                 <div className="font-serif text-[42px] md:text-[48px] tracking-[-0.025em] leading-none">{p.price}</div>
-                <div className={`mt-2 font-mono text-[10px] tracking-[0.18em] uppercase ${p.featured ? "text-foreground/60" : "text-muted-foreground"}`}>
+                <div className="mt-2 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
                   {p.sub}
                 </div>
                 <div className="mt-3 font-mono text-[10px] tracking-[0.18em] uppercase text-cinnabar">

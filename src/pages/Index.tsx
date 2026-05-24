@@ -159,7 +159,7 @@ const Index = () => (
                   src={selectedWork[0].img}
                   alt={selectedWork[0].title}
                   loading="lazy"
-                  className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
+                  className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-[filter,opacity] duration-700"
                 />
                 <div className="absolute left-0 right-0 bottom-0 p-5 md:p-6 flex items-baseline justify-between gap-4 bg-gradient-to-t from-background/80 to-transparent">
                   <span className="font-serif text-[22px] md:text-[28px] tracking-[-0.02em] text-foreground">
@@ -180,7 +180,7 @@ const Index = () => (
                   src={selectedWork[1].img}
                   alt={selectedWork[1].title}
                   loading="lazy"
-                  className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
+                  className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-[filter,opacity] duration-700"
                 />
                 <div className="absolute left-0 right-0 bottom-0 p-5 flex flex-col gap-1 bg-gradient-to-t from-background/80 to-transparent">
                   <span className="font-serif text-[20px] md:text-[22px] tracking-[-0.02em] text-foreground">
@@ -201,7 +201,7 @@ const Index = () => (
                   src={selectedWork[2].img}
                   alt={selectedWork[2].title}
                   loading="lazy"
-                  className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
+                  className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-[filter,opacity] duration-700"
                 />
                 <div className="absolute left-0 right-0 bottom-0 p-5 flex items-baseline justify-between gap-4 bg-gradient-to-t from-background/80 to-transparent">
                   <span className="font-serif text-[20px] md:text-[24px] tracking-[-0.02em] text-foreground">
@@ -216,7 +216,7 @@ const Index = () => (
               {/* CTA tile */}
               <Link
                 to="/work"
-                className="group relative block md:col-span-7 md:row-span-3 bg-cinnabar text-background p-8 md:p-10 flex flex-col justify-between overflow-hidden"
+                className="group relative block md:col-span-7 md:row-span-3 bg-gradient-cinnabar text-background p-8 md:p-10 flex flex-col justify-between overflow-hidden"
               >
                 <div className="font-mono text-[10px] tracking-[0.22em] uppercase opacity-80">
                   — All case studies
@@ -234,44 +234,10 @@ const Index = () => (
       </div>
     </section>
 
-    {/* APPROACH — editorial prose */}
-    <section className="px-6 md:px-10 border-t border-foreground">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
-        <SectionLabel index="03" label="Approach" />
-        <Reveal delay={0.1}>
-          <h2 className="mt-10 font-serif h-display-md max-w-[20ch]">
-            Less, but <em className="italic text-cinnabar">considered.</em>
-          </h2>
-        </Reveal>
-        <div className="mt-10 max-w-[640px] space-y-6">
-          <Reveal delay={0.18}>
-            <p className="font-serif text-[19px] md:text-[22px] leading-[1.55] text-foreground/85">
-              We don't sell packages of posts. We run one refined loop every month — a short essay across formats, sequenced to be discovered, sit with the reader, and remembered.
-            </p>
-          </Reveal>
-          <Reveal delay={0.26}>
-            <p className="font-thai text-[15px] md:text-[17px] leading-[1.75] text-muted-foreground">
-              สามจังหวะเดียวกันทุกเดือน — ฟัง, กลั่น, ปล่อย. ไม่ผลิตให้ครบจำนวน ผลิตให้ครบหน้าที่.
-            </p>
-          </Reveal>
-        </div>
-        <Reveal delay={0.32}>
-          <div className="mt-12">
-            <Link
-              to="/approach"
-              className="inline-flex items-center gap-2 btn-label border-b border-foreground pb-1 hover:text-cinnabar hover:border-cinnabar transition-colors"
-            >
-              Read the full approach →
-            </Link>
-          </div>
-        </Reveal>
-      </div>
-    </section>
-
     {/* TRUSTED / TESTIMONIALS */}
     <section className="px-6 md:px-10 border-t border-foreground bg-surface">
       <div className="max-w-[1280px] mx-auto py-24 md:py-32">
-        <SectionLabel index="04" label="Trusted" />
+        <SectionLabel index="03" label="Trusted" />
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
           {testimonials.map((t, i) => (

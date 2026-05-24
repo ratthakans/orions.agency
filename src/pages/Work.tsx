@@ -1,6 +1,7 @@
 import Reveal from "@/components/Reveal";
 import ClosingCTA from "@/components/ClosingCTA";
 import SEO from "@/components/SEO";
+import SectionLabel from "@/components/SectionLabel";
 import { Link } from "react-router-dom";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
@@ -59,12 +60,7 @@ const Work = () => (
     {/* 01 · HERO */}
     <section className="px-6 md:px-10">
       <div className="max-w-[1280px] mx-auto pt-32 md:pt-40 pb-20 md:pb-28">
-        <Reveal>
-          <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
-            <span className="block w-6 h-px bg-cinnabar" />
-            01 — Selected Work
-          </div>
-        </Reveal>
+        <SectionLabel index="01" label="Selected Work" />
         <Reveal delay={0.05}>
           <h1 className="mt-10 font-serif h-display-xl max-w-[18ch]">
             Real brands. Real <em className="italic text-cinnabar">results.</em>
@@ -81,12 +77,7 @@ const Work = () => (
     {/* 02 · SELECTED PROJECTS */}
     <section className="px-6 md:px-10 border-t border-foreground">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <Reveal>
-          <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
-            <span className="block w-6 h-px bg-cinnabar" />
-            02 — Projects
-          </div>
-        </Reveal>
+        <SectionLabel index="02" label="Projects" />
         <Reveal delay={0.05}>
           <h2 className="mt-10 font-serif h-display-lg">
             {projects.length} brands. <em className="italic text-cinnabar">One team.</em>
@@ -137,12 +128,7 @@ const Work = () => (
     {/* 03 · WHAT CLIENTS SAY */}
     <section className="px-6 md:px-10 border-t border-foreground">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <Reveal>
-          <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
-            <span className="block w-6 h-px bg-cinnabar" />
-            03 — Testimonials
-          </div>
-        </Reveal>
+        <SectionLabel index="03" label="Testimonials" />
         <Reveal delay={0.05}>
           <h2 className="mt-10 font-serif h-display-lg">
             What clients <em className="italic text-cinnabar">say.</em>
@@ -183,12 +169,7 @@ const Work = () => (
     {/* 04 · TRUSTED BY */}
     <section className="px-6 md:px-10 border-t border-foreground">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <Reveal>
-          <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
-            <span className="block w-6 h-px bg-cinnabar" />
-            04 — Trusted By
-          </div>
-        </Reveal>
+        <SectionLabel index="04" label="Trusted By" />
         <Reveal delay={0.05}>
           <h2 className="mt-10 font-serif h-display-lg max-w-[20ch]">
             20+ brands across F&amp;B, fashion, and <em className="italic text-cinnabar">hospitality.</em>

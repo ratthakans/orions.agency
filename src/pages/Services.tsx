@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight, Check } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
+import SectionLabel from "@/components/SectionLabel";
 
 const packages = [
   {
@@ -126,12 +127,7 @@ const Services = () => (
     {/* HERO */}
     <section className="px-6 md:px-10 pt-32 md:pt-40 pb-16 md:pb-20">
       <div className="max-w-[1280px] mx-auto">
-        <Reveal>
-          <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
-            <span className="block w-6 h-px bg-cinnabar" />
-            01 — Packages
-          </div>
-        </Reveal>
+        <SectionLabel index="01" label="Packages" />
         <Reveal delay={0.1}>
           <h1 className="mt-10 font-serif h-display-xl max-w-[14ch]">
             3 ระดับ.<br />1 <em className="italic text-cinnabar">เป้าหมาย.</em>
@@ -146,7 +142,7 @@ const Services = () => (
         {/* 6:3:1 interactive visualizer */}
         <Reveal delay={0.3}>
           <div className="mt-16 border border-foreground/20">
-            <div className="grid grid-cols-[6fr_3fr_1fr]">
+            <div className="grid grid-cols-3">
               {[
                 { n: "6", label: "Reels",  hint: "Short-form ที่ขับเคลื่อนการค้นพบ", tone: "light" },
                 { n: "3", label: "Static", hint: "Editorial ที่ให้บริบทและอยู่นานกว่าหนึ่งวัน", tone: "mid" },
@@ -169,6 +165,12 @@ const Services = () => (
                   </p>
                 </div>
               ))}
+            </div>
+            {/* Proportion bar — 6/3/1 weight as hairline ratio */}
+            <div className="border-t border-foreground/20 grid grid-cols-10 h-[3px]">
+              <div className="col-span-6 bg-cinnabar" />
+              <div className="col-span-3 bg-cinnabar/55 border-l border-background" />
+              <div className="col-span-1 bg-cinnabar/25 border-l border-background" />
             </div>
             <div className="border-t border-foreground/20 px-5 py-3 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center justify-between">
               <span>One refined loop · per month</span>
@@ -308,12 +310,7 @@ const Services = () => (
     {/* ADD-ONS — editorial table */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-24 md:py-32">
-        <Reveal>
-          <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
-            <span className="block w-6 h-px bg-cinnabar" />
-            02 — Add-ons
-          </div>
-        </Reveal>
+        <SectionLabel index="02" label="Add-ons" />
         <Reveal delay={0.1}>
           <h2 className="mt-10 font-serif h-display-lg max-w-[16ch]">
             Beyond the<br /><em className="italic text-cinnabar">package.</em>

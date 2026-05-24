@@ -1,72 +1,94 @@
-# Design unification pass
+# Design coherence pass — recheck & polish
 
-เป้าหมาย: ให้ทุกหน้าใช้ design system เดียวกัน (Snow / Black Russian / Cinnabar · Inter / Newsreader / IBM Plex Mono), แก้ marquee ที่กระตุก, ตัดสัญลักษณ์วงกลมแบ่งครึ่ง (◐ ◑ ◒) ออกทั้งหมด, และลดแอนิเมชั่นให้สงบขึ้นเพื่อความเป็น editorial boutique.
+จากการเทียบทุกหน้า (`Index`, `About`, `Services`, `Work`, `CaseStudy`, `HealthCheck`, `Projects`, `Contact`) — โครงสร้างไปทางเดียวกันแล้ว แต่มี **inconsistency เล็กๆ หลายจุด** ที่ทำให้ภาพรวมยังดูเหมือนเย็บปะมือ ไม่ใช่ระบบเดียว นี่คือสิ่งที่จะปรับ:
 
 ---
 
-## 1. แก้ marquee bug (หน้าแรก)
+## 1. รวม Section Label เป็น component เดียว (ทั้งไซต์)
 
-ปัญหา: `src/pages/Index.tsx` ใช้ track ที่ duplicate items **4 รอบ** แต่ keyframe `marquee` เลื่อนแค่ `-50%` → ทำให้ loop กระโดด/ค้าง
+ตอนนี้ทุกหน้า inline JSX ซ้ำ ๆ:
+```tsx
+<div className="font-mono text-[10px] tracking-[0.22em] uppercase ..."><span className="block w-6 h-px bg-cinnabar" />NN — Title</div>
+```
+นับ ๆ แล้ว **≥ 25 ครั้ง** กระจาย Index/Services/Work/CaseStudy/Contact/HealthCheck/Projects และมี `SectionLabel` ใน About อยู่แล้ว แต่ใช้ที่เดียว
+
+แก้: ย้าย `SectionLabel` ออกเป็น `src/components/SectionLabel.tsx` (รับ `index`, `label`, `tone: "ink"|"snow"`) แล้ว replace inline ทุกที่ → 1 source of truth, ง่ายต่อการปรับ tracking/spacing ทีเดียวทั้งไซต์
+
+## 2. Standardize hairline weights
+
+ตอนนี้ใช้ปนกัน: `border-foreground` (เต็ม), `border-foreground/20`, `border-foreground/15`, `border-soft`
+
+แก้เป็นสามระดับชัดเจน:
+- **Section break** (คั่นระหว่าง section ใหญ่ ๆ): `border-foreground` (full ink hairline)
+- **Internal divider** (ในตาราง/การ์ด/list): `border-foreground/15`
+- **Soft inset** (เส้นแบ่งในการ์ดเข้ม): `border-background/20`
+
+ตรวจ Index ที่ใช้ `/15` ระหว่าง section หลัก → เปลี่ยนเป็น full ink ให้แมตช์ Work/Contact/CaseStudy
+
+## 3. Hero แบบเดียวกันสำหรับ inner pages
+
+ตอนนี้ inner pages (About, Services, Work, Contact, HealthCheck, CaseStudy, Projects) ต่างคน ต่าง markup แม้มี `PageHero` component แต่ไม่ได้ถูกใช้
 
 แก้:
-- ใช้คอมโพเนนต์ `SimpleMarquee` ที่มีอยู่แล้ว (มี logic seamless ถูกต้อง) แทน inline marquee
-- หรือ inline แต่ duplicate items แค่ 2 รอบให้แมตช์กับ `-50%`
-- ลบสัญลักษณ์ `◐` ที่คั่นระหว่างคำในแถบ marquee, เปลี่ยนเป็น hairline dot `·` หรือเส้น vertical hairline แทน
+- เลิกใช้ `PageHero` เดิม (asymmetric ไม่เข้ากับ pattern ปัจจุบัน)
+- สร้าง pattern ใหม่ผ่าน `SectionLabel` + headline + lead — ทุก inner page ใช้:
+  ```
+  pt-32 md:pt-40 pb-20 md:pb-28 max-w-[1280px] px-6 md:px-10
+  SectionLabel "01" "Section Name"
+  h1 mt-10 font-serif h-display-xl max-w-[18ch]
+  lead p mt-10 font-serif italic text-[18-22px] muted (EN) | font-thai (TH)
+  ```
+- About + Projects ที่เป็น dark hero (`bg-foreground text-background`) ให้ใช้ `SectionLabel tone="snow"` ตรงกัน
 
-## 2. ลบสัญลักษณ์วงกลมแบ่งครึ่ง (◐ ◑ ◒) ออกทุกที่
+## 4. ลด motion residue ที่ค้างอยู่
 
-ใช้อยู่ใน:
-- `src/pages/Index.tsx` — marquee, services preview tier, "Live preview" badge
-- `src/pages/Services.tsx` — tier labels (`◐ Starter`, `◑ Pro`, `◒ Elite`)
-- `src/pages/About.tsx`
-- `src/pages/HealthCheck.tsx`
+- `src/components/CTA.tsx` ยังห่อ `Magnetic` รอบ primary/invert variants — เอา Magnetic ออกทั้งหมด (เก็บ sweep underlay + arrow swap ไว้ — เป็น CSS transition, นิ่งกว่า)
+- HealthCheck scale buttons: `-translate-y-0.5` + `scale-110` ตอน selected — เอาออก เหลือแค่ border-color + bg เปลี่ยน
+- About `accent-dot` ใน Footer time ` ●` → ใส่สี `text-cinnabar` ให้เข้ากับ Status Bar
 
-แทนที่ด้วยระบบที่นิ่งและสอดคล้องกัน:
-- Tier marker = **เลขโรมัน italic Cinnabar** (`i.` `ii.` `iii.`) ที่ใช้อยู่แล้วใน Manifesto/Diagnostic — ทำให้ทั้งไซต์มีภาษาสัญลักษณ์เดียว
-- แทน "Live preview ◐" → "Live preview" เฉยๆ หรือ hairline dot `·`
-- Marquee separator → hairline vertical `|` ใน opacity ต่ำ หรือไม่ใส่อะไรเลย ใช้ gap เป็นตัวคั่น
+## 5. Index hero refinements
 
-## 3. ลดแอนิเมชั่น (calmer boutique register)
+- บรรทัด chip "6:3:1 · Refined / Data-Refined / Industry Exclusivity" ใช้ `/` แบบ inline ดูแคบ → เปลี่ยนเป็น **3-col hairline grid** มี `border-l border-foreground/15` คั่น เหมือนตาราง meta strip ใน CaseStudy
+- Marquee separator: เส้นแนวตั้ง 1px h-6 ดูบาง → เปลี่ยนเป็น **Cinnabar diamond `✦` ขนาด 14px** (สัญลักษณ์เดียวกับที่เคยใช้ + เป็นภาษาเดียวของแบรนด์)
 
-ตัด/ลด:
-- `KineticWordmark` — ตัด 3D parallax tilt บน mouse move และตัด Ø orbit rotation ทิ้ง เหลือเพียง **staggered mask-up reveal ครั้งเดียว** ตอนโหลด (ทำงานครั้งเดียว ไม่มี loop)
-- `StudioStatusBar` — เอา `animate-pulse` ที่จุด status และ caret `|` ออก เหลือ static dot
-- `Magnetic` wrapper รอบ CTA buttons — เอาออก, ใช้ hover color transition แทน
-- `PageTransition` — ลด duration จาก 900ms → 500ms, ตัด skew, ใช้ simple fade/slide แบบสงบ
-- `Reveal` — ลด `y` จาก 24 → 12, duration 0.7s → 0.5s, ตัด delay chains ที่ซ้อนเกิน 0.2s
-- ลบ `RotatingHeadline`, `TypingLoop`, `ScrollMarquee`, `FlipNumber`, `KineticWordmark` ออกจาก imports ของหน้าที่ใช้อยู่ ถ้าไม่ได้ใช้แล้ว (เก็บไฟล์ไว้แต่ไม่ import)
-- หน้าแรก: แทน `KineticWordmark` ด้วย **static wordmark** "ØRIONS" ขนาดใหญ่ที่เปิดด้วย mask-up reveal ครั้งเดียว
-- ตัด `hover:scale-[1.04]` บน work cards → เหลือแค่ `grayscale → grayscale-0` (subtler)
-- ตัด `mix-blend-difference`, gradient overlay, progress bar slide ใน `MusicMarquee` ให้เหลือ image + ขอบ hairline + play icon นิ่งๆ
+## 6. About — รวม pattern card
 
-## 4. Design token / typography sweep
+ตอนนี้ About มี 3 grid pattern ติดกัน:
+- Pillars: strip compact (small italic + small heading)
+- Data: full cards (large italic + h3)
+- Beyond: full cards (large italic + h3)
 
-- Audit ทุกหน้า: ตรวจให้ทุก heading ใช้ `font-serif` (Newsreader), ทุก label/meta ใช้ `font-mono text-[10px] tracking-[0.22em] uppercase`, ทุก body ใช้ `font-thai` หรือ Inter ตามภาษา
-- ตรวจ tier card ใน Services ให้ใช้ **layout เดียวกับ services preview ในหน้าแรก** (border hairline, padding เท่ากัน, ไม่มีสัญลักษณ์)
-- รวม section label pattern เดียว: `<span className="w-6 h-px bg-cinnabar" /> NN — Title` ทุกที่
-- ตรวจ button: primary = `bg-cinnabar text-background`, secondary = underline hairline `border-b border-foreground`
-- ลบ `bg-gradient-*`, shadow, rounded ที่หลงเหลือ (ถ้ามี)
-- เช็คว่า `text-orion` / `text-gemini` (legacy) ที่ map → cinnabar ถูก replace เป็น `text-cinnabar` ตรงๆ ในไฟล์หลัก เพื่อความชัด
+แก้: ทำ Pillars ให้เป็น full cards เหมือน Data/Beyond → grid เดียว 3 รูปแบบ ใช้ component ภายในเดียวกัน
 
-## 5. QA flow
+## 7. Services 6:3:1 grid weight
 
-- เปิดทุก route (`/`, `/manifesto`, `/approach`, `/services`, `/health-check`, `/work`, `/work/:slug`, `/contact`) ตรวจ console + visual
-- ตรวจว่า marquee ลื่นต่อเนื่องไม่กระตุก
-- ตรวจว่าทุกหน้าใช้ section label / heading / button pattern เดียวกัน
-- ตรวจ link ทั้งหมดยังพาไปถูกที่
+`grid-cols-[6fr_3fr_1fr]` ทำให้ column "Hero" บีบมากจนตัวเลข `1` ดูไม่สมดุล
+
+แก้เป็น `grid-cols-3` (3 col เท่ากัน) แต่ใส่ progress bar เส้น Cinnabar ใต้แต่ละ block ที่กว้าง 6/3/1 ของ container — แทนสัดส่วนด้วย hairline แทนความกว้าง column → อ่านง่ายขึ้น + ตัวเลขยังโดดเด่น
+
+## 8. HealthCheck wizard
+
+- Progress bar + Axis dots ซ้อนกัน → เหลือ **Axis dots อย่างเดียว** (6 segment, segment ปัจจุบันเป็น Cinnabar เต็ม, ที่ผ่านมาเป็น Cinnabar/50, ที่ยังไม่ถึงเป็น foreground/15)
+- Scale buttons: ตัด sym `i. ii. iii. iv.` ออก (ซ้ำกับ roman ด้านล่าง) เหลือ `roman` italic + label
+- Result page: Radial big number + Radar — รวมเข้า card เดียว ขอบ hairline ให้ดูเป็น "report card" จริง
+
+## 9. Footer micro
+
+- BKK status: `●` → `<span class="inline-block w-1.5 h-1.5 rounded-full bg-cinnabar" />` (สอดคล้องกับ Status Bar)
+- Email headline italic Cinnabar hover — เปลี่ยนเป็น static underline hairline + Cinnabar text เมื่อ hover (เหมือนลิงก์อื่น)
+
+## 10. Type scale sweep
+
+ตรวจให้ headline ทุก hero ใช้ `h-display-xl` (ไม่ใช่ `h-display-lg`) → HealthCheck H1 ปัจจุบันใช้ `h-display-lg` แก้เป็น `xl`
+
+Sub-section h2 ใช้ `h-display-lg` หรือ `h-display-md` — เลือกตาม weight ของ section
 
 ---
 
 ## Files ที่จะแก้
 
-- `src/pages/Index.tsx` — marquee fix, ลบ symbols, แทน KineticWordmark
-- `src/pages/Services.tsx` — ลบ ◐◑◒ tier symbols
-- `src/pages/About.tsx`, `src/pages/HealthCheck.tsx` — ลบ symbols
-- `src/components/StudioStatusBar.tsx` — ลด pulse
-- `src/components/PageTransition.tsx` — ลด motion
-- `src/components/Reveal.tsx` — ลด y/duration
-- `src/components/MusicMarquee.tsx` — ตัด effects ที่เกิน
-- `src/components/ClosingCTA.tsx` — ลบ Magnetic wrapper
-- (เก็บไฟล์ `KineticWordmark`, `RotatingHeadline`, `TypingLoop`, `Magnetic`, `ScrollMarquee`, `FlipNumber` ไว้ ไม่ลบ — แค่ไม่ใช้)
+- **สร้าง**: `src/components/SectionLabel.tsx`
+- **แก้**: `src/pages/Index.tsx`, `src/pages/About.tsx`, `src/pages/Services.tsx`, `src/pages/Work.tsx`, `src/pages/CaseStudy.tsx`, `src/pages/Contact.tsx`, `src/pages/HealthCheck.tsx`, `src/pages/Projects.tsx`, `src/components/CTA.tsx`, `src/components/Footer.tsx`
+- **ลบไม่ใช้** (ทิ้ง import แต่เก็บไฟล์): `PageHero` ไม่ได้ถูก import ที่ไหน
 
-ผลลัพธ์: ไซต์นิ่งขึ้น, สัญลักษณ์เป็นภาษาเดียว (เลขโรมัน + hairline + Cinnabar accent), marquee ลื่น, design system เข้มงวดแบบ editorial boutique จริงๆ.
+ผลลัพธ์: ทั้งไซต์ใช้ pattern เดียว, hairline เป็นระบบ 3 ระดับ, motion ที่เหลือเป็น CSS transitions ล้วน (สงบ), Cinnabar accent ใช้ในตำแหน่งเดียวกันทุกที่ (label rule, dots, italic accent, hover) → เป็น editorial system ที่ดูเหมือนทำคน ๆ เดียว

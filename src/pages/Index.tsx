@@ -293,7 +293,7 @@ const Index = () => (
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 border border-foreground/20">
           {servicesPreview.map((p, i) => (
             <Reveal key={p.tier} delay={i * 0.08}>
-              <div className={`p-8 md:p-10 h-full flex flex-col ${i > 0 ? "md:border-l border-foreground/20 border-t md:border-t-0" : ""} ${p.featured ? "bg-foreground text-background" : "bg-background"}`}>
+              <div className={`p-8 md:p-10 h-full flex flex-col ${i > 0 ? "md:border-l border-foreground/20 border-t md:border-t-0" : ""} ${p.featured ? "bg-surface text-foreground" : "bg-background"}`}>
                 <div className="flex items-baseline justify-between gap-3">
                   <div className="font-serif italic text-cinnabar text-[24px] leading-none">{p.n}</div>
                   <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">{p.tier}</div>
@@ -301,10 +301,10 @@ const Index = () => (
                 <h3 className="mt-8 font-serif text-[28px] md:text-[32px] leading-[1.1] tracking-[-0.02em]">
                   {p.name}
                 </h3>
-                <p className={`mt-4 font-serif italic text-[15px] ${p.featured ? "text-background/70" : "text-muted-foreground"}`}>
+                <p className="mt-4 font-serif italic text-[15px] text-muted-foreground">
                   {p.tag}
                 </p>
-                <div className={`mt-auto pt-8 font-mono text-[10px] tracking-[0.22em] uppercase ${p.featured ? "text-background/70" : "text-muted-foreground"}`}>
+                <div className="mt-auto pt-8 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
                   {p.price}
                 </div>
               </div>

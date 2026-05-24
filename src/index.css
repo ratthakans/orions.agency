@@ -60,8 +60,8 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', 'IBM Plex Sans Thai', system-ui, sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
+    font-size: 17px;
+    line-height: 1.55;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -123,8 +123,8 @@
     text-wrap: balance;
     font-feature-settings: "ss01", "ss02";
   }
-  .h-display-xl  { font-size: clamp(56px, 12vw, 180px); line-height: 0.95; letter-spacing: -0.03em; }
-  .h-display-lg  { font-size: clamp(40px, 8.5vw, 124px); line-height: 0.98; letter-spacing: -0.028em; }
+  .h-display-xl  { font-size: clamp(72px, 14vw, 220px); line-height: 0.95; letter-spacing: -0.035em; }
+  .h-display-lg  { font-size: clamp(48px, 9.5vw, 140px); line-height: 0.98; letter-spacing: -0.028em; }
   .h-display-md  { font-size: clamp(32px, 5.5vw, 80px); line-height: 1.02; letter-spacing: -0.022em; }
   .h-display-sm  { font-size: clamp(24px, 4vw, 48px);   line-height: 1.1;  letter-spacing: -0.018em; }
   .h-display-xs  { font-size: clamp(20px, 2.6vw, 32px); line-height: 1.15; letter-spacing: -0.012em; }

@@ -29,6 +29,14 @@ const Footer = () => {
   }, []);
   return (
     <footer className="bg-foreground text-background overflow-hidden">
+      {/* Status strip — quiet ribbon */}
+      <div className="px-6 md:px-10 h-8 flex items-center justify-between font-mono text-[10px] tracking-[0.18em] uppercase text-background/55 border-b border-background/10">
+        <span className="inline-flex items-center gap-2">
+          <span className="inline-block w-1.5 h-1.5 bg-cinnabar" aria-hidden />
+          Studio open · BKK {bkkTime} ICT
+        </span>
+        <span className="hidden md:inline">Now booking · Q3 2026</span>
+      </div>
       <div className="px-6 md:px-10 pt-16 md:pt-20 pb-6 max-w-[1280px] mx-auto">
         {/* Headline row */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10 border-b border-background/15 pb-12">

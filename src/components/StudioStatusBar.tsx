@@ -35,11 +35,11 @@ const StudioStatusBar = () => {
   const open = hour >= 9 && hour < 19;
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-[60] h-7 bg-foreground text-background">
+    <div className="fixed top-0 left-0 right-0 z-[60] h-7 bg-cinnabar text-background">
       <div className="h-full px-6 md:px-10 flex items-center justify-between text-[10px] tracking-[0.12em] uppercase font-mono">
         <span className="flex items-center gap-2">
           <span
-            className={`w-1.5 h-1.5 rounded-full ${open ? "accent-dot animate-pulse" : "bg-background/40"}`}
+            className={`w-1.5 h-1.5 rounded-full ${open ? "bg-background animate-pulse" : "bg-background/40"}`}
           />
           <span className="opacity-90 inline-flex items-center">
             {open ? "STUDIO OPEN" : "AFTER HOURS"} · BKK&nbsp;{time}

@@ -318,7 +318,7 @@ const Services = () => (
       <div className="max-w-[1280px] mx-auto py-24 md:py-32">
         <SectionLabel index="02" label="Add-ons" />
         <Reveal delay={0.1}>
-          <h2 className="mt-10 font-serif h-display-lg max-w-[16ch]">
+          <h2 className="mt-10 font-serif h-display-md max-w-[16ch]">
             Beyond the<br /><em className="italic text-cinnabar">package.</em>
           </h2>
         </Reveal>

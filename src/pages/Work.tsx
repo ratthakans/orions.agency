@@ -84,7 +84,7 @@ const Work = () => (
       <div className="max-w-[1280px] mx-auto py-24 md:py-32">
         <SectionLabel index="02" label="Projects" />
         <Reveal delay={0.05}>
-          <h2 className="mt-10 font-serif h-display-lg">
+          <h2 className="mt-10 font-serif h-display-md">
             {projects.length} brands. <em className="italic text-cinnabar">One team.</em>
           </h2>
         </Reveal>
@@ -135,7 +135,7 @@ const Work = () => (
       <div className="max-w-[1280px] mx-auto py-24 md:py-32">
         <SectionLabel index="03" label="Testimonials" />
         <Reveal delay={0.05}>
-          <h2 className="mt-10 font-serif h-display-lg">
+          <h2 className="mt-10 font-serif h-display-md">
             What clients <em className="italic text-cinnabar">say.</em>
           </h2>
         </Reveal>

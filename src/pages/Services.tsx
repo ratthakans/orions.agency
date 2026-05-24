@@ -255,7 +255,7 @@ const Services = () => (
 
               <Link
                 to="/contact"
-                className={`mt-10 group inline-flex items-center justify-between gap-3 px-6 py-4 btn-label border transition-colors duration-300 ${
+                className={`mt-10 group inline-flex items-center justify-between gap-3 px-7 py-4 btn-label border transition-colors duration-300 ${
                   p.featured
                     ? "border-cinnabar bg-cinnabar text-background hover:opacity-90"
                     : "border-foreground bg-background text-foreground hover:bg-cinnabar hover:text-background hover:border-cinnabar"

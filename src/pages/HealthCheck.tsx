@@ -134,7 +134,7 @@ const recommendPackage = (pct: number) => {
   }
   if (pct >= 45) {
     return {
-      tier: "ii. Pro · Most Popular",
+      tier: "ii. Pro · Featured Package",
       name: "Data-Tested Loops",
       price: "Start from ฿69,000",
       why: "ฐานคุณดี — Pro จะ sharpen creative ด้วย A/B testing, Quarterly Campaign และ Ads management เพื่อทะลุ noise ในตลาด",

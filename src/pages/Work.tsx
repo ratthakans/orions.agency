@@ -80,11 +80,11 @@ const Work = () => (
     </section>
 
     {/* 02 · SELECTED PROJECTS */}
-    <section className="px-6 md:px-10 border-t border-foreground">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
         <SectionLabel index="02" label="Projects" />
         <Reveal delay={0.05}>
-          <h2 className="mt-10 font-serif h-display-lg">
+          <h2 className="mt-10 font-serif h-display-md">
             {projects.length} brands. <em className="italic text-cinnabar">One team.</em>
           </h2>
         </Reveal>
@@ -131,17 +131,17 @@ const Work = () => (
     </section>
 
     {/* 03 · WHAT CLIENTS SAY */}
-    <section className="px-6 md:px-10 border-t border-foreground">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
         <SectionLabel index="03" label="Testimonials" />
         <Reveal delay={0.05}>
-          <h2 className="mt-10 font-serif h-display-lg">
+          <h2 className="mt-10 font-serif h-display-md">
             What clients <em className="italic text-cinnabar">say.</em>
           </h2>
         </Reveal>
 
         <Reveal delay={0.1}>
-          <Carousel opts={{ align: "start", loop: false }} className="mt-16 md:mt-20 border-t border-foreground">
+          <Carousel opts={{ align: "start", loop: false }} className="mt-16 md:mt-20 border-t border-foreground/15">
             <CarouselContent className="ml-0">
               {testimonials.map((t, i) => (
                 <CarouselItem key={t.name} className="pl-0 basis-full md:basis-1/2 lg:basis-1/3">
@@ -172,8 +172,8 @@ const Work = () => (
     </section>
 
     {/* 04 · TRUSTED BY */}
-    <section className="px-6 md:px-10 border-t border-foreground">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
         <SectionLabel index="04" label="Trusted By" />
         <Reveal delay={0.05}>
           <h2 className="mt-10 font-serif h-display-lg max-w-[20ch]">

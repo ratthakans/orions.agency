@@ -85,22 +85,22 @@ const Index = () => (
     />
 
     {/* HERO — Collins-style: massive serif, all whitespace */}
-    <section className="relative min-h-screen flex flex-col justify-center px-6 md:px-10">
-      <div className="max-w-[1400px] mx-auto w-full text-center pt-[20vh] pb-[18vh]">
+    <section className="relative min-h-[100svh] flex flex-col px-6 md:px-10">
+      <div className="max-w-[1400px] mx-auto w-full flex-1 flex flex-col justify-center items-center text-center pt-32 md:pt-40 pb-20 md:pb-28">
         <Reveal>
           <h1 className="font-serif h-display-xl leading-[0.92] tracking-[-0.04em]">
             Stories, <em className="italic text-cinnabar">refined.</em>
           </h1>
         </Reveal>
         <Reveal delay={0.2}>
-          <p className="mt-12 md:mt-16 font-serif italic text-[18px] md:text-[22px] text-muted-foreground">
+          <p className="mt-16 md:mt-20 font-serif italic text-[18px] md:text-[22px] text-muted-foreground">
             Independent editorial studio. Bangkok. — Boutique Creative Agency.
           </p>
         </Reveal>
 
         {/* Credentials strip — laurel-style */}
         <Reveal delay={0.35}>
-          <div className="mt-[18vh] md:mt-[22vh] flex items-center justify-center gap-5 md:gap-7 font-mono text-[10px] md:text-[11px] tracking-[0.22em] uppercase text-muted-foreground">
+          <div className="mt-20 md:mt-24 flex items-center justify-center gap-5 md:gap-7 font-mono text-[10px] md:text-[11px] tracking-[0.22em] uppercase text-muted-foreground">
             <Laurel side="left" />
             <span>Six&nbsp;years</span>
             <span aria-hidden className="opacity-40">·</span>
@@ -114,7 +114,7 @@ const Index = () => (
     </section>
 
     {/* 01 — APPROACH (promoted to first section) */}
-    <section className="px-6 md:px-10 border-t border-foreground/15">
+    <section className="px-6 md:px-10 border-t border-foreground/15/15">
       <div className="max-w-[1280px] mx-auto py-24 md:py-32">
         <SectionLabel index="01" label="Approach" />
         <Reveal delay={0.1}>
@@ -154,7 +154,7 @@ const Index = () => (
 
         {/* Process ribbon */}
         <Reveal delay={0.4}>
-          <div className="mt-16 md:mt-20 grid grid-cols-2 md:grid-cols-4 border-t border-foreground/15">
+          <div className="mt-16 md:mt-20 grid grid-cols-2 md:grid-cols-4 border-t border-foreground/15/15">
             {[
               { n: "01", k: "Listen",   d: "Brand, audience, current rhythm" },
               { n: "02", k: "Diagnose", d: "Where the loop breaks today" },
@@ -173,7 +173,7 @@ const Index = () => (
     </section>
 
     {/* 02 — CAPABILITIES */}
-    <section className="px-6 md:px-10 border-t border-foreground/15">
+    <section className="px-6 md:px-10 border-t border-foreground/15/15">
       <div className="max-w-[1280px] mx-auto py-24 md:py-32">
         <SectionLabel index="02" label="Capabilities" />
         <Reveal delay={0.1}>
@@ -181,7 +181,7 @@ const Index = () => (
             A full studio. <em className="italic text-cinnabar">Four disciplines.</em>
           </h2>
         </Reveal>
-        <div className="mt-14 md:mt-20 grid grid-cols-1 md:grid-cols-4 border-t border-foreground/15">
+        <div className="mt-14 md:mt-20 grid grid-cols-1 md:grid-cols-4 border-t border-foreground/15/15">
           {[
             { n: "i.",   k: "Brand Strategy",    d: "Positioning, narrative, voice, audience architecture." },
             { n: "ii.",  k: "Editorial Design",  d: "Identity systems, typography, art direction for content." },
@@ -201,8 +201,8 @@ const Index = () => (
     </section>
 
     {/* 03 — SELECTED WORK */}
-    <section className="px-6 md:px-10 border-t border-foreground/12">
-      <div className="max-w-[1400px] mx-auto py-20 md:py-28">
+    <section className="px-6 md:px-10 border-t border-foreground/15/12">
+      <div className="max-w-[1400px] mx-auto py-24 md:py-32">
         <div className="flex items-end justify-between gap-6 flex-wrap">
           <SectionLabel index="03" label="Selected Work" />
           <Link
@@ -219,7 +219,7 @@ const Index = () => (
               {/* 01 — Hongmove (large hero) */}
               <Link
                 to={`/work/${selectedWork[0].slug}`}
-                className="group relative block md:col-span-8 md:row-span-5 overflow-hidden border border-foreground/10 bg-foreground/[0.04] aspect-[16/10] md:aspect-auto"
+                className="group relative block md:col-span-8 md:row-span-5 overflow-hidden border border-foreground/15 bg-foreground/[0.04] aspect-[16/10] md:aspect-auto"
               >
                 <img
                   src={selectedWork[0].img}
@@ -240,7 +240,7 @@ const Index = () => (
               {/* 02 — RTAF (tall right) */}
               <Link
                 to={`/work/${selectedWork[1].slug}`}
-                className="group relative block md:col-span-4 md:row-span-5 overflow-hidden border border-foreground/10 bg-foreground/[0.04] aspect-[4/5] md:aspect-auto"
+                className="group relative block md:col-span-4 md:row-span-5 overflow-hidden border border-foreground/15 bg-foreground/[0.04] aspect-[4/5] md:aspect-auto"
               >
                 <img
                   src={selectedWork[1].img}
@@ -261,7 +261,7 @@ const Index = () => (
               {/* 03 — Democrat (wide bottom-left) */}
               <Link
                 to={`/work/${selectedWork[2].slug}`}
-                className="group relative block md:col-span-5 md:row-span-3 overflow-hidden border border-foreground/10 bg-foreground/[0.04] aspect-[16/10] md:aspect-auto"
+                className="group relative block md:col-span-5 md:row-span-3 overflow-hidden border border-foreground/15 bg-foreground/[0.04] aspect-[16/10] md:aspect-auto"
               >
                 <img
                   src={selectedWork[2].img}
@@ -299,7 +299,7 @@ const Index = () => (
         </div>
 
         <Reveal delay={0.1}>
-          <div className="mt-10 flex items-center justify-between gap-6 border-t border-foreground/15 pt-6">
+          <div className="mt-10 flex items-center justify-between gap-6 border-t border-foreground/15/15 pt-6">
             <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
               03 of selected · more in the index
             </span>
@@ -315,7 +315,7 @@ const Index = () => (
     </section>
 
     {/* 04 — VENTURES */}
-    <section className="px-6 md:px-10 border-t border-foreground/15">
+    <section className="px-6 md:px-10 border-t border-foreground/15/15">
       <div className="max-w-[1280px] mx-auto py-24 md:py-32">
         <div className="flex items-end justify-between gap-6 flex-wrap">
           <SectionLabel index="04" label="Ventures" />
@@ -365,7 +365,7 @@ const Index = () => (
     </section>
 
     {/* 05 — TRUSTED / TESTIMONIALS */}
-    <section className="px-6 md:px-10 border-t border-foreground bg-surface">
+    <section className="px-6 md:px-10 border-t border-foreground/15 ">
       <div className="max-w-[1280px] mx-auto py-24 md:py-32">
         <SectionLabel index="05" label="Trusted" />
 
@@ -375,7 +375,7 @@ const Index = () => (
               {[...testimonials, ...testimonials].map((t, i) => (
                 <figure
                   key={i}
-                  className="shrink-0 w-[340px] md:w-[440px] border-t border-foreground/20 pt-8"
+                  className="shrink-0 w-[340px] md:w-[440px] border-t border-foreground/15/20 pt-8"
                 >
                   <span className="font-serif italic text-cinnabar text-[48px] leading-none">"</span>
                   <blockquote className="mt-2 font-serif text-[20px] md:text-[24px] leading-[1.3] tracking-[-0.015em]">
@@ -391,7 +391,7 @@ const Index = () => (
         </Reveal>
 
         <Reveal delay={0.2}>
-          <div className="mt-20 border-t border-foreground/20 pt-10">
+          <div className="mt-20 border-t border-foreground/15/20 pt-10">
             <div className="flex items-baseline justify-between gap-6 flex-wrap">
               <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
                 Selected partners
@@ -416,7 +416,7 @@ const Index = () => (
     </section>
 
     {/* 06 — SERVICES PREVIEW */}
-    <section className="px-6 md:px-10 border-t border-foreground">
+    <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-24 md:py-32">
         <SectionLabel index="06" label="Packages" />
         <Reveal delay={0.1}>
@@ -428,7 +428,7 @@ const Index = () => (
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 border border-foreground/20">
           {servicesPreview.map((p, i) => (
             <Reveal key={p.tier} delay={i * 0.08}>
-              <div className={`p-8 md:p-10 h-full flex flex-col ${i > 0 ? "md:border-l border-foreground/20 border-t md:border-t-0" : ""} ${p.featured ? "bg-surface text-foreground" : "bg-background"}`}>
+              <div className={`p-8 md:p-10 h-full flex flex-col ${i > 0 ? "md:border-l border-foreground/20 border-t md:border-t-0" : ""} ${p.featured ? " text-foreground" : "bg-background"}`}>
                 <div className="flex items-baseline justify-between gap-3">
                   <div className="font-serif italic text-cinnabar text-[24px] leading-none">{p.n}</div>
                   <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">{p.tier}</div>
@@ -468,7 +468,7 @@ const Index = () => (
     </section>
 
     {/* 07 — DIAGNOSTIC TEASER */}
-    <section className="px-6 md:px-10 border-t border-foreground bg-surface">
+    <section className="px-6 md:px-10 border-t border-foreground/15 ">
       <div className="max-w-[1280px] mx-auto py-24 md:py-32">
         <SectionLabel index="07" label="Diagnostic" />
 
@@ -493,7 +493,7 @@ const Index = () => (
                   { n: "ii.",  en: "Per-axis diagnosis",      th: "วินิจฉัยจุดอ่อน-จุดแข็งราย\u200Bมิติ" },
                   { n: "iii.", en: "Recommended package",     th: "แพ็กเกจที่เหมาะกับสถานะปัจจุบัน" },
                 ].map((b) => (
-                  <li key={b.n} className="flex gap-5 border-t border-foreground/15 pt-5">
+                  <li key={b.n} className="flex gap-5 border-t border-foreground/15/15 pt-5">
                     <span className="font-serif italic text-cinnabar text-[18px] shrink-0 w-8">{b.n}</span>
                     <div>
                       <div className="font-serif text-[20px] md:text-[22px] tracking-[-0.015em]">{b.en}</div>
@@ -577,7 +577,7 @@ const Index = () => (
                     ))}
                   </div>
 
-                  <div className="mt-8 pt-6 border-t border-foreground/15 font-thai text-[13px] leading-[1.7] text-muted-foreground">
+                  <div className="mt-8 pt-6 border-t border-foreground/15/15 font-thai text-[13px] leading-[1.7] text-muted-foreground">
                     “แบรนด์ของคุณมีความคมในระดับดี — เหลือเพียงระบบคอนเทนต์ที่สม่ำเสมอ และ hero ที่จดจำได้”
                   </div>
                 </div>

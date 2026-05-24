@@ -76,7 +76,7 @@ const Projects = () => (
                   <ArrowUpRight className="w-6 h-6 transition-transform duration-500 group-hover:-translate-y-1 group-hover:translate-x-1 text-cinnabar" />
                 </div>
 
-                <h2 className="mt-16 md:mt-24 font-serif text-[56px] md:text-[88px] leading-[0.95] tracking-[-0.03em]">
+                <h2 className="mt-16 md:mt-24 font-serif h-display-lg">
                   {v.name}
                 </h2>
 

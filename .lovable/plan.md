@@ -1,62 +1,80 @@
-## Scope
+## 1. Index hero — fix spacing & centering (priority)
 
-Five focused fixes — Home, Services, and a global scroll bug. No backend, no new routes.
+`src/pages/Index.tsx` Hero section currently combines `min-h-screen` + `flex justify-center` + extra `pt-[20vh] pb-[18vh]` + `mt-[18vh] md:mt-[22vh]` on credentials. The double vertical padding pushes content low and crowds the bottom.
+
+Fix:
+- Replace section with: `min-h-[100svh] flex flex-col px-6 md:px-10`
+- Inner container: `max-w-[1400px] mx-auto w-full flex-1 flex flex-col justify-center items-center text-center pt-32 md:pt-40 pb-20 md:pb-28` (matches the rest of the site's hero rhythm + uses safe top/bottom)
+- Drop the `pt-[20vh] pb-[18vh]` and the `mt-[18vh] md:mt-[22vh]` — replace with a single `mt-16 md:mt-20` between headline and tagline, and `mt-20 md:mt-24` before credentials
+- Headline keeps `h-display-xl leading-[0.92] tracking-[-0.04em]`
+- Result: headline optically centered with clear, equal top/bottom breathing room.
+
+## 2. Standardize section vertical rhythm
+
+Two rhythms exist:
+- `py-24 md:py-32` — Index, Services, Projects
+- `py-20 md:py-28` — Work, CaseStudy
+
+Pick **`py-24 md:py-32`** as canonical (more editorial). Update Work.tsx (4 occurrences) and CaseStudy.tsx (6 occurrences).
+
+## 3. Standardize hairline borders
+
+Currently mixed: `border-foreground/10`, `/15`, `/20`, and solid `border-foreground`.
+
+Canon:
+- **`border-foreground/15`** — all section dividers and editorial hairlines
+- **`border-foreground/20`** — card/table grids only (Services packages, comparison table)
+- **`border-cinnabar`** — accent only (featured package, active states)
+- Remove all solid `border-foreground` section dividers → `/15`
+
+Files: Work.tsx, CaseStudy.tsx, Services.tsx, Index.tsx (Trusted section uses `border-foreground bg-surface` — change to `/15` and drop the `bg-surface` to keep the all-dark scope).
+
+## 4. Standardize section H2 sizing
+
+Mixed: `h-display-md`, `h-display-lg`, raw `text-[56px] md:text-[88px]`.
+
+Canon:
+- **Page H1 (hero)** → `h-display-xl`
+- **Section H2** → `h-display-md`
+- **Featured/closing H2** → `h-display-lg` (sparing)
+- Replace raw inline sizes in Projects.tsx line 79 with `h-display-lg`
+- Audit Work.tsx (uses `h-display-lg` for every section → demote intermediate ones to `h-display-md`)
+
+## 5. Standardize Thai body text
+
+Mixed `text-[15px]/[16px]/[17px] md:text-[17px]/[18px]`.
+
+Canon:
+- **Lede paragraph** (right under H1/H2): `font-thai text-[16px] md:text-[18px] leading-[1.7] text-muted-foreground`
+- **Body paragraph**: `font-thai text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground`
+- Apply across all pages.
+
+## 6. Standardize buttons
+
+Canon (already used):
+- **Primary**: `inline-flex items-center gap-3 bg-cinnabar text-background px-7 py-4 btn-label hover:opacity-90 transition-opacity`
+- **Secondary**: `inline-flex items-center gap-2 btn-label border-b border-foreground pb-1 hover:text-cinnabar hover:border-cinnabar transition-colors`
+- Update Services package CTA from `px-6 py-4` → `px-7 py-4` for parity.
+
+## 7. Sub-tagline consistency
+
+The standardized subtitle "Independent editorial studio. Bangkok. — Boutique Creative Agency." appears on Services/Work/Projects/Contact/HealthCheck but **not Index hero**. Either add it under Index hero (small, italic, muted) or remove from sub-pages. Recommendation: keep on sub-pages only — Index has its own "Stories, refined." voice.
 
 ---
-
-### 1. Home — "Three tiers" headline line-break
-
-`src/pages/Index.tsx` (Section 06 Packages):
-- Change headline to break onto two lines:
-  - Line 1: *Three tiers.*
-  - Line 2: *One refined system.* (italic cinnabar)
-
-### 2. Home — Trusted: add 4 testimonials + auto-scroll
-
-`src/pages/Index.tsx` (Section 05 Trusted):
-- Extend `testimonials[]` from 2 → 6 (add 4 new editorial quotes from plausible client roles: Founder/CMO/Head of Content/Creative Director across e-commerce, hospitality, F&B, finance).
-- Replace the static 2-col grid with a horizontal **auto-scrolling marquee** of testimonial cards (reuse `SimpleMarquee` already in the project; verify it supports vertical card content — otherwise use a CSS `@keyframes` translateX loop, pause on hover).
-- Each card: fixed width (~440px), border-t cinnabar quote mark, blockquote, figcaption.
-- Keep "Selected partners" logo grid below unchanged.
-
-### 3. Services — simplify the 3 package cards
-
-`src/pages/Services.tsx`:
-- Rename package names to plain-language equivalents, applied uniformly to all 3 cards:
-  - Starter → **"Starter"** (drop "Data-Informed Loop" subtitle)
-  - Pro → **"Pro"** (drop "Data-Tested Loops") — change "Most Popular" badge label to **"Featured Package"**
-  - Elite → **"Elite"** (drop "Data-Strategy Lab")
-- Same card structure for all three (no special featured surface treatment beyond the badge + cinnabar border).
-- Keep all detail rows (Deliverables / Production / Strategy / Reporting / Best For) but **remove camera brand/model references** ("Sony A7V") — replace with generic phrasing like "professional mirrorless camera" or just "pro camera + crew".
-- Ensure feature lists are complete and parallel across tiers (same row labels in same order).
-- Update home `servicesPreview[]` to match the new naming.
-
-### 4. Services — clearer Add-ons
-
-`src/pages/Services.tsx` (Add-ons section):
-- Rewrite each add-on `desc` in plain Thai/English (1 sentence, what you get + who it's for). Examples:
-  - "Brand Identity Package" → "ชุดอัตลักษณ์แบรนด์ครบชุด: โลโก้ สี ฟอนต์ และคู่มือการใช้งาน — เหมาะกับแบรนด์เปิดใหม่หรือรีแบรนด์"
-  - "Community Management Plus" → "ดูแลคอมเมนต์และ DM ขยายเวลา 8:00–23:00 พร้อมตอบเชิงรุก — สำหรับแบรนด์ที่ engagement สูง"
-- Add a 1-line "What you get" / "Best for" split under each name (or keep single line but plainer).
-- Keep prices + bundle discount band unchanged.
-
-### 5. Bug — scroll bounce-back
-
-`src/components/Layout.tsx`:
-- The current sticky-reveal footer (`clipPath` + nested `sticky bottom-0`) is causing layout reflow that bounces the scroll position upward.
-- Fix: remove the `clipPath` wrapper and `sticky` positioning. Render `<Footer />` as a normal block after `<main>`. This keeps the all-dark aesthetic and eliminates the jump.
-
----
-
-## Technical notes
-
-- Marquee: prefer existing `SimpleMarquee` (`src/components/SimpleMarquee.tsx`) — if its API only supports inline text, write a small inline CSS keyframe animation (`animate-[marquee_40s_linear_infinite]`) duplicating the testimonial list for seamless loop, with `hover:[animation-play-state:paused]`.
-- All color/spacing tokens stay within the existing design system (cinnabar, surface, foreground/15 hairlines, mono labels).
-- No changes to routing, data layer, or other pages.
 
 ## Files to edit
 
-- `src/pages/Index.tsx`
-- `src/pages/Services.tsx`
-- `src/components/Layout.tsx`
-- possibly `src/components/SimpleMarquee.tsx` (read-only check first)
+- `src/pages/Index.tsx` — hero rewrite, Trusted border fix
+- `src/pages/Work.tsx` — section rhythm, border tokens, H2 sizing
+- `src/pages/CaseStudy.tsx` — section rhythm, border tokens
+- `src/pages/Services.tsx` — border tokens, button padding
+- `src/pages/Projects.tsx` — H2 sizing
+- `src/pages/HealthCheck.tsx` — border tokens
+- `src/pages/Contact.tsx` — body text sizing (audit)
+
+No design-system / `index.css` changes needed — all tokens already exist.
+
+## Out of scope
+- No content/copy changes
+- No new components or routes
+- No color palette changes

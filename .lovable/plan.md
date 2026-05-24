@@ -1,81 +1,101 @@
-## เป้าหมาย
+# Dark redesign + Bento Work + Inline Nav + Approach prose
 
-ทำให้ ØRIONS รู้สึกเหมือน "editorial studio" สเกล Collins — หน้าโล่งมาก, headline เซริฟใหญ่อยู่กลางจอ, chrome เกือบหาย, สีจัด (Cinnabar) ปรากฏน้อยมากใน UI แต่ไประเบิดในรูป/ปกงาน. ไม่เพิ่ม animation, ไม่เพิ่ม component ใหม่เยอะ — เป็นการ "เอาออก" มากกว่าใส่เพิ่ม
+## 1. Design tokens → flip to dark (`src/index.css`)
 
-อ้างอิง Collins ที่จะหยิบมา:
-- Nav: logo เล็กซ้าย + hamburger ขวา, ที่เหลือว่างหมด
-- Hero: headline เซริฟ italic ขนาดมหาศาล อยู่กลางจอ ไม่มี subhead ใกล้ ๆ, มี whitespace เหนือ-ใต้ 40-50vh
-- Awards strip: แถวเล็ก ๆ มี laurel ขนาบ ตัวหนังสือจิ๋ว
-- Section จัดเป็น "ผลงาน 1 ชิ้น = 1 หน้าจอ" ภาพเต็ม-กว้าง, caption เล็กมาก
-- ไม่มี card, ไม่มี border, ไม่มี mono label เยอะ — เปลี่ยน hairline เป็น "เว้นวรรค"
+Swap the base palette so the whole site inherits dark mode without touching individual components.
 
----
+```
+--background: 0 0% 5%;       /* Black Russian #0e0e0e */
+--foreground: 60 33% 98%;    /* Snow #fdfdf9 */
+--surface:    0 0% 8%;       /* slightly lifted panel */
+--surface-2:  0 0% 11%;
+--card / popover: 0 0% 5%
+--primary: snow / primary-fg: ink
+--muted: 0 0% 10%; --muted-foreground: 60 10% 70%
+--border: 60 33% 98% (snow) — hairlines now snow at low opacity
+--accent: 11 81% 57% (Cinnabar — unchanged)
+```
 
-## เปลี่ยน 7 จุดหลัก
+Also: scrollbar track → ink, thumb → cinnabar; grain blend-mode → `screen` with opacity 0.04 so it reads on dark.
 
-### 1) Nav: ลดให้เบาแบบ Collins
-- ลบ StudioStatusBar ออกจาก nav (ย้ายลง Footer อย่างเดียว)
-- Logo `ØRIONS` ฝั่งซ้ายตัวเล็กลง (ความสูง ~14px tracked), hamburger ฝั่งขวา
-- ไม่มี backdrop blur, ไม่มี border ใต้ nav — โปร่งทั้งแถบ
-- Overlay menu: พื้น Snow (ไม่ใช่ ink) + ลิงก์ Newsreader italic ขนาด `h-display-lg`, จัดชิดซ้ายแทน center
+Hairline opacity convention: use `border-foreground/12` and `/20` consistently (already used). On dark, snow at 12–20% reads as a soft hairline. No need to rewrite component borders.
 
-### 2) Hero (`/`): ให้ headline หายใจ
-- ลบ chip 6:3:1, ลบ scroll indicator, ลบทุกอย่างรอบ headline
-- เหลือเฉพาะ:
-  - Headline เซริฟ italic 1 บรรทัด (เช่น *"Stories, refined."*) ขนาด `clamp(80px, 14vw, 220px)`, จัดกลางจอแนวตั้ง
-  - บรรทัดเล็กใต้ headline 1 บรรทัด: *"Independent editorial studio. Bangkok."*
-- ด้านบน headline ~45vh ว่าง, ด้านล่าง ~30vh ว่าง ก่อนถึง section ถัดไป
+## 2. Nav (`src/components/Nav.tsx`) — inline links, no hamburger
 
-### 3) Awards / Credentials row (ใหม่ แทน marquee)
-- ใต้ hero: แถวเดียวจัดกลาง `"6 years · 40+ clients · Bangkok-based"` ขนาด `text-xs`
-- ขนาบด้วย laurel SVG ฝั่งซ้าย-ขวา (เหมือน Collins มี 〔 …〕)
-- **ลบ MusicMarquee/Marquee** ออกจาก Index ทั้งหมด — ทดแทนด้วย strip เงียบ ๆ นี้
+Replace the hamburger + full-screen overlay with a single horizontal bar:
 
-### 4) Work showcase: "1 ชิ้น = 1 หน้าจอ"
-- ใน Index ส่วน Selected work: เปลี่ยนจาก grid → แสดง 3 ชิ้นแบบ vertical stack, แต่ละชิ้น `min-h-screen`
-  - ภาพ 21:9 เต็มความกว้าง container
-  - caption ใต้ภาพ: เลขที่ + ชื่อโครงการ + ปี (mono เล็กมาก) จัด 3 คอลัมน์
-- ไม่มี hover scale, ไม่มี gradient overlay — แค่ภาพล้วน ๆ
+```
+[ ØRIONS ]                    About  Services  Work  Diagnostic  · [Contact →]
+```
 
-### 5) Services / Approach / Manifesto: editorial column
-- ทุกหน้าใน inner page ใช้ pattern เดียว:
-  - SectionLabel เล็ก ๆ ด้านบน
-  - H1 เซริฟ italic ขนาด `h-display-xl` จัดชิดซ้าย, กินไม่เกิน 9/12 cols
-  - บอดี้ Newsreader ขนาด ~22px จัด column กว้างไม่เกิน 56ch
-  - **เอา card / hairline border ออกเกือบหมด** — ใช้ระยะห่างแนวตั้ง (space-y-32) แทน
-- Services: ลบ 6:3:1 visualizer (ตอนนี้ยังเป็น UI หนัก) → เขียนเป็นย่อหน้าเล่าใน prose แทน, อาจคงเป็น inline figure เล็ก ๆ ตอนท้าย
+- Height 72px, `px-6 md:px-10`, transparent bg (sits on dark), no blur.
+- Logo left: `font-brand text-[13px]` snow.
+- Links right: `font-mono text-[11px] tracking-[0.22em] uppercase`, gap-8, `text-foreground/70 hover:text-foreground`, active = `text-cinnabar`.
+- Final item is a Cinnabar pill `Contact →` (`bg-cinnabar text-background px-4 py-2`).
+- Mobile (<md): show logo + Contact pill only; hide the link row. (No hamburger.)
+- Delete the overlay menu + body-scroll-lock effects.
 
-### 6) Color discipline แบบ Collins
-- Cinnabar **ห้าม** ใช้ใน hairline / underline / dot / divider อีกต่อไป
-- Cinnabar เหลือใช้แค่ 3 ที่:
-  1. คำ italic เน้นใน headline (`<em className="italic text-cinnabar">`)
-  2. Link hover (เปลี่ยนจาก ink → cinnabar)
-  3. ปกงาน / illustration ที่เป็นรูปจริง
-- Hairline ทั้งหมดเปลี่ยนเป็น `border-foreground/12` (เบาลง) — เลิก `border-foreground` แบบเต็ม
+## 3. Index page (`src/pages/Index.tsx`)
 
-### 7) Typography rhythm
-- ขยาย `.h-display-xl` ให้ใหญ่ขึ้น: `clamp(72px, 11vw, 180px)` (เดิมน่าจะ ~120)
-- บอดี้ default page (Newsreader) ขยับเป็น 19px / line-height 1.55 — อ่านสบายแบบ editorial
-- Mono label: ลดความถี่ — ใช้เฉพาะหัว section ใหญ่ ไม่ใช้ใน card/figure caption เล็ก
+### 3a. Selected Work → bento mixed grid
 
----
+Replace the 3 stacked 21:9 blocks with a 12-col / 8-row CSS grid (desktop) where tiles have varied sizes. Mobile collapses to single column.
 
-## ไฟล์ที่จะแตะ
+```text
++------------------+----------+
+|        01        |    02    |
+|     Hongmove     |   RTAF   |
+|   col-span 8     |  col 4   |
+|   row-span 5     |  row 5   |
++--------+---------+----------+
+|   03   |        meta/CTA    |
+| Demo   |    "Index of work" |
+|  col 5 |       col 7        |
+|  row 3 |       row 3        |
++--------+--------------------+
+```
 
-- `src/components/Nav.tsx` — ลด chrome, เอา StatusBar ออก, ปรับ overlay menu
-- `src/index.css` — ปรับ scale `.h-display-xl`, body size, opacity ของ hairline tokens
-- `src/components/SectionLabel.tsx` — ลด opacity ของ rule (Cinnabar → foreground/30)
-- `src/pages/Index.tsx` — เขียน hero ใหม่, ลบ marquee, เปลี่ยน work เป็น 1-per-screen, เพิ่ม credentials strip
-- `src/pages/Services.tsx` — ลบ 6:3:1 visualizer block, เขียนเป็น prose
-- `src/pages/About.tsx`, `src/pages/HealthCheck.tsx`, `src/pages/Work.tsx`, `src/pages/Manifesto.tsx`, `src/pages/Contact.tsx` — ใช้ editorial column pattern เดียวกัน, เอา card/border ส่วนเกินออก
-- `src/components/MusicMarquee.tsx` — ลบทิ้ง (ไม่ใช้แล้ว)
-- `src/components/Footer.tsx` — ใส่ StudioStatusBar ลงในนี้แทน
+- `grid grid-cols-12 grid-rows-[repeat(8,minmax(120px,1fr))] gap-3 md:gap-4`
+- Each tile: `<Link>` wrapping `<img>` (object-cover, full size) + bottom overlay strip `01 — Hongmove · PropTech / 2025` in mono 10px snow.
+- No grayscale flip. Just subtle `opacity-90 hover:opacity-100` + a `border border-foreground/10` hairline.
+- The 4th cell is not an image — it's an editorial CTA card: ink-on-snow inverted (bg-cinnabar text-background), serif italic "See all 12 case studies →".
 
----
+### 3b. Process 6:3:1 → Approach prose
 
-## สิ่งที่ "ไม่ทำ"
+Remove the entire `processSteps` block (the 3 huge numbers grid). Replace with a single-column editorial passage:
 
-- ไม่เพิ่ม motion ใหม่ (Collins มี hover image reveal แต่เราเลือกอยู่ฝั่ง quiet)
-- ไม่เปลี่ยน palette / typography stack
-- ไม่แตะ schema / data / routing
-- ไม่ทำ illustration เลียนแบบ Collins — ใช้รูปลูกค้าจริงที่มีอยู่
+```
+01 — Approach
+Less, but considered.
+
+We don't sell packages of posts. We run one refined loop every month —
+a short essay across formats. Three movements: listen, refine, release.
+[Read the full approach →]
+```
+
+- `SectionLabel index="03" label="Approach"`
+- `h2` with `h-display-md`, italic Cinnabar accent on one phrase.
+- Two `<p>` paragraphs at `max-w-[640px]` font-thai/serif body.
+- One inline link to `/approach` (or `/manifesto` if no approach route — keep existing route).
+- Remove the `processSteps` array entirely.
+
+### 3c. Section index renumbering
+After removing Process: Manifesto 01 → Selected Work 02 → Approach 03 → Trusted 04 → Packages 05 → Diagnostic 06. (Same numbers stay; only the Process block content swaps to Approach.)
+
+## 4. Other pages
+No structural changes — they inherit the dark token flip automatically. Spot checks afterward:
+- `Services.tsx`: the `bg-foreground text-background` "featured" card now becomes snow-on-ink (i.e. the inverted one becomes light on dark page) — that still works as visual emphasis.
+- `Footer.tsx`: status ribbon already uses tokens; will read white-on-black.
+- Any `bg-surface` panels lift slightly (good, intended).
+
+No copy/data/routing/image changes.
+
+## Files touched
+- `src/index.css` — palette flip, scrollbar, grain
+- `src/components/Nav.tsx` — full rewrite to inline links
+- `src/pages/Index.tsx` — bento Selected Work, remove process, add Approach prose
+
+## Not in scope
+- No motion changes beyond what's already in the project
+- No new routes, no copy rewrite, no font changes
+- Memory will be updated after build to reflect new dark palette + nav style

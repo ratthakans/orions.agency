@@ -42,6 +42,26 @@ const testimonials = [
     name: "Marketing Director",
     org: "Hospitality Group",
   },
+  {
+    quote: "ทีมเล็ก แต่ output คม — เหมือนได้ creative director มาเป็นพาร์ทเนอร์ ไม่ใช่ vendor",
+    name: "Founder",
+    org: "D2C Skincare · Bangkok",
+  },
+  {
+    quote: "ครั้งแรกที่ content calendar ของเรามีเหตุผล ไม่ใช่แค่ตารางโพสต์",
+    name: "Head of Content",
+    org: "F&B Group",
+  },
+  {
+    quote: "Editorial sense ของพวกเขาทำให้แบรนด์เราดูโตขึ้น 5 ปีในไตรมาสเดียว",
+    name: "Creative Director",
+    org: "Hospitality Collection",
+  },
+  {
+    quote: "เราเคยจ้าง agency ใหญ่ — ที่นี่ละเอียดกว่า เร็วกว่า และพูดภาษาแบรนด์เป็น",
+    name: "CMO",
+    org: "Financial Services",
+  },
 ];
 
 const trustedBy = [
@@ -51,9 +71,9 @@ const trustedBy = [
 ];
 
 const servicesPreview = [
-  { n: "i.",   tier: "Starter", name: "Data-Informed Loop", price: "Start from ฿35,000", tag: "First refined steps." },
-  { n: "ii.",  tier: "Pro",     name: "Data-Tested Loops",  price: "Start from ฿69,000", tag: "Cut through the noise.",  featured: true },
-  { n: "iii.", tier: "Elite",   name: "Data-Strategy Lab",  price: "Start from ฿139,000", tag: "Become a name remembered." },
+  { n: "i.",   tier: "Starter", name: "Starter", price: "Start from ฿35,000",  tag: "First refined steps." },
+  { n: "ii.",  tier: "Pro",     name: "Pro",     price: "Start from ฿69,000",  tag: "Cut through the noise.",  featured: true },
+  { n: "iii.", tier: "Elite",   name: "Elite",   price: "Start from ฿139,000", tag: "Become a name remembered." },
 ];
 
 const Index = () => (

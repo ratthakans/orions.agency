@@ -178,63 +178,123 @@ const Index = () => (
         </div>
 
         <div className="mt-12 md:mt-16 space-y-24 md:space-y-32">
-          {selectedWork.map((w) => (
-            <Reveal key={w.n}>
-              <Link to={`/work/${w.slug}`} className="group block">
-                <div className="relative w-full overflow-hidden bg-foreground/[0.04]" style={{ aspectRatio: "21 / 9" }}>
-                  <img
-                    src={w.img}
-                    alt={w.title}
-                    loading="lazy"
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-700"
-                  />
-                </div>
-                <div className="mt-6 grid grid-cols-12 gap-6 items-baseline">
-                  <div className="col-span-12 md:col-span-2 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
-                    — {w.n} / {w.year}
-                  </div>
-                  <h3 className="col-span-12 md:col-span-7 font-serif text-[28px] md:text-[44px] leading-[1.05] tracking-[-0.02em] group-hover:italic group-hover:text-cinnabar transition-all">
-                    {w.title}
-                  </h3>
-                  <div className="col-span-12 md:col-span-3 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground md:text-right">
-                    {w.niche} · {w.impact}
-                  </div>
+          <Reveal>
+            <div className="grid grid-cols-1 md:grid-cols-12 md:grid-rows-[repeat(8,minmax(64px,1fr))] gap-3 md:gap-4 md:h-[720px]">
+              {/* 01 — Hongmove (large hero) */}
+              <Link
+                to={`/work/${selectedWork[0].slug}`}
+                className="group relative block md:col-span-8 md:row-span-5 overflow-hidden border border-foreground/10 bg-foreground/[0.04] aspect-[16/10] md:aspect-auto"
+              >
+                <img
+                  src={selectedWork[0].img}
+                  alt={selectedWork[0].title}
+                  loading="lazy"
+                  className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
+                />
+                <div className="absolute left-0 right-0 bottom-0 p-5 md:p-6 flex items-baseline justify-between gap-4 bg-gradient-to-t from-background/80 to-transparent">
+                  <span className="font-serif text-[22px] md:text-[28px] tracking-[-0.02em] text-foreground">
+                    {selectedWork[0].n} — {selectedWork[0].title}
+                  </span>
+                  <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-foreground/70">
+                    {selectedWork[0].niche} · {selectedWork[0].year}
+                  </span>
                 </div>
               </Link>
-            </Reveal>
-          ))}
+
+              {/* 02 — RTAF (tall right) */}
+              <Link
+                to={`/work/${selectedWork[1].slug}`}
+                className="group relative block md:col-span-4 md:row-span-5 overflow-hidden border border-foreground/10 bg-foreground/[0.04] aspect-[4/5] md:aspect-auto"
+              >
+                <img
+                  src={selectedWork[1].img}
+                  alt={selectedWork[1].title}
+                  loading="lazy"
+                  className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
+                />
+                <div className="absolute left-0 right-0 bottom-0 p-5 flex flex-col gap-1 bg-gradient-to-t from-background/80 to-transparent">
+                  <span className="font-serif text-[20px] md:text-[22px] tracking-[-0.02em] text-foreground">
+                    {selectedWork[1].n} — {selectedWork[1].title}
+                  </span>
+                  <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-foreground/70">
+                    {selectedWork[1].niche} · {selectedWork[1].year}
+                  </span>
+                </div>
+              </Link>
+
+              {/* 03 — Democrat (wide bottom-left) */}
+              <Link
+                to={`/work/${selectedWork[2].slug}`}
+                className="group relative block md:col-span-5 md:row-span-3 overflow-hidden border border-foreground/10 bg-foreground/[0.04] aspect-[16/10] md:aspect-auto"
+              >
+                <img
+                  src={selectedWork[2].img}
+                  alt={selectedWork[2].title}
+                  loading="lazy"
+                  className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
+                />
+                <div className="absolute left-0 right-0 bottom-0 p-5 flex items-baseline justify-between gap-4 bg-gradient-to-t from-background/80 to-transparent">
+                  <span className="font-serif text-[20px] md:text-[24px] tracking-[-0.02em] text-foreground">
+                    {selectedWork[2].n} — {selectedWork[2].title}
+                  </span>
+                  <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-foreground/70">
+                    {selectedWork[2].year}
+                  </span>
+                </div>
+              </Link>
+
+              {/* CTA tile */}
+              <Link
+                to="/work"
+                className="group relative block md:col-span-7 md:row-span-3 bg-cinnabar text-background p-8 md:p-10 flex flex-col justify-between overflow-hidden"
+              >
+                <div className="font-mono text-[10px] tracking-[0.22em] uppercase opacity-80">
+                  — All case studies
+                </div>
+                <div className="flex items-end justify-between gap-6">
+                  <h3 className="font-serif text-[28px] md:text-[40px] leading-[1.05] tracking-[-0.02em] max-w-[16ch]">
+                    See the full <em className="italic">index of work</em>
+                  </h3>
+                  <ArrowUpRight className="w-8 h-8 md:w-10 md:h-10 shrink-0 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                </div>
+              </Link>
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>
 
-    {/* PROCESS — 6:3:1 */}
+    {/* APPROACH — editorial prose */}
     <section className="px-6 md:px-10 border-t border-foreground">
       <div className="max-w-[1280px] mx-auto py-24 md:py-32">
-        <SectionLabel index="03" label="Process" />
+        <SectionLabel index="03" label="Approach" />
         <Reveal delay={0.1}>
-          <h2 className="mt-10 font-serif h-display-md max-w-[22ch]">
-            The <em className="italic text-cinnabar">6 : 3 : 1</em> system.
+          <h2 className="mt-10 font-serif h-display-md max-w-[20ch]">
+            Less, but <em className="italic text-cinnabar">considered.</em>
           </h2>
         </Reveal>
-        <Reveal delay={0.2}>
-          <p className="mt-8 max-w-[640px] font-thai text-[15px] md:text-[17px] leading-[1.7] text-muted-foreground">
-            หนึ่งวงจรเนื้อหารายเดือน — ออกแบบให้แบรนด์ค้นพบ ค้างคา และจดจำ. ไม่ผลิตให้ครบจำนวน ผลิตให้ครบหน้าที่
-          </p>
-        </Reveal>
-
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-px bg-foreground/15 border border-foreground/15">
-          {processSteps.map((s, i) => (
-            <Reveal key={s.label} delay={i * 0.08}>
-              <div className="bg-background p-10 md:p-12 h-full flex flex-col">
-                <div className="font-serif text-[120px] md:text-[160px] leading-[0.85] tracking-[-0.04em] text-cinnabar">{s.n}</div>
-                <div className="mt-6 font-mono text-[10px] tracking-[0.22em] uppercase">{s.label}</div>
-                <p className="mt-4 font-thai text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">
-                  {s.th}
-                </p>
-              </div>
-            </Reveal>
-          ))}
+        <div className="mt-10 max-w-[640px] space-y-6">
+          <Reveal delay={0.18}>
+            <p className="font-serif text-[19px] md:text-[22px] leading-[1.55] text-foreground/85">
+              We don't sell packages of posts. We run one refined loop every month — a short essay across formats, sequenced to be discovered, sit with the reader, and remembered.
+            </p>
+          </Reveal>
+          <Reveal delay={0.26}>
+            <p className="font-thai text-[15px] md:text-[17px] leading-[1.75] text-muted-foreground">
+              สามจังหวะเดียวกันทุกเดือน — ฟัง, กลั่น, ปล่อย. ไม่ผลิตให้ครบจำนวน ผลิตให้ครบหน้าที่.
+            </p>
+          </Reveal>
         </div>
+        <Reveal delay={0.32}>
+          <div className="mt-12">
+            <Link
+              to="/approach"
+              className="inline-flex items-center gap-2 btn-label border-b border-foreground pb-1 hover:text-cinnabar hover:border-cinnabar transition-colors"
+            >
+              Read the full approach →
+            </Link>
+          </div>
+        </Reveal>
       </div>
     </section>
 

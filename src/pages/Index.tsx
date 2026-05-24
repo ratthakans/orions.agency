@@ -131,7 +131,7 @@ const Index = () => (
     </section>
 
     {/* MINI MANIFESTO */}
-    <section className="px-6 md:px-10 border-t border-foreground/15">
+    <section className="px-6 md:px-10 border-t border-foreground">
       <div className="max-w-[1280px] mx-auto py-24 md:py-32">
         <SectionLabel index="01" label="Manifesto" />
         <Reveal delay={0.1}>

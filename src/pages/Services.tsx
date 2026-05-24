@@ -142,7 +142,7 @@ const Services = () => (
         {/* 6:3:1 interactive visualizer */}
         <Reveal delay={0.3}>
           <div className="mt-16 border border-foreground/20">
-            <div className="grid grid-cols-[6fr_3fr_1fr]">
+            <div className="grid grid-cols-3">
               {[
                 { n: "6", label: "Reels",  hint: "Short-form ที่ขับเคลื่อนการค้นพบ", tone: "light" },
                 { n: "3", label: "Static", hint: "Editorial ที่ให้บริบทและอยู่นานกว่าหนึ่งวัน", tone: "mid" },
@@ -165,6 +165,12 @@ const Services = () => (
                   </p>
                 </div>
               ))}
+            </div>
+            {/* Proportion bar — 6/3/1 weight as hairline ratio */}
+            <div className="border-t border-foreground/20 grid grid-cols-10 h-[3px]">
+              <div className="col-span-6 bg-cinnabar" />
+              <div className="col-span-3 bg-cinnabar/55 border-l border-background" />
+              <div className="col-span-1 bg-cinnabar/25 border-l border-background" />
             </div>
             <div className="border-t border-foreground/20 px-5 py-3 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center justify-between">
               <span>One refined loop · per month</span>

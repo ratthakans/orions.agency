@@ -131,16 +131,14 @@ const About = () => (
           </p>
         </Reveal>
 
-        {/* Pillars — compact strip */}
-        <div className="mt-16 border-t border-foreground/20 grid grid-cols-1 md:grid-cols-3">
+        {/* Pillars — full cards (matches Data/Beyond grid pattern) */}
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 border border-foreground/20">
           {pillars.map((p, i) => (
             <Reveal key={p.en} delay={i * 0.06}>
-              <div className={`py-8 md:py-10 md:px-8 flex items-baseline gap-5 ${i > 0 ? "md:border-l border-foreground/20 border-t md:border-t-0" : ""}`}>
-                <div className="font-serif italic text-cinnabar text-[22px] leading-none shrink-0 w-10">{p.sym}</div>
-                <div>
-                  <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">Pillar 0{i + 1}</div>
-                  <h3 className="mt-2 font-serif text-[24px] md:text-[28px] leading-[1.1] tracking-[-0.02em]">{p.en}</h3>
-                </div>
+              <div className={`p-10 md:p-12 bg-background h-full ${i > 0 ? "md:border-l border-foreground/20 border-t md:border-t-0" : ""}`}>
+                <div className="font-serif italic text-cinnabar text-[26px] leading-none">{p.sym}</div>
+                <h3 className="mt-10 font-serif text-[26px] md:text-[30px] leading-[1.1] tracking-[-0.02em]">{p.en}</h3>
+                <p className="mt-5 font-thai text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">{p.th}</p>
               </div>
             </Reveal>
           ))}

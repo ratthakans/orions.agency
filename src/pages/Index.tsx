@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import CountUp from "@/components/CountUp";
+import SectionLabel from "@/components/SectionLabel";
 import workHongmove from "@/assets/hongmove.png";
 import workRtaf from "@/assets/rtaf.jpg";
 import workDemocrat from "@/assets/democrat.jpg";
@@ -101,23 +102,28 @@ const Index = () => (
         </Reveal>
 
         <Reveal delay={0.35}>
-          <div className="mt-16 flex flex-wrap justify-center gap-x-10 gap-y-3 border-t border-foreground/15 pt-6 max-w-[860px] mx-auto font-mono text-[11px] tracking-[0.22em] uppercase text-muted-foreground">
-            <span><span className="text-cinnabar">6 : 3 : 1</span> · Refined Content System</span>
-            <span className="opacity-40">/</span>
-            <span>Data-Refined Process</span>
-            <span className="opacity-40">/</span>
-            <span>Industry Exclusivity</span>
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 border-t border-foreground/20 max-w-[860px] mx-auto w-full font-mono text-[11px] tracking-[0.22em] uppercase text-muted-foreground">
+            {[
+              { k: "6 : 3 : 1", v: "Refined Content System", accent: true },
+              { k: "Data",       v: "Refined Process" },
+              { k: "Exclusive",  v: "One per industry" },
+            ].map((c, i) => (
+              <div key={c.v} className={`py-5 md:py-6 px-4 text-center md:text-left ${i > 0 ? "md:border-l border-foreground/15 border-t md:border-t-0" : ""}`}>
+                <div className={c.accent ? "text-cinnabar" : "text-foreground"}>{c.k}</div>
+                <div className="mt-1 opacity-70">{c.v}</div>
+              </div>
+            ))}
           </div>
         </Reveal>
       </div>
 
       {/* Marquee */}
-      <div className="border-y border-foreground/20 py-6 overflow-hidden whitespace-nowrap">
-        <div className="inline-flex gap-16 animate-[marquee_60s_linear_infinite] will-change-transform">
+      <div className="border-y border-foreground py-6 overflow-hidden whitespace-nowrap">
+        <div className="inline-flex gap-14 animate-[marquee_60s_linear_infinite] will-change-transform">
           {[...marquee, ...marquee].map((m, i) => (
-            <span key={i} className="font-serif text-[22px] md:text-[34px] tracking-[-0.01em] inline-flex items-center gap-16 shrink-0">
+            <span key={i} className="font-serif text-[22px] md:text-[34px] tracking-[-0.01em] inline-flex items-center gap-14 shrink-0">
               <span>{m}</span>
-              <span aria-hidden className="inline-block w-px h-6 bg-cinnabar" />
+              <span aria-hidden className="text-cinnabar text-[14px] leading-none">✦</span>
             </span>
           ))}
         </div>
@@ -127,12 +133,7 @@ const Index = () => (
     {/* MINI MANIFESTO */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-24 md:py-32">
-        <Reveal>
-          <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
-            <span className="block w-6 h-px bg-cinnabar" />
-            01 — Manifesto
-          </div>
-        </Reveal>
+        <SectionLabel index="01" label="Manifesto" />
         <Reveal delay={0.1}>
           <h2 className="mt-10 font-serif h-display-md max-w-[22ch]">
             Less, but <em className="italic text-cinnabar">refined.</em>
@@ -183,14 +184,9 @@ const Index = () => (
     </section>
 
     {/* SELECTED WORK */}
-    <section className="px-6 md:px-10 border-t border-foreground/15 bg-surface">
+    <section className="px-6 md:px-10 border-t border-foreground bg-surface">
       <div className="max-w-[1280px] mx-auto py-24 md:py-32">
-        <Reveal>
-          <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
-            <span className="block w-6 h-px bg-cinnabar" />
-            02 — Selected Work
-          </div>
-        </Reveal>
+        <SectionLabel index="02" label="Selected Work" />
         <Reveal delay={0.1}>
           <h2 className="mt-10 font-serif h-display-md max-w-[20ch]">
             Refined for brands <em className="italic text-cinnabar">we believe in.</em>
@@ -253,14 +249,9 @@ const Index = () => (
     </section>
 
     {/* PROCESS — 6:3:1 */}
-    <section className="px-6 md:px-10 border-t border-foreground/15">
+    <section className="px-6 md:px-10 border-t border-foreground">
       <div className="max-w-[1280px] mx-auto py-24 md:py-32">
-        <Reveal>
-          <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
-            <span className="block w-6 h-px bg-cinnabar" />
-            03 — Process
-          </div>
-        </Reveal>
+        <SectionLabel index="03" label="Process" />
         <Reveal delay={0.1}>
           <h2 className="mt-10 font-serif h-display-md max-w-[22ch]">
             The <em className="italic text-cinnabar">6 : 3 : 1</em> system.
@@ -289,14 +280,9 @@ const Index = () => (
     </section>
 
     {/* TRUSTED / TESTIMONIALS */}
-    <section className="px-6 md:px-10 border-t border-foreground/15 bg-surface">
+    <section className="px-6 md:px-10 border-t border-foreground bg-surface">
       <div className="max-w-[1280px] mx-auto py-24 md:py-32">
-        <Reveal>
-          <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
-            <span className="block w-6 h-px bg-cinnabar" />
-            04 — Trusted
-          </div>
-        </Reveal>
+        <SectionLabel index="04" label="Trusted" />
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
           {testimonials.map((t, i) => (
@@ -340,14 +326,9 @@ const Index = () => (
     </section>
 
     {/* SERVICES PREVIEW */}
-    <section className="px-6 md:px-10 border-t border-foreground/15">
+    <section className="px-6 md:px-10 border-t border-foreground">
       <div className="max-w-[1280px] mx-auto py-24 md:py-32">
-        <Reveal>
-          <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
-            <span className="block w-6 h-px bg-cinnabar" />
-            05 — Packages
-          </div>
-        </Reveal>
+        <SectionLabel index="05" label="Packages" />
         <Reveal delay={0.1}>
           <h2 className="mt-10 font-serif h-display-md max-w-[20ch]">
             Three tiers. <em className="italic text-cinnabar">One refined system.</em>
@@ -397,14 +378,9 @@ const Index = () => (
     </section>
 
     {/* DIAGNOSTIC TEASER — Lead gen */}
-    <section className="px-6 md:px-10 border-t border-foreground/15 bg-surface">
+    <section className="px-6 md:px-10 border-t border-foreground bg-surface">
       <div className="max-w-[1280px] mx-auto py-24 md:py-32">
-        <Reveal>
-          <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
-            <span className="block w-6 h-px bg-cinnabar" />
-            06 — Diagnostic
-          </div>
-        </Reveal>
+        <SectionLabel index="06" label="Diagnostic" />
 
         <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left — editorial copy */}

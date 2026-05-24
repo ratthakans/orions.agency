@@ -130,8 +130,13 @@ const Services = () => (
         <SectionLabel index="01" label="Packages" />
         <Reveal delay={0.1}>
           <h1 className="mt-10 font-serif h-display-xl max-w-[14ch]">
-            3 ระดับ.<br />1 <em className="italic text-cinnabar">เป้าหมาย.</em>
+            3 ระดับ.<br />1 <em className="italic text-gradient-cinnabar">เป้าหมาย.</em>
           </h1>
+        </Reveal>
+        <Reveal delay={0.15}>
+          <p className="mt-6 font-serif italic text-[15px] md:text-[18px] text-muted-foreground">
+            Independent editorial studio. Bangkok. — Boutique Creative Agency.
+          </p>
         </Reveal>
         <Reveal delay={0.2}>
           <p className="mt-10 max-w-[680px] font-thai text-[16px] md:text-[18px] leading-[1.7] text-muted-foreground">

@@ -63,8 +63,13 @@ const Work = () => (
         <SectionLabel index="01" label="Selected Work" />
         <Reveal delay={0.05}>
           <h1 className="mt-10 font-serif h-display-xl max-w-[18ch]">
-            Real brands. Real <em className="italic text-cinnabar">results.</em>
+            Real brands. Real <em className="italic text-gradient-cinnabar">results.</em>
           </h1>
+        </Reveal>
+        <Reveal delay={0.08}>
+          <p className="mt-6 font-serif italic text-[15px] md:text-[18px] text-muted-foreground">
+            Independent editorial studio. Bangkok. — Boutique Creative Agency.
+          </p>
         </Reveal>
         <Reveal delay={0.1}>
           <p className="mt-10 font-serif italic text-[18px] md:text-[22px] text-muted-foreground max-w-[640px] leading-[1.5]">

@@ -67,8 +67,13 @@ const About = () => (
         <SectionLabel index="01" label="Manifesto" tone="snow" />
         <Reveal delay={0.1}>
           <h1 className="mt-10 font-serif h-display-xl">
-            The New <em className="italic text-cinnabar">Landscape.</em>
+            The New <em className="italic text-gradient-cinnabar">Landscape.</em>
           </h1>
+        </Reveal>
+        <Reveal delay={0.15}>
+          <p className="mt-6 font-serif italic text-[16px] md:text-[20px] text-background/60">
+            Independent editorial studio. Bangkok. — Boutique Creative Agency.
+          </p>
         </Reveal>
         <Reveal delay={0.2}>
           <p className="mt-10 max-w-[640px] font-thai text-[16px] md:text-[18px] leading-[1.7] text-background/70">
@@ -233,7 +238,7 @@ const About = () => (
           <div className="flex flex-wrap items-center gap-5">
             <Link
               to="/services"
-              className="group inline-flex items-center gap-3 bg-foreground text-background px-7 py-4 btn-label hover:bg-cinnabar transition-colors duration-300"
+              className="group inline-flex items-center gap-3 bg-gradient-cinnabar text-background px-7 py-4 btn-label hover:opacity-90 transition-opacity duration-300"
             >
               <span>See packages</span>
               <ArrowUpRight className="w-4 h-4" />

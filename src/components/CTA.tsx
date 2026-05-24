@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { ReactNode } from "react";
-import Magnetic from "./Magnetic";
 
 interface Props {
   to?: string;
@@ -10,6 +9,7 @@ interface Props {
   children: ReactNode;
   className?: string;
   external?: boolean;
+  /** @deprecated kept for API compat. CTA no longer wraps in Magnetic. */
   noMagnetic?: boolean;
 }
 
@@ -67,8 +67,7 @@ const CTA = ({ to, href, variant = "primary", children, className = "", external
     </Link>
   );
 
-  if (noMagnetic || variant === "ghost") return node;
-  return <Magnetic strength={6} className="inline-block">{node}</Magnetic>;
+  return node;
 };
 
 export default CTA;

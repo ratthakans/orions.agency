@@ -37,12 +37,12 @@ const Nav = () => {
           className="relative w-8 h-8 flex flex-col items-end justify-center gap-[6px]"
         >
           <span
-            className={`block h-px bg-background transition-all duration-300 ${
+            className={`block h-px bg-foreground transition-all duration-300 ${
               open ? "w-6 rotate-45 translate-y-[3.5px]" : "w-6"
             }`}
           />
           <span
-            className={`block h-px bg-background transition-all duration-300 ${
+            className={`block h-px bg-foreground transition-all duration-300 ${
               open ? "w-6 -rotate-45 -translate-y-[3.5px]" : "w-5"
             }`}
           />

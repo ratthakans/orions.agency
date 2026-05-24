@@ -26,7 +26,7 @@ const PageTransition = () => {
     if (reduced) return;
     setLabel(routeLabel[pathname] ?? pathname.replace("/", "").toUpperCase() ?? "");
     setActive(true);
-    const t = setTimeout(() => setActive(false), 900);
+    const t = setTimeout(() => setActive(false), 500);
     return () => clearTimeout(t);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
@@ -40,18 +40,18 @@ const PageTransition = () => {
           <motion.div
             key="wipe"
             className="absolute inset-0"
-            initial={{ x: "-110%", skewX: -15 }}
-            animate={{ x: "0%", skewX: -15 }}
-            exit={{ x: "110%", skewX: -15 }}
-            transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             style={{ background: "hsl(var(--foreground))" }}
           >
-            <div className="absolute inset-0 flex items-center justify-center" style={{ transform: "skewX(15deg)" }}>
+            <div className="absolute inset-0 flex items-center justify-center">
               <motion.div
-                initial={{ opacity: 0, y: 12 }}
+                initial={{ opacity: 0, y: 6 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -12 }}
-                transition={{ duration: 0.4, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.25, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
                 className="flex items-baseline gap-4 text-background"
               >
                 <span className="font-mono text-[11px] tracking-[0.12em] opacity-60">→</span>

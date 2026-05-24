@@ -3,7 +3,6 @@ import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import CountUp from "@/components/CountUp";
-import KineticWordmark from "@/components/KineticWordmark";
 import workHongmove from "@/assets/hongmove.png";
 import workRtaf from "@/assets/rtaf.jpg";
 import workDemocrat from "@/assets/democrat.jpg";
@@ -42,9 +41,9 @@ const trustedBy = [
 ];
 
 const servicesPreview = [
-  { sym: "◐", tier: "Starter", name: "Data-Informed Loop", price: "Start from ฿35,000", tag: "First refined steps." },
-  { sym: "◑", tier: "Pro",     name: "Data-Tested Loops",  price: "Start from ฿69,000", tag: "Cut through the noise.",  featured: true },
-  { sym: "◒", tier: "Elite",   name: "Data-Strategy Lab",  price: "Start from ฿139,000", tag: "Become a name remembered." },
+  { n: "i.",   tier: "Starter", name: "Data-Informed Loop", price: "Start from ฿35,000", tag: "First refined steps." },
+  { n: "ii.",  tier: "Pro",     name: "Data-Tested Loops",  price: "Start from ฿69,000", tag: "Cut through the noise.",  featured: true },
+  { n: "iii.", tier: "Elite",   name: "Data-Strategy Lab",  price: "Start from ฿139,000", tag: "Become a name remembered." },
 ];
 
 const manifestoPoints = [
@@ -85,13 +84,13 @@ const Index = () => (
         </Reveal>
 
         <div className="mt-12 w-full">
-          <KineticWordmark />
+          <h1 className="font-brand h-display-xl text-foreground leading-none">ØRIONS</h1>
         </div>
 
         <Reveal delay={0.4}>
-          <h1 className="mt-8 font-serif text-[28px] md:text-[40px] leading-[1.05] tracking-[-0.02em]">
+          <h2 className="mt-8 font-serif text-[28px] md:text-[40px] leading-[1.05] tracking-[-0.02em]">
             Stories, <em className="italic text-cinnabar">refined.</em>
-          </h1>
+          </h2>
         </Reveal>
 
         <Reveal delay={0.25}>
@@ -114,10 +113,11 @@ const Index = () => (
 
       {/* Marquee */}
       <div className="border-y border-foreground/20 py-6 overflow-hidden whitespace-nowrap">
-        <div className="inline-flex gap-16 animate-[marquee_38s_linear_infinite] will-change-transform">
-          {[...marquee, ...marquee, ...marquee, ...marquee].map((m, i) => (
-            <span key={i} className="font-serif text-[22px] md:text-[34px] tracking-[-0.01em] inline-flex items-center gap-16">
-              {m} <span className="text-cinnabar">◐</span>
+        <div className="inline-flex gap-16 animate-[marquee_60s_linear_infinite] will-change-transform">
+          {[...marquee, ...marquee].map((m, i) => (
+            <span key={i} className="font-serif text-[22px] md:text-[34px] tracking-[-0.01em] inline-flex items-center gap-16 shrink-0">
+              <span>{m}</span>
+              <span aria-hidden className="inline-block w-px h-6 bg-cinnabar" />
             </span>
           ))}
         </div>
@@ -201,7 +201,7 @@ const Index = () => (
           {selectedWork.map((w) => (
             <Link key={w.n} to={`/work/${w.slug}`} className="group block">
               <div className="relative aspect-[4/5] overflow-hidden border border-foreground/15 bg-foreground">
-                <img src={w.img} alt={w.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-[1.04]" loading="lazy" />
+                <img src={w.img} alt={w.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-500" loading="lazy" />
                 <div className="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-foreground/85 backdrop-blur-sm text-background p-3 flex items-center justify-between font-mono text-[10px] tracking-[0.18em] uppercase">
                   <span>{w.niche}</span>
                   <span className="text-cinnabar">{w.impact}</span>
@@ -359,7 +359,7 @@ const Index = () => (
             <Reveal key={p.tier} delay={i * 0.08}>
               <div className={`p-8 md:p-10 h-full flex flex-col ${i > 0 ? "md:border-l border-foreground/20 border-t md:border-t-0" : ""} ${p.featured ? "bg-foreground text-background" : "bg-background"}`}>
                 <div className="flex items-baseline justify-between gap-3">
-                  <div className="text-cinnabar text-[28px] leading-none">{p.sym}</div>
+                  <div className="font-serif italic text-cinnabar text-[24px] leading-none">{p.n}</div>
                   <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">{p.tier}</div>
                 </div>
                 <h3 className="mt-8 font-serif text-[28px] md:text-[32px] leading-[1.1] tracking-[-0.02em]">
@@ -466,7 +466,7 @@ const Index = () => (
                     Sample result
                   </div>
                   <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">
-                    ◐ Live preview
+                    Live preview
                   </div>
                 </div>
 

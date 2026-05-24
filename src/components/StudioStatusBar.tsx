@@ -39,12 +39,10 @@ const StudioStatusBar = () => {
       <div className="h-full px-6 md:px-10 flex items-center justify-between text-[10px] tracking-[0.12em] uppercase font-mono">
         <span className="flex items-center gap-2">
           <span
-            className={`w-1.5 h-1.5 rounded-full ${open ? "accent-dot animate-pulse" : "bg-background/40"}`}
+            className={`w-1.5 h-1.5 rounded-full ${open ? "accent-dot" : "bg-background/40"}`}
           />
           <span className="opacity-90 inline-flex items-center">
-            {open ? "STUDIO OPEN" : "AFTER HOURS"} · BKK&nbsp;{time}
-            <span className="ml-0.5 inline-block w-[0.5ch] animate-pulse" aria-hidden>|</span>
-            &nbsp;ICT
+            {open ? "STUDIO OPEN" : "AFTER HOURS"} · BKK&nbsp;{time}&nbsp;ICT
           </span>
         </span>
 

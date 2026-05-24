@@ -95,36 +95,22 @@ const MusicMarquee = ({ items, label, variant = "mosaic" }: Props) => {
                 src={buildPoster(it.videoId)}
                 alt={it.title ?? "Music video"}
                 loading="lazy"
-                className="w-full h-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06]"
+                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-500"
               />
 
-              {/* Cinematic gradient frame */}
-              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/0 to-background/0 opacity-60 group-hover:opacity-90 transition-opacity duration-500" />
-
               {/* Index */}
-              <div className="absolute top-2.5 left-3 font-mono text-[10px] tracking-[0.14em] uppercase text-background mix-blend-difference opacity-80">
+              <div className="absolute top-2.5 left-3 font-mono text-[10px] tracking-[0.14em] uppercase text-background mix-blend-difference">
                 ({num})
               </div>
 
-              {/* Hover label */}
-              <div className="absolute top-2.5 right-3 font-mono text-[10px] tracking-[0.14em] uppercase text-background mix-blend-difference opacity-0 translate-y-1 group-hover:opacity-90 group-hover:translate-y-0 transition-all duration-500">
-                Watch ↗
-              </div>
-
-              {/* Play badge — slides up on hover */}
+              {/* Play badge */}
               <div className="absolute inset-x-0 bottom-0 p-3 md:p-4 flex items-end justify-between">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 md:w-9 md:h-9 rounded-full border border-background/80 bg-background/10 flex items-center justify-center text-background mix-blend-difference transition-transform duration-500 group-hover:scale-110">
+                  <div className="w-8 h-8 md:w-9 md:h-9 border border-background/80 flex items-center justify-center text-background mix-blend-difference">
                     <Play className="w-3 h-3 md:w-3.5 md:h-3.5 ml-0.5" fill="currentColor" />
                   </div>
-                  <span className="font-mono text-[10px] tracking-[0.14em] uppercase text-background mix-blend-difference opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500">
-                    Play
-                  </span>
                 </div>
               </div>
-
-              {/* Bottom progress bar fill on hover */}
-              <span className="absolute bottom-0 left-0 h-px w-0 bg-foreground transition-[width] duration-[900ms] ease-out group-hover:w-full" />
             </button>
           );
         })}

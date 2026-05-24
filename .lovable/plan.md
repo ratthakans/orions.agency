@@ -1,122 +1,72 @@
+# Design unification pass
 
-# ทบทวนทั้งไซต์ → ดันให้เป็น Boutique Creative + Data ชัดขึ้น
-
-## A) Link & Flow Audit — สิ่งที่ต้องแก้ก่อนเลย (ความไม่ตรงกัน)
-
-ตรวจครบ 7 หน้า, Nav, Footer, Redirects แล้ว — routing สะอาด (`/manifesto /approach /health-check /ventures` redirect ถูก). พบความไม่ตรงกัน:
-
-1. **ตัวเลข brand counts ไม่ตรง**
-   - Index footer label: "18 brands refined"
-   - Work hero: "40+ brands"
-   - About: "15 people" (ตรงกับ array) ✓
-   → ตั้งตัวเลขเดียวทั้งไซต์ (เสนอ: "20+ brands · since 2020")
-
-2. **Diagnostic เวลา/จำนวนคำถามไม่ตรง**
-   - HealthCheck SEO: "18 questions" · ใน UI: "3 นาที"
-   - Index teaser: "5 minutes" + "18 คำถาม"
-   - Comment ในไฟล์เขียน "2 questions each = 12" (จริง 3×6=18)
-   → ใช้ "18 คำถาม · 3 นาที" ทุกที่ + แก้ comment
-
-3. **Trusted-by lists คนละชุด**
-   - Index: ชื่อไทย/แบรนด์จริง (Hongmove, RTAF, SCG, AIS…)
-   - Work: ชื่อ fictional ฝรั่ง (Maison Lumière, Saint Manor…)
-   → รวมเป็นชุดเดียว (ใช้ของ Work ที่มี logo Hongmove + เพิ่มแบรนด์จริงจาก Index ที่มีงานจริง)
-
-4. **Sample diagnostic preview บน Index ใช้แกนผิด**
-   - Index แสดง: Clarity / Consistency / Craft / **Conversion**
-   - จริงมี 6 แกน: Clarity / Consistency / **Data** / Craft / **Audience** / **Strategy**
-   → แก้ให้ตรง
-
-5. **ClosingCTA ใช้แค่หน้า Work** — About, Services, Projects, HealthCheck มี CTA แบบ ad-hoc คนละทรง
-   → ใช้ `<ClosingCTA>` ทุกหน้าปลาย เพื่อ rhythm ที่ consistent
-
-6. **Selected Work cards (Index + Work)** ลิงก์ไป `/work` ทั้งหมด — ยังไม่มี case-study page จริง. ตอนนี้ให้ลบ `<Link>` ออก (ทำเป็น card นิ่ง + "Case study Q3 2026") กันการคลิกที่ไม่ไปไหน
-
-7. **About CTA section** มี `mt-24` ซ้อนใน `py-20 md:py-28` → เกิด whitespace ตายๆ. ลบ `mt-24` ออก
-
-8. **Contact submit button** ยังใช้ `hover:bg-orion` (legacy). เปลี่ยนเป็น `hover:bg-cinnabar`
+เป้าหมาย: ให้ทุกหน้าใช้ design system เดียวกัน (Snow / Black Russian / Cinnabar · Inter / Newsreader / IBM Plex Mono), แก้ marquee ที่กระตุก, ตัดสัญลักษณ์วงกลมแบ่งครึ่ง (◐ ◑ ◒) ออกทั้งหมด, และลดแอนิเมชั่นให้สงบขึ้นเพื่อความเป็น editorial boutique.
 
 ---
 
-## B) Boutique Creative × Data — ลูกเล่นที่จะเพิ่ม
+## 1. แก้ marquee bug (หน้าแรก)
 
-ทั้งหมดอยู่ใน design language เดิม (hairline, mono labels, cinnabar accent, zero-radius) — ไม่แตกแถว.
+ปัญหา: `src/pages/Index.tsx` ใช้ track ที่ duplicate items **4 รอบ** แต่ keyframe `marquee` เลื่อนแค่ `-50%` → ทำให้ loop กระโดด/ค้าง
 
-### B1. Studio Status Bar (boutique signal, อยู่ทุกหน้า)
-แถบเตี้ยๆ ใต้ nav (h-8, mono 10px) ที่บอก:
-```
-● LIVE · BKK 14:23 ICT · ON SET — Hongmove S2 · NEXT SLOT — Aug 2026 · 2/3 LOOPS FREE
-```
-ใช้ `useEffect` อัปเดตเวลาทุกนาที. ใช้ `mix-blend-difference` หรือ pin ใต้ nav. มี component `StudioStatusBar.tsx` อยู่แล้ว — แค่ wire เข้า Layout
+แก้:
+- ใช้คอมโพเนนต์ `SimpleMarquee` ที่มีอยู่แล้ว (มี logic seamless ถูกต้อง) แทน inline marquee
+- หรือ inline แต่ duplicate items แค่ 2 รอบให้แมตช์กับ `-50%`
+- ลบสัญลักษณ์ `◐` ที่คั่นระหว่างคำในแถบ marquee, เปลี่ยนเป็น hairline dot `·` หรือเส้น vertical hairline แทน
 
-### B2. Work card hover = data reveal
-- Default: ภาพ grayscale + ชื่อ
-- Hover: ภาพคืนสี + เผยแถบ data 3 ตัว (impact / niche / scope) ที่ animate เลื่อนขึ้นจากขอบล่าง (CSS translate, ไม่ใช้ JS)
-- เพิ่ม CountUp ที่ตัวเลข impact เมื่อ in-view (component มีอยู่)
+## 2. ลบสัญลักษณ์วงกลมแบ่งครึ่ง (◐ ◑ ◒) ออกทุกที่
 
-### B3. หน้า Diagnostic ผลลัพธ์ — Radar/Polar SVG
-ปัจจุบันแสดง bar chart 6 แกน. เพิ่ม **radar chart SVG เล็กๆ** ข้างคะแนนรวม → สื่อ "data agency" ทันที. radar เป็น hairline + เติม cinnabar 30% opacity
+ใช้อยู่ใน:
+- `src/pages/Index.tsx` — marquee, services preview tier, "Live preview" badge
+- `src/pages/Services.tsx` — tier labels (`◐ Starter`, `◑ Pro`, `◒ Elite`)
+- `src/pages/About.tsx`
+- `src/pages/HealthCheck.tsx`
 
-### B4. Index hero — Kinetic Wordmark
-ใต้ headline "Stories, refined." เพิ่ม wordmark "ØRIONS" ขนาดใหญ่ที่ขยับแบบ marquee ช้าๆ (component `KineticWordmark` มีอยู่แล้ว) แทน marquee คำธรรมดา หรือใช้คู่กัน
+แทนที่ด้วยระบบที่นิ่งและสอดคล้องกัน:
+- Tier marker = **เลขโรมัน italic Cinnabar** (`i.` `ii.` `iii.`) ที่ใช้อยู่แล้วใน Manifesto/Diagnostic — ทำให้ทั้งไซต์มีภาษาสัญลักษณ์เดียว
+- แทน "Live preview ◐" → "Live preview" เฉยๆ หรือ hairline dot `·`
+- Marquee separator → hairline vertical `|` ใน opacity ต่ำ หรือไม่ใส่อะไรเลย ใช้ gap เป็นตัวคั่น
 
-### B5. Counter strip (creative + data signal)
-หลัง Selected Work แทรกแถบเตี้ยๆ ใช้ CountUp:
-```
-20+ brands refined  ·  ◐ 6:3:1 system  ·  +312% avg lift  ·  18 months in market
-```
-hairline borders, tabular nums
+## 3. ลดแอนิเมชั่น (calmer boutique register)
 
-### B6. Cursor-following cinnabar dot (subtle, desktop only)
-6px cinnabar dot ตาม cursor บน hero sections เท่านั้น (มี `prefers-reduced-motion` guard). เพิ่ม weight ของ boutique มากๆ
+ตัด/ลด:
+- `KineticWordmark` — ตัด 3D parallax tilt บน mouse move และตัด Ø orbit rotation ทิ้ง เหลือเพียง **staggered mask-up reveal ครั้งเดียว** ตอนโหลด (ทำงานครั้งเดียว ไม่มี loop)
+- `StudioStatusBar` — เอา `animate-pulse` ที่จุด status และ caret `|` ออก เหลือ static dot
+- `Magnetic` wrapper รอบ CTA buttons — เอาออก, ใช้ hover color transition แทน
+- `PageTransition` — ลด duration จาก 900ms → 500ms, ตัด skew, ใช้ simple fade/slide แบบสงบ
+- `Reveal` — ลด `y` จาก 24 → 12, duration 0.7s → 0.5s, ตัด delay chains ที่ซ้อนเกิน 0.2s
+- ลบ `RotatingHeadline`, `TypingLoop`, `ScrollMarquee`, `FlipNumber`, `KineticWordmark` ออกจาก imports ของหน้าที่ใช้อยู่ ถ้าไม่ได้ใช้แล้ว (เก็บไฟล์ไว้แต่ไม่ import)
+- หน้าแรก: แทน `KineticWordmark` ด้วย **static wordmark** "ØRIONS" ขนาดใหญ่ที่เปิดด้วย mask-up reveal ครั้งเดียว
+- ตัด `hover:scale-[1.04]` บน work cards → เหลือแค่ `grayscale → grayscale-0` (subtler)
+- ตัด `mix-blend-difference`, gradient overlay, progress bar slide ใน `MusicMarquee` ให้เหลือ image + ขอบ hairline + play icon นิ่งๆ
 
-### B7. "Now Refining" — editorial list ในหน้า About
-มี section เล็กๆ คล้าย record-shop list:
-```
-NOW REFINING
-01  Hongmove        — Brand campaign · S2
-02  Khaoyai CC      — Lifestyle film
-03  GCOO            — Launch loop
-```
-สื่อ transparency + studio feel
+## 4. Design token / typography sweep
 
-### B8. Services — interactive 6:3:1 visualizer
-เหนือตาราง 3 tiers เพิ่ม block: bar split 6/3/1 ที่ hover แต่ละช่องแล้วเผยคำอธิบาย. ใช้ CSS hover, ไม่ต้อง state
+- Audit ทุกหน้า: ตรวจให้ทุก heading ใช้ `font-serif` (Newsreader), ทุก label/meta ใช้ `font-mono text-[10px] tracking-[0.22em] uppercase`, ทุก body ใช้ `font-thai` หรือ Inter ตามภาษา
+- ตรวจ tier card ใน Services ให้ใช้ **layout เดียวกับ services preview ในหน้าแรก** (border hairline, padding เท่ากัน, ไม่มีสัญลักษณ์)
+- รวม section label pattern เดียว: `<span className="w-6 h-px bg-cinnabar" /> NN — Title` ทุกที่
+- ตรวจ button: primary = `bg-cinnabar text-background`, secondary = underline hairline `border-b border-foreground`
+- ลบ `bg-gradient-*`, shadow, rounded ที่หลงเหลือ (ถ้ามี)
+- เช็คว่า `text-orion` / `text-gemini` (legacy) ที่ map → cinnabar ถูก replace เป็น `text-cinnabar` ตรงๆ ในไฟล์หลัก เพื่อความชัด
 
-### B9. Footer expansion (boutique trust)
-ตอนนี้ footer แค่ email + nav. เพิ่ม:
-- studio address (จาก Contact)
-- "Reply within 24h · Mon–Fri"
-- tax ID (จาก memory: company info)
-- Bangkok time live
-- จัด 3 columns: Contact / Studio / Index
+## 5. QA flow
 
-### B10. Editorial pull-quotes
-ใน Index และ About แทรก pull-quote ตัวใหญ่ระหว่าง section (serif italic 64px) เช่น:
-> "We don't produce to fill a feed. We refine until it earns its place."
+- เปิดทุก route (`/`, `/manifesto`, `/approach`, `/services`, `/health-check`, `/work`, `/work/:slug`, `/contact`) ตรวจ console + visual
+- ตรวจว่า marquee ลื่นต่อเนื่องไม่กระตุก
+- ตรวจว่าทุกหน้าใช้ section label / heading / button pattern เดียวกัน
+- ตรวจ link ทั้งหมดยังพาไปถูกที่
 
 ---
 
-## C) Scope ของ build ครั้งนี้
+## Files ที่จะแก้
 
-แก้ทั้งหมดของ A (8 จุด) + เลือกทำ B1, B2, B3, B5, B8, B9 (impact สูง, risk ต่ำ).
-**เลื่อนไว้รอบหน้า:** B4 kinetic wordmark, B6 cursor dot, B7 now-refining, B10 pull-quotes (ต้องเลือก copy เพิ่ม).
+- `src/pages/Index.tsx` — marquee fix, ลบ symbols, แทน KineticWordmark
+- `src/pages/Services.tsx` — ลบ ◐◑◒ tier symbols
+- `src/pages/About.tsx`, `src/pages/HealthCheck.tsx` — ลบ symbols
+- `src/components/StudioStatusBar.tsx` — ลด pulse
+- `src/components/PageTransition.tsx` — ลด motion
+- `src/components/Reveal.tsx` — ลด y/duration
+- `src/components/MusicMarquee.tsx` — ตัด effects ที่เกิน
+- `src/components/ClosingCTA.tsx` — ลบ Magnetic wrapper
+- (เก็บไฟล์ `KineticWordmark`, `RotatingHeadline`, `TypingLoop`, `Magnetic`, `ScrollMarquee`, `FlipNumber` ไว้ ไม่ลบ — แค่ไม่ใช้)
 
-## ไฟล์ที่จะแก้
-- `src/components/Layout.tsx` — wire StudioStatusBar
-- `src/components/StudioStatusBar.tsx` — เขียนเนื้อจริง (live time + slot)
-- `src/components/Footer.tsx` — expand 3 columns
-- `src/pages/Index.tsx` — fix sample radar axes, counter strip, unify trustedBy + counts, ลบ link ออกจาก work cards, แก้ "5 min"→"3 min"
-- `src/pages/Work.tsx` — unify trustedBy + count, ลบ link ที่ค้าง, hover data reveal
-- `src/pages/About.tsx` — ลบ mt-24, ใช้ ClosingCTA
-- `src/pages/Services.tsx` — 6:3:1 visualizer, ใช้ ClosingCTA
-- `src/pages/Projects.tsx` — ใช้ ClosingCTA
-- `src/pages/HealthCheck.tsx` — radar SVG + fix comment + ใช้ ClosingCTA
-- `src/pages/Contact.tsx` — `bg-orion`→`bg-cinnabar`
-
-## Out of scope
-- เปลี่ยน palette/font/route
-- Case study detail page (ยัง mock)
-- Backend / form schema
-- รูปจริงของทีม
-
+ผลลัพธ์: ไซต์นิ่งขึ้น, สัญลักษณ์เป็นภาษาเดียว (เลขโรมัน + hairline + Cinnabar accent), marquee ลื่น, design system เข้มงวดแบบ editorial boutique จริงๆ.

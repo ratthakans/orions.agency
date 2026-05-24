@@ -432,36 +432,36 @@ const HealthCheck = () => {
               {(() => {
                 const rec = recommendPackage(overallPct);
                 return (
-                  <div className="mt-16 text-left max-w-[860px] mx-auto bg-foreground text-background p-8 md:p-12">
+                  <div className="mt-16 text-left max-w-[860px] mx-auto bg-surface text-foreground border border-foreground/15 p-8 md:p-12">
                     <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar flex items-center gap-3">
                       <span className="block w-6 h-px bg-cinnabar" />
                       Recommended for you
                     </div>
                     <div className="mt-6 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
                       <div>
-                        <div className="font-mono text-[11px] tracking-[0.22em] uppercase text-background/70">{rec.tier}</div>
+                        <div className="font-mono text-[11px] tracking-[0.22em] uppercase text-foreground/70">{rec.tier}</div>
                         <h3 className="mt-3 font-serif text-[36px] md:text-[44px] tracking-[-0.02em] leading-[1.05]">
                           {rec.name}
                         </h3>
                       </div>
-                      <div className="font-mono text-[11px] tracking-[0.22em] uppercase text-background/70">
+                      <div className="font-mono text-[11px] tracking-[0.22em] uppercase text-foreground/70">
                         {rec.price}
                       </div>
                     </div>
-                    <p className="mt-6 font-thai text-[14px] md:text-[16px] leading-[1.7] text-background/85 max-w-[640px]">
+                    <p className="mt-6 font-thai text-[14px] md:text-[16px] leading-[1.7] text-foreground/85 max-w-[640px]">
                       {rec.why}
                     </p>
                     <div className="mt-8 flex flex-wrap gap-5">
                       <Link
                         to="/services"
-                        className="group inline-flex items-center gap-3 bg-cinnabar text-background px-7 py-4 btn-label hover:bg-background hover:text-foreground transition-colors duration-300"
+                        className="group inline-flex items-center gap-3 bg-cinnabar text-background px-7 py-4 btn-label hover:opacity-90 transition-opacity duration-300"
                       >
                         <span>See full package</span>
                         <ArrowUpRight className="w-4 h-4" />
                       </Link>
                       <Link
                         to="/contact"
-                        className="group inline-flex items-center gap-2 btn-label border-b border-background/60 pb-1 text-background hover:text-cinnabar hover:border-cinnabar transition-colors"
+                        className="group inline-flex items-center gap-2 btn-label border-b border-foreground/60 pb-1 text-foreground hover:text-cinnabar hover:border-cinnabar transition-colors"
                       >
                         Book a free consult →
                       </Link>

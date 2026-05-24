@@ -3,7 +3,6 @@ import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import CountUp from "@/components/CountUp";
-import KineticWordmark from "@/components/KineticWordmark";
 import workHongmove from "@/assets/hongmove.png";
 import workRtaf from "@/assets/rtaf.jpg";
 import workDemocrat from "@/assets/democrat.jpg";
@@ -14,12 +13,6 @@ const selectedWork = [
   { n: "02", slug: "royal-thai-air-force", title: "Royal Thai Air Force", niche: "Government", impact: "2.1M",  img: workRtaf },
   { n: "03", slug: "democrat-party",       title: "Democrat Party",       niche: "Politics",   impact: "12M+",  img: workDemocrat },
   { n: "04", slug: "gcoo",                 title: "GCOO",                 niche: "Mobility",   impact: "+540%", img: workGcoo },
-];
-
-const processSteps = [
-  { n: "6", label: "Reels",  th: "Short-form ที่ขับเคลื่อนการค้นพบ — เร็ว แม่น และ on-brand ทุกชิ้น" },
-  { n: "3", label: "Static", th: "Editorial pieces ที่ให้บริบท ลึก และอยู่ใน feed ได้นานกว่าหนึ่งวัน" },
-  { n: "1", label: "Hero",   th: "Signature story รายเดือน — ชิ้นที่กำหนดทิศทางและจดจำได้ทั้งซีซั่น" },
 ];
 
 const testimonials = [
@@ -84,30 +77,32 @@ const Index = () => (
           </div>
         </Reveal>
 
-        <div className="mt-12 w-full">
-          <KineticWordmark />
-        </div>
-
-        <Reveal delay={0.4}>
-          <h1 className="mt-8 font-serif text-[28px] md:text-[40px] leading-[1.05] tracking-[-0.02em]">
-            Stories, <em className="italic text-cinnabar">refined.</em>
+        <Reveal delay={0.1}>
+          <h1 className="mt-12 w-full font-brand h-display-xl text-foreground leading-none text-center">
+            ØRIONS
           </h1>
         </Reveal>
 
         <Reveal delay={0.25}>
+          <p className="mt-8 font-serif text-[28px] md:text-[40px] leading-[1.05] tracking-[-0.02em]">
+            Stories, <em className="italic text-cinnabar">refined.</em>
+          </p>
+        </Reveal>
+
+        <Reveal delay={0.35}>
           <p className="mt-12 max-w-[640px] mx-auto font-thai text-[17px] md:text-[20px] leading-[1.55] text-muted-foreground">
             เราไม่ผลิตให้ครบจำนวน เราไม่ตามเทรนด์ที่อัลกอริทึมเขียนบท —
             เราตัดส่วนเกิน สกัดเนื้อแท้ และกลั่นกรองเรื่องราว เพื่อให้แบรนด์คุณ ถึงคนที่ใช่
           </p>
         </Reveal>
 
-        <Reveal delay={0.35}>
+        <Reveal delay={0.45}>
           <div className="mt-16 flex flex-wrap justify-center gap-x-10 gap-y-3 border-t border-foreground/15 pt-6 max-w-[860px] mx-auto font-mono text-[11px] tracking-[0.22em] uppercase text-muted-foreground">
-            <span><span className="text-cinnabar">6 : 3 : 1</span> · Refined Content System</span>
+            <span><span className="text-cinnabar">Boutique</span> · 11 In-House</span>
+            <span className="opacity-40">/</span>
+            <span>Live in 4 Weeks</span>
             <span className="opacity-40">/</span>
             <span>Data-Refined Process</span>
-            <span className="opacity-40">/</span>
-            <span>Industry Exclusivity</span>
           </div>
         </Reveal>
       </div>

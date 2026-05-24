@@ -56,24 +56,6 @@ const servicesPreview = [
   { n: "iii.", tier: "Elite",   name: "Data-Strategy Lab",  price: "Start from ฿139,000", tag: "Become a name remembered." },
 ];
 
-const manifestoPoints = [
-  {
-    n: "i.",
-    en: "Cut the Excess",
-    th: "ในโลกที่ทุกคนตะโกนเหมือนกัน — เราเลือกที่จะเงียบลง เพื่อให้สิ่งที่พูดมีน้ำหนัก",
-  },
-  {
-    n: "ii.",
-    en: "Extract the Essence",
-    th: "เราหา signal ในกองของ noise — เพื่อให้ทุกชิ้นที่ออกไป มีเหตุผลที่อยู่ตรงนั้น",
-  },
-  {
-    n: "iii.",
-    en: "Refine the Story",
-    th: "เราคิดก่อนผลิต แก้ก่อนส่ง — ส่งมอบเฉพาะชิ้นที่เราภูมิใจให้แบรนด์ของคุณ",
-  },
-];
-
 const Index = () => (
   <div>
     <SEO
@@ -87,12 +69,12 @@ const Index = () => (
       <div className="max-w-[1400px] mx-auto w-full text-center pt-[20vh] pb-[18vh]">
         <Reveal>
           <h1 className="font-serif h-display-xl leading-[0.92] tracking-[-0.04em]">
-            Stories, <em className="italic text-cinnabar">refined.</em>
+            Stories, <em className="italic text-gradient-cinnabar">refined.</em>
           </h1>
         </Reveal>
         <Reveal delay={0.2}>
           <p className="mt-12 md:mt-16 font-serif italic text-[18px] md:text-[22px] text-muted-foreground">
-            Independent editorial studio. Bangkok.
+            Independent editorial studio. Bangkok. — Boutique Creative Agency.
           </p>
         </Reveal>
 
@@ -111,50 +93,38 @@ const Index = () => (
       </div>
     </section>
 
-    {/* MINI MANIFESTO */}
-    <section className="px-6 md:px-10 border-t border-foreground">
+    {/* 01 — APPROACH (promoted to first section) */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-24 md:py-32">
-        <SectionLabel index="01" label="Manifesto" />
+        <SectionLabel index="01" label="Approach" />
         <Reveal delay={0.1}>
-          <h2 className="mt-10 font-serif h-display-md max-w-[22ch]">
-            Less, but <em className="italic text-cinnabar">refined.</em>
+          <h2 className="mt-10 font-serif h-display-md max-w-[20ch]">
+            Less, but <em className="italic text-gradient-cinnabar">considered.</em>
           </h2>
         </Reveal>
-        <Reveal delay={0.2}>
-          <p className="mt-8 max-w-[640px] font-thai text-[15px] md:text-[17px] leading-[1.7] text-muted-foreground">
-            เราไม่ใช่ content factory — เราคือ boutique studio ที่เชื่อในการทำงานสามขั้นตอนเดียวกันซ้ำๆ จนกว่าทุกชิ้นจะคมที่สุด
-          </p>
-        </Reveal>
-
-        <div className="mt-16 border-t border-foreground/20">
-          {manifestoPoints.map((m, i) => (
-            <Reveal key={m.n} delay={i * 0.08}>
-              <div className="grid grid-cols-[64px_1fr] md:grid-cols-[100px_minmax(0,1fr)_minmax(0,2fr)] gap-x-6 md:gap-x-12 gap-y-3 items-baseline py-8 md:py-10 border-b border-foreground/20">
-                <div className="font-serif italic text-cinnabar text-[28px] md:text-[40px] leading-none tracking-[-0.02em]">
-                  {m.n}
-                </div>
-                <h3 className="font-serif text-[26px] md:text-[36px] leading-[1.1] tracking-[-0.02em] col-start-2 md:col-start-2">
-                  {m.en}
-                </h3>
-                <p className="font-thai text-[14px] md:text-[16px] leading-[1.7] text-muted-foreground col-span-2 md:col-span-1 md:col-start-3">
-                  {m.th}
-                </p>
-              </div>
-            </Reveal>
-          ))}
+        <div className="mt-10 max-w-[640px] space-y-6">
+          <Reveal delay={0.18}>
+            <p className="font-serif text-[19px] md:text-[22px] leading-[1.55] text-foreground/85">
+              We don't sell packages of posts. We run one refined loop every month — a short essay across formats, sequenced to be discovered, sit with the reader, and remembered.
+            </p>
+          </Reveal>
+          <Reveal delay={0.26}>
+            <p className="font-thai text-[15px] md:text-[17px] leading-[1.75] text-muted-foreground">
+              สามจังหวะเดียวกันทุกเดือน — ฟัง, กลั่น, ปล่อย. ไม่ผลิตให้ครบจำนวน ผลิตให้ครบหน้าที่.
+            </p>
+          </Reveal>
         </div>
-
-        <Reveal delay={0.3}>
-          <div className="mt-14 flex flex-wrap items-center gap-5">
+        <Reveal delay={0.32}>
+          <div className="mt-12 flex flex-wrap items-center gap-5">
             <Link
-              to="/about"
-              className="group inline-flex items-center gap-2 btn-label border-b border-foreground pb-1 hover:text-cinnabar hover:border-cinnabar transition-colors"
+              to="/approach"
+              className="inline-flex items-center gap-2 btn-label border-b border-foreground pb-1 hover:text-cinnabar hover:border-cinnabar transition-colors"
             >
-              Read the full manifesto →
+              Read the full approach →
             </Link>
             <Link
               to="/contact"
-              className="group inline-flex items-center gap-3 bg-cinnabar text-background px-7 py-4 btn-label hover:bg-foreground transition-colors duration-300"
+              className="group inline-flex items-center gap-3 bg-gradient-cinnabar text-background px-7 py-4 btn-label hover:opacity-90 transition-opacity"
             >
               <span>Start a project</span>
               <ArrowUpRight className="w-4 h-4" />
@@ -189,7 +159,7 @@ const Index = () => (
                   src={selectedWork[0].img}
                   alt={selectedWork[0].title}
                   loading="lazy"
-                  className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
+                  className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-[filter,opacity] duration-700"
                 />
                 <div className="absolute left-0 right-0 bottom-0 p-5 md:p-6 flex items-baseline justify-between gap-4 bg-gradient-to-t from-background/80 to-transparent">
                   <span className="font-serif text-[22px] md:text-[28px] tracking-[-0.02em] text-foreground">
@@ -210,7 +180,7 @@ const Index = () => (
                   src={selectedWork[1].img}
                   alt={selectedWork[1].title}
                   loading="lazy"
-                  className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
+                  className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-[filter,opacity] duration-700"
                 />
                 <div className="absolute left-0 right-0 bottom-0 p-5 flex flex-col gap-1 bg-gradient-to-t from-background/80 to-transparent">
                   <span className="font-serif text-[20px] md:text-[22px] tracking-[-0.02em] text-foreground">
@@ -231,7 +201,7 @@ const Index = () => (
                   src={selectedWork[2].img}
                   alt={selectedWork[2].title}
                   loading="lazy"
-                  className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
+                  className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-[filter,opacity] duration-700"
                 />
                 <div className="absolute left-0 right-0 bottom-0 p-5 flex items-baseline justify-between gap-4 bg-gradient-to-t from-background/80 to-transparent">
                   <span className="font-serif text-[20px] md:text-[24px] tracking-[-0.02em] text-foreground">
@@ -246,7 +216,7 @@ const Index = () => (
               {/* CTA tile */}
               <Link
                 to="/work"
-                className="group relative block md:col-span-7 md:row-span-3 bg-cinnabar text-background p-8 md:p-10 flex flex-col justify-between overflow-hidden"
+                className="group relative block md:col-span-7 md:row-span-3 bg-gradient-cinnabar text-background p-8 md:p-10 flex flex-col justify-between overflow-hidden"
               >
                 <div className="font-mono text-[10px] tracking-[0.22em] uppercase opacity-80">
                   — All case studies
@@ -264,44 +234,10 @@ const Index = () => (
       </div>
     </section>
 
-    {/* APPROACH — editorial prose */}
-    <section className="px-6 md:px-10 border-t border-foreground">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
-        <SectionLabel index="03" label="Approach" />
-        <Reveal delay={0.1}>
-          <h2 className="mt-10 font-serif h-display-md max-w-[20ch]">
-            Less, but <em className="italic text-cinnabar">considered.</em>
-          </h2>
-        </Reveal>
-        <div className="mt-10 max-w-[640px] space-y-6">
-          <Reveal delay={0.18}>
-            <p className="font-serif text-[19px] md:text-[22px] leading-[1.55] text-foreground/85">
-              We don't sell packages of posts. We run one refined loop every month — a short essay across formats, sequenced to be discovered, sit with the reader, and remembered.
-            </p>
-          </Reveal>
-          <Reveal delay={0.26}>
-            <p className="font-thai text-[15px] md:text-[17px] leading-[1.75] text-muted-foreground">
-              สามจังหวะเดียวกันทุกเดือน — ฟัง, กลั่น, ปล่อย. ไม่ผลิตให้ครบจำนวน ผลิตให้ครบหน้าที่.
-            </p>
-          </Reveal>
-        </div>
-        <Reveal delay={0.32}>
-          <div className="mt-12">
-            <Link
-              to="/approach"
-              className="inline-flex items-center gap-2 btn-label border-b border-foreground pb-1 hover:text-cinnabar hover:border-cinnabar transition-colors"
-            >
-              Read the full approach →
-            </Link>
-          </div>
-        </Reveal>
-      </div>
-    </section>
-
     {/* TRUSTED / TESTIMONIALS */}
     <section className="px-6 md:px-10 border-t border-foreground bg-surface">
       <div className="max-w-[1280px] mx-auto py-24 md:py-32">
-        <SectionLabel index="04" label="Trusted" />
+        <SectionLabel index="03" label="Trusted" />
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
           {testimonials.map((t, i) => (
@@ -347,10 +283,10 @@ const Index = () => (
     {/* SERVICES PREVIEW */}
     <section className="px-6 md:px-10 border-t border-foreground">
       <div className="max-w-[1280px] mx-auto py-24 md:py-32">
-        <SectionLabel index="05" label="Packages" />
+        <SectionLabel index="04" label="Packages" />
         <Reveal delay={0.1}>
           <h2 className="mt-10 font-serif h-display-md max-w-[20ch]">
-            Three tiers. <em className="italic text-cinnabar">One refined system.</em>
+            Three tiers. <em className="italic text-gradient-cinnabar">One refined system.</em>
           </h2>
         </Reveal>
 
@@ -380,7 +316,7 @@ const Index = () => (
           <div className="mt-12 flex flex-wrap items-center gap-5">
             <Link
               to="/services"
-              className="group inline-flex items-center gap-3 bg-foreground text-background px-7 py-4 btn-label hover:bg-cinnabar transition-colors duration-300"
+              className="group inline-flex items-center gap-3 bg-gradient-cinnabar text-background px-7 py-4 btn-label hover:opacity-90 transition-opacity duration-300"
             >
               <span>See all packages</span>
               <ArrowUpRight className="w-4 h-4" />
@@ -399,14 +335,14 @@ const Index = () => (
     {/* DIAGNOSTIC TEASER — Lead gen */}
     <section className="px-6 md:px-10 border-t border-foreground bg-surface">
       <div className="max-w-[1280px] mx-auto py-24 md:py-32">
-        <SectionLabel index="06" label="Diagnostic" />
+        <SectionLabel index="05" label="Diagnostic" />
 
         <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left — editorial copy */}
           <div className="lg:col-span-7">
             <Reveal delay={0.05}>
               <h2 className="font-serif h-display-md max-w-[22ch]">
-                Not sure where you stand? <em className="italic text-cinnabar">Find out in 3 minutes.</em>
+                Not sure where you stand? <em className="italic text-gradient-cinnabar">Find out in 3 minutes.</em>
               </h2>
             </Reveal>
             <Reveal delay={0.15}>
@@ -437,7 +373,7 @@ const Index = () => (
               <div className="mt-12 flex flex-wrap items-center gap-5">
                 <Link
                   to="/diagnostic"
-                  className="group inline-flex items-center gap-3 bg-cinnabar text-background px-7 py-4 btn-label hover:bg-foreground transition-colors duration-300"
+                  className="group inline-flex items-center gap-3 bg-gradient-cinnabar text-background px-7 py-4 btn-label hover:opacity-90 transition-opacity duration-300"
                 >
                   <span>Take The Diagnostic</span>
                   <ArrowUpRight className="w-4 h-4" />

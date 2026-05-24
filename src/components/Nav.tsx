@@ -8,7 +8,7 @@ const links = [
 ];
 
 const Nav = () => (
-  <header className="fixed top-0 left-0 right-0 z-50">
+  <header className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-foreground/10">
     <div className="px-6 md:px-10 h-[72px] flex items-center justify-between text-foreground">
       <Link to="/" className="font-brand text-[13px] md:text-[14px]">
         ØRIONS
@@ -30,7 +30,7 @@ const Nav = () => (
         ))}
         <Link
           to="/contact"
-          className="font-mono text-[11px] tracking-[0.22em] uppercase bg-cinnabar text-background px-4 py-2 hover:bg-foreground hover:text-background transition-colors"
+          className="font-mono text-[11px] tracking-[0.22em] uppercase bg-gradient-cinnabar text-background px-4 py-2 hover:opacity-90 transition-opacity"
         >
           Contact →
         </Link>
@@ -38,7 +38,7 @@ const Nav = () => (
 
       <Link
         to="/contact"
-        className="md:hidden font-mono text-[10px] tracking-[0.22em] uppercase bg-cinnabar text-background px-3 py-2"
+        className="md:hidden font-mono text-[10px] tracking-[0.22em] uppercase bg-gradient-cinnabar text-background px-3 py-2"
       >
         Contact →
       </Link>

@@ -1,101 +1,52 @@
-# Dark redesign + Bento Work + Inline Nav + Approach prose
+## Scope
 
-## 1. Design tokens → flip to dark (`src/index.css`)
+Site-wide polish anchored on the home page. Boutique editorial framing: "Independent editorial studio. Bangkok. Boutique Creative Agency."
 
-Swap the base palette so the whole site inherits dark mode without touching individual components.
+## Changes
 
-```
---background: 0 0% 5%;       /* Black Russian #0e0e0e */
---foreground: 60 33% 98%;    /* Snow #fdfdf9 */
---surface:    0 0% 8%;       /* slightly lifted panel */
---surface-2:  0 0% 11%;
---card / popover: 0 0% 5%
---primary: snow / primary-fg: ink
---muted: 0 0% 10%; --muted-foreground: 60 10% 70%
---border: 60 33% 98% (snow) — hairlines now snow at low opacity
---accent: 11 81% 57% (Cinnabar — unchanged)
-```
+### 1. Home (`src/pages/Index.tsx`)
+- **Remove** the MINI MANIFESTO section entirely (the `manifestoPoints` block, section index 01).
+- **Move** the APPROACH section into its place as section **01**, directly under the hero. Keep prose, italic Cinnabar accent, link to `/approach`.
+- **Renumber** remaining sections: Selected Work → 02, Trusted → 03, Packages → 04, Diagnostic → 05.
+- **Hero subtitle**: update to "Independent editorial studio. Bangkok. — Boutique Creative Agency."
 
-Also: scrollbar track → ink, thumb → cinnabar; grain blend-mode → `screen` with opacity 0.04 so it reads on dark.
+### 2. Selected Work — B&W with color on hover (`src/pages/Index.tsx`)
+- All four tiles (Hongmove, RTAF, Democrat, CTA) become **grayscale by default**, transitioning to full color on hover.
+- Apply `grayscale group-hover:grayscale-0 transition-[filter,opacity] duration-700` to `<img>` tags; raise opacity on hover.
+- Tighten bento grid composition for better balance: re-check row spans so the CTA tile and Democrat tile align cleanly on the bottom row (no awkward gaps at 1377px viewport).
+- Add a hairline meta row above the grid: counter `01 / 03` and "Drag · Scroll" rhythm cue (static, no JS).
 
-Hairline opacity convention: use `border-foreground/12` and `/20` consistently (already used). On dark, snow at 12–20% reads as a soft hairline. No need to rewrite component borders.
+### 3. Cinnabar → Gradient accent (`src/index.css`)
+- Add a new utility `--gradient-cinnabar: linear-gradient(135deg, hsl(11 81% 57%), hsl(22 90% 62%), hsl(35 92% 60%))` (Cinnabar → warm coral → amber).
+- Add `.bg-gradient-cinnabar` and `.text-gradient-cinnabar` (background-clip text) utilities.
+- Apply to: hero italic accents (`Stories, refined.`), section-headline italic accents across pages, primary CTA buttons (Contact pill, "Start a project"), Selected-Work CTA tile background, accent dots.
+- Keep `.text-cinnabar` / `.bg-cinnabar` as solid fallbacks for hairlines, small labels, mono accents (where gradient would be illegible).
 
-## 2. Nav (`src/components/Nav.tsx`) — inline links, no hamburger
+### 4. Navbar — opaque (`src/components/Nav.tsx`)
+- Replace transparent header with **solid `bg-background` + bottom hairline** (`border-b border-foreground/10`).
+- Keep current inline-links layout, brand left, contact CTA right.
+- Contact CTA uses new `.bg-gradient-cinnabar`.
 
-Replace the hamburger + full-screen overlay with a single horizontal bar:
+### 5. Footer — black (`src/components/Footer.tsx`)
+- Currently uses `bg-foreground text-background` (snow-on-black-on-white inversion). Since the site is already dark, flip to **`bg-black text-foreground`** (pure #000) so the footer reads as a distinct deeper-black slab vs. the #0E0E0E page background.
+- Adjust all `text-background/...` → `text-foreground/...`, `border-background/...` → `border-foreground/...`.
+- Cinnabar mono labels switch to gradient text where they appear as headings ("— Contact", "— Studio", "— Index", "— Elsewhere").
+- Email headline keeps gradient hover treatment.
 
-```
-[ ØRIONS ]                    About  Services  Work  Diagnostic  · [Contact →]
-```
+### 6. Cross-page consistency
+- **Subtitle/positioning line** "Independent editorial studio. Bangkok. — Boutique Creative Agency" added to: `About.tsx` (page hero), `Services.tsx` (page hero), `Work.tsx` (page hero), `Contact.tsx` (page hero). One line, mono or serif italic, just below page H1.
+- All page heroes use the same `font-serif h-display-lg/xl` rhythm and italic-gradient accent.
+- All "Contact →" CTAs and primary buttons across pages adopt `.bg-gradient-cinnabar`.
+- Verify `border-foreground/12` hairline is consistent on section dividers across `About`, `Services`, `Work`, `Contact`, `HealthCheck`, `CaseStudy`.
 
-- Height 72px, `px-6 md:px-10`, transparent bg (sits on dark), no blur.
-- Logo left: `font-brand text-[13px]` snow.
-- Links right: `font-mono text-[11px] tracking-[0.22em] uppercase`, gap-8, `text-foreground/70 hover:text-foreground`, active = `text-cinnabar`.
-- Final item is a Cinnabar pill `Contact →` (`bg-cinnabar text-background px-4 py-2`).
-- Mobile (<md): show logo + Contact pill only; hide the link row. (No hamburger.)
-- Delete the overlay menu + body-scroll-lock effects.
+## Files to edit
 
-## 3. Index page (`src/pages/Index.tsx`)
+- `src/index.css` — gradient utility + token wiring
+- `src/components/Nav.tsx` — opaque bg + gradient CTA
+- `src/components/Footer.tsx` — pure black bg, token swap
+- `src/pages/Index.tsx` — remove Manifesto, promote Approach, B&W bento, gradient accents, renumber
+- `src/pages/About.tsx`, `Services.tsx`, `Work.tsx`, `Contact.tsx` — subtitle + gradient CTA consistency
 
-### 3a. Selected Work → bento mixed grid
-
-Replace the 3 stacked 21:9 blocks with a 12-col / 8-row CSS grid (desktop) where tiles have varied sizes. Mobile collapses to single column.
-
-```text
-+------------------+----------+
-|        01        |    02    |
-|     Hongmove     |   RTAF   |
-|   col-span 8     |  col 4   |
-|   row-span 5     |  row 5   |
-+--------+---------+----------+
-|   03   |        meta/CTA    |
-| Demo   |    "Index of work" |
-|  col 5 |       col 7        |
-|  row 3 |       row 3        |
-+--------+--------------------+
-```
-
-- `grid grid-cols-12 grid-rows-[repeat(8,minmax(120px,1fr))] gap-3 md:gap-4`
-- Each tile: `<Link>` wrapping `<img>` (object-cover, full size) + bottom overlay strip `01 — Hongmove · PropTech / 2025` in mono 10px snow.
-- No grayscale flip. Just subtle `opacity-90 hover:opacity-100` + a `border border-foreground/10` hairline.
-- The 4th cell is not an image — it's an editorial CTA card: ink-on-snow inverted (bg-cinnabar text-background), serif italic "See all 12 case studies →".
-
-### 3b. Process 6:3:1 → Approach prose
-
-Remove the entire `processSteps` block (the 3 huge numbers grid). Replace with a single-column editorial passage:
-
-```
-01 — Approach
-Less, but considered.
-
-We don't sell packages of posts. We run one refined loop every month —
-a short essay across formats. Three movements: listen, refine, release.
-[Read the full approach →]
-```
-
-- `SectionLabel index="03" label="Approach"`
-- `h2` with `h-display-md`, italic Cinnabar accent on one phrase.
-- Two `<p>` paragraphs at `max-w-[640px]` font-thai/serif body.
-- One inline link to `/approach` (or `/manifesto` if no approach route — keep existing route).
-- Remove the `processSteps` array entirely.
-
-### 3c. Section index renumbering
-After removing Process: Manifesto 01 → Selected Work 02 → Approach 03 → Trusted 04 → Packages 05 → Diagnostic 06. (Same numbers stay; only the Process block content swaps to Approach.)
-
-## 4. Other pages
-No structural changes — they inherit the dark token flip automatically. Spot checks afterward:
-- `Services.tsx`: the `bg-foreground text-background` "featured" card now becomes snow-on-ink (i.e. the inverted one becomes light on dark page) — that still works as visual emphasis.
-- `Footer.tsx`: status ribbon already uses tokens; will read white-on-black.
-- Any `bg-surface` panels lift slightly (good, intended).
-
-No copy/data/routing/image changes.
-
-## Files touched
-- `src/index.css` — palette flip, scrollbar, grain
-- `src/components/Nav.tsx` — full rewrite to inline links
-- `src/pages/Index.tsx` — bento Selected Work, remove process, add Approach prose
-
-## Not in scope
-- No motion changes beyond what's already in the project
-- No new routes, no copy rewrite, no font changes
-- Memory will be updated after build to reflect new dark palette + nav style
+## Out of scope
+- No routing changes, no new components, no copy rewrites beyond the subtitle line and section renumbering.
+- No motion/library additions.

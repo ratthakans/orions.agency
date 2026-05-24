@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import CountUp from "@/components/CountUp";
+import TypeOnce from "@/components/TypeOnce";
 import workHongmove from "@/assets/hongmove.png";
 import workRtaf from "@/assets/rtaf.jpg";
 import workDemocrat from "@/assets/democrat.jpg";
@@ -85,7 +86,7 @@ const Index = () => (
 
         <Reveal delay={0.25}>
           <p className="mt-8 font-serif text-[28px] md:text-[40px] leading-[1.05] tracking-[-0.02em]">
-            Stories, <em className="italic text-cinnabar">refined.</em>
+            Stories, <em className="italic text-cinnabar"><TypeOnce text="refined." delay={900} speed={90} /></em>
           </p>
         </Reveal>
 
@@ -108,10 +109,10 @@ const Index = () => (
       </div>
 
       {/* Marquee */}
-      <div className="border-y border-foreground/20 py-6 overflow-hidden whitespace-nowrap">
-        <div className="inline-flex gap-16 animate-[marquee_38s_linear_infinite] will-change-transform">
+      <div className="bg-foreground text-background py-3 overflow-hidden whitespace-nowrap">
+        <div className="inline-flex gap-10 animate-[marquee_38s_linear_infinite] will-change-transform">
           {[...marquee, ...marquee, ...marquee, ...marquee].map((m, i) => (
-            <span key={i} className="font-serif text-[22px] md:text-[34px] tracking-[-0.01em] inline-flex items-center gap-16">
+            <span key={i} className="font-serif text-[14px] md:text-[18px] tracking-[-0.01em] inline-flex items-center gap-10">
               {m} <span className="text-cinnabar">◐</span>
             </span>
           ))}

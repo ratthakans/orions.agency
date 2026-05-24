@@ -4,23 +4,6 @@ import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
 
-const Laurel = ({ side }: { side: "left" | "right" }) => (
-  <svg
-    aria-hidden
-    viewBox="0 0 40 60"
-    className={`w-5 h-7 md:w-6 md:h-8 opacity-50 ${side === "right" ? "scale-x-[-1]" : ""}`}
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1"
-    strokeLinecap="round"
-  >
-    <path d="M28 4 C 16 14, 12 28, 16 44 C 18 52, 22 56, 28 58" />
-    <path d="M26 12 q -8 2 -10 8" />
-    <path d="M22 22 q -8 2 -10 8" />
-    <path d="M20 34 q -8 2 -10 8" />
-    <path d="M22 46 q -6 2 -8 6" />
-  </svg>
-);
 import workHongmove from "@/assets/hongmove.png";
 import workRtaf from "@/assets/rtaf.jpg";
 import workDemocrat from "@/assets/democrat.jpg";
@@ -86,29 +69,16 @@ const Index = () => (
 
     {/* HERO — Collins-style: massive serif, all whitespace */}
     <section className="relative min-h-[100svh] flex flex-col px-6 md:px-10">
-      <div className="max-w-[1400px] mx-auto w-full flex-1 flex flex-col justify-center items-center text-center pt-32 md:pt-40 pb-20 md:pb-28">
+      <div className="max-w-[1400px] mx-auto w-full flex-1 flex flex-col justify-center items-center text-center pt-28 md:pt-32 pb-24 md:pb-32">
         <Reveal>
           <h1 className="font-serif h-display-xl leading-[0.92] tracking-[-0.04em]">
             Stories, <em className="italic text-cinnabar">refined.</em>
           </h1>
         </Reveal>
         <Reveal delay={0.2}>
-          <p className="mt-16 md:mt-20 font-serif italic text-[18px] md:text-[22px] text-muted-foreground">
+          <p className="mt-10 md:mt-12 font-serif italic text-[18px] md:text-[22px] text-muted-foreground">
             Independent editorial studio. Bangkok. — Boutique Creative Agency.
           </p>
-        </Reveal>
-
-        {/* Credentials strip — laurel-style */}
-        <Reveal delay={0.35}>
-          <div className="mt-20 md:mt-24 flex items-center justify-center gap-5 md:gap-7 font-mono text-[10px] md:text-[11px] tracking-[0.22em] uppercase text-muted-foreground">
-            <Laurel side="left" />
-            <span>Six&nbsp;years</span>
-            <span aria-hidden className="opacity-40">·</span>
-            <span>40+&nbsp;brands</span>
-            <span aria-hidden className="opacity-40">·</span>
-            <span>Bangkok</span>
-            <Laurel side="right" />
-          </div>
         </Reveal>
       </div>
     </section>
@@ -134,44 +104,6 @@ const Index = () => (
             </p>
           </Reveal>
         </div>
-
-        {/* 6 : 3 : 1 ratio bar — studio signature */}
-        <Reveal delay={0.34}>
-          <div className="mt-16 md:mt-20 max-w-[760px] border-t border-b border-foreground/15 py-6">
-            <div className="flex items-center justify-between font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
-              <span className="text-cinnabar">— 6 : 3 : 1</span>
-              <span className="hidden md:inline">One refined loop · per month</span>
-              <span>60 / 30 / 10</span>
-            </div>
-            <div className="mt-4 grid grid-cols-10 h-[3px]">
-              <div className="col-span-6 bg-cinnabar" />
-              <div className="col-span-3 bg-cinnabar/55 border-l border-background" />
-              <div className="col-span-1 bg-cinnabar/25 border-l border-background" />
-            </div>
-            <div className="mt-3 grid grid-cols-10 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
-              <div className="col-span-6">6 — Reels</div>
-              <div className="col-span-3">3 — Static</div>
-              <div className="col-span-1 text-right">1 — Hero</div>
-            </div>
-          </div>
-        </Reveal>
-        <Reveal delay={0.32}>
-          <div className="mt-12 flex flex-wrap items-center gap-5">
-            <Link
-              to="/approach"
-              className="inline-flex items-center gap-2 btn-label border-b border-foreground pb-1 hover:text-cinnabar hover:border-cinnabar transition-colors"
-            >
-              Read the full approach →
-            </Link>
-            <Link
-              to="/contact"
-              className="group inline-flex items-center gap-3 bg-cinnabar text-background px-7 py-4 btn-label hover:opacity-90 transition-opacity"
-            >
-              <span>Start a project</span>
-              <ArrowUpRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </Reveal>
 
         {/* Process ribbon */}
         <Reveal delay={0.4}>

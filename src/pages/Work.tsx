@@ -102,7 +102,7 @@ const Work = () => (
                     src={w.img}
                     alt={`${w.title} — ${w.scope}`}
                     loading="lazy"
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-out group-hover:scale-[1.04]"
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-500"
                   />
                   <div className="absolute top-3 left-3 right-3 flex items-center justify-between font-mono text-[10px] tracking-[0.18em] text-background/95 mix-blend-difference">
                     <span>— {w.n}</span>

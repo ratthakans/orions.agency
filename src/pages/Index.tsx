@@ -69,12 +69,12 @@ const Index = () => (
       <div className="max-w-[1400px] mx-auto w-full text-center pt-[20vh] pb-[18vh]">
         <Reveal>
           <h1 className="font-serif h-display-xl leading-[0.92] tracking-[-0.04em]">
-            Stories, <em className="italic text-cinnabar">refined.</em>
+            Stories, <em className="italic text-gradient-cinnabar">refined.</em>
           </h1>
         </Reveal>
         <Reveal delay={0.2}>
           <p className="mt-12 md:mt-16 font-serif italic text-[18px] md:text-[22px] text-muted-foreground">
-            Independent editorial studio. Bangkok.
+            Independent editorial studio. Bangkok. — Boutique Creative Agency.
           </p>
         </Reveal>
 
@@ -93,50 +93,38 @@ const Index = () => (
       </div>
     </section>
 
-    {/* MINI MANIFESTO */}
-    <section className="px-6 md:px-10 border-t border-foreground">
+    {/* 01 — APPROACH (promoted to first section) */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-24 md:py-32">
-        <SectionLabel index="01" label="Manifesto" />
+        <SectionLabel index="01" label="Approach" />
         <Reveal delay={0.1}>
-          <h2 className="mt-10 font-serif h-display-md max-w-[22ch]">
-            Less, but <em className="italic text-cinnabar">refined.</em>
+          <h2 className="mt-10 font-serif h-display-md max-w-[20ch]">
+            Less, but <em className="italic text-gradient-cinnabar">considered.</em>
           </h2>
         </Reveal>
-        <Reveal delay={0.2}>
-          <p className="mt-8 max-w-[640px] font-thai text-[15px] md:text-[17px] leading-[1.7] text-muted-foreground">
-            เราไม่ใช่ content factory — เราคือ boutique studio ที่เชื่อในการทำงานสามขั้นตอนเดียวกันซ้ำๆ จนกว่าทุกชิ้นจะคมที่สุด
-          </p>
-        </Reveal>
-
-        <div className="mt-16 border-t border-foreground/20">
-          {manifestoPoints.map((m, i) => (
-            <Reveal key={m.n} delay={i * 0.08}>
-              <div className="grid grid-cols-[64px_1fr] md:grid-cols-[100px_minmax(0,1fr)_minmax(0,2fr)] gap-x-6 md:gap-x-12 gap-y-3 items-baseline py-8 md:py-10 border-b border-foreground/20">
-                <div className="font-serif italic text-cinnabar text-[28px] md:text-[40px] leading-none tracking-[-0.02em]">
-                  {m.n}
-                </div>
-                <h3 className="font-serif text-[26px] md:text-[36px] leading-[1.1] tracking-[-0.02em] col-start-2 md:col-start-2">
-                  {m.en}
-                </h3>
-                <p className="font-thai text-[14px] md:text-[16px] leading-[1.7] text-muted-foreground col-span-2 md:col-span-1 md:col-start-3">
-                  {m.th}
-                </p>
-              </div>
-            </Reveal>
-          ))}
+        <div className="mt-10 max-w-[640px] space-y-6">
+          <Reveal delay={0.18}>
+            <p className="font-serif text-[19px] md:text-[22px] leading-[1.55] text-foreground/85">
+              We don't sell packages of posts. We run one refined loop every month — a short essay across formats, sequenced to be discovered, sit with the reader, and remembered.
+            </p>
+          </Reveal>
+          <Reveal delay={0.26}>
+            <p className="font-thai text-[15px] md:text-[17px] leading-[1.75] text-muted-foreground">
+              สามจังหวะเดียวกันทุกเดือน — ฟัง, กลั่น, ปล่อย. ไม่ผลิตให้ครบจำนวน ผลิตให้ครบหน้าที่.
+            </p>
+          </Reveal>
         </div>
-
-        <Reveal delay={0.3}>
-          <div className="mt-14 flex flex-wrap items-center gap-5">
+        <Reveal delay={0.32}>
+          <div className="mt-12 flex flex-wrap items-center gap-5">
             <Link
-              to="/about"
-              className="group inline-flex items-center gap-2 btn-label border-b border-foreground pb-1 hover:text-cinnabar hover:border-cinnabar transition-colors"
+              to="/approach"
+              className="inline-flex items-center gap-2 btn-label border-b border-foreground pb-1 hover:text-cinnabar hover:border-cinnabar transition-colors"
             >
-              Read the full manifesto →
+              Read the full approach →
             </Link>
             <Link
               to="/contact"
-              className="group inline-flex items-center gap-3 bg-cinnabar text-background px-7 py-4 btn-label hover:bg-foreground transition-colors duration-300"
+              className="group inline-flex items-center gap-3 bg-gradient-cinnabar text-background px-7 py-4 btn-label hover:opacity-90 transition-opacity"
             >
               <span>Start a project</span>
               <ArrowUpRight className="w-4 h-4" />

@@ -74,7 +74,7 @@ const Contact = () => {
           <SectionLabel index="01" label="Inquiry" />
           <Reveal delay={0.05}>
             <h1 className="mt-10 font-serif h-display-xl max-w-[14ch]">
-              Tell us about <em className="italic text-gradient-cinnabar">the brand.</em>
+              Tell us about <em className="italic text-cinnabar">the brand.</em>
             </h1>
           </Reveal>
           <Reveal delay={0.08}>

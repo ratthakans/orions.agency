@@ -130,7 +130,7 @@ const Services = () => (
         <SectionLabel index="01" label="Packages" />
         <Reveal delay={0.1}>
           <h1 className="mt-10 font-serif h-display-xl max-w-[14ch]">
-            3 ระดับ.<br />1 <em className="italic text-gradient-cinnabar">เป้าหมาย.</em>
+            3 ระดับ.<br />1 <em className="italic text-cinnabar">เป้าหมาย.</em>
           </h1>
         </Reveal>
         <Reveal delay={0.15}>

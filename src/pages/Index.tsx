@@ -69,7 +69,7 @@ const Index = () => (
       <div className="max-w-[1400px] mx-auto w-full text-center pt-[20vh] pb-[18vh]">
         <Reveal>
           <h1 className="font-serif h-display-xl leading-[0.92] tracking-[-0.04em]">
-            Stories, <em className="italic text-gradient-cinnabar">refined.</em>
+            Stories, <em className="italic text-cinnabar">refined.</em>
           </h1>
         </Reveal>
         <Reveal delay={0.2}>
@@ -99,7 +99,7 @@ const Index = () => (
         <SectionLabel index="01" label="Approach" />
         <Reveal delay={0.1}>
           <h2 className="mt-10 font-serif h-display-md max-w-[20ch]">
-            Less, but <em className="italic text-gradient-cinnabar">considered.</em>
+            Less, but <em className="italic text-cinnabar">considered.</em>
           </h2>
         </Reveal>
         <div className="mt-10 max-w-[640px] space-y-6">
@@ -124,7 +124,7 @@ const Index = () => (
             </Link>
             <Link
               to="/contact"
-              className="group inline-flex items-center gap-3 bg-gradient-cinnabar text-background px-7 py-4 btn-label hover:opacity-90 transition-opacity"
+              className="group inline-flex items-center gap-3 bg-cinnabar text-background px-7 py-4 btn-label hover:opacity-90 transition-opacity"
             >
               <span>Start a project</span>
               <ArrowUpRight className="w-4 h-4" />
@@ -216,7 +216,7 @@ const Index = () => (
               {/* CTA tile */}
               <Link
                 to="/work"
-                className="group relative block md:col-span-7 md:row-span-3 bg-gradient-cinnabar text-background p-8 md:p-10 flex flex-col justify-between overflow-hidden"
+                className="group relative block md:col-span-7 md:row-span-3 bg-cinnabar text-background p-8 md:p-10 flex flex-col justify-between overflow-hidden"
               >
                 <div className="font-mono text-[10px] tracking-[0.22em] uppercase opacity-80">
                   — All case studies
@@ -286,7 +286,7 @@ const Index = () => (
         <SectionLabel index="04" label="Packages" />
         <Reveal delay={0.1}>
           <h2 className="mt-10 font-serif h-display-md max-w-[20ch]">
-            Three tiers. <em className="italic text-gradient-cinnabar">One refined system.</em>
+            Three tiers. <em className="italic text-cinnabar">One refined system.</em>
           </h2>
         </Reveal>
 
@@ -316,7 +316,7 @@ const Index = () => (
           <div className="mt-12 flex flex-wrap items-center gap-5">
             <Link
               to="/services"
-              className="group inline-flex items-center gap-3 bg-gradient-cinnabar text-background px-7 py-4 btn-label hover:opacity-90 transition-opacity duration-300"
+              className="group inline-flex items-center gap-3 bg-cinnabar text-background px-7 py-4 btn-label hover:opacity-90 transition-opacity duration-300"
             >
               <span>See all packages</span>
               <ArrowUpRight className="w-4 h-4" />
@@ -342,7 +342,7 @@ const Index = () => (
           <div className="lg:col-span-7">
             <Reveal delay={0.05}>
               <h2 className="font-serif h-display-md max-w-[22ch]">
-                Not sure where you stand? <em className="italic text-gradient-cinnabar">Find out in 3 minutes.</em>
+                Not sure where you stand? <em className="italic text-cinnabar">Find out in 3 minutes.</em>
               </h2>
             </Reveal>
             <Reveal delay={0.15}>
@@ -373,7 +373,7 @@ const Index = () => (
               <div className="mt-12 flex flex-wrap items-center gap-5">
                 <Link
                   to="/diagnostic"
-                  className="group inline-flex items-center gap-3 bg-gradient-cinnabar text-background px-7 py-4 btn-label hover:opacity-90 transition-opacity duration-300"
+                  className="group inline-flex items-center gap-3 bg-cinnabar text-background px-7 py-4 btn-label hover:opacity-90 transition-opacity duration-300"
                 >
                   <span>Take The Diagnostic</span>
                   <ArrowUpRight className="w-4 h-4" />

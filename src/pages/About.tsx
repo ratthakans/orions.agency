@@ -67,7 +67,7 @@ const About = () => (
         <SectionLabel index="01" label="Manifesto" tone="snow" />
         <Reveal delay={0.1}>
           <h1 className="mt-10 font-serif h-display-xl">
-            The New <em className="italic text-gradient-cinnabar">Landscape.</em>
+            The New <em className="italic text-cinnabar">Landscape.</em>
           </h1>
         </Reveal>
         <Reveal delay={0.15}>
@@ -238,7 +238,7 @@ const About = () => (
           <div className="flex flex-wrap items-center gap-5">
             <Link
               to="/services"
-              className="group inline-flex items-center gap-3 bg-gradient-cinnabar text-background px-7 py-4 btn-label hover:opacity-90 transition-opacity duration-300"
+              className="group inline-flex items-center gap-3 bg-cinnabar text-background px-7 py-4 btn-label hover:opacity-90 transition-opacity duration-300"
             >
               <span>See packages</span>
               <ArrowUpRight className="w-4 h-4" />

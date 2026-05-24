@@ -30,7 +30,7 @@ const Nav = () => {
       <div
         className="px-6 md:px-10 h-[72px] flex items-center justify-between bg-foreground"
       >
-        <Link to="/" className="font-brand text-[14px] md:text-[15px] tracking-[0.04em] text-background">
+        <Link to="/" className="font-brand text-[14px] md:text-[15px] text-background">
           ØRIONS
         </Link>
 

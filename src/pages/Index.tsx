@@ -3,7 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import CountUp from "@/components/CountUp";
-import TypeOnce from "@/components/TypeOnce";
+import KineticWordmark from "@/components/KineticWordmark";
 import workHongmove from "@/assets/hongmove.png";
 import workRtaf from "@/assets/rtaf.jpg";
 import workDemocrat from "@/assets/democrat.jpg";
@@ -14,6 +14,12 @@ const selectedWork = [
   { n: "02", slug: "royal-thai-air-force", title: "Royal Thai Air Force", niche: "Government", impact: "2.1M",  img: workRtaf },
   { n: "03", slug: "democrat-party",       title: "Democrat Party",       niche: "Politics",   impact: "12M+",  img: workDemocrat },
   { n: "04", slug: "gcoo",                 title: "GCOO",                 niche: "Mobility",   impact: "+540%", img: workGcoo },
+];
+
+const processSteps = [
+  { n: "6", label: "Reels",  th: "Short-form ที่ขับเคลื่อนการค้นพบ — เร็ว แม่น และ on-brand ทุกชิ้น" },
+  { n: "3", label: "Static", th: "Editorial pieces ที่ให้บริบท ลึก และอยู่ใน feed ได้นานกว่าหนึ่งวัน" },
+  { n: "1", label: "Hero",   th: "Signature story รายเดือน — ชิ้นที่กำหนดทิศทางและจดจำได้ทั้งซีซั่น" },
 ];
 
 const testimonials = [
@@ -78,41 +84,39 @@ const Index = () => (
           </div>
         </Reveal>
 
-        <Reveal delay={0.1}>
-          <h1 className="mt-12 w-full font-brand h-display-xl text-foreground leading-none text-center">
-            ØRIONS
+        <div className="mt-12 w-full">
+          <KineticWordmark />
+        </div>
+
+        <Reveal delay={0.4}>
+          <h1 className="mt-8 font-serif text-[28px] md:text-[40px] leading-[1.05] tracking-[-0.02em]">
+            Stories, <em className="italic text-cinnabar">refined.</em>
           </h1>
         </Reveal>
 
         <Reveal delay={0.25}>
-          <p className="mt-8 font-serif text-[28px] md:text-[40px] leading-[1.05] tracking-[-0.02em]">
-            Stories, <em className="italic text-cinnabar"><TypeOnce text="refined." delay={900} speed={90} /></em>
-          </p>
-        </Reveal>
-
-        <Reveal delay={0.35}>
           <p className="mt-12 max-w-[640px] mx-auto font-thai text-[17px] md:text-[20px] leading-[1.55] text-muted-foreground">
             เราไม่ผลิตให้ครบจำนวน เราไม่ตามเทรนด์ที่อัลกอริทึมเขียนบท —
             เราตัดส่วนเกิน สกัดเนื้อแท้ และกลั่นกรองเรื่องราว เพื่อให้แบรนด์คุณ ถึงคนที่ใช่
           </p>
         </Reveal>
 
-        <Reveal delay={0.45}>
+        <Reveal delay={0.35}>
           <div className="mt-16 flex flex-wrap justify-center gap-x-10 gap-y-3 border-t border-foreground/15 pt-6 max-w-[860px] mx-auto font-mono text-[11px] tracking-[0.22em] uppercase text-muted-foreground">
-            <span><span className="text-cinnabar">Boutique</span> · 11 In-House</span>
-            <span className="opacity-40">/</span>
-            <span>Live in 4 Weeks</span>
+            <span><span className="text-cinnabar">6 : 3 : 1</span> · Refined Content System</span>
             <span className="opacity-40">/</span>
             <span>Data-Refined Process</span>
+            <span className="opacity-40">/</span>
+            <span>Industry Exclusivity</span>
           </div>
         </Reveal>
       </div>
 
       {/* Marquee */}
-      <div className="bg-foreground text-background py-3 overflow-hidden whitespace-nowrap">
-        <div className="inline-flex gap-10 animate-[marquee_38s_linear_infinite] will-change-transform">
+      <div className="border-y border-foreground/20 py-6 overflow-hidden whitespace-nowrap">
+        <div className="inline-flex gap-16 animate-[marquee_38s_linear_infinite] will-change-transform">
           {[...marquee, ...marquee, ...marquee, ...marquee].map((m, i) => (
-            <span key={i} className="font-serif text-[14px] md:text-[18px] tracking-[-0.01em] inline-flex items-center gap-10">
+            <span key={i} className="font-serif text-[22px] md:text-[34px] tracking-[-0.01em] inline-flex items-center gap-16">
               {m} <span className="text-cinnabar">◐</span>
             </span>
           ))}
@@ -248,13 +252,49 @@ const Index = () => (
       </div>
     </section>
 
+    {/* PROCESS — 6:3:1 */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+        <Reveal>
+          <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
+            <span className="block w-6 h-px bg-cinnabar" />
+            03 — Process
+          </div>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <h2 className="mt-10 font-serif h-display-md max-w-[22ch]">
+            The <em className="italic text-cinnabar">6 : 3 : 1</em> system.
+          </h2>
+        </Reveal>
+        <Reveal delay={0.2}>
+          <p className="mt-8 max-w-[640px] font-thai text-[15px] md:text-[17px] leading-[1.7] text-muted-foreground">
+            หนึ่งวงจรเนื้อหารายเดือน — ออกแบบให้แบรนด์ค้นพบ ค้างคา และจดจำ. ไม่ผลิตให้ครบจำนวน ผลิตให้ครบหน้าที่
+          </p>
+        </Reveal>
+
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-px bg-foreground/15 border border-foreground/15">
+          {processSteps.map((s, i) => (
+            <Reveal key={s.label} delay={i * 0.08}>
+              <div className="bg-background p-10 md:p-12 h-full flex flex-col">
+                <div className="font-serif text-[120px] md:text-[160px] leading-[0.85] tracking-[-0.04em] text-cinnabar">{s.n}</div>
+                <div className="mt-6 font-mono text-[10px] tracking-[0.22em] uppercase">{s.label}</div>
+                <p className="mt-4 font-thai text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">
+                  {s.th}
+                </p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+
     {/* TRUSTED / TESTIMONIALS */}
     <section className="px-6 md:px-10 border-t border-foreground/15 bg-surface">
       <div className="max-w-[1280px] mx-auto py-24 md:py-32">
         <Reveal>
           <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
             <span className="block w-6 h-px bg-cinnabar" />
-            03 — Trusted
+            04 — Trusted
           </div>
         </Reveal>
 
@@ -305,7 +345,7 @@ const Index = () => (
         <Reveal>
           <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
             <span className="block w-6 h-px bg-cinnabar" />
-            04 — Packages
+            05 — Packages
           </div>
         </Reveal>
         <Reveal delay={0.1}>
@@ -362,7 +402,7 @@ const Index = () => (
         <Reveal>
           <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
             <span className="block w-6 h-px bg-cinnabar" />
-            05 — Diagnostic
+            06 — Diagnostic
           </div>
         </Reveal>
 

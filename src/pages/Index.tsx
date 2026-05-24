@@ -131,14 +131,60 @@ const Index = () => (
             </Link>
           </div>
         </Reveal>
+
+        {/* Process ribbon */}
+        <Reveal delay={0.4}>
+          <div className="mt-16 md:mt-20 grid grid-cols-2 md:grid-cols-4 border-t border-foreground/15">
+            {[
+              { n: "01", k: "Listen",   d: "Brand, audience, current rhythm" },
+              { n: "02", k: "Diagnose", d: "Where the loop breaks today" },
+              { n: "03", k: "Refine",   d: "One signature story per month" },
+              { n: "04", k: "Compound", d: "Measure, sharpen, repeat" },
+            ].map((s, i) => (
+              <div key={s.n} className={`py-8 md:py-10 ${i > 0 ? "md:border-l border-foreground/15" : ""} ${i > 0 && i < 2 ? "border-t md:border-t-0 border-foreground/15" : ""} ${i >= 2 ? "border-t md:border-t-0 border-foreground/15" : ""} md:px-6`}>
+                <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">— {s.n}</div>
+                <div className="mt-3 font-serif italic text-[22px] md:text-[26px] tracking-[-0.015em]">{s.k}</div>
+                <div className="mt-2 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">{s.d}</div>
+              </div>
+            ))}
+          </div>
+        </Reveal>
       </div>
     </section>
 
-    {/* SELECTED WORK */}
+    {/* 02 — CAPABILITIES */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+        <SectionLabel index="02" label="Capabilities" />
+        <Reveal delay={0.1}>
+          <h2 className="mt-10 font-serif h-display-md max-w-[22ch]">
+            A full studio. <em className="italic text-cinnabar">Four disciplines.</em>
+          </h2>
+        </Reveal>
+        <div className="mt-14 md:mt-20 grid grid-cols-1 md:grid-cols-4 border-t border-foreground/15">
+          {[
+            { n: "i.",   k: "Brand Strategy",    d: "Positioning, narrative, voice, audience architecture." },
+            { n: "ii.",  k: "Editorial Design",  d: "Identity systems, typography, art direction for content." },
+            { n: "iii.", k: "Content Systems",   d: "Monthly editorial loops — Hero, Static, Reels." },
+            { n: "iv.",  k: "Performance Loops", d: "Data-tested distribution, measurement, sharpened iteration." },
+          ].map((c, i) => (
+            <Reveal key={c.k} delay={i * 0.06}>
+              <div className={`py-10 md:py-12 md:px-6 h-full ${i > 0 ? "border-t md:border-t-0 md:border-l border-foreground/15" : ""}`}>
+                <div className="font-serif italic text-cinnabar text-[18px]">{c.n}</div>
+                <h3 className="mt-5 font-serif text-[24px] md:text-[28px] leading-[1.1] tracking-[-0.02em]">{c.k}</h3>
+                <p className="mt-4 font-mono text-[11px] tracking-[0.08em] uppercase text-muted-foreground leading-[1.55]">{c.d}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* 03 — SELECTED WORK */}
     <section className="px-6 md:px-10 border-t border-foreground/12">
       <div className="max-w-[1400px] mx-auto py-20 md:py-28">
         <div className="flex items-end justify-between gap-6 flex-wrap">
-          <SectionLabel index="02" label="Selected Work" />
+          <SectionLabel index="03" label="Selected Work" />
           <Link
             to="/work"
             className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground hover:text-foreground transition-colors"
@@ -231,13 +277,77 @@ const Index = () => (
             </div>
           </Reveal>
         </div>
+
+        <Reveal delay={0.1}>
+          <div className="mt-10 flex items-center justify-between gap-6 border-t border-foreground/15 pt-6">
+            <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
+              03 of selected · more in the index
+            </span>
+            <Link
+              to="/work"
+              className="font-mono text-[10px] tracking-[0.22em] uppercase text-foreground hover:text-cinnabar transition-colors"
+            >
+              View all 12 projects →
+            </Link>
+          </div>
+        </Reveal>
       </div>
     </section>
 
-    {/* TRUSTED / TESTIMONIALS */}
+    {/* 04 — VENTURES */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+        <div className="flex items-end justify-between gap-6 flex-wrap">
+          <SectionLabel index="04" label="Ventures" />
+          <Link
+            to="/projects"
+            className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground hover:text-foreground transition-colors"
+          >
+            All ventures →
+          </Link>
+        </div>
+        <Reveal delay={0.1}>
+          <h2 className="mt-10 font-serif h-display-md max-w-[22ch]">
+            Studios build for clients. <em className="italic text-cinnabar">We build for ourselves, too.</em>
+          </h2>
+        </Reveal>
+        <div className="mt-14 md:mt-20 grid grid-cols-1 md:grid-cols-2 gap-px bg-foreground/15 border border-foreground/15">
+          {[
+            { n: "01", name: "Routte",          url: "https://routte.to/",        tag: "Travel · Itinerary", line: "Plan trips like a local. Share them like a story." },
+            { n: "02", name: "First Draft Pro", url: "https://firstdraftpro.co/", tag: "Writing · AI",       line: "Get the first draft out of the way." },
+          ].map((v) => (
+            <a
+              key={v.name}
+              href={v.url}
+              target="_blank"
+              rel="noreferrer"
+              className="group bg-background p-8 md:p-12 flex flex-col hover:bg-cinnabar hover:text-background transition-colors duration-500"
+            >
+              <div className="flex items-start justify-between gap-4">
+                <div className="font-mono text-[10px] tracking-[0.22em] uppercase opacity-60">
+                  {v.n} — {v.tag}
+                </div>
+                <ArrowUpRight className="w-5 h-5 text-cinnabar group-hover:text-background transition-transform duration-500 group-hover:-translate-y-1 group-hover:translate-x-1" />
+              </div>
+              <h3 className="mt-12 md:mt-16 font-serif text-[44px] md:text-[64px] leading-[0.95] tracking-[-0.03em]">
+                {v.name}
+              </h3>
+              <p className="mt-5 font-serif italic text-cinnabar text-[18px] md:text-[20px] leading-[1.3] group-hover:text-background">
+                {v.line}
+              </p>
+              <div className="mt-auto pt-10 font-mono text-[10px] tracking-[0.22em] uppercase opacity-60 group-hover:opacity-100 transition-opacity">
+                Visit {v.url.replace(/^https?:\/\//, "").replace(/\/$/, "")} →
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* 05 — TRUSTED / TESTIMONIALS */}
     <section className="px-6 md:px-10 border-t border-foreground bg-surface">
       <div className="max-w-[1280px] mx-auto py-24 md:py-32">
-        <SectionLabel index="03" label="Trusted" />
+        <SectionLabel index="05" label="Trusted" />
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
           {testimonials.map((t, i) => (
@@ -280,10 +390,10 @@ const Index = () => (
       </div>
     </section>
 
-    {/* SERVICES PREVIEW */}
+    {/* 06 — SERVICES PREVIEW */}
     <section className="px-6 md:px-10 border-t border-foreground">
       <div className="max-w-[1280px] mx-auto py-24 md:py-32">
-        <SectionLabel index="04" label="Packages" />
+        <SectionLabel index="06" label="Packages" />
         <Reveal delay={0.1}>
           <h2 className="mt-10 font-serif h-display-md max-w-[20ch]">
             Three tiers. <em className="italic text-cinnabar">One refined system.</em>
@@ -332,10 +442,10 @@ const Index = () => (
       </div>
     </section>
 
-    {/* DIAGNOSTIC TEASER — Lead gen */}
+    {/* 07 — DIAGNOSTIC TEASER */}
     <section className="px-6 md:px-10 border-t border-foreground bg-surface">
       <div className="max-w-[1280px] mx-auto py-24 md:py-32">
-        <SectionLabel index="05" label="Diagnostic" />
+        <SectionLabel index="07" label="Diagnostic" />
 
         <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left — editorial copy */}

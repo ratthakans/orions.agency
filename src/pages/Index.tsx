@@ -283,10 +283,10 @@ const Index = () => (
     {/* SERVICES PREVIEW */}
     <section className="px-6 md:px-10 border-t border-foreground">
       <div className="max-w-[1280px] mx-auto py-24 md:py-32">
-        <SectionLabel index="05" label="Packages" />
+        <SectionLabel index="04" label="Packages" />
         <Reveal delay={0.1}>
           <h2 className="mt-10 font-serif h-display-md max-w-[20ch]">
-            Three tiers. <em className="italic text-cinnabar">One refined system.</em>
+            Three tiers. <em className="italic text-gradient-cinnabar">One refined system.</em>
           </h2>
         </Reveal>
 
@@ -316,7 +316,7 @@ const Index = () => (
           <div className="mt-12 flex flex-wrap items-center gap-5">
             <Link
               to="/services"
-              className="group inline-flex items-center gap-3 bg-foreground text-background px-7 py-4 btn-label hover:bg-cinnabar transition-colors duration-300"
+              className="group inline-flex items-center gap-3 bg-gradient-cinnabar text-background px-7 py-4 btn-label hover:opacity-90 transition-opacity duration-300"
             >
               <span>See all packages</span>
               <ArrowUpRight className="w-4 h-4" />
@@ -335,14 +335,14 @@ const Index = () => (
     {/* DIAGNOSTIC TEASER — Lead gen */}
     <section className="px-6 md:px-10 border-t border-foreground bg-surface">
       <div className="max-w-[1280px] mx-auto py-24 md:py-32">
-        <SectionLabel index="06" label="Diagnostic" />
+        <SectionLabel index="05" label="Diagnostic" />
 
         <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left — editorial copy */}
           <div className="lg:col-span-7">
             <Reveal delay={0.05}>
               <h2 className="font-serif h-display-md max-w-[22ch]">
-                Not sure where you stand? <em className="italic text-cinnabar">Find out in 3 minutes.</em>
+                Not sure where you stand? <em className="italic text-gradient-cinnabar">Find out in 3 minutes.</em>
               </h2>
             </Reveal>
             <Reveal delay={0.15}>
@@ -373,7 +373,7 @@ const Index = () => (
               <div className="mt-12 flex flex-wrap items-center gap-5">
                 <Link
                   to="/diagnostic"
-                  className="group inline-flex items-center gap-3 bg-cinnabar text-background px-7 py-4 btn-label hover:bg-foreground transition-colors duration-300"
+                  className="group inline-flex items-center gap-3 bg-gradient-cinnabar text-background px-7 py-4 btn-label hover:opacity-90 transition-opacity duration-300"
                 >
                   <span>Take The Diagnostic</span>
                   <ArrowUpRight className="w-4 h-4" />

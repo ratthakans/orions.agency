@@ -201,7 +201,7 @@ const Index = () => (
           {selectedWork.map((w) => (
             <Link key={w.n} to={`/work/${w.slug}`} className="group block">
               <div className="relative aspect-[4/5] overflow-hidden border border-foreground/15 bg-foreground">
-                <img src={w.img} alt={w.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-[1.04]" loading="lazy" />
+                <img src={w.img} alt={w.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-500" loading="lazy" />
                 <div className="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-foreground/85 backdrop-blur-sm text-background p-3 flex items-center justify-between font-mono text-[10px] tracking-[0.18em] uppercase">
                   <span>{w.niche}</span>
                   <span className="text-cinnabar">{w.impact}</span>

@@ -3,14 +3,8 @@ import { ArrowUpRight, ArrowLeft } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import ClosingCTA from "@/components/ClosingCTA";
+import SectionLabel from "@/components/SectionLabel";
 import { getCaseStudy, getAdjacent } from "@/data/caseStudies";
-
-const Label = ({ n, title }: { n: string; title: string }) => (
-  <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
-    <span className="block w-6 h-px bg-cinnabar" />
-    {n} — {title}
-  </div>
-);
 
 const CaseStudy = () => {
   const { slug = "" } = useParams();
@@ -41,12 +35,9 @@ const CaseStudy = () => {
             </Link>
           </Reveal>
 
-          <Reveal delay={0.05}>
-            <div className="mt-10 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
-              <span className="block w-6 h-px bg-cinnabar" />
-              Case Study · {cs.n} / {String(7).padStart(2, "0")}
-            </div>
-          </Reveal>
+          <div className="mt-10">
+            <SectionLabel index="Case Study" label={`${cs.n} / ${String(7).padStart(2, "0")}`} />
+          </div>
 
           <Reveal delay={0.1}>
             <h1 className="mt-8 font-serif h-display-xl max-w-[16ch]">
@@ -107,7 +98,7 @@ const CaseStudy = () => {
       <section className="px-6 md:px-10 border-t border-foreground">
         <div className="max-w-[1280px] mx-auto py-20 md:py-28 grid grid-cols-1 md:grid-cols-12 gap-10">
           <div className="md:col-span-4">
-            <Reveal><Label n="01" title="The Brief" /></Reveal>
+            <SectionLabel index="01" label="The Brief" />
           </div>
           <div className="md:col-span-8">
             <Reveal delay={0.05}>
@@ -121,8 +112,8 @@ const CaseStudy = () => {
 
       {/* 04 — APPROACH */}
       <section className="px-6 md:px-10 border-t border-foreground">
-        <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-          <Reveal><Label n="02" title="Approach" /></Reveal>
+          <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+            <SectionLabel index="02" label="Approach" />
           <Reveal delay={0.05}>
             <h2 className="mt-10 font-serif h-display-md max-w-[20ch]">
               How we <em className="italic text-cinnabar">refined it.</em>
@@ -153,7 +144,7 @@ const CaseStudy = () => {
       {cs.gallery.length > 1 && (
         <section className="px-6 md:px-10 border-t border-foreground">
           <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-            <Reveal><Label n="03" title="Selected Frames" /></Reveal>
+            <SectionLabel index="03" label="Selected Frames" />
             <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               {cs.gallery.map((img, i) => (
                 <Reveal key={i} delay={0.04 * i}>
@@ -180,12 +171,7 @@ const CaseStudy = () => {
       {/* 06 — RESULTS */}
       <section className="px-6 md:px-10 border-t border-foreground bg-foreground text-background">
         <div className="max-w-[1280px] mx-auto py-24 md:py-32">
-          <Reveal>
-            <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-background/55 flex items-center gap-3">
-              <span className="block w-6 h-px bg-cinnabar" />
-              {cs.gallery.length > 1 ? "04" : "03"} — Results
-            </div>
-          </Reveal>
+          <SectionLabel index={cs.gallery.length > 1 ? "04" : "03"} label="Results" tone="snow" />
           <Reveal delay={0.05}>
             <h2 className="mt-10 font-serif h-display-lg max-w-[20ch]">
               Numbers we <em className="italic text-cinnabar">stand by.</em>

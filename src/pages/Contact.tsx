@@ -3,6 +3,7 @@ import { ArrowUpRight, MessageCircle, Phone, Mail } from "lucide-react";
 import { z } from "zod";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
+import SectionLabel from "@/components/SectionLabel";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -70,12 +71,7 @@ const Contact = () => {
       {/* 01 · HERO */}
       <section className="px-6 md:px-10">
         <div className="max-w-[1280px] mx-auto pt-32 md:pt-40 pb-16 md:pb-24">
-          <Reveal>
-            <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
-              <span className="block w-6 h-px bg-cinnabar" />
-              01 — Inquiry
-            </div>
-          </Reveal>
+          <SectionLabel index="01" label="Inquiry" />
           <Reveal delay={0.05}>
             <h1 className="mt-10 font-serif h-display-xl max-w-[14ch]">
               Tell us about <em className="italic text-cinnabar">the brand.</em>
@@ -105,12 +101,7 @@ const Contact = () => {
       {/* 02 · INQUIRY — form + direct */}
       <section className="px-6 md:px-10 border-t border-foreground">
         <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-          <Reveal>
-            <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
-              <span className="block w-6 h-px bg-cinnabar" />
-              02 — Brief
-            </div>
-          </Reveal>
+          <SectionLabel index="02" label="Brief" />
           <Reveal delay={0.05}>
             <h2 className="mt-10 font-serif h-display-lg max-w-[14ch]">
               Send a <em className="italic text-cinnabar">brief.</em>

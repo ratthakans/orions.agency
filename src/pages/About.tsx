@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
+import SectionLabel from "@/components/SectionLabel";
 
 const pains = [
   { n: "i.",   en: "ADHD Culture",     th: "สมาธิสั้นลงเหลือไม่กี่วินาที คนเลื่อนผ่านทุกอย่างที่ไม่สะกิดใจในวินาทีแรก" },
@@ -51,19 +52,6 @@ const team = [
   { role: "Project Manager" },        // พี่น้ำฝน
   { role: "Admin" },                  // พี่เอธ
 ];
-
-const SectionLabel = ({ index, label, tone = "ink" }: { index: string; label: string; tone?: "ink" | "snow" }) => (
-  <Reveal>
-    <div
-      className={`font-mono text-[10px] tracking-[0.22em] uppercase flex items-center gap-3 ${
-        tone === "snow" ? "text-background/55" : "text-muted-foreground"
-      }`}
-    >
-      <span className="block w-6 h-px bg-cinnabar" />
-      {index} — {label}
-    </div>
-  </Reveal>
-);
 
 const About = () => (
   <div>

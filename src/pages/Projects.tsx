@@ -2,6 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import ClosingCTA from "@/components/ClosingCTA";
+import SectionLabel from "@/components/SectionLabel";
 
 type Venture = {
   n: string;
@@ -42,12 +43,7 @@ const Projects = () => (
     {/* HERO */}
     <section className="bg-foreground text-background min-h-[78vh] flex flex-col">
       <div className="px-6 md:px-10 pt-32 md:pt-40 pb-20 md:pb-28 flex-1 flex flex-col justify-center max-w-[1280px] mx-auto w-full">
-        <Reveal>
-          <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-background/55 flex items-center gap-3">
-            <span className="block w-6 h-px bg-cinnabar" />
-            01 — Ventures
-          </div>
-        </Reveal>
+        <SectionLabel index="01" label="Ventures" tone="snow" />
         <Reveal delay={0.1}>
           <h1 className="mt-10 font-serif h-display-xl max-w-[18ch]">
             Studios build for clients. <em className="italic text-cinnabar">We build for ourselves, too.</em>

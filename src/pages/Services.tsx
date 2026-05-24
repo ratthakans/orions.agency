@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight, Check } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
+import SectionLabel from "@/components/SectionLabel";
 
 const packages = [
   {
@@ -126,12 +127,7 @@ const Services = () => (
     {/* HERO */}
     <section className="px-6 md:px-10 pt-32 md:pt-40 pb-16 md:pb-20">
       <div className="max-w-[1280px] mx-auto">
-        <Reveal>
-          <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
-            <span className="block w-6 h-px bg-cinnabar" />
-            01 — Packages
-          </div>
-        </Reveal>
+        <SectionLabel index="01" label="Packages" />
         <Reveal delay={0.1}>
           <h1 className="mt-10 font-serif h-display-xl max-w-[14ch]">
             3 ระดับ.<br />1 <em className="italic text-cinnabar">เป้าหมาย.</em>
@@ -308,12 +304,7 @@ const Services = () => (
     {/* ADD-ONS — editorial table */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-24 md:py-32">
-        <Reveal>
-          <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
-            <span className="block w-6 h-px bg-cinnabar" />
-            02 — Add-ons
-          </div>
-        </Reveal>
+        <SectionLabel index="02" label="Add-ons" />
         <Reveal delay={0.1}>
           <h2 className="mt-10 font-serif h-display-lg max-w-[16ch]">
             Beyond the<br /><em className="italic text-cinnabar">package.</em>

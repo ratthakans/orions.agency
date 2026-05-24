@@ -26,8 +26,8 @@ const Nav = () => {
   }, [open]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none">
-      <div className="px-6 md:px-10 h-[72px] flex items-center justify-between mix-blend-difference text-background pointer-events-auto">
+    <header className="fixed top-0 left-0 right-0 z-50">
+      <div className="px-6 md:px-10 h-[72px] flex items-center justify-between text-foreground" style={{ mixBlendMode: "difference", color: "hsl(var(--background))" }}>
         <Link to="/" className="font-brand text-[13px] md:text-[14px]">
           ØRIONS
         </Link>

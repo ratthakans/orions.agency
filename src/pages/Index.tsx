@@ -56,24 +56,6 @@ const servicesPreview = [
   { n: "iii.", tier: "Elite",   name: "Data-Strategy Lab",  price: "Start from ฿139,000", tag: "Become a name remembered." },
 ];
 
-const manifestoPoints = [
-  {
-    n: "i.",
-    en: "Cut the Excess",
-    th: "ในโลกที่ทุกคนตะโกนเหมือนกัน — เราเลือกที่จะเงียบลง เพื่อให้สิ่งที่พูดมีน้ำหนัก",
-  },
-  {
-    n: "ii.",
-    en: "Extract the Essence",
-    th: "เราหา signal ในกองของ noise — เพื่อให้ทุกชิ้นที่ออกไป มีเหตุผลที่อยู่ตรงนั้น",
-  },
-  {
-    n: "iii.",
-    en: "Refine the Story",
-    th: "เราคิดก่อนผลิต แก้ก่อนส่ง — ส่งมอบเฉพาะชิ้นที่เราภูมิใจให้แบรนด์ของคุณ",
-  },
-];
-
 const Index = () => (
   <div>
     <SEO

@@ -54,7 +54,7 @@ const CaseStudy = () => {
 
           {/* Meta strip */}
           <Reveal delay={0.24}>
-            <dl className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-6 border-t border-foreground/15 pt-8">
+            <dl className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-6 border-t border-foreground/15/15 pt-8">
               {[
                 { k: "Niche", v: cs.niche },
                 { k: "Scope", v: cs.scope },
@@ -95,8 +95,8 @@ const CaseStudy = () => {
       </section>
 
       {/* 03 — THE BRIEF */}
-      <section className="px-6 md:px-10 border-t border-foreground">
-        <div className="max-w-[1280px] mx-auto py-20 md:py-28 grid grid-cols-1 md:grid-cols-12 gap-10">
+      <section className="px-6 md:px-10 border-t border-foreground/15">
+        <div className="max-w-[1280px] mx-auto py-24 md:py-32 grid grid-cols-1 md:grid-cols-12 gap-10">
           <div className="md:col-span-4">
             <SectionLabel index="01" label="The Brief" />
           </div>
@@ -111,8 +111,8 @@ const CaseStudy = () => {
       </section>
 
       {/* 04 — APPROACH */}
-      <section className="px-6 md:px-10 border-t border-foreground">
-          <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+      <section className="px-6 md:px-10 border-t border-foreground/15">
+          <div className="max-w-[1280px] mx-auto py-24 md:py-32">
             <SectionLabel index="02" label="Approach" />
           <Reveal delay={0.05}>
             <h2 className="mt-10 font-serif h-display-md max-w-[20ch]">
@@ -142,8 +142,8 @@ const CaseStudy = () => {
 
       {/* 05 — GALLERY (only if >1 image) */}
       {cs.gallery.length > 1 && (
-        <section className="px-6 md:px-10 border-t border-foreground">
-          <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+        <section className="px-6 md:px-10 border-t border-foreground/15">
+          <div className="max-w-[1280px] mx-auto py-24 md:py-32">
             <SectionLabel index="03" label="Selected Frames" />
             <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               {cs.gallery.map((img, i) => (
@@ -169,7 +169,7 @@ const CaseStudy = () => {
       )}
 
       {/* 06 — RESULTS */}
-      <section className="px-6 md:px-10 border-t border-foreground/20 bg-background text-foreground">
+      <section className="px-6 md:px-10 border-t border-foreground/15/20 bg-background text-foreground">
         <div className="max-w-[1280px] mx-auto py-24 md:py-32">
           <SectionLabel index={cs.gallery.length > 1 ? "04" : "03"} label="Results" />
           <Reveal delay={0.05}>
@@ -178,7 +178,7 @@ const CaseStudy = () => {
             </h2>
           </Reveal>
 
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 border-t border-foreground/15 pt-12">
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 border-t border-foreground/15/15 pt-12">
             {cs.metrics.map((m, i) => (
               <Reveal key={i} delay={0.05 * i}>
                 <div>
@@ -197,10 +197,10 @@ const CaseStudy = () => {
 
       {/* 07 — NEXT */}
       {next && (
-        <section className="px-6 md:px-10 border-t border-foreground">
+        <section className="px-6 md:px-10 border-t border-foreground/15">
           <Link
             to={`/work/${next.slug}`}
-            className="group block max-w-[1280px] mx-auto py-20 md:py-28"
+            className="group block max-w-[1280px] mx-auto py-24 md:py-32"
           >
             <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
               Next case study —

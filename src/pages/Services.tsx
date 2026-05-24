@@ -130,7 +130,7 @@ const Services = () => (
         <SectionLabel index="01" label="Packages" />
         <Reveal delay={0.1}>
           <h1 className="mt-10 font-serif h-display-xl max-w-[14ch]">
-            3 ระดับ.<br />1 <em className="italic text-gradient-cinnabar">เป้าหมาย.</em>
+            3 ระดับ.<br />1 <em className="italic text-cinnabar">เป้าหมาย.</em>
           </h1>
         </Reveal>
         <Reveal delay={0.15}>
@@ -156,7 +156,7 @@ const Services = () => (
                 <div
                   key={b.label}
                   className={`group relative p-6 md:p-8 min-h-[140px] flex flex-col justify-between transition-colors duration-500 ${
-                    b.tone === "dark" ? "bg-foreground text-background" :
+                    b.tone === "dark" ? "bg-cinnabar text-background" :
                     b.tone === "mid"  ? "bg-foreground/[0.06]" :
                                         "bg-background"
                   } ${i > 0 ? "border-l border-foreground/20" : ""} hover:bg-cinnabar hover:text-background`}
@@ -191,7 +191,7 @@ const Services = () => (
       <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-3 border border-foreground/20">
         {packages.map((p, i) => (
           <Reveal key={p.tier} delay={i * 0.08}>
-            <div className={`relative p-10 md:p-12 h-full flex flex-col ${i > 0 ? "md:border-l border-foreground/20 border-t md:border-t-0" : ""} ${p.featured ? "bg-foreground text-background" : "bg-background"}`}>
+            <div className={`relative p-10 md:p-12 h-full flex flex-col ${i > 0 ? "md:border-l border-foreground/20 border-t md:border-t-0" : ""} ${p.featured ? "bg-surface text-foreground border-cinnabar" : "bg-background"}`}>
               {p.featured && (
                 <div className="absolute top-0 left-0 right-0 -translate-y-1/2 flex justify-center">
                   <span className="bg-cinnabar text-background font-mono text-[10px] tracking-[0.22em] uppercase px-4 py-2">
@@ -205,16 +205,16 @@ const Services = () => (
               <h3 className="mt-8 font-serif text-[36px] md:text-[42px] leading-[1] tracking-[-0.02em]">
                 {p.name[0]}<br /><em className="italic">{p.name[1]}</em>
               </h3>
-              <p className={`mt-5 font-serif italic text-[15px] md:text-[16px] leading-[1.5] ${p.featured ? "text-background/70" : "text-muted-foreground"}`}>
+              <p className={`mt-5 font-serif italic text-[15px] md:text-[16px] leading-[1.5] ${p.featured ? "text-foreground/70" : "text-muted-foreground"}`}>
                 {p.tagline}
               </p>
 
               <div className="mt-10 pt-8 border-t border-current/20">
-                <div className={`font-mono text-[10px] tracking-[0.22em] uppercase mb-3 ${p.featured ? "text-background/60" : "text-muted-foreground"}`}>
+                <div className={`font-mono text-[10px] tracking-[0.22em] uppercase mb-3 ${p.featured ? "text-foreground/60" : "text-muted-foreground"}`}>
                   Start from
                 </div>
                 <div className="font-serif text-[42px] md:text-[48px] tracking-[-0.025em] leading-none">{p.price}</div>
-                <div className={`mt-2 font-mono text-[10px] tracking-[0.18em] uppercase ${p.featured ? "text-background/60" : "text-muted-foreground"}`}>
+                <div className={`mt-2 font-mono text-[10px] tracking-[0.18em] uppercase ${p.featured ? "text-foreground/60" : "text-muted-foreground"}`}>
                   {p.sub}
                 </div>
                 <div className="mt-3 font-mono text-[10px] tracking-[0.18em] uppercase text-cinnabar">
@@ -226,13 +226,13 @@ const Services = () => (
                 {p.features.map((f) => (
                   <li key={f} className="flex gap-3 font-thai text-[14px] leading-[1.6]">
                     <Check className="w-4 h-4 mt-1 shrink-0 text-cinnabar" />
-                    <span className={p.featured ? "text-background/85" : "text-foreground/85"}>{f}</span>
+                    <span className="text-foreground/85">{f}</span>
                   </li>
                 ))}
               </ul>
 
               {/* Expanded detail groups */}
-              <div className={`mt-10 pt-8 border-t ${p.featured ? "border-background/20" : "border-foreground/15"} space-y-6`}>
+              <div className="mt-10 pt-8 border-t border-foreground/15 space-y-6">
                 {[
                   { label: "Deliverables / mo", value: p.deliverables },
                   { label: "Production",        value: p.production },
@@ -245,7 +245,7 @@ const Services = () => (
                       <span className="block w-4 h-px bg-cinnabar" />
                       {row.label}
                     </div>
-                    <p className={`mt-2 font-thai text-[13px] md:text-[14px] leading-[1.6] ${p.featured ? "text-background/85" : "text-foreground/80"}`}>
+                    <p className="mt-2 font-thai text-[13px] md:text-[14px] leading-[1.6] text-foreground/80">
                       {row.value}
                     </p>
                   </div>
@@ -256,8 +256,8 @@ const Services = () => (
                 to="/contact"
                 className={`mt-10 group inline-flex items-center justify-between gap-3 px-6 py-4 btn-label border transition-colors duration-300 ${
                   p.featured
-                    ? "border-cinnabar bg-cinnabar text-background hover:bg-background hover:text-foreground hover:border-background"
-                    : "border-foreground bg-foreground text-background hover:bg-cinnabar hover:border-cinnabar"
+                    ? "border-cinnabar bg-cinnabar text-background hover:opacity-90"
+                    : "border-foreground bg-background text-foreground hover:bg-cinnabar hover:text-background hover:border-cinnabar"
                 }`}
               >
                 <span>{p.cta}</span>
@@ -271,11 +271,11 @@ const Services = () => (
       {/* COMPARISON STRIP */}
       <Reveal delay={0.15}>
         <div className="max-w-[1280px] mx-auto mt-12 border border-foreground/20">
-          <div className="grid grid-cols-[1.2fr_1fr_1fr_1fr] bg-foreground text-background font-mono text-[10px] tracking-[0.22em] uppercase">
+          <div className="grid grid-cols-[1.2fr_1fr_1fr_1fr] bg-surface text-foreground font-mono text-[10px] tracking-[0.22em] uppercase border-b border-foreground/15">
             <div className="p-4 md:p-5">At a glance</div>
-            <div className="p-4 md:p-5 border-l border-background/20">Starter</div>
-            <div className="p-4 md:p-5 border-l border-background/20 text-cinnabar">Pro</div>
-            <div className="p-4 md:p-5 border-l border-background/20">Elite</div>
+            <div className="p-4 md:p-5 border-l border-foreground/15">Starter</div>
+            <div className="p-4 md:p-5 border-l border-foreground/15 text-cinnabar">Pro</div>
+            <div className="p-4 md:p-5 border-l border-foreground/15">Elite</div>
           </div>
           {compareRows.map((row, i) => (
             <div
@@ -380,7 +380,7 @@ const Services = () => (
             </div>
             <Link
               to="/contact"
-              className="group inline-flex items-center justify-between gap-4 px-7 py-4 btn-label border border-foreground bg-foreground text-background hover:bg-cinnabar hover:border-cinnabar transition-colors duration-300 shrink-0"
+              className="group inline-flex items-center justify-between gap-4 px-7 py-4 btn-label border border-cinnabar bg-cinnabar text-background hover:opacity-90 transition-opacity duration-300 shrink-0"
             >
               <span>Get a Quote</span>
               <ArrowUpRight className="w-4 h-4" />

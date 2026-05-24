@@ -169,23 +169,23 @@ const CaseStudy = () => {
       )}
 
       {/* 06 — RESULTS */}
-      <section className="px-6 md:px-10 border-t border-foreground bg-foreground text-background">
+      <section className="px-6 md:px-10 border-t border-foreground/20 bg-background text-foreground">
         <div className="max-w-[1280px] mx-auto py-24 md:py-32">
-          <SectionLabel index={cs.gallery.length > 1 ? "04" : "03"} label="Results" tone="snow" />
+          <SectionLabel index={cs.gallery.length > 1 ? "04" : "03"} label="Results" />
           <Reveal delay={0.05}>
             <h2 className="mt-10 font-serif h-display-lg max-w-[20ch]">
               Numbers we <em className="italic text-cinnabar">stand by.</em>
             </h2>
           </Reveal>
 
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 border-t border-background/15 pt-12">
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 border-t border-foreground/15 pt-12">
             {cs.metrics.map((m, i) => (
               <Reveal key={i} delay={0.05 * i}>
                 <div>
                   <div className="font-serif italic text-cinnabar text-[64px] md:text-[96px] leading-[1] tracking-[-0.04em] tabular-nums">
                     {m.value}
                   </div>
-                  <div className="mt-4 font-mono text-[10px] tracking-[0.22em] uppercase text-background/55">
+                  <div className="mt-4 font-mono text-[10px] tracking-[0.22em] uppercase text-foreground/55">
                     {m.label}
                   </div>
                 </div>

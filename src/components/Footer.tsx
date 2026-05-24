@@ -44,7 +44,7 @@ const Footer = () => {
             <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-foreground/55 mb-5">— ØRIONS · BANGKOK</p>
             <a
               href="mailto:hello@orions.agency"
-              className="font-serif italic text-[28px] md:text-[44px] tracking-[-0.015em] hover:text-gradient-cinnabar transition-colors"
+              className="font-serif italic text-[28px] md:text-[44px] tracking-[-0.015em] hover:text-cinnabar transition-colors"
             >
               hello@orions.agency
             </a>
@@ -61,7 +61,7 @@ const Footer = () => {
         {/* 3 columns */}
         <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-10">
           <div>
-            <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-gradient-cinnabar mb-5">— Contact</div>
+            <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar mb-5">— Contact</div>
             <ul className="space-y-2 font-thai text-[13px] leading-[1.7] text-foreground/85">
               <li><a href="mailto:hello@orions.agency" className="hover:text-cinnabar transition-colors">hello@orions.agency</a></li>
               <li><a href="tel:+66923905464" className="hover:text-cinnabar transition-colors">+66 92 390 5464</a></li>
@@ -71,7 +71,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-gradient-cinnabar mb-5">— Studio</div>
+            <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar mb-5">— Studio</div>
             <p className="font-thai text-[13px] leading-[1.7] text-foreground/85">
               246/8 Soi Yothin Pattana 3<br />
               Khlong Chan, Bang Kapi<br />
@@ -83,7 +83,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-gradient-cinnabar mb-5">— Index</div>
+            <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar mb-5">— Index</div>
             <ul className="space-y-2 btn-label">
               {navLinks.map((l) => (
                 <li key={l.to}>
@@ -94,7 +94,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-gradient-cinnabar mb-5">— Elsewhere</div>
+            <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar mb-5">— Elsewhere</div>
             <ul className="space-y-2 btn-label">
               {socials.map((s) => (
                 <li key={s.label}>

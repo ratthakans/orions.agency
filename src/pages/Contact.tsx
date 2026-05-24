@@ -74,7 +74,7 @@ const Contact = () => {
           <SectionLabel index="01" label="Inquiry" />
           <Reveal delay={0.05}>
             <h1 className="mt-10 font-serif h-display-xl max-w-[14ch]">
-              Tell us about <em className="italic text-gradient-cinnabar">the brand.</em>
+              Tell us about <em className="italic text-cinnabar">the brand.</em>
             </h1>
           </Reveal>
           <Reveal delay={0.08}>
@@ -166,7 +166,7 @@ const Contact = () => {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="md:col-span-2 mt-4 inline-flex items-center justify-center gap-3 bg-foreground text-background px-7 py-4 btn-label hover:bg-cinnabar transition-colors disabled:opacity-50"
+                    className="md:col-span-2 mt-4 inline-flex items-center justify-center gap-3 bg-cinnabar text-background px-7 py-4 btn-label hover:opacity-90 transition-opacity disabled:opacity-50"
                   >
                     <span>{submitting ? "Sending…" : "Send inquiry"}</span>
                     <ArrowUpRight className="w-4 h-4" />

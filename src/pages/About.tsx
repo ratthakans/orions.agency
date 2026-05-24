@@ -61,35 +61,35 @@ const About = () => (
       path="/about"
     />
 
-    {/* 01 — MANIFESTO (dark hero) */}
-    <section className="bg-foreground text-background min-h-[88vh] flex flex-col">
+    {/* 01 — MANIFESTO */}
+    <section className="bg-background text-foreground min-h-[88vh] flex flex-col border-b border-foreground/15">
       <div className="px-6 md:px-10 pt-32 md:pt-40 pb-20 md:pb-28 flex-1 flex flex-col justify-center max-w-[1280px] mx-auto w-full">
-        <SectionLabel index="01" label="Manifesto" tone="snow" />
+        <SectionLabel index="01" label="Manifesto" />
         <Reveal delay={0.1}>
           <h1 className="mt-10 font-serif h-display-xl">
-            The New <em className="italic text-gradient-cinnabar">Landscape.</em>
+            The New <em className="italic text-cinnabar">Landscape.</em>
           </h1>
         </Reveal>
         <Reveal delay={0.15}>
-          <p className="mt-6 font-serif italic text-[16px] md:text-[20px] text-background/60">
+          <p className="mt-6 font-serif italic text-[16px] md:text-[20px] text-foreground/60">
             Independent editorial studio. Bangkok. — Boutique Creative Agency.
           </p>
         </Reveal>
         <Reveal delay={0.2}>
-          <p className="mt-10 max-w-[640px] font-thai text-[16px] md:text-[18px] leading-[1.7] text-background/70">
+          <p className="mt-10 max-w-[640px] font-thai text-[16px] md:text-[18px] leading-[1.7] text-foreground/70">
             โลกออนไลน์วันนี้ ขับเคลื่อนด้วย 3 ความจริงที่ทำให้ Generic Content ตายไปแล้ว
           </p>
         </Reveal>
       </div>
 
       <div className="px-6 md:px-10 pb-24 max-w-[1280px] mx-auto w-full">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 border-t border-background/20 pt-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 border-t border-foreground/20 pt-12">
           {pains.map((p, i) => (
             <Reveal key={p.en} delay={i * 0.08}>
               <div>
                 <div className="font-serif italic text-cinnabar text-[18px] mb-6">{p.n}</div>
                 <h3 className="font-serif text-[28px] leading-[1.1] tracking-[-0.02em]">{p.en}</h3>
-                <p className="mt-4 font-thai text-[15px] leading-[1.65] text-background/65">{p.th}</p>
+                <p className="mt-4 font-thai text-[15px] leading-[1.65] text-foreground/65">{p.th}</p>
               </div>
             </Reveal>
           ))}
@@ -238,7 +238,7 @@ const About = () => (
           <div className="flex flex-wrap items-center gap-5">
             <Link
               to="/services"
-              className="group inline-flex items-center gap-3 bg-gradient-cinnabar text-background px-7 py-4 btn-label hover:opacity-90 transition-opacity duration-300"
+              className="group inline-flex items-center gap-3 bg-cinnabar text-background px-7 py-4 btn-label hover:opacity-90 transition-opacity duration-300"
             >
               <span>See packages</span>
               <ArrowUpRight className="w-4 h-4" />

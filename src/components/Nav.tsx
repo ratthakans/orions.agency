@@ -4,6 +4,7 @@ const links = [
   { label: "About", to: "/about" },
   { label: "Services", to: "/services" },
   { label: "Work", to: "/work" },
+  { label: "Ventures", to: "/projects" },
   { label: "Diagnostic", to: "/diagnostic" },
 ];
 
@@ -30,7 +31,7 @@ const Nav = () => (
         ))}
         <Link
           to="/contact"
-          className="font-mono text-[11px] tracking-[0.22em] uppercase bg-gradient-cinnabar text-background px-4 py-2 hover:opacity-90 transition-opacity"
+          className="font-mono text-[11px] tracking-[0.22em] uppercase bg-cinnabar text-background px-4 py-2 hover:opacity-90 transition-opacity"
         >
           Contact →
         </Link>
@@ -38,7 +39,7 @@ const Nav = () => (
 
       <Link
         to="/contact"
-        className="md:hidden font-mono text-[10px] tracking-[0.22em] uppercase bg-gradient-cinnabar text-background px-3 py-2"
+        className="md:hidden font-mono text-[10px] tracking-[0.22em] uppercase bg-cinnabar text-background px-3 py-2"
       >
         Contact →
       </Link>

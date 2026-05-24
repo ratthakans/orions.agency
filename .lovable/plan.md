@@ -1,52 +1,58 @@
 ## Scope
+Four fixes to the dark editorial site: kill the gradient accent, eliminate every white/snow-on-dark section, surface ØRIONS Ventures as a home-page section, and add creative-agency texture (capabilities, process, studio reel) without breaking the editorial system.
 
-Site-wide polish anchored on the home page. Boutique editorial framing: "Independent editorial studio. Bangkok. Boutique Creative Agency."
+## 1. Remove Cinnabar gradient — solid accent everywhere
+- `src/index.css`: keep `--accent` (Cinnabar #EB5939) but **delete** `.bg-gradient-cinnabar` and `.text-gradient-cinnabar` utilities.
+- Replace every `text-gradient-cinnabar` → `text-cinnabar` and every `bg-gradient-cinnabar` → `bg-cinnabar` across:
+  - `src/components/Nav.tsx` (2 CTAs)
+  - `src/components/Footer.tsx` (email hover + 4 mono labels)
+  - `src/pages/Index.tsx` (hero "refined.", "considered.", Contact CTA, CTA tile, "One refined system.", diagnostic CTAs)
+  - `src/pages/About.tsx`, `Services.tsx`, `Work.tsx`, `Contact.tsx` (italic accents + primary buttons)
 
-## Changes
+## 2. All-dark — no white/snow sections
+Currently several sections invert to snow background (`bg-foreground text-background`). Flip every one back to the dark page tone with hairline structure instead:
 
-### 1. Home (`src/pages/Index.tsx`)
-- **Remove** the MINI MANIFESTO section entirely (the `manifestoPoints` block, section index 01).
-- **Move** the APPROACH section into its place as section **01**, directly under the hero. Keep prose, italic Cinnabar accent, link to `/approach`.
-- **Renumber** remaining sections: Selected Work → 02, Trusted → 03, Packages → 04, Diagnostic → 05.
-- **Hero subtitle**: update to "Independent editorial studio. Bangkok. — Boutique Creative Agency."
+- `src/pages/Services.tsx` lines 159, 194, 260, 274, 289, 383 — featured pricing card, comparison header, sticky CTA: swap `bg-foreground text-background` → `bg-surface text-foreground` with `border border-foreground/15`; hover stays `bg-cinnabar`.
+- `src/pages/Index.tsx` line 296 (featured pricing tier) — same treatment.
+- `src/pages/About.tsx` line 65 (hero band) — remove inversion, use page bg + bigger type.
+- `src/pages/CaseStudy.tsx` line 172 (closing band) — same.
+- `src/pages/HealthCheck.tsx` line 435 (result card) — `bg-surface` + hairline.
+- `src/pages/Contact.tsx` line 169 (submit btn) — `bg-cinnabar` instead of inverted snow.
+- `src/pages/Projects.tsx` lines 44, 70 — hero + card hover: dark with Cinnabar hover accents.
+- Keep `bg-foreground/15` divider lines (those are hairlines, not white slabs).
 
-### 2. Selected Work — B&W with color on hover (`src/pages/Index.tsx`)
-- All four tiles (Hongmove, RTAF, Democrat, CTA) become **grayscale by default**, transitioning to full color on hover.
-- Apply `grayscale group-hover:grayscale-0 transition-[filter,opacity] duration-700` to `<img>` tags; raise opacity on hover.
-- Tighten bento grid composition for better balance: re-check row spans so the CTA tile and Democrat tile align cleanly on the bottom row (no awkward gaps at 1377px viewport).
-- Add a hairline meta row above the grid: counter `01 / 03` and "Drag · Scroll" rhythm cue (static, no JS).
+## 3. Bring back Ventures
+ØRIONS Ventures already exists at `/projects` (route `/ventures` redirects there). Two changes:
 
-### 3. Cinnabar → Gradient accent (`src/index.css`)
-- Add a new utility `--gradient-cinnabar: linear-gradient(135deg, hsl(11 81% 57%), hsl(22 90% 62%), hsl(35 92% 60%))` (Cinnabar → warm coral → amber).
-- Add `.bg-gradient-cinnabar` and `.text-gradient-cinnabar` (background-clip text) utilities.
-- Apply to: hero italic accents (`Stories, refined.`), section-headline italic accents across pages, primary CTA buttons (Contact pill, "Start a project"), Selected-Work CTA tile background, accent dots.
-- Keep `.text-cinnabar` / `.bg-cinnabar` as solid fallbacks for hairlines, small labels, mono accents (where gradient would be illegible).
+- **Nav**: add `Ventures → /projects` between Work and Diagnostic in `src/components/Nav.tsx`.
+- **Home**: add a new section `03 — Ventures` on `src/pages/Index.tsx` directly after Selected Work, before Trusted. Renumber Trusted→04, Packages→05, Diagnostic→06. Section shows 2–3 venture tiles (pulled from `src/pages/Projects.tsx` `ventures` array) in a 2-col layout with title, one-line description, "Visit →" external link + "View ventures →" link to `/projects`. Copy framing: *"Studios build for clients. We build for ourselves, too."*
 
-### 4. Navbar — opaque (`src/components/Nav.tsx`)
-- Replace transparent header with **solid `bg-background` + bottom hairline** (`border-b border-foreground/10`).
-- Keep current inline-links layout, brand left, contact CTA right.
-- Contact CTA uses new `.bg-gradient-cinnabar`.
+## 4. More creative-agency feel
+Add three editorial-agency moves without bloating the system:
 
-### 5. Footer — black (`src/components/Footer.tsx`)
-- Currently uses `bg-foreground text-background` (snow-on-black-on-white inversion). Since the site is already dark, flip to **`bg-black text-foreground`** (pure #000) so the footer reads as a distinct deeper-black slab vs. the #0E0E0E page background.
-- Adjust all `text-background/...` → `text-foreground/...`, `border-background/...` → `border-foreground/...`.
-- Cinnabar mono labels switch to gradient text where they appear as headings ("— Contact", "— Studio", "— Index", "— Elsewhere").
-- Email headline keeps gradient hover treatment.
+- **Capabilities strip** (new section on home, between Approach and Selected Work, index `02 — Capabilities`): 4-column hairline grid listing service disciplines — *Brand Strategy · Editorial Design · Content Systems · Performance Loops*. Each cell: serif label + 2-line description in mono. No icons.
+- **Process ribbon** (small horizontal strip inside Approach section): 4 mono steps — `01 Listen · 02 Diagnose · 03 Refine · 04 Compound`. Replaces the bare prose-only feel without re-introducing the removed 6:3:1 process.
+- **Studio status bar refresh** (`src/components/Footer.tsx` top or pre-footer): add a thin "Now / Next / Available" line — currently editing, next opening, booking window — to telegraph live agency activity.
+- **Selected Work**: add a small "View all 12 projects →" link under the bento grid pointing to `/work`.
 
-### 6. Cross-page consistency
-- **Subtitle/positioning line** "Independent editorial studio. Bangkok. — Boutique Creative Agency" added to: `About.tsx` (page hero), `Services.tsx` (page hero), `Work.tsx` (page hero), `Contact.tsx` (page hero). One line, mono or serif italic, just below page H1.
-- All page heroes use the same `font-serif h-display-lg/xl` rhythm and italic-gradient accent.
-- All "Contact →" CTAs and primary buttons across pages adopt `.bg-gradient-cinnabar`.
-- Verify `border-foreground/12` hairline is consistent on section dividers across `About`, `Services`, `Work`, `Contact`, `HealthCheck`, `CaseStudy`.
+Renumbered home sections after all changes:
+```
+HERO
+01 — Approach (+ process ribbon)
+02 — Capabilities
+03 — Selected Work
+04 — Ventures
+05 — Trusted
+06 — Packages
+07 — Diagnostic
+```
 
 ## Files to edit
-
-- `src/index.css` — gradient utility + token wiring
-- `src/components/Nav.tsx` — opaque bg + gradient CTA
-- `src/components/Footer.tsx` — pure black bg, token swap
-- `src/pages/Index.tsx` — remove Manifesto, promote Approach, B&W bento, gradient accents, renumber
-- `src/pages/About.tsx`, `Services.tsx`, `Work.tsx`, `Contact.tsx` — subtitle + gradient CTA consistency
+- `src/index.css` — remove gradient utilities
+- `src/components/Nav.tsx` — solid Cinnabar CTA, add Ventures link
+- `src/components/Footer.tsx` — solid Cinnabar labels, status line
+- `src/pages/Index.tsx` — gradient→solid, Capabilities + Ventures sections, process ribbon, renumber
+- `src/pages/About.tsx`, `Services.tsx`, `Work.tsx`, `Contact.tsx`, `Projects.tsx`, `CaseStudy.tsx`, `HealthCheck.tsx` — gradient→solid + remove snow inversions
 
 ## Out of scope
-- No routing changes, no new components, no copy rewrites beyond the subtitle line and section renumbering.
-- No motion/library additions.
+- No new routes, no copy rewrite beyond the additions above, no motion library changes, no design-token color changes besides removing two utilities.

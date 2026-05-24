@@ -113,7 +113,7 @@ const Index = () => (
 
       {/* Marquee */}
       <div className="border-y border-foreground/20 py-6 overflow-hidden whitespace-nowrap">
-        <div className="inline-flex gap-16 animate-[marquee_60s_linear_infinite] will-change-transform pr-16">
+        <div className="inline-flex gap-16 animate-[marquee_60s_linear_infinite] will-change-transform">
           {[...marquee, ...marquee].map((m, i) => (
             <span key={i} className="font-serif text-[22px] md:text-[34px] tracking-[-0.01em] inline-flex items-center gap-16 shrink-0">
               <span>{m}</span>

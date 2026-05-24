@@ -16,21 +16,21 @@ const promises = [
 ];
 
 const pillars = [
-  { sym: "◐", en: "Craft",    th: "งานทุกชิ้นผ่านมือคน ไม่ใช่สายพาน — ตรวจสอบ กลั่นกรอง และส่งมอบเฉพาะชิ้นที่เราภูมิใจ" },
-  { sym: "◑", en: "Strategy", th: "ทุกชิ้นมีเหตุผลที่อยู่ตรงนั้น — เริ่มจาก Data, ผ่าน Brand Voice, ไปสู่ Audience ที่ใช่" },
-  { sym: "◒", en: "Story",    th: "เรื่องเล่าที่ทำให้แบรนด์คุณถูกจดจำ — ไม่ใช่แค่ engagement แต่คือ long-term bond" },
+  { sym: "i.",   en: "Craft",    th: "งานทุกชิ้นผ่านมือคน ไม่ใช่สายพาน — ตรวจสอบ กลั่นกรอง และส่งมอบเฉพาะชิ้นที่เราภูมิใจ" },
+  { sym: "ii.",  en: "Strategy", th: "ทุกชิ้นมีเหตุผลที่อยู่ตรงนั้น — เริ่มจาก Data, ผ่าน Brand Voice, ไปสู่ Audience ที่ใช่" },
+  { sym: "iii.", en: "Story",    th: "เรื่องเล่าที่ทำให้แบรนด์คุณถูกจดจำ — ไม่ใช่แค่ engagement แต่คือ long-term bond" },
 ];
 
 const data = [
-  { sym: "◐", en: "ฟังคน",   th: "Audience Insights จาก Meta + Google + Social Listening — เพื่อรู้ว่าใครคือกลุ่มเป้าหมายจริง ไม่ใช่ที่เราคิดว่าใช่" },
-  { sym: "◑", en: "ฟังตลาด", th: "Competitor Content Analysis + Trend Mapping ใน niche ของคุณ — เพื่อรู้ว่าคู่แข่งพูดอะไร และเราต้องพูดต่างยังไง" },
-  { sym: "◒", en: "ฟังตัวเลข", th: "Performance Loop ที่ปรับ creative ตาม data จริง — ทุกชิ้นที่ส่งไป กลับมาเป็น insight สำหรับชิ้นต่อไป" },
+  { sym: "i.",   en: "ฟังคน",   th: "Audience Insights จาก Meta + Google + Social Listening — เพื่อรู้ว่าใครคือกลุ่มเป้าหมายจริง ไม่ใช่ที่เราคิดว่าใช่" },
+  { sym: "ii.",  en: "ฟังตลาด", th: "Competitor Content Analysis + Trend Mapping ใน niche ของคุณ — เพื่อรู้ว่าคู่แข่งพูดอะไร และเราต้องพูดต่างยังไง" },
+  { sym: "iii.", en: "ฟังตัวเลข", th: "Performance Loop ที่ปรับ creative ตาม data จริง — ทุกชิ้นที่ส่งไป กลับมาเป็น insight สำหรับชิ้นต่อไป" },
 ];
 
 const beyond = [
-  { sym: "◐", en: "Signature Campaign", th: "Big idea ที่ทำงานข้าม 6:3:1 Loop ทั้งหมด — เปลี่ยนเดือนธรรมดา ให้เป็นช่วงเวลาที่แบรนด์เป็นที่จดจำ" },
-  { sym: "◑", en: "Audience Lifecycle", th: "จาก awareness → trust → purchase → loyalty — แต่ละ stage เราออกแบบ message ที่ใช่" },
-  { sym: "◒", en: "Long-term Bond",     th: "เพราะการได้ลูกค้าใหม่ ต้นทุน 5 เท่าของรักษาลูกค้าเก่า — เราสร้างความสัมพันธ์ที่อยู่ได้ยาว" },
+  { sym: "i.",   en: "Signature Campaign", th: "Big idea ที่ทำงานข้าม 6:3:1 Loop ทั้งหมด — เปลี่ยนเดือนธรรมดา ให้เป็นช่วงเวลาที่แบรนด์เป็นที่จดจำ" },
+  { sym: "ii.",  en: "Audience Lifecycle", th: "จาก awareness → trust → purchase → loyalty — แต่ละ stage เราออกแบบ message ที่ใช่" },
+  { sym: "iii.", en: "Long-term Bond",     th: "เพราะการได้ลูกค้าใหม่ ต้นทุน 5 เท่าของรักษาลูกค้าเก่า — เราสร้างความสัมพันธ์ที่อยู่ได้ยาว" },
 ];
 
 // Team — roles only for now (names kept in comments for future reference)
@@ -148,7 +148,7 @@ const About = () => (
           {pillars.map((p, i) => (
             <Reveal key={p.en} delay={i * 0.06}>
               <div className={`py-8 md:py-10 md:px-8 flex items-baseline gap-5 ${i > 0 ? "md:border-l border-foreground/20 border-t md:border-t-0" : ""}`}>
-                <div className="text-cinnabar text-[28px] leading-none shrink-0">{p.sym}</div>
+                <div className="font-serif italic text-cinnabar text-[22px] leading-none shrink-0 w-10">{p.sym}</div>
                 <div>
                   <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">Pillar 0{i + 1}</div>
                   <h3 className="mt-2 font-serif text-[24px] md:text-[28px] leading-[1.1] tracking-[-0.02em]">{p.en}</h3>
@@ -163,7 +163,7 @@ const About = () => (
           {data.map((d, i) => (
             <Reveal key={d.en} delay={i * 0.08}>
               <div className={`p-10 md:p-12 bg-background ${i > 0 ? "md:border-l border-foreground/20 border-t md:border-t-0" : ""}`}>
-                <div className="text-cinnabar text-[36px] leading-none">{d.sym}</div>
+                <div className="font-serif italic text-cinnabar text-[26px] leading-none">{d.sym}</div>
                 <h3 className="mt-10 font-serif text-[26px] md:text-[30px] leading-[1.1] tracking-[-0.02em]">{d.en}</h3>
                 <p className="mt-5 font-thai text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">{d.th}</p>
               </div>
@@ -193,7 +193,7 @@ const About = () => (
           {beyond.map((b, i) => (
             <Reveal key={b.en} delay={i * 0.08}>
               <div className={`p-10 md:p-12 ${i > 0 ? "md:border-l border-foreground/20 border-t md:border-t-0" : ""}`}>
-                <div className="text-cinnabar text-[36px] leading-none">{b.sym}</div>
+                <div className="font-serif italic text-cinnabar text-[26px] leading-none">{b.sym}</div>
                 <h3 className="mt-10 font-serif text-[26px] md:text-[30px] leading-[1.1] tracking-[-0.02em]">{b.en}</h3>
                 <p className="mt-5 font-thai text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">{b.th}</p>
               </div>

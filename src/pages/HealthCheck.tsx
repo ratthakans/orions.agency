@@ -38,10 +38,10 @@ const questions: Q[] = [
 ];
 
 const scale = [
-  { sym: "◌", label: "ไม่ใช่เลย",   roman: "i.",   points: 1 },
-  { sym: "◔", label: "บางส่วน",     roman: "ii.",  points: 2 },
-  { sym: "◑", label: "ส่วนใหญ่",    roman: "iii.", points: 3 },
-  { sym: "●", label: "ใช่เต็มที่",  roman: "iv.",  points: 4 },
+  { sym: "i.",   label: "ไม่ใช่เลย",   roman: "i.",   points: 1 },
+  { sym: "ii.",  label: "บางส่วน",     roman: "ii.",  points: 2 },
+  { sym: "iii.", label: "ส่วนใหญ่",    roman: "iii.", points: 3 },
+  { sym: "iv.",  label: "ใช่เต็มที่",  roman: "iv.",  points: 4 },
 ];
 
 const tierFor = (pct: number) => {
@@ -125,7 +125,7 @@ const axisVerdict = (axisIdx: number, pct: number) => {
 const recommendPackage = (pct: number) => {
   if (pct >= 75) {
     return {
-      tier: "◒ Elite",
+      tier: "iii. Elite",
       name: "Data-Strategy Lab",
       price: "Start from ฿139,000",
       why: "คุณ refined แล้ว — Elite เปิด layer ของ Creative Lab + Brand Film + Industry Exclusivity เพื่อสร้าง legacy ระดับอุตสาหกรรม",
@@ -133,14 +133,14 @@ const recommendPackage = (pct: number) => {
   }
   if (pct >= 45) {
     return {
-      tier: "◑ Pro · Most Popular",
+      tier: "ii. Pro · Most Popular",
       name: "Data-Tested Loops",
       price: "Start from ฿69,000",
       why: "ฐานคุณดี — Pro จะ sharpen creative ด้วย A/B testing, Quarterly Campaign และ Ads management เพื่อทะลุ noise ในตลาด",
     };
   }
   return {
-    tier: "◐ Starter",
+    tier: "i. Starter",
     name: "Data-Informed Loop",
     price: "Start from ฿35,000",
     why: "เริ่มจาก foundation ก่อน — Starter วาง Content Loop ครบวงจร + Brand Audit เพื่อสร้าง rhythm และ clarity",

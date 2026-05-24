@@ -5,7 +5,7 @@ import SEO from "@/components/SEO";
 
 const packages = [
   {
-    tier: "◐ Starter",
+    tier: "i. Starter",
     name: ["Data-Informed", "Loop"],
     tagline: "For brands taking their first refined steps.",
     price: "฿35,000",
@@ -29,7 +29,7 @@ const packages = [
     featured: false,
   },
   {
-    tier: "◑ Pro · Most Popular",
+    tier: "ii. Pro · Most Popular",
     name: ["Data-Tested", "Loops"],
     tagline: "For brands ready to cut through the noise.",
     price: "฿69,000",
@@ -54,7 +54,7 @@ const packages = [
     featured: true,
   },
   {
-    tier: "◒ Elite",
+    tier: "iii. Elite",
     name: ["Data-Strategy", "Lab"],
     tagline: "For brands becoming a name remembered.",
     price: "฿139,000",

@@ -3,6 +3,24 @@ import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
+
+const Laurel = ({ side }: { side: "left" | "right" }) => (
+  <svg
+    aria-hidden
+    viewBox="0 0 40 60"
+    className={`w-5 h-7 md:w-6 md:h-8 opacity-50 ${side === "right" ? "scale-x-[-1]" : ""}`}
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1"
+    strokeLinecap="round"
+  >
+    <path d="M28 4 C 16 14, 12 28, 16 44 C 18 52, 22 56, 28 58" />
+    <path d="M26 12 q -8 2 -10 8" />
+    <path d="M22 22 q -8 2 -10 8" />
+    <path d="M20 34 q -8 2 -10 8" />
+    <path d="M22 46 q -6 2 -8 6" />
+  </svg>
+);
 import workHongmove from "@/assets/hongmove.png";
 import workRtaf from "@/assets/rtaf.jpg";
 import workDemocrat from "@/assets/democrat.jpg";

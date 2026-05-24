@@ -42,7 +42,10 @@ const Footer = () => {
             </a>
           </div>
           <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-background/55 text-right">
-            <div className="text-background">● BKK {bkkTime} ICT</div>
+            <div className="text-background inline-flex items-center gap-2 justify-end">
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-cinnabar" aria-hidden />
+              BKK {bkkTime} ICT
+            </div>
             <div className="mt-1">Reply within 24h · Mon–Fri</div>
           </div>
         </div>

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight, RotateCcw } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
+import SectionLabel from "@/components/SectionLabel";
 
 /* 6 axes, 3 questions each = 18 questions */
 const axes = [
@@ -200,14 +201,9 @@ const HealthCheck = () => {
       {/* HERO */}
       <section className="px-6 md:px-10 pt-32 md:pt-40 pb-16">
         <div className="max-w-[1080px] mx-auto">
-          <Reveal>
-            <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
-              <span className="block w-6 h-px bg-cinnabar" />
-              01 — The Diagnostic
-            </div>
-          </Reveal>
+          <SectionLabel index="01" label="The Diagnostic" />
           <Reveal delay={0.1}>
-            <h1 className="mt-10 font-serif h-display-lg max-w-[18ch]">
+            <h1 className="mt-10 font-serif h-display-xl max-w-[18ch]">
               ที่คุณทำอยู่ —<br /><em className="italic text-cinnabar">ดีพอแล้ว</em> หรือยัง?
             </h1>
           </Reveal>
@@ -234,23 +230,15 @@ const HealthCheck = () => {
             </div>
           </div>
 
-          {/* Progress */}
-          <div className="mt-5 h-px bg-foreground/10 overflow-hidden">
-            <div
-              className="h-full bg-cinnabar transition-all duration-500"
-              style={{ width: `${progress}%` }}
-            />
-          </div>
-
-          {/* Axis dots */}
-          <div className="mt-4 flex gap-[6px]">
+          {/* Axis progress — single hairline segment row */}
+          <div className="mt-5 flex gap-[6px]">
             {axes.map((_, i) => {
               const completed = isResult || i < (q?.axis ?? 0);
               const active = !isResult && i === q!.axis;
               return (
                 <div
                   key={i}
-                  className={`flex-1 h-[3px] ${active ? "bg-cinnabar" : completed ? "bg-cinnabar/50" : "bg-foreground/15"}`}
+                  className={`flex-1 h-px ${active ? "bg-cinnabar" : completed ? "bg-cinnabar/50" : "bg-foreground/15"}`}
                 />
               );
             })}
@@ -274,17 +262,16 @@ const HealthCheck = () => {
                       key={s.points}
                       type="button"
                       onClick={() => select(s.points)}
-                      className={`flex flex-col items-center gap-3 px-4 py-6 border transition-all duration-300 ${
+                      className={`flex flex-col items-center gap-3 px-4 py-6 border transition-colors duration-300 ${
                         selected
-                          ? "border-cinnabar bg-cinnabar/10 -translate-y-0.5"
-                          : "border-foreground/20 hover:border-cinnabar hover:-translate-y-0.5"
+                          ? "border-cinnabar bg-cinnabar/10"
+                          : "border-foreground/15 hover:border-cinnabar"
                       }`}
                     >
-                      <span className={`text-[26px] leading-none ${selected ? "text-cinnabar scale-110" : "text-cinnabar/70"} transition-transform`}>
-                        {s.sym}
+                      <span className={`font-serif italic text-[22px] leading-none ${selected ? "text-cinnabar" : "text-cinnabar/70"}`}>
+                        {s.roman}
                       </span>
                       <span className="font-thai text-[13px] font-medium">{s.label}</span>
-                      <span className="font-serif italic text-[11px] text-muted-foreground">{s.roman}</span>
                     </button>
                   );
                 })}

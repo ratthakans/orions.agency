@@ -369,21 +369,26 @@ const Index = () => (
       <div className="max-w-[1280px] mx-auto py-24 md:py-32">
         <SectionLabel index="05" label="Trusted" />
 
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
-          {testimonials.map((t, i) => (
-            <Reveal key={i} delay={i * 0.1}>
-              <figure className="border-t border-foreground/20 pt-8">
-                <span className="font-serif italic text-cinnabar text-[48px] leading-none">"</span>
-                <blockquote className="mt-2 font-serif text-[24px] md:text-[30px] leading-[1.25] tracking-[-0.015em]">
-                  {t.quote}
-                </blockquote>
-                <figcaption className="mt-8 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
-                  <span className="text-foreground">{t.name}</span> — {t.org}
-                </figcaption>
-              </figure>
-            </Reveal>
-          ))}
-        </div>
+        <Reveal delay={0.1}>
+          <div className="mt-16 group relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+            <div className="flex gap-6 md:gap-8 w-max animate-[marquee_60s_linear_infinite] group-hover:[animation-play-state:paused]">
+              {[...testimonials, ...testimonials].map((t, i) => (
+                <figure
+                  key={i}
+                  className="shrink-0 w-[340px] md:w-[440px] border-t border-foreground/20 pt-8"
+                >
+                  <span className="font-serif italic text-cinnabar text-[48px] leading-none">"</span>
+                  <blockquote className="mt-2 font-serif text-[20px] md:text-[24px] leading-[1.3] tracking-[-0.015em]">
+                    {t.quote}
+                  </blockquote>
+                  <figcaption className="mt-8 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
+                    <span className="text-foreground">{t.name}</span> — {t.org}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </Reveal>
 
         <Reveal delay={0.2}>
           <div className="mt-20 border-t border-foreground/20 pt-10">
@@ -416,7 +421,7 @@ const Index = () => (
         <SectionLabel index="06" label="Packages" />
         <Reveal delay={0.1}>
           <h2 className="mt-10 font-serif h-display-md max-w-[20ch]">
-            Three tiers. <em className="italic text-cinnabar">One refined system.</em>
+            Three tiers.<br /><em className="italic text-cinnabar">One refined system.</em>
           </h2>
         </Reveal>
 

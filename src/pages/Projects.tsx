@@ -41,16 +41,16 @@ const Projects = () => (
     />
 
     {/* HERO */}
-    <section className="bg-foreground text-background min-h-[78vh] flex flex-col">
+    <section className="bg-background text-foreground min-h-[78vh] flex flex-col border-b border-foreground/15">
       <div className="px-6 md:px-10 pt-32 md:pt-40 pb-20 md:pb-28 flex-1 flex flex-col justify-center max-w-[1280px] mx-auto w-full">
-        <SectionLabel index="01" label="Ventures" tone="snow" />
+        <SectionLabel index="01" label="Ventures" />
         <Reveal delay={0.1}>
           <h1 className="mt-10 font-serif h-display-xl max-w-[18ch]">
             Studios build for clients. <em className="italic text-cinnabar">We build for ourselves, too.</em>
           </h1>
         </Reveal>
         <Reveal delay={0.2}>
-          <p className="mt-10 max-w-[640px] font-thai text-[16px] md:text-[18px] leading-[1.7] text-background/70">
+          <p className="mt-10 max-w-[640px] font-thai text-[16px] md:text-[18px] leading-[1.7] text-foreground/70">
             ØRIONS Ventures คือ startup arm ของสตูดิโอ — โปรเจกต์ที่เราออกแบบ พัฒนา และใช้เอง เพราะเชื่อว่าผู้สร้างที่ดีที่สุด คือลูกค้าที่ต้องการมันมากที่สุด
           </p>
         </Reveal>
@@ -67,7 +67,7 @@ const Projects = () => (
                 href={v.url}
                 target="_blank"
                 rel="noreferrer"
-                className="group bg-background p-10 md:p-14 h-full flex flex-col hover:bg-foreground hover:text-background transition-colors duration-500"
+                className="group bg-background p-10 md:p-14 h-full flex flex-col hover:bg-cinnabar hover:text-background transition-colors duration-500"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="font-mono text-[10px] tracking-[0.22em] uppercase opacity-60">

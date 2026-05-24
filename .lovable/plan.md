@@ -1,58 +1,62 @@
 ## Scope
-Four fixes to the dark editorial site: kill the gradient accent, eliminate every white/snow-on-dark section, surface ØRIONS Ventures as a home-page section, and add creative-agency texture (capabilities, process, studio reel) without breaking the editorial system.
 
-## 1. Remove Cinnabar gradient — solid accent everywhere
-- `src/index.css`: keep `--accent` (Cinnabar #EB5939) but **delete** `.bg-gradient-cinnabar` and `.text-gradient-cinnabar` utilities.
-- Replace every `text-gradient-cinnabar` → `text-cinnabar` and every `bg-gradient-cinnabar` → `bg-cinnabar` across:
-  - `src/components/Nav.tsx` (2 CTAs)
-  - `src/components/Footer.tsx` (email hover + 4 mono labels)
-  - `src/pages/Index.tsx` (hero "refined.", "considered.", Contact CTA, CTA tile, "One refined system.", diagnostic CTAs)
-  - `src/pages/About.tsx`, `Services.tsx`, `Work.tsx`, `Contact.tsx` (italic accents + primary buttons)
+Five focused fixes — Home, Services, and a global scroll bug. No backend, no new routes.
 
-## 2. All-dark — no white/snow sections
-Currently several sections invert to snow background (`bg-foreground text-background`). Flip every one back to the dark page tone with hairline structure instead:
+---
 
-- `src/pages/Services.tsx` lines 159, 194, 260, 274, 289, 383 — featured pricing card, comparison header, sticky CTA: swap `bg-foreground text-background` → `bg-surface text-foreground` with `border border-foreground/15`; hover stays `bg-cinnabar`.
-- `src/pages/Index.tsx` line 296 (featured pricing tier) — same treatment.
-- `src/pages/About.tsx` line 65 (hero band) — remove inversion, use page bg + bigger type.
-- `src/pages/CaseStudy.tsx` line 172 (closing band) — same.
-- `src/pages/HealthCheck.tsx` line 435 (result card) — `bg-surface` + hairline.
-- `src/pages/Contact.tsx` line 169 (submit btn) — `bg-cinnabar` instead of inverted snow.
-- `src/pages/Projects.tsx` lines 44, 70 — hero + card hover: dark with Cinnabar hover accents.
-- Keep `bg-foreground/15` divider lines (those are hairlines, not white slabs).
+### 1. Home — "Three tiers" headline line-break
 
-## 3. Bring back Ventures
-ØRIONS Ventures already exists at `/projects` (route `/ventures` redirects there). Two changes:
+`src/pages/Index.tsx` (Section 06 Packages):
+- Change headline to break onto two lines:
+  - Line 1: *Three tiers.*
+  - Line 2: *One refined system.* (italic cinnabar)
 
-- **Nav**: add `Ventures → /projects` between Work and Diagnostic in `src/components/Nav.tsx`.
-- **Home**: add a new section `03 — Ventures` on `src/pages/Index.tsx` directly after Selected Work, before Trusted. Renumber Trusted→04, Packages→05, Diagnostic→06. Section shows 2–3 venture tiles (pulled from `src/pages/Projects.tsx` `ventures` array) in a 2-col layout with title, one-line description, "Visit →" external link + "View ventures →" link to `/projects`. Copy framing: *"Studios build for clients. We build for ourselves, too."*
+### 2. Home — Trusted: add 4 testimonials + auto-scroll
 
-## 4. More creative-agency feel
-Add three editorial-agency moves without bloating the system:
+`src/pages/Index.tsx` (Section 05 Trusted):
+- Extend `testimonials[]` from 2 → 6 (add 4 new editorial quotes from plausible client roles: Founder/CMO/Head of Content/Creative Director across e-commerce, hospitality, F&B, finance).
+- Replace the static 2-col grid with a horizontal **auto-scrolling marquee** of testimonial cards (reuse `SimpleMarquee` already in the project; verify it supports vertical card content — otherwise use a CSS `@keyframes` translateX loop, pause on hover).
+- Each card: fixed width (~440px), border-t cinnabar quote mark, blockquote, figcaption.
+- Keep "Selected partners" logo grid below unchanged.
 
-- **Capabilities strip** (new section on home, between Approach and Selected Work, index `02 — Capabilities`): 4-column hairline grid listing service disciplines — *Brand Strategy · Editorial Design · Content Systems · Performance Loops*. Each cell: serif label + 2-line description in mono. No icons.
-- **Process ribbon** (small horizontal strip inside Approach section): 4 mono steps — `01 Listen · 02 Diagnose · 03 Refine · 04 Compound`. Replaces the bare prose-only feel without re-introducing the removed 6:3:1 process.
-- **Studio status bar refresh** (`src/components/Footer.tsx` top or pre-footer): add a thin "Now / Next / Available" line — currently editing, next opening, booking window — to telegraph live agency activity.
-- **Selected Work**: add a small "View all 12 projects →" link under the bento grid pointing to `/work`.
+### 3. Services — simplify the 3 package cards
 
-Renumbered home sections after all changes:
-```
-HERO
-01 — Approach (+ process ribbon)
-02 — Capabilities
-03 — Selected Work
-04 — Ventures
-05 — Trusted
-06 — Packages
-07 — Diagnostic
-```
+`src/pages/Services.tsx`:
+- Rename package names to plain-language equivalents, applied uniformly to all 3 cards:
+  - Starter → **"Starter"** (drop "Data-Informed Loop" subtitle)
+  - Pro → **"Pro"** (drop "Data-Tested Loops") — change "Most Popular" badge label to **"Featured Package"**
+  - Elite → **"Elite"** (drop "Data-Strategy Lab")
+- Same card structure for all three (no special featured surface treatment beyond the badge + cinnabar border).
+- Keep all detail rows (Deliverables / Production / Strategy / Reporting / Best For) but **remove camera brand/model references** ("Sony A7V") — replace with generic phrasing like "professional mirrorless camera" or just "pro camera + crew".
+- Ensure feature lists are complete and parallel across tiers (same row labels in same order).
+- Update home `servicesPreview[]` to match the new naming.
+
+### 4. Services — clearer Add-ons
+
+`src/pages/Services.tsx` (Add-ons section):
+- Rewrite each add-on `desc` in plain Thai/English (1 sentence, what you get + who it's for). Examples:
+  - "Brand Identity Package" → "ชุดอัตลักษณ์แบรนด์ครบชุด: โลโก้ สี ฟอนต์ และคู่มือการใช้งาน — เหมาะกับแบรนด์เปิดใหม่หรือรีแบรนด์"
+  - "Community Management Plus" → "ดูแลคอมเมนต์และ DM ขยายเวลา 8:00–23:00 พร้อมตอบเชิงรุก — สำหรับแบรนด์ที่ engagement สูง"
+- Add a 1-line "What you get" / "Best for" split under each name (or keep single line but plainer).
+- Keep prices + bundle discount band unchanged.
+
+### 5. Bug — scroll bounce-back
+
+`src/components/Layout.tsx`:
+- The current sticky-reveal footer (`clipPath` + nested `sticky bottom-0`) is causing layout reflow that bounces the scroll position upward.
+- Fix: remove the `clipPath` wrapper and `sticky` positioning. Render `<Footer />` as a normal block after `<main>`. This keeps the all-dark aesthetic and eliminates the jump.
+
+---
+
+## Technical notes
+
+- Marquee: prefer existing `SimpleMarquee` (`src/components/SimpleMarquee.tsx`) — if its API only supports inline text, write a small inline CSS keyframe animation (`animate-[marquee_40s_linear_infinite]`) duplicating the testimonial list for seamless loop, with `hover:[animation-play-state:paused]`.
+- All color/spacing tokens stay within the existing design system (cinnabar, surface, foreground/15 hairlines, mono labels).
+- No changes to routing, data layer, or other pages.
 
 ## Files to edit
-- `src/index.css` — remove gradient utilities
-- `src/components/Nav.tsx` — solid Cinnabar CTA, add Ventures link
-- `src/components/Footer.tsx` — solid Cinnabar labels, status line
-- `src/pages/Index.tsx` — gradient→solid, Capabilities + Ventures sections, process ribbon, renumber
-- `src/pages/About.tsx`, `Services.tsx`, `Work.tsx`, `Contact.tsx`, `Projects.tsx`, `CaseStudy.tsx`, `HealthCheck.tsx` — gradient→solid + remove snow inversions
 
-## Out of scope
-- No new routes, no copy rewrite beyond the additions above, no motion library changes, no design-token color changes besides removing two utilities.
+- `src/pages/Index.tsx`
+- `src/pages/Services.tsx`
+- `src/components/Layout.tsx`
+- possibly `src/components/SimpleMarquee.tsx` (read-only check first)

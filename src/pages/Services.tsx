@@ -7,7 +7,7 @@ import SectionLabel from "@/components/SectionLabel";
 const packages = [
   {
     tier: "i. Starter",
-    name: ["Data-Informed", "Loop"],
+    name: ["Starter"],
     tagline: "For brands taking their first refined steps.",
     price: "฿35,000",
     sub: "/ เดือน · สัญญา 1 เดือน · ไม่ผูกมัด",
@@ -17,12 +17,12 @@ const packages = [
       "Stories 6 + Photos 6 ครั้ง/เดือน",
       "Monthly Audience Insight Snapshot",
       "Competitor Analysis 3 brands",
-      "1 Production Day · Sony A7V + ทีม 2 คน",
+      "1 Production Day · ทีมถ่ายทำ 2 คน + อุปกรณ์ระดับโปร",
       "1 แพลตฟอร์ม + Cross-post",
       "Free Onboarding + Brand Audit",
     ],
     deliverables: "Reels 6 · Static 3 · Hero 1 · Stories 6 · Photos 6",
-    production: "1 production day · 2-person crew · Sony A7V",
+    production: "1 production day · 2-person crew · pro mirrorless camera + lighting",
     strategy:   "Monthly Insight Snapshot · 3 competitors tracked",
     reporting:  "Monthly performance report · 1 platform + cross-post",
     bestFor:    "Brands launching their refined voice (0–10k followers)",
@@ -30,8 +30,8 @@ const packages = [
     featured: false,
   },
   {
-    tier: "ii. Pro · Most Popular",
-    name: ["Data-Tested", "Loops"],
+    tier: "ii. Pro · Featured Package",
+    name: ["Pro"],
     tagline: "For brands ready to cut through the noise.",
     price: "฿69,000",
     sub: "/ เดือน · สัญญาขั้นต่ำ 3 เดือน",
@@ -42,12 +42,12 @@ const packages = [
       "+ Quarterly Signature Campaign",
       "+ Quarterly Audience Lifecycle Map",
       "Persona Mapping + A/B Testing",
-      "2 Production Days · ทีม 3 คน + pro lighting",
+      "2 Production Days · ทีมถ่ายทำ 3 คน + pro lighting",
       "Ads Management ฟรี ≤ ฿50k",
       "2 แพลตฟอร์ม + Monthly Report + QSR",
     ],
     deliverables: "Reels 12 · Static 6 · Hero 2 · Stories 12 · Photos 12",
-    production: "2 production days · 3-person crew · pro lighting + Sony A7V",
+    production: "2 production days · 3-person crew · pro camera + cinematic lighting",
     strategy:   "Persona Mapping · A/B Testing · Quarterly Lifecycle Map",
     reporting:  "Monthly report + QSR · 2 platforms · Ads mgmt ≤ ฿50k included",
     bestFor:    "Growing brands cutting through the noise (10–100k followers)",
@@ -56,14 +56,15 @@ const packages = [
   },
   {
     tier: "iii. Elite",
-    name: ["Data-Strategy", "Lab"],
+    name: ["Elite"],
     tagline: "For brands becoming a name remembered.",
     price: "฿139,000",
     sub: "/ เดือน · สัญญาขั้นต่ำ 6 เดือน",
     annual: "Annual ฿1,390,000 · save 17%",
     features: [
       "24 Reels · 12 Static · 3 Signature Stories",
-      "Stories 16/mo · 24 Photos · 3 Production Days",
+      "Stories 16/mo · 24 Photos",
+      "3 Production Days · full crew + cinematic rig",
       "+ Quarterly Creative Lab (4hr workshop)",
       "+ Annual Audience Lifecycle Strategy",
       "+ Brand Manual (มูลค่า ฿30k · ฟรี)",
@@ -72,7 +73,7 @@ const packages = [
       "Industry Exclusivity",
     ],
     deliverables: "Reels 24 · Static 12 · Signature 3 · Stories 16 · Photos 24",
-    production: "3 production days · full crew · Brand Film every 6 months",
+    production: "3 production days · full crew + cinematic rig · Brand Film every 6 months",
     strategy:   "Quarterly Creative Lab · Annual Lifecycle Strategy · Brand Manual",
     reporting:  "Custom Dashboard · Dedicated AM · Industry Exclusivity",
     bestFor:    "Established brands building lasting legacy (100k+ followers)",
@@ -93,25 +94,25 @@ const addOnCategories = [
   {
     label: "Branding",
     items: [
-      { name: "Brand Identity Package", italic: false, desc: "Logo + Brand Book + Color + Typography + Visual System", price: "From ฿80,000" },
-      { name: "Signature Campaign Concept", italic: true,  desc: "Big Idea across 6:3:1 Loop + Creative Direction + Strategy", price: "From ฿35,000" },
-      { name: "Brand Deep Dive Session", italic: false, desc: "Half-day workshop · focused area + Summary deck", price: "฿20,000" },
+      { name: "Brand Identity Package", italic: false, desc: "ชุดอัตลักษณ์แบรนด์ครบ — โลโก้ สี ฟอนต์ และคู่มือการใช้งาน · เหมาะกับแบรนด์เปิดใหม่หรือรีแบรนด์", price: "From ฿80,000" },
+      { name: "Signature Campaign Concept", italic: true,  desc: "ไอเดียแคมเปญใหญ่ 1 เรื่อง พร้อม creative direction และแผนปล่อยตาม 6:3:1 · สำหรับการเปิดตัวสินค้า/ซีซัน", price: "From ฿35,000" },
+      { name: "Brand Deep Dive Session", italic: false, desc: "เวิร์กช็อปครึ่งวันเจาะเรื่องเดียวที่แบรนด์ติดอยู่ พร้อม summary deck · เหมาะกับทีมที่ต้องการเคลียร์ทิศทาง", price: "฿20,000" },
     ],
   },
   {
     label: "Social Media",
     items: [
-      { name: "Community Management Plus", italic: false, desc: "Extended hours 8:00–23:00 + Active Outreach + Auto-reply", price: "฿8,000 / mo" },
-      { name: "Influencer / KOL Management", italic: true,  desc: "Selection + briefing + campaign management + reporting", price: "10% · min ฿10,000" },
-      { name: "Paid Ads Audit & Analyze", italic: false, desc: "Performance review + Recommendations + Optimization", price: "฿15,000" },
+      { name: "Community Management Plus", italic: false, desc: "ดูแลคอมเมนต์และ DM ขยายเวลา 8:00–23:00 พร้อมตอบเชิงรุก · สำหรับแบรนด์ที่ engagement สูง", price: "฿8,000 / mo" },
+      { name: "Influencer / KOL Management", italic: true,  desc: "คัด brief และบริหารแคมเปญกับ KOL ตั้งแต่ต้นจนรายงานผล · สำหรับแคมเปญที่ต้องการ reach เพิ่ม", price: "10% · min ฿10,000" },
+      { name: "Paid Ads Audit & Analyze", italic: false, desc: "รีวิวประสิทธิภาพแอด พร้อมคำแนะนำปรับให้คุ้มงบขึ้น · เหมาะกับแบรนด์ที่ยิงแอดอยู่แล้วแต่ยังไม่แน่ใจผล", price: "฿15,000" },
     ],
   },
   {
     label: "Creative Production",
     items: [
-      { name: "Brand Film (3–5 min)", italic: true,  desc: "Cinematic short film with director + plot + full crew", price: "From ฿80,000" },
-      { name: "Commercial Video Production", italic: false, desc: "Script + cast + full crew · script-led brand video", price: "From ฿50,000" },
-      { name: "Professional Photoshoot", italic: false, desc: "Dedicated shoot + retouching 20–40 images", price: "฿15,000 / day" },
+      { name: "Brand Film (3–5 min)", italic: true,  desc: "หนังสั้นเล่าเรื่องแบรนด์ 3–5 นาที พร้อมผู้กำกับและทีมครบชุด · สำหรับใช้เปิดตัวหรือเล่าจุดยืน", price: "From ฿80,000" },
+      { name: "Commercial Video Production", italic: false, desc: "วิดีโอโฆษณามีสคริปต์ นักแสดง และทีมโปรดักชันครบ · สำหรับแคมเปญหรือเปิดตัวสินค้า", price: "From ฿50,000" },
+      { name: "Professional Photoshoot", italic: false, desc: "ถ่ายภาพ 1 วัน พร้อมรีทัช 20–40 ภาพ · สำหรับคอนเทนต์รายเดือนหรือแคตตาล็อกสินค้า", price: "฿15,000 / day" },
     ],
   },
 ];
@@ -191,30 +192,30 @@ const Services = () => (
       <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-3 border border-foreground/20">
         {packages.map((p, i) => (
           <Reveal key={p.tier} delay={i * 0.08}>
-            <div className={`relative p-10 md:p-12 h-full flex flex-col ${i > 0 ? "md:border-l border-foreground/20 border-t md:border-t-0" : ""} ${p.featured ? "bg-surface text-foreground border-cinnabar" : "bg-background"}`}>
+            <div className={`relative p-10 md:p-12 h-full flex flex-col bg-background ${i > 0 ? "md:border-l border-foreground/20 border-t md:border-t-0" : ""} ${p.featured ? "md:-my-px md:-mx-px border border-cinnabar" : ""}`}>
               {p.featured && (
                 <div className="absolute top-0 left-0 right-0 -translate-y-1/2 flex justify-center">
                   <span className="bg-cinnabar text-background font-mono text-[10px] tracking-[0.22em] uppercase px-4 py-2">
-                    Most Popular
+                    Featured Package
                   </span>
                 </div>
               )}
               <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">
                 {p.tier}
               </div>
-              <h3 className="mt-8 font-serif text-[36px] md:text-[42px] leading-[1] tracking-[-0.02em]">
-                {p.name[0]}<br /><em className="italic">{p.name[1]}</em>
+              <h3 className="mt-8 font-serif text-[48px] md:text-[56px] leading-[1] tracking-[-0.02em]">
+                <em className="italic">{p.name[0]}</em>
               </h3>
-              <p className={`mt-5 font-serif italic text-[15px] md:text-[16px] leading-[1.5] ${p.featured ? "text-foreground/70" : "text-muted-foreground"}`}>
+              <p className="mt-5 font-serif italic text-[15px] md:text-[16px] leading-[1.5] text-muted-foreground">
                 {p.tagline}
               </p>
 
               <div className="mt-10 pt-8 border-t border-current/20">
-                <div className={`font-mono text-[10px] tracking-[0.22em] uppercase mb-3 ${p.featured ? "text-foreground/60" : "text-muted-foreground"}`}>
+                <div className="font-mono text-[10px] tracking-[0.22em] uppercase mb-3 text-muted-foreground">
                   Start from
                 </div>
                 <div className="font-serif text-[42px] md:text-[48px] tracking-[-0.025em] leading-none">{p.price}</div>
-                <div className={`mt-2 font-mono text-[10px] tracking-[0.18em] uppercase ${p.featured ? "text-foreground/60" : "text-muted-foreground"}`}>
+                <div className="mt-2 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
                   {p.sub}
                 </div>
                 <div className="mt-3 font-mono text-[10px] tracking-[0.18em] uppercase text-cinnabar">

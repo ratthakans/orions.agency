@@ -9,12 +9,7 @@ const Layout = ({ children }: { children: ReactNode }) => (
     <CornerMarks />
     <main className="flex-1 relative z-10 bg-background pb-14 md:pb-0">{children}</main>
     <StickyMobileCTA />
-    {/* Footer sits behind, revealed as the page scrolls past — sticky reveal */}
-    <div className="relative z-0" style={{ clipPath: "polygon(0% 0, 100% 0, 100% 100%, 0 100%)" }}>
-      <div className="sticky bottom-0">
-        <Footer />
-      </div>
-    </div>
+    <Footer />
   </div>
 );
 

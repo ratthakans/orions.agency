@@ -34,6 +34,54 @@ const beyond = [
   { sym: "iii.", en: "Long-term Bond",     th: "เพราะการได้ลูกค้าใหม่ ต้นทุน 5 เท่าของรักษาลูกค้าเก่า — เราสร้างความสัมพันธ์ที่อยู่ได้ยาว" },
 ];
 
+const divisionsFull = [
+  {
+    n: "Ø Boutique",
+    role: "Brand-first identity & strategy",
+    pain: "Generic positioning · weak narrative · unmemorable identity",
+    output: "Brand identity · premium packaging · hero brand campaign",
+  },
+  {
+    n: "Ø Digital & Performance",
+    role: "Data-driven content & paid media",
+    pain: "Ad spend that doesn't convert · scattered funnel · no baseline",
+    output: "Social retainer · content machine · performance media · commerce ops",
+  },
+  {
+    n: "Ø Production",
+    role: "Commercial-grade creative crew",
+    pain: "Inconsistent quality across vendors · escalating costs",
+    output: "Commercial crew · post-production suite · raw footage system",
+  },
+];
+
+const coreStrengths = [
+  { n: "01", en: "A connected, seamless ecosystem", th: "ที่เดียวครบ — Creative, Strategy, Production, Consulting ไม่ต้องคุมหลาย vendor หรือเริ่มนับหนึ่งใหม่ทุกครั้ง" },
+  { n: "02", en: "Craft, made measurable",          th: "The ØRIONS Standard — งานทุกชิ้นมีหลักฐานและตัวเลขเทียบกับ baseline ก่อนเริ่ม และ track หลัง launch · ไม่ใช้การเดาทาง" },
+  { n: "03", en: "The connected senior crew only",  th: "นำโดย 2 co-founders + cast ซีเนียร์ 8–12 คนต่อโปรเจกต์ · Selection over availability — รับงานน้อยเพื่อผลลัพธ์ที่ดีที่สุด" },
+];
+
+const promiseList = [
+  { n: "i.",   en: "30-day money-back",       th: "ไม่พอใจใน 30 วันแรก คืนเงินเต็มจำนวน ไม่มีคำถาม" },
+  { n: "ii.",  en: "Free month four",          th: "ถ้าไม่ถึงเป้าที่ตกลงร่วมกัน เราทำต่อให้ฟรีในเดือนที่ 4" },
+  { n: "iii.", en: "Free adjustment chapter",  th: "เปิด adjustment chapter แก้งานอย่างมีระบบจนกว่าจะใช่" },
+  { n: "iv.",  en: "Free reshoot",             th: "ถ้าฟุตเทจไม่ผ่านมาตรฐาน เราถ่ายซ่อมให้ฟรี" },
+  { n: "v.",   en: "Full IP transfer",         th: "ลิขสิทธิ์งานทั้งหมดเป็นของคุณหลังชำระเงินครบ" },
+];
+
+const screeningFit = [
+  "มีของพร้อมขาย — สินค้า/บริการพร้อม scale ไม่ใช่ยังอยู่ในขั้น validate",
+  "ต้องการสเกลยอดแบบวัดผลได้ ไม่ใช่แค่คอนเทนต์สวย ๆ ที่ไม่มีตัวเลขรองรับ",
+  "ต้องการทีมซีเนียร์เสริมทัพระยะยาว ไม่ใช่งานชิ้นเดียวจบ",
+];
+
+const screeningNotFit = [
+  "ยังไม่มีของพร้อมขาย หรือยังไม่ผ่านขั้น product-market fit",
+  "คาดหวังผลลัพธ์ใน 14 วัน — craft ที่ honest ต้องใช้เวลาอย่างน้อย 90 วัน",
+  "งาน Wedding / Personal / Family event",
+  "อุตสาหกรรมที่เราไม่รับ: pharmaceuticals · fast fashion mass · gambling · MLM",
+];
+
 // Team — roles only for now (names kept in comments for future reference)
 const team = [
   { role: "CEO" },                    // พี่น้ำ
@@ -191,6 +239,155 @@ const About = () => (
             </Reveal>
           ))}
         </div>
+      </div>
+    </section>
+
+    {/* 05 — DIVISIONS (Section 06 of master blueprint) */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+        <SectionLabel index="05" label="Divisions" />
+        <Reveal delay={0.1}>
+          <h2 className="mt-10 font-serif h-display-lg max-w-[22ch]">
+            สามทีม · แบรนด์เดียว · <em className="italic text-cinnabar">Account Director คนเดียว.</em>
+          </h2>
+        </Reveal>
+        <Reveal delay={0.2}>
+          <p className="mt-8 max-w-[680px] font-thai text-[15px] md:text-[17px] leading-[1.7] text-muted-foreground">
+            สำหรับลูกค้าฝั่ง Creative Agency — เลือกใช้ทีมเดียว หรือใช้ร่วมกันเป็น ecosystem ก็ได้ ทุกอย่างเชื่อมต่อกันทันที ไม่ต้องเริ่มนับหนึ่งใหม่.
+          </p>
+        </Reveal>
+
+        <div className="mt-16 border-t border-foreground/20">
+          {divisionsFull.map((d, i) => (
+            <Reveal key={d.n} delay={i * 0.07}>
+              <div className="grid grid-cols-1 md:grid-cols-[1fr_1.4fr_1.4fr] gap-3 md:gap-10 items-baseline py-8 md:py-10 border-b border-foreground/20">
+                <h3 className="font-serif text-[22px] md:text-[28px] leading-[1.1] tracking-[-0.015em] italic text-cinnabar">{d.n}</h3>
+                <div>
+                  <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground mb-2">— Pain solved</div>
+                  <p className="font-thai text-[14px] md:text-[15px] leading-[1.65] text-foreground/85">{d.pain}</p>
+                  <div className="mt-5 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground mb-2">— Output</div>
+                  <p className="font-thai text-[14px] md:text-[15px] leading-[1.65] text-foreground/85">{d.output}</p>
+                </div>
+                <p className="font-serif italic text-[18px] md:text-[22px] leading-[1.4] text-foreground/80">{d.role}.</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal delay={0.3}>
+          <div className="mt-12 border-l-2 border-cinnabar pl-6 md:pl-8 max-w-[760px]">
+            <p className="font-serif italic text-[20px] md:text-[26px] leading-[1.4] tracking-[-0.01em]">
+              <em className="text-cinnabar">Brand-first, not sales-first.</em> เริ่มจากตัวตน → แล้วค่อยเร่งยอด เพราะเร่งยอดบนแบรนด์ที่ไม่ชัด = เผาเงิน.
+            </p>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+
+    {/* 06 — CORE STRENGTHS */}
+    <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+        <SectionLabel index="06" label="Why ØRIONS" />
+        <Reveal delay={0.1}>
+          <h2 className="mt-10 font-serif h-display-lg max-w-[22ch]">
+            ไม่ใช่อีกหนึ่งเอเจนซี่ <em className="italic text-cinnabar">ทั่วไป.</em>
+          </h2>
+        </Reveal>
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-px bg-foreground/15 border border-foreground/15">
+          {coreStrengths.map((s, i) => (
+            <Reveal key={s.n} delay={i * 0.07}>
+              <div className="bg-background p-10 md:p-12 h-full">
+                <div className="font-serif italic text-cinnabar text-[48px] md:text-[64px] leading-none tabular-nums">{s.n}</div>
+                <h3 className="mt-8 font-serif text-[24px] md:text-[28px] leading-[1.15] tracking-[-0.015em]">{s.en}</h3>
+                <p className="mt-5 font-thai text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">{s.th}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* 07 — THE PROMISE */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+        <SectionLabel index="07" label="The Promise" />
+        <Reveal delay={0.1}>
+          <h2 className="mt-10 font-serif h-display-lg max-w-[22ch]">
+            We put <em className="italic text-cinnabar">skin in the game.</em>
+          </h2>
+        </Reveal>
+        <Reveal delay={0.2}>
+          <p className="mt-8 max-w-[680px] font-thai text-[15px] md:text-[17px] leading-[1.7] text-muted-foreground">
+            เราเดิมพันที่ความสัมพันธ์ระยะยาว — ไม่ทิ้งงานไว้เป็นไฟล์สวย ๆ ที่ไม่มีใครใช้.
+          </p>
+        </Reveal>
+
+        <div className="mt-16 border-t border-foreground/20">
+          {promiseList.map((p, i) => (
+            <Reveal key={p.n} delay={i * 0.05}>
+              <div className="grid grid-cols-[auto_1fr_1.6fr] gap-6 md:gap-10 items-baseline py-7 md:py-8 border-b border-foreground/20">
+                <span className="font-serif italic text-cinnabar text-[20px] md:text-[22px] w-10 shrink-0">{p.n}</span>
+                <h3 className="font-serif text-[20px] md:text-[26px] leading-[1.15] tracking-[-0.015em]">{p.en}</h3>
+                <p className="font-thai text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">{p.th}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* 08 — SCREENING */}
+    <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+        <SectionLabel index="08" label="Who It's For" />
+        <Reveal delay={0.1}>
+          <h2 className="mt-10 font-serif h-display-lg max-w-[24ch]">
+            แบรนด์ที่ <em className="italic text-cinnabar">เหมาะ</em> และยังไม่เหมาะร่วมงานกัน.
+          </h2>
+        </Reveal>
+
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 border border-foreground/20">
+          <Reveal>
+            <div className="bg-background p-10 md:p-12 h-full border-b md:border-b-0 md:border-r border-foreground/20">
+              <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar flex items-center gap-3">
+                <span className="block w-6 h-px bg-cinnabar" />
+                เหมาะร่วมงานกัน
+              </div>
+              <ul className="mt-8 space-y-5">
+                {screeningFit.map((t, i) => (
+                  <li key={i} className="flex gap-4 font-thai text-[14px] md:text-[15px] leading-[1.7] text-foreground/85 border-t border-foreground/15 pt-5 first:border-0 first:pt-0">
+                    <span className="font-serif italic text-cinnabar shrink-0">→</span>
+                    <span>{t}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div className="bg-background p-10 md:p-12 h-full">
+              <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center gap-3">
+                <span className="block w-6 h-px bg-muted-foreground" />
+                ยังไม่เหมาะ
+              </div>
+              <ul className="mt-8 space-y-5">
+                {screeningNotFit.map((t, i) => (
+                  <li key={i} className="flex gap-4 font-thai text-[14px] md:text-[15px] leading-[1.7] text-foreground/70 border-t border-foreground/15 pt-5 first:border-0 first:pt-0">
+                    <span className="font-mono text-muted-foreground shrink-0">×</span>
+                    <span>{t}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
+        </div>
+
+        <Reveal delay={0.3}>
+          <div className="mt-12 border-l-2 border-cinnabar pl-6 md:pl-8 max-w-[760px]">
+            <p className="font-serif italic text-[18px] md:text-[22px] leading-[1.5] tracking-[-0.005em]">
+              หากประเมินแล้วพบว่าระบบของเราไม่ใช่คำตอบที่ใช่ที่สุดสำหรับแบรนด์คุณ — <em className="text-cinnabar">เราจะบอกตรงๆ ตั้งแต่รอบ Discovery Call.</em>
+            </p>
+          </div>
+        </Reveal>
       </div>
     </section>
 

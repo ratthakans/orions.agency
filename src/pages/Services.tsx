@@ -117,6 +117,125 @@ const addOnCategories = [
   },
 ];
 
+const masterBlueprint = [
+  { n: "Ø1", name: "Creative Agency",     tag: "[ Cashflow Driver ]",       desc: "บริการเชิงพาณิชย์ ตอบโจทย์การตลาดและยอดขาย สร้างกระแสเงินสดและกำไรระยะสั้น-กลาง" },
+  { n: "Ø2", name: "Creative Consulting", tag: "[ Predictable Revenue ]",   desc: "ที่ปรึกษาเชิงกลยุทธ์ระดับบน ยกระดับแบรนด์และองค์กร สัญญาระยะยาว 2–3 ปี เพื่อรายได้ฐานที่มั่นคง" },
+  { n: "Ø3", name: "Creative Studio",     tag: "[ Asset & Valuation ]",     desc: "สร้างสินทรัพย์และนวัตกรรมของตัวเอง อิสระ 100% ไม่ขึ้นตรงกับลูกค้า เพื่อการเติบโตแบบก้าวกระโดด" },
+];
+
+const ecosystemRows = [
+  {
+    rowN: "1",
+    rowTitle: "Creative Agency",
+    rowTag: "Service-Based",
+    units: [
+      {
+        code: "1.1",
+        name: "Digital & Performance Agency",
+        tag: "High-Velocity Growth Driver",
+        desc: "ขับเคลื่อนยอดขายด้วย data-driven content วางระบบ Marketing Funnel",
+        services: "Social Retainer · Content Machine · Performance Media · E-commerce Ops",
+        target: "แบรนด์ E-commerce, ธุรกิจ Scale-Up",
+      },
+      {
+        code: "1.2",
+        name: "Boutique Agency",
+        tag: "High Margin & Profile Creator",
+        desc: "งานออกแบบและกลยุทธ์แบรนด์ที่มีรสนิยมลุ่มลึก อัตลักษณ์เฉพาะตัวสูง (High-End Craft)",
+        services: "Brand Identity · Premium Packaging · Hero Brand Campaign",
+        target: "แบรนด์พรีเมียม/Luxury · คลินิกความงามระดับบน · โรงแรมดีไซน์",
+      },
+      {
+        code: "1.3",
+        name: "Creative Production",
+        tag: "Commercial-Grade Execution Hub",
+        desc: "คลังแสงโปรดักชันส่วนกลาง นำโดยซีเนียร์ครูว์ คุมคุณภาพและต้นทุนไม่ให้รั่วไหล",
+        services: "Commercial Crew · Post-Production Suite · Raw Footage System",
+        target: "ทีมภายใน + รับงานตรงจากแบรนด์/เอเจนซี่ภายนอก",
+      },
+    ],
+  },
+  {
+    rowN: "2",
+    rowTitle: "Creative Consulting",
+    rowTag: "Predictable Revenue",
+    units: [
+      {
+        code: "2.1",
+        name: "Business Creative Solution",
+        tag: "Brand Transformation",
+        desc: "X-ray โครงสร้างแบรนด์และโมเดลธุรกิจ ใช้ creativity พลิกโฉมและแก้ปัญหาเชิงโครงสร้าง",
+        services: "Brand Audit · Strategic Rebranding · Legacy Modernization",
+        target: "บริษัทมหาชน · แบรนด์ดั้งเดิมสืบทอดสู่รุ่นลูก",
+      },
+      {
+        code: "2.2",
+        name: "Strategic Creative Direction",
+        tag: "Fractional CCO",
+        desc: "ทำหน้าที่เสมือน CCO นอกองค์กร วางแผนแม่บทประจำปี คุมคุณภาพภาพลักษณ์",
+        services: "Annual Creative Blueprint · Agency Quality Audit · C-Level Advisory",
+        target: "Conglomerate · เครืออสังหา · เครือโรงพยาบาล",
+      },
+      {
+        code: "2.3",
+        name: "Creative Culture & Training",
+        tag: "Organization Transition",
+        desc: "พัฒนาบุคลากรและปรับเปลี่ยนวัฒนธรรมองค์กร ให้เท่าทันเทคโนโลยีครีเอทีฟยุคใหม่",
+        services: "Generative AI สำหรับธุรกิจ · Design Thinking Academy · Workplace Consulting",
+        target: "HR · ฝ่ายนวัตกรรมขององค์กรขนาดใหญ่",
+      },
+    ],
+  },
+  {
+    rowN: "3",
+    rowTitle: "Creative Studio",
+    rowTag: "Asset-Based & Innovation",
+    units: [
+      {
+        code: "3.1",
+        name: "Startup & Product Ventures",
+        tag: "Asset-Based Growth",
+        desc: "เปลี่ยนจากผู้รับจ้างผลิตสู่ \"เจ้าของผลิตภัณฑ์\" ปั้นไอเดียธุรกิจ ซอฟต์แวร์ หรือสินค้า",
+        services: "In-house Brand Incubation · Creative SaaS Development",
+        target: "B2C · B2B SaaS · กลุ่มนักลงทุน (VC)",
+      },
+      {
+        code: "3.2",
+        name: "Owned Media & IP",
+        tag: "The Playground",
+        desc: "บริหารสถานีสื่อ ช่องทางออนไลน์ และรายการคอนเทนต์ของตัวเอง 100% ทำเงินจากสปอนเซอร์",
+        services: "IP Development · Audience Monetization · Native Advertising Slots",
+        target: "Audience · แบรนด์สินค้าต่างๆ",
+      },
+      {
+        code: "3.3",
+        name: "Creative Experimental Lab",
+        tag: "The R&D Engine",
+        desc: "ห้องวิจัยล้ำสมัย ทดลองเทคโนโลยี สื่อ และ format คอนเทนต์แปลกใหม่ (AI, VR/AR)",
+        services: "Advanced AI Workflows · Virtual Experiences · Trend-Setting Format",
+        target: "ทีมภายใน · แบรนด์กลุ่ม Innovation-Driven",
+      },
+    ],
+  },
+];
+
+const standardMetrics = [
+  { label: "Branded search",     value: "↑ 20–40%", note: "ความคุ้นหูคุ้นชื่อแบรนด์" },
+  { label: "Engagement rate",    value: "↑ 30–50%", note: "การมีปฏิสัมพันธ์ที่แท้จริง" },
+  { label: "Earned media",       value: "Tracked", note: "PR, mentions, organic share" },
+  { label: "Audience composition", value: "Mapped", note: "ก่อน vs หลัง launch" },
+  { label: "CPL (cost / lead)",  value: "↓ 20%",    note: "ต้นทุนต่อ lead ลดลง" },
+  { label: "ROAS",               value: "↑ 20%",    note: "Return on ad spend" },
+  { label: "Leads",              value: "↑ 30%",    note: "Qualified leads" },
+];
+
+const ladderPaths = [
+  { code: "Ø Boutique",   start: "Brand Identity · From ฿80,000", term: "Project-based", best: "แบรนด์เปิดใหม่ · rebrand · launch" },
+  { code: "Ø Digital",    start: "Retainer · From ฿69,000/mo",     term: "3–12 months",   best: "ต้องการสเกลยอดและวัดผล" },
+  { code: "Ø Production", start: "Production Day · From ฿50,000",  term: "Per project",   best: "ต้องการคอนเทนต์โปรดักชันคุณภาพ" },
+  { code: "Ø Consulting", start: "Fractional CCO · From ฿180,000/mo", term: "12–36 months", best: "องค์กรใหญ่ที่ต้องการ creative leadership" },
+];
+
 const Services = () => (
   <div>
     <SEO
@@ -128,61 +247,174 @@ const Services = () => (
     {/* HERO */}
     <section className="px-6 md:px-10 pt-32 md:pt-40 pb-16 md:pb-20">
       <div className="max-w-[1280px] mx-auto">
-        <SectionLabel index="01" label="Packages" />
+        <SectionLabel index="01" label="The Ecosystem" />
         <Reveal delay={0.1}>
-          <h1 className="mt-10 font-serif h-display-xl max-w-[14ch]">
-            3 ระดับ.<br />1 <em className="italic text-cinnabar">เป้าหมาย.</em>
+          <h1 className="mt-10 font-serif h-display-xl max-w-[16ch]">
+            ØRIONS.co — <em className="italic text-cinnabar">The Creative Company.</em>
           </h1>
         </Reveal>
         <Reveal delay={0.15}>
           <p className="mt-6 font-serif italic text-[15px] md:text-[18px] text-muted-foreground">
-            Independent editorial studio. Bangkok. — Boutique Creative Agency.
+            Three axes. One company. Cashflow · Predictable Revenue · Asset & Valuation.
           </p>
         </Reveal>
         <Reveal delay={0.2}>
-          <p className="mt-10 max-w-[680px] font-thai text-[16px] md:text-[18px] leading-[1.7] text-muted-foreground">
-            แพ็กเกจของเราออกแบบตามจำนวน Content Loop + Data Depth + Strategic Layer — ยิ่งสูง ยิ่งครอบคลุม Brand Journey
+          <p className="mt-10 max-w-[720px] font-thai text-[16px] md:text-[18px] leading-[1.7] text-muted-foreground">
+            พิมพ์เขียวโครงสร้างธุรกิจแบ่งเป็น 3 แกนหลัก สมดุลระหว่างกระแสเงินสดระยะสั้น เสถียรภาพระยะยาว และการเติบโตด้วยนวัตกรรม.
           </p>
         </Reveal>
 
-        {/* 6:3:1 interactive visualizer */}
+        {/* Master Blueprint — 3 axes */}
         <Reveal delay={0.3}>
-          <div className="mt-16 border border-foreground/20">
-            <div className="grid grid-cols-3">
-              {[
-                { n: "6", label: "Reels",  hint: "Short-form ที่ขับเคลื่อนการค้นพบ", tone: "light" },
-                { n: "3", label: "Static", hint: "Editorial ที่ให้บริบทและอยู่นานกว่าหนึ่งวัน", tone: "mid" },
-                { n: "1", label: "Hero",   hint: "Signature story รายเดือน — กำหนดทิศทาง", tone: "dark" },
-              ].map((b, i) => (
-                <div
-                  key={b.label}
-                  className={`group relative p-6 md:p-8 min-h-[140px] flex flex-col justify-between transition-colors duration-500 ${
-                    b.tone === "dark" ? "bg-cinnabar text-background" :
-                    b.tone === "mid"  ? "bg-foreground/[0.06]" :
-                                        "bg-background"
-                  } ${i > 0 ? "border-l border-foreground/20" : ""} hover:bg-cinnabar hover:text-background`}
-                >
-                  <div className="flex items-baseline justify-between">
-                    <span className="font-serif text-[48px] md:text-[64px] leading-none tracking-[-0.04em] tabular-nums">{b.n}</span>
-                    <span className="font-mono text-[10px] tracking-[0.22em] uppercase opacity-70">{b.label}</span>
-                  </div>
-                  <p className="mt-4 font-thai text-[12px] md:text-[13px] leading-[1.55] opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    {b.hint}
-                  </p>
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 border border-foreground/20">
+            {masterBlueprint.map((m, i) => (
+              <div
+                key={m.n}
+                className={`p-10 md:p-12 h-full bg-background ${i > 0 ? "border-t md:border-t-0 md:border-l border-foreground/20" : ""}`}
+              >
+                <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">{m.tag}</div>
+                <div className="mt-6 font-serif italic text-cinnabar text-[28px] md:text-[34px] leading-none">{m.n}</div>
+                <h3 className="mt-4 font-serif text-[26px] md:text-[30px] leading-[1.1] tracking-[-0.02em]">{m.name}</h3>
+                <p className="mt-5 font-thai text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">{m.desc}</p>
+              </div>
+            ))}
+          </div>
+        </Reveal>
+      </div>
+    </section>
+
+    {/* ECOSYSTEM DEEP DIVE — 9 units */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+        <SectionLabel index="02" label="Ecosystem Deep Dive" />
+        <Reveal delay={0.1}>
+          <h2 className="mt-10 font-serif h-display-md max-w-[24ch]">
+            โครงสร้างและรายละเอียดหน้าที่ <em className="italic text-cinnabar">แต่ละยูนิตงาน.</em>
+          </h2>
+        </Reveal>
+
+        <div className="mt-16 space-y-20 md:space-y-24">
+          {ecosystemRows.map((row, ri) => (
+            <div key={row.rowN}>
+              <Reveal>
+                <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar flex items-center gap-3 mb-6">
+                  <span className="block w-6 h-px bg-cinnabar" />
+                  {row.rowN} — {row.rowTitle} <span className="text-muted-foreground">· {row.rowTag}</span>
+                </div>
+              </Reveal>
+              <div className="grid grid-cols-1 md:grid-cols-3 border border-foreground/20">
+                {row.units.map((u, i) => (
+                  <Reveal key={u.code} delay={i * 0.06}>
+                    <div className={`p-8 md:p-10 h-full bg-background flex flex-col ${i > 0 ? "border-t md:border-t-0 md:border-l border-foreground/20" : ""}`}>
+                      <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">{u.code}</div>
+                      <h3 className="mt-4 font-serif text-[22px] md:text-[26px] leading-[1.15] tracking-[-0.015em]">{u.name}</h3>
+                      <div className="mt-3 font-serif italic text-cinnabar text-[14px] md:text-[15px]">[ {u.tag} ]</div>
+                      <p className="mt-5 font-thai text-[13px] md:text-[14px] leading-[1.7] text-foreground/85">{u.desc}</p>
+                      <div className="mt-6 pt-6 border-t border-foreground/15 space-y-4 text-[12px]">
+                        <div>
+                          <div className="font-mono tracking-[0.22em] uppercase text-cinnabar text-[10px]">— Services</div>
+                          <p className="mt-2 font-thai leading-[1.6] text-foreground/75">{u.services}</p>
+                        </div>
+                        <div>
+                          <div className="font-mono tracking-[0.22em] uppercase text-cinnabar text-[10px]">— Target</div>
+                          <p className="mt-2 font-thai leading-[1.6] text-foreground/75">{u.target}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* THE STANDARD — Proof Metrics */}
+    <section className="px-6 md:px-10 border-t border-foreground/15 bg-surface">
+      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+        <SectionLabel index="03" label="The Standard" />
+        <Reveal delay={0.1}>
+          <h2 className="mt-10 font-serif h-display-md max-w-[22ch]">
+            ผลลัพธ์ที่วัดได้ · <em className="italic text-cinnabar">ภายใน 90 วัน.</em>
+          </h2>
+        </Reveal>
+        <Reveal delay={0.2}>
+          <p className="mt-8 max-w-[680px] font-serif italic text-[16px] md:text-[20px] leading-[1.5] text-muted-foreground">
+            Craft ที่ honest คือ craft ที่เทียบกับ baseline ก่อนเริ่ม แล้ว track หลัง launch.
+          </p>
+        </Reveal>
+
+        <div className="mt-16 grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-px bg-foreground/15 border border-foreground/15">
+          <div className="bg-background p-8 md:p-12">
+            <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar mb-8">— Data Table</div>
+            <div className="border-t border-foreground/15">
+              {standardMetrics.map((m) => (
+                <div key={m.label} className="grid grid-cols-[1fr_auto] md:grid-cols-[1.4fr_auto_1.4fr] gap-4 md:gap-8 items-baseline py-5 border-b border-foreground/15">
+                  <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-foreground/75">{m.label}</div>
+                  <div className="font-serif italic text-cinnabar text-[22px] md:text-[28px] tabular-nums">{m.value}</div>
+                  <div className="hidden md:block font-thai text-[13px] text-muted-foreground">{m.note}</div>
                 </div>
               ))}
             </div>
-            {/* Proportion bar — 6/3/1 weight as hairline ratio */}
-            <div className="border-t border-foreground/20 grid grid-cols-10 h-[3px]">
-              <div className="col-span-6 bg-cinnabar" />
-              <div className="col-span-3 bg-cinnabar/55 border-l border-background" />
-              <div className="col-span-1 bg-cinnabar/25 border-l border-background" />
-            </div>
-            <div className="border-t border-foreground/20 px-5 py-3 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex items-center justify-between">
-              <span>One refined loop · per month</span>
-              <span className="hidden md:inline">Hover to expand</span>
+          </div>
+          <div className="bg-background p-8 md:p-12 flex flex-col justify-center">
+            <div className="border-l-2 border-cinnabar pl-6">
+              <p className="font-serif italic text-[20px] md:text-[26px] leading-[1.4] tracking-[-0.01em]">
+                ไม่ถึงเป้าที่ตกลงร่วมกัน → เราเปิด <em className="text-cinnabar">adjustment chapter</em> เพื่อแก้ต่ออย่างมีระบบ ไม่ทิ้งงานไว้เป็นไฟล์สวย ๆ ที่ไม่มีใครใช้.
+              </p>
+              <p className="mt-6 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
+                — เราเดิมพันที่ความสัมพันธ์ระยะยาว
+              </p>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    {/* THE LADDER — Engagement paths */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+        <SectionLabel index="04" label="The Ladder" />
+        <Reveal delay={0.1}>
+          <h2 className="mt-10 font-serif h-display-md max-w-[22ch]">
+            เลือก <em className="italic text-cinnabar">บท</em> ของคุณ.
+          </h2>
+        </Reveal>
+        <Reveal delay={0.2}>
+          <p className="mt-8 max-w-[680px] font-thai text-[15px] md:text-[17px] leading-[1.7] text-muted-foreground">
+            4 เส้นทางหลัก — เลือกเริ่มจากจุดที่ใช่กับสถานะแบรนด์คุณตอนนี้ และต่อยอดเป็น ecosystem ได้เมื่อพร้อม.
+          </p>
+        </Reveal>
+
+        <div className="mt-16 border-t border-foreground/20">
+          {ladderPaths.map((p, i) => (
+            <Reveal key={p.code} delay={i * 0.05}>
+              <div className="grid grid-cols-1 md:grid-cols-[1fr_1.2fr_0.8fr_1.4fr] gap-3 md:gap-10 items-baseline py-7 md:py-8 border-b border-foreground/20">
+                <h3 className="font-serif italic text-cinnabar text-[22px] md:text-[26px] tracking-[-0.015em]">{p.code}</h3>
+                <div className="font-serif text-[16px] md:text-[18px] tracking-[-0.005em]">{p.start}</div>
+                <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">{p.term}</div>
+                <p className="font-thai text-[14px] md:text-[15px] leading-[1.65] text-foreground/80">{p.best}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* 05 — PACKAGES (retainer tiers) */}
+    <section className="px-6 md:px-10 border-t border-foreground/15 pt-20 md:pt-28">
+      <div className="max-w-[1280px] mx-auto">
+        <SectionLabel index="05" label="Retainer Packages" />
+        <Reveal delay={0.1}>
+          <h2 className="mt-10 font-serif h-display-md max-w-[18ch]">
+            3 ระดับ. 1 <em className="italic text-cinnabar">เป้าหมาย.</em>
+          </h2>
+        </Reveal>
+        <Reveal delay={0.2}>
+          <p className="mt-8 max-w-[680px] font-thai text-[15px] md:text-[17px] leading-[1.7] text-muted-foreground">
+            สำหรับเส้นทาง Ø Digital — แพ็กเกจรายเดือนออกแบบตาม Content Loop + Data Depth + Strategic Layer.
+          </p>
         </Reveal>
       </div>
     </section>

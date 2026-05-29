@@ -109,6 +109,22 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Division link matrix */}
+        <div className="mt-14 pt-10 border-t border-foreground/15 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+          {[
+            { code: "Ø Boutique",  desc: "Brand identity & strategy", to: "/services#boutique" },
+            { code: "Ø Digital",   desc: "Content + paid media",       to: "/services#digital" },
+            { code: "Ø Production", desc: "Creative crew + post",      to: "/services#production" },
+          ].map((d) => (
+            <Link key={d.code} to={d.to} className="group block border-t border-foreground/15 pt-5 hover:border-cinnabar transition-colors">
+              <div className="font-serif italic text-cinnabar text-[20px] md:text-[24px] tracking-[-0.015em]">{d.code}</div>
+              <div className="mt-2 font-mono text-[10px] tracking-[0.18em] uppercase text-foreground/55 group-hover:text-foreground/85 transition-colors">
+                {d.desc} →
+              </div>
+            </Link>
+          ))}
+        </div>
+
         {/* Legal */}
         <div className="mt-16 pt-5 border-t border-foreground/15 flex items-center justify-between gap-4 font-mono text-[10px] tracking-[0.18em] uppercase opacity-50">
           <p>© {year} ØRIONS — All rights reserved.</p>

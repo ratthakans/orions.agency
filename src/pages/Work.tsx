@@ -80,7 +80,7 @@ const Work = () => (
       <div className="max-w-[1280px] mx-auto pt-28 md:pt-32 pb-16 md:pb-20">
         <SectionLabel index="01" label="Selected Work" />
         <Reveal delay={0.05}>
-          <h1 className="mt-10 font-serif h-display-xl max-w-[18ch]">
+          <h1 className="mt-10 h-display-xl max-w-[18ch]">
             Real brands. Real <em className="italic text-cinnabar">results.</em>
           </h1>
         </Reveal>
@@ -102,7 +102,7 @@ const Work = () => (
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="02" label="Focus Verticals" />
         <Reveal delay={0.05}>
-          <h2 className="mt-10 font-serif h-display-md max-w-[20ch]">
+          <h2 className="mt-10 h-display-md max-w-[20ch]">
             หกอุตสาหกรรมที่เรา <em className="italic text-cinnabar">รู้ลึก.</em>
           </h2>
         </Reveal>
@@ -139,7 +139,7 @@ const Work = () => (
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="03" label="Contextual Moments" />
         <Reveal delay={0.05}>
-          <h2 className="mt-10 font-serif h-display-md max-w-[22ch]">
+          <h2 className="mt-10 h-display-md max-w-[22ch]">
             ผลงานและสถานการณ์ที่เรา <em className="italic text-cinnabar">สร้างมาเพื่อมัน.</em>
           </h2>
         </Reveal>
@@ -168,7 +168,7 @@ const Work = () => (
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="04" label="Projects" />
         <Reveal delay={0.05}>
-          <h2 className="mt-10 font-serif h-display-md">
+          <h2 className="mt-10 h-display-md">
             {projects.length} brands. <em className="italic text-cinnabar">One team.</em>
           </h2>
         </Reveal>
@@ -219,7 +219,7 @@ const Work = () => (
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="05" label="Testimonials" />
         <Reveal delay={0.05}>
-          <h2 className="mt-10 font-serif h-display-md">
+          <h2 className="mt-10 h-display-md">
             What clients <em className="italic text-cinnabar">say.</em>
           </h2>
         </Reveal>
@@ -260,7 +260,7 @@ const Work = () => (
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="06" label="Trusted By" />
         <Reveal delay={0.05}>
-          <h2 className="mt-10 font-serif h-display-lg max-w-[20ch]">
+          <h2 className="mt-10 h-display-lg max-w-[20ch]">
             20+ brands across F&amp;B, fashion, and <em className="italic text-cinnabar">hospitality.</em>
           </h2>
         </Reveal>

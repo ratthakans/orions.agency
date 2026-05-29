@@ -408,7 +408,7 @@ const Services = () => (
                   to="/contact"
                   className={`mt-8 group inline-flex items-center justify-between gap-3 px-6 py-3.5 btn-label border transition-colors duration-300 ${
                     t.featured ? "border-cinnabar bg-cinnabar text-background"
-                               : "border-foreground hover:bg-cinnabar hover:text-background hover:border-cinnabar"
+                               : "border-foreground hover:border-cinnabar hover:text-cinnabar"
                   }`}
                 >
                   <span>Start with {t.name.split(" ")[0]}</span>
@@ -654,7 +654,7 @@ const Services = () => (
             <Link to="/contact" className="inline-flex items-center gap-3 px-7 py-4 btn-label border border-cinnabar bg-cinnabar text-background transition-opacity">
               <span>Book discovery call</span><ArrowUpRight className="w-4 h-4" />
             </Link>
-            <Link to="/consulting" className="inline-flex items-center gap-3 px-7 py-4 btn-label border border-foreground hover:bg-cinnabar hover:text-background hover:border-cinnabar transition-colors">
+            <Link to="/consulting" className="inline-flex items-center gap-3 px-7 py-4 btn-label border border-foreground hover:border-cinnabar hover:text-cinnabar transition-colors">
               <span>Or — Ø Consulting</span><ArrowUpRight className="w-4 h-4" />
             </Link>
           </div>

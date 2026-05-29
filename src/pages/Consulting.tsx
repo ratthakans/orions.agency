@@ -202,7 +202,7 @@ const Consulting = () => (
             </Link>
             <Link
               to="/services"
-              className="group inline-flex items-center gap-3 px-7 py-4 btn-label border border-foreground hover:bg-cinnabar hover:text-background hover:border-cinnabar transition-colors"
+              className="group inline-flex items-center gap-3 px-7 py-4 btn-label border border-foreground hover:border-cinnabar hover:text-cinnabar transition-colors"
             >
               <span>See agency services</span>
               <ArrowUpRight className="w-4 h-4" />

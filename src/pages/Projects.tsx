@@ -142,7 +142,7 @@ const Projects = () => (
                 href={v.url}
                 target="_blank"
                 rel="noreferrer"
-                className="group bg-background p-10 md:p-14 h-full flex flex-col hover:bg-cinnabar hover:text-background transition-colors duration-500"
+                className="group bg-background p-10 md:p-14 h-full flex flex-col hover:border-cinnabar transition-colors duration-500"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="font-mono text-[10px] tracking-[0.22em] uppercase opacity-60">

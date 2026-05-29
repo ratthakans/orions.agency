@@ -10,6 +10,24 @@ import { caseStudies } from "@/data/caseStudies";
 
 const SITE_URL = "https://orions.agency";
 
+const verticals = [
+  { n: "01", name: "Restaurant",              moments: "เปิดสาขา · launch menu · เปลี่ยน chef · เจาะตลาดต่างชาติ" },
+  { n: "02", name: "Hospitality",             moments: "เพิ่ม occupancy off-season · rebrand หลัง renovation · MICE" },
+  { n: "03", name: "Golf",                    moments: "เพิ่ม member ต่างชาติ · tournament · rebrand" },
+  { n: "04", name: "Real Estate",             moments: "launch project · closeout · เจาะตลาดต่างชาติ" },
+  { n: "05", name: "Wellness",                moments: "launch program · wellness tourism · membership" },
+  { n: "06", name: "Premium Retail & Fashion", moments: "collection launch · flagship opening · founder story" },
+];
+
+const moments = [
+  { n: "01", name: "Restaurant Opening",   desc: "ทำให้คนต่อแถวตั้งแต่วันแรก — pre-buzz, opening film, founder voice" },
+  { n: "02", name: "Hotel Rebrand",        desc: "เปลี่ยน occupancy off-season ด้วย editorial story และ guest journey ใหม่" },
+  { n: "03", name: "Real Estate Launch",   desc: "หนังเปิดโครงการระดับ documentary + closeout campaign สำหรับยูนิตสุดท้าย" },
+  { n: "04", name: "Wellness Program",     desc: "วาง brand voice รอบความเชื่อ + content loop สำหรับ membership conversion" },
+  { n: "05", name: "Premium Retail Drop",  desc: "Editorial drop คล้ายนิตยสาร — สำหรับ collection ที่ต้องการ sell-out วันแรก" },
+  { n: "06", name: "Corporate Shift",      desc: "Legacy modernization — บอกเรื่องการเปลี่ยนผ่านแบบไม่ทิ้งราก" },
+];
+
 const projects = caseStudies.map((c) => ({
   n: c.n,
   slug: c.slug,
@@ -79,10 +97,76 @@ const Work = () => (
       </div>
     </section>
 
+    {/* 02 · FOCUS VERTICALS */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+        <SectionLabel index="02" label="Focus Verticals" />
+        <Reveal delay={0.05}>
+          <h2 className="mt-10 font-serif h-display-md max-w-[20ch]">
+            หกอุตสาหกรรมที่เรา <em className="italic text-cinnabar">รู้ลึก.</em>
+          </h2>
+        </Reveal>
+
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 border border-foreground/20">
+          {verticals.map((v, i) => (
+            <Reveal key={v.n} delay={(i % 3) * 0.06}>
+              <div className={`p-8 md:p-10 h-full bg-background ${i % 3 > 0 ? "md:border-l border-foreground/20" : ""} ${i >= 3 ? "md:border-t border-foreground/20" : ""} ${i > 0 && i < 3 ? "border-t md:border-t-0 border-foreground/20" : ""} ${i >= 3 ? "border-t border-foreground/20" : ""}`}>
+                <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">— {v.n}</div>
+                <h3 className="mt-6 font-serif text-[24px] md:text-[28px] leading-[1.1] tracking-[-0.02em]">{v.name}</h3>
+                <p className="mt-4 font-thai text-[13px] md:text-[14px] leading-[1.65] text-muted-foreground">{v.moments}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal delay={0.3}>
+          <div className="mt-12 border-l-2 border-cinnabar pl-6 md:pl-8 max-w-[820px]">
+            <p className="font-serif italic text-[18px] md:text-[22px] leading-[1.5] tracking-[-0.005em]">
+              สำหรับงานวางระบบแบรนด์และกลยุทธ์ขั้นสูงในยูนิต <em className="text-cinnabar">Ø Boutique</em> เราโฟกัส 6 อุตสาหกรรมนี้เพื่อรักษาความลึกของ insight และคุณภาพ craft ขั้นสูงสุด · สำหรับธุรกิจนอกกลุ่ม เราเปิดระบบ Selective Screening เพื่อประเมินความพร้อมก่อนรับงาน.
+            </p>
+          </div>
+        </Reveal>
+        <Reveal delay={0.4}>
+          <p className="mt-6 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
+            *เครือ ØRIONS ไม่รับ: pharmaceuticals · fast fashion mass · gambling · MLM
+          </p>
+        </Reveal>
+      </div>
+    </section>
+
+    {/* 03 · CONTEXTUAL MOMENTS */}
+    <section className="px-6 md:px-10 border-t border-foreground/15 bg-surface">
+      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+        <SectionLabel index="03" label="Contextual Moments" />
+        <Reveal delay={0.05}>
+          <h2 className="mt-10 font-serif h-display-md max-w-[22ch]">
+            ผลงานและสถานการณ์ที่เรา <em className="italic text-cinnabar">สร้างมาเพื่อมัน.</em>
+          </h2>
+        </Reveal>
+        <Reveal delay={0.15}>
+          <p className="mt-8 max-w-[680px] font-thai text-[15px] md:text-[17px] leading-[1.7] text-muted-foreground">
+            พื้นที่ที่ขยับตาม context — เพื่อให้ธุรกิจเห็นภาพชัดว่าเราเข้าไปปลดล็อกช่วงเวลาสำคัญช่วงไหน.
+          </p>
+        </Reveal>
+
+        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-foreground/15 border border-foreground/15">
+          {moments.map((m) => (
+            <Reveal key={m.n}>
+              <div className="bg-background p-8 md:p-10 h-full flex flex-col">
+                <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">— {m.n}</div>
+                <h3 className="mt-6 font-serif italic text-[22px] md:text-[26px] leading-[1.15] tracking-[-0.015em]">{m.name}</h3>
+                <p className="mt-4 font-thai text-[13px] md:text-[14px] leading-[1.7] text-muted-foreground">{m.desc}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+
     {/* 02 · SELECTED PROJECTS */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-24 md:py-32">
-        <SectionLabel index="02" label="Projects" />
+        <SectionLabel index="04" label="Projects" />
         <Reveal delay={0.05}>
           <h2 className="mt-10 font-serif h-display-md">
             {projects.length} brands. <em className="italic text-cinnabar">One team.</em>
@@ -133,7 +217,7 @@ const Work = () => (
     {/* 03 · WHAT CLIENTS SAY */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-24 md:py-32">
-        <SectionLabel index="03" label="Testimonials" />
+        <SectionLabel index="05" label="Testimonials" />
         <Reveal delay={0.05}>
           <h2 className="mt-10 font-serif h-display-md">
             What clients <em className="italic text-cinnabar">say.</em>
@@ -174,7 +258,7 @@ const Work = () => (
     {/* 04 · TRUSTED BY */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-24 md:py-32">
-        <SectionLabel index="04" label="Trusted By" />
+        <SectionLabel index="06" label="Trusted By" />
         <Reveal delay={0.05}>
           <h2 className="mt-10 font-serif h-display-lg max-w-[20ch]">
             20+ brands across F&amp;B, fashion, and <em className="italic text-cinnabar">hospitality.</em>

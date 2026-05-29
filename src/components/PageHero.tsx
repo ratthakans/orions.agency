@@ -32,10 +32,13 @@ const PageHero = ({
     {verticalLabel && <VerticalLabel side="left">{verticalLabel}</VerticalLabel>}
 
     <Reveal>
-      <div className="border-t border-foreground pt-3 pb-3 flex items-center justify-between">
-        <span className="index-badge font-bold">{(eyebrow ?? "INDEX").toUpperCase()}</span>
-        <span className="index-badge font-medium text-muted-foreground hidden sm:inline">{meta.replace(/\s·\s/g, " / ")}</span>
+      <div className="page-chrome">
+        <span className="page-chrome__brand">ØRIONS · BOUTIQUE CREATIVE STUDIO</span>
+        <span className="page-chrome__meta hidden sm:inline">{meta.replace(/\s·\s/g, " · ").toUpperCase()}</span>
       </div>
+      {eyebrow && (
+        <div className="mt-6 eyebrow-mono">{eyebrow.toUpperCase()}</div>
+      )}
     </Reveal>
 
     <div className="mt-12 md:mt-16">

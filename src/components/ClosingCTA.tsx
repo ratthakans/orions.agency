@@ -27,22 +27,22 @@ const ClosingCTA = ({
   phone,
 }: Props) => (
   <section className="relative px-6 md:px-10">
-    <div className="border-t border-foreground py-16 md:py-20 max-w-[760px] mx-auto text-center">
+    <div className="border-t border-foreground py-16 md:py-20 max-w-[720px] mx-auto text-center">
       <Reveal>
-        <div className="index-badge text-muted-foreground mb-6">{eyebrow}</div>
+        <div className="index-badge text-muted-foreground mb-5">{eyebrow}</div>
       </Reveal>
       <Reveal delay={0.05}>
-        <h2 className="font-serif text-[44px] md:text-[72px] lg:text-[96px] leading-[1.05] tracking-[-0.03em] text-balance">{title}</h2>
+        <h2 className="font-serif h-display-md text-balance">{title}</h2>
       </Reveal>
       {description && (
         <Reveal delay={0.1}>
-          <p className="mt-8 max-w-[520px] mx-auto text-[15px] leading-[1.7] text-muted-foreground font-thai">
+          <p className="mt-6 max-w-[520px] mx-auto text-[15px] leading-[1.7] text-muted-foreground font-thai">
             {description}
           </p>
         </Reveal>
       )}
       <Reveal delay={0.2}>
-        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-5">
+        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           {ctas.map((c) => (
             <CTA key={c.label} to={c.to} variant={c.variant}>
               {c.label}

@@ -33,8 +33,8 @@ const PageHero = ({
 
     <Reveal>
       <div className="border-t border-foreground pt-3 pb-3 flex items-center justify-between">
-        <span className="index-badge font-bold">{eyebrow ?? "INDEX"}</span>
-        <span className="index-badge font-medium text-muted-foreground hidden sm:inline">{meta}</span>
+        <span className="index-badge font-bold">{(eyebrow ?? "INDEX").toUpperCase()}</span>
+        <span className="index-badge font-medium text-muted-foreground hidden sm:inline">{meta.replace(/\s·\s/g, " / ")}</span>
       </div>
     </Reveal>
 

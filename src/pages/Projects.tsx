@@ -32,6 +32,33 @@ const ventures: Venture[] = [
   },
 ];
 
+const studioUnits = [
+  {
+    code: "3.1",
+    name: "Startup & Product Ventures",
+    tag: "Asset-Based Growth",
+    desc: "เปลี่ยนจากผู้รับจ้างผลิตสู่ 'เจ้าของผลิตภัณฑ์' — ปั้นไอเดียธุรกิจ ซอฟต์แวร์ และสินค้าของตัวเองเพื่อระดมทุน.",
+    services: ["In-house Brand Incubation", "Creative SaaS Development"],
+    target: "ตลาด B2C · B2B SaaS · กลุ่มนักลงทุน (VC)",
+  },
+  {
+    code: "3.2",
+    name: "Owned Media & IP",
+    tag: "The Playground",
+    desc: "บริหารสถานีสื่อ สังคมออนไลน์ และรายการคอนเทนต์ของตัวเอง 100% — ทำเงินจากสปอนเซอร์และโฆษณา.",
+    services: ["IP Development", "Audience Monetization", "Native Advertising Slots"],
+    target: "ผู้ชมทั่วไป (Audience) และแบรนด์สินค้าต่างๆ",
+  },
+  {
+    code: "3.3",
+    name: "Creative Experimental Lab",
+    tag: "The R&D Engine",
+    desc: "ห้องวิจัยล้ำสมัย ทดลองเทคโนโลยี สื่อ และ format คอนเทนต์แปลกใหม่ — AI, virtual experience, trend-setting formats.",
+    services: ["Advanced AI Workflows", "Virtual Experiences", "Trend-Setting Formats"],
+    target: "ทีมภายใน · แบรนด์ Innovation-Driven",
+  },
+];
+
 const Projects = () => (
   <div>
     <SEO
@@ -57,9 +84,57 @@ const Projects = () => (
       </div>
     </section>
 
+    {/* THREE UNITS — Section 05 Row 3 */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+        <SectionLabel index="02" label="Three units" />
+        <Reveal delay={0.1}>
+          <h2 className="mt-10 font-serif h-display-md max-w-[22ch]">
+            สามยูนิตงาน · <em className="italic text-cinnabar">หนึ่งห้องทดลอง.</em>
+          </h2>
+        </Reveal>
+        <Reveal delay={0.15}>
+          <p className="mt-6 max-w-[640px] font-thai text-[15px] md:text-[16px] leading-[1.7] text-muted-foreground">
+            Asset-Based · Innovation-Driven — โครงสร้างของ Ø Studio แบ่งเป็นสามยูนิตที่หล่อเลี้ยงกัน เพื่อสร้างสินทรัพย์ของตัวเองและทดลองอนาคตของ creative.
+          </p>
+        </Reveal>
+
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 border border-foreground/20">
+          {studioUnits.map((u, i) => (
+            <Reveal key={u.code} delay={i * 0.06}>
+              <div className={`p-8 md:p-10 h-full bg-background flex flex-col ${i > 0 ? "border-t md:border-t-0 md:border-l border-foreground/20" : ""}`}>
+                <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">{u.code}</div>
+                <h3 className="mt-4 font-serif text-[22px] md:text-[26px] leading-[1.15] tracking-[-0.015em]">{u.name}</h3>
+                <div className="mt-3 font-serif italic text-cinnabar text-[14px] md:text-[15px]">[ {u.tag} ]</div>
+                <p className="mt-5 font-thai text-[13px] md:text-[14px] leading-[1.7] text-foreground/85">{u.desc}</p>
+                <div className="mt-6 pt-6 border-t border-foreground/15 space-y-4 text-[12px]">
+                  <div>
+                    <div className="font-mono tracking-[0.22em] uppercase text-cinnabar text-[10px]">— Services</div>
+                    <ul className="mt-2 space-y-1 font-thai text-foreground/75 leading-[1.6]">
+                      {u.services.map((s) => <li key={s}>· {s}</li>)}
+                    </ul>
+                  </div>
+                  <div>
+                    <div className="font-mono tracking-[0.22em] uppercase text-cinnabar text-[10px]">— Target</div>
+                    <p className="mt-2 font-thai leading-[1.6] text-foreground/75">{u.target}</p>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+
     {/* VENTURES */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+        <SectionLabel index="03" label="Live ventures" />
+        <Reveal delay={0.1}>
+          <h2 className="mt-10 mb-12 font-serif h-display-md max-w-[20ch]">
+            ของจริง · <em className="italic text-cinnabar">ที่ shipped แล้ว.</em>
+          </h2>
+        </Reveal>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-foreground/15 border border-foreground/15">
           {ventures.map((v, i) => (
             <Reveal key={v.name} delay={i * 0.08}>

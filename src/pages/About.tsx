@@ -394,7 +394,7 @@ const About = () => (
     {/* 05 — OUR TEAM */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <SectionLabel index="05" label="Our Team" />
+        <SectionLabel index="09" label="Our Team" />
         <Reveal delay={0.1}>
           <h2 className="mt-10 font-serif h-display-lg max-w-[22ch]">
             15 people. <em className="italic text-cinnabar">One studio.</em>

@@ -48,27 +48,27 @@ const Index = () => (
     />
 
     {/* 01 — HERO */}
-    <section className="relative min-h-[100svh] flex flex-col px-6 md:px-10">
-      <div className="max-w-[1400px] mx-auto w-full flex-1 flex flex-col justify-center items-center text-center pt-28 md:pt-32 pb-24 md:pb-32">
+    <section className="relative min-h-[88svh] flex flex-col px-6 md:px-10">
+      <div className="max-w-[1100px] mx-auto w-full flex-1 flex flex-col justify-center items-center text-center pt-24 md:pt-28 pb-20 md:pb-24">
         <Reveal>
-          <h1 className="font-serif h-display-xl leading-[0.92] tracking-[-0.04em]">
+          <h1 className="font-serif h-display-xl">
             No Guesswork. <em className="italic text-cinnabar">Just Craft.</em>
           </h1>
         </Reveal>
         <Reveal delay={0.2}>
-          <p className="mt-10 md:mt-12 font-serif italic text-[18px] md:text-[22px] text-muted-foreground max-w-[48ch]">
+          <p className="mt-8 md:mt-10 font-serif italic text-[16px] md:text-[19px] leading-[1.6] text-muted-foreground max-w-[52ch]">
             Branding, content, production &amp; paid media for brands with something to say. From first call to first market-ready direction in 4 weeks.
           </p>
         </Reveal>
         <Reveal delay={0.3}>
-          <div className="mt-12 md:mt-16 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
+          <div className="mt-10 md:mt-12 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
             ØRIONS · The Creative Company · Bangkok · 2026
           </div>
         </Reveal>
         <Reveal delay={0.4}>
           <Link
             to="/contact"
-            className="mt-10 inline-flex items-center gap-3 bg-cinnabar text-background px-7 py-4 btn-label transition-opacity duration-300"
+            className="mt-10 btn-primary"
           >
             <span>Book Discovery Call</span>
             <ArrowUpRight className="w-4 h-4" />

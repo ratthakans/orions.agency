@@ -14,6 +14,7 @@ import HealthCheck from "./pages/HealthCheck";
 import Work from "./pages/Work";
 import CaseStudy from "./pages/CaseStudy";
 import Projects from "./pages/Projects";
+import Consulting from "./pages/Consulting";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
@@ -33,12 +34,14 @@ const App = () => (
             <Route path="/manifesto" element={<Navigate to="/about" replace />} />
             <Route path="/approach" element={<Navigate to="/about" replace />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/consulting" element={<Consulting />} />
             <Route path="/diagnostic" element={<HealthCheck />} />
             <Route path="/health-check" element={<Navigate to="/diagnostic" replace />} />
             <Route path="/work" element={<Work />} />
             <Route path="/work/:slug" element={<CaseStudy />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/ventures" element={<Navigate to="/projects" replace />} />
+            <Route path="/studio" element={<Projects />} />
+            <Route path="/projects" element={<Navigate to="/studio" replace />} />
+            <Route path="/ventures" element={<Navigate to="/studio" replace />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

@@ -5,8 +5,9 @@ const navLinks = [
   { to: "/diagnostic", label: "Diagnostic" },
   { to: "/about", label: "About" },
   { to: "/services", label: "Services" },
+  { to: "/consulting", label: "Consulting" },
   { to: "/work", label: "Work" },
-  { to: "/projects", label: "Ventures" },
+  { to: "/studio", label: "Studio" },
   { to: "/contact", label: "Contact" },
 ];
 
@@ -103,7 +104,7 @@ const Footer = () => {
                   </a>
                 </li>
               ))}
-              <li><Link to="/projects" className="text-foreground/85 hover:text-cinnabar transition-colors">Ventures</Link></li>
+              <li><Link to="/studio" className="text-foreground/85 hover:text-cinnabar transition-colors">Studio</Link></li>
               <li><Link to="/diagnostic" className="text-foreground/85 hover:text-cinnabar transition-colors">Diagnostic</Link></li>
             </ul>
           </div>

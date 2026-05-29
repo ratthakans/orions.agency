@@ -220,7 +220,7 @@ const Services = () => (
     />
 
     {/* 01 HERO + Master Blueprint */}
-    <section className="px-6 md:px-10 pt-32 md:pt-40 pb-16 md:pb-20">
+    <section className="px-6 md:px-10 pt-28 md:pt-32 pb-16 md:pb-20">
       <div className="max-w-[1280px] mx-auto">
         <SectionLabel index="01" label="The Company" />
         <Reveal delay={0.1}>
@@ -259,7 +259,7 @@ const Services = () => (
 
     {/* 02 BOUTIQUE */}
     <section id="boutique" className="px-6 md:px-10 border-t border-foreground/15 bg-surface scroll-mt-24">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="02" label="Ø Boutique" />
         <Reveal delay={0.1}>
           <h2 className="mt-10 font-serif h-display-lg max-w-[18ch]">
@@ -367,7 +367,7 @@ const Services = () => (
 
     {/* 03 DIGITAL */}
     <section id="digital" className="px-6 md:px-10 border-t border-foreground/15 scroll-mt-24">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="03" label="Ø Digital" />
         <Reveal delay={0.1}>
           <h2 className="mt-10 font-serif h-display-lg max-w-[20ch]">
@@ -407,8 +407,8 @@ const Services = () => (
                 <Link
                   to="/contact"
                   className={`mt-8 group inline-flex items-center justify-between gap-3 px-6 py-3.5 btn-label border transition-colors duration-300 ${
-                    t.featured ? "border-cinnabar bg-cinnabar text-background hover:opacity-90"
-                               : "border-foreground hover:bg-cinnabar hover:text-background hover:border-cinnabar"
+                    t.featured ? "border-cinnabar bg-cinnabar text-background"
+                               : "border-foreground hover:border-cinnabar hover:text-cinnabar"
                   }`}
                 >
                   <span>Start with {t.name.split(" ")[0]}</span>
@@ -448,7 +448,7 @@ const Services = () => (
 
     {/* 04 PRODUCTION */}
     <section id="production" className="px-6 md:px-10 border-t border-foreground/15 bg-surface scroll-mt-24">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="04" label="Ø Production" />
         <Reveal delay={0.1}>
           <h2 className="mt-10 font-serif h-display-lg max-w-[20ch]">
@@ -574,7 +574,7 @@ const Services = () => (
 
     {/* 05 LADDER */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="05" label="The Ladder" />
         <Reveal delay={0.1}>
           <h2 className="mt-10 font-serif h-display-md max-w-[22ch]">
@@ -613,7 +613,7 @@ const Services = () => (
 
     {/* 06 FINE PRINT */}
     <section className="px-6 md:px-10 border-t border-foreground/15 bg-surface">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="06" label="The Fine Print" />
         <Reveal delay={0.1}>
           <h2 className="mt-10 font-serif h-display-md max-w-[20ch]">
@@ -637,7 +637,7 @@ const Services = () => (
 
     {/* 07 CTA */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="07" label="Next step" />
         <Reveal delay={0.1}>
           <h2 className="mt-10 font-serif h-display-lg max-w-[20ch]">
@@ -651,10 +651,10 @@ const Services = () => (
         </Reveal>
         <Reveal delay={0.3}>
           <div className="mt-12 flex flex-wrap gap-4">
-            <Link to="/contact" className="inline-flex items-center gap-3 px-7 py-4 btn-label border border-cinnabar bg-cinnabar text-background hover:opacity-90 transition-opacity">
+            <Link to="/contact" className="inline-flex items-center gap-3 px-7 py-4 btn-label border border-cinnabar bg-cinnabar text-background transition-opacity">
               <span>Book discovery call</span><ArrowUpRight className="w-4 h-4" />
             </Link>
-            <Link to="/consulting" className="inline-flex items-center gap-3 px-7 py-4 btn-label border border-foreground hover:bg-cinnabar hover:text-background hover:border-cinnabar transition-colors">
+            <Link to="/consulting" className="inline-flex items-center gap-3 px-7 py-4 btn-label border border-foreground hover:border-cinnabar hover:text-cinnabar transition-colors">
               <span>Or — Ø Consulting</span><ArrowUpRight className="w-4 h-4" />
             </Link>
           </div>

@@ -1,58 +1,101 @@
-# Plan — Services restructure + Consulting split + Ventures → Studio
+## Refinement pass — editorial discipline across the whole site
 
-## 1. `/services` — full rebuild from 3 rate cards
+Site looks "shouty," not editorial: H1 hits ~220px, dark bg fights the brand spec, hover effects mix translate/scale/bg-swap/border-flip across pages. Fix is **tokens-first** — adjust the design system once, then sweep components for inconsistencies. No content rewrites.
 
-Replace current Services content with **3 division sections** (Boutique / Digital / Production), using the PDF rate-card details verbatim. Keep current Master Blueprint hero (3 axes) but trim Ø2 to point to `/consulting` and rename Ø3 to "Creative Studio (Ventures)" pointing to `/studio`.
+---
 
-New section order (editorial, consistent with site design system — SectionLabel, hairlines, zero-radius, Cinnabar ≤10%):
+### 1. Tokens — single source of truth (`src/index.css`)
 
-- **01 · Hero** — "ØRIONS.co — The Creative Company." + 3-axis Master Blueprint (links to Boutique/Digital/Production anchors and to /consulting, /studio)
-- **02 · Ø Boutique — Stories, refined.** Tagline + 6 industries grid (Restaurant · Hospitality · Golf · Real Estate · Wellness · Premium Retail) + ORIONS Standard 4 KPIs + 4-phase "From brief to brand moment" timeline + Annual Legacy callout (฿532k/yr) + Boutique add-ons table (Extra shoot ฿55k, Brand film ฿75k, PR ฿45k, KOL ฿35k, Logo refresh ฿35k, Naming ฿45k, Packaging ฿55k)
-- **03 · Ø Digital — Performance, by design.** 3 tiers as pricing cards (Starter ฿22,900 / Growth Engine ฿44,900 RECOMMENDED / Dominate ฿89,900) with full deliverable tables from PDF (Ad-spend range, Reels/TikTok, Static, Stories, Ad creatives, Photography, Content day, LINE OA, Reporting, Guarantee) + Digital add-ons (Google Ads ฿7,900/mo, LINE Ads ฿6,900/mo, CRO ฿29,900, Landing ฿14,900, Lead-magnet funnel ฿24,900, LINE OA ฿5,900+฿4,900/mo) + "Buy 3 add-ons 10% off" + "First-month money-back" promise
-- **04 · Ø Production — Crew on demand.** 3 shoot-day tiers (Run-and-Gun ฿12k / Multi-Cam ฿24k / Cinematic ฿36k RECOMMENDED) with camera/crew/lighting/delivery rows + Equipment kit grid (RØDE 32-bit Float, DJI RS 4, Hollyland, Nanlite, ProGrade) + A-la-carte add-ons table (crew + post + equipment + travel) + The Promise list (Senior crew only · Same-day proxy · Free re-shoot on technical fault) + Ideal/Not-for box
-- **05 · The Ladder** — keep, update Ø Consulting row to link `/consulting` and Ø Studio replaces Ventures wording
-- **06 · The Fine Print** — combined Terms grid (Payment · Revisions · Ownership · Standard · Cancellation · Travel) summarised across 3 divisions
-- **07 · CTA** — Discovery call, mailto
+**Background flip (dark → snow, as per brand):**
+- `--background: 60 33% 98%` (snow) · `--foreground: 0 0% 5%` (ink)
+- `--surface: 60 20% 96%` · `--surface-2: 60 14% 93%` (subtle warm off-whites for alt bands)
+- `--muted-foreground: 0 0% 38%` · `--border-soft: 0 0% 85%`
+- Scrollbar thumb: ink, not cinnabar (cinnabar stays ≤10% of pixels)
 
-Drop from current page: `compareRows`, the legacy 3-tier `packages` array (Starter ฿35k/Pro ฿69k/Elite ฿139k), the `addOnCategories` (Branding/Social/Production), 9-unit ecosystem deep dive (moves to `/consulting` if needed), Founder's Deal block.
+**Editorial type scale (the big fix):**
+```
+.h-display-xl  clamp(40px, 7.2vw,  96px)   /* was 72→220 */
+.h-display-lg  clamp(34px, 5.2vw,  68px)   /* was 48→140 */
+.h-display-md  clamp(26px, 3.4vw,  44px)   /* was 32→80  */
+.h-display-sm  clamp(20px, 2.2vw,  30px)
+.h-display-xs  clamp(17px, 1.5vw,  22px)
+```
+Body stays 16–17px / 1.6. Section labels stay 10px mono.
 
-## 2. New `/consulting` page
+**Spacing rhythm:** standardize on `py-20 md:py-28` for sections (currently mixes 24/28/32/40). Hero `pt-32 pb-24`. No more `py-32 md:py-40`.
 
-Extract the Ø2 (Consulting) column from current Ecosystem Deep Dive into a dedicated page. Sections:
+---
 
-- **01 · Hero** — "Ø Consulting — Predictable Revenue." + intro about long-term strategic creative leadership (12–36 month engagements)
-- **02 · Three units** — 3 cards from existing ecosystem row 2:
-  - 2.1 Business Creative Solution (Brand Transformation)
-  - 2.2 Strategic Creative Direction (Fractional CCO)
-  - 2.3 Creative Culture & Training (Organization Transition)
-  Each with services list + target list (verbatim from current Services.tsx ecosystemRows[1])
-- **03 · Engagement model** — "From ฿180,000/mo · 12–36 months · C-Level advisory"
-- **04 · Who it's for / Not for** — Conglomerate, listed companies, legacy brands vs. project-based work (→ Boutique)
-- **05 · CTA** — "Book a private consultation"
+### 2. Hover system — unify on "underline + cinnabar"
 
-New route in `App.tsx`: `<Route path="/consulting" element={<Consulting />} />`.
+One global utility set, applied everywhere:
 
-## 3. Ventures → Studio (sitewide rename)
+```css
+.link-quiet   /* text links: color shifts to cinnabar + underline grows L→R */
+.card-quiet   /* cards/tiles: border becomes cinnabar, label-mono turns cinnabar, no translate/scale/bg swap */
+.btn-primary  /* ink fill → cinnabar fill on hover (no scale) */
+.btn-ghost    /* hairline border → cinnabar text + cinnabar border (no fill swap) */
+```
 
-- Rename `src/pages/Projects.tsx` content: page title "Studio — ØRIONS", SectionLabel "Studio", H1 copy updated ("ØRIONS Studio คือ in-house lab ของสตูดิโอ…")
-- New route `/studio` → Projects component; keep `/projects` and `/ventures` as `<Navigate to="/studio" replace />`
-- `src/components/Nav.tsx`: nav item label "Ventures" → "Studio", to: "/studio"
-- `src/components/Footer.tsx`: link label "Ventures" → "Studio" (both menu and primary nav arrays); add new "Consulting" link to footer nav matrix
-- `src/pages/Index.tsx` + `src/pages/About.tsx`: keep word "Consulting" in ecosystem one-liners (still valid)
+Remove from components: `hover:-translate-y-1`, `hover:scale-105`, `hover:bg-cinnabar hover:text-background` on cards, `group-hover:translate-x-1` on arrows beyond a tiny 2px nudge, double-coloring on icons.
 
-## 4. Files touched
+---
 
-- `src/pages/Services.tsx` — full rewrite
-- `src/pages/Consulting.tsx` — **new**
-- `src/pages/Projects.tsx` — rename copy Ventures→Studio
-- `src/App.tsx` — add `/consulting`, add `/studio`, redirect `/projects` & `/ventures` → `/studio`
-- `src/components/Nav.tsx` — Ventures → Studio, add Consulting
-- `src/components/Footer.tsx` — Ventures → Studio, add Consulting link
-- `mem://index.md` — update routes list (add /consulting, /studio; remove /projects)
+### 3. Component sweep
 
-## Out of scope
+- **`Nav.tsx`**: remove the cinnabar Contact pill — replace with quiet text link "Contact" matching other nav items; active state = ink (not cinnabar) with cinnabar reserved for current-page hairline under the label. Height 64px (was 72).
+- **`Footer.tsx`**: tighten padding, hairline dividers only, links use `.link-quiet`.
+- **`Reveal.tsx`**: keep, but reduce y-offset 12→8 and duration 0.5→0.35.
+- **`ClosingCTA.tsx`**: drop oversized `h-display-lg` → `h-display-md`, remove gradient/glow if any.
+- **`PageHero.tsx`**: switch to restrained scale, ink-on-snow.
+- **Buttons (`btn-label` callers)**: standardize to two variants only — `btn-primary` (ink fill, white text) and `btn-ghost` (hairline). Cinnabar reserved for one CTA per page max.
 
-- No new images/photography assets
-- No PDF download buttons (text content only, no rate-card PDF hosting)
-- Pricing copy stays in THB exactly as PDFs; no currency conversion
-- No backend / form changes
+---
+
+### 4. Page-level sweeps (no copy changes)
+
+- **`Index.tsx`** (8 sections): hero scale down · Problem/Insight cards lose hover translate · Divisions tile uses `.card-quiet` · Process timeline numbers shrink · ClosingCTA shrinks.
+- **`About.tsx`** (8 sections): consolidate duplicate "Why ØRIONS" — there are two `index="05"` (Divisions + Team) right now; renumber Team to 09 and rename label. Standardize section padding.
+- **`Services.tsx`** (7 sections): Boutique/Digital/Production cards lose `hover:bg-cinnabar` flip → use `.card-quiet`. Pricing card "RECOMMENDED" tag becomes hairline ribbon, not filled. Tables get tighter row height (py-3, not py-5).
+- **`Consulting.tsx`** (5 sections): same card-quiet pass on Three Units + Engagement grid.
+- **`Work.tsx`** (6 sections): Focus Verticals + Contextual Moments use `.card-quiet`. Project gallery hover = image scale-down (1.02 max) + cinnabar caption color, no translate.
+- **`Projects.tsx` (Studio)** (4 sections): venture cards drop full bg→cinnabar swap, use `.card-quiet`.
+- **`Contact.tsx`**, **`HealthCheck.tsx`**: apply restrained scale + new hover.
+
+---
+
+### 5. Out of scope
+
+- No content/copy rewrites (blueprint coverage is fine).
+- No new sections/pages.
+- No backend/auth/data changes.
+- No new fonts/colors — only token values adjusted.
+- No image regeneration.
+
+---
+
+### Files touched
+
+```
+src/index.css                          (tokens + new hover utilities)
+src/components/Nav.tsx
+src/components/Footer.tsx
+src/components/Reveal.tsx
+src/components/ClosingCTA.tsx
+src/components/PageHero.tsx
+src/components/SectionLabel.tsx        (snow tone update)
+src/pages/Index.tsx
+src/pages/About.tsx
+src/pages/Services.tsx
+src/pages/Consulting.tsx
+src/pages/Work.tsx
+src/pages/Projects.tsx
+src/pages/Contact.tsx
+src/pages/HealthCheck.tsx
+mem://index.md                         (correct bg note: Snow is canonical, dark removed)
+```
+
+### Verification
+
+- TypeScript build check after each batch.
+- Visual QA on `/`, `/services`, `/about`, `/work`, `/studio`, `/consulting` at 1377px and 390px viewport.

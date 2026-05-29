@@ -70,7 +70,7 @@ const Contact = () => {
 
       {/* 01 · HERO */}
       <section className="px-6 md:px-10">
-        <div className="max-w-[1280px] mx-auto pt-32 md:pt-40 pb-16 md:pb-24">
+        <div className="max-w-[1280px] mx-auto pt-28 md:pt-32 pb-16 md:pb-24">
           <SectionLabel index="01" label="Inquiry" />
           <Reveal delay={0.05}>
             <h1 className="mt-10 font-serif h-display-xl max-w-[14ch]">
@@ -166,7 +166,7 @@ const Contact = () => {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="md:col-span-2 mt-4 inline-flex items-center justify-center gap-3 bg-cinnabar text-background px-7 py-4 btn-label hover:opacity-90 transition-opacity disabled:opacity-50"
+                    className="md:col-span-2 mt-4 inline-flex items-center justify-center gap-3 bg-cinnabar text-background px-7 py-4 btn-label transition-opacity disabled:opacity-50"
                   >
                     <span>{submitting ? "Sending…" : "Send inquiry"}</span>
                     <ArrowUpRight className="w-4 h-4" />

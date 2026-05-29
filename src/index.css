@@ -6,40 +6,40 @@
 
 @layer base {
   :root {
-    /* ØRIONS — Dark: Black Russian bg / Snow ink / Cinnabar accent */
-    --background: 0 0% 5%;              /* #0E0E0E Black Russian */
-    --foreground: 60 33% 98%;           /* #FDFDF9 Snow */
+    /* ØRIONS — Light: Snow bg / Black Russian ink / Cinnabar accent */
+    --background: 60 33% 98%;           /* #FDFDF9 Snow */
+    --foreground: 0 0% 5%;              /* #0E0E0E Black Russian */
 
-    --surface: 0 0% 8%;
-    --surface-foreground: 60 33% 98%;
-    --surface-2: 0 0% 11%;
+    --surface: 60 20% 96%;              /* warm off-white band */
+    --surface-foreground: 0 0% 5%;
+    --surface-2: 60 14% 93%;            /* slightly deeper band */
 
-    --card: 0 0% 5%;
-    --card-foreground: 60 33% 98%;
+    --card: 60 33% 98%;
+    --card-foreground: 0 0% 5%;
 
-    --popover: 0 0% 5%;
-    --popover-foreground: 60 33% 98%;
+    --popover: 60 33% 98%;
+    --popover-foreground: 0 0% 5%;
 
-    --primary: 60 33% 98%;
-    --primary-foreground: 0 0% 5%;
+    --primary: 0 0% 5%;
+    --primary-foreground: 60 33% 98%;
 
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 60 33% 98%;
+    --secondary: 60 14% 93%;
+    --secondary-foreground: 0 0% 5%;
 
-    --muted: 0 0% 10%;
-    --muted-foreground: 60 10% 70%;
+    --muted: 60 14% 93%;
+    --muted-foreground: 0 0% 38%;
 
     /* Cinnabar — editorial accent #EB5939 */
     --accent: 11 81% 57%;
     --accent-foreground: 60 33% 98%;
 
-    --destructive: 0 72% 55%;
+    --destructive: 0 72% 48%;
     --destructive-foreground: 60 33% 98%;
 
-    --border: 60 33% 98%;
-    --border-soft: 0 0% 25%;
-    --input: 60 33% 98%;
-    --ring: 60 33% 98%;
+    --border: 0 0% 5%;
+    --border-soft: 0 0% 85%;
+    --input: 0 0% 5%;
+    --ring: 0 0% 5%;
 
     --radius: 0px;
 
@@ -60,8 +60,8 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', 'IBM Plex Sans Thai', system-ui, sans-serif;
-    font-size: 17px;
-    line-height: 1.55;
+    font-size: 16px;
+    line-height: 1.6;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -69,8 +69,8 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Newsreader', 'IBM Plex Sans Thai', Georgia, serif;
     font-weight: 400;
-    letter-spacing: -0.02em;
-    line-height: 1.05;
+    letter-spacing: -0.018em;
+    line-height: 1.08;
     text-wrap: balance;
   }
 }
@@ -123,12 +123,12 @@
     text-wrap: balance;
     font-feature-settings: "ss01", "ss02";
   }
-  .h-display-xl  { font-size: clamp(72px, 14vw, 220px); line-height: 0.95; letter-spacing: -0.035em; }
-  .h-display-lg  { font-size: clamp(48px, 9.5vw, 140px); line-height: 0.98; letter-spacing: -0.028em; }
-  .h-display-md  { font-size: clamp(32px, 5.5vw, 80px); line-height: 1.02; letter-spacing: -0.022em; }
-  .h-display-sm  { font-size: clamp(24px, 4vw, 48px);   line-height: 1.1;  letter-spacing: -0.018em; }
-  .h-display-xs  { font-size: clamp(20px, 2.6vw, 32px); line-height: 1.15; letter-spacing: -0.012em; }
-  .h-display-2xs { font-size: clamp(16px, 1.6vw, 22px); line-height: 1.25; letter-spacing: -0.008em; }
+  .h-display-xl  { font-size: clamp(40px, 7.2vw, 96px); line-height: 1.0;  letter-spacing: -0.03em; }
+  .h-display-lg  { font-size: clamp(34px, 5.2vw, 68px); line-height: 1.04; letter-spacing: -0.025em; }
+  .h-display-md  { font-size: clamp(26px, 3.4vw, 44px); line-height: 1.1;  letter-spacing: -0.02em; }
+  .h-display-sm  { font-size: clamp(20px, 2.2vw, 30px); line-height: 1.18; letter-spacing: -0.015em; }
+  .h-display-xs  { font-size: clamp(17px, 1.5vw, 22px); line-height: 1.25; letter-spacing: -0.01em; }
+  .h-display-2xs { font-size: clamp(15px, 1.2vw, 18px); line-height: 1.3;  letter-spacing: -0.005em; }
   .num-display   { font-family: 'Newsreader', serif; font-weight: 500; letter-spacing: -0.03em; line-height: 0.95; font-feature-settings: "tnum"; }
 
   .bg-surface   { background-color: hsl(var(--surface)); }
@@ -139,6 +139,69 @@
   .border-soft  { border-color: hsl(var(--border-soft)); }
   .hairline     { height: 1px; background: hsl(var(--foreground)); }
   .hairline-soft{ height: 1px; background: hsl(var(--border-soft)); }
+
+  /* === Unified hover system — quiet, editorial === */
+  .link-quiet {
+    position: relative;
+    display: inline-block;
+    color: inherit;
+    transition: color 200ms ease;
+  }
+  .link-quiet::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: -2px;
+    height: 1px;
+    background: hsl(var(--accent));
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .link-quiet:hover { color: hsl(var(--accent)); }
+  .link-quiet:hover::after { transform: scaleX(1); }
+
+  .card-quiet {
+    border: 1px solid hsl(var(--foreground) / 0.15);
+    background: hsl(var(--background));
+    transition: border-color 280ms ease;
+  }
+  .card-quiet:hover { border-color: hsl(var(--accent)); }
+  .card-quiet:hover .card-quiet-label { color: hsl(var(--accent)); }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 0.75rem;
+    padding: 0.875rem 1.5rem;
+    background: hsl(var(--foreground));
+    color: hsl(var(--background));
+    font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0;
+    transition: background-color 240ms ease;
+  }
+  .btn-primary:hover { background: hsl(var(--accent)); }
+
+  .btn-accent {
+    display: inline-flex; align-items: center; gap: 0.75rem;
+    padding: 0.875rem 1.5rem;
+    background: hsl(var(--accent));
+    color: hsl(var(--background));
+    font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0;
+    transition: background-color 240ms ease;
+  }
+  .btn-accent:hover { background: hsl(var(--foreground)); }
+
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 0.75rem;
+    padding: 0.875rem 1.5rem;
+    background: transparent;
+    color: hsl(var(--foreground));
+    border: 1px solid hsl(var(--foreground));
+    font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0;
+    transition: color 240ms ease, border-color 240ms ease;
+  }
+  .btn-ghost:hover { color: hsl(var(--accent)); border-color: hsl(var(--accent)); }
+
+  /* Section rhythm */
+  .section-pad { padding-top: 5rem; padding-bottom: 5rem; }
+  @media (min-width: 768px) { .section-pad { padding-top: 7rem; padding-bottom: 7rem; } }
 
   /* Legacy gradient utilities — flat ink */
   .bg-gradient-accent {
@@ -195,7 +258,7 @@
 }
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: hsl(var(--background)); }
-::-webkit-scrollbar-thumb { background: hsl(var(--accent)); }
+::-webkit-scrollbar-thumb { background: hsl(var(--foreground) / 0.4); }
 
 .hide-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
 .hide-scrollbar::-webkit-scrollbar { display: none; }

@@ -27,7 +27,7 @@ const PageHero = ({
   verticalLabel,
   titleSize = "lg",
 }: Props) => (
-  <section className="relative px-6 md:px-10 pt-32 md:pt-36 pb-20 md:pb-28">
+  <section className="relative px-6 md:px-10 pt-32 md:pt-36 pb-16 md:pb-20">
     <CropMarks />
     {verticalLabel && <VerticalLabel side="left">{verticalLabel}</VerticalLabel>}
 

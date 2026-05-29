@@ -175,7 +175,7 @@ const VideoReel = ({ items, hideMeta = false, hideControls = false }: Props) => 
                       <h3 className="font-display text-[24px] md:text-[34px] leading-[0.95] tracking-[-0.03em]">
                         {it.name}
                       </h3>
-                      <ArrowUpRight className="w-5 h-5 transition-transform duration-500 group-hover:-translate-y-1 group-hover:translate-x-1" />
+                      <ArrowUpRight className="w-5 h-5 transition-transform duration-500" />
                     </div>
                   </button>
                 )}

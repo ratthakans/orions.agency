@@ -14,138 +14,167 @@ const selectedWork = [
   { n: "03", slug: "democrat-party",       title: "Democrat Party",       niche: "Politics",   year: "2023", impact: "12M+ impressions",  img: workDemocrat },
 ];
 
-const testimonials = [
-  {
-    quote: "พวกเขาไม่ผลิตให้ครบจำนวน — เขาคิดก่อนผลิตทุกครั้ง และนั่นเปลี่ยน rhythm ของแบรนด์เรา",
-    name: "Brand Lead",
-    org: "PropTech Studio · Bangkok",
-  },
-  {
-    quote: "Hero content รายเดือนของเรา กลายเป็นสิ่งที่ทีม sales หยิบไปคุยกับลูกค้าทุกครั้ง",
-    name: "Marketing Director",
-    org: "Hospitality Group",
-  },
-  {
-    quote: "ทีมเล็ก แต่ output คม — เหมือนได้ creative director มาเป็นพาร์ทเนอร์ ไม่ใช่ vendor",
-    name: "Founder",
-    org: "D2C Skincare · Bangkok",
-  },
-  {
-    quote: "ครั้งแรกที่ content calendar ของเรามีเหตุผล ไม่ใช่แค่ตารางโพสต์",
-    name: "Head of Content",
-    org: "F&B Group",
-  },
-  {
-    quote: "Editorial sense ของพวกเขาทำให้แบรนด์เราดูโตขึ้น 5 ปีในไตรมาสเดียว",
-    name: "Creative Director",
-    org: "Hospitality Collection",
-  },
-  {
-    quote: "เราเคยจ้าง agency ใหญ่ — ที่นี่ละเอียดกว่า เร็วกว่า และพูดภาษาแบรนด์เป็น",
-    name: "CMO",
-    org: "Financial Services",
-  },
+const problems = [
+  { n: "i.",   en: "Three vendors, three languages",  th: "จ้างเอเจนซี่แบรนด์ + เอเจนซี่ยิงแอด + โปรดักชั่นเฮาส์ — ไฟล์ไม่ต่อกัน ความเข้าใจหลุดกลางทาง" },
+  { n: "ii.",  en: "Lots of content, no identity",    th: "เหมือนทุกแบรนด์ในฟีด สวยจืดชืด ไม่มีใครจำแบรนด์ได้จริง" },
+  { n: "iii.", en: "Spent, but unmeasured",           th: "ไม่มี baseline ไม่รู้ว่าเงินที่ลงไปเปลี่ยนเป็นยอดขายจริงไหม" },
 ];
 
-const trustedBy = [
-  "Hongmove", "Khaoyai CC", "RTAF", "Democrat", "Heavy", "GCOO",
-  "Sermsuk", "Bangkok Bank", "SCG", "CP All", "Thai Airways", "PTT",
-  "Central", "King Power", "AIS", "True", "Singha", "Chang",
+const divisions = [
+  { n: "Ø1", en: "Boutique",              tag: "Brand identity & strategy", th: "อัตลักษณ์และระบบแบรนด์ระดับพรีเมียม — สำหรับแบรนด์ที่ต้องการลายเซ็นชัด" },
+  { n: "Ø2", en: "Digital & Performance", tag: "Content + paid media",       th: "ขับเคลื่อนยอดด้วย data-driven content และ funnel ที่วัดผลได้" },
+  { n: "Ø3", en: "Production",            tag: "In-house creative crew",     th: "ทีมโปรดักชันซีเนียร์ คุมคุณภาพและต้นทุนทุกชิ้น" },
 ];
 
-const servicesPreview = [
-  { n: "i.",   tier: "Starter", name: "Starter", price: "Start from ฿35,000",  tag: "First refined steps." },
-  { n: "ii.",  tier: "Pro",     name: "Pro",     price: "Start from ฿69,000",  tag: "Cut through the noise.",  featured: true },
-  { n: "iii.", tier: "Elite",   name: "Elite",   price: "Start from ฿139,000", tag: "Become a name remembered." },
+const strengths = [
+  { n: "01", en: "A connected ecosystem",     th: "ที่เดียวครบ — Creative, Strategy, Production, Consulting ไม่ต้องคุมหลาย vendor" },
+  { n: "02", en: "Craft, made measurable",    th: "The ØRIONS Standard — งานทุกชิ้นมีหลักฐานและตัวเลขเทียบกับ baseline ไม่ใช้การเดาทาง" },
+  { n: "03", en: "A senior crew only",        th: "นำโดย 2 co-founders + cast ซีเนียร์ 8–12 คนต่อโปรเจกต์ รับงานน้อยเพื่อผลลัพธ์ที่ดีที่สุด" },
+];
+
+const process = [
+  { n: "01", k: "Listen",   d: "Discovery · audience deep-dive · cultural intelligence" },
+  { n: "02", k: "Refine",   d: "Big idea · strategy lock · direction lock" },
+  { n: "03", k: "Build",    d: "Director · DP · photographer cast to tonal fit" },
+  { n: "04", k: "Launch",   d: "Rollout · cutdowns · review at 30 / 60 / 90 days" },
 ];
 
 const Index = () => (
   <div>
     <SEO
-      title="ØRIONS — Stories, refined."
-      description="Boutique creative studio in Bangkok. We refine stories through data, craft, and strategy."
+      title="ØRIONS — No Guesswork. Just Craft."
+      description="The Creative Company. Branding, content, production & paid media for brands with something to say. From first call to first market-ready direction in 4 weeks."
       path="/"
     />
 
-    {/* HERO — Collins-style: massive serif, all whitespace */}
+    {/* 01 — HERO */}
     <section className="relative min-h-[100svh] flex flex-col px-6 md:px-10">
       <div className="max-w-[1400px] mx-auto w-full flex-1 flex flex-col justify-center items-center text-center pt-28 md:pt-32 pb-24 md:pb-32">
         <Reveal>
           <h1 className="font-serif h-display-xl leading-[0.92] tracking-[-0.04em]">
-            Stories, <em className="italic text-cinnabar">refined.</em>
+            No Guesswork. <em className="italic text-cinnabar">Just Craft.</em>
           </h1>
         </Reveal>
         <Reveal delay={0.2}>
-          <p className="mt-10 md:mt-12 font-serif italic text-[18px] md:text-[22px] text-muted-foreground">
-            Independent editorial studio. Bangkok. — Boutique Creative Agency.
+          <p className="mt-10 md:mt-12 font-serif italic text-[18px] md:text-[22px] text-muted-foreground max-w-[48ch]">
+            Branding, content, production &amp; paid media for brands with something to say. From first call to first market-ready direction in 4 weeks.
           </p>
+        </Reveal>
+        <Reveal delay={0.3}>
+          <div className="mt-12 md:mt-16 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
+            ØRIONS · The Creative Company · Bangkok · 2026
+          </div>
+        </Reveal>
+        <Reveal delay={0.4}>
+          <Link
+            to="/contact"
+            className="mt-10 inline-flex items-center gap-3 bg-cinnabar text-background px-7 py-4 btn-label hover:opacity-90 transition-opacity duration-300"
+          >
+            <span>Book Discovery Call</span>
+            <ArrowUpRight className="w-4 h-4" />
+          </Link>
         </Reveal>
       </div>
     </section>
 
-    {/* 01 — APPROACH (promoted to first section) */}
-    <section className="px-6 md:px-10 border-t border-foreground/15/15">
+    {/* 02 — THE PROBLEM */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-24 md:py-32">
-        <SectionLabel index="01" label="Approach" />
+        <SectionLabel index="02" label="The Problem" />
         <Reveal delay={0.1}>
-          <h2 className="mt-10 font-serif h-display-md max-w-[20ch]">
-            Less, but <em className="italic text-cinnabar">considered.</em>
+          <h2 className="mt-10 font-serif h-display-md max-w-[24ch]">
+            คุณไม่ได้ขาด agency. คุณขาด <em className="italic text-cinnabar">ทีมเดียวที่เอาอยู่ทั้งงาน.</em>
           </h2>
         </Reveal>
-        <div className="mt-10 max-w-[640px] space-y-6">
-          <Reveal delay={0.18}>
-            <p className="font-serif text-[19px] md:text-[22px] leading-[1.55] text-foreground/85">
-              We don't sell packages of posts. We run one refined loop every month — a short essay across formats, sequenced to be discovered, sit with the reader, and remembered.
-            </p>
-          </Reveal>
-          <Reveal delay={0.26}>
-            <p className="font-thai text-[15px] md:text-[17px] leading-[1.75] text-muted-foreground">
-              สามจังหวะเดียวกันทุกเดือน — ฟัง, กลั่น, ปล่อย. ไม่ผลิตให้ครบจำนวน ผลิตให้ครบหน้าที่.
-            </p>
-          </Reveal>
+        <Reveal delay={0.18}>
+          <p className="mt-10 max-w-[640px] font-serif italic text-[19px] md:text-[22px] leading-[1.55] text-foreground/80">
+            แบรนด์ดีๆ ส่วนใหญ่ติดอยู่ตรงนี้ —
+          </p>
+        </Reveal>
+
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 border border-foreground/20">
+          {problems.map((p, i) => (
+            <Reveal key={p.n} delay={i * 0.08}>
+              <div className={`p-10 md:p-12 h-full bg-background ${i > 0 ? "border-t md:border-t-0 md:border-l border-foreground/20" : ""}`}>
+                <div className="font-serif italic text-cinnabar text-[22px] leading-none">{p.n}</div>
+                <h3 className="mt-8 font-serif text-[24px] md:text-[28px] leading-[1.15] tracking-[-0.015em]">{p.en}</h3>
+                <p className="mt-5 font-thai text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">{p.th}</p>
+              </div>
+            </Reveal>
+          ))}
         </div>
 
-        {/* Process ribbon */}
-        <Reveal delay={0.4}>
-          <div className="mt-16 md:mt-20 grid grid-cols-2 md:grid-cols-4 border-t border-foreground/15/15">
-            {[
-              { n: "01", k: "Listen",   d: "Brand, audience, current rhythm" },
-              { n: "02", k: "Diagnose", d: "Where the loop breaks today" },
-              { n: "03", k: "Refine",   d: "One signature story per month" },
-              { n: "04", k: "Compound", d: "Measure, sharpen, repeat" },
-            ].map((s, i) => (
-              <div key={s.n} className={`py-8 md:py-10 ${i > 0 ? "md:border-l border-foreground/15" : ""} ${i > 0 && i < 2 ? "border-t md:border-t-0 border-foreground/15" : ""} ${i >= 2 ? "border-t md:border-t-0 border-foreground/15" : ""} md:px-6`}>
-                <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">— {s.n}</div>
-                <div className="mt-3 font-serif italic text-[22px] md:text-[26px] tracking-[-0.015em]">{s.k}</div>
-                <div className="mt-2 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">{s.d}</div>
-              </div>
-            ))}
+        <Reveal delay={0.3}>
+          <div className="mt-16 border-l-2 border-cinnabar pl-6 md:pl-8 max-w-[760px]">
+            <p className="font-serif italic text-[20px] md:text-[26px] leading-[1.4] tracking-[-0.01em]">
+              ปัญหาไม่ใช่ฝีมือใครไม่ดี — ปัญหาคือ <em className="text-cinnabar">ไม่มีใครถือทั้งเส้น</em> ตั้งแต่ตัวตน → คอนเทนต์ → ยอด.
+            </p>
           </div>
         </Reveal>
       </div>
     </section>
 
-    {/* 02 — CAPABILITIES */}
-    <section className="px-6 md:px-10 border-t border-foreground/15/15">
+    {/* 03 — THE INSIGHT */}
+    <section className="px-6 md:px-10 border-t border-foreground/15 bg-surface">
       <div className="max-w-[1280px] mx-auto py-24 md:py-32">
-        <SectionLabel index="02" label="Capabilities" />
+        <SectionLabel index="03" label="The Insight" />
         <Reveal delay={0.1}>
-          <h2 className="mt-10 font-serif h-display-md max-w-[22ch]">
-            A full studio. <em className="italic text-cinnabar">Four disciplines.</em>
+          <h2 className="mt-10 font-serif h-display-md max-w-[20ch]">
+            Craft ที่ดี ควรมี <em className="italic text-cinnabar">หลักฐาน.</em>
           </h2>
         </Reveal>
-        <div className="mt-14 md:mt-20 grid grid-cols-1 md:grid-cols-4 border-t border-foreground/15/15">
-          {[
-            { n: "i.",   k: "Brand Strategy",    d: "Positioning, narrative, voice, audience architecture." },
-            { n: "ii.",  k: "Editorial Design",  d: "Identity systems, typography, art direction for content." },
-            { n: "iii.", k: "Content Systems",   d: "Monthly editorial loops — Hero, Static, Reels." },
-            { n: "iv.",  k: "Performance Loops", d: "Data-tested distribution, measurement, sharpened iteration." },
-          ].map((c, i) => (
-            <Reveal key={c.k} delay={i * 0.06}>
-              <div className={`py-10 md:py-12 md:px-6 h-full ${i > 0 ? "border-t md:border-t-0 md:border-l border-foreground/15" : ""}`}>
-                <div className="font-serif italic text-cinnabar text-[18px]">{c.n}</div>
-                <h3 className="mt-5 font-serif text-[24px] md:text-[28px] leading-[1.1] tracking-[-0.02em]">{c.k}</h3>
-                <p className="mt-4 font-mono text-[11px] tracking-[0.08em] uppercase text-muted-foreground leading-[1.55]">{c.d}</p>
+        <Reveal delay={0.2}>
+          <p className="mt-10 max-w-[680px] font-serif italic text-[18px] md:text-[22px] leading-[1.55] text-foreground/80">
+            โลกของเอเจนซี่มักถูกแบ่งเป็นสองฝั่ง — ฝั่งที่ทำงานสวยแต่วัดไม่ได้ กับฝั่งที่วัดได้แต่ไม่มีใครจำแบรนด์ได้.
+          </p>
+        </Reveal>
+        <Reveal delay={0.3}>
+          <div className="mt-14 border-t border-b border-cinnabar py-10 md:py-14 max-w-[860px]">
+            <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar flex items-center gap-3">
+              <span className="block w-6 h-px bg-cinnabar" />
+              ØRIONS อยู่ตรงกลางโดยตั้งใจ
+            </div>
+            <h3 className="mt-6 font-serif text-[32px] md:text-[48px] leading-[1.05] tracking-[-0.025em]">
+              <em className="italic text-cinnabar">Data</em> informs. <em className="italic text-cinnabar">Creative</em> leads. <em className="italic text-cinnabar">Craft</em> delivers.
+            </h3>
+            <p className="mt-6 font-thai text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground max-w-[640px]">
+              เราเชื่อว่า brand ที่ดีต้องทั้ง <em className="not-italic text-foreground">จำได้</em> และ <em className="not-italic text-foreground">ขายได้</em> — และทั้งสองอย่างต้องพิสูจน์เป็นตัวเลขได้ใน 90 วัน.
+            </p>
+          </div>
+        </Reveal>
+        <Reveal delay={0.4}>
+          <div className="mt-10">
+            <Link to="/about" className="font-mono text-[10px] tracking-[0.22em] uppercase text-foreground hover:text-cinnabar transition-colors">
+              Read the full thinking →
+            </Link>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+
+    {/* 04 — DIVISIONS TEASER */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+        <div className="flex items-end justify-between gap-6 flex-wrap">
+          <SectionLabel index="04" label="Divisions" />
+          <Link to="/services" className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground hover:text-foreground transition-colors">
+            See the full ecosystem →
+          </Link>
+        </div>
+        <Reveal delay={0.1}>
+          <h2 className="mt-10 font-serif h-display-md max-w-[22ch]">
+            สามทีม · แบรนด์เดียว · <em className="italic text-cinnabar">Account Director คนเดียว.</em>
+          </h2>
+        </Reveal>
+
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 border border-foreground/20">
+          {divisions.map((d, i) => (
+            <Reveal key={d.n} delay={i * 0.07}>
+              <div className={`p-10 md:p-12 h-full bg-background ${i > 0 ? "border-t md:border-t-0 md:border-l border-foreground/20" : ""}`}>
+                <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">— {d.n}</div>
+                <h3 className="mt-8 font-serif text-[28px] md:text-[34px] leading-[1.05] tracking-[-0.02em]">{d.en}</h3>
+                <div className="mt-3 font-serif italic text-muted-foreground text-[15px]">{d.tag}</div>
+                <p className="mt-6 font-thai text-[14px] md:text-[15px] leading-[1.7] text-foreground/80">{d.th}</p>
               </div>
             </Reveal>
           ))}
@@ -153,11 +182,34 @@ const Index = () => (
       </div>
     </section>
 
-    {/* 03 — SELECTED WORK */}
+    {/* 05 — CORE STRENGTHS */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+        <SectionLabel index="05" label="Why ØRIONS" />
+        <Reveal delay={0.1}>
+          <h2 className="mt-10 font-serif h-display-md max-w-[22ch]">
+            ไม่ใช่อีกหนึ่งเอเจนซี่ <em className="italic text-cinnabar">ทั่วไป.</em>
+          </h2>
+        </Reveal>
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-px bg-foreground/15 border border-foreground/15">
+          {strengths.map((s, i) => (
+            <Reveal key={s.n} delay={i * 0.07}>
+              <div className="bg-background p-10 md:p-12 h-full">
+                <div className="font-serif italic text-cinnabar text-[40px] md:text-[56px] leading-none tabular-nums">{s.n}</div>
+                <h3 className="mt-8 font-serif text-[22px] md:text-[26px] leading-[1.2] tracking-[-0.015em]">{s.en}</h3>
+                <p className="mt-4 font-thai text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">{s.th}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* 06 — SELECTED WORK */}
     <section className="px-6 md:px-10 border-t border-foreground/15/12">
       <div className="max-w-[1400px] mx-auto py-24 md:py-32">
         <div className="flex items-end justify-between gap-6 flex-wrap">
-          <SectionLabel index="03" label="Selected Work" />
+          <SectionLabel index="06" label="Selected Work" />
           <Link
             to="/work"
             className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground hover:text-foreground transition-colors"

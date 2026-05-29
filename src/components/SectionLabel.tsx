@@ -20,7 +20,7 @@ const SectionLabel = ({ index, label, tone = "ink", reveal = true, className = "
       } ${className}`}
     >
       <span className={`block w-6 h-px ${tone === "snow" ? "bg-background/30" : "bg-foreground/30"}`} />
-      {index} — {label}
+      {index}/{label.toUpperCase()}
     </div>
   );
   return reveal ? <Reveal>{node}</Reveal> : node;

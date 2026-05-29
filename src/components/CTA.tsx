@@ -5,7 +5,7 @@ import { ReactNode } from "react";
 interface Props {
   to?: string;
   href?: string;
-  variant?: "primary" | "ghost" | "invert";
+  variant?: "primary" | "ghost" | "invert" | "chevron";
   children: ReactNode;
   className?: string;
   external?: boolean;
@@ -16,6 +16,16 @@ interface Props {
 /** Single CTA primitive — primary/invert filled pill or ghost underlined link.
  *  Arrow performs a diagonal swap-out on hover (Vercel-style) + magnetic drift. */
 const CTA = ({ to, href, variant = "primary", children, className = "", external, noMagnetic }: Props) => {
+  if (variant === "chevron") {
+    const cls = `cta-chevron ${className}`;
+    return href ? (
+      <a href={href} className={cls} target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined}>
+        <span>{children}</span>
+      </a>
+    ) : (
+      <Link to={to || "/"} className={cls}><span>{children}</span></Link>
+    );
+  }
   const base =
     variant === "primary"
       ? "group relative inline-flex items-center gap-3 bg-foreground text-background px-7 py-4 btn-label overflow-hidden border border-foreground transition-colors duration-500 hover:text-foreground"

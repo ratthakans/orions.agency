@@ -72,7 +72,7 @@ const Projects = () => (
       <div className="px-6 md:px-10 pt-28 md:pt-32 pb-16 md:pb-20 flex-1 flex flex-col justify-center max-w-[1280px] mx-auto w-full">
         <SectionLabel index="01" label="Studio" />
         <Reveal delay={0.1}>
-          <h1 className="mt-10 font-serif h-display-xl max-w-[18ch]">
+          <h1 className="mt-10 h-display-xl max-w-[18ch]">
             Studios build for clients. <em className="italic text-cinnabar">We build for ourselves, too.</em>
           </h1>
         </Reveal>
@@ -89,7 +89,7 @@ const Projects = () => (
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="02" label="Three units" />
         <Reveal delay={0.1}>
-          <h2 className="mt-10 font-serif h-display-md max-w-[22ch]">
+          <h2 className="mt-10 h-display-md max-w-[22ch]">
             สามยูนิตงาน · <em className="italic text-cinnabar">หนึ่งห้องทดลอง.</em>
           </h2>
         </Reveal>
@@ -131,7 +131,7 @@ const Projects = () => (
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="03" label="Live ventures" />
         <Reveal delay={0.1}>
-          <h2 className="mt-10 mb-12 font-serif h-display-md max-w-[20ch]">
+          <h2 className="mt-10 mb-12 h-display-md max-w-[20ch]">
             ของจริง · <em className="italic text-cinnabar">ที่ shipped แล้ว.</em>
           </h2>
         </Reveal>
@@ -151,7 +151,7 @@ const Projects = () => (
                   <ArrowUpRight className="w-6 h-6 transition-transform duration-500 text-cinnabar" />
                 </div>
 
-                <h2 className="mt-16 md:mt-24 font-serif h-display-lg">
+                <h2 className="mt-16 md:mt-24 h-display-lg">
                   {v.name}
                 </h2>
 

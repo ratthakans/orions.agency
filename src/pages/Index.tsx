@@ -51,7 +51,7 @@ const Index = () => (
     <section className="relative min-h-[88svh] flex flex-col px-6 md:px-10">
       <div className="max-w-[1100px] mx-auto w-full flex-1 flex flex-col justify-center items-center text-center pt-24 md:pt-28 pb-20 md:pb-24">
         <Reveal>
-          <h1 className="font-serif h-display-xl">
+          <h1 className="h-display-xl">
             No Guesswork. <em className="italic text-cinnabar">Just Craft.</em>
           </h1>
         </Reveal>
@@ -82,7 +82,7 @@ const Index = () => (
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="02" label="The Problem" />
         <Reveal delay={0.1}>
-          <h2 className="mt-10 font-serif h-display-md max-w-[24ch]">
+          <h2 className="mt-10 h-display-md max-w-[24ch]">
             คุณไม่ได้ขาด agency. คุณขาด <em className="italic text-cinnabar">ทีมเดียวที่เอาอยู่ทั้งงาน.</em>
           </h2>
         </Reveal>
@@ -119,7 +119,7 @@ const Index = () => (
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="03" label="The Insight" />
         <Reveal delay={0.1}>
-          <h2 className="mt-10 font-serif h-display-md max-w-[20ch]">
+          <h2 className="mt-10 h-display-md max-w-[20ch]">
             Craft ที่ดี ควรมี <em className="italic text-cinnabar">หลักฐาน.</em>
           </h2>
         </Reveal>
@@ -162,7 +162,7 @@ const Index = () => (
           </Link>
         </div>
         <Reveal delay={0.1}>
-          <h2 className="mt-10 font-serif h-display-md max-w-[22ch]">
+          <h2 className="mt-10 h-display-md max-w-[22ch]">
             สามทีม · แบรนด์เดียว · <em className="italic text-cinnabar">Account Director คนเดียว.</em>
           </h2>
         </Reveal>
@@ -187,7 +187,7 @@ const Index = () => (
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="05" label="Why ØRIONS" />
         <Reveal delay={0.1}>
-          <h2 className="mt-10 font-serif h-display-md max-w-[22ch]">
+          <h2 className="mt-10 h-display-md max-w-[22ch]">
             ไม่ใช่อีกหนึ่งเอเจนซี่ <em className="italic text-cinnabar">ทั่วไป.</em>
           </h2>
         </Reveal>
@@ -325,7 +325,7 @@ const Index = () => (
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="07" label="Process" />
         <Reveal delay={0.1}>
-          <h2 className="mt-10 font-serif h-display-md max-w-[22ch]">
+          <h2 className="mt-10 h-display-md max-w-[22ch]">
             From hello to first launch direction in <em className="italic text-cinnabar">4 weeks.</em>
           </h2>
         </Reveal>
@@ -360,7 +360,7 @@ const Index = () => (
           </div>
         </Reveal>
         <Reveal delay={0.1}>
-          <h2 className="mt-8 font-serif h-display-lg">
+          <h2 className="mt-8 h-display-lg">
             พร้อมเริ่ม <em className="italic text-cinnabar">บทแรก</em> ของแบรนด์คุณหรือยัง?
           </h2>
         </Reveal>

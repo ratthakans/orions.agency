@@ -40,7 +40,7 @@ const CaseStudy = () => {
           </div>
 
           <Reveal delay={0.1}>
-            <h1 className="mt-8 font-serif h-display-xl max-w-[16ch]">
+            <h1 className="mt-8 h-display-xl max-w-[16ch]">
               {cs.title}
               <em className="italic text-cinnabar">.</em>
             </h1>
@@ -115,7 +115,7 @@ const CaseStudy = () => {
           <div className="max-w-[1280px] mx-auto py-20 md:py-28">
             <SectionLabel index="02" label="Approach" />
           <Reveal delay={0.05}>
-            <h2 className="mt-10 font-serif h-display-md max-w-[20ch]">
+            <h2 className="mt-10 h-display-md max-w-[20ch]">
               How we <em className="italic text-cinnabar">refined it.</em>
             </h2>
           </Reveal>
@@ -173,7 +173,7 @@ const CaseStudy = () => {
         <div className="max-w-[1280px] mx-auto py-20 md:py-28">
           <SectionLabel index={cs.gallery.length > 1 ? "04" : "03"} label="Results" />
           <Reveal delay={0.05}>
-            <h2 className="mt-10 font-serif h-display-lg max-w-[20ch]">
+            <h2 className="mt-10 h-display-lg max-w-[20ch]">
               Numbers we <em className="italic text-cinnabar">stand by.</em>
             </h2>
           </Reveal>
@@ -206,7 +206,7 @@ const CaseStudy = () => {
               Next case study —
             </div>
             <div className="mt-6 flex items-center justify-between gap-8">
-              <h3 className="font-serif h-display-lg group-hover:italic group-hover:text-cinnabar transition-all duration-500">
+              <h3 className="h-display-lg group-hover:italic group-hover:text-cinnabar transition-all duration-500">
                 {next.title}
               </h3>
               <ArrowUpRight className="w-10 h-10 md:w-14 md:h-14 text-cinnabar shrink-0 transition-transform duration-500" />

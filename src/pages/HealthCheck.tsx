@@ -203,7 +203,7 @@ const HealthCheck = () => {
         <div className="max-w-[1080px] mx-auto">
           <SectionLabel index="01" label="The Diagnostic" />
           <Reveal delay={0.1}>
-            <h1 className="mt-10 font-serif h-display-xl max-w-[18ch]">
+            <h1 className="mt-10 h-display-xl max-w-[18ch]">
               ที่คุณทำอยู่ —<br /><em className="italic text-cinnabar">ดีพอแล้ว</em> หรือยัง?
             </h1>
           </Reveal>

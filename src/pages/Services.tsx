@@ -224,7 +224,7 @@ const Services = () => (
       <div className="max-w-[1280px] mx-auto">
         <SectionLabel index="01" label="The Company" />
         <Reveal delay={0.1}>
-          <h1 className="mt-10 font-serif h-display-xl max-w-[16ch]">
+          <h1 className="mt-10 h-display-xl max-w-[16ch]">
             ØRIONS.co — <em className="italic text-cinnabar">The Creative Company.</em>
           </h1>
         </Reveal>
@@ -262,7 +262,7 @@ const Services = () => (
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="02" label="Ø Boutique" />
         <Reveal delay={0.1}>
-          <h2 className="mt-10 font-serif h-display-lg max-w-[18ch]">
+          <h2 className="mt-10 h-display-lg max-w-[18ch]">
             Stories, <em className="italic text-cinnabar">refined.</em>
           </h2>
         </Reveal>
@@ -370,7 +370,7 @@ const Services = () => (
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="03" label="Ø Digital" />
         <Reveal delay={0.1}>
-          <h2 className="mt-10 font-serif h-display-lg max-w-[20ch]">
+          <h2 className="mt-10 h-display-lg max-w-[20ch]">
             Performance, <em className="italic text-cinnabar">by design.</em>
           </h2>
         </Reveal>
@@ -451,7 +451,7 @@ const Services = () => (
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="04" label="Ø Production" />
         <Reveal delay={0.1}>
-          <h2 className="mt-10 font-serif h-display-lg max-w-[20ch]">
+          <h2 className="mt-10 h-display-lg max-w-[20ch]">
             Crew on demand · <em className="italic text-cinnabar">priced by camera + crew.</em>
           </h2>
         </Reveal>
@@ -577,7 +577,7 @@ const Services = () => (
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="05" label="The Ladder" />
         <Reveal delay={0.1}>
-          <h2 className="mt-10 font-serif h-display-md max-w-[22ch]">
+          <h2 className="mt-10 h-display-md max-w-[22ch]">
             เลือก <em className="italic text-cinnabar">บท</em> ของคุณ.
           </h2>
         </Reveal>
@@ -616,7 +616,7 @@ const Services = () => (
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="06" label="The Fine Print" />
         <Reveal delay={0.1}>
-          <h2 className="mt-10 font-serif h-display-md max-w-[20ch]">
+          <h2 className="mt-10 h-display-md max-w-[20ch]">
             Terms · <em className="italic text-cinnabar">across divisions.</em>
           </h2>
         </Reveal>
@@ -640,7 +640,7 @@ const Services = () => (
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="07" label="Next step" />
         <Reveal delay={0.1}>
-          <h2 className="mt-10 font-serif h-display-lg max-w-[20ch]">
+          <h2 className="mt-10 h-display-lg max-w-[20ch]">
             Discovery call · <em className="italic text-cinnabar">45 minutes.</em>
           </h2>
         </Reveal>

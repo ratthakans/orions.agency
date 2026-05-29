@@ -114,7 +114,7 @@ const About = () => (
       <div className="px-6 md:px-10 pt-28 md:pt-32 pb-16 md:pb-20 flex-1 flex flex-col justify-center max-w-[1280px] mx-auto w-full">
         <SectionLabel index="01" label="Manifesto" />
         <Reveal delay={0.1}>
-          <h1 className="mt-10 font-serif h-display-xl">
+          <h1 className="mt-10 h-display-xl">
             The New <em className="italic text-cinnabar">Landscape.</em>
           </h1>
         </Reveal>
@@ -150,7 +150,7 @@ const About = () => (
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 py-20 md:py-28">
         <SectionLabel index="02" label="Our Promise" />
         <Reveal delay={0.1}>
-          <h2 className="mt-10 font-serif h-display-lg max-w-[20ch]">
+          <h2 className="mt-10 h-display-lg max-w-[20ch]">
             แทนที่จะการันตีเป็นข้อๆ — เราขอให้คำมั่นใน <em className="italic text-cinnabar">สิ่งที่สำคัญ.</em>
           </h2>
         </Reveal>
@@ -174,7 +174,7 @@ const About = () => (
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="03" label="How We Refine" />
         <Reveal delay={0.1}>
-          <h2 className="mt-10 font-serif h-display-lg">
+          <h2 className="mt-10 h-display-lg">
             สาม <em className="italic text-cinnabar">เสาหลัก.</em><br />หนึ่ง process.
           </h2>
         </Reveal>
@@ -217,7 +217,7 @@ const About = () => (
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="04" label="Beyond Content" />
         <Reveal delay={0.1}>
-          <h2 className="mt-10 font-serif h-display-lg max-w-[22ch]">
+          <h2 className="mt-10 h-display-lg max-w-[22ch]">
             เราไม่ได้สร้างแค่คอนเทนต์ —<br />
             เราออกแบบ <em className="italic text-cinnabar">Brand Journey</em> ทั้งสาย.
           </h2>
@@ -247,7 +247,7 @@ const About = () => (
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="05" label="Divisions" />
         <Reveal delay={0.1}>
-          <h2 className="mt-10 font-serif h-display-lg max-w-[22ch]">
+          <h2 className="mt-10 h-display-lg max-w-[22ch]">
             สามทีม · แบรนด์เดียว · <em className="italic text-cinnabar">Account Director คนเดียว.</em>
           </h2>
         </Reveal>
@@ -289,7 +289,7 @@ const About = () => (
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="06" label="Why ØRIONS" />
         <Reveal delay={0.1}>
-          <h2 className="mt-10 font-serif h-display-lg max-w-[22ch]">
+          <h2 className="mt-10 h-display-lg max-w-[22ch]">
             ไม่ใช่อีกหนึ่งเอเจนซี่ <em className="italic text-cinnabar">ทั่วไป.</em>
           </h2>
         </Reveal>
@@ -312,7 +312,7 @@ const About = () => (
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="07" label="The Promise" />
         <Reveal delay={0.1}>
-          <h2 className="mt-10 font-serif h-display-lg max-w-[22ch]">
+          <h2 className="mt-10 h-display-lg max-w-[22ch]">
             We put <em className="italic text-cinnabar">skin in the game.</em>
           </h2>
         </Reveal>
@@ -341,7 +341,7 @@ const About = () => (
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="08" label="Who It's For" />
         <Reveal delay={0.1}>
-          <h2 className="mt-10 font-serif h-display-lg max-w-[24ch]">
+          <h2 className="mt-10 h-display-lg max-w-[24ch]">
             แบรนด์ที่ <em className="italic text-cinnabar">เหมาะ</em> และยังไม่เหมาะร่วมงานกัน.
           </h2>
         </Reveal>
@@ -396,7 +396,7 @@ const About = () => (
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="09" label="Our Team" />
         <Reveal delay={0.1}>
-          <h2 className="mt-10 font-serif h-display-lg max-w-[22ch]">
+          <h2 className="mt-10 h-display-lg max-w-[22ch]">
             15 people. <em className="italic text-cinnabar">One studio.</em>
           </h2>
         </Reveal>

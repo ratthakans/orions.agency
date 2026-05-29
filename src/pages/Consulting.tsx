@@ -63,7 +63,7 @@ const Consulting = () => (
       <div className="max-w-[1280px] mx-auto">
         <SectionLabel index="01" label="Ø Consulting" />
         <Reveal delay={0.1}>
-          <h1 className="mt-10 font-serif h-display-xl max-w-[18ch]">
+          <h1 className="mt-10 h-display-xl max-w-[18ch]">
             Strategic creative <em className="italic text-cinnabar">leadership.</em>
           </h1>
         </Reveal>
@@ -85,7 +85,7 @@ const Consulting = () => (
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="02" label="Three units" />
         <Reveal delay={0.1}>
-          <h2 className="mt-10 font-serif h-display-md max-w-[22ch]">
+          <h2 className="mt-10 h-display-md max-w-[22ch]">
             สามยูนิตงาน · <em className="italic text-cinnabar">หนึ่งโต๊ะตัดสินใจ.</em>
           </h2>
         </Reveal>
@@ -122,7 +122,7 @@ const Consulting = () => (
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="03" label="Engagement model" />
         <Reveal delay={0.1}>
-          <h2 className="mt-10 font-serif h-display-md max-w-[22ch]">
+          <h2 className="mt-10 h-display-md max-w-[22ch]">
             ปีต่อปี · <em className="italic text-cinnabar">ไม่ใช่ชิ้นต่อชิ้น.</em>
           </h2>
         </Reveal>
@@ -145,7 +145,7 @@ const Consulting = () => (
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="04" label="Who it's for" />
         <Reveal delay={0.1}>
-          <h2 className="mt-10 font-serif h-display-md max-w-[22ch]">
+          <h2 className="mt-10 h-display-md max-w-[22ch]">
             Fit · <em className="italic text-cinnabar">not for.</em>
           </h2>
         </Reveal>
@@ -182,7 +182,7 @@ const Consulting = () => (
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="05" label="Next step" />
         <Reveal delay={0.1}>
-          <h2 className="mt-10 font-serif h-display-lg max-w-[20ch]">
+          <h2 className="mt-10 h-display-lg max-w-[20ch]">
             Book a <em className="italic text-cinnabar">private consultation.</em>
           </h2>
         </Reveal>

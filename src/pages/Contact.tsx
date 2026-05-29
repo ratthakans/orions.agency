@@ -73,7 +73,7 @@ const Contact = () => {
         <div className="max-w-[1280px] mx-auto pt-28 md:pt-32 pb-16 md:pb-24">
           <SectionLabel index="01" label="Inquiry" />
           <Reveal delay={0.05}>
-            <h1 className="mt-10 font-serif h-display-xl max-w-[14ch]">
+            <h1 className="mt-10 h-display-xl max-w-[14ch]">
               Tell us about <em className="italic text-cinnabar">the brand.</em>
             </h1>
           </Reveal>
@@ -108,7 +108,7 @@ const Contact = () => {
         <div className="max-w-[1280px] mx-auto py-20 md:py-28">
           <SectionLabel index="02" label="Brief" />
           <Reveal delay={0.05}>
-            <h2 className="mt-10 font-serif h-display-lg max-w-[14ch]">
+            <h2 className="mt-10 h-display-lg max-w-[14ch]">
               Send a <em className="italic text-cinnabar">brief.</em>
             </h2>
           </Reveal>

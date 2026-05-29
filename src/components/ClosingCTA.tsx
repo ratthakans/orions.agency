@@ -32,7 +32,7 @@ const ClosingCTA = ({
         <div className="index-badge text-muted-foreground mb-5">{eyebrow}</div>
       </Reveal>
       <Reveal delay={0.05}>
-        <h2 className="font-serif h-display-md text-balance">{title}</h2>
+        <h2 className="h-display-md text-balance">{title}</h2>
       </Reveal>
       {description && (
         <Reveal delay={0.1}>

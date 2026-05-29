@@ -35,15 +35,15 @@ const ventures: Venture[] = [
 const Projects = () => (
   <div>
     <SEO
-      title="Ventures — ØRIONS"
-      description="Studios build for clients. We build for ourselves, too. The startup ventures shipped by ØRIONS."
-      path="/projects"
+      title="Studio — ØRIONS"
+      description="ØRIONS Studio — in-house lab. The products and ventures we build for ourselves."
+      path="/studio"
     />
 
     {/* HERO */}
     <section className="bg-background text-foreground min-h-[78vh] flex flex-col border-b border-foreground/15">
       <div className="px-6 md:px-10 pt-32 md:pt-40 pb-20 md:pb-28 flex-1 flex flex-col justify-center max-w-[1280px] mx-auto w-full">
-        <SectionLabel index="01" label="Ventures" />
+        <SectionLabel index="01" label="Studio" />
         <Reveal delay={0.1}>
           <h1 className="mt-10 font-serif h-display-xl max-w-[18ch]">
             Studios build for clients. <em className="italic text-cinnabar">We build for ourselves, too.</em>
@@ -51,7 +51,7 @@ const Projects = () => (
         </Reveal>
         <Reveal delay={0.2}>
           <p className="mt-10 max-w-[640px] font-thai text-[16px] md:text-[18px] leading-[1.7] text-foreground/70">
-            ØRIONS Ventures คือ startup arm ของสตูดิโอ — โปรเจกต์ที่เราออกแบบ พัฒนา และใช้เอง เพราะเชื่อว่าผู้สร้างที่ดีที่สุด คือลูกค้าที่ต้องการมันมากที่สุด
+            ØRIONS Studio คือ in-house lab ของสตูดิโอ — โปรเจกต์ที่เราออกแบบ พัฒนา และใช้เอง เพราะเชื่อว่าผู้สร้างที่ดีที่สุด คือลูกค้าที่ต้องการมันมากที่สุด
           </p>
         </Reveal>
       </div>

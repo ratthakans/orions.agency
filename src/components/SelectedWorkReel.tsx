@@ -147,7 +147,7 @@ const SelectedWorkReel = ({ projects, size = "lg" }: Props) => {
                   <h3 className={`font-display ${titleSize} leading-[0.95] tracking-[-0.03em]`}>
                     {p.name}
                   </h3>
-                  <ArrowUpRight className={`${size === "lg" ? "w-5 h-5 md:w-6 md:h-6" : "w-4 h-4"} transition-transform duration-500 group-hover:-translate-y-1 group-hover:translate-x-1`} />
+                  <ArrowUpRight className={`${size === "lg" ? "w-5 h-5 md:w-6 md:h-6" : "w-4 h-4"} transition-transform duration-500`} />
                 </div>
 
                 {/* Stats overlay */}

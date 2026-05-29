@@ -69,7 +69,7 @@ const Projects = () => (
 
     {/* HERO */}
     <section className="bg-background text-foreground min-h-[78vh] flex flex-col border-b border-foreground/15">
-      <div className="px-6 md:px-10 pt-32 md:pt-40 pb-20 md:pb-28 flex-1 flex flex-col justify-center max-w-[1280px] mx-auto w-full">
+      <div className="px-6 md:px-10 pt-28 md:pt-32 pb-16 md:pb-20 flex-1 flex flex-col justify-center max-w-[1280px] mx-auto w-full">
         <SectionLabel index="01" label="Studio" />
         <Reveal delay={0.1}>
           <h1 className="mt-10 font-serif h-display-xl max-w-[18ch]">
@@ -86,7 +86,7 @@ const Projects = () => (
 
     {/* THREE UNITS — Section 05 Row 3 */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="02" label="Three units" />
         <Reveal delay={0.1}>
           <h2 className="mt-10 font-serif h-display-md max-w-[22ch]">
@@ -128,7 +128,7 @@ const Projects = () => (
 
     {/* VENTURES */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="03" label="Live ventures" />
         <Reveal delay={0.1}>
           <h2 className="mt-10 mb-12 font-serif h-display-md max-w-[20ch]">
@@ -148,7 +148,7 @@ const Projects = () => (
                   <div className="font-mono text-[10px] tracking-[0.22em] uppercase opacity-60">
                     {v.n} — {v.tag}
                   </div>
-                  <ArrowUpRight className="w-6 h-6 transition-transform duration-500 group-hover:-translate-y-1 group-hover:translate-x-1 text-cinnabar" />
+                  <ArrowUpRight className="w-6 h-6 transition-transform duration-500 text-cinnabar" />
                 </div>
 
                 <h2 className="mt-16 md:mt-24 font-serif h-display-lg">

@@ -24,7 +24,7 @@ const CaseStudy = () => {
 
       {/* 01 — HERO */}
       <section className="px-6 md:px-10">
-        <div className="max-w-[1280px] mx-auto pt-32 md:pt-40 pb-12 md:pb-16">
+        <div className="max-w-[1280px] mx-auto pt-28 md:pt-32 pb-12 md:pb-16">
           <Reveal>
             <Link
               to="/work"
@@ -81,7 +81,7 @@ const CaseStudy = () => {
 
       {/* 02 — COVER */}
       <section className="px-6 md:px-10">
-        <div className="max-w-[1280px] mx-auto pb-20 md:pb-28">
+        <div className="max-w-[1280px] mx-auto pb-16 md:pb-20">
           <Reveal>
             <div className="relative w-full overflow-hidden bg-muted" style={{ aspectRatio: "16 / 9" }}>
               <img
@@ -96,7 +96,7 @@ const CaseStudy = () => {
 
       {/* 03 — THE BRIEF */}
       <section className="px-6 md:px-10 border-t border-foreground/15">
-        <div className="max-w-[1280px] mx-auto py-24 md:py-32 grid grid-cols-1 md:grid-cols-12 gap-10">
+        <div className="max-w-[1280px] mx-auto py-20 md:py-28 grid grid-cols-1 md:grid-cols-12 gap-10">
           <div className="md:col-span-4">
             <SectionLabel index="01" label="The Brief" />
           </div>
@@ -112,7 +112,7 @@ const CaseStudy = () => {
 
       {/* 04 — APPROACH */}
       <section className="px-6 md:px-10 border-t border-foreground/15">
-          <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+          <div className="max-w-[1280px] mx-auto py-20 md:py-28">
             <SectionLabel index="02" label="Approach" />
           <Reveal delay={0.05}>
             <h2 className="mt-10 font-serif h-display-md max-w-[20ch]">
@@ -143,7 +143,7 @@ const CaseStudy = () => {
       {/* 05 — GALLERY (only if >1 image) */}
       {cs.gallery.length > 1 && (
         <section className="px-6 md:px-10 border-t border-foreground/15">
-          <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+          <div className="max-w-[1280px] mx-auto py-20 md:py-28">
             <SectionLabel index="03" label="Selected Frames" />
             <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               {cs.gallery.map((img, i) => (
@@ -170,7 +170,7 @@ const CaseStudy = () => {
 
       {/* 06 — RESULTS */}
       <section className="px-6 md:px-10 border-t border-foreground/15/20 bg-background text-foreground">
-        <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+        <div className="max-w-[1280px] mx-auto py-20 md:py-28">
           <SectionLabel index={cs.gallery.length > 1 ? "04" : "03"} label="Results" />
           <Reveal delay={0.05}>
             <h2 className="mt-10 font-serif h-display-lg max-w-[20ch]">
@@ -200,7 +200,7 @@ const CaseStudy = () => {
         <section className="px-6 md:px-10 border-t border-foreground/15">
           <Link
             to={`/work/${next.slug}`}
-            className="group block max-w-[1280px] mx-auto py-24 md:py-32"
+            className="group block max-w-[1280px] mx-auto py-20 md:py-28"
           >
             <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
               Next case study —
@@ -209,7 +209,7 @@ const CaseStudy = () => {
               <h3 className="font-serif h-display-lg group-hover:italic group-hover:text-cinnabar transition-all duration-500">
                 {next.title}
               </h3>
-              <ArrowUpRight className="w-10 h-10 md:w-14 md:h-14 text-cinnabar shrink-0 transition-transform duration-500 group-hover:-translate-y-1 group-hover:translate-x-1" />
+              <ArrowUpRight className="w-10 h-10 md:w-14 md:h-14 text-cinnabar shrink-0 transition-transform duration-500" />
             </div>
             <div className="mt-4 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
               {next.niche} · {next.scope}

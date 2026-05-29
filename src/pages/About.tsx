@@ -111,7 +111,7 @@ const About = () => (
 
     {/* 01 — MANIFESTO */}
     <section className="bg-background text-foreground min-h-[88vh] flex flex-col border-b border-foreground/15">
-      <div className="px-6 md:px-10 pt-32 md:pt-40 pb-20 md:pb-28 flex-1 flex flex-col justify-center max-w-[1280px] mx-auto w-full">
+      <div className="px-6 md:px-10 pt-28 md:pt-32 pb-16 md:pb-20 flex-1 flex flex-col justify-center max-w-[1280px] mx-auto w-full">
         <SectionLabel index="01" label="Manifesto" />
         <Reveal delay={0.1}>
           <h1 className="mt-10 font-serif h-display-xl">
@@ -147,7 +147,7 @@ const About = () => (
 
     {/* 02 — OUR PROMISE */}
     <section className="bg-background text-foreground border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto px-6 md:px-10 py-24 md:py-32">
+      <div className="max-w-[1280px] mx-auto px-6 md:px-10 py-20 md:py-28">
         <SectionLabel index="02" label="Our Promise" />
         <Reveal delay={0.1}>
           <h2 className="mt-10 font-serif h-display-lg max-w-[20ch]">
@@ -171,7 +171,7 @@ const About = () => (
 
     {/* 03 — HOW WE REFINE (Pillars + Data) */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="03" label="How We Refine" />
         <Reveal delay={0.1}>
           <h2 className="mt-10 font-serif h-display-lg">
@@ -214,7 +214,7 @@ const About = () => (
 
     {/* 04 — BEYOND CONTENT */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="04" label="Beyond Content" />
         <Reveal delay={0.1}>
           <h2 className="mt-10 font-serif h-display-lg max-w-[22ch]">
@@ -244,7 +244,7 @@ const About = () => (
 
     {/* 05 — DIVISIONS (Section 06 of master blueprint) */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="05" label="Divisions" />
         <Reveal delay={0.1}>
           <h2 className="mt-10 font-serif h-display-lg max-w-[22ch]">
@@ -286,7 +286,7 @@ const About = () => (
 
     {/* 06 — CORE STRENGTHS */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="06" label="Why ØRIONS" />
         <Reveal delay={0.1}>
           <h2 className="mt-10 font-serif h-display-lg max-w-[22ch]">
@@ -309,7 +309,7 @@ const About = () => (
 
     {/* 07 — THE PROMISE */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="07" label="The Promise" />
         <Reveal delay={0.1}>
           <h2 className="mt-10 font-serif h-display-lg max-w-[22ch]">
@@ -338,7 +338,7 @@ const About = () => (
 
     {/* 08 — SCREENING */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="08" label="Who It's For" />
         <Reveal delay={0.1}>
           <h2 className="mt-10 font-serif h-display-lg max-w-[24ch]">
@@ -393,7 +393,7 @@ const About = () => (
 
     {/* 05 — OUR TEAM */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="05" label="Our Team" />
         <Reveal delay={0.1}>
           <h2 className="mt-10 font-serif h-display-lg max-w-[22ch]">
@@ -435,7 +435,7 @@ const About = () => (
           <div className="flex flex-wrap items-center gap-5">
             <Link
               to="/services"
-              className="group inline-flex items-center gap-3 bg-cinnabar text-background px-7 py-4 btn-label hover:opacity-90 transition-opacity duration-300"
+              className="group inline-flex items-center gap-3 bg-cinnabar text-background px-7 py-4 btn-label transition-opacity duration-300"
             >
               <span>See packages</span>
               <ArrowUpRight className="w-4 h-4" />

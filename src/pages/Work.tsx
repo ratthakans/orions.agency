@@ -77,7 +77,7 @@ const Work = () => (
 
     {/* 01 · HERO */}
     <section className="px-6 md:px-10">
-      <div className="max-w-[1280px] mx-auto pt-32 md:pt-40 pb-20 md:pb-28">
+      <div className="max-w-[1280px] mx-auto pt-28 md:pt-32 pb-16 md:pb-20">
         <SectionLabel index="01" label="Selected Work" />
         <Reveal delay={0.05}>
           <h1 className="mt-10 font-serif h-display-xl max-w-[18ch]">
@@ -99,7 +99,7 @@ const Work = () => (
 
     {/* 02 · FOCUS VERTICALS */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="02" label="Focus Verticals" />
         <Reveal delay={0.05}>
           <h2 className="mt-10 font-serif h-display-md max-w-[20ch]">
@@ -136,7 +136,7 @@ const Work = () => (
 
     {/* 03 · CONTEXTUAL MOMENTS */}
     <section className="px-6 md:px-10 border-t border-foreground/15 bg-surface">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="03" label="Contextual Moments" />
         <Reveal delay={0.05}>
           <h2 className="mt-10 font-serif h-display-md max-w-[22ch]">
@@ -165,7 +165,7 @@ const Work = () => (
 
     {/* 02 · SELECTED PROJECTS */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="04" label="Projects" />
         <Reveal delay={0.05}>
           <h2 className="mt-10 font-serif h-display-md">
@@ -216,7 +216,7 @@ const Work = () => (
 
     {/* 03 · WHAT CLIENTS SAY */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="05" label="Testimonials" />
         <Reveal delay={0.05}>
           <h2 className="mt-10 font-serif h-display-md">
@@ -257,7 +257,7 @@ const Work = () => (
 
     {/* 04 · TRUSTED BY */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="06" label="Trusted By" />
         <Reveal delay={0.05}>
           <h2 className="mt-10 font-serif h-display-lg max-w-[20ch]">

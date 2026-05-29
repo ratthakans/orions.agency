@@ -59,7 +59,7 @@ const Consulting = () => (
     />
 
     {/* HERO */}
-    <section className="px-6 md:px-10 pt-32 md:pt-40 pb-20 md:pb-28 border-b border-foreground/15">
+    <section className="px-6 md:px-10 pt-28 md:pt-32 pb-16 md:pb-20 border-b border-foreground/15">
       <div className="max-w-[1280px] mx-auto">
         <SectionLabel index="01" label="Ø Consulting" />
         <Reveal delay={0.1}>
@@ -82,7 +82,7 @@ const Consulting = () => (
 
     {/* 02 — Three units */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="02" label="Three units" />
         <Reveal delay={0.1}>
           <h2 className="mt-10 font-serif h-display-md max-w-[22ch]">
@@ -119,7 +119,7 @@ const Consulting = () => (
 
     {/* 03 — Engagement model */}
     <section className="px-6 md:px-10 border-t border-foreground/15 bg-surface">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="03" label="Engagement model" />
         <Reveal delay={0.1}>
           <h2 className="mt-10 font-serif h-display-md max-w-[22ch]">
@@ -142,7 +142,7 @@ const Consulting = () => (
 
     {/* 04 — Who it's for */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="04" label="Who it's for" />
         <Reveal delay={0.1}>
           <h2 className="mt-10 font-serif h-display-md max-w-[22ch]">
@@ -179,7 +179,7 @@ const Consulting = () => (
 
     {/* 05 — CTA */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="05" label="Next step" />
         <Reveal delay={0.1}>
           <h2 className="mt-10 font-serif h-display-lg max-w-[20ch]">
@@ -195,7 +195,7 @@ const Consulting = () => (
           <div className="mt-12 flex flex-wrap gap-4">
             <Link
               to="/contact"
-              className="group inline-flex items-center gap-3 px-7 py-4 btn-label border border-cinnabar bg-cinnabar text-background hover:opacity-90 transition-opacity"
+              className="group inline-flex items-center gap-3 px-7 py-4 btn-label border border-cinnabar bg-cinnabar text-background transition-opacity"
             >
               <span>Book Consultation</span>
               <ArrowUpRight className="w-4 h-4" />

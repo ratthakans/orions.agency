@@ -199,7 +199,7 @@ const HealthCheck = () => {
       />
 
       {/* HERO */}
-      <section className="px-6 md:px-10 pt-32 md:pt-40 pb-16">
+      <section className="px-6 md:px-10 pt-28 md:pt-32 pb-16">
         <div className="max-w-[1080px] mx-auto">
           <SectionLabel index="01" label="The Diagnostic" />
           <Reveal delay={0.1}>
@@ -454,7 +454,7 @@ const HealthCheck = () => {
                     <div className="mt-8 flex flex-wrap gap-5">
                       <Link
                         to="/services"
-                        className="group inline-flex items-center gap-3 bg-cinnabar text-background px-7 py-4 btn-label hover:opacity-90 transition-opacity duration-300"
+                        className="group inline-flex items-center gap-3 bg-cinnabar text-background px-7 py-4 btn-label transition-opacity duration-300"
                       >
                         <span>See full package</span>
                         <ArrowUpRight className="w-4 h-4" />

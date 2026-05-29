@@ -68,7 +68,7 @@ const Index = () => (
         <Reveal delay={0.4}>
           <Link
             to="/contact"
-            className="mt-10 inline-flex items-center gap-3 bg-cinnabar text-background px-7 py-4 btn-label hover:opacity-90 transition-opacity duration-300"
+            className="mt-10 inline-flex items-center gap-3 bg-cinnabar text-background px-7 py-4 btn-label transition-opacity duration-300"
           >
             <span>Book Discovery Call</span>
             <ArrowUpRight className="w-4 h-4" />
@@ -79,7 +79,7 @@ const Index = () => (
 
     {/* 02 — THE PROBLEM */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="02" label="The Problem" />
         <Reveal delay={0.1}>
           <h2 className="mt-10 font-serif h-display-md max-w-[24ch]">
@@ -116,7 +116,7 @@ const Index = () => (
 
     {/* 03 — THE INSIGHT */}
     <section className="px-6 md:px-10 border-t border-foreground/15 bg-surface">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="03" label="The Insight" />
         <Reveal delay={0.1}>
           <h2 className="mt-10 font-serif h-display-md max-w-[20ch]">
@@ -154,7 +154,7 @@ const Index = () => (
 
     {/* 04 — DIVISIONS TEASER */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <div className="flex items-end justify-between gap-6 flex-wrap">
           <SectionLabel index="04" label="Divisions" />
           <Link to="/services" className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground hover:text-foreground transition-colors">
@@ -184,7 +184,7 @@ const Index = () => (
 
     {/* 05 — CORE STRENGTHS */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="05" label="Why ØRIONS" />
         <Reveal delay={0.1}>
           <h2 className="mt-10 font-serif h-display-md max-w-[22ch]">
@@ -207,7 +207,7 @@ const Index = () => (
 
     {/* 06 — SELECTED WORK */}
     <section className="px-6 md:px-10 border-t border-foreground/15/12">
-      <div className="max-w-[1400px] mx-auto py-24 md:py-32">
+      <div className="max-w-[1400px] mx-auto py-20 md:py-28">
         <div className="flex items-end justify-between gap-6 flex-wrap">
           <SectionLabel index="06" label="Selected Work" />
           <Link
@@ -297,7 +297,7 @@ const Index = () => (
                   <h3 className="font-serif text-[28px] md:text-[40px] leading-[1.05] tracking-[-0.02em] max-w-[16ch]">
                     See the full <em className="italic text-cinnabar">index of work</em>
                   </h3>
-                  <ArrowUpRight className="w-8 h-8 md:w-10 md:h-10 shrink-0 text-cinnabar group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                  <ArrowUpRight className="w-8 h-8 md:w-10 md:h-10 shrink-0 text-cinnabar transition-transform" />
                 </div>
               </Link>
             </div>
@@ -322,7 +322,7 @@ const Index = () => (
 
     {/* 07 — PROCESS RHYTHM */}
     <section className="px-6 md:px-10 border-t border-foreground/15 bg-surface">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-32">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="07" label="Process" />
         <Reveal delay={0.1}>
           <h2 className="mt-10 font-serif h-display-md max-w-[22ch]">
@@ -352,7 +352,7 @@ const Index = () => (
 
     {/* 08 — CLOSING CTA */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[860px] mx-auto py-24 md:py-32 text-center">
+      <div className="max-w-[860px] mx-auto py-20 md:py-28 text-center">
         <Reveal>
           <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar inline-flex items-center gap-3">
             <span className="block w-6 h-px bg-cinnabar" />
@@ -372,7 +372,7 @@ const Index = () => (
         <Reveal delay={0.3}>
           <Link
             to="/contact"
-            className="mt-10 inline-flex items-center gap-3 bg-cinnabar text-background px-7 py-4 btn-label hover:opacity-90 transition-opacity duration-300"
+            className="mt-10 inline-flex items-center gap-3 bg-cinnabar text-background px-7 py-4 btn-label transition-opacity duration-300"
           >
             <span>Book Discovery Call Now</span>
             <ArrowUpRight className="w-4 h-4" />

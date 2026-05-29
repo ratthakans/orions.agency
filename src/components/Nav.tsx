@@ -32,7 +32,7 @@ const Nav = () => (
         ))}
         <Link
           to="/contact"
-          className="font-mono text-[11px] tracking-[0.22em] uppercase bg-cinnabar text-background px-4 py-2 hover:opacity-90 transition-opacity"
+          className="font-mono text-[11px] tracking-[0.22em] uppercase bg-cinnabar text-background px-4 py-2 transition-opacity"
         >
           Contact →
         </Link>

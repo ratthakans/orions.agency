@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
+import MethodStep from "@/components/MethodStep";
 
 import workHongmove from "@/assets/hongmove.png";
 import workRtaf from "@/assets/rtaf.jpg";
@@ -42,7 +43,7 @@ const process = [
 const Index = () => (
   <div>
     <SEO
-      title="ØRIONS — No Guesswork. Just Craft."
+      title="ØRIONS — Stories, Refined."
       description="The Creative Company. Branding, content, production & paid media for brands with something to say. From first call to first market-ready direction in 4 weeks."
       path="/"
     />
@@ -52,11 +53,11 @@ const Index = () => (
       <div className="max-w-[1100px] mx-auto w-full flex-1 flex flex-col justify-center items-center text-center pt-24 md:pt-28 pb-20 md:pb-24">
         <Reveal>
           <h1 className="h-display-xl">
-            No Guesswork. <em className="italic text-cinnabar">Just Craft.</em>
+            Stories, <em className="italic text-cinnabar">Refined.</em>
           </h1>
         </Reveal>
         <Reveal delay={0.2}>
-          <p className="mt-8 md:mt-10 font-serif italic text-[16px] md:text-[19px] leading-[1.6] text-muted-foreground max-w-[52ch]">
+          <p lang="th" className="mt-8 md:mt-10 font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.7] text-muted-foreground max-w-[52ch]">
             Branding, content, production &amp; paid media for brands with something to say. From first call to first market-ready direction in 4 weeks.
           </p>
         </Reveal>
@@ -78,27 +79,28 @@ const Index = () => (
     </section>
 
     {/* 02 — THE PROBLEM */}
-    <section className="px-6 md:px-10 border-t border-foreground/15">
+    <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="02" label="The Problem" />
         <Reveal delay={0.1}>
-          <h2 className="mt-10 h-display-md max-w-[24ch]">
+          <h2 lang="th" className="mt-10 h-display-md max-w-[24ch] thai-wrap">
             คุณไม่ได้ขาด agency. คุณขาด <em className="italic text-cinnabar">ทีมเดียวที่เอาอยู่ทั้งงาน.</em>
           </h2>
         </Reveal>
         <Reveal delay={0.18}>
-          <p className="mt-10 max-w-[640px] font-serif italic text-[19px] md:text-[22px] leading-[1.55] text-foreground/80">
+          <p lang="th" className="mt-10 max-w-[640px] font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.7] text-foreground/80">
             แบรนด์ดีๆ ส่วนใหญ่ติดอยู่ตรงนี้ —
           </p>
         </Reveal>
 
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 border border-foreground/20">
+        {/* Stacked editorial rows — replaces 3-block grid for visual variation */}
+        <div className="mt-14 border-t border-foreground/25">
           {problems.map((p, i) => (
-            <Reveal key={p.n} delay={i * 0.08}>
-              <div className={`p-10 md:p-12 h-full bg-background ${i > 0 ? "border-t md:border-t-0 md:border-l border-foreground/20" : ""}`}>
-                <div className="font-serif italic text-cinnabar text-[22px] leading-none">{p.n}</div>
-                <h3 className="mt-8 font-serif text-[24px] md:text-[28px] leading-[1.15] tracking-[-0.015em]">{p.en}</h3>
-                <p className="mt-5 font-thai text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">{p.th}</p>
+            <Reveal key={p.n} delay={i * 0.06}>
+              <div className="grid grid-cols-1 md:grid-cols-[80px_1fr_1.6fr] gap-4 md:gap-12 items-baseline py-8 md:py-10 border-b border-foreground/25">
+                <div className="font-serif italic text-cinnabar text-[28px] md:text-[40px] leading-none tabular-nums">{p.n}</div>
+                <h3 className="text-[22px] md:text-[28px] leading-[1.1] tracking-[-0.02em]">{p.en}</h3>
+                <p lang="th" className="font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">{p.th}</p>
               </div>
             </Reveal>
           ))}
@@ -106,7 +108,7 @@ const Index = () => (
 
         <Reveal delay={0.3}>
           <div className="mt-16 border-l-2 border-cinnabar pl-6 md:pl-8 max-w-[760px]">
-            <p className="font-serif italic text-[20px] md:text-[26px] leading-[1.4] tracking-[-0.01em]">
+            <p lang="th" className="font-thai thai-wrap text-[17px] md:text-[20px] leading-[1.55] tracking-[-0.005em]">
               ปัญหาไม่ใช่ฝีมือใครไม่ดี — ปัญหาคือ <em className="text-cinnabar">ไม่มีใครถือทั้งเส้น</em> ตั้งแต่ตัวตน → คอนเทนต์ → ยอด.
             </p>
           </div>
@@ -115,16 +117,16 @@ const Index = () => (
     </section>
 
     {/* 03 — THE INSIGHT */}
-    <section className="px-6 md:px-10 border-t border-foreground/15 bg-surface">
+    <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="03" label="The Insight" />
         <Reveal delay={0.1}>
-          <h2 className="mt-10 h-display-md max-w-[20ch]">
+          <h2 lang="th" className="mt-10 h-display-md max-w-[20ch] thai-wrap">
             Craft ที่ดี ควรมี <em className="italic text-cinnabar">หลักฐาน.</em>
           </h2>
         </Reveal>
         <Reveal delay={0.2}>
-          <p className="mt-10 max-w-[680px] font-serif italic text-[18px] md:text-[22px] leading-[1.55] text-foreground/80">
+          <p lang="th" className="mt-10 max-w-[680px] font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.7] text-foreground/80">
             โลกของเอเจนซี่มักถูกแบ่งเป็นสองฝั่ง — ฝั่งที่ทำงานสวยแต่วัดไม่ได้ กับฝั่งที่วัดได้แต่ไม่มีใครจำแบรนด์ได้.
           </p>
         </Reveal>
@@ -137,7 +139,7 @@ const Index = () => (
             <h3 className="mt-6 font-serif text-[32px] md:text-[48px] leading-[1.05] tracking-[-0.025em]">
               <em className="italic text-cinnabar">Data</em> informs. <em className="italic text-cinnabar">Creative</em> leads. <em className="italic text-cinnabar">Craft</em> delivers.
             </h3>
-            <p className="mt-6 font-thai text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground max-w-[640px]">
+            <p lang="th" className="mt-6 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground max-w-[640px]">
               เราเชื่อว่า brand ที่ดีต้องทั้ง <em className="not-italic text-foreground">จำได้</em> และ <em className="not-italic text-foreground">ขายได้</em> — และทั้งสองอย่างต้องพิสูจน์เป็นตัวเลขได้ใน 90 วัน.
             </p>
           </div>
@@ -153,28 +155,28 @@ const Index = () => (
     </section>
 
     {/* 04 — DIVISIONS TEASER */}
-    <section className="px-6 md:px-10 border-t border-foreground/15">
+    <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <div className="flex items-end justify-between gap-6 flex-wrap">
           <SectionLabel index="04" label="Divisions" />
-          <Link to="/services" className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground hover:text-foreground transition-colors">
+          <Link to="/services" className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground hover:text-cinnabar transition-colors">
             See the full ecosystem →
           </Link>
         </div>
         <Reveal delay={0.1}>
-          <h2 className="mt-10 h-display-md max-w-[22ch]">
+          <h2 lang="th" className="mt-10 h-display-md max-w-[22ch] thai-wrap">
             สามทีม · แบรนด์เดียว · <em className="italic text-cinnabar">Account Director คนเดียว.</em>
           </h2>
         </Reveal>
 
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 border border-foreground/20">
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 border border-foreground/30">
           {divisions.map((d, i) => (
             <Reveal key={d.n} delay={i * 0.07}>
-              <div className={`p-10 md:p-12 h-full bg-background ${i > 0 ? "border-t md:border-t-0 md:border-l border-foreground/20" : ""}`}>
+              <div className={`p-10 md:p-12 h-full ${i === 1 ? "bg-cinnabar/[0.06]" : ""} ${i > 0 ? "border-t md:border-t-0 md:border-l border-foreground/30" : ""}`}>
                 <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">— {d.n}</div>
-                <h3 className="mt-8 font-serif text-[28px] md:text-[34px] leading-[1.05] tracking-[-0.02em]">{d.en}</h3>
+                <h3 className="mt-8 text-[28px] md:text-[34px] leading-[1.05] tracking-[-0.02em] font-semibold">{d.en}</h3>
                 <div className="mt-3 font-serif italic text-muted-foreground text-[15px]">{d.tag}</div>
-                <p className="mt-6 font-thai text-[14px] md:text-[15px] leading-[1.7] text-foreground/80">{d.th}</p>
+                <p lang="th" className="mt-6 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-foreground/80">{d.th}</p>
               </div>
             </Reveal>
           ))}
@@ -182,37 +184,43 @@ const Index = () => (
       </div>
     </section>
 
-    {/* 05 — CORE STRENGTHS */}
+    {/* 05 — CORE STRENGTHS — giant numeral / 2-col asymmetric */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <SectionLabel index="05" label="Why ØRIONS" />
-        <Reveal delay={0.1}>
-          <h2 className="mt-10 h-display-md max-w-[22ch]">
-            ไม่ใช่อีกหนึ่งเอเจนซี่ <em className="italic text-cinnabar">ทั่วไป.</em>
-          </h2>
-        </Reveal>
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-px bg-foreground/15 border border-foreground/15">
-          {strengths.map((s, i) => (
-            <Reveal key={s.n} delay={i * 0.07}>
-              <div className="bg-background p-10 md:p-12 h-full">
-                <div className="font-serif italic text-cinnabar text-[40px] md:text-[56px] leading-none tabular-nums">{s.n}</div>
-                <h3 className="mt-8 font-serif text-[22px] md:text-[26px] leading-[1.2] tracking-[-0.015em]">{s.en}</h3>
-                <p className="mt-4 font-thai text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">{s.th}</p>
-              </div>
+        <div className="grid grid-cols-1 md:grid-cols-[3fr_7fr] gap-12 md:gap-20">
+          <div className="md:sticky md:top-28 md:self-start">
+            <SectionLabel index="05" label="Why ØRIONS" />
+            <Reveal delay={0.1}>
+              <h2 lang="th" className="mt-8 h-display-md thai-wrap">
+                ไม่ใช่อีกหนึ่งเอเจนซี่ <em className="italic text-cinnabar">ทั่วไป.</em>
+              </h2>
             </Reveal>
+          </div>
+          <div>
+          {strengths.map((s, i) => (
+              <Reveal key={s.n} delay={i * 0.06}>
+                <MethodStep
+                  n={s.n}
+                  caption={`PRINCIPLE · ${String(i + 1).padStart(2, "0")}`}
+                  title={<span className="font-semibold">{s.en}</span>}
+                >
+                  <p lang="th" className="font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">{s.th}</p>
+                </MethodStep>
+              </Reveal>
           ))}
+          </div>
         </div>
       </div>
     </section>
 
     {/* 06 — SELECTED WORK */}
-    <section className="px-6 md:px-10 border-t border-foreground/15/12">
+    <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1400px] mx-auto py-20 md:py-28">
         <div className="flex items-end justify-between gap-6 flex-wrap">
           <SectionLabel index="06" label="Selected Work" />
           <Link
             to="/work"
-            className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground hover:text-foreground transition-colors"
+            className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground hover:text-cinnabar transition-colors"
           >
             Index of work →
           </Link>
@@ -321,7 +329,7 @@ const Index = () => (
     </section>
 
     {/* 07 — PROCESS RHYTHM */}
-    <section className="px-6 md:px-10 border-t border-foreground/15 bg-surface">
+    <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="07" label="Process" />
         <Reveal delay={0.1}>
@@ -351,7 +359,7 @@ const Index = () => (
     </section>
 
     {/* 08 — CLOSING CTA */}
-    <section className="px-6 md:px-10 border-t border-foreground/15">
+    <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[860px] mx-auto py-20 md:py-28 text-center">
         <Reveal>
           <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar inline-flex items-center gap-3">
@@ -360,12 +368,12 @@ const Index = () => (
           </div>
         </Reveal>
         <Reveal delay={0.1}>
-          <h2 className="mt-8 h-display-lg">
+          <h2 lang="th" className="mt-8 h-display-lg thai-wrap">
             พร้อมเริ่ม <em className="italic text-cinnabar">บทแรก</em> ของแบรนด์คุณหรือยัง?
           </h2>
         </Reveal>
         <Reveal delay={0.2}>
-          <p className="mt-8 font-serif italic text-[16px] md:text-[20px] text-muted-foreground">
+          <p lang="th" className="mt-8 font-thai thai-wrap text-[15px] md:text-[17px] text-muted-foreground">
             Discovery Call · ฟรี · 45 นาที · ไม่มีพันธะผูกมัด
           </p>
         </Reveal>

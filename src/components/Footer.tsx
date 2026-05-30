@@ -5,6 +5,7 @@ const navLinks = [
   { to: "/diagnostic", label: "Diagnostic" },
   { to: "/about", label: "About" },
   { to: "/services", label: "Services" },
+  { to: "/pricing", label: "Pricing" },
   { to: "/consulting", label: "Consulting" },
   { to: "/work", label: "Work" },
   { to: "/studio", label: "Studio" },
@@ -113,9 +114,9 @@ const Footer = () => {
         {/* Division link matrix */}
         <div className="mt-14 pt-10 border-t border-background/15 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
           {[
-            { code: "Ø Boutique",  desc: "Brand identity & strategy", to: "/services#boutique" },
-            { code: "Ø Digital",   desc: "Content + paid media",       to: "/services#digital" },
-            { code: "Ø Production", desc: "Creative crew + post",      to: "/services#production" },
+            { code: "Ø Boutique",   desc: "Brand identity & strategy", to: "/pricing#boutique" },
+            { code: "Ø Digital",    desc: "Content + paid media",       to: "/pricing#digital" },
+            { code: "Ø Production", desc: "Creative crew + post",       to: "/pricing#production" },
           ].map((d) => (
             <Link key={d.code} to={d.to} className="group block border-t border-background/15 pt-5 hover:border-cinnabar transition-colors">
               <div className="font-serif italic text-cinnabar text-[20px] md:text-[24px] tracking-[-0.015em]">{d.code}</div>

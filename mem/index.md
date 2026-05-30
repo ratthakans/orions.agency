@@ -20,7 +20,7 @@ Zero radius. Hairlines only. No glows/shadows/rounded cards/gradients.
 - CTAs: hero = `btn-primary` ink pill; in-body = `<CTA variant="chevron">`; contact = `<StackedCTA label href link>` (label / `›` / link).
 - Cinnabar surface ≤ 10% of pixels. PRO column is the only fully inverted block per page.
 Nav: hyper-minimal — logo left + hamburger right with mix-blend-difference; full-screen overlay with serif italic links.
-Routes: `/`, `/about`, `/services`, `/consulting`, `/work`, `/studio`, `/diagnostic`, `/contact`. `/manifesto` & `/approach` → `/about`. `/projects` & `/ventures` → `/studio`. `/health-check` → `/diagnostic`. Services = Boutique · Digital · Production (2026 rate cards). Consulting is its own page.
+Routes: `/`, `/about`, `/services`, `/pricing`, `/consulting`, `/work`, `/studio`, `/diagnostic`, `/contact`. Services = agency overview (capabilities, process, deliverables, industries, FAQ — NO prices). Pricing = all rate cards (Boutique/Digital/Production tiers, add-ons, ladder, fine print). Consulting is its own page. Reusable marketing components: `FAQ` (accordion), `TrustStrip` (client names row), `CTABand` (eyebrow + headline + dual CTA). Contact has marketing hero with trust badges, "what happens next" timeline, FAQ, and sticky mobile LINE pill. Nav `/contact` rendered as accent pill button. `/manifesto` & `/approach` → `/about`. `/projects` & `/ventures` → `/studio`. `/health-check` → `/diagnostic`.
 React/Vite MPA. Centralized SEO.tsx. Brand: 'Stories, refined.'
 
 ## Memories

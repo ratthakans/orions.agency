@@ -111,7 +111,7 @@ const CaseStudy = () => {
       </section>
 
       {/* 04 — APPROACH */}
-      <section className="px-6 md:px-10 border-t border-foreground/15">
+      <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
           <div className="max-w-[1280px] mx-auto py-20 md:py-28">
             <SectionLabel index="02" label="Approach" />
           <Reveal delay={0.05}>
@@ -169,7 +169,7 @@ const CaseStudy = () => {
       )}
 
       {/* 06 — RESULTS */}
-      <section className="px-6 md:px-10 border-t border-foreground/15/20 bg-background text-foreground">
+      <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
         <div className="max-w-[1280px] mx-auto py-20 md:py-28">
           <SectionLabel index={cs.gallery.length > 1 ? "04" : "03"} label="Results" />
           <Reveal delay={0.05}>

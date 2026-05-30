@@ -98,7 +98,7 @@ const Work = () => (
     </section>
 
     {/* 02 · FOCUS VERTICALS */}
-    <section className="px-6 md:px-10 border-t border-foreground/15">
+    <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="02" label="Focus Verticals" />
         <Reveal delay={0.05}>
@@ -135,7 +135,7 @@ const Work = () => (
     </section>
 
     {/* 03 · CONTEXTUAL MOMENTS */}
-    <section className="px-6 md:px-10 border-t border-foreground/15 bg-surface">
+    <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="03" label="Contextual Moments" />
         <Reveal delay={0.05}>
@@ -164,7 +164,7 @@ const Work = () => (
     </section>
 
     {/* 02 · SELECTED PROJECTS */}
-    <section className="px-6 md:px-10 border-t border-foreground/15">
+    <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="04" label="Projects" />
         <Reveal delay={0.05}>
@@ -256,7 +256,7 @@ const Work = () => (
     </section>
 
     {/* 04 · TRUSTED BY */}
-    <section className="px-6 md:px-10 border-t border-foreground/15">
+    <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="06" label="Trusted By" />
         <Reveal delay={0.05}>

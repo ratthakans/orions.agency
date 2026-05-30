@@ -21,10 +21,10 @@ const capabilities = [
 ];
 
 const process = [
-  { n: "01", k: "Listen", weeks: "Wk 1",   d: "Discovery · audience interviews · cultural intelligence · brand audit." },
-  { n: "02", k: "Refine", weeks: "Wk 2–3", d: "Big Idea · strategy lock · direction lock · creative tonal map." },
-  { n: "03", k: "Build",  weeks: "Wk 3–9", d: "Cast director, DP, photographer. Production batched for efficiency." },
-  { n: "04", k: "Launch", weeks: "Wk 9+",  d: "Rollout calendar · paid media on · review at 30 / 60 / 90 days." },
+  { n: "01", k: "Listen", weeks: "Wk 1",   d: "Discovery · interviews · brand audit." },
+  { n: "02", k: "Refine", weeks: "Wk 2–3", d: "Big Idea · strategy + direction lock." },
+  { n: "03", k: "Build",  weeks: "Wk 3–9", d: "Cast crew · production · post." },
+  { n: "04", k: "Launch", weeks: "Wk 9+",  d: "Rollout · paid · review 30/60/90." },
 ];
 
 const Services = () => (
@@ -42,22 +42,17 @@ const Services = () => (
         <Reveal delay={0.05}>
           <h1 className="mt-10 h-display-xl max-w-[16ch]">One company. <em className="italic text-cinnabar">Three axes.</em></h1>
         </Reveal>
-        <Reveal delay={0.1}>
-          <p className="mt-6 max-w-[680px] font-serif italic text-[16px] md:text-[20px] leading-[1.5] text-muted-foreground">
-            Agency for cashflow · Consulting for predictable revenue · Studio for asset & valuation.
-          </p>
-        </Reveal>
         <Reveal delay={0.15}>
-          <p lang="th" className="mt-6 max-w-[680px] font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-foreground/75">
-            แทนที่จะวิ่งหา 3 vendor — แบรนด์เอเจนซี่ + เอเจนซี่ยิงแอด + production house — ที่ ØRIONS ได้ทั้งสามในทีมเดียว, AD เดียว, invoice เดียว.
+          <p lang="th" className="mt-8 max-w-[680px] font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.7] text-foreground/80">
+            สามทีม · หนึ่ง Account Director · หนึ่ง invoice.
           </p>
         </Reveal>
 
         <Reveal delay={0.25}>
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 border border-foreground/25">
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 border border-foreground/20">
             {blueprint.map((m, i) => (
               <Link key={m.n} to={m.to}
-                className={`group block p-10 md:p-12 h-full ${i > 0 ? "border-t md:border-t-0 md:border-l border-foreground/25" : ""} hover:bg-cinnabar/[0.04] transition-colors`}>
+                className={`group block p-10 md:p-12 h-full ${i > 0 ? "border-t md:border-t-0 md:border-l border-foreground/20" : ""} hover:bg-cinnabar/[0.04] transition-colors`}>
                 <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">[ {m.tag} ]</div>
                 <div className="mt-6 font-serif italic text-cinnabar text-[28px] md:text-[34px] leading-none">{m.n}</div>
                 <h3 className="mt-4 text-[26px] md:text-[30px] leading-[1.1] tracking-[-0.02em]">{m.name}</h3>

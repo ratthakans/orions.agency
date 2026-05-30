@@ -3,7 +3,6 @@ import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
-import TrustStrip from "@/components/TrustStrip";
 import CTABand from "@/components/CTABand";
 
 import workHongmove from "@/assets/hongmove.png";
@@ -17,9 +16,9 @@ const selectedWork = [
 ];
 
 const problems = [
-  { n: "i.",   en: "Three vendors, three languages", th: "จ้างเอเจนซี่แบรนด์ + เอเจนซี่ยิงแอด + โปรดักชั่นเฮาส์ — ไฟล์ไม่ต่อกัน ความเข้าใจหลุดกลางทาง" },
-  { n: "ii.",  en: "Lots of content, no identity",   th: "เหมือนทุกแบรนด์ในฟีด สวยจืดชืด ไม่มีใครจำแบรนด์ได้จริง" },
-  { n: "iii.", en: "Spent, but unmeasured",          th: "ไม่มี baseline ไม่รู้ว่าเงินที่ลงไปเปลี่ยนเป็นยอดขายจริงไหม" },
+  { n: "i.",   en: "Three vendors, three languages", th: "ไฟล์ไม่ต่อกัน · ความเข้าใจหลุดกลางทาง" },
+  { n: "ii.",  en: "Lots of content, no identity",   th: "สวยจืดชืด · ไม่มีใครจำแบรนด์คุณ" },
+  { n: "iii.", en: "Spent, but unmeasured",          th: "ไม่มี baseline · ไม่รู้ว่าเงินกลายเป็นยอดจริงไหม" },
 ];
 
 const divisions = [
@@ -39,19 +38,14 @@ const Index = () => (
     {/* 01 — HERO */}
     <section className="relative min-h-[88svh] flex flex-col px-6 md:px-10">
       <div className="max-w-[1100px] mx-auto w-full flex-1 flex flex-col justify-center items-center text-center pt-24 md:pt-28 pb-20 md:pb-24">
-        <Reveal><SectionLabel index="01" label="The Creative Company" /></Reveal>
+        <Reveal><SectionLabel label="The Creative Company" /></Reveal>
         <Reveal delay={0.05}>
           <h1 className="h-display-xl">Stories, <em className="italic text-cinnabar">Refined.</em></h1>
         </Reveal>
         <Reveal delay={0.15}>
           <p lang="th" className="mt-8 md:mt-10 font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.7] text-muted-foreground max-w-[52ch]">
-            Branding, content, production &amp; paid media สำหรับแบรนด์ที่มีเรื่องจะเล่า — ตั้งแต่ first call ถึง direction พร้อมออกตลาดภายใน 4 สัปดาห์.
+            Branding, content และ paid media — จาก first call ถึง launch ใน 4 สัปดาห์.
           </p>
-        </Reveal>
-        <Reveal delay={0.25}>
-          <div className="mt-10 md:mt-12 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
-            ØRIONS · The Creative Company · Bangkok · 2026
-          </div>
         </Reveal>
         <Reveal delay={0.35}>
           <Link to="/contact" className="mt-10 btn-primary">
@@ -61,21 +55,19 @@ const Index = () => (
       </div>
     </section>
 
-    <TrustStrip label="Trusted by" />
-
     {/* 02 — PROBLEM (slim) */}
     <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <SectionLabel index="02" label="The Problem" />
+        <SectionLabel label="The Problem" />
         <Reveal delay={0.1}>
           <h2 lang="th" className="mt-10 h-display-md max-w-[24ch] thai-wrap">
-            คุณไม่ได้ขาด agency. คุณขาด <em className="italic text-cinnabar">ทีมเดียวที่เอาอยู่ทั้งงาน.</em>
+            ปัญหาไม่ใช่ agency. คือ <em className="italic text-cinnabar">การมีหลาย agency.</em>
           </h2>
         </Reveal>
-        <div className="mt-14 border-t border-foreground/25">
+        <div className="mt-14 border-t border-foreground/20">
           {problems.map((p, i) => (
             <Reveal key={p.n} delay={i * 0.06}>
-              <div className="grid grid-cols-1 md:grid-cols-[80px_1fr_1.6fr] gap-4 md:gap-12 items-baseline py-8 md:py-10 border-b border-foreground/25">
+              <div className="grid grid-cols-1 md:grid-cols-[80px_1fr_1.6fr] gap-4 md:gap-12 items-baseline py-8 md:py-10 border-b border-foreground/20">
                 <div className="font-serif italic text-cinnabar text-[28px] md:text-[40px] leading-none tabular-nums">{p.n}</div>
                 <h3 className="text-[22px] md:text-[28px] leading-[1.1] tracking-[-0.02em]">{p.en}</h3>
                 <p lang="th" className="font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">{p.th}</p>
@@ -90,9 +82,9 @@ const Index = () => (
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <div className="flex items-end justify-between gap-6 flex-wrap">
-          <SectionLabel index="03" label="Divisions" />
+          <SectionLabel label="Divisions" />
           <Link to="/services" className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground hover:text-cinnabar transition-colors">
-            See the full ecosystem →
+            All services →
           </Link>
         </div>
         <Reveal delay={0.1}>
@@ -100,10 +92,10 @@ const Index = () => (
             สามทีม · แบรนด์เดียว · <em className="italic text-cinnabar">Account Director คนเดียว.</em>
           </h2>
         </Reveal>
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 border border-foreground/30">
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 border border-foreground/20">
           {divisions.map((d, i) => (
             <Reveal key={d.n} delay={i * 0.07}>
-              <div className={`p-10 md:p-12 h-full ${i === 1 ? "bg-cinnabar/[0.06]" : ""} ${i > 0 ? "border-t md:border-t-0 md:border-l border-foreground/30" : ""}`}>
+              <div className={`p-10 md:p-12 h-full ${i === 1 ? "bg-cinnabar/[0.06]" : ""} ${i > 0 ? "border-t md:border-t-0 md:border-l border-foreground/20" : ""}`}>
                 <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">— {d.n}</div>
                 <h3 className="mt-8 text-[28px] md:text-[34px] leading-[1.05] tracking-[-0.02em] font-semibold">{d.en}</h3>
                 <div className="mt-3 font-serif italic text-muted-foreground text-[15px]">{d.tag}</div>
@@ -119,7 +111,7 @@ const Index = () => (
     <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1400px] mx-auto py-20 md:py-28">
         <div className="flex items-end justify-between gap-6 flex-wrap">
-          <SectionLabel index="04" label="Selected Work" />
+          <SectionLabel label="Selected Work" />
           <Link to="/work" className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground hover:text-cinnabar transition-colors">
             Index of work →
           </Link>
@@ -142,7 +134,7 @@ const Index = () => (
     <CTABand
       eyebrow="Ready when you are"
       title={<>พร้อมเริ่ม <em className="italic text-cinnabar">บทแรก</em> ของแบรนด์คุณหรือยัง?</>}
-      subtitle="Discovery call · 45 นาที · ฟรี · ไม่มีพันธะผูกมัด."
+      subtitle="45 นาที · ฟรี · ไม่ผูกมัด."
       primary={{ label: "Book discovery call", to: "/contact" }}
       secondary={{ label: "See services", to: "/services" }}
       tone="snow"

@@ -44,19 +44,14 @@ const Consulting = () => (
             Strategic creative <em className="italic text-cinnabar">leadership.</em>
           </h1>
         </Reveal>
-        <Reveal delay={0.15}>
-          <p className="mt-6 font-serif italic text-[15px] md:text-[20px] text-muted-foreground max-w-[42ch]">
-            Predictable Revenue · long-form partnerships, not project work.
-          </p>
-        </Reveal>
         <Reveal delay={0.2}>
-          <p lang="th" className="mt-10 max-w-[680px] font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.7] text-foreground/85">
-            สำหรับองค์กรที่ creativity เป็นปัจจัยเชิงโครงสร้าง — ไม่ใช่แค่งานชิ้น. เราเข้าทำงานในระดับ C-suite วางแผนแม่บทประจำปี และคุมคุณภาพ creative ของทั้ง ecosystem.
+          <p lang="th" className="mt-8 max-w-[680px] font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.7] text-foreground/85">
+            สำหรับองค์กรที่ creativity เป็นปัจจัยเชิงโครงสร้าง — ไม่ใช่แค่งานชิ้น.
           </p>
         </Reveal>
         <Reveal delay={0.25}>
-          <p lang="th" className="mt-6 max-w-[680px] font-thai thai-wrap text-[13px] md:text-[14px] leading-[1.7] text-muted-foreground">
-            <span className="text-cinnabar">Fit:</span> conglomerate, listed company, family business in transition · <span className="text-foreground/60">Not for:</span> project work, ad retainers, shoot day-by-day — ใช้ Boutique / Digital / Production แทน.
+          <p className="mt-6 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
+            <span className="text-cinnabar">— Fit</span> &nbsp;Conglomerate · Listed · Family business in transition
           </p>
         </Reveal>
       </div>

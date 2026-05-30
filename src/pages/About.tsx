@@ -38,14 +38,9 @@ const About = () => (
         <Reveal delay={0.1}>
           <h1 className="mt-10 h-display-xl">The New <em className="italic text-cinnabar">Landscape.</em></h1>
         </Reveal>
-        <Reveal delay={0.15}>
-          <p className="mt-6 font-serif italic text-[16px] md:text-[20px] text-muted-foreground">
-            Independent editorial studio. Bangkok. — Boutique Creative Agency.
-          </p>
-        </Reveal>
         <Reveal delay={0.2}>
-          <p lang="th" className="mt-10 max-w-[640px] font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.7] text-foreground/80">
-            โลกออนไลน์วันนี้ ขับเคลื่อนด้วย 3 ความจริงที่ทำให้ Generic Content ตายไปแล้ว.
+          <p lang="th" className="mt-8 max-w-[640px] font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.7] text-foreground/80">
+            สามความจริงที่ทำให้ Generic Content ตายไปแล้ว.
           </p>
         </Reveal>
       </div>
@@ -94,11 +89,6 @@ const About = () => (
         <SectionLabel index="03" label="How We Refine" />
         <Reveal delay={0.1}>
           <h2 className="mt-10 h-display-lg">สาม <em className="italic text-cinnabar">เสาหลัก.</em><br />หนึ่ง process.</h2>
-        </Reveal>
-        <Reveal delay={0.2}>
-          <p lang="th" className="mt-10 max-w-[720px] font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.7] text-muted-foreground">
-            Craft · Strategy · Story — สามเสาหลักที่ขับเคลื่อนทุกชิ้นงาน. ก่อนทุกชิ้นจะเริ่ม เราฟังก่อน เพราะ "Refined" คือชิ้นงานที่ผ่านการกลั่นจากเสียงจริงของคนที่ใช่.
-          </p>
         </Reveal>
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 border border-foreground/20">
           {pillars.map((p, i) => (

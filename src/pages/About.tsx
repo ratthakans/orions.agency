@@ -433,10 +433,7 @@ const About = () => (
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <Reveal delay={0.1}>
           <div className="flex flex-wrap items-center gap-5">
-            <Link
-              to="/services"
-              className="group inline-flex items-center gap-3 bg-cinnabar text-background px-7 py-4 btn-label transition-opacity duration-300"
-            >
+            <Link to="/services" className="btn-accent">
               <span>See packages</span>
               <ArrowUpRight className="w-4 h-4" />
             </Link>

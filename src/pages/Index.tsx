@@ -378,10 +378,7 @@ const Index = () => (
           </p>
         </Reveal>
         <Reveal delay={0.3}>
-          <Link
-            to="/contact"
-            className="mt-10 inline-flex items-center gap-3 bg-cinnabar text-background px-7 py-4 btn-label transition-opacity duration-300"
-          >
+          <Link to="/contact" className="btn-accent mt-10">
             <span>Book Discovery Call Now</span>
             <ArrowUpRight className="w-4 h-4" />
           </Link>

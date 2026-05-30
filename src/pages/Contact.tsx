@@ -1,0 +1,347 @@
+import { useState } from "react";
+import { ArrowUpRight, MessageCircle, Phone, Mail, Calendar, Shield, Clock } from "lucide-react";
+import { Link } from "react-router-dom";
+import { z } from "zod";
+import Reveal from "@/components/Reveal";
+import SEO from "@/components/SEO";
+import SectionLabel from "@/components/SectionLabel";
+import TrustStrip from "@/components/TrustStrip";
+import FAQ from "@/components/FAQ";
+import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
+
+const inquirySchema = z.object({
+  name:    z.string().trim().min(1, "Please tell us your name").max(100),
+  company: z.string().trim().min(1, "Company name required").max(150),
+  email:   z.string().trim().email("Please enter a valid email").max(255),
+  brief:   z.string().trim().min(10, "Tell us a little more (10+ characters)").max(2000),
+});
+
+type FieldErrors = Partial<Record<keyof z.infer<typeof inquirySchema>, string>>;
+
+const trustBadges = [
+  { icon: Clock,    label: "Reply <24h" },
+  { icon: Calendar, label: "30-min free call" },
+  { icon: Shield,   label: "NDA on request" },
+];
+
+const next = [
+  { n: "01", t: "Reply within 24 hours", d: "ทีมเราอ่านเอง ตอบเอง — ภายใน 1 working day หลังจากส่งฟอร์ม" },
+  { n: "02", t: "30-min discovery call",  d: "Zoom / Google Meet · ฟรี · ไม่มีพันธะ · พร้อม fit-check แบบตรงไปตรงมา" },
+  { n: "03", t: "Tailored proposal · 7d", d: "Scope, timeline, rate card · ส่งภายใน 7 วันหลัง discovery call" },
+];
+
+const faqs = [
+  { q: "What's a typical project budget?",
+    a: "Brand identity เริ่ม ฿80,000 · Digital retainer จาก ฿22,900/mo · Production shoot day จาก ฿12,000 · Fractional Consulting จาก ฿180,000/mo. ดู rate card เต็มที่ /pricing." },
+  { q: "How fast can you start?",
+    a: "Boutique เปิดรับ 2–3 โปรเจกต์ต่อไตรมาส · Digital เริ่มได้ใน 2 สัปดาห์หลังเซ็น · Production จองล่วงหน้า 3–4 สัปดาห์สำหรับวันถ่ายขนาดใหญ่." },
+  { q: "Project vs retainer — อันไหนเหมาะกับเรา?",
+    a: "ถ้ามี launch ชัด → Boutique project. ถ้าต้องการสเกลยอดต่อเนื่อง → Digital retainer. ถ้าต้องการทั้งสอง → คุยเรื่อง System tier ที่รวม project + retainer." },
+  { q: "NDA + confidentiality?",
+    a: "พร้อมเซ็น mutual NDA ก่อน discovery call. ทุกโปรเจกต์ confidential by default — เผยแพร่เฉพาะเมื่อได้รับ approval เป็นลายลักษณ์อักษร." },
+];
+
+const Contact = () => {
+  const [form, setForm] = useState({ name: "", company: "", email: "", brief: "" });
+  const [errors, setErrors] = useState<FieldErrors>({});
+  const [submitting, setSubmitting] = useState(false);
+
+  const submit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const parsed = inquirySchema.safeParse(form);
+    if (!parsed.success) {
+      const fieldErrors: FieldErrors = {};
+      for (const issue of parsed.error.issues) {
+        const key = issue.path[0] as keyof FieldErrors;
+        if (key && !fieldErrors[key]) fieldErrors[key] = issue.message;
+      }
+      setErrors(fieldErrors);
+      toast.error("กรุณาตรวจสอบข้อมูลในฟอร์ม");
+      return;
+    }
+    setErrors({});
+    setSubmitting(true);
+    const { name, company, email, brief } = parsed.data;
+    const { error } = await supabase
+      .from("contact_inquiries")
+      .insert({ name, company, email, brief });
+    setSubmitting(false);
+    if (error) {
+      toast.error("ส่งไม่สำเร็จ ลองใหม่หรืออีเมลหาเราที่ hello@orions.agency");
+      return;
+    }
+    toast.success("ได้รับข้อมูลแล้ว — ทีม ØRIONS จะติดต่อกลับภายใน 24 ชม.");
+    setForm({ name: "", company: "", email: "", brief: "" });
+  };
+
+  const inputCls = "w-full bg-transparent border-b border-foreground/40 px-0 py-3 text-[15px] text-foreground placeholder:text-foreground/45 focus:outline-none focus:border-foreground transition-colors font-thai";
+  const labelCls = "font-mono text-[10px] tracking-[0.14em] uppercase text-foreground/70";
+
+  return (
+    <div>
+      <SEO
+        title="Contact — Let's build the next chapter · ØRIONS"
+        description="30-min discovery call. Free. Reply within 24 hours with an honest fit-check. Bangkok creative agency for brands with something to say."
+        path="/contact"
+      />
+
+      {/* 01 — MARKETING HERO */}
+      <section className="section-ink px-6 md:px-10">
+        <div className="max-w-[1280px] mx-auto pt-28 md:pt-32 pb-20 md:pb-24">
+          <SectionLabel index="01" label="Start a conversation" />
+          <Reveal delay={0.05}>
+            <h1 className="mt-10 h-display-xl max-w-[16ch]">
+              Let's build the <em className="italic text-cinnabar">next chapter.</em>
+            </h1>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p lang="th" className="mt-8 max-w-[640px] font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.65] text-foreground/85">
+              บอกเราว่าธุรกิจคุณติดอะไรอยู่ — เราตอบกลับภายใน 24 ชั่วโมง พร้อม fit-check ตรงไปตรงมา. ถ้าไม่ใช่ เราจะบอก. ถ้าใช่ เราจะลงมือ.
+            </p>
+          </Reveal>
+
+          {/* Trust badges */}
+          <Reveal delay={0.15}>
+            <div className="mt-10 flex flex-wrap gap-3">
+              {trustBadges.map(({ icon: Icon, label }) => (
+                <span key={label} className="inline-flex items-center gap-2 border border-foreground/30 px-3 py-2 font-mono text-[10px] tracking-[0.18em] uppercase text-foreground/85">
+                  <Icon className="w-3.5 h-3.5 text-cinnabar" />
+                  {label}
+                </span>
+              ))}
+            </div>
+          </Reveal>
+
+          {/* Dual CTA */}
+          <Reveal delay={0.2}>
+            <div className="mt-12 flex flex-col sm:flex-row gap-4">
+              <a href="#brief" className="btn-accent justify-between sm:w-auto">
+                <span>Send a brief</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </a>
+              <a href="mailto:hello@orions.agency?subject=Discovery%20call%20—%20ØRIONS" className="btn-ghost justify-between sm:w-auto">
+                <span>Book 30-min call</span>
+                <Calendar className="w-4 h-4" />
+              </a>
+            </div>
+          </Reveal>
+
+          {/* Direct lines */}
+          <Reveal delay={0.25}>
+            <div className="mt-12 pt-8 border-t border-foreground/20 flex flex-wrap gap-x-8 gap-y-3 items-center">
+              <a href="mailto:hello@orions.agency" className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.22em] uppercase text-foreground border-b border-foreground pb-1 hover:text-cinnabar hover:border-cinnabar transition-colors">
+                <Mail className="w-3.5 h-3.5" /> hello@orions.agency
+              </a>
+              <a href="tel:+66923905464" className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.22em] uppercase text-foreground border-b border-foreground pb-1 hover:text-cinnabar hover:border-cinnabar transition-colors">
+                <Phone className="w-3.5 h-3.5" /> +66 92 390 5464
+              </a>
+              <a href="https://line.me/ti/p/~orions" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.22em] uppercase text-foreground border-b border-foreground pb-1 hover:text-cinnabar hover:border-cinnabar transition-colors">
+                <MessageCircle className="w-3.5 h-3.5" /> LINE @orions
+              </a>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Trust strip */}
+      <TrustStrip label="Selected clients" />
+
+      {/* 02 — WHAT HAPPENS NEXT */}
+      <section className="px-6 md:px-10 border-t border-foreground/15">
+        <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+          <SectionLabel index="02" label="What happens next" />
+          <Reveal delay={0.05}>
+            <h2 className="mt-10 h-display-lg max-w-[20ch]">
+              Three steps. <em className="italic text-cinnabar">No mystery.</em>
+            </h2>
+          </Reveal>
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 border border-foreground/20">
+            {next.map((s, i) => (
+              <Reveal key={s.n} delay={i * 0.06}>
+                <div className={`p-10 md:p-12 h-full bg-background ${i > 0 ? "border-t md:border-t-0 md:border-l border-foreground/20" : ""}`}>
+                  <div className="font-serif italic text-cinnabar text-[32px] md:text-[40px] leading-none tabular-nums">{s.n}</div>
+                  <h3 className="mt-6 font-serif text-[22px] md:text-[26px] tracking-[-0.015em]">{s.t}</h3>
+                  <p lang="th" className="mt-4 font-thai thai-wrap text-[14px] leading-[1.7] text-muted-foreground">{s.d}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 03 — BRIEF + DIRECT */}
+      <section id="brief" className="section-ink px-6 md:px-10 border-t border-foreground/15 scroll-mt-24">
+        <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+          <SectionLabel index="03" label="Send a brief" />
+          <Reveal delay={0.05}>
+            <h2 className="mt-10 h-display-lg max-w-[16ch]">
+              Tell us about <em className="italic text-cinnabar">the brand.</em>
+            </h2>
+          </Reveal>
+
+          <div className="mt-16 md:mt-20 border-t border-foreground/30 grid grid-cols-1 md:grid-cols-12">
+            {/* Form */}
+            <div className="md:col-span-7 py-10 md:py-12 md:pr-10">
+              <div className="font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">— Form</div>
+              <h3 className="mt-6 font-serif italic text-[36px] md:text-[44px] leading-[1] tracking-[-0.02em]">Brief.</h3>
+              <p lang="th" className="mt-5 font-thai thai-wrap text-[14px] leading-[1.7] text-foreground/75 max-w-[44ch]">
+                ใส่รายละเอียดเท่าที่สะดวก. ยิ่งละเอียด ทีมเรายิ่งตอบได้ตรงจุด.
+              </p>
+
+              <form onSubmit={submit} noValidate className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                {[
+                  { key: "name",    label: "Name",    type: "text",  ph: "Your name",       ac: "name",         span: "md:col-span-1" },
+                  { key: "company", label: "Company", type: "text",  ph: "Company",         ac: "organization", span: "md:col-span-1" },
+                  { key: "email",   label: "Email",   type: "email", ph: "you@company.com", ac: "email",        span: "md:col-span-2" },
+                ].map((f, i) => (
+                  <div key={f.key} className={f.span}>
+                    <label className={labelCls}>— 0{i + 1} / {f.label}</label>
+                    <input
+                      type={f.type}
+                      autoComplete={f.ac}
+                      maxLength={f.key === "email" ? 255 : f.key === "company" ? 150 : 100}
+                      value={form[f.key as keyof typeof form]}
+                      onChange={(e) => setForm({ ...form, [f.key]: e.target.value })}
+                      placeholder={f.ph}
+                      aria-invalid={!!errors[f.key as keyof FieldErrors]}
+                      className={inputCls}
+                    />
+                    {errors[f.key as keyof FieldErrors] && (
+                      <p className="mt-2 font-mono text-[10px] tracking-[0.15em] uppercase text-destructive">
+                        {errors[f.key as keyof FieldErrors]}
+                      </p>
+                    )}
+                  </div>
+                ))}
+                <div className="md:col-span-2">
+                  <label className={labelCls}>— 04 / Brief</label>
+                  <textarea
+                    rows={5}
+                    maxLength={2000}
+                    value={form.brief}
+                    onChange={(e) => setForm({ ...form, brief: e.target.value })}
+                    placeholder="บอกเราว่าธุรกิจคุณติดอะไรอยู่ — timeline, budget range, ปัญหาที่อยากแก้"
+                    aria-invalid={!!errors.brief}
+                    className={`${inputCls} resize-none`}
+                  />
+                  {errors.brief && (
+                    <p className="mt-2 font-mono text-[10px] tracking-[0.15em] uppercase text-destructive">{errors.brief}</p>
+                  )}
+                </div>
+                <button type="submit" disabled={submitting} className="btn-accent md:col-span-2 mt-4 justify-center disabled:opacity-50">
+                  <span>{submitting ? "Sending…" : "Send inquiry"}</span>
+                  <ArrowUpRight className="w-4 h-4" />
+                </button>
+              </form>
+            </div>
+
+            {/* Direct */}
+            <div className="md:col-span-5 border-t md:border-t-0 md:border-l border-foreground/30 py-10 md:py-12 md:pl-10">
+              <div className="font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">— Direct</div>
+              <h3 className="mt-6 font-serif italic text-[36px] md:text-[44px] leading-[1] tracking-[-0.02em]">Direct.</h3>
+              <p lang="th" className="mt-5 font-thai thai-wrap text-[14px] leading-[1.7] text-foreground/75 max-w-[28ch]">
+                อยากคุยตรง ๆ ทักได้เลย ทุกช่องทาง — ทีมเราอ่านเอง ตอบเอง ไม่ผ่านบอท.
+              </p>
+
+              <ul className="mt-8 pt-6 border-t border-dashed border-foreground/25 divide-y divide-foreground/10">
+                {[
+                  { k: "Email", v: "hello@orions.agency", href: "mailto:hello@orions.agency" },
+                  { k: "Phone", v: "+66 92 390 5464",    href: "tel:+66923905464" },
+                  { k: "LINE",  v: "@orions",            href: "https://line.me/ti/p/~orions", ext: true },
+                  { k: "WhatsApp", v: "+66 92 390 5464", href: "https://wa.me/66923905464",   ext: true },
+                ].map((row) => (
+                  <li key={row.k} className="grid grid-cols-12 gap-3 py-3 items-baseline">
+                    <span className="col-span-4 font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">{row.k}</span>
+                    <a
+                      href={row.href}
+                      target={row.ext ? "_blank" : undefined}
+                      rel={row.ext ? "noreferrer" : undefined}
+                      className="col-span-8 font-thai text-[15px] text-foreground hover:text-cinnabar transition-colors break-all"
+                    >
+                      {row.v}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-8 pt-6 border-t border-dashed border-foreground/25">
+                <div className="font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">Studio</div>
+                <p lang="th" className="mt-3 font-thai thai-wrap text-[14px] leading-[1.7] text-foreground/80">
+                  246/8 Soi Yothinphatthana 3<br />
+                  Khlong Chan, Bang Kapi<br />
+                  Bangkok 10240, Thailand
+                </p>
+                <a
+                  href="https://maps.google.com/?q=246/8+Soi+Yothinphatthana+3+Bangkok"
+                  target="_blank" rel="noreferrer"
+                  className="mt-3 inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.22em] uppercase text-foreground hover:text-cinnabar transition-colors"
+                >
+                  Open in Maps <ArrowUpRight className="w-3 h-3" />
+                </a>
+              </div>
+
+              <p className="mt-8 font-mono text-[10px] tracking-[0.12em] uppercase text-muted-foreground">
+                Reply within 24 hours · Mon–Fri · 09:00–18:00 ICT
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 04 — FAQ */}
+      <section className="px-6 md:px-10 border-t border-foreground/15">
+        <div className="max-w-[1080px] mx-auto py-20 md:py-28">
+          <SectionLabel index="04" label="Before you ask" />
+          <Reveal delay={0.05}>
+            <h2 className="mt-10 h-display-lg max-w-[20ch]">
+              The short <em className="italic text-cinnabar">answers.</em>
+            </h2>
+          </Reveal>
+          <div className="mt-14">
+            <FAQ items={faqs} />
+          </div>
+        </div>
+      </section>
+
+      {/* 05 — Diagnostic fallback */}
+      <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
+        <div className="max-w-[1080px] mx-auto py-20 md:py-28">
+          <div className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr] gap-10 md:gap-16 items-end">
+            <div>
+              <SectionLabel index="05" label="Not ready yet?" />
+              <Reveal delay={0.05}>
+                <h2 className="mt-8 h-display-md max-w-[22ch]">
+                  Try the <em className="italic text-cinnabar">Free Diagnostic</em> first.
+                </h2>
+              </Reveal>
+              <Reveal delay={0.1}>
+                <p lang="th" className="mt-6 font-thai thai-wrap text-[14px] md:text-[16px] leading-[1.7] text-muted-foreground max-w-[52ch]">
+                  6 คำถาม · 3 นาที · เราจะส่ง insight 1 หน้ากลับให้ภายใน 48 ชม. ไม่มี sales follow-up อัตโนมัติ.
+                </p>
+              </Reveal>
+            </div>
+            <Reveal delay={0.15}>
+              <Link to="/diagnostic" className="btn-ghost justify-between">
+                <span>Take the diagnostic</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </Link>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Sticky mobile LINE pill */}
+      <a
+        href="https://line.me/ti/p/~orions"
+        target="_blank" rel="noreferrer"
+        className="md:hidden fixed bottom-5 right-5 z-40 inline-flex items-center gap-2 bg-cinnabar text-background px-4 py-3 font-mono text-[10px] tracking-[0.22em] uppercase shadow-lg"
+        aria-label="Chat on LINE"
+      >
+        <MessageCircle className="w-4 h-4" /> Chat
+      </a>
+    </div>
+  );
+};
+
+export default Contact;

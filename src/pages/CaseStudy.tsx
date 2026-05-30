@@ -47,7 +47,7 @@ const CaseStudy = () => {
           </Reveal>
 
           <Reveal delay={0.18}>
-            <p className="mt-10 font-serif italic text-[20px] md:text-[28px] leading-[1.4] max-w-[680px] text-muted-foreground">
+            <p className="editorial-quote mt-10 max-w-[680px] text-[18px] md:text-[22px]">
               {cs.summary}
             </p>
           </Reveal>
@@ -65,12 +65,8 @@ const CaseStudy = () => {
                   <dt className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
                     {m.k}
                   </dt>
-                  <dd
-                    className={`mt-3 font-serif text-[20px] md:text-[26px] tracking-[-0.01em] ${
-                      m.accent ? "text-cinnabar italic" : ""
-                    }`}
-                  >
-                    {m.v}
+                  <dd className={`mt-3 h-display-sm ${m.accent ? "text-cinnabar" : ""}`}>
+                    {m.accent ? <em className="italic">{m.v}</em> : m.v}
                   </dd>
                 </div>
               ))}
@@ -102,7 +98,7 @@ const CaseStudy = () => {
           </div>
           <div className="md:col-span-8">
             <Reveal delay={0.05}>
-              <p className="font-serif italic text-[24px] md:text-[32px] leading-[1.35] tracking-[-0.01em] max-w-[640px]">
+              <p className="editorial-quote max-w-[640px] text-[20px] md:text-[26px]">
                 {cs.brief}
               </p>
             </Reveal>
@@ -127,8 +123,8 @@ const CaseStudy = () => {
                   <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">
                     — {step.n}
                   </div>
-                  <h3 className="mt-6 font-serif italic text-[28px] md:text-[34px] tracking-[-0.01em]">
-                    {step.title}
+                  <h3 className="mt-6 h-display-sm">
+                    <em className="italic text-cinnabar">{step.title}</em>
                   </h3>
                   <p className="mt-5 font-thai text-[14px] leading-[1.7] text-foreground/75">
                     {step.body}
@@ -182,7 +178,7 @@ const CaseStudy = () => {
             {cs.metrics.map((m, i) => (
               <Reveal key={i} delay={0.05 * i}>
                 <div>
-                  <div className="font-serif italic text-cinnabar text-[64px] md:text-[96px] leading-[1] tracking-[-0.04em] tabular-nums">
+                  <div className="num-display text-cinnabar text-[64px] md:text-[96px] tabular-nums">
                     {m.value}
                   </div>
                   <div className="mt-4 font-mono text-[10px] tracking-[0.22em] uppercase text-foreground/55">

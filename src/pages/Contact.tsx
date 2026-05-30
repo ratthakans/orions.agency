@@ -69,7 +69,7 @@ const Contact = () => {
       />
 
       {/* 01 · HERO */}
-      <section className="px-6 md:px-10">
+      <section className="section-ink px-6 md:px-10">
         <div className="max-w-[1280px] mx-auto pt-28 md:pt-32 pb-16 md:pb-24">
           <SectionLabel index="01" label="Inquiry" />
           <Reveal delay={0.05}>

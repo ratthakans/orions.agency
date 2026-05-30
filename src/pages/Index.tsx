@@ -4,6 +4,7 @@ import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
 import MethodStep from "@/components/MethodStep";
+import TrustStrip from "@/components/TrustStrip";
 
 import workHongmove from "@/assets/hongmove.png";
 import workRtaf from "@/assets/rtaf.jpg";
@@ -80,6 +81,9 @@ const Index = () => (
         </Reveal>
       </div>
     </section>
+
+    {/* Trust strip — clients */}
+    <TrustStrip label="Trusted by" />
 
     {/* 02 — THE PROBLEM */}
     <section className="section-ink px-6 md:px-10 border-t border-foreground/15">

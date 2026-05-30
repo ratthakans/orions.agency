@@ -1,104 +1,65 @@
-## Goals
+## Goal
 
-1. Complete the **Services** page as a real creative-agency overview (capabilities, philosophy, deliverables, FAQ) — not a rate card.
-2. Move all **pricing tables** (Boutique tiers, Digital tiers, Production day rates, add-ons, ladder, fine-print) into a new **`/pricing`** page.
-3. Make **Contact** feel like a high-converting agency contact page: stronger marketing hero, social proof, FAQ, calendar CTA, sticky inquiry.
-4. Add marketing layers (trust strip, testimonials, "Why ØRIONS", CTA bands) across Home + Services so the site reads like a working creative agency, not a brochure.
+ลดความซ้ำซ้อนของเนื้อหาทั้งเว็บ. หลายหน้ามี section ที่พูดเรื่องเดิม (Divisions ซ้ำใน Index/About/Services, "Why ØRIONS" / strengths ซ้ำ, process 4-step ซ้ำ 3 ครั้ง, KPI/Add-ons/Fine print หลายชั้นใน Pricing). เป้าหมาย: แต่ละหน้า **1 หน้าที่ชัดเจน**, ไม่ทับกัน, อ่านจบใน 90 วินาที.
 
-Out of scope: copy rewrites of existing case studies, new imagery, backend changes beyond what's noted below.
+## หลักการตัด
 
----
+แต่ละ concept ควรอยู่ **บ้านเดียว**:
+- Manifesto/ทำไม → About เท่านั้น
+- Divisions ละเอียด → Services เท่านั้น
+- ราคา/tier/add-on/fine print → Pricing เท่านั้น
+- Process 4-step → ที่เดียว (Services)
+- ติดต่อ/FAQ ติดต่อ → Contact
 
-## 1. New route — `/pricing`
+## การเปลี่ยนแปลงต่อหน้า
 
-Create `src/pages/Pricing.tsx`. Register in `App.tsx`. Add to `Nav.tsx` (after Services).
+### `Index.tsx` — เหลือ 5 sections (จาก 7)
+ตัด: **03 The Insight**, **05 Core Strengths** (ซ้ำกับ About)
+ย่อ: **02 The Problem** เหลือ 3 บรรทัดแบบ list สั้น ไม่ใช่ grid 3 column + quote block
+ย่อ: **04 Divisions** เหลือ 3 ชื่อ + 1 บรรทัด คลิกไป /services
+เก็บ: Hero, Trust strip, Problem (slim), Divisions (slim), Selected Work, CTA
 
-Move from `Services.tsx` into Pricing:
-- Boutique Industries grid + Standard KPIs + Phases + Annual Legacy callout + Boutique add-ons
-- Digital 3-tier matrix + money-back promise + Digital add-ons
-- Production shoot-day tiers + equipment kit + a-la-carte + Promise
-- The Ladder section
-- Fine print accordion
+### `About.tsx` — เหลือ 4 sections (จาก 6+)
+ตัด: **04 Beyond Content** (พูดเรื่องเดียวกับ How We Refine), **05 Divisions** (ซ้ำกับ Services), Team grid ถ้ามี
+รวม: Pillars + Data เหลือ block เดียว 3 cards (ไม่ใช่ 6)
+เก็บ: Manifesto, Promise, How We Refine (3 cards), CTA
 
-Pricing page structure:
-1. Hero — "Transparent rates. No retainer traps." + jump nav (Boutique / Digital / Production / Consulting / Fine print)
-2. Sticky sub-nav (chips)
-3. Sections (the matrices above)
-4. Closing CTA → /contact
+### `Services.tsx` — เหลือ 5 sections (จาก 9)
+ตัด: **04 Deliverables** (ซ้ำกับ Capabilities), **05 Industries**, **06 Why** (ซ้ำกับ About), **07 Selected Work** (มีในหน้าแรก/หน้า Work), **08 FAQ** (ย้ายให้เหลือเฉพาะใน Contact)
+เก็บ: Hero+Blueprint, Capabilities (3 cards), Process (4-step) — **process อยู่ที่นี่ที่เดียว**, CTA
 
----
+### `Pricing.tsx` — เหลือ 6 sections (จาก ~8)
+ตัด: **Boutique Standard KPIs** (ซ้ำกับ promise การวัดผล), **Annual Legacy callout** (รวมเป็นบรรทัดเดียวใน fine print), **Boutique Phases** (process อยู่ใน Services แล้ว)
+ย่อ: Add-ons เหลือ top 4 แทน 7 (Boutique), Production a-la-carte 4 กลุ่ม → 2 กลุ่ม (Crew, Post) เก็บ Equipment/Travel ใน fine print
+เก็บ: Hero+subnav, Boutique tiers, Digital tiers, Production days, Ladder, Fine print
 
-## 2. Services rewrite — agency overview
+### `Consulting.tsx` — เหลือ 4 sections (จาก 5)
+ตัด: **04 Who it's for** (Fit/Not for) — รวมเป็น 2 บรรทัดท้าย hero
+เก็บ: Hero, Three units, Engagement model, CTA
 
-Strip all pricing from `Services.tsx`. Rebuild as:
+### `Contact.tsx` — เหลือ 4 sections (จาก 5)
+ตัด: **05 Diagnostic fallback** (มี link ใน footer แล้ว), Trust strip (ซ้ำกับ Index)
+ย่อ: 02 What happens next เหลือ inline timeline ใต้ hero (ไม่ใช่ section เต็ม)
+เก็บ: Hero (พร้อม badges + dual CTA), Brief form, FAQ, CTA สั้น
 
-1. **Hero** — "The Creative Company." + 3-axis blueprint (kept).
-2. **What we do** — 3 divisions × short capability list (no prices). Each card links to /pricing#anchor.
-3. **Capabilities matrix** — flat list (Brand Strategy, Identity Systems, Campaign, Content, Paid Media, CRM/LINE, Film, Stills, Web, PR) grouped by division.
-4. **How we work** — 4-step process (Listen · Refine · Build · Launch) with timeframes.
-5. **Deliverables** — what a client actually receives (brand book, content library, ad creatives, dashboard, raw archive…).
-6. **Industries** — 6 verticals (kept from Boutique block).
-7. **Why ØRIONS** — 3 differentiators (senior crew · measurable · one ecosystem).
-8. **Selected work strip** — 3 thumbnails from /work.
-9. **FAQ** — 6 Q&A (timeline, team, ownership, exclusivity, geography, NDA).
-10. **CTA band** — "See rates" → /pricing · "Book discovery" → /contact.
+## ผลลัพธ์
 
----
+- หน้า Index: 7 → 5 sections
+- หน้า About: 6 → 4
+- หน้า Services: 9 → 5  
+- หน้า Pricing: ~8 → 6
+- หน้า Consulting: 5 → 4
+- หน้า Contact: 5 → 4
 
-## 3. Contact redesign
+รวม ~16 sections หาย, ไม่มี content ซ้ำข้ามหน้า, อ่านเร็วขึ้น ~40%.
 
-Rewrite `Contact.tsx`:
+## ไม่แตะ
 
-1. **Marketing hero** — Big claim ("Let's build the next chapter."), 3 trust badges (Reply <24h · 30-min free call · NDA on request), primary CTA "Book 30-min call" + secondary "Send brief".
-2. **Trust strip** — client logos / industries served (text-only marquee row).
-3. **Two-column split** — left: brief form (kept, polished); right: direct channels (kept) + studio address + map link + working hours.
-4. **What happens next** — 3-step timeline (Reply in 24h → Discovery call → Tailored proposal in 7 days).
-5. **FAQ short** — 4 Q&A (cost, timeline, retainer vs project, NDA).
-6. **Closing CTA band** — "Not ready? Get the Free Diagnostic →" link to /diagnostic.
+- Design tokens, fonts, color, layout DNA (hairline, 60/30/10) — คงเดิม
+- Nav, Footer, routing
+- Database / form submission logic
+- /work, /studio, /diagnostic — อยู่นอก scope รอบนี้ (บอกได้ถ้าอยากให้รวม)
 
-Sticky bottom-right floating "Chat on LINE" pill on mobile.
+## คำถามก่อนเริ่ม
 
-Backend: keep existing `contact_inquiries` insert. No schema change.
-
----
-
-## 4. Marketing layer across site
-
-- **Home (`Index.tsx`)**: add (a) trust strip under hero, (b) testimonial quote block, (c) "Recent work" 3-card strip (already present — verify), (d) final CTA band with dual buttons.
-- **Footer**: add newsletter signup input (writes to existing or new `subscribers` table — flag below).
-- **Nav**: add `Pricing` link; turn `Contact` into accent pill button.
-
----
-
-## 5. Files
-
-Create:
-- `src/pages/Pricing.tsx`
-- `src/components/FAQ.tsx` (reusable accordion)
-- `src/components/TrustStrip.tsx`
-- `src/components/CTABand.tsx`
-
-Edit:
-- `src/App.tsx` — add `/pricing` route
-- `src/components/Nav.tsx` — add Pricing link, accent Contact
-- `src/pages/Services.tsx` — full rewrite (no prices)
-- `src/pages/Contact.tsx` — full rewrite
-- `src/pages/Index.tsx` — add trust + testimonial + CTA band
-- `src/components/Footer.tsx` — newsletter row
-- `mem/index.md` — note new route + pricing/services split
-
----
-
-## 6. Backend (flag)
-
-Newsletter signup is optional. If you want it functional I'll add a `newsletter_subscribers` table (email, created_at, RLS insert-only for anon). Otherwise it stays as a `mailto:` link. **Default: skip the table, use mailto.**
-
----
-
-## Open questions
-
-1. Newsletter — wire to DB or mailto only? (default: mailto)
-2. Calendar booking — embed Cal.com / Calendly, or keep "Book call" as mailto? (default: mailto)
-3. Client logos for trust strip — do you have real logos, or use text names of past clients (Royal Thai Air Force, Hongmove, Democrat Party, etc.)? (default: text names)
-
-I'll assume defaults unless you say otherwise.
+ตามนี้ OK ไหม? หรืออยากเก็บ section ไหนที่ผมจะตัด (เช่น Industries, Why ØRIONS, Beyond Content)?

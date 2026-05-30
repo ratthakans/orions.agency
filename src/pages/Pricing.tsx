@@ -177,10 +177,9 @@ const Pricing = () => (
           </div>
           <div className="border-t border-foreground/20">
             {boutiqueAddons.map((a) => (
-              <div key={a.name} className="grid grid-cols-1 md:grid-cols-[minmax(0,1.2fr)_minmax(0,2fr)_auto] gap-3 md:gap-10 items-baseline py-6 md:py-7 border-b border-foreground/20">
+              <div key={a.name} className="grid grid-cols-[1fr_auto] gap-6 md:gap-10 items-baseline py-6 md:py-7 border-b border-foreground/20">
                 <h3 className="font-serif text-[19px] md:text-[22px] tracking-[-0.01em]">{a.name}</h3>
-                <p lang="th" className="font-thai thai-wrap text-[14px] leading-[1.6] text-muted-foreground">{a.desc}</p>
-                <div className="font-serif text-[18px] md:text-[20px] tracking-[-0.01em] tabular-nums whitespace-nowrap md:text-right">{a.price}</div>
+                <div className="font-serif text-[18px] md:text-[20px] tracking-[-0.01em] tabular-nums whitespace-nowrap text-right">{a.price}</div>
               </div>
             ))}
           </div>

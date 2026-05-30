@@ -1,101 +1,104 @@
-# Site-wide Consistency Review — ØRIONS
+## Goals
 
-ตรวจทุกหน้า/คอมโพเนนต์เทียบกับ spec ใน `mem://index.md` (2026 Rate Card). พบ 8 จุดที่ไม่ตรง spec — เรียงตามผลกระทบ.
+1. Complete the **Services** page as a real creative-agency overview (capabilities, philosophy, deliverables, FAQ) — not a rate card.
+2. Move all **pricing tables** (Boutique tiers, Digital tiers, Production day rates, add-ons, ladder, fine-print) into a new **`/pricing`** page.
+3. Make **Contact** feel like a high-converting agency contact page: stronger marketing hero, social proof, FAQ, calendar CTA, sticky inquiry.
+4. Add marketing layers (trust strip, testimonials, "Why ØRIONS", CTA bands) across Home + Services so the site reads like a working creative agency, not a brochure.
 
----
-
-## A. สิ่งที่ออกนอก spec (ต้องแก้)
-
-### 1. 60/30/10 — Ink ยังไม่ dominant
-Spec: **INK 60% · SNOW 30% · CINNABAR 10%**. ปัจจุบัน Snow dominant:
-
-| Page | Pattern (top → bottom) | ปัญหา |
-|---|---|---|
-| `/` Index | snow→ink→snow→ink→snow→ink→snow→ink | สลับ 50/50 ไม่ใช่ 60 ink |
-| `/about` | snow→ink→snow→ink→snow→ink→snow→ink→snow | ปิดท้าย snow |
-| `/consulting` | snow→ink→snow→ink→snow | snow ครอบ |
-| `/services` | snow→**ink→snow→ink→ink** | 2 ink ติดกัน (production + closing) |
-| `/diagnostic` | snow ทั้งหน้า — **0 ink** | ผิด 60/30/10 เต็มๆ |
-| `/contact` | snow ทั้งหน้า — **0 ink** | ผิด 60/30/10 |
-| `/work` | mixed | ok |
-| `/studio` | 1 ink section | snow ครอบ |
-
-**Fix:** เริ่ม hero แต่ละหน้าด้วย ink (หรือมี ink band บน hero), เพิ่ม ink ที่ Diagnostic (intro + closing CTA) และ Contact (form panel หรือ contact details), ตัดให้ /services ปิดด้วย snow.
-
-### 2. Thai typography — `lang="th"` + `thai-wrap` ไม่ถูกใช้
-- `index.html` ตั้ง `lang="en"` → `:lang(th)` safety net **ไม่ทำงาน**.
-- ใช้ `font-thai` 50+ ที่ แต่มีแค่ **1 บรรทัด** (Services.tsx:275) ที่ใส่ `lang="th"` + `thai-wrap`.
-- ผลคือ Thai ถูกตัดกลางคำ (line-break ผิด).
-
-**Fix:** สร้าง `<ThaiText>` wrapper (`<p lang="th" className="font-thai thai-wrap …">`) แทนทุก `<p className="font-thai">` ปัจจุบัน. ทำเป็น utility component เพื่อบังคับ 3 attr พร้อมกัน.
-
-### 3. `font-serif` บน headings — ผิดกฎ
-Spec: *"NEVER apply font-serif to a heading"* (italic accent ใช้ `<em>` แทน).
-
-พบใน:
-- `CaseStudy.tsx:69, 105, 130` — `<h3 className="… font-serif italic …">`
-- `CaseStudy.tsx:185` — giant serif numeral (อันนี้ใช้เป็น stat, ควรเปลี่ยนเป็น `.num-display` หรือ `.method-num`)
-
-**Fix:** เปลี่ยน headings เป็น `h-display-*` ปกติ, ย้าย italic accent ไป `<em>` ภายใน.
-
-### 4. CTA buttons hand-rolled — ไม่ใช้ `.btn-*`
-มี `.btn-primary` / `.btn-accent` / `.btn-ghost` แล้ว แต่ pages ยังเขียนเอง:
-- `Index.tsx:383`, `About.tsx:438`, `HealthCheck.tsx:457, 496`, `Contact.tsx:169`, `Consulting.tsx:198, 205`
-
-**Fix:** swap → `className="btn-accent"` / `btn-ghost`. ลบ duplicated styling.
-
-### 5. Footer wordmark ไม่ใช้ `.font-brand`
-`Footer.tsx:45` ใช้ `font-mono` สำหรับ "ØRIONS · BANGKOK". Spec กำหนด instance ของ wordmark = Unbounded SemiBold.
-
-**Fix:** `.font-brand` แทน `.font-mono` (เก็บ tracking/uppercase).
-
-### 6. Hero treatment ไม่สอดคล้องกัน
-- `PageHero` component มีอยู่ แต่ใช้แค่บางหน้า; Index/About/Consulting เขียน hero มือ.
-- Index hero มี chrome bar (`ØRIONS · The Creative Company · Bangkok · 2026`), หน้าอื่นไม่มี → inconsistent brand chrome.
-
-**Fix:** ทุกหน้าต้องมี `<PageChrome>` แถบบน (ØRIONS · BOUTIQUE CREATIVE STUDIO ‖ CATEGORY) ใต้ Nav — แล้ว hero ต่อท้าย.
-
-### 7. SectionLabel index numbering ไม่สม่ำเสมอ
-- Index: 02–08 (ข้าม 01 ที่ hero)
-- About: 01–07
-- Consulting: ไม่มี index
-- Services: ไม่มี index
-
-**Fix:** เลือก rule เดียว — ทุกหน้าที่มี ≥3 sections ใช้ `01 / 02 / 03 …` ตั้งแต่ section แรกหลัง hero.
-
-### 8. Thai paragraph font-size scale ไม่มี
-มี `text-[13px]` → `text-[18px]` กระจาย 8 ขนาด ใน `font-thai`. ไม่มี scale กลาง.
-
-**Fix:** เพิ่ม utility 3 ขนาด: `.body-th-sm` (13/1.65), `.body-th` (15/1.7), `.body-th-lg` (17/1.7). Replace ทุก ad-hoc.
+Out of scope: copy rewrites of existing case studies, new imagery, backend changes beyond what's noted below.
 
 ---
 
-## B. สิ่งที่ตรง spec แล้ว (ไม่แตะ)
+## 1. New route — `/pricing`
 
-- Nav (`font-brand`, hamburger+mix-blend-difference) ✓
-- `.section-ink` token inversion ✓
-- TierMatrix / MethodStep / ProcessRow / PrincipleBlock / StackedCTA primitives ✓
-- Color tokens (Snow / Black Russian / Cinnabar) ✓
-- Routes + redirects ✓
-- SEO centralization ✓
+Create `src/pages/Pricing.tsx`. Register in `App.tsx`. Add to `Nav.tsx` (after Services).
+
+Move from `Services.tsx` into Pricing:
+- Boutique Industries grid + Standard KPIs + Phases + Annual Legacy callout + Boutique add-ons
+- Digital 3-tier matrix + money-back promise + Digital add-ons
+- Production shoot-day tiers + equipment kit + a-la-carte + Promise
+- The Ladder section
+- Fine print accordion
+
+Pricing page structure:
+1. Hero — "Transparent rates. No retainer traps." + jump nav (Boutique / Digital / Production / Consulting / Fine print)
+2. Sticky sub-nav (chips)
+3. Sections (the matrices above)
+4. Closing CTA → /contact
 
 ---
 
-## C. ลำดับการแก้ (Implementation order)
+## 2. Services rewrite — agency overview
 
-1. **Foundations** — `index.html` lang, สร้าง `<ThaiText>`, เพิ่ม `.body-th*` utilities, swap Footer wordmark → `font-brand`.
-2. **60/30/10 pass** — แก้ alternation 7 หน้า (Index, About, Consulting, Services, Diagnostic, Contact, Studio). Diagnostic + Contact ต้องเพิ่ม ink section ใหม่.
-3. **Heading cleanup** — ลบ `font-serif` จาก CaseStudy headings, แทนด้วย `h-display-*` + `<em>`.
-4. **CTA refactor** — swap hand-rolled buttons → `.btn-accent` / `.btn-ghost`.
-5. **Hero/Chrome unification** — เพิ่ม `<PageChrome>` ทุกหน้า, ปรับให้ใช้ `<PageHero>` หรือ pattern เดียว.
-6. **SectionLabel numbering** — ใส่ index ใน Consulting + Services; sync Index ให้เริ่มที่ `01`.
-7. **Thai paragraph sweep** — แทน `<p className="font-thai text-[...]">` ทั้งหมดด้วย `<ThaiText size="sm|md|lg">`.
+Strip all pricing from `Services.tsx`. Rebuild as:
 
-## D. Out of scope
-- Copy rewrite (เก็บข้อความเดิม)
-- รูปภาพ / video assets
-- Routing / data / backend
-- Animation timing
+1. **Hero** — "The Creative Company." + 3-axis blueprint (kept).
+2. **What we do** — 3 divisions × short capability list (no prices). Each card links to /pricing#anchor.
+3. **Capabilities matrix** — flat list (Brand Strategy, Identity Systems, Campaign, Content, Paid Media, CRM/LINE, Film, Stills, Web, PR) grouped by division.
+4. **How we work** — 4-step process (Listen · Refine · Build · Launch) with timeframes.
+5. **Deliverables** — what a client actually receives (brand book, content library, ad creatives, dashboard, raw archive…).
+6. **Industries** — 6 verticals (kept from Boutique block).
+7. **Why ØRIONS** — 3 differentiators (senior crew · measurable · one ecosystem).
+8. **Selected work strip** — 3 thumbnails from /work.
+9. **FAQ** — 6 Q&A (timeline, team, ownership, exclusivity, geography, NDA).
+10. **CTA band** — "See rates" → /pricing · "Book discovery" → /contact.
 
-## E. Files touched (estimate)
-`index.html`, `src/index.css`, `mem/index.md`, `src/components/{Footer,Nav,PageHero,ClosingCTA}.tsx`, สร้างใหม่ `src/components/ThaiText.tsx`, ทุก `src/pages/*.tsx` (ยกเว้น `NotFound.tsx`).
+---
+
+## 3. Contact redesign
+
+Rewrite `Contact.tsx`:
+
+1. **Marketing hero** — Big claim ("Let's build the next chapter."), 3 trust badges (Reply <24h · 30-min free call · NDA on request), primary CTA "Book 30-min call" + secondary "Send brief".
+2. **Trust strip** — client logos / industries served (text-only marquee row).
+3. **Two-column split** — left: brief form (kept, polished); right: direct channels (kept) + studio address + map link + working hours.
+4. **What happens next** — 3-step timeline (Reply in 24h → Discovery call → Tailored proposal in 7 days).
+5. **FAQ short** — 4 Q&A (cost, timeline, retainer vs project, NDA).
+6. **Closing CTA band** — "Not ready? Get the Free Diagnostic →" link to /diagnostic.
+
+Sticky bottom-right floating "Chat on LINE" pill on mobile.
+
+Backend: keep existing `contact_inquiries` insert. No schema change.
+
+---
+
+## 4. Marketing layer across site
+
+- **Home (`Index.tsx`)**: add (a) trust strip under hero, (b) testimonial quote block, (c) "Recent work" 3-card strip (already present — verify), (d) final CTA band with dual buttons.
+- **Footer**: add newsletter signup input (writes to existing or new `subscribers` table — flag below).
+- **Nav**: add `Pricing` link; turn `Contact` into accent pill button.
+
+---
+
+## 5. Files
+
+Create:
+- `src/pages/Pricing.tsx`
+- `src/components/FAQ.tsx` (reusable accordion)
+- `src/components/TrustStrip.tsx`
+- `src/components/CTABand.tsx`
+
+Edit:
+- `src/App.tsx` — add `/pricing` route
+- `src/components/Nav.tsx` — add Pricing link, accent Contact
+- `src/pages/Services.tsx` — full rewrite (no prices)
+- `src/pages/Contact.tsx` — full rewrite
+- `src/pages/Index.tsx` — add trust + testimonial + CTA band
+- `src/components/Footer.tsx` — newsletter row
+- `mem/index.md` — note new route + pricing/services split
+
+---
+
+## 6. Backend (flag)
+
+Newsletter signup is optional. If you want it functional I'll add a `newsletter_subscribers` table (email, created_at, RLS insert-only for anon). Otherwise it stays as a `mailto:` link. **Default: skip the table, use mailto.**
+
+---
+
+## Open questions
+
+1. Newsletter — wire to DB or mailto only? (default: mailto)
+2. Calendar booking — embed Cal.com / Calendly, or keep "Book call" as mailto? (default: mailto)
+3. Client logos for trust strip — do you have real logos, or use text names of past clients (Royal Thai Air Force, Hongmove, Democrat Party, etc.)? (default: text names)
+
+I'll assume defaults unless you say otherwise.

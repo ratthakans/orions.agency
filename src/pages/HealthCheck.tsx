@@ -219,7 +219,7 @@ const HealthCheck = () => {
 
       {/* WIZARD */}
       <section className="px-6 md:px-10 pb-32">
-        <div className="max-w-[1080px] mx-auto border border-foreground p-8 md:p-14 min-h-[560px] bg-foreground text-background section-ink">
+        <div className="max-w-[1080px] mx-auto border border-foreground/15 bg-background p-8 md:p-14 min-h-[560px]">
           {/* Header */}
           <div className="flex items-center justify-between gap-4 flex-wrap">
             <div className="font-mono text-[11px] tracking-[0.2em] uppercase text-cinnabar font-semibold">

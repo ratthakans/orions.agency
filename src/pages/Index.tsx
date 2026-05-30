@@ -52,21 +52,24 @@ const Index = () => (
     <section className="relative min-h-[88svh] flex flex-col px-6 md:px-10">
       <div className="max-w-[1100px] mx-auto w-full flex-1 flex flex-col justify-center items-center text-center pt-24 md:pt-28 pb-20 md:pb-24">
         <Reveal>
+          <SectionLabel index="01" label="The Creative Company" />
+        </Reveal>
+        <Reveal delay={0.05}>
           <h1 className="h-display-xl">
             Stories, <em className="italic text-cinnabar">Refined.</em>
           </h1>
         </Reveal>
-        <Reveal delay={0.2}>
+        <Reveal delay={0.15}>
           <p lang="th" className="mt-8 md:mt-10 font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.7] text-muted-foreground max-w-[52ch]">
             Branding, content, production &amp; paid media for brands with something to say. From first call to first market-ready direction in 4 weeks.
           </p>
         </Reveal>
-        <Reveal delay={0.3}>
+        <Reveal delay={0.25}>
           <div className="mt-10 md:mt-12 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
             ØRIONS · The Creative Company · Bangkok · 2026
           </div>
         </Reveal>
-        <Reveal delay={0.4}>
+        <Reveal delay={0.35}>
           <Link
             to="/contact"
             className="mt-10 btn-primary"

@@ -9,6 +9,7 @@ import Layout from "./components/Layout";
 import ScrollToTop from "./components/ScrollToTop";
 import Index from "./pages/Index";
 import Services from "./pages/Services";
+import Pricing from "./pages/Pricing";
 import About from "./pages/About";
 import HealthCheck from "./pages/HealthCheck";
 import Work from "./pages/Work";
@@ -34,6 +35,7 @@ const App = () => (
             <Route path="/manifesto" element={<Navigate to="/about" replace />} />
             <Route path="/approach" element={<Navigate to="/about" replace />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/pricing" element={<Pricing />} />
             <Route path="/consulting" element={<Consulting />} />
             <Route path="/diagnostic" element={<HealthCheck />} />
             <Route path="/health-check" element={<Navigate to="/diagnostic" replace />} />

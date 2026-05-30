@@ -214,7 +214,6 @@ const Pricing = () => (
                 <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">{t.name}</div>
                 <h3 className="mt-6 font-serif text-[42px] md:text-[52px] leading-[1] tracking-[-0.02em] tabular-nums">{t.price}</h3>
                 <div className="mt-2 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">{t.sub}</div>
-                <p className="mt-5 font-serif italic text-[15px] leading-[1.5] text-muted-foreground">{t.tagline}</p>
                 <div className="mt-8 pt-6 border-t border-foreground/15 flex-1">
                   {t.rows.map(([k, v]) => (
                     <div key={k} className="grid grid-cols-[1fr_auto] gap-4 py-2.5 border-b border-foreground/10">

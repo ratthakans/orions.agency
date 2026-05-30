@@ -199,7 +199,7 @@ const HealthCheck = () => {
       />
 
       {/* HERO */}
-      <section className="px-6 md:px-10 pt-28 md:pt-32 pb-16">
+      <section className="section-ink px-6 md:px-10 pt-28 md:pt-32 pb-16">
         <div className="max-w-[1080px] mx-auto">
           <SectionLabel index="01" label="The Diagnostic" />
           <Reveal delay={0.1}>
@@ -452,10 +452,7 @@ const HealthCheck = () => {
                       {rec.why}
                     </p>
                     <div className="mt-8 flex flex-wrap gap-5">
-                      <Link
-                        to="/services"
-                        className="group inline-flex items-center gap-3 bg-cinnabar text-background px-7 py-4 btn-label transition-opacity duration-300"
-                      >
+                      <Link to="/services" className="btn-accent">
                         <span>See full package</span>
                         <ArrowUpRight className="w-4 h-4" />
                       </Link>
@@ -493,7 +490,7 @@ const HealthCheck = () => {
               <button
                 onClick={next}
                 disabled={!canContinue}
-                className="inline-flex items-center gap-2 bg-cinnabar text-background px-7 py-4 btn-label hover:bg-foreground transition-colors duration-300 disabled:opacity-25 disabled:cursor-not-allowed"
+                className="btn-accent disabled:opacity-25 disabled:cursor-not-allowed"
               >
                 {step === total - 1 ? "See result" : "Continue"} →
               </button>

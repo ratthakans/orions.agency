@@ -651,10 +651,10 @@ const Services = () => (
         </Reveal>
         <Reveal delay={0.3}>
           <div className="mt-12 flex flex-wrap gap-4">
-            <Link to="/contact" className="inline-flex items-center gap-3 px-7 py-4 btn-label border border-cinnabar bg-cinnabar text-background transition-opacity">
+            <Link to="/contact" className="btn-accent">
               <span>Book discovery call</span><ArrowUpRight className="w-4 h-4" />
             </Link>
-            <Link to="/consulting" className="inline-flex items-center gap-3 px-7 py-4 btn-label border border-foreground hover:border-cinnabar hover:text-cinnabar transition-colors">
+            <Link to="/consulting" className="btn-ghost">
               <span>Or — Ø Consulting</span><ArrowUpRight className="w-4 h-4" />
             </Link>
           </div>

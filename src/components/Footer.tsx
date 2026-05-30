@@ -42,7 +42,7 @@ const Footer = () => {
         {/* Headline row */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10 border-b border-background/15 pb-12">
           <div>
-            <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-background/55 mb-5">— ØRIONS · BANGKOK</p>
+            <p className="font-brand text-[10px] text-background/55 mb-5">— ØRIONS · BANGKOK</p>
             <a
               href="mailto:hello@orions.agency"
               className="font-serif italic text-[28px] md:text-[44px] tracking-[-0.015em] hover:text-cinnabar transition-colors"

@@ -68,7 +68,7 @@ const Projects = () => (
     />
 
     {/* HERO */}
-    <section className="bg-background text-foreground min-h-[78vh] flex flex-col border-b border-foreground/15">
+    <section className="section-ink min-h-[78vh] flex flex-col border-b border-foreground/15">
       <div className="px-6 md:px-10 pt-28 md:pt-32 pb-16 md:pb-20 flex-1 flex flex-col justify-center max-w-[1280px] mx-auto w-full">
         <SectionLabel index="01" label="Studio" />
         <Reveal delay={0.1}>

@@ -85,7 +85,7 @@ const Projects = () => (
     </section>
 
     {/* THREE UNITS — Section 05 Row 3 */}
-    <section className="px-6 md:px-10 border-t border-foreground/15">
+    <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="02" label="Three units" />
         <Reveal delay={0.1}>

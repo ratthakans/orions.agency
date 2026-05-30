@@ -258,12 +258,12 @@ const Services = () => (
     </section>
 
     {/* 02 BOUTIQUE */}
-    <section id="boutique" className="px-6 md:px-10 border-t border-foreground/15 bg-surface scroll-mt-24">
+    <section id="boutique" className="section-ink px-6 md:px-10 border-t border-foreground/15 scroll-mt-24">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="02" label="Ø Boutique" />
         <Reveal delay={0.1}>
           <h2 className="mt-10 h-display-lg max-w-[18ch]">
-            Stories, <em className="italic text-cinnabar">refined.</em>
+            No Guesswork. <em className="italic text-cinnabar">Just Craft.</em>
           </h2>
         </Reveal>
         <Reveal delay={0.15}>
@@ -272,7 +272,7 @@ const Services = () => (
           </p>
         </Reveal>
         <Reveal delay={0.2}>
-          <p className="mt-6 max-w-[640px] font-thai text-[15px] md:text-[17px] leading-[1.7] text-foreground/80">
+          <p lang="th" className="mt-6 max-w-[640px] font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.7] text-foreground/80">
             Brand strategy · cultural intelligence · documentary-grade production · เลือกเฉพาะ 6 industries ที่เราเข้าใจ buyer behavior, seasonality และ decision cycle ลึก.
           </p>
         </Reveal>
@@ -447,7 +447,7 @@ const Services = () => (
     </section>
 
     {/* 04 PRODUCTION */}
-    <section id="production" className="px-6 md:px-10 border-t border-foreground/15 bg-surface scroll-mt-24">
+    <section id="production" className="section-ink px-6 md:px-10 border-t border-foreground/15 scroll-mt-24">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="04" label="Ø Production" />
         <Reveal delay={0.1}>
@@ -612,7 +612,7 @@ const Services = () => (
     </section>
 
     {/* 06 FINE PRINT */}
-    <section className="px-6 md:px-10 border-t border-foreground/15 bg-surface">
+    <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="06" label="The Fine Print" />
         <Reveal delay={0.1}>

@@ -81,7 +81,7 @@ const Consulting = () => (
     </section>
 
     {/* 02 — Three units */}
-    <section className="px-6 md:px-10 border-t border-foreground/15">
+    <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="02" label="Three units" />
         <Reveal delay={0.1}>
@@ -118,7 +118,7 @@ const Consulting = () => (
     </section>
 
     {/* 03 — Engagement model */}
-    <section className="px-6 md:px-10 border-t border-foreground/15 bg-surface">
+    <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="03" label="Engagement model" />
         <Reveal delay={0.1}>
@@ -141,7 +141,7 @@ const Consulting = () => (
     </section>
 
     {/* 04 — Who it's for */}
-    <section className="px-6 md:px-10 border-t border-foreground/15">
+    <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="04" label="Who it's for" />
         <Reveal delay={0.1}>

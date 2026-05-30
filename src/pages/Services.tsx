@@ -612,7 +612,7 @@ const Services = () => (
     </section>
 
     {/* 06 FINE PRINT */}
-    <section className="px-6 md:px-10 border-t border-foreground/15 bg-surface">
+    <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="06" label="The Fine Print" />
         <Reveal delay={0.1}>

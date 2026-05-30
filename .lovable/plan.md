@@ -1,65 +1,94 @@
-## Goal
+# Simplification & Polish — คำแนะนำเป็นรายหน้า
 
-ลดความซ้ำซ้อนของเนื้อหาทั้งเว็บ. หลายหน้ามี section ที่พูดเรื่องเดิม (Divisions ซ้ำใน Index/About/Services, "Why ØRIONS" / strengths ซ้ำ, process 4-step ซ้ำ 3 ครั้ง, KPI/Add-ons/Fine print หลายชั้นใน Pricing). เป้าหมาย: แต่ละหน้า **1 หน้าที่ชัดเจน**, ไม่ทับกัน, อ่านจบใน 90 วินาที.
+หลัก: ลด "ความหนาแน่นของคำ + ป้ายซ้อน + sub-headline" — ปล่อยให้พื้นที่ว่างกับ typography ทำงาน
 
-## หลักการตัด
+---
 
-แต่ละ concept ควรอยู่ **บ้านเดียว**:
-- Manifesto/ทำไม → About เท่านั้น
-- Divisions ละเอียด → Services เท่านั้น
-- ราคา/tier/add-on/fine print → Pricing เท่านั้น
-- Process 4-step → ที่เดียว (Services)
-- ติดต่อ/FAQ ติดต่อ → Contact
+## ภาพรวม (cross-page)
 
-## การเปลี่ยนแปลงต่อหน้า
+1. **ลบ section number ออกจากทุกหน้า** (`01 / 02 / 03 …`) — ป้าย `SectionLabel index` ซ้ำกับ counter ใน CTA และกับ navigation อยู่แล้ว เก็บไว้แค่ "label" สั้น ๆ เช่น `— Divisions`
+2. **เลิกใส่ tagline serif italic ใต้ H2** ในเกือบทุก section — ตอนนี้ทุกหน้าใช้สูตรเดียวกัน: H2 → italic serif → Thai paragraph → grid. ตัด italic serif ออก เหลือ Thai sentence เดียว
+3. **Trust strip ใน Index** — ถ้ายังไม่มี logo จริง 6 ตัว ให้ตัดออก placeholder strip ดูเหมือนยังสร้างไม่เสร็จ
+4. **ปุ่ม `ØRIONS · The Creative Company · Bangkok · 2026`** ใต้ hero — ซ้ำกับ Footer; ตัดออก
+5. **เปลี่ยน "Reply within 24h / 30-min free call / NDA on request"** ในหน้า Contact ให้เหลือ inline sentence เดียว แทนกล่อง 3 badge
 
-### `Index.tsx` — เหลือ 5 sections (จาก 7)
-ตัด: **03 The Insight**, **05 Core Strengths** (ซ้ำกับ About)
-ย่อ: **02 The Problem** เหลือ 3 บรรทัดแบบ list สั้น ไม่ใช่ grid 3 column + quote block
-ย่อ: **04 Divisions** เหลือ 3 ชื่อ + 1 บรรทัด คลิกไป /services
-เก็บ: Hero, Trust strip, Problem (slim), Divisions (slim), Selected Work, CTA
+---
 
-### `About.tsx` — เหลือ 4 sections (จาก 6+)
-ตัด: **04 Beyond Content** (พูดเรื่องเดียวกับ How We Refine), **05 Divisions** (ซ้ำกับ Services), Team grid ถ้ามี
-รวม: Pillars + Data เหลือ block เดียว 3 cards (ไม่ใช่ 6)
-เก็บ: Manifesto, Promise, How We Refine (3 cards), CTA
+## Index (`/`)
 
-### `Services.tsx` — เหลือ 5 sections (จาก 9)
-ตัด: **04 Deliverables** (ซ้ำกับ Capabilities), **05 Industries**, **06 Why** (ซ้ำกับ About), **07 Selected Work** (มีในหน้าแรก/หน้า Work), **08 FAQ** (ย้ายให้เหลือเฉพาะใน Contact)
-เก็บ: Hero+Blueprint, Capabilities (3 cards), Process (4-step) — **process อยู่ที่นี่ที่เดียว**, CTA
+ปัจจุบัน 5 section → เสนอ 4
 
-### `Pricing.tsx` — เหลือ 6 sections (จาก ~8)
-ตัด: **Boutique Standard KPIs** (ซ้ำกับ promise การวัดผล), **Annual Legacy callout** (รวมเป็นบรรทัดเดียวใน fine print), **Boutique Phases** (process อยู่ใน Services แล้ว)
-ย่อ: Add-ons เหลือ top 4 แทน 7 (Boutique), Production a-la-carte 4 กลุ่ม → 2 กลุ่ม (Crew, Post) เก็บ Equipment/Travel ใน fine print
-เก็บ: Hero+subnav, Boutique tiers, Digital tiers, Production days, Ladder, Fine print
+- **Hero**: ลบ MetaChip `ØRIONS · The Creative Company · Bangkok · 2026` (ซ้ำ Footer), ย่อ paragraph ใต้ headline จาก 2 ประโยคยาวเป็น 1 ประโยค:
+  > "Branding, content และ paid media — จาก first call ถึง launch ใน 4 สัปดาห์"
+- **Trust strip**: ตัดออกถ้ายังไม่มี logo จริง
+- **Problem section**: ลด headline `คุณไม่ได้ขาด agency. คุณขาดทีมเดียวที่เอาอยู่ทั้งงาน.` → `ปัญหาไม่ใช่ agency. คือ การมีหลาย agency.`
+- **Divisions**: ลบคำว่า "See the full ecosystem →" → ใช้ "All services →"
+- **CTA band**: subtitle `Discovery call · 45 นาที · ฟรี · ไม่มีพันธะผูกมัด` → `45 นาที · ฟรี · ไม่ผูกมัด`
 
-### `Consulting.tsx` — เหลือ 4 sections (จาก 5)
-ตัด: **04 Who it's for** (Fit/Not for) — รวมเป็น 2 บรรทัดท้าย hero
-เก็บ: Hero, Three units, Engagement model, CTA
+---
 
-### `Contact.tsx` — เหลือ 4 sections (จาก 5)
-ตัด: **05 Diagnostic fallback** (มี link ใน footer แล้ว), Trust strip (ซ้ำกับ Index)
-ย่อ: 02 What happens next เหลือ inline timeline ใต้ hero (ไม่ใช่ section เต็ม)
-เก็บ: Hero (พร้อม badges + dual CTA), Brief form, FAQ, CTA สั้น
+## About
 
-## ผลลัพธ์
+- Pillars 3 ข้อ — ตัด description ใต้ pillar ให้เหลือบรรทัดเดียว
+- ย่อ Manifesto จาก paragraph → 3 บรรทัดสั้น (statement-style)
 
-- หน้า Index: 7 → 5 sections
-- หน้า About: 6 → 4
-- หน้า Services: 9 → 5  
-- หน้า Pricing: ~8 → 6
-- หน้า Consulting: 5 → 4
-- หน้า Contact: 5 → 4
+---
 
-รวม ~16 sections หาย, ไม่มี content ซ้ำข้ามหน้า, อ่านเร็วขึ้น ~40%.
+## Services
 
-## ไม่แตะ
+- ลบ subtitle italic ใต้ "3-axis blueprint"
+- Process 4 ขั้น — ตัด description ของแต่ละ step ให้เหลือ ≤ 12 คำ
 
-- Design tokens, fonts, color, layout DNA (hairline, 60/30/10) — คงเดิม
-- Nav, Footer, routing
-- Database / form submission logic
-- /work, /studio, /diagnostic — อยู่นอก scope รอบนี้ (บอกได้ถ้าอยากให้รวม)
+---
 
-## คำถามก่อนเริ่ม
+## Pricing
 
-ตามนี้ OK ไหม? หรืออยากเก็บ section ไหนที่ผมจะตัด (เช่น Industries, Why ØRIONS, Beyond Content)?
+- **Sub-nav 6 รายการ** → 4 (ลบ "Ladder" + "Fine print" — ทั้งสองอยู่ปลายหน้าอยู่แล้ว, ผู้ใช้ scroll เจอเอง)
+- **Boutique add-ons** ลบคอลัมน์ description (เก็บเป็น tooltip / hover) → เหลือ name + price ทำให้ดูเหมือน rate card จริง ๆ
+- **Digital tiers**: ลบ `tagline` italic ใต้ราคา (ซ้ำกับชื่อ tier), เก็บ rows อย่างเดียว
+- **Production days**: เปลี่ยน sub `"M · 2 cameras · 2 crew · 10 hrs"` ให้เป็นบรรทัดเดียวบน mono, ตัด `"ทีมเท่า M = คุ้มสุด"` ออกจาก crew description — sales-y เกินไป
+- **Fine print**: ย่อ 6 ข้อ → 4 (รวม Annual Legacy เข้า Payment, รวม Travel เข้า Cancellation/Other)
+
+---
+
+## Consulting
+
+- ตัด headline duplication; ใช้ structure เดียวกับ Services (3 units → engagement → CTA) แต่ลด copy ใต้แต่ละ unit เหลือ 1 บรรทัด
+
+---
+
+## Contact
+
+- **Trust badges 3 อัน** → เปลี่ยนเป็น inline sentence: `Reply within 24h · 30-min discovery call · NDA on request`
+- **Hero**: ลด paragraph ใต้ H1 จาก 2 ประโยค → 1 ประโยค
+- **Inline timeline 3 ขั้น** — เก็บไว้ แต่ตัด description ภาษาไทยใต้แต่ละขั้นเหลือ ≤ 8 คำ
+- **Direct lines (email/phone/LINE)** — เก็บ แต่ลด underline + chip style, ใช้ minimal text links
+- **FAQ ลด 4 → 3 ข้อ** (รวม NDA เข้าคำตอบของ "How fast can you start?")
+- **Sticky LINE pill** — เก็บไว้
+
+---
+
+## งานเสริม polish (เล็ก แต่เพิ่ม "สวย")
+
+1. **Hairline rule ก่อน H2 ทุกอัน** ให้ใช้ความหนา/สีเดียวกัน — ตอนนี้บางหน้า `border-foreground/15`, บางหน้า `/20`, `/25`, `/30` → standardize เป็น `/20` ทั้งไซต์
+2. **ระยะ section padding** — ตอนนี้ `py-20 md:py-28` ทุกที่ ทำให้ rhythm จืด. เสนอเปลี่ยนเป็น **pattern 28-20-28-20** (ใหญ่-เล็ก-ใหญ่-เล็ก) เพื่อให้ scroll มี breath
+3. **ลด font weight ของ H2 บางส่วน** จาก default → `font-light` กับ Newsreader เพื่อให้ italic accent (Cinnabar) เด่นขึ้น
+
+---
+
+## Out of scope
+
+- Nav / Footer / Routing
+- Design tokens, color, fonts
+- Database / form logic
+- `/work`, `/studio`, `/diagnostic`, `/case-study/*`
+
+---
+
+## ลำดับการทำ (ถ้าอนุมัติ)
+
+1. Cross-page hairline + spacing standardization
+2. Index hero + trust strip simplification
+3. Pricing sub-nav + tier card cleanup
+4. Contact hero + FAQ slim
+5. About / Services / Consulting copy trim

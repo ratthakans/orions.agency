@@ -7,10 +7,10 @@ import CTABand from "@/components/CTABand";
 
 /* ---------- Boutique ---------- */
 const boutiqueAddons = [
-  { name: "Extra full-service shoot day",  desc: "crew + post + crafted deliverables",     price: "฿55,000 / day" },
-  { name: "Additional brand film 60–90s",  desc: "ตัด + กราฟิก + ดนตรี perpetual license", price: "฿75,000" },
-  { name: "Brand naming (standalone)",     desc: "shortlist + rationale + checks",         price: "฿45,000" },
-  { name: "Packaging / label design",      desc: "1 SKU · 2 directions · 1 round",         price: "฿55,000" },
+  { name: "Extra full-service shoot day", price: "฿55,000 / day" },
+  { name: "Additional brand film 60–90s", price: "฿75,000" },
+  { name: "Brand naming (standalone)",    price: "฿45,000" },
+  { name: "Packaging / label design",     price: "฿55,000" },
 ];
 
 /* ---------- Digital ---------- */
@@ -19,7 +19,7 @@ type Tier = { name: string; price: string; sub: string; tagline: string; feature
 
 const digitalTiers: Tier[] = [
   {
-    name: "Starter", price: "฿22,900", sub: "/ mo · min 3 months", tagline: "Entry · single-platform launch.",
+    name: "Starter", price: "฿22,900", sub: "/ mo · min 3 months", tagline: "",
     rows: [
       ["Ad spend range", "฿0–30k"], ["Platforms", "Meta"],
       ["Reels / TikTok", "8 / mo"], ["Static posts", "6 / mo"],
@@ -29,7 +29,7 @@ const digitalTiers: Tier[] = [
     ],
   },
   {
-    name: "Growth Engine", price: "฿44,900", sub: "/ mo · min 3 months", tagline: "Sweet spot · the engine most brands need.", featured: true,
+    name: "Growth Engine", price: "฿44,900", sub: "/ mo · min 3 months", tagline: "", featured: true,
     rows: [
       ["Ad spend range", "฿30–60k"], ["Platforms", "Meta + TikTok + Google"],
       ["Reels / TikTok", "16 / mo"], ["Static posts", "12 / mo"],
@@ -39,7 +39,7 @@ const digitalTiers: Tier[] = [
     ],
   },
   {
-    name: "Dominate", price: "฿89,900", sub: "/ mo · min 6 months", tagline: "Scale · category-dominant presence.",
+    name: "Dominate", price: "฿89,900", sub: "/ mo · min 6 months", tagline: "",
     rows: [
       ["Ad spend range", "฿60–120k"], ["Platforms", "All + LINE Ads"],
       ["Reels / TikTok", "28 / mo"], ["Static posts", "20 / mo"],
@@ -52,24 +52,24 @@ const digitalTiers: Tier[] = [
 
 /* ---------- Production ---------- */
 const productionDays = [
-  { name: "Run-and-Gun", price: "฿12,000", sub: "S · 1 camera · 1 crew · 8 hrs",
+  { name: "Run-and-Gun", price: "฿12,000", sub: "S · 1 cam · 1 crew · 8h",
     items: [
       ["Camera", "1 × Sony A7V + GM lens kit"],
       ["Crew", "Solo Operator (DP)"],
       ["Lighting + Audio", "LED panel · RØDE VideoMic"],
       ["Delivery", "raw · cloud + proxy same day"],
     ] as Row[] },
-  { name: "Multi-Cam", price: "฿24,000", sub: "M · 2 cameras · 2 crew · 10 hrs",
+  { name: "Multi-Cam", price: "฿24,000", sub: "M · 2 cams · 2 crew · 10h",
     items: [
       ["Camera", "2 × A7V + tethered monitor"],
       ["Crew", "DP + camera assistant"],
       ["Lighting + Audio", "studio kit 2–3 จุด · Wireless GO II ×2"],
       ["Delivery", "raw 2 มุมกล้อง · ตัดสลับมุมได้"],
     ] as Row[] },
-  { name: "Cinematic", price: "฿36,000", sub: "L · 3 cameras · 2 crew + gimbal · 10 hrs", featured: true,
+  { name: "Cinematic", price: "฿36,000", sub: "L · 3 cams · 2 crew + gimbal · 10h", featured: true,
     items: [
       ["Camera", "3 × A7V (static 2 + gimbal 1)"],
-      ["Crew", "DP + assistant · ทีมเท่า M = คุ้มสุด"],
+      ["Crew", "DP + assistant"],
       ["Lighting + Audio", "studio kit เต็ม · Wireless PRO ×4 · DJI RS 4"],
       ["Delivery", "raw 3 มุมกล้อง · ลดวันถ่าย"],
     ] as Row[] },
@@ -102,12 +102,10 @@ const ladder = [
 
 /* ---------- Fine print ---------- */
 const finePrint = [
-  { n: "01", t: "Payment",      body: "Boutique 50/50 · System 50/30/20 · Legacy 40/30/20/10. Digital ชำระต้นเดือน · Production single day 50/50." },
+  { n: "01", t: "Payment",      body: "Boutique 50/50 · Digital ชำระต้นเดือน · Production single day 50/50. ต่ออายุ Boutique Legacy 12 เดือน save 8%." },
   { n: "02", t: "Revisions",    body: "ระบุแต่ละ package · เกินคิด 8–15% ของ package price ต่อรอบ · เปลี่ยน concept หลัก = scope ใหม่." },
   { n: "03", t: "Ownership",    body: "Final files เป็นของลูกค้าหลังชำระครบ · music commissioned = royalty-free perpetual · raw เก็บ 90 วัน." },
-  { n: "04", t: "Annual Legacy",body: "ต่ออายุ Boutique Legacy 12 เดือน save 8% (฿532,000 vs ฿578,000) · monthly check-in + co-founder advisory ตลอดปี." },
-  { n: "05", t: "Travel & Gear",body: "BKK + ปริมณฑล included · ต่างจังหวัด ≤200km +฿8,500 · ต่างประเทศ quoted. Drone, anamorphic, HMI, underwater rig — quoted per shoot." },
-  { n: "06", t: "Cancellation", body: "ก่อน production start คืน 70% · หลัง start คืน 30% + raw. Production: ≥14d คืน 80% · 7–14d คืน 50%. Digital: 30 วันแรก คืน 100% เดือนแรก." },
+  { n: "04", t: "Cancellation & Travel", body: "ก่อน production start คืน 70% · หลัง start คืน 30%. Digital 30 วันแรกคืน 100%. BKK included · ต่างจังหวัด ≤200km +฿8,500 · ต่างประเทศ quoted." },
 ];
 
 /* ---------- Sub-nav ---------- */
@@ -116,8 +114,6 @@ const subnav = [
   { id: "digital",    label: "Digital" },
   { id: "production", label: "Production" },
   { id: "consulting", label: "Consulting" },
-  { id: "ladder",     label: "Ladder" },
-  { id: "fineprint",  label: "Fine print" },
 ];
 
 const Pricing = () => (

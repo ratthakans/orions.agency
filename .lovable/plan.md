@@ -1,97 +1,101 @@
-## Scope
-ปรับ design ทั้งไซต์ตามคำสั่ง 5 ข้อ — typography hygiene, brand wordmark, headline swap, 60/30/10 ดำ/ขาว/ส้ม, และเลิกใช้ layout "3 blocks เท่ากัน" ซ้ำซาก ไม่แตะ business logic, route, หรือ copy ภาษาไทยอื่นนอกจุดที่ระบุ
+# Site-wide Consistency Review — ØRIONS
+
+ตรวจทุกหน้า/คอมโพเนนต์เทียบกับ spec ใน `mem://index.md` (2026 Rate Card). พบ 8 จุดที่ไม่ตรง spec — เรียงตามผลกระทบ.
 
 ---
 
-## 1. Brand wordmark "ØRIONS" → Unbounded Semi-Bold
-- เพิ่ม `Unbounded:wght@600` ใน `@import` ของ `src/index.css`
-- แก้ utility `.font-brand` ให้ใช้ `'Unbounded', sans-serif`, `font-weight: 600`, `letter-spacing: 0.08em` (ลดจาก 0.16em เพราะ Unbounded กว้างกว่า Inter)
-- ไม่แตะ Nav/Footer markup — เพราะใช้ `.font-brand` อยู่แล้ว เปลี่ยน utility ที่เดียวพอ
-- อัปเดต `mem://index.md` core rule
+## A. สิ่งที่ออกนอก spec (ต้องแก้)
 
-## 2. Hero headline swap
-- `src/pages/Index.tsx` HERO: `No Guesswork. Just Craft.` → **`Stories, Refined.`** (มี italic cinnabar accent ที่ `Refined`)
-- ปรับ SEO title หน้า `/` ให้สอดคล้อง (`ØRIONS — Stories, Refined.`)
-- `src/pages/Services.tsx` section Ø Boutique: เปลี่ยน H2 จาก `Stories, refined.` → **`No Guesswork. Just Craft.`** (italic cinnabar ที่ `Just Craft.`) — ย้าย tagline เดิมมาเป็น headline ของ Boutique ตามที่ user สั่ง
-- เก็บ supporting copy ใต้ headline ทั้งสองหน้าเดิมไว้
+### 1. 60/30/10 — Ink ยังไม่ dominant
+Spec: **INK 60% · SNOW 30% · CINNABAR 10%**. ปัจจุบัน Snow dominant:
 
-## 3. Thai font hygiene → IBM Plex Sans Thai
-- ตรวจให้ทุก Thai paragraph ใช้ `font-thai` (utility มีอยู่แล้ว map ไป IBM Plex Sans Thai)
-- ปัจจุบันใช้แล้วเป็นส่วนใหญ่ — sweep หาจุดตกหล่นที่ยังเป็น `font-serif italic` + ภาษาไทย (เช่น italic Thai pull-quotes ใน Index `แบรนด์ดีๆ ส่วนใหญ่ติดอยู่ตรงนี้`, About `ฟัง...`) แล้วเปลี่ยนเป็น `font-thai`
-- เพิ่ม base rule ใน `src/index.css`: `:lang(th) { font-family: 'IBM Plex Sans Thai', 'Inter', sans-serif; }` เป็น safety net
-- กฎ word-break: เพิ่ม utility `.thai-wrap { word-break: keep-all; line-break: strict; overflow-wrap: anywhere; text-wrap: pretty; }` apply กับ Thai paragraphs ยาว เพื่อแก้การตัดคำกลางคำ
+| Page | Pattern (top → bottom) | ปัญหา |
+|---|---|---|
+| `/` Index | snow→ink→snow→ink→snow→ink→snow→ink | สลับ 50/50 ไม่ใช่ 60 ink |
+| `/about` | snow→ink→snow→ink→snow→ink→snow→ink→snow | ปิดท้าย snow |
+| `/consulting` | snow→ink→snow→ink→snow | snow ครอบ |
+| `/services` | snow→**ink→snow→ink→ink** | 2 ink ติดกัน (production + closing) |
+| `/diagnostic` | snow ทั้งหน้า — **0 ink** | ผิด 60/30/10 เต็มๆ |
+| `/contact` | snow ทั้งหน้า — **0 ink** | ผิด 60/30/10 |
+| `/work` | mixed | ok |
+| `/studio` | 1 ink section | snow ครอบ |
 
-## 4. 60/30/10 contrast pass — สลับ section ขาว/ดำ
-ปัจจุบันทุก section เป็น snow (ขาว 95%) — ผิดสัดส่วน. Target: ดำ ~60% / ขาว ~30% / cinnabar ~10% โดยสลับ band ให้มีจังหวะ
+**Fix:** เริ่ม hero แต่ละหน้าด้วย ink (หรือมี ink band บน hero), เพิ่ม ink ที่ Diagnostic (intro + closing CTA) และ Contact (form panel หรือ contact details), ตัดให้ /services ปิดด้วย snow.
 
-### Index.tsx ลำดับใหม่
-| # | Section | bg | text |
-|---|---|---|---|
-| 01 Hero | snow | ink |
-| 02 The Problem | **ink** | snow |
-| 03 The Insight | snow | ink (เก็บ band cinnabar hairline) |
-| 04 Divisions | **ink** | snow |
-| 05 Why ØRIONS | snow | ink |
-| 06 Selected Work | **ink** | snow |
-| 07 Closing CTA | snow | ink |
+### 2. Thai typography — `lang="th"` + `thai-wrap` ไม่ถูกใช้
+- `index.html` ตั้ง `lang="en"` → `:lang(th)` safety net **ไม่ทำงาน**.
+- ใช้ `font-thai` 50+ ที่ แต่มีแค่ **1 บรรทัด** (Services.tsx:275) ที่ใส่ `lang="th"` + `thai-wrap`.
+- ผลคือ Thai ถูกตัดกลางคำ (line-break ผิด).
 
-### About.tsx ลำดับใหม่
-01 Manifesto snow → 02 Promise **ink** → 03 How We Refine snow → 04 Beyond **ink** → 05 Divisions snow → 06 Team **ink** → 07 CTA snow
+**Fix:** สร้าง `<ThaiText>` wrapper (`<p lang="th" className="font-thai thai-wrap …">`) แทนทุก `<p className="font-thai">` ปัจจุบัน. ทำเป็น utility component เพื่อบังคับ 3 attr พร้อมกัน.
 
-### Services.tsx
-01 Hero snow → 02 Boutique **ink** → 03 Digital snow → 04 Production **ink** → 05 Ladder snow → 06 Fine print **ink**
+### 3. `font-serif` บน headings — ผิดกฎ
+Spec: *"NEVER apply font-serif to a heading"* (italic accent ใช้ `<em>` แทน).
 
-### Consulting / Diagnostic / Work / Studio / Contact
-sweep เดียวกัน — สลับ band ทุก section, ไม่ให้ snow ติดกัน 2 section. cinnabar ใช้เฉพาะ accent line, hairline band, eyebrow, italic — ไม่ทำ full-bleed cinnabar section
+พบใน:
+- `CaseStudy.tsx:69, 105, 130` — `<h3 className="… font-serif italic …">`
+- `CaseStudy.tsx:185` — giant serif numeral (อันนี้ใช้เป็น stat, ควรเปลี่ยนเป็น `.num-display` หรือ `.method-num`)
 
-### Mechanics
-- ใช้ `bg-foreground text-background` สำหรับ ink section + ปรับ child colors: `text-muted-foreground` → `text-background/60`, `border-foreground/20` → `border-background/20`, `text-cinnabar` คงเดิม (อ่านออกบนทั้ง 2 bg)
-- เพิ่ม helper class `.section-ink { background:hsl(var(--foreground)); color:hsl(var(--background)); }` + auto-scope `--muted-foreground` override ใน scope นั้น เพื่อไม่ต้องแก้ทุก child
+**Fix:** เปลี่ยน headings เป็น `h-display-*` ปกติ, ย้าย italic accent ไป `<em>` ภายใน.
 
-## 5. แก้ design ซ้ำ — เลิก layout "3 blocks เท่ากัน"
-ปัจจุบัน Index มี 3 grids แบบ 3-คอลัมน์เท่ากัน ติดกัน (Problem, Divisions, Why) About มี 4 grids แบบเดียวกันติดกัน (Pains, Promises, Pillars, Data, Beyond) — ทำให้หน้าเดียวกันดูซ้ำมาก
+### 4. CTA buttons hand-rolled — ไม่ใช้ `.btn-*`
+มี `.btn-primary` / `.btn-accent` / `.btn-ghost` แล้ว แต่ pages ยังเขียนเอง:
+- `Index.tsx:383`, `About.tsx:438`, `HealthCheck.tsx:457, 496`, `Contact.tsx:169`, `Consulting.tsx:198, 205`
 
-### Index — variation pass
-- **02 Problem**: เปลี่ยนเป็น **stacked editorial list** (number ซ้าย ใหญ่ + EN headline + Thai body แนวนอน, hairline คั่น) ขึ้น ink bg — ใช้ pattern `<ProcessRow>` ที่มีอยู่
-- **04 Divisions**: คง 3-col grid (signature pattern เดียวที่ใช้ 3 blocks) แต่บน ink bg + column กลาง (Digital) highlight ด้วย cinnabar accent
-- **05 Why ØRIONS**: เปลี่ยนเป็น **giant numeral layout** — ใช้ `<MethodStep>` (เลข Newsreader cinnabar ใหญ่ + sans title) บน snow, 2-col asymmetric (60/40)
+**Fix:** swap → `className="btn-accent"` / `btn-ghost`. ลบ duplicated styling.
 
-### About — variation pass
-- **01 Pains**: stacked rows (ProcessRow style) บน snow
-- **02 Promises**: 3-col grid บน ink
-- **03 Pillars**: editorial 2-col (sticky H2 ซ้าย + items ขวา) บน snow
-- **03 Data**: MethodStep numerals บน snow (ต่อจาก Pillars แต่คนละ rhythm)
-- **04 Beyond**: หนึ่ง `<PrincipleBlock>` ใหญ่ + 3 supporting bullets แนวนอน (เลิก 3-col card ซ้ำ) บน ink
-- ทำให้ทุก section มี layout signature ต่าง — eye ไม่เบื่อ
+### 5. Footer wordmark ไม่ใช้ `.font-brand`
+`Footer.tsx:45` ใช้ `font-mono` สำหรับ "ØRIONS · BANGKOK". Spec กำหนด instance ของ wordmark = Unbounded SemiBold.
 
-### Tier matrices ที่ Services
-- ใช้ `<TierMatrix>` component ที่มีอยู่แล้วแทน 3-card grid ของ Digital tiers
-- Production days เก็บ 3-card grid ได้ (คนละ context จาก Digital) แต่บน ink
+**Fix:** `.font-brand` แทน `.font-mono` (เก็บ tracking/uppercase).
 
----
+### 6. Hero treatment ไม่สอดคล้องกัน
+- `PageHero` component มีอยู่ แต่ใช้แค่บางหน้า; Index/About/Consulting เขียน hero มือ.
+- Index hero มี chrome bar (`ØRIONS · The Creative Company · Bangkok · 2026`), หน้าอื่นไม่มี → inconsistent brand chrome.
 
-## Technical section
+**Fix:** ทุกหน้าต้องมี `<PageChrome>` แถบบน (ØRIONS · BOUTIQUE CREATIVE STUDIO ‖ CATEGORY) ใต้ Nav — แล้ว hero ต่อท้าย.
 
-**Files edited:**
-- `src/index.css` — เพิ่ม Unbounded import; แก้ `.font-brand`; เพิ่ม `:lang(th)` rule, `.thai-wrap`, `.section-ink` (+ nested overrides)
-- `src/pages/Index.tsx` — swap H1, สลับ bg per section, refactor Problem→stacked, Why→MethodStep
-- `src/pages/About.tsx` — สลับ bg per section, refactor Pillars→2-col asymmetric, Beyond→PrincipleBlock+bullets, Thai font sweep
-- `src/pages/Services.tsx` — swap Boutique H2, สลับ bg, Digital tiers→TierMatrix
-- `src/pages/Consulting.tsx`, `src/pages/HealthCheck.tsx`, `src/pages/Work.tsx`, `src/pages/Projects.tsx`, `src/pages/Contact.tsx`, `src/pages/CaseStudy.tsx` — สลับ bg pass + Thai font sweep
-- `src/components/ClosingCTA.tsx`, `src/components/Footer.tsx` — รับ ink mode ถ้า preceding section เป็น ink (ปรับ border-top)
-- `mem://index.md` — update core: Unbounded brand, Stories Refined tagline, 60/30/10 ink-snow rhythm rule
+### 7. SectionLabel index numbering ไม่สม่ำเสมอ
+- Index: 02–08 (ข้าม 01 ที่ hero)
+- About: 01–07
+- Consulting: ไม่มี index
+- Services: ไม่มี index
 
-**Not touching:**
-- copy ภาษาไทย (นอกเหนือจุด swap headline)
-- routes / data / backend
-- imagery
-- Nav structure
-- `src/integrations/supabase/*`
+**Fix:** เลือก rule เดียว — ทุกหน้าที่มี ≥3 sections ใช้ `01 / 02 / 03 …` ตั้งแต่ section แรกหลัง hero.
+
+### 8. Thai paragraph font-size scale ไม่มี
+มี `text-[13px]` → `text-[18px]` กระจาย 8 ขนาด ใน `font-thai`. ไม่มี scale กลาง.
+
+**Fix:** เพิ่ม utility 3 ขนาด: `.body-th-sm` (13/1.65), `.body-th` (15/1.7), `.body-th-lg` (17/1.7). Replace ทุก ad-hoc.
 
 ---
 
-## Out of scope
-- responsive overhaul beyond ที่จำเป็นกับ ink sections
-- เพิ่ม route / page ใหม่
-- เปลี่ยน palette เกินกว่าที่กำหนด
-- redesign hero illustrations / video reels
+## B. สิ่งที่ตรง spec แล้ว (ไม่แตะ)
+
+- Nav (`font-brand`, hamburger+mix-blend-difference) ✓
+- `.section-ink` token inversion ✓
+- TierMatrix / MethodStep / ProcessRow / PrincipleBlock / StackedCTA primitives ✓
+- Color tokens (Snow / Black Russian / Cinnabar) ✓
+- Routes + redirects ✓
+- SEO centralization ✓
+
+---
+
+## C. ลำดับการแก้ (Implementation order)
+
+1. **Foundations** — `index.html` lang, สร้าง `<ThaiText>`, เพิ่ม `.body-th*` utilities, swap Footer wordmark → `font-brand`.
+2. **60/30/10 pass** — แก้ alternation 7 หน้า (Index, About, Consulting, Services, Diagnostic, Contact, Studio). Diagnostic + Contact ต้องเพิ่ม ink section ใหม่.
+3. **Heading cleanup** — ลบ `font-serif` จาก CaseStudy headings, แทนด้วย `h-display-*` + `<em>`.
+4. **CTA refactor** — swap hand-rolled buttons → `.btn-accent` / `.btn-ghost`.
+5. **Hero/Chrome unification** — เพิ่ม `<PageChrome>` ทุกหน้า, ปรับให้ใช้ `<PageHero>` หรือ pattern เดียว.
+6. **SectionLabel numbering** — ใส่ index ใน Consulting + Services; sync Index ให้เริ่มที่ `01`.
+7. **Thai paragraph sweep** — แทน `<p className="font-thai text-[...]">` ทั้งหมดด้วย `<ThaiText size="sm|md|lg">`.
+
+## D. Out of scope
+- Copy rewrite (เก็บข้อความเดิม)
+- รูปภาพ / video assets
+- Routing / data / backend
+- Animation timing
+
+## E. Files touched (estimate)
+`index.html`, `src/index.css`, `mem/index.md`, `src/components/{Footer,Nav,PageHero,ClosingCTA}.tsx`, สร้างใหม่ `src/components/ThaiText.tsx`, ทุก `src/pages/*.tsx` (ยกเว้น `NotFound.tsx`).

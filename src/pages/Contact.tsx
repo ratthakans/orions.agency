@@ -166,7 +166,7 @@ const Contact = () => {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="md:col-span-2 mt-4 inline-flex items-center justify-center gap-3 bg-cinnabar text-background px-7 py-4 btn-label transition-opacity disabled:opacity-50"
+                    className="btn-accent md:col-span-2 mt-4 justify-center disabled:opacity-50"
                   >
                     <span>{submitting ? "Sending…" : "Send inquiry"}</span>
                     <ArrowUpRight className="w-4 h-4" />

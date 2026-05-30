@@ -92,8 +92,24 @@
   .font-display { font-family: 'Inter', 'IBM Plex Sans Thai', sans-serif; font-weight: 600; letter-spacing: -0.025em; }
   .font-body    { font-family: 'Inter', 'IBM Plex Sans Thai', sans-serif; }
   .font-mono    { font-family: 'IBM Plex Mono', ui-monospace, monospace; }
-  .font-thai    { font-family: 'IBM Plex Sans Thai', 'Inter', sans-serif; text-transform: none; font-weight: 400; letter-spacing: 0.005em; line-height: 1.7; }
+  .font-thai    {
+    font-family: 'IBM Plex Sans Thai', 'Inter', sans-serif;
+    text-transform: none;
+    font-weight: 400;
+    letter-spacing: 0.005em;
+    line-height: 1.7;
+    /* Always apply Thai-safe wrapping so font-thai works as the single Thai primitive. */
+    word-break: keep-all;
+    line-break: strict;
+    overflow-wrap: anywhere;
+    text-wrap: pretty;
+  }
   .thai-wrap    { word-break: keep-all; line-break: strict; overflow-wrap: anywhere; text-wrap: pretty; }
+
+  /* Thai body scale — three sizes, one source of truth */
+  .body-th-sm   { font-family: 'IBM Plex Sans Thai', 'Inter', sans-serif; font-weight: 400; font-size: 13px; line-height: 1.65; letter-spacing: 0.005em; word-break: keep-all; line-break: strict; overflow-wrap: anywhere; text-wrap: pretty; }
+  .body-th      { font-family: 'IBM Plex Sans Thai', 'Inter', sans-serif; font-weight: 400; font-size: 15px; line-height: 1.7;  letter-spacing: 0.005em; word-break: keep-all; line-break: strict; overflow-wrap: anywhere; text-wrap: pretty; }
+  .body-th-lg   { font-family: 'IBM Plex Sans Thai', 'Inter', sans-serif; font-weight: 400; font-size: 17px; line-height: 1.7;  letter-spacing: 0.005em; word-break: keep-all; line-break: strict; overflow-wrap: anywhere; text-wrap: pretty; }
   .body-muted   { color: hsl(var(--foreground) / 0.85); }
   .font-brand   { font-family: 'Unbounded', 'Inter', sans-serif; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
   .font-serif   { font-family: 'Newsreader', 'IBM Plex Sans Thai', Georgia, serif; font-weight: 400; letter-spacing: -0.02em; text-transform: none; }

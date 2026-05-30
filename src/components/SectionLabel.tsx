@@ -15,7 +15,6 @@ interface Props {
 const SectionLabel = ({ index, label, tone = "ink", reveal = true, className = "" }: Props) => {
   const node = (
     <div className={`eyebrow-mono ${className}`}>
-      {index && <span className="text-muted-foreground mr-2">{index} /</span>}
       <span>{label.toUpperCase()}</span>
     </div>
   );

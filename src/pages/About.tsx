@@ -146,7 +146,7 @@ const About = () => (
     </section>
 
     {/* 02 — OUR PROMISE */}
-    <section className="bg-background text-foreground border-t border-foreground/15">
+    <section className="section-ink border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 py-20 md:py-28">
         <SectionLabel index="02" label="Our Promise" />
         <Reveal delay={0.1}>
@@ -170,7 +170,7 @@ const About = () => (
     </section>
 
     {/* 03 — HOW WE REFINE (Pillars + Data) */}
-    <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
+    <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="03" label="How We Refine" />
         <Reveal delay={0.1}>
@@ -213,7 +213,7 @@ const About = () => (
     </section>
 
     {/* 04 — BEYOND CONTENT */}
-    <section className="px-6 md:px-10 border-t border-foreground/15">
+    <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="04" label="Beyond Content" />
         <Reveal delay={0.1}>
@@ -285,7 +285,7 @@ const About = () => (
     </section>
 
     {/* 06 — CORE STRENGTHS */}
-    <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
+    <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="06" label="Why ØRIONS" />
         <Reveal delay={0.1}>
@@ -308,7 +308,7 @@ const About = () => (
     </section>
 
     {/* 07 — THE PROMISE */}
-    <section className="px-6 md:px-10 border-t border-foreground/15">
+    <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="07" label="The Promise" />
         <Reveal delay={0.1}>
@@ -337,7 +337,7 @@ const About = () => (
     </section>
 
     {/* 08 — SCREENING */}
-    <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
+    <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="08" label="Who It's For" />
         <Reveal delay={0.1}>
@@ -392,7 +392,7 @@ const About = () => (
     </section>
 
     {/* 05 — OUR TEAM */}
-    <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
+    <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="09" label="Our Team" />
         <Reveal delay={0.1}>

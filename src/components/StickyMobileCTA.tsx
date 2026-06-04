@@ -12,7 +12,7 @@ const StickyMobileCTA = () => {
         to="/contact"
         className="flex items-center justify-center gap-2 py-3.5 btn-label hover:bg-orion transition-colors"
       >
-        <span>Get a proposal</span>
+        <span>เริ่มต้นบทสนทนา</span>
         <ArrowUpRight className="w-3.5 h-3.5" />
       </Link>
       <a

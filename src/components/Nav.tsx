@@ -1,58 +1,123 @@
-import { NavLink, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { NavLink, Link, useLocation } from "react-router-dom";
 
 const links = [
   { label: "About", to: "/about" },
   { label: "Services", to: "/services" },
-  { label: "Pricing", to: "/pricing" },
   { label: "Consulting", to: "/consulting" },
   { label: "Work", to: "/work" },
-  { label: "Studio", to: "/studio" },
-  { label: "Diagnostic", to: "/diagnostic" },
 ];
 
-const Nav = () => (
-  <header className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-foreground/10">
-    <div className="px-6 md:px-10 h-[64px] flex items-center justify-between text-foreground">
-      <Link to="/" className="font-brand text-[12px] md:text-[13px]">
-        ØRIONS
-      </Link>
+const Nav = () => {
+  const [open, setOpen] = useState(false);
+  const { pathname } = useLocation();
 
-      <nav className="hidden md:flex items-center gap-8">
-        {links.map((l) => (
+  // Close the mobile menu on route change.
+  useEffect(() => setOpen(false), [pathname]);
+
+  // Lock body scroll while the menu is open.
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-foreground/10">
+      <div className="px-6 md:px-10 h-[64px] flex items-center justify-between text-foreground">
+        <Link to="/" className="font-brand text-[12px] md:text-[13px] relative z-[60]">
+          ØRIONS
+        </Link>
+
+        {/* Desktop nav */}
+        <nav className="hidden md:flex items-center gap-8">
+          {links.map((l) => (
+            <NavLink
+              key={l.to}
+              to={l.to}
+              className={({ isActive }) =>
+                `relative font-mono text-[10px] tracking-[0.22em] uppercase transition-colors after:absolute after:left-0 after:-bottom-1.5 after:h-px after:bg-cinnabar after:transition-transform after:duration-300 after:w-full ${
+                  isActive
+                    ? "text-foreground after:scale-x-100"
+                    : "text-foreground/55 hover:text-foreground after:scale-x-0 hover:after:scale-x-100"
+                } after:origin-left`
+              }
+            >
+              {l.label}
+            </NavLink>
+          ))}
           <NavLink
-            key={l.to}
-            to={l.to}
+            to="/diagnostic"
             className={({ isActive }) =>
               `font-mono text-[10px] tracking-[0.22em] uppercase transition-colors ${
-                isActive ? "text-foreground" : "text-foreground/55 hover:text-foreground"
+                isActive ? "text-cinnabar" : "text-foreground/55 hover:text-cinnabar"
               }`
             }
           >
-            {l.label}
+            Brand audit ↗
           </NavLink>
-        ))}
-        <NavLink
-          to="/contact"
-          className={({ isActive }) =>
-            `ml-2 inline-flex items-center gap-2 px-3 py-2 font-mono text-[10px] tracking-[0.22em] uppercase border transition-colors ${
-              isActive
-                ? "bg-cinnabar text-background border-cinnabar"
-                : "border-foreground text-foreground hover:bg-cinnabar hover:border-cinnabar hover:text-background"
-            }`
-          }
-        >
-          Contact →
-        </NavLink>
-      </nav>
+          <NavLink
+            to="/contact"
+            className={({ isActive }) =>
+              `ml-2 inline-flex items-center gap-2 px-3 py-2 font-mono text-[10px] tracking-[0.22em] uppercase border transition-colors ${
+                isActive
+                  ? "bg-cinnabar text-background border-cinnabar"
+                  : "border-foreground text-foreground hover:bg-cinnabar hover:border-cinnabar hover:text-background"
+              }`
+            }
+          >
+            Contact →
+          </NavLink>
+        </nav>
 
-      <Link
-        to="/contact"
-        className="md:hidden font-mono text-[10px] tracking-[0.22em] uppercase text-foreground"
+        {/* Mobile toggle */}
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          className="md:hidden relative z-[60] flex flex-col items-end gap-[5px] py-2"
+        >
+          <span className={`block h-px bg-foreground transition-all duration-300 ${open ? "w-5 translate-y-[6px] rotate-45" : "w-5"}`} />
+          <span className={`block h-px bg-foreground transition-all duration-300 ${open ? "opacity-0" : "w-4"}`} />
+          <span className={`block h-px bg-foreground transition-all duration-300 ${open ? "w-5 -translate-y-[6px] -rotate-45" : "w-5"}`} />
+        </button>
+      </div>
+
+      {/* Mobile menu overlay */}
+      <div
+        className={`md:hidden fixed inset-0 top-0 z-50 bg-background flex flex-col transition-[opacity,transform] duration-300 ${
+          open ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"
+        }`}
       >
-        Contact →
-      </Link>
-    </div>
-  </header>
-);
+        <div className="h-[64px] shrink-0" />
+        <nav className="flex-1 px-6 flex flex-col justify-center gap-2">
+          {[...links, { label: "Contact", to: "/contact" }].map((l, i) => (
+            <NavLink
+              key={l.to}
+              to={l.to}
+              className={({ isActive }) =>
+                `group flex items-baseline gap-4 py-3 border-b border-foreground/10 ${isActive ? "text-cinnabar" : "text-foreground"}`
+              }
+            >
+              <span className="font-mono text-[11px] tracking-[0.22em] text-cinnabar tabular-nums">0{i + 1}</span>
+              <span className="h-display-md">{l.label}</span>
+            </NavLink>
+          ))}
+        </nav>
+        <div className="px-6 pb-2">
+          <NavLink to="/diagnostic" className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.22em] uppercase text-cinnabar">
+            Brand audit ↗
+          </NavLink>
+        </div>
+        <div className="px-6 py-8 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex flex-col gap-1.5">
+          <a href="mailto:hello@orions.agency" className="hover:text-cinnabar transition-colors">hello@orions.agency</a>
+          <a href="tel:+66923905464" className="hover:text-cinnabar transition-colors">+66 92 390 5464</a>
+        </div>
+      </div>
+    </header>
+  );
+};
 
 export default Nav;

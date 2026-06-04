@@ -18,18 +18,18 @@ const inquirySchema = z.object({
 type FieldErrors = Partial<Record<keyof z.infer<typeof inquirySchema>, string>>;
 
 const next = [
-  { n: "01", t: "Reply within 24h",       d: "ทีมอ่านเอง · ตอบเอง · 1 working day" },
-  { n: "02", t: "30-min discovery call",  d: "Zoom · ฟรี · fit-check ตรงไปตรงมา" },
-  { n: "03", t: "Tailored proposal · 7d", d: "Scope · timeline · rate card · 7 วัน" },
+  { n: "01", t: "ตอบกลับใน 24 ชม.",      d: "ทีมอ่านเอง · ตอบเอง · 1 working day" },
+  { n: "02", t: "คุยฟรี 45 นาที",        d: "ไม่มีข้อผูกมัด · fit-check ตรงไปตรงมา" },
+  { n: "03", t: "มองว่าจะ refine ยังไง", d: "เล่าโจทย์และเงื่อนไข — เราช่วยมองทางออก" },
 ];
 
 const faqs = [
-  { q: "What's a typical project budget?",
-    a: "Brand identity เริ่ม ฿80,000 · Digital retainer จาก ฿22,900/mo · Production shoot day จาก ฿12,000 · Fractional Consulting จาก ฿180,000/mo. ดู rate card เต็มที่ /pricing." },
-  { q: "How fast can you start?",
-    a: "Boutique เปิดรับ 2–3 โปรเจกต์ต่อไตรมาส · Digital เริ่มได้ใน 2 สัปดาห์หลังเซ็น · Production จองล่วงหน้า 3–4 สัปดาห์. พร้อมเซ็น mutual NDA ก่อน discovery call ได้ทุกกรณี." },
-  { q: "Project vs retainer — อันไหนเหมาะกับเรา?",
-    a: "ถ้ามี launch ชัด → Boutique project. ถ้าต้องการสเกลยอดต่อเนื่อง → Digital retainer. ถ้าต้องการทั้งสอง → คุยเรื่อง System tier." },
+  { q: "เริ่มต้นยังไง?",
+    a: "คุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์และเงื่อนไขมา เราช่วยมองว่าจะ refine มันยังไง. ทักมาที่ hello@orions.agency, โทร 092 390 5464 หรือ LINE @orions ก็ได้." },
+  { q: "ØRIONS ทำงานเร็วแค่ไหน?",
+    a: "ทำงานเป็นทีมเดียวตั้งแต่กลยุทธ์ถึงการผลิต — จาก hello ขึ้นจริงได้ใน 4 สัปดาห์ ขึ้นอยู่กับ scope ของงาน." },
+  { q: "ØRIONS ไม่เหมาะกับใคร?",
+    a: "ถ้าคุณต้องการแค่ยอดให้เร็วที่สุดโดยไม่สนภาพจำระยะยาว, อยากได้คอนเทนต์เยอะที่สุดในราคาถูกที่สุดโดยไม่มีกลยุทธ์ หรือของยังไม่พร้อม — เราจะบอกตรง ๆ และยังไม่รับงานจนกว่าจะพร้อม." },
 ];
 
 const Contact = () => {
@@ -69,39 +69,39 @@ const Contact = () => {
   return (
     <div>
       <SEO
-        title="Contact — Let's build the next chapter · ØRIONS"
-        description="30-min discovery call. Free. Reply within 24 hours with an honest fit-check."
+        title="Contact — เริ่มต้นบทสนทนา · ØRIONS"
+        description="คุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์และเงื่อนไขมา เราช่วยมองว่าจะ refine มันยังไง. hello@orions.agency · 092 390 5464."
         path="/contact"
       />
 
       {/* 01 — HERO + inline timeline */}
       <section className="section-ink px-6 md:px-10">
         <div className="max-w-[1280px] mx-auto pt-28 md:pt-32 pb-20 md:pb-24">
-          <SectionLabel label="Start a conversation" />
+          <SectionLabel index="01" label="Start a conversation" />
           <Reveal delay={0.05}>
-            <h1 className="mt-10 h-display-xl max-w-[16ch]">
-              Let's build the <em className="italic text-cinnabar">next chapter.</em>
+            <h1 lang="th" className="mt-10 h-display-lg max-w-[16ch] thai-wrap">
+              เล่าโจทย์มา — เราช่วย <em className="italic text-cinnabar">refine</em> มัน.
             </h1>
           </Reveal>
           <Reveal delay={0.1}>
             <p lang="th" className="mt-8 max-w-[640px] font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.65] text-foreground/85">
-              บอกเราว่าธุรกิจคุณติดอะไรอยู่ — ตอบกลับใน 24 ชั่วโมง พร้อม fit-check ตรงไปตรงมา.
+              คุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์และเงื่อนไขมา เราช่วยมองว่าจะ refine มันยังไง.
             </p>
           </Reveal>
 
           <Reveal delay={0.15}>
             <p className="mt-8 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
-              <span className="text-cinnabar">—</span> Reply within 24h · 30-min discovery call · NDA on request
+              <span className="text-cinnabar">—</span> ตอบกลับใน 24 ชม. · คุยฟรี 45 นาที · NDA on request
             </p>
           </Reveal>
 
           <Reveal delay={0.2}>
             <div className="mt-12 flex flex-col sm:flex-row gap-4">
               <a href="#brief" className="btn-accent justify-between sm:w-auto">
-                <span>Send a brief</span><ArrowUpRight className="w-4 h-4" />
+                <span>ส่งโจทย์มา</span><ArrowUpRight className="w-4 h-4" />
               </a>
-              <a href="mailto:hello@orions.agency?subject=Discovery%20call%20—%20ØRIONS" className="btn-ghost justify-between sm:w-auto">
-                <span>Book 30-min call</span><Calendar className="w-4 h-4" />
+              <a href="mailto:hello@orions.agency?subject=คุยฟรี 45 นาที — ØRIONS" className="btn-ghost justify-between sm:w-auto">
+                <span>นัดคุย 45 นาที</span><Calendar className="w-4 h-4" />
               </a>
             </div>
           </Reveal>
@@ -135,7 +135,7 @@ const Contact = () => {
       {/* 02 — BRIEF */}
       <section id="brief" className="px-6 md:px-10 border-t border-foreground/15 scroll-mt-24">
         <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-          <SectionLabel label="Send a brief" />
+          <SectionLabel index="02" label="Send a brief" />
           <Reveal delay={0.05}>
             <h2 className="mt-10 h-display-lg max-w-[16ch]">
               Tell us about <em className="italic text-cinnabar">the brand.</em>
@@ -213,7 +213,7 @@ const Contact = () => {
       {/* 03 — FAQ */}
       <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
         <div className="max-w-[1080px] mx-auto py-20 md:py-28">
-          <SectionLabel label="Before you ask" />
+          <SectionLabel index="03" label="Before you ask" />
           <Reveal delay={0.05}>
             <h2 className="mt-10 h-display-lg max-w-[20ch]">
               The short <em className="italic text-cinnabar">answers.</em>

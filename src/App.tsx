@@ -1,23 +1,23 @@
+import { lazy, Suspense } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-import { Navigate } from "react-router-dom";
 import Layout from "./components/Layout";
 import ScrollToTop from "./components/ScrollToTop";
 import Index from "./pages/Index";
-import Services from "./pages/Services";
-import Pricing from "./pages/Pricing";
-import About from "./pages/About";
-import HealthCheck from "./pages/HealthCheck";
-import Work from "./pages/Work";
-import CaseStudy from "./pages/CaseStudy";
-import Projects from "./pages/Projects";
-import Consulting from "./pages/Consulting";
-import Contact from "./pages/Contact";
-import NotFound from "./pages/NotFound";
+
+// Below-the-fold routes are split into their own chunks to keep first load small.
+const About = lazy(() => import("./pages/About"));
+const Services = lazy(() => import("./pages/Services"));
+const Work = lazy(() => import("./pages/Work"));
+const CaseStudy = lazy(() => import("./pages/CaseStudy"));
+const Consulting = lazy(() => import("./pages/Consulting"));
+const Diagnostic = lazy(() => import("./pages/Diagnostic"));
+const Contact = lazy(() => import("./pages/Contact"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 
@@ -29,24 +29,29 @@ const App = () => (
       <BrowserRouter>
         <ScrollToTop />
         <Layout>
+          <Suspense fallback={<div className="min-h-[60vh]" aria-hidden />}>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />
-            <Route path="/manifesto" element={<Navigate to="/about" replace />} />
-            <Route path="/approach" element={<Navigate to="/about" replace />} />
             <Route path="/services" element={<Services />} />
-            <Route path="/pricing" element={<Pricing />} />
-            <Route path="/consulting" element={<Consulting />} />
-            <Route path="/diagnostic" element={<HealthCheck />} />
-            <Route path="/health-check" element={<Navigate to="/diagnostic" replace />} />
             <Route path="/work" element={<Work />} />
             <Route path="/work/:slug" element={<CaseStudy />} />
-            <Route path="/studio" element={<Projects />} />
-            <Route path="/projects" element={<Navigate to="/studio" replace />} />
-            <Route path="/ventures" element={<Navigate to="/studio" replace />} />
+            <Route path="/consulting" element={<Consulting />} />
+            <Route path="/diagnostic" element={<Diagnostic />} />
             <Route path="/contact" element={<Contact />} />
+
+            {/* Legacy paths → fold into the new structure */}
+            <Route path="/manifesto" element={<Navigate to="/about" replace />} />
+            <Route path="/approach" element={<Navigate to="/about" replace />} />
+            <Route path="/pricing" element={<Navigate to="/services" replace />} />
+            <Route path="/studio" element={<Navigate to="/work" replace />} />
+            <Route path="/projects" element={<Navigate to="/work" replace />} />
+            <Route path="/ventures" element={<Navigate to="/work" replace />} />
+            <Route path="/health-check" element={<Navigate to="/diagnostic" replace />} />
+
             <Route path="*" element={<NotFound />} />
           </Routes>
+          </Suspense>
         </Layout>
       </BrowserRouter>
     </TooltipProvider>

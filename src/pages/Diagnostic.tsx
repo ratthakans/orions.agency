@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight, RotateCcw } from "lucide-react";
 import Reveal from "@/components/Reveal";
@@ -39,17 +39,17 @@ const questions: Q[] = [
 ];
 
 const scale = [
-  { sym: "i.",   label: "ไม่ใช่เลย",   roman: "i.",   points: 1 },
-  { sym: "ii.",  label: "บางส่วน",     roman: "ii.",  points: 2 },
-  { sym: "iii.", label: "ส่วนใหญ่",    roman: "iii.", points: 3 },
-  { sym: "iv.",  label: "ใช่เต็มที่",  roman: "iv.",  points: 4 },
+  { label: "ไม่ใช่เลย",  roman: "i.",   points: 1 },
+  { label: "บางส่วน",    roman: "ii.",  points: 2 },
+  { label: "ส่วนใหญ่",   roman: "iii.", points: 3 },
+  { label: "ใช่เต็มที่", roman: "iv.",  points: 4 },
 ];
 
 const tierFor = (pct: number) => {
-  if (pct >= 85) return { tier: "Refined",     summary: "แบรนด์คุณ refined แล้ว — สิ่งที่เหลือคือ scale และ deepen ความสัมพันธ์กับ audience" };
-  if (pct >= 65) return { tier: "Polished",    summary: "ฐานคุณดี — เหลือแค่ sharpen creative + tighten data loop เพื่อยกขึ้นอีกระดับ" };
-  if (pct >= 45) return { tier: "Developing",  summary: "อยู่ในช่วงสร้างระบบ — ต้องการ framework และ rhythm ที่สม่ำเสมอ" };
-  return                   { tier: "Foundational", summary: "ยังอยู่ในจุดเริ่มต้น — เริ่มจาก clarity ของแบรนด์ก่อน แล้วค่อยขยับขึ้น" };
+  if (pct >= 85) return { tier: "Refined",      summary: "แบรนด์คุณ refined แล้ว — สิ่งที่เหลือคือ scale และ deepen ความสัมพันธ์กับ audience" };
+  if (pct >= 65) return { tier: "Polished",     summary: "ฐานคุณดี — เหลือแค่ sharpen creative + tighten data loop เพื่อยกขึ้นอีกระดับ" };
+  if (pct >= 45) return { tier: "Developing",   summary: "อยู่ในช่วงสร้างระบบ — ต้องการ framework และ rhythm ที่สม่ำเสมอ" };
+  return                  { tier: "Foundational", summary: "ยังอยู่ในจุดเริ่มต้น — เริ่มจาก clarity ของแบรนด์ก่อน แล้วค่อยขยับขึ้น" };
 };
 
 /* Per-axis verdict by % */
@@ -122,39 +122,49 @@ const axisVerdict = (axisIdx: number, pct: number) => {
   return            { label: "Gap",        text: v.gap,    action: v.action.gap };
 };
 
-/* Package recommendation by overall % */
-const recommendPackage = (pct: number) => {
-  if (pct >= 75) {
-    return {
-      tier: "iii. Elite",
-      name: "Data-Strategy Lab",
-      price: "Start from ฿139,000",
-      why: "คุณ refined แล้ว — Elite เปิด layer ของ Creative Lab + Brand Film + Industry Exclusivity เพื่อสร้าง legacy ระดับอุตสาหกรรม",
-    };
-  }
-  if (pct >= 45) {
-    return {
-      tier: "ii. Pro · Featured Package",
-      name: "Data-Tested Loops",
-      price: "Start from ฿69,000",
-      why: "ฐานคุณดี — Pro จะ sharpen creative ด้วย A/B testing, Quarterly Campaign และ Ads management เพื่อทะลุ noise ในตลาด",
-    };
-  }
+/* No-price path recommendation by overall % — routes to the right ORIONS path */
+const recommendPath = (pct: number) => {
+  if (pct >= 85) return {
+    label: "ถ้าจะร่วมงานกับเรา",
+    name: "Scale & deepen",
+    why: "คุณ refined แล้ว — สิ่งที่เหลือคือ scale ความสม่ำเสมอและ deepen ความสัมพันธ์กับ audience. เหมาะกับ Social retainer ต่อเนื่อง หรือ Consulting มากำกับทิศทางระยะยาว.",
+    primary: { label: "ดู Consulting", to: "/consulting" },
+    secondary: { label: "เริ่มต้นบทสนทนา", to: "/contact" },
+    honest: "ถ้าคุณต้องการแค่ยอดให้เร็วที่สุดโดยไม่สนภาพจำระยะยาว — performance shop เพียว ๆ อาจคุ้มกว่า เราพูดตรง.",
+  };
+  if (pct >= 65) return {
+    label: "ถ้าจะร่วมงานกับเรา",
+    name: "Sharpen the edge",
+    why: "ฐานคุณดี — เหลือ sharpen creative และ tighten data loop. เหมาะกับ Brand Strategy เก็บ positioning ให้คม + Social ที่ผูกกับผลที่วัดได้.",
+    primary: { label: "ดูบริการของเรา", to: "/services" },
+    secondary: { label: "เริ่มต้นบทสนทนา", to: "/contact" },
+    honest: "ถ้าทีมในของคุณแน่นอยู่แล้ว แค่ต้องการสายตา senior มากำกับ — Consulting อาจเหมาะกว่าการจ้างผลิตเต็มทีม.",
+  };
+  if (pct >= 45) return {
+    label: "ถ้าจะร่วมงานกับเรา",
+    name: "Build the system",
+    why: "คุณอยู่ในช่วงสร้างระบบ — ต้องการ framework และ rhythm. เหมาะกับการทำงานเป็นทีมเดียวตั้งแต่ Brand Strategy ถึง Production และ Social.",
+    primary: { label: "ดูบริการของเรา", to: "/services" },
+    secondary: { label: "เริ่มต้นบทสนทนา", to: "/contact" },
+    honest: "เราจะบอกตรง ๆ ถ้าของหรือ unit economics ยังไม่พร้อม — และยังไม่รับงานจนกว่าจะพร้อม.",
+  };
   return {
-    tier: "i. Starter",
-    name: "Data-Informed Loop",
-    price: "Start from ฿35,000",
-    why: "เริ่มจาก foundation ก่อน — Starter วาง Content Loop ครบวงจร + Brand Audit เพื่อสร้าง rhythm และ clarity",
+    label: "ถ้าจะร่วมงานกับเรา",
+    name: "Start from clarity",
+    why: "ยังอยู่จุดเริ่มต้น — เริ่มจาก clarity ของแบรนด์ก่อน. เหมาะกับ Brand Strategy: หาเรื่องที่ใช่ ก่อนจะเร่งผลิตหรือยิงแอด.",
+    primary: { label: "เริ่มที่ Brand Strategy", to: "/services" },
+    secondary: { label: "เริ่มต้นบทสนทนา", to: "/contact" },
+    honest: "ถ้าคุณอยากได้คอนเทนต์เยอะที่สุดในราคาถูกที่สุดโดยไม่ต้องมีกลยุทธ์ — เราไม่ใช่ที่นั้น.",
   };
 };
 
-const HealthCheck = () => {
-  const [answers, setAnswers] = useState<(number | null)[]>(Array(12).fill(null));
-  const [step, setStep] = useState(0); // 0..11 = question, 12 = result
+const Diagnostic = () => {
   const total = questions.length;
+  const [answers, setAnswers] = useState<(number | null)[]>(Array(total).fill(null));
+  const [step, setStep] = useState(0); // 0..total-1 = question, total = result
 
   const axisScores = useMemo(() => {
-    const out: { axis: number; score: number; max: number }[] = axes.map((_, i) => ({ axis: i, score: 0, max: 0 }));
+    const out = axes.map((_, i) => ({ axis: i, score: 0, max: 0 }));
     questions.forEach((q, i) => {
       out[q.axis].max += 4;
       if (answers[i] != null) out[q.axis].score += answers[i] as number;
@@ -179,7 +189,6 @@ const HealthCheck = () => {
   };
 
   const canContinue = answers[step] != null;
-
   const next = () => {
     if (step < total - 1) setStep(step + 1);
     else if (step === total - 1 && canContinue) setStep(total);
@@ -187,14 +196,25 @@ const HealthCheck = () => {
   const back = () => step > 0 && setStep(step - 1);
   const restart = () => { setAnswers(Array(total).fill(null)); setStep(0); };
 
-  const progress = isResult ? 100 : Math.round(((step) / total) * 100);
+  // Enter advances when an answer is picked (keyboard-friendly)
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Enter" && !isResult && answers[step] != null) {
+        e.preventDefault();
+        next();
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [step, answers, isResult]); // eslint-disable-line react-hooks/exhaustive-deps
+
   const result = tierFor(overallPct);
 
   return (
     <div>
       <SEO
-        title="The Diagnostic — ØRIONS"
-        description="18 questions across 6 axes. 3 minutes. Get a refined-quality score + per-axis insight + a recommended package."
+        title="The Diagnostic — Brand audit · ØRIONS"
+        description="18 คำถาม · 6 มิติ · 3 นาที. ตรวจสุขภาพแบรนด์ของคุณ แล้วดูว่าทางไหนเหมาะกับคุณที่สุด — ตรงไปตรงมา."
         path="/diagnostic"
       />
 
@@ -203,15 +223,16 @@ const HealthCheck = () => {
         <div className="max-w-[1080px] mx-auto">
           <SectionLabel index="01" label="The Diagnostic" />
           <Reveal delay={0.1}>
-            <h1 className="mt-10 h-display-xl max-w-[18ch]">
-              ที่คุณทำอยู่ —<br /><em className="italic text-cinnabar">ดีพอแล้ว</em> หรือยัง?
+            <h1 lang="th" className="mt-10 h-display-lg max-w-[18ch]">
+              ที่ทำอยู่ — <em className="italic text-cinnabar">ดีพอแล้ว</em> หรือยัง?
             </h1>
           </Reveal>
           <Reveal delay={0.2}>
-            <p className="mt-10 max-w-[680px] font-thai text-[15px] md:text-[17px] leading-[1.7] text-muted-foreground">
-              ตรวจสุขภาพแบรนด์ของคุณใน 6 มิติ — Brand Clarity, Content Consistency, Data Maturity, Creative Craft, Audience Connection, และ Strategic Direction.
-              <br /><br />
-              18 คำถาม · ใช้เวลา 3 นาที · รับ Health Report + แนะนำแพ็กเกจที่เหมาะกับคุณทันที
+            <p lang="th" className="mt-10 max-w-[680px] font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.7] text-muted-foreground">
+              ตรวจแบรนด์ของคุณใน 6 มิติ — Brand Clarity, Content Consistency, Data Maturity, Creative Craft, Audience Connection และ Strategic Direction.
+            </p>
+            <p lang="th" className="mt-5 max-w-[680px] font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.7] text-muted-foreground">
+              18 คำถาม · ใช้เวลา 3 นาที · ตอบตามจริง ไม่มีถูกผิด — ได้คะแนนแต่ละมิติ + ทางที่เหมาะกับคุณ ไม่มีข้อผูกมัด.
             </p>
           </Reveal>
         </div>
@@ -230,16 +251,13 @@ const HealthCheck = () => {
             </div>
           </div>
 
-          {/* Axis progress — single hairline segment row */}
+          {/* Axis progress */}
           <div className="mt-5 flex gap-[6px]">
             {axes.map((_, i) => {
               const completed = isResult || i < (q?.axis ?? 0);
               const active = !isResult && i === q!.axis;
               return (
-                <div
-                  key={i}
-                  className={`flex-1 h-px ${active ? "bg-cinnabar" : completed ? "bg-cinnabar/50" : "bg-foreground/15"}`}
-                />
+                <div key={i} className={`flex-1 h-px ${active ? "bg-cinnabar" : completed ? "bg-cinnabar/50" : "bg-foreground/15"}`} />
               );
             })}
           </div>
@@ -247,12 +265,8 @@ const HealthCheck = () => {
           {/* QUESTION */}
           {!isResult && q && (
             <div className="mt-12">
-              <h2 className="font-serif text-[24px] md:text-[36px] leading-[1.25] tracking-[-0.015em] max-w-[760px]">
-                {q.statement}
-              </h2>
-              <p className="mt-4 font-thai text-[14px] md:text-[15px] text-muted-foreground max-w-[680px]">
-                {q.hint}
-              </p>
+              <h2 className="h-display-sm leading-[1.25] max-w-[760px]">{q.statement}</h2>
+              <p lang="th" className="mt-4 font-thai text-[14px] md:text-[15px] text-muted-foreground max-w-[680px]">{q.hint}</p>
 
               <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3">
                 {scale.map((s) => {
@@ -263,15 +277,11 @@ const HealthCheck = () => {
                       type="button"
                       onClick={() => select(s.points)}
                       className={`flex flex-col items-center gap-3 px-4 py-6 border transition-colors duration-300 ${
-                        selected
-                          ? "border-cinnabar bg-cinnabar/10"
-                          : "border-foreground/15 hover:border-cinnabar"
+                        selected ? "border-cinnabar bg-cinnabar/10" : "border-foreground/15 hover:border-cinnabar"
                       }`}
                     >
-                      <span className={`font-serif italic text-[22px] leading-none ${selected ? "text-cinnabar" : "text-cinnabar/70"}`}>
-                        {s.roman}
-                      </span>
-                      <span className="font-thai text-[13px] font-medium">{s.label}</span>
+                      <span className={`font-serif italic text-[22px] leading-none ${selected ? "text-cinnabar" : "text-cinnabar/70"}`}>{s.roman}</span>
+                      <span lang="th" className="font-thai text-[13px] font-medium">{s.label}</span>
                     </button>
                   );
                 })}
@@ -298,12 +308,12 @@ const HealthCheck = () => {
                   />
                 </svg>
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <div className="font-serif text-[64px] leading-none tracking-[-0.03em]">{overallPct}</div>
+                  <div className="num-display text-[64px] leading-none">{overallPct}</div>
                   <div className="mt-2 font-mono text-[9px] tracking-[0.22em] uppercase text-muted-foreground">Refined Quality</div>
                 </div>
               </div>
 
-              {/* Radar chart — 6 axes */}
+              {/* Radar — 6 axes */}
               {(() => {
                 const cx = 140, cy = 140, R = 110;
                 const n = axisScores.length;
@@ -311,10 +321,8 @@ const HealthCheck = () => {
                   const pct = a.max ? a.score / a.max : 0;
                   const angle = -Math.PI / 2 + (i * 2 * Math.PI) / n;
                   return {
-                    x: cx + Math.cos(angle) * R * pct,
-                    y: cy + Math.sin(angle) * R * pct,
-                    lx: cx + Math.cos(angle) * (R + 18),
-                    ly: cy + Math.sin(angle) * (R + 18),
+                    x: cx + Math.cos(angle) * R * pct, y: cy + Math.sin(angle) * R * pct,
+                    lx: cx + Math.cos(angle) * (R + 18), ly: cy + Math.sin(angle) * (R + 18),
                     label: axes[a.axis].short,
                   };
                 });
@@ -327,26 +335,13 @@ const HealthCheck = () => {
                 return (
                   <div className="mt-12 flex justify-center">
                     <svg viewBox="0 0 280 280" width="320" height="320" className="overflow-visible">
-                      {rings.map((r) => (
-                        <circle key={r} cx={cx} cy={cy} r={R * r} fill="none" stroke="hsl(var(--foreground) / 0.12)" />
-                      ))}
-                      {spokes.map((s, i) => (
-                        <line key={i} x1={cx} y1={cy} x2={s.x} y2={s.y} stroke="hsl(var(--foreground) / 0.12)" />
-                      ))}
+                      {rings.map((r) => (<circle key={r} cx={cx} cy={cy} r={R * r} fill="none" stroke="hsl(var(--foreground) / 0.12)" />))}
+                      {spokes.map((s, i) => (<line key={i} x1={cx} y1={cy} x2={s.x} y2={s.y} stroke="hsl(var(--foreground) / 0.12)" />))}
                       <path d={path} fill="hsl(var(--accent) / 0.18)" stroke="hsl(var(--accent))" strokeWidth="1.5" />
                       {pts.map((p, i) => (
                         <g key={i}>
                           <circle cx={p.x} cy={p.y} r="3" fill="hsl(var(--accent))" />
-                          <text
-                            x={p.lx}
-                            y={p.ly}
-                            textAnchor={p.lx > cx + 5 ? "start" : p.lx < cx - 5 ? "end" : "middle"}
-                            dominantBaseline="middle"
-                            className="fill-muted-foreground"
-                            style={{ font: "10px ui-monospace, monospace", letterSpacing: "0.18em", textTransform: "uppercase" }}
-                          >
-                            {p.label}
-                          </text>
+                          <text x={p.lx} y={p.ly} textAnchor={p.lx > cx + 5 ? "start" : p.lx < cx - 5 ? "end" : "middle"} dominantBaseline="middle" className="fill-muted-foreground" style={{ font: "10px ui-monospace, monospace", letterSpacing: "0.18em", textTransform: "uppercase" }}>{p.label}</text>
                         </g>
                       ))}
                     </svg>
@@ -356,9 +351,7 @@ const HealthCheck = () => {
 
               <div className="mt-10">
                 <div className="font-serif italic text-cinnabar text-[28px] md:text-[36px] tracking-[-0.01em]">{result.tier}</div>
-                <p className="mt-4 max-w-[560px] mx-auto font-thai text-[14px] md:text-[16px] leading-[1.7] text-muted-foreground">
-                  {result.summary}
-                </p>
+                <p lang="th" className="mt-4 max-w-[560px] mx-auto font-thai text-[14px] md:text-[16px] leading-[1.7] text-muted-foreground">{result.summary}</p>
               </div>
 
               {/* Per-axis insight cards */}
@@ -371,28 +364,21 @@ const HealthCheck = () => {
                   {axisScores.map((a) => {
                     const pct = a.max ? Math.round((a.score / a.max) * 100) : 0;
                     const v = axisVerdict(a.axis, pct);
-                    const tone =
-                      v.label === "Strong" ? "text-cinnabar" :
-                      v.label === "Developing" ? "text-foreground" :
-                      "text-muted-foreground";
+                    const tone = v.label === "Strong" ? "text-cinnabar" : v.label === "Developing" ? "text-foreground" : "text-muted-foreground";
                     return (
                       <div key={a.axis} className="bg-background p-6 md:p-7">
                         <div className="flex items-center justify-between">
                           <span className="font-mono text-[10px] tracking-[0.2em] uppercase">{axes[a.axis].name}</span>
-                          <span className="font-serif text-[20px] tabular-nums">{pct}%</span>
+                          <span className="num-display text-[20px]">{pct}%</span>
                         </div>
                         <div className="mt-3 h-px bg-foreground/10 overflow-hidden">
                           <div className="h-full bg-cinnabar" style={{ width: `${pct}%` }} />
                         </div>
-                        <div className={`mt-4 font-mono text-[10px] tracking-[0.22em] uppercase ${tone}`}>
-                          {v.label}
-                        </div>
-                        <p className="mt-2 font-thai text-[13px] md:text-[14px] leading-[1.65] text-foreground/85">
-                          {v.text}
-                        </p>
+                        <div className={`mt-4 font-mono text-[10px] tracking-[0.22em] uppercase ${tone}`}>{v.label}</div>
+                        <p lang="th" className="mt-2 font-thai text-[13px] md:text-[14px] leading-[1.65] text-foreground/85">{v.text}</p>
                         <div className="mt-4 pt-4 border-t border-foreground/15">
                           <div className="font-mono text-[9px] tracking-[0.22em] uppercase text-muted-foreground">Next action</div>
-                          <p className="mt-1 font-thai text-[13px] leading-[1.6]">→ {v.action}</p>
+                          <p lang="th" className="mt-1 font-thai text-[13px] leading-[1.6]">→ {v.action}</p>
                         </div>
                       </div>
                     );
@@ -419,7 +405,7 @@ const HealthCheck = () => {
                           <li key={a.axis} className="border-b border-foreground/15 py-5 grid grid-cols-12 gap-4 items-baseline">
                             <span className="col-span-2 md:col-span-1 font-mono text-[11px] tracking-[0.2em] text-cinnabar font-semibold">0{idx + 1}</span>
                             <span className="col-span-10 md:col-span-4 font-serif text-[20px] md:text-[22px] tracking-[-0.01em]">{axes[a.axis].name}</span>
-                            <span className="col-span-12 md:col-span-7 font-thai text-[14px] leading-[1.65] text-muted-foreground">→ {v.action}</span>
+                            <span lang="th" className="col-span-12 md:col-span-7 font-thai text-[14px] leading-[1.65] text-muted-foreground">→ {v.action}</span>
                           </li>
                         );
                       })}
@@ -428,50 +414,30 @@ const HealthCheck = () => {
                 );
               })()}
 
-              {/* Recommended package */}
+              {/* Recommended path (no price) */}
               {(() => {
-                const rec = recommendPackage(overallPct);
+                const rec = recommendPath(overallPct);
                 return (
                   <div className="mt-16 text-left max-w-[860px] mx-auto bg-surface text-foreground border border-foreground/15 p-8 md:p-12">
                     <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar flex items-center gap-3">
                       <span className="block w-6 h-px bg-cinnabar" />
-                      Recommended for you
+                      {rec.label}
                     </div>
-                    <div className="mt-6 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-                      <div>
-                        <div className="font-mono text-[11px] tracking-[0.22em] uppercase text-foreground/70">{rec.tier}</div>
-                        <h3 className="mt-3 font-serif text-[36px] md:text-[44px] tracking-[-0.02em] leading-[1.05]">
-                          {rec.name}
-                        </h3>
-                      </div>
-                      <div className="font-mono text-[11px] tracking-[0.22em] uppercase text-foreground/70">
-                        {rec.price}
-                      </div>
-                    </div>
-                    <p className="mt-6 font-thai text-[14px] md:text-[16px] leading-[1.7] text-foreground/85 max-w-[640px]">
-                      {rec.why}
-                    </p>
+                    <h3 className="mt-6 font-serif text-[34px] md:text-[44px] tracking-[-0.02em] leading-[1.05]">{rec.name}</h3>
+                    <p lang="th" className="mt-6 font-thai text-[14px] md:text-[16px] leading-[1.7] text-foreground/85 max-w-[640px]">{rec.why}</p>
                     <div className="mt-8 flex flex-wrap gap-5">
-                      <Link to="/services" className="btn-accent">
-                        <span>See full package</span>
-                        <ArrowUpRight className="w-4 h-4" />
-                      </Link>
-                      <Link
-                        to="/contact"
-                        className="group inline-flex items-center gap-2 btn-label border-b border-foreground/60 pb-1 text-foreground hover:text-cinnabar hover:border-cinnabar transition-colors"
-                      >
-                        Book a free consult →
-                      </Link>
+                      <Link to={rec.primary.to} className="btn-accent"><span>{rec.primary.label}</span><ArrowUpRight className="w-4 h-4" /></Link>
+                      <Link to={rec.secondary.to} className="group inline-flex items-center gap-2 btn-label border-b border-foreground/60 pb-1 text-foreground hover:text-cinnabar hover:border-cinnabar transition-colors">{rec.secondary.label} →</Link>
                     </div>
+                    <p lang="th" className="mt-8 pt-6 border-t border-foreground/15 font-thai thai-wrap text-[13px] md:text-[14px] leading-[1.7] text-muted-foreground max-w-[640px]">
+                      <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">— พูดตรง</span>&nbsp;&nbsp;{rec.honest}
+                    </p>
                   </div>
                 );
               })()}
 
               <div className="mt-14 flex flex-wrap items-center justify-center gap-5">
-                <button
-                  onClick={restart}
-                  className="group inline-flex items-center gap-2 btn-label text-muted-foreground hover:text-foreground transition-colors"
-                >
+                <button onClick={restart} className="group inline-flex items-center gap-2 btn-label text-muted-foreground hover:text-foreground transition-colors">
                   <RotateCcw className="w-3.5 h-3.5" /> Take again
                 </button>
               </div>
@@ -481,17 +447,8 @@ const HealthCheck = () => {
           {/* Nav */}
           {!isResult && (
             <div className="mt-12 pt-8 border-t border-foreground/15 flex items-center justify-between">
-              <button
-                onClick={back}
-                className={`btn-label text-muted-foreground hover:text-foreground transition-colors ${step === 0 ? "invisible" : ""}`}
-              >
-                ← Back
-              </button>
-              <button
-                onClick={next}
-                disabled={!canContinue}
-                className="btn-accent disabled:opacity-25 disabled:cursor-not-allowed"
-              >
+              <button onClick={back} className={`btn-label text-muted-foreground hover:text-foreground transition-colors ${step === 0 ? "invisible" : ""}`}>← Back</button>
+              <button onClick={next} disabled={!canContinue} className="btn-accent disabled:opacity-25 disabled:cursor-not-allowed">
                 {step === total - 1 ? "See result" : "Continue"} →
               </button>
             </div>
@@ -502,4 +459,4 @@ const HealthCheck = () => {
   );
 };
 
-export default HealthCheck;
+export default Diagnostic;

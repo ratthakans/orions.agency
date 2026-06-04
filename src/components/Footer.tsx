@@ -2,13 +2,11 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const navLinks = [
-  { to: "/diagnostic", label: "Diagnostic" },
   { to: "/about", label: "About" },
   { to: "/services", label: "Services" },
-  { to: "/pricing", label: "Pricing" },
   { to: "/consulting", label: "Consulting" },
   { to: "/work", label: "Work" },
-  { to: "/studio", label: "Studio" },
+  { to: "/diagnostic", label: "Brand audit" },
   { to: "/contact", label: "Contact" },
 ];
 
@@ -37,7 +35,7 @@ const Footer = () => {
           <span className="inline-block w-1.5 h-1.5 bg-cinnabar" aria-hidden />
           Studio open · BKK {bkkTime} ICT
         </span>
-        <span className="hidden md:inline">Now booking · Q3 2026</span>
+        <span className="hidden md:inline">Stories, refined.</span>
       </div>
       <div className="px-6 md:px-10 pt-16 md:pt-20 pb-6 max-w-[1280px] mx-auto">
         {/* Headline row */}
@@ -105,8 +103,7 @@ const Footer = () => {
                   </a>
                 </li>
               ))}
-              <li><Link to="/studio" className="text-background/85 hover:text-cinnabar transition-colors">Studio</Link></li>
-              <li><Link to="/diagnostic" className="text-background/85 hover:text-cinnabar transition-colors">Diagnostic</Link></li>
+              <li><Link to="/work" className="text-background/85 hover:text-cinnabar transition-colors">Work</Link></li>
             </ul>
           </div>
         </div>
@@ -114,21 +111,31 @@ const Footer = () => {
         {/* Division link matrix */}
         <div className="mt-14 pt-10 border-t border-background/15 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
           {[
-            { code: "Ø Boutique",   desc: "Brand identity & strategy", to: "/pricing#boutique" },
-            { code: "Ø Digital",    desc: "Content + paid media",       to: "/pricing#digital" },
-            { code: "Ø Production", desc: "Creative crew + post",       to: "/pricing#production" },
+            { code: "01 · Brand Strategy",      desc: "หาเรื่องที่ใช่",     to: "/services" },
+            { code: "02 · Creative Production", desc: "ทำให้เห็น",          to: "/services" },
+            { code: "03 · Social Media",        desc: "ทำให้ดังและวัดได้",  to: "/services" },
           ].map((d) => (
             <Link key={d.code} to={d.to} className="group block border-t border-background/15 pt-5 hover:border-cinnabar transition-colors">
               <div className="font-serif italic text-cinnabar text-[20px] md:text-[24px] tracking-[-0.015em]">{d.code}</div>
-              <div className="mt-2 font-mono text-[10px] tracking-[0.18em] uppercase text-background/55 group-hover:text-background/85 transition-colors">
+              <div lang="th" className="mt-2 font-mono text-[10px] tracking-[0.18em] uppercase text-background/55 group-hover:text-background/85 transition-colors">
                 {d.desc} →
               </div>
             </Link>
           ))}
         </div>
 
+        {/* Signature wordmark */}
+        <div className="mt-16 md:mt-20 overflow-hidden" aria-hidden>
+          <div
+            className="font-brand text-background leading-[0.78] text-center select-none whitespace-nowrap"
+            style={{ fontSize: "clamp(58px, 17.5vw, 248px)", letterSpacing: "-0.01em" }}
+          >
+            ØRIONS
+          </div>
+        </div>
+
         {/* Legal */}
-        <div className="mt-16 pt-5 border-t border-background/15 flex items-center justify-between gap-4 font-mono text-[10px] tracking-[0.18em] uppercase opacity-50">
+        <div className="mt-10 pt-5 border-t border-background/15 flex items-center justify-between gap-4 font-mono text-[10px] tracking-[0.18em] uppercase opacity-50">
           <p>© {year} ØRIONS — All rights reserved.</p>
           <p>Stories, refined. · Est. 2026</p>
         </div>

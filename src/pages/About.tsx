@@ -1,102 +1,114 @@
-import { Link } from "react-router-dom";
-import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
 import CTABand from "@/components/CTABand";
 
-const pains = [
-  { n: "i.",   en: "ADHD Culture",     th: "สมาธิสั้นลงเหลือไม่กี่วินาที คนเลื่อนผ่านทุกอย่างที่ไม่สะกิดใจในวินาทีแรก" },
-  { n: "ii.",  en: "AI Content Flood", th: "ฟีดถูกถมด้วยคอนเทนต์ AI หน้าตาเหมือนกัน — คนชาชิน และมองหาคอนเทนต์จริง" },
-  { n: "iii.", en: "Ads Inflation",    th: "ค่าโฆษณาแพงขึ้นทุกวัน ผลลัพธ์น้อยลง — ยิง Ads ให้คอนเทนต์ไร้จิตวิญญาณ คือเผาเงินทิ้ง" },
+const principles = [
+  { n: "i.",   en: "พูดตรง",              th: "บอกข้อจำกัดครบทั้งสองด้าน ถ้ายังไม่พร้อม เราบอกตรง ๆ" },
+  { n: "ii.",  en: "ขายผล ไม่ใช่จำนวนโพสต์", th: "ผูกงานไว้กับผลที่วัดได้ ไม่ใช่จำนวนชิ้นงาน" },
+  { n: "iii.", en: "ข้อจำกัดคือบรีฟ",       th: "เราออกแบบไอเดียรอบเงื่อนไข ไม่หนีมัน" },
+  { n: "iv.",  en: "มองยาว",              th: "สร้างแบรนด์ที่ถูกจำ ไม่ใช่กระแสที่ผ่านไป" },
 ];
 
-const promises = [
-  { n: "i.",   en: "Work we're proud of.", th: "คิดก่อนทำ แก้ก่อนส่ง — ถ้าคุณรู้สึกว่ายังไม่ใช่ เราจะแก้จนกว่าจะใช่" },
-  { n: "ii.",  en: "Always on time.",       th: "Content Calendar เดือนถัดไป อยู่ในมือคุณภายในวันที่ 25 ของเดือนปัจจุบัน เสมอ" },
-  { n: "iii.", en: "Radically transparent.",th: "ทุกตัวเลข ทุก performance ทุกค่า ads — เปิดให้คุณเห็นทั้งหมด ไม่มีค่าคอมแอบแฝง" },
-];
-
-const pillars = [
-  { sym: "i.",   en: "Craft",    th: "งานทุกชิ้นผ่านมือคน ไม่ใช่สายพาน — ตรวจสอบ กลั่นกรอง ส่งมอบเฉพาะชิ้นที่เราภูมิใจ" },
-  { sym: "ii.",  en: "Strategy", th: "ทุกชิ้นมีเหตุผลที่อยู่ตรงนั้น — เริ่มจาก Data, ผ่าน Brand Voice, ไปสู่ Audience ที่ใช่" },
-  { sym: "iii.", en: "Story",    th: "เรื่องเล่าที่ทำให้แบรนด์คุณถูกจดจำ — ไม่ใช่แค่ engagement แต่คือ long-term bond" },
+const notForYou = [
+  { n: "01", th: "คุณต้องการแค่ยอดให้เร็วที่สุด โดยไม่สนภาพจำระยะยาว — performance shop เพียว ๆ อาจคุ้มกว่า" },
+  { n: "02", th: "คุณอยากได้คอนเทนต์เยอะที่สุดในราคาถูกที่สุด โดยไม่ต้องมีกลยุทธ์ — เราไม่ใช่ที่นั้น" },
+  { n: "03", th: "ของหรือ unit economics ยังไม่พร้อม — เราจะบอก และยังไม่รับงานจนกว่าจะพร้อม" },
 ];
 
 const About = () => (
   <div>
     <SEO
-      title="About — ØRIONS"
-      description="What we believe, and how we work. The new landscape, our promise, and the three pillars of refined craft."
+      title="About — สิ่งที่เราเชื่อ · ØRIONS"
+      description="แบรนด์ที่ดีไม่ได้เกิดจากการพูดให้ดังที่สุด แต่จากการพูดให้ถูก. งานที่ดีที่สุดมักเกิดใต้ข้อจำกัด — เราถือว่ามันคือบรีฟ."
       path="/about"
     />
 
     {/* 01 — MANIFESTO */}
     <section className="section-ink min-h-[88vh] flex flex-col border-b border-foreground/15">
       <div className="px-6 md:px-10 pt-28 md:pt-32 pb-16 md:pb-20 flex-1 flex flex-col justify-center max-w-[1280px] mx-auto w-full">
-        <SectionLabel index="01" label="Manifesto" />
+        <SectionLabel index="01" label="What we believe" />
         <Reveal delay={0.1}>
-          <h1 className="mt-10 h-display-xl">The New <em className="italic text-cinnabar">Landscape.</em></h1>
+          <h1 lang="th" className="mt-10 h-display-lg max-w-[20ch] thai-wrap">
+            พูดให้ดังที่สุด ไม่เท่าพูดให้ <em className="italic text-cinnabar">ถูก.</em>
+          </h1>
         </Reveal>
         <Reveal delay={0.2}>
-          <p lang="th" className="mt-8 max-w-[640px] font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.7] text-foreground/80">
-            สามความจริงที่ทำให้ Generic Content ตายไปแล้ว.
+          <p lang="th" className="mt-8 max-w-[680px] font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.7] text-foreground/80">
+            ถูกเรื่อง · ถูกคน · ถูกเวลา — และงานที่ดีที่สุดมักเกิดขึ้นใต้ข้อจำกัด ไม่ใช่ในที่ที่ทำอะไรก็ได้.
           </p>
         </Reveal>
       </div>
 
       <div className="px-6 md:px-10 pb-24 max-w-[1280px] mx-auto w-full">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 border-t border-foreground/20 pt-12">
-          {pains.map((p, i) => (
-            <Reveal key={p.en} delay={i * 0.08}>
-              <div>
-                <div className="font-serif italic text-cinnabar text-[18px] mb-6">{p.n}</div>
-                <h3 className="font-serif text-[28px] leading-[1.1] tracking-[-0.02em]">{p.en}</h3>
-                <p lang="th" className="mt-4 font-thai thai-wrap text-[15px] leading-[1.65] text-muted-foreground">{p.th}</p>
+        <div className="border-t border-foreground/20 pt-12 grid grid-cols-1 md:grid-cols-[1.4fr_1fr] gap-10 md:gap-16">
+          <Reveal>
+            <p lang="th" className="editorial-quote text-[17px] md:text-[21px]">
+              ทุกแบรนด์ที่มาหาเรามีอุปสรรคของตัวเอง — คาเฟ่ที่เปิดบนถนนที่มีอีกสิบร้าน · แบรนด์แฟชันที่ต้องมีตัวตนในตลาดที่อิ่มตัว · พรรคการเมืองที่กฎหมายจำกัดเกือบทุกคำ · งานของเราเหมือนกันเสมอ: หาเรื่องที่จริง แล้ว refine มันจนคมพอจะลงในกรอบนั้นได้.
+            </p>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div className="principle-block h-full">
+              <div className="principle-block__eyebrow">— Our stance</div>
+              <div lang="th" className="principle-block__title font-thai">
+                เราไม่หนีข้อจำกัด — เราถือว่ามันคือบรีฟ.
               </div>
-            </Reveal>
-          ))}
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>
 
-    {/* 02 — OUR PROMISE */}
+    {/* 02 — WHAT WE HOLD */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <SectionLabel index="02" label="Our Promise" />
+        <SectionLabel index="02" label="What we hold" />
         <Reveal delay={0.1}>
-          <h2 lang="th" className="mt-10 h-display-md max-w-[24ch] thai-wrap">
-            แทนที่จะการันตีเป็นข้อๆ — เราขอให้คำมั่นใน <em className="italic text-cinnabar">สิ่งที่สำคัญ.</em>
+          <h2 lang="th" className="mt-10 h-display-md max-w-[22ch] thai-wrap">
+            สี่อย่างที่เรา <em className="italic text-cinnabar">ไม่ยอมต่อรอง.</em>
           </h2>
         </Reveal>
-        <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-12 border-t border-foreground/20 pt-12">
-          {promises.map((p, i) => (
-            <Reveal key={p.n} delay={i * 0.08}>
-              <div>
-                <div className="font-serif italic text-cinnabar text-[18px] mb-6">{p.n}</div>
-                <h3 className="font-serif text-[22px] md:text-[26px] leading-[1.2] tracking-[-0.015em]">{p.en}</h3>
+        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 border border-foreground/20">
+          {principles.map((p, i) => (
+            <Reveal key={p.n} delay={(i % 2) * 0.06}>
+              <div className={`p-10 md:p-12 h-full ${i % 2 === 1 ? "sm:border-l border-foreground/20" : ""} ${i >= 2 ? "border-t border-foreground/20" : ""} ${i > 0 && i < 2 ? "border-t sm:border-t-0 border-foreground/20" : ""}`}>
+                <div className="font-serif italic text-cinnabar text-[22px] leading-none">{p.n}</div>
+                <h3 lang="th" className="mt-8 font-thai text-[24px] md:text-[28px] leading-[1.1] tracking-[-0.01em] font-medium">{p.en}</h3>
                 <p lang="th" className="mt-4 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">{p.th}</p>
               </div>
             </Reveal>
           ))}
         </div>
+        <Reveal delay={0.2}>
+          <div className="mt-12 border-l-2 border-cinnabar pl-6 md:pl-8 max-w-[760px]">
+            <p lang="th" className="font-serif italic text-[17px] md:text-[21px] leading-[1.5] tracking-[-0.005em]">
+              AI ช่วยให้เราเร็วขึ้นและทดสอบได้มากขึ้น — แต่คนยังเป็นคนคิดและรับผิดชอบงาน.
+            </p>
+          </div>
+        </Reveal>
       </div>
     </section>
 
-    {/* 03 — THREE PILLARS */}
+    {/* 03 — WHEN WE'RE NOT THE ANSWER */}
     <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <SectionLabel index="03" label="How We Refine" />
+        <SectionLabel index="03" label="When we're not the answer" />
         <Reveal delay={0.1}>
-          <h2 className="mt-10 h-display-lg">สาม <em className="italic text-cinnabar">เสาหลัก.</em><br />หนึ่ง process.</h2>
+          <h2 lang="th" className="mt-10 h-display-md max-w-[24ch] thai-wrap">
+            ความซื่อสัตย์สำคัญกว่า <em className="italic text-cinnabar">การรับทุกงาน.</em>
+          </h2>
         </Reveal>
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 border border-foreground/20">
-          {pillars.map((p, i) => (
-            <Reveal key={p.en} delay={i * 0.06}>
-              <div className={`p-10 md:p-12 h-full ${i > 0 ? "md:border-l border-foreground/20 border-t md:border-t-0" : ""}`}>
-                <div className="font-serif italic text-cinnabar text-[26px] leading-none">{p.sym}</div>
-                <h3 className="mt-10 font-serif text-[26px] md:text-[30px] leading-[1.1] tracking-[-0.02em]">{p.en}</h3>
-                <p lang="th" className="mt-5 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">{p.th}</p>
+        <Reveal delay={0.15}>
+          <p lang="th" className="mt-8 max-w-[620px] font-thai thai-wrap text-[15px] md:text-[16px] leading-[1.7] text-muted-foreground">
+            เราจะบอกตรง ๆ ถ้า:
+          </p>
+        </Reveal>
+        <div className="mt-12 border-t border-foreground/20">
+          {notForYou.map((p, i) => (
+            <Reveal key={p.n} delay={i * 0.06}>
+              <div className="grid grid-cols-1 md:grid-cols-[80px_1fr] gap-4 md:gap-12 items-baseline py-8 md:py-10 border-b border-foreground/20">
+                <div className="font-serif italic text-cinnabar text-[28px] md:text-[36px] leading-none tabular-nums">{p.n}</div>
+                <p lang="th" className="font-thai thai-wrap text-[16px] md:text-[19px] leading-[1.6] text-foreground/90">{p.th}</p>
               </div>
             </Reveal>
           ))}
@@ -106,11 +118,11 @@ const About = () => (
 
     {/* 04 — CTA */}
     <CTABand
-      eyebrow="Next step"
-      title={<>See how the <em className="italic text-cinnabar">ecosystem</em> works.</>}
-      subtitle="Three divisions · one team · one invoice."
-      primary={{ label: "Browse services", to: "/services" }}
-      secondary={{ label: "Take the diagnostic", to: "/diagnostic" }}
+      eyebrow="When you're ready"
+      title={<>นั่นแหละคือ <em className="italic text-cinnabar">บรีฟ</em> ที่เราถนัด.</>}
+      subtitle="คุยฟรี 45 นาที · ไม่มีข้อผูกมัด."
+      primary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}
+      secondary={{ label: "ดูบริการของเรา", to: "/services" }}
       tone="snow"
     />
   </div>

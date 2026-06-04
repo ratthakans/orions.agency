@@ -1,10 +1,7 @@
-import workHongmove from "@/assets/hongmove.png";
+import workHongmove from "@/assets/hongmove.jpg";
 import workKhaoyai from "@/assets/golf-hero.jpg";
 import workKhaoyaiB from "@/assets/golf-clubhouse.jpg";
 import workKhaoyaiC from "@/assets/golf-lifestyle.jpg";
-import workMyHotel from "@/assets/myhotel.png";
-import workHotelB from "@/assets/hospitality-hero.jpg";
-import workHotelC from "@/assets/hospitality-lobby.jpg";
 import workRtaf from "@/assets/rtaf.jpg";
 import workDemocrat from "@/assets/democrat.jpg";
 import workHeavy from "@/assets/heavy-organizer.jpg";
@@ -15,195 +12,143 @@ import workGcoo from "@/assets/gcoo.jpg";
 export type CaseStudy = {
   slug: string;
   n: string;
+  /** Act number — 01, 02, 03 */
+  act: string;
+  /** Act narrative title */
+  actTitle: string;
   title: string;
+  /** Public domain / handle shown as a meta line */
+  domain: string;
+  /** Category label */
   niche: string;
+  /** Services applied — "Brand Strategy · Social" */
   scope: string;
   year: string;
-  impact: string;
-  impactLabel: string;
   cover: string;
   gallery: string[];
+  /** One-line essence of the engagement */
   summary: string;
-  brief: string;
-  approach: { n: string; title: string; body: string }[];
-  metrics: { value: string; label: string }[];
+  /** The constraint — the hardest part of the brief (เงื่อนไข) */
+  constraint: string;
+  /** What we did (เราทำ) */
+  whatWeDid: string;
 };
+
+/** The three acts that frame Selected Work. */
+export const acts = [
+  { n: "01", title: "เมื่อการพูดคือโจทย์ที่ยากที่สุด", lead: "บางองค์กรพูดอะไรก็ได้ บางองค์กรทุกประโยคมีกรอบ — งานคือพูดให้ทรงพลังโดยไม่ข้ามเส้น" },
+  { n: "02", title: "เมื่อต้องเปิดตลาดที่ยังไม่มีใครเชื่อ", lead: "ของใหม่ไม่ได้แพ้เพราะไม่ดี แต่แพ้เพราะความเชื่อใจยังไม่มาและกฎยังไม่เอื้อ" },
+  { n: "03", title: "เมื่อต้องเปลี่ยนภาพจำ โดยไม่ทิ้งของเดิม", lead: "การ rebrand ที่ยากที่สุดไม่ใช่การเริ่มใหม่ แต่คือการขยับภาพจำเดิมโดยไม่ทำให้คนที่รักของเดิมหาย" },
+];
 
 export const caseStudies: CaseStudy[] = [
   {
-    slug: "hongmove",
+    slug: "democrat-party",
     n: "01",
-    title: "Hongmove",
-    niche: "PropTech",
-    scope: "Brand · Web · Content",
-    year: "2024",
-    impact: "+312%",
-    impactLabel: "Sign-ups · first month",
-    cover: workHongmove,
-    gallery: [workHongmove],
-    summary: "Launch a new rental platform with a brand and content system clear enough to scale.",
-    brief:
-      "Hongmove ต้องการเปิดตัวแพลตฟอร์มเช่าที่อยู่อาศัยใหม่ในตลาดที่แออัด — เราออกแบบระบบแบรนด์ เว็บไซต์เปิดตัว และคอนเทนต์ชุดแรกเพื่อสื่อสารจุดต่างได้ตั้งแต่วันแรก",
-    approach: [
-      { n: "01", title: "Positioning", body: "เริ่มจาก audit แบรนด์คู่แข่ง 12 ราย ตกผลึก positioning หนึ่งประโยคที่ทีมทั้งบริษัทพูดได้ตรงกัน" },
-      { n: "02", title: "System", body: "สร้าง brand system + UI kit + content templates เพื่อให้ทุกชิ้นออกตลาดได้เร็วและคงเอกลักษณ์" },
-      { n: "03", title: "Launch loop", body: "วาง 6:3:1 content loop เดือนแรก พร้อม dashboard ติดตามผลแบบรายสัปดาห์" },
-    ],
-    metrics: [
-      { value: "+312%", label: "Sign-ups · first month" },
-      { value: "2.4×", label: "Organic reach vs benchmark" },
-      { value: "18 days", label: "From kickoff to launch" },
-    ],
-  },
-  {
-    slug: "khaoyai-country-club",
-    n: "02",
-    title: "Khaoyai Country Club",
-    niche: "Hospitality",
-    scope: "Photo · Video · Social",
-    year: "2024",
-    impact: "+48%",
-    impactLabel: "Member enquiries",
-    cover: workKhaoyai,
-    gallery: [workKhaoyai, workKhaoyaiB, workKhaoyaiC],
-    summary: "A lifestyle reframe for a heritage club — quiet, considered, and unmistakably premium.",
-    brief:
-      "คลับเก่าแก่ที่อยากกลับมาพูดกับสมาชิกรุ่นใหม่ — เราถ่ายภาพและวิดีโอ lifestyle ที่ละเอียดและไม่พยายามขายเกินจริง",
-    approach: [
-      { n: "01", title: "Tone", body: "เลือกโทนภาพแบบ editorial — แสงธรรมชาติ จังหวะช้า เน้นบรรยากาศมากกว่า facility list" },
-      { n: "02", title: "Production", body: "ถ่ายสองวัน ครอบคลุม clubhouse, course, และ lifestyle vignettes" },
-      { n: "03", title: "Rollout", body: "ตัด short-form 9 ชิ้น + hero film 60s + asset library สำหรับทีม sales" },
-    ],
-    metrics: [
-      { value: "+48%", label: "Member enquiries" },
-      { value: "3.1M", label: "Organic video views" },
-      { value: "2 days", label: "On location" },
-    ],
-  },
-  {
-    slug: "myhotel",
-    n: "03",
-    title: "MyHotel",
-    niche: "Hospitality",
-    scope: "Content · Paid ads",
-    year: "2024",
-    impact: "−37%",
-    impactLabel: "Cost per booking",
-    cover: workMyHotel,
-    gallery: [workMyHotel, workHotelB, workHotelC],
-    summary: "Monthly content tuned against paid performance — lower CPA, higher direct bookings.",
-    brief:
-      "MyHotel ต้องการลด cost per booking โดยไม่กระทบ direct revenue — เราดูแลคอนเทนต์รายเดือนและ Meta ads แบบ closed-loop",
-    approach: [
-      { n: "01", title: "Read the data", body: "อ่าน 90 วันย้อนหลังของ ad account แล้วจัดกลุ่ม creative ที่จริงๆ ขับ booking" },
-      { n: "02", title: "Refine the loop", body: "ผลิตคอนเทนต์ 10 ชิ้น/เดือน ทดสอบ 3 angle ทุกสัปดาห์" },
-      { n: "03", title: "Cut what's noise", body: "ตัด creative ที่ไม่ทำงานทันที — ทุกชิ้นที่อยู่ต่อ ต้องผ่าน CPA target" },
-    ],
-    metrics: [
-      { value: "−37%", label: "Cost per booking" },
-      { value: "+22%", label: "Direct bookings" },
-      { value: "6 mo", label: "On retainer" },
-    ],
+    act: "01",
+    actTitle: "เมื่อการพูดคือโจทย์ที่ยากที่สุด",
+    title: "พรรคประชาธิปัตย์",
+    domain: "democrat.or.th",
+    niche: "Politics",
+    scope: "Brand Strategy · Social",
+    year: "2023",
+    cover: workDemocrat,
+    gallery: [workDemocrat],
+    summary: "ทำการเมืองสร้างสรรค์ผ่านกิจกรรม ไม่ใช่การหาเสียง",
+    constraint:
+      "ทำการเมืองสร้างสรรค์ผ่านกิจกรรม ไม่ใช่การหาเสียง — ใต้กฎหมายเลือกตั้งและแรงต้านทางการเมือง ทุกประโยคมีกรอบ และทุกคำต้องผ่านการพิจารณาว่าเข้าข่ายหรือไม่",
+    whatWeDid:
+      "คอนเซปต์กิจกรรม + คอนเทนต์ที่สื่อสารจุดยืนโดยไม่เข้าข่ายหาเสียง — refine สารให้คมพอจะลงในกรอบที่กฎหมายอนุญาต โดยไม่สูญเสียพลังของเรื่อง",
   },
   {
     slug: "royal-thai-air-force",
-    n: "04",
-    title: "Royal Thai Air Force",
+    n: "02",
+    act: "01",
+    actTitle: "เมื่อการพูดคือโจทย์ที่ยากที่สุด",
+    title: "กองทัพอากาศ",
+    domain: "rtaf.mi.th",
     niche: "Government",
-    scope: "Film · Production · Post",
-    year: "2023",
-    impact: "2.1M",
-    impactLabel: "Views across channels",
+    scope: "Creative Production · Social",
+    year: "2024",
     cover: workRtaf,
     gallery: [workRtaf],
-    summary: "An official film, end to end — from concept through final delivery.",
-    brief:
-      "ผลิตภาพยนตร์เป็นทางการให้กับกองทัพอากาศ — ตั้งแต่ pre-production จนถึง color และ sound delivery",
-    approach: [
-      { n: "01", title: "Concept", body: "ทำงานร่วมกับทีมประชาสัมพันธ์ ตกผลึกแกนเรื่องในสองสัปดาห์" },
-      { n: "02", title: "Production", body: "ถ่ายทำในฐานทัพและภาคสนาม ใช้ทีม core 12 คน" },
-      { n: "03", title: "Post", body: "Edit, color, sound — แก้สามรอบและส่งมาสเตอร์ก่อน deadline" },
-    ],
-    metrics: [
-      { value: "2.1M", label: "Total views" },
-      { value: "1 film", label: "Hero deliverable" },
-      { value: "11 wks", label: "Concept to master" },
-    ],
+    summary: "สื่อสารข้อมูลที่ถูกต้องและน่าสนใจในภาวะตึงเครียด",
+    constraint:
+      "สื่อสารข้อมูลที่ถูกต้องและน่าสนใจในภาวะตึงเครียด — ท่ามกลางข่าวปลอมและความลับทางราชการ ที่ทั้งต้องเปิดเผยได้และต้องเร็วพอจะทันกระแส",
+    whatWeDid:
+      "คอนเทนต์ข้อมูลที่ตรวจสอบได้ + แนวทางตอบข่าวผิดแบบเรียลไทม์ในกรอบที่เปิดเผยได้ — วางระบบให้พูดได้ทันโดยไม่หลุดเส้นความมั่นคง",
   },
   {
-    slug: "democrat-party",
-    n: "05",
-    title: "Democrat Party",
-    niche: "Politics",
-    scope: "Campaign · Film · Social",
+    slug: "gcoo",
+    n: "03",
+    act: "02",
+    actTitle: "เมื่อต้องเปิดตลาดที่ยังไม่มีใครเชื่อ",
+    title: "GCOO",
+    domain: "gcoo.io",
+    niche: "Mobility",
+    scope: "Brand Strategy · Social",
     year: "2023",
-    impact: "12M+",
-    impactLabel: "Cross-platform reach",
-    cover: workDemocrat,
-    gallery: [workDemocrat],
-    summary: "National campaign creative with daily turnaround across every platform.",
-    brief:
-      "แคมเปญระดับชาติที่ต้องการความเร็วและความสม่ำเสมอ — เราดูแล creative output รายวันตลอดช่วงหาเสียง",
-    approach: [
-      { n: "01", title: "War room", body: "ตั้งทีมเฉพาะกิจ 8 คน ทำงานแบบ news desk รายวัน" },
-      { n: "02", title: "Template system", body: "วาง template ที่ทำให้ผลิต 20+ ชิ้น/วัน ได้โดยไม่หลุดแบรนด์" },
-      { n: "03", title: "Daily review", body: "Review ผลทุกเช้า ปรับ angle ทุกบ่าย" },
-    ],
-    metrics: [
-      { value: "12M+", label: "Cross-platform reach" },
-      { value: "600+", label: "Assets shipped" },
-      { value: "60 days", label: "Campaign window" },
-    ],
+    cover: workGcoo,
+    gallery: [workGcoo],
+    summary: "เปิดตลาดไทยด้วย localization + payment gateway",
+    constraint:
+      "เปิดตลาดไทยด้วย localization + payment gateway — ใต้ข้อกฎหมายและการดีลพื้นที่วางรถจริง ในตลาดที่ผู้ใช้ยังไม่เคยเชื่อใจของแบบนี้มาก่อน",
+    whatWeDid:
+      "localize แบรนด์ + คอนเทนต์เปิดตลาด + งานสื่อสารหาพาร์ตเนอร์พื้นที่ — refine เรื่องของแบรนด์ต่างชาติให้คนไทยรู้สึกว่าเป็นของที่นี่",
+  },
+  {
+    slug: "hongmove",
+    n: "04",
+    act: "02",
+    actTitle: "เมื่อต้องเปิดตลาดที่ยังไม่มีใครเชื่อ",
+    title: "HONG MOVE",
+    domain: "hongmove.co.th",
+    niche: "Airport Mobility",
+    scope: "Brand Strategy · Creative Production",
+    year: "2025",
+    cover: workHongmove,
+    gallery: [workHongmove],
+    summary: "เปิดตัว taxi VIP EV ใน AOT พร้อมวางระบบความเป็นไปได้",
+    constraint:
+      "เปิดตัว taxi VIP EV ใน AOT พร้อมวางระบบความเป็นไปได้ — ผู้ใช้หลากภาษาในบริบทสนามบินที่ทุกคนต้องเข้าใจได้ทันทีในไม่กี่วินาที",
+    whatWeDid:
+      "งานสื่อสารและคอนเทนต์ 4 ภาษา (มาเลย์ · จีน · อาหรับ · ฮินดี) สำหรับบริบทสนามบิน — refine สารให้สั้น คม และข้ามกำแพงภาษาได้",
+  },
+  {
+    slug: "khaoyai-country-club",
+    n: "05",
+    act: "03",
+    actTitle: "เมื่อต้องเปลี่ยนภาพจำ โดยไม่ทิ้งของเดิม",
+    title: "เขาใหญ่ คันทรี่คลับ",
+    domain: "brc-kycgolf.com",
+    niche: "Leisure Golf",
+    scope: "Brand Strategy · Creative Production",
+    year: "2024",
+    cover: workKhaoyai,
+    gallery: [workKhaoyai, workKhaoyaiB, workKhaoyaiC],
+    summary: "ปรับมุมมองสู่ leisure golf โดยไม่เสียภาพลักษณ์เดิม",
+    constraint:
+      "ปรับมุมมองสู่ leisure golf โดยไม่เสียภาพลักษณ์เดิม — ท่ามกลางการเมืองในสนามและการบริหารแบบแยกส่วน ที่ทุกฝ่ายต้องยอมรับร่วมกันก่อนจะสื่อสารออกไปได้",
+    whatWeDid:
+      "หา positioning ใหม่ที่ทุกฝ่ายยอมรับร่วมกัน ก่อนสื่อสารออกไป — ขยับภาพจำเดิมทีละขั้น โดยไม่ทำให้คนที่รักของเดิมหาย",
   },
   {
     slug: "heavy-organizer",
     n: "06",
-    title: "Heavy Organizer",
-    niche: "Events",
-    scope: "Brand · Event film · Recap",
+    act: "03",
+    actTitle: "เมื่อต้องเปลี่ยนภาพจำ โดยไม่ทิ้งของเดิม",
+    title: "HEAVY ORGANIZER",
+    domain: "heavyorganizer.com",
+    niche: "Music Festival",
+    scope: "Creative Production · Social",
     year: "2024",
-    impact: "+88%",
-    impactLabel: "Next-show conversion",
     cover: workHeavy,
     gallery: [workHeavy, workHeavyB, workHeavyC],
-    summary: "Recap films that actually sold the next show.",
-    brief:
-      "Heavy ต้องการ recap ที่ไม่ใช่แค่ highlight reel — แต่ขายตั๋วโชว์ถัดไปได้จริง",
-    approach: [
-      { n: "01", title: "Story arc", body: "ตั้ง narrative ก่อนเริ่มถ่าย — ทุก shot ต้องตอบโจทย์เรื่องที่จะเล่า" },
-      { n: "02", title: "Live coverage", body: "ทีม 6 คน ครอบคลุม stage + crowd + backstage" },
-      { n: "03", title: "48h turnaround", body: "ส่ง recap ภายใน 48 ชม. หลังโชว์จบ — ใช้ momentum ของกระแสจริง" },
-    ],
-    metrics: [
-      { value: "+88%", label: "Next-show conversion" },
-      { value: "48h", label: "Recap turnaround" },
-      { value: "5 shows", label: "Across the season" },
-    ],
-  },
-  {
-    slug: "gcoo",
-    n: "07",
-    title: "GCOO",
-    niche: "Mobility",
-    scope: "Brand · Launch campaign",
-    year: "2023",
-    impact: "+540%",
-    impactLabel: "App downloads",
-    cover: workGcoo,
-    gallery: [workGcoo],
-    summary: "Launch campaign for an e-scooter sharing app — brand, OOH, and social.",
-    brief:
-      "GCOO เข้าตลาดไทยครั้งแรก — เราออกแบบ launch campaign ที่ทำงานบน OOH, social และ in-app พร้อมกัน",
-    approach: [
-      { n: "01", title: "Local insight", body: "สัมภาษณ์ผู้ใช้ในกรุงเทพและภูเก็ตก่อนเริ่ม creative" },
-      { n: "02", title: "Hero campaign", body: "วาง hero film + 6 cut-down + OOH 4 design" },
-      { n: "03", title: "Always-on", body: "ส่งต่อให้ทีม in-house พร้อม playbook สำหรับเดือนถัดไป" },
-    ],
-    metrics: [
-      { value: "+540%", label: "App downloads" },
-      { value: "9 cities", label: "OOH coverage" },
-      { value: "1 quarter", label: "From brief to launch" },
-    ],
+    summary: "เทศกาลดนตรีสีเขียว carbon ต่ำ ที่ต้องการความร่วมมือจากผู้ร่วมงาน",
+    constraint:
+      "เทศกาลดนตรีสีเขียว carbon ต่ำ — ต้องสร้างความตระหนักและความร่วมมือจากผู้ร่วมงาน โดยไม่ทำให้ความยั่งยืนกลายเป็นเรื่องน่าเบื่อที่บดบังความสนุก",
+    whatWeDid:
+      "เล่าเรื่องความยั่งยืนให้เป็นส่วนหนึ่งของความสนุก + แคมเปญกระตุ้นการมีส่วนร่วม — ทำให้คนอยากร่วมมือเพราะรู้สึกเป็นเจ้าของ ไม่ใช่เพราะถูกบอกให้ทำ",
   },
 ];
 

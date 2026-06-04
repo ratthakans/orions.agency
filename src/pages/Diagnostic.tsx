@@ -1,9 +1,31 @@
 import { useMemo, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ArrowUpRight, RotateCcw } from "lucide-react";
+import { ArrowUpRight, RotateCcw, Calendar, Printer } from "lucide-react";
+import { z } from "zod";
+import { toast } from "sonner";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
+import FAQ from "@/components/FAQ";
+import { supabase } from "@/integrations/supabase/client";
+import { CAL_URL } from "@/lib/config";
+import { track } from "@/lib/analytics";
+
+const leadSchema = z.object({
+  name:  z.string().trim().min(1, "ใส่ชื่อด้วยนะ").max(100),
+  brand: z.string().trim().min(1, "ใส่ชื่อแบรนด์").max(150),
+  email: z.string().trim().email("อีเมลไม่ถูกต้อง").max(255),
+  note:  z.string().trim().max(1500).optional(),
+});
+
+const auditFaqs = [
+  { q: "ใช้เวลานานไหม?",
+    a: "18 คำถาม ราว 3 นาที. ตอบตามจริงพอ ไม่ต้องเตรียมข้อมูลอะไรล่วงหน้า — ได้คะแนนทันทีหลังตอบจบ." },
+  { q: "ฟรีจริงไหม? มีข้อผูกมัดไหม?",
+    a: "ฟรีจริง ทั้งแบบทดสอบและการนัดคุยผล 45 นาที — ไม่มีข้อผูกมัด. ถ้าเราไม่ใช่คำตอบ เราจะบอกตรง ๆ." },
+  { q: "นัดคุยผลแล้วได้อะไร?",
+    a: "เราอ่านผลของคุณ แล้วชวนคุยว่าจุดอ่อน 3 อันดับแรกควรเริ่มแก้ตรงไหนก่อน และทางไหนเหมาะกับเงื่อนไขของคุณที่สุด." },
+];
 
 /* 6 axes, 3 questions each = 18 questions */
 const axes = [
@@ -183,10 +205,18 @@ const Diagnostic = () => {
   const currentAxis = q ? axes[q.axis] : null;
 
   const select = (points: number) => {
+    if (answers.every((a) => a == null)) track("AuditStart");
     const next = [...answers];
     next[step] = points;
     setAnswers(next);
   };
+
+  // Lead capture (shown after the result)
+  const [lead, setLead] = useState({ name: "", brand: "", email: "", note: "" });
+  const [leadErrors, setLeadErrors] = useState<Record<string, string>>({});
+  const [leadSending, setLeadSending] = useState(false);
+  const [leadHp, setLeadHp] = useState(""); // honeypot
+  const [unlocked, setUnlocked] = useState(false); // result revealed after email gate
 
   const canContinue = answers[step] != null;
   const next = () => {
@@ -209,6 +239,55 @@ const Diagnostic = () => {
   }, [step, answers, isResult]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const result = tierFor(overallPct);
+
+  // Fire AuditComplete once when the result screen appears
+  useEffect(() => {
+    if (isResult) track("AuditComplete", { score: overallPct, tier: result.tier });
+  }, [isResult]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const weakest = useMemo(
+    () =>
+      [...axisScores]
+        .map((a) => ({ name: axes[a.axis].name, pct: a.max ? Math.round((a.score / a.max) * 100) : 0 }))
+        .sort((a, b) => a.pct - b.pct)
+        .slice(0, 3),
+    [axisScores],
+  );
+
+  const submitLead = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (leadHp) { setUnlocked(true); return; } // bot — unlock without storing
+    const parsed = leadSchema.safeParse(lead);
+    if (!parsed.success) {
+      const errs: Record<string, string> = {};
+      for (const i of parsed.error.issues) {
+        const k = i.path[0] as string;
+        if (k && !errs[k]) errs[k] = i.message;
+      }
+      setLeadErrors(errs);
+      return;
+    }
+    setLeadErrors({});
+    setLeadSending(true);
+    const gaps = weakest.map((w) => `${w.name} ${w.pct}%`).join(", ");
+    const brief =
+      `[BRAND AUDIT] Score ${overallPct}/100 · ${result.tier}. Weakest: ${gaps}.` +
+      (parsed.data.note ? ` — ${parsed.data.note}` : "");
+    const { error } = await supabase.from("contact_inquiries").insert({
+      name: parsed.data.name,
+      company: parsed.data.brand,
+      email: parsed.data.email,
+      brief: brief.slice(0, 2000),
+    });
+    setLeadSending(false);
+    if (error) {
+      toast.error("ส่งไม่สำเร็จ ลองใหม่ หรืออีเมลหาเราที่ hello@orions.agency");
+      return;
+    }
+    track("AuditLeadSubmit", { score: overallPct, tier: result.tier });
+    setUnlocked(true);
+    toast.success("ปลดล็อกผลแล้ว — เลื่อนดูคะแนนแต่ละมิติได้เลย");
+  };
 
   return (
     <div>
@@ -234,6 +313,23 @@ const Diagnostic = () => {
             <p lang="th" className="mt-5 max-w-[680px] font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.7] text-muted-foreground">
               18 คำถาม · ใช้เวลา 3 นาที · ตอบตามจริง ไม่มีถูกผิด — ได้คะแนนแต่ละมิติ + ทางที่เหมาะกับคุณ ไม่มีข้อผูกมัด.
             </p>
+          </Reveal>
+
+          {/* What you get */}
+          <Reveal delay={0.3}>
+            <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 border-t border-foreground/20">
+              {[
+                { n: "01", t: "คะแนนเทียบ 6 มิติ", d: "เห็นภาพรวมว่าแบรนด์แข็ง/อ่อนตรงไหน" },
+                { n: "02", t: "จุดอ่อน 3 อันดับแรก", d: "รู้ว่าควรลงมือแก้อะไรก่อน" },
+                { n: "03", t: "ทางที่เหมาะกับคุณ", d: "เราบอกตรง ๆ ว่าควรเริ่มตรงไหน" },
+              ].map((w, i) => (
+                <div key={w.n} className={`py-6 md:py-7 md:px-6 ${i > 0 ? "border-t sm:border-t-0 sm:border-l border-foreground/20" : "md:pl-0"}`}>
+                  <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">— {w.n}</div>
+                  <h3 lang="th" className="mt-4 font-thai text-[16px] md:text-[18px] font-medium leading-[1.3]">{w.t}</h3>
+                  <p lang="th" className="mt-2 font-thai thai-wrap text-[13px] leading-[1.6] text-muted-foreground">{w.d}</p>
+                </div>
+              ))}
+            </div>
           </Reveal>
         </div>
       </section>
@@ -289,12 +385,10 @@ const Diagnostic = () => {
             </div>
           )}
 
-          {/* RESULT */}
+          {/* FREE — overall score + tier, shown to everyone who finishes */}
           {isResult && (
             <div className="mt-12 text-center">
               <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">Your Brand Health Score</div>
-
-              {/* Radial */}
               <div className="mt-10 relative inline-block">
                 <svg viewBox="0 0 280 280" width="240" height="240">
                   <circle cx="140" cy="140" r="120" fill="none" stroke="hsl(var(--foreground) / 0.12)" strokeWidth="10" />
@@ -312,7 +406,57 @@ const Diagnostic = () => {
                   <div className="mt-2 font-mono text-[9px] tracking-[0.22em] uppercase text-muted-foreground">Refined Quality</div>
                 </div>
               </div>
+              <div className="mt-10">
+                <div className="font-serif italic text-cinnabar text-[28px] md:text-[36px] tracking-[-0.01em]">{result.tier}</div>
+                <p lang="th" className="mt-4 max-w-[560px] mx-auto font-thai text-[14px] md:text-[16px] leading-[1.7] text-muted-foreground">{result.summary}</p>
+              </div>
+            </div>
+          )}
 
+          {/* GATE — email unlocks the detailed breakdown */}
+          {isResult && !unlocked && (
+            <div className="mt-12 max-w-[640px] mx-auto text-center">
+              <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">— ดูเชิงลึก</div>
+              <h2 lang="th" className="mt-6 h-display-sm">
+                เห็นคะแนนแล้ว — <em className="italic text-cinnabar">ลงรายละเอียด</em> ต่อไหม?
+              </h2>
+              <p lang="th" className="mt-4 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">
+                กรอกอีเมลเพื่อปลดล็อก: คะแนนรายมิติ 6 ด้าน · จุดอ่อน 3 อันดับแรก · ทางที่เหมาะกับคุณ — แล้วเรานัดคุยผลให้.
+              </p>
+              <form onSubmit={submitLead} noValidate className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-5 text-left">
+                {[
+                  { k: "name",  label: "ชื่อ",   ph: "ชื่อของคุณ",       span: "sm:col-span-1" },
+                  { k: "brand", label: "แบรนด์", ph: "ชื่อแบรนด์/บริษัท", span: "sm:col-span-1" },
+                  { k: "email", label: "อีเมล",  ph: "you@brand.com",   span: "sm:col-span-2" },
+                ].map((f) => (
+                  <div key={f.k} className={f.span}>
+                    <label lang="th" className="font-mono text-[10px] tracking-[0.14em] uppercase text-foreground/70">{f.label}</label>
+                    <input
+                      type={f.k === "email" ? "email" : "text"}
+                      value={lead[f.k as keyof typeof lead]}
+                      onChange={(e) => setLead({ ...lead, [f.k]: e.target.value })}
+                      placeholder={f.ph}
+                      className="w-full bg-transparent border-b border-foreground/40 px-0 py-3 text-[15px] text-foreground placeholder:text-foreground/40 focus:outline-none focus:border-cinnabar transition-colors font-thai"
+                    />
+                    {leadErrors[f.k] && <p lang="th" className="mt-2 font-mono text-[10px] tracking-[0.12em] uppercase text-destructive">{leadErrors[f.k]}</p>}
+                  </div>
+                ))}
+                <div aria-hidden className="hidden" style={{ position: "absolute", left: "-9999px" }}>
+                  <label>Website<input type="text" tabIndex={-1} autoComplete="off" value={leadHp} onChange={(e) => setLeadHp(e.target.value)} /></label>
+                </div>
+                <button type="submit" disabled={leadSending} className="btn-accent sm:col-span-2 mt-2 justify-center disabled:opacity-50">
+                  <span>{leadSending ? "กำลังปลดล็อก…" : "ดูผลของฉัน"}</span><ArrowUpRight className="w-4 h-4" />
+                </button>
+              </form>
+              <p lang="th" className="mt-4 font-thai text-[12px] text-muted-foreground">
+                ไม่สแปม · ใช้สำหรับส่งผลและนัดคุยเท่านั้น · <Link to="/privacy" className="underline hover:text-cinnabar">นโยบายความเป็นส่วนตัว</Link>
+              </p>
+            </div>
+          )}
+
+          {/* DETAILS — gated breakdown */}
+          {isResult && unlocked && (
+            <div className="mt-16 text-center">
               {/* Radar — 6 axes */}
               {(() => {
                 const cx = 140, cy = 140, R = 110;
@@ -348,11 +492,6 @@ const Diagnostic = () => {
                   </div>
                 );
               })()}
-
-              <div className="mt-10">
-                <div className="font-serif italic text-cinnabar text-[28px] md:text-[36px] tracking-[-0.01em]">{result.tier}</div>
-                <p lang="th" className="mt-4 max-w-[560px] mx-auto font-thai text-[14px] md:text-[16px] leading-[1.7] text-muted-foreground">{result.summary}</p>
-              </div>
 
               {/* Per-axis insight cards */}
               <div className="mt-16 text-left">
@@ -436,7 +575,37 @@ const Diagnostic = () => {
                 );
               })()}
 
-              <div className="mt-14 flex flex-wrap items-center justify-center gap-5">
+              {/* Book the audit call (email already captured at the gate) */}
+              <div className="mt-16 text-left max-w-[860px] mx-auto bg-surface border border-foreground/15 p-8 md:p-12">
+                <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar flex items-center gap-3">
+                  <span className="block w-6 h-px bg-cinnabar" />
+                  ขั้นต่อไป
+                </div>
+                <div className="mt-6 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+                  <div>
+                    <h3 lang="th" className="h-display-sm max-w-[20ch]">
+                      นัดคุยผล <em className="italic text-cinnabar">45 นาที</em> ฟรี.
+                    </h3>
+                    <p lang="th" className="mt-4 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground max-w-[52ch]">
+                      เราอ่านผลของคุณมาก่อน แล้วชวนคุยว่าจะเริ่ม refine ตรงไหน — เห็นคะแนนนี้ติดไปด้วย คุยได้ตรงจุด ไม่มีข้อผูกมัด.
+                    </p>
+                  </div>
+                  <a
+                    href={CAL_URL}
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={() => track("BookClick", { from: "result" })}
+                    className="btn-accent shrink-0 inline-flex"
+                  >
+                    <span>เลือกเวลาที่สะดวก</span><Calendar className="w-4 h-4" />
+                  </a>
+                </div>
+              </div>
+
+              <div className="mt-14 flex flex-wrap items-center justify-center gap-8">
+                <button onClick={() => window.print()} className="group inline-flex items-center gap-2 btn-label text-muted-foreground hover:text-foreground transition-colors">
+                  <Printer className="w-3.5 h-3.5" /> บันทึก / พิมพ์ผล
+                </button>
                 <button onClick={restart} className="group inline-flex items-center gap-2 btn-label text-muted-foreground hover:text-foreground transition-colors">
                   <RotateCcw className="w-3.5 h-3.5" /> Take again
                 </button>
@@ -453,6 +622,19 @@ const Diagnostic = () => {
               </button>
             </div>
           )}
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
+        <div className="max-w-[1080px] mx-auto py-20 md:py-28">
+          <SectionLabel index="02" label="Before you ask" />
+          <Reveal delay={0.05}>
+            <h2 className="mt-10 h-display-md">
+              The short <em className="italic text-cinnabar">answers.</em>
+            </h2>
+          </Reveal>
+          <div className="mt-14"><FAQ items={auditFaqs} /></div>
         </div>
       </section>
     </div>

@@ -48,11 +48,16 @@ const Index = () => (
           </p>
         </Reveal>
         <Reveal delay={0.5}>
-          <Magnetic strength={10} className="mt-10 inline-block">
-            <Link to="/contact" className="btn-primary">
+          <div className="mt-10 flex flex-col sm:flex-row items-center gap-4">
+            <Magnetic strength={10} className="inline-block">
+              <Link to="/diagnostic" className="btn-primary">
+                <span>นัด Brand Audit</span><ArrowUpRight className="w-4 h-4" />
+              </Link>
+            </Magnetic>
+            <Link to="/contact" className="btn-ghost">
               <span>เริ่มต้นบทสนทนา</span><ArrowUpRight className="w-4 h-4" />
             </Link>
-          </Magnetic>
+          </div>
         </Reveal>
       </div>
 
@@ -215,11 +220,11 @@ const Index = () => (
 
     {/* 06 — CTA */}
     <CTABand
-      eyebrow="Start a conversation"
-      title={<>เล่าโจทย์และเงื่อนไขมา — เราช่วยมองว่าจะ <em className="italic text-cinnabar">refine</em> มันยังไง.</>}
-      subtitle="คุยฟรี 45 นาที · ไม่มีข้อผูกมัด."
-      primary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}
-      secondary={{ label: "ดูบริการของเรา", to: "/services" }}
+      eyebrow="Brand audit"
+      title={<>ไม่แน่ใจว่าควรเริ่มตรงไหน? <em className="italic text-cinnabar">เริ่มที่นี่.</em></>}
+      subtitle="ตอบ 18 ข้อ · 3 นาที · ฟรี — แล้วเรานัดคุยผล 45 นาทีให้. หรือทักมาคุยเลยก็ได้."
+      primary={{ label: "ทำ Brand Audit", to: "/diagnostic" }}
+      secondary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}
       tone="snow"
     />
   </div>

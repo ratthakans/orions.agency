@@ -183,9 +183,9 @@ const Consulting = () => (
     <CTABand
       eyebrow="Start a conversation"
       title={<>อยากได้สายตา senior มา <em className="italic text-cinnabar">มองทิศทาง</em>?</>}
-      subtitle="คุยฟรี 45 นาที · ไม่มีข้อผูกมัด."
+      subtitle="คุยฟรี 45 นาที ไม่มีข้อผูกมัด — หรือทำ Brand Audit ก่อนก็ได้ จะได้คุยตรงจุด."
       primary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}
-      secondary={{ label: "ดูบริการ agency", to: "/services" }}
+      secondary={{ label: "ทำ Brand Audit", to: "/diagnostic" }}
       tone="snow"
     />
   </div>

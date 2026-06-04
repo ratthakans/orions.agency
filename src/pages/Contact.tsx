@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { ArrowUpRight, MessageCircle, Calendar } from "lucide-react";
 import { z } from "zod";
 import Reveal from "@/components/Reveal";
@@ -7,6 +8,7 @@ import SectionLabel from "@/components/SectionLabel";
 import FAQ from "@/components/FAQ";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import { track } from "@/lib/analytics";
 
 const inquirySchema = z.object({
   name:    z.string().trim().min(1, "Please tell us your name").max(100),
@@ -36,9 +38,15 @@ const Contact = () => {
   const [form, setForm] = useState({ name: "", company: "", email: "", brief: "" });
   const [errors, setErrors] = useState<FieldErrors>({});
   const [submitting, setSubmitting] = useState(false);
+  const [hp, setHp] = useState(""); // honeypot — humans never fill this
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (hp) { // bot filled the hidden field — pretend success, drop silently
+      toast.success("ได้รับข้อมูลแล้ว — ทีม ØRIONS จะติดต่อกลับภายใน 24 ชม.");
+      setForm({ name: "", company: "", email: "", brief: "" });
+      return;
+    }
     const parsed = inquirySchema.safeParse(form);
     if (!parsed.success) {
       const fieldErrors: FieldErrors = {};
@@ -59,6 +67,7 @@ const Contact = () => {
       toast.error("ส่งไม่สำเร็จ ลองใหม่หรืออีเมลหาเราที่ hello@orions.agency");
       return;
     }
+    track("ContactSubmit");
     toast.success("ได้รับข้อมูลแล้ว — ทีม ØRIONS จะติดต่อกลับภายใน 24 ชม.");
     setForm({ name: "", company: "", email: "", brief: "" });
   };
@@ -185,9 +194,16 @@ const Contact = () => {
                   />
                   {errors.brief && <p className="mt-2 font-mono text-[10px] tracking-[0.15em] uppercase text-destructive">{errors.brief}</p>}
                 </div>
+                {/* honeypot — hidden from humans */}
+                <div aria-hidden className="hidden" style={{ position: "absolute", left: "-9999px" }}>
+                  <label>Website<input type="text" tabIndex={-1} autoComplete="off" value={hp} onChange={(e) => setHp(e.target.value)} /></label>
+                </div>
                 <button type="submit" disabled={submitting} className="btn-accent md:col-span-2 mt-4 justify-center disabled:opacity-50">
                   <span>{submitting ? "Sending…" : "Send inquiry"}</span><ArrowUpRight className="w-4 h-4" />
                 </button>
+                <p lang="th" className="md:col-span-2 font-thai text-[12px] leading-[1.6] text-muted-foreground">
+                  การส่งฟอร์มถือว่ายอมรับ <Link to="/privacy" className="underline hover:text-cinnabar">นโยบายความเป็นส่วนตัว</Link> · เราใช้ข้อมูลเพื่อติดต่อกลับเท่านั้น ไม่สแปม
+                </p>
               </form>
             </div>
 

@@ -9,6 +9,14 @@ import workHeavyB from "@/assets/concert-crowd.jpg";
 import workHeavyC from "@/assets/concert-backstage.jpg";
 import workGcoo from "@/assets/gcoo.jpg";
 
+// PLACEHOLDER gallery frames — thematically-adjacent stand-ins.
+// → Replace with each case's real images before launch.
+import phStreet from "@/assets/hero-street.jpg";
+import phCrosswalk from "@/assets/pov-crosswalk.jpg";
+import phTech from "@/assets/tech-hero.jpg";
+import phSignal from "@/assets/studio-no-signal.jpg";
+import phTaxi from "@/assets/approach-taxi.jpg";
+
 export type CaseStudy = {
   slug: string;
   n: string;
@@ -53,7 +61,7 @@ export const caseStudies: CaseStudy[] = [
     scope: "Brand Strategy · Social",
     year: "2023",
     cover: workDemocrat,
-    gallery: [workDemocrat],
+    gallery: [workDemocrat, phStreet, phCrosswalk], // placeholder frames
     summary: "ทำการเมืองสร้างสรรค์ผ่านกิจกรรม ไม่ใช่การหาเสียง",
     constraint:
       "ทำการเมืองสร้างสรรค์ผ่านกิจกรรม ไม่ใช่การหาเสียง — ใต้กฎหมายเลือกตั้งและแรงต้านทางการเมือง ทุกประโยคมีกรอบ และทุกคำต้องผ่านการพิจารณาว่าเข้าข่ายหรือไม่",
@@ -71,7 +79,7 @@ export const caseStudies: CaseStudy[] = [
     scope: "Creative Production · Social",
     year: "2024",
     cover: workRtaf,
-    gallery: [workRtaf],
+    gallery: [workRtaf, phTech, phSignal], // placeholder frames
     summary: "สื่อสารข้อมูลที่ถูกต้องและน่าสนใจในภาวะตึงเครียด",
     constraint:
       "สื่อสารข้อมูลที่ถูกต้องและน่าสนใจในภาวะตึงเครียด — ท่ามกลางข่าวปลอมและความลับทางราชการ ที่ทั้งต้องเปิดเผยได้และต้องเร็วพอจะทันกระแส",
@@ -89,7 +97,7 @@ export const caseStudies: CaseStudy[] = [
     scope: "Brand Strategy · Social",
     year: "2023",
     cover: workGcoo,
-    gallery: [workGcoo],
+    gallery: [workGcoo, phTaxi, phCrosswalk], // placeholder frames
     summary: "เปิดตลาดไทยด้วย localization + payment gateway",
     constraint:
       "เปิดตลาดไทยด้วย localization + payment gateway — ใต้ข้อกฎหมายและการดีลพื้นที่วางรถจริง ในตลาดที่ผู้ใช้ยังไม่เคยเชื่อใจของแบบนี้มาก่อน",
@@ -107,7 +115,7 @@ export const caseStudies: CaseStudy[] = [
     scope: "Brand Strategy · Creative Production",
     year: "2025",
     cover: workHongmove,
-    gallery: [workHongmove],
+    gallery: [workHongmove, phTaxi, phStreet], // placeholder frames
     summary: "เปิดตัว taxi VIP EV ใน AOT พร้อมวางระบบความเป็นไปได้",
     constraint:
       "เปิดตัว taxi VIP EV ใน AOT พร้อมวางระบบความเป็นไปได้ — ผู้ใช้หลากภาษาในบริบทสนามบินที่ทุกคนต้องเข้าใจได้ทันทีในไม่กี่วินาที",

@@ -2,6 +2,22 @@ import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
 import CTABand from "@/components/CTABand";
+import teamCd from "@/assets/team-cd.jpg";
+import teamStrategist from "@/assets/team-strategist.jpg";
+import teamArtDirector from "@/assets/team-artdirector.jpg";
+import teamProducer from "@/assets/team-producer.jpg";
+import teamDop from "@/assets/team-dop.jpg";
+import teamEditor from "@/assets/team-editor.jpg";
+
+// NOTE: placeholder portraits by role — swap with real team photos/names before launch.
+const people = [
+  { role: "Creative Director",         img: teamCd },
+  { role: "Strategist",                img: teamStrategist },
+  { role: "Art Director",              img: teamArtDirector },
+  { role: "Producer",                  img: teamProducer },
+  { role: "Director of Photography",   img: teamDop },
+  { role: "Editor",                    img: teamEditor },
+];
 
 const principles = [
   { n: "i.",   en: "พูดตรง",              th: "บอกข้อจำกัดครบทั้งสองด้าน ถ้ายังไม่พร้อม เราบอกตรง ๆ" },
@@ -89,10 +105,44 @@ const About = () => (
       </div>
     </section>
 
-    {/* 03 — WHEN WE'RE NOT THE ANSWER */}
+    {/* 03 — PEOPLE / STUDIO */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+        <SectionLabel index="03" label="The studio" />
+        <Reveal delay={0.1}>
+          <h2 lang="th" className="mt-10 h-display-md max-w-[24ch] thai-wrap">
+            คนยังเป็นคนคิด — และ <em className="italic text-cinnabar">รับผิดชอบงาน.</em>
+          </h2>
+        </Reveal>
+        <Reveal delay={0.15}>
+          <p lang="th" className="mt-6 max-w-[640px] font-thai thai-wrap text-[15px] md:text-[16px] leading-[1.7] text-muted-foreground">
+            ทีมเดียวตั้งแต่กลยุทธ์ถึงการผลิต — strategist, creative director, art director, producer, ช่างภาพ และ editor ที่อยู่กับงานของคุณจริง ไม่ใช่สายพาน.
+          </p>
+        </Reveal>
+        <div className="mt-14 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-5">
+          {people.map((p, i) => (
+            <Reveal key={p.role} delay={(i % 6) * 0.05}>
+              <div className="group">
+                <div className="relative w-full overflow-hidden bg-muted" style={{ aspectRatio: "3 / 4" }}>
+                  <img
+                    src={p.img}
+                    alt={p.role}
+                    loading="lazy"
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-500"
+                  />
+                </div>
+                <div className="mt-3 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">{p.role}</div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* 04 — WHEN WE'RE NOT THE ANSWER */}
     <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <SectionLabel index="03" label="When we're not the answer" />
+        <SectionLabel index="04" label="When we're not the answer" />
         <Reveal delay={0.1}>
           <h2 lang="th" className="mt-10 h-display-md max-w-[24ch] thai-wrap">
             ความซื่อสัตย์สำคัญกว่า <em className="italic text-cinnabar">การรับทุกงาน.</em>
@@ -120,9 +170,9 @@ const About = () => (
     <CTABand
       eyebrow="When you're ready"
       title={<>นั่นแหละคือ <em className="italic text-cinnabar">บรีฟ</em> ที่เราถนัด.</>}
-      subtitle="คุยฟรี 45 นาที · ไม่มีข้อผูกมัด."
-      primary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}
-      secondary={{ label: "ดูบริการของเรา", to: "/services" }}
+      subtitle="ไม่แน่ใจว่าควรเริ่มตรงไหน? ทำ Brand Audit 3 นาที — หรือทักมาคุยเลย."
+      primary={{ label: "ทำ Brand Audit", to: "/diagnostic" }}
+      secondary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}
       tone="snow"
     />
   </div>

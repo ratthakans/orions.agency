@@ -48,26 +48,26 @@ const Nav = () => {
             </NavLink>
           ))}
           <NavLink
-            to="/diagnostic"
+            to="/contact"
             className={({ isActive }) =>
               `font-mono text-[10px] tracking-[0.22em] uppercase transition-colors ${
                 isActive ? "text-cinnabar" : "text-foreground/55 hover:text-cinnabar"
               }`
             }
           >
-            Brand audit ↗
+            Contact
           </NavLink>
           <NavLink
-            to="/contact"
+            to="/diagnostic"
             className={({ isActive }) =>
               `ml-2 inline-flex items-center gap-2 px-3 py-2 font-mono text-[10px] tracking-[0.22em] uppercase border transition-colors ${
                 isActive
                   ? "bg-cinnabar text-background border-cinnabar"
-                  : "border-foreground text-foreground hover:bg-cinnabar hover:border-cinnabar hover:text-background"
+                  : "border-cinnabar text-cinnabar hover:bg-cinnabar hover:text-background"
               }`
             }
           >
-            Contact →
+            Brand audit ↗
           </NavLink>
         </nav>
 

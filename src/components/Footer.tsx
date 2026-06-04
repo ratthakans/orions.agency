@@ -6,6 +6,7 @@ const navLinks = [
   { to: "/services", label: "Services" },
   { to: "/consulting", label: "Consulting" },
   { to: "/work", label: "Work" },
+  { to: "/journal", label: "Journal" },
   { to: "/diagnostic", label: "Brand audit" },
   { to: "/contact", label: "Contact" },
 ];
@@ -137,7 +138,10 @@ const Footer = () => {
         {/* Legal */}
         <div className="mt-10 pt-5 border-t border-background/15 flex items-center justify-between gap-4 font-mono text-[10px] tracking-[0.18em] uppercase opacity-50">
           <p>© {year} ØRIONS — All rights reserved.</p>
-          <p>Stories, refined. · Est. 2026</p>
+          <div className="flex items-center gap-5">
+            <Link to="/privacy" className="hover:opacity-100 hover:text-cinnabar transition-colors">Privacy</Link>
+            <p>Stories, refined. · Est. 2026</p>
+          </div>
         </div>
       </div>
     </footer>

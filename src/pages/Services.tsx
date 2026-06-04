@@ -60,7 +60,7 @@ const Services = () => (
         </Reveal>
         <Reveal delay={0.15}>
           <p lang="th" className="mt-8 max-w-[700px] font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.7] text-foreground/80">
-            ครีเอทีฟเอเจนซีในกรุงเทพฯ ที่รวม Brand Strategy · Creative Production · Social Media Marketing ไว้ในทีมเดียว · บ้านเดิมของเราคือ F&amp;B แฟชัน และ hospitality — และวิธีคิดเดียวกันนี้ใช้ได้กับโจทย์ที่ยากกว่านั้น.
+            ครีเอทีฟเอเจนซีในกรุงเทพฯ ที่รวม Brand Strategy · Creative Production · Social Media Marketing ไว้ในทีมเดียว · บ้านเดิมของเราคือ F&amp;B แฟชัน และ hospitality — แล้ววิธีคิดเดียวกันนี้ก็พาเราไปทำงานที่มีกรอบหนักกว่า ตั้งแต่การเมือง ราชการ ไปจนถึงการเปิดตลาดใหม่ (ดูได้ในงานของเรา).
           </p>
         </Reveal>
       </div>
@@ -167,9 +167,9 @@ const Services = () => (
     <CTABand
       eyebrow="Start a conversation"
       title={<>เล่าโจทย์มา — เราจะ <em className="italic text-cinnabar">refine</em> มันให้คม.</>}
-      subtitle="คุยฟรี 45 นาที · ไม่มีข้อผูกมัด."
-      primary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}
-      secondary={{ label: "ดูผลงานของเรา", to: "/work" }}
+      subtitle="ไม่แน่ใจว่าควรเริ่มตรงไหน? ทำ Brand Audit 3 นาที — หรือทักมาคุยเลย."
+      primary={{ label: "ทำ Brand Audit", to: "/diagnostic" }}
+      secondary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}
       tone="snow"
     />
   </div>

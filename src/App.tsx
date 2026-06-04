@@ -17,6 +17,8 @@ const CaseStudy = lazy(() => import("./pages/CaseStudy"));
 const Consulting = lazy(() => import("./pages/Consulting"));
 const Diagnostic = lazy(() => import("./pages/Diagnostic"));
 const Contact = lazy(() => import("./pages/Contact"));
+const Journal = lazy(() => import("./pages/Journal"));
+const Privacy = lazy(() => import("./pages/Privacy"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -38,6 +40,8 @@ const App = () => (
             <Route path="/work/:slug" element={<CaseStudy />} />
             <Route path="/consulting" element={<Consulting />} />
             <Route path="/diagnostic" element={<Diagnostic />} />
+            <Route path="/journal" element={<Journal />} />
+            <Route path="/privacy" element={<Privacy />} />
             <Route path="/contact" element={<Contact />} />
 
             {/* Legacy paths → fold into the new structure */}

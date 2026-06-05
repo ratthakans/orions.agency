@@ -113,87 +113,105 @@ const faqs = [
     a: "มี — 90-Day Promise (Digital) และ Brand Lift Promise (Boutique) · ไม่ถึงเป้าเรารับผิดชอบ. ถ้ายังไม่พร้อม เราบอกตรง ๆ และยังไม่รับงาน." },
 ];
 
-const TrackCard = ({ t, i }: { t: typeof tracks[number]; i: number }) => {
+const TRACK_NAMES = ["Digital", "Boutique", "Hybrid"] as const;
+const goalOf: Record<string, string> = { Digital: "ยอด", Boutique: "แบรนด์", Hybrid: "ทั้งคู่" };
+
+type Cmp = { label: string; size?: boolean; price?: boolean; v: Record<string, string | Record<Size, string>> };
+const compareRows: Cmp[] = [
+  { label: "ราคา / เดือน", size: true, price: true, v: {
+    Digital:  { S: "฿24,900", M: "฿49,900", L: "฿99,900" },
+    Boutique: { S: "฿24,900", M: "฿49,900", L: "฿99,900" },
+    Hybrid:   { S: "฿32,900", M: "฿64,900", L: "฿129,900" },
+  }},
+  { label: "เป้า · ยอด / แบรนด์", v: { Digital: "70 / 30", Boutique: "30 / 70", Hybrid: "50 / 50" } },
+  { label: "เหมาะถ้า", v: { Digital: "อยากได้ยอดเดี๋ยวนี้", Boutique: "อยากให้แบรนด์ถูกจำ", Hybrid: "อยากได้ทั้งคู่" } },
+  { label: "Ads · static / video", size: true, v: {
+    Digital:  { S: "14 / 5", M: "24 / 8", L: "32 / 10" },
+    Boutique: { S: "6 / 2",  M: "10 / 4", L: "12 / 4" },
+    Hybrid:   { S: "8 / 3",  M: "12 / 5", L: "20 / 8" },
+  }},
+  { label: "Organic · reel / post", size: true, v: {
+    Digital:  { S: "5 / 8",   M: "10 / 12", L: "12 / 14" },
+    Boutique: { S: "10 / 14", M: "20 / 20", L: "24 / 24" },
+    Hybrid:   { S: "5 / 6",   M: "9 / 10",  L: "14 / 14" },
+  }},
+  { label: "ถ่ายของจริง", size: true, v: {
+    Digital:  { S: "0.5 วัน", M: "1 วัน", L: "2 วัน" },
+    Boutique: { S: "0.5 วัน", M: "1 วัน", L: "2 วัน" },
+    Hybrid:   { S: "0.5 วัน", M: "1 วัน", L: "2 วัน" },
+  }},
+  { label: "บริหารแอด (เพดาน)", size: true, v: {
+    Digital:  { S: "฿50k", M: "฿120k", L: "฿250k" },
+    Boutique: { S: "฿30k", M: "฿30k",  L: "฿30k" },
+    Hybrid:   { S: "฿50k", M: "฿120k", L: "฿250k" },
+  }},
+  { label: "การันตี", v: { Digital: "90-Day", Boutique: "Brand Lift", Hybrid: "ทั้งคู่" } },
+  { label: "สัญญาขั้นต่ำ", size: true, v: {
+    Digital:  { S: "3 ด.", M: "3 ด.", L: "6 ด." },
+    Boutique: { S: "3 ด.", M: "3 ด.", L: "6 ด." },
+    Hybrid:   { S: "3 ด.", M: "3 ด.", L: "6 ด." },
+  }},
+];
+
+const ComparisonTable = () => {
   const [size, setSize] = useState<Size>("S");
-  const lower = size.toLowerCase() as "s" | "m" | "l";
   return (
-    <Reveal delay={i * 0.06}>
-      <div className="border border-foreground/20 bg-background p-7 md:p-10">
-        {/* Header */}
-        <div className="flex items-start justify-between gap-4 flex-wrap">
-          <div>
-            <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">Track {t.num}</div>
-            <h2 className="mt-2 text-[28px] md:text-[36px] leading-none tracking-[-0.02em] font-semibold">{t.name}</h2>
-            <div className="mt-2 font-serif italic text-cinnabar text-[16px] md:text-[18px]">{t.tagline}</div>
-          </div>
-          <div className="min-w-[180px]">
-            <div className="flex h-1.5 overflow-hidden">
-              <span className="bg-cinnabar" style={{ width: `${t.sales}%` }} />
-              <span className="bg-foreground/20" style={{ width: `${t.brand}%` }} />
-            </div>
-            <div className="mt-2 flex justify-between font-mono text-[9px] tracking-[0.14em] uppercase text-muted-foreground">
-              <span>ยอด {t.sales}</span><span>แบรนด์ {t.brand}</span>
-            </div>
-          </div>
-        </div>
-
-        <p lang="th" className="mt-5 font-thai thai-wrap text-[14px] leading-[1.7] text-muted-foreground">
-          <span className="text-foreground">{t.forWhat}</span> · ข้อจำกัด: {t.constraint}
-        </p>
-
-        {/* Size selector + price */}
-        <div className="mt-7 grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-5 sm:items-end border-t border-foreground/15 pt-7">
-          <div className="inline-flex border border-foreground/30">
-            {SIZES.map((s) => (
-              <button
-                key={s}
-                type="button"
-                onClick={() => setSize(s)}
-                className={`px-5 py-2.5 font-mono text-[12px] tracking-[0.1em] transition-colors ${
-                  size === s ? "bg-cinnabar text-background" : "text-foreground/60 hover:text-foreground"
-                } ${s !== "S" ? "border-l border-foreground/30" : ""}`}
-              >
-                {s}{s === "S" ? " ★" : ""}
-              </button>
-            ))}
-          </div>
-          <div className="flex items-baseline gap-3">
-            <span className="num-display text-[40px] md:text-[48px] text-cinnabar">{t.prices[size]}</span>
-            <span className="font-mono text-[11px] tracking-[0.16em] uppercase text-muted-foreground">/ เดือน</span>
-          </div>
-        </div>
-        <div lang="th" className="mt-2 font-mono text-[10px] tracking-[0.12em] uppercase text-muted-foreground">
-          {t.contract[size]} · {t.adCap[size]}
-        </div>
-
-        {/* Deliverables — selected size highlighted */}
-        <ul className="mt-7 border-t border-foreground/15">
-          {t.rows.map((r) => (
-            <li key={r.k} className="grid grid-cols-[1fr_auto_auto_auto] gap-x-3 md:gap-x-6 items-center py-2.5 border-b border-foreground/10 text-[12px] md:text-[13px]">
-              <span lang="th" className="font-thai text-foreground/85">{r.k}</span>
-              {(["s", "m", "l"] as const).map((col) => (
-                <span
-                  key={col}
-                  className={`w-[64px] md:w-[96px] text-right font-mono tracking-[0.02em] ${
-                    col === lower ? "text-cinnabar font-medium" : "text-muted-foreground/70"
-                  }`}
-                >
-                  {r[col]}
-                </span>
-              ))}
-            </li>
+    <div>
+      <div className="flex items-center gap-4 mb-7">
+        <span lang="th" className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">เลือกขนาด</span>
+        <div className="inline-flex border border-foreground/30">
+          {SIZES.map((s) => (
+            <button key={s} type="button" onClick={() => setSize(s)}
+              className={`px-6 py-2.5 font-mono text-[12px] tracking-[0.1em] transition-colors ${size === s ? "bg-cinnabar text-background" : "text-foreground/60 hover:text-foreground"} ${s !== "S" ? "border-l border-foreground/30" : ""}`}>
+              {s}{s === "S" ? " ★" : ""}
+            </button>
           ))}
-        </ul>
-
-        <p lang="th" className="mt-5 font-thai thai-wrap text-[12px] leading-[1.6] text-muted-foreground">
-          <span className="font-mono text-[9px] tracking-[0.22em] uppercase text-cinnabar">— Promise</span>&nbsp;&nbsp;{t.promise}
-        </p>
-
-        <Link to="/contact" className="mt-7 btn-accent justify-between w-full sm:w-auto">
-          <span>เลือก {t.name} · {size}</span><ArrowUpRight className="w-4 h-4" />
-        </Link>
+        </div>
       </div>
-    </Reveal>
+
+      <div className="overflow-x-auto -mx-6 px-6 md:mx-0 md:px-0">
+        <table className="w-full min-w-[680px] border-collapse">
+          <thead>
+            <tr className="border-b-2 border-foreground">
+              <th className="text-left py-4 pr-4 align-bottom w-[180px]" />
+              {TRACK_NAMES.map((name) => (
+                <th key={name} className="text-left py-4 px-4 align-bottom">
+                  <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-cinnabar">{goalOf[name]}</div>
+                  <div className="mt-1 text-[18px] md:text-[22px] font-semibold tracking-[-0.01em]">{name}</div>
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {compareRows.map((row) => (
+              <tr key={row.label} className={`border-b border-foreground/12 ${row.price ? "bg-cinnabar/[0.05]" : ""}`}>
+                <td lang="th" className="py-3.5 pr-4 font-thai text-[13px] text-foreground/75 align-middle">{row.label}</td>
+                {TRACK_NAMES.map((name) => {
+                  const raw = row.v[name];
+                  const val = row.size ? (raw as Record<Size, string>)[size] : (raw as string);
+                  return (
+                    <td key={name} className={`py-3.5 px-4 align-middle ${row.price ? "num-display text-[22px] md:text-[26px] text-cinnabar" : "font-mono text-[13px] text-foreground/90"}`}>
+                      {val}
+                    </td>
+                  );
+                })}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+        {TRACK_NAMES.map((name) => (
+          <Link key={name} to="/contact" className="btn-ghost justify-between">
+            <span>เลือก {name} · {size}</span><ArrowUpRight className="w-4 h-4" />
+          </Link>
+        ))}
+      </div>
+      <p lang="th" className="mt-5 font-mono text-[10px] tracking-[0.12em] uppercase text-muted-foreground">
+        ราคาไม่รวม VAT 7% · ไม่รวม ad spend · ★ S = ไซส์ยอดนิยม
+      </p>
+    </div>
   );
 };
 
@@ -227,18 +245,69 @@ const Package = () => (
       </div>
     </section>
 
-    {/* 02 — TRACKS */}
+    {/* 02 — THE CHOICE (easy chooser) */}
     <section className="px-6 md:px-10">
-      <div className="max-w-[1280px] mx-auto py-16 md:py-24 grid grid-cols-1 gap-6 md:gap-8">
-        {tracks.map((t, i) => <TrackCard key={t.name} t={t} i={i} />)}
+      <div className="max-w-[1280px] mx-auto py-20 md:py-24">
+        <SectionLabel index="02" label="The choice" />
+        <Reveal delay={0.05}>
+          <h2 lang="th" className="mt-10 h-display-md max-w-[22ch] thai-wrap">
+            ตอนนี้คุณต้องการ <em className="italic text-cinnabar">อะไร?</em>
+          </h2>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <p lang="th" className="mt-6 max-w-[640px] font-thai thai-wrap text-[15px] leading-[1.7] text-muted-foreground">
+            ตอบคำถามเดียวก่อนเริ่ม — แล้วเลือก track ที่ตรงกับเป้าหมายตอนนี้.
+          </p>
+        </Reveal>
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
+          {tracks.map((t, i) => (
+            <Reveal key={t.name} delay={i * 0.07}>
+              <div className="h-full flex flex-col border border-foreground/20 p-7 md:p-9">
+                <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">Track {t.num}</div>
+                <div lang="th" className="mt-5 h-display-sm leading-none">{goalOf[t.name]}<span className="text-cinnabar">.</span></div>
+                <h3 className="mt-3 text-[22px] font-semibold tracking-[-0.01em]">{t.name}</h3>
+                <div className="font-serif italic text-cinnabar text-[15px]">{t.tagline}</div>
+                <div className="mt-5">
+                  <div className="flex h-1.5 overflow-hidden">
+                    <span className="bg-cinnabar" style={{ width: `${t.sales}%` }} />
+                    <span className="bg-foreground/15" style={{ width: `${t.brand}%` }} />
+                  </div>
+                  <div className="mt-2 flex justify-between font-mono text-[9px] tracking-[0.14em] uppercase text-muted-foreground"><span>ยอด {t.sales}</span><span>แบรนด์ {t.brand}</span></div>
+                </div>
+                <p lang="th" className="mt-5 font-thai thai-wrap text-[14px] leading-[1.7] text-muted-foreground flex-1">
+                  {t.forWhat} · <span className="text-foreground/55">ข้อจำกัด: {t.constraint}</span>
+                </p>
+                <div lang="th" className="mt-6 pt-5 border-t border-foreground/15 font-mono text-[11px] tracking-[0.04em] text-foreground/70">
+                  เริ่ม <span className="text-cinnabar">{t.prices.S}</span> / เดือน
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+        <Reveal delay={0.2}>
+          <p lang="th" className="mt-8 font-serif italic text-[15px] md:text-[18px] text-muted-foreground max-w-[60ch]">
+            Digital เหยียบคันเร่ง · Boutique วางรากฐาน · Hybrid ขับไปสร้างถนนไป.
+          </p>
+        </Reveal>
       </div>
     </section>
 
-    {/* 03 — ADD-ONS + PRODUCTION */}
+    {/* 03 — COMPARISON */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+        <SectionLabel index="03" label="Compare" />
+        <Reveal delay={0.05}>
+          <h2 lang="th" className="mt-10 h-display-md">เทียบกันชัด ๆ — <em className="italic text-cinnabar">เลือกขนาดได้.</em></h2>
+        </Reveal>
+        <div className="mt-12"><ComparisonTable /></div>
+      </div>
+    </section>
+
+    {/* 04 — ADD-ONS + PRODUCTION */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
         <div>
-          <SectionLabel index="02" label="Add-on menu" />
+          <SectionLabel index="04" label="Add-on menu" />
           <Reveal delay={0.05}>
             <h2 lang="th" className="mt-8 h-display-sm">เสริมได้ตามต้องการ.</h2>
           </Reveal>
@@ -252,7 +321,7 @@ const Package = () => (
           </dl>
         </div>
         <div>
-          <SectionLabel index="03" label="ORIONS Production" />
+          <SectionLabel index="05" label="ORIONS Production" />
           <Reveal delay={0.05}>
             <h2 lang="th" className="mt-8 h-display-sm">มี brief แล้ว ขาดทีมออกกอง.</h2>
           </Reveal>
@@ -274,10 +343,10 @@ const Package = () => (
       </div>
     </section>
 
-    {/* 04 — HOW WE WORK */}
-    <section className="px-6 md:px-10 border-t border-foreground/15">
+    {/* 06 — HOW WE WORK */}
+    <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <SectionLabel index="04" label="How we work" />
+        <SectionLabel index="06" label="How we work" />
         <Reveal delay={0.05}>
           <h2 lang="th" className="mt-10 h-display-md">จาก kickoff ถึง <em className="italic text-cinnabar">optimize.</em></h2>
         </Reveal>
@@ -295,10 +364,10 @@ const Package = () => (
       </div>
     </section>
 
-    {/* 05 — FAQ */}
-    <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
+    {/* 07 — FAQ */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1080px] mx-auto py-20 md:py-28">
-        <SectionLabel index="05" label="Before you ask" />
+        <SectionLabel index="07" label="Before you ask" />
         <Reveal delay={0.05}>
           <h2 className="mt-10 h-display-md">The short <em className="italic text-cinnabar">answers.</em></h2>
         </Reveal>

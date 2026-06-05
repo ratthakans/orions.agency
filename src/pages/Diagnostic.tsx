@@ -149,7 +149,7 @@ const recommendPath = (pct: number) => {
   if (pct >= 85) return {
     label: "ถ้าจะร่วมงานกับเรา",
     name: "Scale & deepen",
-    pkg: { name: "Scale", price: "~฿139,000 / เดือน" },
+    pkg: { name: "Hybrid · L", price: "฿129,900 / เดือน" },
     why: "คุณ refined แล้ว — สิ่งที่เหลือคือ scale ความสม่ำเสมอและ deepen ความสัมพันธ์กับ audience. เหมาะกับ Social retainer ต่อเนื่อง หรือ Consulting มากำกับทิศทางระยะยาว.",
     primary: { label: "ดู Consulting", to: "/consulting" },
     secondary: { label: "เริ่มต้นบทสนทนา", to: "/contact" },
@@ -158,7 +158,7 @@ const recommendPath = (pct: number) => {
   if (pct >= 65) return {
     label: "ถ้าจะร่วมงานกับเรา",
     name: "Sharpen the edge",
-    pkg: { name: "Growth", price: "~฿69,000 / เดือน" },
+    pkg: { name: "Hybrid · M", price: "฿64,900 / เดือน" },
     why: "ฐานคุณดี — เหลือ sharpen creative และ tighten data loop. เหมาะกับ Brand Strategy เก็บ positioning ให้คม + Social ที่ผูกกับผลที่วัดได้.",
     primary: { label: "ดูบริการของเรา", to: "/services" },
     secondary: { label: "เริ่มต้นบทสนทนา", to: "/contact" },
@@ -167,7 +167,7 @@ const recommendPath = (pct: number) => {
   if (pct >= 45) return {
     label: "ถ้าจะร่วมงานกับเรา",
     name: "Build the system",
-    pkg: { name: "Growth", price: "~฿69,000 / เดือน" },
+    pkg: { name: "Boutique · M", price: "฿49,900 / เดือน" },
     why: "คุณอยู่ในช่วงสร้างระบบ — ต้องการ framework และ rhythm. เหมาะกับการทำงานเป็นทีมเดียวตั้งแต่ Brand Strategy ถึง Production และ Social.",
     primary: { label: "ดูบริการของเรา", to: "/services" },
     secondary: { label: "เริ่มต้นบทสนทนา", to: "/contact" },
@@ -176,7 +176,7 @@ const recommendPath = (pct: number) => {
   return {
     label: "ถ้าจะร่วมงานกับเรา",
     name: "Start from clarity",
-    pkg: { name: "Starter", price: "~฿35,000 / เดือน" },
+    pkg: { name: "Boutique · S", price: "฿24,900 / เดือน" },
     why: "ยังอยู่จุดเริ่มต้น — เริ่มจาก clarity ของแบรนด์ก่อน. เหมาะกับ Brand Strategy: หาเรื่องที่ใช่ ก่อนจะเร่งผลิตหรือยิงแอด.",
     primary: { label: "เริ่มที่ Brand Strategy", to: "/services" },
     secondary: { label: "เริ่มต้นบทสนทนา", to: "/contact" },

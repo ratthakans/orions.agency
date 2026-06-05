@@ -149,6 +149,7 @@ const recommendPath = (pct: number) => {
   if (pct >= 85) return {
     label: "ถ้าจะร่วมงานกับเรา",
     name: "Scale & deepen",
+    pkg: { name: "Scale", price: "~฿139,000 / เดือน" },
     why: "คุณ refined แล้ว — สิ่งที่เหลือคือ scale ความสม่ำเสมอและ deepen ความสัมพันธ์กับ audience. เหมาะกับ Social retainer ต่อเนื่อง หรือ Consulting มากำกับทิศทางระยะยาว.",
     primary: { label: "ดู Consulting", to: "/consulting" },
     secondary: { label: "เริ่มต้นบทสนทนา", to: "/contact" },
@@ -157,6 +158,7 @@ const recommendPath = (pct: number) => {
   if (pct >= 65) return {
     label: "ถ้าจะร่วมงานกับเรา",
     name: "Sharpen the edge",
+    pkg: { name: "Growth", price: "~฿69,000 / เดือน" },
     why: "ฐานคุณดี — เหลือ sharpen creative และ tighten data loop. เหมาะกับ Brand Strategy เก็บ positioning ให้คม + Social ที่ผูกกับผลที่วัดได้.",
     primary: { label: "ดูบริการของเรา", to: "/services" },
     secondary: { label: "เริ่มต้นบทสนทนา", to: "/contact" },
@@ -165,6 +167,7 @@ const recommendPath = (pct: number) => {
   if (pct >= 45) return {
     label: "ถ้าจะร่วมงานกับเรา",
     name: "Build the system",
+    pkg: { name: "Growth", price: "~฿69,000 / เดือน" },
     why: "คุณอยู่ในช่วงสร้างระบบ — ต้องการ framework และ rhythm. เหมาะกับการทำงานเป็นทีมเดียวตั้งแต่ Brand Strategy ถึง Production และ Social.",
     primary: { label: "ดูบริการของเรา", to: "/services" },
     secondary: { label: "เริ่มต้นบทสนทนา", to: "/contact" },
@@ -173,6 +176,7 @@ const recommendPath = (pct: number) => {
   return {
     label: "ถ้าจะร่วมงานกับเรา",
     name: "Start from clarity",
+    pkg: { name: "Starter", price: "~฿35,000 / เดือน" },
     why: "ยังอยู่จุดเริ่มต้น — เริ่มจาก clarity ของแบรนด์ก่อน. เหมาะกับ Brand Strategy: หาเรื่องที่ใช่ ก่อนจะเร่งผลิตหรือยิงแอด.",
     primary: { label: "เริ่มที่ Brand Strategy", to: "/services" },
     secondary: { label: "เริ่มต้นบทสนทนา", to: "/contact" },
@@ -564,6 +568,15 @@ const Diagnostic = () => {
                     </div>
                     <h3 className="mt-6 font-serif text-[34px] md:text-[44px] tracking-[-0.02em] leading-[1.05]">{rec.name}</h3>
                     <p lang="th" className="mt-6 font-thai text-[14px] md:text-[16px] leading-[1.7] text-foreground/85 max-w-[640px]">{rec.why}</p>
+
+                    {/* Suggested package (rough) */}
+                    <Link to="/package" className="mt-7 inline-flex items-center gap-4 border border-foreground/20 hover:border-cinnabar transition-colors px-5 py-4 group">
+                      <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">แพ็กเกจที่น่าจะเหมาะ</span>
+                      <span className="font-serif italic text-cinnabar text-[20px] md:text-[22px]">{rec.pkg.name}</span>
+                      <span lang="th" className="font-mono text-[11px] tracking-[0.04em] text-foreground/70">{rec.pkg.price}</span>
+                      <ArrowUpRight className="w-4 h-4 text-foreground/50 group-hover:text-cinnabar transition-colors" />
+                    </Link>
+
                     <div className="mt-8 flex flex-wrap gap-5">
                       <Link to={rec.primary.to} className="btn-accent"><span>{rec.primary.label}</span><ArrowUpRight className="w-4 h-4" /></Link>
                       <Link to={rec.secondary.to} className="group inline-flex items-center gap-2 btn-label border-b border-foreground/60 pb-1 text-foreground hover:text-cinnabar hover:border-cinnabar transition-colors">{rec.secondary.label} →</Link>

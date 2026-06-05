@@ -66,8 +66,8 @@ const About = () => (
           <Reveal delay={0.1}>
             <div className="principle-block h-full">
               <div className="principle-block__eyebrow">— Our stance</div>
-              <div lang="th" className="principle-block__title font-thai">
-                เราไม่หนีข้อจำกัด — เราถือว่ามันคือบรีฟ.
+              <div lang="th" className="mt-6 font-thai thai-wrap text-[26px] md:text-[34px] leading-[1.25] font-medium tracking-[0]">
+                เราไม่หนีข้อจำกัด — <span className="text-cinnabar">เราถือว่ามันคือบรีฟ.</span>
               </div>
             </div>
           </Reveal>

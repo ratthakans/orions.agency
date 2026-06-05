@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { Plus } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
@@ -41,6 +43,48 @@ const services = [
   },
 ];
 
+// Click-to-expand list of the three services
+const ServicesAccordion = () => {
+  const [open, setOpen] = useState<number | null>(0);
+  return (
+    <div className="border-t border-foreground/20">
+      {services.map((s, i) => {
+        const isOpen = open === i;
+        return (
+          <div key={s.n} className="border-b border-foreground/20">
+            <button
+              type="button"
+              onClick={() => setOpen(isOpen ? null : i)}
+              aria-expanded={isOpen}
+              className="group w-full text-left grid grid-cols-[52px_1fr_auto] md:grid-cols-[120px_1fr_auto] gap-5 md:gap-12 items-center py-8 md:py-11"
+            >
+              <div className="font-serif italic text-cinnabar text-[34px] md:text-[60px] leading-none tabular-nums">{s.n}</div>
+              <div>
+                <h2 className="text-[24px] md:text-[40px] leading-[1.0] tracking-[-0.03em] font-semibold">{s.en}</h2>
+                <div lang="th" className="mt-2 font-serif italic text-cinnabar text-[16px] md:text-[22px]">{s.tag}</div>
+              </div>
+              <span className={`shrink-0 transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`}>
+                <Plus className="w-6 h-6 md:w-8 md:h-8 text-foreground/55 group-hover:text-cinnabar transition-colors" />
+              </span>
+            </button>
+            <div className={`grid transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
+              <div className="overflow-hidden">
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 pb-10 md:pb-14 md:pl-[132px] max-w-[760px]">
+                  {s.items.map((it) => (
+                    <li key={it} lang="th" className="font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.6] text-foreground/85 grid grid-cols-[12px_1fr] gap-3">
+                      <span className="text-cinnabar mt-1">·</span><span>{it}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
 const Services = () => (
   <div>
     <SEO
@@ -69,26 +113,10 @@ const Services = () => (
     {/* 02 — THE THREE SERVICES */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <div className="border-t border-foreground/20">
-          {services.map((s, i) => (
-            <Reveal key={s.n} delay={i * 0.06}>
-              <div className="grid grid-cols-1 md:grid-cols-[120px_1fr_1.4fr] gap-6 md:gap-12 items-start py-12 md:py-16 border-b border-foreground/20">
-                <div className="font-serif italic text-cinnabar text-[40px] md:text-[64px] leading-none tabular-nums">{s.n}</div>
-                <div>
-                  <h2 className="text-[28px] md:text-[40px] leading-[1.0] tracking-[-0.03em] font-semibold">{s.en}</h2>
-                  <div lang="th" className="mt-3 font-serif italic text-cinnabar text-[18px] md:text-[22px]">{s.tag}</div>
-                </div>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 md:pt-2">
-                  {s.items.map((it) => (
-                    <li key={it} lang="th" className="font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.6] text-foreground/85 grid grid-cols-[12px_1fr] gap-3">
-                      <span className="text-cinnabar mt-1">·</span><span>{it}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </Reveal>
-          ))}
+        <div className="flex items-end justify-between gap-4 flex-wrap mb-2">
+          <p lang="th" className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">กดเพื่อดูรายละเอียด</p>
         </div>
+        <ServicesAccordion />
       </div>
     </section>
 
@@ -132,17 +160,15 @@ const Services = () => (
             สี่สัปดาห์ · <em className="italic text-cinnabar">หนึ่งทีม.</em>
           </h2>
         </Reveal>
-        <div className="mt-14">
+        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t border-l border-foreground/20">
           {process.map((s, i) => (
-            <Reveal key={s.n} delay={i * 0.05}>
-              <div className="process-row grid grid-cols-1 md:grid-cols-[1fr_auto] gap-3 md:gap-12 items-baseline">
-                <div>
-                  <h3 className="process-row__title">
-                    <span className="process-row__index">{s.n}</span>{s.k}
-                  </h3>
-                  <p lang="th" className="process-row__body font-thai thai-wrap text-[14px] md:text-[15px]">{s.d}</p>
-                </div>
-                <div lang="th" className="process-row__meta shrink-0">{s.week}</div>
+            <Reveal key={s.n} delay={i * 0.06}>
+              <div className="h-full p-8 md:p-10 border-b border-r border-foreground/20">
+                <div lang="th" className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">{s.week}</div>
+                <h3 className="mt-6 process-row__title">
+                  <span className="process-row__index">{s.n}</span>{s.k}
+                </h3>
+                <p lang="th" className="mt-3 process-row__body font-thai thai-wrap text-[14px] md:text-[15px]">{s.d}</p>
               </div>
             </Reveal>
           ))}

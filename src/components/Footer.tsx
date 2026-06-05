@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 const navLinks = [
   { to: "/about", label: "About" },
   { to: "/services", label: "Services" },
+  { to: "/package", label: "Package" },
   { to: "/consulting", label: "Consulting" },
   { to: "/work", label: "Work" },
   { to: "/journal", label: "Journal" },
@@ -123,16 +124,6 @@ const Footer = () => {
               </div>
             </Link>
           ))}
-        </div>
-
-        {/* Signature wordmark */}
-        <div className="mt-16 md:mt-20 overflow-hidden" aria-hidden>
-          <div
-            className="font-brand text-background leading-[0.78] text-center select-none whitespace-nowrap"
-            style={{ fontSize: "clamp(58px, 17.5vw, 248px)", letterSpacing: "-0.01em" }}
-          >
-            ØRIONS
-          </div>
         </div>
 
         {/* Legal */}

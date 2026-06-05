@@ -22,12 +22,12 @@ const SimpleMarquee = ({ items, duration = 35, className }: Props) => {
       >
         {doubled.map((it, i) => (
           <span key={i} className="flex items-center" aria-hidden={i >= items.length}>
-            <span className="group/item inline-block px-10 md:px-14">
-              <span className="font-display text-[13px] md:text-[15px] tracking-[0.14em] uppercase text-background/55 transition-colors duration-300 group-hover/item:text-orion">
+            <span className="inline-block px-10 md:px-14">
+              <span className="font-display text-[13px] md:text-[15px] tracking-[0.14em] uppercase text-foreground/60">
                 {it}
               </span>
             </span>
-            <span className="text-background/30 select-none">✦</span>
+            <span className="text-cinnabar/70 select-none">✦</span>
           </span>
         ))}
       </div>

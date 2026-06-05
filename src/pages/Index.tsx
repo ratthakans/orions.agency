@@ -9,7 +9,7 @@ import Magnetic from "@/components/Magnetic";
 import HeroHeadline from "@/components/HeroHeadline";
 import { caseStudies } from "@/data/caseStudies";
 
-const selectedWork = caseStudies.slice(0, 3);
+const selectedWork = caseStudies; // all 6, revealed gradually on scroll
 
 const marquee = [
   "Stories, refined.",
@@ -104,34 +104,33 @@ const Index = () => (
       </div>
     </section>
 
-    {/* 03 — STORIES, REFINED (two-step) */}
+    {/* 02 — BRAND AUDIT */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <SectionLabel index="02" label="Stories, refined." />
-        <Reveal delay={0.1}>
-          <h2 lang="th" className="mt-10 h-display-md max-w-[24ch] thai-wrap">
-            ยิ่งโจทย์มีกรอบ การ refine ยิ่ง <em className="italic text-cinnabar">สำคัญ.</em>
-          </h2>
-        </Reveal>
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 border border-foreground/20">
-          {[
-            { n: "i.", en: "ขัดจนเงา", th: "craft · ดีไซน์ · ระบบแบรนด์" },
-            { n: "ii.", en: "ปรับจนเข้าที่", th: "ทดสอบ · วัดผล · ปรับจริงต่อเนื่อง" },
-          ].map((s, i) => (
-            <Reveal key={s.en} delay={i * 0.08}>
-              <div className={`p-10 md:p-12 h-full ${i > 0 ? "border-t md:border-t-0 md:border-l border-foreground/20" : ""}`}>
-                <div className="font-serif italic text-cinnabar text-[26px] leading-none">{s.n}</div>
-                <h3 lang="th" className="mt-8 font-thai text-[26px] md:text-[30px] leading-[1.1] tracking-[-0.01em] font-medium">{s.en}</h3>
-                <p lang="th" className="mt-4 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">{s.th}</p>
-              </div>
+      <div className="max-w-[1280px] mx-auto py-20 md:py-24">
+        <SectionLabel index="02" label="Brand audit" />
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-[1.3fr_1fr] gap-10 md:gap-16 items-end">
+          <div>
+            <Reveal delay={0.05}>
+              <h2 lang="th" className="h-display-md max-w-[22ch] thai-wrap">
+                ไม่แน่ใจว่าควรเริ่มตรงไหน? — ตอบ 18 คำถาม <em className="italic text-cinnabar">3 นาที.</em>
+              </h2>
             </Reveal>
-          ))}
+            <Reveal delay={0.1}>
+              <p lang="th" className="mt-6 max-w-[54ch] font-thai thai-wrap text-[15px] md:text-[16px] leading-[1.7] text-muted-foreground">
+                ตรวจแบรนด์ของคุณใน 6 มิติ — ได้คะแนนทันที + จุดอ่อน 3 อันดับแรก แล้วเราจะบอกตรง ๆ ว่าทางไหนเหมาะกับคุณที่สุด · ไม่มีข้อผูกมัด.
+              </p>
+            </Reveal>
+          </div>
+          <Reveal delay={0.15}>
+            <div className="md:text-right">
+              <Magnetic strength={8} className="inline-block">
+                <Link to="/diagnostic" className="btn-primary">
+                  <span>ทำ Brand Audit</span><ArrowUpRight className="w-4 h-4" />
+                </Link>
+              </Magnetic>
+            </div>
+          </Reveal>
         </div>
-        <Reveal delay={0.2}>
-          <p lang="th" className="mt-10 font-serif italic text-[16px] md:text-[20px] leading-[1.5] text-muted-foreground max-w-[60ch]">
-            เพราะเมื่อพูดได้แค่ไม่กี่คำ ทุกคำต้องคม.
-          </p>
-        </Reveal>
       </div>
     </section>
 
@@ -178,53 +177,32 @@ const Index = () => (
             เลือกมาเพราะแต่ละชิ้นมีเงื่อนไขที่ทำให้วิธีคิดของเราเห็นชัด — ไม่ใช่เพราะงบใหญ่ที่สุด.
           </p>
         </Reveal>
-        <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
-          {selectedWork.map((w) => (
-            <Link key={w.slug} to={`/work/${w.slug}`} className="group relative block overflow-hidden border border-foreground/15 bg-foreground/[0.04] aspect-[4/5]">
-              <img src={w.cover} alt={w.title} loading="lazy" className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-[filter,opacity] duration-700" />
-              <div className="absolute left-0 right-0 bottom-0 p-5 flex flex-col gap-1 bg-gradient-to-t from-background/85 to-transparent">
-                <span lang="th" className="font-serif text-[19px] md:text-[21px] tracking-[-0.01em] text-foreground">{w.n} — {w.title}</span>
-                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-foreground/70">{w.niche} · {w.year}</span>
-              </div>
-            </Link>
-          ))}
+        {/* Auto-scroll carousel — slides right → left; pause on hover to click */}
+        <div className="mt-12 md:mt-16 marquee" style={{ maskImage: "linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent)" }}>
+          <ul className="work-marquee flex shrink-0 gap-4 md:gap-5">
+            {[...selectedWork, ...selectedWork].map((w, i) => (
+              <li key={`${w.slug}-${i}`} className="shrink-0 w-[260px] sm:w-[320px] md:w-[400px]" aria-hidden={i >= selectedWork.length}>
+                <Link to={`/work/${w.slug}`} className="group relative block overflow-hidden border border-foreground/15 bg-foreground/[0.04] aspect-[4/5]">
+                  <img src={w.cover} alt={w.title} loading="lazy" className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-[1.03] transition-[filter,opacity,transform] duration-700" />
+                  <div className="absolute left-0 right-0 bottom-0 p-5 flex flex-col gap-1 bg-gradient-to-t from-background/85 to-transparent">
+                    <span lang="th" className="font-serif text-[19px] md:text-[21px] tracking-[-0.01em] text-foreground">{w.n} — {w.title}</span>
+                    <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-foreground/70">{w.niche} · {w.year}</span>
+                  </div>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
 
-    {/* — DIAGNOSTIC INVITE */}
-    <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-16 md:py-20 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
-        <div>
-          <SectionLabel label="Brand audit" />
-          <Reveal delay={0.05}>
-            <h2 lang="th" className="mt-6 h-display-sm max-w-[24ch] thai-wrap">
-              ไม่แน่ใจว่าควรเริ่มตรงไหน? — ตอบ 18 คำถาม <em className="italic text-cinnabar">3 นาที.</em>
-            </h2>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <p lang="th" className="mt-4 max-w-[52ch] font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">
-              ตรวจแบรนด์ของคุณใน 6 มิติ แล้วเราจะบอกตรง ๆ ว่าทางไหนเหมาะกับคุณที่สุด — ไม่มีข้อผูกมัด.
-            </p>
-          </Reveal>
-        </div>
-        <Reveal delay={0.15}>
-          <Magnetic strength={8} className="inline-block shrink-0">
-            <Link to="/diagnostic" className="btn-primary">
-              <span>ทำ Brand audit</span><ArrowUpRight className="w-4 h-4" />
-            </Link>
-          </Magnetic>
-        </Reveal>
-      </div>
-    </section>
-
-    {/* 06 — CTA */}
+    {/* 06 — CTA (contact close — Brand Audit already has its own section above) */}
     <CTABand
-      eyebrow="Brand audit"
-      title={<>ไม่แน่ใจว่าควรเริ่มตรงไหน? <em className="italic text-cinnabar">เริ่มที่นี่.</em></>}
-      subtitle="ตอบ 18 ข้อ · 3 นาที · ฟรี — แล้วเรานัดคุยผล 45 นาทีให้. หรือทักมาคุยเลยก็ได้."
-      primary={{ label: "ทำ Brand Audit", to: "/diagnostic" }}
-      secondary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}
+      eyebrow="Start a conversation"
+      title={<>พร้อมคุยแล้ว? <em className="italic text-cinnabar">เล่าโจทย์มาได้เลย.</em></>}
+      subtitle="คุยฟรี 45 นาที · ไม่มีข้อผูกมัด — เล่าโจทย์และเงื่อนไขมา เราช่วยมองว่าจะ refine มันยังไง."
+      primary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}
+      secondary={{ label: "ดูแพ็กเกจ", to: "/package" }}
       tone="snow"
     />
   </div>

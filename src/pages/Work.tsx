@@ -3,10 +3,8 @@ import ClosingCTA from "@/components/ClosingCTA";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
 import { Link } from "react-router-dom";
-import { ArrowUpRight, Play } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { caseStudies, acts } from "@/data/caseStudies";
-// PLACEHOLDER reel poster — swap with a real showreel (YouTube/Vimeo) before launch.
-import reelPoster from "@/assets/studio-orions-talk.jpg";
 
 const SITE_URL = "https://orions.agency";
 
@@ -39,28 +37,6 @@ const Work = () => (
           <p lang="th" className="mt-8 font-serif italic text-[16px] md:text-[22px] text-muted-foreground max-w-[680px] leading-[1.5]">
             เลือกมาเพราะแต่ละชิ้นมีเงื่อนไขที่ทำให้วิธีคิดของเราเห็นชัด — ไม่ใช่เพราะงบใหญ่ที่สุด.
           </p>
-        </Reveal>
-      </div>
-    </section>
-
-    {/* SHOWREEL — placeholder; wire a real reel (YouTube/Vimeo) before launch */}
-    <section className="px-6 md:px-10">
-      <div className="max-w-[1400px] mx-auto pb-8 md:pb-12">
-        <Reveal>
-          <button type="button" aria-label="Play showreel" className="relative block w-full overflow-hidden bg-foreground group" style={{ aspectRatio: "16 / 9" }}>
-            <img
-              src={reelPoster}
-              alt="ØRIONS showreel"
-              loading="lazy"
-              className="w-full h-full object-cover opacity-70 grayscale group-hover:grayscale-0 group-hover:opacity-90 transition-[filter,opacity] duration-700"
-            />
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-background">
-              <span className="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-full border border-background/70 group-hover:bg-cinnabar group-hover:border-cinnabar transition-colors">
-                <Play className="w-6 h-6 md:w-7 md:h-7 translate-x-[2px]" fill="currentColor" />
-              </span>
-              <span className="mt-5 font-mono text-[10px] tracking-[0.28em] uppercase text-background/85">Showreel · 2026</span>
-            </div>
-          </button>
         </Reveal>
       </div>
     </section>

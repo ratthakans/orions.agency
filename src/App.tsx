@@ -15,6 +15,7 @@ const Services = lazy(() => import("./pages/Services"));
 const Work = lazy(() => import("./pages/Work"));
 const CaseStudy = lazy(() => import("./pages/CaseStudy"));
 const Consulting = lazy(() => import("./pages/Consulting"));
+const Package = lazy(() => import("./pages/Package"));
 const Diagnostic = lazy(() => import("./pages/Diagnostic"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Journal = lazy(() => import("./pages/Journal"));
@@ -39,6 +40,8 @@ const App = () => (
             <Route path="/work" element={<Work />} />
             <Route path="/work/:slug" element={<CaseStudy />} />
             <Route path="/consulting" element={<Consulting />} />
+            <Route path="/package" element={<Package />} />
+            <Route path="/pricing" element={<Navigate to="/package" replace />} />
             <Route path="/diagnostic" element={<Diagnostic />} />
             <Route path="/journal" element={<Journal />} />
             <Route path="/privacy" element={<Privacy />} />
@@ -47,7 +50,6 @@ const App = () => (
             {/* Legacy paths → fold into the new structure */}
             <Route path="/manifesto" element={<Navigate to="/about" replace />} />
             <Route path="/approach" element={<Navigate to="/about" replace />} />
-            <Route path="/pricing" element={<Navigate to="/services" replace />} />
             <Route path="/studio" element={<Navigate to="/work" replace />} />
             <Route path="/projects" element={<Navigate to="/work" replace />} />
             <Route path="/ventures" element={<Navigate to="/work" replace />} />

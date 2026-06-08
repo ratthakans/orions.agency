@@ -75,17 +75,21 @@ const Work = () => (
               {items.map((w, i) => (
                 <Reveal key={w.slug} delay={0.05 * i}>
                   <Link to={`/work/${w.slug}`} className="group block">
-                    <div className="relative w-full overflow-hidden rounded-2xl bg-muted" style={{ aspectRatio: "16 / 10" }}>
+                    <div className="relative w-full overflow-hidden rounded-2xl bg-muted border border-transparent group-hover:border-cinnabar/50 transition-colors duration-500" style={{ aspectRatio: "16 / 10" }}>
                       <img
                         src={w.cover}
                         alt={`${w.title} — ${w.scope}`}
                         loading="lazy"
-                        className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
+                        className="w-full h-full object-cover scale-100 group-hover:scale-[1.06] transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)]"
                       />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       <div className="absolute top-3 left-3 right-3 flex items-center justify-between font-mono text-[10px] tracking-[0.18em] text-background/95 mix-blend-difference">
                         <span>— {w.n}</span>
                         <span>{w.niche.toUpperCase()}</span>
                       </div>
+                      <span className="absolute bottom-3 right-3 inline-flex items-center gap-1 font-mono text-[9px] tracking-[0.2em] uppercase text-background bg-cinnabar px-2.5 py-1 rounded-full opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                        ดูเคส <ArrowUpRight className="w-3 h-3" />
+                      </span>
                     </div>
                     <div className="mt-5 flex items-baseline justify-between gap-4">
                       <h3 lang="th" className="font-serif text-[24px] md:text-[30px] tracking-[-0.01em]">

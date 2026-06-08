@@ -1,4 +1,5 @@
 import Reveal from "@/components/Reveal";
+import CountUp from "@/components/CountUp";
 import SEO from "@/components/SEO";
 import SectionHeading from "@/components/ui/SectionHeading";
 import BadgeChip from "@/components/ui/BadgeChip";
@@ -26,10 +27,10 @@ const trackRecordClients = [
   "HEAVY ORGANIZER",
 ];
 
-const studioStats = [
-  { num: "3 → 1", label: "ทีมเดียว ตั้งแต่กลยุทธ์ถึงการผลิต" },
-  { num: "6",     label: "มิติใน Brand Audit" },
-  { num: "24",    label: "ชม. ตอบกลับหลังทักมา" },
+const studioStats: { num?: number; display?: string; label: string }[] = [
+  { display: "3 → 1", label: "ทีมเดียว ตั้งแต่กลยุทธ์ถึงการผลิต" },
+  { num: 6,           label: "มิติใน Brand Audit" },
+  { num: 24,          label: "ชม. ตอบกลับหลังทักมา" },
 ];
 
 const principles = [
@@ -155,7 +156,9 @@ const About = () => (
           {studioStats.map((s, i) => (
             <Reveal key={s.label} delay={i * 0.06}>
               <div className="stat-card h-full">
-                <div className="num-display text-cinnabar text-[34px] md:text-[44px]">{s.num}</div>
+                <div className="num-display text-cinnabar text-[34px] md:text-[44px]">
+                  {s.num != null ? <CountUp to={s.num} /> : s.display}
+                </div>
                 <p lang="th" className="mt-4 font-thai thai-wrap text-[13px] md:text-[14px] leading-[1.6] text-muted-foreground">{s.label}</p>
               </div>
             </Reveal>

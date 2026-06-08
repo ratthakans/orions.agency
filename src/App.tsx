@@ -29,7 +29,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <ScrollToTop />
         <Layout>
           <Suspense fallback={<div className="min-h-[60vh]" aria-hidden />}>

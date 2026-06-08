@@ -468,6 +468,9 @@
     mask-image: radial-gradient(120% 95% at 50% 42%, #000 38%, transparent 86%);
   }
 
+  /* Hero breathing glow — slow cinnabar pulse behind the headline */
+  .hero-glow { animation: heroGlow 7s ease-in-out infinite; }
+
   /* Marquee */
   .marquee {
     display: flex;
@@ -487,6 +490,12 @@
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
+
+@keyframes heroGlow {
+  0%, 100% { opacity: 0.45; transform: translate(-50%, -50%) scale(1); }
+  50%      { opacity: 0.9;  transform: translate(-50%, -50%) scale(1.12); }
+}
+@media (prefers-reduced-motion: reduce) { .hero-glow { animation: none; } }
 
 /* Selected-work carousel — auto-scroll right→left, pause on hover */
 .work-marquee { animation: marquee 55s linear infinite; }

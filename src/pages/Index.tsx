@@ -9,6 +9,7 @@ import FAQ from "@/components/FAQ";
 import SimpleMarquee from "@/components/SimpleMarquee";
 import Magnetic from "@/components/Magnetic";
 import HeroHeadline from "@/components/HeroHeadline";
+import CountUp from "@/components/CountUp";
 import { caseStudies } from "@/data/caseStudies";
 
 const selectedWork = caseStudies;
@@ -25,11 +26,11 @@ const marquee = [
 ];
 
 // Honest capability facts — not fabricated performance metrics (พูดตรง)
-const facts = [
+const facts: { v?: string; num?: number; suffix?: string; k: string; d: string }[] = [
   { v: "3 → 1", k: "ทีมเดียว", d: "Strategy · Production · Social รวมในทีมเดียว ไม่ต้องประสานหลายเจ้า" },
-  { v: "6", k: "มิติ Brand Audit", d: "ตรวจแบรนด์ครบ 6 ด้าน รู้คะแนน + จุดอ่อนใน 3 นาที" },
-  { v: "45", k: "นาที Discovery", d: "คุยฟรี ไม่มีข้อผูกมัด — เล่าโจทย์ เราช่วยมองทาง" },
-  { v: "24ชม.", k: "ตอบกลับ", d: "ทุกข้อความได้รับการตอบกลับภายใน 1 วันทำการ" },
+  { num: 6, k: "มิติ Brand Audit", d: "ตรวจแบรนด์ครบ 6 ด้าน รู้คะแนน + จุดอ่อนใน 3 นาที" },
+  { num: 45, k: "นาที Discovery", d: "คุยฟรี ไม่มีข้อผูกมัด — เล่าโจทย์ เราช่วยมองทาง" },
+  { num: 24, suffix: "ชม.", k: "ตอบกลับ", d: "ทุกข้อความได้รับการตอบกลับภายใน 1 วันทำการ" },
 ];
 
 const reasons = [
@@ -78,6 +79,28 @@ const faqs = [
   { q: "การันตีผลไหม?", a: "เราพูดตรง — ไม่การันตีตัวเลขลอย ๆ แต่มี 90-Day Promise และ Brand Lift Promise: ถ้าไม่ถึงเป้าที่ตกลงกัน เราเติมงานให้ฟรี 1 เดือน." },
 ];
 
+/** Decorative 6-axis radar — teaser for the Brand Audit (illustrative shape, not a real score). */
+const RadarPreview = () => {
+  const cx = 100, cy = 100, R = 78;
+  const vals = [0.82, 0.55, 0.38, 0.7, 0.6, 0.48];
+  const pt = (i: number, r: number): [number, number] => {
+    const a = (-90 + i * 60) * (Math.PI / 180);
+    return [cx + r * Math.cos(a), cy + r * Math.sin(a)];
+  };
+  const ring = (rr: number) => vals.map((_, i) => pt(i, rr).join(",")).join(" ");
+  const poly = vals.map((v, i) => pt(i, v * R).join(",")).join(" ");
+  return (
+    <svg viewBox="0 0 200 200" role="img" aria-label="ตัวอย่างเรดาร์ Brand Audit 6 มิติ" className="w-full max-w-[260px] text-foreground">
+      {[0.34, 0.67, 1].map((f, k) => (
+        <polygon key={k} points={ring(R * f)} fill="none" stroke="currentColor" strokeOpacity={0.14} />
+      ))}
+      {vals.map((_, i) => { const [x, y] = pt(i, R); return <line key={i} x1={cx} y1={cy} x2={x} y2={y} stroke="currentColor" strokeOpacity={0.1} />; })}
+      <polygon points={poly} fill="hsl(var(--accent))" fillOpacity={0.18} stroke="hsl(var(--accent))" strokeWidth={1.6} strokeLinejoin="round" />
+      {vals.map((v, i) => { const [x, y] = pt(i, v * R); return <circle key={i} cx={x} cy={y} r={3} fill="hsl(var(--accent))" />; })}
+    </svg>
+  );
+};
+
 const Index = () => (
   <div>
     <SEO
@@ -87,9 +110,14 @@ const Index = () => (
     />
 
     {/* 01 — HERO */}
-    <section className="relative min-h-[92svh] flex flex-col px-6 md:px-10 overflow-hidden">
+    <section className="relative min-h-[84svh] md:min-h-[92svh] flex flex-col px-6 md:px-10 overflow-hidden">
       <div aria-hidden className="hero-texture absolute inset-0 z-0 pointer-events-none" />
-      <div className="relative z-10 max-w-[1100px] mx-auto w-full flex-1 flex flex-col justify-center items-center text-center pt-24 md:pt-28 pb-20 md:pb-24">
+      <div
+        aria-hidden
+        className="hero-glow absolute left-1/2 top-[44%] z-0 w-[420px] h-[420px] md:w-[640px] md:h-[640px] rounded-full pointer-events-none"
+        style={{ background: "radial-gradient(circle, hsl(var(--accent) / 0.12), transparent 62%)", filter: "blur(24px)" }}
+      />
+      <div className="relative z-10 max-w-[1100px] mx-auto w-full flex-1 flex flex-col justify-center items-center text-center pt-20 md:pt-28 pb-16 md:pb-24">
         <Reveal><BadgeChip>Creative Agency · Bangkok</BadgeChip></Reveal>
         <div className="mt-8">
           <HeroHeadline />
@@ -171,10 +199,15 @@ const Index = () => (
           <ul className="work-marquee flex shrink-0 gap-4 md:gap-5">
             {[...selectedWork, ...selectedWork].map((w, i) => (
               <li key={`${w.slug}-${i}`} className="shrink-0 w-[280px] sm:w-[340px] md:w-[420px]" aria-hidden={i >= selectedWork.length}>
-                <Link to={`/work/${w.slug}`} className="group relative block overflow-hidden rounded-2xl border border-foreground/12 bg-foreground/[0.04] aspect-[4/5]">
-                  <img src={w.cover} alt={w.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700" />
+                <Link to={`/work/${w.slug}`} className="group relative block overflow-hidden rounded-2xl border border-foreground/12 bg-foreground/[0.04] aspect-[4/5] transition-colors duration-500 hover:border-cinnabar/60">
+                  <img src={w.cover} alt={w.title} loading="lazy" className="w-full h-full object-cover scale-100 group-hover:scale-[1.06] transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)]" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-90" />
-                  <div className="absolute left-0 right-0 bottom-0 p-5 flex flex-col gap-1.5">
+                  {/* corner index */}
+                  <span className="absolute top-4 left-4 font-mono text-[10px] tracking-[0.22em] text-foreground/70">— {w.n}</span>
+                  <span className="absolute top-4 right-4 inline-flex items-center gap-1 font-mono text-[9px] tracking-[0.2em] uppercase text-background bg-cinnabar px-2 py-1 rounded-full opacity-0 -translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                    ดูเคส <ArrowUpRight className="w-3 h-3" />
+                  </span>
+                  <div className="absolute left-0 right-0 bottom-0 p-5 flex flex-col gap-1.5 translate-y-0 group-hover:-translate-y-1 transition-transform duration-500">
                     <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">{w.niche} · {w.year}</span>
                     <span lang="th" className="font-display text-[19px] md:text-[22px] font-semibold tracking-[-0.01em] text-foreground leading-tight">{w.title}</span>
                     <span lang="th" className="font-thai thai-wrap text-[12px] leading-[1.5] text-foreground/70 line-clamp-2">{w.summary}</span>
@@ -201,7 +234,11 @@ const Index = () => (
           {facts.map((f, i) => (
             <Reveal key={f.k} delay={i * 0.08}>
               <div className="stat-card h-full">
-                <div className="num-display text-[44px] md:text-[52px] text-cinnabar">{f.v}</div>
+                <div className="num-display text-[44px] md:text-[52px] text-cinnabar">
+                  {f.num != null
+                    ? <CountUp to={f.num} suffix={f.suffix} suffixClassName="text-[26px] md:text-[30px] ml-0.5" />
+                    : f.v}
+                </div>
                 <div lang="th" className="mt-2 font-thai text-[11px] tracking-[0.02em] text-foreground/80">{f.k}</div>
                 <p lang="th" className="mt-3 font-thai thai-wrap text-[13px] leading-[1.6] text-muted-foreground">{f.d}</p>
               </div>
@@ -331,7 +368,8 @@ const Index = () => (
                   ตรวจแบรนด์ใน 6 มิติ — ได้คะแนนทันที + จุดอ่อน 3 อันดับแรก แล้วเราบอกตรง ๆ ว่าทางไหนเหมาะกับคุณ · ไม่มีข้อผูกมัด.
                 </p>
               </div>
-              <div className="md:justify-self-end">
+              <div className="flex flex-col items-center md:items-end gap-7">
+                <RadarPreview />
                 <Magnetic strength={8} className="inline-block">
                   <Link to="/diagnostic" className="btn-accent">
                     <span>ทำ Brand Audit</span><ArrowUpRight className="w-4 h-4" />

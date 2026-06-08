@@ -1,6 +1,8 @@
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
+import SectionHeading from "@/components/ui/SectionHeading";
+import BadgeChip from "@/components/ui/BadgeChip";
 import CTABand from "@/components/CTABand";
 
 // Seed notes — the studio's own point of view. Expand / add real entries over time.
@@ -40,7 +42,12 @@ const Journal = () => (
       <div className="max-w-[1080px] mx-auto pt-28 md:pt-32 pb-12 md:pb-16">
         <SectionLabel label="Journal" />
         <Reveal delay={0.1}>
-          <h1 lang="th" className="mt-10 h-display-lg max-w-[16ch] thai-wrap">
+          <div className="mt-10">
+            <BadgeChip>Notes from the studio</BadgeChip>
+          </div>
+        </Reveal>
+        <Reveal delay={0.15}>
+          <h1 lang="th" className="mt-6 h-display-lg max-w-[16ch] thai-wrap">
             บันทึกจาก <em className="italic text-cinnabar">สตูดิโอ.</em>
           </h1>
         </Reveal>
@@ -53,21 +60,29 @@ const Journal = () => (
     </section>
 
     <section className="px-6 md:px-10">
-      <div className="max-w-[1080px] mx-auto pb-16 md:pb-24 border-t border-foreground/20">
-        {notes.map((p, i) => (
-          <Reveal key={p.n} delay={i * 0.05}>
-            <article className="grid grid-cols-1 md:grid-cols-[120px_1fr] gap-4 md:gap-12 py-12 md:py-16 border-b border-foreground/20">
-              <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
-                — {p.n}<br /><span className="text-cinnabar">{p.date}</span>
-              </div>
-              <div>
-                <h2 lang="th" className="h-display-sm max-w-[24ch]">{p.title}</h2>
-                <p lang="th" className="mt-3 font-serif italic text-[16px] md:text-[18px] text-cinnabar">{p.dek}</p>
-                <p lang="th" className="mt-6 font-thai thai-wrap text-[15px] md:text-[16px] leading-[1.85] text-foreground/85 max-w-[64ch]">{p.body}</p>
-              </div>
-            </article>
-          </Reveal>
-        ))}
+      <div className="max-w-[1080px] mx-auto pb-16 md:pb-24">
+        <SectionHeading
+          eyebrow="Point of view"
+          title={<>สิ่งที่เรา <em className="italic text-cinnabar">เชื่อ.</em></>}
+          intro="สามมุมมองที่อยู่เบื้องหลังวิธีทำงานของเรา."
+          lang="th"
+        />
+        <div className="mt-12 grid grid-cols-1 gap-5">
+          {notes.map((p, i) => (
+            <Reveal key={p.n} delay={i * 0.05}>
+              <article className="card-soft grid grid-cols-1 md:grid-cols-[120px_1fr] gap-4 md:gap-12 p-8 md:p-10">
+                <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
+                  — {p.n}<br /><span className="text-cinnabar">{p.date}</span>
+                </div>
+                <div>
+                  <h2 lang="th" className="h-display-sm max-w-[24ch]">{p.title}</h2>
+                  <p lang="th" className="mt-3 font-serif italic text-[16px] md:text-[18px] text-cinnabar">{p.dek}</p>
+                  <p lang="th" className="mt-6 font-thai thai-wrap text-[15px] md:text-[16px] leading-[1.85] text-foreground/85 max-w-[64ch]">{p.body}</p>
+                </div>
+              </article>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
 

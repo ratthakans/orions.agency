@@ -142,7 +142,7 @@ const CompareTable = ({ size }: { size: Size }) => (
           <th className="w-[170px]" />
           {TRACK_NAMES.map((name) => (
             <th key={name} className="text-left py-4 px-4 align-bottom">
-              <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-cinnabar">{goalOf[name]}</div>
+              <div className="font-thai text-[11px] tracking-[0.02em] text-cinnabar">{goalOf[name]}</div>
               <div className="mt-1 text-[17px] md:text-[20px] font-semibold tracking-[-0.01em]">{name}</div>
             </th>
           ))}
@@ -186,11 +186,11 @@ const PricingSection = () => {
 
         {/* Step 1: size selector (shared) */}
         <div className="mt-12 flex flex-wrap items-center gap-4">
-          <span lang="th" className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">1 · เลือกขนาดทีม</span>
-          <div className="inline-flex border border-foreground/30">
+          <span lang="th" className="font-thai text-[11px] tracking-[0.02em] text-muted-foreground">1 · เลือกขนาดทีม</span>
+          <div className="inline-flex rounded-full border border-foreground/30 overflow-hidden">
             {SIZES.map((s) => (
               <button key={s.id} type="button" onClick={() => setSize(s.id)}
-                className={`px-5 py-2.5 font-mono text-[11px] tracking-[0.08em] uppercase transition-colors ${size === s.id ? "bg-cinnabar text-background" : "text-foreground/60 hover:text-foreground"} ${s.id !== "S" ? "border-l border-foreground/30" : ""}`}>
+                className={`px-5 py-2.5 font-thai text-[11px] tracking-[0.02em] transition-colors ${size === s.id ? "bg-cinnabar text-background" : "text-foreground/60 hover:text-foreground"} ${s.id !== "S" ? "border-l border-foreground/30" : ""}`}>
                 {s.id} · {s.label}{s.id === "S" ? " ★" : ""}
               </button>
             ))}
@@ -198,14 +198,14 @@ const PricingSection = () => {
         </div>
 
         {/* Step 2: track cards */}
-        <div className="mt-3 mb-4 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">2 · เลือก track</div>
+        <div className="mt-3 mb-4 font-thai text-[11px] tracking-[0.02em] text-muted-foreground">2 · เลือก track</div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
           {tracks.map((t, i) => (
             <Reveal key={t.name} delay={i * 0.07}>
-              <div className={`h-full flex flex-col border p-7 md:p-8 ${t.featured ? "border-cinnabar" : "border-foreground/20"}`}>
+              <div className={`relative h-full flex flex-col p-7 md:p-8 ${t.featured ? "card-accent" : "card-soft"}`}>
+                {t.featured && <span className="ribbon-pill absolute -top-3 left-7">คุ้มสุด</span>}
                 <div className="flex items-center justify-between">
-                  <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">{t.goal}</div>
-                  {t.featured && <div className="font-mono text-[9px] tracking-[0.18em] uppercase text-cinnabar border border-cinnabar px-2 py-0.5">คุ้มสุด</div>}
+                  <div className="font-thai text-[11px] tracking-[0.02em] text-cinnabar">{t.goal}</div>
                 </div>
                 <h3 className="mt-3 text-[26px] md:text-[30px] leading-none font-semibold tracking-[-0.02em]">{t.name}</h3>
                 <div className="mt-1 font-serif italic text-cinnabar text-[15px]">{t.tagline}</div>
@@ -214,15 +214,15 @@ const PricingSection = () => {
                   <span className="bg-cinnabar" style={{ width: `${t.sales}%` }} />
                   <span className="bg-foreground/15" style={{ width: `${t.brand}%` }} />
                 </div>
-                <div className="mt-1.5 flex justify-between font-mono text-[9px] tracking-[0.12em] uppercase text-muted-foreground"><span>ยอด {t.sales}</span><span>แบรนด์ {t.brand}</span></div>
+                <div className="mt-1.5 flex justify-between font-thai text-[9px] tracking-[0.02em] text-muted-foreground"><span>ยอด {t.sales}</span><span>แบรนด์ {t.brand}</span></div>
 
                 <p lang="th" className="mt-5 font-thai thai-wrap text-[13px] leading-[1.6] text-muted-foreground">{t.forWhat}</p>
 
                 <div className="mt-6 flex items-baseline gap-2">
                   <span className="num-display text-[38px] md:text-[44px] text-cinnabar">{t.prices[size]}</span>
-                  <span className="font-mono text-[11px] tracking-[0.14em] uppercase text-muted-foreground">/ เดือน</span>
+                  <span className="font-thai text-[11px] tracking-[0.02em] text-muted-foreground">/ เดือน</span>
                 </div>
-                <div lang="th" className="mt-1.5 font-mono text-[10px] tracking-[0.08em] text-muted-foreground">{t.sub[size]}</div>
+                <div lang="th" className="mt-1.5 font-thai text-[11px] tracking-[0.02em] text-muted-foreground">{t.sub[size]}</div>
 
                 <ul className="mt-6 space-y-2.5 border-t border-foreground/15 pt-6 flex-1">
                   {t.points.map((p) => (
@@ -243,19 +243,19 @@ const PricingSection = () => {
           ))}
         </div>
 
-        <p lang="th" className="mt-6 font-mono text-[10px] tracking-[0.12em] uppercase text-muted-foreground">
+        <p lang="th" className="mt-6 font-thai text-[11px] tracking-[0.02em] text-muted-foreground">
           ราคาไม่รวม VAT 7% · ไม่รวม ad spend
         </p>
 
         {/* Progressive disclosure: full comparison */}
         <div className="mt-10 border-t border-foreground/15 pt-8">
           <button type="button" onClick={() => setShowTable((v) => !v)}
-            className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.18em] uppercase text-foreground hover:text-cinnabar transition-colors">
+            className="inline-flex items-center gap-2 font-thai text-[11px] tracking-[0.02em] text-foreground hover:text-cinnabar transition-colors">
             <span>{showTable ? "ซ่อนตารางเทียบ" : "ดูตารางเทียบแบบเต็ม"}</span>
             <ChevronDown className={`w-4 h-4 transition-transform ${showTable ? "rotate-180" : ""}`} />
           </button>
           {showTable && (
-            <div className="mt-8">
+            <div className="mt-8 card-soft p-5 md:p-7">
               <CompareTable size={size} />
             </div>
           )}
@@ -299,9 +299,9 @@ const Package = () => (
         <div>
           <SectionLabel index="03" label="Add-on menu" />
           <Reveal delay={0.05}><h2 lang="th" className="mt-8 h-display-sm">เสริมได้ตามต้องการ.</h2></Reveal>
-          <dl className="mt-8 border-t border-foreground/20">
-            {addons.map((a) => (
-              <div key={a.k} className="flex items-baseline justify-between gap-6 py-3 border-b border-foreground/15">
+          <dl className="card-soft mt-8 px-6 md:px-7 py-2">
+            {addons.map((a, i) => (
+              <div key={a.k} className={`flex items-baseline justify-between gap-6 py-3 ${i !== addons.length - 1 ? "border-b border-foreground/12" : ""}`}>
                 <dt lang="th" className="font-thai text-[14px] text-foreground/85">{a.k}</dt>
                 <dd className="font-mono text-[12px] tracking-[0.02em] text-cinnabar shrink-0">{a.v}</dd>
               </div>
@@ -314,15 +314,15 @@ const Package = () => (
           <p lang="th" className="mt-5 font-thai thai-wrap text-[14px] leading-[1.7] text-muted-foreground max-w-[44ch]">
             senior crew + Sony A7V / FX6 + GM glass · raw + same-day proxy.
           </p>
-          <dl className="mt-8 border-t border-foreground/20">
-            {production.map((a) => (
-              <div key={a.k} className="flex items-baseline justify-between gap-6 py-3 border-b border-foreground/15">
+          <dl className="card-soft mt-8 px-6 md:px-7 py-2">
+            {production.map((a, i) => (
+              <div key={a.k} className={`flex items-baseline justify-between gap-6 py-3 ${i !== production.length - 1 ? "border-b border-foreground/12" : ""}`}>
                 <dt lang="th" className="font-thai text-[14px] text-foreground/85">{a.k}</dt>
                 <dd className="font-mono text-[12px] tracking-[0.02em] text-cinnabar shrink-0">{a.v}</dd>
               </div>
             ))}
           </dl>
-          <p lang="th" className="mt-5 font-mono text-[10px] tracking-[0.12em] uppercase text-muted-foreground leading-[1.6]">
+          <p lang="th" className="mt-5 font-thai text-[11px] tracking-[0.02em] text-muted-foreground leading-[1.6]">
             Edit: social ฿4,500 · brand ฿12,000 · hero ฿28,000 · ซื้อ 3+ add-ons ลด 10% · 2 สายลด 10% · 3 สายลด 15%
           </p>
         </div>
@@ -336,10 +336,10 @@ const Package = () => (
         <Reveal delay={0.05}>
           <h2 lang="th" className="mt-10 h-display-md">จาก kickoff ถึง <em className="italic text-cinnabar">optimize.</em></h2>
         </Reveal>
-        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t border-l border-foreground/20">
+        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
           {steps.map((s, i) => (
             <Reveal key={s.n} delay={i * 0.06}>
-              <div className="h-full p-8 md:p-10 border-b border-r border-foreground/20">
+              <div className="card-soft h-full p-8 md:p-10">
                 <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">— {s.n}</div>
                 <h3 lang="th" className="mt-6 font-thai text-[18px] md:text-[20px] font-medium leading-[1.3]">{s.t}</h3>
                 <p lang="th" className="mt-3 font-thai thai-wrap text-[13px] leading-[1.7] text-muted-foreground">{s.d}</p>

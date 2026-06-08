@@ -67,7 +67,7 @@ const Privacy = () => (
         </div>
 
         <Reveal delay={0.1}>
-          <p lang="th" className="mt-12 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
+          <p lang="th" className="mt-12 font-thai text-[11px] tracking-[0.02em] text-muted-foreground">
             ติดต่อเรื่องข้อมูล: <a href="mailto:hello@orions.agency" className="text-foreground hover:text-cinnabar transition-colors">hello@orions.agency</a> · ปรับปรุงล่าสุด 2026
           </p>
         </Reveal>

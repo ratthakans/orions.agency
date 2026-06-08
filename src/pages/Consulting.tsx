@@ -1,6 +1,8 @@
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
+import SectionHeading from "@/components/ui/SectionHeading";
+import BadgeChip from "@/components/ui/BadgeChip";
 import CTABand from "@/components/CTABand";
 import FAQ from "@/components/FAQ";
 
@@ -59,8 +61,11 @@ const Consulting = () => (
     <section className="section-ink px-6 md:px-10 pt-28 md:pt-32 pb-16 md:pb-24 border-b border-foreground/15">
       <div className="max-w-[1280px] mx-auto">
         <SectionLabel index="01" label="Consulting" />
+        <Reveal delay={0.05}>
+          <div className="mt-8"><BadgeChip>Advisory · Fractional CD</BadgeChip></div>
+        </Reveal>
         <Reveal delay={0.1}>
-          <h1 className="mt-10 h-display-lg max-w-[16ch]">
+          <h1 className="mt-6 h-display-lg max-w-[16ch]">
             Creative direction, <em className="italic text-cinnabar">on call.</em>
           </h1>
         </Reveal>
@@ -80,16 +85,17 @@ const Consulting = () => (
     {/* 02 — WHEN TO CALL US */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <SectionLabel index="02" label="When to call us" />
-        <Reveal delay={0.1}>
-          <h2 lang="th" className="mt-10 h-display-md max-w-[22ch] thai-wrap">
-            เรียกเราเมื่อทิศทางสำคัญกว่า <em className="italic text-cinnabar">จำนวนงาน.</em>
-          </h2>
-        </Reveal>
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 border border-foreground/20">
+        <div className="mt-10">
+          <SectionHeading
+            eyebrow="When to call us"
+            lang="th"
+            title={<>เรียกเราเมื่อทิศทางสำคัญกว่า <em className="italic text-cinnabar">จำนวนงาน.</em></>}
+          />
+        </div>
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
           {whenToCall.map((w, i) => (
             <Reveal key={w.n} delay={i * 0.06}>
-              <div className={`p-10 md:p-12 h-full ${i > 0 ? "border-t md:border-t-0 md:border-l border-foreground/20" : ""}`}>
+              <div className="card-soft p-8 md:p-10 h-full">
                 <div className="font-serif italic text-cinnabar text-[22px] leading-none">{w.n}</div>
                 <h3 lang="th" className="mt-8 font-thai text-[22px] md:text-[26px] leading-[1.15] tracking-[-0.01em] font-medium">{w.en}</h3>
                 <p lang="th" className="mt-4 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">{w.th}</p>
@@ -103,20 +109,21 @@ const Consulting = () => (
     {/* 03 — WHAT WE DO */}
     <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <SectionLabel index="03" label="How we work with you" />
-        <Reveal delay={0.1}>
-          <h2 lang="th" className="mt-10 h-display-md max-w-[20ch] thai-wrap">
-            สามวิธีเข้าไป <em className="italic text-cinnabar">กำกับ.</em>
-          </h2>
-        </Reveal>
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 border border-foreground/20">
+        <div className="mt-10">
+          <SectionHeading
+            eyebrow="How we work with you"
+            lang="th"
+            title={<>สามวิธีเข้าไป <em className="italic text-cinnabar">กำกับ.</em></>}
+          />
+        </div>
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
           {modes.map((m, i) => (
             <Reveal key={m.n} delay={i * 0.06}>
-              <div className={`p-10 md:p-12 h-full ${i > 0 ? "border-t md:border-t-0 md:border-l border-foreground/20" : ""}`}>
+              <div className="card-soft p-8 md:p-10 h-full">
                 <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">— {m.n}</div>
                 <h3 className="mt-8 text-[24px] md:text-[28px] leading-[1.1] tracking-[-0.015em] font-semibold">{m.en}</h3>
                 <div lang="th" className="mt-3 font-serif italic text-cinnabar text-[16px]">{m.tag}</div>
-                <p lang="th" className="mt-6 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-foreground/75">{m.th}</p>
+                <p lang="th" className="mt-6 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">{m.th}</p>
               </div>
             </Reveal>
           ))}
@@ -141,10 +148,10 @@ const Consulting = () => (
           </Reveal>
         </div>
         <div className="md:col-span-7">
-          <dl className="border-t border-foreground/20">
+          <dl className="card-soft p-8 md:p-10">
             {engagement.map((e, i) => (
               <Reveal key={e.k} delay={i * 0.05}>
-                <div className="grid grid-cols-[110px_1fr] md:grid-cols-[160px_1fr] gap-6 py-6 border-b border-foreground/20">
+                <div className={`grid grid-cols-[110px_1fr] md:grid-cols-[160px_1fr] gap-6 py-5 ${i > 0 ? "border-t border-foreground/15" : ""}`}>
                   <dt lang="th" className="font-mono text-[10px] tracking-[0.18em] uppercase text-cinnabar pt-1">{e.k}</dt>
                   <dd lang="th" className="font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.6] text-foreground/90">{e.v}</dd>
                 </div>
@@ -169,12 +176,12 @@ const Consulting = () => (
     {/* 06 — FAQ */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1080px] mx-auto py-20 md:py-28">
-        <SectionLabel index="05" label="Before you ask" />
-        <Reveal delay={0.05}>
-          <h2 className="mt-10 h-display-md">
-            The short <em className="italic text-cinnabar">answers.</em>
-          </h2>
-        </Reveal>
+        <div className="mt-10">
+          <SectionHeading
+            eyebrow="Before you ask"
+            title={<>The short <em className="italic text-cinnabar">answers.</em></>}
+          />
+        </div>
         <div className="mt-14"><FAQ items={faqs} /></div>
       </div>
     </section>

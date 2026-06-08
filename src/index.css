@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500;1,6..72,600;1,6..72,700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Thai:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500;1,6..72,600&family=Unbounded:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,42 +6,42 @@
 
 @layer base {
   :root {
-    /* ØRIONS — Light: Snow bg / Black Russian ink / Cinnabar accent */
-    --background: 60 33% 98%;           /* #FDFDF9 Snow */
-    --foreground: 0 0% 5%;              /* #0E0E0E Black Russian */
+    /* ØRIONS — Dark (Alpha Growth): Black Russian bg / Snow ink / Cinnabar accent */
+    --background: 0 0% 5.5%;            /* #0E0E0E Black Russian */
+    --foreground: 60 33% 98%;          /* #FDFDF9 Snow */
 
-    --surface: 60 20% 96%;              /* warm off-white band */
-    --surface-foreground: 0 0% 5%;
-    --surface-2: 60 14% 93%;            /* slightly deeper band */
+    --surface: 0 0% 7.8%;              /* #141414 soft band */
+    --surface-foreground: 60 33% 98%;
+    --surface-2: 0 0% 9.4%;            /* #181818 card */
 
-    --card: 60 33% 98%;
-    --card-foreground: 0 0% 5%;
+    --card: 0 0% 9.4%;                 /* #181818 */
+    --card-foreground: 60 33% 98%;
 
-    --popover: 60 33% 98%;
-    --popover-foreground: 0 0% 5%;
+    --popover: 0 0% 7.8%;
+    --popover-foreground: 60 33% 98%;
 
-    --primary: 0 0% 5%;
-    --primary-foreground: 60 33% 98%;
+    --primary: 60 33% 98%;
+    --primary-foreground: 0 0% 5.5%;
 
-    --secondary: 60 14% 93%;
-    --secondary-foreground: 0 0% 5%;
+    --secondary: 0 0% 15.3%;
+    --secondary-foreground: 60 33% 98%;
 
-    --muted: 60 14% 93%;
-    --muted-foreground: 0 0% 34%;
+    --muted: 0 0% 15.3%;
+    --muted-foreground: 60 5% 65%;     /* brightened for readability on dark */
 
-    /* Cinnabar — editorial accent #EB5939 */
+    /* Cinnabar — accent #EB5939 */
     --accent: 11 81% 57%;
-    --accent-foreground: 60 33% 98%;
+    --accent-foreground: 0 0% 5.5%;
 
     --destructive: 0 72% 48%;
     --destructive-foreground: 60 33% 98%;
 
-    --border: 0 0% 5%;
-    --border-soft: 0 0% 85%;
-    --input: 0 0% 5%;
-    --ring: 0 0% 5%;
+    --border: 0 0% 15.3%;              /* #272727 line */
+    --border-soft: 0 0% 15.3%;
+    --input: 0 0% 15.3%;
+    --ring: 11 81% 57%;
 
-    --radius: 0px;
+    --radius: 16px;
 
     /* Legacy accent tokens — all map to Cinnabar */
     --accent-from: 11 81% 57%;
@@ -59,7 +59,7 @@
   html { scroll-behavior: smooth; }
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Newsreader', 'IBM Plex Sans Thai', Georgia, serif;
+    font-family: 'IBM Plex Sans Thai', system-ui, sans-serif;
     font-size: 17px;
     line-height: 1.58;
     font-weight: 400;
@@ -71,8 +71,8 @@
   /* Thai text uses IBM Plex Sans Thai for both Thai AND inline Latin (cohesive — no serif/sans clash) */
   :lang(th), [lang="th"] {
     font-family: 'IBM Plex Sans Thai', system-ui, sans-serif;
-    word-break: keep-all;
-    line-break: strict;
+    word-break: normal;
+    line-break: auto;
     overflow-wrap: break-word;
   }
   /* Editorial serif display — Latin in Newsreader, Thai falls back to IBM Plex Sans Thai */
@@ -80,17 +80,20 @@
     font-family: 'Newsreader', 'IBM Plex Sans Thai', Georgia, serif;
     font-weight: 600;
     letter-spacing: -0.02em;
-    line-height: 1.0;
+    line-height: 1.05;
     text-wrap: balance;
     font-optical-sizing: auto;
   }
-  /* Italic accent inside any heading → Newsreader serif italic (cinnabar handled by .text-cinnabar) */
+  /* Accent words in a heading → Newsreader, cinnabar (upright; italics killed for Thai readability) */
   h1 em, h2 em, h3 em, h4 em, h5 em, h6 em {
     font-family: 'Newsreader', 'IBM Plex Sans Thai', Georgia, serif;
-    font-style: italic;
+    font-style: normal;
     font-weight: 500;
     letter-spacing: -0.015em;
+    color: hsl(var(--accent));
   }
+  /* Kill italics globally — IBM Plex Sans Thai obliques read poorly; Alpha uses upright type */
+  em, i, .italic { font-style: normal !important; }
 
   /* Keyboard focus — visible cinnabar ring (none existed before) */
   :focus-visible {
@@ -104,32 +107,32 @@
 
 @layer utilities {
   .font-display { font-family: 'Newsreader', 'IBM Plex Sans Thai', Georgia, serif; font-weight: 600; letter-spacing: -0.02em; }
-  .font-body    { font-family: 'Newsreader', 'IBM Plex Sans Thai', Georgia, serif; }
+  .font-body    { font-family: 'IBM Plex Sans Thai', system-ui, sans-serif; }
   .font-mono    { font-family: 'IBM Plex Mono', ui-monospace, monospace; }
   .font-thai    {
     font-family: 'IBM Plex Sans Thai', system-ui, sans-serif;
     text-transform: none;
     font-weight: 400;
-    letter-spacing: 0.005em;
+    letter-spacing: 0;
     line-height: 1.7;
-    /* Always apply Thai-safe wrapping so font-thai works as the single Thai primitive. */
-    word-break: keep-all;
-    line-break: strict;
+    /* Thai-safe wrapping: let the browser segment Thai (lang=th) instead of forcing keep-all. */
+    word-break: normal;
+    line-break: auto;
     overflow-wrap: break-word;
     text-wrap: pretty;
   }
-  .thai-wrap    { word-break: keep-all; line-break: strict; overflow-wrap: break-word; text-wrap: pretty; }
+  .thai-wrap    { word-break: normal; line-break: auto; overflow-wrap: break-word; text-wrap: pretty; }
   /* Lead paragraph — larger serif intro under headlines */
   .lead         { font-size: clamp(18px, 1.5vw, 22px); line-height: 1.5; letter-spacing: -0.005em; text-wrap: pretty; }
   .measure      { max-width: 66ch; }
   .text-balance { text-wrap: balance; }
 
   /* Thai body scale — three sizes, one source of truth */
-  .body-th-sm   { font-family: 'IBM Plex Sans Thai', system-ui, sans-serif; font-weight: 400; font-size: 13px; line-height: 1.65; letter-spacing: 0.005em; word-break: keep-all; line-break: strict; overflow-wrap: break-word; text-wrap: pretty; }
-  .body-th      { font-family: 'IBM Plex Sans Thai', system-ui, sans-serif; font-weight: 400; font-size: 16px; line-height: 1.72; letter-spacing: 0.005em; word-break: keep-all; line-break: strict; overflow-wrap: break-word; text-wrap: pretty; }
-  .body-th-lg   { font-family: 'IBM Plex Sans Thai', system-ui, sans-serif; font-weight: 400; font-size: 17px; line-height: 1.72; letter-spacing: 0.005em; word-break: keep-all; line-break: strict; overflow-wrap: break-word; text-wrap: pretty; }
+  .body-th-sm   { font-family: 'IBM Plex Sans Thai', system-ui, sans-serif; font-weight: 400; font-size: 13px; line-height: 1.65; letter-spacing: 0.005em; word-break: normal; line-break: auto; overflow-wrap: break-word; text-wrap: pretty; }
+  .body-th      { font-family: 'IBM Plex Sans Thai', system-ui, sans-serif; font-weight: 400; font-size: 16px; line-height: 1.72; letter-spacing: 0.005em; word-break: normal; line-break: auto; overflow-wrap: break-word; text-wrap: pretty; }
+  .body-th-lg   { font-family: 'IBM Plex Sans Thai', system-ui, sans-serif; font-weight: 400; font-size: 17px; line-height: 1.72; letter-spacing: 0.005em; word-break: normal; line-break: auto; overflow-wrap: break-word; text-wrap: pretty; }
   .body-muted   { color: hsl(var(--foreground) / 0.85); }
-  .font-brand   { font-family: 'Newsreader', Georgia, serif; font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase; font-optical-sizing: auto; }
+  .font-brand   { font-family: 'Unbounded', system-ui, sans-serif; font-weight: 700; letter-spacing: 0.01em; text-transform: uppercase; font-optical-sizing: auto; }
   .font-serif   { font-family: 'Newsreader', 'IBM Plex Sans Thai', Georgia, serif; font-weight: 400; letter-spacing: -0.02em; text-transform: none; }
   /* Cinnabar italic accents in headlines */
   .text-orion   { color: hsl(var(--accent)); }
@@ -168,7 +171,7 @@
 
   /* Editorial blockquote — Newsreader serif narrative body */
   .editorial-quote {
-    font-family: 'Newsreader', 'IBM Plex Sans Thai', Georgia, serif;
+    font-family: 'IBM Plex Sans Thai', system-ui, sans-serif;
     font-weight: 400;
     font-size: clamp(17px, 1.4vw, 21px);
     line-height: 1.6;
@@ -183,7 +186,7 @@
   /* Chevron CTA — inline action prefix `›` */
   .cta-chevron {
     display: inline-flex; align-items: baseline; gap: 0.5rem;
-    font-family: 'Newsreader', Georgia, serif;
+    font-family: 'IBM Plex Sans Thai', system-ui, sans-serif;
     font-size: 13px; font-weight: 500;
     letter-spacing: 0; text-transform: none;
     color: hsl(var(--foreground));
@@ -229,47 +232,49 @@
   /* Process row — `01 / Title` … `WEEK NN · DAYS x-y` */
   .process-row { border-top: 1px solid hsl(var(--foreground) / 0.18); padding: 1.5rem 0 1.25rem; }
   .process-row__head { display: flex; align-items: baseline; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
-  .process-row__title { font-family: 'Newsreader', Georgia, serif; font-weight: 600; font-size: clamp(21px, 1.9vw, 28px); letter-spacing: -0.018em; color: hsl(var(--foreground)); }
+  .process-row__title { font-family: 'IBM Plex Sans Thai', system-ui, sans-serif; font-weight: 600; font-size: clamp(21px, 1.9vw, 28px); letter-spacing: -0.018em; color: hsl(var(--foreground)); }
   .process-row__index { color: hsl(var(--accent)); margin-right: 0.5rem; }
   .process-row__meta  { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: hsl(var(--muted-foreground)); }
   .process-row__body  { margin-top: 0.85rem; max-width: 70ch; color: hsl(var(--foreground) / 0.78); line-height: 1.6; }
 
   /* Method step — giant cinnabar serif numeral + sans title with italic accent */
-  .method-num { font-family: 'Newsreader', serif; font-weight: 500; font-size: clamp(64px, 7vw, 104px); line-height: 0.9; color: hsl(var(--accent)); letter-spacing: -0.03em; }
+  .method-num { font-family: 'IBM Plex Sans Thai', system-ui, sans-serif; font-weight: 500; font-size: clamp(64px, 7vw, 104px); line-height: 0.9; color: hsl(var(--accent)); letter-spacing: -0.03em; }
   .method-caption { display: block; margin-top: 0.5rem; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: hsl(var(--muted-foreground)); }
 
   /* Principle block — dark hero quote */
   .principle-block {
-    background: hsl(var(--foreground));
-    color: hsl(var(--background));
+    background: hsl(var(--surface-2));
+    color: hsl(var(--foreground));
+    border: 1px solid hsl(var(--foreground) / 0.1);
     border-left: 5px solid hsl(var(--accent));
+    border-radius: 1.25rem;
     padding: 2.5rem 2.5rem 2.75rem;
   }
   .principle-block__eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: hsl(var(--accent)); }
-  .principle-block__title   { margin-top: 1.25rem; font-family: 'Newsreader', Georgia, serif; font-weight: 600; font-size: clamp(28px, 3.6vw, 52px); line-height: 1.08; letter-spacing: -0.02em; }
-  .principle-block__body    { margin-top: 1rem; max-width: 70ch; color: hsl(var(--background) / 0.78); line-height: 1.65; }
+  .principle-block__title   { margin-top: 1.25rem; font-family: 'IBM Plex Sans Thai', system-ui, sans-serif; font-weight: 700; font-size: clamp(28px, 3.6vw, 52px); line-height: 1.08; letter-spacing: -0.02em; }
+  .principle-block__body    { margin-top: 1rem; max-width: 70ch; color: hsl(var(--foreground) / 0.78); line-height: 1.65; }
 
   /* Stacked chevron CTA */
   .cta-stack { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 0.4rem; }
   .cta-stack__label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: hsl(var(--muted-foreground)); }
   .cta-stack__chev  { font-family: 'IBM Plex Mono', monospace; font-size: 22px; color: hsl(var(--accent)); line-height: 1; }
-  .cta-stack__link  { font-family: 'Newsreader', Georgia, serif; font-size: 17px; font-weight: 500; color: hsl(var(--foreground)); border-bottom: 1px solid transparent; transition: border-color 200ms ease, color 200ms ease; }
+  .cta-stack__link  { font-family: 'IBM Plex Sans Thai', system-ui, sans-serif; font-size: 17px; font-weight: 500; color: hsl(var(--foreground)); border-bottom: 1px solid transparent; transition: border-color 200ms ease, color 200ms ease; }
   .cta-stack__link:hover { color: hsl(var(--accent)); border-color: hsl(var(--accent)); }
 
   /* Tier matrix table */
   .tier-matrix { width: 100%; border-collapse: collapse; border-top: 1px solid hsl(var(--foreground)); border-bottom: 1px solid hsl(var(--foreground)); }
   .tier-matrix th, .tier-matrix td { padding: 14px 18px; text-align: left; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0; border-bottom: 1px solid hsl(var(--foreground) / 0.12); vertical-align: middle; }
   .tier-matrix thead th { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: hsl(var(--muted-foreground)); border-bottom: 1px solid hsl(var(--foreground)); }
-  .tier-matrix td:first-child, .tier-matrix th:first-child { font-family: 'Newsreader', Georgia, serif; font-weight: 500; font-size: 14px; color: hsl(var(--foreground)); }
+  .tier-matrix td:first-child, .tier-matrix th:first-child { font-family: 'IBM Plex Sans Thai', system-ui, sans-serif; font-weight: 500; font-size: 14px; color: hsl(var(--foreground)); }
   .tier-matrix .tier-highlight { background: hsl(var(--foreground)); color: hsl(var(--background)); }
   .tier-matrix thead th.tier-highlight { color: hsl(var(--accent)); border-bottom-color: hsl(var(--foreground)); }
-  .tier-matrix tr.tier-price td { font-family: 'Newsreader', Georgia, serif; font-weight: 700; font-size: 15px; }
+  .tier-matrix tr.tier-price td { font-family: 'IBM Plex Sans Thai', system-ui, sans-serif; font-weight: 700; font-size: 15px; }
   .tier-matrix tr.tier-price td:first-child { font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: hsl(var(--muted-foreground)); }
   .tier-matrix tr.tier-price td.tier-highlight { color: hsl(var(--accent)); }
 
   /* CTA / button label — Newsreader, normal case */
   .btn-label {
-    font-family: 'Newsreader', Georgia, serif;
+    font-family: 'IBM Plex Sans Thai', system-ui, sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
@@ -295,7 +300,9 @@
   .h-display-sm  { font-size: clamp(21px, 2.4vw, 32px); line-height: 1.2;  letter-spacing: -0.012em; }
   .h-display-xs  { font-size: clamp(17px, 1.5vw, 21px); line-height: 1.4;  letter-spacing: -0.008em; }
   .h-display-2xs { font-size: clamp(15px, 1.2vw, 18px); line-height: 1.3;  letter-spacing: -0.005em; }
-  .num-display   { font-family: 'Newsreader', serif; font-weight: 500; letter-spacing: -0.03em; line-height: 0.95; font-feature-settings: "tnum"; }
+  .num-display   { font-family: 'Unbounded', system-ui, sans-serif; font-weight: 600; letter-spacing: -0.02em; line-height: 0.95; font-feature-settings: "tnum"; }
+  /* Unbounded — creative display signature for Latin headlines (defined after h-display so it wins when combined) */
+  .font-unbounded { font-family: 'Unbounded', system-ui, sans-serif; letter-spacing: -0.01em; }
 
   .bg-surface   { background-color: hsl(var(--surface)); }
   .bg-surface-2 { background-color: hsl(var(--surface-2)); }
@@ -334,60 +341,109 @@
   .card-quiet:hover { border-color: hsl(var(--accent)); }
   .card-quiet:hover .card-quiet-label { color: hsl(var(--accent)); }
 
+  /* === Buttons — pill CTAs (Alpha-style), ORIONS serif label === */
   .btn-primary {
-    display: inline-flex; align-items: center; gap: 0.75rem;
-    padding: 0.875rem 1.5rem;
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
+    padding: 0.85rem 1.75rem;
+    border-radius: 9999px;
     background: hsl(var(--foreground));
     color: hsl(var(--background));
-    font-family: 'Newsreader', Georgia, serif; font-size: 14px; font-weight: 500; letter-spacing: 0;
-    transition: background-color 240ms ease;
+    font-family: 'IBM Plex Sans Thai', system-ui, sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0;
+    transition: background-color 240ms ease, transform 240ms ease;
   }
   .btn-primary:hover { background: hsl(var(--accent)); }
 
   .btn-accent {
-    display: inline-flex; align-items: center; gap: 0.75rem;
-    padding: 0.875rem 1.5rem;
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
+    padding: 0.85rem 1.75rem;
+    border-radius: 9999px;
     background: hsl(var(--accent));
     color: hsl(var(--background));
-    font-family: 'Newsreader', Georgia, serif; font-size: 14px; font-weight: 500; letter-spacing: 0;
-    transition: background-color 240ms ease;
+    font-family: 'IBM Plex Sans Thai', system-ui, sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0;
+    transition: background-color 240ms ease, transform 240ms ease;
   }
   .btn-accent:hover { background: hsl(var(--foreground)); }
 
   .btn-ghost {
-    display: inline-flex; align-items: center; gap: 0.75rem;
-    padding: 0.875rem 1.5rem;
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
+    padding: 0.85rem 1.75rem;
+    border-radius: 9999px;
     background: transparent;
     color: hsl(var(--foreground));
-    border: 1px solid hsl(var(--foreground));
-    font-family: 'Newsreader', Georgia, serif; font-size: 14px; font-weight: 500; letter-spacing: 0;
-    transition: color 240ms ease, border-color 240ms ease;
+    border: 1px solid hsl(var(--foreground) / 0.25);
+    font-family: 'IBM Plex Sans Thai', system-ui, sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0;
+    transition: color 240ms ease, border-color 240ms ease, background-color 240ms ease;
   }
   .btn-ghost:hover { color: hsl(var(--accent)); border-color: hsl(var(--accent)); }
+
+  /* === Alpha-style primitives, light-adapted === */
+  /* Badge chip — pill border + cinnabar dot */
+  .badge-chip {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    border-radius: 9999px;
+    border: 1px solid hsl(var(--foreground) / 0.18);
+    background: hsl(var(--surface));
+    padding: 0.4rem 0.9rem;
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.08em;
+    color: hsl(var(--muted-foreground));
+    line-height: 1;
+  }
+  .badge-chip__dot { width: 6px; height: 6px; border-radius: 9999px; background: hsl(var(--accent)); flex-shrink: 0; }
+
+  /* Soft card — rounded, subtle border, hover lifts to cinnabar */
+  .card-soft {
+    border-radius: 1.25rem;
+    border: 1px solid hsl(var(--foreground) / 0.12);
+    background: hsl(var(--card));
+    transition: border-color 280ms ease, transform 280ms ease, box-shadow 280ms ease;
+  }
+  .card-soft:hover {
+    border-color: hsl(var(--accent) / 0.45);
+    transform: translateY(-3px);
+    box-shadow: 0 24px 60px -32px hsl(var(--foreground) / 0.28);
+  }
+
+  /* Accent card — cinnabar-tinted highlight (featured / CTA) */
+  .card-accent {
+    border-radius: 1.25rem;
+    border: 1px solid hsl(var(--accent) / 0.4);
+    background:
+      linear-gradient(180deg, hsl(var(--accent) / 0.06), hsl(var(--card)) 60%);
+    box-shadow: 0 28px 70px -34px hsl(var(--accent) / 0.4);
+  }
+
+  /* Featured ribbon pill — sits on a card edge */
+  .ribbon-pill {
+    border-radius: 9999px;
+    background: hsl(var(--accent));
+    color: hsl(var(--background));
+    padding: 0.25rem 0.85rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+    line-height: 1.4;
+    white-space: nowrap;
+  }
+
+  /* Stat / results card */
+  .stat-card {
+    border-radius: 1.25rem;
+    border: 1px solid hsl(var(--accent) / 0.25);
+    background: hsl(var(--card));
+    padding: 1.75rem;
+    transition: border-color 280ms ease;
+  }
+  .stat-card:hover { border-color: hsl(var(--accent) / 0.55); }
 
   /* Section rhythm */
   .section-pad { padding-top: 5rem; padding-bottom: 5rem; }
   @media (min-width: 768px) { .section-pad { padding-top: 7rem; padding-bottom: 7rem; } }
 
-  /* === Section ink mode — invert all tokens inside a section === */
+  /* === Section "ink" mode — now a subtle elevated dark band (base is already dark) === */
   .section-ink {
-    background-color: hsl(0 0% 5%);
-    color: hsl(60 33% 98%);
-    --background: 0 0% 5%;
-    --foreground: 60 33% 98%;
-    --card: 0 0% 5%;
-    --card-foreground: 60 33% 98%;
-    --popover: 0 0% 5%;
-    --popover-foreground: 60 33% 98%;
-    --muted: 0 0% 14%;
-    --muted-foreground: 60 14% 70%;
-    --secondary: 0 0% 14%;
-    --secondary-foreground: 60 33% 98%;
-    --border: 60 33% 98%;
-    --border-soft: 60 14% 30%;
-    --input: 60 33% 98%;
-    --surface: 0 0% 9%;
-    --surface-2: 0 0% 14%;
+    background-color: hsl(var(--surface-2));
+    --surface: 0 0% 11%;
+    --card: 0 0% 12.5%;
   }
 
   /* Legacy gradient utilities — flat ink */
@@ -466,13 +522,29 @@
   .reveal-clip { animation: none; clip-path: inset(0 0 0 0); }
 }
 
+/* === Thai heading tuning (unlayered → beats .h-display utilities) ===
+   Relax Latin's negative tracking, give stacked Thai marks vertical room,
+   and use `pretty` to avoid single-word orphans on the last line. */
+h1:lang(th), h2:lang(th), h3:lang(th), h4:lang(th), h5:lang(th), h6:lang(th),
+.h-display-xl:lang(th), .h-display-lg:lang(th), .h-display-md:lang(th),
+.h-display-sm:lang(th), .h-display-xs:lang(th), .h-display-2xs:lang(th) {
+  letter-spacing: 0;
+  line-height: 1.25;
+  text-wrap: pretty;
+}
+/* Thai accent words in headings — keep upright cinnabar, no negative tracking */
+h1:lang(th) em, h2:lang(th) em, h3:lang(th) em, h4:lang(th) em, h5:lang(th) em, h6:lang(th) em {
+  letter-spacing: 0;
+}
+
 ::selection {
   background: hsl(var(--foreground));
   color: hsl(var(--background));
 }
-::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-track { background: hsl(var(--background)); }
-::-webkit-scrollbar-thumb { background: hsl(var(--foreground) / 0.4); }
+::-webkit-scrollbar-thumb { background: hsl(var(--foreground) / 0.18); border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: hsl(var(--accent)); }
 
 .hide-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
 .hide-scrollbar::-webkit-scrollbar { display: none; }

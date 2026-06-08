@@ -64,7 +64,7 @@ const CaseStudy = () => {
 
           {/* Meta strip */}
           <Reveal delay={0.24}>
-            <dl className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-6 border-t border-foreground/15 pt-8">
+            <dl className="card-soft mt-16 grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-6 p-8">
               {[
                 { k: "Brand", v: cs.title, th: true },
                 { k: "Category", v: cs.niche },
@@ -100,11 +100,11 @@ const CaseStudy = () => {
       <section className="px-6 md:px-10">
         <div className="max-w-[1280px] mx-auto pb-16 md:pb-20">
           <Reveal>
-            <div className="relative w-full overflow-hidden bg-muted" style={{ aspectRatio: "16 / 9" }}>
+            <div className="group relative w-full overflow-hidden rounded-2xl bg-muted" style={{ aspectRatio: "16 / 9" }}>
               <img
                 src={cs.cover}
                 alt={`${cs.title} — cover`}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
               />
             </div>
           </Reveal>
@@ -162,7 +162,7 @@ const CaseStudy = () => {
               {cs.gallery.map((img, i) => (
                 <Reveal key={i} delay={0.04 * i}>
                   <div
-                    className={`relative w-full overflow-hidden bg-muted ${
+                    className={`group relative w-full overflow-hidden rounded-2xl bg-muted ${
                       i === 0 ? "md:col-span-2" : ""
                     }`}
                     style={{ aspectRatio: i === 0 ? "16 / 9" : "4 / 5" }}
@@ -171,7 +171,7 @@ const CaseStudy = () => {
                       src={img}
                       alt={`${cs.title} — frame ${i + 1}`}
                       loading="lazy"
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
                     />
                   </div>
                 </Reveal>

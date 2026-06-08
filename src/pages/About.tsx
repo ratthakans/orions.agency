@@ -1,22 +1,35 @@
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
-import SectionLabel from "@/components/SectionLabel";
+import SectionHeading from "@/components/ui/SectionHeading";
+import BadgeChip from "@/components/ui/BadgeChip";
 import CTABand from "@/components/CTABand";
-import teamCd from "@/assets/team-cd.jpg";
-import teamStrategist from "@/assets/team-strategist.jpg";
-import teamArtDirector from "@/assets/team-artdirector.jpg";
-import teamProducer from "@/assets/team-producer.jpg";
-import teamDop from "@/assets/team-dop.jpg";
-import teamEditor from "@/assets/team-editor.jpg";
 
-// NOTE: placeholder portraits by role — swap with real team photos/names before launch.
+// PLACEHOLDER: replace with real team names + photos before launch
+// Roles only for now — honest (no fabricated names/portraits). The credibility
+// comes from the real client track record listed below, not invented bios.
 const people = [
-  { role: "Creative Director",         img: teamCd },
-  { role: "Strategist",                img: teamStrategist },
-  { role: "Art Director",              img: teamArtDirector },
-  { role: "Producer",                  img: teamProducer },
-  { role: "Director of Photography",   img: teamDop },
-  { role: "Editor",                    img: teamEditor },
+  { role: "Creative Director",         th: "ทิศทางความคิดและคุณภาพงานโดยรวม" },
+  { role: "Strategist",                th: "วางกลยุทธ์และเรื่องที่จริงก่อนลงมือ" },
+  { role: "Art Director",              th: "ดูแลภาษาภาพให้คมและสอดคล้องกัน" },
+  { role: "Producer",                  th: "คุมไทม์ไลน์ งบ และการส่งมอบจริง" },
+  { role: "Director of Photography",   th: "ภาพเคลื่อนไหวและการถ่ายทำ" },
+  { role: "Editor",                    th: "ตัดต่อและประกอบงานให้จบสมบูรณ์" },
+];
+
+// Real clients used elsewhere on the site — used here only to frame track record.
+const trackRecordClients = [
+  "พรรคประชาธิปัตย์",
+  "กองทัพอากาศ",
+  "GCOO",
+  "HONG MOVE",
+  "เขาใหญ่ คันทรี่คลับ",
+  "HEAVY ORGANIZER",
+];
+
+const studioStats = [
+  { num: "3 → 1", label: "ทีมเดียว ตั้งแต่กลยุทธ์ถึงการผลิต" },
+  { num: "6",     label: "มิติใน Brand Audit" },
+  { num: "24",    label: "ชม. ตอบกลับหลังทักมา" },
 ];
 
 const principles = [
@@ -43,9 +56,11 @@ const About = () => (
     {/* 01 — MANIFESTO */}
     <section className="section-ink min-h-[88vh] flex flex-col border-b border-foreground/15">
       <div className="px-6 md:px-10 pt-28 md:pt-32 pb-16 md:pb-20 flex-1 flex flex-col justify-center max-w-[1280px] mx-auto w-full">
-        <SectionLabel index="01" label="What we believe" />
+        <Reveal>
+          <BadgeChip>What we believe</BadgeChip>
+        </Reveal>
         <Reveal delay={0.1}>
-          <h1 lang="th" className="mt-10 h-display-lg max-w-[20ch] thai-wrap">
+          <h1 lang="th" className="mt-8 h-display-lg max-w-[20ch] thai-wrap">
             พูดให้ดังที่สุด ไม่เท่าพูดให้ <em className="italic text-cinnabar">ถูก.</em>
           </h1>
         </Reveal>
@@ -64,8 +79,8 @@ const About = () => (
             </p>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="principle-block h-full">
-              <div className="principle-block__eyebrow">— Our stance</div>
+            <div className="card-accent h-full">
+              <div className="eyebrow-mono">Our stance</div>
               <div lang="th" className="mt-6 font-thai thai-wrap text-[26px] md:text-[34px] leading-[1.25] font-medium tracking-[0]">
                 เราไม่หนีข้อจำกัด — <span className="text-cinnabar">เราถือว่ามันคือบรีฟ.</span>
               </div>
@@ -78,16 +93,15 @@ const About = () => (
     {/* 02 — WHAT WE HOLD */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <SectionLabel index="02" label="What we hold" />
-        <Reveal delay={0.1}>
-          <h2 lang="th" className="mt-10 h-display-md max-w-[22ch] thai-wrap">
-            สี่อย่างที่เรา <em className="italic text-cinnabar">ไม่ยอมต่อรอง.</em>
-          </h2>
-        </Reveal>
-        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 border border-foreground/20">
+        <SectionHeading
+          eyebrow="02 — What we hold"
+          lang="th"
+          title={<>สี่อย่างที่เรา <em className="italic text-cinnabar">ไม่ยอมต่อรอง.</em></>}
+        />
+        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
           {principles.map((p, i) => (
             <Reveal key={p.n} delay={(i % 2) * 0.06}>
-              <div className={`p-10 md:p-12 h-full ${i % 2 === 1 ? "sm:border-l border-foreground/20" : ""} ${i >= 2 ? "border-t border-foreground/20" : ""} ${i > 0 && i < 2 ? "border-t sm:border-t-0 border-foreground/20" : ""}`}>
+              <div className="card-soft p-10 md:p-12 h-full">
                 <div className="font-serif italic text-cinnabar text-[22px] leading-none">{p.n}</div>
                 <h3 lang="th" className="mt-8 font-thai text-[24px] md:text-[28px] leading-[1.1] tracking-[-0.01em] font-medium">{p.en}</h3>
                 <p lang="th" className="mt-4 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">{p.th}</p>
@@ -106,32 +120,55 @@ const About = () => (
     </section>
 
     {/* 03 — PEOPLE / STUDIO */}
+    {/* PLACEHOLDER: replace with real team names + photos before launch */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <SectionLabel index="03" label="The studio" />
-        <Reveal delay={0.1}>
-          <h2 lang="th" className="mt-10 h-display-md max-w-[24ch] thai-wrap">
-            คนยังเป็นคนคิด — และ <em className="italic text-cinnabar">รับผิดชอบงาน.</em>
-          </h2>
+        <SectionHeading
+          eyebrow="03 — The studio"
+          lang="th"
+          title={<>คนยังเป็นคนคิด — และ <em className="italic text-cinnabar">รับผิดชอบงาน.</em></>}
+          intro="ทีมเดียวตั้งแต่กลยุทธ์ถึงการผลิต — strategist, creative director, art director, producer, ช่างภาพ และ editor ที่อยู่กับงานของคุณจริง ไม่ใช่สายพาน."
+        />
+
+        {/* Track record — real clients shown elsewhere on the site */}
+        <Reveal delay={0.05}>
+          <div className="card-accent mt-12">
+            <div className="eyebrow-mono">Track record</div>
+            <p lang="th" className="mt-5 font-thai thai-wrap text-[17px] md:text-[20px] leading-[1.5] text-foreground/90 max-w-[760px]">
+              ทีมเดียวกับที่อยู่เบื้องหลังงานจริงให้กับ —
+            </p>
+            <div className="mt-6 flex flex-wrap gap-2.5">
+              {trackRecordClients.map((c) => (
+                <span key={c} lang="th" className="badge-chip font-thai text-foreground/85">
+                  {c}
+                </span>
+              ))}
+            </div>
+            <p lang="th" className="mt-6 font-thai thai-wrap text-[13px] md:text-[14px] leading-[1.7] text-muted-foreground max-w-[680px]">
+              เราเพิ่งตั้งสตูดิโอในชื่อ ØRIONS — แต่คนทำงานไม่ได้เพิ่งเริ่มต้น.
+            </p>
+          </div>
         </Reveal>
-        <Reveal delay={0.15}>
-          <p lang="th" className="mt-6 max-w-[640px] font-thai thai-wrap text-[15px] md:text-[16px] leading-[1.7] text-muted-foreground">
-            ทีมเดียวตั้งแต่กลยุทธ์ถึงการผลิต — strategist, creative director, art director, producer, ช่างภาพ และ editor ที่อยู่กับงานของคุณจริง ไม่ใช่สายพาน.
-          </p>
-        </Reveal>
-        <div className="mt-14 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-5">
+
+        {/* Honest by-the-numbers — facts already true on the site */}
+        <div className="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-5">
+          {studioStats.map((s, i) => (
+            <Reveal key={s.label} delay={i * 0.06}>
+              <div className="stat-card h-full">
+                <div className="num-display text-cinnabar text-[34px] md:text-[44px]">{s.num}</div>
+                <p lang="th" className="mt-4 font-thai thai-wrap text-[13px] md:text-[14px] leading-[1.6] text-muted-foreground">{s.label}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        {/* Roles — no fabricated names/photos, presented as rounded tiles */}
+        <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
           {people.map((p, i) => (
-            <Reveal key={p.role} delay={(i % 6) * 0.05}>
-              <div className="group">
-                <div className="relative w-full overflow-hidden bg-muted" style={{ aspectRatio: "3 / 4" }}>
-                  <img
-                    src={p.img}
-                    alt={p.role}
-                    loading="lazy"
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-500"
-                  />
-                </div>
-                <div className="mt-3 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">{p.role}</div>
+            <Reveal key={p.role} delay={(i % 3) * 0.05}>
+              <div className="card-soft p-7 md:p-8 h-full">
+                <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-cinnabar">{p.role}</div>
+                <p lang="th" className="mt-3 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.6] text-foreground/70">{p.th}</p>
               </div>
             </Reveal>
           ))}
@@ -142,21 +179,16 @@ const About = () => (
     {/* 04 — WHEN WE'RE NOT THE ANSWER */}
     <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <SectionLabel index="04" label="When we're not the answer" />
-        <Reveal delay={0.1}>
-          <h2 lang="th" className="mt-10 h-display-md max-w-[24ch] thai-wrap">
-            ความซื่อสัตย์สำคัญกว่า <em className="italic text-cinnabar">การรับทุกงาน.</em>
-          </h2>
-        </Reveal>
-        <Reveal delay={0.15}>
-          <p lang="th" className="mt-8 max-w-[620px] font-thai thai-wrap text-[15px] md:text-[16px] leading-[1.7] text-muted-foreground">
-            เราจะบอกตรง ๆ ถ้า:
-          </p>
-        </Reveal>
-        <div className="mt-12 border-t border-foreground/20">
+        <SectionHeading
+          eyebrow="04 — When we're not the answer"
+          lang="th"
+          title={<>ความซื่อสัตย์สำคัญกว่า <em className="italic text-cinnabar">การรับทุกงาน.</em></>}
+          intro="เราจะบอกตรง ๆ ถ้า:"
+        />
+        <div className="mt-12 grid grid-cols-1 gap-4 md:gap-5">
           {notForYou.map((p, i) => (
             <Reveal key={p.n} delay={i * 0.06}>
-              <div className="grid grid-cols-1 md:grid-cols-[80px_1fr] gap-4 md:gap-12 items-baseline py-8 md:py-10 border-b border-foreground/20">
+              <div className="card-soft grid grid-cols-1 md:grid-cols-[80px_1fr] gap-4 md:gap-12 items-baseline p-8 md:p-10">
                 <div className="font-serif italic text-cinnabar text-[28px] md:text-[36px] leading-none tabular-nums">{p.n}</div>
                 <p lang="th" className="font-thai thai-wrap text-[16px] md:text-[19px] leading-[1.6] text-foreground/90">{p.th}</p>
               </div>

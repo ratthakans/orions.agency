@@ -4,7 +4,8 @@ import { ArrowUpRight, MessageCircle, Calendar } from "lucide-react";
 import { z } from "zod";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
-import SectionLabel from "@/components/SectionLabel";
+import SectionHeading from "@/components/ui/SectionHeading";
+import BadgeChip from "@/components/ui/BadgeChip";
 import FAQ from "@/components/FAQ";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
@@ -72,7 +73,7 @@ const Contact = () => {
     setForm({ name: "", company: "", email: "", brief: "" });
   };
 
-  const inputCls = "w-full bg-transparent border-b border-foreground/40 px-0 py-3 text-[15px] text-foreground placeholder:text-foreground/45 focus:outline-none focus:border-foreground transition-colors font-thai";
+  const inputCls = "w-full rounded-xl bg-background border border-foreground/15 px-4 py-3 text-[15px] text-foreground placeholder:text-foreground/45 focus:outline-none focus:border-cinnabar focus:ring-1 focus:ring-cinnabar/30 transition-colors font-thai";
   const labelCls = "font-mono text-[10px] tracking-[0.14em] uppercase text-foreground/70";
 
   return (
@@ -86,9 +87,11 @@ const Contact = () => {
       {/* 01 — HERO + inline timeline */}
       <section className="section-ink px-6 md:px-10">
         <div className="max-w-[1280px] mx-auto pt-28 md:pt-32 pb-20 md:pb-24">
-          <SectionLabel index="01" label="Start a conversation" />
+          <Reveal>
+            <BadgeChip>Start a conversation</BadgeChip>
+          </Reveal>
           <Reveal delay={0.05}>
-            <h1 lang="th" className="mt-10 h-display-lg max-w-[16ch] thai-wrap">
+            <h1 lang="th" className="mt-8 h-display-lg max-w-[16ch] thai-wrap">
               เล่าโจทย์มา — เราช่วย <em className="italic text-cinnabar">refine</em> มัน.
             </h1>
           </Reveal>
@@ -144,15 +147,13 @@ const Contact = () => {
       {/* 02 — BRIEF */}
       <section id="brief" className="px-6 md:px-10 border-t border-foreground/15 scroll-mt-24">
         <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-          <SectionLabel index="02" label="Send a brief" />
-          <Reveal delay={0.05}>
-            <h2 className="mt-10 h-display-lg max-w-[16ch]">
-              Tell us about <em className="italic text-cinnabar">the brand.</em>
-            </h2>
-          </Reveal>
+          <SectionHeading
+            eyebrow="02 — Send a brief"
+            title={<>Tell us about <em className="italic text-cinnabar">the brand.</em></>}
+          />
 
-          <div className="mt-16 md:mt-20 border-t border-foreground/20 grid grid-cols-1 md:grid-cols-12">
-            <div className="md:col-span-7 py-10 md:py-12 md:pr-10">
+          <div className="mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-start">
+            <div className="md:col-span-7 card-soft p-7 md:p-9">
               <p lang="th" className="font-thai thai-wrap text-[14px] leading-[1.7] text-foreground/75 max-w-[44ch]">
                 ใส่รายละเอียดเท่าที่สะดวก. ยิ่งละเอียด ทีมเรายิ่งตอบได้ตรงจุด.
               </p>
@@ -207,20 +208,35 @@ const Contact = () => {
               </form>
             </div>
 
-            <div className="md:col-span-5 border-t md:border-t-0 md:border-l border-foreground/20 py-10 md:py-12 md:pl-10">
-              <div className="font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">— Studio</div>
-              <p lang="th" className="mt-6 font-thai thai-wrap text-[14px] leading-[1.7] text-foreground/80">
-                246/8 Soi Yothinphatthana 3<br />
-                Khlong Chan, Bang Kapi<br />
-                Bangkok 10240, Thailand
-              </p>
-              <a href="https://maps.google.com/?q=246/8+Soi+Yothinphatthana+3+Bangkok" target="_blank" rel="noreferrer"
-                className="mt-3 inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.22em] uppercase text-foreground hover:text-cinnabar transition-colors">
-                Open in Maps <ArrowUpRight className="w-3 h-3" />
-              </a>
-              <p className="mt-8 font-mono text-[10px] tracking-[0.12em] uppercase text-muted-foreground">
-                Reply within 24 hours · Mon–Fri · 09:00–18:00 ICT
-              </p>
+            <div className="md:col-span-5 flex flex-col gap-6">
+              {/* Book a call — primary highlight */}
+              <div className="card-accent p-7 md:p-8">
+                <div className="font-mono text-[10px] tracking-[0.14em] uppercase text-cinnabar">— Book a call</div>
+                <p lang="th" className="mt-4 font-thai thai-wrap text-[14px] leading-[1.7] text-foreground/80">
+                  อยากคุยก่อนส่งโจทย์? นัดคุยฟรี 45 นาที ไม่มีข้อผูกมัด.
+                </p>
+                <a href="mailto:hello@orions.agency?subject=คุยฟรี 45 นาที — ØRIONS"
+                  className="btn-accent mt-6 justify-between w-full">
+                  <span>นัดคุย 45 นาที</span><Calendar className="w-4 h-4" />
+                </a>
+              </div>
+
+              {/* Studio */}
+              <div className="card-soft p-7 md:p-8">
+                <div className="font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">— Studio</div>
+                <p lang="th" className="mt-6 font-thai thai-wrap text-[14px] leading-[1.7] text-foreground/80">
+                  246/8 Soi Yothinphatthana 3<br />
+                  Khlong Chan, Bang Kapi<br />
+                  Bangkok 10240, Thailand
+                </p>
+                <a href="https://maps.google.com/?q=246/8+Soi+Yothinphatthana+3+Bangkok" target="_blank" rel="noreferrer"
+                  className="mt-3 inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.22em] uppercase text-foreground hover:text-cinnabar transition-colors">
+                  Open in Maps <ArrowUpRight className="w-3 h-3" />
+                </a>
+                <p className="mt-8 font-mono text-[10px] tracking-[0.12em] uppercase text-muted-foreground">
+                  Reply within 24 hours · Mon–Fri · 09:00–18:00 ICT
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -229,12 +245,10 @@ const Contact = () => {
       {/* 03 — FAQ */}
       <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
         <div className="max-w-[1080px] mx-auto py-20 md:py-28">
-          <SectionLabel index="03" label="Before you ask" />
-          <Reveal delay={0.05}>
-            <h2 className="mt-10 h-display-lg max-w-[20ch]">
-              The short <em className="italic text-cinnabar">answers.</em>
-            </h2>
-          </Reveal>
+          <SectionHeading
+            eyebrow="03 — Before you ask"
+            title={<>The short <em className="italic text-cinnabar">answers.</em></>}
+          />
           <div className="mt-14"><FAQ items={faqs} /></div>
         </div>
       </section>

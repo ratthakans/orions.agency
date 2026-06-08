@@ -6,6 +6,8 @@ import { toast } from "sonner";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
+import SectionHeading from "@/components/ui/SectionHeading";
+import BadgeChip from "@/components/ui/BadgeChip";
 import FAQ from "@/components/FAQ";
 import { supabase } from "@/integrations/supabase/client";
 import { CAL_URL } from "@/lib/config";
@@ -321,13 +323,14 @@ const Diagnostic = () => {
 
           {/* What you get */}
           <Reveal delay={0.3}>
-            <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 border-t border-foreground/20">
+            <BadgeChip className="mt-12">สิ่งที่คุณจะได้</BadgeChip>
+            <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
                 { n: "01", t: "คะแนนเทียบ 6 มิติ", d: "เห็นภาพรวมว่าแบรนด์แข็ง/อ่อนตรงไหน" },
                 { n: "02", t: "จุดอ่อน 3 อันดับแรก", d: "รู้ว่าควรลงมือแก้อะไรก่อน" },
                 { n: "03", t: "ทางที่เหมาะกับคุณ", d: "เราบอกตรง ๆ ว่าควรเริ่มตรงไหน" },
-              ].map((w, i) => (
-                <div key={w.n} className={`py-6 md:py-7 md:px-6 ${i > 0 ? "border-t sm:border-t-0 sm:border-l border-foreground/20" : "md:pl-0"}`}>
+              ].map((w) => (
+                <div key={w.n} className="card-soft p-6 md:p-7">
                   <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">— {w.n}</div>
                   <h3 lang="th" className="mt-4 font-thai text-[16px] md:text-[18px] font-medium leading-[1.3]">{w.t}</h3>
                   <p lang="th" className="mt-2 font-thai thai-wrap text-[13px] leading-[1.6] text-muted-foreground">{w.d}</p>
@@ -340,7 +343,7 @@ const Diagnostic = () => {
 
       {/* WIZARD */}
       <section className="px-6 md:px-10 pb-32">
-        <div className="max-w-[1080px] mx-auto border border-foreground/15 bg-background p-8 md:p-14 min-h-[560px]">
+        <div className="max-w-[1080px] mx-auto card-soft hover:translate-y-0 hover:shadow-none p-8 md:p-14 min-h-[560px]">
           {/* Header */}
           <div className="flex items-center justify-between gap-4 flex-wrap">
             <div className="font-mono text-[11px] tracking-[0.2em] uppercase text-cinnabar font-semibold">
@@ -357,7 +360,7 @@ const Diagnostic = () => {
               const completed = isResult || i < (q?.axis ?? 0);
               const active = !isResult && i === q!.axis;
               return (
-                <div key={i} className={`flex-1 h-px ${active ? "bg-cinnabar" : completed ? "bg-cinnabar/50" : "bg-foreground/15"}`} />
+                <div key={i} className={`flex-1 h-[3px] rounded-full ${active ? "bg-cinnabar" : completed ? "bg-cinnabar/50" : "bg-foreground/15"}`} />
               );
             })}
           </div>
@@ -376,7 +379,7 @@ const Diagnostic = () => {
                       key={s.points}
                       type="button"
                       onClick={() => select(s.points)}
-                      className={`flex flex-col items-center gap-3 px-4 py-6 border transition-colors duration-300 ${
+                      className={`flex flex-col items-center gap-3 px-4 py-6 rounded-xl border transition-colors duration-300 ${
                         selected ? "border-cinnabar bg-cinnabar/10" : "border-foreground/15 hover:border-cinnabar"
                       }`}
                     >
@@ -420,7 +423,7 @@ const Diagnostic = () => {
           {/* GATE — email unlocks the detailed breakdown */}
           {isResult && !unlocked && (
             <div className="mt-12 max-w-[640px] mx-auto text-center">
-              <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">— ดูเชิงลึก</div>
+              <div className="font-thai text-[11px] tracking-[0.02em] text-cinnabar">— ดูเชิงลึก</div>
               <h2 lang="th" className="mt-6 h-display-sm">
                 เห็นคะแนนแล้ว — <em className="italic text-cinnabar">ลงรายละเอียด</em> ต่อไหม?
               </h2>
@@ -434,7 +437,7 @@ const Diagnostic = () => {
                   { k: "email", label: "อีเมล",  ph: "you@brand.com",   span: "sm:col-span-2" },
                 ].map((f) => (
                   <div key={f.k} className={f.span}>
-                    <label lang="th" className="font-mono text-[10px] tracking-[0.14em] uppercase text-foreground/70">{f.label}</label>
+                    <label lang="th" className="font-thai text-[11px] tracking-[0.02em] text-foreground/70">{f.label}</label>
                     <input
                       type={f.k === "email" ? "email" : "text"}
                       value={lead[f.k as keyof typeof lead]}
@@ -442,7 +445,7 @@ const Diagnostic = () => {
                       placeholder={f.ph}
                       className="w-full bg-transparent border-b border-foreground/40 px-0 py-3 text-[15px] text-foreground placeholder:text-foreground/40 focus:outline-none focus:border-cinnabar transition-colors font-thai"
                     />
-                    {leadErrors[f.k] && <p lang="th" className="mt-2 font-mono text-[10px] tracking-[0.12em] uppercase text-destructive">{leadErrors[f.k]}</p>}
+                    {leadErrors[f.k] && <p lang="th" className="mt-2 font-thai text-[11px] tracking-[0.02em] text-destructive">{leadErrors[f.k]}</p>}
                   </div>
                 ))}
                 <div aria-hidden className="hidden" style={{ position: "absolute", left: "-9999px" }}>
@@ -503,19 +506,19 @@ const Diagnostic = () => {
                   <span className="block w-6 h-px bg-cinnabar" />
                   Per-Axis Diagnosis
                 </div>
-                <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-px bg-foreground/15 border border-foreground/15">
+                <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
                   {axisScores.map((a) => {
                     const pct = a.max ? Math.round((a.score / a.max) * 100) : 0;
                     const v = axisVerdict(a.axis, pct);
                     const tone = v.label === "Strong" ? "text-cinnabar" : v.label === "Developing" ? "text-foreground" : "text-muted-foreground";
                     return (
-                      <div key={a.axis} className="bg-background p-6 md:p-7">
+                      <div key={a.axis} className="stat-card p-6 md:p-7">
                         <div className="flex items-center justify-between">
                           <span className="font-mono text-[10px] tracking-[0.2em] uppercase">{axes[a.axis].name}</span>
                           <span className="num-display text-[20px]">{pct}%</span>
                         </div>
-                        <div className="mt-3 h-px bg-foreground/10 overflow-hidden">
-                          <div className="h-full bg-cinnabar" style={{ width: `${pct}%` }} />
+                        <div className="mt-3 h-1 rounded-full bg-foreground/10 overflow-hidden">
+                          <div className="h-full rounded-full bg-cinnabar" style={{ width: `${pct}%` }} />
                         </div>
                         <div className={`mt-4 font-mono text-[10px] tracking-[0.22em] uppercase ${tone}`}>{v.label}</div>
                         <p lang="th" className="mt-2 font-thai text-[13px] md:text-[14px] leading-[1.65] text-foreground/85">{v.text}</p>
@@ -561,8 +564,8 @@ const Diagnostic = () => {
               {(() => {
                 const rec = recommendPath(overallPct);
                 return (
-                  <div className="mt-16 text-left max-w-[860px] mx-auto bg-surface text-foreground border border-foreground/15 p-8 md:p-12">
-                    <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar flex items-center gap-3">
+                  <div className="mt-16 text-left max-w-[860px] mx-auto card-accent text-foreground p-8 md:p-12">
+                    <div className="font-thai text-[11px] tracking-[0.02em] text-cinnabar flex items-center gap-3">
                       <span className="block w-6 h-px bg-cinnabar" />
                       {rec.label}
                     </div>
@@ -570,10 +573,10 @@ const Diagnostic = () => {
                     <p lang="th" className="mt-6 font-thai text-[14px] md:text-[16px] leading-[1.7] text-foreground/85 max-w-[640px]">{rec.why}</p>
 
                     {/* Suggested package (rough) */}
-                    <Link to="/package" className="mt-7 inline-flex items-center gap-4 border border-foreground/20 hover:border-cinnabar transition-colors px-5 py-4 group">
-                      <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">แพ็กเกจที่น่าจะเหมาะ</span>
+                    <Link to="/package" className="mt-7 inline-flex items-center gap-4 rounded-xl bg-background/60 border border-foreground/20 hover:border-cinnabar transition-colors px-5 py-4 group">
+                      <span className="font-thai text-[11px] tracking-[0.02em] text-muted-foreground">แพ็กเกจที่น่าจะเหมาะ</span>
                       <span className="font-serif italic text-cinnabar text-[20px] md:text-[22px]">{rec.pkg.name}</span>
-                      <span lang="th" className="font-mono text-[11px] tracking-[0.04em] text-foreground/70">{rec.pkg.price}</span>
+                      <span lang="th" className="font-thai text-[11px] tracking-[0.02em] text-foreground/70">{rec.pkg.price}</span>
                       <ArrowUpRight className="w-4 h-4 text-foreground/50 group-hover:text-cinnabar transition-colors" />
                     </Link>
 
@@ -582,15 +585,15 @@ const Diagnostic = () => {
                       <Link to={rec.secondary.to} className="group inline-flex items-center gap-2 btn-label border-b border-foreground/60 pb-1 text-foreground hover:text-cinnabar hover:border-cinnabar transition-colors">{rec.secondary.label} →</Link>
                     </div>
                     <p lang="th" className="mt-8 pt-6 border-t border-foreground/15 font-thai thai-wrap text-[13px] md:text-[14px] leading-[1.7] text-muted-foreground max-w-[640px]">
-                      <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">— พูดตรง</span>&nbsp;&nbsp;{rec.honest}
+                      <span className="font-thai text-[11px] tracking-[0.02em] text-cinnabar">— พูดตรง</span>&nbsp;&nbsp;{rec.honest}
                     </p>
                   </div>
                 );
               })()}
 
               {/* Book the audit call (email already captured at the gate) */}
-              <div className="mt-16 text-left max-w-[860px] mx-auto bg-surface border border-foreground/15 p-8 md:p-12">
-                <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar flex items-center gap-3">
+              <div className="mt-16 text-left max-w-[860px] mx-auto card-soft hover:translate-y-0 hover:shadow-none p-8 md:p-12">
+                <div className="font-thai text-[11px] tracking-[0.02em] text-cinnabar flex items-center gap-3">
                   <span className="block w-6 h-px bg-cinnabar" />
                   ขั้นต่อไป
                 </div>
@@ -642,11 +645,10 @@ const Diagnostic = () => {
       <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
         <div className="max-w-[1080px] mx-auto py-20 md:py-28">
           <SectionLabel index="02" label="Before you ask" />
-          <Reveal delay={0.05}>
-            <h2 className="mt-10 h-display-md">
-              The short <em className="italic text-cinnabar">answers.</em>
-            </h2>
-          </Reveal>
+          <SectionHeading
+            className="mt-10"
+            title={<>The short <em className="italic text-cinnabar">answers.</em></>}
+          />
           <div className="mt-14"><FAQ items={auditFaqs} /></div>
         </div>
       </section>

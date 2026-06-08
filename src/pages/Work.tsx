@@ -2,6 +2,8 @@ import Reveal from "@/components/Reveal";
 import ClosingCTA from "@/components/ClosingCTA";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
+import SectionHeading from "@/components/ui/SectionHeading";
+import BadgeChip from "@/components/ui/BadgeChip";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { caseStudies, acts } from "@/data/caseStudies";
@@ -27,7 +29,7 @@ const Work = () => (
     {/* 01 · HERO */}
     <section className="px-6 md:px-10">
       <div className="max-w-[1280px] mx-auto pt-28 md:pt-32 pb-16 md:pb-20">
-        <SectionLabel label="Selected Work" />
+        <BadgeChip>Selected Work · ØRIONS</BadgeChip>
         <Reveal delay={0.05}>
           <h1 lang="th" className="mt-10 h-display-lg max-w-[18ch] thai-wrap">
             งานที่เลือกมาเพราะ <em className="italic text-cinnabar">เงื่อนไข.</em>
@@ -73,12 +75,12 @@ const Work = () => (
               {items.map((w, i) => (
                 <Reveal key={w.slug} delay={0.05 * i}>
                   <Link to={`/work/${w.slug}`} className="group block">
-                    <div className="relative w-full overflow-hidden bg-muted" style={{ aspectRatio: "16 / 10" }}>
+                    <div className="relative w-full overflow-hidden rounded-2xl bg-muted" style={{ aspectRatio: "16 / 10" }}>
                       <img
                         src={w.cover}
                         alt={`${w.title} — ${w.scope}`}
                         loading="lazy"
-                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-[1.03] transition-[filter,transform] duration-700"
+                        className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
                       />
                       <div className="absolute top-3 left-3 right-3 flex items-center justify-between font-mono text-[10px] tracking-[0.18em] text-background/95 mix-blend-difference">
                         <span>— {w.n}</span>
@@ -97,6 +99,9 @@ const Work = () => (
                     <p lang="th" className="mt-4 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-foreground/75 max-w-[52ch]">
                       {w.constraint}
                     </p>
+                    <p lang="th" className="mt-2 font-thai thai-wrap text-[13px] text-foreground/70 max-w-[52ch]">
+                      {w.summary}
+                    </p>
                   </Link>
                 </Reveal>
               ))}
@@ -109,12 +114,11 @@ const Work = () => (
     {/* TRUSTED BY — real clients only */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <SectionLabel label="Trusted by" />
-        <Reveal delay={0.05}>
-          <h2 lang="th" className="mt-10 h-display-md max-w-[22ch] thai-wrap">
-            แบรนด์ที่มี <em className="italic text-cinnabar">เงื่อนไข</em> เลือกทำงานกับเรา.
-          </h2>
-        </Reveal>
+        <SectionHeading
+          lang="th"
+          eyebrow="Trusted by"
+          title={<>แบรนด์ที่มี <em className="italic text-cinnabar">เงื่อนไข</em> เลือกทำงานกับเรา.</>}
+        />
         <div className="mt-14 grid grid-cols-2 sm:grid-cols-3 gap-x-8 gap-y-10 border-t border-foreground/15 pt-12">
           {["พรรคประชาธิปัตย์", "กองทัพอากาศ", "GCOO", "HONG MOVE", "เขาใหญ่ คันทรี่คลับ", "HEAVY ORGANIZER"].map((name) => (
             <div key={name} className="flex items-center">

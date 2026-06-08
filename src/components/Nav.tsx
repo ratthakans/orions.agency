@@ -38,7 +38,7 @@ const Nav = () => {
               key={l.to}
               to={l.to}
               className={({ isActive }) =>
-                `relative font-mono text-[10px] tracking-[0.22em] uppercase transition-colors after:absolute after:left-0 after:-bottom-1.5 after:h-px after:bg-cinnabar after:transition-transform after:duration-300 after:w-full ${
+                `relative font-serif text-[16px] tracking-normal transition-colors after:absolute after:left-0 after:-bottom-1.5 after:h-px after:bg-cinnabar after:transition-transform after:duration-300 after:w-full ${
                   isActive
                     ? "text-foreground after:scale-x-100"
                     : "text-foreground/55 hover:text-foreground after:scale-x-0 hover:after:scale-x-100"
@@ -51,7 +51,7 @@ const Nav = () => {
           <NavLink
             to="/contact"
             className={({ isActive }) =>
-              `font-mono text-[10px] tracking-[0.22em] uppercase transition-colors ${
+              `font-serif text-[16px] tracking-normal transition-colors ${
                 isActive ? "text-cinnabar" : "text-foreground/55 hover:text-cinnabar"
               }`
             }
@@ -61,7 +61,7 @@ const Nav = () => {
           <NavLink
             to="/diagnostic"
             className={({ isActive }) =>
-              `ml-2 inline-flex items-center gap-2 px-3 py-2 font-mono text-[10px] tracking-[0.22em] uppercase border transition-colors ${
+              `ml-2 inline-flex items-center gap-2 rounded-full px-4 py-2 font-mono text-[10px] tracking-[0.22em] uppercase border transition-colors ${
                 isActive
                   ? "bg-cinnabar text-background border-cinnabar"
                   : "border-cinnabar text-cinnabar hover:bg-cinnabar hover:text-background"

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowUpRight, ArrowRight, Check } from "lucide-react";
+import { ArrowUpRight, ArrowRight, Check, Play } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -11,10 +11,18 @@ import Magnetic from "@/components/Magnetic";
 import HeroHeadline from "@/components/HeroHeadline";
 import CountUp from "@/components/CountUp";
 import { caseStudies } from "@/data/caseStudies";
+import showreelPoster from "@/assets/heavy-organizer.jpg"; // PLACEHOLDER poster — replace with real showreel
 
 const selectedWork = caseStudies;
 
 const clients = ["พรรคประชาธิปัตย์", "กองทัพอากาศ", "GCOO", "HONG MOVE", "เขาใหญ่ คันทรี่คลับ", "HEAVY ORGANIZER"];
+
+// PLACEHOLDER — layout mockup only. Replace with real client quotes + names before launch (brand value = พูดตรง).
+const testimonials = [
+  { quote: "ข้อความรับรองจากลูกค้าจะอยู่ตรงนี้ — เล่าถึงการทำงานกับ ØRIONS ภายใต้เงื่อนไขจริงของแบรนด์ และผลที่เกิดขึ้น.", who: "ผู้บริหารแบรนด์", org: "[ชื่อแบรนด์ · ลูกค้าจริง]" },
+  { quote: "พื้นที่สำหรับคำพูดจริงของลูกค้า — เน้นว่าทีมเข้าใจโจทย์ที่มีกรอบ และ refine จนออกมาคม.", who: "Head of Marketing", org: "[ชื่อแบรนด์ · ลูกค้าจริง]" },
+  { quote: "คำรับรองตัวอย่าง — สื่อถึงความตรงไปตรงมาและการส่งงานเป็นทีมเดียวจบ.", who: "Founder", org: "[ชื่อแบรนด์ · ลูกค้าจริง]" },
+];
 
 const marquee = [
   "Stories, refined.",
@@ -163,20 +171,28 @@ const Index = () => (
       </div>
     </section>
 
-    {/* — TRUSTED BY (real clients, early proof) */}
+    {/* — TRUSTED BY — logo wall (PLACEHOLDER: swap styled names for real client logo SVGs) */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-10 md:py-12">
-        <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
-          <span lang="th" className="font-thai text-[11px] tracking-[0.02em] text-muted-foreground shrink-0">
+      <div className="max-w-[1280px] mx-auto py-12 md:py-16">
+        <div className="flex items-center justify-between gap-4 flex-wrap mb-7">
+          <span lang="th" className="font-thai text-[12px] tracking-[0.02em] text-muted-foreground">
             แบรนด์ที่มีเงื่อนไข เลือกทำงานกับเรา
           </span>
-          <div className="flex flex-wrap items-center gap-x-7 gap-y-3">
-            {clients.map((c) => (
-              <span key={c} lang="th" className="font-display text-[15px] md:text-[18px] font-semibold text-foreground/70 hover:text-foreground transition-colors">
+          <Link to="/work" className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground hover:text-cinnabar transition-colors">
+            ดูผลงาน →
+          </Link>
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 border-t border-l border-foreground/12">
+          {clients.map((c) => (
+            <div
+              key={c}
+              className="group relative flex items-center justify-center text-center px-4 py-8 md:py-10 border-b border-r border-foreground/12 hover:bg-foreground/[0.03] transition-colors"
+            >
+              <span lang="th" className="font-display text-[15px] md:text-[17px] font-semibold leading-tight text-foreground/55 group-hover:text-foreground transition-colors">
                 {c}
               </span>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -353,6 +369,36 @@ const Index = () => (
       </div>
     </section>
 
+    {/* — SHOWREEL (PLACEHOLDER: poster stands in for the real showreel video/embed) */}
+    <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+        <SectionHeading
+          lang="th"
+          eyebrow="Showreel"
+          title={<>งานที่ <em className="text-cinnabar">ขยับได้.</em></>}
+          intro="ตัวอย่างงานโปรดักชันรวมในรีลเดียว — กำลังอัปเดตเป็นวิดีโอจริง"
+        />
+        <Reveal delay={0.05}>
+          <button
+            type="button"
+            className="group mt-12 relative block w-full overflow-hidden rounded-2xl border border-foreground/12"
+            style={{ aspectRatio: "16 / 9" }}
+            aria-label="เล่น showreel (ตัวอย่าง)"
+          >
+            <img src={showreelPoster} alt="ØRIONS showreel — ตัวอย่าง" loading="lazy" className="w-full h-full object-cover opacity-65 group-hover:opacity-85 group-hover:scale-[1.03] transition-all duration-700" />
+            <div className="absolute inset-0 bg-background/35" />
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
+              <span className="grid place-items-center w-16 h-16 md:w-20 md:h-20 rounded-full bg-cinnabar text-background shadow-xl group-hover:scale-110 transition-transform duration-300">
+                <Play className="w-6 h-6 md:w-7 md:h-7 ml-1" fill="currentColor" />
+              </span>
+              <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-foreground/85">Showreel 2026 · 1:30</span>
+            </div>
+            <span className="absolute top-4 left-4 font-mono text-[9px] tracking-[0.2em] uppercase text-background bg-foreground/70 px-2 py-1 rounded">Placeholder</span>
+          </button>
+        </Reveal>
+      </div>
+    </section>
+
     {/* 07 — BRAND AUDIT */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-24">
@@ -379,6 +425,33 @@ const Index = () => (
             </div>
           </div>
         </Reveal>
+      </div>
+    </section>
+
+    {/* — TESTIMONIALS (PLACEHOLDER quotes — layout mockup, awaiting real client words) */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+        <SectionHeading
+          center
+          lang="th"
+          eyebrow="In their words"
+          title={<>เสียงจาก <em className="text-cinnabar">ลูกค้า.</em></>}
+          intro="คำรับรองจริงกำลังตามมา — นี่คือตัวอย่างการจัดวาง"
+        />
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-5">
+          {testimonials.map((t, i) => (
+            <Reveal key={i} delay={i * 0.08}>
+              <figure className="card-soft h-full p-7 md:p-8 flex flex-col">
+                <div aria-hidden className="font-serif text-cinnabar text-[44px] leading-none">“</div>
+                <blockquote lang="th" className="mt-1 font-thai thai-wrap text-[14px] leading-[1.7] text-foreground/85 flex-1">{t.quote}</blockquote>
+                <figcaption className="mt-6 pt-5 border-t border-foreground/12">
+                  <div lang="th" className="font-display text-[15px] font-semibold">{t.who}</div>
+                  <div lang="th" className="font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground mt-1">{t.org}</div>
+                </figcaption>
+              </figure>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
 

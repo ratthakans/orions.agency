@@ -6,6 +6,13 @@ import ClosingCTA from "@/components/ClosingCTA";
 import SectionLabel from "@/components/SectionLabel";
 import { getCaseStudy, getAdjacent, caseStudies } from "@/data/caseStudies";
 
+// Honest method (matches the studio's stated process on /services)
+const approach = [
+  { n: "01", t: "ฟังโจทย์ + เงื่อนไข", d: "audit แบรนด์ คู่แข่ง และกรอบที่ต้องอยู่ในนั้น" },
+  { n: "02", t: "Refine เรื่องที่จริง", d: "ตกผลึกทิศทาง — คมพอจะลงในกรอบได้" },
+  { n: "03", t: "ผลิต + วัดผล", d: "craft ภายใต้ทิศทางเดียว แล้ววัด ปรับ ทำต่อเนื่อง" },
+];
+
 const CaseStudy = () => {
   const { slug = "" } = useParams();
   const cs = getCaseStudy(slug);
@@ -153,11 +160,57 @@ const CaseStudy = () => {
         </div>
       </section>
 
+      {/* 04b — APPROACH (honest method) */}
+      <section className="px-6 md:px-10 border-t border-foreground/15">
+        <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+          <SectionLabel index="03" label="Approach" />
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-5">
+            {approach.map((a, i) => (
+              <Reveal key={a.n} delay={i * 0.07}>
+                <div className="card-soft h-full p-7 md:p-8">
+                  <div className="num-display text-cinnabar text-[34px]">{a.n}</div>
+                  <h3 lang="th" className="mt-4 font-display text-[18px] md:text-[20px] font-semibold">{a.t}</h3>
+                  <p lang="th" className="mt-3 font-thai thai-wrap text-[13px] leading-[1.7] text-muted-foreground">{a.d}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 04c — BEFORE / AFTER (PLACEHOLDER: stand-in frames — replace with real before/after) */}
+      {cs.gallery.length > 1 && (
+        <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
+          <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+            <SectionLabel index="04" label="Before / After" />
+            <Reveal delay={0.05}>
+              <p lang="th" className="mt-6 font-thai thai-wrap text-[13px] text-muted-foreground max-w-[44ch]">
+                ตัวอย่างการจัดวาง — รอภาพก่อน/หลังจริงของงานนี้
+              </p>
+            </Reveal>
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+              {[
+                { img: cs.gallery[0], tag: "Before" },
+                { img: cs.gallery[1], tag: "After" },
+              ].map((b) => (
+                <Reveal key={b.tag} delay={0.05}>
+                  <div className="group relative w-full overflow-hidden rounded-2xl bg-muted" style={{ aspectRatio: "4 / 3" }}>
+                    <img src={b.img} alt={`${cs.title} — ${b.tag} (ตัวอย่าง)`} loading="lazy" className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700" />
+                    <span className="absolute top-3 left-3 font-mono text-[10px] tracking-[0.2em] uppercase text-background bg-foreground/75 px-2.5 py-1 rounded">{b.tag}</span>
+                    <span className="absolute top-3 right-3 font-mono text-[9px] tracking-[0.18em] uppercase text-background bg-cinnabar/90 px-2 py-1 rounded">Placeholder</span>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* 05 — GALLERY (only if >1 image) */}
       {cs.gallery.length > 1 && (
         <section className="px-6 md:px-10 border-t border-foreground/15">
           <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-            <SectionLabel index="03" label="Selected Frames" />
+            <SectionLabel index="05" label="Selected Frames" />
             <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               {cs.gallery.map((img, i) => (
                 <Reveal key={i} delay={0.04 * i}>

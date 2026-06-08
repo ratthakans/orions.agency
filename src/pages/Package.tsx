@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowUpRight, Check, ChevronDown } from "lucide-react";
+import { ArrowUpRight, Check, Download, Phone } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
 import CTABand from "@/components/CTABand";
 import FAQ from "@/components/FAQ";
+import pleum from "@/assets/pleum.jpg";
+
+const RATECARD_PDF = "/ORIONS_RateCard_2026.pdf";
 
 type Size = "S" | "M" | "L";
 const SIZES: { id: Size; label: string }[] = [
@@ -70,12 +73,21 @@ const compareRows: Cmp[] = [
     Boutique: { S: "฿24,900", M: "฿49,900", L: "฿99,900" },
     Hybrid: { S: "฿32,900", M: "฿64,900", L: "฿129,900" },
   }},
+  { label: "เหมาะกับ", v: { Digital: "อยากได้ยอดเดี๋ยวนี้", Boutique: "อยากให้แบรนด์ถูกจำ", Hybrid: "โตเร็ว + ยั่งยืน" } },
   { label: "เป้า · ยอด / แบรนด์", v: { Digital: "70 / 30", Boutique: "30 / 70", Hybrid: "50 / 50" } },
+  { label: "กลยุทธ์", v: { Digital: "การตลาด", Boutique: "แบรนด์ / ครีเอทีฟ", Hybrid: "2 ชั้น" } },
+  { label: "แพลตฟอร์มแอด", v: { Digital: "Meta · TikTok (+Google/LINE ไซส์ใหญ่)", Boutique: "—", Hybrid: "Meta · TikTok" } },
   { label: "Ads · static / video", size: true, v: {
     Digital: { S: "14 / 5", M: "24 / 8", L: "32 / 10" },
     Boutique: { S: "6 / 2", M: "10 / 4", L: "12 / 4" },
     Hybrid: { S: "8 / 3", M: "12 / 5", L: "20 / 8" },
   }},
+  { label: "บริหารแอด (เพดาน)", size: true, v: {
+    Digital: { S: "฿50k", M: "฿120k", L: "฿250k" },
+    Boutique: { S: "฿30k", M: "฿30k", L: "฿30k" },
+    Hybrid: { S: "฿50k", M: "฿120k", L: "฿250k" },
+  }},
+  { label: "AI optimization", v: { Digital: "✓", Boutique: "—", Hybrid: "✓" } },
   { label: "Organic · reel / post", size: true, v: {
     Digital: { S: "5 / 8", M: "10 / 12", L: "12 / 14" },
     Boutique: { S: "10 / 14", M: "20 / 20", L: "24 / 24" },
@@ -86,12 +98,16 @@ const compareRows: Cmp[] = [
     Boutique: { S: "0.5 วัน", M: "1 วัน", L: "2 วัน" },
     Hybrid: { S: "0.5 วัน", M: "1 วัน", L: "2 วัน" },
   }},
-  { label: "บริหารแอด (เพดาน)", size: true, v: {
-    Digital: { S: "฿50k", M: "฿120k", L: "฿250k" },
-    Boutique: { S: "฿30k", M: "฿30k", L: "฿30k" },
-    Hybrid: { S: "฿50k", M: "฿120k", L: "฿250k" },
+  { label: "ระบบแบรนด์ / CI", v: { Digital: "—", Boutique: "✓", Hybrid: "ไซส์ใหญ่" } },
+  { label: "SEO / seeding / KOL", v: { Digital: "—", Boutique: "✓", Hybrid: "เสริมได้" } },
+  { label: "Brand film / long-form", v: { Digital: "—", Boutique: "ไซส์ใหญ่", Hybrid: "ไซส์ใหญ่" } },
+  { label: "กลยุทธ์ + รายงานผล", v: { Digital: "✓", Boutique: "✓", Hybrid: "✓" } },
+  { label: "การันตี", v: { Digital: "90-Day Promise", Boutique: "Brand Lift", Hybrid: "ทั้งคู่" } },
+  { label: "สัญญาขั้นต่ำ", size: true, v: {
+    Digital: { S: "3 เดือน", M: "3 เดือน", L: "6 เดือน" },
+    Boutique: { S: "3 เดือน", M: "3 เดือน", L: "6 เดือน" },
+    Hybrid: { S: "3 เดือน", M: "3 เดือน", L: "6 เดือน" },
   }},
-  { label: "การันตี", v: { Digital: "90-Day", Boutique: "Brand Lift", Hybrid: "ทั้งคู่" } },
 ];
 
 const addons = [
@@ -168,7 +184,6 @@ const CompareTable = ({ size }: { size: Size }) => (
 
 const PricingSection = () => {
   const [size, setSize] = useState<Size>("S");
-  const [showTable, setShowTable] = useState(false);
   return (
     <section className="px-6 md:px-10">
       <div className="max-w-[1280px] mx-auto py-20 md:py-24">
@@ -235,7 +250,7 @@ const PricingSection = () => {
                   </li>
                 </ul>
 
-                <Link to="/contact" className={`mt-7 justify-between ${t.featured ? "btn-accent" : "btn-ghost"}`}>
+                <Link to={`/contact?pkg=${t.name}%20%C2%B7%20${size}`} className={`mt-7 justify-between ${t.featured ? "btn-accent" : "btn-ghost"}`}>
                   <span>เลือก {t.name} · {size}</span><ArrowUpRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -247,18 +262,20 @@ const PricingSection = () => {
           ราคาไม่รวม VAT 7% · ไม่รวม ad spend
         </p>
 
-        {/* Progressive disclosure: full comparison */}
-        <div className="mt-10 border-t border-foreground/15 pt-8">
-          <button type="button" onClick={() => setShowTable((v) => !v)}
-            className="inline-flex items-center gap-2 font-thai text-[11px] tracking-[0.02em] text-foreground hover:text-cinnabar transition-colors">
-            <span>{showTable ? "ซ่อนตารางเทียบ" : "ดูตารางเทียบแบบเต็ม"}</span>
-            <ChevronDown className={`w-4 h-4 transition-transform ${showTable ? "rotate-180" : ""}`} />
-          </button>
-          {showTable && (
-            <div className="mt-8 card-soft p-5 md:p-7">
-              <CompareTable size={size} />
+        {/* Full comparison table — always visible */}
+        <div className="mt-16 border-t border-foreground/15 pt-12">
+          <div className="flex items-end justify-between gap-4 flex-wrap mb-7">
+            <div>
+              <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">— Compare</div>
+              <h3 lang="th" className="mt-3 h-display-sm">ตารางเปรียบเทียบทั้งหมด</h3>
             </div>
-          )}
+            <a href={RATECARD_PDF} download className="btn-ghost">
+              <Download className="w-4 h-4" /><span>ดาวน์โหลด Rate Card (PDF)</span>
+            </a>
+          </div>
+          <div className="card-soft p-4 md:p-6">
+            <CompareTable size={size} />
+          </div>
         </div>
       </div>
     </section>
@@ -286,6 +303,16 @@ const Package = () => (
           <p lang="th" className="mt-8 max-w-[680px] font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.7] text-foreground/80">
             ยอดวันนี้ หรือแบรนด์ที่อยู่ยาว — เลือกทิศทางที่ใช่ตอนนี้. Performance × Branding รายเดือน · เราขายผล ไม่ใช่จำนวนโพสต์.
           </p>
+        </Reveal>
+        <Reveal delay={0.15}>
+          <div className="mt-9 flex flex-wrap gap-4">
+            <a href={RATECARD_PDF} download className="btn-accent">
+              <Download className="w-4 h-4" /><span>ดาวน์โหลด Rate Card (PDF)</span>
+            </a>
+            <a href="tel:+66655169925" className="btn-ghost">
+              <Phone className="w-4 h-4" /><span>คุยกับฝ่ายขาย 065-516-9925</span>
+            </a>
+          </div>
         </Reveal>
       </div>
     </section>
@@ -359,7 +386,41 @@ const Package = () => (
       </div>
     </section>
 
-    {/* 07 — CTA */}
+    {/* 07 — TALK TO SALES (ปลื้ม) */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-24">
+        <SectionLabel index="07" label="Talk to sales" />
+        <Reveal delay={0.05}>
+          <div className="mt-10 card-soft p-6 md:p-9 grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-6 md:gap-10 items-center">
+            <img
+              src={pleum}
+              alt="ปลื้ม — Sales Executive, ØRIONS"
+              className="w-28 h-28 md:w-40 md:h-40 rounded-2xl object-cover object-top shrink-0"
+            />
+            <div>
+              <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">— Sales Executive</div>
+              <h3 className="mt-2 h-display-sm">ปลื้ม</h3>
+              <p lang="th" className="mt-3 font-thai thai-wrap text-[14px] leading-[1.7] text-muted-foreground max-w-[52ch]">
+                อยากได้ใบเสนอราคา เลือกแพ็กเกจ หรือสอบถามเรทเพิ่มเติม — ทักได้เลย ยินดีให้คำแนะนำตรง ๆ ว่าแบบไหนเหมาะกับงบและเป้าของคุณ.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <a href="tel:+66655169925" className="btn-accent">
+                  <Phone className="w-4 h-4" /><span>065-516-9925</span>
+                </a>
+                <a href={RATECARD_PDF} download className="btn-ghost">
+                  <Download className="w-4 h-4" /><span>ดาวน์โหลด Rate Card</span>
+                </a>
+                <Link to="/contact" className="btn-ghost">
+                  <span>ส่งโจทย์ทางฟอร์ม</span><ArrowUpRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+
+    {/* 08 — CTA */}
     <CTABand
       eyebrow="Not sure yet?"
       title={<>ไม่แน่ใจว่าควรเลือก track ไหน? <em className="italic text-cinnabar">ให้ audit ช่วยมอง.</em></>}

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { ArrowUpRight, MessageCircle, Calendar } from "lucide-react";
 import { z } from "zod";
 import Reveal from "@/components/Reveal";
@@ -20,6 +20,14 @@ const inquirySchema = z.object({
 
 type FieldErrors = Partial<Record<keyof z.infer<typeof inquirySchema>, string>>;
 
+const packageOptions = [
+  "Digital · เน้นยอด",
+  "Boutique · เน้นแบรนด์",
+  "Hybrid · ทั้งคู่",
+  "ORIONS Production / ถ่ายงาน",
+  "ยังไม่แน่ใจ / ขอคำแนะนำ",
+];
+
 const next = [
   { n: "01", t: "ตอบกลับใน 24 ชม.",      d: "ทีมอ่านเอง · ตอบเอง · 1 working day" },
   { n: "02", t: "คุยฟรี 45 นาที",        d: "ไม่มีข้อผูกมัด · fit-check ตรงไปตรงมา" },
@@ -36,7 +44,13 @@ const faqs = [
 ];
 
 const Contact = () => {
-  const [form, setForm] = useState({ name: "", company: "", email: "", brief: "" });
+  const [searchParams] = useSearchParams();
+  const presetPkg = (() => {
+    const raw = (searchParams.get("pkg") || "").trim().toLowerCase();
+    if (!raw) return "";
+    return packageOptions.find((o) => o.toLowerCase().startsWith(raw.split(" ")[0])) || "";
+  })();
+  const [form, setForm] = useState({ name: "", company: "", email: "", pkg: presetPkg, brief: "" });
   const [errors, setErrors] = useState<FieldErrors>({});
   const [submitting, setSubmitting] = useState(false);
   const [hp, setHp] = useState(""); // honeypot — humans never fill this
@@ -45,7 +59,7 @@ const Contact = () => {
     e.preventDefault();
     if (hp) { // bot filled the hidden field — pretend success, drop silently
       toast.success("ได้รับข้อมูลแล้ว — ทีม ØRIONS จะติดต่อกลับภายใน 24 ชม.");
-      setForm({ name: "", company: "", email: "", brief: "" });
+      setForm({ name: "", company: "", email: "", pkg: "", brief: "" });
       return;
     }
     const parsed = inquirySchema.safeParse(form);
@@ -62,15 +76,16 @@ const Contact = () => {
     setErrors({});
     setSubmitting(true);
     const { name, company, email, brief } = parsed.data;
-    const { error } = await supabase.from("contact_inquiries").insert({ name, company, email, brief });
+    const composedBrief = form.pkg ? `[แพ็กเกจที่สนใจ: ${form.pkg}]\n${brief}` : brief;
+    const { error } = await supabase.from("contact_inquiries").insert({ name, company, email, brief: composedBrief });
     setSubmitting(false);
     if (error) {
       toast.error("ส่งไม่สำเร็จ ลองใหม่หรืออีเมลหาเราที่ hello@orions.agency");
       return;
     }
-    track("ContactSubmit");
+    track("ContactSubmit", { pkg: form.pkg || "none" });
     toast.success("ได้รับข้อมูลแล้ว — ทีม ØRIONS จะติดต่อกลับภายใน 24 ชม.");
-    setForm({ name: "", company: "", email: "", brief: "" });
+    setForm({ name: "", company: "", email: "", pkg: "", brief: "" });
   };
 
   const inputCls = "w-full rounded-xl bg-background border border-foreground/15 px-4 py-3 text-[15px] text-foreground placeholder:text-foreground/45 focus:outline-none focus:border-cinnabar focus:ring-1 focus:ring-cinnabar/30 transition-colors font-thai";
@@ -183,7 +198,20 @@ const Contact = () => {
                   </div>
                 ))}
                 <div className="md:col-span-2">
-                  <label className={labelCls}>— 04 / Brief</label>
+                  <label className={labelCls}>— 04 / แพ็กเกจที่สนใจ <span className="text-foreground/40">(ไม่บังคับ)</span></label>
+                  <select
+                    value={form.pkg}
+                    onChange={(e) => setForm({ ...form, pkg: e.target.value })}
+                    className={`${inputCls} appearance-none cursor-pointer`}
+                  >
+                    <option value="">— เลือกแพ็กเกจ หรือข้ามได้ —</option>
+                    {packageOptions.map((o) => (
+                      <option key={o} value={o}>{o}</option>
+                    ))}
+                  </select>
+                </div>
+                <div className="md:col-span-2">
+                  <label className={labelCls}>— 05 / Brief</label>
                   <textarea
                     rows={5}
                     maxLength={2000}

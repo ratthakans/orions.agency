@@ -350,7 +350,7 @@ const Index = () => (
       <div className="relative w-full h-[56.25vw] max-h-[86vh] overflow-hidden">
         <iframe
           title="ØRIONS showreel"
-          src="https://www.youtube-nocookie.com/embed/vjuXICAVBSU?autoplay=1&mute=1&loop=1&playlist=vjuXICAVBSU&controls=0&showinfo=0&modestbranding=1&rel=0&playsinline=1&disablekb=1&fs=0&iv_load_policy=3"
+          src="https://www.youtube-nocookie.com/embed/nFNVN8uE2dI?autoplay=1&mute=1&loop=1&playlist=nFNVN8uE2dI&controls=0&showinfo=0&modestbranding=1&rel=0&playsinline=1&disablekb=1&fs=0&iv_load_policy=3"
           allow="autoplay; encrypted-media; picture-in-picture"
           loading="lazy"
           className="absolute inset-0 w-full h-full border-0 pointer-events-none"

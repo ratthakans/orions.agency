@@ -268,26 +268,28 @@ const Index = () => (
             ดูบริการทั้งหมด →
           </Link>
         </div>
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div className="mt-12 md:mt-14 border-t border-foreground/15">
           {services.map((d, i) => (
-            <Reveal key={d.n} delay={i * 0.08}>
-              <Link to="/services" className="card-soft group h-full p-8 md:p-10 flex flex-col">
-                <div className="flex items-start justify-between">
-                  <span className="num-display text-cinnabar text-[46px] md:text-[58px] leading-none">{d.n}</span>
-                  <ArrowUpRight className="w-6 h-6 text-foreground/25 group-hover:text-cinnabar group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all duration-300" />
+            <Reveal key={d.n} delay={i * 0.06}>
+              <Link
+                to="/services"
+                className="group block border-b border-foreground/15 py-8 md:py-11 px-0 md:px-4 -mx-0 md:-mx-4 rounded-none md:rounded-2xl transition-colors duration-300 hover:bg-foreground/[0.025]"
+              >
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-y-4 md:gap-8 md:items-baseline">
+                  <div className="md:col-span-5 flex items-baseline gap-5 md:gap-7">
+                    <span className="num-display text-cinnabar text-[38px] md:text-[60px] leading-none shrink-0">{d.n}</span>
+                    <div>
+                      <h3 className="h-display-sm md:text-[38px] leading-[1.04] group-hover:text-cinnabar transition-colors duration-300">{d.en}</h3>
+                      <div lang="th" className="mt-1.5 font-serif italic text-cinnabar text-[18px] md:text-[22px]">{d.tag}</div>
+                    </div>
+                  </div>
+                  <div className="md:col-span-6 md:pt-2">
+                    <p lang="th" className="font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">{d.th}</p>
+                  </div>
+                  <div className="md:col-span-1 flex md:justify-end">
+                    <ArrowUpRight className="w-7 h-7 text-foreground/30 group-hover:text-cinnabar group-hover:-translate-y-1 group-hover:translate-x-1 transition-all duration-300" />
+                  </div>
                 </div>
-                <h3 className="mt-7 h-display-sm">{d.en}</h3>
-                <div lang="th" className="mt-2 font-serif italic text-cinnabar text-[19px] md:text-[21px]">{d.tag}</div>
-                <ul className="mt-7 space-y-2.5 border-t border-foreground/12 pt-7 flex-1">
-                  {d.th.split("·").map((it) => (
-                    <li key={it} lang="th" className="grid grid-cols-[12px_1fr] gap-2.5 font-thai thai-wrap text-[13px] md:text-[14px] leading-[1.5] text-foreground/80">
-                      <span aria-hidden className="text-cinnabar mt-px">·</span><span>{it.trim()}</span>
-                    </li>
-                  ))}
-                </ul>
-                <span className="mt-8 inline-flex items-center gap-2 font-serif text-[15px] text-foreground group-hover:text-cinnabar transition-colors">
-                  ดูรายละเอียด <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </span>
               </Link>
             </Reveal>
           ))}
@@ -345,15 +347,15 @@ const Index = () => (
       </div>
     </section>
 
-    {/* — SHOWREEL — full-bleed background video (autoplay · muted · loop) */}
+    {/* — SHOWREEL — full-width background video, cover (crops top/bottom), autoplay · muted · loop */}
     <section className="relative border-t border-foreground/15 overflow-hidden bg-black">
-      <div className="relative w-full h-[56.25vw] max-h-[86vh] overflow-hidden">
+      <div className="relative w-full h-[80vh] min-h-[440px] overflow-hidden">
         <iframe
           title="ØRIONS showreel"
-          src="https://www.youtube-nocookie.com/embed/nFNVN8uE2dI?autoplay=1&mute=1&loop=1&playlist=nFNVN8uE2dI&controls=0&showinfo=0&modestbranding=1&rel=0&playsinline=1&disablekb=1&fs=0&iv_load_policy=3"
+          src="https://www.youtube-nocookie.com/embed/nFNVN8uE2dI?autoplay=1&mute=1&loop=1&playlist=nFNVN8uE2dI&controls=0&showinfo=0&modestbranding=1&rel=0&playsinline=1&disablekb=1&fs=0&iv_load_policy=3&vq=hd2160&hd=1"
           allow="autoplay; encrypted-media; picture-in-picture"
           loading="lazy"
-          className="absolute inset-0 w-full h-full border-0 pointer-events-none"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] h-[56.25vw] min-w-full min-h-full border-0 pointer-events-none"
         />
         <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-background via-background/5 to-background/25 pointer-events-none" />
         <div className="absolute left-0 right-0 bottom-0 px-6 md:px-10 pb-6 md:pb-10 pointer-events-none">

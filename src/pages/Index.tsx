@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowUpRight, ArrowRight, Check, Play } from "lucide-react";
+import { ArrowUpRight, ArrowRight, Check } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -9,9 +9,7 @@ import FAQ from "@/components/FAQ";
 import SimpleMarquee from "@/components/SimpleMarquee";
 import Magnetic from "@/components/Magnetic";
 import HeroHeadline from "@/components/HeroHeadline";
-import CountUp from "@/components/CountUp";
 import { caseStudies } from "@/data/caseStudies";
-import showreelPoster from "@/assets/heavy-organizer.jpg"; // PLACEHOLDER poster — replace with real showreel
 
 const selectedWork = caseStudies;
 
@@ -31,14 +29,6 @@ const marquee = [
   "Social Media Marketing",
   "Constraint is the brief",
   "Bangkok · Est. 2026",
-];
-
-// Honest capability facts — not fabricated performance metrics (พูดตรง)
-const facts: { v?: string; num?: number; suffix?: string; k: string; d: string }[] = [
-  { v: "3 → 1", k: "ทีมเดียว", d: "Strategy · Production · Social รวมในทีมเดียว ไม่ต้องประสานหลายเจ้า" },
-  { num: 6, k: "มิติ Brand Audit", d: "ตรวจแบรนด์ครบ 6 ด้าน รู้คะแนน + จุดอ่อนใน 3 นาที" },
-  { num: 45, k: "นาที Discovery", d: "คุยฟรี ไม่มีข้อผูกมัด — เล่าโจทย์ เราช่วยมองทาง" },
-  { num: 24, suffix: "ชม.", k: "ตอบกลับ", d: "ทุกข้อความได้รับการตอบกลับภายใน 1 วันทำการ" },
 ];
 
 const reasons = [
@@ -236,34 +226,6 @@ const Index = () => (
       </div>
     </section>
 
-    {/* 02 — BY THE NUMBERS (honest facts) */}
-    <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-24">
-        <SectionHeading
-          center
-          lang="th"
-          eyebrow="How we work"
-          title={<>ทำงานกับเรา <em className="italic text-cinnabar">ชัดตั้งแต่วันแรก.</em></>}
-          intro="ทีมเดียวจบ · เริ่มฟรีได้ · ตอบไว — และเราพูดตรงเรื่องสิ่งที่ทำได้จริง"
-        />
-        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {facts.map((f, i) => (
-            <Reveal key={f.k} delay={i * 0.08}>
-              <div className="stat-card h-full">
-                <div className="num-display text-[44px] md:text-[52px] text-cinnabar">
-                  {f.num != null
-                    ? <CountUp to={f.num} suffix={f.suffix} suffixClassName="text-[26px] md:text-[30px] ml-0.5" />
-                    : f.v}
-                </div>
-                <div lang="th" className="mt-2 font-thai text-[11px] tracking-[0.02em] text-foreground/80">{f.k}</div>
-                <p lang="th" className="mt-3 font-thai thai-wrap text-[13px] leading-[1.6] text-muted-foreground">{f.d}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-
     {/* 03 — WHY BRANDS CHOOSE US */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
@@ -295,21 +257,35 @@ const Index = () => (
     {/* 04 — WHAT WE DO */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <SectionHeading
-          lang="th"
-          eyebrow="What we do"
-          title={<>สามบริการ <em className="italic text-cinnabar">ในทีมเดียว.</em></>}
-          intro="ตั้งแต่หาเรื่องที่ใช่ ทำให้เห็น ไปจนทำให้ดังและวัดได้ — ครบในที่เดียว"
-        />
+        <div className="flex items-end justify-between gap-6 flex-wrap">
+          <SectionHeading
+            lang="th"
+            eyebrow="What we do"
+            title={<>สามบริการ <em className="italic text-cinnabar">ในทีมเดียว.</em></>}
+            intro="หาเรื่องที่ใช่ · ทำให้เห็น · ทำให้ดังและวัดได้ — ครบในที่เดียว"
+          />
+          <Link to="/services" className="hidden md:inline-flex font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground hover:text-cinnabar transition-colors">
+            ดูบริการทั้งหมด →
+          </Link>
+        </div>
         <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-5">
           {services.map((d, i) => (
             <Reveal key={d.n} delay={i * 0.08}>
-              <Link to="/services" className="card-soft group h-full p-8 md:p-9 flex flex-col">
-                <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">— {d.n}</div>
-                <h3 className="mt-7 text-[23px] md:text-[26px] leading-[1.08] tracking-[-0.02em] font-semibold">{d.en}</h3>
-                <div lang="th" className="mt-2 font-serif italic text-cinnabar text-[16px]">{d.tag}</div>
-                <p lang="th" className="mt-6 font-thai thai-wrap text-[13px] md:text-[14px] leading-[1.7] text-muted-foreground flex-1">{d.th}</p>
-                <span className="mt-7 inline-flex items-center gap-2 font-serif text-[14px] text-foreground group-hover:text-cinnabar transition-colors">
+              <Link to="/services" className="card-soft group h-full p-8 md:p-10 flex flex-col">
+                <div className="flex items-start justify-between">
+                  <span className="num-display text-cinnabar text-[46px] md:text-[58px] leading-none">{d.n}</span>
+                  <ArrowUpRight className="w-6 h-6 text-foreground/25 group-hover:text-cinnabar group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all duration-300" />
+                </div>
+                <h3 className="mt-7 h-display-sm">{d.en}</h3>
+                <div lang="th" className="mt-2 font-serif italic text-cinnabar text-[19px] md:text-[21px]">{d.tag}</div>
+                <ul className="mt-7 space-y-2.5 border-t border-foreground/12 pt-7 flex-1">
+                  {d.th.split("·").map((it) => (
+                    <li key={it} lang="th" className="grid grid-cols-[12px_1fr] gap-2.5 font-thai thai-wrap text-[13px] md:text-[14px] leading-[1.5] text-foreground/80">
+                      <span aria-hidden className="text-cinnabar mt-px">·</span><span>{it.trim()}</span>
+                    </li>
+                  ))}
+                </ul>
+                <span className="mt-8 inline-flex items-center gap-2 font-serif text-[15px] text-foreground group-hover:text-cinnabar transition-colors">
                   ดูรายละเอียด <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </span>
               </Link>
@@ -369,33 +345,25 @@ const Index = () => (
       </div>
     </section>
 
-    {/* — SHOWREEL (PLACEHOLDER: poster stands in for the real showreel video/embed) */}
-    <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <SectionHeading
-          lang="th"
-          eyebrow="Showreel"
-          title={<>งานที่ <em className="text-cinnabar">ขยับได้.</em></>}
-          intro="ตัวอย่างงานโปรดักชันรวมในรีลเดียว — กำลังอัปเดตเป็นวิดีโอจริง"
+    {/* — SHOWREEL — full-bleed background video (autoplay · muted · loop) */}
+    <section className="relative border-t border-foreground/15 overflow-hidden bg-black">
+      <div className="relative w-full h-[56.25vw] max-h-[86vh] overflow-hidden">
+        <iframe
+          title="ØRIONS showreel"
+          src="https://www.youtube-nocookie.com/embed/vjuXICAVBSU?autoplay=1&mute=1&loop=1&playlist=vjuXICAVBSU&controls=0&showinfo=0&modestbranding=1&rel=0&playsinline=1&disablekb=1&fs=0&iv_load_policy=3"
+          allow="autoplay; encrypted-media; picture-in-picture"
+          loading="lazy"
+          className="absolute inset-0 w-full h-full border-0 pointer-events-none"
         />
-        <Reveal delay={0.05}>
-          <button
-            type="button"
-            className="group mt-12 relative block w-full overflow-hidden rounded-2xl border border-foreground/12"
-            style={{ aspectRatio: "16 / 9" }}
-            aria-label="เล่น showreel (ตัวอย่าง)"
-          >
-            <img src={showreelPoster} alt="ØRIONS showreel — ตัวอย่าง" loading="lazy" className="w-full h-full object-cover opacity-65 group-hover:opacity-85 group-hover:scale-[1.03] transition-all duration-700" />
-            <div className="absolute inset-0 bg-background/35" />
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
-              <span className="grid place-items-center w-16 h-16 md:w-20 md:h-20 rounded-full bg-cinnabar text-background shadow-xl group-hover:scale-110 transition-transform duration-300">
-                <Play className="w-6 h-6 md:w-7 md:h-7 ml-1" fill="currentColor" />
-              </span>
-              <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-foreground/85">Showreel 2026 · 1:30</span>
-            </div>
-            <span className="absolute top-4 left-4 font-mono text-[9px] tracking-[0.2em] uppercase text-background bg-foreground/70 px-2 py-1 rounded">Placeholder</span>
-          </button>
-        </Reveal>
+        <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-background via-background/5 to-background/25 pointer-events-none" />
+        <div className="absolute left-0 right-0 bottom-0 px-6 md:px-10 pb-6 md:pb-10 pointer-events-none">
+          <div className="max-w-[1280px] mx-auto">
+            <p className="eyebrow-mono">Showreel 2026</p>
+            <h2 lang="th" className="mt-2 md:mt-3 h-display-sm md:h-display-md max-w-[18ch] thai-wrap">
+              งานที่ <em className="text-cinnabar">ขยับได้.</em>
+            </h2>
+          </div>
+        </div>
       </div>
     </section>
 

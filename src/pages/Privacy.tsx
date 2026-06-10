@@ -51,7 +51,7 @@ const Privacy = () => (
     </section>
 
     <section className="px-6 md:px-10">
-      <div className="max-w-[1080px] mx-auto py-16 md:py-24">
+      <div className="max-w-[1080px] mx-auto py-20 md:py-28">
         <div className="border-t border-foreground/20">
           {sections.map((s, i) => (
             <Reveal key={s.n} delay={i * 0.05}>

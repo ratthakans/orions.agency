@@ -35,12 +35,6 @@ const addonOptions = [
   "Seeding / IO", "UGC / Review", "Hero Brand Film", "CI / Brand Guideline",
 ];
 
-const next = [
-  { n: "01", t: "ตอบกลับใน 24 ชม.",      d: "ทีมอ่านเอง · ตอบเอง · 1 working day" },
-  { n: "02", t: "คุยฟรี 45 นาที",        d: "ไม่มีข้อผูกมัด · fit-check ตรงไปตรงมา" },
-  { n: "03", t: "มองว่าจะ refine ยังไง", d: "เล่าโจทย์และเงื่อนไข — เราช่วยมองทางออก" },
-];
-
 const faqs = [
   { q: "เริ่มต้นยังไง?",
     a: "คุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์และเงื่อนไขมา เราช่วยมองว่าจะ refine มันยังไง. ทักมาที่ hello@orions.agency, โทร 092 390 5464 หรือ LINE @orions ก็ได้." },
@@ -160,24 +154,9 @@ const Contact = () => {
             </div>
           </Reveal>
 
-          {/* Inline timeline (replaces 'what happens next' full section) */}
+          {/* Direct lines — minimal (timeline removed; the meta line above already says what happens next) */}
           <Reveal delay={0.25}>
-            <div className="mt-14 pt-8 border-t border-foreground/20 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-              {next.map((s) => (
-                <div key={s.n} className="flex gap-4">
-                  <div className="font-serif text-cinnabar text-[22px] leading-none tabular-nums shrink-0">{s.n}</div>
-                  <div>
-                    <h3 className="font-serif text-[16px] md:text-[18px] tracking-[-0.01em]">{s.t}</h3>
-                    <p lang="th" className="mt-1.5 font-thai thai-wrap text-[13px] leading-[1.6] text-muted-foreground">{s.d}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </Reveal>
-
-          {/* Direct lines — minimal */}
-          <Reveal delay={0.3}>
-            <div className="mt-10 flex flex-wrap gap-x-8 gap-y-2 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
+            <div className="mt-12 flex flex-wrap gap-x-8 gap-y-2 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
               <a href="mailto:hello@orions.agency" className="hover:text-cinnabar transition-colors">hello@orions.agency</a>
               <a href="tel:+66923905464" className="hover:text-cinnabar transition-colors">+66 92 390 5464</a>
               <a href="https://line.me/ti/p/~orions" target="_blank" rel="noreferrer" className="hover:text-cinnabar transition-colors">LINE @orions</a>

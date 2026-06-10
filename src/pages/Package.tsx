@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight, Check, Download, Phone, Info } from "lucide-react";
 import Reveal from "@/components/Reveal";
@@ -61,48 +61,59 @@ const TRACK_NAMES = ["Performance", "Branding", "Hybrid"] as const;
 const goalOf: Record<string, string> = { Performance: "ยอด", Branding: "แบรนด์", Hybrid: "ทั้งคู่" };
 
 type Cmp = { label: string; info: string; size?: boolean; best?: string[]; v: Record<string, string | Record<Size, string>> };
-const compareRows: Cmp[] = [
-  { label: "ราคา / เดือน", info: "ค่าบริการรายเดือน ยังไม่รวม VAT 7% และ ad spend", size: true, v: {
-    Performance: { S: "฿24,900", M: "฿49,900", L: "฿99,900" },
-    Branding: { S: "฿24,900", M: "฿49,900", L: "฿99,900" },
-    Hybrid: { S: "฿32,900", M: "฿64,900", L: "฿129,900" },
-  }},
-  { label: "เหมาะกับ", info: "โจทย์ที่แพ็กนี้ตอบได้ดีที่สุด", v: { Performance: "อยากได้ยอดเดี๋ยวนี้", Branding: "อยากให้แบรนด์ถูกจำ", Hybrid: "โตเร็ว + ยั่งยืน" } },
-  { label: "คิดแบบ", info: "ทุกงานคิดใหม่ ไม่ใช้เทมเพลต — ต่างกันแค่ตั้งต้นจาก mindset ไหน", v: { Performance: "การตลาด", Branding: "ครีเอทีฟ", Hybrid: "ทั้งคู่" } },
-  { label: "โฟกัส · ยอด / แบรนด์", info: "สัดส่วนระหว่างการทำยอดกับการสร้างแบรนด์", v: { Performance: "70 / 30", Branding: "30 / 70", Hybrid: "50 / 50" } },
-  { label: "ยิงแอด · แพลตฟอร์ม", info: "แพลตฟอร์มที่เรายิงและดูแลให้ (เพิ่มขึ้นตามไซส์)", size: true, best: ["Performance", "Hybrid"], v: {
-    Performance: { S: "Meta · TikTok", M: "+ Google", L: "+ Google + LINE" },
-    Branding: { S: "เน้น awareness", M: "เน้น awareness", L: "เน้น awareness" },
-    Hybrid: { S: "Meta · TikTok", M: "Meta · TikTok", L: "+ เพิ่มแพลตฟอร์ม" },
-  }},
-  { label: "บริหารแอด (เพดาน)", info: "เราดูแล/บริหารแอดให้ฟรีจนถึงงบเพดานนี้ (เอเจนซีทั่วไปคิด 10–20% ของงบ) — ส่วนค่ายิงแอดจริง (ad spend) ลูกค้าจ่ายเอง", size: true, best: ["Performance", "Hybrid"], v: {
-    Performance: { S: "฿50k", M: "฿120k", L: "฿250k" },
-    Branding: { S: "฿30k", M: "฿30k", L: "฿30k" },
-    Hybrid: { S: "฿50k", M: "฿120k", L: "฿250k" },
-  }},
-  { label: "AI optimization", info: "ระบบ AI ปรับแอดอัตโนมัติให้คุ้มงบที่สุด (ไซส์ L)", best: ["Performance", "Hybrid"], v: { Performance: "ไซส์ L", Branding: "—", Hybrid: "ไซส์ L" } },
-  { label: "คอนเทนต์ · รีล / โพสต์", info: "จำนวนคอนเทนต์ออร์แกนิกต่อเดือน", size: true, best: ["Branding"], v: {
-    Performance: { S: "5 / 8", M: "10 / 12", L: "12 / 14" },
-    Branding: { S: "10 / 14", M: "20 / 20", L: "24 / 24" },
-    Hybrid: { S: "8 / 11", M: "15 / 16", L: "18 / 20" },
-  }},
-  { label: "ถ่ายของจริง", info: "วันถ่ายโปรดักชันจริงต่อเดือน", size: true, v: {
-    Performance: { S: "0.5 วัน", M: "1 วัน", L: "2 วัน" },
-    Branding: { S: "0.5 วัน", M: "1 วัน", L: "2 วัน" },
-    Hybrid: { S: "0.5 วัน", M: "1 วัน", L: "2 วัน" },
-  }},
-  { label: "Brand CI", info: "ระบบอัตลักษณ์แบรนด์ — เริ่มจาก Mini Brand CI สำหรับโซเชียล", size: true, best: ["Branding"], v: {
-    Performance: { S: "—", M: "—", L: "—" },
-    Branding: { S: "Mini Brand CI", M: "Full CI", L: "Full + องค์กร" },
-    Hybrid: { S: "Mini Brand CI", M: "พื้นฐาน", L: "Full" },
-  }},
-  { label: "SEO / seeding", info: "บทความ SEO และการกระจายเนื้อหา (seeding / รีวิว)", best: ["Branding"], v: { Performance: "ไซส์ L", Branding: "ทุกไซส์ (+KOL)", Hybrid: "M ขึ้นไป" } },
-  { label: "Brand film / long-form", info: "วิดีโอแบรนด์หรือคอนเทนต์ยาว", best: ["Branding", "Hybrid"], v: { Performance: "—", Branding: "ไซส์ใหญ่", Hybrid: "ไซส์ใหญ่" } },
-  { label: "สัญญาขั้นต่ำ", info: "ระยะเวลาผูกพันขั้นต่ำของแพ็ก", size: true, v: {
-    Performance: { S: "3 เดือน", M: "3 เดือน", L: "6 เดือน" },
-    Branding: { S: "3 เดือน", M: "3 เดือน", L: "6 เดือน" },
-    Hybrid: { S: "3 เดือน", M: "3 เดือน", L: "6 เดือน" },
-  }},
+/* Compare rows grouped by theme (mirrors the rate-card PDF) — easier to scan than one long list. */
+const compareGroups: { group: string; rows: Cmp[] }[] = [
+  { group: "ราคา & ความเหมาะ", rows: [
+    { label: "ราคา / เดือน", info: "ค่าบริการรายเดือน ยังไม่รวม VAT 7% และ ad spend", size: true, v: {
+      Performance: { S: "฿24,900", M: "฿49,900", L: "฿99,900" },
+      Branding: { S: "฿24,900", M: "฿49,900", L: "฿99,900" },
+      Hybrid: { S: "฿32,900", M: "฿64,900", L: "฿129,900" },
+    }},
+    { label: "เหมาะกับ", info: "โจทย์ที่แพ็กนี้ตอบได้ดีที่สุด", v: { Performance: "อยากได้ยอดเดี๋ยวนี้", Branding: "อยากให้แบรนด์ถูกจำ", Hybrid: "โตเร็ว + ยั่งยืน" } },
+    { label: "คิดแบบ", info: "ทุกงานคิดใหม่ ไม่ใช้เทมเพลต — ต่างกันแค่ตั้งต้นจาก mindset ไหน", v: { Performance: "การตลาด", Branding: "ครีเอทีฟ", Hybrid: "ทั้งคู่" } },
+    { label: "โฟกัส · ยอด / แบรนด์", info: "สัดส่วนระหว่างการทำยอดกับการสร้างแบรนด์", v: { Performance: "70 / 30", Branding: "30 / 70", Hybrid: "50 / 50" } },
+  ]},
+  { group: "แอด & AI", rows: [
+    { label: "ยิงแอด · แพลตฟอร์ม", info: "แพลตฟอร์มที่เรายิงและดูแลให้ (เพิ่มขึ้นตามไซส์)", size: true, best: ["Performance", "Hybrid"], v: {
+      Performance: { S: "Meta · TikTok", M: "+ Google", L: "+ Google + LINE" },
+      Branding: { S: "เน้น awareness", M: "เน้น awareness", L: "เน้น awareness" },
+      Hybrid: { S: "Meta · TikTok", M: "Meta · TikTok", L: "+ เพิ่มแพลตฟอร์ม" },
+    }},
+    { label: "บริหารแอด (เพดาน)", info: "เราดูแล/บริหารแอดให้ฟรีจนถึงงบเพดานนี้ (เอเจนซีทั่วไปคิด 10–20% ของงบ) — ส่วนค่ายิงแอดจริง (ad spend) ลูกค้าจ่ายเอง", size: true, best: ["Performance", "Hybrid"], v: {
+      Performance: { S: "฿50k", M: "฿120k", L: "฿250k" },
+      Branding: { S: "฿30k", M: "฿30k", L: "฿30k" },
+      Hybrid: { S: "฿50k", M: "฿120k", L: "฿250k" },
+    }},
+    { label: "AI optimization", info: "ระบบ AI ปรับแอดอัตโนมัติให้คุ้มงบที่สุด (ไซส์ L)", best: ["Performance", "Hybrid"], v: { Performance: "ไซส์ L", Branding: "—", Hybrid: "ไซส์ L" } },
+  ]},
+  { group: "คอนเทนต์ & โปรดักชัน", rows: [
+    { label: "คอนเทนต์ · รีล / โพสต์", info: "จำนวนคอนเทนต์ออร์แกนิกต่อเดือน", size: true, best: ["Branding"], v: {
+      Performance: { S: "5 / 8", M: "10 / 12", L: "12 / 14" },
+      Branding: { S: "10 / 14", M: "20 / 20", L: "24 / 24" },
+      Hybrid: { S: "8 / 11", M: "15 / 16", L: "18 / 20" },
+    }},
+    { label: "ถ่ายของจริง", info: "วันถ่ายโปรดักชันจริงต่อเดือน", size: true, v: {
+      Performance: { S: "0.5 วัน", M: "1 วัน", L: "2 วัน" },
+      Branding: { S: "0.5 วัน", M: "1 วัน", L: "2 วัน" },
+      Hybrid: { S: "0.5 วัน", M: "1 วัน", L: "2 วัน" },
+    }},
+  ]},
+  { group: "ระบบแบรนด์ & SEO", rows: [
+    { label: "Brand CI", info: "ระบบอัตลักษณ์แบรนด์ — เริ่มจาก Mini Brand CI สำหรับโซเชียล", size: true, best: ["Branding"], v: {
+      Performance: { S: "—", M: "—", L: "—" },
+      Branding: { S: "Mini Brand CI", M: "Full CI", L: "Full + องค์กร" },
+      Hybrid: { S: "Mini Brand CI", M: "พื้นฐาน", L: "Full" },
+    }},
+    { label: "SEO / seeding", info: "บทความ SEO และการกระจายเนื้อหา (seeding / รีวิว)", best: ["Branding"], v: { Performance: "ไซส์ L", Branding: "ทุกไซส์ (+KOL)", Hybrid: "M ขึ้นไป" } },
+    { label: "Brand film / long-form", info: "วิดีโอแบรนด์หรือคอนเทนต์ยาว", best: ["Branding", "Hybrid"], v: { Performance: "—", Branding: "ไซส์ใหญ่", Hybrid: "ไซส์ใหญ่" } },
+  ]},
+  { group: "เงื่อนไข", rows: [
+    { label: "สัญญาขั้นต่ำ", info: "ระยะเวลาผูกพันขั้นต่ำของแพ็ก", size: true, v: {
+      Performance: { S: "3 เดือน", M: "3 เดือน", L: "6 เดือน" },
+      Branding: { S: "3 เดือน", M: "3 เดือน", L: "6 เดือน" },
+      Hybrid: { S: "3 เดือน", M: "3 เดือน", L: "6 เดือน" },
+    }},
+  ]},
 ];
 
 const addons = [
@@ -152,40 +163,57 @@ const CompareTable = ({ size }: { size: Size }) => (
       <thead>
         <tr className="border-b-2 border-foreground">
           <th className="sticky left-0 z-10 bg-[hsl(var(--card))]" />
-          {TRACK_NAMES.map((name) => (
-            <th key={name} className="text-left py-4 px-3 align-bottom">
-              <div className="font-thai text-[11px] tracking-[0.02em] text-cinnabar">{goalOf[name]}</div>
-              <div className="mt-1 text-[15px] md:text-[18px] font-semibold tracking-[-0.01em]">{name}</div>
-            </th>
-          ))}
+          {TRACK_NAMES.map((name) => {
+            const featured = name === "Hybrid";
+            return (
+              <th key={name} className={`text-left py-4 px-3 align-bottom ${featured ? "bg-cinnabar/[0.04] rounded-t-xl" : ""}`}>
+                <div className="flex items-center gap-2">
+                  <span lang="th" className="font-thai text-[11px] tracking-[0.02em] text-cinnabar">{goalOf[name]}</span>
+                  {featured && <span lang="th" className="font-thai text-[9px] leading-none text-background bg-cinnabar rounded-full px-2 py-1">คุ้มสุด</span>}
+                </div>
+                <div className="mt-1 text-[15px] md:text-[18px] font-semibold tracking-[-0.01em]">{name}</div>
+              </th>
+            );
+          })}
         </tr>
       </thead>
       <tbody>
-        {compareRows.map((row) => {
-          const isPrice = row.label.startsWith("ราคา");
-          return (
-            <tr key={row.label} className={`border-b border-foreground/12 ${isPrice ? "bg-cinnabar/[0.06]" : ""}`}>
-              <td lang="th" className="py-3 pr-3 font-thai text-[12.5px] text-foreground/75 align-middle sticky left-0 z-10 bg-[hsl(var(--card))]">
-                <span className="inline-flex items-center">{row.label}<InfoTip text={row.info} /></span>
+        {compareGroups.map((g) => (
+          <Fragment key={g.group}>
+            {/* group divider — label lives in the sticky first column so it survives horizontal scroll */}
+            <tr aria-hidden>
+              <td lang="th" className="pt-6 pb-1.5 font-mono text-[9px] tracking-[0.2em] uppercase text-muted-foreground/80 whitespace-nowrap sticky left-0 z-10 bg-[hsl(var(--card))]">
+                — {g.group}
               </td>
-              {TRACK_NAMES.map((name) => {
-                const raw = row.v[name];
-                const val = row.size ? (raw as Record<Size, string>)[size] : (raw as string);
-                const win = !isPrice && row.best?.includes(name);
-                const base = isPrice
-                  ? "num-display text-[18px] md:text-[22px] text-cinnabar"
-                  : win
-                  ? "font-thai text-[13px] font-semibold text-cinnabar"
-                  : val === "—"
-                  ? "font-thai text-[13px] text-foreground/35"
-                  : "font-thai text-[13px] text-foreground/85";
-                return (
-                  <td key={name} lang="th" className={`py-3 px-3 align-middle ${base}`}>{val}</td>
-                );
-              })}
+              <td /><td /><td className="bg-cinnabar/[0.04]" />
             </tr>
-          );
-        })}
+            {g.rows.map((row) => {
+              const isPrice = row.label.startsWith("ราคา");
+              return (
+                <tr key={row.label} className={`border-b border-foreground/10 ${isPrice ? "bg-cinnabar/[0.06]" : "hover:bg-foreground/[0.02] transition-colors"}`}>
+                  <td lang="th" className="py-3.5 pr-3 font-thai text-[12.5px] text-foreground/75 align-middle sticky left-0 z-10 bg-[hsl(var(--card))]">
+                    <span className="inline-flex items-center">{row.label}<InfoTip text={row.info} /></span>
+                  </td>
+                  {TRACK_NAMES.map((name) => {
+                    const raw = row.v[name];
+                    const val = row.size ? (raw as Record<Size, string>)[size] : (raw as string);
+                    const win = !isPrice && row.best?.includes(name);
+                    const base = isPrice
+                      ? "num-display text-[18px] md:text-[22px] text-cinnabar"
+                      : win
+                      ? "font-thai text-[13px] font-semibold text-cinnabar"
+                      : val === "—"
+                      ? "font-thai text-[13px] text-foreground/30"
+                      : "font-thai text-[13px] text-foreground/85";
+                    return (
+                      <td key={name} lang="th" className={`py-3.5 px-3 align-middle ${name === "Hybrid" ? "bg-cinnabar/[0.04]" : ""} ${base}`}>{val}</td>
+                    );
+                  })}
+                </tr>
+              );
+            })}
+          </Fragment>
+        ))}
       </tbody>
     </table>
   </div>
@@ -244,7 +272,7 @@ const PricingSection = () => {
                   <span className="font-mono text-[10px] tracking-[0.04em] text-muted-foreground shrink-0">{t.sales}/{t.brand}</span>
                 </div>
                 <h3 className="mt-3 text-[26px] md:text-[30px] leading-none font-semibold tracking-[-0.02em]">{t.name}</h3>
-                <div className="mt-1 font-serif text-cinnabar text-[15px]">{t.tagline}</div>
+                <div className="mt-1 font-serif text-foreground/70 text-[15px]">{t.tagline}</div>
 
                 <div className="mt-4 flex h-1.5 overflow-hidden rounded-full">
                   <span className="bg-cinnabar" style={{ width: `${t.sales}%` }} />
@@ -262,7 +290,7 @@ const PricingSection = () => {
                 <ul className="mt-6 space-y-2.5 border-t border-foreground/15 pt-6 flex-1">
                   {t.points.map((p) => (
                     <li key={p} lang="th" className="grid grid-cols-[16px_1fr] gap-2.5 font-thai thai-wrap text-[13px] leading-[1.5] text-foreground/85">
-                      <Check className="w-3.5 h-3.5 text-cinnabar mt-0.5" /><span>{p}</span>
+                      <Check className="w-3.5 h-3.5 text-foreground/45 mt-0.5" /><span>{p}</span>
                     </li>
                   ))}
                 </ul>

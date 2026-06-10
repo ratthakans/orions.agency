@@ -2,7 +2,6 @@ import Reveal from "@/components/Reveal";
 import ClosingCTA from "@/components/ClosingCTA";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
-import SectionHeading from "@/components/ui/SectionHeading";
 import BadgeChip from "@/components/ui/BadgeChip";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
@@ -110,10 +109,10 @@ const Work = () => (
       const items = caseStudies.filter((c) => c.act === act.n);
       return (
         <section key={act.n} className="px-6 md:px-10 border-t border-foreground/15">
-          <div className="max-w-[1280px] mx-auto py-16 md:py-24">
+          <div className="max-w-[1280px] mx-auto py-20 md:py-28">
             <SectionLabel index={`Act ${act.n}`} label={`of 0${acts.length}`} />
             <Reveal delay={0.05}>
-              <h2 lang="th" className="mt-6 h-display-md max-w-[26ch] thai-wrap">
+              <h2 lang="th" className="mt-6 h-display-sm max-w-[34ch] thai-wrap">
                 {act.title}
               </h2>
             </Reveal>
@@ -138,23 +137,7 @@ const Work = () => (
       );
     })}
 
-    {/* 03 · TRUSTED BY — condensed */}
-    <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-16 md:py-24">
-        <SectionHeading
-          lang="th"
-          eyebrow="Trusted by"
-          title={<>แบรนด์ที่มี <em className="text-cinnabar">เงื่อนไข</em> เลือกทำงานกับเรา.</>}
-        />
-        <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 gap-x-8 gap-y-8 border-t border-foreground/15 pt-10">
-          {["พรรคประชาธิปัตย์", "กองทัพอากาศ", "GCOO", "HONG MOVE", "เขาใหญ่ คันทรี่คลับ", "HEAVY ORGANIZER"].map((name) => (
-            <div key={name} className="flex items-center">
-              <span lang="th" className="font-serif text-[18px] md:text-[22px] tracking-[-0.01em] text-muted-foreground">{name}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+    {/* Trusted-by removed — the client logo wall already lives on Home (no duplicate proof band) */}
 
     <ClosingCTA
       title={<>โจทย์ของคุณมี <em className="text-cinnabar">เงื่อนไข</em> แบบไหน?</>}

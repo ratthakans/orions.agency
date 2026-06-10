@@ -4,7 +4,6 @@ import SectionLabel from "@/components/SectionLabel";
 import SectionHeading from "@/components/ui/SectionHeading";
 import BadgeChip from "@/components/ui/BadgeChip";
 import CTABand from "@/components/CTABand";
-import FAQ from "@/components/FAQ";
 
 const modes = [
   {
@@ -32,15 +31,6 @@ const engagement = [
   { k: "จังหวะ",   v: "รีวิวกับทีมคุณสม่ำเสมอ · ทำงานเป็นทีมเดียว" },
   { k: "ผลลัพธ์",  v: "Direction doc · audit · การกำกับงานจริง" },
   { k: "ราคา",     v: "ขึ้นกับ scope — เริ่มจากคุยก่อน" },
-];
-
-const faqs = [
-  { q: "ต่างจากการจ้าง agency ปกติยังไง?",
-    a: "Agency รับงานมาผลิตให้. Consulting คือเราเข้าไปกำกับทิศทางและยกระดับทีม/ระบบที่คุณมีอยู่ — บางครั้งงานที่ดีที่สุดคือทำให้ทีมในของคุณเก่งขึ้น ไม่ใช่ผลิตแทน." },
-  { q: "เริ่มยังไง?",
-    a: "คุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโครงสร้างทีมและโจทย์มา เราช่วยมองว่าควรเป็น audit สั้น ๆ, sprint หรือ retainer รายเดือน." },
-  { q: "เหมาะกับใคร?",
-    a: "ทีมที่มีคนผลิตอยู่แล้วแต่ต้องการสายตาและมือ senior มากำกับ — หรือองค์กรที่กำลังจะตัดสินใจครั้งใหญ่และอยากได้คนช่วยมองก่อน. ถ้าคุณยังไม่มีทีมเลย เริ่มที่บริการ agency อาจเหมาะกว่า — เราจะบอกตรง ๆ." },
 ];
 
 const Consulting = () => (
@@ -92,7 +82,7 @@ const Consulting = () => (
               <div className="card-soft p-8 md:p-10 h-full">
                 <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">— {m.n}</div>
                 <h3 className="mt-8 text-[24px] md:text-[28px] leading-[1.1] tracking-[-0.015em] font-semibold">{m.en}</h3>
-                <div lang="th" className="mt-3 font-serif text-cinnabar text-[16px]">{m.tag}</div>
+                <div lang="th" className="mt-3 font-serif text-foreground/70 text-[16px]">{m.tag}</div>
                 <p lang="th" className="mt-6 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">{m.th}</p>
               </div>
             </Reveal>
@@ -143,20 +133,9 @@ const Consulting = () => (
       </div>
     </section>
 
-    {/* 06 — FAQ */}
-    <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1080px] mx-auto py-20 md:py-28">
-        <div className="mt-10">
-          <SectionHeading
-            eyebrow="Before you ask"
-            title={<>The short <em className="text-cinnabar">answers.</em></>}
-          />
-        </div>
-        <div className="mt-14"><FAQ items={faqs} /></div>
-      </div>
-    </section>
+    {/* FAQ removed — answers live on /package, /contact and /diagnostic */}
 
-    {/* 07 — CTA */}
+    {/* 06 — CTA */}
     <CTABand
       eyebrow="Start a conversation"
       title={<>อยากได้สายตา senior มา <em className="text-cinnabar">มองทิศทาง</em>?</>}

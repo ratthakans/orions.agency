@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
-import { ArrowUpRight, ArrowRight, Check } from "lucide-react";
+import { ArrowUpRight, ArrowRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionHeading from "@/components/ui/SectionHeading";
 import BadgeChip from "@/components/ui/BadgeChip";
 import CTABand from "@/components/CTABand";
-import FAQ from "@/components/FAQ";
 import SimpleMarquee from "@/components/SimpleMarquee";
 import Magnetic from "@/components/Magnetic";
 import HeroHeadline from "@/components/HeroHeadline";
@@ -31,31 +30,12 @@ const marquee = [
   "Bangkok · Est. 2026",
 ];
 
+// One sharp line per card — the full version lives on /about
 const reasons = [
-  {
-    no: "01",
-    title: "ข้อจำกัดคือบรีฟ",
-    body: "งบ เวลา เงื่อนไข — เราไม่หนีมัน เราใช้มันเป็นกรอบที่ทำให้งานคมขึ้น แทนที่จะเป็นข้ออ้างให้งานจืด",
-    answer: "ทุกโจทย์เริ่มจากการหาเรื่องที่จริง แล้ว refine จนคมพอจะลงในกรอบนั้นได้",
-  },
-  {
-    no: "02",
-    title: "สามทีมในที่เดียว",
-    body: "กลยุทธ์ ครีเอทีฟ และโซเชียล มักอยู่กันคนละเจ้า เรื่องเลยหล่นระหว่างทาง น้ำเสียงเพี้ยน",
-    answer: "Strategy → Production → Social ส่งต่อกันในทีมเดียว เรื่องเดียวกันตั้งแต่ต้นจนจบ",
-  },
-  {
-    no: "03",
-    title: "วัดผลได้ ไม่ใช่แค่สวย",
-    body: "สวยแล้วเงียบไม่พอ — คอนเทนต์ที่ดีต้องไปถึงคนถูกกลุ่มและพิสูจน์ได้ว่าได้ผล",
-    answer: "โซเชียลและแอดมาพร้อม A/B testing + report จริง ไม่ใช่ boost แล้วจบ",
-  },
-  {
-    no: "04",
-    title: "พูดตรง",
-    body: "เราไม่ขายฝัน ไม่การันตีตัวเลขลอย ๆ และจะบอกตรง ๆ เมื่ออะไรไม่เวิร์ก",
-    answer: "และเราจะบอกด้วยซ้ำว่า ORIONS ไม่ใช่คำตอบเมื่อไหร่ — เพื่อให้คุณตัดสินใจถูก",
-  },
+  { no: "01", title: "ข้อจำกัดคือบรีฟ",      body: "งบ เวลา เงื่อนไข — เราใช้มันเป็นกรอบที่ทำให้งานคมขึ้น ไม่ใช่ข้ออ้าง" },
+  { no: "02", title: "สามทีมในที่เดียว",     body: "Strategy → Production → Social ส่งต่อกันในทีมเดียว เรื่องไม่หล่นระหว่างทาง" },
+  { no: "03", title: "วัดผลได้ ไม่ใช่แค่สวย", body: "ทุกงานมาพร้อม A/B testing + report จริง — ไม่ใช่ boost แล้วจบ" },
+  { no: "04", title: "พูดตรง",               body: "ไม่ขายฝัน ไม่การันตีตัวเลขลอย ๆ — และจะบอกตรง ๆ ถ้าเราไม่ใช่คำตอบ" },
 ];
 
 const services = [
@@ -64,16 +44,11 @@ const services = [
   { n: "03", en: "Social Media Marketing",  tag: "ทำให้ดังและวัดได้",  th: "content + community · ยิงแอด Meta/TikTok/Google/LINE · A/B testing · performance report" },
 ];
 
+// Compact teaser data — full detail lives on /package
 const packages = [
-  { name: "Performance", goal: "ยอด",    tagline: "Performance, amplified.", price: "฿24,900", bullets: ["ยิงแอด Meta + TikTok ดูแลทุกวัน", "AI แตกครีเอทีฟทดสอบหลายสิบแบบ", "คอนเทนต์ + ถ่าย + รายงานผล"] },
-  { name: "Hybrid",      goal: "ทั้งคู่", tagline: "Both worlds, at once.",   price: "฿32,900", bullets: ["ได้ทั้งยิงแอด + สร้างแบรนด์", "Mini Brand CI + กลยุทธ์ 2 ชั้น", "AI optimization + production"], featured: true },
-  { name: "Branding",    goal: "แบรนด์", tagline: "Stories, refined.",       price: "฿24,900", bullets: ["Mini Brand CI for Social → ระบบเต็ม", "คอนเทนต์แบรนด์ + ถ่าย creative-directed", "SEO + seeding / KOL"] },
-];
-
-const faqs = [
-  { q: "ORIONS ทำอะไรบ้าง?", a: "เรารวม Brand Strategy · Creative Production · Social Media Marketing ไว้ในทีมเดียว — ตั้งแต่หาเรื่องที่ใช่ ทำให้เห็น ไปจนทำให้ดังและวัดได้." },
-  { q: "เริ่มทำงานกับเรายังไง?", a: "เริ่มได้ 2 ทาง — ทำ Brand Audit 1 นาทีเพื่อรู้จุดอ่อนก่อน หรือทักมาคุย Discovery Call 45 นาทีฟรี เล่าโจทย์และเงื่อนไขมาได้เลย." },
-  { q: "ราคาเริ่มที่เท่าไหร่?", a: "แพ็กเกจรายเดือนเริ่มที่ ฿24,900 (ยังไม่รวม VAT · ไม่รวม ad spend) เลือก track และขนาดทีมได้ตามเป้าหมาย — ดูได้ที่หน้า Package." },
+  { name: "Performance", goal: "ยอด",    price: "฿24,900" },
+  { name: "Hybrid",      goal: "ทั้งคู่", price: "฿32,900", featured: true },
+  { name: "Branding",    goal: "แบรนด์", price: "฿24,900" },
 ];
 
 /** Decorative 6-axis radar — teaser for the Brand Audit (illustrative shape, not a real score). */
@@ -137,11 +112,9 @@ const Index = () => (
           </div>
         </Reveal>
         <Reveal delay={0.6}>
-          <div lang="th" className="mt-10 flex flex-wrap items-center justify-center gap-x-7 gap-y-2 font-thai text-[11px] tracking-[0.02em] text-muted-foreground">
-            <span>✦ Brand · Creative · Social</span>
-            <span>✦ ข้อจำกัดคือบรีฟ</span>
-            <span>✦ พูดตรง</span>
-          </div>
+          <p lang="th" className="mt-10 font-thai text-[11px] tracking-[0.02em] text-muted-foreground text-center">
+            Brand · Creative · Social — ข้อจำกัดคือบรีฟ · พูดตรง
+          </p>
         </Reveal>
       </div>
 
@@ -243,9 +216,6 @@ const Index = () => (
                   <h3 lang="th" className="font-serif text-[22px] md:text-[26px] tracking-[-0.015em] leading-snug">{r.title}</h3>
                 </div>
                 <p lang="th" className="mt-5 font-thai thai-wrap text-[14px] leading-[1.7] text-muted-foreground">{r.body}</p>
-                <p lang="th" className="mt-5 border-t border-foreground/12 pt-5 font-thai thai-wrap text-[14px] leading-[1.7] text-foreground/85">
-                  <span className="font-serif text-cinnabar">วิธีของเรา · </span>{r.answer}
-                </p>
               </div>
             </Reveal>
           ))}
@@ -279,7 +249,7 @@ const Index = () => (
                     <span className="num-display text-cinnabar text-[38px] md:text-[60px] leading-none shrink-0">{d.n}</span>
                     <div>
                       <h3 className="h-display-sm md:text-[38px] leading-[1.04] group-hover:text-cinnabar transition-colors duration-300">{d.en}</h3>
-                      <div lang="th" className="mt-1.5 font-serif text-cinnabar text-[18px] md:text-[22px]">{d.tag}</div>
+                      <div lang="th" className="mt-1.5 font-serif text-foreground/70 text-[18px] md:text-[22px]">{d.tag}</div>
                     </div>
                   </div>
                   <div className="md:col-span-6 md:pt-2">
@@ -306,39 +276,34 @@ const Index = () => (
           title={<>ตอนนี้คุณต้องการ <em className="text-cinnabar">อะไร?</em></>}
           intro="เลือก track ตามเป้าหมาย — ยอด · แบรนด์ · หรือทั้งคู่ · รายเดือน เริ่มที่ ฿24,900"
         />
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 items-stretch">
-          {packages.map((p, i) => (
-            <Reveal key={p.name} delay={i * 0.08}>
-              <div className={`relative h-full flex flex-col p-8 ${p.featured ? "card-accent" : "card-soft"}`}>
-                {p.featured && (
-                  <span className="ribbon-pill absolute -top-3 left-1/2 -translate-x-1/2">คุ้มสุด</span>
-                )}
-                <div className="font-thai text-[11px] tracking-[0.02em] text-cinnabar">{p.goal}</div>
-                <h3 className="mt-3 text-[27px] leading-none font-semibold tracking-[-0.02em]">{p.name}</h3>
-                <div className="mt-1 font-serif text-cinnabar text-[15px]">{p.tagline}</div>
-                <div className="mt-6 flex items-baseline gap-2">
-                  <span className="font-thai text-[11px] tracking-[0.02em] text-muted-foreground">เริ่ม</span>
-                  <span className="num-display text-[36px] text-foreground">{p.price}</span>
-                  <span className="font-thai text-[11px] tracking-[0.02em] text-muted-foreground">/ ด.</span>
-                </div>
-                <ul className="mt-6 space-y-2.5 border-t border-foreground/12 pt-6 flex-1">
-                  {p.bullets.map((b) => (
-                    <li key={b} lang="th" className="grid grid-cols-[16px_1fr] gap-2.5 font-thai thai-wrap text-[13px] leading-[1.5] text-foreground/85">
-                      <Check className="w-3.5 h-3.5 text-cinnabar mt-0.5" /><span>{b}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Link to="/package" className={`mt-7 ${p.featured ? "btn-accent" : "btn-ghost"} justify-between`}>
-                  <span>ดูแพ็กเกจ {p.name}</span><ArrowUpRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+        {/* Compact teaser — full cards + compare table live on /package */}
         <Reveal>
-          <div className="mt-10 flex flex-col items-center gap-3">
-            <Link to="/package" className="font-thai text-[11px] tracking-[0.02em] text-foreground hover:text-cinnabar transition-colors inline-flex items-center gap-2">
-              ดูตารางเทียบทุกฟีเจอร์ <ArrowRight className="w-4 h-4" />
+          <div className="mt-12 max-w-[760px] mx-auto card-soft hover:translate-y-0 divide-y divide-foreground/10">
+            {packages.map((p) => (
+              <Link key={p.name} to="/package" className="group flex items-center justify-between gap-4 px-6 md:px-8 py-5 md:py-6 transition-colors hover:bg-foreground/[0.025]">
+                <div className="flex items-center gap-3">
+                  <div>
+                    <div lang="th" className="font-thai text-[11px] tracking-[0.02em] text-cinnabar">{p.goal}</div>
+                    <div className="mt-0.5 text-[19px] md:text-[22px] font-semibold tracking-[-0.015em] group-hover:text-cinnabar transition-colors">{p.name}</div>
+                  </div>
+                  {p.featured && <span lang="th" className="font-thai text-[9px] leading-none text-background bg-cinnabar rounded-full px-2 py-1 mt-3">คุ้มสุด</span>}
+                </div>
+                <div className="flex items-center gap-4 md:gap-6">
+                  <div className="text-right">
+                    <span lang="th" className="font-thai text-[11px] text-muted-foreground mr-1.5">เริ่ม</span>
+                    <span className="num-display text-[22px] md:text-[26px]">{p.price}</span>
+                    <span lang="th" className="font-thai text-[11px] text-muted-foreground ml-1">/ ด.</span>
+                  </div>
+                  <ArrowRight className="w-5 h-5 text-foreground/30 group-hover:text-cinnabar group-hover:translate-x-1 transition-all" />
+                </div>
+              </Link>
+            ))}
+          </div>
+        </Reveal>
+        <Reveal>
+          <div className="mt-9 flex flex-col items-center gap-4">
+            <Link to="/package" className="btn-ghost">
+              <span>ดูแพ็กเกจ + ตารางเทียบ</span><ArrowUpRight className="w-4 h-4" />
             </Link>
             <p lang="th" className="font-thai text-[11px] tracking-[0.02em] text-muted-foreground">ราคายังไม่รวม VAT 7% · ไม่รวม ad spend</p>
           </div>
@@ -400,20 +365,9 @@ const Index = () => (
     {/* TESTIMONIALS — hidden until real client quotes exist (brand = พูดตรง, no mock quotes in production).
         The `testimonials` data above is kept as the layout reference — re-add the section once real words + names are in. */}
 
-    {/* 08 — FAQ */}
-    <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1080px] mx-auto py-20 md:py-28">
-        <SectionHeading
-          center
-          lang="th"
-          eyebrow="FAQ"
-          title={<>คำถามที่ <em className="text-cinnabar">เจอบ่อย.</em></>}
-        />
-        <div className="mt-14"><FAQ items={faqs} /></div>
-      </div>
-    </section>
+    {/* FAQ removed — answers live on /package, /contact and /diagnostic (no duplicate content on Home) */}
 
-    {/* 09 — CTA close */}
+    {/* 08 — CTA close */}
     <CTABand
       eyebrow="Start a conversation"
       title={<>พร้อมคุยแล้ว? <em className="text-cinnabar">เล่าโจทย์มาได้เลย.</em></>}

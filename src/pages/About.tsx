@@ -20,18 +20,18 @@ const notForYou = [
 // Roles are real; names/portraits are clearly placeholders — honest by design
 // (no fabricated identities). Avatars show initials, not fake photos.
 const team = [
-  { role: "Founder / Creative Director" },
-  { role: "Strategy Lead" },
-  { role: "Art Director" },
-  { role: "Senior Designer" },
-  { role: "Copywriter" },
-  { role: "Social Strategist" },
-  { role: "Performance / Ads Lead" },
-  { role: "SEO Specialist" },
-  { role: "Producer" },
-  { role: "Photographer / DP" },
-  { role: "Video Editor" },
-  { role: "Account Manager" },
+  { role: "Founder / Creative Director", initials: "CD" },
+  { role: "Strategy Lead",               initials: "ST" },
+  { role: "Art Director",                initials: "AD" },
+  { role: "Senior Designer",             initials: "DS" },
+  { role: "Copywriter",                  initials: "CW" },
+  { role: "Social Strategist",           initials: "SC" },
+  { role: "Performance / Ads Lead",      initials: "PF" },
+  { role: "SEO Specialist",              initials: "SEO" },
+  { role: "Producer",                    initials: "PD" },
+  { role: "Photographer / DP",           initials: "DP" },
+  { role: "Video Editor",                initials: "ED" },
+  { role: "Account Manager",             initials: "AM" },
 ];
 
 const About = () => (
@@ -101,7 +101,7 @@ const About = () => (
                   aria-hidden="true"
                   className="aspect-square w-full rounded-lg bg-surface-2 flex items-center justify-center num-display text-cinnabar text-[18px]"
                 >
-                  {String(i + 1).padStart(2, "0")}
+                  {p.initials}
                 </div>
                 <div className="mt-2.5 font-mono text-[9px] tracking-[0.1em] uppercase text-cinnabar leading-[1.35]">
                   {p.role}

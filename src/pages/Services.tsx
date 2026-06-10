@@ -5,22 +5,12 @@ import SEO from "@/components/SEO";
 import SectionHeading from "@/components/ui/SectionHeading";
 import BadgeChip from "@/components/ui/BadgeChip";
 import CTABand from "@/components/CTABand";
-import FAQ from "@/components/FAQ";
 
 const process = [
   { n: "01", k: "Listen", week: "สัปดาห์ 1", d: "ฟังโจทย์และเงื่อนไข — audit แบรนด์, คู่แข่ง, และกรอบที่ต้องอยู่ในนั้น" },
   { n: "02", k: "Refine", week: "สัปดาห์ 2", d: "ตกผลึกเรื่องที่จริง + ทิศทาง — refine จนคมพอจะลงในกรอบได้" },
   { n: "03", k: "Make",   week: "สัปดาห์ 3", d: "ผลิตจริง — craft, ดีไซน์, คอนเทนต์ ภายใต้ทิศทางเดียวกัน" },
   { n: "04", k: "Launch", week: "สัปดาห์ 4", d: "ขึ้นจริง แล้ววัดผล — ทดสอบ, ปรับ, ทำต่อเนื่อง" },
-];
-
-const faqs = [
-  { q: "ต้อง 4 สัปดาห์เสมอไหม?",
-    a: "เป็นจังหวะตั้งต้น — งานเล็กเร็วกว่านั้น งานใหญ่อาจนานกว่า. สิ่งที่คงที่คือทำงานเป็นทีมเดียวตั้งแต่กลยุทธ์ถึงการผลิต ไม่มีไฟล์หลุดกลางทาง." },
-  { q: "เลือกบริการเดียวได้ไหม หรือต้องครบทั้งสาม?",
-    a: "เลือกเฉพาะที่ต้องการได้ — Brand Strategy, Creative Production หรือ Social. แต่จุดแข็งของเราคือทั้งสามอยู่ในทีมเดียว ทำให้เรื่องเดียวกันต่อเนื่องตั้งแต่ต้นจนจบ." },
-  { q: "ไม่แน่ใจว่าควรเริ่มตรงไหน?",
-    a: "ลองทำ Brand audit (Diagnostic) — ตอบ 6 คำถาม แล้วเราจะบอกว่าทางไหนเหมาะกับคุณที่สุด ตรงไปตรงมา ไม่มีข้อผูกมัด." },
 ];
 
 const services = [
@@ -82,7 +72,7 @@ const ServicesAccordion = () => {
               <div className="font-serif text-cinnabar text-[34px] md:text-[60px] leading-none tabular-nums">{s.n}</div>
               <div>
                 <h2 className="text-[24px] md:text-[40px] leading-[1.0] tracking-[-0.03em] font-semibold">{s.en}</h2>
-                <div lang="th" className="mt-2 font-serif text-cinnabar text-[16px] md:text-[22px]">{s.tag}</div>
+                <div lang="th" className="mt-2 font-serif text-foreground/70 text-[16px] md:text-[22px]">{s.tag}</div>
               </div>
               <span className={`shrink-0 transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`}>
                 <Plus className="w-6 h-6 md:w-8 md:h-8 text-foreground/55 group-hover:text-cinnabar transition-colors" />
@@ -144,20 +134,6 @@ const Services = () => (
           <p lang="th" className="font-thai text-[11px] tracking-[0.02em] text-muted-foreground">กดเพื่อดูรายละเอียด</p>
         </div>
         <ServicesAccordion />
-
-        <Reveal>
-          <div className="card-accent mt-6 p-7 md:p-10 grid grid-cols-1 md:grid-cols-[120px_1fr] gap-5 md:gap-12 md:items-center">
-            <div className="eyebrow-mono text-cinnabar">SEO</div>
-            <div>
-              <h3 lang="th" className="font-thai text-[20px] md:text-[26px] leading-[1.2] tracking-[-0.01em] font-medium">
-                ทำให้ลูกค้า <em className="font-serif text-cinnabar">เจอคุณบน Google.</em>
-              </h3>
-              <p lang="th" className="mt-3 font-thai thai-wrap text-[14px] md:text-[16px] leading-[1.7] text-foreground/85 max-w-[680px]">
-                ไม่ใช่แค่ยิงแอด — เราทำ SEO ให้แบรนด์ติดอันดับเมื่อมีคนค้นหา: เขียนบทความที่ตรงคีย์เวิร์ด, ปรับ on-page (title / meta / heading), และวางโครงสร้างเว็บให้ Google เข้าใจ — เพื่อให้ลูกค้าเจอคุณได้เองโดยไม่ต้องจ่ายทุกคลิก.
-              </p>
-            </div>
-          </div>
-        </Reveal>
       </div>
     </section>
 
@@ -211,18 +187,9 @@ const Services = () => (
       </div>
     </section>
 
-    {/* 05 — FAQ */}
-    <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1080px] mx-auto py-20 md:py-28">
-        <SectionHeading
-          eyebrow="Before you ask"
-          title={<>The short <em className="text-cinnabar">answers.</em></>}
-        />
-        <div className="mt-14"><FAQ items={faqs} /></div>
-      </div>
-    </section>
+    {/* FAQ removed — answers live on /package, /contact and /diagnostic */}
 
-    {/* 06 — CTA */}
+    {/* 05 — CTA */}
     <CTABand
       eyebrow="Start a conversation"
       title={<>เล่าโจทย์มา — เราจะ <em className="text-cinnabar">refine</em> มันให้คม.</>}

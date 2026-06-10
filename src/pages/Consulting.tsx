@@ -7,6 +7,8 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import BadgeChip from "@/components/ui/BadgeChip";
 import CTABand from "@/components/CTABand";
 import FAQ from "@/components/FAQ";
+// PLACEHOLDER: temporary stand-in — overwrite src/assets/founder.jpg with the real founder photo
+import founder from "@/assets/founder.jpg";
 // PLACEHOLDER works — stand-ins for the founder's past projects
 import fw1 from "@/assets/democrat.jpg";
 import fw2 from "@/assets/rtaf.jpg";
@@ -18,12 +20,6 @@ const founderWorks = [
   { img: fw2, t: "Government · creative" },
   { img: fw3, t: "Mobility launch" },
   { img: fw4, t: "Airport EV taxi" },
-];
-
-const whenToCall = [
-  { n: "i.",   en: "ทีมมีอยู่ แต่ทิศทางหลุด",  th: "มี in-house ที่ผลิตเก่ง แต่ทุกชิ้นเริ่มไปคนละทาง — ขาดคนถือเส้นเรื่องเดียวกัน" },
-  { n: "ii.",  en: "หลาย vendor พูดคนละเสียง", th: "จ้างหลายเอเจนซี/ฟรีแลนซ์ แล้วงานออกมาไม่ต่อกัน — ต้องมีคนกำกับให้พูดเสียงเดียว" },
-  { n: "iii.", en: "ก่อนตัดสินใจครั้งใหญ่",    th: "ก่อน rebrand · เปิดตลาด · launch ใหญ่ — อยากได้สายตา senior มาช่วยมองก่อนลงเงิน" },
 ];
 
 const modes = [
@@ -96,31 +92,7 @@ const Consulting = () => (
       </div>
     </section>
 
-    {/* 02 — WHEN TO CALL US */}
-    <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <div className="mt-10">
-          <SectionHeading
-            eyebrow="When to call us"
-            lang="th"
-            title={<>เรียกเราเมื่อทิศทางสำคัญกว่า <em className="italic text-cinnabar">จำนวนงาน.</em></>}
-          />
-        </div>
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
-          {whenToCall.map((w, i) => (
-            <Reveal key={w.n} delay={i * 0.06}>
-              <div className="card-soft p-8 md:p-10 h-full">
-                <div className="font-serif italic text-cinnabar text-[22px] leading-none">{w.n}</div>
-                <h3 lang="th" className="mt-8 font-thai text-[22px] md:text-[26px] leading-[1.15] tracking-[-0.01em] font-medium">{w.en}</h3>
-                <p lang="th" className="mt-4 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">{w.th}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    {/* 03 — WHAT WE DO */}
+    {/* 02 — WHAT WE DO */}
     <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <div className="mt-10">
@@ -185,10 +157,7 @@ const Consulting = () => (
           {/* Photo — PLACEHOLDER block */}
           <Reveal>
             <div className="relative rounded-2xl overflow-hidden bg-surface-2 border border-foreground/10" style={{ aspectRatio: "4 / 5" }}>
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-                <div className="num-display text-cinnabar text-[72px] leading-none">รส</div>
-                <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-muted-foreground">Founder photo</span>
-              </div>
+              <img src={founder} alt="รัฐกันต์ สุวรรณภักดี — Founder, ØRIONS" className="w-full h-full object-cover object-top" />
               <span className="absolute top-3 right-3 font-mono text-[9px] tracking-[0.18em] uppercase text-background bg-cinnabar/90 px-2 py-1 rounded">Placeholder</span>
             </div>
           </Reveal>

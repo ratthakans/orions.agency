@@ -93,20 +93,20 @@ const About = () => (
           title={<>ทีมที่อยู่กับ <em className="italic text-cinnabar">งานของคุณ.</em></>}
           intro="ทีมเดียวตั้งแต่กลยุทธ์ถึงการผลิต — คนที่อยู่กับงานของคุณจริง ไม่ใช่สายพาน."
         />
-        <div className="mt-16 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
+        <div className="mt-12 grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4">
           {team.map((p, i) => (
-            <Reveal key={p.role} delay={(i % 4) * 0.05}>
-              <div className="card-soft p-6 md:p-7 h-full">
+            <Reveal key={p.role} delay={(i % 6) * 0.04}>
+              <div className="card-soft p-3.5 md:p-4 h-full">
                 <div
                   aria-hidden="true"
-                  className="aspect-square w-full rounded-xl bg-surface-2 flex items-center justify-center num-display text-cinnabar text-[22px] md:text-[26px]"
+                  className="aspect-square w-full rounded-lg bg-surface-2 flex items-center justify-center num-display text-cinnabar text-[18px]"
                 >
                   {String(i + 1).padStart(2, "0")}
                 </div>
-                <p lang="th" className="mt-4 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.4] text-foreground/55">
+                <p lang="th" className="mt-2.5 font-thai thai-wrap text-[12px] leading-[1.3] text-foreground/55">
                   [ชื่อ-นามสกุล]
                 </p>
-                <div className="mt-1 font-mono text-[10px] tracking-[0.16em] uppercase text-cinnabar leading-[1.4]">
+                <div className="mt-1 font-mono text-[9px] tracking-[0.1em] uppercase text-cinnabar leading-[1.35]">
                   {p.role}
                 </div>
               </div>

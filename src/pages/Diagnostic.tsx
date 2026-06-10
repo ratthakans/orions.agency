@@ -51,10 +51,9 @@ const questions: Q[] = [
 ];
 
 const scale = [
-  { label: "ไม่ใช่เลย",  roman: "i.",   points: 1 },
-  { label: "บางส่วน",    roman: "ii.",  points: 2 },
-  { label: "ส่วนใหญ่",   roman: "iii.", points: 3 },
-  { label: "ใช่เต็มที่", roman: "iv.",  points: 4 },
+  { label: "ยังไม่ใช่", roman: "i.",   points: 1 },
+  { label: "บางส่วน",   roman: "ii.",  points: 2 },
+  { label: "ใช่เลย",    roman: "iii.", points: 3 },
 ];
 
 const tierFor = (pct: number) => {
@@ -206,7 +205,7 @@ const Diagnostic = () => {
   const axisScores = useMemo(() => {
     const out = axes.map((_, i) => ({ axis: i, score: 0, max: 0 }));
     questions.forEach((q, i) => {
-      out[q.axis].max += 4;
+      out[q.axis].max += 3;
       if (answers[i] != null) out[q.axis].score += answers[i] as number;
     });
     return out;

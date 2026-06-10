@@ -197,7 +197,7 @@ const SizeToggle = ({ size, setSize, compact = false }: { size: Size; setSize: (
     {SIZES.map((s) => (
       <button key={s.id} type="button" onClick={() => setSize(s.id)}
         className={`font-thai text-[11px] tracking-[0.02em] transition-colors ${compact ? "px-4 py-2" : "px-5 py-2.5"} ${size === s.id ? "bg-cinnabar text-background" : "text-foreground/60 hover:text-foreground"} ${s.id !== "S" ? "border-l border-foreground/30" : ""}`}>
-        {compact ? s.id : `${s.id} · ${s.label}`}{s.id === "S" ? " ★" : ""}
+        {compact ? s.id : `${s.id} · ${s.label}`}
       </button>
     ))}
   </div>
@@ -281,7 +281,6 @@ const PricingSection = () => {
             <div className="flex items-center gap-3 flex-wrap">
               <span lang="th" className="font-thai text-[11px] tracking-[0.02em] text-muted-foreground">ขนาด</span>
               <SizeToggle size={size} setSize={setSize} compact />
-              <a href={RATECARD_PDF} download className="btn-ghost"><Download className="w-4 h-4" /><span className="hidden sm:inline">PDF</span></a>
             </div>
           </div>
           <div className="card-soft p-4 md:p-6">
@@ -347,7 +346,7 @@ const BudgetCalculator = () => {
   const suggestedAddons = goal ? addonSuggest[goal] : [];
 
   const optBtn = (active: boolean) =>
-    `rounded-xl border px-4 py-3.5 text-left transition-all duration-200 ${active ? "border-cinnabar bg-cinnabar/[0.08] ring-1 ring-cinnabar/30" : "border-foreground/15 hover:border-foreground/40 hover:bg-foreground/[0.02]"}`;
+    `group rounded-xl border px-4 py-3.5 text-left transition-all duration-200 ${active ? "border-cinnabar bg-cinnabar" : "border-foreground/15 hover:border-cinnabar hover:bg-cinnabar"}`;
 
   return (
     <section className="px-6 md:px-10 border-t border-foreground/15">
@@ -391,15 +390,18 @@ const BudgetCalculator = () => {
                 {[
                   { v: true, t: "เคยแล้ว", s: "คนเริ่มรู้จัก · งบ 30%" },
                   { v: false, t: "ยังไม่เคย", s: "ต้อง launch · งบ 60%" },
-                ].map((o) => (
-                  <button key={o.t} type="button" onClick={() => setLaunched(o.v)} className={optBtn(launched === o.v)}>
-                    <div className="flex items-center justify-between">
-                      <span lang="th" className="font-thai text-[14px] text-foreground">{o.t}</span>
-                      {launched === o.v && <Check className="w-4 h-4 text-cinnabar" />}
-                    </div>
-                    <div lang="th" className="font-thai text-[11px] text-muted-foreground mt-1">{o.s}</div>
-                  </button>
-                ))}
+                ].map((o) => {
+                  const on = launched === o.v;
+                  return (
+                    <button key={o.t} type="button" onClick={() => setLaunched(o.v)} className={optBtn(on)}>
+                      <div className="flex items-center justify-between">
+                        <span lang="th" className={`font-thai text-[14px] ${on ? "text-background" : "text-foreground group-hover:text-background"}`}>{o.t}</span>
+                        <Check className={`w-4 h-4 ${on ? "text-background" : "text-transparent group-hover:text-background/70"}`} />
+                      </div>
+                      <div lang="th" className={`font-thai text-[11px] mt-1 ${on ? "text-background/80" : "text-muted-foreground group-hover:text-background/80"}`}>{o.s}</div>
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
@@ -410,16 +412,19 @@ const BudgetCalculator = () => {
                 <label lang="th" className="font-thai text-[13px] text-foreground">เป้าหมายของคุณ</label>
               </div>
               <div className="mt-4 grid grid-cols-3 gap-3">
-                {goalBtns.map((g) => (
-                  <button key={g.id} type="button" onClick={() => setGoal(g.id)} className={optBtn(goal === g.id) + " text-center"}>
-                    <div lang="th" className="font-thai text-[13px] text-foreground leading-tight">{g.label}</div>
-                    <div className="mt-2 flex h-1 overflow-hidden rounded-full">
-                      <span className="bg-cinnabar" style={{ width: `${g.sales}%` }} />
-                      <span className="bg-foreground/15" style={{ width: `${g.brand}%` }} />
-                    </div>
-                    <div className="mt-1.5 font-mono text-[9px] tracking-[0.04em] text-cinnabar">{g.sales}/{g.brand}</div>
-                  </button>
-                ))}
+                {goalBtns.map((g) => {
+                  const on = goal === g.id;
+                  return (
+                    <button key={g.id} type="button" onClick={() => setGoal(g.id)} className={optBtn(on) + " text-center"}>
+                      <div lang="th" className={`font-thai text-[13px] leading-tight ${on ? "text-background" : "text-foreground group-hover:text-background"}`}>{g.label}</div>
+                      <div className="mt-2 flex h-1 overflow-hidden rounded-full">
+                        <span className={on ? "bg-background" : "bg-cinnabar group-hover:bg-background"} style={{ width: `${g.sales}%` }} />
+                        <span className={on ? "bg-background/30" : "bg-foreground/15 group-hover:bg-background/30"} style={{ width: `${g.brand}%` }} />
+                      </div>
+                      <div className={`mt-1.5 font-mono text-[9px] tracking-[0.04em] ${on ? "text-background" : "text-cinnabar group-hover:text-background"}`}>{g.sales}/{g.brand}</div>
+                    </button>
+                  );
+                })}
               </div>
             </div>
           </div>

@@ -25,6 +25,7 @@ const packageOptions = [
   "Performance · เน้นยอด",
   "Branding · เน้นแบรนด์",
   "Hybrid · ทั้งคู่",
+  "Custom · ออกแบบตามโจทย์",
   "ORIONS Production / ถ่ายงาน",
   "ยังไม่แน่ใจ / ขอคำแนะนำ",
 ];

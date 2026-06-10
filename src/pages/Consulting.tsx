@@ -7,7 +7,6 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import BadgeChip from "@/components/ui/BadgeChip";
 import CTABand from "@/components/CTABand";
 import FAQ from "@/components/FAQ";
-// PLACEHOLDER: temporary stand-in — overwrite src/assets/founder.jpg with the real founder photo
 import founder from "@/assets/founder.jpg";
 // PLACEHOLDER works — stand-ins for the founder's past projects
 import fw1 from "@/assets/democrat.jpg";
@@ -158,7 +157,6 @@ const Consulting = () => (
           <Reveal>
             <div className="relative rounded-2xl overflow-hidden bg-surface-2 border border-foreground/10" style={{ aspectRatio: "4 / 5" }}>
               <img src={founder} alt="รัฐกันต์ สุวรรณภักดี — Founder, ØRIONS" className="w-full h-full object-cover object-top" />
-              <span className="absolute top-3 right-3 font-mono text-[9px] tracking-[0.18em] uppercase text-background bg-cinnabar/90 px-2 py-1 rounded">Placeholder</span>
             </div>
           </Reveal>
 

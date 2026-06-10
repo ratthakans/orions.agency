@@ -48,11 +48,11 @@ const Journal = () => (
         </Reveal>
         <Reveal delay={0.15}>
           <h1 lang="th" className="mt-6 h-display-lg max-w-[16ch] thai-wrap">
-            บันทึกจาก <em className="italic text-cinnabar">สตูดิโอ.</em>
+            บันทึกจาก <em className="text-cinnabar">สตูดิโอ.</em>
           </h1>
         </Reveal>
         <Reveal delay={0.2}>
-          <p lang="th" className="mt-8 max-w-[640px] font-serif italic text-[16px] md:text-[20px] leading-[1.5] text-muted-foreground">
+          <p lang="th" className="mt-8 max-w-[640px] font-serif text-[16px] md:text-[20px] leading-[1.5] text-muted-foreground">
             มุมมองสั้น ๆ เรื่องการทำแบรนด์ใต้ข้อจำกัด — สิ่งที่เราเชื่อ และวิธีที่เราทำงาน.
           </p>
         </Reveal>
@@ -63,7 +63,7 @@ const Journal = () => (
       <div className="max-w-[1080px] mx-auto pb-16 md:pb-24">
         <SectionHeading
           eyebrow="Point of view"
-          title={<>สิ่งที่เรา <em className="italic text-cinnabar">เชื่อ.</em></>}
+          title={<>สิ่งที่เรา <em className="text-cinnabar">เชื่อ.</em></>}
           intro="สามมุมมองที่อยู่เบื้องหลังวิธีทำงานของเรา."
           lang="th"
         />
@@ -76,7 +76,7 @@ const Journal = () => (
                 </div>
                 <div>
                   <h2 lang="th" className="h-display-sm max-w-[24ch]">{p.title}</h2>
-                  <p lang="th" className="mt-3 font-serif italic text-[16px] md:text-[18px] text-cinnabar">{p.dek}</p>
+                  <p lang="th" className="mt-3 font-serif text-[16px] md:text-[18px] text-cinnabar">{p.dek}</p>
                   <p lang="th" className="mt-6 font-thai thai-wrap text-[15px] md:text-[16px] leading-[1.85] text-foreground/85 max-w-[64ch]">{p.body}</p>
                 </div>
               </article>
@@ -88,7 +88,7 @@ const Journal = () => (
 
     <CTABand
       eyebrow="Brand audit"
-      title={<>เห็นด้วยกับวิธีคิดนี้? <em className="italic text-cinnabar">เริ่มที่นี่.</em></>}
+      title={<>เห็นด้วยกับวิธีคิดนี้? <em className="text-cinnabar">เริ่มที่นี่.</em></>}
       subtitle="ตอบ 6 ข้อ · 1 นาที · ฟรี — แล้วเรานัดคุยผลให้."
       primary={{ label: "ทำ Brand Audit", to: "/diagnostic" }}
       secondary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}

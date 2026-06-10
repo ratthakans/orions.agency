@@ -79,10 +79,10 @@ const ServicesAccordion = () => {
               aria-expanded={isOpen}
               className="group w-full text-left grid grid-cols-[52px_1fr_auto] md:grid-cols-[120px_1fr_auto] gap-5 md:gap-12 items-center p-7 md:p-10"
             >
-              <div className="font-serif italic text-cinnabar text-[34px] md:text-[60px] leading-none tabular-nums">{s.n}</div>
+              <div className="font-serif text-cinnabar text-[34px] md:text-[60px] leading-none tabular-nums">{s.n}</div>
               <div>
                 <h2 className="text-[24px] md:text-[40px] leading-[1.0] tracking-[-0.03em] font-semibold">{s.en}</h2>
-                <div lang="th" className="mt-2 font-serif italic text-cinnabar text-[16px] md:text-[22px]">{s.tag}</div>
+                <div lang="th" className="mt-2 font-serif text-cinnabar text-[16px] md:text-[22px]">{s.tag}</div>
               </div>
               <span className={`shrink-0 transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`}>
                 <Plus className="w-6 h-6 md:w-8 md:h-8 text-foreground/55 group-hover:text-cinnabar transition-colors" />
@@ -126,7 +126,7 @@ const Services = () => (
         </Reveal>
         <Reveal delay={0.05}>
           <h1 lang="th" className="mt-8 h-display-lg max-w-[18ch] thai-wrap">
-            สามอย่าง · <em className="italic text-cinnabar">ทีมเดียว.</em>
+            สามอย่าง · <em className="text-cinnabar">ทีมเดียว.</em>
           </h1>
         </Reveal>
         <Reveal delay={0.15}>
@@ -150,7 +150,7 @@ const Services = () => (
             <div className="eyebrow-mono text-cinnabar">SEO</div>
             <div>
               <h3 lang="th" className="font-thai text-[20px] md:text-[26px] leading-[1.2] tracking-[-0.01em] font-medium">
-                ทำให้ลูกค้า <em className="font-serif italic text-cinnabar">เจอคุณบน Google.</em>
+                ทำให้ลูกค้า <em className="font-serif text-cinnabar">เจอคุณบน Google.</em>
               </h3>
               <p lang="th" className="mt-3 font-thai thai-wrap text-[14px] md:text-[16px] leading-[1.7] text-foreground/85 max-w-[680px]">
                 ไม่ใช่แค่ยิงแอด — เราทำ SEO ให้แบรนด์ติดอันดับเมื่อมีคนค้นหา: เขียนบทความที่ตรงคีย์เวิร์ด, ปรับ on-page (title / meta / heading), และวางโครงสร้างเว็บให้ Google เข้าใจ — เพื่อให้ลูกค้าเจอคุณได้เองโดยไม่ต้องจ่ายทุกคลิก.
@@ -167,7 +167,7 @@ const Services = () => (
         <SectionHeading
           eyebrow="How we work"
           lang="th"
-          title={<>จาก hello ขึ้นจริงใน <em className="italic text-cinnabar">4 สัปดาห์.</em></>}
+          title={<>จาก hello ขึ้นจริงใน <em className="text-cinnabar">4 สัปดาห์.</em></>}
           intro="ทำงานเป็นทีมเดียวตั้งแต่กลยุทธ์ถึงการผลิต — ไม่มีไฟล์หลุดกลางทาง ไม่มีความเข้าใจที่หายไประหว่างทีม."
         />
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -177,7 +177,7 @@ const Services = () => (
           ].map((s, i) => (
             <Reveal key={s.en} delay={i * 0.08}>
               <div className="card-soft p-10 md:p-12 h-full">
-                <div className="font-serif italic text-cinnabar text-[24px] leading-none">{s.n}</div>
+                <div className="font-serif text-cinnabar text-[24px] leading-none">{s.n}</div>
                 <h3 lang="th" className="mt-8 font-thai text-[24px] md:text-[28px] leading-[1.1] tracking-[-0.01em] font-medium">{s.en}</h3>
                 <p lang="th" className="mt-4 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">{s.th}</p>
               </div>
@@ -193,7 +193,7 @@ const Services = () => (
         <SectionHeading
           eyebrow="From hello to live"
           lang="th"
-          title={<>สี่สัปดาห์ · <em className="italic text-cinnabar">หนึ่งทีม.</em></>}
+          title={<>สี่สัปดาห์ · <em className="text-cinnabar">หนึ่งทีม.</em></>}
         />
         <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {process.map((s, i) => (
@@ -216,7 +216,7 @@ const Services = () => (
       <div className="max-w-[1080px] mx-auto py-20 md:py-28">
         <SectionHeading
           eyebrow="Before you ask"
-          title={<>The short <em className="italic text-cinnabar">answers.</em></>}
+          title={<>The short <em className="text-cinnabar">answers.</em></>}
         />
         <div className="mt-14"><FAQ items={faqs} /></div>
       </div>
@@ -225,7 +225,7 @@ const Services = () => (
     {/* 06 — CTA */}
     <CTABand
       eyebrow="Start a conversation"
-      title={<>เล่าโจทย์มา — เราจะ <em className="italic text-cinnabar">refine</em> มันให้คม.</>}
+      title={<>เล่าโจทย์มา — เราจะ <em className="text-cinnabar">refine</em> มันให้คม.</>}
       subtitle="ไม่แน่ใจว่าควรเริ่มตรงไหน? ทำ Brand Audit 1 นาที — หรือทักมาคุยเลย."
       primary={{ label: "ทำ Brand Audit", to: "/diagnostic" }}
       secondary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}

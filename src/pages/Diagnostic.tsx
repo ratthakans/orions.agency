@@ -10,7 +10,6 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import BadgeChip from "@/components/ui/BadgeChip";
 import FAQ from "@/components/FAQ";
 import { supabase } from "@/integrations/supabase/client";
-import { CAL_URL } from "@/lib/config";
 import { track } from "@/lib/analytics";
 
 const leadSchema = z.object({
@@ -42,12 +41,12 @@ const axes = [
 type Q = { axis: number; statement: React.ReactNode; hint: string };
 
 const questions: Q[] = [
-  { axis: 0, statement: <>เรามี <em className="italic text-cinnabar">positioning statement</em> ที่อธิบายแบรนด์ได้ใน 1 ประโยค</>, hint: "— ประโยคเดียวที่บอก who you serve, what you offer, why different — และทุก touchpoint พูดตรงกัน" },
-  { axis: 1, statement: <>โพสต์ของเราออกมา <em className="italic text-cinnabar">สม่ำเสมอ</em> ตาม calendar ที่วางล่วงหน้า ไม่ใช่คิดวันต่อวัน</>, hint: "— Editorial calendar + cadence ที่คงที่ ไม่ขึ้นกับ mood หรือ workload" },
-  { axis: 2, statement: <>ทุกการตัดสินใจเรื่อง content เริ่มจาก <em className="italic text-cinnabar">data จริง</em> ไม่ใช่ความรู้สึก</>, hint: "— ใช้ Meta Insights, Analytics, performance review drive decision และรู้ว่าอะไร work / ไม่ work" },
-  { axis: 3, statement: <>ทุกชิ้นที่ส่งออกไป เรา <em className="italic text-cinnabar">ภูมิใจ</em> — คุณภาพระดับ commercial ไม่ใช่ DIY</>, hint: "— Camera, lighting, sound, edit ที่อยู่ในมาตรฐาน pro ไม่ใช่ shoot ด้วยมือถือ" },
-  { axis: 4, statement: <>เรารู้ว่า <em className="italic text-cinnabar">ลูกค้าจริงๆ</em> คือใคร และมี audience ที่กลับมาทุกครั้งที่โพสต์</>, hint: "— Persona ที่ลึกกว่า demographics + community / loyal audience ที่ active" },
-  { axis: 5, statement: <>เรามี <em className="italic text-cinnabar">brand roadmap</em> ที่ชัด — ทุก content เชื่อมกับ goal ใหญ่</>, hint: "— Long-term strategy + competitor differentiation ที่ทุกคนในทีมเข้าใจตรงกัน" },
+  { axis: 0, statement: <>เรามี <em className="text-cinnabar">positioning statement</em> ที่อธิบายแบรนด์ได้ใน 1 ประโยค</>, hint: "— ประโยคเดียวที่บอก who you serve, what you offer, why different — และทุก touchpoint พูดตรงกัน" },
+  { axis: 1, statement: <>โพสต์ของเราออกมา <em className="text-cinnabar">สม่ำเสมอ</em> ตาม calendar ที่วางล่วงหน้า ไม่ใช่คิดวันต่อวัน</>, hint: "— Editorial calendar + cadence ที่คงที่ ไม่ขึ้นกับ mood หรือ workload" },
+  { axis: 2, statement: <>ทุกการตัดสินใจเรื่อง content เริ่มจาก <em className="text-cinnabar">data จริง</em> ไม่ใช่ความรู้สึก</>, hint: "— ใช้ Meta Insights, Analytics, performance review drive decision และรู้ว่าอะไร work / ไม่ work" },
+  { axis: 3, statement: <>ทุกชิ้นที่ส่งออกไป เรา <em className="text-cinnabar">ภูมิใจ</em> — คุณภาพระดับ commercial ไม่ใช่ DIY</>, hint: "— Camera, lighting, sound, edit ที่อยู่ในมาตรฐาน pro ไม่ใช่ shoot ด้วยมือถือ" },
+  { axis: 4, statement: <>เรารู้ว่า <em className="text-cinnabar">ลูกค้าจริงๆ</em> คือใคร และมี audience ที่กลับมาทุกครั้งที่โพสต์</>, hint: "— Persona ที่ลึกกว่า demographics + community / loyal audience ที่ active" },
+  { axis: 5, statement: <>เรามี <em className="text-cinnabar">brand roadmap</em> ที่ชัด — ทุก content เชื่อมกับ goal ใหญ่</>, hint: "— Long-term strategy + competitor differentiation ที่ทุกคนในทีมเข้าใจตรงกัน" },
 ];
 
 const scale = [
@@ -317,10 +316,10 @@ const Diagnostic = () => {
       {/* HERO */}
       <section className="section-ink px-6 md:px-10 pt-28 md:pt-32 pb-16">
         <div className="max-w-[1080px] mx-auto">
-          <SectionLabel index="01" label="The Diagnostic" />
+          <SectionLabel label="The Diagnostic" />
           <Reveal delay={0.1}>
             <h1 lang="th" className="mt-10 h-display-lg max-w-[18ch]">
-              ที่ทำอยู่ — <em className="italic text-cinnabar">ดีพอแล้ว</em> หรือยัง?
+              ที่ทำอยู่ — <em className="text-cinnabar">ดีพอแล้ว</em> หรือยัง?
             </h1>
           </Reveal>
           <Reveal delay={0.2}>
@@ -394,7 +393,7 @@ const Diagnostic = () => {
                         selected ? "border-cinnabar bg-cinnabar/10" : "border-foreground/15 hover:border-cinnabar"
                       }`}
                     >
-                      <span className={`font-serif italic text-[22px] leading-none ${selected ? "text-cinnabar" : "text-cinnabar/70"}`}>{s.roman}</span>
+                      <span className={`font-serif text-[22px] leading-none ${selected ? "text-cinnabar" : "text-cinnabar/70"}`}>{s.roman}</span>
                       <span lang="th" className="font-thai text-[13px] font-medium">{s.label}</span>
                     </button>
                   );
@@ -425,7 +424,7 @@ const Diagnostic = () => {
                 </div>
               </div>
               <div className="mt-10">
-                <div className="font-serif italic text-cinnabar text-[28px] md:text-[36px] tracking-[-0.01em]">{result.tier}</div>
+                <div className="font-serif text-cinnabar text-[28px] md:text-[36px] tracking-[-0.01em]">{result.tier}</div>
                 <p lang="th" className="mt-4 max-w-[560px] mx-auto font-thai text-[14px] md:text-[16px] leading-[1.7] text-muted-foreground">{result.summary}</p>
               </div>
             </div>
@@ -436,7 +435,7 @@ const Diagnostic = () => {
             <div className="mt-12 max-w-[640px] mx-auto text-center">
               <div className="font-thai text-[11px] tracking-[0.02em] text-cinnabar">— ดูเชิงลึก</div>
               <h2 lang="th" className="mt-6 h-display-sm">
-                เห็นคะแนนแล้ว — <em className="italic text-cinnabar">ลงรายละเอียด</em> ต่อไหม?
+                เห็นคะแนนแล้ว — <em className="text-cinnabar">ลงรายละเอียด</em> ต่อไหม?
               </h2>
               <p lang="th" className="mt-4 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">
                 กรอกอีเมลเพื่อปลดล็อก: คะแนนรายมิติ 6 ด้าน · จุดอ่อน 3 อันดับแรก · ทางที่เหมาะกับคุณ — แล้วเรานัดคุยผลให้.
@@ -591,7 +590,7 @@ const Diagnostic = () => {
                     {/* Suggested package — deep-links to contact preselected */}
                     <Link to={pkgLink} onClick={() => track("AuditPkgClick", { pkg: rec.pkg.name })} className="mt-7 inline-flex items-center gap-4 rounded-xl bg-background/60 border border-foreground/20 hover:border-cinnabar transition-colors px-5 py-4 group">
                       <span className="font-thai text-[11px] tracking-[0.02em] text-muted-foreground">แพ็กเกจที่น่าจะเหมาะ</span>
-                      <span className="font-serif italic text-cinnabar text-[20px] md:text-[22px]">{rec.pkg.name}</span>
+                      <span className="font-serif text-cinnabar text-[20px] md:text-[22px]">{rec.pkg.name}</span>
                       <span lang="th" className="font-thai text-[11px] tracking-[0.02em] text-foreground/70">{rec.pkg.price}</span>
                       <ArrowUpRight className="w-4 h-4 text-foreground/50 group-hover:text-cinnabar transition-colors" />
                     </Link>
@@ -616,21 +615,20 @@ const Diagnostic = () => {
                 <div className="mt-6 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
                   <div>
                     <h3 lang="th" className="h-display-sm max-w-[20ch]">
-                      นัดคุยผล <em className="italic text-cinnabar">45 นาที</em> ฟรี.
+                      นัดคุยผล <em className="text-cinnabar">45 นาที</em> ฟรี.
                     </h3>
                     <p lang="th" className="mt-4 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground max-w-[52ch]">
                       เราอ่านผลของคุณมาก่อน แล้วชวนคุยว่าจะเริ่ม refine ตรงไหน — เห็นคะแนนนี้ติดไปด้วย คุยได้ตรงจุด ไม่มีข้อผูกมัด.
                     </p>
                   </div>
-                  <a
-                    href={CAL_URL}
-                    target="_blank"
-                    rel="noreferrer"
+                  {/* Cal.com link disabled until the real event URL exists (CAL_URL is a placeholder) — route to contact instead */}
+                  <Link
+                    to="/contact?pkg=ยังไม่แน่ใจ"
                     onClick={() => track("BookClick", { from: "result" })}
                     className="btn-accent shrink-0 inline-flex"
                   >
-                    <span>เลือกเวลาที่สะดวก</span><Calendar className="w-4 h-4" />
-                  </a>
+                    <span>นัดคุย 45 นาที</span><Calendar className="w-4 h-4" />
+                  </Link>
                 </div>
               </div>
 
@@ -660,10 +658,10 @@ const Diagnostic = () => {
       {/* FAQ */}
       <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
         <div className="max-w-[1080px] mx-auto py-20 md:py-28">
-          <SectionLabel index="02" label="Before you ask" />
+          <SectionLabel label="Before you ask" />
           <SectionHeading
             className="mt-10"
-            title={<>The short <em className="italic text-cinnabar">answers.</em></>}
+            title={<>The short <em className="text-cinnabar">answers.</em></>}
           />
           <div className="mt-14"><FAQ items={auditFaqs} /></div>
         </div>

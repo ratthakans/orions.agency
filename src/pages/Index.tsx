@@ -231,7 +231,7 @@ const Index = () => (
         <SectionHeading
           lang="th"
           eyebrow="Why ORIONS"
-          title={<>ทำไมแบรนด์ที่มีเงื่อนไข <em className="italic text-cinnabar">เลือกเรา.</em></>}
+          title={<>ทำไมแบรนด์ที่มีเงื่อนไข <em className="text-cinnabar">เลือกเรา.</em></>}
           intro="สี่ความเชื่อที่ทำให้วิธีทำงานของเราต่างออกไป — และทำไมมันได้ผลกับแบรนด์ที่มีข้อจำกัดจริง"
         />
         <div className="mt-14 grid gap-5 md:grid-cols-2">
@@ -244,7 +244,7 @@ const Index = () => (
                 </div>
                 <p lang="th" className="mt-5 font-thai thai-wrap text-[14px] leading-[1.7] text-muted-foreground">{r.body}</p>
                 <p lang="th" className="mt-5 border-t border-foreground/12 pt-5 font-thai thai-wrap text-[14px] leading-[1.7] text-foreground/85">
-                  <span className="font-serif italic text-cinnabar">วิธีของเรา · </span>{r.answer}
+                  <span className="font-serif text-cinnabar">วิธีของเรา · </span>{r.answer}
                 </p>
               </div>
             </Reveal>
@@ -260,7 +260,7 @@ const Index = () => (
           <SectionHeading
             lang="th"
             eyebrow="What we do"
-            title={<>สามบริการ <em className="italic text-cinnabar">ในทีมเดียว.</em></>}
+            title={<>สามบริการ <em className="text-cinnabar">ในทีมเดียว.</em></>}
             intro="หาเรื่องที่ใช่ · ทำให้เห็น · ทำให้ดังและวัดได้ — ครบในที่เดียว"
           />
           <Link to="/services" className="hidden md:inline-flex font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground hover:text-cinnabar transition-colors">
@@ -279,7 +279,7 @@ const Index = () => (
                     <span className="num-display text-cinnabar text-[38px] md:text-[60px] leading-none shrink-0">{d.n}</span>
                     <div>
                       <h3 className="h-display-sm md:text-[38px] leading-[1.04] group-hover:text-cinnabar transition-colors duration-300">{d.en}</h3>
-                      <div lang="th" className="mt-1.5 font-serif italic text-cinnabar text-[18px] md:text-[22px]">{d.tag}</div>
+                      <div lang="th" className="mt-1.5 font-serif text-cinnabar text-[18px] md:text-[22px]">{d.tag}</div>
                     </div>
                   </div>
                   <div className="md:col-span-6 md:pt-2">
@@ -303,7 +303,7 @@ const Index = () => (
           center
           lang="th"
           eyebrow="Packages"
-          title={<>ตอนนี้คุณต้องการ <em className="italic text-cinnabar">อะไร?</em></>}
+          title={<>ตอนนี้คุณต้องการ <em className="text-cinnabar">อะไร?</em></>}
           intro="เลือก track ตามเป้าหมาย — ยอด · แบรนด์ · หรือทั้งคู่ · รายเดือน เริ่มที่ ฿24,900"
         />
         <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 items-stretch">
@@ -315,7 +315,7 @@ const Index = () => (
                 )}
                 <div className="font-thai text-[11px] tracking-[0.02em] text-cinnabar">{p.goal}</div>
                 <h3 className="mt-3 text-[27px] leading-none font-semibold tracking-[-0.02em]">{p.name}</h3>
-                <div className="mt-1 font-serif italic text-cinnabar text-[15px]">{p.tagline}</div>
+                <div className="mt-1 font-serif text-cinnabar text-[15px]">{p.tagline}</div>
                 <div className="mt-6 flex items-baseline gap-2">
                   <span className="font-thai text-[11px] tracking-[0.02em] text-muted-foreground">เริ่ม</span>
                   <span className="num-display text-[36px] text-foreground">{p.price}</span>
@@ -377,7 +377,7 @@ const Index = () => (
               <div>
                 <p className="eyebrow-mono">Brand audit · ฟรี</p>
                 <h2 lang="th" className="mt-5 h-display-md thai-wrap max-w-[20ch]">
-                  ไม่แน่ใจว่าควรเริ่มตรงไหน? <em className="italic text-cinnabar">ตอบ 6 ข้อ 1 นาที.</em>
+                  ไม่แน่ใจว่าควรเริ่มตรงไหน? <em className="text-cinnabar">ตอบ 6 ข้อ 1 นาที.</em>
                 </h2>
                 <p lang="th" className="mt-5 font-thai thai-wrap text-[15px] leading-[1.7] text-muted-foreground max-w-[54ch]">
                   ตรวจแบรนด์ใน 6 มิติ — ได้คะแนนทันที + จุดอ่อน 3 อันดับแรก แล้วเราบอกตรง ๆ ว่าทางไหนเหมาะกับคุณ · ไม่มีข้อผูกมัด.
@@ -397,32 +397,8 @@ const Index = () => (
       </div>
     </section>
 
-    {/* — TESTIMONIALS (PLACEHOLDER quotes — layout mockup, awaiting real client words) */}
-    <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <SectionHeading
-          center
-          lang="th"
-          eyebrow="In their words"
-          title={<>เสียงจาก <em className="text-cinnabar">ลูกค้า.</em></>}
-          intro="คำรับรองจริงกำลังตามมา — นี่คือตัวอย่างการจัดวาง"
-        />
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-5">
-          {testimonials.map((t, i) => (
-            <Reveal key={i} delay={i * 0.08}>
-              <figure className="card-soft h-full p-7 md:p-8 flex flex-col">
-                <div aria-hidden className="font-serif text-cinnabar text-[44px] leading-none">“</div>
-                <blockquote lang="th" className="mt-1 font-thai thai-wrap text-[14px] leading-[1.7] text-foreground/85 flex-1">{t.quote}</blockquote>
-                <figcaption className="mt-6 pt-5 border-t border-foreground/12">
-                  <div lang="th" className="font-display text-[15px] font-semibold">{t.who}</div>
-                  <div lang="th" className="font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground mt-1">{t.org}</div>
-                </figcaption>
-              </figure>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
+    {/* TESTIMONIALS — hidden until real client quotes exist (brand = พูดตรง, no mock quotes in production).
+        The `testimonials` data above is kept as the layout reference — re-add the section once real words + names are in. */}
 
     {/* 08 — FAQ */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
@@ -431,7 +407,7 @@ const Index = () => (
           center
           lang="th"
           eyebrow="FAQ"
-          title={<>คำถามที่ <em className="italic text-cinnabar">เจอบ่อย.</em></>}
+          title={<>คำถามที่ <em className="text-cinnabar">เจอบ่อย.</em></>}
         />
         <div className="mt-14"><FAQ items={faqs} /></div>
       </div>
@@ -440,7 +416,7 @@ const Index = () => (
     {/* 09 — CTA close */}
     <CTABand
       eyebrow="Start a conversation"
-      title={<>พร้อมคุยแล้ว? <em className="italic text-cinnabar">เล่าโจทย์มาได้เลย.</em></>}
+      title={<>พร้อมคุยแล้ว? <em className="text-cinnabar">เล่าโจทย์มาได้เลย.</em></>}
       subtitle="คุยฟรี 45 นาที · ไม่มีข้อผูกมัด — เล่าโจทย์และเงื่อนไขมา เราช่วยมองว่าจะ refine มันยังไง."
       primary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}
       secondary={{ label: "ดูแพ็กเกจ", to: "/package" }}

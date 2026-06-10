@@ -91,7 +91,7 @@ const Work = () => (
         </Reveal>
         <Reveal delay={0.05}>
           <h1 lang="th" className="mt-8 h-display-lg max-w-[18ch] thai-wrap">
-            งานที่เลือกมาเพราะ <em className="italic text-cinnabar">เงื่อนไข.</em>
+            งานที่เลือกมาเพราะ <em className="text-cinnabar">เงื่อนไข.</em>
           </h1>
         </Reveal>
         <Reveal delay={0.1}>
@@ -144,12 +144,12 @@ const Work = () => (
         <SectionHeading
           lang="th"
           eyebrow="Trusted by"
-          title={<>แบรนด์ที่มี <em className="italic text-cinnabar">เงื่อนไข</em> เลือกทำงานกับเรา.</>}
+          title={<>แบรนด์ที่มี <em className="text-cinnabar">เงื่อนไข</em> เลือกทำงานกับเรา.</>}
         />
         <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 gap-x-8 gap-y-8 border-t border-foreground/15 pt-10">
           {["พรรคประชาธิปัตย์", "กองทัพอากาศ", "GCOO", "HONG MOVE", "เขาใหญ่ คันทรี่คลับ", "HEAVY ORGANIZER"].map((name) => (
             <div key={name} className="flex items-center">
-              <span lang="th" className="font-serif italic text-[18px] md:text-[22px] tracking-[-0.01em] text-muted-foreground">{name}</span>
+              <span lang="th" className="font-serif text-[18px] md:text-[22px] tracking-[-0.01em] text-muted-foreground">{name}</span>
             </div>
           ))}
         </div>
@@ -157,7 +157,7 @@ const Work = () => (
     </section>
 
     <ClosingCTA
-      title={<>โจทย์ของคุณมี <em className="italic text-cinnabar">เงื่อนไข</em> แบบไหน?</>}
+      title={<>โจทย์ของคุณมี <em className="text-cinnabar">เงื่อนไข</em> แบบไหน?</>}
       description="ไม่แน่ใจว่าควรเริ่มตรงไหน? ทำ Brand Audit 1 นาที แล้วเรานัดคุยผลให้ — หรือทักมาคุยเลย."
       ctas={[
         { label: "ทำ Brand Audit", to: "/diagnostic" },

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500;1,6..72,600&family=Unbounded:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&family=Unbounded:wght@600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -133,7 +133,8 @@
   .body-th-lg   { font-family: 'IBM Plex Sans Thai', system-ui, sans-serif; font-weight: 400; font-size: 17px; line-height: 1.72; letter-spacing: 0.005em; word-break: normal; line-break: auto; overflow-wrap: break-word; text-wrap: pretty; }
   .body-muted   { color: hsl(var(--foreground) / 0.85); }
   .font-brand   { font-family: 'Unbounded', system-ui, sans-serif; font-weight: 700; letter-spacing: 0.01em; text-transform: uppercase; font-optical-sizing: auto; }
-  .font-serif   { font-family: 'Newsreader', 'IBM Plex Sans Thai', Georgia, serif; font-weight: 400; letter-spacing: -0.02em; text-transform: none; }
+  /* No font-weight here — let weight utilities (font-medium/bold) compose with it. */
+  .font-serif   { font-family: 'Newsreader', 'IBM Plex Sans Thai', Georgia, serif; letter-spacing: -0.02em; text-transform: none; }
   /* Cinnabar italic accents in headlines */
   .text-orion   { color: hsl(var(--accent)); }
   .bg-orion     { background-color: hsl(var(--accent)); }

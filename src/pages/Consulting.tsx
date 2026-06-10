@@ -54,13 +54,13 @@ const Consulting = () => (
     {/* 01 — HERO */}
     <section className="section-ink px-6 md:px-10 pt-28 md:pt-32 pb-16 md:pb-24 border-b border-foreground/15">
       <div className="max-w-[1280px] mx-auto">
-        <SectionLabel index="01" label="Consulting" />
+        <SectionLabel label="Consulting" />
         <Reveal delay={0.05}>
           <div className="mt-8"><BadgeChip>Advisory · Fractional CD</BadgeChip></div>
         </Reveal>
         <Reveal delay={0.1}>
           <h1 className="mt-6 h-display-lg max-w-[16ch]">
-            Creative direction, <em className="italic text-cinnabar">on call.</em>
+            Creative direction, <em className="text-cinnabar">on call.</em>
           </h1>
         </Reveal>
         <Reveal delay={0.2}>
@@ -83,7 +83,7 @@ const Consulting = () => (
           <SectionHeading
             eyebrow="How we work with you"
             lang="th"
-            title={<>สามวิธีเข้าไป <em className="italic text-cinnabar">กำกับ.</em></>}
+            title={<>สามวิธีเข้าไป <em className="text-cinnabar">กำกับ.</em></>}
           />
         </div>
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -92,7 +92,7 @@ const Consulting = () => (
               <div className="card-soft p-8 md:p-10 h-full">
                 <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">— {m.n}</div>
                 <h3 className="mt-8 text-[24px] md:text-[28px] leading-[1.1] tracking-[-0.015em] font-semibold">{m.en}</h3>
-                <div lang="th" className="mt-3 font-serif italic text-cinnabar text-[16px]">{m.tag}</div>
+                <div lang="th" className="mt-3 font-serif text-cinnabar text-[16px]">{m.tag}</div>
                 <p lang="th" className="mt-6 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">{m.th}</p>
               </div>
             </Reveal>
@@ -105,10 +105,10 @@ const Consulting = () => (
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28 grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16">
         <div className="md:col-span-5">
-          <SectionLabel index="04" label="How we engage" />
+          <SectionLabel label="How we engage" />
           <Reveal delay={0.1}>
             <h2 lang="th" className="mt-10 h-display-sm max-w-[18ch] thai-wrap">
-              เริ่มจากคุยก่อน — <em className="italic text-cinnabar">ไม่ใช่ใบเสนอราคา.</em>
+              เริ่มจากคุยก่อน — <em className="text-cinnabar">ไม่ใช่ใบเสนอราคา.</em>
             </h2>
           </Reveal>
           <Reveal delay={0.15}>
@@ -137,7 +137,7 @@ const Consulting = () => (
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <Reveal>
           <p lang="th" className="editorial-quote text-[20px] md:text-[28px] max-w-[860px]">
-            งานที่ดีที่สุดของ consulting ไม่ใช่การเข้าไปทำแทน — แต่คือการทำให้ทีมที่คุณมีอยู่แล้ว <em className="text-cinnabar font-serif italic">พูดเรื่องของตัวเองได้คมขึ้น</em> ภายใต้กรอบที่เป็นจริง.
+            งานที่ดีที่สุดของ consulting ไม่ใช่การเข้าไปทำแทน — แต่คือการทำให้ทีมที่คุณมีอยู่แล้ว <em className="text-cinnabar font-serif">พูดเรื่องของตัวเองได้คมขึ้น</em> ภายใต้กรอบที่เป็นจริง.
           </p>
         </Reveal>
       </div>
@@ -149,7 +149,7 @@ const Consulting = () => (
         <div className="mt-10">
           <SectionHeading
             eyebrow="Before you ask"
-            title={<>The short <em className="italic text-cinnabar">answers.</em></>}
+            title={<>The short <em className="text-cinnabar">answers.</em></>}
           />
         </div>
         <div className="mt-14"><FAQ items={faqs} /></div>
@@ -159,7 +159,7 @@ const Consulting = () => (
     {/* 07 — CTA */}
     <CTABand
       eyebrow="Start a conversation"
-      title={<>อยากได้สายตา senior มา <em className="italic text-cinnabar">มองทิศทาง</em>?</>}
+      title={<>อยากได้สายตา senior มา <em className="text-cinnabar">มองทิศทาง</em>?</>}
       subtitle="คุยฟรี 45 นาที ไม่มีข้อผูกมัด — หรือทำ Brand Audit ก่อนก็ได้ จะได้คุยตรงจุด."
       primary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}
       secondary={{ label: "ทำ Brand Audit", to: "/diagnostic" }}

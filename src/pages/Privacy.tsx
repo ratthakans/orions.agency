@@ -39,7 +39,7 @@ const Privacy = () => (
         <SectionLabel label="Privacy" />
         <Reveal delay={0.1}>
           <h1 lang="th" className="mt-10 h-display-lg max-w-[16ch] thai-wrap">
-            เก็บเท่าที่จำเป็น — <em className="italic text-cinnabar">พูดตรง.</em>
+            เก็บเท่าที่จำเป็น — <em className="text-cinnabar">พูดตรง.</em>
           </h1>
         </Reveal>
         <Reveal delay={0.2}>
@@ -56,7 +56,7 @@ const Privacy = () => (
           {sections.map((s, i) => (
             <Reveal key={s.n} delay={i * 0.05}>
               <div className="grid grid-cols-1 md:grid-cols-[120px_1fr] gap-4 md:gap-12 items-baseline py-10 md:py-12 border-b border-foreground/20">
-                <div className="font-serif italic text-cinnabar text-[28px] md:text-[40px] leading-none tabular-nums">{s.n}</div>
+                <div className="font-serif text-cinnabar text-[28px] md:text-[40px] leading-none tabular-nums">{s.n}</div>
                 <div>
                   <h2 lang="th" className="h-display-sm">{s.h}</h2>
                   <p lang="th" className="mt-4 font-thai thai-wrap text-[15px] md:text-[16px] leading-[1.8] text-foreground/85 max-w-[64ch]">{s.body}</p>

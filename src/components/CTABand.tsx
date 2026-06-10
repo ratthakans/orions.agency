@@ -33,7 +33,7 @@ const CTABand = ({ eyebrow, title, subtitle, primary, secondary, tone = "snow", 
                 {eyebrow && <p className="eyebrow-mono">{eyebrow}</p>}
                 <h2 className="mt-5 h-display-md max-w-[22ch]">{title}</h2>
                 {subtitle && (
-                  <p className="mt-5 max-w-[640px] font-serif italic text-[16px] md:text-[20px] leading-[1.5] text-muted-foreground">
+                  <p className="mt-5 max-w-[640px] font-serif text-[16px] md:text-[20px] leading-[1.5] text-muted-foreground">
                     {subtitle}
                   </p>
                 )}

@@ -136,7 +136,7 @@ const faqs = [
 const InfoTip = ({ text }: { text: string }) => (
   <span className="relative inline-flex group/tip align-middle ml-1.5" tabIndex={0} title={text} aria-label={text}>
     <Info className="w-3.5 h-3.5 text-muted-foreground/55 hover:text-cinnabar cursor-help shrink-0" />
-    <span role="tooltip" className="pointer-events-none absolute left-1/2 top-full mt-2 -translate-x-1/2 w-max max-w-[220px] rounded-lg border border-foreground/15 bg-surface-2 px-3 py-2 font-thai text-[11.5px] leading-snug tracking-normal normal-case text-foreground/90 opacity-0 translate-y-1 group-hover/tip:opacity-100 group-hover/tip:translate-y-0 group-focus-within/tip:opacity-100 transition-all duration-200 z-40 shadow-xl">
+    <span role="tooltip" className="pointer-events-none absolute left-0 top-full mt-2 w-max max-w-[220px] rounded-lg border border-foreground/15 bg-surface-2 px-3 py-2 font-thai text-[11.5px] leading-snug tracking-normal normal-case text-foreground/90 opacity-0 translate-y-1 group-hover/tip:opacity-100 group-hover/tip:translate-y-0 group-focus-within/tip:opacity-100 transition-all duration-200 z-40 shadow-xl">
       {text}
     </span>
   </span>
@@ -151,7 +151,7 @@ const CompareTable = ({ size }: { size: Size }) => (
       </colgroup>
       <thead>
         <tr className="border-b-2 border-foreground">
-          <th />
+          <th className="sticky left-0 z-10 bg-[hsl(var(--card))]" />
           {TRACK_NAMES.map((name) => (
             <th key={name} className="text-left py-4 px-3 align-bottom">
               <div className="font-thai text-[11px] tracking-[0.02em] text-cinnabar">{goalOf[name]}</div>
@@ -165,7 +165,7 @@ const CompareTable = ({ size }: { size: Size }) => (
           const isPrice = row.label.startsWith("ราคา");
           return (
             <tr key={row.label} className={`border-b border-foreground/12 ${isPrice ? "bg-cinnabar/[0.06]" : ""}`}>
-              <td lang="th" className="py-3 pr-3 font-thai text-[12.5px] text-foreground/75 align-middle">
+              <td lang="th" className="py-3 pr-3 font-thai text-[12.5px] text-foreground/75 align-middle sticky left-0 z-10 bg-[hsl(var(--card))]">
                 <span className="inline-flex items-center">{row.label}<InfoTip text={row.info} /></span>
               </td>
               {TRACK_NAMES.map((name) => {
@@ -180,7 +180,7 @@ const CompareTable = ({ size }: { size: Size }) => (
                   ? "font-thai text-[13px] text-foreground/35"
                   : "font-thai text-[13px] text-foreground/85";
                 return (
-                  <td key={name} lang="th" className={`py-3 px-3 align-middle ${win ? "bg-cinnabar/[0.06]" : ""} ${base}`}>{val}</td>
+                  <td key={name} lang="th" className={`py-3 px-3 align-middle ${base}`}>{val}</td>
                 );
               })}
             </tr>
@@ -211,7 +211,7 @@ const PricingSection = () => {
         <SectionLabel index="02" label="The choice" />
         <Reveal delay={0.05}>
           <h2 lang="th" className="mt-10 h-display-md max-w-[22ch] thai-wrap">
-            ตอนนี้คุณต้องการ <em className="italic text-cinnabar">อะไร?</em>
+            ตอนนี้คุณต้องการ <em className="text-cinnabar">อะไร?</em>
           </h2>
         </Reveal>
         <Reveal delay={0.1}>
@@ -222,26 +222,34 @@ const PricingSection = () => {
 
         {/* Step 1: size selector */}
         <div className="mt-12 flex flex-wrap items-center gap-4">
-          <span lang="th" className="font-thai text-[11px] tracking-[0.02em] text-muted-foreground">1 · เลือกขนาดทีม</span>
+          <span className="inline-flex items-center gap-2.5">
+            <span className="grid place-items-center w-6 h-6 rounded-full bg-cinnabar text-background num-display text-[13px]">1</span>
+            <span lang="th" className="font-thai text-[13px] text-foreground">เลือกขนาดทีม</span>
+          </span>
           <SizeToggle size={size} setSize={setSize} />
         </div>
 
         {/* Step 2: track cards */}
-        <div className="mt-3 mb-4 font-thai text-[11px] tracking-[0.02em] text-muted-foreground">2 · เลือก track แล้วกดเพื่อส่งโจทย์</div>
+        <div className="mt-6 mb-5 inline-flex items-center gap-2.5">
+          <span className="grid place-items-center w-6 h-6 rounded-full bg-cinnabar text-background num-display text-[13px]">2</span>
+          <span lang="th" className="font-thai text-[13px] text-foreground">เลือก track แล้วกดเพื่อส่งโจทย์</span>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
           {tracks.map((t, i) => (
             <Reveal key={t.name} delay={i * 0.07}>
-              <div className={`relative h-full flex flex-col p-7 md:p-8 ${t.featured ? "card-accent" : "card-soft"}`}>
+              <div className={`relative h-full flex flex-col p-7 md:p-8 ${t.featured ? "card-accent lg:-my-3 lg:py-10" : "card-soft"}`}>
                 {t.featured && <span className="ribbon-pill absolute -top-3 left-7">คุ้มสุด</span>}
-                <div className="font-thai text-[11px] tracking-[0.02em] text-cinnabar">{t.goal} · {t.mindset}</div>
+                <div className="flex items-center justify-between gap-3">
+                  <span lang="th" className="font-thai text-[11px] tracking-[0.02em] text-cinnabar">{t.goal} · {t.mindset}</span>
+                  <span className="font-mono text-[10px] tracking-[0.04em] text-muted-foreground shrink-0">{t.sales}/{t.brand}</span>
+                </div>
                 <h3 className="mt-3 text-[26px] md:text-[30px] leading-none font-semibold tracking-[-0.02em]">{t.name}</h3>
-                <div className="mt-1 font-serif italic text-cinnabar text-[15px]">{t.tagline}</div>
+                <div className="mt-1 font-serif text-cinnabar text-[15px]">{t.tagline}</div>
 
                 <div className="mt-4 flex h-1.5 overflow-hidden rounded-full">
                   <span className="bg-cinnabar" style={{ width: `${t.sales}%` }} />
                   <span className="bg-foreground/15" style={{ width: `${t.brand}%` }} />
                 </div>
-                <div className="mt-1.5 flex justify-between font-thai text-[9px] tracking-[0.02em] text-muted-foreground"><span>ยอด {t.sales}</span><span>แบรนด์ {t.brand}</span></div>
 
                 <p lang="th" className="mt-5 font-thai thai-wrap text-[13px] leading-[1.6] text-muted-foreground">{t.forWhat}</p>
 
@@ -272,11 +280,11 @@ const PricingSection = () => {
         </p>
 
         {/* Full comparison */}
-        <div className="mt-16 border-t border-foreground/15 pt-12">
+        <div className="mt-20">
           <div className="flex items-end justify-between gap-4 flex-wrap mb-7">
             <div>
-              <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">— Compare</div>
-              <h3 lang="th" className="mt-3 h-display-sm">เทียบให้เห็นชัด</h3>
+              <SectionLabel label="Compare" />
+              <h3 lang="th" className="mt-4 h-display-sm">เทียบให้เห็นชัด</h3>
             </div>
             <div className="flex items-center gap-3 flex-wrap">
               <span lang="th" className="font-thai text-[11px] tracking-[0.02em] text-muted-foreground">ขนาด</span>
@@ -286,7 +294,10 @@ const PricingSection = () => {
           <div className="card-soft p-4 md:p-6">
             <CompareTable size={size} />
           </div>
-          <p lang="th" className="mt-4 font-thai text-[11px] tracking-[0.02em] text-muted-foreground">เลื่อนชี้ที่ <Info className="inline w-3 h-3 -mt-0.5" /> เพื่อดูคำอธิบายแต่ละข้อ · กด S/M/L ได้ทั้งบนการ์ดและในตาราง</p>
+          <p lang="th" className="mt-4 font-thai text-[11px] tracking-[0.02em] text-muted-foreground">
+            <span className="md:hidden">เลื่อนตารางไปทางขวาเพื่อดูครบทุกแพ็ก → · </span>
+            ชี้ที่ <Info className="inline w-3 h-3 -mt-0.5" /> เพื่อดูคำอธิบาย · กด S/M/L ได้ทั้งบนการ์ดและในตาราง
+          </p>
 
           {/* Not in package → talk to sales (custom) */}
           <div className="mt-10 card-soft p-6 md:p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-5">
@@ -354,7 +365,7 @@ const BudgetCalculator = () => {
         <SectionLabel index="03" label="Budget calculator" />
         <Reveal delay={0.05}>
           <h2 lang="th" className="mt-10 h-display-md max-w-[24ch] thai-wrap">
-            ไม่รู้จะเริ่มที่ไซส์ไหน? <em className="italic text-cinnabar">คำนวณจากยอดที่ตั้งไว้.</em>
+            ไม่รู้จะเริ่มที่ไซส์ไหน? <em className="text-cinnabar">คำนวณจากยอดที่ตั้งไว้.</em>
           </h2>
         </Reveal>
         <Reveal delay={0.08}>
@@ -377,6 +388,14 @@ const BudgetCalculator = () => {
                 <input inputMode="numeric" value={salesNum ? salesNum.toLocaleString("en-US") : ""} onChange={(e) => setSales(e.target.value)}
                   placeholder="500,000" className="w-full bg-transparent num-display text-[26px] md:text-[30px] text-foreground placeholder:text-foreground/25 focus:outline-none" />
                 <span lang="th" className="font-thai text-[12px] text-muted-foreground shrink-0">บาท</span>
+              </div>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {[100000, 300000, 500000, 1000000].map((n) => (
+                  <button key={n} type="button" onClick={() => setSales(String(n))}
+                    className={`rounded-full border px-3 py-1 font-mono text-[11px] tracking-[0.02em] transition-colors ${salesNum === n ? "border-cinnabar bg-cinnabar text-background" : "border-foreground/20 text-foreground/60 hover:border-cinnabar hover:text-foreground"}`}>
+                    {fmtK(n)}
+                  </button>
+                ))}
               </div>
             </div>
 
@@ -430,7 +449,7 @@ const BudgetCalculator = () => {
           </div>
 
           {/* Result */}
-          <div className="card-accent p-7 md:p-9 flex flex-col">
+          <div className="card-accent p-7 md:p-9 flex flex-col min-h-[460px]">
             {!ready ? (
               <div className="m-auto text-center py-10">
                 <div className="num-display text-foreground/15 text-[72px] leading-none">?</div>
@@ -517,7 +536,7 @@ const Package = () => (
         <SectionLabel index="01" label="Rate Card 2026" />
         <Reveal delay={0.05}>
           <h1 lang="th" className="mt-10 h-display-lg max-w-[18ch] thai-wrap">
-            เลือก track เลือกขนาด <em className="italic text-cinnabar">แล้วเริ่มได้เลย.</em>
+            เลือก track เลือกขนาด <em className="text-cinnabar">แล้วเริ่มได้เลย.</em>
           </h1>
         </Reveal>
         <Reveal delay={0.1}>
@@ -584,7 +603,7 @@ const Package = () => (
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1080px] mx-auto py-20 md:py-28">
         <SectionLabel index="06" label="Before you ask" />
-        <Reveal delay={0.05}><h2 className="mt-10 h-display-md">The short <em className="italic text-cinnabar">answers.</em></h2></Reveal>
+        <Reveal delay={0.05}><h2 className="mt-10 h-display-md">The short <em className="text-cinnabar">answers.</em></h2></Reveal>
         <div className="mt-14"><FAQ items={faqs} /></div>
       </div>
     </section>
@@ -623,7 +642,7 @@ const Package = () => (
     {/* 07 — CTA */}
     <CTABand
       eyebrow="Not sure yet?"
-      title={<>ไม่แน่ใจว่าควรเลือก track ไหน? <em className="italic text-cinnabar">ให้ audit ช่วยมอง.</em></>}
+      title={<>ไม่แน่ใจว่าควรเลือก track ไหน? <em className="text-cinnabar">ให้ audit ช่วยมอง.</em></>}
       subtitle="ตอบ 6 ข้อ · 1 นาที · ฟรี — หรือคุย Discovery Call 45 นาที."
       primary={{ label: "ทำ Brand Audit", to: "/diagnostic" }}
       secondary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}

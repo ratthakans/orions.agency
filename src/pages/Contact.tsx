@@ -112,7 +112,7 @@ const Contact = () => {
     }
     track("ContactSubmit", { pkg: pkgFull || "none" });
     toast.success("ได้รับข้อมูลแล้ว — ทีม ØRIONS จะติดต่อกลับภายใน 24 ชม.");
-    setForm({ name: "", company: "", email: "", pkg: "", size: "", brief: "" });
+    setForm({ name: "", company: "", email: "", pkg: "", size: "", addons: [], brief: "" });
   };
 
   const inputCls = "w-full rounded-xl bg-background border border-foreground/15 px-4 py-3 text-[15px] text-foreground placeholder:text-foreground/45 focus:outline-none focus:border-cinnabar focus:ring-1 focus:ring-cinnabar/30 transition-colors font-thai";
@@ -134,7 +134,7 @@ const Contact = () => {
           </Reveal>
           <Reveal delay={0.05}>
             <h1 lang="th" className="mt-8 h-display-lg max-w-[16ch] thai-wrap">
-              เล่าโจทย์มา — เราช่วย <em className="italic text-cinnabar">refine</em> มัน.
+              เล่าโจทย์มา — เราช่วย <em className="text-cinnabar">refine</em> มัน.
             </h1>
           </Reveal>
           <Reveal delay={0.1}>
@@ -165,7 +165,7 @@ const Contact = () => {
             <div className="mt-14 pt-8 border-t border-foreground/20 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
               {next.map((s) => (
                 <div key={s.n} className="flex gap-4">
-                  <div className="font-serif italic text-cinnabar text-[22px] leading-none tabular-nums shrink-0">{s.n}</div>
+                  <div className="font-serif text-cinnabar text-[22px] leading-none tabular-nums shrink-0">{s.n}</div>
                   <div>
                     <h3 className="font-serif text-[16px] md:text-[18px] tracking-[-0.01em]">{s.t}</h3>
                     <p lang="th" className="mt-1.5 font-thai thai-wrap text-[13px] leading-[1.6] text-muted-foreground">{s.d}</p>
@@ -191,7 +191,7 @@ const Contact = () => {
         <div className="max-w-[1280px] mx-auto py-20 md:py-28">
           <SectionHeading
             eyebrow="02 — Send a brief"
-            title={<>Tell us about <em className="italic text-cinnabar">the brand.</em></>}
+            title={<>Tell us about <em className="text-cinnabar">the brand.</em></>}
           />
 
           <div className="mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-start">
@@ -339,7 +339,7 @@ const Contact = () => {
         <div className="max-w-[1080px] mx-auto py-20 md:py-28">
           <SectionHeading
             eyebrow="03 — Before you ask"
-            title={<>The short <em className="italic text-cinnabar">answers.</em></>}
+            title={<>The short <em className="text-cinnabar">answers.</em></>}
           />
           <div className="mt-14"><FAQ items={faqs} /></div>
         </div>

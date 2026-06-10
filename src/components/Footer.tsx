@@ -45,17 +45,13 @@ const Footer = () => {
           <div>
             <a
               href="mailto:hello@orions.agency"
-              className="font-serif italic text-[28px] md:text-[44px] tracking-[-0.015em] hover:text-cinnabar transition-colors"
+              className="font-serif font-medium text-[28px] md:text-[44px] tracking-[-0.015em] hover:text-cinnabar transition-colors"
             >
               hello@orions.agency
             </a>
           </div>
           <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-foreground/55 text-right">
-            <div className="text-foreground inline-flex items-center gap-2 justify-end">
-              <span className="inline-block w-1.5 h-1.5 rounded-full bg-cinnabar" aria-hidden />
-              BKK {bkkTime} ICT
-            </div>
-            <div className="mt-1">Reply within 24h · Mon–Fri</div>
+            Reply within 24h · Mon–Fri
           </div>
         </div>
 

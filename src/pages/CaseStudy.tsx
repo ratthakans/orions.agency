@@ -51,12 +51,12 @@ const CaseStudy = () => {
           <Reveal delay={0.1}>
             <h1 lang="th" className="mt-8 h-display-lg max-w-[18ch] thai-wrap">
               {cs.title}
-              <em className="italic text-cinnabar">.</em>
+              <em className="text-cinnabar">.</em>
             </h1>
           </Reveal>
 
           <Reveal delay={0.16}>
-            <p lang="th" className="mt-6 font-serif italic text-[18px] md:text-[24px] text-muted-foreground max-w-[640px] leading-[1.45]">
+            <p lang="th" className="mt-6 font-serif text-[18px] md:text-[24px] text-muted-foreground max-w-[640px] leading-[1.45]">
               {cs.summary}
             </p>
           </Reveal>
@@ -148,7 +148,7 @@ const CaseStudy = () => {
           <div className="md:col-span-8">
             <Reveal delay={0.05}>
               <h2 lang="th" className="h-display-sm max-w-[20ch] thai-wrap">
-                refine มันจนคมพอจะ <em className="italic text-cinnabar">ลงในกรอบนั้นได้.</em>
+                refine มันจนคมพอจะ <em className="text-cinnabar">ลงในกรอบนั้นได้.</em>
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
@@ -178,39 +178,13 @@ const CaseStudy = () => {
         </div>
       </section>
 
-      {/* 04c — BEFORE / AFTER (PLACEHOLDER: stand-in frames — replace with real before/after) */}
-      {cs.gallery.length > 1 && (
-        <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
-          <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-            <SectionLabel index="04" label="Before / After" />
-            <Reveal delay={0.05}>
-              <p lang="th" className="mt-6 font-thai thai-wrap text-[13px] text-muted-foreground max-w-[44ch]">
-                ตัวอย่างการจัดวาง — รอภาพก่อน/หลังจริงของงานนี้
-              </p>
-            </Reveal>
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-              {[
-                { img: cs.gallery[0], tag: "Before" },
-                { img: cs.gallery[1], tag: "After" },
-              ].map((b) => (
-                <Reveal key={b.tag} delay={0.05}>
-                  <div className="group relative w-full overflow-hidden rounded-2xl bg-muted" style={{ aspectRatio: "4 / 3" }}>
-                    <img src={b.img} alt={`${cs.title} — ${b.tag} (ตัวอย่าง)`} loading="lazy" className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700" />
-                    <span className="absolute top-3 left-3 font-mono text-[10px] tracking-[0.2em] uppercase text-background bg-foreground/75 px-2.5 py-1 rounded">{b.tag}</span>
-                    <span className="absolute top-3 right-3 font-mono text-[9px] tracking-[0.18em] uppercase text-background bg-cinnabar/90 px-2 py-1 rounded">Placeholder</span>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+      {/* BEFORE / AFTER — hidden until each case has real before/after frames (no placeholder imagery in production). */}
 
-      {/* 05 — GALLERY (only if >1 image) */}
+      {/* 04 — GALLERY (only if >1 image) */}
       {cs.gallery.length > 1 && (
         <section className="px-6 md:px-10 border-t border-foreground/15">
           <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-            <SectionLabel index="05" label="Selected Frames" />
+            <SectionLabel index="04" label="Selected Frames" />
             <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               {cs.gallery.map((img, i) => (
                 <Reveal key={i} delay={0.04 * i}>
@@ -245,7 +219,7 @@ const CaseStudy = () => {
               Next —
             </div>
             <div className="mt-6 flex items-center justify-between gap-8">
-              <h3 lang="th" className="h-display-md group-hover:italic group-hover:text-cinnabar transition-all duration-500">
+              <h3 lang="th" className="h-display-md group-hover:text-cinnabar transition-all duration-500">
                 {next.title}
               </h3>
               <ArrowUpRight className="w-10 h-10 md:w-14 md:h-14 text-cinnabar shrink-0 transition-transform duration-500" />
@@ -258,7 +232,7 @@ const CaseStudy = () => {
       )}
 
       <ClosingCTA
-        title={<>มีโจทย์ที่ <em className="italic text-cinnabar">มีกรอบ</em> แบบนี้ไหม?</>}
+        title={<>มีโจทย์ที่ <em className="text-cinnabar">มีกรอบ</em> แบบนี้ไหม?</>}
         description="ทำ Brand Audit 1 นาที แล้วเรานัดคุยผลให้ — หรือทักมาคุยเลย."
         ctas={[
           { label: "ทำ Brand Audit", to: "/diagnostic" },

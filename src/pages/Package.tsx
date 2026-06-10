@@ -60,7 +60,7 @@ const tracks = [
 const TRACK_NAMES = ["Performance", "Branding", "Hybrid"] as const;
 const goalOf: Record<string, string> = { Performance: "ยอด", Branding: "แบรนด์", Hybrid: "ทั้งคู่" };
 
-type Cmp = { label: string; info: string; size?: boolean; v: Record<string, string | Record<Size, string>> };
+type Cmp = { label: string; info: string; size?: boolean; best?: string[]; v: Record<string, string | Record<Size, string>> };
 const compareRows: Cmp[] = [
   { label: "ราคา / เดือน", info: "ค่าบริการรายเดือน ยังไม่รวม VAT 7% และ ad spend", size: true, v: {
     Performance: { S: "฿24,900", M: "฿49,900", L: "฿99,900" },
@@ -70,14 +70,18 @@ const compareRows: Cmp[] = [
   { label: "เหมาะกับ", info: "โจทย์ที่แพ็กนี้ตอบได้ดีที่สุด", v: { Performance: "อยากได้ยอดเดี๋ยวนี้", Branding: "อยากให้แบรนด์ถูกจำ", Hybrid: "โตเร็ว + ยั่งยืน" } },
   { label: "คิดแบบ", info: "ทุกงานคิดใหม่ ไม่ใช้เทมเพลต — ต่างกันแค่ตั้งต้นจาก mindset ไหน", v: { Performance: "การตลาด", Branding: "ครีเอทีฟ", Hybrid: "ทั้งคู่" } },
   { label: "โฟกัส · ยอด / แบรนด์", info: "สัดส่วนระหว่างการทำยอดกับการสร้างแบรนด์", v: { Performance: "70 / 30", Branding: "30 / 70", Hybrid: "50 / 50" } },
-  { label: "ยิงแอด", info: "แพลตฟอร์มที่เรายิงและดูแลให้", v: { Performance: "Meta · TikTok (+Google/LINE)", Branding: "เน้น awareness", Hybrid: "Meta · TikTok" } },
-  { label: "บริหารแอด (เพดาน)", info: "เราบริหารแอดให้จนถึงงบนี้ — ตลาดทั่วไปคิด 10–20% ของงบแยกต่างหาก", size: true, v: {
+  { label: "ยิงแอด · แพลตฟอร์ม", info: "แพลตฟอร์มที่เรายิงและดูแลให้ (เพิ่มขึ้นตามไซส์)", size: true, best: ["Performance", "Hybrid"], v: {
+    Performance: { S: "Meta · TikTok", M: "+ Google", L: "+ Google + LINE" },
+    Branding: { S: "เน้น awareness", M: "เน้น awareness", L: "เน้น awareness" },
+    Hybrid: { S: "Meta · TikTok", M: "Meta · TikTok", L: "+ เพิ่มแพลตฟอร์ม" },
+  }},
+  { label: "บริหารแอด (เพดาน)", info: "เราดูแล/บริหารแอดให้ฟรีจนถึงงบเพดานนี้ (เอเจนซีทั่วไปคิด 10–20% ของงบ) — ส่วนค่ายิงแอดจริง (ad spend) ลูกค้าจ่ายเอง", size: true, best: ["Performance", "Hybrid"], v: {
     Performance: { S: "฿50k", M: "฿120k", L: "฿250k" },
     Branding: { S: "฿30k", M: "฿30k", L: "฿30k" },
     Hybrid: { S: "฿50k", M: "฿120k", L: "฿250k" },
   }},
-  { label: "AI optimization", info: "ระบบ AI ปรับแอดอัตโนมัติให้คุ้มงบที่สุด (ไซส์ L)", v: { Performance: "ไซส์ L", Branding: "—", Hybrid: "ไซส์ L" } },
-  { label: "คอนเทนต์ · รีล / โพสต์", info: "จำนวนคอนเทนต์ออร์แกนิกต่อเดือน", size: true, v: {
+  { label: "AI optimization", info: "ระบบ AI ปรับแอดอัตโนมัติให้คุ้มงบที่สุด (ไซส์ L)", best: ["Performance", "Hybrid"], v: { Performance: "ไซส์ L", Branding: "—", Hybrid: "ไซส์ L" } },
+  { label: "คอนเทนต์ · รีล / โพสต์", info: "จำนวนคอนเทนต์ออร์แกนิกต่อเดือน", size: true, best: ["Branding"], v: {
     Performance: { S: "5 / 8", M: "10 / 12", L: "12 / 14" },
     Branding: { S: "10 / 14", M: "20 / 20", L: "24 / 24" },
     Hybrid: { S: "5 / 6", M: "9 / 10", L: "14 / 14" },
@@ -87,13 +91,13 @@ const compareRows: Cmp[] = [
     Branding: { S: "0.5 วัน", M: "1 วัน", L: "2 วัน" },
     Hybrid: { S: "0.5 วัน", M: "1 วัน", L: "2 วัน" },
   }},
-  { label: "Brand CI", info: "ระบบอัตลักษณ์แบรนด์ — เริ่มจาก Mini Brand CI สำหรับโซเชียล", size: true, v: {
+  { label: "Brand CI", info: "ระบบอัตลักษณ์แบรนด์ — เริ่มจาก Mini Brand CI สำหรับโซเชียล", size: true, best: ["Branding"], v: {
     Performance: { S: "—", M: "—", L: "—" },
     Branding: { S: "Mini Brand CI", M: "Full CI", L: "Full + องค์กร" },
     Hybrid: { S: "Mini Brand CI", M: "พื้นฐาน", L: "Full" },
   }},
-  { label: "SEO / seeding", info: "บทความ SEO และการกระจายเนื้อหา (seeding / รีวิว)", v: { Performance: "ไซส์ L", Branding: "ทุกไซส์ (+KOL)", Hybrid: "M ขึ้นไป" } },
-  { label: "Brand film / long-form", info: "วิดีโอแบรนด์หรือคอนเทนต์ยาว", v: { Performance: "—", Branding: "ไซส์ใหญ่", Hybrid: "ไซส์ใหญ่" } },
+  { label: "SEO / seeding", info: "บทความ SEO และการกระจายเนื้อหา (seeding / รีวิว)", best: ["Branding"], v: { Performance: "ไซส์ L", Branding: "ทุกไซส์ (+KOL)", Hybrid: "M ขึ้นไป" } },
+  { label: "Brand film / long-form", info: "วิดีโอแบรนด์หรือคอนเทนต์ยาว", best: ["Branding", "Hybrid"], v: { Performance: "—", Branding: "ไซส์ใหญ่", Hybrid: "ไซส์ใหญ่" } },
   { label: "สัญญาขั้นต่ำ", info: "ระยะเวลาผูกพันขั้นต่ำของแพ็ก", size: true, v: {
     Performance: { S: "3 เดือน", M: "3 เดือน", L: "6 เดือน" },
     Branding: { S: "3 เดือน", M: "3 เดือน", L: "6 เดือน" },
@@ -140,33 +144,48 @@ const InfoTip = ({ text }: { text: string }) => (
 
 const CompareTable = ({ size }: { size: Size }) => (
   <div className="overflow-x-auto md:overflow-visible -mx-4 px-4 md:mx-0 md:px-0">
-    <table className="w-full min-w-[600px] border-collapse">
+    <table className="w-full table-fixed min-w-[640px] border-collapse">
+      <colgroup>
+        <col className="w-[150px] md:w-[180px]" />
+        <col /><col /><col />
+      </colgroup>
       <thead>
         <tr className="border-b-2 border-foreground">
-          <th className="w-[180px]" />
+          <th />
           {TRACK_NAMES.map((name) => (
-            <th key={name} className="text-left py-4 px-4 align-bottom">
+            <th key={name} className="text-left py-4 px-3 align-bottom">
               <div className="font-thai text-[11px] tracking-[0.02em] text-cinnabar">{goalOf[name]}</div>
-              <div className="mt-1 text-[16px] md:text-[19px] font-semibold tracking-[-0.01em]">{name}</div>
+              <div className="mt-1 text-[15px] md:text-[18px] font-semibold tracking-[-0.01em]">{name}</div>
             </th>
           ))}
         </tr>
       </thead>
       <tbody>
-        {compareRows.map((row) => (
-          <tr key={row.label} className={`border-b border-foreground/12 ${row.label.startsWith("ราคา") ? "bg-cinnabar/[0.06]" : ""}`}>
-            <td lang="th" className="py-3 pr-4 font-thai text-[13px] text-foreground/75 align-middle whitespace-nowrap">
-              {row.label}<InfoTip text={row.info} />
-            </td>
-            {TRACK_NAMES.map((name) => {
-              const raw = row.v[name];
-              const val = row.size ? (raw as Record<Size, string>)[size] : (raw as string);
-              return (
-                <td key={name} lang="th" className={`py-3 px-4 align-middle ${row.label.startsWith("ราคา") ? "num-display text-[19px] md:text-[23px] text-cinnabar" : "font-thai text-[13px] text-foreground/90"}`}>{val}</td>
-              );
-            })}
-          </tr>
-        ))}
+        {compareRows.map((row) => {
+          const isPrice = row.label.startsWith("ราคา");
+          return (
+            <tr key={row.label} className={`border-b border-foreground/12 ${isPrice ? "bg-cinnabar/[0.06]" : ""}`}>
+              <td lang="th" className="py-3 pr-3 font-thai text-[12.5px] text-foreground/75 align-middle">
+                <span className="inline-flex items-center">{row.label}<InfoTip text={row.info} /></span>
+              </td>
+              {TRACK_NAMES.map((name) => {
+                const raw = row.v[name];
+                const val = row.size ? (raw as Record<Size, string>)[size] : (raw as string);
+                const win = !isPrice && row.best?.includes(name);
+                const base = isPrice
+                  ? "num-display text-[18px] md:text-[22px] text-cinnabar"
+                  : win
+                  ? "font-thai text-[13px] font-semibold text-cinnabar"
+                  : val === "—"
+                  ? "font-thai text-[13px] text-foreground/35"
+                  : "font-thai text-[13px] text-foreground/85";
+                return (
+                  <td key={name} lang="th" className={`py-3 px-3 align-middle ${win ? "bg-cinnabar/[0.06]" : ""} ${base}`}>{val}</td>
+                );
+              })}
+            </tr>
+          );
+        })}
       </tbody>
     </table>
   </div>
@@ -243,8 +262,8 @@ const PricingSection = () => {
           ))}
         </div>
 
-        <p lang="th" className="mt-6 font-thai text-[11px] tracking-[0.02em] text-muted-foreground">
-          ราคาไม่รวม VAT 7% · ไม่รวม ad spend
+        <p lang="th" className="mt-6 font-thai text-[12px] leading-[1.6] text-muted-foreground max-w-[640px]">
+          ราคาไม่รวม VAT 7% · <span className="text-foreground/80">ค่าบริหารแอดเรารวมให้ฟรีจนถึงงบเพดาน — แต่ค่ายิงแอดจริง (ad spend) ลูกค้าจ่ายเอง</span> (เอเจนซีทั่วไปคิดค่าบริหาร 10–20% ของงบ)
         </p>
 
         {/* Full comparison */}
@@ -262,6 +281,119 @@ const PricingSection = () => {
             <CompareTable size={size} />
           </div>
           <p lang="th" className="mt-4 font-thai text-[11px] tracking-[0.02em] text-muted-foreground">เลื่อนชี้ที่ <Info className="inline w-3 h-3 -mt-0.5" /> เพื่อดูคำอธิบายแต่ละข้อ</p>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const priceOf = (name: string, size: Size) => tracks.find((t) => t.name === name)?.prices[size] || "";
+const fmtBaht = (n: number) => "฿" + n.toLocaleString("en-US");
+
+/** Budget calculator → suggests a track + size, then sends to contact. */
+const BudgetCalculator = () => {
+  const [sales, setSales] = useState("");
+  const [launched, setLaunched] = useState<boolean | null>(null);
+  const [goal, setGoal] = useState<"Performance" | "Branding" | "Hybrid" | null>(null);
+
+  const salesNum = parseInt(sales.replace(/[^0-9]/g, ""), 10) || 0;
+  const rate = launched === false ? 0.6 : 0.3;
+  const budget = Math.round(salesNum * rate);
+  const recSize: Size = budget >= 250000 ? "L" : budget >= 120000 ? "M" : "S";
+  const ready = salesNum > 0 && launched !== null && goal !== null;
+  const pkgName = goal ? `${goal} · ${recSize}` : "";
+
+  const goalBtns: { id: "Performance" | "Branding" | "Hybrid"; label: string; sub: string }[] = [
+    { id: "Performance", label: "อยากได้ยอด", sub: "70 / 30" },
+    { id: "Branding", label: "อยากได้แบรนด์", sub: "30 / 70" },
+    { id: "Hybrid", label: "อยากได้ทั้งคู่", sub: "50 / 50" },
+  ];
+
+  return (
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-24">
+        <SectionLabel index="03" label="Budget calculator" />
+        <Reveal delay={0.05}>
+          <h2 lang="th" className="mt-10 h-display-md max-w-[24ch] thai-wrap">
+            ไม่รู้จะเริ่มที่ไซส์ไหน? <em className="italic text-cinnabar">คำนวณจากยอดที่ตั้งไว้.</em>
+          </h2>
+        </Reveal>
+
+        <div className="mt-12 grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-6 md:gap-8 items-stretch">
+          {/* Inputs */}
+          <div className="card-soft p-7 md:p-9 flex flex-col gap-8">
+            <div>
+              <label lang="th" className="font-thai text-[12px] tracking-[0.02em] text-muted-foreground">1 · ยอดขายที่คาดหวัง / เดือน</label>
+              <div className="mt-3 flex items-center gap-2 border-b border-foreground/25 focus-within:border-cinnabar transition-colors pb-2">
+                <span className="num-display text-cinnabar text-[24px]">฿</span>
+                <input
+                  inputMode="numeric"
+                  value={salesNum ? salesNum.toLocaleString("en-US") : ""}
+                  onChange={(e) => setSales(e.target.value)}
+                  placeholder="500,000"
+                  className="w-full bg-transparent num-display text-[24px] md:text-[28px] text-foreground placeholder:text-foreground/30 focus:outline-none"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label lang="th" className="font-thai text-[12px] tracking-[0.02em] text-muted-foreground">2 · สินค้านี้เคยออกตลาดมาก่อนไหม?</label>
+              <div className="mt-3 grid grid-cols-2 gap-3">
+                {[
+                  { v: true, t: "เคยแล้ว", s: "คนเริ่มรู้จัก" },
+                  { v: false, t: "ยังไม่เคย", s: "ต้อง launch" },
+                ].map((o) => (
+                  <button key={o.t} type="button" onClick={() => setLaunched(o.v)}
+                    className={`rounded-xl border px-4 py-3 text-left transition-colors ${launched === o.v ? "border-cinnabar bg-cinnabar/[0.07]" : "border-foreground/20 hover:border-foreground/40"}`}>
+                    <div lang="th" className="font-thai text-[14px] text-foreground">{o.t}</div>
+                    <div lang="th" className="font-thai text-[11px] text-muted-foreground mt-0.5">{o.s}</div>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <label lang="th" className="font-thai text-[12px] tracking-[0.02em] text-muted-foreground">3 · เป้าหมายของคุณ</label>
+              <div className="mt-3 grid grid-cols-3 gap-3">
+                {goalBtns.map((g) => (
+                  <button key={g.id} type="button" onClick={() => setGoal(g.id)}
+                    className={`rounded-xl border px-3 py-3 text-center transition-colors ${goal === g.id ? "border-cinnabar bg-cinnabar/[0.07]" : "border-foreground/20 hover:border-foreground/40"}`}>
+                    <div lang="th" className="font-thai text-[13px] text-foreground leading-tight">{g.label}</div>
+                    <div className="font-mono text-[10px] tracking-[0.06em] text-cinnabar mt-1">{g.sub}</div>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Result */}
+          <div className="card-accent p-7 md:p-9 flex flex-col justify-center">
+            {ready ? (
+              <>
+                <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">— แนะนำ</div>
+                <p lang="th" className="mt-4 font-thai text-[13px] text-muted-foreground">งบการตลาดที่แนะนำ ({Math.round(rate * 100)}% ของยอด)</p>
+                <div className="mt-1 num-display text-cinnabar text-[40px] md:text-[52px]">{fmtBaht(budget)}<span className="font-thai text-[14px] text-muted-foreground ml-1">/ เดือน</span></div>
+                <div className="mt-6 pt-6 border-t border-foreground/15">
+                  <p lang="th" className="font-thai text-[13px] text-muted-foreground">แพ็กที่เหมาะกับคุณ</p>
+                  <div className="mt-1 flex items-baseline gap-2 flex-wrap">
+                    <span className="h-display-sm">{pkgName}</span>
+                    <span className="num-display text-cinnabar text-[20px]">{priceOf(goal!, recSize)}</span>
+                  </div>
+                </div>
+                <Link to={`/contact?pkg=${encodeURIComponent(pkgName)}`} className="btn-accent justify-between mt-7">
+                  <span>เลือกแพ็กนี้ · ส่งให้ฝ่ายขาย</span><ArrowUpRight className="w-4 h-4" />
+                </Link>
+                <p lang="th" className="mt-4 font-thai text-[11px] leading-[1.6] text-muted-foreground">
+                  เคยออกตลาดแล้ว = งบ 30% ของยอด · ยังไม่เคย = 60% (ช่วง launch). ตัวเลขเป็นจุดตั้งต้น ปรับได้ตอนคุย.
+                </p>
+              </>
+            ) : (
+              <div className="text-center">
+                <div className="num-display text-foreground/20 text-[64px]">?</div>
+                <p lang="th" className="mt-2 font-thai text-[14px] text-muted-foreground max-w-[28ch] mx-auto">กรอกยอด + ตอบ 2 ข้อ แล้วเราจะแนะนำแพ็กให้ทันที</p>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </section>
@@ -306,11 +438,14 @@ const Package = () => (
     {/* 02 — PRICING */}
     <PricingSection />
 
-    {/* 03 — ADD-ONS + PRODUCTION */}
+    {/* 03 — BUDGET CALCULATOR */}
+    <BudgetCalculator />
+
+    {/* 04 — ADD-ONS + PRODUCTION */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
         <div>
-          <SectionLabel index="03" label="Add-on menu" />
+          <SectionLabel index="04" label="Add-on menu" />
           <Reveal delay={0.05}><h2 lang="th" className="mt-8 h-display-sm">เสริมได้ตามต้องการ.</h2></Reveal>
           <dl className="card-soft mt-8 px-6 md:px-7 py-2">
             {addons.map((a, i) => (
@@ -322,7 +457,7 @@ const Package = () => (
           </dl>
         </div>
         <div>
-          <SectionLabel index="04" label="ORIONS Production" />
+          <SectionLabel index="05" label="ORIONS Production" />
           <Reveal delay={0.05}><h2 lang="th" className="mt-8 h-display-sm">มี brief แล้ว ขาดทีมออกกอง.</h2></Reveal>
           <p lang="th" className="mt-5 font-thai thai-wrap text-[14px] leading-[1.7] text-muted-foreground max-w-[44ch]">
             senior crew + Sony A7V / FX6 + GM glass · raw + same-day proxy.
@@ -345,7 +480,7 @@ const Package = () => (
     {/* 05 — FAQ */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1080px] mx-auto py-20 md:py-28">
-        <SectionLabel index="05" label="Before you ask" />
+        <SectionLabel index="06" label="Before you ask" />
         <Reveal delay={0.05}><h2 className="mt-10 h-display-md">The short <em className="italic text-cinnabar">answers.</em></h2></Reveal>
         <div className="mt-14"><FAQ items={faqs} /></div>
       </div>
@@ -354,7 +489,7 @@ const Package = () => (
     {/* 06 — TALK TO SALES (ปลื้ม) */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-24">
-        <SectionLabel index="06" label="Talk to sales" />
+        <SectionLabel index="07" label="Talk to sales" />
         <Reveal delay={0.05}>
           <div className="mt-10 card-soft p-6 md:p-9 grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-6 md:gap-10 items-center">
             <img
@@ -386,7 +521,7 @@ const Package = () => (
     <CTABand
       eyebrow="Not sure yet?"
       title={<>ไม่แน่ใจว่าควรเลือก track ไหน? <em className="italic text-cinnabar">ให้ audit ช่วยมอง.</em></>}
-      subtitle="ตอบ 18 ข้อ · 3 นาที · ฟรี — หรือคุย Discovery Call 45 นาที."
+      subtitle="ตอบ 6 ข้อ · 1 นาที · ฟรี — หรือคุย Discovery Call 45 นาที."
       primary={{ label: "ทำ Brand Audit", to: "/diagnostic" }}
       secondary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}
       tone="ink"

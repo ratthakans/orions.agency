@@ -72,7 +72,7 @@ const packages = [
 
 const faqs = [
   { q: "ORIONS ทำอะไรบ้าง?", a: "เรารวม Brand Strategy · Creative Production · Social Media Marketing ไว้ในทีมเดียว — ตั้งแต่หาเรื่องที่ใช่ ทำให้เห็น ไปจนทำให้ดังและวัดได้." },
-  { q: "เริ่มทำงานกับเรายังไง?", a: "เริ่มได้ 2 ทาง — ทำ Brand Audit 3 นาทีเพื่อรู้จุดอ่อนก่อน หรือทักมาคุย Discovery Call 45 นาทีฟรี เล่าโจทย์และเงื่อนไขมาได้เลย." },
+  { q: "เริ่มทำงานกับเรายังไง?", a: "เริ่มได้ 2 ทาง — ทำ Brand Audit 1 นาทีเพื่อรู้จุดอ่อนก่อน หรือทักมาคุย Discovery Call 45 นาทีฟรี เล่าโจทย์และเงื่อนไขมาได้เลย." },
   { q: "ราคาเริ่มที่เท่าไหร่?", a: "แพ็กเกจรายเดือนเริ่มที่ ฿24,900 (ยังไม่รวม VAT · ไม่รวม ad spend) เลือก track และขนาดทีมได้ตามเป้าหมาย — ดูได้ที่หน้า Package." },
 ];
 
@@ -377,7 +377,7 @@ const Index = () => (
               <div>
                 <p className="eyebrow-mono">Brand audit · ฟรี</p>
                 <h2 lang="th" className="mt-5 h-display-md thai-wrap max-w-[20ch]">
-                  ไม่แน่ใจว่าควรเริ่มตรงไหน? <em className="italic text-cinnabar">ตอบ 18 ข้อ 3 นาที.</em>
+                  ไม่แน่ใจว่าควรเริ่มตรงไหน? <em className="italic text-cinnabar">ตอบ 6 ข้อ 1 นาที.</em>
                 </h2>
                 <p lang="th" className="mt-5 font-thai thai-wrap text-[15px] leading-[1.7] text-muted-foreground max-w-[54ch]">
                   ตรวจแบรนด์ใน 6 มิติ — ได้คะแนนทันที + จุดอ่อน 3 อันดับแรก แล้วเราบอกตรง ๆ ว่าทางไหนเหมาะกับคุณ · ไม่มีข้อผูกมัด.

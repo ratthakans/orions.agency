@@ -10,6 +10,7 @@ import FAQ from "@/components/FAQ";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { track } from "@/lib/analytics";
+import pleum from "@/assets/pleum.jpg";
 
 const inquirySchema = z.object({
   name:    z.string().trim().min(1, "Please tell us your name").max(100),
@@ -51,11 +52,13 @@ const Contact = () => {
     const first = presetRaw.toLowerCase().split(" ")[0];
     return packageOptions.find((o) => o.toLowerCase().startsWith(first)) || "";
   })();
+  const presetSize = (presetRaw.match(/\b([SML])\b/)?.[1] || "");
   const [form, setForm] = useState({
     name: "",
     company: "",
     email: "",
     pkg: presetPkg,
+    size: presetSize,
     brief: presetRaw ? `สนใจแพ็กเกจ ${presetRaw} — ขอรายละเอียดและใบเสนอราคา` : "",
   });
 
@@ -72,7 +75,7 @@ const Contact = () => {
     e.preventDefault();
     if (hp) { // bot filled the hidden field — pretend success, drop silently
       toast.success("ได้รับข้อมูลแล้ว — ทีม ØRIONS จะติดต่อกลับภายใน 24 ชม.");
-      setForm({ name: "", company: "", email: "", pkg: "", brief: "" });
+      setForm({ name: "", company: "", email: "", pkg: "", size: "", brief: "" });
       return;
     }
     const parsed = inquirySchema.safeParse(form);
@@ -89,16 +92,17 @@ const Contact = () => {
     setErrors({});
     setSubmitting(true);
     const { name, company, email, brief } = parsed.data;
-    const composedBrief = form.pkg ? `[แพ็กเกจที่สนใจ: ${form.pkg}]\n${brief}` : brief;
+    const pkgFull = form.pkg ? `${form.pkg}${form.size ? ` · ${form.size}` : ""}` : "";
+    const composedBrief = pkgFull ? `[แพ็กเกจที่สนใจ: ${pkgFull}]\n${brief}` : brief;
     const { error } = await supabase.from("contact_inquiries").insert({ name, company, email, brief: composedBrief });
     setSubmitting(false);
     if (error) {
       toast.error("ส่งไม่สำเร็จ ลองใหม่หรืออีเมลหาเราที่ hello@orions.agency");
       return;
     }
-    track("ContactSubmit", { pkg: form.pkg || "none" });
+    track("ContactSubmit", { pkg: pkgFull || "none" });
     toast.success("ได้รับข้อมูลแล้ว — ทีม ØRIONS จะติดต่อกลับภายใน 24 ชม.");
-    setForm({ name: "", company: "", email: "", pkg: "", brief: "" });
+    setForm({ name: "", company: "", email: "", pkg: "", size: "", brief: "" });
   };
 
   const inputCls = "w-full rounded-xl bg-background border border-foreground/15 px-4 py-3 text-[15px] text-foreground placeholder:text-foreground/45 focus:outline-none focus:border-cinnabar focus:ring-1 focus:ring-cinnabar/30 transition-colors font-thai";
@@ -222,6 +226,18 @@ const Contact = () => {
                       <option key={o} value={o}>{o}</option>
                     ))}
                   </select>
+                  {/* size — only relevant for the 3 monthly tracks */}
+                  <div className="mt-3 flex items-center gap-3">
+                    <span lang="th" className="font-thai text-[11px] tracking-[0.02em] text-muted-foreground shrink-0">ขนาด</span>
+                    <div className="inline-flex rounded-full border border-foreground/25 overflow-hidden">
+                      {["S", "M", "L"].map((s) => (
+                        <button key={s} type="button" onClick={() => setForm({ ...form, size: form.size === s ? "" : s })}
+                          className={`px-4 py-1.5 font-mono text-[11px] tracking-[0.06em] transition-colors ${form.size === s ? "bg-cinnabar text-background" : "text-foreground/55 hover:text-foreground"} ${s !== "S" ? "border-l border-foreground/25" : ""}`}>
+                          {s}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
                 </div>
                 <div className="md:col-span-2">
                   <label className={labelCls}>— 05 / Brief</label>
@@ -250,6 +266,17 @@ const Contact = () => {
             </div>
 
             <div className="md:col-span-5 flex flex-col gap-6">
+              {/* Contact person — ปลื้ม */}
+              <div className="card-soft p-7 md:p-8 flex items-center gap-5">
+                <img src={pleum} alt="ปลื้ม — Sales Executive, ØRIONS" className="w-20 h-20 md:w-24 md:h-24 rounded-2xl object-cover object-top shrink-0" />
+                <div>
+                  <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-cinnabar">— ผู้ติดต่อ</div>
+                  <h3 className="mt-1.5 font-serif text-[22px] tracking-[-0.01em]">ปลื้ม</h3>
+                  <div lang="th" className="font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">Sales Executive</div>
+                  <a href="tel:+66655169925" className="mt-2 inline-block font-thai text-[14px] text-foreground hover:text-cinnabar transition-colors">065-516-9925</a>
+                </div>
+              </div>
+
               {/* Book a call — primary highlight */}
               <div className="card-accent p-7 md:p-8">
                 <div className="font-mono text-[10px] tracking-[0.14em] uppercase text-cinnabar">— Book a call</div>

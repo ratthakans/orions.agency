@@ -20,7 +20,7 @@ const faqs = [
   { q: "เลือกบริการเดียวได้ไหม หรือต้องครบทั้งสาม?",
     a: "เลือกเฉพาะที่ต้องการได้ — Brand Strategy, Creative Production หรือ Social. แต่จุดแข็งของเราคือทั้งสามอยู่ในทีมเดียว ทำให้เรื่องเดียวกันต่อเนื่องตั้งแต่ต้นจนจบ." },
   { q: "ไม่แน่ใจว่าควรเริ่มตรงไหน?",
-    a: "ลองทำ Brand audit (Diagnostic) — ตอบ 18 คำถาม แล้วเราจะบอกว่าทางไหนเหมาะกับคุณที่สุด ตรงไปตรงมา ไม่มีข้อผูกมัด." },
+    a: "ลองทำ Brand audit (Diagnostic) — ตอบ 6 คำถาม แล้วเราจะบอกว่าทางไหนเหมาะกับคุณที่สุด ตรงไปตรงมา ไม่มีข้อผูกมัด." },
 ];
 
 const services = [
@@ -28,19 +28,39 @@ const services = [
     n: "01",
     en: "Brand Strategy",
     tag: "หาเรื่องที่ใช่",
-    items: ["research", "positioning", "brand identity & CI", "naming", "brand narrative"],
+    summary: "วางตัวตน จุดยืน ชื่อ และระบบแบรนด์ (CI) ให้ชัดก่อนเริ่มทำคอนเทนต์ — เพื่อให้ทุกอย่างที่ทำต่อจากนี้ไปในทิศทางเดียวกัน.",
+    items: [
+      "research — เจาะตลาด คู่แข่ง และกลุ่มลูกค้า",
+      "positioning — วางจุดยืนว่าแบรนด์ยืนตรงไหน ต่างจากใคร",
+      "naming — ตั้งชื่อแบรนด์ / สินค้า / แคมเปญ",
+      "brand identity & CI — โลโก้ สี ฟอนต์ และคู่มือใช้งานแบรนด์",
+      "brand narrative — เรื่องเล่าและข้อความหลักของแบรนด์",
+    ],
   },
   {
     n: "02",
     en: "Creative Production",
     tag: "ทำให้เห็น",
-    items: ["brand film", "ภาพถ่ายโปรดักต์ / อาหาร / พอร์เทรต", "คอนเทนต์", "key visual & design"],
+    summary: "ถ่าย ตัด ออกแบบ ครบในทีมเดียว — ได้คอนเทนต์ลงเพจ, brand film และภาพถ่ายโปรดักต์ / อาหาร / พอร์เทรต พร้อมใช้งานจริง.",
+    items: [
+      "brand film — วิดีโอแบรนด์และโฆษณา ถ่ายและตัดครบ",
+      "ภาพถ่ายโปรดักต์ / อาหาร / พอร์เทรต — โปรดักชันในสตูดิโอและนอกสถานที่",
+      "คอนเทนต์ — คลิปสั้น รีล และโพสต์สำหรับลงโซเชียล",
+      "key visual & design — คีย์วิชวลแคมเปญ และงานออกแบบกราฟิก",
+    ],
   },
   {
     n: "03",
     en: "Social Media Marketing",
     tag: "ทำให้ดังและวัดได้",
-    items: ["content + community", "ยิงแอด Meta / TikTok / Google / LINE", "A/B testing", "performance report"],
+    summary: "ดูแลเพจ ยิงแอด และทำ SEO ให้ลูกค้าเจอคุณ — แล้ววัดผลออกมาเป็นตัวเลขจริงทุกเดือน.",
+    items: [
+      "SEO — ทำให้ลูกค้าเจอคุณบน Google: บทความ, on-page, โครงสร้างเว็บ",
+      "ดูแลเพจ + community — วางคอนเทนต์ ตอบลูกค้า และดูแลคอมมูนิตี้",
+      "ยิงแอด Meta / TikTok / Google / LINE — วางและจัดการแคมเปญโฆษณา",
+      "A/B testing — ทดสอบเพื่อหาสิ่งที่ได้ผลที่สุด",
+      "performance report — รายงานผลเป็นตัวเลขที่อ่านเข้าใจง่าย",
+    ],
   },
 ];
 
@@ -70,7 +90,11 @@ const ServicesAccordion = () => {
             </button>
             <div className={`grid transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
               <div className="overflow-hidden">
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 px-7 md:px-10 pb-8 md:pb-10 md:pl-[172px] max-w-[820px]">
+                <div className="px-7 md:px-10 md:pl-[172px] max-w-[820px]">
+                  <p lang="th" className="font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.7] text-foreground/90">{s.summary}</p>
+                  <p lang="th" className="mt-5 eyebrow-mono text-muted-foreground">สิ่งที่คุณได้</p>
+                </div>
+                <ul className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 px-7 md:px-10 pb-8 md:pb-10 md:pl-[172px] max-w-[820px]">
                   {s.items.map((it) => (
                     <li key={it} lang="th" className="font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.6] text-foreground/85 grid grid-cols-[12px_1fr] gap-3">
                       <span className="text-cinnabar mt-1">·</span><span>{it}</span>
@@ -90,7 +114,7 @@ const Services = () => (
   <div>
     <SEO
       title="Services — Brand Strategy · Creative Production · Social · ØRIONS"
-      description="ครีเอทีฟเอเจนซีในกรุงเทพฯ ที่รวม Brand Strategy · Creative Production · Social Media Marketing ไว้ในทีมเดียว. ทำงานตั้งแต่กลยุทธ์ถึงการผลิต — จาก hello ขึ้นจริงใน 4 สัปดาห์."
+      description="ครีเอทีฟเอเจนซีในกรุงเทพฯ ที่รวม Brand Strategy · Creative Production · Social Media Marketing + SEO ไว้ในทีมเดียว. วางแบรนด์ ถ่าย/ตัด/ออกแบบ ดูแลเพจ ยิงแอด และทำ SEO ให้ลูกค้าเจอคุณบน Google — วัดผลเป็นตัวเลขจริง."
       path="/services"
     />
 
@@ -120,6 +144,20 @@ const Services = () => (
           <p lang="th" className="font-thai text-[11px] tracking-[0.02em] text-muted-foreground">กดเพื่อดูรายละเอียด</p>
         </div>
         <ServicesAccordion />
+
+        <Reveal>
+          <div className="card-accent mt-6 p-7 md:p-10 grid grid-cols-1 md:grid-cols-[120px_1fr] gap-5 md:gap-12 md:items-center">
+            <div className="eyebrow-mono text-cinnabar">SEO</div>
+            <div>
+              <h3 lang="th" className="font-thai text-[20px] md:text-[26px] leading-[1.2] tracking-[-0.01em] font-medium">
+                ทำให้ลูกค้า <em className="font-serif italic text-cinnabar">เจอคุณบน Google.</em>
+              </h3>
+              <p lang="th" className="mt-3 font-thai thai-wrap text-[14px] md:text-[16px] leading-[1.7] text-foreground/85 max-w-[680px]">
+                ไม่ใช่แค่ยิงแอด — เราทำ SEO ให้แบรนด์ติดอันดับเมื่อมีคนค้นหา: เขียนบทความที่ตรงคีย์เวิร์ด, ปรับ on-page (title / meta / heading), และวางโครงสร้างเว็บให้ Google เข้าใจ — เพื่อให้ลูกค้าเจอคุณได้เองโดยไม่ต้องจ่ายทุกคลิก.
+              </p>
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
 
@@ -188,7 +226,7 @@ const Services = () => (
     <CTABand
       eyebrow="Start a conversation"
       title={<>เล่าโจทย์มา — เราจะ <em className="italic text-cinnabar">refine</em> มันให้คม.</>}
-      subtitle="ไม่แน่ใจว่าควรเริ่มตรงไหน? ทำ Brand Audit 3 นาที — หรือทักมาคุยเลย."
+      subtitle="ไม่แน่ใจว่าควรเริ่มตรงไหน? ทำ Brand Audit 1 นาที — หรือทักมาคุยเลย."
       primary={{ label: "ทำ Brand Audit", to: "/diagnostic" }}
       secondary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}
       tone="snow"

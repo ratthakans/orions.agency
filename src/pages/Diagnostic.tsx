@@ -22,14 +22,14 @@ const leadSchema = z.object({
 
 const auditFaqs = [
   { q: "ใช้เวลานานไหม?",
-    a: "18 คำถาม ราว 3 นาที. ตอบตามจริงพอ ไม่ต้องเตรียมข้อมูลอะไรล่วงหน้า — ได้คะแนนทันทีหลังตอบจบ." },
+    a: "6 คำถาม · 1 นาที. ตอบตามจริงพอ ไม่ต้องเตรียมข้อมูลอะไรล่วงหน้า — ได้คะแนนทันทีหลังตอบจบ." },
   { q: "ฟรีจริงไหม? มีข้อผูกมัดไหม?",
     a: "ฟรีจริง ทั้งแบบทดสอบและการนัดคุยผล 45 นาที — ไม่มีข้อผูกมัด. ถ้าเราไม่ใช่คำตอบ เราจะบอกตรง ๆ." },
   { q: "นัดคุยผลแล้วได้อะไร?",
     a: "เราอ่านผลของคุณ แล้วชวนคุยว่าจุดอ่อน 3 อันดับแรกควรเริ่มแก้ตรงไหนก่อน และทางไหนเหมาะกับเงื่อนไขของคุณที่สุด." },
 ];
 
-/* 6 axes, 3 questions each = 18 questions */
+/* 6 axes, 1 question each = 6 questions */
 const axes = [
   { name: "Brand Clarity",       short: "Clarity" },
   { name: "Content Consistency", short: "Consistency" },
@@ -42,24 +42,12 @@ const axes = [
 type Q = { axis: number; statement: React.ReactNode; hint: string };
 
 const questions: Q[] = [
-  { axis: 0, statement: <>แบรนด์เรามี <em className="italic text-cinnabar">voice framework</em> ที่ชัด ทุกชิ้นพูดเหมือนกัน</>, hint: "— Tone of voice, message hierarchy, brand personality ที่ถ่ายทอดออกมาตรงกันทุก touchpoint" },
-  { axis: 0, statement: <>ลูกค้าเห็นโพสต์ของเรา <em className="italic text-cinnabar">โดยไม่ต้องดู logo</em> ก็รู้ว่าเป็นแบรนด์เรา</>, hint: "— Visual identity + voice ที่จดจำได้ทันทีโดยไม่ต้องเห็นชื่อแบรนด์" },
-  { axis: 0, statement: <>เรามี <em className="italic text-cinnabar">positioning statement</em> ที่อธิบายแบรนด์ได้ใน 1 ประโยค</>, hint: "— ประโยคเดียวที่บอก who you serve, what you offer, why different" },
-  { axis: 1, statement: <>เรามี <em className="italic text-cinnabar">content calendar</em> ที่วางล่วงหน้าทุกเดือน ไม่ใช่คิดวันต่อวัน</>, hint: "— Editorial calendar ที่วางก่อนผลิต ไม่ใช่ตอบสนองตามเทรนด์รายวัน" },
-  { axis: 1, statement: <>โพสต์ของเราออกมา <em className="italic text-cinnabar">สม่ำเสมอ</em> ไม่ขาดช่วงนานเกินสัปดาห์</>, hint: "— Cadence ของการเผยแพร่ที่คงที่ ไม่ขึ้นกับ mood หรือ workload" },
-  { axis: 1, statement: <>ทุกชิ้นเรามี <em className="italic text-cinnabar">visual + tone guideline</em> ที่ผู้ผลิตคนใหม่หยิบมาทำได้ทันที</>, hint: "— Brand book / template / SOP ที่ document ไว้ ไม่ขึ้นกับคน" },
-  { axis: 2, statement: <>ทุกการตัดสินใจเรื่อง content เริ่มจาก <em className="italic text-cinnabar">data จริง</em> ไม่ใช่ความรู้สึก</>, hint: "— ใช้ Meta Insights, Google Analytics, social listening drive decision" },
-  { axis: 2, statement: <>เรารู้ว่า <em className="italic text-cinnabar">คอนเทนต์ตัวไหน work / ไม่ work</em> และ why</>, hint: "— Performance review ทุก post + เข้าใจ pattern ที่ลึกกว่า engagement number" },
-  { axis: 2, statement: <>เรามี <em className="italic text-cinnabar">measurement framework</em> ที่ตกลงกันแล้วว่าวัดอะไร = success</>, hint: "— North-star metric + supporting KPIs ที่ทุกคนในทีมเข้าใจตรงกัน" },
-  { axis: 3, statement: <>ทุกชิ้นที่ส่งออกไป เรา <em className="italic text-cinnabar">ภูมิใจ</em> ที่ได้ส่ง</>, hint: "— ไม่ใช่ส่งเพราะถึงเวลา แต่เพราะคุณภาพเข้ามาตรฐาน" },
-  { axis: 3, statement: <>เรามี <em className="italic text-cinnabar">Hero Content</em> รายเดือนที่สะกดใจ ไม่ใช่แค่ Reels รายวัน</>, hint: "— Cinematic / Long-form / Brand Story ที่ทำเป็นชิ้นโบแดงประจำเดือน" },
-  { axis: 3, statement: <>การ production ของเราใช้ <em className="italic text-cinnabar">อุปกรณ์ + ทีมระดับ pro</em> ไม่ใช่ shoot ด้วยมือถือ</>, hint: "— Camera, lighting, sound, edit workflow ที่อยู่ในมาตรฐาน commercial" },
-  { axis: 4, statement: <>เรารู้ว่า <em className="italic text-cinnabar">ลูกค้าจริงๆ</em> ของเราคือใคร — ลึกกว่า demographics</>, hint: "— Persona ที่ลึก: motivation, fears, daily routine, decision triggers" },
-  { axis: 4, statement: <>เรามี <em className="italic text-cinnabar">community / loyal audience</em> ที่กลับมาทุกครั้งที่เราโพสต์</>, hint: "— Repeat engagers, brand advocates, members ที่ active" },
-  { axis: 4, statement: <>เรา <em className="italic text-cinnabar">ตอบ comment / DM</em> ทุกอันภายใน 24 ชม. และมี tone ที่เป็นแบรนด์</>, hint: "— Community management ที่ active ไม่ใช่ปล่อยให้ comment ลอย" },
-  { axis: 5, statement: <>เรามี <em className="italic text-cinnabar">3-12 month brand roadmap</em> ที่ชัด ไม่ใช่แค่แผนรายเดือน</>, hint: "— Long-term strategy, milestones, brand vision ที่ทุกคนในทีมเข้าใจตรงกัน" },
-  { axis: 5, statement: <>ทุก content piece ที่เราทำ <em className="italic text-cinnabar">เชื่อมต่อกับ brand goal</em> ใหญ่</>, hint: "— ไม่มีชิ้นไหนที่ทำเพื่อให้ครบจำนวน — ทุกชิ้นมี strategic purpose" },
-  { axis: 5, statement: <>เรารู้ว่า <em className="italic text-cinnabar">แตกต่างจากคู่แข่ง</em> อย่างไร — และสื่อสารจุดนั้นได้ชัด</>, hint: "— Competitor differentiation ที่ไม่ใช่แค่ราคา/ฟีเจอร์ แต่เป็น brand positioning" },
+  { axis: 0, statement: <>เรามี <em className="italic text-cinnabar">positioning statement</em> ที่อธิบายแบรนด์ได้ใน 1 ประโยค</>, hint: "— ประโยคเดียวที่บอก who you serve, what you offer, why different — และทุก touchpoint พูดตรงกัน" },
+  { axis: 1, statement: <>โพสต์ของเราออกมา <em className="italic text-cinnabar">สม่ำเสมอ</em> ตาม calendar ที่วางล่วงหน้า ไม่ใช่คิดวันต่อวัน</>, hint: "— Editorial calendar + cadence ที่คงที่ ไม่ขึ้นกับ mood หรือ workload" },
+  { axis: 2, statement: <>ทุกการตัดสินใจเรื่อง content เริ่มจาก <em className="italic text-cinnabar">data จริง</em> ไม่ใช่ความรู้สึก</>, hint: "— ใช้ Meta Insights, Analytics, performance review drive decision และรู้ว่าอะไร work / ไม่ work" },
+  { axis: 3, statement: <>ทุกชิ้นที่ส่งออกไป เรา <em className="italic text-cinnabar">ภูมิใจ</em> — คุณภาพระดับ commercial ไม่ใช่ DIY</>, hint: "— Camera, lighting, sound, edit ที่อยู่ในมาตรฐาน pro ไม่ใช่ shoot ด้วยมือถือ" },
+  { axis: 4, statement: <>เรารู้ว่า <em className="italic text-cinnabar">ลูกค้าจริงๆ</em> คือใคร และมี audience ที่กลับมาทุกครั้งที่โพสต์</>, hint: "— Persona ที่ลึกกว่า demographics + community / loyal audience ที่ active" },
+  { axis: 5, statement: <>เรามี <em className="italic text-cinnabar">brand roadmap</em> ที่ชัด — ทุก content เชื่อมกับ goal ใหญ่</>, hint: "— Long-term strategy + competitor differentiation ที่ทุกคนในทีมเข้าใจตรงกัน" },
 ];
 
 const scale = [
@@ -146,43 +134,67 @@ const axisVerdict = (axisIdx: number, pct: number) => {
   return            { label: "Gap",        text: v.gap,    action: v.action.gap };
 };
 
-/* No-price path recommendation by overall % — routes to the right ORIONS path */
-const recommendPath = (pct: number) => {
-  if (pct >= 85) return {
-    label: "ถ้าจะร่วมงานกับเรา",
-    name: "Scale & deepen",
-    pkg: { name: "Hybrid · L", price: "฿129,900 / เดือน" },
-    why: "คุณ refined แล้ว — สิ่งที่เหลือคือ scale ความสม่ำเสมอและ deepen ความสัมพันธ์กับ audience. เหมาะกับ Social retainer ต่อเนื่อง หรือ Consulting มากำกับทิศทางระยะยาว.",
-    primary: { label: "ดู Consulting", to: "/consulting" },
-    secondary: { label: "เริ่มต้นบทสนทนา", to: "/contact" },
-    honest: "ถ้าคุณต้องการแค่ยอดให้เร็วที่สุดโดยไม่สนภาพจำระยะยาว — performance shop เพียว ๆ อาจคุ้มกว่า เราพูดตรง.",
-  };
-  if (pct >= 65) return {
-    label: "ถ้าจะร่วมงานกับเรา",
-    name: "Sharpen the edge",
-    pkg: { name: "Hybrid · M", price: "฿64,900 / เดือน" },
-    why: "ฐานคุณดี — เหลือ sharpen creative และ tighten data loop. เหมาะกับ Brand Strategy เก็บ positioning ให้คม + Social ที่ผูกกับผลที่วัดได้.",
-    primary: { label: "ดูบริการของเรา", to: "/services" },
-    secondary: { label: "เริ่มต้นบทสนทนา", to: "/contact" },
-    honest: "ถ้าทีมในของคุณแน่นอยู่แล้ว แค่ต้องการสายตา senior มากำกับ — Consulting อาจเหมาะกว่าการจ้างผลิตเต็มทีม.",
-  };
-  if (pct >= 45) return {
-    label: "ถ้าจะร่วมงานกับเรา",
-    name: "Build the system",
-    pkg: { name: "Branding · M", price: "฿49,900 / เดือน" },
-    why: "คุณอยู่ในช่วงสร้างระบบ — ต้องการ framework และ rhythm. เหมาะกับการทำงานเป็นทีมเดียวตั้งแต่ Brand Strategy ถึง Production และ Social.",
-    primary: { label: "ดูบริการของเรา", to: "/services" },
-    secondary: { label: "เริ่มต้นบทสนทนา", to: "/contact" },
-    honest: "เราจะบอกตรง ๆ ถ้าของหรือ unit economics ยังไม่พร้อม — และยังไม่รับงานจนกว่าจะพร้อม.",
-  };
+/* Prices per track + size (must match the rest of the site) */
+const TRACK_PRICE = {
+  Performance: { S: "฿24,900", M: "฿49,900", L: "฿99,900" },
+  Branding:    { S: "฿24,900", M: "฿49,900", L: "฿99,900" },
+  Hybrid:      { S: "฿32,900", M: "฿64,900", L: "฿129,900" },
+} as const;
+
+type Track = keyof typeof TRACK_PRICE;
+type Size = "S" | "M" | "L";
+
+/* Recommend a TRACK + SIZE from per-axis maturity.
+   - TRACK: compare brand-leaning axes (Brand Clarity, Creative Craft, Strategic Direction)
+     vs performance-leaning axes (Content Consistency, Data Maturity, Audience Connection).
+     Performance side much weaker → Performance; brand side much weaker → Branding; else Hybrid.
+   - SIZE: by overall maturity — lower = start S, mid = M, high/ambitious = M/L.
+   axisPcts is indexed by axis (0..5). */
+const recommendPath = (
+  pct: number,
+  axisPcts: number[],
+  weakest: { name: string; pct: number }[],
+) => {
+  const brandSide = Math.round((axisPcts[0] + axisPcts[3] + axisPcts[5]) / 3);     // Clarity, Craft, Strategy
+  const perfSide  = Math.round((axisPcts[1] + axisPcts[2] + axisPcts[4]) / 3);     // Consistency, Data, Audience
+  const gap = brandSide - perfSide;
+
+  let track: Track;
+  let trackWhy: string;
+  if (gap >= 15) {
+    track = "Performance";
+    trackWhy = "แบรนด์คุณคมแล้ว แต่ฝั่ง execution—ความสม่ำเสมอ, data, audience—ยังตามไม่ทัน. Performance เร่งให้ของดีออกไปถึงคนและวัดผลได้.";
+  } else if (gap <= -15) {
+    track = "Branding";
+    trackWhy = "เครื่องยนต์ execution คุณเดินอยู่ แต่ฝั่งแบรนด์—positioning, craft, ทิศทาง—ยังไม่คม. Branding ทำให้สิ่งที่ปล่อยออกไปมีตัวตนและจดจำได้.";
+  } else {
+    track = "Hybrid";
+    trackWhy = "ทั้งฝั่งแบรนด์และ execution ยังต้องขยับไปด้วยกัน. Hybrid คุมทั้งทิศทางแบรนด์และผลที่วัดได้ในทีมเดียว.";
+  }
+
+  // SIZE by overall maturity — lower maturity = start smaller and grow
+  let size: Size;
+  if (pct < 45) size = "S";
+  else if (pct < 75) size = "M";
+  else size = "L";
+  const sizeLabel = size === "L" ? "M/L" : size;
+
+  const name = `${track} · ${sizeLabel}`;
+  const price = `${TRACK_PRICE[track][size]} / เดือน`;
+  const weakNames = weakest.slice(0, 2).map((w) => w.name).join(" และ ");
+
   return {
     label: "ถ้าจะร่วมงานกับเรา",
-    name: "Start from clarity",
-    pkg: { name: "Branding · S", price: "฿24,900 / เดือน" },
-    why: "ยังอยู่จุดเริ่มต้น — เริ่มจาก clarity ของแบรนด์ก่อน. เหมาะกับ Brand Strategy: หาเรื่องที่ใช่ ก่อนจะเร่งผลิตหรือยิงแอด.",
-    primary: { label: "เริ่มที่ Brand Strategy", to: "/services" },
+    name,
+    pkg: { name, price },
+    why: `${trackWhy} จุดที่อ่อนที่สุดตอนนี้คือ ${weakNames} — เริ่มไซซ์ ${sizeLabel} แล้วค่อยขยายเมื่อระบบแน่นขึ้น.`,
     secondary: { label: "เริ่มต้นบทสนทนา", to: "/contact" },
-    honest: "ถ้าคุณอยากได้คอนเทนต์เยอะที่สุดในราคาถูกที่สุดโดยไม่ต้องมีกลยุทธ์ — เราไม่ใช่ที่นั้น.",
+    honest:
+      track === "Hybrid"
+        ? "ถ้าเป้าหมายเดียวคือยอดให้เร็วที่สุดโดยไม่สนภาพจำ — เลือก Performance เพียว ๆ จะคุ้มกว่า เราพูดตรง."
+        : track === "Performance"
+        ? "ถ้าของหรือ unit economics ยังไม่พร้อม เราจะบอกตรง ๆ — เร่งยอดบนฐานที่ไม่พร้อมคือการเผาเงิน."
+        : "ถ้าคุณอยากได้คอนเทนต์เยอะที่สุดในราคาถูกที่สุดโดยไม่ต้องมีกลยุทธ์ — เราไม่ใช่ที่นั้น.",
   };
 };
 
@@ -299,7 +311,7 @@ const Diagnostic = () => {
     <div>
       <SEO
         title="The Diagnostic — Brand audit · ØRIONS"
-        description="18 คำถาม · 6 มิติ · 3 นาที. ตรวจสุขภาพแบรนด์ของคุณ แล้วดูว่าทางไหนเหมาะกับคุณที่สุด — ตรงไปตรงมา."
+        description="6 คำถาม · 6 มิติ · 1 นาที. ตรวจสุขภาพแบรนด์ของคุณ แล้วดูว่าทางไหนเหมาะกับคุณที่สุด — ตรงไปตรงมา."
         path="/diagnostic"
       />
 
@@ -317,7 +329,7 @@ const Diagnostic = () => {
               ตรวจแบรนด์ของคุณใน 6 มิติ — Brand Clarity, Content Consistency, Data Maturity, Creative Craft, Audience Connection และ Strategic Direction.
             </p>
             <p lang="th" className="mt-5 max-w-[680px] font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.7] text-muted-foreground">
-              18 คำถาม · ใช้เวลา 3 นาที · ตอบตามจริง ไม่มีถูกผิด — ได้คะแนนแต่ละมิติ + ทางที่เหมาะกับคุณ ไม่มีข้อผูกมัด.
+              6 คำถาม · 1 นาที · ตอบตามจริง ไม่มีถูกผิด — ได้คะแนนแต่ละมิติ + ทางที่เหมาะกับคุณ ไม่มีข้อผูกมัด.
             </p>
           </Reveal>
 
@@ -560,9 +572,14 @@ const Diagnostic = () => {
                 );
               })()}
 
-              {/* Recommended path (no price) */}
+              {/* Recommended path — track + size, deep-links to /contact?pkg= */}
               {(() => {
-                const rec = recommendPath(overallPct);
+                const axisPcts = axes.map((_, i) => {
+                  const a = axisScores[i];
+                  return a.max ? Math.round((a.score / a.max) * 100) : 0;
+                });
+                const rec = recommendPath(overallPct, axisPcts, weakest);
+                const pkgLink = `/contact?pkg=${encodeURIComponent(rec.pkg.name)}`;
                 return (
                   <div className="mt-16 text-left max-w-[860px] mx-auto card-accent text-foreground p-8 md:p-12">
                     <div className="font-thai text-[11px] tracking-[0.02em] text-cinnabar flex items-center gap-3">
@@ -572,8 +589,8 @@ const Diagnostic = () => {
                     <h3 className="mt-6 font-serif text-[34px] md:text-[44px] tracking-[-0.02em] leading-[1.05]">{rec.name}</h3>
                     <p lang="th" className="mt-6 font-thai text-[14px] md:text-[16px] leading-[1.7] text-foreground/85 max-w-[640px]">{rec.why}</p>
 
-                    {/* Suggested package (rough) */}
-                    <Link to="/package" className="mt-7 inline-flex items-center gap-4 rounded-xl bg-background/60 border border-foreground/20 hover:border-cinnabar transition-colors px-5 py-4 group">
+                    {/* Suggested package — deep-links to contact preselected */}
+                    <Link to={pkgLink} onClick={() => track("AuditPkgClick", { pkg: rec.pkg.name })} className="mt-7 inline-flex items-center gap-4 rounded-xl bg-background/60 border border-foreground/20 hover:border-cinnabar transition-colors px-5 py-4 group">
                       <span className="font-thai text-[11px] tracking-[0.02em] text-muted-foreground">แพ็กเกจที่น่าจะเหมาะ</span>
                       <span className="font-serif italic text-cinnabar text-[20px] md:text-[22px]">{rec.pkg.name}</span>
                       <span lang="th" className="font-thai text-[11px] tracking-[0.02em] text-foreground/70">{rec.pkg.price}</span>
@@ -581,7 +598,7 @@ const Diagnostic = () => {
                     </Link>
 
                     <div className="mt-8 flex flex-wrap gap-5">
-                      <Link to={rec.primary.to} className="btn-accent"><span>{rec.primary.label}</span><ArrowUpRight className="w-4 h-4" /></Link>
+                      <Link to={pkgLink} onClick={() => track("AuditPkgClick", { pkg: rec.pkg.name, from: "cta" })} className="btn-accent"><span>เลือกแพ็กนี้</span><ArrowUpRight className="w-4 h-4" /></Link>
                       <Link to={rec.secondary.to} className="group inline-flex items-center gap-2 btn-label border-b border-foreground/60 pb-1 text-foreground hover:text-cinnabar hover:border-cinnabar transition-colors">{rec.secondary.label} →</Link>
                     </div>
                     <p lang="th" className="mt-8 pt-6 border-t border-foreground/15 font-thai thai-wrap text-[13px] md:text-[14px] leading-[1.7] text-muted-foreground max-w-[640px]">

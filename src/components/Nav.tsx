@@ -11,10 +11,19 @@ const links = [
 
 const Nav = () => {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const { pathname } = useLocation();
 
   // Close the mobile menu on route change.
   useEffect(() => setOpen(false), [pathname]);
+
+  // Anthropic-style logo: full ØRIONS at the top, collapse to Ø once scrolled.
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   // Lock body scroll while the menu is open.
   useEffect(() => {
@@ -27,8 +36,16 @@ const Nav = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-foreground/10">
       <div className="px-6 md:px-10 h-[64px] flex items-center justify-between text-foreground">
-        <Link to="/" className="font-brand text-[12px] md:text-[13px] relative z-[60]">
-          ØRIONS
+        <Link to="/" aria-label="ØRIONS" className="font-brand text-[14px] md:text-[16px] relative z-[60] inline-flex items-center leading-none">
+          <span>Ø</span>
+          <span
+            aria-hidden
+            className={`inline-block overflow-hidden whitespace-nowrap transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+              scrolled && !open ? "max-w-0 opacity-0 -translate-x-1" : "max-w-[160px] opacity-100 translate-x-0"
+            }`}
+          >
+            RIONS
+          </span>
         </Link>
 
         {/* Desktop nav */}

@@ -84,7 +84,7 @@ const compareRows: Cmp[] = [
   { label: "คอนเทนต์ · รีล / โพสต์", info: "จำนวนคอนเทนต์ออร์แกนิกต่อเดือน", size: true, best: ["Branding"], v: {
     Performance: { S: "5 / 8", M: "10 / 12", L: "12 / 14" },
     Branding: { S: "10 / 14", M: "20 / 20", L: "24 / 24" },
-    Hybrid: { S: "5 / 6", M: "9 / 10", L: "14 / 14" },
+    Hybrid: { S: "8 / 11", M: "15 / 16", L: "18 / 20" },
   }},
   { label: "ถ่ายของจริง", info: "วันถ่ายโปรดักชันจริงต่อเดือน", size: true, v: {
     Performance: { S: "0.5 วัน", M: "1 วัน", L: "2 วัน" },
@@ -106,21 +106,21 @@ const compareRows: Cmp[] = [
 ];
 
 const addons = [
-  { k: "Ads Static / Video", v: "฿600 / ฿2,500" },
-  { k: "UGC / Review content", v: "฿2,500" },
-  { k: "Google Ads Management", v: "฿7,900 / ด." },
-  { k: "LINE Ads Management", v: "฿6,900 / ด." },
-  { k: "Landing page", v: "฿4,000 / หน้า" },
-  { k: "SEO Article", v: "฿3,500 / บทความ" },
-  { k: "Seeding / IO (10 โพสต์)", v: "฿4,500 / ชุด" },
-  { k: "Hero Brand Film", v: "฿25,000" },
-  { k: "CI / Brand Guideline", v: "เริ่ม ฿35,000" },
+  { k: "Ads Static / Video", v: "฿600 / ฿2,500", info: "ครีเอทีฟแอดเพิ่มต่อชิ้น — ภาพนิ่ง / วิดีโอ สำหรับยิงโฆษณา" },
+  { k: "UGC / Review content", v: "฿2,500", info: "คอนเทนต์รีวิว/ใช้จริงจากผู้ใช้ ดูธรรมชาติ น่าเชื่อถือ" },
+  { k: "Google Ads Management", v: "฿7,900 / ด.", info: "ดูแลและยิงโฆษณา Google Search & Display" },
+  { k: "LINE Ads Management", v: "฿6,900 / ด.", info: "ดูแลและยิงโฆษณาบน LINE" },
+  { k: "Landing page", v: "฿4,000 / หน้า", info: "หน้าเว็บรับแคมเปญ — ปิดการขาย / เก็บลีด" },
+  { k: "SEO Article", v: "฿3,500 / บทความ", info: "บทความ SEO ให้ลูกค้าเจอคุณบน Google" },
+  { k: "Seeding / IO (10 โพสต์)", v: "฿4,500 / ชุด", info: "กระจายโพสต์ในกลุ่ม/เพจ สร้างกระแสและความน่าเชื่อ" },
+  { k: "Hero Brand Film", v: "฿25,000", info: "หนังแบรนด์ชิ้นเอก สำหรับเปิดตัว / วางภาพลักษณ์" },
+  { k: "CI / Brand Guideline", v: "เริ่ม ฿35,000", info: "คู่มืออัตลักษณ์แบรนด์ — โลโก้ สี ฟอนต์ การใช้งาน" },
 ];
 
 const production = [
-  { k: "Essential Day", v: "฿15,000 / วัน" },
-  { k: "Standard Day ★", v: "฿35,000 / วัน" },
-  { k: "Signature Day", v: "฿95,000 / วัน" },
+  { k: "Essential Day", v: "฿15,000 / วัน", info: "ทีมถ่ายชุดเล็ก — เหมาะคอนเทนต์เร็ว run-and-gun" },
+  { k: "Standard Day", v: "฿35,000 / วัน", info: "ทีมถ่ายมาตรฐาน — ยอดนิยม คุ้มสุด" },
+  { k: "Signature Day", v: "฿95,000 / วัน", info: "โปรดักชันเต็มรูปแบบ สำหรับงานชิ้นเอก" },
 ];
 
 const faqs = [
@@ -553,7 +553,7 @@ const Package = () => (
           <dl className="card-soft mt-8 px-6 md:px-7 py-2">
             {addons.map((a, i) => (
               <div key={a.k} className={`flex items-baseline justify-between gap-6 py-3 ${i !== addons.length - 1 ? "border-b border-foreground/12" : ""}`}>
-                <dt lang="th" className="font-thai text-[14px] text-foreground/85">{a.k}</dt>
+                <dt lang="th" className="font-thai text-[14px] text-foreground/85 inline-flex items-center">{a.k}<InfoTip text={a.info} /></dt>
                 <dd className="font-mono text-[12px] tracking-[0.02em] text-cinnabar shrink-0">{a.v}</dd>
               </div>
             ))}
@@ -568,7 +568,7 @@ const Package = () => (
           <dl className="card-soft mt-8 px-6 md:px-7 py-2">
             {production.map((a, i) => (
               <div key={a.k} className={`flex items-baseline justify-between gap-6 py-3 ${i !== production.length - 1 ? "border-b border-foreground/12" : ""}`}>
-                <dt lang="th" className="font-thai text-[14px] text-foreground/85">{a.k}</dt>
+                <dt lang="th" className="font-thai text-[14px] text-foreground/85 inline-flex items-center">{a.k}<InfoTip text={a.info} /></dt>
                 <dd className="font-mono text-[12px] tracking-[0.02em] text-cinnabar shrink-0">{a.v}</dd>
               </div>
             ))}

@@ -30,6 +30,11 @@ const packageOptions = [
   "ยังไม่แน่ใจ / ขอคำแนะนำ",
 ];
 
+const addonOptions = [
+  "Google Ads", "LINE Ads", "Landing page", "SEO Article",
+  "Seeding / IO", "UGC / Review", "Hero Brand Film", "CI / Brand Guideline",
+];
+
 const next = [
   { n: "01", t: "ตอบกลับใน 24 ชม.",      d: "ทีมอ่านเอง · ตอบเอง · 1 working day" },
   { n: "02", t: "คุยฟรี 45 นาที",        d: "ไม่มีข้อผูกมัด · fit-check ตรงไปตรงมา" },
@@ -60,8 +65,11 @@ const Contact = () => {
     email: "",
     pkg: presetPkg,
     size: presetSize,
+    addons: [] as string[],
     brief: presetRaw ? `สนใจแพ็กเกจ ${presetRaw} — ขอรายละเอียดและใบเสนอราคา` : "",
   });
+  const toggleAddon = (a: string) =>
+    setForm((f) => ({ ...f, addons: f.addons.includes(a) ? f.addons.filter((x) => x !== a) : [...f.addons, a] }));
 
   // Came from a package card → jump straight to the form (just type name + email + send)
   useEffect(() => {
@@ -76,7 +84,7 @@ const Contact = () => {
     e.preventDefault();
     if (hp) { // bot filled the hidden field — pretend success, drop silently
       toast.success("ได้รับข้อมูลแล้ว — ทีม ØRIONS จะติดต่อกลับภายใน 24 ชม.");
-      setForm({ name: "", company: "", email: "", pkg: "", size: "", brief: "" });
+      setForm({ name: "", company: "", email: "", pkg: "", size: "", addons: [], brief: "" });
       return;
     }
     const parsed = inquirySchema.safeParse(form);
@@ -94,7 +102,8 @@ const Contact = () => {
     setSubmitting(true);
     const { name, company, email, brief } = parsed.data;
     const pkgFull = form.pkg ? `${form.pkg}${form.size ? ` · ${form.size}` : ""}` : "";
-    const composedBrief = pkgFull ? `[แพ็กเกจที่สนใจ: ${pkgFull}]\n${brief}` : brief;
+    const meta = [pkgFull && `แพ็กเกจ: ${pkgFull}`, form.addons.length && `add-on: ${form.addons.join(", ")}`].filter(Boolean);
+    const composedBrief = meta.length ? `[${meta.join(" · ")}]\n${brief}` : brief;
     const { error } = await supabase.from("contact_inquiries").insert({ name, company, email, brief: composedBrief });
     setSubmitting(false);
     if (error) {
@@ -241,7 +250,21 @@ const Contact = () => {
                   </div>
                 </div>
                 <div className="md:col-span-2">
-                  <label className={labelCls}>— 05 / Brief</label>
+                  <label className={labelCls}>— 05 / Add-on ที่สนใจ <span className="text-foreground/40">(เลือกได้หลายอย่าง)</span></label>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {addonOptions.map((a) => {
+                      const on = form.addons.includes(a);
+                      return (
+                        <button key={a} type="button" onClick={() => toggleAddon(a)}
+                          className={`rounded-full border px-3.5 py-1.5 font-thai text-[12px] transition-colors ${on ? "border-cinnabar bg-cinnabar text-background" : "border-foreground/20 text-foreground/70 hover:border-cinnabar hover:text-foreground"}`}>
+                          {a}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+                <div className="md:col-span-2">
+                  <label className={labelCls}>— 06 / Brief</label>
                   <textarea
                     rows={5}
                     maxLength={2000}
@@ -298,7 +321,7 @@ const Contact = () => {
                   Khlong Chan, Bang Kapi<br />
                   Bangkok 10240, Thailand
                 </p>
-                <a href="https://maps.google.com/?q=246/8+Soi+Yothinphatthana+3+Bangkok" target="_blank" rel="noreferrer"
+                <a href="https://maps.app.goo.gl/zbgmhou54j55eKfg9" target="_blank" rel="noreferrer"
                   className="mt-3 inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.22em] uppercase text-foreground hover:text-cinnabar transition-colors">
                   Open in Maps <ArrowUpRight className="w-3 h-3" />
                 </a>

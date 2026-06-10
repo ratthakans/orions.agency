@@ -169,7 +169,7 @@ const recommendPath = (pct: number) => {
   if (pct >= 45) return {
     label: "ถ้าจะร่วมงานกับเรา",
     name: "Build the system",
-    pkg: { name: "Boutique · M", price: "฿49,900 / เดือน" },
+    pkg: { name: "Branding · M", price: "฿49,900 / เดือน" },
     why: "คุณอยู่ในช่วงสร้างระบบ — ต้องการ framework และ rhythm. เหมาะกับการทำงานเป็นทีมเดียวตั้งแต่ Brand Strategy ถึง Production และ Social.",
     primary: { label: "ดูบริการของเรา", to: "/services" },
     secondary: { label: "เริ่มต้นบทสนทนา", to: "/contact" },
@@ -178,7 +178,7 @@ const recommendPath = (pct: number) => {
   return {
     label: "ถ้าจะร่วมงานกับเรา",
     name: "Start from clarity",
-    pkg: { name: "Boutique · S", price: "฿24,900 / เดือน" },
+    pkg: { name: "Branding · S", price: "฿24,900 / เดือน" },
     why: "ยังอยู่จุดเริ่มต้น — เริ่มจาก clarity ของแบรนด์ก่อน. เหมาะกับ Brand Strategy: หาเรื่องที่ใช่ ก่อนจะเร่งผลิตหรือยิงแอด.",
     primary: { label: "เริ่มที่ Brand Strategy", to: "/services" },
     secondary: { label: "เริ่มต้นบทสนทนา", to: "/contact" },

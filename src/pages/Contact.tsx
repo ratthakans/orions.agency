@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { ArrowUpRight, MessageCircle, Calendar } from "lucide-react";
 import { z } from "zod";
@@ -21,8 +21,8 @@ const inquirySchema = z.object({
 type FieldErrors = Partial<Record<keyof z.infer<typeof inquirySchema>, string>>;
 
 const packageOptions = [
-  "Digital · เน้นยอด",
-  "Boutique · เน้นแบรนด์",
+  "Performance · เน้นยอด",
+  "Branding · เน้นแบรนด์",
   "Hybrid · ทั้งคู่",
   "ORIONS Production / ถ่ายงาน",
   "ยังไม่แน่ใจ / ขอคำแนะนำ",
@@ -45,12 +45,25 @@ const faqs = [
 
 const Contact = () => {
   const [searchParams] = useSearchParams();
+  const presetRaw = (searchParams.get("pkg") || "").trim();
   const presetPkg = (() => {
-    const raw = (searchParams.get("pkg") || "").trim().toLowerCase();
-    if (!raw) return "";
-    return packageOptions.find((o) => o.toLowerCase().startsWith(raw.split(" ")[0])) || "";
+    if (!presetRaw) return "";
+    const first = presetRaw.toLowerCase().split(" ")[0];
+    return packageOptions.find((o) => o.toLowerCase().startsWith(first)) || "";
   })();
-  const [form, setForm] = useState({ name: "", company: "", email: "", pkg: presetPkg, brief: "" });
+  const [form, setForm] = useState({
+    name: "",
+    company: "",
+    email: "",
+    pkg: presetPkg,
+    brief: presetRaw ? `สนใจแพ็กเกจ ${presetRaw} — ขอรายละเอียดและใบเสนอราคา` : "",
+  });
+
+  // Came from a package card → jump straight to the form (just type name + email + send)
+  useEffect(() => {
+    if (presetRaw) document.getElementById("brief")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const [errors, setErrors] = useState<FieldErrors>({});
   const [submitting, setSubmitting] = useState(false);
   const [hp, setHp] = useState(""); // honeypot — humans never fill this

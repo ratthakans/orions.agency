@@ -65,16 +65,15 @@ const services = [
 ];
 
 const packages = [
-  { name: "Digital",  goal: "ยอด",    tagline: "Performance, amplified.", price: "฿24,900", bullets: ["ยิงแอด Meta + TikTok ดูแลทุกวัน", "AI แตกครีเอทีฟทดสอบหลายสิบแบบ", "90-Day Promise"] },
-  { name: "Hybrid",   goal: "ทั้งคู่", tagline: "Both worlds, at once.",   price: "฿32,900", bullets: ["ได้ทั้งยิงแอด + สร้างแบรนด์", "กลยุทธ์ 2 ชั้น การตลาด + ครีเอทีฟ", "90-Day + Brand Lift Promise"], featured: true },
-  { name: "Boutique", goal: "แบรนด์", tagline: "Stories, refined.",       price: "฿24,900", bullets: ["ระบบแบรนด์ + CI / Guidelines", "คอนเทนต์แบรนด์ + ถ่าย creative-directed", "Brand Lift Promise"] },
+  { name: "Performance", goal: "ยอด",    tagline: "Performance, amplified.", price: "฿24,900", bullets: ["ยิงแอด Meta + TikTok ดูแลทุกวัน", "AI แตกครีเอทีฟทดสอบหลายสิบแบบ", "คอนเทนต์ + ถ่าย + รายงานผล"] },
+  { name: "Hybrid",      goal: "ทั้งคู่", tagline: "Both worlds, at once.",   price: "฿32,900", bullets: ["ได้ทั้งยิงแอด + สร้างแบรนด์", "Mini Brand CI + กลยุทธ์ 2 ชั้น", "AI optimization + production"], featured: true },
+  { name: "Branding",    goal: "แบรนด์", tagline: "Stories, refined.",       price: "฿24,900", bullets: ["Mini Brand CI for Social → ระบบเต็ม", "คอนเทนต์แบรนด์ + ถ่าย creative-directed", "SEO + seeding / KOL"] },
 ];
 
 const faqs = [
   { q: "ORIONS ทำอะไรบ้าง?", a: "เรารวม Brand Strategy · Creative Production · Social Media Marketing ไว้ในทีมเดียว — ตั้งแต่หาเรื่องที่ใช่ ทำให้เห็น ไปจนทำให้ดังและวัดได้." },
   { q: "เริ่มทำงานกับเรายังไง?", a: "เริ่มได้ 2 ทาง — ทำ Brand Audit 3 นาทีเพื่อรู้จุดอ่อนก่อน หรือทักมาคุย Discovery Call 45 นาทีฟรี เล่าโจทย์และเงื่อนไขมาได้เลย." },
   { q: "ราคาเริ่มที่เท่าไหร่?", a: "แพ็กเกจรายเดือนเริ่มที่ ฿24,900 (ยังไม่รวม VAT · ไม่รวม ad spend) เลือก track และขนาดทีมได้ตามเป้าหมาย — ดูได้ที่หน้า Package." },
-  { q: "การันตีผลไหม?", a: "เราพูดตรง — ไม่การันตีตัวเลขลอย ๆ แต่มี 90-Day Promise และ Brand Lift Promise: ถ้าไม่ถึงเป้าที่ตกลงกัน เราเติมงานให้ฟรี 1 เดือน." },
 ];
 
 /** Decorative 6-axis radar — teaser for the Brand Audit (illustrative shape, not a real score). */

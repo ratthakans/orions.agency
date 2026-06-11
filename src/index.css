@@ -25,40 +25,40 @@
 
 @layer base {
   :root {
-    /* ØRIONS — Dark (Alpha Growth): Black Russian bg / Snow ink / Cinnabar accent */
-    --background: 0 0% 5.5%;            /* #0E0E0E Black Russian */
-    --foreground: 60 33% 98%;          /* #FDFDF9 Snow */
+    /* ØRIONS — Light (Anthropic-calm): warm Ivory bg / warm near-black ink / Cinnabar accent */
+    --background: 43 33% 97%;           /* #FAF8F2 warm ivory */
+    --foreground: 36 9% 11%;            /* #1F1D1A warm near-black */
 
-    --surface: 0 0% 7.8%;              /* #141414 soft band */
-    --surface-foreground: 60 33% 98%;
-    --surface-2: 0 0% 9.4%;            /* #181818 card */
+    --surface: 42 28% 94%;             /* #F2EFE7 soft band */
+    --surface-foreground: 36 9% 11%;
+    --surface-2: 44 24% 91%;           /* #ECE7DC elevated card */
 
-    --card: 0 0% 9.4%;                 /* #181818 */
-    --card-foreground: 60 33% 98%;
+    --card: 43 38% 98%;                /* #FCFBF6 card */
+    --card-foreground: 36 9% 11%;
 
-    --popover: 0 0% 7.8%;
-    --popover-foreground: 60 33% 98%;
+    --popover: 43 38% 98%;
+    --popover-foreground: 36 9% 11%;
 
-    --primary: 60 33% 98%;
-    --primary-foreground: 0 0% 5.5%;
+    --primary: 36 9% 11%;
+    --primary-foreground: 43 33% 97%;
 
-    --secondary: 0 0% 15.3%;
-    --secondary-foreground: 60 33% 98%;
+    --secondary: 42 28% 94%;
+    --secondary-foreground: 36 9% 11%;
 
-    --muted: 0 0% 15.3%;
-    --muted-foreground: 60 5% 65%;     /* brightened for readability on dark */
+    --muted: 42 28% 94%;
+    --muted-foreground: 38 6% 42%;     /* #706C64 warm gray */
 
-    /* Cinnabar — accent #EB5939 */
-    --accent: 11 81% 57%;
-    --accent-foreground: 0 0% 5.5%;
+    /* Cinnabar — accent #EB5939 (used sparingly) */
+    --accent: 11 81% 55%;
+    --accent-foreground: 43 33% 97%;
 
     --destructive: 0 72% 48%;
-    --destructive-foreground: 60 33% 98%;
+    --destructive-foreground: 43 33% 97%;
 
-    --border: 0 0% 15.3%;              /* #272727 line */
-    --border-soft: 0 0% 15.3%;
-    --input: 0 0% 15.3%;
-    --ring: 11 81% 57%;
+    --border: 40 16% 86%;              /* warm hairline */
+    --border-soft: 40 16% 88%;
+    --input: 40 16% 84%;
+    --ring: 11 81% 55%;
 
     --radius: 16px;
 
@@ -97,9 +97,9 @@
   /* Editorial serif display — Latin in Newsreader, Thai falls back to IBM Plex Sans Thai */
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Newsreader', 'IBM Plex Sans Thai', Georgia, serif;
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    line-height: 1.05;
+    font-weight: 500;                 /* calmer display weight (Anthropic-style) */
+    letter-spacing: -0.018em;
+    line-height: 1.08;
     text-wrap: balance;
     font-optical-sizing: auto;
   }
@@ -459,11 +459,9 @@
   .section-pad { padding-top: 5rem; padding-bottom: 5rem; }
   @media (min-width: 768px) { .section-pad { padding-top: 7rem; padding-bottom: 7rem; } }
 
-  /* === Section "ink" mode — now a subtle elevated dark band (base is already dark) === */
+  /* === Section "ink" mode — now a calm warm band (light theme; no dark blocks) === */
   .section-ink {
-    background-color: hsl(var(--surface-2));
-    --surface: 0 0% 11%;
-    --card: 0 0% 12.5%;
+    background-color: hsl(var(--surface));
   }
 
   /* Legacy gradient utilities — flat ink */

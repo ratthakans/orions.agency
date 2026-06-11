@@ -5,7 +5,6 @@ import SEO from "@/components/SEO";
 import SectionHeading from "@/components/ui/SectionHeading";
 import BadgeChip from "@/components/ui/BadgeChip";
 import CTABand from "@/components/CTABand";
-import SimpleMarquee from "@/components/SimpleMarquee";
 import Magnetic from "@/components/Magnetic";
 import HeroHeadline from "@/components/HeroHeadline";
 import { caseStudies } from "@/data/caseStudies";
@@ -19,15 +18,6 @@ const testimonials = [
   { quote: "ข้อความรับรองจากลูกค้าจะอยู่ตรงนี้ — เล่าถึงการทำงานกับ ØRIONS ภายใต้เงื่อนไขจริงของแบรนด์ และผลที่เกิดขึ้น.", who: "ผู้บริหารแบรนด์", org: "[ชื่อแบรนด์ · ลูกค้าจริง]" },
   { quote: "พื้นที่สำหรับคำพูดจริงของลูกค้า — เน้นว่าทีมเข้าใจโจทย์ที่มีกรอบ และ refine จนออกมาคม.", who: "Head of Marketing", org: "[ชื่อแบรนด์ · ลูกค้าจริง]" },
   { quote: "คำรับรองตัวอย่าง — สื่อถึงความตรงไปตรงมาและการส่งงานเป็นทีมเดียวจบ.", who: "Founder", org: "[ชื่อแบรนด์ · ลูกค้าจริง]" },
-];
-
-const marquee = [
-  "Stories, refined.",
-  "Brand Strategy",
-  "Creative Production",
-  "Social Media Marketing",
-  "Constraint is the brief",
-  "Bangkok · Est. 2026",
 ];
 
 // One sharp line per card — the full version lives on /about
@@ -123,13 +113,6 @@ const Index = () => (
         <span className="relative block w-px h-10 bg-foreground/15 overflow-hidden">
           <span className="absolute inset-x-0 top-0 h-1/2 bg-cinnabar animate-[scrollcue_1.8s_ease-in-out_infinite]" />
         </span>
-      </div>
-    </section>
-
-    {/* — BRAND TICKER */}
-    <section className="section-ink border-t border-foreground/15 overflow-hidden">
-      <div className="py-4 md:py-5">
-        <SimpleMarquee items={marquee} duration={34} />
       </div>
     </section>
 

@@ -23,7 +23,7 @@ const tracks = [
     mindset: "คิดแบบนักการตลาด", sales: 70, brand: 30,
     forWhat: "อยากได้ยอดเดี๋ยวนี้ วัดเป็นตัวเลข",
     prices: { S: "฿24,900", M: "฿49,900", L: "฿99,900" } as Record<Size, string>,
-    sub: { S: "3 เดือน · แอดถึง ฿50k", M: "3 เดือน · แอดถึง ฿120k", L: "6 เดือน · แอดถึง ฿250k" } as Record<Size, string>,
+    sub: { S: "3 เดือน · แอดถึง ฿30k", M: "3 เดือน · แอดถึง ฿70k", L: "6 เดือน · แอดถึง ฿150k" } as Record<Size, string>,
     points: [
       "ยิงแอด Meta + TikTok ดูแลทุกวัน (ไซส์ใหญ่ +Google +LINE)",
       "AI แตกครีเอทีฟทดสอบหลายสิบแบบต่อเดือน",
@@ -35,7 +35,7 @@ const tracks = [
     mindset: "คิดแบบครีเอทีฟ", sales: 30, brand: 70,
     forWhat: "อยากให้แบรนด์ถูกจำและถูกเลือก",
     prices: { S: "฿24,900", M: "฿49,900", L: "฿99,900" } as Record<Size, string>,
-    sub: { S: "3 เดือน · แอดถึง ฿30k", M: "3 เดือน · แอดถึง ฿30k", L: "6 เดือน · แอดถึง ฿30k" } as Record<Size, string>,
+    sub: { S: "3 เดือน · แอดถึง ฿20k", M: "3 เดือน · แอดถึง ฿20k", L: "6 เดือน · แอดถึง ฿20k" } as Record<Size, string>,
     points: [
       "Mini Brand CI for Social → ระบบแบรนด์เต็ม (ไซส์ใหญ่)",
       "คอนเทนต์แบรนด์ + ถ่าย creative-directed",
@@ -47,7 +47,7 @@ const tracks = [
     mindset: "การตลาด + ครีเอทีฟ", sales: 50, brand: 50,
     forWhat: "อยากโตเร็วและยั่งยืนพร้อมกัน",
     prices: { S: "฿32,900", M: "฿64,900", L: "฿129,900" } as Record<Size, string>,
-    sub: { S: "3 เดือน · แอดถึง ฿50k", M: "3 เดือน · แอดถึง ฿120k", L: "6 เดือน · แอดถึง ฿250k" } as Record<Size, string>,
+    sub: { S: "3 เดือน · แอดถึง ฿30k", M: "3 เดือน · แอดถึง ฿70k", L: "6 เดือน · แอดถึง ฿150k" } as Record<Size, string>,
     points: [
       "ได้ทั้งยิงแอด + สร้างแบรนด์",
       "Mini Brand CI for Social + กลยุทธ์ 2 ชั้น",
@@ -80,9 +80,9 @@ const compareGroups: { group: string; rows: Cmp[] }[] = [
       Hybrid: { S: "Meta · TikTok", M: "Meta · TikTok", L: "+ เพิ่มแพลตฟอร์ม" },
     }},
     { label: "บริหารแอด (เพดาน)", info: "เราดูแล/บริหารแอดให้ฟรีจนถึงงบเพดานนี้ (เอเจนซีทั่วไปคิด 10–20% ของงบ) — ส่วนค่ายิงแอดจริง (ad spend) ลูกค้าจ่ายเอง", size: true, best: ["Performance", "Hybrid"], v: {
-      Performance: { S: "฿50k", M: "฿120k", L: "฿250k" },
-      Branding: { S: "฿30k", M: "฿30k", L: "฿30k" },
-      Hybrid: { S: "฿50k", M: "฿120k", L: "฿250k" },
+      Performance: { S: "฿30k", M: "฿70k", L: "฿150k" },
+      Branding: { S: "฿20k", M: "฿20k", L: "฿20k" },
+      Hybrid: { S: "฿30k", M: "฿70k", L: "฿150k" },
     }},
     { label: "AI optimization", info: "ระบบ AI ปรับแอดอัตโนมัติให้คุ้มงบที่สุด (ไซส์ L)", best: ["Performance", "Hybrid"], v: { Performance: "ไซส์ L", Branding: "—", Hybrid: "ไซส์ L" } },
   ]},
@@ -119,11 +119,17 @@ const compareGroups: { group: string; rows: Cmp[] }[] = [
 const addons = [
   { k: "Ads Static / Video", v: "฿600 / ฿2,500", info: "ครีเอทีฟแอดเพิ่มต่อชิ้น — ภาพนิ่ง / วิดีโอ สำหรับยิงโฆษณา" },
   { k: "UGC / Review content", v: "฿2,500", info: "คอนเทนต์รีวิว/ใช้จริงจากผู้ใช้ ดูธรรมชาติ น่าเชื่อถือ" },
+  { k: "KOL / Influencer Management", v: "เริ่ม ฿8,000 / แคมเปญ", info: "จัดหา ดีล และดูแล KOL / micro-influencer ให้ตรงกลุ่ม พร้อมสรุปผล" },
   { k: "Google Ads Management", v: "฿7,900 / ด.", info: "ดูแลและยิงโฆษณา Google Search & Display" },
   { k: "LINE Ads Management", v: "฿6,900 / ด.", info: "ดูแลและยิงโฆษณาบน LINE" },
-  { k: "Landing page", v: "฿4,000 / หน้า", info: "หน้าเว็บรับแคมเปญ — ปิดการขาย / เก็บลีด" },
-  { k: "SEO Article", v: "฿3,500 / บทความ", info: "บทความ SEO ให้ลูกค้าเจอคุณบน Google" },
+  { k: "Motion Graphic / Explainer", v: "฿6,500 / ชิ้น", info: "โมชั่นกราฟิกอธิบายสินค้า/บริการ — ลื่น เข้าใจง่าย" },
+  { k: "Photo Retouching", v: "฿800 / ภาพ", info: "รีทัชภาพระดับโฆษณา — สี ผิว แสง เก็บดีเทลครบ" },
   { k: "Seeding / IO (10 โพสต์)", v: "฿4,500 / ชุด", info: "กระจายโพสต์ในกลุ่ม/เพจ สร้างกระแสและความน่าเชื่อ" },
+  { k: "SEO Article", v: "฿3,500 / บทความ", info: "บทความ SEO ให้ลูกค้าเจอคุณบน Google" },
+  { k: "Landing page", v: "฿4,000 / หน้า", info: "หน้าเว็บรับแคมเปญ — ปิดการขาย / เก็บลีด" },
+  { k: "Corporate Website", v: "เริ่ม ฿39,000", info: "เว็บไซต์องค์กรหลายหน้า — ออกแบบ + พัฒนา responsive" },
+  { k: "Email / CRM Automation", v: "เริ่ม ฿9,000", info: "วางระบบอีเมล/CRM อัตโนมัติ — ดูแลลูกค้าและกระตุ้นยอดซ้ำ" },
+  { k: "Logo Design", v: "เริ่ม ฿12,000", info: "ออกแบบโลโก้ + แนวทางใช้งานเบื้องต้น" },
   { k: "Hero Brand Film", v: "฿25,000", info: "หนังแบรนด์ชิ้นเอก สำหรับเปิดตัว / วางภาพลักษณ์" },
   { k: "CI / Brand Guideline", v: "เริ่ม ฿35,000", info: "คู่มืออัตลักษณ์แบรนด์ — โลโก้ สี ฟอนต์ การใช้งาน" },
 ];
@@ -363,7 +369,7 @@ const PricingSection = () => {
 
 const priceOf = (name: string, size: Size) => tracks.find((t) => t.name === name)?.prices[size] || "";
 const priceNum = (name: string, size: Size) => parseInt((priceOf(name, size) || "").replace(/[^0-9]/g, ""), 10) || 0;
-const adCapOf = (name: string, size: Size) => (name === "Branding" ? 30000 : size === "L" ? 250000 : size === "M" ? 120000 : 50000);
+const adCapOf = (name: string, size: Size) => (name === "Branding" ? 20000 : size === "L" ? 150000 : size === "M" ? 70000 : 30000);
 const fmtBaht = (n: number) => "฿" + n.toLocaleString("en-US");
 const fmtK = (n: number) => (n >= 1000 ? "฿" + Math.round(n / 1000) + "k" : "฿" + n);
 
@@ -393,9 +399,9 @@ const BudgetCalculator = () => {
 
   // out-of-range → custom; otherwise size by budget capacity
   const tooSmall = budget > 0 && budget < 24900;
-  const tooBig = budget > 350000;
+  const tooBig = budget > 300000;
   const isCustom = ready && (tooSmall || tooBig);
-  const recSize: Size = budget >= 170000 ? "L" : budget >= 75000 ? "M" : "S";
+  const recSize: Size = budget >= 130000 ? "L" : budget >= 58000 ? "M" : "S";
   const pkgName = goal && !isCustom ? `${goal} · ${recSize}` : "";
   const feeNum = goal && !isCustom ? priceNum(goal, recSize) : 0;
   const cap = goal && !isCustom ? adCapOf(goal, recSize) : 0;

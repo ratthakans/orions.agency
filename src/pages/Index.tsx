@@ -6,6 +6,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import CTABand from "@/components/CTABand";
 import Magnetic from "@/components/Magnetic";
 import HeroHeadline from "@/components/HeroHeadline";
+import Slash from "@/components/Slash";
 import { caseStudies } from "@/data/caseStudies";
 
 const selectedWork = caseStudies;
@@ -31,6 +32,9 @@ const Index = () => (
       <div aria-hidden className="hero-texture absolute inset-0 z-0 pointer-events-none" />
       <div className="relative z-10 max-w-[1100px] mx-auto w-full flex-1 flex flex-col justify-center items-center text-center pt-24 md:pt-32 pb-20 md:pb-28">
         <Reveal>
+          <div className="mb-7 flex justify-center"><Slash className="text-[clamp(46px,7vw,84px)]" /></div>
+        </Reveal>
+        <Reveal>
           <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">Creative Agency · Bangkok</p>
         </Reveal>
         <div className="mt-7">
@@ -52,6 +56,11 @@ const Index = () => (
               <span>เริ่มต้นบทสนทนา</span><ArrowUpRight className="w-4 h-4" />
             </Link>
           </div>
+        </Reveal>
+        <Reveal delay={0.6}>
+          <p className="mt-11 font-mono text-[10px] tracking-[0.28em] uppercase text-muted-foreground">
+            Energetic · Strategic · Profound
+          </p>
         </Reveal>
       </div>
     </section>

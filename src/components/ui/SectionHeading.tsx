@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import Reveal from "@/components/Reveal";
+import Slash from "@/components/Slash";
 
 interface Props {
   eyebrow?: string;
@@ -19,7 +20,7 @@ const SectionHeading = ({ eyebrow, title, intro, center = false, lang, className
   <Reveal className={`${center ? "mx-auto text-center" : ""} max-w-2xl ${className}`}>
     {eyebrow && (
       <div className={`inline-flex items-center gap-3 font-mono text-[10px] tracking-[0.22em] uppercase leading-none ${center ? "justify-center" : ""}`}>
-        <span aria-hidden className="block h-px w-7 bg-cinnabar shrink-0" />
+        <Slash className="text-[15px]" />
         <span className="text-muted-foreground">{eyebrow}</span>
       </div>
     )}

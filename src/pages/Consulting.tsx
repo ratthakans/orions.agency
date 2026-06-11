@@ -2,7 +2,6 @@ import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
 import SectionHeading from "@/components/ui/SectionHeading";
-import BadgeChip from "@/components/ui/BadgeChip";
 import CTABand from "@/components/CTABand";
 
 const modes = [
@@ -44,9 +43,7 @@ const Consulting = () => (
     {/* 01 — HERO */}
     <section className="section-ink px-6 md:px-10 pt-28 md:pt-32 pb-16 md:pb-24 border-b border-foreground/15">
       <div className="max-w-[1280px] mx-auto">
-        <Reveal>
-          <BadgeChip>Consulting · Advisory · Fractional CD</BadgeChip>
-        </Reveal>
+        <SectionLabel label="Consulting · Advisory · Fractional CD" />
         <Reveal delay={0.1}>
           <h1 className="mt-6 h-display-lg max-w-[16ch]">
             Creative direction, <em className="text-cinnabar">on call.</em>

@@ -7,7 +7,6 @@ import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
 import SectionHeading from "@/components/ui/SectionHeading";
-import BadgeChip from "@/components/ui/BadgeChip";
 import FAQ from "@/components/FAQ";
 import { supabase } from "@/integrations/supabase/client";
 import { track } from "@/lib/analytics";
@@ -333,7 +332,7 @@ const Diagnostic = () => {
 
           {/* What you get */}
           <Reveal delay={0.3}>
-            <BadgeChip className="mt-12">สิ่งที่คุณจะได้</BadgeChip>
+            <SectionLabel label="สิ่งที่คุณจะได้" reveal={false} className="mt-12" />
             <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
                 { n: "01", t: "คะแนนเทียบ 6 มิติ", d: "เห็นภาพรวมว่าแบรนด์แข็ง/อ่อนตรงไหน" },

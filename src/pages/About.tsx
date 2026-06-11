@@ -1,6 +1,7 @@
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionHeading from "@/components/ui/SectionHeading";
+import SectionLabel from "@/components/SectionLabel";
 import CTABand from "@/components/CTABand";
 
 const principles = [
@@ -45,9 +46,7 @@ const About = () => (
     {/* 01 — WHAT WE BELIEVE */}
     <section className="section-ink px-6 md:px-10 border-b border-foreground/15">
       <div className="max-w-[1280px] mx-auto pt-28 md:pt-32 pb-20 md:pb-28">
-        <Reveal>
-          <div className="eyebrow-mono">What we believe</div>
-        </Reveal>
+        <SectionLabel label="What we believe" />
         <Reveal delay={0.1}>
           <h1 lang="th" className="mt-8 h-display-lg max-w-[20ch] thai-wrap">
             พูดให้ดังที่สุด ไม่เท่าพูดให้ <em className="text-cinnabar">ถูก.</em>

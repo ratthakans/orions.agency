@@ -5,7 +5,7 @@ import { z } from "zod";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionHeading from "@/components/ui/SectionHeading";
-import BadgeChip from "@/components/ui/BadgeChip";
+import SectionLabel from "@/components/SectionLabel";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { track } from "@/lib/analytics";
@@ -113,9 +113,7 @@ const Contact = () => {
       {/* 01 — HERO + inline timeline */}
       <section className="section-ink px-6 md:px-10">
         <div className="max-w-[1280px] mx-auto pt-28 md:pt-32 pb-20 md:pb-24">
-          <Reveal>
-            <BadgeChip>Start a conversation</BadgeChip>
-          </Reveal>
+          <SectionLabel label="Start a conversation" />
           <Reveal delay={0.05}>
             <h1 lang="th" className="mt-8 h-display-lg max-w-[16ch] thai-wrap">
               เล่าโจทย์มา — เราช่วย <em className="text-cinnabar">refine</em> มัน.

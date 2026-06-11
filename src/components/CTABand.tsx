@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
+import SectionLabel from "@/components/SectionLabel";
 
 interface Action {
   label: string;
@@ -30,7 +31,7 @@ const CTABand = ({ eyebrow, title, subtitle, primary, secondary, tone = "snow", 
           <div className="card-accent p-8 md:p-14">
             <div className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr] gap-10 md:gap-16 items-center">
               <div>
-                {eyebrow && <p className="eyebrow-mono">{eyebrow}</p>}
+                {eyebrow && <SectionLabel label={eyebrow} reveal={false} />}
                 <h2 className="mt-5 h-display-md max-w-[22ch]">{title}</h2>
                 {subtitle && (
                   <p className="mt-5 max-w-[640px] font-serif text-[16px] md:text-[20px] leading-[1.5] text-muted-foreground">

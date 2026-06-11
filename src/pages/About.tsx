@@ -93,19 +93,12 @@ const About = () => (
           title={<>ทีมที่อยู่กับ <em className="text-cinnabar">งานของคุณ.</em></>}
           intro="ทีมเดียวตั้งแต่กลยุทธ์ถึงการผลิต — คนที่อยู่กับงานของคุณจริง ไม่ใช่สายพาน."
         />
-        <div className="mt-12 grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4">
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-x-12 border-t border-foreground/15">
           {team.map((p, i) => (
-            <Reveal key={p.role} delay={(i % 6) * 0.04}>
-              <div className="card-soft p-3.5 md:p-4 h-full">
-                <div
-                  aria-hidden="true"
-                  className="aspect-square w-full rounded-lg bg-surface-2 flex items-center justify-center num-display text-cinnabar text-[18px]"
-                >
-                  {p.initials}
-                </div>
-                <div className="mt-2.5 font-mono text-[9px] tracking-[0.1em] uppercase text-cinnabar leading-[1.35]">
-                  {p.role}
-                </div>
+            <Reveal key={p.role} delay={(i % 2) * 0.04}>
+              <div className="flex items-baseline gap-5 py-4 border-b border-foreground/15">
+                <span className="font-mono text-[10px] tracking-[0.18em] text-cinnabar tabular-nums shrink-0 pt-1.5">{String(i + 1).padStart(2, "0")}</span>
+                <span className="font-serif text-[19px] md:text-[22px] tracking-[-0.01em] text-foreground/90">{p.role}</span>
               </div>
             </Reveal>
           ))}

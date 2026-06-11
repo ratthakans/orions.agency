@@ -232,7 +232,7 @@ const Diagnostic = () => {
   const [leadErrors, setLeadErrors] = useState<Record<string, string>>({});
   const [leadSending, setLeadSending] = useState(false);
   const [leadHp, setLeadHp] = useState(""); // honeypot
-  const [unlocked, setUnlocked] = useState(false); // result revealed after email gate
+  const [leadSent, setLeadSent] = useState(false); // optional lead form submitted (no gate — result is free)
 
   const canContinue = answers[step] != null;
   const next = () => {
@@ -272,7 +272,7 @@ const Diagnostic = () => {
 
   const submitLead = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (leadHp) { setUnlocked(true); return; } // bot — unlock without storing
+    if (leadHp) { setLeadSent(true); return; } // bot — swallow silently
     const parsed = leadSchema.safeParse(lead);
     if (!parsed.success) {
       const errs: Record<string, string> = {};
@@ -301,8 +301,8 @@ const Diagnostic = () => {
       return;
     }
     track("AuditLeadSubmit", { score: overallPct, tier: result.tier });
-    setUnlocked(true);
-    toast.success("ปลดล็อกผลแล้ว — เลื่อนดูคะแนนแต่ละมิติได้เลย");
+    setLeadSent(true);
+    toast.success("ส่งแล้ว — เราจะอ่านผลของคุณก่อน แล้วติดต่อกลับเพื่อนัดคุย");
   };
 
   return (
@@ -430,49 +430,8 @@ const Diagnostic = () => {
             </div>
           )}
 
-          {/* GATE — email unlocks the detailed breakdown */}
-          {isResult && !unlocked && (
-            <div className="mt-12 max-w-[640px] mx-auto text-center">
-              <div className="font-thai text-[11px] tracking-[0.02em] text-cinnabar">— ดูเชิงลึก</div>
-              <h2 lang="th" className="mt-6 h-display-sm">
-                เห็นคะแนนแล้ว — <em className="text-cinnabar">ลงรายละเอียด</em> ต่อไหม?
-              </h2>
-              <p lang="th" className="mt-4 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">
-                กรอกอีเมลเพื่อปลดล็อก: คะแนนรายมิติ 6 ด้าน · จุดอ่อน 3 อันดับแรก · ทางที่เหมาะกับคุณ — แล้วเรานัดคุยผลให้.
-              </p>
-              <form onSubmit={submitLead} noValidate className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-5 text-left">
-                {[
-                  { k: "name",  label: "ชื่อ",   ph: "ชื่อของคุณ",       span: "sm:col-span-1" },
-                  { k: "brand", label: "แบรนด์", ph: "ชื่อแบรนด์/บริษัท", span: "sm:col-span-1" },
-                  { k: "email", label: "อีเมล",  ph: "you@brand.com",   span: "sm:col-span-2" },
-                ].map((f) => (
-                  <div key={f.k} className={f.span}>
-                    <label lang="th" className="font-thai text-[11px] tracking-[0.02em] text-foreground/70">{f.label}</label>
-                    <input
-                      type={f.k === "email" ? "email" : "text"}
-                      value={lead[f.k as keyof typeof lead]}
-                      onChange={(e) => setLead({ ...lead, [f.k]: e.target.value })}
-                      placeholder={f.ph}
-                      className="w-full bg-transparent border-b border-foreground/40 px-0 py-3 text-[15px] text-foreground placeholder:text-foreground/40 focus:outline-none focus:border-cinnabar transition-colors font-thai"
-                    />
-                    {leadErrors[f.k] && <p lang="th" className="mt-2 font-thai text-[11px] tracking-[0.02em] text-destructive">{leadErrors[f.k]}</p>}
-                  </div>
-                ))}
-                <div aria-hidden className="hidden" style={{ position: "absolute", left: "-9999px" }}>
-                  <label>Website<input type="text" tabIndex={-1} autoComplete="off" value={leadHp} onChange={(e) => setLeadHp(e.target.value)} /></label>
-                </div>
-                <button type="submit" disabled={leadSending} className="btn-accent sm:col-span-2 mt-2 justify-center disabled:opacity-50">
-                  <span>{leadSending ? "กำลังปลดล็อก…" : "ดูผลของฉัน"}</span><ArrowUpRight className="w-4 h-4" />
-                </button>
-              </form>
-              <p lang="th" className="mt-4 font-thai text-[12px] text-muted-foreground">
-                ไม่สแปม · ใช้สำหรับส่งผลและนัดคุยเท่านั้น · <Link to="/privacy" className="underline hover:text-cinnabar">นโยบายความเป็นส่วนตัว</Link>
-              </p>
-            </div>
-          )}
-
-          {/* DETAILS — gated breakdown */}
-          {isResult && unlocked && (
+          {/* DETAILS — full breakdown, free for everyone who finishes (no email gate) */}
+          {isResult && (
             <div className="mt-16 text-center">
               {/* Radar — 6 axes */}
               {(() => {
@@ -606,30 +565,69 @@ const Diagnostic = () => {
                 );
               })()}
 
-              {/* Book the audit call (email already captured at the gate) */}
+              {/* Optional — leave an email so we read your result before the call (no gate; the full breakdown above is free) */}
               <div className="mt-16 text-left max-w-[860px] mx-auto card-soft hover:translate-y-0 hover:shadow-none p-8 md:p-12">
                 <div className="font-thai text-[11px] tracking-[0.02em] text-cinnabar flex items-center gap-3">
                   <span className="block w-6 h-px bg-cinnabar" />
-                  ขั้นต่อไป
+                  ขั้นต่อไป · ไม่บังคับ
                 </div>
-                <div className="mt-6 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-                  <div>
-                    <h3 lang="th" className="h-display-sm max-w-[20ch]">
-                      นัดคุยผล <em className="text-cinnabar">45 นาที</em> ฟรี.
-                    </h3>
-                    <p lang="th" className="mt-4 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground max-w-[52ch]">
-                      เราอ่านผลของคุณมาก่อน แล้วชวนคุยว่าจะเริ่ม refine ตรงไหน — เห็นคะแนนนี้ติดไปด้วย คุยได้ตรงจุด ไม่มีข้อผูกมัด.
-                    </p>
+                {leadSent ? (
+                  <div className="mt-6 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+                    <div>
+                      <h3 lang="th" className="h-display-sm max-w-[20ch]">ได้รับแล้ว — <em className="text-cinnabar">เราจะติดต่อกลับ.</em></h3>
+                      <p lang="th" className="mt-4 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground max-w-[52ch]">
+                        เราอ่านผลของคุณก่อน แล้วทักกลับไปนัดคุย — หรือจะกดนัดเลยตอนนี้ก็ได้.
+                      </p>
+                    </div>
+                    <Link to="/contact?pkg=ยังไม่แน่ใจ" onClick={() => track("BookClick", { from: "result" })} className="btn-accent shrink-0 inline-flex">
+                      <span>นัดคุย 45 นาที</span><Calendar className="w-4 h-4" />
+                    </Link>
                   </div>
-                  {/* Cal.com link disabled until the real event URL exists (CAL_URL is a placeholder) — route to contact instead */}
-                  <Link
-                    to="/contact?pkg=ยังไม่แน่ใจ"
-                    onClick={() => track("BookClick", { from: "result" })}
-                    className="btn-accent shrink-0 inline-flex"
-                  >
-                    <span>นัดคุย 45 นาที</span><Calendar className="w-4 h-4" />
-                  </Link>
-                </div>
+                ) : (
+                  <>
+                    <div className="mt-6 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+                      <div>
+                        <h3 lang="th" className="h-display-sm max-w-[22ch]">
+                          อยากให้เรา <em className="text-cinnabar">นัดคุยผล</em> 45 นาที ฟรี?
+                        </h3>
+                        <p lang="th" className="mt-4 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground max-w-[52ch]">
+                          ทิ้งอีเมลไว้ เราอ่านผลของคุณก่อนแล้วทักกลับ — คุยได้ตรงจุด ไม่มีข้อผูกมัด · หรือกดนัดเลยก็ได้.
+                        </p>
+                      </div>
+                      <Link to="/contact?pkg=ยังไม่แน่ใจ" onClick={() => track("BookClick", { from: "result" })} className="btn-ghost shrink-0 inline-flex">
+                        <span>นัดเลย</span><Calendar className="w-4 h-4" />
+                      </Link>
+                    </div>
+                    <form onSubmit={submitLead} noValidate className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-5">
+                      {[
+                        { k: "name",  label: "ชื่อ",   ph: "ชื่อของคุณ",       span: "sm:col-span-1" },
+                        { k: "brand", label: "แบรนด์", ph: "ชื่อแบรนด์/บริษัท", span: "sm:col-span-1" },
+                        { k: "email", label: "อีเมล",  ph: "you@brand.com",   span: "sm:col-span-2" },
+                      ].map((f) => (
+                        <div key={f.k} className={f.span}>
+                          <label lang="th" className="font-thai text-[11px] tracking-[0.02em] text-foreground/70">{f.label}</label>
+                          <input
+                            type={f.k === "email" ? "email" : "text"}
+                            value={lead[f.k as keyof typeof lead]}
+                            onChange={(e) => setLead({ ...lead, [f.k]: e.target.value })}
+                            placeholder={f.ph}
+                            className="w-full bg-transparent border-b border-foreground/40 px-0 py-3 text-[15px] text-foreground placeholder:text-foreground/40 focus:outline-none focus:border-cinnabar transition-colors font-thai"
+                          />
+                          {leadErrors[f.k] && <p lang="th" className="mt-2 font-thai text-[11px] tracking-[0.02em] text-destructive">{leadErrors[f.k]}</p>}
+                        </div>
+                      ))}
+                      <div aria-hidden className="hidden" style={{ position: "absolute", left: "-9999px" }}>
+                        <label>Website<input type="text" tabIndex={-1} autoComplete="off" value={leadHp} onChange={(e) => setLeadHp(e.target.value)} /></label>
+                      </div>
+                      <button type="submit" disabled={leadSending} className="btn-accent sm:col-span-2 mt-2 justify-center disabled:opacity-50">
+                        <span>{leadSending ? "กำลังส่ง…" : "ส่งให้เรานัดคุย"}</span><ArrowUpRight className="w-4 h-4" />
+                      </button>
+                    </form>
+                    <p lang="th" className="mt-4 font-thai text-[12px] text-muted-foreground">
+                      ไม่สแปม · ใช้สำหรับนัดคุยผลเท่านั้น · <Link to="/privacy" className="underline hover:text-cinnabar">นโยบายความเป็นส่วนตัว</Link>
+                    </p>
+                  </>
+                )}
               </div>
 
               <div className="mt-14 flex flex-wrap items-center justify-center gap-8">

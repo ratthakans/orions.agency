@@ -137,39 +137,14 @@ const Services = () => (
       </div>
     </section>
 
-    {/* 03 — HOW WE WORK */}
+    {/* 03 — PROCESS TIMELINE */}
     <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <SectionHeading
-          eyebrow="How we work"
-          lang="th"
-          title={<>จาก hello ขึ้นจริงใน <em className="text-cinnabar">4 สัปดาห์.</em></>}
-          intro="ทำงานเป็นทีมเดียวตั้งแต่กลยุทธ์ถึงการผลิต — ไม่มีไฟล์หลุดกลางทาง ไม่มีความเข้าใจที่หายไประหว่างทีม."
-        />
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-5">
-          {[
-            { n: "i.",   en: "ขัดจนเงา",      th: "craft · ดีไซน์ · ระบบแบรนด์ — refine เรื่องที่จริงของแบรนด์จนคม" },
-            { n: "ii.",  en: "ปรับจนเข้าที่", th: "ทดสอบ · วัดผล · ปรับจริงต่อเนื่อง — ผูกทุกอย่างไว้กับผลที่วัดได้" },
-          ].map((s, i) => (
-            <Reveal key={s.en} delay={i * 0.08}>
-              <div className="card-soft p-10 md:p-12 h-full">
-                <div className="font-serif text-cinnabar text-[24px] leading-none">{s.n}</div>
-                <h3 lang="th" className="mt-8 font-thai text-[24px] md:text-[28px] leading-[1.1] tracking-[-0.01em] font-medium">{s.en}</h3>
-                <p lang="th" className="mt-4 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">{s.th}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    {/* 04 — PROCESS TIMELINE */}
-    <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionHeading
           eyebrow="From hello to live"
           lang="th"
-          title={<>สี่สัปดาห์ · <em className="text-cinnabar">หนึ่งทีม.</em></>}
+          title={<>จาก hello ขึ้นจริงใน <em className="text-cinnabar">4 สัปดาห์.</em></>}
+          intro="ทำงานเป็นทีมเดียวตั้งแต่กลยุทธ์ถึงการผลิต — ไม่มีไฟล์หลุดกลางทาง ไม่มีความเข้าใจที่หายไประหว่างทีม."
         />
         <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {process.map((s, i) => (

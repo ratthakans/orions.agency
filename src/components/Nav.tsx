@@ -55,7 +55,7 @@ const Nav = () => {
               key={l.to}
               to={l.to}
               className={({ isActive }) =>
-                `relative font-serif text-[16px] tracking-normal transition-colors after:absolute after:left-0 after:-bottom-1.5 after:h-px after:bg-cinnabar after:transition-transform after:duration-300 after:w-full ${
+                `relative font-body text-[13px] font-medium tracking-[0.02em] transition-colors after:absolute after:left-0 after:-bottom-1.5 after:h-px after:bg-cinnabar after:transition-transform after:duration-300 after:w-full ${
                   isActive
                     ? "text-foreground after:scale-x-100"
                     : "text-foreground/55 hover:text-foreground after:scale-x-0 hover:after:scale-x-100"
@@ -68,7 +68,7 @@ const Nav = () => {
           <NavLink
             to="/contact"
             className={({ isActive }) =>
-              `font-serif text-[16px] tracking-normal transition-colors ${
+              `font-body text-[13px] font-medium tracking-[0.02em] transition-colors ${
                 isActive ? "text-cinnabar" : "text-foreground/55 hover:text-cinnabar"
               }`
             }

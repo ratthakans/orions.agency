@@ -1,6 +1,6 @@
 import { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowUpRight, Check, Download, Phone, Info } from "lucide-react";
+import { ArrowUpRight, Check, Download, Phone, Info, ChevronDown } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
@@ -233,6 +233,7 @@ const SizeToggle = ({ size, setSize, compact = false }: { size: Size; setSize: (
 
 const PricingSection = () => {
   const [size, setSize] = useState<Size>("S");
+  const [showCompare, setShowCompare] = useState(false);
   return (
     <section className="px-6 md:px-10">
       <div className="max-w-[1280px] mx-auto py-20 md:py-24">
@@ -307,7 +308,7 @@ const PricingSection = () => {
           ราคาไม่รวม VAT 7% · <span className="text-foreground/80">ค่าบริหารแอดเรารวมให้ฟรีจนถึงงบเพดาน — แต่ค่ายิงแอดจริง (ad spend) ลูกค้าจ่ายเอง</span> (เอเจนซีทั่วไปคิดค่าบริหาร 10–20% ของงบ)
         </p>
 
-        {/* Full comparison */}
+        {/* Full comparison — collapsed by default to keep the page light */}
         <div className="mt-20">
           <div className="flex items-end justify-between gap-4 flex-wrap mb-7">
             <div>
@@ -315,17 +316,34 @@ const PricingSection = () => {
               <h3 lang="th" className="mt-4 h-display-sm">เทียบให้เห็นชัด</h3>
             </div>
             <div className="flex items-center gap-3 flex-wrap">
-              <span lang="th" className="font-thai text-[11px] tracking-[0.02em] text-muted-foreground">ขนาด</span>
-              <SizeToggle size={size} setSize={setSize} compact />
+              {showCompare && (
+                <>
+                  <span lang="th" className="font-thai text-[11px] tracking-[0.02em] text-muted-foreground">ขนาด</span>
+                  <SizeToggle size={size} setSize={setSize} compact />
+                </>
+              )}
+              <button
+                type="button"
+                onClick={() => setShowCompare((v) => !v)}
+                aria-expanded={showCompare}
+                className="btn-ghost"
+              >
+                <span lang="th">{showCompare ? "ซ่อนตาราง" : "ดูตารางเทียบ"}</span>
+                <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${showCompare ? "rotate-180" : ""}`} />
+              </button>
             </div>
           </div>
-          <div className="card-soft p-4 md:p-6">
-            <CompareTable size={size} />
-          </div>
-          <p lang="th" className="mt-4 font-thai text-[11px] tracking-[0.02em] text-muted-foreground">
-            <span className="md:hidden">เลื่อนตารางไปทางขวาเพื่อดูครบทุกแพ็ก → · </span>
-            ชี้ที่ <Info className="inline w-3 h-3 -mt-0.5" /> เพื่อดูคำอธิบาย · กด S/M/L ได้ทั้งบนการ์ดและในตาราง
-          </p>
+          {showCompare && (
+            <Reveal>
+              <div className="card-soft p-4 md:p-6">
+                <CompareTable size={size} />
+              </div>
+              <p lang="th" className="mt-4 font-thai text-[11px] tracking-[0.02em] text-muted-foreground">
+                <span className="md:hidden">เลื่อนตารางไปทางขวาเพื่อดูครบทุกแพ็ก → · </span>
+                ชี้ที่ <Info className="inline w-3 h-3 -mt-0.5" /> เพื่อดูคำอธิบาย · กด S/M/L ได้ทั้งบนการ์ดและในตาราง
+              </p>
+            </Reveal>
+          )}
 
           {/* Not in package → talk to sales (custom) */}
           <div className="mt-10 card-soft p-6 md:p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-5">

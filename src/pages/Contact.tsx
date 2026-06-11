@@ -6,7 +6,6 @@ import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionHeading from "@/components/ui/SectionHeading";
 import BadgeChip from "@/components/ui/BadgeChip";
-import FAQ from "@/components/FAQ";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { track } from "@/lib/analytics";
@@ -33,15 +32,6 @@ const packageOptions = [
 const addonOptions = [
   "Google Ads", "LINE Ads", "Landing page", "SEO Article",
   "Seeding / IO", "UGC / Review", "Hero Brand Film", "CI / Brand Guideline",
-];
-
-const faqs = [
-  { q: "เริ่มต้นยังไง?",
-    a: "คุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์และเงื่อนไขมา เราช่วยมองว่าจะ refine มันยังไง. ทักมาที่ hello@orions.agency, โทร 092 390 5464 หรือ LINE @orions ก็ได้." },
-  { q: "ØRIONS ทำงานเร็วแค่ไหน?",
-    a: "ทำงานเป็นทีมเดียวตั้งแต่กลยุทธ์ถึงการผลิต — จาก hello ขึ้นจริงได้ใน 4 สัปดาห์ ขึ้นอยู่กับ scope ของงาน." },
-  { q: "ØRIONS ไม่เหมาะกับใคร?",
-    a: "ถ้าคุณต้องการแค่ยอดให้เร็วที่สุดโดยไม่สนภาพจำระยะยาว, อยากได้คอนเทนต์เยอะที่สุดในราคาถูกที่สุดโดยไม่มีกลยุทธ์ หรือของยังไม่พร้อม — เราจะบอกตรง ๆ และยังไม่รับงานจนกว่าจะพร้อม." },
 ];
 
 const Contact = () => {
@@ -310,17 +300,6 @@ const Contact = () => {
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* 03 — FAQ */}
-      <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
-        <div className="max-w-[1080px] mx-auto py-20 md:py-28">
-          <SectionHeading
-            eyebrow="03 — Before you ask"
-            title={<>The short <em className="text-cinnabar">answers.</em></>}
-          />
-          <div className="mt-14"><FAQ items={faqs} /></div>
         </div>
       </section>
 

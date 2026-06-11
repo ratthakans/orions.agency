@@ -44,9 +44,8 @@ const Consulting = () => (
     {/* 01 — HERO */}
     <section className="section-ink px-6 md:px-10 pt-28 md:pt-32 pb-16 md:pb-24 border-b border-foreground/15">
       <div className="max-w-[1280px] mx-auto">
-        <SectionLabel label="Consulting" />
-        <Reveal delay={0.05}>
-          <div className="mt-8"><BadgeChip>Advisory · Fractional CD</BadgeChip></div>
+        <Reveal>
+          <BadgeChip>Consulting · Advisory · Fractional CD</BadgeChip>
         </Reveal>
         <Reveal delay={0.1}>
           <h1 className="mt-6 h-display-lg max-w-[16ch]">

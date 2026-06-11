@@ -151,7 +151,7 @@
   .body-th      { font-family: 'IBM Plex Sans Thai', system-ui, sans-serif; font-weight: 400; font-size: 16px; line-height: 1.72; letter-spacing: 0.005em; word-break: normal; line-break: auto; overflow-wrap: break-word; text-wrap: pretty; }
   .body-th-lg   { font-family: 'IBM Plex Sans Thai', system-ui, sans-serif; font-weight: 400; font-size: 17px; line-height: 1.72; letter-spacing: 0.005em; word-break: normal; line-break: auto; overflow-wrap: break-word; text-wrap: pretty; }
   .body-muted   { color: hsl(var(--foreground) / 0.85); }
-  .font-brand   { font-family: 'Unbounded', system-ui, sans-serif; font-weight: 700; letter-spacing: 0.01em; text-transform: uppercase; font-optical-sizing: auto; }
+  .font-brand   { font-family: 'Unbounded', system-ui, sans-serif; font-weight: 600; letter-spacing: 0.01em; text-transform: uppercase; font-optical-sizing: auto; }
   /* No font-weight here — let weight utilities (font-medium/bold) compose with it. */
   .font-serif   { font-family: 'Newsreader', 'IBM Plex Sans Thai', Georgia, serif; letter-spacing: -0.02em; text-transform: none; }
   /* Cinnabar italic accents in headlines */

@@ -35,7 +35,7 @@ const Privacy = () => (
     />
 
     <section className="section-ink px-6 md:px-10 pt-28 md:pt-32 pb-16 md:pb-20 border-b border-foreground/15">
-      <div className="max-w-[1080px] mx-auto">
+      <div className="max-w-[1280px] mx-auto">
         <SectionLabel label="Privacy" />
         <Reveal delay={0.1}>
           <h1 lang="th" className="mt-10 h-display-lg max-w-[16ch] thai-wrap">
@@ -51,7 +51,7 @@ const Privacy = () => (
     </section>
 
     <section className="px-6 md:px-10">
-      <div className="max-w-[1080px] mx-auto py-20 md:py-28">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <div className="border-t border-foreground/20">
           {sections.map((s, i) => (
             <Reveal key={s.n} delay={i * 0.05}>

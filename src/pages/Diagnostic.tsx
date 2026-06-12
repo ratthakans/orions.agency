@@ -314,7 +314,7 @@ const Diagnostic = () => {
 
       {/* HERO */}
       <section className="section-ink px-6 md:px-10 pt-28 md:pt-32 pb-16">
-        <div className="max-w-[1080px] mx-auto">
+        <div className="max-w-[1280px] mx-auto">
           <SectionLabel label="The Diagnostic" />
           <Reveal delay={0.1}>
             <h1 lang="th" className="mt-10 h-display-lg max-w-[18ch]">
@@ -352,7 +352,7 @@ const Diagnostic = () => {
 
       {/* WIZARD */}
       <section className="px-6 md:px-10 pb-32">
-        <div className="max-w-[1080px] mx-auto card-soft hover:translate-y-0 hover:shadow-none p-8 md:p-14 min-h-[560px]">
+        <div className="max-w-[1280px] mx-auto card-soft hover:translate-y-0 hover:shadow-none p-8 md:p-14 min-h-[560px]">
           {/* Header */}
           <div className="flex items-center justify-between gap-4 flex-wrap">
             <div className="font-mono text-[11px] tracking-[0.2em] uppercase text-cinnabar font-semibold">
@@ -654,7 +654,7 @@ const Diagnostic = () => {
 
       {/* FAQ */}
       <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
-        <div className="max-w-[1080px] mx-auto py-20 md:py-28">
+        <div className="max-w-[1280px] mx-auto py-20 md:py-28">
           <SectionLabel label="Before you ask" />
           <SectionHeading
             className="mt-10"

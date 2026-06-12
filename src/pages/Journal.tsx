@@ -39,7 +39,7 @@ const Journal = () => (
     />
 
     <section className="px-6 md:px-10">
-      <div className="max-w-[1080px] mx-auto pt-28 md:pt-32 pb-12 md:pb-16">
+      <div className="max-w-[1280px] mx-auto pt-28 md:pt-32 pb-12 md:pb-16">
         <SectionLabel label="Journal" />
         <Reveal delay={0.1}>
           <div className="mt-10">
@@ -60,7 +60,7 @@ const Journal = () => (
     </section>
 
     <section className="px-6 md:px-10">
-      <div className="max-w-[1080px] mx-auto pb-16 md:pb-24">
+      <div className="max-w-[1280px] mx-auto pb-16 md:pb-24">
         <SectionHeading
           eyebrow="Point of view"
           title={<>สิ่งที่เรา <em className="text-cinnabar">เชื่อ.</em></>}

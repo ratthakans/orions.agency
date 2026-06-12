@@ -47,7 +47,7 @@ const Journal = () => (
           </div>
         </Reveal>
         <Reveal delay={0.15}>
-          <h1 lang="th" className="mt-6 h-display-lg max-w-[16ch] thai-wrap">
+          <h1 lang="th" className="mt-8 h-display-lg max-w-[16ch] thai-wrap">
             บันทึกจาก <em className="text-cinnabar">สตูดิโอ.</em>
           </h1>
         </Reveal>

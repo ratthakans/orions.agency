@@ -587,7 +587,7 @@ const Package = () => (
       <div className="max-w-[1280px] mx-auto">
         <SectionLabel index="01" label="Rate Card 2026" />
         <Reveal delay={0.05}>
-          <h1 lang="th" className="mt-10 h-display-lg max-w-[18ch] thai-wrap">
+          <h1 lang="th" className="mt-8 h-display-lg max-w-[18ch] thai-wrap">
             เลือก track เลือกขนาด <em className="text-cinnabar">แล้วเริ่มได้เลย.</em>
           </h1>
         </Reveal>

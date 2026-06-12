@@ -38,7 +38,7 @@ const Privacy = () => (
       <div className="max-w-[1280px] mx-auto">
         <SectionLabel label="Privacy" />
         <Reveal delay={0.1}>
-          <h1 lang="th" className="mt-10 h-display-lg max-w-[16ch] thai-wrap">
+          <h1 lang="th" className="mt-8 h-display-lg max-w-[16ch] thai-wrap">
             เก็บเท่าที่จำเป็น — <em className="text-cinnabar">พูดตรง.</em>
           </h1>
         </Reveal>

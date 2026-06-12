@@ -317,7 +317,7 @@ const Diagnostic = () => {
         <div className="max-w-[1280px] mx-auto">
           <SectionLabel label="The Diagnostic" />
           <Reveal delay={0.1}>
-            <h1 lang="th" className="mt-10 h-display-lg max-w-[18ch]">
+            <h1 lang="th" className="mt-8 h-display-lg max-w-[18ch]">
               ที่ทำอยู่ — <em className="text-cinnabar">ดีพอแล้ว</em> หรือยัง?
             </h1>
           </Reveal>

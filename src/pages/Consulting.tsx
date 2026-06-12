@@ -45,7 +45,7 @@ const Consulting = () => (
       <div className="max-w-[1280px] mx-auto">
         <SectionLabel label="Consulting · Advisory · Fractional CD" />
         <Reveal delay={0.1}>
-          <h1 className="mt-6 h-display-lg max-w-[16ch]">
+          <h1 className="mt-8 h-display-lg max-w-[16ch]">
             Creative direction, <em className="text-cinnabar">on call.</em>
           </h1>
         </Reveal>
@@ -65,13 +65,11 @@ const Consulting = () => (
     {/* 02 — WHAT WE DO */}
     <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <div className="mt-10">
-          <SectionHeading
-            eyebrow="How we work with you"
-            lang="th"
-            title={<>สามวิธีเข้าไป <em className="text-cinnabar">กำกับ.</em></>}
-          />
-        </div>
+        <SectionHeading
+          eyebrow="How we work with you"
+          lang="th"
+          title={<>สามวิธีเข้าไป <em className="text-cinnabar">กำกับ.</em></>}
+        />
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
           {modes.map((m, i) => (
             <Reveal key={m.n} delay={i * 0.06}>

@@ -6,6 +6,8 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import CTABand from "@/components/CTABand";
 import Magnetic from "@/components/Magnetic";
 import Slash from "@/components/Slash";
+import HeroHeadline from "@/components/HeroHeadline";
+import CountUp from "@/components/CountUp";
 import { caseStudies } from "@/data/caseStudies";
 
 const selectedWork = caseStudies;
@@ -14,9 +16,9 @@ const clients = ["พรรคประชาธิปัตย์", "กอง�
 
 // Track record — from the ØRIONS rebrand deck (the team's real numbers)
 const stats = [
-  { v: "120+", k: "โปรเจกต์ที่ส่งมอบ" },
-  { v: "5+",   k: "ปีของการลงมือทำ" },
-  { v: "24h",  k: "ตอบกลับภายใน" },
+  { to: 120, suffix: "+", k: "โปรเจกต์ที่ส่งมอบ" },
+  { to: 5,   suffix: "+", k: "ปีของการลงมือทำ" },
+  { to: 24,  suffix: "h", k: "ตอบกลับภายใน" },
 ];
 
 const services = [
@@ -44,11 +46,9 @@ const Index = () => (
         <Reveal>
           <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">Creative Agency · Bangkok</p>
         </Reveal>
-        <Reveal delay={0.1}>
-          <h1 className="mt-7 font-serif font-medium tracking-[-0.02em] leading-[0.98] text-[clamp(58px,11vw,132px)]">
-            Stories,<br /><em className="text-cinnabar">Refined.</em>
-          </h1>
-        </Reveal>
+        <div className="mt-7">
+          <HeroHeadline />
+        </div>
         <Reveal delay={0.4}>
           <p lang="th" className="mt-9 md:mt-11 font-thai thai-wrap text-balance text-[15px] md:text-[17px] leading-[1.7] text-muted-foreground max-w-[48ch]">
             ทุกองค์กรมีเรื่องของตัวเองอยู่แล้ว สิ่งที่ขาดคือการ refine ให้คนหยุดดู เชื่อ และจำ.
@@ -89,7 +89,7 @@ const Index = () => (
           {stats.map((s, i) => (
             <Reveal key={s.k} delay={i * 0.08}>
               <div>
-                <div className="num-display text-cinnabar text-[clamp(40px,8vw,88px)] leading-none">{s.v}</div>
+                <CountUp to={s.to} suffix={s.suffix} className="num-display text-cinnabar text-[clamp(40px,8vw,88px)] leading-none" />
                 <div lang="th" className="mt-3 font-thai text-[12px] md:text-[14px] tracking-[0.02em] text-muted-foreground">{s.k}</div>
               </div>
             </Reveal>
@@ -102,10 +102,10 @@ const Index = () => (
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-14 md:py-16">
         <div className="flex items-center justify-between gap-4 flex-wrap mb-8">
-          <span lang="th" className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">
+          <span lang="th" className="font-mono text-[10px] tracking-[0.04em] text-muted-foreground">
             แบรนด์ที่เลือกทำงานกับเรา
           </span>
-          <Link to="/work" className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground hover:text-cinnabar transition-colors">
+          <Link to="/work" className="font-mono text-[10px] tracking-[0.04em] text-muted-foreground hover:text-cinnabar transition-colors">
             ดูผลงาน →
           </Link>
         </div>
@@ -193,7 +193,7 @@ const Index = () => (
             title={<>สามบริการ <em className="text-cinnabar">ในทีมเดียว.</em></>}
             intro="หาเรื่องที่ใช่ · ทำให้เห็น · ทำให้ดังและวัดได้ — ครบในที่เดียว"
           />
-          <Link to="/services" className="hidden md:inline-flex font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground hover:text-cinnabar transition-colors">
+          <Link to="/services" className="hidden md:inline-flex font-mono text-[10px] tracking-[0.04em] text-muted-foreground hover:text-cinnabar transition-colors">
             ดูบริการทั้งหมด →
           </Link>
         </div>
@@ -211,7 +211,7 @@ const Index = () => (
                 </div>
                 <div lang="th" className="relative mt-2 font-serif text-cinnabar/90 text-[17px] md:text-[19px]">{d.tag}</div>
                 <p lang="th" className="relative mt-5 font-thai thai-wrap text-[13px] md:text-[14px] leading-[1.7] text-muted-foreground flex-1">{d.th}</p>
-                <div className="relative mt-6 inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.18em] uppercase text-foreground/55 group-hover:text-cinnabar transition-colors">
+                <div className="relative mt-6 inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.04em] text-foreground/55 group-hover:text-cinnabar transition-colors">
                   ดูบริการ <ArrowUpRight className="w-3.5 h-3.5" />
                 </div>
               </Link>
@@ -221,23 +221,6 @@ const Index = () => (
       </div>
     </section>
 
-    {/* — STATEMENT — typographic pause (voice / พูดตรง) */}
-    <section className="relative px-6 md:px-10 border-t border-foreground/15 overflow-hidden">
-      <div aria-hidden className="fluid-orange opacity-40" />
-      <div className="relative max-w-[1280px] mx-auto py-24 md:py-36">
-        <Reveal>
-          <div className="mb-6"><Slash className="text-[clamp(36px,5vw,64px)]" /></div>
-        </Reveal>
-        <Reveal delay={0.05}>
-          <blockquote lang="th" className="font-serif text-[clamp(30px,5.4vw,78px)] leading-[1.06] tracking-[-0.02em] max-w-[18ch]">
-            เราไม่ขายฝัน —<br className="hidden sm:block" /> เราขายงานที่ <em className="text-cinnabar">ขยับได้จริง.</em>
-          </blockquote>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <p className="mt-8 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">— พูดตรง · ØRIONS</p>
-        </Reveal>
-      </div>
-    </section>
 
     {/* — SHOWREEL — full-width background video, cover (crops top/bottom), autoplay · muted · loop */}
     <section className="relative border-t border-foreground/15 overflow-hidden bg-black">

@@ -126,7 +126,7 @@ const Contact = () => {
           </Reveal>
 
           <Reveal delay={0.15}>
-            <p className="mt-8 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
+            <p className="mt-8 font-mono text-[10px] tracking-[0.05em] text-muted-foreground">
               <span className="text-cinnabar">—</span> ตอบกลับใน 24 ชม. · คุยฟรี 45 นาที · NDA on request
             </p>
           </Reveal>
@@ -261,7 +261,7 @@ const Contact = () => {
               <div className="card-soft p-7 md:p-8 flex items-center gap-5">
                 <img src={pleum} alt="ปลื้ม — Sales Executive, ØRIONS" className="w-20 h-20 md:w-24 md:h-24 rounded-2xl object-cover object-top shrink-0" />
                 <div>
-                  <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-cinnabar">— ผู้ติดต่อ</div>
+                  <div className="font-mono text-[10px] tracking-[0.04em] text-cinnabar">— ผู้ติดต่อ</div>
                   <h3 className="mt-1.5 font-serif text-[22px] tracking-[-0.01em]">ปลื้ม</h3>
                   <div lang="th" className="font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">Sales Executive</div>
                   <a href="tel:+66655169925" className="mt-2 inline-block font-thai text-[14px] text-foreground hover:text-cinnabar transition-colors">065-516-9925</a>

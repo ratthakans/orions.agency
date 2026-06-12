@@ -37,7 +37,7 @@ const Nav = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-foreground/10">
       <div className="px-6 md:px-10 h-[64px] flex items-center justify-between text-foreground">
-        <Link to="/" aria-label="ØRIONS" className="text-cinnabar relative z-[60] inline-flex items-center">
+        <Link to="/" aria-label="ØRIONS" className="text-foreground relative z-[60] inline-flex items-center">
           <span
             className={`inline-block overflow-hidden align-middle transition-[max-width] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
               scrolled && !open ? "max-w-[22px] md:max-w-[26px]" : "max-w-[160px]"

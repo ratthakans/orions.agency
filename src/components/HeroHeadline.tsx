@@ -51,13 +51,13 @@ const HeroHeadline = () => {
         className="h-display-xl leading-[0.96]"
       >
         {/* Static text for crawlers + screen readers */}
-        <span className="sr-only">Stories, refined.</span>
+        <span className="sr-only">Stories, Refined.</span>
         {/* Animated presentation */}
         <span aria-hidden="true">
           <span className="block"><Word delay={0.1}>Stories,</Word></span>
           <TypingCycle
-            words={["amplified.", "sharpened.", "remembered.", "refined."]}
-            className="font-serif font-semibold text-cinnabar [letter-spacing:-0.02em]"
+            words={["Amplified.", "Remembered.", "Refined."]}
+            className="font-serif font-medium text-cinnabar [letter-spacing:-0.02em]"
             caretClassName="bg-cinnabar"
           />
         </span>

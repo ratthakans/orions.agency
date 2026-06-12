@@ -32,6 +32,13 @@ const engagement = [
   { k: "ราคา",     v: "ขึ้นกับ scope — เริ่มจากคุยก่อน" },
 ];
 
+/* Geometric marks for the 3 modes — built from the brand language (circle+slash, frames, triangle). */
+const geoIcons = [
+  <svg key="0" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.6" className="w-9 h-9"><circle cx="16" cy="16" r="10" /><line x1="9" y1="23" x2="23" y2="9" /></svg>,
+  <svg key="1" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.6" className="w-9 h-9"><rect x="6" y="6" width="15" height="15" /><rect x="13" y="13" width="13" height="13" /></svg>,
+  <svg key="2" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" className="w-9 h-9"><path d="M16 5 L27 27 L5 27 Z" /></svg>,
+];
+
 const Consulting = () => (
   <div>
     <SEO
@@ -74,8 +81,9 @@ const Consulting = () => (
           {modes.map((m, i) => (
             <Reveal key={m.n} delay={i * 0.06}>
               <div className="card-soft p-8 md:p-10 h-full">
+                <div className="text-cinnabar mb-7">{geoIcons[i]}</div>
                 <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">— {m.n}</div>
-                <h3 className="mt-8 text-[24px] md:text-[28px] leading-[1.1] tracking-[-0.015em] font-semibold">{m.en}</h3>
+                <h3 className="mt-5 text-[24px] md:text-[28px] leading-[1.1] tracking-[-0.015em] font-semibold">{m.en}</h3>
                 <div lang="th" className="mt-3 font-serif text-foreground/70 text-[16px]">{m.tag}</div>
                 <p lang="th" className="mt-6 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">{m.th}</p>
               </div>

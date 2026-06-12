@@ -119,7 +119,7 @@ const Services = () => (
         </Reveal>
         <Reveal delay={0.15}>
           <p lang="th" className="mt-8 max-w-[700px] font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.7] text-foreground/80">
-            ครีเอทีฟเอเจนซีในกรุงเทพฯ ที่รวม Brand Strategy · Creative Production · Social Media Marketing ไว้ในทีมเดียว · บ้านเดิมของเราคือ F&amp;B แฟชัน และ hospitality — แล้ววิธีคิดเดียวกันนี้ก็พาเราไปทำงานที่มีกรอบหนักกว่า ตั้งแต่การเมือง ราชการ ไปจนถึงการเปิดตลาดใหม่ (ดูได้ในงานของเรา).
+            Brand Strategy · Creative Production · Social Media Marketing ในทีมเดียว. จาก F&amp;B แฟชัน hospitality ถึงการเมืองและราชการ — วิธีคิดเดียว ทุกเงื่อนไข.
           </p>
         </Reveal>
       </div>

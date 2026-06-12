@@ -523,7 +523,7 @@ const BudgetCalculator = () => {
               </div>
             ) : (
               <div className="flex flex-col h-full">
-                <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">— แนะนำ</div>
+                <div className="font-mono text-[10px] tracking-[0.04em] text-cinnabar">— แนะนำ</div>
                 {/* breakdown */}
                 <dl className="mt-5 space-y-3">
                   <div className="flex items-baseline justify-between gap-3">

@@ -1,12 +1,14 @@
 import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import SEO from "@/components/SEO";
+import { track } from "@/lib/analytics";
 
 const NotFound = () => {
   const location = useLocation();
 
+  // Track 404s in analytics instead of spamming console.error.
   useEffect(() => {
-    console.error("404 Error:", location.pathname);
+    track("404", { path: location.pathname });
   }, [location.pathname]);
 
   return (

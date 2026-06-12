@@ -157,7 +157,7 @@
 
   /* Fluid Dynamics — soft flowing orange blooms (rebrand p4). Drop as an absolute layer behind content. */
   .fluid-orange { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
-  .fluid-orange::before, .fluid-orange::after { content: ""; position: absolute; border-radius: 50%; filter: blur(72px); }
+  .fluid-orange::before, .fluid-orange::after { content: ""; position: absolute; border-radius: 50%; filter: blur(72px); will-change: transform; }
   .fluid-orange::before { width: 46vw; height: 46vw; left: -8vw; top: 4%;  background: radial-gradient(circle, hsl(var(--accent) / 0.30), transparent 62%); animation: fluiddrift 18s ease-in-out infinite; }
   .fluid-orange::after  { width: 38vw; height: 38vw; right: -6vw; bottom: -4%; background: radial-gradient(circle, hsl(var(--accent) / 0.18), transparent 62%); animation: fluiddrift 22s ease-in-out infinite reverse; }
   @keyframes fluiddrift { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(3vw,-2vw) scale(1.08); } }

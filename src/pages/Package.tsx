@@ -242,7 +242,7 @@ const PricingSection = () => {
   const [showCompare, setShowCompare] = useState(false);
   return (
     <section className="px-6 md:px-10">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-24">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="02" label="The choice" />
         <Reveal delay={0.05}>
           <h2 lang="th" className="mt-10 h-display-md max-w-[22ch] thai-wrap">
@@ -413,7 +413,7 @@ const BudgetCalculator = () => {
 
   return (
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-24">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="03" label="Budget calculator" />
         <Reveal delay={0.05}>
           <h2 lang="th" className="mt-10 h-display-md max-w-[24ch] thai-wrap">
@@ -662,7 +662,7 @@ const Package = () => (
 
     {/* 06 — TALK TO SALES (ปลื้ม) */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-24">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="07" label="Talk to sales" />
         <Reveal delay={0.05}>
           <div className="mt-10 card-soft p-6 md:p-9 grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-6 md:gap-10 items-center">

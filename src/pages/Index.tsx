@@ -252,7 +252,7 @@ const Index = () => (
         <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-background via-background/5 to-background/25 pointer-events-none" />
         <div className="absolute left-0 right-0 bottom-0 px-6 md:px-10 pb-6 md:pb-10 pointer-events-none">
           <div className="max-w-[1280px] mx-auto">
-            <p className="eyebrow-mono">Showreel 2026</p>
+            <div className="flex items-center gap-3"><Slash className="text-[15px]" /><span className="font-mono text-[10px] tracking-[0.22em] uppercase text-foreground/80">Showreel 2026</span></div>
             <h2 lang="th" className="mt-2 md:mt-3 h-display-sm md:h-display-md max-w-[18ch] thai-wrap">
               งานที่ <em className="text-cinnabar">ขยับได้.</em>
             </h2>

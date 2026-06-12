@@ -12,10 +12,19 @@ const links = [
 
 const Nav = () => {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const { pathname } = useLocation();
 
   // Close the mobile menu on route change.
   useEffect(() => setOpen(false), [pathname]);
+
+  // Collapse the wordmark to just Ø once scrolled (Anthropic-style).
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   // Lock body scroll while the menu is open.
   useEffect(() => {
@@ -29,7 +38,13 @@ const Nav = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-foreground/10">
       <div className="px-6 md:px-10 h-[64px] flex items-center justify-between text-foreground">
         <Link to="/" aria-label="ØRIONS" className="text-cinnabar relative z-[60] inline-flex items-center">
-          <Logo className="h-[18px] md:h-[22px] w-auto" />
+          <span
+            className={`inline-block overflow-hidden align-middle transition-[max-width] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+              scrolled && !open ? "max-w-[22px] md:max-w-[26px]" : "max-w-[160px]"
+            }`}
+          >
+            <Logo className="h-[18px] md:h-[22px] w-auto block" />
+          </span>
         </Link>
 
         {/* Desktop nav */}

@@ -36,7 +36,7 @@ const Nav = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-foreground/10">
       <div className="px-6 md:px-10 h-[64px] flex items-center justify-between text-foreground">
-        <Link to="/" aria-label="ØRIONS" className="font-brand text-[16px] md:text-[18px] tracking-[0.02em] relative z-[60] inline-flex items-center leading-none">
+        <Link to="/" aria-label="ØRIONS" className="font-brand text-cinnabar text-[16px] md:text-[18px] tracking-[0.02em] relative z-[60] inline-flex items-center leading-none">
           <span>Ø</span>
           <span
             aria-hidden

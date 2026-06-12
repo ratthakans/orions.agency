@@ -5,7 +5,7 @@
 @font-face {
   font-family: 'Unbounded';
   font-style: normal;
-  font-weight: 600 700;
+  font-weight: 400 700;
   font-display: swap;
   src: url('/fonts/unbounded-latin.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
@@ -13,7 +13,7 @@
 @font-face {
   font-family: 'Unbounded';
   font-style: normal;
-  font-weight: 600 700;
+  font-weight: 400 700;
   font-display: swap;
   src: url('/fonts/unbounded-latin-ext.woff2') format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
@@ -151,9 +151,20 @@
   .body-th      { font-family: 'IBM Plex Sans Thai', system-ui, sans-serif; font-weight: 400; font-size: 16px; line-height: 1.72; letter-spacing: 0.005em; word-break: normal; line-break: auto; overflow-wrap: break-word; text-wrap: pretty; }
   .body-th-lg   { font-family: 'IBM Plex Sans Thai', system-ui, sans-serif; font-weight: 400; font-size: 17px; line-height: 1.72; letter-spacing: 0.005em; word-break: normal; line-break: auto; overflow-wrap: break-word; text-wrap: pretty; }
   .body-muted   { color: hsl(var(--foreground) / 0.85); }
-  .font-brand   { font-family: 'Unbounded', system-ui, sans-serif; font-weight: 600; letter-spacing: 0.01em; text-transform: uppercase; font-optical-sizing: auto; }
+  .font-brand   { font-family: 'Unbounded', system-ui, sans-serif; font-weight: 500; letter-spacing: 0.01em; text-transform: uppercase; font-optical-sizing: auto; }
   /* Brand signature — the angled orange "/" slash (rebrand 2026). Sizes from font-size. */
   .brand-slash  { display: inline-block; width: 0.17em; height: 0.95em; background: hsl(var(--accent)); transform: skewX(-15deg); border-radius: 2px; flex-shrink: 0; }
+
+  /* Fluid Dynamics — soft flowing orange blooms (rebrand p4). Drop as an absolute layer behind content. */
+  .fluid-orange { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .fluid-orange::before, .fluid-orange::after { content: ""; position: absolute; border-radius: 50%; filter: blur(72px); }
+  .fluid-orange::before { width: 46vw; height: 46vw; left: -8vw; top: 4%;  background: radial-gradient(circle, hsl(var(--accent) / 0.30), transparent 62%); animation: fluiddrift 18s ease-in-out infinite; }
+  .fluid-orange::after  { width: 38vw; height: 38vw; right: -6vw; bottom: -4%; background: radial-gradient(circle, hsl(var(--accent) / 0.18), transparent 62%); animation: fluiddrift 22s ease-in-out infinite reverse; }
+  @keyframes fluiddrift { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(3vw,-2vw) scale(1.08); } }
+  @media (prefers-reduced-motion: reduce) { .fluid-orange::before, .fluid-orange::after { animation: none; } }
+
+  /* Ghosted wordmark — oversized outlined "RIONS" watermark (rebrand p11). */
+  .wordmark-ghost { font-family: 'Unbounded', system-ui, sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.01em; color: transparent; -webkit-text-stroke: 1.5px hsl(var(--foreground) / 0.07); user-select: none; line-height: 0.8; }
   /* No font-weight here — let weight utilities (font-medium/bold) compose with it. */
   .font-serif   { font-family: 'Newsreader', 'IBM Plex Sans Thai', Georgia, serif; letter-spacing: -0.02em; text-transform: none; }
   /* Cinnabar italic accents in headlines */

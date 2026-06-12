@@ -5,7 +5,6 @@ import SEO from "@/components/SEO";
 import SectionHeading from "@/components/ui/SectionHeading";
 import CTABand from "@/components/CTABand";
 import Magnetic from "@/components/Magnetic";
-import HeroHeadline from "@/components/HeroHeadline";
 import Slash from "@/components/Slash";
 import { caseStudies } from "@/data/caseStudies";
 
@@ -13,10 +12,17 @@ const selectedWork = caseStudies;
 
 const clients = ["พรรคประชาธิปัตย์", "กองทัพอากาศ", "GCOO", "HONG MOVE", "เขาใหญ่ คันทรี่คลับ", "HEAVY ORGANIZER"];
 
+// Track record — from the ØRIONS rebrand deck (the team's real numbers)
+const stats = [
+  { v: "120+", k: "โปรเจกต์ที่ส่งมอบ" },
+  { v: "5+",   k: "ปีของการลงมือทำ" },
+  { v: "24h",  k: "ตอบกลับภายใน" },
+];
+
 const services = [
-  { n: "01", en: "Brand Strategy",          tag: "หาเรื่องที่ใช่",      th: "research · positioning · brand identity & CI · naming · brand narrative" },
-  { n: "02", en: "Creative Production",      tag: "ทำให้เห็น",           th: "brand film · ภาพถ่ายโปรดักต์/อาหาร/พอร์เทรต · คอนเทนต์ · key visual & design" },
-  { n: "03", en: "Social Media Marketing",  tag: "ทำให้ดังและวัดได้",  th: "content + community · ยิงแอด Meta/TikTok/Google/LINE · A/B testing · performance report" },
+  { n: "01", en: "Brand Strategy",          tag: "หาเรื่องที่ใช่",      th: "research · positioning · brand identity & CI · naming · brand narrative",          img: selectedWork[0]?.cover },
+  { n: "02", en: "Creative Production",      tag: "ทำให้เห็น",           th: "brand film · ภาพถ่ายโปรดักต์/อาหาร/พอร์เทรต · คอนเทนต์ · key visual & design",      img: selectedWork[1]?.cover },
+  { n: "03", en: "Social Media Marketing",  tag: "ทำให้ดังและวัดได้",  th: "content + community · ยิงแอด Meta/TikTok/Google/LINE · A/B testing · performance report", img: selectedWork[2]?.cover },
 ];
 
 const Index = () => (
@@ -30,6 +36,7 @@ const Index = () => (
     {/* 01 — HERO */}
     <section className="relative min-h-[82svh] md:min-h-[90svh] flex flex-col px-6 md:px-10 overflow-hidden">
       <div aria-hidden className="hero-texture absolute inset-0 z-0 pointer-events-none" />
+      <div aria-hidden className="fluid-orange opacity-80" />
       <div className="relative z-10 max-w-[1100px] mx-auto w-full flex-1 flex flex-col justify-center items-center text-center pt-24 md:pt-32 pb-20 md:pb-28">
         <Reveal>
           <div className="mb-7 flex justify-center"><Slash className="text-[clamp(46px,7vw,84px)]" /></div>
@@ -37,9 +44,11 @@ const Index = () => (
         <Reveal>
           <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">Creative Agency · Bangkok</p>
         </Reveal>
-        <div className="mt-7">
-          <HeroHeadline />
-        </div>
+        <Reveal delay={0.1}>
+          <h1 className="mt-7 font-serif font-medium tracking-[-0.02em] leading-[0.98] text-[clamp(58px,11vw,132px)]">
+            Stories,<br /><em className="text-cinnabar">Refined.</em>
+          </h1>
+        </Reveal>
         <Reveal delay={0.4}>
           <p lang="th" className="mt-9 md:mt-11 font-thai thai-wrap text-balance text-[15px] md:text-[17px] leading-[1.7] text-muted-foreground max-w-[48ch]">
             ทุกองค์กรมีเรื่องของตัวเองอยู่แล้ว สิ่งที่ขาดคือการ refine ให้คนหยุดดู เชื่อ และจำ.
@@ -62,6 +71,30 @@ const Index = () => (
             Energetic · Strategic · Profound
           </p>
         </Reveal>
+      </div>
+    </section>
+
+    {/* — STATS BAND — track record + ghosted wordmark (rebrand) */}
+    <section className="relative px-6 md:px-10 border-t border-foreground/15 overflow-hidden">
+      <div aria-hidden className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <span className="wordmark-ghost text-[26vw] md:text-[22vw]">RIONS</span>
+      </div>
+      <div className="relative max-w-[1280px] mx-auto py-16 md:py-24">
+        <Reveal>
+          <div className="flex justify-center">
+            <span className="inline-flex items-center rounded-full bg-cinnabar text-background px-4 py-1.5 font-mono text-[10px] tracking-[0.18em] uppercase">Let's grow together</span>
+          </div>
+        </Reveal>
+        <div className="mt-10 grid grid-cols-3 gap-4 md:gap-8 text-center">
+          {stats.map((s, i) => (
+            <Reveal key={s.k} delay={i * 0.08}>
+              <div>
+                <div className="num-display text-cinnabar text-[clamp(40px,8vw,88px)] leading-none">{s.v}</div>
+                <div lang="th" className="mt-3 font-thai text-[12px] md:text-[14px] tracking-[0.02em] text-muted-foreground">{s.k}</div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
 
@@ -139,27 +172,22 @@ const Index = () => (
             ดูบริการทั้งหมด →
           </Link>
         </div>
-        <div className="mt-12 md:mt-14 border-t border-foreground/15">
+        <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
           {services.map((d, i) => (
-            <Reveal key={d.n} delay={i * 0.06}>
-              <Link
-                to="/services"
-                className="group block border-b border-foreground/15 py-8 md:py-11 px-0 md:px-4 -mx-0 md:-mx-4 rounded-none md:rounded-2xl transition-colors duration-300 hover:bg-foreground/[0.025]"
-              >
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-y-4 md:gap-8 md:items-baseline">
-                  <div className="md:col-span-5 flex items-baseline gap-5 md:gap-7">
-                    <span className="num-display text-cinnabar text-[38px] md:text-[60px] leading-none shrink-0">{d.n}</span>
-                    <div>
-                      <h3 className="h-display-sm md:text-[38px] leading-[1.04] group-hover:text-cinnabar transition-colors duration-300">{d.en}</h3>
-                      <div lang="th" className="mt-1.5 font-serif text-foreground/70 text-[18px] md:text-[22px]">{d.tag}</div>
-                    </div>
+            <Reveal key={d.n} delay={i * 0.08}>
+              <Link to="/services" className="group relative block overflow-hidden rounded-2xl border border-foreground/12 bg-foreground/[0.03] transition-colors duration-500 hover:border-cinnabar/50">
+                <div className="relative aspect-[5/4] overflow-hidden">
+                  <img src={d.img} alt={d.en} loading="lazy" className="w-full h-full object-cover opacity-55 group-hover:opacity-75 scale-100 group-hover:scale-[1.05] transition-all duration-[800ms] ease-[cubic-bezier(0.22,1,0.36,1)]" />
+                  <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-background via-background/55 to-background/20" />
+                  <span aria-hidden className="font-brand absolute top-2 right-4 text-[100px] md:text-[128px] leading-none" style={{ WebkitTextStroke: "2px hsl(var(--accent) / 0.55)", color: "transparent" }}>{d.n}</span>
+                </div>
+                <div className="relative p-6 md:p-7">
+                  <div className="flex items-center gap-2.5">
+                    <Slash className="text-[20px]" />
+                    <h3 className="font-serif text-[23px] md:text-[27px] tracking-[-0.01em] group-hover:text-cinnabar transition-colors duration-300">{d.en}</h3>
                   </div>
-                  <div className="md:col-span-6 md:pt-2">
-                    <p lang="th" className="font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">{d.th}</p>
-                  </div>
-                  <div className="md:col-span-1 flex md:justify-end">
-                    <ArrowUpRight className="w-7 h-7 text-foreground/30 group-hover:text-cinnabar group-hover:-translate-y-1 group-hover:translate-x-1 transition-all duration-300" />
-                  </div>
+                  <div lang="th" className="mt-2 font-serif text-foreground/70 text-[16px] md:text-[18px]">{d.tag}</div>
+                  <p lang="th" className="mt-3 font-thai thai-wrap text-[13px] leading-[1.6] text-muted-foreground">{d.th}</p>
                 </div>
               </Link>
             </Reveal>

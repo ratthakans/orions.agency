@@ -138,7 +138,7 @@ const Index = () => (
             {[...selectedWork, ...selectedWork].map((w, i) => (
               <li key={`${w.slug}-${i}`} className="shrink-0 w-[280px] sm:w-[340px] md:w-[420px]" aria-hidden={i >= selectedWork.length}>
                 <Link to={`/work/${w.slug}`} className="group relative block overflow-hidden rounded-2xl border border-foreground/12 bg-foreground/[0.04] aspect-[4/5] transition-colors duration-500 hover:border-cinnabar/60">
-                  <img src={w.cover} alt={w.title} loading="lazy" className="w-full h-full object-cover scale-100 group-hover:scale-[1.06] transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)]" />
+                  <img src={w.cover} alt={w.title} loading="lazy" className="w-full h-full object-cover scale-100 grayscale-[0.4] group-hover:scale-[1.06] group-hover:grayscale-0 transition-[transform,filter] duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)]" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-90" />
                   {/* corner index */}
                   <span className="absolute top-4 left-4 font-mono text-[10px] tracking-[0.22em] text-foreground/70">— {w.n}</span>
@@ -154,6 +154,31 @@ const Index = () => (
               </li>
             ))}
           </ul>
+        </div>
+      </div>
+    </section>
+
+    {/* — CINEMATIC BAND — full-bleed graded work image + brand statement */}
+    <section className="relative w-full overflow-hidden border-t border-foreground/15">
+      <div className="grade-orion relative w-full h-[68vw] max-h-[640px] min-h-[400px]">
+        <img src={selectedWork[0].cover} alt="" aria-hidden className="absolute inset-0 w-full h-full object-cover" />
+        <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-background via-background/45 to-background/25" />
+        <div className="absolute inset-0 flex items-end">
+          <div className="max-w-[1280px] mx-auto w-full px-6 md:px-10 pb-12 md:pb-20">
+            <Reveal>
+              <div className="mb-5"><Slash className="text-[clamp(40px,6vw,72px)]" /></div>
+            </Reveal>
+            <Reveal delay={0.05}>
+              <h2 lang="th" className="font-serif text-[clamp(36px,7vw,96px)] leading-[1.0] tracking-[-0.02em] max-w-[15ch]">
+                ข้อจำกัด <em className="text-cinnabar">คือบรีฟ.</em>
+              </h2>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <p lang="th" className="mt-5 font-thai thai-wrap text-[14px] md:text-[16px] leading-[1.7] text-foreground/85 max-w-[46ch]">
+                งบ เวลา เงื่อนไข — เราไม่หนีมัน<br className="hidden sm:block" /> เราใช้มันเป็นกรอบที่ทำให้งานคมขึ้น.
+              </p>
+            </Reveal>
+          </div>
         </div>
       </div>
     </section>
@@ -193,6 +218,24 @@ const Index = () => (
             </Reveal>
           ))}
         </div>
+      </div>
+    </section>
+
+    {/* — STATEMENT — typographic pause (voice / พูดตรง) */}
+    <section className="relative px-6 md:px-10 border-t border-foreground/15 overflow-hidden">
+      <div aria-hidden className="fluid-orange opacity-40" />
+      <div className="relative max-w-[1280px] mx-auto py-24 md:py-36">
+        <Reveal>
+          <div className="mb-6"><Slash className="text-[clamp(36px,5vw,64px)]" /></div>
+        </Reveal>
+        <Reveal delay={0.05}>
+          <blockquote lang="th" className="font-serif text-[clamp(30px,5.4vw,78px)] leading-[1.06] tracking-[-0.02em] max-w-[18ch]">
+            เราไม่ขายฝัน —<br className="hidden sm:block" /> เราขายงานที่ <em className="text-cinnabar">ขยับได้จริง.</em>
+          </blockquote>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <p className="mt-8 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">— พูดตรง · ØRIONS</p>
+        </Reveal>
       </div>
     </section>
 

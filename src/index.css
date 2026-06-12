@@ -165,6 +165,11 @@
 
   /* Ghosted wordmark — oversized outlined "RIONS" watermark (rebrand p11). */
   .wordmark-ghost { font-family: 'Unbounded', system-ui, sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.01em; color: transparent; -webkit-text-stroke: 1.5px hsl(var(--foreground) / 0.07); user-select: none; line-height: 0.8; }
+
+  /* Duotone grade — unifies imagery toward the ORIONS orange/black (rebrand photography direction). */
+  .grade-orion { position: relative; }
+  .grade-orion > img { filter: grayscale(0.55) contrast(1.06) brightness(0.9); }
+  .grade-orion::after { content: ""; position: absolute; inset: 0; background: hsl(var(--accent) / 0.16); mix-blend-mode: overlay; pointer-events: none; }
   /* No font-weight here — let weight utilities (font-medium/bold) compose with it. */
   .font-serif   { font-family: 'Newsreader', 'IBM Plex Sans Thai', Georgia, serif; letter-spacing: -0.02em; text-transform: none; }
   /* Cinnabar italic accents in headlines */

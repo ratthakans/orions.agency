@@ -26,13 +26,13 @@ const ClosingCTA = ({
   email,
   phone,
 }: Props) => (
-  <section className="relative px-6 md:px-10">
-    <div className="border-t border-foreground py-16 md:py-20 max-w-[720px] mx-auto text-center">
+  <section className="relative px-6 md:px-10 border-t border-foreground/15">
+    <div className="max-w-[1280px] mx-auto py-20 md:py-28 text-center">
       <Reveal>
         <div className="index-badge text-muted-foreground mb-5">{eyebrow}</div>
       </Reveal>
       <Reveal delay={0.05}>
-        <h2 className="h-display-md text-balance">{title}</h2>
+        <h2 className="h-display-md text-balance max-w-[20ch] mx-auto">{title}</h2>
       </Reveal>
       {description && (
         <Reveal delay={0.1}>

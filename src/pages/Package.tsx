@@ -653,7 +653,7 @@ const Package = () => (
 
     {/* 05 — FAQ */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1080px] mx-auto py-20 md:py-28">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="06" label="Before you ask" />
         <Reveal delay={0.05}><h2 className="mt-10 h-display-md">The short <em className="text-cinnabar">answers.</em></h2></Reveal>
         <div className="mt-14"><FAQ items={faqs} /></div>

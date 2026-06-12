@@ -37,7 +37,7 @@ const Index = () => (
     <section className="relative min-h-[82svh] md:min-h-[90svh] flex flex-col px-6 md:px-10 overflow-hidden">
       <div aria-hidden className="hero-texture absolute inset-0 z-0 pointer-events-none" />
       <div aria-hidden className="fluid-orange opacity-80" />
-      <div className="relative z-10 max-w-[1100px] mx-auto w-full flex-1 flex flex-col justify-center items-center text-center pt-24 md:pt-32 pb-20 md:pb-28">
+      <div className="relative z-10 max-w-[1280px] mx-auto w-full flex-1 flex flex-col justify-center items-center text-center pt-24 md:pt-32 pb-20 md:pb-28">
         <Reveal>
           <div className="mb-7 flex justify-center"><Slash className="text-[clamp(46px,7vw,84px)]" /></div>
         </Reveal>
@@ -121,7 +121,7 @@ const Index = () => (
 
     {/* — SELECTED WORK (creative proof, full colour) */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1400px] mx-auto py-20 md:py-28">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <div className="flex items-end justify-between gap-6 flex-wrap">
           <SectionHeading
             lang="th"

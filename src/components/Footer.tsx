@@ -39,7 +39,7 @@ const Footer = () => {
         </span>
         <span className="hidden md:inline">Stories, refined.</span>
       </div>
-      <div className="px-6 md:px-10 pt-16 md:pt-20 pb-6 max-w-[1280px] mx-auto">
+      <div className="px-6 md:px-10 pt-16 md:pt-20 pb-6">
         {/* Headline row */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10 border-b border-foreground/15 pb-12">
           <div>

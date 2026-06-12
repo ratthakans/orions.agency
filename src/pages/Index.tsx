@@ -77,7 +77,7 @@ const Index = () => (
     {/* — STATS BAND — track record + ghosted wordmark (rebrand) */}
     <section className="relative px-6 md:px-10 border-t border-foreground/15 overflow-hidden">
       <div aria-hidden className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <span className="wordmark-ghost text-[26vw] md:text-[22vw]">RIONS</span>
+        <span className="wordmark-ghost text-[19vw] md:text-[16vw] whitespace-nowrap">ØRIONS</span>
       </div>
       <div className="relative max-w-[1280px] mx-auto py-16 md:py-24">
         <Reveal>
@@ -175,19 +175,19 @@ const Index = () => (
         <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
           {services.map((d, i) => (
             <Reveal key={d.n} delay={i * 0.08}>
-              <Link to="/services" className="group relative block overflow-hidden rounded-2xl border border-foreground/12 bg-foreground/[0.03] transition-colors duration-500 hover:border-cinnabar/50">
-                <div className="relative aspect-[5/4] overflow-hidden">
-                  <img src={d.img} alt={d.en} loading="lazy" className="w-full h-full object-cover opacity-55 group-hover:opacity-75 scale-100 group-hover:scale-[1.05] transition-all duration-[800ms] ease-[cubic-bezier(0.22,1,0.36,1)]" />
-                  <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-background via-background/55 to-background/20" />
-                  <span aria-hidden className="font-brand absolute top-2 right-4 text-[100px] md:text-[128px] leading-none" style={{ WebkitTextStroke: "2px hsl(var(--accent) / 0.55)", color: "transparent" }}>{d.n}</span>
+              <Link
+                to="/services"
+                className="group relative flex flex-col overflow-hidden rounded-2xl border border-foreground/12 bg-foreground/[0.02] p-7 md:p-9 min-h-[280px] transition-colors duration-500 hover:border-cinnabar/50 hover:bg-foreground/[0.04]"
+              >
+                <span aria-hidden className="font-brand absolute -top-4 right-2 text-[120px] md:text-[150px] leading-none pointer-events-none select-none" style={{ WebkitTextStroke: "1.5px hsl(var(--accent) / 0.22)", color: "transparent" }}>{d.n}</span>
+                <div className="relative flex items-center gap-2.5">
+                  <Slash className="text-[22px]" />
+                  <h3 className="font-serif text-[24px] md:text-[30px] tracking-[-0.01em] group-hover:text-cinnabar transition-colors duration-300">{d.en}</h3>
                 </div>
-                <div className="relative p-6 md:p-7">
-                  <div className="flex items-center gap-2.5">
-                    <Slash className="text-[20px]" />
-                    <h3 className="font-serif text-[23px] md:text-[27px] tracking-[-0.01em] group-hover:text-cinnabar transition-colors duration-300">{d.en}</h3>
-                  </div>
-                  <div lang="th" className="mt-2 font-serif text-foreground/70 text-[16px] md:text-[18px]">{d.tag}</div>
-                  <p lang="th" className="mt-3 font-thai thai-wrap text-[13px] leading-[1.6] text-muted-foreground">{d.th}</p>
+                <div lang="th" className="relative mt-2 font-serif text-cinnabar/90 text-[17px] md:text-[19px]">{d.tag}</div>
+                <p lang="th" className="relative mt-5 font-thai thai-wrap text-[13px] md:text-[14px] leading-[1.7] text-muted-foreground flex-1">{d.th}</p>
+                <div className="relative mt-6 inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.18em] uppercase text-foreground/55 group-hover:text-cinnabar transition-colors">
+                  ดูบริการ <ArrowUpRight className="w-3.5 h-3.5" />
                 </div>
               </Link>
             </Reveal>

@@ -45,9 +45,13 @@ const CountUp = ({ to, suffix = "", prefix = "", decimals = 0, duration = 1500, 
 
   return (
     <span ref={ref} className={className}>
-      {prefix && <span className={prefixClassName}>{prefix}</span>}
-      {val.toFixed(decimals)}
-      {suffix && <span className={suffixClassName}>{suffix}</span>}
+      <span aria-hidden="true">
+        {prefix && <span className={prefixClassName}>{prefix}</span>}
+        {val.toFixed(decimals)}
+        {suffix && <span className={suffixClassName}>{suffix}</span>}
+      </span>
+      {/* Screen readers get the final value, not the rapid count-up. */}
+      <span className="sr-only">{prefix}{to.toFixed(decimals)}{suffix}</span>
     </span>
   );
 };

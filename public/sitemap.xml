@@ -71,6 +71,26 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://orions.agency/journal/constraint-is-the-brief</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://orions.agency/journal/when-we-say-not-yet</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://orions.agency/journal/ai-faster-not-thinking</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://orions.agency/journal/likes-arent-results</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://orions.agency/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

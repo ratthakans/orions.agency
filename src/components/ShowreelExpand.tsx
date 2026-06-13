@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import Slash from "@/components/Slash";
 
 /** Showreel that starts inside the 1280 section container (rounded) and
@@ -13,6 +13,9 @@ const ShowreelExpand = () => {
     window.addEventListener("resize", onResize, { passive: true });
     return () => window.removeEventListener("resize", onResize);
   }, []);
+
+  // Only mount the (heavy) YouTube player once the section nears the viewport.
+  const inView = useInView(ref, { once: true, margin: "300px 0px" });
 
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "center center"] });
   const padX = useTransform(scrollYProgress, [0, 1], [40, 0]);
@@ -30,13 +33,15 @@ const ShowreelExpand = () => {
         style={{ maxWidth: maxW, borderRadius: radius }}
       >
         <div className="relative w-full h-[72vh] min-h-[420px] overflow-hidden">
-          <iframe
-            title="ØRIONS showreel"
-            src="https://www.youtube-nocookie.com/embed/nFNVN8uE2dI?autoplay=1&mute=1&loop=1&playlist=nFNVN8uE2dI&controls=0&showinfo=0&modestbranding=1&rel=0&playsinline=1&disablekb=1&fs=0&iv_load_policy=3&vq=hd2160&hd=1"
-            allow="autoplay; encrypted-media; picture-in-picture"
-            loading="lazy"
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] h-[56.25vw] min-w-full min-h-full border-0 pointer-events-none"
-          />
+          {inView && (
+            <iframe
+              title="ØRIONS showreel"
+              src="https://www.youtube-nocookie.com/embed/nFNVN8uE2dI?autoplay=1&mute=1&loop=1&playlist=nFNVN8uE2dI&controls=0&showinfo=0&modestbranding=1&rel=0&playsinline=1&disablekb=1&fs=0&iv_load_policy=3&vq=hd2160&hd=1"
+              allow="autoplay; encrypted-media; picture-in-picture"
+              loading="lazy"
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] h-[56.25vw] min-w-full min-h-full border-0 pointer-events-none"
+            />
+          )}
           <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-background via-background/5 to-background/25 pointer-events-none" />
           <div className="absolute left-0 right-0 bottom-0 px-6 md:px-10 pb-6 md:pb-10 pointer-events-none">
             <div className="max-w-[1280px] mx-auto">

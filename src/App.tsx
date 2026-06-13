@@ -19,6 +19,7 @@ const Package = lazy(() => import("./pages/Package"));
 const Diagnostic = lazy(() => import("./pages/Diagnostic"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Journal = lazy(() => import("./pages/Journal"));
+const JournalPost = lazy(() => import("./pages/JournalPost"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -44,6 +45,7 @@ const App = () => (
             <Route path="/pricing" element={<Navigate to="/package" replace />} />
             <Route path="/diagnostic" element={<Diagnostic />} />
             <Route path="/journal" element={<Journal />} />
+            <Route path="/journal/:slug" element={<JournalPost />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/contact" element={<Contact />} />
 

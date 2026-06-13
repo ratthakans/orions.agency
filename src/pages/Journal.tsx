@@ -1,40 +1,13 @@
+import { Link } from "react-router-dom";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
 import SectionHeading from "@/components/ui/SectionHeading";
 import CTABand from "@/components/CTABand";
+import { journalPosts } from "@/data/journal";
 
-// Seed notes — the studio's own point of view. Expand / add real entries over time.
-const notes = [
-  {
-    n: "01",
-    date: "2026",
-    title: "ข้อจำกัดคือบรีฟ",
-    dek: "ทำไมงานที่ดีที่สุดถึงเกิดใต้กรอบ ไม่ใช่ในที่ที่ทำอะไรก็ได้",
-    body: "เวลามีอิสระไม่จำกัด คนมักจมอยู่กับตัวเลือก · พอมีกรอบ — งบ กฎหมาย เวลา ภาพจำเดิม — มันบังคับให้เราเลือก และการเลือกคือจุดเริ่มของไอเดียที่คม. เราเลยไม่หนีข้อจำกัด เราอ่านมันเป็นบรีฟ แล้ว refine เรื่องที่จริงจนลงในกรอบนั้นได้พอดี.",
-  },
-  {
-    n: "02",
-    date: "2026",
-    title: "ทำไมเราถึงบอกลูกค้าว่า ‘ยังไม่รับ’",
-    dek: "ความซื่อสัตย์สำคัญกว่าการรับทุกงาน",
-    body: "ถ้าของหรือ unit economics ยังไม่พร้อม การเร่งทำแบรนด์มักทำให้เจ็บเร็วขึ้น · เราเลือกบอกตรง ๆ แล้วรอจนกว่าจะพร้อม — เพราะงานที่เราอยากให้คนจำ คืองานที่อยู่ได้นาน ไม่ใช่กระแสที่ผ่านไป.",
-  },
-  {
-    n: "03",
-    date: "2026",
-    title: "AI ทำให้เราเร็วขึ้น — แต่ไม่ได้คิดแทน",
-    dek: "เครื่องมือเปลี่ยน หลักการไม่เปลี่ยน",
-    body: "AI ช่วยให้เราทดสอบได้มากขึ้นและเร็วขึ้น · แต่การตัดสินใจว่าอะไรจริง อะไรคม และอะไรควรปล่อยออกไป — ยังเป็นงานของคน และคนยังเป็นผู้รับผิดชอบงานนั้น.",
-  },
-  {
-    n: "04",
-    date: "2026",
-    title: "ยอดไลก์ไม่ใช่ผลลัพธ์",
-    dek: "เราวัดสิ่งที่ขยับธุรกิจ ไม่ใช่สิ่งที่ดูดีบนรายงาน",
-    body: "engagement สวย ๆ ไม่ได้แปลว่าขายได้ · เราเริ่มจากคำถามว่างานนี้ควรขยับตัวเลขไหนของธุรกิจ แล้ววัดกลับไปที่ตรงนั้นทุกเดือน — ด้วย A/B testing และรายงานที่อ่านแล้วตัดสินใจต่อได้ ไม่ใช่ตัวเลขไว้อวด.",
-  },
-];
+const fmtDate = (iso: string) =>
+  new Date(iso).toLocaleDateString("th-TH", { year: "numeric", month: "short", day: "numeric" });
 
 const Journal = () => (
   <div>
@@ -69,18 +42,23 @@ const Journal = () => (
           lang="th"
         />
         <div className="mt-12 grid grid-cols-1 gap-5">
-          {notes.map((p, i) => (
-            <Reveal key={p.n} delay={i * 0.05}>
-              <article className="card-soft grid grid-cols-1 md:grid-cols-[120px_1fr] gap-4 md:gap-12 p-8 md:p-10">
-                <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
-                  — {p.n}<br /><span className="text-cinnabar">{p.date}</span>
+          {journalPosts.map((p, i) => (
+            <Reveal key={p.slug} delay={i * 0.05}>
+              <Link
+                to={`/journal/${p.slug}`}
+                className="group card-soft grid grid-cols-1 md:grid-cols-[140px_1fr] gap-4 md:gap-12 p-8 md:p-10 hover:border-cinnabar/40 transition-colors"
+              >
+                <div className="font-mono text-[10px] tracking-[0.1em] uppercase text-muted-foreground">
+                  — {p.n}<br /><span className="text-cinnabar normal-case tracking-[0.02em]">{fmtDate(p.date)}</span>
                 </div>
                 <div>
-                  <h2 lang="th" className="h-display-sm max-w-[24ch]">{p.title}</h2>
+                  <h2 lang="th" className="h-display-sm max-w-[24ch] group-hover:text-cinnabar transition-colors">{p.title}</h2>
                   <p lang="th" className="mt-3 font-serif text-[16px] md:text-[18px] text-cinnabar">{p.dek}</p>
-                  <p lang="th" className="mt-6 font-thai thai-wrap text-[15px] md:text-[16px] leading-[1.85] text-foreground/85 max-w-[64ch]">{p.body}</p>
+                  <span className="mt-5 inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.1em] uppercase text-foreground/55 group-hover:text-cinnabar transition-colors">
+                    อ่านบันทึก →
+                  </span>
                 </div>
-              </article>
+              </Link>
             </Reveal>
           ))}
         </div>

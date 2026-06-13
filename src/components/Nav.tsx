@@ -40,10 +40,10 @@ const Nav = () => {
         <Link to="/" aria-label="ØRIONS" className="text-foreground relative z-[60] inline-flex items-center">
           <span
             className={`inline-block overflow-hidden align-middle transition-[max-width] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-              scrolled && !open ? "max-w-[22px] md:max-w-[26px]" : "max-w-[160px]"
+              scrolled && !open ? "max-w-[18px] md:max-w-[22px]" : "max-w-[160px]"
             }`}
           >
-            <Logo className="h-[18px] md:h-[22px] w-auto block" />
+            <Logo className="h-[15px] md:h-[18px] w-auto block" />
           </span>
         </Link>
 

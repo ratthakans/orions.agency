@@ -27,6 +27,19 @@ const services = [
   { n: "03", en: "Social Media Marketing",  tag: "ทำให้ดังและวัดได้",  th: "content + community · ยิงแอด Meta/TikTok/Google/LINE · A/B testing · performance report" },
 ];
 
+// Market pressures of this era — real, cited data — mapped to the 3 services.
+const painpoints = [
+  { to: 1.7, decimals: 1, suffix: "s", title: "ยุคสมาธิสั้น",
+    desc: "คอนเทนต์มีเวลาบนมือถือแค่ 1.7 วินาที (Meta) — แบรนด์ที่ไม่คมตั้งแต่วิแรก โดนเลื่อนผ่าน",
+    answer: "Brand Strategy" },
+  { prefix: "+", to: 40, suffix: "%", title: "เงินเฟ้อดิจิทัล",
+    desc: "ค่าโฆษณาโซเชียล (CPM) แพงขึ้นราว 40% ในช่วงปี 2020–2024 — ยิงมั่วไม่คุ้มอีกต่อไป",
+    answer: "Social Media Marketing" },
+  { to: 4, suffix: "×", title: "คอนเทนต์ AI ท่วมจอ",
+    desc: "หน้าเว็บที่ AI ผลิตโตเกือบ 4 เท่า (82→312 ล้านหน้า/เดือน) — งานที่คนคิดถึงโดดเด่นกว่า",
+    answer: "Creative Production" },
+];
+
 const Index = () => (
   <div>
     <SEO
@@ -158,6 +171,44 @@ const Index = () => (
       </div>
     </section>
 
+
+    {/* — WHY NOW — market pressures mapped to the 3 services (real, cited) */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+        <SectionHeading
+          lang="th"
+          eyebrow="Why now"
+          title={<>โลกเปลี่ยน — <em className="text-cinnabar">บรีฟก็เปลี่ยน.</em></>}
+          intro="3 แรงกดดันของยุคนี้ ที่ทำให้ 3 บริการของเราจำเป็นกว่าเดิม"
+        />
+        <div className="mt-12 md:mt-14 grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+          {painpoints.map((p, i) => (
+            <Reveal key={p.answer} delay={i * 0.08}>
+              <div className="card-soft p-7 md:p-8 h-full flex flex-col">
+                <CountUp
+                  to={p.to}
+                  prefix={p.prefix}
+                  suffix={p.suffix}
+                  decimals={p.decimals ?? 0}
+                  className="num-display text-cinnabar text-[clamp(46px,6vw,76px)] leading-none"
+                  prefixClassName="text-[0.55em] align-top mr-0.5"
+                  suffixClassName="text-[0.5em] align-top"
+                />
+                <h3 lang="th" className="mt-5 font-serif text-[22px] md:text-[26px] tracking-[-0.01em]">{p.title}</h3>
+                <p lang="th" className="mt-3 font-thai thai-wrap text-[13px] md:text-[14px] leading-[1.7] text-muted-foreground flex-1">{p.desc}</p>
+                <Link to="/services" className="group mt-6 inline-flex items-center gap-2.5">
+                  <Slash className="text-[15px]" />
+                  <span className="font-serif text-[16px] md:text-[18px] text-foreground group-hover:text-cinnabar transition-colors">{p.answer}</span>
+                </Link>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+        <p className="mt-7 font-mono text-[10px] tracking-[0.04em] text-muted-foreground/70">
+          ที่มา: Meta (mobile attention) · social CPM 2020–2024 · AI web pages 2024–2026
+        </p>
+      </div>
+    </section>
 
     {/* — WHAT WE DO */}
     <section className="px-6 md:px-10 border-t border-foreground/15">

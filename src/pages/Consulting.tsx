@@ -2,7 +2,9 @@ import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
 import SectionHeading from "@/components/ui/SectionHeading";
+import ImageBand from "@/components/ImageBand";
 import CTABand from "@/components/CTABand";
+import { caseStudies } from "@/data/caseStudies";
 
 const modes = [
   {
@@ -92,6 +94,10 @@ const Consulting = () => (
         </div>
       </div>
     </section>
+
+    <ImageBand image={caseStudies[3].cover}>
+      ทำให้ทีมคุณ <em className="text-cinnabar">พูดเสียงเดียวกัน.</em>
+    </ImageBand>
 
     {/* 04 — ENGAGEMENT */}
     <section className="px-6 md:px-10 border-t border-foreground/15">

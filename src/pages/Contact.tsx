@@ -116,7 +116,7 @@ const Contact = () => {
           <SectionLabel label="Start a conversation" />
           <Reveal delay={0.05}>
             <h1 lang="th" className="mt-8 h-display-lg max-w-[16ch] thai-wrap">
-              เล่าโจทย์มา — เราช่วย <em className="text-cinnabar">refine</em> มัน<span className="text-cinnabar">.</span>
+              เล่าโจทย์มา —<br /> เราช่วย <em className="text-cinnabar">refine</em> มัน
             </h1>
           </Reveal>
           <Reveal delay={0.1}>

@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap');
+/* Fonts are self-hosted: Newsreader / IBM Plex Mono / IBM Plex Sans Thai via
+   Fontsource (see src/fonts.ts); Unbounded inline below. No third-party fonts. */
 
 /* Unbounded — SELF-HOSTED so the logo/numerals never depend on Google Fonts being reachable
    (font blockers / privacy extensions / slow CDN). Variable font: one file covers 600–700. */

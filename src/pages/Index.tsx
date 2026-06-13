@@ -102,7 +102,7 @@ const Index = () => (
           {stats.map((s, i) => (
             <Reveal key={s.k} delay={i * 0.08}>
               <div>
-                <CountUp to={s.to} suffix={s.suffix} className="num-display text-cinnabar text-[clamp(40px,8vw,88px)] leading-none" />
+                <CountUp to={s.to} suffix={s.suffix} className="num-display text-foreground text-[clamp(40px,8vw,88px)] leading-none" />
                 <div lang="th" className="mt-3 font-thai text-[12px] md:text-[14px] tracking-[0.02em] text-muted-foreground">{s.k}</div>
               </div>
             </Reveal>

@@ -2,7 +2,6 @@ import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
 import SectionHeading from "@/components/ui/SectionHeading";
-import BadgeChip from "@/components/ui/BadgeChip";
 import CTABand from "@/components/CTABand";
 
 // Seed notes — the studio's own point of view. Expand / add real entries over time.
@@ -47,12 +46,7 @@ const Journal = () => (
 
     <section className="px-6 md:px-10">
       <div className="max-w-[1280px] mx-auto pt-28 md:pt-32 pb-12 md:pb-16">
-        <SectionLabel label="Journal" />
-        <Reveal delay={0.1}>
-          <div className="mt-10">
-            <BadgeChip>Notes from the studio</BadgeChip>
-          </div>
-        </Reveal>
+        <SectionLabel label="Journal · Notes from the studio" />
         <Reveal delay={0.15}>
           <h1 lang="th" className="mt-8 h-display-lg max-w-[16ch] thai-wrap">
             บันทึกจาก <em className="text-cinnabar">สตูดิโอ.</em>

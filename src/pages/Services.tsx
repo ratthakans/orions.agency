@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { Plus } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
@@ -150,18 +151,33 @@ const Services = () => (
           title={<>จาก hello ขึ้นจริงใน <em className="text-cinnabar">4 สัปดาห์.</em></>}
           intro="ทำงานเป็นทีมเดียวตั้งแต่กลยุทธ์ถึงการผลิต — ไม่มีไฟล์หลุดกลางทาง ไม่มีความเข้าใจที่หายไประหว่างทีม."
         />
-        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {process.map((s, i) => (
-            <Reveal key={s.n} delay={i * 0.06}>
-              <div className="card-soft h-full p-8 md:p-10">
-                <div lang="th" className="font-thai text-[11px] tracking-[0.02em] text-muted-foreground">{s.week}</div>
-                <h3 className="mt-6 process-row__title">
-                  <span className="process-row__index">{s.n}</span>{s.k}
-                </h3>
-                <p lang="th" className="mt-3 process-row__body font-thai thai-wrap text-[14px] md:text-[15px]">{s.d}</p>
-              </div>
-            </Reveal>
-          ))}
+        <div className="mt-16 relative">
+          {/* timeline rail — base + an animated cinnabar fill that draws left→right on scroll */}
+          <div aria-hidden className="hidden lg:block absolute top-[17px] left-0 right-0 h-px bg-foreground/15" />
+          <motion.div
+            aria-hidden
+            className="hidden lg:block absolute top-[17px] left-0 right-0 h-px bg-cinnabar origin-left"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 1.3, ease: [0.22, 1, 0.36, 1] }}
+          />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10">
+            {process.map((s, i) => (
+              <motion.div
+                key={s.n}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ delay: i * 0.15, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <span className="relative z-10 inline-grid place-items-center w-[34px] h-[34px] rounded-full border border-cinnabar bg-[hsl(var(--surface))] num-display text-cinnabar text-[13px]">{s.n}</span>
+                <div lang="th" className="mt-5 font-mono text-[10px] tracking-[0.04em] text-cinnabar">{s.week}</div>
+                <h3 className="mt-1.5 font-serif text-[22px] md:text-[28px] tracking-[-0.01em]">{s.k}</h3>
+                <p lang="th" className="mt-2.5 font-thai thai-wrap text-[13px] md:text-[15px] leading-[1.7] text-muted-foreground max-w-[30ch]">{s.d}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

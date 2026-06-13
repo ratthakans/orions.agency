@@ -3,7 +3,8 @@ import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ImageBand from "@/components/ImageBand";
-import CTABand from "@/components/CTABand";
+import Slash from "@/components/Slash";
+import { ArrowUpRight } from "lucide-react";
 import { caseStudies } from "@/data/caseStudies";
 
 const modes = [
@@ -141,17 +142,37 @@ const Consulting = () => (
       </div>
     </section>
 
-    {/* FAQ removed — answers live on /package, /contact and /diagnostic */}
-
-    {/* 06 — CTA */}
-    <CTABand
-      eyebrow="Start a conversation"
-      title={<>อยากได้สายตา senior มา <em className="text-cinnabar">มองทิศทาง</em>?</>}
-      subtitle="คุยฟรี 45 นาที ไม่มีข้อผูกมัด — หรือทำ Brand Audit ก่อนก็ได้ จะได้คุยตรงจุด."
-      primary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}
-      secondary={{ label: "ทำ Brand Audit", to: "/diagnostic" }}
-      tone="snow"
-    />
+    {/* 06 — DIRECT CONTACT — big projects go straight to the founder, not the sales funnel */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+        <Reveal>
+          <div className="mb-5"><Slash className="text-[clamp(34px,5vw,56px)]" /></div>
+        </Reveal>
+        <Reveal delay={0.05}>
+          <h2 lang="th" className="h-display-md max-w-[20ch]">
+            โปรเจกต์ใหญ่ หรืออยากหา <em className="text-cinnabar">ความเป็นไปได้?</em>
+          </h2>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <p lang="th" className="mt-6 max-w-[60ch] font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.75] text-foreground/80">
+            งาน consulting และโปรเจกต์ขนาดใหญ่คุยกันตรง ๆ — ไม่ผ่านฝ่ายขาย. เล่าโจทย์ ขอบเขต และเป้าหมายมา แล้วเราจะช่วยมองว่ามันเป็นไปได้แค่ไหน และควรเริ่มจากตรงไหน.
+          </p>
+        </Reveal>
+        <Reveal delay={0.15}>
+          <div className="mt-9 flex flex-col sm:flex-row sm:items-center gap-5">
+            <a
+              href="mailto:ratthakan@orions.agency?subject=Consulting%20%2F%20Project%20enquiry"
+              className="btn-accent"
+            >
+              <span>ratthakan@orions.agency</span><ArrowUpRight className="w-4 h-4" />
+            </a>
+            <span lang="th" className="font-mono text-[10px] tracking-[0.04em] uppercase text-muted-foreground">
+              คุยตรงกับทีม · ไม่ใช่ sales funnel
+            </span>
+          </div>
+        </Reveal>
+      </div>
+    </section>
   </div>
 );
 

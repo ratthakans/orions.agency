@@ -22,10 +22,11 @@ const stats = [
   { to: 24,  suffix: "h", k: "ตอบกลับภายใน" },
 ];
 
+// Each service answers one of the painpoints above.
 const services = [
-  { n: "01", en: "Brand Strategy",          tag: "หาเรื่องที่ใช่",      th: "research · positioning · brand identity & CI · naming · brand narrative" },
-  { n: "02", en: "Creative Production",      tag: "ทำให้เห็น",           th: "brand film · ภาพถ่ายโปรดักต์/อาหาร/พอร์เทรต · คอนเทนต์ · key visual & design" },
-  { n: "03", en: "Social Media Marketing",  tag: "ทำให้ดังและวัดได้",  th: "content + community · ยิงแอด Meta/TikTok/Google/LINE · A/B testing · performance report" },
+  { n: "01", en: "Brand Strategy",          tag: "หาเรื่องที่ใช่",      th: "คนให้เวลาแบรนด์แค่ 1.7 วินาที — เราวาง positioning, ตัวตน และระบบแบรนด์ (CI) ให้คมพอจะถูกจำตั้งแต่เฟรมแรก" },
+  { n: "02", en: "Creative Production",      tag: "ทำให้เห็น",           th: "ยุคที่ AI ปั๊มคอนเทนต์ท่วมจอ — เราผลิตงานที่คนคิดและคนถ่าย (brand film · ภาพ · คอนเทนต์) ให้โดดจากของซ้ำ ๆ" },
+  { n: "03", en: "Social Media Marketing",  tag: "ทำให้ดังและวัดได้",  th: "ค่าแอดแพงขึ้นทุกปี — เรายิง Meta/TikTok/Google/LINE + SEO แล้ววัดผลให้คุ้มทุกบาท ไม่ใช่ยอด vanity" },
 ];
 
 // Market pressures of this era — real, cited data — mapped to the 3 services.
@@ -225,23 +226,25 @@ const Index = () => (
             ดูบริการทั้งหมด →
           </Link>
         </div>
-        <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+        <div className="mt-12 md:mt-14 border-t border-foreground/15">
           {services.map((d, i) => (
-            <Reveal key={d.n} delay={i * 0.08}>
+            <Reveal key={d.n} delay={i * 0.07}>
               <Link
                 to="/services"
-                className="group relative flex flex-col overflow-hidden rounded-2xl border border-foreground/12 bg-foreground/[0.02] p-7 md:p-9 min-h-[280px] transition-colors duration-500 hover:border-cinnabar/50 hover:bg-foreground/[0.04]"
+                className="group grid grid-cols-[auto_1fr] md:grid-cols-[120px_1fr_auto] items-center gap-x-5 gap-y-3 md:gap-x-10 border-b border-foreground/15 py-8 md:py-11 px-0 md:px-5 md:-mx-5 rounded-none md:rounded-2xl transition-colors duration-300 hover:bg-foreground/[0.03]"
               >
-                <span aria-hidden className="font-brand absolute -top-4 right-2 text-[120px] md:text-[150px] leading-none pointer-events-none select-none" style={{ WebkitTextStroke: "1.5px hsl(var(--accent) / 0.22)", color: "transparent" }}>{d.n}</span>
-                <div className="relative flex items-center gap-2.5">
-                  <Slash className="text-[22px]" />
-                  <h3 className="font-serif text-[24px] md:text-[30px] tracking-[-0.01em] group-hover:text-cinnabar transition-colors duration-300">{d.en}</h3>
+                <span className="num-display text-[clamp(40px,5vw,72px)] leading-none text-foreground/20 group-hover:text-cinnabar transition-colors duration-300">{d.n}</span>
+                <div className="min-w-0">
+                  <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                    <span className="flex items-center gap-2.5">
+                      <Slash className="text-[16px]" />
+                      <h3 className="font-serif text-[26px] md:text-[36px] tracking-[-0.015em] leading-[1.05] group-hover:text-cinnabar transition-colors duration-300">{d.en}</h3>
+                    </span>
+                    <span lang="th" className="font-serif text-cinnabar/80 text-[16px] md:text-[19px]">{d.tag}</span>
+                  </div>
+                  <p lang="th" className="mt-2.5 font-thai thai-wrap text-[13px] md:text-[15px] leading-[1.7] text-muted-foreground max-w-[64ch]">{d.th}</p>
                 </div>
-                <div lang="th" className="relative mt-2 font-serif text-cinnabar/90 text-[17px] md:text-[19px]">{d.tag}</div>
-                <p lang="th" className="relative mt-5 font-thai thai-wrap text-[13px] md:text-[14px] leading-[1.7] text-muted-foreground flex-1">{d.th}</p>
-                <div className="relative mt-6 inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.04em] text-foreground/55 group-hover:text-cinnabar transition-colors">
-                  ดูบริการ <ArrowUpRight className="w-3.5 h-3.5" />
-                </div>
+                <ArrowUpRight className="hidden md:block w-7 h-7 text-foreground/25 group-hover:text-cinnabar group-hover:-translate-y-1 group-hover:translate-x-1 transition-all duration-300" />
               </Link>
             </Reveal>
           ))}
@@ -256,7 +259,7 @@ const Index = () => (
     {/* — CTA close (Brand Audit folded in) */}
     <CTABand
       eyebrow="Start a conversation"
-      title={<>พร้อมคุยแล้ว? <em className="text-cinnabar">เล่าโจทย์มาได้เลย.</em></>}
+      title={<>พร้อมคุยแล้ว?<br /><em className="text-cinnabar">เล่าโจทย์มาได้เลย</em></>}
       subtitle="คุยฟรี 45 นาที · ไม่มีข้อผูกมัด — หรือลองทำ Brand Audit 1 นาที ให้เราบอกตรง ๆ ว่าทางไหนเหมาะกับคุณ."
       primary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}
       secondary={{ label: "ทำ Brand Audit", to: "/diagnostic" }}

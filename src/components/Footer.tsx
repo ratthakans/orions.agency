@@ -13,8 +13,8 @@ const navLinks = [
 ];
 
 const socials = [
-  { href: "https://instagram.com/orions.bkk", label: "IG" },
-  { href: "https://facebook.com/orions.bkk", label: "FB" },
+  { href: "https://www.instagram.com/orions.agency", label: "IG" },
+  { href: "https://www.facebook.com/orions.agency", label: "FB" },
 ];
 
 const Footer = () => {

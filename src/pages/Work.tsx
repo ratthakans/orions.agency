@@ -2,6 +2,7 @@ import Reveal from "@/components/Reveal";
 import ClosingCTA from "@/components/ClosingCTA";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
+import ImageBand from "@/components/ImageBand";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { caseStudies, acts } from "@/data/caseStudies";
@@ -124,6 +125,10 @@ const Work = () => (
         </Reveal>
       </div>
     </section>
+
+    <ImageBand image={caseStudies[2].cover}>
+      เลือกเพราะ <em className="text-cinnabar">เงื่อนไข</em> ไม่ใช่งบ<span className="text-cinnabar">.</span>
+    </ImageBand>
 
     {/* 02 · CASE STUDIES — grouped by act, clean labeled sections */}
     {acts.map((act) => {

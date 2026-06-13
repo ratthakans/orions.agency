@@ -4,7 +4,9 @@ import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionHeading from "@/components/ui/SectionHeading";
 import SectionLabel from "@/components/SectionLabel";
+import ImageBand from "@/components/ImageBand";
 import CTABand from "@/components/CTABand";
+import { caseStudies } from "@/data/caseStudies";
 
 const process = [
   { n: "01", k: "Listen", week: "สัปดาห์ 1", d: "ฟังโจทย์และเงื่อนไข — audit แบรนด์, คู่แข่ง, และกรอบที่ต้องอยู่ในนั้น" },
@@ -135,6 +137,10 @@ const Services = () => (
       </div>
     </section>
 
+    <ImageBand image={caseStudies[1].cover}>
+      ถ่าย ตัด ออกแบบ — <em className="text-cinnabar">ครบในทีมเดียว.</em>
+    </ImageBand>
+
     {/* 03 — PROCESS TIMELINE */}
     <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
@@ -165,7 +171,7 @@ const Services = () => (
     {/* 05 — CTA */}
     <CTABand
       eyebrow="Start a conversation"
-      title={<>เล่าโจทย์มา — เราจะ <em className="text-cinnabar">refine</em> มันให้คม.</>}
+      title={<>เล่าโจทย์มา — เราจะ <em className="text-cinnabar">refine</em> มันให้คม<span className="text-cinnabar">.</span></>}
       subtitle="ไม่แน่ใจว่าควรเริ่มตรงไหน? ทำ Brand Audit 1 นาที — หรือทักมาคุยเลย."
       primary={{ label: "ทำ Brand Audit", to: "/diagnostic" }}
       secondary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}

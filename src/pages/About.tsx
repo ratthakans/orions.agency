@@ -2,7 +2,7 @@ import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionHeading from "@/components/ui/SectionHeading";
 import SectionLabel from "@/components/SectionLabel";
-import Slash from "@/components/Slash";
+import ImageBand from "@/components/ImageBand";
 import CTABand from "@/components/CTABand";
 import { caseStudies } from "@/data/caseStudies";
 
@@ -56,27 +56,15 @@ const About = () => (
         </Reveal>
         <Reveal delay={0.2}>
           <p lang="th" className="mt-8 max-w-[720px] font-thai thai-wrap text-[16px] md:text-[19px] leading-[1.7] text-foreground/80">
-            ถูกเรื่อง · ถูกคน · ถูกเวลา. ทุกแบรนด์ที่มาหาเรามีข้อจำกัดของตัวเอง — งานของเราเหมือนกันเสมอ: หาเรื่องที่จริง แล้ว refine จนคมพอจะลงในกรอบนั้นได้. <span className="text-cinnabar">เราไม่หนีข้อจำกัด — เราถือว่ามันคือบรีฟ.</span>
+            ถูกเรื่อง · ถูกคน · ถูกเวลา. ทุกแบรนด์มีข้อจำกัดของตัวเอง — งานเราคือหาเรื่องที่จริง แล้ว refine จนคมพอจะลงในกรอบนั้น. <span className="text-cinnabar">เราไม่หนีข้อจำกัด — เราถือว่ามันคือบรีฟ.</span>
           </p>
         </Reveal>
       </div>
     </section>
 
-    {/* — IMAGE BAND — real work, graded toward the brand */}
-    <section className="relative w-full overflow-hidden border-t border-foreground/15">
-      <div className="grade-orion relative w-full h-[56vw] max-h-[560px] min-h-[340px]">
-        <img src={caseStudies[0].cover} alt="" aria-hidden className="absolute inset-0 w-full h-full object-cover" />
-        <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-background via-background/45 to-background/25" />
-        <div className="absolute inset-0 flex items-end">
-          <div className="max-w-[1280px] mx-auto w-full px-6 md:px-10 pb-12 md:pb-16">
-            <div className="mb-4"><Slash className="text-[clamp(34px,5vw,60px)]" /></div>
-            <p lang="th" className="font-serif text-[clamp(24px,3.6vw,48px)] leading-[1.1] tracking-[-0.02em] max-w-[22ch]">
-              ทีมเดียว ตั้งแต่กลยุทธ์ <em className="text-cinnabar">ถึงการผลิต.</em>
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <ImageBand image={caseStudies[0].cover}>
+      ทีมเดียว ตั้งแต่กลยุทธ์ <em className="text-cinnabar">ถึงการผลิต.</em>
+    </ImageBand>
 
     {/* 02 — WHAT WE WON'T COMPROMISE ON */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
@@ -153,7 +141,7 @@ const About = () => (
     {/* 05 — CTA */}
     <CTABand
       eyebrow="When you're ready"
-      title={<>นั่นแหละคือ <em className="text-cinnabar">บรีฟ</em> ที่เราถนัด.</>}
+      title={<>นั่นแหละคือ <em className="text-cinnabar">บรีฟ</em> ที่เราถนัด<span className="text-cinnabar">.</span></>}
       subtitle="ไม่แน่ใจว่าควรเริ่มตรงไหน? ทำ Brand Audit 1 นาที — หรือทักมาคุยเลย."
       primary={{ label: "ทำ Brand Audit", to: "/diagnostic" }}
       secondary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}

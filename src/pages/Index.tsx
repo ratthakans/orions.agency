@@ -158,30 +158,6 @@ const Index = () => (
       </div>
     </section>
 
-    {/* — CINEMATIC BAND — full-bleed graded work image + brand statement */}
-    <section className="relative w-full overflow-hidden border-t border-foreground/15">
-      <div className="grade-orion relative w-full h-[68vw] max-h-[640px] min-h-[400px]">
-        <img src={selectedWork[0].cover} alt="" aria-hidden className="absolute inset-0 w-full h-full object-cover" />
-        <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-background via-background/45 to-background/25" />
-        <div className="absolute inset-0 flex items-end">
-          <div className="max-w-[1280px] mx-auto w-full px-6 md:px-10 pb-12 md:pb-20">
-            <Reveal>
-              <div className="mb-5"><Slash className="text-[clamp(40px,6vw,72px)]" /></div>
-            </Reveal>
-            <Reveal delay={0.05}>
-              <h2 lang="th" className="font-serif text-[clamp(36px,7vw,96px)] leading-[1.0] tracking-[-0.02em] max-w-[15ch]">
-                ข้อจำกัด <em className="text-cinnabar">คือบรีฟ.</em>
-              </h2>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <p lang="th" className="mt-5 font-thai thai-wrap text-[14px] md:text-[16px] leading-[1.7] text-foreground/85 max-w-[46ch]">
-                งบ เวลา เงื่อนไข — เราไม่หนีมัน<br className="hidden sm:block" /> เราใช้มันเป็นกรอบที่ทำให้งานคมขึ้น.
-              </p>
-            </Reveal>
-          </div>
-        </div>
-      </div>
-    </section>
 
     {/* — WHAT WE DO */}
     <section className="px-6 md:px-10 border-t border-foreground/15">

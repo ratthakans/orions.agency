@@ -104,7 +104,7 @@ const Services = () => (
   <div>
     <SEO
       title="Services — Brand Strategy · Creative Production · Social · ØRIONS"
-      description="ครีเอทีฟเอเจนซีในกรุงเทพฯ ที่รวม Brand Strategy · Creative Production · Social Media Marketing + SEO ไว้ในทีมเดียว. วางแบรนด์ ถ่าย/ตัด/ออกแบบ ดูแลเพจ ยิงแอด และทำ SEO ให้ลูกค้าเจอคุณบน Google — วัดผลเป็นตัวเลขจริง."
+      description="Brand Strategy · Creative Production · Social Media Marketing + SEO ในทีมเดียว — วางแบรนด์ ถ่าย ตัด ยิงแอด ทำ SEO ให้เจอบน Google และวัดผลเป็นตัวเลขจริง."
       path="/services"
     />
 

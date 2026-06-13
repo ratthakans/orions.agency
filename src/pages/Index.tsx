@@ -58,7 +58,7 @@ const Index = () => (
           <div className="mt-11 flex flex-col sm:flex-row items-center gap-4">
             <Magnetic strength={10} className="inline-block">
               <Link to="/diagnostic" className="btn-accent">
-                <span>นัด Brand Audit</span><ArrowUpRight className="w-4 h-4" />
+                <span>ทำ Brand Audit</span><ArrowUpRight className="w-4 h-4" />
               </Link>
             </Magnetic>
             <Link to="/contact" className="btn-ghost">

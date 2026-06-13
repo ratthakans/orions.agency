@@ -176,7 +176,7 @@ const CompareTable = ({ size }: { size: Size }) => (
               <th key={name} className={`text-left py-4 px-3 align-bottom ${featured ? "bg-cinnabar/[0.04] rounded-t-xl" : ""}`}>
                 <div className="flex items-center gap-2">
                   <span lang="th" className="font-thai text-[11px] tracking-[0.02em] text-cinnabar">{goalOf[name]}</span>
-                  {featured && <span lang="th" className="font-thai text-[9px] leading-none text-background bg-cinnabar rounded-full px-2 py-1">คุ้มสุด</span>}
+                  {featured && <span lang="th" className="font-thai text-[9px] leading-none text-background bg-cinnabar rounded-full px-2 py-1">ครบสุด</span>}
                 </div>
                 <div className="mt-1 text-[15px] md:text-[18px] font-semibold tracking-[-0.01em]">{name}</div>
               </th>
@@ -274,7 +274,7 @@ const PricingSection = () => {
           {tracks.map((t, i) => (
             <Reveal key={t.name} delay={i * 0.07}>
               <div className={`relative h-full flex flex-col p-7 md:p-8 ${t.featured ? "card-accent" : "card-soft"}`}>
-                {t.featured && <span className="ribbon-pill absolute -top-3 left-7">คุ้มสุด</span>}
+                {t.featured && <span className="ribbon-pill absolute -top-3 left-7">ครบสุด</span>}
                 <div className="flex items-center justify-between gap-3">
                   <span lang="th" className="font-thai text-[11px] tracking-[0.02em] text-cinnabar">{t.goal} · {t.mindset}</span>
                   <span className="font-mono text-[10px] tracking-[0.04em] text-muted-foreground shrink-0">{t.sales}/{t.brand}</span>
@@ -398,11 +398,14 @@ const BudgetCalculator = () => {
   const budget = Math.round(salesNum * rate);
   const ready = salesNum > 0 && launched !== null && goal !== null;
 
-  // out-of-range → custom; otherwise size by budget capacity
-  const tooSmall = budget > 0 && budget < 24900;
+  // size by the chosen track's OWN price ladder, so the fee never exceeds the budget
+  const recSize: Size = goal
+    ? budget >= priceNum(goal, "L") ? "L" : budget >= priceNum(goal, "M") ? "M" : "S"
+    : "S";
+  // out-of-range → custom (can't afford even S of this track, or beyond standard L)
+  const tooSmall = !!goal && budget > 0 && budget < priceNum(goal, "S");
   const tooBig = budget > 300000;
   const isCustom = ready && (tooSmall || tooBig);
-  const recSize: Size = budget >= 130000 ? "L" : budget >= 58000 ? "M" : "S";
   const pkgName = goal && !isCustom ? `${goal} · ${recSize}` : "";
   const feeNum = goal && !isCustom ? priceNum(goal, recSize) : 0;
   const cap = goal && !isCustom ? adCapOf(goal, recSize) : 0;
@@ -540,7 +543,11 @@ const BudgetCalculator = () => {
                     <dd className="num-display text-foreground text-[20px]">{fmtBaht(adSpend)}</dd>
                   </div>
                 </dl>
-                <p lang="th" className="mt-2 font-thai text-[10.5px] text-muted-foreground">ค่ายิงแอดจริงลูกค้าจ่ายเอง · เราดูแล/บริหารแอดให้ถึงเพดาน {fmtK(cap)}</p>
+                {adSpend === 0 ? (
+                  <p lang="th" className="mt-2 font-thai text-[10.5px] text-cinnabar">งบนี้พอดีค่าบริการ — เพิ่มงบอีกหน่อยจะมีงบยิงแอดด้วย (เราดูแลให้ถึงเพดาน {fmtK(cap)})</p>
+                ) : (
+                  <p lang="th" className="mt-2 font-thai text-[10.5px] text-muted-foreground">ค่ายิงแอดจริงลูกค้าจ่ายเอง · เราดูแล/บริหารแอดให้ถึงเพดาน {fmtK(cap)}</p>
+                )}
 
                 {/* package */}
                 <div className="mt-5 pt-5 border-t border-foreground/15">

@@ -700,10 +700,10 @@ const Package = () => (
     {/* 07 — CTA */}
     <CTABand
       eyebrow="Not sure yet?"
-      title={<>ไม่แน่ใจว่าควรเลือก track ไหน? <em className="text-cinnabar">ให้ audit ช่วยมอง.</em></>}
-      subtitle="ตอบ 6 ข้อ · 1 นาที · ฟรี — หรือคุย Discovery Call 45 นาที."
-      primary={{ label: "ทำ Brand Audit", to: "/diagnostic" }}
-      secondary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}
+      title={<>ไม่แน่ใจว่าควรเลือก track ไหน? <em className="text-cinnabar">คุยกับเราได้เลย.</em></>}
+      subtitle="คุย Discovery Call 45 นาที ฟรี — เล่ายอด งบ และเป้าหมายมา เราช่วยจัดให้พอดี."
+      primary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}
+      secondary={{ label: "คุยกับฝ่ายขาย", to: "/contact?pkg=Custom" }}
       tone="ink"
     />
   </div>

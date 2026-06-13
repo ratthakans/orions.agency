@@ -67,16 +67,6 @@ const Nav = () => {
           <NavLink
             to="/contact"
             className={({ isActive }) =>
-              `font-body text-[13px] font-medium tracking-[0.02em] transition-colors ${
-                isActive ? "text-cinnabar" : "text-foreground/55 hover:text-cinnabar"
-              }`
-            }
-          >
-            Contact
-          </NavLink>
-          <NavLink
-            to="/diagnostic"
-            className={({ isActive }) =>
               `ml-2 inline-flex items-center gap-2 rounded-full px-4 py-2 font-mono text-[11px] tracking-[0.12em] uppercase border transition-colors ${
                 isActive
                   ? "bg-cinnabar text-background border-cinnabar"
@@ -84,7 +74,7 @@ const Nav = () => {
               }`
             }
           >
-            Brand audit ↗
+            Contact ↗
           </NavLink>
         </nav>
 
@@ -123,12 +113,7 @@ const Nav = () => {
             </NavLink>
           ))}
         </nav>
-        <div className="px-6 pb-2">
-          <NavLink to="/diagnostic" className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.22em] uppercase text-cinnabar">
-            Brand audit ↗
-          </NavLink>
-        </div>
-        <div className="px-6 py-8 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex flex-col gap-1.5">
+        <div className="px-6 pt-4 pb-8 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex flex-col gap-1.5">
           <a href="mailto:hello@orions.agency" className="hover:text-cinnabar transition-colors">hello@orions.agency</a>
           <a href="tel:+66923905464" className="hover:text-cinnabar transition-colors">+66 92 390 5464</a>
         </div>

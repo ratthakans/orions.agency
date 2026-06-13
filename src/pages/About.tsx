@@ -142,9 +142,9 @@ const About = () => (
     <CTABand
       eyebrow="When you're ready"
       title={<>นั่นแหละคือ <em className="text-cinnabar">บรีฟ</em> ที่เราถนัด<span className="text-cinnabar">.</span></>}
-      subtitle="ไม่แน่ใจว่าควรเริ่มตรงไหน? ทำ Brand Audit 1 นาที — หรือทักมาคุยเลย."
-      primary={{ label: "ทำ Brand Audit", to: "/diagnostic" }}
-      secondary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}
+      subtitle="คุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์และเงื่อนไขของแบรนด์มาได้เลย."
+      primary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}
+      secondary={{ label: "ดูผลงาน", to: "/work" }}
       tone="snow"
     />
   </div>

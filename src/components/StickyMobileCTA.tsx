@@ -1,18 +1,18 @@
 import { Link, useLocation } from "react-router-dom";
 import { ArrowUpRight, MessageCircle } from "lucide-react";
 
-/** Sticky bottom action bar — mobile only. Hidden on /contact and /diagnostic. */
+/** Sticky bottom action bar — mobile only. Hidden on /contact. */
 const StickyMobileCTA = () => {
   const { pathname } = useLocation();
-  if (pathname === "/contact" || pathname === "/diagnostic") return null;
+  if (pathname === "/contact") return null;
 
   return (
     <div className="md:hidden fixed bottom-0 inset-x-0 z-40 bg-foreground text-background border-t border-background/15 grid grid-cols-2">
       <Link
-        to="/diagnostic"
+        to="/contact"
         className="flex items-center justify-center gap-2 py-3.5 btn-label hover:bg-orion transition-colors"
       >
-        <span>นัด Brand Audit</span>
+        <span>เริ่มต้นบทสนทนา</span>
         <ArrowUpRight className="w-3.5 h-3.5" />
       </Link>
       <a

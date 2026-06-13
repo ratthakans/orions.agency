@@ -182,15 +182,15 @@ const Services = () => (
       </div>
     </section>
 
-    {/* FAQ removed — answers live on /package, /contact and /diagnostic */}
+    {/* FAQ removed — answers live on /package and /contact */}
 
     {/* 05 — CTA */}
     <CTABand
       eyebrow="Start a conversation"
       title={<>เล่าโจทย์มา — เราจะ <em className="text-cinnabar">refine</em> มันให้คม<span className="text-cinnabar">.</span></>}
-      subtitle="ไม่แน่ใจว่าควรเริ่มตรงไหน? ทำ Brand Audit 1 นาที — หรือทักมาคุยเลย."
-      primary={{ label: "ทำ Brand Audit", to: "/diagnostic" }}
-      secondary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}
+      subtitle="คุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์และเงื่อนไขมา เราช่วยมองว่าจะเริ่มตรงไหน."
+      primary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}
+      secondary={{ label: "ดูแพ็กเกจ", to: "/package" }}
       tone="snow"
     />
   </div>

@@ -233,10 +233,10 @@ const CaseStudy = () => {
 
       <ClosingCTA
         title={<>มีโจทย์ที่ <em className="text-cinnabar">มีกรอบ</em> แบบนี้ไหม?</>}
-        description="ทำ Brand Audit 1 นาที แล้วเรานัดคุยผลให้ — หรือทักมาคุยเลย."
+        description="คุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์และเงื่อนไขมาได้เลย."
         ctas={[
-          { label: "ทำ Brand Audit", to: "/diagnostic" },
-          { label: "เริ่มต้นบทสนทนา", to: "/contact", variant: "ghost" },
+          { label: "เริ่มต้นบทสนทนา", to: "/contact" },
+          { label: "ดูผลงานทั้งหมด", to: "/work", variant: "ghost" },
         ]}
       />
     </div>

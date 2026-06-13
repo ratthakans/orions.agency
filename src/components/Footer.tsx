@@ -8,7 +8,6 @@ const navLinks = [
   { to: "/consulting", label: "Consulting" },
   { to: "/work", label: "Work" },
   { to: "/journal", label: "Journal" },
-  { to: "/diagnostic", label: "Brand audit" },
   { to: "/contact", label: "Contact" },
 ];
 

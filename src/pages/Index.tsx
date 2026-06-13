@@ -72,12 +72,12 @@ const Index = () => (
         <Reveal delay={0.5}>
           <div className="mt-11 flex flex-col sm:flex-row items-center gap-4">
             <Magnetic strength={10} className="inline-block">
-              <Link to="/diagnostic" className="btn-accent">
-                <span>ทำ Brand Audit</span><ArrowUpRight className="w-4 h-4" />
+              <Link to="/contact" className="btn-accent">
+                <span>เริ่มต้นบทสนทนา</span><ArrowUpRight className="w-4 h-4" />
               </Link>
             </Magnetic>
-            <Link to="/contact" className="btn-ghost">
-              <span>เริ่มต้นบทสนทนา</span><ArrowUpRight className="w-4 h-4" />
+            <Link to="/work" className="btn-ghost">
+              <span>ดูผลงาน</span><ArrowUpRight className="w-4 h-4" />
             </Link>
           </div>
         </Reveal>
@@ -256,13 +256,13 @@ const Index = () => (
     {/* — SHOWREEL — starts in-container, expands to full-bleed on scroll */}
     <ShowreelExpand />
 
-    {/* — CTA close (Brand Audit folded in) */}
+    {/* — CTA close */}
     <CTABand
       eyebrow="Start a conversation"
       title={<>พร้อมคุยแล้ว?<br /><em className="text-cinnabar">เล่าโจทย์มาได้เลย</em></>}
-      subtitle="คุยฟรี 45 นาที · ไม่มีข้อผูกมัด — หรือลองทำ Brand Audit 1 นาที ให้เราบอกตรง ๆ ว่าทางไหนเหมาะกับคุณ."
+      subtitle="คุยฟรี 45 นาที · ไม่มีข้อผูกมัด — เล่าโจทย์และเงื่อนไขมา เราช่วยมองว่าจะ refine มันยังไง."
       primary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}
-      secondary={{ label: "ทำ Brand Audit", to: "/diagnostic" }}
+      secondary={{ label: "ดูแพ็กเกจ", to: "/package" }}
       tone="ink"
     />
   </div>

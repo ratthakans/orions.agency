@@ -66,11 +66,11 @@ const Journal = () => (
     </section>
 
     <CTABand
-      eyebrow="Brand audit"
-      title={<>เห็นด้วยกับวิธีคิดนี้? <em className="text-cinnabar">เริ่มที่นี่.</em></>}
-      subtitle="ตอบ 6 ข้อ · 1 นาที · ฟรี — แล้วเรานัดคุยผลให้."
-      primary={{ label: "ทำ Brand Audit", to: "/diagnostic" }}
-      secondary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}
+      eyebrow="Start a conversation"
+      title={<>เห็นด้วยกับวิธีคิดนี้? <em className="text-cinnabar">มาคุยกัน.</em></>}
+      subtitle="คุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์และเงื่อนไขมาได้เลย."
+      primary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}
+      secondary={{ label: "ดูผลงาน", to: "/work" }}
       tone="snow"
     />
   </div>

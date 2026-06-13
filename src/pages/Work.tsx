@@ -168,10 +168,10 @@ const Work = () => (
 
     <ClosingCTA
       title={<>โจทย์ของคุณมี <em className="text-cinnabar">เงื่อนไข</em> แบบไหน?</>}
-      description="ไม่แน่ใจว่าควรเริ่มตรงไหน? ทำ Brand Audit 1 นาที แล้วเรานัดคุยผลให้ — หรือทักมาคุยเลย."
+      description="คุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์และเงื่อนไขมา เราช่วยมองว่าจะ refine มันยังไง."
       ctas={[
-        { label: "ทำ Brand Audit", to: "/diagnostic" },
-        { label: "เริ่มต้นบทสนทนา", to: "/contact", variant: "ghost" },
+        { label: "เริ่มต้นบทสนทนา", to: "/contact" },
+        { label: "ดูแพ็กเกจ", to: "/package", variant: "ghost" },
       ]}
     />
   </div>

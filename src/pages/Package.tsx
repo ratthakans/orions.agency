@@ -6,6 +6,7 @@ import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
 import CTABand from "@/components/CTABand";
 import FAQ from "@/components/FAQ";
+import TrustStrip from "@/components/TrustStrip";
 import pleum from "@/assets/pleum.jpg";
 
 const RATECARD_PDF = "/ORIONS_RateCard_2026.pdf";
@@ -23,36 +24,36 @@ const tracks = [
     mindset: "คิดแบบนักการตลาด", sales: 70, brand: 30,
     forWhat: "อยากได้ยอดเดี๋ยวนี้ วัดเป็นตัวเลข",
     prices: { S: "฿24,900", M: "฿49,900", L: "฿99,900" } as Record<Size, string>,
-    sub: { S: "3 เดือน · แอดถึง ฿30k", M: "3 เดือน · แอดถึง ฿70k", L: "6 เดือน · แอดถึง ฿150k" } as Record<Size, string>,
-    points: [
-      "ยิงแอด Meta + TikTok ดูแลทุกวัน (ไซส์ใหญ่ +Google +LINE)",
-      "AI แตกครีเอทีฟทดสอบหลายสิบแบบต่อเดือน",
-      "คอนเทนต์ + ถ่ายของจริง + รายงานผล",
-    ],
+    sub: { S: "3 เดือน · ดูแลแอดถึง ฿30k", M: "3 เดือน · ดูแลแอดถึง ฿70k", L: "6 เดือน · ดูแลแอดถึง ฿150k" } as Record<Size, string>,
+    points: {
+      S: ["ยิงแอด Meta + TikTok ดูแลทุกวัน", "AI แตกครีเอทีฟทดสอบหลายแบบ/เดือน", "5 รีล · 8 โพสต์ + ถ่ายของจริง 0.5 วัน"],
+      M: ["ยิงแอด Meta · TikTok · Google", "บริหารแอดถึง ฿70k + รายงานผล", "10 รีล · 12 โพสต์ + ถ่าย 1 วัน"],
+      L: ["ยิงแอด Meta · TikTok · Google · LINE + AI optimization", "บริหารแอดถึง ฿150k + SEO", "12 รีล · 14 โพสต์ + ถ่าย 2 วัน"],
+    } as Record<Size, string[]>,
   },
   {
     num: "02", name: "Branding", goal: "แบรนด์", tagline: "Stories, refined.",
     mindset: "คิดแบบครีเอทีฟ", sales: 30, brand: 70,
     forWhat: "อยากให้แบรนด์ถูกจำและถูกเลือก",
     prices: { S: "฿24,900", M: "฿49,900", L: "฿99,900" } as Record<Size, string>,
-    sub: { S: "3 เดือน · แอดถึง ฿20k", M: "3 เดือน · แอดถึง ฿20k", L: "6 เดือน · แอดถึง ฿20k" } as Record<Size, string>,
-    points: [
-      "Mini Brand CI for Social → ระบบแบรนด์เต็ม (ไซส์ใหญ่)",
-      "คอนเทนต์แบรนด์ + ถ่าย creative-directed",
-      "SEO + seeding / KOL + brand film (ไซส์ใหญ่)",
-    ],
+    sub: { S: "3 เดือน · ดูแลแอดถึง ฿20k", M: "3 เดือน · ดูแลแอดถึง ฿20k", L: "6 เดือน · ดูแลแอดถึง ฿20k" } as Record<Size, string>,
+    points: {
+      S: ["Mini Brand CI for Social", "10 รีล · 14 โพสต์ + ถ่าย creative-directed", "SEO + seeding / KOL"],
+      M: ["Full Brand CI", "20 รีล · 20 โพสต์ + ถ่าย 1 วัน", "SEO + seeding / KOL"],
+      L: ["Full CI + ระบบแบรนด์องค์กร", "24 รีล · 24 โพสต์ + ถ่าย 2 วัน", "SEO + KOL + brand film"],
+    } as Record<Size, string[]>,
   },
   {
     num: "03", name: "Hybrid", goal: "ทั้งคู่", tagline: "Both worlds, at once.",
     mindset: "การตลาด + ครีเอทีฟ", sales: 50, brand: 50,
     forWhat: "อยากโตเร็วและยั่งยืนพร้อมกัน",
     prices: { S: "฿32,900", M: "฿64,900", L: "฿129,900" } as Record<Size, string>,
-    sub: { S: "3 เดือน · แอดถึง ฿30k", M: "3 เดือน · แอดถึง ฿70k", L: "6 เดือน · แอดถึง ฿150k" } as Record<Size, string>,
-    points: [
-      "ได้ทั้งยิงแอด + สร้างแบรนด์",
-      "Mini Brand CI for Social + กลยุทธ์ 2 ชั้น",
-      "AI optimization + production",
-    ],
+    sub: { S: "3 เดือน · ดูแลแอดถึง ฿30k", M: "3 เดือน · ดูแลแอดถึง ฿70k", L: "6 เดือน · ดูแลแอดถึง ฿150k" } as Record<Size, string>,
+    points: {
+      S: ["ยิงแอด Meta + TikTok + สร้างแบรนด์", "Mini Brand CI + กลยุทธ์ 2 ชั้น", "8 รีล · 11 โพสต์ + ถ่าย 0.5 วัน"],
+      M: ["ยิงแอด + บริหารถึง ฿70k", "ระบบแบรนด์พื้นฐาน + SEO", "15 รีล · 16 โพสต์ + ถ่าย 1 วัน"],
+      L: ["ยิงแอด + AI optimization ถึง ฿150k", "Full CI + brand film", "18 รีล · 20 โพสต์ + ถ่าย 2 วัน"],
+    } as Record<Size, string[]>,
     featured: true,
   },
 ];
@@ -148,6 +149,12 @@ const faqs = [
     a: "ขนาดทีมและปริมาณงานต่อเดือน — S เริ่มต้น (ยอดนิยม), M ขยาย, L เต็มสูบ. เริ่มเล็กแล้วขยับขึ้นได้." },
   { q: "ทำไม Performance กับ Branding ราคาเท่ากัน?",
     a: "ทุกงานคิดใหม่ให้ตรงธุรกิจคุณ ไม่ใช้เทมเพลต — ต่างกันแค่ตั้งต้นจาก mindset: Performance คิดแบบการตลาด · Branding คิดแบบครีเอทีฟ. AI ช่วยให้เร็วขึ้น ไม่ใช่ส่วนลด." },
+  { q: "ค่ายิงแอด (ad spend) จ่ายยังไง บัญชีโฆษณาใครถือ?",
+    a: "ลูกค้าถือบัญชีโฆษณาเอง เติมเงินเอง เห็นยอดจริงทุกบาท — ORIONS ดูแลและปรับแอดให้ถึงงบเพดานของแพ็ก โดยไม่บวกเปอร์เซ็นต์ค่าแอด (เอเจนซีทั่วไปคิดค่าบริหาร 10–20% ของงบ)." },
+  { q: "มีค่า setup / แรกเข้าไหม?",
+    a: "ไม่มี — ค่าบริการรายเดือนรวม onboarding และการวางระบบเริ่มต้นให้แล้ว ไม่มีค่าแรกเข้าแยก." },
+  { q: "ผูกสัญญานานไหม เปลี่ยนไซส์ได้ไหม?",
+    a: "ขั้นต่ำ 3 เดือน (ไซส์ L = 6 เดือน) เพื่อให้ผลงานมีเวลาพิสูจน์ — ระหว่างทางขยับไซส์ขึ้นได้เมื่อพร้อมโต." },
 ];
 
 /** Info tooltip — (i) icon that explains a line item on hover / focus. */
@@ -242,7 +249,7 @@ const PricingSection = () => {
   const [size, setSize] = useState<Size>("S");
   const [showCompare, setShowCompare] = useState(false);
   return (
-    <section className="px-6 md:px-10">
+    <section id="pricing" className="px-6 md:px-10 scroll-mt-24">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="02" label="The choice" />
         <Reveal delay={0.05}>
@@ -277,7 +284,7 @@ const PricingSection = () => {
                 {t.featured && <span className="ribbon-pill absolute -top-3 left-7">ครบสุด</span>}
                 <div className="flex items-center justify-between gap-3">
                   <span lang="th" className="font-thai text-[11px] tracking-[0.02em] text-cinnabar">{t.goal} · {t.mindset}</span>
-                  <span className="font-mono text-[10px] tracking-[0.04em] text-muted-foreground shrink-0">{t.sales}/{t.brand}</span>
+                  <span className="font-mono text-[10px] tracking-[0.04em] text-muted-foreground shrink-0 inline-flex items-center">{t.sales}/{t.brand}<InfoTip text="สัดส่วนโฟกัส — ยอด / แบรนด์" /></span>
                 </div>
                 <h3 className="mt-3 text-[26px] md:text-[30px] leading-none font-semibold tracking-[-0.02em]">{t.name}</h3>
                 <div className="mt-1 font-serif text-foreground/70 text-[15px]">{t.tagline}</div>
@@ -296,7 +303,7 @@ const PricingSection = () => {
                 <div lang="th" className="mt-1.5 font-thai text-[11px] tracking-[0.02em] text-muted-foreground">{t.sub[size]}</div>
 
                 <ul className="mt-6 space-y-2.5 border-t border-foreground/15 pt-6 flex-1">
-                  {t.points.map((p) => (
+                  {t.points[size].map((p) => (
                     <li key={p} lang="th" className="grid grid-cols-[16px_1fr] gap-2.5 font-thai thai-wrap text-[13px] leading-[1.5] text-foreground/85">
                       <Check className="w-3.5 h-3.5 text-foreground/45 mt-0.5" /><span>{p}</span>
                     </li>
@@ -313,6 +320,9 @@ const PricingSection = () => {
 
         <p lang="th" className="mt-6 font-thai text-[12px] leading-[1.6] text-muted-foreground max-w-[640px]">
           ราคาไม่รวม VAT 7% · <span className="text-foreground/80">ค่าบริหารแอดเรารวมให้ฟรีจนถึงงบเพดาน — แต่ค่ายิงแอดจริง (ad spend) ลูกค้าจ่ายเอง</span> (เอเจนซีทั่วไปคิดค่าบริหาร 10–20% ของงบ)
+        </p>
+        <p lang="th" className="mt-3 font-thai text-[12px] leading-[1.6] text-foreground/70 max-w-[640px]">
+          ทุกแพ็กเริ่มด้วยคุยฟรี ไม่มีข้อผูกมัด — กดเลือกแล้วเราติดต่อกลับ.
         </p>
 
         {/* Full comparison — collapsed by default to keep the page light */}
@@ -531,7 +541,7 @@ const BudgetCalculator = () => {
                 {/* breakdown */}
                 <dl className="mt-5 space-y-3">
                   <div className="flex items-baseline justify-between gap-3">
-                    <dt lang="th" className="font-thai text-[13px] text-muted-foreground">งบการตลาดรวม ({Math.round(rate * 100)}%)</dt>
+                    <dt lang="th" className="font-thai text-[13px] text-muted-foreground inline-flex items-center">งบการตลาดรวม ({Math.round(rate * 100)}%)<InfoTip text="จุดตั้งต้นที่แนะนำ ≈ 30% ของยอดสำหรับสินค้าที่คนเริ่มรู้จัก · 60% สำหรับสินค้าใหม่ที่ต้อง launch — ปรับได้ตามจริง" /></dt>
                     <dd className="num-display text-foreground text-[22px]">{fmtBaht(budget)}</dd>
                   </div>
                   <div className="flex items-baseline justify-between gap-3">
@@ -573,6 +583,7 @@ const BudgetCalculator = () => {
                 <Link to={`/contact?pkg=${encodeURIComponent(pkgName)}`} className="btn-accent justify-between mt-7">
                   <span>เลือกแพ็กนี้ · ส่งให้ฝ่ายขาย</span><ArrowUpRight className="w-4 h-4" />
                 </Link>
+                <p lang="th" className="mt-3 font-thai text-[11px] text-center text-muted-foreground">ไม่มีข้อผูกมัด · คุยฟรีก่อนเริ่ม</p>
               </div>
             )}
           </div>
@@ -604,9 +615,17 @@ const Package = () => (
             ทุกงานคิดใหม่ให้ตรงธุรกิจคุณ <strong className="text-foreground">ไม่ใช้เทมเพลต</strong> — ต่างกันแค่ตั้งต้นจาก mindset: การตลาด (Performance) · ครีเอทีฟ (Branding) · หรือทั้งคู่ (Hybrid).
           </p>
         </Reveal>
+        <Reveal delay={0.13}>
+          <p lang="th" className="mt-7 font-mono text-[11px] tracking-[0.06em] text-muted-foreground">
+            เริ่ม <span className="num-display text-cinnabar text-[15px]">฿24,900</span>/เดือน · ไม่รวม VAT 7% &amp; ad spend
+          </p>
+        </Reveal>
         <Reveal delay={0.15}>
-          <div className="mt-9 flex flex-wrap gap-4">
-            <a href={RATECARD_PDF} download className="btn-accent">
+          <div className="mt-7 flex flex-wrap gap-4">
+            <a href="#pricing" className="btn-accent">
+              <span>ดูแพ็กเกจ</span><ArrowUpRight className="w-4 h-4" />
+            </a>
+            <a href={RATECARD_PDF} download className="btn-ghost">
               <Download className="w-4 h-4" /><span>ดาวน์โหลด Rate Card (PDF)</span>
             </a>
             <a href="tel:+66655169925" className="btn-ghost">
@@ -619,6 +638,9 @@ const Package = () => (
 
     {/* 02 — PRICING */}
     <PricingSection />
+
+    {/* Quiet proof — real clients, near the decision point */}
+    <TrustStrip label="แบรนด์ที่ไว้ใจเรา" />
 
     {/* 03 — BUDGET CALCULATOR */}
     <BudgetCalculator />
@@ -647,7 +669,7 @@ const Package = () => (
           <SectionLabel index="05" label="ORIONS Production" />
           <Reveal delay={0.05}><h2 lang="th" className="mt-8 h-display-sm">มี brief แล้ว ขาดทีมออกกอง.</h2></Reveal>
           <p lang="th" className="mt-5 font-thai thai-wrap text-[14px] leading-[1.7] text-muted-foreground max-w-[44ch]">
-            senior crew + Sony A7V / FX6 + GM glass · raw + same-day proxy.
+            senior crew + Sony A7V / FX6 + GM glass · raw + same-day proxy — ภาพ/วิดีโอระดับโฆษณา ส่งไฟล์ได้ในวัน.
           </p>
           <dl className="card-soft mt-8 px-6 md:px-7 py-2">
             {production.map((a, i) => (
@@ -658,7 +680,7 @@ const Package = () => (
             ))}
           </dl>
           <p lang="th" className="mt-5 font-thai text-[11px] tracking-[0.02em] text-muted-foreground leading-[1.6]">
-            ซื้อ 3+ add-ons ลด 10% · จ้าง 2 สายลด 10% · 3 สายลด 15%
+            ซื้อ 3+ add-ons ลด 10% · จองโปรดักชันตั้งแต่ 2 วันลด 10% · 3 วันลด 15%
           </p>
         </div>
       </div>

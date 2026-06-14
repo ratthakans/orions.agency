@@ -5,6 +5,7 @@ import SectionLabel from "@/components/SectionLabel";
 import ImageBand from "@/components/ImageBand";
 import CTABand from "@/components/CTABand";
 import { caseStudies } from "@/data/caseStudies";
+import founder from "@/assets/team/founder.jpg";
 
 const principles = [
   { n: "i.",   en: "พูดตรง",                 th: "ถ้ายังไม่พร้อม เราบอกตรง ๆ — ครบทั้งสองด้าน" },
@@ -88,7 +89,31 @@ const About = () => (
       </div>
     </section>
 
-    {/* 03 — THE TEAM */}
+    {/* 03 — FOUNDER'S NOTE */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+        <SectionLabel label="Founder's note" />
+        <Reveal delay={0.05}>
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-8 md:gap-14 items-center">
+            <img
+              src={founder}
+              alt="Founder / Creative Director, ØRIONS"
+              className="w-40 h-48 md:w-52 md:h-64 rounded-2xl object-cover object-top shrink-0"
+            />
+            <div>
+              <blockquote lang="th" className="font-serif text-[22px] md:text-[30px] leading-[1.4] tracking-[-0.01em] thai-wrap text-foreground/90 max-w-[40ch]">
+                ผมเริ่ม ØRIONS เพราะเชื่อว่าแบรนด์ที่ดีไม่ได้มาจากการพูดให้ดังที่สุด แต่จากการ <em className="text-cinnabar">พูดให้ถูก.</em> เราจะบอกตรง ๆ เสมอ — ทั้งตอนที่มันใช่ และตอนที่ยังไม่พร้อม.
+              </blockquote>
+              <p className="mt-7 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
+                — Founder / Creative Director · ØRIONS
+              </p>
+            </div>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+
+    {/* 04 — THE TEAM */}
     {/* PLACEHOLDER: replace names + photos with the real 12-person team */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">

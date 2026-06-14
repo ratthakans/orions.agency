@@ -22,9 +22,9 @@ const Layout = ({ children }: { children: ReactNode }) => {
       <motion.main
         id="main"
         key={pathname}
-        initial={reduced ? false : { opacity: 0, y: 6 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+        initial={reduced ? false : { opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.18, ease: "easeOut" }}
         className="flex-1 relative z-10 bg-background pb-14 md:pb-0"
       >
         {children}

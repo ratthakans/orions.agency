@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
@@ -8,19 +8,51 @@ import ScrollToTop from "./components/ScrollToTop";
 import Index from "./pages/Index";
 
 // Below-the-fold routes are split into their own chunks to keep first load small.
-const About = lazy(() => import("./pages/About"));
-const Services = lazy(() => import("./pages/Services"));
-const Work = lazy(() => import("./pages/Work"));
-const CaseStudy = lazy(() => import("./pages/CaseStudy"));
-const Consulting = lazy(() => import("./pages/Consulting"));
-const Package = lazy(() => import("./pages/Package"));
-const Contact = lazy(() => import("./pages/Contact"));
-const Journal = lazy(() => import("./pages/Journal"));
-const JournalPost = lazy(() => import("./pages/JournalPost"));
-const Privacy = lazy(() => import("./pages/Privacy"));
-const NotFound = lazy(() => import("./pages/NotFound"));
+// Each import fn is reused for both lazy() and idle prefetch (warms the module cache
+// so a nav click renders instantly instead of waiting on a network fetch).
+const routes = {
+  About: () => import("./pages/About"),
+  Services: () => import("./pages/Services"),
+  Work: () => import("./pages/Work"),
+  CaseStudy: () => import("./pages/CaseStudy"),
+  Consulting: () => import("./pages/Consulting"),
+  Package: () => import("./pages/Package"),
+  Contact: () => import("./pages/Contact"),
+  Journal: () => import("./pages/Journal"),
+  JournalPost: () => import("./pages/JournalPost"),
+  Privacy: () => import("./pages/Privacy"),
+  NotFound: () => import("./pages/NotFound"),
+};
 
-const App = () => (
+const About = lazy(routes.About);
+const Services = lazy(routes.Services);
+const Work = lazy(routes.Work);
+const CaseStudy = lazy(routes.CaseStudy);
+const Consulting = lazy(routes.Consulting);
+const Package = lazy(routes.Package);
+const Contact = lazy(routes.Contact);
+const Journal = lazy(routes.Journal);
+const JournalPost = lazy(routes.JournalPost);
+const Privacy = lazy(routes.Privacy);
+const NotFound = lazy(routes.NotFound);
+
+/** Warm all route chunks during idle time after first paint → instant navigation. */
+const usePrefetchRoutes = () => {
+  useEffect(() => {
+    const prefetch = () => Object.values(routes).forEach((load) => load());
+    const ric = (window as Window & { requestIdleCallback?: (cb: () => void) => number }).requestIdleCallback;
+    const id = ric ? ric(prefetch) : window.setTimeout(prefetch, 1500);
+    return () => {
+      const cic = (window as Window & { cancelIdleCallback?: (h: number) => void }).cancelIdleCallback;
+      if (ric && cic) cic(id);
+      else clearTimeout(id);
+    };
+  }, []);
+};
+
+const App = () => {
+  usePrefetchRoutes();
+  return (
     <TooltipProvider>
       <Sonner />
       <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
@@ -56,6 +88,7 @@ const App = () => (
         </Layout>
       </BrowserRouter>
     </TooltipProvider>
-);
+  );
+};
 
 export default App;

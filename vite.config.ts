@@ -20,5 +20,14 @@ export default defineConfig(() => ({
   build: {
     target: "esnext",
     minify: "esbuild",
+    rollupOptions: {
+      output: {
+        // Split rarely-changing vendor libs into their own long-cached chunks
+        manualChunks: {
+          react: ["react", "react-dom", "react-router-dom"],
+          motion: ["framer-motion"],
+        },
+      },
+    },
   },
 }));

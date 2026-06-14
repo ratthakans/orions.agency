@@ -196,7 +196,7 @@ const CompareTable = ({ size }: { size: Size }) => (
           <Fragment key={g.group}>
             {/* group divider — label lives in the sticky first column so it survives horizontal scroll */}
             <tr aria-hidden>
-              <td lang="th" className="pt-6 pb-1.5 font-mono text-[9px] tracking-[0.2em] uppercase text-muted-foreground/80 whitespace-nowrap sticky left-0 z-10 bg-[hsl(var(--card))]">
+              <td lang="th" className="pt-6 pb-1.5 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground/80 whitespace-nowrap sticky left-0 z-10 bg-[hsl(var(--card))]">
                 — {g.group}
               </td>
               <td /><td /><td className="bg-cinnabar/[0.04]" />
@@ -265,16 +265,16 @@ const PricingSection = () => {
 
         {/* Step 1: size selector */}
         <div className="mt-12 flex flex-wrap items-center gap-4">
-          <span className="inline-flex items-center gap-2.5">
-            <span className="grid place-items-center w-6 h-6 rounded-full bg-cinnabar text-background num-display text-[13px]">1</span>
+          <span className="inline-flex items-baseline gap-2.5">
+            <span className="font-mono text-[11px] tracking-[0.18em] text-cinnabar tabular-nums">01</span>
             <span lang="th" className="font-thai text-[13px] text-foreground">เลือกขนาดทีม</span>
           </span>
           <SizeToggle size={size} setSize={setSize} />
         </div>
 
         {/* Step 2: track cards */}
-        <div className="mt-6 mb-5 inline-flex items-center gap-2.5">
-          <span className="grid place-items-center w-6 h-6 rounded-full bg-cinnabar text-background num-display text-[13px]">2</span>
+        <div className="mt-6 mb-5 inline-flex items-baseline gap-2.5">
+          <span className="font-mono text-[11px] tracking-[0.18em] text-cinnabar tabular-nums">02</span>
           <span lang="th" className="font-thai text-[13px] text-foreground">เลือก track แล้วกดเพื่อส่งโจทย์</span>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
@@ -286,7 +286,7 @@ const PricingSection = () => {
                   <span lang="th" className="font-thai text-[11px] tracking-[0.02em] text-cinnabar">{t.goal} · {t.mindset}</span>
                   <span className="font-mono text-[10px] tracking-[0.04em] text-muted-foreground shrink-0 inline-flex items-center">{t.sales}/{t.brand}<InfoTip text="สัดส่วนโฟกัส — ยอด / แบรนด์" /></span>
                 </div>
-                <h3 className="mt-3 text-[26px] md:text-[30px] leading-none font-semibold tracking-[-0.02em]">{t.name}</h3>
+                <h3 className="mt-3 font-unbounded text-[22px] md:text-[26px] leading-none tracking-[-0.01em]">{t.name}</h3>
                 <div className="mt-1 font-serif text-foreground/70 text-[15px]">{t.tagline}</div>
 
                 <div className="mt-4 flex h-1.5 overflow-hidden rounded-full">
@@ -330,7 +330,7 @@ const PricingSection = () => {
           <div className="flex items-end justify-between gap-4 flex-wrap mb-7">
             <div>
               <SectionLabel label="Compare" />
-              <h3 lang="th" className="mt-4 h-display-sm">เทียบให้เห็นชัด</h3>
+              <h3 lang="th" className="mt-4 h-display-sm">เทียบให้เห็น<em className="text-cinnabar">ชัด.</em></h3>
             </div>
             <div className="flex items-center gap-3 flex-wrap">
               {showCompare && (
@@ -446,7 +446,7 @@ const BudgetCalculator = () => {
             {/* 1 — sales */}
             <div>
               <div className="flex items-center gap-2.5">
-                <span className="grid place-items-center w-6 h-6 rounded-full bg-cinnabar text-background num-display text-[13px]">1</span>
+                <span className="font-mono text-[11px] tracking-[0.18em] text-cinnabar tabular-nums">01</span>
                 <label lang="th" className="font-thai text-[13px] text-foreground">ยอดขายที่คาดหวัง / เดือน</label>
               </div>
               <div className="mt-4 flex items-center gap-2 border-b-2 border-foreground/20 focus-within:border-cinnabar transition-colors pb-2">
@@ -468,7 +468,7 @@ const BudgetCalculator = () => {
             {/* 2 — launched */}
             <div>
               <div className="flex items-center gap-2.5">
-                <span className="grid place-items-center w-6 h-6 rounded-full bg-cinnabar text-background num-display text-[13px]">2</span>
+                <span className="font-mono text-[11px] tracking-[0.18em] text-cinnabar tabular-nums">02</span>
                 <label lang="th" className="font-thai text-[13px] text-foreground">สินค้านี้เคยออกตลาดมาก่อนไหม?</label>
               </div>
               <div className="mt-4 grid grid-cols-2 gap-3">
@@ -493,7 +493,7 @@ const BudgetCalculator = () => {
             {/* 3 — goal */}
             <div>
               <div className="flex items-center gap-2.5">
-                <span className="grid place-items-center w-6 h-6 rounded-full bg-cinnabar text-background num-display text-[13px]">3</span>
+                <span className="font-mono text-[11px] tracking-[0.18em] text-cinnabar tabular-nums">03</span>
                 <label lang="th" className="font-thai text-[13px] text-foreground">เป้าหมายของคุณ</label>
               </div>
               <div className="mt-4 grid grid-cols-3 gap-3">
@@ -654,11 +654,11 @@ const Package = () => (
           <dl className="card-soft mt-8 px-6 md:px-7 py-4">
             {ADDON_GROUPS.map((group, gi) => (
               <div key={group} className={gi > 0 ? "mt-5 pt-5 border-t border-foreground/15" : ""}>
-                <div className="font-mono text-[9px] tracking-[0.22em] uppercase text-cinnabar mb-2">— {group}</div>
+                <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar mb-2">— {group}</div>
                 {addons.filter((a) => a.g === group).map((a) => (
                   <div key={a.k} className="flex items-baseline justify-between gap-6 py-2.5">
                     <dt lang="th" className="font-thai text-[14px] text-foreground/85 inline-flex items-center">{a.k}<InfoTip text={a.info} /></dt>
-                    <dd className="font-mono text-[12px] tracking-[0.02em] text-cinnabar shrink-0">{a.v}</dd>
+                    <dd className="font-mono text-[12px] tracking-[0.02em] text-foreground/75 shrink-0">{a.v}</dd>
                   </div>
                 ))}
               </div>
@@ -675,7 +675,7 @@ const Package = () => (
             {production.map((a, i) => (
               <div key={a.k} className={`flex items-baseline justify-between gap-6 py-3 ${i !== production.length - 1 ? "border-b border-foreground/12" : ""}`}>
                 <dt lang="th" className="font-thai text-[14px] text-foreground/85 inline-flex items-center">{a.k}<InfoTip text={a.info} /></dt>
-                <dd className="font-mono text-[12px] tracking-[0.02em] text-cinnabar shrink-0">{a.v}</dd>
+                <dd className="font-mono text-[12px] tracking-[0.02em] text-foreground/75 shrink-0">{a.v}</dd>
               </div>
             ))}
           </dl>

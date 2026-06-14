@@ -177,8 +177,8 @@
   .text-orion   { color: hsl(var(--accent)); }
   .bg-orion     { background-color: hsl(var(--accent)); }
   .text-gemini  { color: hsl(var(--accent)); }
-  .text-cinnabar { color: hsl(var(--accent)); }
-  .bg-cinnabar  { background-color: hsl(var(--accent)); }
+  /* text-cinnabar / bg-cinnabar / border-cinnabar / ring-cinnabar now come from
+     the Tailwind `cinnabar` color (config) — full opacity-modifier support. */
 
   .label-mono {
     @apply font-mono text-[10px] tracking-[0.2em] uppercase;

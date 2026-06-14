@@ -43,6 +43,8 @@ export default {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
+        // Brand accent alias — full utility set (text/bg/border/ring + opacity)
+        cinnabar: "hsl(var(--accent) / <alpha-value>)",
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",

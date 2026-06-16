@@ -1,149 +1,40 @@
-// Work-page portfolio — grouped by craft category (mirrors the ORIONS deck).
-// Covers are optional: a tile renders a branded placeholder until a real image
-// is dropped in (set `cover` to an imported asset to replace it).
+// Work-page portfolio — one "board" image per deck page, grouped by category.
+// Boards are exported from the ORIONS deck (label strip cropped off).
 
-export type PortItem = {
-  name: string;
-  /** Music: artist · or a small sub-label */
-  meta?: string;
-  /** Photo-set size → shown as a "N รูป" badge and (for masonry) taller tiles */
-  count?: number;
-  /** External live link (optional) */
-  url?: string;
-  /** Real cover image (optional; placeholder shown if absent) */
-  cover?: string;
-};
-
-export type PortLayout = "masonry" | "reels" | "wide" | "events";
+import video from "@/assets/work/video.jpg";
+import social1 from "@/assets/work/social-1.jpg";
+import social2 from "@/assets/work/social-2.jpg";
+import social3 from "@/assets/work/social-3.jpg";
+import social4 from "@/assets/work/social-4.jpg";
+import reels1 from "@/assets/work/reels-1.jpg";
+import reels2 from "@/assets/work/reels-2.jpg";
+import reels3 from "@/assets/work/reels-3.jpg";
+import longform from "@/assets/work/longform.jpg";
+import music from "@/assets/work/music.jpg";
+import artdir1 from "@/assets/work/artdir-1.jpg";
+import artdir2 from "@/assets/work/artdir-2.jpg";
+import photo1 from "@/assets/work/photo-1.jpg";
+import photo2 from "@/assets/work/photo-2.jpg";
+import events1 from "@/assets/work/events-1.jpg";
+import events2 from "@/assets/work/events-2.jpg";
+import events3 from "@/assets/work/events-3.jpg";
 
 export type PortCategory = {
   key: string;
-  /** Short label for the filter chip */
   chip: string;
   n: string;
   title: string;
   sub: string;
-  layout: PortLayout;
-  /** wide layout: show a second artist line */
-  music?: boolean;
-  items: PortItem[];
+  boards: string[];
 };
 
 export const portfolio: PortCategory[] = [
-  {
-    key: "social",
-    chip: "Social & ads",
-    n: "01",
-    title: "Social posts & creative ads",
-    sub: "16 projects",
-    layout: "masonry",
-    items: [
-      { name: "RWS" },
-      { name: "Hongmove", count: 6 },
-      { name: "Leicester City" },
-      { name: "ONS", count: 5 },
-      { name: "Audi" },
-      { name: "เทศกาลดนตรีที่ไม่มีชื่อ", count: 6 },
-      { name: "Bangpakong Riverside", count: 3 },
-      { name: "แก่นโฟล์ค", count: 6 },
-      { name: "International Women's Day" },
-      { name: "Analog Sky Flow", count: 6 },
-      { name: "Khao Yai Country Club", count: 3 },
-      { name: "Chivarak", count: 4 },
-      { name: "B-Healthy", count: 4 },
-      { name: "Tevada", count: 4 },
-      { name: "SNFX", count: 4 },
-      { name: "Playground Live — หอการค้า" },
-    ],
-  },
-  {
-    key: "reels",
-    chip: "Reels",
-    n: "02",
-    title: "Reels & short video",
-    sub: "11 projects",
-    layout: "reels",
-    items: [
-      { name: "พรรคภูมิใจไทย" },
-      { name: "Handverk" },
-      { name: "DevCamp" },
-      { name: "Tevada Global" },
-      { name: "Life of Cars" },
-      { name: "Gravity Tones" },
-      { name: "พรรคพลวัต" },
-      { name: "Chivarak" },
-      { name: "พรรคประชาธิปัตย์" },
-      { name: "B-Healthy" },
-      { name: "Analog Skyflow" },
-    ],
-  },
-  {
-    key: "entertainment",
-    chip: "Entertainment",
-    n: "03",
-    title: "Entertainment & long-form",
-    sub: "5 projects",
-    layout: "wide",
-    items: [
-      { name: "เถื่อน Travel" },
-      { name: "The Upgrade", meta: "Workpoint" },
-      { name: "เพลงลำคำเขื่อนแก้ว" },
-      { name: "เกิดแก่เจ็บโต" },
-      { name: "ท่องทำนองที่เลือนหาย" },
-    ],
-  },
-  {
-    key: "music",
-    chip: "Music",
-    n: "04",
-    title: "Music producing & video",
-    sub: "15 tracks",
-    layout: "wide",
-    music: true,
-    items: [
-      { name: "สาวน้อยกลับบ้าน", meta: "กวาง จิรพรรณ" },
-      { name: "พังในพริบตา", meta: "Pancake" },
-      { name: "กลับไปก่อนได้ไหม", meta: "Num Kala" },
-      { name: "ทางที่ดีคือทางแบบไหน", meta: "Pancake" },
-      { name: "วันครบรอบนับยังไง", meta: "Pancake" },
-      { name: "เดือนดาว", meta: "นุ่นนิ่น" },
-      { name: "อกหักได้ไง ไม่ได้เป็นอะไรกับเขา", meta: "Pancake" },
-      { name: "จม", meta: "Num Kala" },
-      { name: "พลังวิเศษ", meta: "นุ๊ก ปาย" },
-      { name: "เปิดใจปุ๊ป อกหักปั๊ป", meta: "กวาง จิรพรรณ" },
-      { name: "กอดสุดท้าย", meta: "Innertears" },
-      { name: "บุษบา", meta: "ปิ๋ม ชุติมา" },
-      { name: "ลมฮัก", meta: "วี พนมภูไท" },
-      { name: "ลืมได้จริงใช่ไหม", meta: "Num Kala" },
-      { name: "แม่น้องออนิว", meta: "ปิ๋ม ชุติมา" },
-    ],
-  },
-  {
-    key: "branding",
-    chip: "Branding",
-    n: "05",
-    title: "Branding & photoshoot",
-    sub: "Royal Thai Air Force · Culture",
-    layout: "masonry",
-    items: [
-      { name: "Royal Thai Air Force", meta: "RTAF", count: 3 },
-      { name: "Culture — apparel", meta: "Culture", count: 6 },
-      { name: "Culture — portraits", meta: "Culture", count: 4 },
-      { name: "Culture — product", meta: "Culture", count: 5 },
-    ],
-  },
-  {
-    key: "events",
-    chip: "Events",
-    n: "06",
-    title: "Event & activation",
-    sub: "4 projects",
-    layout: "events",
-    items: [
-      { name: "IRA Residences", meta: "Tatler Thailand", count: 6, url: "https://www.tatlerasia.com" },
-      { name: "Gent Leaders of Tomorrow", meta: "Tatler Thailand", count: 6, url: "https://www.tatlerasia.com" },
-      { name: "Jinro Feelfresh", meta: "Activation" },
-      { name: "Enchanted", meta: "Activation" },
-    ],
-  },
+  { key: "video", chip: "Video", n: "01", title: "Video", sub: "Social & commercial films", boards: [video] },
+  { key: "social", chip: "Social", n: "02", title: "Social posts & creative ads", sub: "Campaigns & creative ads", boards: [social1, social2, social3, social4] },
+  { key: "reels", chip: "Reels", n: "03", title: "Reels & short video", sub: "Short-form video", boards: [reels1, reels2, reels3] },
+  { key: "longform", chip: "Long-form", n: "04", title: "Entertainment & long-form", sub: "Series & documentary", boards: [longform] },
+  { key: "music", chip: "Music", n: "05", title: "Music producing & video", sub: "Music videos & production", boards: [music] },
+  { key: "artdir", chip: "Art direction", n: "06", title: "Graphic design & art direction", sub: "Key visuals & posters", boards: [artdir1, artdir2] },
+  { key: "photo", chip: "Photography", n: "07", title: "Branding & photoshoot", sub: "Brand identity & shoots", boards: [photo1, photo2] },
+  { key: "events", chip: "Events", n: "08", title: "Event & activation", sub: "Events & activations", boards: [events1, events2, events3] },
 ];

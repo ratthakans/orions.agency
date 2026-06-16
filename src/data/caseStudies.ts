@@ -218,14 +218,13 @@ export const caseStudies: CaseStudy[] = [
   },
 ];
 
-/** "More Selected Projects" — categorised index (names as listed in the deck). */
+/** "More Selected Projects" — categorised index of real client work. */
 export const moreSelected: { category: string; items: string[] }[] = [
-  { category: "Social & Commercials", items: ["Leicester City", "Buriram Esport", "Audi Thailand", "Siriraj Hospital"] },
-  { category: "Entertainment & Long-form", items: ["เถื่อน Travel", "Life of Car", "เพลงลำคำเขื่อนแก้ว", "Finding the Last Note", "The Upgrade", "เกิด/แก่/เจ็บ/โต"] },
-  { category: "Event & Activation", items: ["Tatler Asia"] },
-  { category: "Branding & Photoshoot", items: ["Commercial & brand photoshoot"] },
-  { category: "Social Posts & Creative Ads", items: ["Static & creative ad production"] },
-  { category: "Reels & Short Video", items: ["Short-form & reels production"] },
+  { category: "Social Posts & Creative Ads", items: ["RWS", "Bangpakong", "International Women's Day", "Leicester City", "Audi", "Playground Live — หอการค้า"] },
+  { category: "Reels & Short Video", items: ["พรรคภูมิใจไทย", "Handverk", "DevCamp", "Tevada Global", "Life of Cars", "Gravity Tones", "พรรคพลวัต", "Chivarak", "พรรคประชาธิปัตย์", "B-Healthy", "Analog Skyflow"] },
+  { category: "Music Producing & Video", items: ["Original tracks · scoring · music videos"] },
+  { category: "Branding & Photoshoot", items: ["Brand identity · commercial photoshoots"] },
+  { category: "Event & Activation", items: ["Tatler Asia — IRA Residences", "Tatler Asia — Gent Leaders of Tomorrow"] },
 ];
 
 export const getCaseStudy = (slug: string) =>

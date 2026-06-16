@@ -77,17 +77,40 @@ const Work = () => {
               </div>
             </div>
 
-            <div className="mt-6 space-y-3 md:space-y-4">
-              {cat.boards.map((src, i) => (
-                <img
-                  key={i}
-                  src={src}
-                  alt={`${cat.title} — ${i + 1}`}
-                  loading="lazy"
-                  className="w-full rounded-xl border border-foreground/12"
-                />
-              ))}
-            </div>
+            {cat.gallery ? (
+              <div className="mt-6 flex flex-wrap gap-2.5 md:gap-3">
+                {cat.gallery.map((g, i) => (
+                  <a
+                    key={i}
+                    href={g.src}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group relative block overflow-hidden rounded-lg border border-foreground/12 hover:border-cinnabar/70 transition-colors"
+                    style={{ flexGrow: g.ar, flexBasis: `${g.ar * 240}px` }}
+                  >
+                    <img
+                      src={g.src}
+                      alt={`${cat.title} — ${i + 1}`}
+                      loading="lazy"
+                      className="block w-full h-auto group-hover:opacity-90 transition-opacity"
+                    />
+                  </a>
+                ))}
+                <i aria-hidden className="grow-[10] basis-0" />
+              </div>
+            ) : (
+              <div className="mt-6 space-y-3 md:space-y-4">
+                {cat.boards?.map((src, i) => (
+                  <img
+                    key={i}
+                    src={src}
+                    alt={`${cat.title} — ${i + 1}`}
+                    loading="lazy"
+                    className="w-full rounded-xl border border-foreground/12"
+                  />
+                ))}
+              </div>
+            )}
           </div>
         </section>
       ))}

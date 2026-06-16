@@ -1,15 +1,36 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { X } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import ClosingCTA from "@/components/ClosingCTA";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
-import { portfolio } from "@/data/portfolio";
+import { portfolio, type GalleryImage } from "@/data/portfolio";
 
 const SITE_URL = "https://orions.agency";
 
+/** Deterministic shuffle — stable for a given seed (reshuffles only when seed changes). */
+const shuffle = <T,>(arr: T[], seed: number): T[] => {
+  const a = [...arr];
+  let s = seed + 1;
+  const rnd = () => { s = (s * 1103515245 + 12345) & 0x7fffffff; return s / 0x7fffffff; };
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(rnd() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+};
+
 const Work = () => {
   const [active, setActive] = useState<string>("all");
+  const [shuffleKey, setShuffleKey] = useState(0);
+  const [lightbox, setLightbox] = useState<string | null>(null);
   const visible = portfolio.filter((c) => active === "all" || c.key === active);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setLightbox(null);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
 
   return (
     <div>
@@ -46,7 +67,7 @@ const Work = () => {
               <button
                 key={c.key}
                 type="button"
-                onClick={() => setActive(c.key)}
+                onClick={() => { setActive(c.key); setShuffleKey((k) => k + 1); }}
                 aria-pressed={active === c.key}
                 className={`font-mono text-[11px] tracking-[0.08em] uppercase px-3.5 py-1.5 rounded-full border transition-colors ${
                   active === c.key
@@ -79,13 +100,12 @@ const Work = () => {
 
             {cat.gallery ? (
               <div className="mt-6 columns-2 md:columns-3 gap-2.5 md:gap-3">
-                {cat.gallery.map((g, i) => (
-                  <a
-                    key={i}
-                    href={g.src}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="group relative block mb-2.5 md:mb-3 break-inside-avoid overflow-hidden rounded-lg border border-foreground/12 hover:border-cinnabar/70 transition-colors"
+                {shuffle<GalleryImage>(cat.gallery, shuffleKey).map((g, i) => (
+                  <button
+                    key={g.src}
+                    type="button"
+                    onClick={() => setLightbox(g.src)}
+                    className="group relative block w-full mb-2.5 md:mb-3 break-inside-avoid overflow-hidden rounded-lg border border-foreground/12 hover:border-cinnabar/70 transition-colors cursor-pointer"
                   >
                     <img
                       src={g.src}
@@ -93,7 +113,7 @@ const Work = () => {
                       loading="lazy"
                       className="block w-full h-auto group-hover:opacity-90 transition-opacity"
                     />
-                  </a>
+                  </button>
                 ))}
               </div>
             ) : (
@@ -121,6 +141,29 @@ const Work = () => {
           { label: "ดูแพ็กเกจ", to: "/package", variant: "ghost" },
         ]}
       />
+
+      {lightbox && (
+        <div
+          className="fixed inset-0 z-[100] bg-background/95 flex items-center justify-center p-4 md:p-10"
+          onClick={() => setLightbox(null)}
+          role="dialog"
+          aria-modal="true"
+        >
+          <button
+            type="button"
+            aria-label="ปิด"
+            className="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 grid place-items-center rounded-full border border-foreground/30 text-foreground/80 hover:border-cinnabar hover:text-cinnabar transition-colors"
+          >
+            <X className="w-5 h-5" />
+          </button>
+          <img
+            src={lightbox}
+            alt=""
+            onClick={(e) => e.stopPropagation()}
+            className="max-w-full max-h-[88vh] w-auto h-auto object-contain rounded-lg border border-foreground/15"
+          />
+        </div>
+      )}
     </div>
   );
 };

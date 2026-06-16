@@ -1,167 +1,194 @@
+import { useState, type ElementType } from "react";
 import Reveal from "@/components/Reveal";
 import ClosingCTA from "@/components/ClosingCTA";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
-import ImageBand from "@/components/ImageBand";
-import { ArrowUpRight } from "lucide-react";
-import { caseStudies, moreSelected, serviceMeta } from "@/data/caseStudies";
+import { ArrowUpRight, Play } from "lucide-react";
+import { portfolio, type PortItem, type PortLayout } from "@/data/portfolio";
 
 const SITE_URL = "https://orions.agency";
-const bandCover = caseStudies.find((c) => c.slug === "hongmove")!.cover;
 
-/** Running display order across the 3 service sections → sequential 01..08 numbering. */
-const ordered = serviceMeta.flatMap((s) => caseStudies.filter((c) => c.service === s.key));
-const numberOf = (slug: string) => String(ordered.findIndex((c) => c.slug === slug) + 1).padStart(2, "0");
+/** More photos → taller masonry tile (ties tile height to the work). */
+const masonryAspect = (count?: number) => {
+  if (!count) return "1 / 1";
+  if (count >= 6) return "4 / 5";
+  if (count >= 4) return "3 / 4";
+  return "5 / 4";
+};
 
-/** Deck-style project card — cover + number + name + one-liner + Challenge + live URL. */
-const ProjectCard = ({
-  n, title, cover, niche, summary, challenge, url,
-}: {
-  n: string; title: string; cover: string; niche: string; summary: string; challenge: string; url: string;
-}) => (
-  <div className="group flex flex-col h-full">
-    <div className="relative w-full overflow-hidden rounded-2xl bg-surface-2" style={{ aspectRatio: "4 / 3" }}>
-      <img
-        src={cover}
-        alt={`${title} — ${niche}`}
-        loading="lazy"
-        className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-[800ms] ease-[cubic-bezier(0.22,1,0.36,1)]"
-      />
-    </div>
+const aspectFor = (layout: PortLayout, item: PortItem) =>
+  layout === "reels" ? "9 / 16" : layout === "wide" ? "16 / 9" : masonryAspect(item.count);
 
-    <div className="mt-5 flex items-baseline gap-3">
-      <span className="num-display text-cinnabar text-[18px] md:text-[20px] shrink-0">{n}</span>
-      <h3 lang="th" className="font-serif text-[21px] md:text-[24px] tracking-[-0.01em] leading-[1.15] thai-wrap">{title}</h3>
-    </div>
-    <p lang="th" className="mt-2 font-thai thai-wrap text-[13.5px] leading-[1.6] text-muted-foreground">{summary}</p>
-
-    <div className="mt-4 pt-4 border-t border-foreground/12">
-      <div className="font-mono text-[9px] tracking-[0.22em] uppercase text-cinnabar">— Challenge</div>
-      <p lang="th" className="mt-1.5 font-thai thai-wrap text-[13px] leading-[1.55] text-foreground/75">{challenge}</p>
-    </div>
-
-    <div className="mt-auto pt-5">
-      {url ? (
-        <a
-          href={url}
-          target="_blank"
-          rel="noreferrer"
-          className="inline-flex items-center gap-1.5 font-mono text-[10px] tracking-[0.16em] uppercase text-foreground/70 hover:text-cinnabar transition-colors"
-        >
-          {url.replace(/^https?:\/\//, "")} <ArrowUpRight className="w-3.5 h-3.5" />
-        </a>
-      ) : (
-        <span className="font-mono text-[10px] tracking-[0.16em] uppercase text-foreground/35">ไม่เปิดเผยต่อสาธารณะ</span>
+/** A single placeholder tile — swaps to a real image once `cover` is set. */
+const Tile = ({
+  item, index, layout, showPlay,
+}: { item: PortItem; index: number; layout: PortLayout; showPlay: boolean }) => {
+  const Wrapper: ElementType = item.url ? "a" : "div";
+  const wrapProps = item.url ? { href: item.url, target: "_blank", rel: "noreferrer" } : {};
+  return (
+    <Wrapper
+      {...wrapProps}
+      className={`group relative block w-full overflow-hidden rounded-[10px] border border-foreground/12 bg-[#131210] transition-colors duration-300 hover:border-cinnabar/70 hover:bg-[#191712] ${
+        layout === "masonry" ? "mb-3 break-inside-avoid" : ""
+      } ${item.url ? "cursor-pointer" : ""}`}
+      style={{ aspectRatio: aspectFor(layout, item) }}
+    >
+      <span className="absolute top-2.5 left-3 z-10 font-mono text-[10px] text-foreground/40">
+        {String(index + 1).padStart(2, "0")}
+      </span>
+      {item.count ? (
+        <span className="absolute top-2 right-2.5 z-10 font-mono text-[9px] tracking-[0.08em] text-foreground/70 bg-[rgba(10,10,9,0.5)] border border-foreground/15 px-2 py-0.5 rounded-full">
+          {item.count} รูป
+        </span>
+      ) : null}
+      {showPlay && (
+        <span className="absolute inset-0 grid place-items-center text-foreground/30 group-hover:text-cinnabar/90 transition-colors">
+          <Play className="w-6 h-6" />
+        </span>
       )}
-    </div>
-  </div>
-);
+      <span className="absolute inset-x-0 bottom-0 p-3 bg-[rgba(10,10,9,0.42)]">
+        <span lang="th" className="flex items-center gap-1.5 font-serif text-[14px] font-medium leading-[1.18] thai-wrap">
+          {item.name}
+          <ArrowUpRight className="w-3.5 h-3.5 text-cinnabar opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
+        </span>
+        {item.meta && (
+          <span lang="th" className="block mt-1 font-mono text-[9.5px] tracking-[0.1em] uppercase text-foreground/55">
+            {item.meta}
+          </span>
+        )}
+      </span>
+    </Wrapper>
+  );
+};
 
-const Work = () => (
-  <div>
-    <SEO
-      title="Work — Selected Work · ØRIONS"
-      description="ผลงานจริงที่เลือกมาเพราะแต่ละชิ้นมีเงื่อนไขที่ทำให้วิธีคิดของเราเห็นชัด — ไม่ใช่เพราะงบใหญ่ที่สุด."
-      path="/work"
-      schema={{
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
-          { "@type": "ListItem", position: 2, name: "Work", item: `${SITE_URL}/work` },
-        ],
-      }}
-    />
+const gridClass = (layout: PortLayout) =>
+  layout === "masonry"
+    ? "columns-2 md:columns-3 gap-3"
+    : layout === "reels"
+    ? "grid grid-cols-[repeat(auto-fill,minmax(104px,1fr))] gap-2.5"
+    : "grid grid-cols-[repeat(auto-fill,minmax(196px,1fr))] gap-3";
 
-    {/* 01 · HERO */}
-    <section className="section-ink px-6 md:px-10">
-      <div className="max-w-[1280px] mx-auto pt-28 md:pt-32 pb-16 md:pb-20">
-        <SectionLabel label="Selected Work" />
-        <Reveal delay={0.05}>
-          <h1 lang="th" className="mt-8 h-display-lg max-w-[18ch] thai-wrap">
-            งานที่เลือกมาเพราะ <em className="text-cinnabar">เงื่อนไข.</em>
-          </h1>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <p lang="th" className="mt-8 font-thai thai-wrap text-[15px] md:text-[17px] text-muted-foreground max-w-[680px] leading-[1.7]">
-            เลือกมาเพราะแต่ละชิ้นมีเงื่อนไขที่ทำให้วิธีคิดของเราเห็นชัด — ไม่ใช่เพราะงบใหญ่ที่สุด. กด "ดูเว็บจริง" เพื่อไปดูงานที่ส่งมอบจริงของแต่ละโปรเจกต์.
-          </p>
-        </Reveal>
-      </div>
-    </section>
+const Work = () => {
+  const [active, setActive] = useState<string>("all");
+  const visible = portfolio.filter((c) => active === "all" || c.key === active);
 
-    <ImageBand image={bandCover}>
-      เลือกเพราะ <em className="text-cinnabar">เงื่อนไข</em> ไม่ใช่งบ<span className="text-cinnabar">.</span>
-    </ImageBand>
+  return (
+    <div>
+      <SEO
+        title="Work — Selected Work · ØRIONS"
+        description="พอร์ตโฟลิโอ ØRIONS จัดตามประเภทงาน — social & creative ads, reels, entertainment, music, branding และ event."
+        path="/work"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+            { "@type": "ListItem", position: 2, name: "Work", item: `${SITE_URL}/work` },
+          ],
+        }}
+      />
 
-    {/* 02 · WORK BY SERVICE — three buckets */}
-    {serviceMeta.map((s, si) => {
-      const cards = caseStudies.filter((c) => c.service === s.key);
-      const lists = moreSelected.filter((m) => m.service === s.key);
-      return (
-        <section
-          key={s.key}
-          className={`px-6 md:px-10 border-t border-foreground/15 ${si % 2 === 1 ? "bg-surface" : ""}`}
-        >
-          <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-            <SectionLabel index={`0${si + 1}`} label={s.en} />
-            <Reveal delay={0.05}>
-              <h2 lang="th" className="mt-6 h-display-sm max-w-[26ch] thai-wrap">
-                {s.tag}<span className="text-cinnabar">.</span>
-              </h2>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <p lang="th" className="mt-5 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground max-w-[620px]">
-                {s.summary}
-              </p>
-            </Reveal>
+      {/* 01 · HERO + filter */}
+      <section className="section-ink px-6 md:px-10">
+        <div className="max-w-[1280px] mx-auto pt-28 md:pt-32 pb-12 md:pb-16">
+          <SectionLabel label="Selected work" />
+          <Reveal delay={0.05}>
+            <h1 className="mt-8 h-display-lg">
+              Portfolio,<br /><em className="text-cinnabar">by craft.</em>
+            </h1>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p lang="th" className="mt-8 font-thai thai-wrap text-[15px] md:text-[17px] text-muted-foreground max-w-[640px] leading-[1.7]">
+              งานจริงของ ØRIONS จัดเป็นหมวดให้ดูง่าย — เลือกหมวดที่อยากดู หรือกดที่ชิ้นไหนก็เปิดดูตัวเต็ม.
+            </p>
+          </Reveal>
+          <div className="mt-9 flex flex-wrap gap-2">
+            {[{ key: "all", chip: "ทั้งหมด" }, ...portfolio].map((c) => (
+              <button
+                key={c.key}
+                type="button"
+                onClick={() => setActive(c.key)}
+                aria-pressed={active === c.key}
+                className={`font-mono text-[11px] tracking-[0.08em] uppercase px-3.5 py-1.5 rounded-full border transition-colors ${
+                  active === c.key
+                    ? "bg-cinnabar border-cinnabar text-background"
+                    : "border-foreground/20 text-foreground/75 hover:border-cinnabar hover:text-cinnabar"
+                }`}
+              >
+                {c.chip}
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            {cards.length > 0 && (
-              <div className="mt-12 md:mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 md:gap-x-8 gap-y-14">
-                {cards.map((w, i) => (
-                  <Reveal key={w.slug} delay={(i % 4) * 0.05}>
-                    <ProjectCard
-                      n={numberOf(w.slug)}
-                      title={w.title}
-                      cover={w.cover}
-                      niche={w.niche}
-                      summary={w.summary}
-                      challenge={w.challenge}
-                      url={w.url}
-                    />
-                  </Reveal>
-                ))}
+      {/* 02 · CATEGORIES */}
+      {visible.map((cat) => (
+        <section key={cat.key} className="px-6 md:px-10 border-t border-foreground/15">
+          <div className="max-w-[1280px] mx-auto py-16 md:py-20">
+            <div className="flex items-end gap-4 border-b border-foreground/15 pb-3.5">
+              <span className="font-serif font-medium text-[52px] md:text-[60px] leading-[0.78] tracking-[-0.03em] text-cinnabar/25">
+                {cat.n}
+              </span>
+              <div className="flex-1">
+                <h2 lang="th" className="font-serif text-[22px] md:text-[25px] font-medium tracking-[-0.01em] leading-[1.05]">
+                  {cat.title}
+                </h2>
+                <div className="mt-1.5 font-mono text-[11px] tracking-[0.1em] uppercase text-muted-foreground">{cat.sub}</div>
               </div>
-            )}
+            </div>
 
-            {lists.length > 0 && (
-              <div className={`${cards.length > 0 ? "mt-16" : "mt-12"} border-t border-foreground/15`}>
-                {lists.map((g, i) => (
-                  <Reveal key={g.category} delay={(i % 4) * 0.04}>
-                    <div className="grid grid-cols-1 md:grid-cols-[260px_1fr] gap-2 md:gap-12 py-6 md:py-7 border-b border-foreground/15">
-                      <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-cinnabar">{g.category}</div>
-                      <div lang="th" className="font-thai thai-wrap text-[15px] md:text-[16px] leading-[1.7] text-foreground/85">
-                        {g.items.join("  ·  ")}
-                      </div>
-                    </div>
-                  </Reveal>
+            {cat.layout === "events" ? (
+              <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {cat.items.map((it) => {
+                  const W: ElementType = it.url ? "a" : "div";
+                  const p = it.url ? { href: it.url, target: "_blank", rel: "noreferrer" } : {};
+                  return (
+                    <Reveal key={it.name}>
+                      <W
+                        {...p}
+                        className="group flex flex-col justify-between min-h-[118px] h-full rounded-xl border border-foreground/14 bg-surface p-5 transition-colors hover:border-cinnabar/60 no-underline text-inherit"
+                      >
+                        <span className="font-mono text-[10px] tracking-[0.14em] uppercase text-cinnabar">{it.meta}</span>
+                        <span lang="th" className="mt-3 font-serif text-[19px] font-medium leading-[1.1] inline-flex items-center gap-2">
+                          {it.name}
+                          {it.url && <ArrowUpRight className="w-4 h-4 text-cinnabar opacity-0 group-hover:opacity-100 transition-opacity" />}
+                        </span>
+                        <span className="mt-2 font-mono text-[10px] text-muted-foreground">
+                          {it.count ? `${it.count} รูป · activation` : "event · placeholder"}
+                        </span>
+                      </W>
+                    </Reveal>
+                  );
+                })}
+              </div>
+            ) : (
+              <div className={`mt-6 ${gridClass(cat.layout)}`}>
+                {cat.items.map((it, i) => (
+                  <Tile
+                    key={it.name + i}
+                    item={it}
+                    index={i}
+                    layout={cat.layout}
+                    showPlay={cat.layout === "reels" || cat.layout === "wide"}
+                  />
                 ))}
               </div>
             )}
           </div>
         </section>
-      );
-    })}
+      ))}
 
-    <ClosingCTA
-      title={<>โจทย์ของคุณมี <em className="text-cinnabar">เงื่อนไข</em> แบบไหน?</>}
-      description="คุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์และเงื่อนไขมา เราช่วยมองว่าจะ refine มันยังไง."
-      ctas={[
-        { label: "เริ่มต้นบทสนทนา", to: "/contact" },
-        { label: "ดูแพ็กเกจ", to: "/package", variant: "ghost" },
-      ]}
-    />
-  </div>
-);
+      <ClosingCTA
+        title={<>โจทย์ของคุณมี <em className="text-cinnabar">เงื่อนไข</em> แบบไหน?</>}
+        description="คุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์และเงื่อนไขมา เราช่วยมองว่าจะ refine มันยังไง."
+        ctas={[
+          { label: "เริ่มต้นบทสนทนา", to: "/contact" },
+          { label: "ดูแพ็กเกจ", to: "/package", variant: "ghost" },
+        ]}
+      />
+    </div>
+  );
+};
 
 export default Work;

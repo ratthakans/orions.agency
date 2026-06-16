@@ -78,15 +78,14 @@ const Work = () => {
             </div>
 
             {cat.gallery ? (
-              <div className="mt-6 flex flex-wrap gap-2.5 md:gap-3">
+              <div className="mt-6 columns-2 md:columns-3 gap-2.5 md:gap-3">
                 {cat.gallery.map((g, i) => (
                   <a
                     key={i}
                     href={g.src}
                     target="_blank"
                     rel="noreferrer"
-                    className="group relative block overflow-hidden rounded-lg border border-foreground/12 hover:border-cinnabar/70 transition-colors"
-                    style={{ flexGrow: g.ar, flexBasis: `${g.ar * 240}px` }}
+                    className="group relative block mb-2.5 md:mb-3 break-inside-avoid overflow-hidden rounded-lg border border-foreground/12 hover:border-cinnabar/70 transition-colors"
                   >
                     <img
                       src={g.src}
@@ -96,7 +95,6 @@ const Work = () => {
                     />
                   </a>
                 ))}
-                <i aria-hidden className="grow-[10] basis-0" />
               </div>
             ) : (
               <div className="mt-6 space-y-3 md:space-y-4">

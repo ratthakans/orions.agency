@@ -4,10 +4,14 @@ import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
 import ImageBand from "@/components/ImageBand";
 import { ArrowUpRight } from "lucide-react";
-import { caseStudies, moreSelected } from "@/data/caseStudies";
+import { caseStudies, moreSelected, serviceMeta } from "@/data/caseStudies";
 
 const SITE_URL = "https://orions.agency";
 const bandCover = caseStudies.find((c) => c.slug === "hongmove")!.cover;
+
+/** Running display order across the 3 service sections → sequential 01..08 numbering. */
+const ordered = serviceMeta.flatMap((s) => caseStudies.filter((c) => c.service === s.key));
+const numberOf = (slug: string) => String(ordered.findIndex((c) => c.slug === slug) + 1).padStart(2, "0");
 
 /** Deck-style project card — cover + number + name + one-liner + Challenge + live URL. */
 const ProjectCard = ({
@@ -90,58 +94,64 @@ const Work = () => (
       เลือกเพราะ <em className="text-cinnabar">เงื่อนไข</em> ไม่ใช่งบ<span className="text-cinnabar">.</span>
     </ImageBand>
 
-    {/* 02 · SELECTED PROJECTS — numbered grid (1–8) */}
-    <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <SectionLabel index="01" label="Hero projects" />
-        <Reveal delay={0.05}>
-          <h2 lang="th" className="mt-6 h-display-sm max-w-[28ch] thai-wrap">
-            แปดงานที่นิยามวิธีคิดของเรา<span className="text-cinnabar">.</span>
-          </h2>
-        </Reveal>
-
-        <div className="mt-12 md:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 md:gap-x-8 gap-y-14">
-          {caseStudies.map((w, i) => (
-            <Reveal key={w.slug} delay={(i % 4) * 0.05}>
-              <ProjectCard
-                n={w.n}
-                title={w.title}
-                cover={w.cover}
-                niche={w.niche}
-                summary={w.summary}
-                challenge={w.challenge}
-                url={w.url}
-              />
+    {/* 02 · WORK BY SERVICE — three buckets */}
+    {serviceMeta.map((s, si) => {
+      const cards = caseStudies.filter((c) => c.service === s.key);
+      const lists = moreSelected.filter((m) => m.service === s.key);
+      return (
+        <section
+          key={s.key}
+          className={`px-6 md:px-10 border-t border-foreground/15 ${si % 2 === 1 ? "bg-surface" : ""}`}
+        >
+          <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+            <SectionLabel index={`0${si + 1}`} label={s.en} />
+            <Reveal delay={0.05}>
+              <h2 lang="th" className="mt-6 h-display-sm max-w-[26ch] thai-wrap">
+                {s.tag}<span className="text-cinnabar">.</span>
+              </h2>
             </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
+            <Reveal delay={0.1}>
+              <p lang="th" className="mt-5 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground max-w-[620px]">
+                {s.summary}
+              </p>
+            </Reveal>
 
-    {/* 03 · MORE SELECTED PROJECTS — categorised editorial index */}
-    <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <SectionLabel index="02" label="More selected projects" />
-        <Reveal delay={0.05}>
-          <h2 lang="th" className="mt-6 h-display-sm max-w-[28ch] thai-wrap">
-            และอีกหลายงาน <em className="text-cinnabar">ที่เราภูมิใจ.</em>
-          </h2>
-        </Reveal>
-
-        <div className="mt-12 border-t border-foreground/15">
-          {moreSelected.map((g, i) => (
-            <Reveal key={g.category} delay={(i % 6) * 0.04}>
-              <div className="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-2 md:gap-12 py-6 md:py-7 border-b border-foreground/15">
-                <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-cinnabar">{g.category}</div>
-                <div lang="th" className="font-thai thai-wrap text-[15px] md:text-[16px] leading-[1.7] text-foreground/85">
-                  {g.items.join("  ·  ")}
-                </div>
+            {cards.length > 0 && (
+              <div className="mt-12 md:mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 md:gap-x-8 gap-y-14">
+                {cards.map((w, i) => (
+                  <Reveal key={w.slug} delay={(i % 4) * 0.05}>
+                    <ProjectCard
+                      n={numberOf(w.slug)}
+                      title={w.title}
+                      cover={w.cover}
+                      niche={w.niche}
+                      summary={w.summary}
+                      challenge={w.challenge}
+                      url={w.url}
+                    />
+                  </Reveal>
+                ))}
               </div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
+            )}
+
+            {lists.length > 0 && (
+              <div className={`${cards.length > 0 ? "mt-16" : "mt-12"} border-t border-foreground/15`}>
+                {lists.map((g, i) => (
+                  <Reveal key={g.category} delay={(i % 4) * 0.04}>
+                    <div className="grid grid-cols-1 md:grid-cols-[260px_1fr] gap-2 md:gap-12 py-6 md:py-7 border-b border-foreground/15">
+                      <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-cinnabar">{g.category}</div>
+                      <div lang="th" className="font-thai thai-wrap text-[15px] md:text-[16px] leading-[1.7] text-foreground/85">
+                        {g.items.join("  ·  ")}
+                      </div>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+            )}
+          </div>
+        </section>
+      );
+    })}
 
     <ClosingCTA
       title={<>โจทย์ของคุณมี <em className="text-cinnabar">เงื่อนไข</em> แบบไหน?</>}

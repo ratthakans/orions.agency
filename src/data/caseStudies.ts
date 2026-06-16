@@ -38,6 +38,8 @@ export type CaseStudy = {
   gallery: string[];
   /** One-line essence of the engagement */
   summary: string;
+  /** Top-level service bucket */
+  service: "Brand Strategy" | "Creative Production" | "Social Media Marketing";
   /** Short challenge line (deck "Challenge") */
   challenge: string;
   /** Live site URL — "" if none (card shows no external link) */
@@ -69,6 +71,7 @@ export const caseStudies: CaseStudy[] = [
     cover: workDemocrat,
     gallery: [workDemocrat, phStreet, phCrosswalk], // placeholder frames
     summary: "ทำการเมืองสร้างสรรค์ผ่านกิจกรรม ไม่ใช่การหาเสียง",
+    service: "Brand Strategy",
     challenge: "แรงต้านทางการเมือง / ข้อจำกัดของกฎหมายเลือกตั้ง",
     url: "https://democrat.or.th",
     constraint:
@@ -89,6 +92,7 @@ export const caseStudies: CaseStudy[] = [
     cover: workGcoo,
     gallery: [workGcoo, phTaxi, phCrosswalk], // placeholder frames
     summary: "เปิดตลาดไทยด้วย localization + payment gateway",
+    service: "Brand Strategy",
     challenge: "ข้อกฎหมาย / การดีลสถานที่เพื่อนำรถไปวาง",
     url: "https://gcoo.io",
     constraint:
@@ -109,6 +113,7 @@ export const caseStudies: CaseStudy[] = [
     cover: workMyHotel,
     gallery: [workMyHotel],
     summary: "วางตัวเป็น first smart hotel OTA ของไทย",
+    service: "Brand Strategy",
     challenge: "การดีลกับผู้ให้บริการให้เกิดความเชื่อถือ",
     url: "https://pzentsmart.com",
     constraint:
@@ -129,6 +134,7 @@ export const caseStudies: CaseStudy[] = [
     cover: workHongmove,
     gallery: [workHongmove, phTaxi, phStreet], // placeholder frames
     summary: "เปิดตัว taxi VIP EV ใน AOT พร้อมวางระบบความเป็นไปได้",
+    service: "Creative Production",
     challenge: "รองรับหลายภาษา — มาเลย์ · จีน · อาหรับ · ฮินดี",
     url: "https://hongmove.co.th",
     constraint:
@@ -149,6 +155,7 @@ export const caseStudies: CaseStudy[] = [
     cover: workHeavy,
     gallery: [workHeavy, workHeavyB, workHeavyC],
     summary: "เทศกาลดนตรีสีเขียว carbon ต่ำ ที่ต้องการความร่วมมือจากผู้ร่วมงาน",
+    service: "Creative Production",
     challenge: "สร้างความตระหนักและความร่วมมือจากผู้ร่วมงาน",
     url: "https://heavyorganizer.com",
     constraint:
@@ -169,6 +176,7 @@ export const caseStudies: CaseStudy[] = [
     cover: workKhaoyai,
     gallery: [workKhaoyai, workKhaoyaiB, workKhaoyaiC],
     summary: "ปรับมุมมองสู่ leisure golf โดยไม่เสียภาพลักษณ์เดิม",
+    service: "Brand Strategy",
     challenge: "การเมืองภายในสนาม / การบริหารแบบแยกส่วน",
     url: "https://brc-kycgolf.com",
     constraint:
@@ -189,6 +197,7 @@ export const caseStudies: CaseStudy[] = [
     cover: workRtaf,
     gallery: [workRtaf, phTech, phSignal], // placeholder frames
     summary: "สื่อสารข้อมูลที่ถูกต้องและน่าสนใจในภาวะตึงเครียด",
+    service: "Creative Production",
     challenge: "fake news / ต้องรักษาความลับทางราชการ",
     url: "https://rtaf.mi.th",
     constraint:
@@ -209,6 +218,7 @@ export const caseStudies: CaseStudy[] = [
     cover: workPalawat,
     gallery: [workPalawat],
     summary: "พรรคใหม่ที่นำเสนอมุมมองทางการเมืองภายใต้เวลาจำกัด",
+    service: "Brand Strategy",
     challenge: "ไม่มีฐานเสียงเดิม / ข้อจำกัดของกฎหมายเลือกตั้ง",
     url: "",
     constraint:
@@ -218,13 +228,22 @@ export const caseStudies: CaseStudy[] = [
   },
 ];
 
-/** "More Selected Projects" — categorised index of real client work. */
-export const moreSelected: { category: string; items: string[] }[] = [
-  { category: "Social Posts & Creative Ads", items: ["RWS", "Bangpakong", "International Women's Day", "Leicester City", "Audi", "Playground Live — หอการค้า"] },
-  { category: "Reels & Short Video", items: ["พรรคภูมิใจไทย", "Handverk", "DevCamp", "Tevada Global", "Life of Cars", "Gravity Tones", "พรรคพลวัต", "Chivarak", "พรรคประชาธิปัตย์", "B-Healthy", "Analog Skyflow"] },
-  { category: "Music Producing & Video", items: ["Original tracks · scoring · music videos"] },
-  { category: "Branding & Photoshoot", items: ["Brand identity · commercial photoshoots"] },
-  { category: "Event & Activation", items: ["Tatler Asia — IRA Residences", "Tatler Asia — Gent Leaders of Tomorrow"] },
+type Service = CaseStudy["service"];
+
+/** Service section copy (mirrors src/pages/Services.tsx). */
+export const serviceMeta: { key: Service; en: string; tag: string; summary: string }[] = [
+  { key: "Brand Strategy", en: "Brand Strategy", tag: "หาเรื่องที่ใช่", summary: "วางตัวตน จุดยืน และระบบแบรนด์ให้ชัด — งานที่เริ่มจากการตีโจทย์ใหม่ก่อนลงมือ." },
+  { key: "Creative Production", en: "Creative Production", tag: "ทำให้เห็น", summary: "ถ่าย ตัด ออกแบบ ครบในทีมเดียว — brand film, ภาพถ่าย, อีเวนต์ และคอนเทนต์พร้อมใช้จริง." },
+  { key: "Social Media Marketing", en: "Social Media Marketing", tag: "ทำให้ดังและวัดได้", summary: "ดูแลเพจ ยิงแอด และผลิตคอนเทนต์โซเชียลต่อเนื่อง — วัดผลเป็นตัวเลขจริง." },
+];
+
+/** "More Selected Projects" — categorised index of real client work, by service. */
+export const moreSelected: { service: Service; category: string; items: string[] }[] = [
+  { service: "Creative Production", category: "Music Producing & Video", items: ["Original tracks · scoring · music videos"] },
+  { service: "Creative Production", category: "Branding & Photoshoot", items: ["Brand identity · commercial photoshoots"] },
+  { service: "Creative Production", category: "Event & Activation", items: ["Tatler Asia — IRA Residences", "Tatler Asia — Gent Leaders of Tomorrow"] },
+  { service: "Social Media Marketing", category: "Social Posts & Creative Ads", items: ["RWS", "Bangpakong", "International Women's Day", "Leicester City", "Audi", "Playground Live — หอการค้า"] },
+  { service: "Social Media Marketing", category: "Reels & Short Video", items: ["พรรคภูมิใจไทย", "Handverk", "DevCamp", "Tevada Global", "Life of Cars", "Gravity Tones", "พรรคพลวัต", "Chivarak", "พรรคประชาธิปัตย์", "B-Healthy", "Analog Skyflow"] },
 ];
 
 export const getCaseStudy = (slug: string) =>

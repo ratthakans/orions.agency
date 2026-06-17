@@ -23,7 +23,7 @@ const shuffle = <T,>(arr: T[], seed: number): T[] => {
 const Work = () => {
   const [active, setActive] = useState<string>("all");
   const [shuffleKey, setShuffleKey] = useState(() => Math.floor(Math.random() * 1_000_000));
-  const [lightbox, setLightbox] = useState<{ kind: "img" | "video"; val: string } | null>(null);
+  const [lightbox, setLightbox] = useState<{ kind: "img" | "video"; val: string; ar?: number } | null>(null);
   const visible = portfolio.filter((c) => active === "all" || c.key === active);
 
   useEffect(() => {
@@ -106,7 +106,7 @@ const Work = () => {
                     <button
                       key={v.id}
                       type="button"
-                      onClick={() => setLightbox({ kind: "video", val: v.id })}
+                      onClick={() => setLightbox({ kind: "video", val: v.id, ar })}
                       style={{ flexGrow: ar, flexBasis: `${ar * 200}px` }}
                       className="group relative overflow-hidden rounded-lg border border-foreground/12 hover:border-cinnabar/70 transition-colors cursor-pointer"
                     >
@@ -189,7 +189,10 @@ const Work = () => {
           {lightbox.kind === "video" ? (
             <div
               onClick={(e) => e.stopPropagation()}
-              className="w-full max-w-[1100px] aspect-video rounded-lg overflow-hidden border border-foreground/15 bg-black"
+              style={{ aspectRatio: String(lightbox.ar ?? 16 / 9) }}
+              className={`rounded-lg overflow-hidden border border-foreground/15 bg-black ${
+                (lightbox.ar ?? 16 / 9) < 1 ? "h-[86vh] max-w-[92vw]" : "w-full max-w-[1100px]"
+              }`}
             >
               <iframe
                 src={`https://www.youtube.com/embed/${lightbox.val}?autoplay=1&rel=0`}

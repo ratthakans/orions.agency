@@ -22,7 +22,7 @@ const shuffle = <T,>(arr: T[], seed: number): T[] => {
 
 const Work = () => {
   const [active, setActive] = useState<string>("all");
-  const [shuffleKey, setShuffleKey] = useState(0);
+  const [shuffleKey, setShuffleKey] = useState(() => Math.floor(Math.random() * 1_000_000));
   const [lightbox, setLightbox] = useState<{ kind: "img" | "video"; val: string } | null>(null);
   const visible = portfolio.filter((c) => active === "all" || c.key === active);
 

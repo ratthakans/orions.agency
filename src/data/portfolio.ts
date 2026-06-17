@@ -7,7 +7,6 @@ import social1 from "@/assets/work/social-1.jpg";
 import social2 from "@/assets/work/social-2.jpg";
 import social3 from "@/assets/work/social-3.jpg";
 import social4 from "@/assets/work/social-4.jpg";
-import longform from "@/assets/work/longform.jpg";
 import music from "@/assets/work/music.jpg";
 import photo1 from "@/assets/work/photo-1.jpg";
 import photo2 from "@/assets/work/photo-2.jpg";
@@ -25,6 +24,11 @@ const reels: VideoItem[] = [
   "ou6CDAPuWMg", "z1fjfOqakRo", "gZCsL34i2yA", "_bK18EokLEA", "sez1rX09od0",
   "ohfWT1EsA9A", "EZ4Ledfaw38", "6QDdextE3CM", "4NxMIpbhVs8", "-NcOTtaLboI",
 ].map((id) => ({ title: "Reel", id, ar: R }));
+
+const longformVids: VideoItem[] = [
+  "UC8ognh_S3s", "1XuM19cfaCs", "ASjm7TKqf-M", "aD13HQnrCks", "OJNCHwRFphE",
+  "zbPCb5KxXlA", "Vi9vO40h63s", "5EVXZv1DhE8", "aDLssgzVQiQ", "lVzIbfqhvOo",
+].map((id) => ({ title: "Long-form", id }));
 
 export type PortCategory = {
   key: string;
@@ -69,7 +73,7 @@ export const portfolio: PortCategory[] = [
   { key: "video", chip: "Video & film", n: "01", title: "Video & Film", sub: "Films, commercials & content", videos: videoFilm },
   { key: "social", chip: "Social", n: "02", title: "Social posts & creative ads", sub: "Campaigns & creative ads", boards: [social1, social2, social3, social4] },
   { key: "reels", chip: "Reels", n: "03", title: "Reels & short video", sub: "Short-form video", videos: reels, cols: 4 },
-  { key: "longform", chip: "Long-form", n: "04", title: "Entertainment & long-form", sub: "Series & documentary", boards: [longform] },
+  { key: "longform", chip: "Long-form", n: "04", title: "Entertainment & long-form", sub: "Series & documentary", videos: longformVids },
   { key: "music", chip: "Music", n: "05", title: "Music producing & video", sub: "Music videos & production", boards: [music] },
   { key: "artdir", chip: "Art direction", n: "06", title: "Art direction", sub: "Key visuals & poster design", gallery: artDirection },
   { key: "photo", chip: "Photography", n: "07", title: "Branding & photoshoot", sub: "Brand identity & shoots", boards: [photo1, photo2] },

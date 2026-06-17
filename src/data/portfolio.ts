@@ -19,7 +19,9 @@ import events2 from "@/assets/work/events-2.jpg";
 import events3 from "@/assets/work/events-3.jpg";
 
 export type GalleryImage = { src: string; ar: number };
-export type VideoItem = { title: string; id: string };
+export type VideoItem = { title: string; id: string; ar?: number };
+
+const W = 21 / 9; // cinematic wide
 
 export type PortCategory = {
   key: string;
@@ -33,20 +35,22 @@ export type PortCategory = {
 };
 
 const videoFilm: VideoItem[] = [
-  { title: "Analog Craft", id: "ogVp48uPnGw" },
+  { title: "Analog Craft", id: "ogVp48uPnGw", ar: W },
   { title: "Bangpakong Riverside Country Club", id: "yACp1DuNS2M" },
   { title: "Code Mania", id: "tIphJHcWUNI" },
-  { title: "RWS", id: "vjuXICAVBSU" },
+  { title: "RWS", id: "vjuXICAVBSU", ar: W },
   { title: "International Women's Day", id: "eAmZwUalppo" },
   { title: "Khao Yai Championship 2024", id: "iG9aR2mycDc" },
   { title: "Khao Yai Country Club — Friend's Cup", id: "d7U4H-TRaKQ" },
-  { title: "Coffee Meets Bagel", id: "bpbwTIewymk" },
-  { title: "QA Meetup", id: "2wbXppemA1A" },
+  { title: "Coffee Meets Bagel", id: "bpbwTIewymk", ar: W },
+  { title: "QA Meetup", id: "2wbXppemA1A", ar: W },
   { title: "Thai Milk Crisis", id: "4cpR13MpFKQ" },
   { title: "Jumpbox", id: "OpuOhV6GiZQ" },
-  { title: "Coffee Meets Bagel", id: "8OpQsoFi0Xg" },
+  { title: "Coffee Meets Bagel", id: "8OpQsoFi0Xg", ar: W },
   { title: "Playground", id: "ZwlrikoRG4Q" },
   { title: "Selected film", id: "RQSxdTqv3Bk" },
+  { title: "ORIONS film", id: "u4r7Szy3uxI" },
+  { title: "ORIONS film", id: "_aEZ3MWhjV4" },
 ];
 
 // Art direction — real key-visual gallery. Files auto-imported from the folder

@@ -99,32 +99,34 @@ const Work = () => {
             </div>
 
             {cat.videos ? (
-              <div className="mt-6 grid grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-3">
-                {shuffle<VideoItem>(cat.videos, shuffleKey).map((v) => (
-                  <button
-                    key={v.id}
-                    type="button"
-                    onClick={() => setLightbox({ kind: "video", val: v.id })}
-                    className="group relative block w-full overflow-hidden rounded-lg border border-foreground/12 hover:border-cinnabar/70 transition-colors cursor-pointer"
-                  >
-                    <span className="block relative" style={{ aspectRatio: "16 / 9" }}>
-                      <img
-                        src={`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`}
-                        alt={v.title}
-                        loading="lazy"
-                        className="absolute inset-0 w-full h-full object-cover group-hover:opacity-90 transition-opacity"
-                      />
-                      <span className="absolute inset-0 grid place-items-center">
-                        <span className="grid place-items-center w-11 h-11 rounded-full bg-background/55 border border-foreground/25 text-foreground/90 group-hover:text-cinnabar group-hover:border-cinnabar transition-colors">
-                          <Play className="w-4 h-4 ml-0.5" />
+              <div className="mt-6 flex flex-wrap gap-2.5 md:gap-3">
+                {shuffle<VideoItem>(cat.videos, shuffleKey).map((v) => {
+                  const ar = v.ar ?? 16 / 9;
+                  return (
+                    <button
+                      key={v.id}
+                      type="button"
+                      onClick={() => setLightbox({ kind: "video", val: v.id })}
+                      style={{ flexGrow: ar, flexBasis: `${ar * 200}px` }}
+                      className="group relative overflow-hidden rounded-lg border border-foreground/12 hover:border-cinnabar/70 transition-colors cursor-pointer"
+                    >
+                      <span className="block relative w-full" style={{ aspectRatio: String(ar) }}>
+                        <img
+                          src={`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`}
+                          alt={v.title}
+                          loading="lazy"
+                          className="absolute inset-0 w-full h-full object-cover group-hover:opacity-90 transition-opacity"
+                        />
+                        <span className="absolute inset-0 grid place-items-center">
+                          <span className="grid place-items-center w-11 h-11 rounded-full bg-background/55 border border-foreground/25 text-foreground/90 group-hover:text-cinnabar group-hover:border-cinnabar transition-colors">
+                            <Play className="w-4 h-4 ml-0.5" />
+                          </span>
                         </span>
                       </span>
-                    </span>
-                    <span lang="th" className="absolute inset-x-0 bottom-0 p-3 bg-[rgba(10,10,9,0.45)] font-serif text-[14px] font-medium leading-[1.18] block text-left">
-                      {v.title}
-                    </span>
-                  </button>
-                ))}
+                    </button>
+                  );
+                })}
+                <i aria-hidden className="grow-[10] basis-0" />
               </div>
             ) : cat.gallery ? (
               <div className="mt-6 columns-2 md:columns-3 gap-2.5 md:gap-3">

@@ -7,7 +7,6 @@ import social1 from "@/assets/work/social-1.jpg";
 import social2 from "@/assets/work/social-2.jpg";
 import social3 from "@/assets/work/social-3.jpg";
 import social4 from "@/assets/work/social-4.jpg";
-import music from "@/assets/work/music.jpg";
 import photo1 from "@/assets/work/photo-1.jpg";
 import photo2 from "@/assets/work/photo-2.jpg";
 import events1 from "@/assets/work/events-1.jpg";
@@ -23,12 +22,31 @@ const R = 9 / 16; // vertical reel
 const reels: VideoItem[] = [
   "ou6CDAPuWMg", "z1fjfOqakRo", "gZCsL34i2yA", "_bK18EokLEA", "sez1rX09od0",
   "ohfWT1EsA9A", "EZ4Ledfaw38", "6QDdextE3CM", "4NxMIpbhVs8", "-NcOTtaLboI",
+  "8JUMCj1i5xM",
 ].map((id) => ({ title: "Reel", id, ar: R }));
+
+const musicVids: VideoItem[] = [
+  { title: "สาวน้อยกลับบ้าน — กวาง จิรพรรณ", id: "mbbkROvJAJw" },
+  { title: "พังในพริบตา — PANCAKE", id: "YQb_ueBfplM" },
+  { title: "กลับไปก่อนได้ไหม — NUM KALA Feat. URBOYTJ", id: "p4JICbYbDow" },
+  { title: "ทางที่ดีคือทางแบบไหน — PANCAKE", id: "ysrayxcXoF8" },
+  { title: "วันครบรอบนับยังไง — PANCAKE", id: "GH-hH8PXQ5E" },
+  { title: "เดือนดาว — นุ่นนิ่น ชาลิสสา", id: "2VNNdj4UjXY" },
+  { title: "อกหักได้ไง — PANCAKE ft. เบลล์ นิภาดา", id: "ey-M7sCsz-o" },
+  { title: "จม — NUM KALA", id: "EmitC7dokS0" },
+  { title: "พลังวิเศษ — นุ๊ก ธนดล Ft. ป๊ายปาย โอริโอ้", id: "XMUshHa10xI" },
+  { title: "เปิดใจปุ๊บ อกหักปั๊บ — กวาง จิรพรรณ", id: "WyDvMegEqBQ" },
+  { title: "กอดสุดท้าย — Innertears", id: "LKFAtp_oxf0" },
+  { title: "บุษบา — ปิ๋ม ชุติมา (Cover)", id: "YBXpSXAkej4" },
+  { title: "ลมฮัก — วี พนมภูไท", id: "n2_rKXXzg8w" },
+  { title: "ลืมได้จริงใช่ไหม — NUM KALA Feat. ZOM MARIE", id: "IOJV7hOB-9c" },
+  { title: "แม่น้องออนิว — ปิ๋ม ชุติมา (Cover Live)", id: "WFEAPxB47qc" },
+];
 
 const longformVids: VideoItem[] = [
   "UC8ognh_S3s", "1XuM19cfaCs", "ASjm7TKqf-M", "aD13HQnrCks", "OJNCHwRFphE",
   "zbPCb5KxXlA", "Vi9vO40h63s", "5EVXZv1DhE8", "aDLssgzVQiQ", "lVzIbfqhvOo",
-  "yhgXP3Hw_hg", "mkCZXrL7D8c",
+  "yhgXP3Hw_hg", "mkCZXrL7D8c", "6mxqnNnXDzc",
 ].map((id) => ({ title: "Long-form", id }));
 
 export type PortCategory = {
@@ -61,6 +79,7 @@ const videoFilm: VideoItem[] = [
   { title: "Selected film", id: "RQSxdTqv3Bk" },
   { title: "ORIONS film", id: "u4r7Szy3uxI" },
   { title: "ORIONS film", id: "_aEZ3MWhjV4" },
+  { title: "ORIONS film", id: "oCDAv3Lx1n8" },
 ];
 
 // Art direction — real key-visual gallery. Files auto-imported from the folder
@@ -75,7 +94,7 @@ export const portfolio: PortCategory[] = [
   { key: "social", chip: "Social", n: "02", title: "Social posts & creative ads", sub: "Campaigns & creative ads", boards: [social1, social2, social3, social4] },
   { key: "reels", chip: "Reels", n: "03", title: "Reels & short video", sub: "Short-form video", videos: reels, cols: 4 },
   { key: "longform", chip: "Long-form", n: "04", title: "Entertainment & long-form", sub: "Series & documentary", videos: longformVids },
-  { key: "music", chip: "Music", n: "05", title: "Music producing & video", sub: "Music videos & production", boards: [music] },
+  { key: "music", chip: "Music", n: "05", title: "Music producing & video", sub: "Music videos & production", videos: musicVids },
   { key: "artdir", chip: "Art direction", n: "06", title: "Art direction", sub: "Key visuals & poster design", gallery: artDirection },
   { key: "photo", chip: "Photography", n: "07", title: "Branding & photoshoot", sub: "Brand identity & shoots", boards: [photo1, photo2] },
   { key: "events", chip: "Events", n: "08", title: "Event & activation", sub: "Events & activations", boards: [events1, events2, events3] },

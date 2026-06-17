@@ -3,7 +3,6 @@
 //  • `gallery` — real per-image galleries laid out justified (drop files in the
 //                matching src/assets/work/<cat>/ folder; add an aspect ratio).
 
-import video from "@/assets/work/video.jpg";
 import social1 from "@/assets/work/social-1.jpg";
 import social2 from "@/assets/work/social-2.jpg";
 import social3 from "@/assets/work/social-3.jpg";
@@ -20,6 +19,7 @@ import events2 from "@/assets/work/events-2.jpg";
 import events3 from "@/assets/work/events-3.jpg";
 
 export type GalleryImage = { src: string; ar: number };
+export type VideoItem = { title: string; id: string };
 
 export type PortCategory = {
   key: string;
@@ -29,7 +29,25 @@ export type PortCategory = {
   sub: string;
   boards?: string[];
   gallery?: GalleryImage[];
+  videos?: VideoItem[];
 };
+
+const videoFilm: VideoItem[] = [
+  { title: "Analog Craft", id: "ogVp48uPnGw" },
+  { title: "Bangpakong Riverside Country Club", id: "yACp1DuNS2M" },
+  { title: "Code Mania", id: "tIphJHcWUNI" },
+  { title: "RWS", id: "vjuXICAVBSU" },
+  { title: "International Women's Day", id: "eAmZwUalppo" },
+  { title: "Khao Yai Championship 2024", id: "iG9aR2mycDc" },
+  { title: "Khao Yai Country Club — Friend's Cup", id: "d7U4H-TRaKQ" },
+  { title: "Coffee Meets Bagel", id: "bpbwTIewymk" },
+  { title: "QA Meetup", id: "2wbXppemA1A" },
+  { title: "Thai Milk Crisis", id: "4cpR13MpFKQ" },
+  { title: "Jumpbox", id: "OpuOhV6GiZQ" },
+  { title: "Coffee Meets Bagel", id: "8OpQsoFi0Xg" },
+  { title: "Playground", id: "ZwlrikoRG4Q" },
+  { title: "Selected film", id: "RQSxdTqv3Bk" },
+];
 
 // Art direction — real key-visual gallery. Files auto-imported from the folder
 // (sorted); add a new file + its aspect ratio (width / height) to extend.
@@ -39,7 +57,7 @@ const artdirAr = [0.675, 0.675, 0.675, 0.675, 0.8, 0.8, 0.675, 0.8, 1, 1, 1, 1, 
 const artDirection: GalleryImage[] = artdirSrcs.map((src, i) => ({ src, ar: artdirAr[i] ?? 1 }));
 
 export const portfolio: PortCategory[] = [
-  { key: "video", chip: "Video", n: "01", title: "Video", sub: "Social & commercial films", boards: [video] },
+  { key: "video", chip: "Video & film", n: "01", title: "Video & Film", sub: "Films, commercials & content", videos: videoFilm },
   { key: "social", chip: "Social", n: "02", title: "Social posts & creative ads", sub: "Campaigns & creative ads", boards: [social1, social2, social3, social4] },
   { key: "reels", chip: "Reels", n: "03", title: "Reels & short video", sub: "Short-form video", boards: [reels1, reels2, reels3] },
   { key: "longform", chip: "Long-form", n: "04", title: "Entertainment & long-form", sub: "Series & documentary", boards: [longform] },

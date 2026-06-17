@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import { X } from "lucide-react";
+import { X, Play } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import ClosingCTA from "@/components/ClosingCTA";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
-import { portfolio, type GalleryImage } from "@/data/portfolio";
+import { portfolio, type GalleryImage, type VideoItem } from "@/data/portfolio";
 
 const SITE_URL = "https://orions.agency";
 
@@ -23,7 +23,7 @@ const shuffle = <T,>(arr: T[], seed: number): T[] => {
 const Work = () => {
   const [active, setActive] = useState<string>("all");
   const [shuffleKey, setShuffleKey] = useState(0);
-  const [lightbox, setLightbox] = useState<string | null>(null);
+  const [lightbox, setLightbox] = useState<{ kind: "img" | "video"; val: string } | null>(null);
   const visible = portfolio.filter((c) => active === "all" || c.key === active);
 
   useEffect(() => {
@@ -98,13 +98,41 @@ const Work = () => {
               </div>
             </div>
 
-            {cat.gallery ? (
+            {cat.videos ? (
+              <div className="mt-6 grid grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-3">
+                {shuffle<VideoItem>(cat.videos, shuffleKey).map((v) => (
+                  <button
+                    key={v.id}
+                    type="button"
+                    onClick={() => setLightbox({ kind: "video", val: v.id })}
+                    className="group relative block w-full overflow-hidden rounded-lg border border-foreground/12 hover:border-cinnabar/70 transition-colors cursor-pointer"
+                  >
+                    <span className="block relative" style={{ aspectRatio: "16 / 9" }}>
+                      <img
+                        src={`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`}
+                        alt={v.title}
+                        loading="lazy"
+                        className="absolute inset-0 w-full h-full object-cover group-hover:opacity-90 transition-opacity"
+                      />
+                      <span className="absolute inset-0 grid place-items-center">
+                        <span className="grid place-items-center w-11 h-11 rounded-full bg-background/55 border border-foreground/25 text-foreground/90 group-hover:text-cinnabar group-hover:border-cinnabar transition-colors">
+                          <Play className="w-4 h-4 ml-0.5" />
+                        </span>
+                      </span>
+                    </span>
+                    <span lang="th" className="absolute inset-x-0 bottom-0 p-3 bg-[rgba(10,10,9,0.45)] font-serif text-[14px] font-medium leading-[1.18] block text-left">
+                      {v.title}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            ) : cat.gallery ? (
               <div className="mt-6 columns-2 md:columns-3 gap-2.5 md:gap-3">
                 {shuffle<GalleryImage>(cat.gallery, shuffleKey).map((g, i) => (
                   <button
                     key={g.src}
                     type="button"
-                    onClick={() => setLightbox(g.src)}
+                    onClick={() => setLightbox({ kind: "img", val: g.src })}
                     className="group relative block w-full mb-2.5 md:mb-3 break-inside-avoid overflow-hidden rounded-lg border border-foreground/12 hover:border-cinnabar/70 transition-colors cursor-pointer"
                   >
                     <img
@@ -156,12 +184,27 @@ const Work = () => {
           >
             <X className="w-5 h-5" />
           </button>
-          <img
-            src={lightbox}
-            alt=""
-            onClick={(e) => e.stopPropagation()}
-            className="max-w-full max-h-[88vh] w-auto h-auto object-contain rounded-lg border border-foreground/15"
-          />
+          {lightbox.kind === "video" ? (
+            <div
+              onClick={(e) => e.stopPropagation()}
+              className="w-full max-w-[1100px] aspect-video rounded-lg overflow-hidden border border-foreground/15 bg-black"
+            >
+              <iframe
+                src={`https://www.youtube.com/embed/${lightbox.val}?autoplay=1&rel=0`}
+                title="Video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
+              />
+            </div>
+          ) : (
+            <img
+              src={lightbox.val}
+              alt=""
+              onClick={(e) => e.stopPropagation()}
+              className="max-w-full max-h-[88vh] w-auto h-auto object-contain rounded-lg border border-foreground/15"
+            />
+          )}
         </div>
       )}
     </div>

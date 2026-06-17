@@ -35,6 +35,8 @@ export type PortCategory = {
   boards?: string[];
   gallery?: GalleryImage[];
   videos?: VideoItem[];
+  /** Fixed-column grid for videos (e.g. 4) instead of justified rows. */
+  cols?: number;
 };
 
 const videoFilm: VideoItem[] = [
@@ -66,7 +68,7 @@ const artDirection: GalleryImage[] = artdirSrcs.map((src, i) => ({ src, ar: artd
 export const portfolio: PortCategory[] = [
   { key: "video", chip: "Video & film", n: "01", title: "Video & Film", sub: "Films, commercials & content", videos: videoFilm },
   { key: "social", chip: "Social", n: "02", title: "Social posts & creative ads", sub: "Campaigns & creative ads", boards: [social1, social2, social3, social4] },
-  { key: "reels", chip: "Reels", n: "03", title: "Reels & short video", sub: "Short-form video", videos: reels },
+  { key: "reels", chip: "Reels", n: "03", title: "Reels & short video", sub: "Short-form video", videos: reels, cols: 4 },
   { key: "longform", chip: "Long-form", n: "04", title: "Entertainment & long-form", sub: "Series & documentary", boards: [longform] },
   { key: "music", chip: "Music", n: "05", title: "Music producing & video", sub: "Music videos & production", boards: [music] },
   { key: "artdir", chip: "Art direction", n: "06", title: "Art direction", sub: "Key visuals & poster design", gallery: artDirection },

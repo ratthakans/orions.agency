@@ -99,7 +99,7 @@ const Work = () => {
             </div>
 
             {cat.videos ? (
-              <div className="mt-6 flex flex-wrap gap-2.5 md:gap-3">
+              <div className={cat.cols ? "mt-6 grid grid-cols-2 sm:grid-cols-4 gap-2.5 md:gap-3" : "mt-6 flex flex-wrap gap-2.5 md:gap-3"}>
                 {shuffle<VideoItem>(cat.videos, shuffleKey).map((v) => {
                   const ar = v.ar ?? 16 / 9;
                   return (
@@ -107,7 +107,7 @@ const Work = () => {
                       key={v.id}
                       type="button"
                       onClick={() => setLightbox({ kind: "video", val: v.id, ar })}
-                      style={{ flexGrow: ar, flexBasis: `${ar * 200}px` }}
+                      style={cat.cols ? undefined : { flexGrow: ar, flexBasis: `${ar * 200}px` }}
                       className="group relative overflow-hidden rounded-lg border border-foreground/12 hover:border-cinnabar/70 transition-colors cursor-pointer"
                     >
                       <span className="block relative w-full" style={{ aspectRatio: String(ar) }}>
@@ -126,7 +126,7 @@ const Work = () => {
                     </button>
                   );
                 })}
-                <i aria-hidden className="grow-[10] basis-0" />
+                {!cat.cols && <i aria-hidden className="grow-[10] basis-0" />}
               </div>
             ) : cat.gallery ? (
               <div className="mt-6 columns-2 md:columns-3 gap-2.5 md:gap-3">

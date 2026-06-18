@@ -305,7 +305,7 @@ const PricingSection = () => {
                 <ul className="mt-6 space-y-2.5 border-t border-foreground/15 pt-6 flex-1">
                   {t.points[size].map((p) => (
                     <li key={p} lang="th" className="grid grid-cols-[16px_1fr] gap-2.5 font-thai thai-wrap text-[13px] leading-[1.5] text-foreground/85">
-                      <Check className="w-3.5 h-3.5 text-foreground/45 mt-0.5" /><span>{p}</span>
+                      <Check className="w-3.5 h-3.5 text-foreground/60 mt-0.5" /><span>{p}</span>
                     </li>
                   ))}
                 </ul>
@@ -549,7 +549,7 @@ const BudgetCalculator = () => {
                     <dd className="num-display text-cinnabar text-[20px]">{fmtBaht(feeNum)}</dd>
                   </div>
                   <div className="flex items-baseline justify-between gap-3">
-                    <dt lang="th" className="font-thai text-[13px] text-muted-foreground">งบยิงแอด <span className="text-foreground/45">(ad spend)</span></dt>
+                    <dt lang="th" className="font-thai text-[13px] text-muted-foreground">งบยิงแอด <span className="text-foreground/60">(ad spend)</span></dt>
                     <dd className="num-display text-foreground text-[20px]">{fmtBaht(adSpend)}</dd>
                   </div>
                 </dl>

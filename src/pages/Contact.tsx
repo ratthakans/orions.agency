@@ -99,7 +99,7 @@ const Contact = () => {
     setForm({ name: "", company: "", email: "", pkg: "", size: "", addons: [], brief: "" });
   };
 
-  const inputCls = "w-full rounded-xl bg-background border border-foreground/15 px-4 py-3 text-[15px] text-foreground placeholder:text-foreground/45 focus:outline-none focus:border-cinnabar focus:ring-1 focus:ring-cinnabar/30 transition-colors font-thai";
+  const inputCls = "w-full rounded-xl bg-background border border-foreground/15 px-4 py-3 text-[15px] text-foreground placeholder:text-foreground/55 focus:outline-none focus:border-cinnabar focus:ring-1 focus:ring-cinnabar/30 transition-colors font-thai";
   const labelCls = "font-mono text-[10px] tracking-[0.14em] uppercase text-foreground/70";
 
   return (
@@ -192,7 +192,7 @@ const Contact = () => {
                   </div>
                 ))}
                 <div className="md:col-span-2">
-                  <label className={labelCls}>— 04 / แพ็กเกจที่สนใจ <span className="text-foreground/40">(ไม่บังคับ)</span></label>
+                  <label className={labelCls}>— 04 / แพ็กเกจที่สนใจ <span className="text-foreground/60">(ไม่บังคับ)</span></label>
                   <select
                     value={form.pkg}
                     onChange={(e) => setForm({ ...form, pkg: e.target.value })}
@@ -217,7 +217,7 @@ const Contact = () => {
                   </div>
                 </div>
                 <div className="md:col-span-2">
-                  <label className={labelCls}>— 05 / Add-on ที่สนใจ <span className="text-foreground/40">(เลือกได้หลายอย่าง)</span></label>
+                  <label className={labelCls}>— 05 / Add-on ที่สนใจ <span className="text-foreground/60">(เลือกได้หลายอย่าง)</span></label>
                   <div className="mt-3 flex flex-wrap gap-2">
                     {addonOptions.map((a) => {
                       const on = form.addons.includes(a);

@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
+import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
 import path from "path";
 
 // https://vitejs.dev/config/
@@ -11,7 +12,16 @@ export default defineConfig(() => ({
       overlay: false,
     },
   },
-  plugins: [react()],
+  plugins: [
+    react(),
+    // Recompress bundled images at build time (sharp/mozjpeg). Source files
+    // untouched; only the emitted dist assets are optimised.
+    ViteImageOptimizer({
+      jpg: { quality: 72 },
+      jpeg: { quality: 72 },
+      png: { quality: 80 },
+    }),
+  ],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

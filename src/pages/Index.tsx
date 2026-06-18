@@ -127,7 +127,7 @@ const Index = () => (
         </div>
         <div className="flex flex-wrap items-center gap-x-9 gap-y-4">
           {clients.map((c) => (
-            <span key={c} lang="th" className="font-serif text-[17px] md:text-[21px] tracking-[-0.01em] text-foreground/45 hover:text-foreground/75 transition-colors">
+            <span key={c} lang="th" className="font-serif text-[17px] md:text-[21px] tracking-[-0.01em] text-foreground/55 hover:text-foreground/80 transition-colors">
               {c}
             </span>
           ))}

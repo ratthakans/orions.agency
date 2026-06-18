@@ -73,7 +73,7 @@ const Footer = () => {
               Khlong Chan, Bang Kapi<br />
               Bangkok 10240, TH
             </p>
-            <p className="mt-3 font-mono text-[10px] tracking-[0.18em] uppercase text-foreground/45">
+            <p className="mt-3 font-mono text-[10px] tracking-[0.18em] uppercase text-foreground/60">
               Tax ID 0105568220629
             </p>
           </div>

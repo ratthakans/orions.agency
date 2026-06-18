@@ -44,6 +44,7 @@ const JustifiedTile = ({ src, alt, rowH, onClick }: { src: string; alt: string; 
 const Work = () => {
   const [active, setActive] = useState<string>("all");
   const [shuffleKey, setShuffleKey] = useState(() => Math.floor(Math.random() * 1_000_000));
+  const [hoverVid, setHoverVid] = useState<string | null>(null);
   const [lightbox, setLightbox] = useState<
     | { kind: "img" | "video"; val: string; ar?: number }
     | { kind: "album"; images: string[]; i: number }
@@ -141,6 +142,8 @@ const Work = () => {
                       key={v.id}
                       type="button"
                       onClick={() => setLightbox({ kind: "video", val: v.id, ar })}
+                      onMouseEnter={() => setHoverVid(v.id)}
+                      onMouseLeave={() => setHoverVid((h) => (h === v.id ? null : h))}
                       style={cat.cols ? undefined : { flexGrow: ar, flexBasis: `${ar * (cat.base ?? (ar < 1 ? 300 : 150))}px` }}
                       className="group relative overflow-hidden rounded-lg border border-foreground/12 hover:border-cinnabar/70 transition-colors cursor-pointer"
                     >
@@ -151,8 +154,17 @@ const Work = () => {
                           loading="lazy"
                           className="absolute inset-0 w-full h-full object-cover group-hover:opacity-90 transition-opacity"
                         />
-                        <span className="absolute inset-0 grid place-items-center">
-                          <span className="grid place-items-center w-11 h-11 rounded-full bg-background/55 border border-foreground/25 text-foreground/90 group-hover:text-cinnabar group-hover:border-cinnabar transition-colors">
+                        {hoverVid === v.id && (
+                          <iframe
+                            src={`https://www.youtube.com/embed/${v.id}?autoplay=1&mute=1&controls=0&loop=1&playlist=${v.id}&modestbranding=1&playsinline=1&rel=0`}
+                            title={v.title}
+                            tabIndex={-1}
+                            aria-hidden="true"
+                            className="absolute inset-0 w-full h-full pointer-events-none"
+                          />
+                        )}
+                        <span className="absolute inset-0 grid place-items-center pointer-events-none">
+                          <span className={`grid place-items-center w-11 h-11 rounded-full bg-background/55 border border-foreground/25 text-foreground/90 transition-opacity ${hoverVid === v.id ? "opacity-0" : "group-hover:text-cinnabar group-hover:border-cinnabar"}`}>
                             <Play className="w-4 h-4 ml-0.5" />
                           </span>
                         </span>

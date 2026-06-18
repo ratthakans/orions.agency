@@ -5,9 +5,6 @@
 
 import photo1 from "@/assets/work/photo-1.jpg";
 import photo2 from "@/assets/work/photo-2.jpg";
-import events1 from "@/assets/work/events-1.jpg";
-import events2 from "@/assets/work/events-2.jpg";
-import events3 from "@/assets/work/events-3.jpg";
 
 export type GalleryImage = { src: string; ar: number };
 export type VideoItem = { title: string; id: string; ar?: number };
@@ -117,5 +114,4 @@ export const portfolio: PortCategory[] = [
   { key: "music", chip: "Music", n: "05", title: "Music producing & video", sub: "Music videos & production", videos: musicVids, base: 200 },
   { key: "artdir", chip: "Art direction", n: "06", title: "Art direction", sub: "Key visuals & poster design", gallery: artDirection },
   { key: "photo", chip: "Photography", n: "07", title: "Branding & photoshoot", sub: "Brand identity & shoots", boards: [photo1, photo2] },
-  { key: "events", chip: "Events", n: "08", title: "Event & activation", sub: "Events & activations", boards: [events1, events2, events3] },
 ];

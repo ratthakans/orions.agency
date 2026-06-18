@@ -14,6 +14,15 @@ const principles = [
   { n: "iv.",  en: "มองยาว",                 th: "สร้างแบรนด์ที่ถูกจำ ไม่ใช่กระแสที่ผ่านไป" },
 ];
 
+const method = [
+  { L: "O", en: "Observe", th: "อ่านสิ่งที่เกิดขึ้นจริงในตลาด พฤติกรรม และบริบทธุรกิจ" },
+  { L: "R", en: "Reframe", th: "ตีโจทย์ใหม่ให้คม เพื่อเห็นโอกาสที่ซ่อนอยู่" },
+  { L: "I", en: "Imagine", th: "สร้างความเป็นไปได้ใหม่ที่ตอบโจทย์ได้จริง" },
+  { L: "O", en: "Orchestrate", th: "ประกอบ solution ที่ตรงจุดและพร้อม execute" },
+  { L: "N", en: "Nurture", th: "refine และ optimize ให้งานดีขึ้นอย่างต่อเนื่อง" },
+  { L: "S", en: "Scale", th: "ขยายสิ่งที่พิสูจน์แล้วว่าเวิร์กให้ใหญ่ขึ้น" },
+];
+
 const notForYou = [
   { n: "01", th: "คุณต้องการแค่ยอดให้เร็วที่สุด โดยไม่สนภาพจำระยะยาว — performance shop เพียว ๆ อาจคุ้มกว่า" },
   { n: "02", th: "คุณอยากได้คอนเทนต์เยอะที่สุดในราคาถูกที่สุด โดยไม่ต้องมีกลยุทธ์ — เราไม่ใช่ที่นั้น" },
@@ -82,6 +91,31 @@ const About = () => (
                 <div className="font-serif text-cinnabar text-[22px] leading-none">{p.n}</div>
                 <h3 lang="th" className="mt-8 font-thai text-[24px] md:text-[28px] leading-[1.1] tracking-[-0.01em] font-medium">{p.en}</h3>
                 <p lang="th" className="mt-4 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">{p.th}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* ORIONS METHOD */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+        <SectionHeading
+          eyebrow="The ORIONS method"
+          lang="th"
+          title={<>วิธีคิดของเรา สะกดว่า <em className="text-cinnabar">ØRIONS.</em></>}
+          intro="หกขั้นที่ทำให้งานเริ่มจากโจทย์จริง — ไม่ใช่แค่สิ่งที่ลูกค้าขอ."
+        />
+        <div className="mt-14 border-t border-foreground/15">
+          {method.map((m, i) => (
+            <Reveal key={i} delay={(i % 2) * 0.05}>
+              <div className="flex items-baseline gap-4 md:gap-10 py-6 md:py-7 border-b border-foreground/15">
+                <span className="font-unbounded text-cinnabar/80 text-[34px] md:text-[52px] leading-none w-[42px] md:w-[80px] shrink-0">{m.L}</span>
+                <div className="flex-1 md:flex md:items-baseline md:gap-10">
+                  <span className="font-serif text-[22px] md:text-[26px] tracking-[-0.01em] md:w-[220px] shrink-0">{m.en}</span>
+                  <p lang="th" className="mt-1.5 md:mt-0 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">{m.th}</p>
+                </div>
               </div>
             </Reveal>
           ))}

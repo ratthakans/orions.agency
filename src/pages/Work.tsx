@@ -132,9 +132,10 @@ const Work = () => {
             </div>
 
             {cat.videos ? (
-              <div className={cat.cols ? `mt-6 grid ${cat.cols === 6 ? "grid-cols-3 sm:grid-cols-6" : "grid-cols-2 sm:grid-cols-4"} gap-2.5 md:gap-3` : "mt-6 flex flex-wrap gap-2.5 md:gap-3"}>
+              <div className={cat.cols ? `mt-6 grid ${({ 3: "grid-cols-2 sm:grid-cols-3", 5: "grid-cols-2 sm:grid-cols-5", 6: "grid-cols-3 sm:grid-cols-6" } as Record<number, string>)[cat.cols] || "grid-cols-2 sm:grid-cols-4"} gap-2.5 md:gap-3` : "mt-6 flex flex-wrap gap-2.5 md:gap-3"}>
                 {shuffle<VideoItem>(cat.videos, shuffleKey).map((v) => {
                   const ar = v.ar ?? 16 / 9;
+                  const gridAr = (cat.videos?.[0]?.ar ?? 2) < 1 ? "9 / 16" : "16 / 9";
                   return (
                     <button
                       key={v.id}
@@ -143,7 +144,7 @@ const Work = () => {
                       style={cat.cols ? undefined : { flexGrow: ar, flexBasis: `${ar * (cat.base ?? (ar < 1 ? 300 : 150))}px` }}
                       className="group relative overflow-hidden rounded-lg border border-foreground/12 hover:border-cinnabar/70 transition-colors cursor-pointer"
                     >
-                      <span className="block relative w-full" style={{ aspectRatio: String(ar) }}>
+                      <span className="block relative w-full" style={{ aspectRatio: cat.cols ? gridAr : String(ar) }}>
                         <img
                           src={`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`}
                           alt={v.title}

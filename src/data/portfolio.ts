@@ -110,10 +110,10 @@ const artdirAr = [0.675, 0.675, 0.675, 0.675, 0.8, 0.8, 0.675, 0.8, 1, 1, 1, 1, 
 const artDirection: GalleryImage[] = artdirSrcs.map((src, i) => ({ src, ar: artdirAr[i] ?? 1 }));
 
 export const portfolio: PortCategory[] = [
-  { key: "video", chip: "Video & film", n: "01", title: "Video & Film", sub: "Films, commercials & content", videos: videoFilm },
+  { key: "video", chip: "Video & film", n: "01", title: "Video & Film", sub: "Films, commercials & content", videos: videoFilm, cols: 3 },
   { key: "social", chip: "Social", n: "02", title: "Social posts & creative ads", sub: "Album posts & creative ads", albums: socialAlbums },
-  { key: "reels", chip: "Reels", n: "03", title: "Reels & short video", sub: "Short-form video", videos: reels, cols: 6 },
-  { key: "longform", chip: "Long-form", n: "04", title: "Entertainment & long-form", sub: "Series & documentary", videos: longformVids },
+  { key: "reels", chip: "Reels", n: "03", title: "Reels & short video", sub: "Short-form video", videos: reels, cols: 5 },
+  { key: "longform", chip: "Long-form", n: "04", title: "Entertainment & long-form", sub: "Series & documentary", videos: longformVids, cols: 3 },
   { key: "music", chip: "Music", n: "05", title: "Music producing & video", sub: "Music videos & production", videos: musicVids, base: 200 },
   { key: "artdir", chip: "Art direction", n: "06", title: "Art direction", sub: "Key visuals & poster design", gallery: artDirection },
   { key: "photo", chip: "Photography", n: "07", title: "Branding & photoshoot", sub: "Brand identity & shoots", boards: [photo1, photo2] },

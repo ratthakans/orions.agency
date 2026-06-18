@@ -159,8 +159,8 @@ const Work = () => {
                 ))}
               </div>
             ) : cat.albums ? (
-              <div className="mt-6 max-w-[680px] space-y-8 md:space-y-10">
-                {cat.albums.map((album, ai) => {
+              <div className="mt-8 columns-1 lg:columns-2 gap-6">
+                {shuffle(cat.albums, shuffleKey).map((album, ai) => {
                   const imgs = album.images;
                   const cell = (src: string, idx: number, extra = "") => (
                     <button
@@ -175,7 +175,7 @@ const Work = () => {
                     </button>
                   );
                   return (
-                    <div key={ai}>
+                    <div key={ai} className="break-inside-avoid mb-6">
                       <div className="mb-2 inline-flex items-center gap-1.5 font-mono text-[10px] tracking-[0.16em] uppercase text-muted-foreground">
                         <Layers className="w-3.5 h-3.5 text-cinnabar" /> {imgs.length} รูป
                       </div>

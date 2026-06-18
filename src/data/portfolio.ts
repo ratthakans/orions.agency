@@ -56,8 +56,10 @@ export type PortCategory = {
   videos?: VideoItem[];
   /** Album posts — ordered images + optional layout (no shuffle). */
   albums?: { images: string[]; layout?: "feature" | "row" }[];
-  /** Fixed-column grid for videos (e.g. 4) instead of justified rows. */
+  /** Fixed-column grid for videos (e.g. 6) instead of justified rows. */
   cols?: number;
+  /** Justified row-height base (px) — bigger = fewer, larger tiles per row. */
+  base?: number;
 };
 
 // Social album posts — one folder per album; files renamed 01.jpg.. in order.
@@ -110,9 +112,9 @@ const artDirection: GalleryImage[] = artdirSrcs.map((src, i) => ({ src, ar: artd
 export const portfolio: PortCategory[] = [
   { key: "video", chip: "Video & film", n: "01", title: "Video & Film", sub: "Films, commercials & content", videos: videoFilm },
   { key: "social", chip: "Social", n: "02", title: "Social posts & creative ads", sub: "Album posts & creative ads", albums: socialAlbums },
-  { key: "reels", chip: "Reels", n: "03", title: "Reels & short video", sub: "Short-form video", videos: reels },
+  { key: "reels", chip: "Reels", n: "03", title: "Reels & short video", sub: "Short-form video", videos: reels, cols: 6 },
   { key: "longform", chip: "Long-form", n: "04", title: "Entertainment & long-form", sub: "Series & documentary", videos: longformVids },
-  { key: "music", chip: "Music", n: "05", title: "Music producing & video", sub: "Music videos & production", videos: musicVids },
+  { key: "music", chip: "Music", n: "05", title: "Music producing & video", sub: "Music videos & production", videos: musicVids, base: 200 },
   { key: "artdir", chip: "Art direction", n: "06", title: "Art direction", sub: "Key visuals & poster design", gallery: artDirection },
   { key: "photo", chip: "Photography", n: "07", title: "Branding & photoshoot", sub: "Brand identity & shoots", boards: [photo1, photo2] },
   { key: "events", chip: "Events", n: "08", title: "Event & activation", sub: "Events & activations", boards: [events1, events2, events3] },

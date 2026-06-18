@@ -132,7 +132,7 @@ const Work = () => {
             </div>
 
             {cat.videos ? (
-              <div className={cat.cols ? "mt-6 grid grid-cols-2 sm:grid-cols-4 gap-2.5 md:gap-3" : "mt-6 flex flex-wrap gap-2.5 md:gap-3"}>
+              <div className={cat.cols ? `mt-6 grid ${cat.cols === 6 ? "grid-cols-3 sm:grid-cols-6" : "grid-cols-2 sm:grid-cols-4"} gap-2.5 md:gap-3` : "mt-6 flex flex-wrap gap-2.5 md:gap-3"}>
                 {shuffle<VideoItem>(cat.videos, shuffleKey).map((v) => {
                   const ar = v.ar ?? 16 / 9;
                   return (
@@ -140,7 +140,7 @@ const Work = () => {
                       key={v.id}
                       type="button"
                       onClick={() => setLightbox({ kind: "video", val: v.id, ar })}
-                      style={cat.cols ? undefined : { flexGrow: ar, flexBasis: `${ar * (ar < 1 ? 300 : 150)}px` }}
+                      style={cat.cols ? undefined : { flexGrow: ar, flexBasis: `${ar * (cat.base ?? (ar < 1 ? 300 : 150))}px` }}
                       className="group relative overflow-hidden rounded-lg border border-foreground/12 hover:border-cinnabar/70 transition-colors cursor-pointer"
                     >
                       <span className="block relative w-full" style={{ aspectRatio: String(ar) }}>

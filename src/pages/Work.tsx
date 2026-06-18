@@ -140,7 +140,7 @@ const Work = () => {
                       key={v.id}
                       type="button"
                       onClick={() => setLightbox({ kind: "video", val: v.id, ar })}
-                      style={cat.cols ? undefined : { flexGrow: ar, flexBasis: `${ar * 150}px` }}
+                      style={cat.cols ? undefined : { flexGrow: ar, flexBasis: `${ar * (ar < 1 ? 300 : 150)}px` }}
                       className="group relative overflow-hidden rounded-lg border border-foreground/12 hover:border-cinnabar/70 transition-colors cursor-pointer"
                     >
                       <span className="block relative w-full" style={{ aspectRatio: String(ar) }}>

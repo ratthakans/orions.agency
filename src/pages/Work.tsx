@@ -119,7 +119,7 @@ const Work = () => {
                       key={v.id}
                       type="button"
                       onClick={() => setLightbox({ kind: "video", val: v.id, ar })}
-                      style={cat.cols ? undefined : { flexGrow: ar, flexBasis: `${ar * 200}px` }}
+                      style={cat.cols ? undefined : { flexGrow: ar, flexBasis: `${ar * 150}px` }}
                       className="group relative overflow-hidden rounded-lg border border-foreground/12 hover:border-cinnabar/70 transition-colors cursor-pointer"
                     >
                       <span className="block relative w-full" style={{ aspectRatio: String(ar) }}>
@@ -159,28 +159,50 @@ const Work = () => {
                 ))}
               </div>
             ) : cat.albums ? (
-              <div className="mt-6 space-y-8 md:space-y-10">
+              <div className="mt-6 max-w-[680px] space-y-8 md:space-y-10">
                 {cat.albums.map((album, ai) => {
-                  const cell = (src: string, idx: number) => (
+                  const imgs = album.images;
+                  const cell = (src: string, idx: number, extra = "") => (
                     <button
                       key={idx}
                       type="button"
-                      onClick={() => setLightbox({ kind: "album", images: album, i: idx })}
-                      className="group relative block overflow-hidden rounded-lg border border-foreground/12 hover:border-cinnabar/70 transition-colors cursor-pointer"
+                      onClick={() => setLightbox({ kind: "album", images: imgs, i: idx })}
+                      className={`group relative block overflow-hidden rounded-md border border-foreground/12 hover:border-cinnabar/70 transition-colors cursor-pointer ${extra}`}
                     >
-                      <span className="block relative w-full" style={{ aspectRatio: "4 / 5" }}>
+                      <span className="block relative w-full h-full" style={{ aspectRatio: "4 / 5" }}>
                         <img src={src} alt={`Album ${ai + 1} — ${idx + 1}`} loading="lazy" className="absolute inset-0 w-full h-full object-cover group-hover:opacity-90 transition-opacity" />
                       </span>
                     </button>
                   );
                   return (
                     <div key={ai}>
-                      <div className="mb-2.5 inline-flex items-center gap-1.5 font-mono text-[10px] tracking-[0.16em] uppercase text-muted-foreground">
-                        <Layers className="w-3.5 h-3.5 text-cinnabar" /> {album.length} รูป
+                      <div className="mb-2 inline-flex items-center gap-1.5 font-mono text-[10px] tracking-[0.16em] uppercase text-muted-foreground">
+                        <Layers className="w-3.5 h-3.5 text-cinnabar" /> {imgs.length} รูป
                       </div>
-                      <div className="grid grid-cols-2 gap-2.5">{album.slice(0, 2).map((s, i) => cell(s, i))}</div>
-                      {album.length > 2 && (
-                        <div className="mt-2.5 grid grid-cols-3 gap-2.5">{album.slice(2).map((s, i) => cell(s, i + 2))}</div>
+                      {album.layout === "feature" ? (
+                        <div className="flex gap-2 items-stretch">
+                          <button
+                            type="button"
+                            onClick={() => setLightbox({ kind: "album", images: imgs, i: 0 })}
+                            className="group relative block flex-[1.25] overflow-hidden rounded-md border border-foreground/12 hover:border-cinnabar/70 transition-colors cursor-pointer"
+                          >
+                            <img src={imgs[0]} alt={`Album ${ai + 1} — 1`} loading="lazy" className="absolute inset-0 w-full h-full object-cover group-hover:opacity-90 transition-opacity" />
+                          </button>
+                          <div className="flex-1 flex flex-col gap-2">
+                            {imgs.slice(1).map((s, i) => cell(s, i + 1, "flex-1"))}
+                          </div>
+                        </div>
+                      ) : album.layout === "row" ? (
+                        <div className="grid gap-2" style={{ gridTemplateColumns: `repeat(${imgs.length}, minmax(0, 1fr))` }}>
+                          {imgs.map((s, i) => cell(s, i))}
+                        </div>
+                      ) : (
+                        <>
+                          <div className="grid grid-cols-2 gap-2">{imgs.slice(0, 2).map((s, i) => cell(s, i))}</div>
+                          {imgs.length > 2 && (
+                            <div className="mt-2 grid grid-cols-3 gap-2">{imgs.slice(2).map((s, i) => cell(s, i + 2))}</div>
+                          )}
+                        </>
                       )}
                     </div>
                   );

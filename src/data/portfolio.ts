@@ -54,8 +54,8 @@ export type PortCategory = {
   boards?: string[];
   gallery?: GalleryImage[];
   videos?: VideoItem[];
-  /** Album posts — each album is an ordered list of image srcs (no shuffle). */
-  albums?: string[][];
+  /** Album posts — ordered images + optional layout (no shuffle). */
+  albums?: { images: string[]; layout?: "feature" | "row" }[];
   /** Fixed-column grid for videos (e.g. 4) instead of justified rows. */
   cols?: number;
 };
@@ -67,8 +67,18 @@ for (const k of Object.keys(socialMods).sort()) {
   const folder = k.split("/social/")[1].split("/")[0];
   (socialBy[folder] ||= []).push(socialMods[k] as string);
 }
-const SOCIAL_ORDER = ["plot-twist", "horror", "romance", "ons", "chivarak", "analog", "music-fest", "kaen-folk", "recommend"];
-const socialAlbums: string[][] = SOCIAL_ORDER.map((a) => socialBy[a]).filter(Boolean);
+const SOCIAL: { slug: string; layout?: "feature" | "row" }[] = [
+  { slug: "plot-twist" },
+  { slug: "horror" },
+  { slug: "romance", layout: "feature" },
+  { slug: "ons" },
+  { slug: "chivarak", layout: "feature" },
+  { slug: "analog" },
+  { slug: "music-fest" },
+  { slug: "kaen-folk" },
+  { slug: "recommend", layout: "row" },
+];
+const socialAlbums = SOCIAL.map((s) => ({ images: socialBy[s.slug], layout: s.layout })).filter((a) => a.images);
 
 const videoFilm: VideoItem[] = [
   { title: "Analog Craft", id: "ogVp48uPnGw", ar: W },
@@ -100,7 +110,7 @@ const artDirection: GalleryImage[] = artdirSrcs.map((src, i) => ({ src, ar: artd
 export const portfolio: PortCategory[] = [
   { key: "video", chip: "Video & film", n: "01", title: "Video & Film", sub: "Films, commercials & content", videos: videoFilm },
   { key: "social", chip: "Social", n: "02", title: "Social posts & creative ads", sub: "Album posts & creative ads", albums: socialAlbums },
-  { key: "reels", chip: "Reels", n: "03", title: "Reels & short video", sub: "Short-form video", videos: reels, cols: 4 },
+  { key: "reels", chip: "Reels", n: "03", title: "Reels & short video", sub: "Short-form video", videos: reels },
   { key: "longform", chip: "Long-form", n: "04", title: "Entertainment & long-form", sub: "Series & documentary", videos: longformVids },
   { key: "music", chip: "Music", n: "05", title: "Music producing & video", sub: "Music videos & production", videos: musicVids },
   { key: "artdir", chip: "Art direction", n: "06", title: "Art direction", sub: "Key visuals & poster design", gallery: artDirection },

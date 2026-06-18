@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { X, Play } from "lucide-react";
+import { X, Play, ChevronLeft, ChevronRight, Layers } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import ClosingCTA from "@/components/ClosingCTA";
 import SEO from "@/components/SEO";
@@ -23,11 +23,23 @@ const shuffle = <T,>(arr: T[], seed: number): T[] => {
 const Work = () => {
   const [active, setActive] = useState<string>("all");
   const [shuffleKey, setShuffleKey] = useState(() => Math.floor(Math.random() * 1_000_000));
-  const [lightbox, setLightbox] = useState<{ kind: "img" | "video"; val: string; ar?: number } | null>(null);
+  const [lightbox, setLightbox] = useState<
+    | { kind: "img" | "video"; val: string; ar?: number }
+    | { kind: "album"; images: string[]; i: number }
+    | null
+  >(null);
+  const albumStep = (d: number) =>
+    setLightbox((lb) =>
+      lb && lb.kind === "album" ? { ...lb, i: (lb.i + d + lb.images.length) % lb.images.length } : lb
+    );
   const visible = portfolio.filter((c) => active === "all" || c.key === active);
 
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setLightbox(null);
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightbox(null);
+      else if (e.key === "ArrowRight") albumStep(1);
+      else if (e.key === "ArrowLeft") albumStep(-1);
+    };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, []);
@@ -146,6 +158,34 @@ const Work = () => {
                   </button>
                 ))}
               </div>
+            ) : cat.albums ? (
+              <div className="mt-6 space-y-8 md:space-y-10">
+                {cat.albums.map((album, ai) => {
+                  const cell = (src: string, idx: number) => (
+                    <button
+                      key={idx}
+                      type="button"
+                      onClick={() => setLightbox({ kind: "album", images: album, i: idx })}
+                      className="group relative block overflow-hidden rounded-lg border border-foreground/12 hover:border-cinnabar/70 transition-colors cursor-pointer"
+                    >
+                      <span className="block relative w-full" style={{ aspectRatio: "4 / 5" }}>
+                        <img src={src} alt={`Album ${ai + 1} — ${idx + 1}`} loading="lazy" className="absolute inset-0 w-full h-full object-cover group-hover:opacity-90 transition-opacity" />
+                      </span>
+                    </button>
+                  );
+                  return (
+                    <div key={ai}>
+                      <div className="mb-2.5 inline-flex items-center gap-1.5 font-mono text-[10px] tracking-[0.16em] uppercase text-muted-foreground">
+                        <Layers className="w-3.5 h-3.5 text-cinnabar" /> {album.length} รูป
+                      </div>
+                      <div className="grid grid-cols-2 gap-2.5">{album.slice(0, 2).map((s, i) => cell(s, i))}</div>
+                      {album.length > 2 && (
+                        <div className="mt-2.5 grid grid-cols-3 gap-2.5">{album.slice(2).map((s, i) => cell(s, i + 2))}</div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
             ) : (
               <div className="mt-6 space-y-3 md:space-y-4">
                 {cat.boards?.map((src, i) => (
@@ -186,7 +226,35 @@ const Work = () => {
           >
             <X className="w-5 h-5" />
           </button>
-          {lightbox.kind === "video" ? (
+          {lightbox.kind === "album" ? (
+            <>
+              <button
+                type="button"
+                aria-label="ก่อนหน้า"
+                onClick={(e) => { e.stopPropagation(); albumStep(-1); }}
+                className="absolute left-3 md:left-6 w-11 h-11 grid place-items-center rounded-full border border-foreground/30 text-foreground/80 hover:border-cinnabar hover:text-cinnabar transition-colors bg-background/40"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <img
+                src={lightbox.images[lightbox.i]}
+                alt=""
+                onClick={(e) => e.stopPropagation()}
+                className="max-w-full max-h-[86vh] w-auto h-auto object-contain rounded-lg border border-foreground/15"
+              />
+              <button
+                type="button"
+                aria-label="ถัดไป"
+                onClick={(e) => { e.stopPropagation(); albumStep(1); }}
+                className="absolute right-3 md:right-6 w-11 h-11 grid place-items-center rounded-full border border-foreground/30 text-foreground/80 hover:border-cinnabar hover:text-cinnabar transition-colors bg-background/40"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+              <span className="absolute bottom-5 left-1/2 -translate-x-1/2 font-mono text-[11px] tracking-[0.1em] text-foreground/70 bg-background/50 border border-foreground/15 rounded-full px-3 py-1">
+                {lightbox.i + 1} / {lightbox.images.length}
+              </span>
+            </>
+          ) : lightbox.kind === "video" ? (
             <div
               onClick={(e) => e.stopPropagation()}
               style={{ aspectRatio: String(lightbox.ar ?? 16 / 9) }}

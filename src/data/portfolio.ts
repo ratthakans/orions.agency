@@ -3,10 +3,6 @@
 //  • `gallery` — real per-image galleries laid out justified (drop files in the
 //                matching src/assets/work/<cat>/ folder; add an aspect ratio).
 
-import social1 from "@/assets/work/social-1.jpg";
-import social2 from "@/assets/work/social-2.jpg";
-import social3 from "@/assets/work/social-3.jpg";
-import social4 from "@/assets/work/social-4.jpg";
 import photo1 from "@/assets/work/photo-1.jpg";
 import photo2 from "@/assets/work/photo-2.jpg";
 import events1 from "@/assets/work/events-1.jpg";
@@ -58,9 +54,21 @@ export type PortCategory = {
   boards?: string[];
   gallery?: GalleryImage[];
   videos?: VideoItem[];
+  /** Album posts — each album is an ordered list of image srcs (no shuffle). */
+  albums?: string[][];
   /** Fixed-column grid for videos (e.g. 4) instead of justified rows. */
   cols?: number;
 };
+
+// Social album posts — one folder per album; files renamed 01.jpg.. in order.
+const socialMods = import.meta.glob("../assets/work/social/*/*.jpg", { eager: true, import: "default" });
+const socialBy: Record<string, string[]> = {};
+for (const k of Object.keys(socialMods).sort()) {
+  const folder = k.split("/social/")[1].split("/")[0];
+  (socialBy[folder] ||= []).push(socialMods[k] as string);
+}
+const SOCIAL_ORDER = ["plot-twist", "horror", "romance", "ons", "chivarak", "analog", "music-fest", "kaen-folk", "recommend"];
+const socialAlbums: string[][] = SOCIAL_ORDER.map((a) => socialBy[a]).filter(Boolean);
 
 const videoFilm: VideoItem[] = [
   { title: "Analog Craft", id: "ogVp48uPnGw", ar: W },
@@ -91,7 +99,7 @@ const artDirection: GalleryImage[] = artdirSrcs.map((src, i) => ({ src, ar: artd
 
 export const portfolio: PortCategory[] = [
   { key: "video", chip: "Video & film", n: "01", title: "Video & Film", sub: "Films, commercials & content", videos: videoFilm },
-  { key: "social", chip: "Social", n: "02", title: "Social posts & creative ads", sub: "Campaigns & creative ads", boards: [social1, social2, social3, social4] },
+  { key: "social", chip: "Social", n: "02", title: "Social posts & creative ads", sub: "Album posts & creative ads", albums: socialAlbums },
   { key: "reels", chip: "Reels", n: "03", title: "Reels & short video", sub: "Short-form video", videos: reels, cols: 4 },
   { key: "longform", chip: "Long-form", n: "04", title: "Entertainment & long-form", sub: "Series & documentary", videos: longformVids },
   { key: "music", chip: "Music", n: "05", title: "Music producing & video", sub: "Music videos & production", videos: musicVids },

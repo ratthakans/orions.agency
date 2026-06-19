@@ -174,24 +174,6 @@ const Work = () => {
                 })}
                 {!cat.cols && <i aria-hidden className="grow-[10] basis-0" />}
               </div>
-            ) : cat.gallery ? (
-              <div className="mt-6 columns-2 md:columns-3 gap-2.5 md:gap-3">
-                {shuffle<GalleryImage>(cat.gallery, shuffleKey).map((g, i) => (
-                  <button
-                    key={g.src}
-                    type="button"
-                    onClick={() => setLightbox({ kind: "img", val: g.src })}
-                    className="group relative block w-full mb-2.5 md:mb-3 break-inside-avoid overflow-hidden rounded-lg border border-foreground/12 hover:border-cinnabar/70 transition-colors cursor-pointer"
-                  >
-                    <img
-                      src={g.src}
-                      alt={`${cat.title} — ${i + 1}`}
-                      loading="lazy"
-                      className="block w-full h-auto group-hover:opacity-90 transition-opacity"
-                    />
-                  </button>
-                ))}
-              </div>
             ) : cat.albums ? (
               <div className="mt-8 space-y-10 md:space-y-12">
                 {shuffle(cat.albums, shuffleKey).map((album, ai) => {
@@ -216,6 +198,48 @@ const Work = () => {
                     </div>
                   );
                 })}
+                {cat.gallery && (
+                  <div>
+                    <div className="mb-3 inline-flex items-center gap-1.5 font-mono text-[10px] tracking-[0.16em] uppercase text-muted-foreground">
+                      <Layers className="w-3.5 h-3.5 text-cinnabar" /> โพสต์เดี่ยว
+                    </div>
+                    <div className="columns-2 md:columns-3 gap-2.5 md:gap-3">
+                      {shuffle<GalleryImage>(cat.gallery, shuffleKey).map((g, i) => (
+                        <button
+                          key={g.src}
+                          type="button"
+                          onClick={() => setLightbox({ kind: "img", val: g.src })}
+                          className="group relative block w-full mb-2.5 md:mb-3 break-inside-avoid overflow-hidden rounded-lg border border-foreground/12 hover:border-cinnabar/70 transition-colors cursor-pointer"
+                        >
+                          <img
+                            src={g.src}
+                            alt={`${cat.title} — โพสต์ ${i + 1}`}
+                            loading="lazy"
+                            className="block w-full h-auto group-hover:opacity-90 transition-opacity"
+                          />
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            ) : cat.gallery ? (
+              <div className="mt-6 columns-2 md:columns-3 gap-2.5 md:gap-3">
+                {shuffle<GalleryImage>(cat.gallery, shuffleKey).map((g, i) => (
+                  <button
+                    key={g.src}
+                    type="button"
+                    onClick={() => setLightbox({ kind: "img", val: g.src })}
+                    className="group relative block w-full mb-2.5 md:mb-3 break-inside-avoid overflow-hidden rounded-lg border border-foreground/12 hover:border-cinnabar/70 transition-colors cursor-pointer"
+                  >
+                    <img
+                      src={g.src}
+                      alt={`${cat.title} — ${i + 1}`}
+                      loading="lazy"
+                      className="block w-full h-auto group-hover:opacity-90 transition-opacity"
+                    />
+                  </button>
+                ))}
               </div>
             ) : (
               <div className="mt-6 space-y-3 md:space-y-4">

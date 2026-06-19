@@ -79,6 +79,11 @@ const SOCIAL: { slug: string; layout?: "feature" | "row" }[] = [
 ];
 const socialAlbums = SOCIAL.map((s) => ({ images: socialBy[s.slug], layout: s.layout })).filter((a) => a.images);
 
+// Single creative-ad posts (one image each) — flat folder, shown as a masonry
+// wall under the social albums. Drop more *.jpg here to extend.
+const socialAdsMods = import.meta.glob("../assets/work/socialads/*.jpg", { eager: true, import: "default" });
+const socialAds: GalleryImage[] = Object.keys(socialAdsMods).sort().map((k) => ({ src: socialAdsMods[k] as string, ar: 1 }));
+
 const videoFilm: VideoItem[] = [
   { title: "Analog Craft", id: "ogVp48uPnGw", ar: W },
   { title: "Bangpakong Riverside Country Club", id: "yACp1DuNS2M" },
@@ -108,7 +113,7 @@ const artDirection: GalleryImage[] = artdirSrcs.map((src, i) => ({ src, ar: artd
 
 export const portfolio: PortCategory[] = [
   { key: "video", chip: "Video & film", n: "01", title: "Video & Film", sub: "Films, commercials & content", videos: videoFilm, cols: 3 },
-  { key: "social", chip: "Social", n: "02", title: "Social posts & creative ads", sub: "Album posts & creative ads", albums: socialAlbums },
+  { key: "social", chip: "Social", n: "02", title: "Social posts & creative ads", sub: "Album posts & creative ads", albums: socialAlbums, gallery: socialAds },
   { key: "reels", chip: "Reels", n: "03", title: "Reels & short video", sub: "Short-form video", videos: reels, cols: 5 },
   { key: "longform", chip: "Long-form", n: "04", title: "Entertainment & long-form", sub: "Series & documentary", videos: longformVids, cols: 3 },
   { key: "music", chip: "Music", n: "05", title: "Music producing & video", sub: "Music videos & production", videos: musicVids, base: 200 },

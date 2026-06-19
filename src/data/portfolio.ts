@@ -3,9 +3,6 @@
 //  • `gallery` — real per-image galleries laid out justified (drop files in the
 //                matching src/assets/work/<cat>/ folder; add an aspect ratio).
 
-import photo1 from "@/assets/work/photo-1.jpg";
-import photo2 from "@/assets/work/photo-2.jpg";
-
 export type GalleryImage = { src: string; ar: number };
 export type VideoItem = { title: string; id: string; ar?: number };
 
@@ -111,6 +108,10 @@ const artdirSrcs = Object.keys(artdirMods).sort().map((k) => artdirMods[k] as st
 const artdirAr = [0.675, 0.675, 0.675, 0.675, 0.8, 0.8, 0.675, 0.8, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1.008];
 const artDirection: GalleryImage[] = artdirSrcs.map((src, i) => ({ src, ar: artdirAr[i] ?? 1 }));
 
+// Photography — real brand photoshoot gallery (masonry, natural aspect).
+const photoMods = import.meta.glob("../assets/work/photography/*.jpg", { eager: true, import: "default" });
+const photography: GalleryImage[] = Object.keys(photoMods).sort().map((k) => ({ src: photoMods[k] as string, ar: 1 }));
+
 export const portfolio: PortCategory[] = [
   { key: "video", chip: "Video & film", n: "01", title: "Video & Film", sub: "Films, commercials & content", videos: videoFilm, cols: 3 },
   { key: "social", chip: "Social", n: "02", title: "Social posts & creative ads", sub: "Album posts & creative ads", albums: socialAlbums, gallery: socialAds },
@@ -118,5 +119,5 @@ export const portfolio: PortCategory[] = [
   { key: "longform", chip: "Long-form", n: "04", title: "Entertainment & long-form", sub: "Series & documentary", videos: longformVids, cols: 3 },
   { key: "music", chip: "Music", n: "05", title: "Music producing & video", sub: "Music videos & production", videos: musicVids, base: 200 },
   { key: "artdir", chip: "Art direction", n: "06", title: "Art direction", sub: "Key visuals & poster design", gallery: artDirection },
-  { key: "photo", chip: "Photography", n: "07", title: "Branding & photoshoot", sub: "Brand identity & shoots", boards: [photo1, photo2] },
+  { key: "photo", chip: "Photography", n: "07", title: "Branding & photoshoot", sub: "Brand identity & shoots", gallery: photography },
 ];

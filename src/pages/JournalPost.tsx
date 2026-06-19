@@ -14,10 +14,38 @@ const JournalPost = () => {
   if (idx === -1) return <Navigate to="/journal" replace />;
   const post = journalPosts[idx];
   const next = journalPosts[(idx + 1) % journalPosts.length];
+  const url = `https://orions.agency/journal/${post.slug}`;
+
+  const schema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: post.title,
+      description: post.dek,
+      datePublished: post.date,
+      inLanguage: "th",
+      mainEntityOfPage: url,
+      url,
+      author: { "@type": "Organization", name: "ØRIONS", url: "https://orions.agency" },
+      publisher: {
+        "@type": "Organization",
+        name: "ØRIONS",
+        logo: { "@type": "ImageObject", url: "https://orions.agency/favicon.jpg" },
+      },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Journal", item: "https://orions.agency/journal" },
+        { "@type": "ListItem", position: 2, name: post.title, item: url },
+      ],
+    },
+  ];
 
   return (
     <div>
-      <SEO title={`${post.title} · Journal — ØRIONS`} description={post.dek} path={`/journal/${post.slug}`} />
+      <SEO title={`${post.title} · Journal — ØRIONS`} description={post.dek} path={`/journal/${post.slug}`} schema={schema} />
 
       <article className="section-ink px-6 md:px-10 border-b border-foreground/15">
         <div className="max-w-[760px] mx-auto pt-28 md:pt-32 pb-14 md:pb-18">

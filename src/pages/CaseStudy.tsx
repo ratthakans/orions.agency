@@ -21,6 +21,29 @@ const CaseStudy = () => {
 
   const { next } = getAdjacent(slug);
   const total = String(caseStudies.length).padStart(2, "0");
+  const url = `https://orions.agency/work/${cs.slug}`;
+
+  const schema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      name: cs.title,
+      headline: cs.title,
+      abstract: cs.summary,
+      about: cs.niche,
+      dateCreated: cs.year,
+      url,
+      creator: { "@type": "Organization", name: "ØRIONS", url: "https://orions.agency" },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Work", item: "https://orions.agency/work" },
+        { "@type": "ListItem", position: 2, name: cs.title, item: url },
+      ],
+    },
+  ];
 
   return (
     <div>
@@ -28,7 +51,8 @@ const CaseStudy = () => {
         title={`${cs.title} — Selected Work · ØRIONS`}
         description={cs.summary}
         path={`/work/${cs.slug}`}
-        image={cs.cover.startsWith("http") ? cs.cover : undefined}
+        image={cs.cover}
+        schema={schema}
       />
 
       {/* 01 — HERO */}

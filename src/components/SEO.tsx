@@ -19,6 +19,7 @@ const toAbsoluteUrl = (path: string) => (path.startsWith("http") ? path : `${SIT
 
 const SEO = ({ title, description, path, image = DEFAULT_OG_IMAGE, noindex = false, keywords, schema }: SEOProps) => {
   const canonical = toAbsoluteUrl(path);
+  const ogImage = toAbsoluteUrl(image);
   const schemas = Array.isArray(schema) ? schema : schema ? [schema] : [];
 
   return (
@@ -34,12 +35,12 @@ const SEO = ({ title, description, path, image = DEFAULT_OG_IMAGE, noindex = fal
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonical} />
-      <meta property="og:image" content={image} />
+      <meta property="og:image" content={ogImage} />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={image} />
+      <meta name="twitter:image" content={ogImage} />
 
       {schemas.map((entry, index) => (
         <script key={`${canonical}-schema-${index}`} type="application/ld+json">

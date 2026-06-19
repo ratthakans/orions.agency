@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import Layout from "./components/Layout";
 import ScrollToTop from "./components/ScrollToTop";
+import ErrorBoundary from "./components/ErrorBoundary";
 import Index from "./pages/Index";
 
 // Below-the-fold routes are split into their own chunks to keep first load small.
@@ -58,6 +59,7 @@ const App = () => {
       <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <ScrollToTop />
         <Layout>
+          <ErrorBoundary>
           <Suspense fallback={<div className="min-h-[60vh]" aria-hidden />}>
           <Routes>
             <Route path="/" element={<Index />} />
@@ -85,6 +87,7 @@ const App = () => {
             <Route path="*" element={<NotFound />} />
           </Routes>
           </Suspense>
+          </ErrorBoundary>
         </Layout>
       </BrowserRouter>
     </TooltipProvider>

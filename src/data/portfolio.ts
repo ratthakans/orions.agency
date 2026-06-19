@@ -15,7 +15,7 @@ const R = 9 / 16; // vertical reel
 const reels: VideoItem[] = [
   "ou6CDAPuWMg", "z1fjfOqakRo", "gZCsL34i2yA", "_bK18EokLEA", "sez1rX09od0",
   "ohfWT1EsA9A", "EZ4Ledfaw38", "6QDdextE3CM", "4NxMIpbhVs8", "-NcOTtaLboI",
-  "8JUMCj1i5xM",
+  "8JUMCj1i5xM", "w3bTBNLl8y0", "8FO-2vQqtPA",
 ].map((id) => ({ title: "Reel", id, ar: R }));
 
 const musicVids: VideoItem[] = [

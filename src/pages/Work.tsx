@@ -133,7 +133,7 @@ const Work = () => {
             </div>
 
             {cat.videos ? (
-              <div className={cat.cols ? `mt-6 grid ${({ 3: "grid-cols-2 sm:grid-cols-3", 5: "grid-cols-2 sm:grid-cols-5", 6: "grid-cols-3 sm:grid-cols-6" } as Record<number, string>)[cat.cols] || "grid-cols-2 sm:grid-cols-4"} gap-2.5 md:gap-3` : "mt-6 flex flex-wrap gap-2.5 md:gap-3"}>
+              <div className={cat.cols ? `mt-6 grid ${({ 3: "grid-cols-2 sm:grid-cols-3", 4: "grid-cols-2 sm:grid-cols-4", 5: "grid-cols-2 sm:grid-cols-5", 6: "grid-cols-3 sm:grid-cols-6" } as Record<number, string>)[cat.cols] || "grid-cols-2 sm:grid-cols-4"} gap-2.5 md:gap-3` : "mt-6 flex flex-wrap gap-2.5 md:gap-3"}>
                 {shuffle<VideoItem>(cat.videos, shuffleKey).map((v) => {
                   const ar = v.ar ?? 16 / 9;
                   const gridAr = (cat.videos?.[0]?.ar ?? 2) < 1 ? "9 / 16" : "16 / 9";
@@ -203,7 +203,7 @@ const Work = () => {
                     <div className="mb-3 inline-flex items-center gap-1.5 font-mono text-[10px] tracking-[0.16em] uppercase text-muted-foreground">
                       <Layers className="w-3.5 h-3.5 text-cinnabar" /> โพสต์เดี่ยว
                     </div>
-                    <div className="columns-2 md:columns-3 gap-2.5 md:gap-3">
+                    <div className="columns-2 md:columns-4 gap-2.5 md:gap-3">
                       {shuffle<GalleryImage>(cat.gallery, shuffleKey).map((g, i) => (
                         <button
                           key={g.src}

@@ -39,7 +39,7 @@ const musicVids: VideoItem[] = [
 const longformVids: VideoItem[] = [
   "UC8ognh_S3s", "1XuM19cfaCs", "ASjm7TKqf-M", "aD13HQnrCks", "OJNCHwRFphE",
   "zbPCb5KxXlA", "Vi9vO40h63s", "5EVXZv1DhE8", "aDLssgzVQiQ", "lVzIbfqhvOo",
-  "yhgXP3Hw_hg", "mkCZXrL7D8c", "6mxqnNnXDzc",
+  "yhgXP3Hw_hg", "mkCZXrL7D8c", "6mxqnNnXDzc", "4ZKS5f5jxIY", "jERPFy2iE0U",
 ].map((id) => ({ title: "Long-form", id }));
 
 export type PortCategory = {

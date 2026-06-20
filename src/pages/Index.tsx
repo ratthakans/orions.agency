@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
@@ -9,11 +10,17 @@ import Slash from "@/components/Slash";
 import HeroHeadline from "@/components/HeroHeadline";
 import CountUp from "@/components/CountUp";
 import ShowreelExpand from "@/components/ShowreelExpand";
-import { caseStudies } from "@/data/caseStudies";
+import { workThumbs } from "@/data/portfolio";
 
-const selectedWork = caseStudies;
-
-const clients = ["พรรคประชาธิปัตย์", "กองทัพอากาศ", "GCOO", "HONG MOVE", "เขาใหญ่ คันทรี่คลับ", "HEAVY ORGANIZER"];
+// Pick N random work thumbnails (fresh each mount).
+const pickRandom = (arr: string[], n: number): string[] => {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a.slice(0, n);
+};
 
 // Track record — from the ØRIONS rebrand deck (the team's real numbers)
 const stats = [
@@ -42,7 +49,9 @@ const painpoints = [
     answer: "Creative Production" },
 ];
 
-const Index = () => (
+const Index = () => {
+  const [thumbs] = useState(() => pickRandom(workThumbs, 14));
+  return (
   <div>
     <SEO
       title="ØRIONS — Stories, refined. · Creative Agency, Bangkok"
@@ -116,36 +125,15 @@ const Index = () => (
       </div>
     </section>
 
-    {/* — TRUSTED BY — quiet single row (PLACEHOLDER: swap styled names for real client logo SVGs) */}
-    <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-14 md:py-16">
-        <div className="flex items-center justify-between gap-4 flex-wrap mb-8">
-          <span lang="th" className="font-mono text-[10px] tracking-[0.04em] text-muted-foreground">
-            แบรนด์ที่เลือกทำงานกับเรา
-          </span>
-          <Link to="/work" className="font-mono text-[10px] tracking-[0.04em] text-muted-foreground hover:text-cinnabar transition-colors">
-            ดูผลงาน →
-          </Link>
-        </div>
-        <div className="flex flex-wrap items-center gap-x-9 gap-y-4">
-          {clients.map((c) => (
-            <span key={c} lang="th" className="font-serif text-[17px] md:text-[21px] tracking-[-0.01em] text-foreground/55 hover:text-foreground/80 transition-colors">
-              {c}
-            </span>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    {/* — SELECTED WORK (creative proof, full colour) */}
+    {/* — WORK SHOWCASE (random real work, reshuffled each visit) */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <div className="flex items-end justify-between gap-6 flex-wrap">
           <SectionHeading
             lang="th"
-            eyebrow="Selected Work"
-            title={<>งานที่เลือกมาเพราะ <em className="text-cinnabar">เงื่อนไข.</em></>}
-            intro="แต่ละชิ้นมีเงื่อนไขที่ทำให้วิธีคิดของเราเห็นชัด — ไม่ใช่เพราะงบใหญ่ที่สุด"
+            eyebrow="Our work"
+            title={<>งานจริง <em className="text-cinnabar">หลากหลายงานฝีมือ.</em></>}
+            intro="สุ่มงานจากหลายหมวดมาให้ดู — ดูทั้งหมดได้ในหน้าผลงาน"
           />
           <Link to="/work" className="hidden md:inline-flex font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground hover:text-cinnabar transition-colors">
             Index of work →
@@ -153,21 +141,14 @@ const Index = () => (
         </div>
         <div className="mt-12 md:mt-16 marquee" style={{ maskImage: "linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent)" }}>
           <ul className="work-marquee flex shrink-0 gap-4 md:gap-5">
-            {[...selectedWork, ...selectedWork].map((w, i) => (
-              <li key={`${w.slug}-${i}`} className="shrink-0 w-[280px] sm:w-[340px] md:w-[420px]" aria-hidden={i >= selectedWork.length}>
-                <Link to={`/work/${w.slug}`} className="group relative block overflow-hidden rounded-2xl border border-foreground/12 bg-foreground/[0.04] aspect-[4/5] transition-colors duration-500 hover:border-cinnabar/60">
-                  <img src={w.cover} alt={w.title} loading="lazy" className="w-full h-full object-cover scale-100 grayscale-[0.4] group-hover:scale-[1.06] group-hover:grayscale-0 transition-[transform,filter] duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)]" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-90" />
-                  {/* corner index */}
-                  <span className="absolute top-4 left-4 font-mono text-[10px] tracking-[0.22em] text-foreground/70">— {w.n}</span>
-                  <span className="absolute top-4 right-4 inline-flex items-center gap-1 font-mono text-[9px] tracking-[0.2em] uppercase text-background bg-cinnabar px-2 py-1 rounded-full opacity-0 -translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
-                    ดูเคส <ArrowUpRight className="w-3 h-3" />
+            {[...thumbs, ...thumbs].map((src, i) => (
+              <li key={`${src}-${i}`} className="shrink-0 w-[200px] sm:w-[240px] md:w-[280px]" aria-hidden={i >= thumbs.length}>
+                <Link to="/work" className="group relative block overflow-hidden rounded-2xl border border-foreground/12 bg-foreground/[0.04] aspect-[4/5] transition-colors duration-500 hover:border-cinnabar/60">
+                  <img src={src} alt="ผลงาน ØRIONS" loading="lazy" className="w-full h-full object-cover scale-100 grayscale-[0.4] group-hover:scale-[1.06] group-hover:grayscale-0 transition-[transform,filter] duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)]" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent opacity-80" />
+                  <span className="absolute bottom-3 right-3 inline-flex items-center gap-1 font-mono text-[9px] tracking-[0.2em] uppercase text-background bg-cinnabar px-2 py-1 rounded-full opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                    ดูงาน <ArrowUpRight className="w-3 h-3" />
                   </span>
-                  <div className="absolute left-0 right-0 bottom-0 p-5 flex flex-col gap-1.5 translate-y-0 group-hover:-translate-y-1 transition-transform duration-500">
-                    <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">{w.niche} · {w.year}</span>
-                    <span lang="th" className="font-display text-[19px] md:text-[22px] font-semibold tracking-[-0.01em] text-foreground leading-tight">{w.title}</span>
-                    <span lang="th" className="font-thai thai-wrap text-[12px] leading-[1.5] text-foreground/70 line-clamp-2">{w.summary}</span>
-                  </div>
                 </Link>
               </li>
             ))}
@@ -268,6 +249,7 @@ const Index = () => (
       tone="ink"
     />
   </div>
-);
+  );
+};
 
 export default Index;

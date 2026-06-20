@@ -4,13 +4,16 @@ interface Props {
   className?: string;
 }
 
+// Real clients only (พูดตรง — never list a brand we haven't worked with).
 const defaultItems = [
-  "Royal Thai Air Force",
-  "Hongmove",
-  "Democrat Party",
-  "Six Senses",
-  "Bangkok Heritage",
-  "Singha Estate",
+  "พรรคประชาธิปัตย์",
+  "กองทัพอากาศ",
+  "GCOO",
+  "HONG MOVE",
+  "เขาใหญ่ คันทรี่คลับ",
+  "HEAVY ORGANIZER",
+  "My Hotel",
+  "พรรคพลวัต",
 ];
 
 const TrustStrip = ({ items = defaultItems, label = "Trusted by", className = "" }: Props) => (

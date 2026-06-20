@@ -12,10 +12,10 @@ import { track } from "@/lib/analytics";
 import pleum from "@/assets/pleum.jpg";
 
 const inquirySchema = z.object({
-  name:    z.string().trim().min(1, "Please tell us your name").max(100),
-  company: z.string().trim().min(1, "Company name required").max(150),
-  email:   z.string().trim().email("Please enter a valid email").max(255),
-  brief:   z.string().trim().min(10, "Tell us a little more (10+ characters)").max(2000),
+  name:    z.string().trim().min(1, "กรุณากรอกชื่อ").max(100),
+  company: z.string().trim().min(1, "กรุณากรอกชื่อบริษัท").max(150),
+  email:   z.string().trim().email("อีเมลไม่ถูกต้อง").max(255),
+  brief:   z.string().trim().min(10, "เล่าเพิ่มอีกนิด (อย่างน้อย 10 ตัวอักษร)").max(2000),
 });
 
 type FieldErrors = Partial<Record<keyof z.infer<typeof inquirySchema>, string>>;
@@ -83,6 +83,12 @@ const Contact = () => {
       return;
     }
     setErrors({});
+    // Fail fast if Supabase isn't configured — don't let the request hang on a
+    // placeholder host. Point the user straight to email instead.
+    if (!import.meta.env.VITE_SUPABASE_URL || !import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY) {
+      toast.error("ระบบฟอร์มขัดข้องชั่วคราว — อีเมลหาเราที่ hello@orions.agency ได้เลย");
+      return;
+    }
     setSubmitting(true);
     const { name, company, email, brief } = parsed.data;
     const pkgFull = form.pkg ? `${form.pkg}${form.size ? ` · ${form.size}` : ""}` : "";
@@ -157,8 +163,9 @@ const Contact = () => {
       <section id="brief" className="px-6 md:px-10 border-t border-foreground/15 scroll-mt-24">
         <div className="max-w-[1280px] mx-auto py-20 md:py-28">
           <SectionHeading
+            lang="th"
             eyebrow="02 — Send a brief"
-            title={<>Tell us about <em className="text-cinnabar">the brand.</em></>}
+            title={<>เล่าเรื่อง<em className="text-cinnabar">แบรนด์</em>ให้เราฟัง.</>}
           />
 
           <div className="mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-start">

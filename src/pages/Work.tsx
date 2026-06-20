@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { X, Play, ChevronLeft, ChevronRight, Layers } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import ClosingCTA from "@/components/ClosingCTA";
@@ -241,19 +242,29 @@ const Work = () => {
                   </button>
                 ))}
               </div>
-            ) : (
-              <div className="mt-6 space-y-3 md:space-y-4">
-                {cat.boards?.map((src, i) => (
-                  <img
-                    key={i}
-                    src={src}
-                    alt={`${cat.title} — ${i + 1}`}
-                    loading="lazy"
-                    className="w-full rounded-xl border border-foreground/12"
-                  />
+            ) : cat.cases ? (
+              <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+                {cat.cases.map((cs) => (
+                  <Link
+                    key={cs.slug}
+                    to={`/work/${cs.slug}`}
+                    className="group relative block overflow-hidden rounded-xl border border-foreground/12 bg-foreground/[0.04] aspect-[4/5] hover:border-cinnabar/60 transition-colors"
+                  >
+                    <img
+                      src={cs.cover}
+                      alt={cs.title}
+                      loading="lazy"
+                      className="absolute inset-0 w-full h-full object-cover grayscale-[0.35] group-hover:grayscale-0 group-hover:scale-[1.04] transition-[transform,filter] duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-90" />
+                    <div className="absolute left-0 right-0 bottom-0 p-4 flex flex-col gap-1">
+                      <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-cinnabar">{cs.niche} · {cs.year}</span>
+                      <span lang="th" className="font-display text-[17px] md:text-[19px] font-semibold tracking-[-0.01em] leading-tight">{cs.title}</span>
+                    </div>
+                  </Link>
                 ))}
               </div>
-            )}
+            ) : null}
           </div>
         </section>
       ))}
@@ -277,6 +288,7 @@ const Work = () => {
           <button
             type="button"
             aria-label="ปิด"
+            onClick={() => setLightbox(null)}
             className="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 grid place-items-center rounded-full border border-foreground/30 text-foreground/80 hover:border-cinnabar hover:text-cinnabar transition-colors"
           >
             <X className="w-5 h-5" />

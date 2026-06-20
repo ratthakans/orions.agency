@@ -1,7 +1,8 @@
-// Work-page portfolio. Categories show either:
-//  • `boards`  — full-width board images exported from the ORIONS deck, or
-//  • `gallery` — real per-image galleries laid out justified (drop files in the
-//                matching src/assets/work/<cat>/ folder; add an aspect ratio).
+// Work-page portfolio. Each category renders one of: `videos`, `albums`,
+// `gallery` (drop files in src/assets/work/<cat>/), or `cases` (brand projects
+// that link to their /work/:slug detail pages).
+
+import { caseStudies, type CaseStudy } from "./caseStudies";
 
 export type GalleryImage = { src: string; ar: number };
 export type VideoItem = { title: string; id: string; ar?: number };
@@ -45,7 +46,8 @@ export type PortCategory = {
   n: string;
   title: string;
   sub: string;
-  boards?: string[];
+  /** Brand-project cards that link to their /work/:slug detail pages. */
+  cases?: CaseStudy[];
   gallery?: GalleryImage[];
   videos?: VideoItem[];
   /** Album posts — ordered images + optional layout (no shuffle). */
@@ -120,4 +122,5 @@ export const portfolio: PortCategory[] = [
   { key: "music", chip: "Music", n: "05", title: "Music producing & video", sub: "Music videos & production", videos: musicVids, base: 200 },
   { key: "artdir", chip: "Art direction", n: "06", title: "Art direction", sub: "Key visuals & poster design", gallery: artDirection },
   { key: "photo", chip: "Photography", n: "07", title: "Branding & photoshoot", sub: "Brand identity & shoots", gallery: photography },
+  { key: "cases", chip: "Selected work", n: "08", title: "Selected work", sub: "Brand & strategy cases", cases: caseStudies },
 ];

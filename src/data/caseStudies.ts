@@ -11,13 +11,6 @@ import workGcoo from "@/assets/gcoo.jpg";
 import workMyHotel from "@/assets/work-myhotel.jpg";
 import workPalawat from "@/assets/work-palawat.jpg";
 
-// PLACEHOLDER gallery frames — thematically-adjacent stand-ins.
-// → Replace with each case's real images before launch.
-import phStreet from "@/assets/hero-street.jpg";
-import phCrosswalk from "@/assets/pov-crosswalk.jpg";
-import phTech from "@/assets/tech-hero.jpg";
-import phSignal from "@/assets/studio-no-signal.jpg";
-import phTaxi from "@/assets/approach-taxi.jpg";
 
 export type CaseStudy = {
   slug: string;
@@ -69,7 +62,7 @@ export const caseStudies: CaseStudy[] = [
     scope: "Brand Strategy · Social",
     year: "2023",
     cover: workDemocrat,
-    gallery: [workDemocrat, phStreet, phCrosswalk], // placeholder frames
+    gallery: [workDemocrat], // real cover only — gallery hidden until real frames exist
     summary: "ทำการเมืองสร้างสรรค์ผ่านกิจกรรม ไม่ใช่การหาเสียง",
     service: "Brand Strategy",
     challenge: "แรงต้านทางการเมือง / ข้อจำกัดของกฎหมายเลือกตั้ง",
@@ -90,7 +83,7 @@ export const caseStudies: CaseStudy[] = [
     scope: "Brand Strategy · Social",
     year: "2023",
     cover: workGcoo,
-    gallery: [workGcoo, phTaxi, phCrosswalk], // placeholder frames
+    gallery: [workGcoo], // real cover only — gallery hidden until real frames exist
     summary: "เปิดตลาดไทยด้วย localization + payment gateway",
     service: "Brand Strategy",
     challenge: "ข้อกฎหมาย / การดีลสถานที่เพื่อนำรถไปวาง",
@@ -132,7 +125,7 @@ export const caseStudies: CaseStudy[] = [
     scope: "Brand Strategy · Creative Production",
     year: "2025",
     cover: workHongmove,
-    gallery: [workHongmove, phTaxi, phStreet], // placeholder frames
+    gallery: [workHongmove], // real cover only — gallery hidden until real frames exist
     summary: "เปิดตัว taxi VIP EV ใน AOT พร้อมวางระบบความเป็นไปได้",
     service: "Creative Production",
     challenge: "รองรับหลายภาษา — มาเลย์ · จีน · อาหรับ · ฮินดี",
@@ -195,7 +188,7 @@ export const caseStudies: CaseStudy[] = [
     scope: "Creative Production · Social",
     year: "2024",
     cover: workRtaf,
-    gallery: [workRtaf, phTech, phSignal], // placeholder frames
+    gallery: [workRtaf], // real cover only — gallery hidden until real frames exist
     summary: "สื่อสารข้อมูลที่ถูกต้องและน่าสนใจในภาวะตึงเครียด",
     service: "Creative Production",
     challenge: "fake news / ต้องรักษาความลับทางราชการ",

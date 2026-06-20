@@ -40,7 +40,10 @@ const NotFound = lazy(routes.NotFound);
 /** Warm all route chunks during idle time after first paint → instant navigation. */
 const usePrefetchRoutes = () => {
   useEffect(() => {
-    const prefetch = () => Object.values(routes).forEach((load) => load());
+    // Warm light below-the-fold routes, but skip the heavy Contact chunk
+    // (Supabase + zod, ~270 KB) — it loads on demand when a visitor heads there.
+    const prefetch = () =>
+      Object.entries(routes).forEach(([name, load]) => { if (name !== "Contact") load(); });
     const ric = (window as Window & { requestIdleCallback?: (cb: () => void) => number }).requestIdleCallback;
     const id = ric ? ric(prefetch) : window.setTimeout(prefetch, 1500);
     return () => {

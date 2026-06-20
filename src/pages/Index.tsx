@@ -12,7 +12,6 @@ import ShowreelExpand from "@/components/ShowreelExpand";
 import { caseStudies } from "@/data/caseStudies";
 
 const selectedWork = caseStudies;
-const featured = caseStudies.find((c) => c.slug === "gcoo") ?? caseStudies[0];
 
 const clients = ["พรรคประชาธิปัตย์", "กองทัพอากาศ", "GCOO", "HONG MOVE", "เขาใหญ่ คันทรี่คลับ", "HEAVY ORGANIZER"];
 
@@ -68,6 +67,9 @@ const Index = () => (
         <Reveal delay={0.4}>
           <p lang="th" className="mt-9 md:mt-11 font-thai thai-wrap text-balance text-[15px] md:text-[17px] leading-[1.7] text-muted-foreground max-w-[48ch]">
             ทุกองค์กรมีเรื่องของตัวเองอยู่แล้ว สิ่งที่ขาดคือการ refine ให้คนหยุดดู เชื่อ และจำ.
+          </p>
+          <p lang="th" className="mt-4 font-thai thai-wrap text-balance text-[13px] md:text-[15px] leading-[1.6] text-foreground/80 max-w-[48ch]">
+            Brand Strategy · Creative Production · Social Media Marketing — ครบในทีมเดียว
           </p>
         </Reveal>
         <Reveal delay={0.5}>
@@ -173,51 +175,6 @@ const Index = () => (
         </div>
       </div>
     </section>
-
-    {/* — FEATURED CASE (one project, in depth — challenge → what we did → live) */}
-    <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-28 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-        <Reveal>
-          <Link to={`/work/${featured.slug}`} className="group relative block overflow-hidden rounded-2xl border border-foreground/12 aspect-[4/3]">
-            <img src={featured.cover} alt={featured.title} loading="lazy" className="w-full h-full object-cover grayscale-[0.35] group-hover:grayscale-0 group-hover:scale-[1.04] transition-[transform,filter] duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)]" />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
-          </Link>
-        </Reveal>
-        <div>
-          <div className="inline-flex items-center gap-3 font-mono text-[10px] tracking-[0.22em] uppercase leading-none">
-            <Slash className="text-[15px]" />
-            <span className="text-muted-foreground">Featured case</span>
-          </div>
-          <Reveal delay={0.05}>
-            <h2 lang="th" className="mt-6 font-display text-[28px] md:text-[38px] font-semibold tracking-[-0.02em] leading-tight">
-              {featured.title}<span className="text-cinnabar">.</span>
-            </h2>
-            <div className="mt-2 font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">{featured.niche} · {featured.scope} · {featured.year}</div>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <div className="mt-7">
-              <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">— เงื่อนไข</div>
-              <p lang="th" className="mt-2 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-foreground/85">{featured.constraint}</p>
-            </div>
-            <div className="mt-5">
-              <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">— เราทำ</div>
-              <p lang="th" className="mt-2 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-foreground/85">{featured.whatWeDid}</p>
-            </div>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link to={`/work/${featured.slug}`} className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.22em] uppercase text-background bg-cinnabar px-4 py-2.5 rounded-full hover:opacity-90 transition-opacity">
-                อ่านเคสเต็ม <ArrowUpRight className="w-3.5 h-3.5" />
-              </Link>
-              {featured.url && (
-                <a href={featured.url} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.22em] uppercase text-foreground/70 border border-foreground/20 px-4 py-2.5 rounded-full hover:text-cinnabar hover:border-cinnabar/60 transition-colors">
-                  ดูเว็บจริง <ArrowUpRight className="w-3.5 h-3.5" />
-                </a>
-              )}
-            </div>
-          </Reveal>
-        </div>
-      </div>
-    </section>
-
 
     {/* — WHY NOW — market pressures mapped to the 3 services (real, cited) */}
     <section className="px-6 md:px-10 border-t border-foreground/15">

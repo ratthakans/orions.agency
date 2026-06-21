@@ -59,8 +59,8 @@ const Index = () => {
     />
 
     {/* 01 — HERO */}
-    <section className="relative min-h-[82svh] md:min-h-[90svh] flex flex-col px-6 md:px-10 overflow-hidden">
-      <img src={heroSilk} alt="" aria-hidden className="silk-drift absolute -inset-[6%] z-0 object-cover pointer-events-none select-none" />
+    <section className="relative min-h-[100svh] flex flex-col px-6 md:px-10 overflow-hidden">
+      <img src={heroSilk} alt="" aria-hidden className="silk-drift absolute -inset-[6%] z-0 w-[112%] h-[112%] object-cover object-center pointer-events-none select-none" />
       <div aria-hidden className="hero-scrim absolute inset-0 z-0 pointer-events-none" />
       <div className="relative z-10 max-w-[1280px] mx-auto w-full flex-1 flex flex-col justify-center items-center text-center pt-24 md:pt-32 pb-20 md:pb-28">
         <Reveal>
@@ -88,11 +88,6 @@ const Index = () => {
               <span>ดูผลงาน</span><ArrowUpRight className="w-4 h-4" />
             </Link>
           </div>
-        </Reveal>
-        <Reveal delay={0.6}>
-          <p className="mt-11 font-mono text-[10px] tracking-[0.28em] uppercase text-muted-foreground">
-            คิด · ทำ · ยิง — ในระบบเดียว
-          </p>
         </Reveal>
       </div>
     </section>

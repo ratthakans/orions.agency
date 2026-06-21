@@ -40,12 +40,12 @@ const CTABand = ({ eyebrow, title, subtitle, primary, secondary, tone = "snow", 
                 )}
               </div>
               <div className="flex flex-col sm:flex-row md:flex-col gap-4 md:justify-self-end md:w-full">
-                <Link to={primary.to} className="btn-accent justify-between">
+                <Link to={primary.to} viewTransition className="btn-accent justify-between">
                   <span>{primary.label}</span>
                   <ArrowUpRight className="w-4 h-4" />
                 </Link>
                 {secondary && (
-                  <Link to={secondary.to} className="btn-ghost justify-between">
+                  <Link to={secondary.to} viewTransition className="btn-ghost justify-between">
                     <span>{secondary.label}</span>
                     <ArrowUpRight className="w-4 h-4" />
                   </Link>

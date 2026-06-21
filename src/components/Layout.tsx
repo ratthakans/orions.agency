@@ -1,14 +1,10 @@
 import { ReactNode } from "react";
-import { useLocation } from "react-router-dom";
-import { motion, useReducedMotion } from "framer-motion";
 import Nav from "./Nav";
 import Footer from "./Footer";
 import CornerMarks from "./CornerMarks";
 import StickyMobileCTA from "./StickyMobileCTA";
 
 const Layout = ({ children }: { children: ReactNode }) => {
-  const { pathname } = useLocation();
-  const reduced = useReducedMotion();
   return (
     <div className="grain min-h-screen bg-background text-foreground flex flex-col">
       <a
@@ -19,16 +15,12 @@ const Layout = ({ children }: { children: ReactNode }) => {
       </a>
       <Nav />
       <CornerMarks />
-      <motion.main
+      <main
         id="main"
-        key={pathname}
-        initial={reduced ? false : { opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.18, ease: "easeOut" }}
         className="flex-1 relative z-10 bg-background pb-14 md:pb-0"
       >
         {children}
-      </motion.main>
+      </main>
       <StickyMobileCTA />
       <Footer />
     </div>

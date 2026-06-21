@@ -23,7 +23,7 @@ const CTA = ({ to, href, variant = "primary", children, className = "", external
         <span>{children}</span>
       </a>
     ) : (
-      <Link to={to || "/"} className={cls}><span>{children}</span></Link>
+      <Link to={to || "/"} viewTransition className={cls}><span>{children}</span></Link>
     );
   }
   const base =
@@ -72,7 +72,7 @@ const CTA = ({ to, href, variant = "primary", children, className = "", external
       {inner}
     </a>
   ) : (
-    <Link to={to || "/"} className={cls}>
+    <Link to={to || "/"} viewTransition className={cls}>
       {inner}
     </Link>
   );

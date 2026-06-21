@@ -8,6 +8,7 @@ import CTABand from "@/components/CTABand";
 import Magnetic from "@/components/Magnetic";
 import Slash from "@/components/Slash";
 import HeroHeadline from "@/components/HeroHeadline";
+import MarqueeBand from "@/components/MarqueeBand";
 import { workThumbs } from "@/data/portfolio";
 
 // Pick N random work thumbnails (fresh each mount).
@@ -177,6 +178,9 @@ const Index = () => {
         </p>
       </div>
     </section>
+
+    {/* — KINETIC BRAND BAND */}
+    <MarqueeBand />
 
     {/* 05 — THE ORIONS STANDARD — the moat */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">

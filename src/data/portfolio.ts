@@ -122,7 +122,7 @@ export const portfolio: PortCategory[] = [
   { key: "music", chip: "Music", n: "05", title: "Music producing & video", sub: "Music videos & production", videos: musicVids, base: 200 },
   { key: "artdir", chip: "Art direction", n: "06", title: "Art direction", sub: "Key visuals & poster design", gallery: artDirection },
   { key: "photo", chip: "Photography", n: "07", title: "Branding & photoshoot", sub: "Brand identity & shoots", gallery: photography },
-  { key: "cases", chip: "Selected work", n: "08", title: "Selected work", sub: "Brand & strategy cases", cases: caseStudies },
+  { key: "cases", chip: "Selected work", n: "08", title: "Selected work", sub: "Client brand cases", cases: caseStudies },
 ];
 
 // Flat pool of real work thumbnails (images + YouTube posters) for the homepage

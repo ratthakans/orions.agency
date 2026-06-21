@@ -76,7 +76,7 @@ const About = () => (
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionHeading
-          eyebrow="02 — What we hold"
+          eyebrow="What we won't compromise"
           lang="th"
           title={<>สี่อย่างที่เรา <em className="text-cinnabar">ไม่ยอมต่อรอง.</em></>}
         />
@@ -122,7 +122,7 @@ const About = () => (
     <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionHeading
-          eyebrow="04 — When we're not the answer"
+          eyebrow="When we're not the answer"
           lang="th"
           title={<>ความซื่อสัตย์สำคัญกว่า <em className="text-cinnabar">การรับทุกงาน.</em></>}
           intro="เราจะบอกตรง ๆ ถ้า:"

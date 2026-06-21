@@ -200,10 +200,10 @@ const Index = () => {
         <Reveal delay={0.1}>
           <div>
             <p lang="th" className="font-thai thai-wrap text-[15px] md:text-[16px] leading-[1.8] text-foreground/85">
-              งานส่วนใหญ่จบที่ "ส่งมอบ" — ของเราจบที่ <span className="text-foreground">ผลลัพธ์</span>. เราตั้ง baseline แล้ววัดผลแบรนด์จริง (Brand recall · consideration · branded search · แนวโน้ม CPL) ที่ <span className="text-cinnabar">45 และ 90 วัน</span> — ไม่ได้ตามเป้าก็ปรับงานต่อจนเข้าที่.
+              งานส่วนใหญ่จบที่ "ส่งมอบ" — มาตรฐานของเราคือจบที่ <span className="text-foreground">ผลลัพธ์</span>. ทุกงานเราตกลง baseline และตัวชี้วัดกันตั้งแต่ต้น (เช่น brand recall · consideration · branded search · แนวโน้ม CPL) แล้ววัดซ้ำที่ <span className="text-cinnabar">45 และ 90 วัน</span> — ไม่เข้าเป้าก็ปรับต่อจนเข้าที่.
             </p>
             <p lang="th" className="mt-5 font-thai text-[13px] leading-[1.7] text-muted-foreground">
-              นี่คือสิ่งที่แยกเราจากการ "ส่งของจบแล้วจบเลย" — และเป็นสิ่งที่เอเจนซีส่วนใหญ่ไม่ทำ.
+              นี่คือ <span className="text-foreground/90">วิธีทำงาน</span> ของเรา ไม่ใช่ option เสริม — และเป็นสิ่งที่เอเจนซีส่วนใหญ่ไม่ทำ.
             </p>
           </div>
         </Reveal>

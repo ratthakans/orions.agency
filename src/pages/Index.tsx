@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Check } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -22,31 +22,29 @@ const pickRandom = (arr: string[], n: number): string[] => {
   return a.slice(0, n);
 };
 
-// Track record — from the ØRIONS rebrand deck (the team's real numbers)
-const stats = [
-  { to: 120, suffix: "+", k: "โปรเจกต์ที่ส่งมอบ" },
-  { to: 5,   suffix: "+", k: "ปีของการลงมือทำ" },
-  { to: 24,  suffix: "h", k: "ตอบกลับภายใน" },
+// 3 market pressures of 2026 — numbers need a cited source before final (พูดตรง).
+const pressures = [
+  { to: 1.7, decimals: 1, suffix: "s", title: "Attention หดสั้น",
+    desc: "คนให้เวลาแบรนด์บนจอราว 1.7 วินาที — คิดไม่คมตั้งแต่วิแรก ก็ถูกเลื่อนผ่าน" },
+  { to: 4.6, decimals: 1, suffix: "×", title: "AI ท่วมฟีด",
+    desc: "คอนเทนต์เพิ่มราว 4.6 เท่าจากของที่ AI ปั๊ม — ทางรอดคือ 'จริงกว่า' ไม่ใช่ 'เยอะกว่า'" },
+  { prefix: "+", to: 41, suffix: "%", title: "ค่าแอดเฟ้อ",
+    desc: "ค่าโฆษณา digital แพงขึ้นราว 41% — งบเท่าเดิมได้ reach น้อยลง ยิงมั่วคือเผาเงิน" },
 ];
 
-// Each service answers one of the painpoints above.
-const services = [
-  { n: "01", en: "Brand Strategy",          tag: "หาเรื่องที่ใช่",      th: "คนให้เวลาแบรนด์แค่ 1.7 วินาที — เราวาง positioning, ตัวตน และระบบแบรนด์ (CI) ให้คมพอจะถูกจำตั้งแต่เฟรมแรก" },
-  { n: "02", en: "Creative Production",      tag: "ทำให้เห็น",           th: "ยุคที่ AI ปั๊มคอนเทนต์ท่วมจอ — เราผลิตงานที่คนคิดและคนถ่าย (brand film · ภาพ · คอนเทนต์) ให้โดดจากของซ้ำ ๆ" },
-  { n: "03", en: "Social Media Marketing",  tag: "ทำให้ดังและวัดได้",  th: "ค่าแอดแพงขึ้นทุกปี — เรายิง Meta/TikTok/Google/LINE + SEO แล้ววัดผลให้คุ้มทุกบาท ไม่ใช่ยอด vanity" },
+// 3 sales lines — pick one or mix.
+const lines = [
+  { name: "Digital", tag: "ยอด / ลูกค้า เดี๋ยวนี้", th: "ยิงแอด ทำคอนเทนต์ วัดผล — ดันยอดด้วย performance", pay: "รายเดือน" },
+  { name: "Boutique", tag: "แบรนด์ที่คนจำและเลือก", th: "สร้าง · refresh · rebrand ครบตั้งแต่คิดถึงวัดผล", pay: "ต่อแคมเปญ", featured: true },
+  { name: "Production", tag: "แค่ทีมถ่าย (มีแผนเอง)", th: "ทีมกองถ่าย senior ระดับโฆษณา — ถ่าย ตัด ครบ", pay: "ต่อวัน" },
 ];
 
-// Market pressures of this era — real, cited data — mapped to the 3 services.
-const painpoints = [
-  { to: 1.7, decimals: 1, suffix: "s", title: "ยุคสมาธิสั้น",
-    desc: "คอนเทนต์มีเวลาบนมือถือแค่ 1.7 วินาที (Meta) — แบรนด์ที่ไม่คมตั้งแต่วิแรก โดนเลื่อนผ่าน",
-    answer: "Brand Strategy" },
-  { prefix: "+", to: 40, suffix: "%", title: "เงินเฟ้อดิจิทัล",
-    desc: "ค่าโฆษณาโซเชียล (CPM) แพงขึ้นราว 40% ในช่วงปี 2020–2024 — ยิงมั่วไม่คุ้มอีกต่อไป",
-    answer: "Social Media Marketing" },
-  { to: 4, suffix: "×", title: "คอนเทนต์ AI ท่วมจอ",
-    desc: "หน้าเว็บที่ AI ผลิตโตเกือบ 4 เท่า (82→312 ล้านหน้า/เดือน) — งานที่คนคิดถึงโดดเด่นกว่า",
-    answer: "Creative Production" },
+// The 4 choices a brand really has.
+const alternatives = [
+  { who: "จ้างทีมเอง (in-house)", note: "เข้าใจคุณดีสุด — แต่แบกเงินเดือนทั้งปี และเก่งได้สไตล์เดียว" },
+  { who: "จ้างสตูดิโอ", note: "ฝีมือดี — แต่งานออกมาเป็นลายเซ็นของเขา ไม่ใช่แบรนด์คุณ" },
+  { who: "Full-service เจ้าอื่น", note: "ครบบนกระดาษ — แต่มัก outsource ผลิต/ยิง และไม่ค่อยวัดผลแบรนด์" },
+  { who: "ORIONS", note: "เข้าใจระดับ in-house · ครบทำเอง คิด–ทำ–ยิง · วัดผลได้ · จ่ายเฉพาะที่ใช้", us: true },
 ];
 
 const Index = () => {
@@ -54,8 +52,8 @@ const Index = () => {
   return (
   <div>
     <SEO
-      title="ØRIONS — Stories, refined. · Creative Agency, Bangkok"
-      description="ครีเอทีฟเอเจนซีในกรุงเทพฯ ที่รวม Brand Strategy · Creative Production · Social Media Marketing ไว้ในทีมเดียว — เราถือว่าข้อจำกัดคือบรีฟ."
+      title="ØRIONS — ยอด หรือ แบรนด์? · Creative Agency, Bangkok"
+      description="เอเจนซีที่รวม คิด–ทำ–ยิง ไว้ในระบบเดียว — Digital (ยอด) · Boutique (แบรนด์) · Production (ถ่าย). เราถามก่อนเสนอเสมอ: ยอด หรือ แบรนด์?"
       path="/"
     />
 
@@ -74,18 +72,15 @@ const Index = () => {
           <HeroHeadline />
         </div>
         <Reveal delay={0.4}>
-          <p lang="th" className="mt-9 md:mt-11 font-thai thai-wrap text-balance text-[15px] md:text-[17px] leading-[1.7] text-muted-foreground max-w-[48ch]">
-            ทุกองค์กรมีเรื่องของตัวเองอยู่แล้ว สิ่งที่ขาดคือการ refine ให้คนหยุดดู เชื่อ และจำ.
-          </p>
-          <p lang="th" className="mt-4 font-thai thai-wrap text-balance text-[13px] md:text-[15px] leading-[1.6] text-foreground/80 max-w-[48ch]">
-            Brand Strategy · Creative Production · Social Media Marketing — ครบในทีมเดียว
+          <p lang="th" className="mt-9 md:mt-11 font-thai thai-wrap text-balance text-[15px] md:text-[18px] leading-[1.7] text-foreground/85 max-w-[52ch]">
+            เราไม่ได้ทำให้แบรนด์สวย — เราทำให้แบรนด์ <em className="text-cinnabar not-italic font-medium">ถูกจำ</em> และทำให้ทุกบาทที่ลงไป <em className="text-cinnabar not-italic font-medium">คุ้ม</em>.
           </p>
         </Reveal>
         <Reveal delay={0.5}>
           <div className="mt-11 flex flex-col sm:flex-row items-center gap-4">
             <Magnetic strength={10} className="inline-block">
               <Link to="/contact" className="btn-accent">
-                <span>เริ่มต้นบทสนทนา</span><ArrowUpRight className="w-4 h-4" />
+                <span>คุยฟรี 45 นาที</span><ArrowUpRight className="w-4 h-4" />
               </Link>
             </Magnetic>
             <Link to="/work" className="btn-ghost">
@@ -95,37 +90,126 @@ const Index = () => {
         </Reveal>
         <Reveal delay={0.6}>
           <p className="mt-11 font-mono text-[10px] tracking-[0.28em] uppercase text-muted-foreground">
-            Energetic · Strategic · Profound
+            คิด · ทำ · ยิง — ในระบบเดียว
           </p>
         </Reveal>
       </div>
     </section>
 
-    {/* — STATS BAND — track record + ghosted wordmark (rebrand) */}
-    <section className="relative px-6 md:px-10 border-t border-foreground/15 overflow-hidden">
-      <div aria-hidden className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <span className="wordmark-ghost text-[19vw] md:text-[16vw] whitespace-nowrap">ØRIONS</span>
-      </div>
-      <div className="relative max-w-[1280px] mx-auto py-16 md:py-24">
-        <Reveal>
-          <div className="flex justify-center">
-            <span className="inline-flex items-center rounded-full bg-cinnabar text-background px-4 py-1.5 font-mono text-[10px] tracking-[0.18em] uppercase">Let's grow together</span>
-          </div>
-        </Reveal>
-        <div className="mt-10 grid grid-cols-3 gap-4 md:gap-8 text-center">
-          {stats.map((s, i) => (
-            <Reveal key={s.k} delay={i * 0.08}>
-              <div>
-                <CountUp to={s.to} suffix={s.suffix} className="num-display text-foreground text-[clamp(40px,8vw,88px)] leading-none" />
-                <div lang="th" className="mt-3 font-thai text-[12px] md:text-[14px] tracking-[0.02em] text-muted-foreground">{s.k}</div>
+    {/* 02 — MARKET PRESSURE — ทำแบบเดิมไม่รอด */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+        <SectionHeading
+          lang="th"
+          eyebrow="2026"
+          title={<>ทำแบบเดิม <em className="text-cinnabar">ไม่รอดแล้ว.</em></>}
+          intro="ปี 2026 เปลี่ยนกติกาไป 3 อย่าง — และทั้ง 3 คือเหตุผลว่าทำไม 'ทำเองแบบเดิม' ถึงไม่พอ"
+        />
+        <div className="mt-12 md:mt-14 grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+          {pressures.map((p, i) => (
+            <Reveal key={p.title} delay={i * 0.08}>
+              <div className="card-soft h-full p-7 md:p-8">
+                <CountUp to={p.to} prefix={p.prefix} suffix={p.suffix} decimals={p.decimals}
+                  className="num-display text-cinnabar text-[clamp(44px,6vw,68px)] leading-none"
+                  suffixClassName="text-[0.5em] ml-0.5" />
+                <h3 lang="th" className="mt-5 font-display text-[17px] md:text-[19px] font-semibold">{p.title}</h3>
+                <p lang="th" className="mt-2.5 font-thai thai-wrap text-[13px] leading-[1.7] text-muted-foreground">{p.desc}</p>
               </div>
             </Reveal>
           ))}
         </div>
+        <p lang="th" className="mt-8 font-thai text-[13px] leading-[1.7] text-foreground/80 max-w-[640px]">
+          แต่ก่อนจะเริ่ม เราขอถามคุณแค่ <span className="text-cinnabar font-medium">คำถามเดียว</span> ↓
+        </p>
       </div>
     </section>
 
-    {/* — WORK SHOWCASE (random real work, reshuffled each visit) */}
+    {/* 03 — THE ONE QUESTION + 3 CHOICES */}
+    <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+        <SectionHeading
+          lang="th"
+          eyebrow="ถามก่อนขาย"
+          title={<>คุณอยากได้ <em className="text-cinnabar">ยอด</em> หรือ <em className="text-cinnabar">แบรนด์</em>?</>}
+          intro="ลูกค้าเกือบทุกคนเข้ามาเพราะอยากได้ยอด — แต่ยอดที่อยู่ยาวต้องมีแบรนด์หนุน. เราบอกตรงๆ ว่าควรเริ่มตรงไหน และจะไม่ขายของที่คุณยังไม่ต้องการ."
+        />
+        <div className="mt-12 md:mt-14 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
+          {lines.map((l, i) => (
+            <Reveal key={l.name} delay={i * 0.07}>
+              <div className={`relative h-full flex flex-col p-7 md:p-8 ${l.featured ? "card-accent" : "card-soft"}`}>
+                {l.featured && <span className="ribbon-pill absolute -top-3 left-7">ครบสุด</span>}
+                <span lang="th" className="font-thai text-[11px] tracking-[0.02em] text-cinnabar">{l.tag}</span>
+                <h3 className="mt-2 font-unbounded text-[24px] md:text-[28px] leading-none tracking-[-0.01em]">{l.name}</h3>
+                <p lang="th" className="mt-5 font-thai thai-wrap text-[14px] leading-[1.7] text-foreground/85 flex-1">{l.th}</p>
+                <div className="mt-6 pt-5 border-t border-foreground/15 flex items-center justify-between">
+                  <span lang="th" className="font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">จ่ายแบบ</span>
+                  <span lang="th" className="font-thai text-[13px] text-foreground">{l.pay}</span>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+        <p lang="th" className="mt-8 font-thai text-[13px] leading-[1.7] text-muted-foreground max-w-[640px]">
+          เลือกสายเดียว หรือผสมก็ได้ — ส่วนใหญ่เริ่มที่ <span className="text-foreground/85">ยอด (Digital)</span> ให้เงินหมุนก่อน แล้วต่อ <span className="text-foreground/85">แบรนด์ (Boutique)</span> ให้แข็ง.
+        </p>
+      </div>
+    </section>
+
+    {/* 04 — WHY ORIONS — 4 choices */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+        <SectionHeading
+          lang="th"
+          eyebrow="ทำไมต้องเรา"
+          title={<>คุณมี 4 ทางเลือก — <em className="text-cinnabar">เราพูดตรงทั้งหมด.</em></>}
+        />
+        <div className="mt-12 md:mt-14 space-y-3">
+          {alternatives.map((a, i) => (
+            <Reveal key={a.who} delay={i * 0.06}>
+              <div className={`grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-2 sm:gap-8 p-5 md:p-6 rounded-2xl border ${a.us ? "card-accent border-cinnabar/40" : "border-foreground/12 bg-foreground/[0.02]"}`}>
+                <div className="flex items-center gap-3">
+                  {a.us && <Slash className="text-[15px]" />}
+                  <span className={`font-display text-[17px] md:text-[19px] font-semibold tracking-[-0.01em] ${a.us ? "text-cinnabar" : ""}`}>{a.who}</span>
+                </div>
+                <p lang="th" className="font-thai thai-wrap text-[13px] md:text-[14px] leading-[1.7] text-foreground/85 self-center">{a.note}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+        <p lang="th" className="mt-8 font-thai text-[14px] md:text-[15px] leading-[1.7] text-foreground/80 max-w-[640px]">
+          เรายืดหยุ่นเรื่อง <span className="text-foreground">สไตล์</span> ได้ แต่ไม่เคยลดเรื่อง <span className="text-cinnabar font-medium">มาตรฐานฝีมือ</span> — ลายเซ็นของเราคือ "มาตรฐาน" ไม่ใช่ "ลุค".
+        </p>
+      </div>
+    </section>
+
+    {/* 05 — THE ORIONS STANDARD — the moat */}
+    <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28 grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16 items-center">
+        <div>
+          <div className="inline-flex items-center gap-3 font-mono text-[10px] tracking-[0.22em] uppercase leading-none">
+            <Slash className="text-[15px]" />
+            <span className="text-muted-foreground">The ORIONS Standard</span>
+          </div>
+          <Reveal delay={0.05}>
+            <h2 lang="th" className="mt-6 h-display-md max-w-[16ch] thai-wrap">
+              เราไม่ส่งของ <em className="text-cinnabar">จบแล้วจบเลย.</em>
+            </h2>
+          </Reveal>
+        </div>
+        <Reveal delay={0.1}>
+          <div>
+            <p lang="th" className="font-thai thai-wrap text-[15px] md:text-[16px] leading-[1.8] text-foreground/85">
+              งานส่วนใหญ่จบที่ "ส่งมอบ" — ของเราจบที่ <span className="text-foreground">ผลลัพธ์</span>. เราตั้ง baseline แล้ววัดผลแบรนด์จริง (Brand recall · consideration · branded search · แนวโน้ม CPL) ที่ <span className="text-cinnabar">45 และ 90 วัน</span> — ไม่ได้ตามเป้าก็ปรับงานต่อจนเข้าที่.
+            </p>
+            <p lang="th" className="mt-5 font-thai text-[13px] leading-[1.7] text-muted-foreground">
+              นี่คือสิ่งที่แยกเราจากการ "ส่งของจบแล้วจบเลย" — และเป็นสิ่งที่เอเจนซีส่วนใหญ่ไม่ทำ.
+            </p>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+
+    {/* 06 — WORK SHOWCASE (random real work, reshuffled each visit) */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <div className="flex items-end justify-between gap-6 flex-wrap">
@@ -157,93 +241,14 @@ const Index = () => {
       </div>
     </section>
 
-    {/* — WHY NOW — market pressures mapped to the 3 services (real, cited) */}
-    <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <SectionHeading
-          lang="th"
-          eyebrow="Why now"
-          title={<>โลกเปลี่ยน — <em className="text-cinnabar">บรีฟก็เปลี่ยน.</em></>}
-          intro="3 แรงกดดันของยุคนี้ ที่ทำให้ 3 บริการของเราจำเป็นกว่าเดิม"
-        />
-        <div className="mt-12 md:mt-14 grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
-          {painpoints.map((p, i) => (
-            <Reveal key={p.answer} delay={i * 0.08}>
-              <div className="card-soft p-7 md:p-8 h-full flex flex-col">
-                <CountUp
-                  to={p.to}
-                  prefix={p.prefix}
-                  suffix={p.suffix}
-                  decimals={p.decimals ?? 0}
-                  className="num-display text-cinnabar text-[clamp(46px,6vw,76px)] leading-none"
-                  prefixClassName="text-[0.55em] align-top mr-0.5"
-                  suffixClassName="text-[0.5em] align-top"
-                />
-                <h3 lang="th" className="mt-5 font-serif text-[22px] md:text-[26px] tracking-[-0.01em]">{p.title}</h3>
-                <p lang="th" className="mt-3 font-thai thai-wrap text-[13px] md:text-[14px] leading-[1.7] text-muted-foreground flex-1">{p.desc}</p>
-                <Link to="/services" className="group mt-6 inline-flex items-center gap-2.5">
-                  <Slash className="text-[15px]" />
-                  <span className="font-serif text-[16px] md:text-[18px] text-foreground group-hover:text-cinnabar transition-colors">{p.answer}</span>
-                </Link>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-        <p className="mt-7 font-mono text-[10px] tracking-[0.04em] text-muted-foreground/70">
-          ที่มา: Meta (mobile attention) · social CPM 2020–2024 · AI web pages 2024–2026
-        </p>
-      </div>
-    </section>
-
-    {/* — WHAT WE DO */}
-    <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <div className="flex items-end justify-between gap-6 flex-wrap">
-          <SectionHeading
-            lang="th"
-            eyebrow="What we do"
-            title={<>สามบริการ <em className="text-cinnabar">ในทีมเดียว.</em></>}
-            intro="หาเรื่องที่ใช่ · ทำให้เห็น · ทำให้ดังและวัดได้ — ครบในที่เดียว"
-          />
-          <Link to="/services" className="hidden md:inline-flex font-mono text-[10px] tracking-[0.04em] text-muted-foreground hover:text-cinnabar transition-colors">
-            ดูบริการทั้งหมด →
-          </Link>
-        </div>
-        <div className="mt-12 md:mt-14 border-t border-foreground/15">
-          {services.map((d, i) => (
-            <Reveal key={d.n} delay={i * 0.07}>
-              <Link
-                to="/services"
-                className="group grid grid-cols-[auto_1fr] md:grid-cols-[120px_1fr_auto] items-center gap-x-5 gap-y-3 md:gap-x-10 border-b border-foreground/15 py-8 md:py-11 px-0 md:px-5 md:-mx-5 rounded-none md:rounded-2xl transition-colors duration-300 hover:bg-foreground/[0.03]"
-              >
-                <span className="num-display text-[clamp(40px,5vw,72px)] leading-none text-foreground/20 group-hover:text-cinnabar transition-colors duration-300">{d.n}</span>
-                <div className="min-w-0">
-                  <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                    <span className="flex items-center gap-2.5">
-                      <Slash className="text-[16px]" />
-                      <h3 className="font-serif text-[26px] md:text-[36px] tracking-[-0.015em] leading-[1.05] group-hover:text-cinnabar transition-colors duration-300">{d.en}</h3>
-                    </span>
-                    <span lang="th" className="font-serif text-cinnabar/80 text-[16px] md:text-[19px]">{d.tag}</span>
-                  </div>
-                  <p lang="th" className="mt-2.5 font-thai thai-wrap text-[13px] md:text-[15px] leading-[1.7] text-muted-foreground max-w-[64ch]">{d.th}</p>
-                </div>
-                <ArrowUpRight className="hidden md:block w-7 h-7 text-foreground/25 group-hover:text-cinnabar group-hover:-translate-y-1 group-hover:translate-x-1 transition-all duration-300" />
-              </Link>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-
-
-    {/* — SHOWREEL — starts in-container, expands to full-bleed on scroll */}
+    {/* 07 — SHOWREEL */}
     <ShowreelExpand />
 
-    {/* — CTA close */}
+    {/* 08 — CTA close */}
     <CTABand
-      eyebrow="Start a conversation"
-      title={<>พร้อมคุยแล้ว?<br /><em className="text-cinnabar">เล่าโจทย์มาได้เลย</em></>}
-      subtitle="คุยฟรี 45 นาที · ไม่มีข้อผูกมัด — เล่าโจทย์และเงื่อนไขมา เราช่วยมองว่าจะ refine มันยังไง."
+      eyebrow="เริ่มง่ายๆ"
+      title={<>เริ่มที่คำถามเดียว:<br /><em className="text-cinnabar">ยอด หรือ แบรนด์?</em></>}
+      subtitle="คุยฟรี 45 นาที ไม่มีข้อผูกมัด — เราช่วยวินิจฉัยให้ว่าคุณควรเริ่มที่ยอดหรือแบรนด์ก่อน."
       primary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}
       secondary={{ label: "ดูแพ็กเกจ", to: "/package" }}
       tone="ink"

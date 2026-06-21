@@ -57,7 +57,7 @@ const HeroHeadline = () => {
           <span className="block"><Word delay={0.1}>Stories,</Word></span>
           <TypingCycle
             words={["Amplified.", "Remembered.", "Refined."]}
-            className="font-serif font-medium text-cinnabar [letter-spacing:-0.02em]"
+            className="hero-refined font-medium text-cinnabar [letter-spacing:-0.02em]"
             caretClassName="bg-cinnabar"
           />
         </span>

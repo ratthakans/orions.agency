@@ -72,11 +72,6 @@ const Index = () => {
         <div className="mt-7">
           <HeroHeadline />
         </div>
-        <Reveal delay={0.4}>
-          <p lang="th" className="mt-9 md:mt-11 font-thai thai-wrap text-balance text-[15px] md:text-[18px] leading-[1.7] text-foreground/85 max-w-[52ch]">
-            เราไม่ได้ทำให้แบรนด์สวย — เราทำให้แบรนด์ <em className="text-cinnabar not-italic font-medium">ถูกจำ</em> และทำให้ทุกบาทที่ลงไป <em className="text-cinnabar not-italic font-medium">คุ้ม</em>.
-          </p>
-        </Reveal>
         <Reveal delay={0.5}>
           <div className="mt-11 flex flex-col sm:flex-row items-center gap-4">
             <Magnetic strength={10} className="inline-block">

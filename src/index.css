@@ -342,6 +342,8 @@
   .num-display   { font-family: 'Unbounded', system-ui, sans-serif; font-weight: 600; letter-spacing: -0.02em; line-height: 0.95; font-feature-settings: "tnum"; }
   /* Unbounded — creative display signature for Latin headlines (defined after h-display so it wins when combined) */
   .font-unbounded { font-family: 'Unbounded', system-ui, sans-serif; letter-spacing: -0.01em; }
+  /* Hero "Refined." — Newsreader serif italic accent (beats h-display family) */
+  .hero-refined { font-family: 'Newsreader', Georgia, serif !important; font-style: italic !important; }
 
   .bg-surface   { background-color: hsl(var(--surface)); }
   .bg-surface-2 { background-color: hsl(var(--surface-2)); }
@@ -440,21 +442,19 @@
     border-radius: 0;
     border: 1px solid hsl(var(--foreground) / 0.12);
     background: hsl(var(--card));
-    transition: border-color 280ms ease, transform 280ms ease, box-shadow 280ms ease;
+    transition: border-color 200ms ease, background-color 200ms ease;
   }
   .card-soft:hover {
-    border-color: hsl(var(--accent) / 0.45);
-    transform: translateY(-3px);
-    box-shadow: 0 24px 60px -32px hsl(var(--foreground) / 0.28);
+    border-color: hsl(var(--accent));
+    background: hsl(var(--accent) / 0.05);
   }
 
-  /* Accent card — cinnabar-tinted highlight (featured / CTA) */
+  /* Accent card — cinnabar-tinted highlight (featured / CTA) — flat, no shadow */
   .card-accent {
     border-radius: 0;
     border: 1px solid hsl(var(--accent) / 0.4);
     background:
       linear-gradient(180deg, hsl(var(--accent) / 0.06), hsl(var(--card)) 60%);
-    box-shadow: 0 28px 70px -34px hsl(var(--accent) / 0.4);
   }
 
   /* Featured ribbon pill — sits on a card edge */

@@ -657,9 +657,16 @@ h1:lang(th) em, h2:lang(th) em, h3:lang(th) em, h4:lang(th) em, h5:lang(th) em, 
   50%  { transform: scale(1.12) translate3d(-1.5%, -1%, 0);    background-position: 60% 40%;   filter: saturate(1.08); }
   100% { transform: scale(1.06) translate3d(1.5%, 1%, 0);      background-position: 100% 100%; filter: saturate(1); }
 }
-/* Scrim over the silk so the centered headline stays legible */
+/* Living drift for the hero photo (same motion as the CSS silk) */
+.silk-drift { will-change: transform; }
+@media (prefers-reduced-motion: no-preference) {
+  .silk-drift { animation: silkdrift 26s ease-in-out infinite alternate; }
+}
+
+/* Scrim over the silk — vignette that keeps the headline legible while the
+   photo stays present full-bleed (lighter than a half-cut fade). */
 .hero-scrim {
   background:
-    radial-gradient(ellipse 95% 70% at 50% 48%, rgba(0,0,0,0.58) 0%, rgba(0,0,0,0.30) 55%, rgba(0,0,0,0.12) 100%),
-    linear-gradient(180deg, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.18) 35%, rgba(10,10,10,0.62) 100%);
+    radial-gradient(ellipse 110% 85% at 50% 46%, rgba(0,0,0,0.46) 0%, rgba(0,0,0,0.24) 58%, rgba(0,0,0,0.06) 100%),
+    linear-gradient(180deg, rgba(10,10,10,0.42) 0%, rgba(10,10,10,0.06) 42%, rgba(10,10,10,0.40) 100%);
 }

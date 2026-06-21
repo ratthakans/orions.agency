@@ -280,7 +280,7 @@ const Work = () => {
 
       {lightbox && (
         <div
-          className="fixed inset-0 z-[100] bg-background/95 flex items-center justify-center p-4 md:p-10"
+          className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 md:p-10"
           onClick={() => setLightbox(null)}
           role="dialog"
           aria-modal="true"

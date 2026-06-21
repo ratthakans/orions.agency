@@ -51,6 +51,7 @@
 
     /* Cinnabar — accent #EB5939 */
     --accent: 11 81% 57%;
+    --accent-hover: 11 76% 50%;
     --accent-foreground: 0 0% 5.5%;
 
     --destructive: 0 72% 48%;
@@ -154,7 +155,7 @@
   .body-muted   { color: hsl(var(--foreground) / 0.85); }
   .font-brand   { font-family: 'Unbounded', system-ui, sans-serif; font-weight: 500; letter-spacing: 0.01em; text-transform: uppercase; font-optical-sizing: auto; }
   /* Brand signature — the angled orange "/" slash (rebrand 2026). Sizes from font-size. */
-  .brand-slash  { display: inline-block; width: 0.17em; height: 0.95em; background: hsl(var(--accent)); transform: skewX(-15deg); border-radius: 2px; flex-shrink: 0; }
+  .brand-slash  { display: inline-block; width: 0.17em; height: 0.95em; background: hsl(var(--accent)); transform: skewX(-15deg); border-radius: 0; flex-shrink: 0; }
 
   /* Fluid Dynamics — soft flowing orange blooms (rebrand p4). Drop as an absolute layer behind content. */
   .fluid-orange { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
@@ -185,11 +186,11 @@
     font-weight: 500;
   }
   .index-badge {
-    @apply font-mono text-[10px] tracking-[0.2em] uppercase;
+    @apply font-mono text-[10px] tracking-[0.22em] uppercase;
     font-weight: 500;
   }
   .label-soft {
-    @apply font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground;
+    @apply font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground;
     font-weight: 500;
   }
 
@@ -221,28 +222,6 @@
     text-wrap: pretty;
   }
   .editorial-quote p + p { margin-top: 1em; }
-
-  /* Chevron CTA — inline action prefix `›` */
-  .cta-chevron {
-    display: inline-flex; align-items: baseline; gap: 0.5rem;
-    font-family: 'IBM Plex Sans Thai', system-ui, sans-serif;
-    font-size: 13px; font-weight: 500;
-    letter-spacing: 0; text-transform: none;
-    color: hsl(var(--foreground));
-    border-bottom: 1px solid transparent;
-    padding-bottom: 2px;
-    transition: color 200ms ease, border-color 200ms ease;
-  }
-  .cta-chevron::before {
-    content: "›";
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 16px;
-    color: hsl(var(--accent));
-    line-height: 1;
-    transition: transform 200ms ease;
-  }
-  .cta-chevron:hover { color: hsl(var(--accent)); border-color: hsl(var(--accent)); }
-  .cta-chevron:hover::before { transform: translateX(3px); }
 
   /* === Rate Card 2026 primitives === */
   /* Cinnabar mono caps eyebrow — single line, no slash */
@@ -405,7 +384,7 @@
     font-family: 'IBM Plex Sans Thai', system-ui, sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 0;
     transition: background-color 150ms ease, border-color 150ms ease, transform 60ms ease;
   }
-  .btn-accent:hover { background: hsl(11 76% 50%); border-color: hsl(11 76% 50%); }
+  .btn-accent:hover { background: hsl(var(--accent-hover)); border-color: hsl(var(--accent-hover)); }
   .btn-accent:active { transform: translateY(1px); }
 
   .btn-ghost {

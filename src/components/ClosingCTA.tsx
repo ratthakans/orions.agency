@@ -1,10 +1,13 @@
 import { ReactNode } from "react";
+import { Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
 import Reveal from "./Reveal";
-import CTA from "./CTA";
+import SectionLabel from "./SectionLabel";
 
 interface CTAItem {
   label: string;
   to: string;
+  /** "ghost" = outlined; anything else = filled accent. */
   variant?: "primary" | "ghost" | "invert";
 }
 
@@ -17,9 +20,9 @@ interface Props {
   phone?: string;
 }
 
-/** Unified closing CTA block — used at the bottom of Index, Work, About, Services. */
+/** Unified closing CTA block — one button system (.btn-*) + one eyebrow (SectionLabel). */
 const ClosingCTA = ({
-  eyebrow = "READY WHEN YOU ARE",
+  eyebrow = "Ready when you are",
   title,
   description,
   ctas,
@@ -29,10 +32,12 @@ const ClosingCTA = ({
   <section className="relative px-6 md:px-10 border-t border-foreground/15">
     <div className="max-w-[1280px] mx-auto py-20 md:py-28 text-center">
       <Reveal>
-        <div className="index-badge text-muted-foreground mb-5">{eyebrow}</div>
+        <div className="flex justify-center">
+          <SectionLabel label={eyebrow} reveal={false} />
+        </div>
       </Reveal>
       <Reveal delay={0.05}>
-        <h2 className="h-display-md text-balance max-w-[20ch] mx-auto">{title}</h2>
+        <h2 className="mt-5 h-display-md text-balance max-w-[20ch] mx-auto">{title}</h2>
       </Reveal>
       {description && (
         <Reveal delay={0.1}>
@@ -44,15 +49,21 @@ const ClosingCTA = ({
       <Reveal delay={0.2}>
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           {ctas.map((c) => (
-            <CTA key={c.label} to={c.to} variant={c.variant}>
-              {c.label}
-            </CTA>
+            <Link
+              key={c.label}
+              to={c.to}
+              viewTransition
+              className={c.variant === "ghost" ? "btn-ghost" : "btn-accent"}
+            >
+              <span>{c.label}</span>
+              <ArrowUpRight className="w-4 h-4" />
+            </Link>
           ))}
         </div>
       </Reveal>
       {(email || phone) && (
         <Reveal delay={0.3}>
-          <div className="mt-12 inline-flex items-center gap-6 md:gap-8 font-mono text-[11px] md:text-[12px] tracking-[0.12em] uppercase text-muted-foreground">
+          <div className="mt-12 inline-flex items-center gap-6 md:gap-8 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
             {email && (
               <a href={`mailto:${email}`} className="hover:text-foreground transition-colors break-all">
                 {email}

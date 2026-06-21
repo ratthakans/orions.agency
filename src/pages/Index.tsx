@@ -37,7 +37,7 @@ const pressures = [
 const lines = [
   { name: "Digital", tag: "ยอด / ลูกค้า เดี๋ยวนี้", th: "ยิงแอด ทำคอนเทนต์ วัดผล — ดันยอดด้วย performance", pay: "รายเดือน" },
   { name: "Boutique", tag: "แบรนด์ที่คนจำและเลือก", th: "สร้าง · refresh · rebrand ครบตั้งแต่คิดถึงวัดผล", pay: "ต่อแคมเปญ", featured: true },
-  { name: "Production", tag: "แค่ทีมถ่าย (มีแผนเอง)", th: "ทีมกองถ่าย senior ระดับโฆษณา — ถ่าย ตัด ครบ", pay: "ต่อวัน" },
+  { name: "Production", tag: "แค่ทีมถ่าย (มี brief เอง)", th: "ทีมกองถ่าย senior ระดับโฆษณา — ถ่าย ตัด ครบ", pay: "ต่อวัน" },
 ];
 
 // The 4 choices a brand really has.
@@ -160,7 +160,7 @@ const Index = () => {
         <div className="mt-12 md:mt-14 space-y-3">
           {alternatives.map((a, i) => (
             <Reveal key={a.who} delay={i * 0.06}>
-              <div className={`grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-2 sm:gap-8 p-5 md:p-6 rounded-2xl border ${a.us ? "card-accent border-cinnabar/40" : "border-foreground/12 bg-foreground/[0.02]"}`}>
+              <div className={`grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-2 sm:gap-8 p-5 md:p-6 rounded-none border ${a.us ? "card-accent border-cinnabar/40" : "border-foreground/12 bg-foreground/[0.02]"}`}>
                 <div className="flex items-center gap-3">
                   {a.us && <Slash className="text-[15px]" />}
                   <span className={`font-display text-[17px] md:text-[19px] font-semibold tracking-[-0.01em] ${a.us ? "text-cinnabar" : ""}`}>{a.who}</span>
@@ -224,7 +224,7 @@ const Index = () => {
           <ul className="work-marquee flex shrink-0 gap-4 md:gap-5">
             {[...thumbs, ...thumbs].map((src, i) => (
               <li key={`${src}-${i}`} className="shrink-0 w-[200px] sm:w-[240px] md:w-[280px]" aria-hidden={i >= thumbs.length}>
-                <Link to="/work" className="group relative block overflow-hidden rounded-2xl border border-foreground/12 bg-foreground/[0.04] aspect-[4/5] transition-colors duration-500 hover:border-cinnabar/60">
+                <Link to="/work" className="group relative block overflow-hidden rounded-none border border-foreground/12 bg-foreground/[0.04] aspect-[4/5] transition-colors duration-500 hover:border-cinnabar/60">
                   <img src={src} alt="ผลงาน ØRIONS" loading="lazy" className="w-full h-full object-cover scale-100 grayscale-[0.4] group-hover:scale-[1.06] group-hover:grayscale-0 transition-[transform,filter] duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)]" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent opacity-80" />
                   <span className="absolute bottom-3 right-3 inline-flex items-center gap-1 font-mono text-[9px] tracking-[0.2em] uppercase text-background bg-cinnabar px-2 py-1 rounded-none opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">

@@ -29,7 +29,7 @@ const JustifiedTile = ({ src, alt, rowH, onClick }: { src: string; alt: string; 
       type="button"
       onClick={onClick}
       style={{ flexGrow: ar, flexBasis: `${ar * rowH}px` }}
-      className="group relative block overflow-hidden rounded-md border border-foreground/12 hover:border-cinnabar/70 transition-colors cursor-pointer"
+      className="group relative block overflow-hidden rounded-none border border-foreground/12 hover:border-cinnabar/70 transition-colors cursor-pointer"
     >
       <img
         src={src}
@@ -152,7 +152,7 @@ const Work = () => {
                       onMouseEnter={() => setHoverVid(v.id)}
                       onMouseLeave={() => setHoverVid((h) => (h === v.id ? null : h))}
                       style={cat.cols ? undefined : { flexGrow: ar, flexBasis: `${ar * (cat.base ?? (ar < 1 ? 300 : 150))}px` }}
-                      className="group relative overflow-hidden rounded-lg border border-foreground/12 hover:border-cinnabar/70 transition-colors cursor-pointer"
+                      className="group relative overflow-hidden rounded-none border border-foreground/12 hover:border-cinnabar/70 transition-colors cursor-pointer"
                     >
                       <span className="block relative w-full" style={{ aspectRatio: cat.cols ? gridAr : String(ar) }}>
                         <img
@@ -216,7 +216,7 @@ const Work = () => {
                           key={g.src}
                           type="button"
                           onClick={() => setLightbox({ kind: "img", val: g.src })}
-                          className="group relative block w-full mb-2.5 md:mb-3 break-inside-avoid overflow-hidden rounded-lg border border-foreground/12 hover:border-cinnabar/70 transition-colors cursor-pointer"
+                          className="group relative block w-full mb-2.5 md:mb-3 break-inside-avoid overflow-hidden rounded-none border border-foreground/12 hover:border-cinnabar/70 transition-colors cursor-pointer"
                         >
                           <img
                             src={g.src}
@@ -237,7 +237,7 @@ const Work = () => {
                     key={g.src}
                     type="button"
                     onClick={() => setLightbox({ kind: "img", val: g.src })}
-                    className="group relative block w-full mb-2.5 md:mb-3 break-inside-avoid overflow-hidden rounded-lg border border-foreground/12 hover:border-cinnabar/70 transition-colors cursor-pointer"
+                    className="group relative block w-full mb-2.5 md:mb-3 break-inside-avoid overflow-hidden rounded-none border border-foreground/12 hover:border-cinnabar/70 transition-colors cursor-pointer"
                   >
                     <img
                       src={g.src}
@@ -254,7 +254,7 @@ const Work = () => {
                   <Link
                     key={cs.slug}
                     to={`/work/${cs.slug}`}
-                    className="group relative block overflow-hidden rounded-xl border border-foreground/12 bg-foreground/[0.04] aspect-[4/5] hover:border-cinnabar/60 transition-colors"
+                    className="group relative block overflow-hidden rounded-none border border-foreground/12 bg-foreground/[0.04] aspect-[4/5] hover:border-cinnabar/60 transition-colors"
                   >
                     <img
                       src={cs.cover}
@@ -313,7 +313,7 @@ const Work = () => {
                 src={lightbox.images[lightbox.i]}
                 alt=""
                 onClick={(e) => e.stopPropagation()}
-                className="max-w-full max-h-[86vh] w-auto h-auto object-contain rounded-lg border border-foreground/15"
+                className="max-w-full max-h-[86vh] w-auto h-auto object-contain rounded-none border border-foreground/15"
               />
               <button
                 type="button"
@@ -331,7 +331,7 @@ const Work = () => {
             <div
               onClick={(e) => e.stopPropagation()}
               style={{ aspectRatio: String(lightbox.ar ?? 16 / 9) }}
-              className={`rounded-lg overflow-hidden border border-foreground/15 bg-black ${
+              className={`rounded-none overflow-hidden border border-foreground/15 bg-black ${
                 (lightbox.ar ?? 16 / 9) < 1 ? "h-[86vh] max-w-[92vw]" : "w-full max-w-[1100px]"
               }`}
             >
@@ -348,7 +348,7 @@ const Work = () => {
               src={lightbox.val}
               alt=""
               onClick={(e) => e.stopPropagation()}
-              className="max-w-full max-h-[88vh] w-auto h-auto object-contain rounded-lg border border-foreground/15"
+              className="max-w-full max-h-[88vh] w-auto h-auto object-contain rounded-none border border-foreground/15"
             />
           )}
         </div>

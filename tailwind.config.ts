@@ -74,6 +74,17 @@ export default {
         "2xl": "0",
         "3xl": "0",
       },
+      // Flat, sharp system — no shadows anywhere (shadow-* utilities → none).
+      boxShadow: {
+        none: "none",
+        sm: "none",
+        DEFAULT: "none",
+        md: "none",
+        lg: "none",
+        xl: "none",
+        "2xl": "none",
+        inner: "none",
+      },
       keyframes: {
         "fade-up": {
           from: { opacity: "0", transform: "translateY(24px)" },

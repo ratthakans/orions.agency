@@ -69,7 +69,7 @@ const Footer = () => {
           <div>
             <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar mb-5">— Studio</div>
             <p className="font-thai text-[13px] leading-[1.7] text-foreground/85">
-              246/8 Soi Yothin Pattana 3<br />
+              246/8 Soi Yothinphatthana 3<br />
               Khlong Chan, Bang Kapi<br />
               Bangkok 10240, TH
             </p>

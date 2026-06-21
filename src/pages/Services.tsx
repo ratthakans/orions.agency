@@ -110,11 +110,11 @@ const LinesAccordion = () => {
                   ))}
                 </ul>
                 <div className="mt-6 mx-7 md:mx-10 md:ml-[172px] max-w-[860px] grid grid-cols-1 sm:grid-cols-2 gap-3 pb-8 md:pb-10">
-                  <div className="rounded-xl border border-foreground/12 bg-foreground/[0.02] p-4">
+                  <div className="rounded-none border border-foreground/12 bg-foreground/[0.02] p-4">
                     <div className="font-mono text-[10px] tracking-[0.14em] uppercase text-cinnabar">เหมาะกับ</div>
                     <p lang="th" className="mt-1.5 font-thai thai-wrap text-[13px] leading-[1.6] text-foreground/85">{s.fit}</p>
                   </div>
-                  <div className="rounded-xl border border-foreground/12 bg-foreground/[0.02] p-4">
+                  <div className="rounded-none border border-foreground/12 bg-foreground/[0.02] p-4">
                     <div className="font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">ยังไม่เหมาะ</div>
                     <p lang="th" className="mt-1.5 font-thai thai-wrap text-[13px] leading-[1.6] text-muted-foreground">{s.notFit}</p>
                   </div>

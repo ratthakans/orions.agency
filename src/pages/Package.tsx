@@ -74,7 +74,7 @@ const faqs = [
 const InfoTip = ({ text }: { text: string }) => (
   <span className="relative inline-flex group/tip align-middle ml-1.5" tabIndex={0} title={text} aria-label={text}>
     <Info className="w-3.5 h-3.5 text-muted-foreground/55 hover:text-cinnabar cursor-help shrink-0" />
-    <span role="tooltip" className="pointer-events-none absolute left-0 top-full mt-2 w-max max-w-[220px] rounded-lg border border-foreground/15 bg-surface-2 px-3 py-2 font-thai text-[11.5px] leading-snug tracking-normal normal-case text-foreground/90 opacity-0 translate-y-1 group-hover/tip:opacity-100 group-hover/tip:translate-y-0 group-focus-within/tip:opacity-100 transition-all duration-200 z-40">
+    <span role="tooltip" className="pointer-events-none absolute left-0 top-full mt-2 w-max max-w-[220px] rounded-none border border-foreground/15 bg-surface-2 px-3 py-2 font-thai text-[11.5px] leading-snug tracking-normal normal-case text-foreground/90 opacity-0 translate-y-1 group-hover/tip:opacity-100 group-hover/tip:translate-y-0 group-focus-within/tip:opacity-100 transition-all duration-200 z-40">
       {text}
     </span>
   </span>
@@ -224,7 +224,7 @@ const Package = () => (
             <img
               src={pleum}
               alt="ปลื้ม — Sales Executive, ØRIONS"
-              className="w-28 h-28 md:w-40 md:h-40 rounded-2xl object-cover object-top shrink-0"
+              className="w-28 h-28 md:w-40 md:h-40 rounded-none object-cover object-top shrink-0"
             />
             <div>
               <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">— Sales Executive</div>

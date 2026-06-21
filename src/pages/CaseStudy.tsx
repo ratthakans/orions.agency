@@ -133,7 +133,7 @@ const CaseStudy = () => {
       <section className="px-6 md:px-10">
         <div className="max-w-[1280px] mx-auto pb-16 md:pb-20">
           <Reveal>
-            <div className="group relative w-full overflow-hidden rounded-2xl bg-muted" style={{ aspectRatio: "16 / 9" }}>
+            <div className="group relative w-full overflow-hidden rounded-none bg-muted" style={{ aspectRatio: "16 / 9" }}>
               <img
                 src={cs.cover}
                 alt={`${cs.title} — cover`}
@@ -215,7 +215,7 @@ const CaseStudy = () => {
               {cs.gallery.map((img, i) => (
                 <Reveal key={i} delay={0.04 * i}>
                   <div
-                    className={`group relative w-full overflow-hidden rounded-2xl bg-muted ${
+                    className={`group relative w-full overflow-hidden rounded-none bg-muted ${
                       i === 0 ? "md:col-span-2" : ""
                     }`}
                     style={{ aspectRatio: i === 0 ? "16 / 9" : "4 / 5" }}

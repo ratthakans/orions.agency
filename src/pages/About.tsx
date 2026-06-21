@@ -103,7 +103,7 @@ const About = () => (
             <img
               src={founder}
               alt="Founder / Creative Director, ØRIONS"
-              className="w-40 h-48 md:w-52 md:h-64 rounded-2xl object-cover object-top shrink-0"
+              className="w-40 h-48 md:w-52 md:h-64 rounded-none object-cover object-top shrink-0"
             />
             <div>
               <blockquote lang="th" className="font-serif text-[22px] md:text-[30px] leading-[1.4] tracking-[-0.01em] thai-wrap text-foreground/90 max-w-[40ch]">

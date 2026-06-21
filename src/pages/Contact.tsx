@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { ArrowUpRight, MessageCircle, Calendar } from "lucide-react";
+import { ArrowUpRight, MessageCircle } from "lucide-react";
 import { z } from "zod";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
@@ -105,7 +105,7 @@ const Contact = () => {
     setForm({ name: "", company: "", email: "", pkg: "", size: "", addons: [], brief: "" });
   };
 
-  const inputCls = "w-full rounded-xl bg-background border border-foreground/15 px-4 py-3 text-[15px] text-foreground placeholder:text-foreground/55 focus:outline-none focus:border-cinnabar focus:ring-1 focus:ring-cinnabar/30 transition-colors font-thai";
+  const inputCls = "w-full rounded-none bg-background border border-foreground/15 px-4 py-3 text-[15px] text-foreground placeholder:text-foreground/55 focus:outline-none focus:border-cinnabar focus:ring-1 focus:ring-cinnabar/30 transition-colors font-thai";
   const labelCls = "font-mono text-[10px] tracking-[0.14em] uppercase text-foreground/70";
 
   return (
@@ -143,7 +143,7 @@ const Contact = () => {
                 <span>ส่งโจทย์มา</span><ArrowUpRight className="w-4 h-4" />
               </a>
               <a href="mailto:hello@orions.agency?subject=คุยฟรี 45 นาที — ØRIONS" className="btn-ghost justify-between sm:w-auto">
-                <span>นัดคุย 45 นาที</span><Calendar className="w-4 h-4" />
+                <span>อีเมลนัดคุย</span><ArrowUpRight className="w-4 h-4" />
               </a>
             </div>
           </Reveal>
@@ -152,7 +152,7 @@ const Contact = () => {
           <Reveal delay={0.25}>
             <div className="mt-12 flex flex-wrap gap-x-8 gap-y-2 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
               <a href="mailto:hello@orions.agency" className="hover:text-cinnabar transition-colors">hello@orions.agency</a>
-              <a href="tel:+66923905464" className="hover:text-cinnabar transition-colors">+66 92 390 5464</a>
+              <a href="tel:+66923905464" className="hover:text-cinnabar transition-colors">+66 92 390 5464 · ออฟฟิศ</a>
               <a href="https://line.me/ti/p/~orions" target="_blank" rel="noreferrer" className="hover:text-cinnabar transition-colors">LINE @orions</a>
             </div>
           </Reveal>
@@ -266,7 +266,7 @@ const Contact = () => {
             <div className="md:col-span-5 flex flex-col gap-6">
               {/* Contact person — ปลื้ม */}
               <div className="card-soft p-7 md:p-8 flex items-center gap-5">
-                <img src={pleum} alt="ปลื้ม — Sales Executive, ØRIONS" className="w-20 h-20 md:w-24 md:h-24 rounded-2xl object-cover object-top shrink-0" />
+                <img src={pleum} alt="ปลื้ม — Sales Executive, ØRIONS" className="w-20 h-20 md:w-24 md:h-24 rounded-none object-cover object-top shrink-0" />
                 <div>
                   <div className="font-mono text-[10px] tracking-[0.04em] text-cinnabar">— ผู้ติดต่อ</div>
                   <h3 className="mt-1.5 font-serif text-[22px] tracking-[-0.01em]">ปลื้ม</h3>
@@ -277,13 +277,13 @@ const Contact = () => {
 
               {/* Book a call — primary highlight */}
               <div className="card-accent p-7 md:p-8">
-                <div className="font-mono text-[10px] tracking-[0.14em] uppercase text-cinnabar">— Book a call</div>
+                <div className="font-mono text-[10px] tracking-[0.14em] uppercase text-cinnabar">— นัดคุย 45 นาที</div>
                 <p lang="th" className="mt-4 font-thai thai-wrap text-[14px] leading-[1.7] text-foreground/80">
-                  อยากคุยก่อนส่งโจทย์? นัดคุยฟรี 45 นาที ไม่มีข้อผูกมัด.
+                  อยากคุยก่อนส่งโจทย์? อีเมลมานัดคุยฟรี 45 นาที ไม่มีข้อผูกมัด.
                 </p>
                 <a href="mailto:hello@orions.agency?subject=คุยฟรี 45 นาที — ØRIONS"
                   className="btn-accent mt-6 justify-between w-full">
-                  <span>นัดคุย 45 นาที</span><Calendar className="w-4 h-4" />
+                  <span>อีเมลนัดคุย</span><ArrowUpRight className="w-4 h-4" />
                 </a>
               </div>
 

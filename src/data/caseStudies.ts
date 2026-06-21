@@ -24,15 +24,15 @@ export type CaseStudy = {
   domain: string;
   /** Category label */
   niche: string;
-  /** Services applied — "Brand Strategy · Social" */
+  /** Lines applied — "Boutique · Digital" */
   scope: string;
   year: string;
   cover: string;
   gallery: string[];
   /** One-line essence of the engagement */
   summary: string;
-  /** Top-level service bucket */
-  service: "Brand Strategy" | "Creative Production" | "Social Media Marketing";
+  /** Top-level line bucket */
+  service: "Digital" | "Boutique" | "Production";
   /** Short challenge line (deck "Challenge") */
   challenge: string;
   /** Live site URL — "" if none (card shows no external link) */
@@ -59,12 +59,12 @@ export const caseStudies: CaseStudy[] = [
     title: "พรรคประชาธิปัตย์",
     domain: "democrat.or.th",
     niche: "Politics",
-    scope: "Brand Strategy · Social",
+    scope: "Boutique · Digital",
     year: "2023",
     cover: workDemocrat,
     gallery: [workDemocrat], // real cover only — gallery hidden until real frames exist
     summary: "ทำการเมืองสร้างสรรค์ผ่านกิจกรรม ไม่ใช่การหาเสียง",
-    service: "Brand Strategy",
+    service: "Boutique",
     challenge: "แรงต้านทางการเมือง / ข้อจำกัดของกฎหมายเลือกตั้ง",
     url: "https://democrat.or.th",
     constraint:
@@ -80,12 +80,12 @@ export const caseStudies: CaseStudy[] = [
     title: "GCOO",
     domain: "gcoo.io",
     niche: "Mobility",
-    scope: "Brand Strategy · Social",
+    scope: "Boutique · Digital",
     year: "2023",
     cover: workGcoo,
     gallery: [workGcoo], // real cover only — gallery hidden until real frames exist
     summary: "เปิดตลาดไทยด้วย localization + payment gateway",
-    service: "Brand Strategy",
+    service: "Boutique",
     challenge: "ข้อกฎหมาย / การดีลสถานที่เพื่อนำรถไปวาง",
     url: "https://gcoo.io",
     constraint:
@@ -101,12 +101,12 @@ export const caseStudies: CaseStudy[] = [
     title: "My Hotel",
     domain: "pzentsmart.com",
     niche: "Hospitality / OTA",
-    scope: "Brand Strategy · Digital",
+    scope: "Boutique · Digital",
     year: "2024",
     cover: workMyHotel,
     gallery: [workMyHotel],
     summary: "วางตัวเป็น first smart hotel OTA ของไทย",
-    service: "Brand Strategy",
+    service: "Boutique",
     challenge: "การดีลกับผู้ให้บริการให้เกิดความเชื่อถือ",
     url: "https://pzentsmart.com",
     constraint:
@@ -122,12 +122,12 @@ export const caseStudies: CaseStudy[] = [
     title: "HONG MOVE",
     domain: "hongmove.co.th",
     niche: "Airport Mobility",
-    scope: "Brand Strategy · Creative Production",
+    scope: "Boutique · Production",
     year: "2025",
     cover: workHongmove,
     gallery: [workHongmove], // real cover only — gallery hidden until real frames exist
     summary: "เปิดตัว taxi VIP EV ใน AOT พร้อมวางระบบความเป็นไปได้",
-    service: "Creative Production",
+    service: "Production",
     challenge: "รองรับหลายภาษา — มาเลย์ · จีน · อาหรับ · ฮินดี",
     url: "https://hongmove.co.th",
     constraint:
@@ -143,12 +143,12 @@ export const caseStudies: CaseStudy[] = [
     title: "HEAVY ORGANIZER",
     domain: "heavyorganizer.com",
     niche: "Music Festival",
-    scope: "Creative Production · Social",
+    scope: "Production · Digital",
     year: "2024",
     cover: workHeavy,
     gallery: [workHeavy, workHeavyB, workHeavyC],
     summary: "เทศกาลดนตรีสีเขียว carbon ต่ำ ที่ต้องการความร่วมมือจากผู้ร่วมงาน",
-    service: "Creative Production",
+    service: "Production",
     challenge: "สร้างความตระหนักและความร่วมมือจากผู้ร่วมงาน",
     url: "https://heavyorganizer.com",
     constraint:
@@ -164,12 +164,12 @@ export const caseStudies: CaseStudy[] = [
     title: "เขาใหญ่ คันทรี่คลับ",
     domain: "brc-kycgolf.com",
     niche: "Leisure Golf",
-    scope: "Brand Strategy · Creative Production",
+    scope: "Boutique · Production",
     year: "2024",
     cover: workKhaoyai,
     gallery: [workKhaoyai, workKhaoyaiB, workKhaoyaiC],
     summary: "ปรับมุมมองสู่ leisure golf โดยไม่เสียภาพลักษณ์เดิม",
-    service: "Brand Strategy",
+    service: "Boutique",
     challenge: "การเมืองภายในสนาม / การบริหารแบบแยกส่วน",
     url: "https://brc-kycgolf.com",
     constraint:
@@ -185,12 +185,12 @@ export const caseStudies: CaseStudy[] = [
     title: "กองทัพอากาศ",
     domain: "rtaf.mi.th",
     niche: "Government",
-    scope: "Creative Production · Social",
+    scope: "Production · Digital",
     year: "2024",
     cover: workRtaf,
     gallery: [workRtaf], // real cover only — gallery hidden until real frames exist
     summary: "สื่อสารข้อมูลที่ถูกต้องและน่าสนใจในภาวะตึงเครียด",
-    service: "Creative Production",
+    service: "Production",
     challenge: "fake news / ต้องรักษาความลับทางราชการ",
     url: "https://rtaf.mi.th",
     constraint:
@@ -206,12 +206,12 @@ export const caseStudies: CaseStudy[] = [
     title: "พรรคพลวัต",
     domain: "",
     niche: "Politics",
-    scope: "Brand Strategy · Social",
+    scope: "Boutique · Digital",
     year: "2023",
     cover: workPalawat,
     gallery: [workPalawat],
     summary: "พรรคใหม่ที่นำเสนอมุมมองทางการเมืองภายใต้เวลาจำกัด",
-    service: "Brand Strategy",
+    service: "Boutique",
     challenge: "ไม่มีฐานเสียงเดิม / ข้อจำกัดของกฎหมายเลือกตั้ง",
     url: "",
     constraint:
@@ -219,24 +219,6 @@ export const caseStudies: CaseStudy[] = [
     whatWeDid:
       "วางจุดยืนและสารหลักให้ชัดในเวลาสั้น + คอนเทนต์แนะนำพรรค — refine เรื่องให้คนจำได้เร็วโดยไม่ข้ามกรอบกฎหมาย",
   },
-];
-
-type Service = CaseStudy["service"];
-
-/** Service section copy (mirrors src/pages/Services.tsx). */
-export const serviceMeta: { key: Service; en: string; tag: string; summary: string }[] = [
-  { key: "Brand Strategy", en: "Brand Strategy", tag: "หาเรื่องที่ใช่", summary: "วางตัวตน จุดยืน และระบบแบรนด์ให้ชัด — งานที่เริ่มจากการตีโจทย์ใหม่ก่อนลงมือ." },
-  { key: "Creative Production", en: "Creative Production", tag: "ทำให้เห็น", summary: "ถ่าย ตัด ออกแบบ ครบในทีมเดียว — brand film, ภาพถ่าย, อีเวนต์ และคอนเทนต์พร้อมใช้จริง." },
-  { key: "Social Media Marketing", en: "Social Media Marketing", tag: "ทำให้ดังและวัดได้", summary: "ดูแลเพจ ยิงแอด และผลิตคอนเทนต์โซเชียลต่อเนื่อง — วัดผลเป็นตัวเลขจริง." },
-];
-
-/** "More Selected Projects" — categorised index of real client work, by service. */
-export const moreSelected: { service: Service; category: string; items: string[] }[] = [
-  { service: "Creative Production", category: "Music Producing & Video", items: ["Original tracks · scoring · music videos"] },
-  { service: "Creative Production", category: "Branding & Photoshoot", items: ["Brand identity · commercial photoshoots"] },
-  { service: "Creative Production", category: "Event & Activation", items: ["Tatler Asia — IRA Residences", "Tatler Asia — Gent Leaders of Tomorrow"] },
-  { service: "Social Media Marketing", category: "Social Posts & Creative Ads", items: ["RWS", "Bangpakong", "International Women's Day", "Leicester City", "Audi", "Playground Live — หอการค้า"] },
-  { service: "Social Media Marketing", category: "Reels & Short Video", items: ["พรรคภูมิใจไทย", "Handverk", "DevCamp", "Tevada Global", "Life of Cars", "Gravity Tones", "พรรคพลวัต", "Chivarak", "พรรคประชาธิปัตย์", "B-Healthy", "Analog Skyflow"] },
 ];
 
 export const getCaseStudy = (slug: string) =>

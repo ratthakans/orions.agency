@@ -4,9 +4,7 @@ import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionHeading from "@/components/ui/SectionHeading";
 import SectionLabel from "@/components/SectionLabel";
-import ImageBand from "@/components/ImageBand";
 import CTABand from "@/components/CTABand";
-import { caseStudies } from "@/data/caseStudies";
 import founder from "@/assets/team/founder.jpg";
 
 const principles = [
@@ -16,37 +14,10 @@ const principles = [
   { n: "iv.",  en: "มองยาว",                 th: "สร้างแบรนด์ที่ถูกจำ ไม่ใช่กระแสที่ผ่านไป" },
 ];
 
-const method = [
-  { L: "O", en: "Observe", th: "อ่านสิ่งที่เกิดขึ้นจริงในตลาด พฤติกรรม และบริบทธุรกิจ" },
-  { L: "R", en: "Reframe", th: "ตีโจทย์ใหม่ให้คม เพื่อเห็นโอกาสที่ซ่อนอยู่" },
-  { L: "I", en: "Imagine", th: "สร้างความเป็นไปได้ใหม่ที่ตอบโจทย์ได้จริง" },
-  { L: "O", en: "Orchestrate", th: "ประกอบ solution ที่ตรงจุดและพร้อม execute" },
-  { L: "N", en: "Nurture", th: "refine และ optimize ให้งานดีขึ้นอย่างต่อเนื่อง" },
-  { L: "S", en: "Scale", th: "ขยายสิ่งที่พิสูจน์แล้วว่าเวิร์กให้ใหญ่ขึ้น" },
-];
-
 const notForYou = [
   { n: "01", th: "คุณต้องการแค่ยอดให้เร็วที่สุด โดยไม่สนภาพจำระยะยาว — performance shop เพียว ๆ อาจคุ้มกว่า" },
   { n: "02", th: "คุณอยากได้คอนเทนต์เยอะที่สุดในราคาถูกที่สุด โดยไม่ต้องมีกลยุทธ์ — เราไม่ใช่ที่นั้น" },
   { n: "03", th: "ของหรือ unit economics ยังไม่พร้อม — เราจะบอก และยังไม่รับงานจนกว่าจะพร้อม" },
-];
-
-// PLACEHOLDER: replace names + photos with the real 12-person team
-// Roles are real; names/portraits are clearly placeholders — honest by design
-// (no fabricated identities). Avatars show initials, not fake photos.
-const team = [
-  { role: "Founder / Creative Director", initials: "CD" },
-  { role: "Strategy Lead",               initials: "ST" },
-  { role: "Art Director",                initials: "AD" },
-  { role: "Senior Designer",             initials: "DS" },
-  { role: "Copywriter",                  initials: "CW" },
-  { role: "Social Strategist",           initials: "SC" },
-  { role: "Performance / Ads Lead",      initials: "PF" },
-  { role: "SEO Specialist",              initials: "SEO" },
-  { role: "Producer",                    initials: "PD" },
-  { role: "Photographer / DP",           initials: "DP" },
-  { role: "Video Editor",                initials: "ED" },
-  { role: "Account Manager",             initials: "AM" },
 ];
 
 const About = () => (
@@ -73,10 +44,6 @@ const About = () => (
         </Reveal>
       </div>
     </section>
-
-    <ImageBand image={caseStudies[0].cover}>
-      ทีมเดียว ตั้งแต่กลยุทธ์ <em className="text-cinnabar">ถึงการผลิต.</em>
-    </ImageBand>
 
     {/* BRAND IDEA — ถามก่อนขาย */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
@@ -127,31 +94,6 @@ const About = () => (
       </div>
     </section>
 
-    {/* ORIONS METHOD */}
-    <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <SectionHeading
-          eyebrow="The ORIONS method"
-          lang="th"
-          title={<>วิธีคิดของเรา สะกดว่า <em className="text-cinnabar">ØRIONS.</em></>}
-          intro="หกขั้นที่ทำให้งานเริ่มจากโจทย์จริง — ไม่ใช่แค่สิ่งที่ลูกค้าขอ."
-        />
-        <div className="mt-14 border-t border-foreground/15">
-          {method.map((m, i) => (
-            <Reveal key={i} delay={(i % 2) * 0.05}>
-              <div className="flex items-baseline gap-4 md:gap-10 py-6 md:py-7 border-b border-foreground/15">
-                <span className="font-unbounded text-cinnabar/80 text-[34px] md:text-[52px] leading-none w-[42px] md:w-[80px] shrink-0">{m.L}</span>
-                <div className="flex-1 md:flex md:items-baseline md:gap-10">
-                  <span className="font-serif text-[22px] md:text-[26px] tracking-[-0.01em] md:w-[220px] shrink-0">{m.en}</span>
-                  <p lang="th" className="mt-1.5 md:mt-0 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">{m.th}</p>
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-
     {/* 03 — FOUNDER'S NOTE */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
@@ -172,34 +114,6 @@ const About = () => (
               </p>
             </div>
           </div>
-        </Reveal>
-      </div>
-    </section>
-
-    {/* 04 — THE TEAM */}
-    {/* PLACEHOLDER: replace names + photos with the real 12-person team */}
-    <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <SectionHeading
-          eyebrow="The team"
-          lang="th"
-          title={<>ทีมที่อยู่กับ <em className="text-cinnabar">งานของคุณ.</em></>}
-          intro="ทีมเดียวตั้งแต่กลยุทธ์ถึงการผลิต — คนที่อยู่กับงานของคุณจริง ไม่ใช่สายพาน."
-        />
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-x-12 border-t border-foreground/15">
-          {team.map((p, i) => (
-            <Reveal key={p.role} delay={(i % 2) * 0.04}>
-              <div className="flex items-baseline gap-5 py-4 border-b border-foreground/15">
-                <span className="font-mono text-[10px] tracking-[0.18em] text-cinnabar tabular-nums shrink-0 pt-1.5">{String(i + 1).padStart(2, "0")}</span>
-                <span className="font-serif text-[19px] md:text-[22px] tracking-[-0.01em] text-foreground/90">{p.role}</span>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-        <Reveal delay={0.2}>
-          <p lang="th" className="mt-8 font-thai thai-wrap text-[13px] md:text-[14px] leading-[1.7] text-muted-foreground max-w-[680px]">
-            เราเพิ่งตั้งสตูดิโอในชื่อ ØRIONS — แต่คนทำงานไม่ได้เพิ่งเริ่มต้น. AI ช่วยให้เราเร็วขึ้นและทดสอบได้มากขึ้น แต่คนยังเป็นคนคิดและรับผิดชอบงาน.
-          </p>
         </Reveal>
       </div>
     </section>

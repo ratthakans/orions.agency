@@ -8,7 +8,6 @@ import CTABand from "@/components/CTABand";
 import Magnetic from "@/components/Magnetic";
 import Slash from "@/components/Slash";
 import HeroHeadline from "@/components/HeroHeadline";
-import ShowreelExpand from "@/components/ShowreelExpand";
 import { workThumbs } from "@/data/portfolio";
 
 // Pick N random work thumbnails (fresh each mount).
@@ -238,10 +237,7 @@ const Index = () => {
       </div>
     </section>
 
-    {/* 07 — SHOWREEL */}
-    <ShowreelExpand />
-
-    {/* 08 — CTA close */}
+    {/* 07 — CTA close */}
     <CTABand
       eyebrow="เริ่มง่ายๆ"
       title={<>เริ่มที่คำถามเดียว:<br /><em className="text-cinnabar">ยอด หรือ แบรนด์?</em></>}

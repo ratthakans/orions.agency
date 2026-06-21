@@ -5,9 +5,7 @@ import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionHeading from "@/components/ui/SectionHeading";
 import SectionLabel from "@/components/SectionLabel";
-import ImageBand from "@/components/ImageBand";
 import CTABand from "@/components/CTABand";
-import { caseStudies } from "@/data/caseStudies";
 
 // 3 internal capabilities (how we're built) → packaged into 3 sales lines.
 const units = [
@@ -184,10 +182,6 @@ const Services = () => (
         <LinesAccordion />
       </div>
     </section>
-
-    <ImageBand image={caseStudies[1].cover}>
-      ถ่าย ตัด ออกแบบ — <em className="text-cinnabar">ครบในทีมเดียว.</em>
-    </ImageBand>
 
     {/* 03 — ORIONS METHOD (5 steps) */}
     <section className="section-ink px-6 md:px-10 border-t border-foreground/15">

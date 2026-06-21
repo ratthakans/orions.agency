@@ -1,17 +1,13 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowUpRight, Check, Download, Phone, Info } from "lucide-react";
+import { ArrowUpRight, Download, Phone, Info } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
 import CTABand from "@/components/CTABand";
 import FAQ from "@/components/FAQ";
-import TrustStrip from "@/components/TrustStrip";
 import pleum from "@/assets/pleum.jpg";
 
 const RATECARD_PDF = "/ORIONS_RateCard_2026.pdf";
-
-type Size = "S" | "M" | "L";
 
 // 3 sales lines — pricing MODEL only (real numbers live in the Rate Card PDF /
 // are quoted per client). This is the page's headline; no fixed prices here.
@@ -32,13 +28,6 @@ const lineModels = [
     model: "ราคาวัน = ถ่าย + raw + same-day proxy · edit เป็น add-on · จองหลายวันมีส่วนลด",
     note: "senior crew เท่านั้น",
   },
-];
-
-// Internal estimate ladder for the budget calculator (reference only).
-const tracks = [
-  { name: "Digital", prices: { S: "฿24,900", M: "฿49,900", L: "฿99,900" } as Record<Size, string> },
-  { name: "Boutique", prices: { S: "฿24,900", M: "฿49,900", L: "฿99,900" } as Record<Size, string> },
-  { name: "Hybrid", prices: { S: "฿32,900", M: "฿64,900", L: "฿129,900" } as Record<Size, string> },
 ];
 
 const ADDON_GROUPS = ["Ads & Performance", "Content & Production", "Web & Funnel", "Brand & Identity"];
@@ -135,215 +124,6 @@ const LinesModel = () => (
   </section>
 );
 
-const priceOf = (name: string, size: Size) => tracks.find((t) => t.name === name)?.prices[size] || "";
-const priceNum = (name: string, size: Size) => parseInt((priceOf(name, size) || "").replace(/[^0-9]/g, ""), 10) || 0;
-const adCapOf = (name: string, size: Size) => (name === "Boutique" ? 20000 : size === "L" ? 150000 : size === "M" ? 70000 : 30000);
-const fmtBaht = (n: number) => "฿" + n.toLocaleString("en-US");
-const fmtK = (n: number) => (n >= 1000 ? "฿" + Math.round(n / 1000) + "k" : "฿" + n);
-
-const addonSuggest: Record<string, string[]> = {
-  Digital: ["Google Ads Management", "LINE Ads Management", "Landing page"],
-  Boutique: ["CI / Brand Guideline", "Hero Brand Film", "SEO Article"],
-  Hybrid: ["Landing page", "SEO Article", "Seeding / IO (10 โพสต์)"],
-};
-const addonPriceMap: Record<string, string> = Object.fromEntries(addons.map((a) => [a.k, a.v]));
-
-const goalBtns: { id: "Digital" | "Boutique" | "Hybrid"; label: string; sales: number; brand: number }[] = [
-  { id: "Digital", label: "เน้นยอด", sales: 70, brand: 30 },
-  { id: "Boutique", label: "เน้นแบรนด์", sales: 30, brand: 70 },
-  { id: "Hybrid", label: "ทั้งคู่", sales: 50, brand: 50 },
-];
-
-/** Budget calculator → rough estimate of budget split + suggested line + add-ons. Reference only. */
-const BudgetCalculator = () => {
-  const [sales, setSales] = useState("");
-  const [launched, setLaunched] = useState<boolean | null>(null);
-  const [goal, setGoal] = useState<"Digital" | "Boutique" | "Hybrid" | null>(null);
-
-  const salesNum = parseInt(sales.replace(/[^0-9]/g, ""), 10) || 0;
-  const rate = launched === false ? 0.6 : 0.3;
-  const budget = Math.round(salesNum * rate);
-  const ready = salesNum > 0 && launched !== null && goal !== null;
-
-  const recSize: Size = goal
-    ? budget >= priceNum(goal, "L") ? "L" : budget >= priceNum(goal, "M") ? "M" : "S"
-    : "S";
-  const tooSmall = !!goal && budget > 0 && budget < priceNum(goal, "S");
-  const tooBig = budget > 300000;
-  const isCustom = ready && (tooSmall || tooBig);
-  const pkgName = goal && !isCustom ? `${goal} · ${recSize}` : "";
-  const feeNum = goal && !isCustom ? priceNum(goal, recSize) : 0;
-  const cap = goal && !isCustom ? adCapOf(goal, recSize) : 0;
-  const adSpend = Math.max(0, Math.min(budget - feeNum, cap));
-  const suggestedAddons = goal ? addonSuggest[goal] : [];
-
-  const optBtn = (active: boolean) =>
-    `group rounded-xl border px-4 py-3.5 text-left transition-all duration-200 ${active ? "border-cinnabar bg-cinnabar" : "border-foreground/15 hover:border-cinnabar hover:bg-cinnabar"}`;
-
-  return (
-    <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <SectionLabel index="03" label="Budget estimator" />
-        <Reveal delay={0.05}>
-          <h2 lang="th" className="mt-10 h-display-md max-w-[24ch] thai-wrap">
-            อยากเห็นตัวเลขคร่าวๆ? <em className="text-cinnabar">ประเมินจากยอดที่ตั้งไว้.</em>
-          </h2>
-        </Reveal>
-        <Reveal delay={0.08}>
-          <p lang="th" className="mt-5 max-w-[600px] font-thai thai-wrap text-[14px] leading-[1.7] text-muted-foreground">
-            กรอก 3 ข้อ แล้วเราจะประมาณ <span className="text-foreground/80">งบการตลาด · งบยิงแอด · สายที่เหมาะ · add-on</span> ให้ — <span className="text-foreground/80">เป็นการประเมินคร่าวๆ ราคาจริงตีตามโจทย์</span>.
-          </p>
-        </Reveal>
-
-        <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 items-stretch">
-          {/* Inputs */}
-          <div className="card-soft p-7 md:p-9 flex flex-col gap-9">
-            {/* 1 — sales */}
-            <div>
-              <div className="flex items-center gap-2.5">
-                <span className="font-mono text-[11px] tracking-[0.18em] text-cinnabar tabular-nums">01</span>
-                <label lang="th" className="font-thai text-[13px] text-foreground">ยอดขายที่คาดหวัง / เดือน</label>
-              </div>
-              <div className="mt-4 flex items-center gap-2 border-b-2 border-foreground/20 focus-within:border-cinnabar transition-colors pb-2">
-                <span className="num-display text-cinnabar text-[26px]">฿</span>
-                <input inputMode="numeric" value={salesNum ? salesNum.toLocaleString("en-US") : ""} onChange={(e) => setSales(e.target.value)}
-                  placeholder="500,000" className="w-full bg-transparent num-display text-[26px] md:text-[30px] text-foreground placeholder:text-foreground/25 focus:outline-none" />
-                <span lang="th" className="font-thai text-[12px] text-muted-foreground shrink-0">บาท</span>
-              </div>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {[100000, 300000, 500000, 1000000].map((n) => (
-                  <button key={n} type="button" onClick={() => setSales(String(n))}
-                    className={`rounded-full border px-3 py-1 font-mono text-[11px] tracking-[0.02em] transition-colors ${salesNum === n ? "border-cinnabar bg-cinnabar text-background" : "border-foreground/20 text-foreground/60 hover:border-cinnabar hover:text-foreground"}`}>
-                    {fmtK(n)}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* 2 — launched */}
-            <div>
-              <div className="flex items-center gap-2.5">
-                <span className="font-mono text-[11px] tracking-[0.18em] text-cinnabar tabular-nums">02</span>
-                <label lang="th" className="font-thai text-[13px] text-foreground">สินค้านี้เคยออกตลาดมาก่อนไหม?</label>
-              </div>
-              <div className="mt-4 grid grid-cols-2 gap-3">
-                {[
-                  { v: true, t: "เคยแล้ว", s: "คนเริ่มรู้จัก · งบ 30%" },
-                  { v: false, t: "ยังไม่เคย", s: "ต้อง launch · งบ 60%" },
-                ].map((o) => {
-                  const on = launched === o.v;
-                  return (
-                    <button key={o.t} type="button" onClick={() => setLaunched(o.v)} className={optBtn(on)}>
-                      <div className="flex items-center justify-between">
-                        <span lang="th" className={`font-thai text-[14px] ${on ? "text-background" : "text-foreground group-hover:text-background"}`}>{o.t}</span>
-                        <Check className={`w-4 h-4 ${on ? "text-background" : "text-transparent group-hover:text-background/70"}`} />
-                      </div>
-                      <div lang="th" className={`font-thai text-[11px] mt-1 ${on ? "text-background/80" : "text-muted-foreground group-hover:text-background/80"}`}>{o.s}</div>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* 3 — goal */}
-            <div>
-              <div className="flex items-center gap-2.5">
-                <span className="font-mono text-[11px] tracking-[0.18em] text-cinnabar tabular-nums">03</span>
-                <label lang="th" className="font-thai text-[13px] text-foreground">เป้าหมายของคุณ</label>
-              </div>
-              <div className="mt-4 grid grid-cols-3 gap-3">
-                {goalBtns.map((g) => {
-                  const on = goal === g.id;
-                  return (
-                    <button key={g.id} type="button" onClick={() => setGoal(g.id)} className={optBtn(on) + " text-center"}>
-                      <div lang="th" className={`font-thai text-[13px] leading-tight ${on ? "text-background" : "text-foreground group-hover:text-background"}`}>{g.label}</div>
-                      <div className="mt-2 flex h-1 overflow-hidden rounded-full">
-                        <span className={on ? "bg-background" : "bg-cinnabar group-hover:bg-background"} style={{ width: `${g.sales}%` }} />
-                        <span className={on ? "bg-background/30" : "bg-foreground/15 group-hover:bg-background/30"} style={{ width: `${g.brand}%` }} />
-                      </div>
-                      <div className={`mt-1.5 font-mono text-[9px] tracking-[0.04em] ${on ? "text-background" : "text-cinnabar group-hover:text-background"}`}>{g.sales}/{g.brand}</div>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-
-          {/* Result */}
-          <div className="card-accent p-7 md:p-9 flex flex-col min-h-[460px]">
-            {!ready ? (
-              <div className="m-auto text-center py-10">
-                <div className="num-display text-foreground/15 text-[72px] leading-none">?</div>
-                <p lang="th" className="mt-3 font-thai text-[14px] text-muted-foreground max-w-[26ch] mx-auto">กรอกยอด + ตอบ 2 ข้อ แล้วเราจะประเมินให้ทันที</p>
-              </div>
-            ) : isCustom ? (
-              <div className="flex flex-col h-full">
-                <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">— Custom</div>
-                <div className="mt-4 num-display text-cinnabar text-[40px] md:text-[48px] leading-none">{fmtBaht(budget)}<span className="font-thai text-[13px] text-muted-foreground ml-2">งบ/เดือน</span></div>
-                <p lang="th" className="mt-5 font-thai thai-wrap text-[14px] leading-[1.7] text-foreground/85">
-                  {tooSmall ? "งบต่ำกว่าจุดเริ่มต้นทั่วไป — เราช่วยจัดแผนเล็กที่พอดีงบได้." : "งบใหญ่ — เหมาะกับแผน custom / enterprise."}
-                </p>
-                <div className="mt-auto pt-7 flex flex-col gap-3">
-                  <Link to={`/contact?pkg=${encodeURIComponent(`Custom · ${goal}`)}`} className="btn-accent justify-between">
-                    <span>คุยกับฝ่ายขาย (จัด custom)</span><ArrowUpRight className="w-4 h-4" />
-                  </Link>
-                  <a href="tel:+66655169925" className="btn-ghost justify-center"><Phone className="w-4 h-4" /><span>065-516-9925</span></a>
-                </div>
-              </div>
-            ) : (
-              <div className="flex flex-col h-full">
-                <div className="font-mono text-[10px] tracking-[0.04em] text-cinnabar">— ประเมิน</div>
-                <dl className="mt-5 space-y-3">
-                  <div className="flex items-baseline justify-between gap-3">
-                    <dt lang="th" className="font-thai text-[13px] text-muted-foreground inline-flex items-center">งบการตลาดรวม ({Math.round(rate * 100)}%)<InfoTip text="จุดตั้งต้นที่แนะนำ ≈ 30% ของยอดสำหรับสินค้าที่คนเริ่มรู้จัก · 60% สำหรับสินค้าใหม่ที่ต้อง launch — ปรับได้ตามจริง" /></dt>
-                    <dd className="num-display text-foreground text-[22px]">{fmtBaht(budget)}</dd>
-                  </div>
-                  <div className="flex items-baseline justify-between gap-3">
-                    <dt lang="th" className="font-thai text-[13px] text-muted-foreground">ค่าบริการ ORIONS (ประมาณ)</dt>
-                    <dd className="num-display text-cinnabar text-[20px]">{fmtBaht(feeNum)}</dd>
-                  </div>
-                  <div className="flex items-baseline justify-between gap-3">
-                    <dt lang="th" className="font-thai text-[13px] text-muted-foreground">งบยิงแอด <span className="text-foreground/60">(ad spend)</span></dt>
-                    <dd className="num-display text-foreground text-[20px]">{fmtBaht(adSpend)}</dd>
-                  </div>
-                </dl>
-                {adSpend === 0 ? (
-                  <p lang="th" className="mt-2 font-thai text-[10.5px] text-cinnabar">งบนี้พอดีค่าบริการ — เพิ่มงบอีกหน่อยจะมีงบยิงแอดด้วย (เราดูแลให้ถึงเพดาน {fmtK(cap)})</p>
-                ) : (
-                  <p lang="th" className="mt-2 font-thai text-[10.5px] text-muted-foreground">ค่ายิงแอดจริงลูกค้าจ่ายเอง · เราดูแล/บริหารแอดให้ถึงเพดาน {fmtK(cap)}</p>
-                )}
-
-                <div className="mt-5 pt-5 border-t border-foreground/15">
-                  <p lang="th" className="font-thai text-[12px] text-muted-foreground">สายที่เหมาะกับคุณ</p>
-                  <div className="mt-1 flex items-baseline gap-2 flex-wrap">
-                    <span className="h-display-sm">{pkgName}</span>
-                  </div>
-                </div>
-
-                <div className="mt-5">
-                  <p lang="th" className="font-thai text-[12px] text-muted-foreground">add-on ที่แนะนำ</p>
-                  <div className="mt-2 flex flex-wrap gap-2">
-                    {suggestedAddons.map((a) => (
-                      <span key={a} lang="th" className="inline-flex items-center gap-1.5 rounded-full border border-foreground/15 bg-surface-2 px-3 py-1 font-thai text-[11.5px] text-foreground/85">
-                        {a} <span className="text-cinnabar">{addonPriceMap[a]}</span>
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <Link to={`/contact?pkg=${encodeURIComponent(pkgName)}`} className="btn-accent justify-between mt-7">
-                  <span>ขอใบเสนอราคาจริง</span><ArrowUpRight className="w-4 h-4" />
-                </Link>
-                <p lang="th" className="mt-3 font-thai text-[11px] text-center text-muted-foreground">ตัวเลขนี้เป็นการประเมิน · ราคาจริงตีตามโจทย์ · คุยฟรีก่อนเริ่ม</p>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
 const Package = () => (
   <div>
     <SEO
@@ -385,17 +165,11 @@ const Package = () => (
     {/* 02 — PRICING MODEL (3 lines) */}
     <LinesModel />
 
-    {/* Quiet proof — real clients */}
-    <TrustStrip label="แบรนด์ที่ไว้ใจเรา" />
-
-    {/* 03 — BUDGET ESTIMATOR (reference) */}
-    <BudgetCalculator />
-
-    {/* 04 — ADD-ONS + PRODUCTION */}
+    {/* 03 — ADD-ONS + PRODUCTION */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
         <div>
-          <SectionLabel index="04" label="Add-on menu" />
+          <SectionLabel index="03" label="Add-on menu" />
           <Reveal delay={0.05}><h2 lang="th" className="mt-8 h-display-sm">เสริมได้ตามต้องการ.</h2></Reveal>
           <dl className="card-soft mt-8 px-6 md:px-7 py-4">
             {ADDON_GROUPS.map((group, gi) => (
@@ -412,7 +186,7 @@ const Package = () => (
           </dl>
         </div>
         <div>
-          <SectionLabel index="05" label="ORIONS Production" />
+          <SectionLabel index="04" label="ORIONS Production" />
           <Reveal delay={0.05}><h2 lang="th" className="mt-8 h-display-sm">มี brief แล้ว ขาดทีมออกกอง.</h2></Reveal>
           <p lang="th" className="mt-5 font-thai thai-wrap text-[14px] leading-[1.7] text-muted-foreground max-w-[44ch]">
             senior crew + Sony A7V / FX6 + GM glass · raw + same-day proxy — ภาพ/วิดีโอระดับโฆษณา ส่งไฟล์ได้ในวัน.
@@ -432,19 +206,19 @@ const Package = () => (
       </div>
     </section>
 
-    {/* 05 — FAQ */}
+    {/* 04 — FAQ */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <SectionLabel index="06" label="Before you ask" />
+        <SectionLabel index="05" label="Before you ask" />
         <Reveal delay={0.05}><h2 className="mt-10 h-display-md">The short <em className="text-cinnabar">answers.</em></h2></Reveal>
         <div className="mt-14"><FAQ items={faqs} /></div>
       </div>
     </section>
 
-    {/* 06 — TALK TO SALES (ปลื้ม) */}
+    {/* 05 — TALK TO SALES (ปลื้ม) */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <SectionLabel index="07" label="Talk to sales" />
+        <SectionLabel index="06" label="Talk to sales" />
         <Reveal delay={0.05}>
           <div className="mt-10 card-soft p-6 md:p-9 grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-6 md:gap-10 items-center">
             <img
@@ -472,7 +246,7 @@ const Package = () => (
       </div>
     </section>
 
-    {/* 07 — CTA */}
+    {/* 06 — CTA */}
     <CTABand
       eyebrow="Not sure yet?"
       title={<>ไม่แน่ใจว่าควรเริ่มสายไหน? <em className="text-cinnabar">คุยกับเราได้เลย.</em></>}

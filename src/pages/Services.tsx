@@ -9,60 +9,74 @@ import ImageBand from "@/components/ImageBand";
 import CTABand from "@/components/CTABand";
 import { caseStudies } from "@/data/caseStudies";
 
-const process = [
-  { n: "01", k: "Listen", week: "สัปดาห์ 1", d: "ฟังโจทย์และเงื่อนไข — audit แบรนด์, คู่แข่ง, และกรอบที่ต้องอยู่ในนั้น" },
-  { n: "02", k: "Refine", week: "สัปดาห์ 2", d: "ตกผลึกเรื่องที่จริง + ทิศทาง — refine จนคมพอจะลงในกรอบได้" },
-  { n: "03", k: "Make",   week: "สัปดาห์ 3", d: "ผลิตจริง — craft, ดีไซน์, คอนเทนต์ ภายใต้ทิศทางเดียวกัน" },
-  { n: "04", k: "Launch", week: "สัปดาห์ 4", d: "ขึ้นจริง แล้ววัดผล — ทดสอบ, ปรับ, ทำต่อเนื่อง" },
+// 3 internal capabilities (how we're built) → packaged into 3 sales lines.
+const units = [
+  { k: "คิด", en: "Strategy", d: "ต้นน้ำ — positioning · idea · วางคอนเทนต์" },
+  { k: "ทำ", en: "Craft", d: "กลางน้ำ — ถ่าย/ตัด/กราฟิก ระดับ commercial" },
+  { k: "ยิง", en: "Distribution", d: "ปลายน้ำ — media buying · tracking · ROAS" },
 ];
 
-const services = [
+// ORIONS Method — 5 steps, every line walks all 5 (depth differs).
+const method = [
+  { n: "01", k: "Research", d: "เข้าใจตลาด/คู่แข่ง/กลุ่มเป้าหมาย + ตั้ง baseline" },
+  { n: "02", k: "DNA", d: "idea · positioning · identity" },
+  { n: "03", k: "Craft", d: "ผลิตจริง — ฟิล์ม ภาพ คอนเทนต์" },
+  { n: "04", k: "Launch", d: "เปิดตัว + rollout" },
+  { n: "05", k: "Measure", d: "วัดผล แล้วปรับต่อ" },
+];
+
+// 3 sales lines — pick one or mix.
+const lines = [
   {
-    n: "01",
-    en: "Brand Strategy",
-    tag: "หาเรื่องที่ใช่",
-    summary: "วางตัวตน จุดยืน ชื่อ และระบบแบรนด์ (CI) ให้ชัดก่อนเริ่มทำคอนเทนต์ — เพื่อให้ทุกอย่างที่ทำต่อจากนี้ไปในทิศทางเดียวกัน.",
+    n: "01", en: "Digital", tag: "ยอด / ลีด เดี๋ยวนี้",
+    lead: "นำโดย Distribution (ยิง)", pay: "รายเดือน",
+    summary: "ดันยอดด้วย performance — ยิงแอด ทำคอนเทนต์ วัดผล แล้วรีดให้ทุกบาทของ media ทำงานหนักที่สุด.",
     items: [
-      "research — เจาะตลาด คู่แข่ง และกลุ่มลูกค้า",
-      "positioning — วางจุดยืนว่าแบรนด์ยืนตรงไหน ต่างจากใคร",
-      "naming — ตั้งชื่อแบรนด์ / สินค้า / แคมเปญ",
-      "brand identity & CI — โลโก้ สี ฟอนต์ และคู่มือใช้งานแบรนด์",
-      "brand narrative — เรื่องเล่าและข้อความหลักของแบรนด์",
+      "full-funnel media buying — Meta · TikTok · Google · LINE",
+      "ดูแลเพจ + community + คอนเทนต์ลงฟีด",
+      "KOL / influencer orchestration",
+      "tracking & analytics — Pixel · CAPI · ROAS",
+      "performance report ทุกเดือน",
     ],
+    fit: "มีของพร้อมขาย · ต้องการลีด/ยอด · มีงบ ad spend ต่อเนื่อง",
+    notFit: "ยังไม่มีของพร้อมขาย · ต้องปั้นภาพจำก่อน · หวังผลใน 14 วัน",
   },
   {
-    n: "02",
-    en: "Creative Production",
-    tag: "ทำให้เห็น",
-    summary: "ถ่าย ตัด ออกแบบ ครบในทีมเดียว — ได้คอนเทนต์ลงเพจ, brand film และภาพถ่ายโปรดักต์ / อาหาร / พอร์เทรต พร้อมใช้งานจริง.",
+    n: "02", en: "Boutique", tag: "แบรนด์ที่คนจำและเลือก",
+    lead: "นำโดย Strategy (คิด) — รวมทุก unit", pay: "ต่อแคมเปญ",
+    summary: "สร้าง · refresh · rebrand ครบตั้งแต่คิดถึงวัดผล — วางตัวตนและจุดยืนให้คนจำและเลือก.",
     items: [
-      "brand film — วิดีโอแบรนด์และโฆษณา ถ่ายและตัดครบ",
-      "ภาพถ่ายโปรดักต์ / อาหาร / พอร์เทรต — โปรดักชันในสตูดิโอและนอกสถานที่",
-      "คอนเทนต์ — คลิปสั้น รีล และโพสต์สำหรับลงโซเชียล",
-      "key visual & design — คีย์วิชวลแคมเปญ และงานออกแบบกราฟิก",
+      "positioning & brand DNA — จุดยืนและแก่นตัวตน",
+      "brand identity & CI — โลโก้ สี ฟอนต์ คู่มือแบรนด์",
+      "big idea / campaign — แนวคิดใหญ่ร้อยทั้งแคมเปญ",
+      "craft เต็ม — ฟิล์ม ภาพ คอนเทนต์ (ดู Production)",
+      "The ORIONS Standard — วัดผลแบรนด์ 45/90 วัน",
     ],
+    fit: "ธุรกิจใหม่ยังไม่เคยทำแบรนด์ · มีแบรนด์อยาก refresh / reposition",
+    notFit: "อยากได้ยอดเดี๋ยวนี้เป็นหลัก · ไม่พร้อมให้เวลา workshop",
+    featured: true,
   },
   {
-    n: "03",
-    en: "Social Media Marketing",
-    tag: "ทำให้ดังและวัดได้",
-    summary: "ดูแลเพจ ยิงแอด และทำ SEO ให้ลูกค้าเจอคุณ — แล้ววัดผลออกมาเป็นตัวเลขจริงทุกเดือน.",
+    n: "03", en: "Production", tag: "แค่ทีมถ่าย (มี brief เอง)",
+    lead: "นำโดย Craft (ทำ)", pay: "ต่อวัน",
+    summary: "ทีมกองถ่าย senior ระดับโฆษณา — เปลี่ยนกลยุทธ์เป็นงานศิลป์เชิงพาณิชย์ที่หยุดนิ้ว.",
     items: [
-      "SEO — ทำให้ลูกค้าเจอคุณบน Google: บทความ, on-page, โครงสร้างเว็บ",
-      "ดูแลเพจ + community — วางคอนเทนต์ ตอบลูกค้า และดูแลคอมมูนิตี้",
-      "ยิงแอด Meta / TikTok / Google / LINE — วางและจัดการแคมเปญโฆษณา",
-      "A/B testing — ทดสอบเพื่อหาสิ่งที่ได้ผลที่สุด",
-      "performance report — รายงานผลเป็นตัวเลขที่อ่านเข้าใจง่าย",
+      "high-end commercial photography",
+      "premium video — TVC → Reels / Shorts",
+      "visual & motion crafting",
+      "senior crew เท่านั้น · raw + same-day proxy",
     ],
+    fit: "มี brief/ทีมเองแล้ว ขาดทีมออกกอง — agency · in-house team · PR firm",
+    notFit: "ต้องการให้คิด strategy หรือวัดผลให้ (→ Boutique / Digital)",
   },
 ];
 
-// Click-to-expand list of the three services
-const ServicesAccordion = () => {
+// Click-to-expand list of the three lines
+const LinesAccordion = () => {
   const [open, setOpen] = useState<number | null>(0);
   return (
     <div className="space-y-4">
-      {services.map((s, i) => {
+      {lines.map((s, i) => {
         const isOpen = open === i;
         return (
           <div key={s.n} className={isOpen ? "card-accent" : "card-soft"}>
@@ -74,7 +88,7 @@ const ServicesAccordion = () => {
             >
               <div className="font-serif text-cinnabar text-[34px] md:text-[60px] leading-none tabular-nums">{s.n}</div>
               <div>
-                <h2 className="text-[24px] md:text-[40px] leading-[1.0] tracking-[-0.03em] font-semibold">{s.en}</h2>
+                <h2 className="font-unbounded text-[22px] md:text-[38px] leading-[1.0] tracking-[-0.02em]">{s.en}</h2>
                 <div lang="th" className="mt-2 font-serif text-foreground/70 text-[16px] md:text-[22px]">{s.tag}</div>
               </div>
               <span className={`shrink-0 transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`}>
@@ -83,17 +97,30 @@ const ServicesAccordion = () => {
             </button>
             <div className={`grid transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
               <div className="overflow-hidden">
-                <div className="px-7 md:px-10 md:pl-[172px] max-w-[820px]">
+                <div className="px-7 md:px-10 md:pl-[172px] max-w-[860px]">
                   <p lang="th" className="font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.7] text-foreground/90">{s.summary}</p>
+                  <div className="mt-4 flex flex-wrap gap-x-6 gap-y-1.5 font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">
+                    <span>{s.lead}</span><span className="text-cinnabar">จ่าย · {s.pay}</span>
+                  </div>
                   <p lang="th" className="mt-5 eyebrow-mono text-muted-foreground">สิ่งที่คุณได้</p>
                 </div>
-                <ul className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 px-7 md:px-10 pb-8 md:pb-10 md:pl-[172px] max-w-[820px]">
+                <ul className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 px-7 md:px-10 md:pl-[172px] max-w-[860px]">
                   {s.items.map((it) => (
                     <li key={it} lang="th" className="font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.6] text-foreground/85 grid grid-cols-[12px_1fr] gap-3">
                       <span className="text-cinnabar mt-1">·</span><span>{it}</span>
                     </li>
                   ))}
                 </ul>
+                <div className="mt-6 mx-7 md:mx-10 md:ml-[172px] max-w-[860px] grid grid-cols-1 sm:grid-cols-2 gap-3 pb-8 md:pb-10">
+                  <div className="rounded-xl border border-foreground/12 bg-foreground/[0.02] p-4">
+                    <div className="font-mono text-[10px] tracking-[0.14em] uppercase text-cinnabar">เหมาะกับ</div>
+                    <p lang="th" className="mt-1.5 font-thai thai-wrap text-[13px] leading-[1.6] text-foreground/85">{s.fit}</p>
+                  </div>
+                  <div className="rounded-xl border border-foreground/12 bg-foreground/[0.02] p-4">
+                    <div className="font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">ยังไม่เหมาะ</div>
+                    <p lang="th" className="mt-1.5 font-thai thai-wrap text-[13px] leading-[1.6] text-muted-foreground">{s.notFit}</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -106,8 +133,8 @@ const ServicesAccordion = () => {
 const Services = () => (
   <div>
     <SEO
-      title="Services — Brand Strategy · Creative Production · Social · ØRIONS"
-      description="Brand Strategy · Creative Production · Social Media Marketing + SEO ในทีมเดียว — วางแบรนด์ ถ่าย ตัด ยิงแอด ทำ SEO ให้เจอบน Google และวัดผลเป็นตัวเลขจริง."
+      title="Services — Digital · Boutique · Production · ØRIONS"
+      description="3 สาย เลือกสายเดียวหรือผสม — Digital (ยอด รายเดือน) · Boutique (แบรนด์ ต่อแคมเปญ) · Production (ถ่าย ต่อวัน). สร้างจาก 3 ส่วน คิด–ทำ–ยิง ในระบบเดียว."
       path="/services"
     />
 
@@ -116,25 +143,45 @@ const Services = () => (
       <div className="max-w-[1280px] mx-auto pt-28 md:pt-32 pb-20 md:pb-24">
         <SectionLabel label="What we do" />
         <Reveal delay={0.05}>
-          <h1 lang="th" className="mt-8 h-display-lg max-w-[18ch] thai-wrap">
-            สามอย่าง · <em className="text-cinnabar">ทีมเดียว.</em>
+          <h1 lang="th" className="mt-8 h-display-lg max-w-[20ch] thai-wrap">
+            ยอด หรือ แบรนด์? <em className="text-cinnabar">เลือกสายที่ใช่.</em>
           </h1>
         </Reveal>
         <Reveal delay={0.15}>
-          <p lang="th" className="mt-8 max-w-[700px] font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.7] text-foreground/80">
-            Brand Strategy · Creative Production · Social Media Marketing ในทีมเดียว. จาก F&amp;B แฟชัน hospitality ถึงการเมืองและราชการ — วิธีคิดเดียว ทุกเงื่อนไข.
+          <p lang="th" className="mt-8 max-w-[720px] font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.7] text-foreground/80">
+            เราสร้างจาก 3 ส่วน — <strong className="text-foreground">คิด · ทำ · ยิง</strong> — แล้วแพ็กออกเป็น 3 สาย: <strong className="text-foreground">Digital</strong> (ยอด) · <strong className="text-foreground">Boutique</strong> (แบรนด์) · <strong className="text-foreground">Production</strong> (ถ่าย). เลือกสายเดียว หรือผสมก็ได้ จ่ายเฉพาะที่ใช้.
           </p>
         </Reveal>
+
+        {/* 3 units mini-row */}
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4">
+          {units.map((u, i) => (
+            <Reveal key={u.en} delay={0.2 + i * 0.06}>
+              <div className="card-soft h-full p-5 md:p-6">
+                <div className="flex items-baseline gap-3">
+                  <span lang="th" className="font-serif text-cinnabar text-[22px] md:text-[26px]">{u.k}</span>
+                  <span className="font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">{u.en}</span>
+                </div>
+                <p lang="th" className="mt-2.5 font-thai thai-wrap text-[12.5px] leading-[1.6] text-foreground/80">{u.d}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
 
-    {/* 02 — THE THREE SERVICES */}
+    {/* 02 — THE THREE LINES */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <div className="flex items-end justify-between gap-4 flex-wrap mb-2">
+        <div className="flex items-end justify-between gap-4 flex-wrap mb-6">
+          <SectionHeading
+            lang="th"
+            eyebrow="3 สาย"
+            title={<>เลือกสายที่ <em className="text-cinnabar">ตรงโจทย์.</em></>}
+          />
           <p lang="th" className="font-thai text-[11px] tracking-[0.02em] text-muted-foreground">กดเพื่อดูรายละเอียด</p>
         </div>
-        <ServicesAccordion />
+        <LinesAccordion />
       </div>
     </section>
 
@@ -142,17 +189,16 @@ const Services = () => (
       ถ่าย ตัด ออกแบบ — <em className="text-cinnabar">ครบในทีมเดียว.</em>
     </ImageBand>
 
-    {/* 03 — PROCESS TIMELINE */}
+    {/* 03 — ORIONS METHOD (5 steps) */}
     <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionHeading
-          eyebrow="From hello to live"
+          eyebrow="The ORIONS Method"
           lang="th"
-          title={<>จาก hello ขึ้นจริงใน <em className="text-cinnabar">4 สัปดาห์.</em></>}
-          intro="ทำงานเป็นทีมเดียวตั้งแต่กลยุทธ์ถึงการผลิต — ไม่มีไฟล์หลุดกลางทาง ไม่มีความเข้าใจที่หายไประหว่างทีม."
+          title={<>เดินครบ 5 ขั้น — <em className="text-cinnabar">ทุกสาย.</em></>}
+          intro="ต่างกันแค่ความลึก ไม่ข้ามขั้น — ตั้งแต่เข้าใจโจทย์ จนถึงวัดผลและปรับต่อ."
         />
         <div className="mt-16 relative">
-          {/* timeline rail — base + an animated cinnabar fill that draws left→right on scroll */}
           <div aria-hidden className="hidden lg:block absolute top-[17px] left-0 right-0 h-px bg-foreground/15" />
           <motion.div
             aria-hidden
@@ -162,19 +208,18 @@ const Services = () => (
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 1.3, ease: [0.22, 1, 0.36, 1] }}
           />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10">
-            {process.map((s, i) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-6 gap-y-10">
+            {method.map((s, i) => (
               <motion.div
                 key={s.n}
                 initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.4 }}
-                transition={{ delay: i * 0.15, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ delay: i * 0.12, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               >
                 <span className="relative z-10 inline-grid place-items-center w-[34px] h-[34px] rounded-full border border-cinnabar bg-[hsl(var(--surface))] num-display text-cinnabar text-[13px]">{s.n}</span>
-                <div lang="th" className="mt-5 font-mono text-[10px] tracking-[0.04em] text-cinnabar">{s.week}</div>
-                <h3 className="mt-1.5 font-serif text-[22px] md:text-[28px] tracking-[-0.01em]">{s.k}</h3>
-                <p lang="th" className="mt-2.5 font-thai thai-wrap text-[13px] md:text-[15px] leading-[1.7] text-muted-foreground max-w-[30ch]">{s.d}</p>
+                <h3 className="mt-5 font-serif text-[22px] md:text-[26px] tracking-[-0.01em]">{s.k}</h3>
+                <p lang="th" className="mt-2.5 font-thai thai-wrap text-[13px] md:text-[14px] leading-[1.7] text-muted-foreground max-w-[26ch]">{s.d}</p>
               </motion.div>
             ))}
           </div>
@@ -182,13 +227,11 @@ const Services = () => (
       </div>
     </section>
 
-    {/* FAQ removed — answers live on /package and /contact */}
-
-    {/* 05 — CTA */}
+    {/* 04 — CTA */}
     <CTABand
       eyebrow="Start a conversation"
-      title={<>เล่าโจทย์มา — เราจะ <em className="text-cinnabar">refine</em> มันให้คม<span className="text-cinnabar">.</span></>}
-      subtitle="คุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์และเงื่อนไขมา เราช่วยมองว่าจะเริ่มตรงไหน."
+      title={<>ยังไม่แน่ใจว่าควรเริ่มสายไหน? <em className="text-cinnabar">เราช่วยวินิจฉัย.</em></>}
+      subtitle="คุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์มา เราบอกตรงๆ ว่าควรเริ่มที่ยอดหรือแบรนด์ก่อน."
       primary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}
       secondary={{ label: "ดูแพ็กเกจ", to: "/package" }}
       tone="snow"

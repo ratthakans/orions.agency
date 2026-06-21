@@ -635,3 +635,31 @@ h1:lang(th) em, h2:lang(th) em, h3:lang(th) em, h4:lang(th) em, h5:lang(th) em, 
   ::view-transition-old(root),
   ::view-transition-new(root) { animation: none !important; }
 }
+
+/* Hero "silk" — Fluid Dynamics surface (CSS stand-in for the brand photo;
+   swap for an <img> once the real file is dropped). Slow living drift. */
+.silk {
+  background:
+    radial-gradient(120% 90% at 15% 20%, #ff7a4d 0%, transparent 45%),
+    radial-gradient(90% 80% at 80% 30%, #ff5a2c 0%, transparent 50%),
+    radial-gradient(120% 120% at 65% 85%, #b22f10 0%, transparent 55%),
+    radial-gradient(80% 80% at 30% 90%, #7a1c08 0%, transparent 60%),
+    linear-gradient(120deg, #2a0a04 0%, #c5421f 45%, #ff6a3c 70%, #2a0a04 100%);
+  background-color: #1a0703;
+  background-size: 150% 150%;
+  will-change: transform, background-position;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .silk { animation: silkdrift 26s ease-in-out infinite alternate; }
+}
+@keyframes silkdrift {
+  0%   { transform: scale(1.06) translate3d(0, 0, 0);          background-position: 0% 0%;     filter: saturate(1); }
+  50%  { transform: scale(1.12) translate3d(-1.5%, -1%, 0);    background-position: 60% 40%;   filter: saturate(1.08); }
+  100% { transform: scale(1.06) translate3d(1.5%, 1%, 0);      background-position: 100% 100%; filter: saturate(1); }
+}
+/* Scrim over the silk so the centered headline stays legible */
+.hero-scrim {
+  background:
+    radial-gradient(ellipse 95% 70% at 50% 48%, rgba(0,0,0,0.58) 0%, rgba(0,0,0,0.30) 55%, rgba(0,0,0,0.12) 100%),
+    linear-gradient(180deg, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.18) 35%, rgba(10,10,10,0.62) 100%);
+}

@@ -26,40 +26,39 @@
 
 @layer base {
   :root {
-    /* ØRIONS — Design System 2026 (Hybrid): Paper bg / Ink text / Orange accent.
-       Dark "silk" surfaces (hero/showcase) re-scope these via .section-ink below. */
-    --background: 40 11% 89%;          /* #E5E3DF Paper */
-    --foreground: 0 0% 4%;             /* #0A0A0A Ink */
+    /* ØRIONS — Dark (Alpha Growth): Black Russian bg / Snow ink / Cinnabar accent */
+    --background: 0 0% 5.5%;            /* #0E0E0E Black Russian */
+    --foreground: 60 33% 98%;          /* #FDFDF9 Snow */
 
-    --surface: 48 11% 93%;             /* #EFEEEA raised paper */
-    --surface-foreground: 0 0% 4%;
-    --surface-2: 0 0% 100%;            /* #FFFFFF card */
+    --surface: 0 0% 7.8%;              /* #141414 soft band */
+    --surface-foreground: 60 33% 98%;
+    --surface-2: 0 0% 9.4%;            /* #181818 card */
 
-    --card: 0 0% 100%;                 /* #FFFFFF */
-    --card-foreground: 0 0% 4%;
+    --card: 0 0% 9.4%;                 /* #181818 */
+    --card-foreground: 60 33% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 4%;
+    --popover: 0 0% 7.8%;
+    --popover-foreground: 60 33% 98%;
 
-    --primary: 0 0% 4%;
-    --primary-foreground: 40 11% 89%;
+    --primary: 60 33% 98%;
+    --primary-foreground: 0 0% 5.5%;
 
-    --secondary: 48 11% 93%;
-    --secondary-foreground: 0 0% 4%;
+    --secondary: 0 0% 15.3%;
+    --secondary-foreground: 60 33% 98%;
 
-    --muted: 48 11% 93%;
-    --muted-foreground: 40 4% 33%;     /* #585652 muted text */
+    --muted: 0 0% 15.3%;
+    --muted-foreground: 60 5% 65%;     /* brightened for readability on dark */
 
-    /* Orange — accent #EB5939 (white text sits on it) */
+    /* Cinnabar — accent #EB5939 */
     --accent: 11 81% 57%;
-    --accent-foreground: 0 0% 100%;
+    --accent-foreground: 0 0% 5.5%;
 
     --destructive: 0 72% 48%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive-foreground: 60 33% 98%;
 
-    --border: 40 6% 80%;               /* light hairline */
-    --border-soft: 40 6% 84%;
-    --input: 40 6% 80%;
+    --border: 0 0% 15.3%;              /* #272727 line */
+    --border-soft: 0 0% 15.3%;
+    --input: 0 0% 15.3%;
     --ring: 11 81% 57%;
 
     --radius: 16px;
@@ -395,28 +394,25 @@
 
   .btn-accent {
     display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
-    padding: 0.85rem 1.6rem;
-    border-radius: 0;
+    padding: 0.85rem 1.75rem;
+    border-radius: 9999px;
     background: hsl(var(--accent));
-    color: hsl(var(--accent-foreground));
-    border: 1.5px solid hsl(var(--accent));
-    font-family: 'IBM Plex Sans Thai', system-ui, sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 0;
-    transition: background-color 150ms ease, color 150ms ease, transform 60ms ease;
+    color: hsl(var(--background));
+    font-family: 'IBM Plex Sans Thai', system-ui, sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0;
+    transition: background-color 240ms ease, transform 240ms ease;
   }
-  .btn-accent:hover { background: hsl(11 76% 47%); border-color: hsl(11 76% 47%); }
-  .btn-accent:active { transform: translateY(1px); }
+  .btn-accent:hover { background: hsl(var(--foreground)); }
 
   .btn-ghost {
     display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
-    padding: 0.85rem 1.6rem;
-    border-radius: 0;
+    padding: 0.85rem 1.75rem;
+    border-radius: 9999px;
     background: transparent;
     color: hsl(var(--foreground));
-    border: 1.5px solid hsl(var(--foreground) / 0.3);
-    font-family: 'IBM Plex Sans Thai', system-ui, sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 0;
-    transition: color 150ms ease, border-color 150ms ease, background-color 150ms ease, transform 60ms ease;
+    border: 1px solid hsl(var(--foreground) / 0.25);
+    font-family: 'IBM Plex Sans Thai', system-ui, sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0;
+    transition: color 240ms ease, border-color 240ms ease, background-color 240ms ease;
   }
-  .btn-ghost:active { transform: translateY(1px); }
   .btn-ghost:hover { color: hsl(var(--accent)); border-color: hsl(var(--accent)); }
 
   /* === Alpha-style primitives, light-adapted === */
@@ -482,30 +478,11 @@
   .section-pad { padding-top: 5rem; padding-bottom: 5rem; }
   @media (min-width: 768px) { .section-pad { padding-top: 7rem; padding-bottom: 7rem; } }
 
-  /* === Section "ink" mode — a self-contained DARK island on the light base.
-        Re-scopes the full token set so descendant text/cards render light-on-dark.
-        Use on heroes, showcase bands, and any "silk"/inverted surface. === */
-  .section-ink, .theme-dark {
-    background-color: hsl(0 0% 5.5%);
-    --background: 0 0% 5.5%;
-    --foreground: 60 33% 98%;
-    --surface: 0 0% 7.8%;
-    --surface-foreground: 60 33% 98%;
-    --surface-2: 0 0% 9.4%;
-    --card: 0 0% 9.4%;
-    --card-foreground: 60 33% 98%;
-    --popover: 0 0% 7.8%;
-    --popover-foreground: 60 33% 98%;
-    --primary: 60 33% 98%;
-    --primary-foreground: 0 0% 5.5%;
-    --secondary: 0 0% 15.3%;
-    --secondary-foreground: 60 33% 98%;
-    --muted: 0 0% 15.3%;
-    --muted-foreground: 60 5% 65%;
-    --border: 0 0% 100%;
-    --border-soft: 0 0% 100%;
-    --input: 0 0% 15.3%;
-    color: hsl(var(--foreground));
+  /* === Section "ink" mode — now a subtle elevated dark band (base is already dark) === */
+  .section-ink {
+    background-color: hsl(var(--surface-2));
+    --surface: 0 0% 11%;
+    --card: 0 0% 12.5%;
   }
 
   /* Legacy gradient utilities — flat ink */

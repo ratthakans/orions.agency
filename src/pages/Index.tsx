@@ -23,14 +23,15 @@ const pickRandom = (arr: string[], n: number): string[] => {
   return a.slice(0, n);
 };
 
-// 3 market pressures of 2026 — animated counters (figures need cited sources before launch · พูดตรง).
+// 3 market pressures of 2026 — animated counters with real, cited figures (พูดตรง).
+// Sources shown in the caption under the cards.
 const pressures = [
-  { to: 1.7, decimals: 1, suffix: "s", title: "Attention หดสั้น",
-    desc: "คนให้เวลาแบรนด์บนจอราว 1.7 วินาที — คิดไม่คมตั้งแต่วิแรก ก็ถูกเลื่อนผ่าน" },
-  { to: 4.6, decimals: 1, suffix: "×", title: "AI ท่วมฟีด",
-    desc: "คอนเทนต์เพิ่มราว 4.6 เท่าจากของที่ AI ปั๊ม — ทางรอดคือ 'จริงกว่า' ไม่ใช่ 'เยอะกว่า'" },
-  { prefix: "+", to: 41, suffix: "%", title: "ค่าแอดแพงขึ้น",
-    desc: "ค่าโฆษณา digital แพงขึ้นราว 41% — งบเท่าเดิมได้ reach น้อยลง ยิงมั่วคือเผาเงิน" },
+  { to: 3, decimals: 0, suffix: "s", title: "3 วิแรกตัดสินทุกอย่าง",
+    desc: "บนฟีดคนตัดสินใจใน ~3 วินาทีว่าจะดูต่อหรือปัด — คิดไม่คมตั้งแต่วิแรก ก็ถูกเลื่อนผ่าน" },
+  { to: 74, decimals: 0, suffix: "%", title: "AI ท่วมเว็บ",
+    desc: "หน้าเว็บใหม่ราว 74% มีคอนเทนต์จาก AI ปนแล้ว — ทางรอดคือ 'จริงกว่า' ไม่ใช่ 'เยอะกว่า'" },
+  { prefix: "+", to: 20, decimals: 0, suffix: "%", title: "ค่าแอดแพงขึ้น",
+    desc: "ค่าโฆษณา Meta (CPM) แพงขึ้นราว 20% ต่อปี — งบเท่าเดิมได้ reach น้อยลง ยิงมั่วคือเผาเงิน" },
 ];
 
 // 3 sales lines — pick one or mix.
@@ -109,7 +110,10 @@ const Index = () => {
             </Reveal>
           ))}
         </div>
-        <p lang="th" className="mt-8 font-thai text-[13px] leading-[1.7] text-foreground/80 max-w-[640px]">
+        <p className="mt-7 font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground/70 max-w-[640px] leading-[1.7]">
+          ที่มา · short-form video benchmarks 2025 · Ahrefs AI-content study 2025 · Meta CPM benchmarks 2024–25
+        </p>
+        <p lang="th" className="mt-6 font-thai text-[13px] leading-[1.7] text-foreground/80 max-w-[640px]">
           แต่ก่อนจะเริ่ม เราขอถามคุณแค่ <span className="text-cinnabar font-medium">คำถามเดียว</span> ↓
         </p>
       </div>

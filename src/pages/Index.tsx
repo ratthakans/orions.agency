@@ -9,6 +9,7 @@ import Magnetic from "@/components/Magnetic";
 import Slash from "@/components/Slash";
 import HeroHeadline from "@/components/HeroHeadline";
 import MarqueeBand from "@/components/MarqueeBand";
+import CountUp from "@/components/CountUp";
 import { workThumbs } from "@/data/portfolio";
 
 // Pick N random work thumbnails (fresh each mount).
@@ -21,11 +22,14 @@ const pickRandom = (arr: string[], n: number): string[] => {
   return a.slice(0, n);
 };
 
-// 3 market pressures of 2026 — qualitative (no unsourced figures · พูดตรง).
+// 3 market pressures of 2026 — animated counters (figures need cited sources before launch · พูดตรง).
 const pressures = [
-  { title: "Attention หดสั้น", desc: "คนเลื่อนผ่านเร็วขึ้นทุกปี — คิดไม่คมตั้งแต่วิแรก ก็ถูกข้าม" },
-  { title: "AI ท่วมฟีด", desc: "ของ generic ที่ AI ปั๊มล้นฟีด — ทางรอดคือ 'จริงกว่า' ไม่ใช่ 'เยอะกว่า'" },
-  { title: "ค่าแอดแพงขึ้น", desc: "งบเท่าเดิมได้ reach น้อยลง — ยิงมั่วคือเผาเงิน" },
+  { to: 1.7, decimals: 1, suffix: "s", title: "Attention หดสั้น",
+    desc: "คนให้เวลาแบรนด์บนจอราว 1.7 วินาที — คิดไม่คมตั้งแต่วิแรก ก็ถูกเลื่อนผ่าน" },
+  { to: 4.6, decimals: 1, suffix: "×", title: "AI ท่วมฟีด",
+    desc: "คอนเทนต์เพิ่มราว 4.6 เท่าจากของที่ AI ปั๊ม — ทางรอดคือ 'จริงกว่า' ไม่ใช่ 'เยอะกว่า'" },
+  { prefix: "+", to: 41, suffix: "%", title: "ค่าแอดแพงขึ้น",
+    desc: "ค่าโฆษณา digital แพงขึ้นราว 41% — งบเท่าเดิมได้ reach น้อยลง ยิงมั่วคือเผาเงิน" },
 ];
 
 // 3 sales lines — pick one or mix.
@@ -105,7 +109,9 @@ const Index = () => {
           {pressures.map((p, i) => (
             <Reveal key={p.title} delay={i * 0.08}>
               <div className="card-soft h-full p-7 md:p-8">
-                <span className="num-display text-cinnabar/30 text-[clamp(40px,5vw,56px)] leading-none tabular-nums">{String(i + 1).padStart(2, "0")}</span>
+                <CountUp to={p.to} prefix={p.prefix} suffix={p.suffix} decimals={p.decimals}
+                  className="num-display text-cinnabar text-[clamp(44px,6vw,68px)] leading-none"
+                  suffixClassName="text-[0.5em] ml-0.5" />
                 <h3 lang="th" className="mt-5 font-display text-[17px] md:text-[19px] font-semibold">{p.title}</h3>
                 <p lang="th" className="mt-2.5 font-thai thai-wrap text-[13px] leading-[1.7] text-muted-foreground">{p.desc}</p>
               </div>

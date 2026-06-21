@@ -110,7 +110,7 @@ const Work = () => {
                 type="button"
                 onClick={() => { setActive(c.key); setShuffleKey((k) => k + 1); }}
                 aria-pressed={active === c.key}
-                className={`font-mono text-[11px] tracking-[0.08em] uppercase px-3.5 py-1.5 rounded-full border transition-colors ${
+                className={`font-mono text-[11px] tracking-[0.08em] uppercase px-3.5 py-1.5 rounded-none border transition-colors ${
                   active === c.key
                     ? "bg-cinnabar border-cinnabar text-background"
                     : "border-foreground/20 text-foreground/75 hover:border-cinnabar hover:text-cinnabar"

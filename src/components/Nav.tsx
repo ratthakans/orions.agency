@@ -68,7 +68,7 @@ const Nav = () => {
             to="/contact"
             viewTransition
             className={({ isActive }) =>
-              `ml-2 inline-flex items-center gap-2 rounded-full px-4 py-2 font-mono text-[11px] tracking-[0.12em] uppercase border transition-colors ${
+              `ml-2 inline-flex items-center gap-2 rounded-none px-4 py-2 font-mono text-[11px] tracking-[0.12em] uppercase border transition-colors ${
                 isActive
                   ? "bg-cinnabar text-background border-cinnabar"
                   : "border-cinnabar text-cinnabar hover:bg-cinnabar hover:text-background"

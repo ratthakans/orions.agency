@@ -3,15 +3,15 @@
 const PHRASES = ["Stories, Refined", "ยอด หรือ แบรนด์", "คิด · ทำ · ยิง", "Digital", "Boutique", "Production"];
 
 const MarqueeBand = () => (
-  <section aria-hidden className="bg-surface border-y border-foreground/15 py-7 md:py-10 overflow-hidden">
+  <section aria-hidden className="bg-surface border-y border-foreground/15 py-5 md:py-6 overflow-hidden">
     <div className="marquee">
       <div className="marquee-track items-center">
         {[...PHRASES, ...PHRASES].map((p, i) => (
-          <span key={i} className="inline-flex items-center gap-10 shrink-0">
-            <span className="font-unbounded uppercase tracking-[-0.02em] text-foreground/85 whitespace-nowrap text-[clamp(24px,4.5vw,52px)] leading-none">
+          <span key={i} className="inline-flex items-center gap-7 shrink-0">
+            <span className="font-unbounded uppercase tracking-[-0.02em] text-foreground/80 whitespace-nowrap text-[clamp(15px,2.4vw,28px)] leading-none">
               {p}
             </span>
-            <span className="brand-slash text-[clamp(24px,4.5vw,52px)]" />
+            <span className="brand-slash text-[clamp(15px,2.4vw,28px)]" />
           </span>
         ))}
       </div>

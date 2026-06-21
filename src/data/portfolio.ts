@@ -125,16 +125,10 @@ export const portfolio: PortCategory[] = [
   { key: "cases", chip: "Selected work", n: "08", title: "Selected work", sub: "Client brand cases", cases: caseStudies },
 ];
 
-// Flat pool of real work thumbnails (images + YouTube posters) for the homepage
-// random showcase. Shuffle + slice on the consumer side.
-const ytThumb = (id: string) => `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+// Flat pool of work thumbnails for the homepage random showcase — art direction
+// + social only (no video/reels/photography). Shuffle + slice on the consumer side.
 export const workThumbs: string[] = [
   ...artDirection.map((g) => g.src),
-  ...photography.map((g) => g.src),
   ...socialAds.map((g) => g.src),
   ...socialAlbums.flatMap((a) => a.images),
-  ...videoFilm.map((v) => ytThumb(v.id)),
-  ...reels.map((v) => ytThumb(v.id)),
-  ...longformVids.map((v) => ytThumb(v.id)),
-  ...musicVids.map((v) => ytThumb(v.id)),
 ];

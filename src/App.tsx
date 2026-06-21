@@ -19,6 +19,7 @@ const routes = {
   Consulting: () => import("./pages/Consulting"),
   Package: () => import("./pages/Package"),
   Contact: () => import("./pages/Contact"),
+  Diagnostic: () => import("./pages/Diagnostic"),
   Journal: () => import("./pages/Journal"),
   JournalPost: () => import("./pages/JournalPost"),
   Privacy: () => import("./pages/Privacy"),
@@ -32,6 +33,7 @@ const CaseStudy = lazy(routes.CaseStudy);
 const Consulting = lazy(routes.Consulting);
 const Package = lazy(routes.Package);
 const Contact = lazy(routes.Contact);
+const Diagnostic = lazy(routes.Diagnostic);
 const Journal = lazy(routes.Journal);
 const JournalPost = lazy(routes.JournalPost);
 const Privacy = lazy(routes.Privacy);
@@ -73,7 +75,7 @@ const App = () => {
             <Route path="/consulting" element={<Consulting />} />
             <Route path="/package" element={<Package />} />
             <Route path="/pricing" element={<Navigate to="/package" replace />} />
-            <Route path="/diagnostic" element={<Navigate to="/contact" replace />} />
+            <Route path="/diagnostic" element={<Diagnostic />} />
             <Route path="/journal" element={<Journal />} />
             <Route path="/journal/:slug" element={<JournalPost />} />
             <Route path="/privacy" element={<Privacy />} />

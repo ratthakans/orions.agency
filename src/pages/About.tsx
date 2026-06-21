@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -75,6 +77,33 @@ const About = () => (
     <ImageBand image={caseStudies[0].cover}>
       ทีมเดียว ตั้งแต่กลยุทธ์ <em className="text-cinnabar">ถึงการผลิต.</em>
     </ImageBand>
+
+    {/* BRAND IDEA — ถามก่อนขาย */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-16">
+        <div>
+          <SectionLabel label="Brand idea" />
+          <Reveal delay={0.05}>
+            <h2 lang="th" className="mt-8 h-display-md max-w-[12ch] thai-wrap">
+              เราถาม <em className="text-cinnabar">ก่อนขาย.</em>
+            </h2>
+          </Reveal>
+        </div>
+        <Reveal delay={0.1}>
+          <div>
+            <p lang="th" className="font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.8] text-foreground/90">
+              เราเปิดทุกดีลด้วยคำถามเดียว — <span className="text-cinnabar">"ยอด หรือ แบรนด์?"</span> ก่อนเสนออะไร. ในตลาดที่เต็มไปด้วยเอเจนซีขายฝัน เราขายความซื่อสัตย์ที่กล้าบอกข้อจำกัด.
+            </p>
+            <p lang="th" className="mt-5 font-thai thai-wrap text-[15px] leading-[1.8] text-foreground/80">
+              และเราไม่เชื่อในงานสวยที่ไม่ขยับธุรกิจ — <span className="text-foreground">ความคิดที่ดีต้องขายของได้</span>. เรายืดหยุ่นที่ <span className="text-foreground">สไตล์</span> แต่ไม่เคยยืดที่ <span className="text-cinnabar">มาตรฐานฝีมือ</span>.
+            </p>
+            <Link to="/diagnostic" className="btn-ghost mt-8">
+              <span>ลองเครื่องวินิจฉัย — ยอด หรือ แบรนด์?</span><ArrowUpRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </Reveal>
+      </div>
+    </section>
 
     {/* 02 — WHAT WE WON'T COMPROMISE ON */}
     <section className="px-6 md:px-10 border-t border-foreground/15">

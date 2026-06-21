@@ -152,6 +152,9 @@ const Index = () => {
         <p lang="th" className="mt-8 font-thai text-[13px] leading-[1.7] text-muted-foreground max-w-[640px]">
           เลือกสายเดียว หรือผสมก็ได้ — ส่วนใหญ่เริ่มที่ <span className="text-foreground/85">ยอด (Digital)</span> ให้เงินหมุนก่อน แล้วต่อ <span className="text-foreground/85">แบรนด์ (Boutique)</span> ให้แข็ง.
         </p>
+        <Link to="/diagnostic" className="btn-ghost mt-6">
+          <span>ไม่แน่ใจ? ลองวินิจฉัย — ยอด หรือ แบรนด์?</span><ArrowUpRight className="w-4 h-4" />
+        </Link>
       </div>
     </section>
 

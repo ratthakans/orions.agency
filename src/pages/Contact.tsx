@@ -21,11 +21,11 @@ const inquirySchema = z.object({
 type FieldErrors = Partial<Record<keyof z.infer<typeof inquirySchema>, string>>;
 
 const packageOptions = [
-  "Performance · เน้นยอด",
-  "Branding · เน้นแบรนด์",
+  "Digital · เน้นยอด",
+  "Boutique · เน้นแบรนด์",
   "Hybrid · ทั้งคู่",
+  "Production · ถ่ายงาน",
   "Custom · ออกแบบตามโจทย์",
-  "ORIONS Production / ถ่ายงาน",
   "ยังไม่แน่ใจ / ขอคำแนะนำ",
 ];
 

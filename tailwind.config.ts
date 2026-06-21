@@ -65,9 +65,14 @@ export default {
         unbounded: ["Unbounded", "system-ui", "sans-serif"],
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius))",
-        sm: "calc(var(--radius))",
+        none: "0",
+        sm: "0",
+        DEFAULT: "0",
+        md: "0",
+        lg: "0",
+        xl: "0",
+        "2xl": "0",
+        "3xl": "0",
       },
       keyframes: {
         "fade-up": {

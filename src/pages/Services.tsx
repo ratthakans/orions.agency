@@ -211,7 +211,7 @@ const Services = () => (
                 viewport={{ once: true, amount: 0.4 }}
                 transition={{ delay: i * 0.12, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               >
-                <span className="relative z-10 inline-grid place-items-center w-[34px] h-[34px] rounded-full border border-cinnabar bg-[hsl(var(--surface))] num-display text-cinnabar text-[13px]">{s.n}</span>
+                <span className="relative z-10 inline-grid place-items-center w-[34px] h-[34px] rounded-none border border-cinnabar bg-[hsl(var(--surface))] num-display text-cinnabar text-[13px]">{s.n}</span>
                 <h3 className="mt-5 font-serif text-[22px] md:text-[26px] tracking-[-0.01em]">{s.k}</h3>
                 <p lang="th" className="mt-2.5 font-thai thai-wrap text-[13px] md:text-[14px] leading-[1.7] text-muted-foreground max-w-[26ch]">{s.d}</p>
               </motion.div>

@@ -286,7 +286,7 @@
     color: hsl(var(--foreground));
     border: 1px solid hsl(var(--foreground) / 0.1);
     border-left: 5px solid hsl(var(--accent));
-    border-radius: 1.25rem;
+    border-radius: 0;
     padding: 2.5rem 2.5rem 2.75rem;
   }
   .principle-block__eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: hsl(var(--accent)); }
@@ -384,7 +384,7 @@
   .btn-primary {
     display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
     padding: 0.85rem 1.75rem;
-    border-radius: 9999px;
+    border-radius: 0;
     background: hsl(var(--foreground));
     color: hsl(var(--background));
     font-family: 'IBM Plex Sans Thai', system-ui, sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0;
@@ -424,7 +424,7 @@
   /* Badge chip — pill border + cinnabar dot */
   .badge-chip {
     display: inline-flex; align-items: center; gap: 0.5rem;
-    border-radius: 9999px;
+    border-radius: 0;
     border: 1px solid hsl(var(--foreground) / 0.18);
     background: hsl(var(--surface));
     padding: 0.4rem 0.9rem;
@@ -437,7 +437,7 @@
 
   /* Soft card — rounded, subtle border, hover lifts to cinnabar */
   .card-soft {
-    border-radius: 1.25rem;
+    border-radius: 0;
     border: 1px solid hsl(var(--foreground) / 0.12);
     background: hsl(var(--card));
     transition: border-color 280ms ease, transform 280ms ease, box-shadow 280ms ease;
@@ -450,7 +450,7 @@
 
   /* Accent card — cinnabar-tinted highlight (featured / CTA) */
   .card-accent {
-    border-radius: 1.25rem;
+    border-radius: 0;
     border: 1px solid hsl(var(--accent) / 0.4);
     background:
       linear-gradient(180deg, hsl(var(--accent) / 0.06), hsl(var(--card)) 60%);
@@ -471,7 +471,7 @@
 
   /* Stat / results card */
   .stat-card {
-    border-radius: 1.25rem;
+    border-radius: 0;
     border: 1px solid hsl(var(--accent) / 0.25);
     background: hsl(var(--card));
     padding: 1.75rem;

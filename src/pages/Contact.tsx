@@ -213,7 +213,7 @@ const Contact = () => {
                   {/* size — only relevant for the 3 monthly tracks */}
                   <div className="mt-3 flex items-center gap-3">
                     <span lang="th" className="font-thai text-[11px] tracking-[0.02em] text-muted-foreground shrink-0">ขนาด</span>
-                    <div className="inline-flex rounded-full border border-foreground/25 overflow-hidden">
+                    <div className="inline-flex rounded-none border border-foreground/25 overflow-hidden">
                       {["S", "M", "L"].map((s) => (
                         <button key={s} type="button" onClick={() => setForm({ ...form, size: form.size === s ? "" : s })}
                           className={`px-4 py-1.5 font-mono text-[11px] tracking-[0.06em] transition-colors ${form.size === s ? "bg-cinnabar text-background" : "text-foreground/55 hover:text-foreground"} ${s !== "S" ? "border-l border-foreground/25" : ""}`}>
@@ -230,7 +230,7 @@ const Contact = () => {
                       const on = form.addons.includes(a);
                       return (
                         <button key={a} type="button" onClick={() => toggleAddon(a)}
-                          className={`rounded-full border px-3.5 py-1.5 font-thai text-[12px] transition-colors ${on ? "border-cinnabar bg-cinnabar text-background" : "border-foreground/20 text-foreground/70 hover:border-cinnabar hover:text-foreground"}`}>
+                          className={`rounded-none border px-3.5 py-1.5 font-thai text-[12px] transition-colors ${on ? "border-cinnabar bg-cinnabar text-background" : "border-foreground/20 text-foreground/70 hover:border-cinnabar hover:text-foreground"}`}>
                           {a}
                         </button>
                       );

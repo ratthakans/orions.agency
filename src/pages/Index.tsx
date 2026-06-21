@@ -237,7 +237,7 @@ const Index = () => {
                 <Link to="/work" className="group relative block overflow-hidden rounded-2xl border border-foreground/12 bg-foreground/[0.04] aspect-[4/5] transition-colors duration-500 hover:border-cinnabar/60">
                   <img src={src} alt="ผลงาน ØRIONS" loading="lazy" className="w-full h-full object-cover scale-100 grayscale-[0.4] group-hover:scale-[1.06] group-hover:grayscale-0 transition-[transform,filter] duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)]" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent opacity-80" />
-                  <span className="absolute bottom-3 right-3 inline-flex items-center gap-1 font-mono text-[9px] tracking-[0.2em] uppercase text-background bg-cinnabar px-2 py-1 rounded-full opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                  <span className="absolute bottom-3 right-3 inline-flex items-center gap-1 font-mono text-[9px] tracking-[0.2em] uppercase text-background bg-cinnabar px-2 py-1 rounded-none opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
                     ดูงาน <ArrowUpRight className="w-3 h-3" />
                   </span>
                 </Link>

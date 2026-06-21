@@ -171,7 +171,7 @@ const Work = () => {
                           />
                         )}
                         <span className="absolute inset-0 grid place-items-center pointer-events-none">
-                          <span className={`grid place-items-center w-11 h-11 rounded-full bg-background/55 border border-foreground/25 text-foreground/90 transition-opacity ${hoverVid === v.id ? "opacity-0" : "group-hover:text-cinnabar group-hover:border-cinnabar"}`}>
+                          <span className={`grid place-items-center w-11 h-11 rounded-none bg-background/55 border border-foreground/25 text-foreground/90 transition-opacity ${hoverVid === v.id ? "opacity-0" : "group-hover:text-cinnabar group-hover:border-cinnabar"}`}>
                             <Play className="w-4 h-4 ml-0.5" />
                           </span>
                         </span>
@@ -295,7 +295,7 @@ const Work = () => {
             type="button"
             aria-label="ปิด"
             onClick={() => setLightbox(null)}
-            className="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 grid place-items-center rounded-full border border-foreground/30 text-foreground/80 hover:border-cinnabar hover:text-cinnabar transition-colors"
+            className="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 grid place-items-center rounded-none border border-foreground/30 text-foreground/80 hover:border-cinnabar hover:text-cinnabar transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -305,7 +305,7 @@ const Work = () => {
                 type="button"
                 aria-label="ก่อนหน้า"
                 onClick={(e) => { e.stopPropagation(); albumStep(-1); }}
-                className="absolute left-3 md:left-6 w-11 h-11 grid place-items-center rounded-full border border-foreground/30 text-foreground/80 hover:border-cinnabar hover:text-cinnabar transition-colors bg-background/40"
+                className="absolute left-3 md:left-6 w-11 h-11 grid place-items-center rounded-none border border-foreground/30 text-foreground/80 hover:border-cinnabar hover:text-cinnabar transition-colors bg-background/40"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
@@ -319,11 +319,11 @@ const Work = () => {
                 type="button"
                 aria-label="ถัดไป"
                 onClick={(e) => { e.stopPropagation(); albumStep(1); }}
-                className="absolute right-3 md:right-6 w-11 h-11 grid place-items-center rounded-full border border-foreground/30 text-foreground/80 hover:border-cinnabar hover:text-cinnabar transition-colors bg-background/40"
+                className="absolute right-3 md:right-6 w-11 h-11 grid place-items-center rounded-none border border-foreground/30 text-foreground/80 hover:border-cinnabar hover:text-cinnabar transition-colors bg-background/40"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>
-              <span className="absolute bottom-5 left-1/2 -translate-x-1/2 font-mono text-[11px] tracking-[0.1em] text-foreground/70 bg-background/50 border border-foreground/15 rounded-full px-3 py-1">
+              <span className="absolute bottom-5 left-1/2 -translate-x-1/2 font-mono text-[11px] tracking-[0.1em] text-foreground/70 bg-background/50 border border-foreground/15 rounded-none px-3 py-1">
                 {lightbox.i + 1} / {lightbox.images.length}
               </span>
             </>

@@ -55,12 +55,14 @@ export default {
         },
       },
       fontFamily: {
-        display: ["Inter", "IBM Plex Sans Thai", "sans-serif"],
-        body: ["Inter", "IBM Plex Sans Thai", "sans-serif"],
+        // Real, self-hosted system — no Inter (was a phantom fallback).
+        display: ["Newsreader", "IBM Plex Sans Thai", "Georgia", "serif"],
+        body: ["IBM Plex Sans Thai", "system-ui", "sans-serif"],
         serif: ["Newsreader", "IBM Plex Sans Thai", "Georgia", "serif"],
         mono: ["IBM Plex Mono", "ui-monospace", "monospace"],
-        thai: ["IBM Plex Sans Thai", "Inter", "sans-serif"],
-        brand: ["Inter", "sans-serif"],
+        thai: ["IBM Plex Sans Thai", "system-ui", "sans-serif"],
+        brand: ["Unbounded", "system-ui", "sans-serif"],
+        unbounded: ["Unbounded", "system-ui", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -108,10 +108,10 @@ const Diagnostic = () => {
                     const on = answers[q.id] === oi;
                     return (
                       <button key={o.t} type="button" onClick={() => setAnswers((a) => ({ ...a, [q.id]: oi }))}
-                        className={`group rounded-xl border px-4 py-4 text-left transition-all duration-200 ${on ? "border-cinnabar bg-cinnabar" : "border-foreground/15 hover:border-cinnabar hover:bg-cinnabar"}`}>
+                        className={`group rounded-xl border px-4 py-4 text-left transition-all duration-200 ${on ? "border-cinnabar bg-cinnabar" : "border-foreground/15 hover:border-cinnabar hover:bg-cinnabar/10"}`}>
                         <div className="flex items-start justify-between gap-3">
-                          <span lang="th" className={`font-thai text-[14px] leading-[1.5] ${on ? "text-background" : "text-foreground group-hover:text-background"}`}>{o.t}</span>
-                          <Check className={`w-4 h-4 shrink-0 mt-0.5 ${on ? "text-background" : "text-transparent group-hover:text-background/70"}`} />
+                          <span lang="th" className={`font-thai text-[14px] leading-[1.5] ${on ? "text-background" : "text-foreground"}`}>{o.t}</span>
+                          <Check className={`w-4 h-4 shrink-0 mt-0.5 ${on ? "text-background" : "text-transparent group-hover:text-cinnabar"}`} />
                         </div>
                       </button>
                     );

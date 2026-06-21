@@ -67,6 +67,12 @@ const Work = () => {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
+  // Lock page scroll while the lightbox is open.
+  useEffect(() => {
+    document.body.style.overflow = lightbox ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [lightbox]);
+
   return (
     <div>
       <SEO

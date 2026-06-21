@@ -114,16 +114,18 @@ const CaseStudy = () => {
             </dl>
           </Reveal>
 
-          <Reveal delay={0.3}>
-            <a
-              href={`https://${cs.domain}`}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-8 inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.22em] uppercase text-foreground hover:text-cinnabar transition-colors"
-            >
-              {cs.domain} <ArrowUpRight className="w-3 h-3" />
-            </a>
-          </Reveal>
+          {cs.domain && (
+            <Reveal delay={0.3}>
+              <a
+                href={cs.url || `https://${cs.domain}`}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-8 inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.22em] uppercase text-foreground hover:text-cinnabar transition-colors"
+              >
+                {cs.domain} <ArrowUpRight className="w-3 h-3" />
+              </a>
+            </Reveal>
+          )}
         </div>
       </section>
 

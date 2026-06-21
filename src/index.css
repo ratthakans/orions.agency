@@ -401,7 +401,7 @@
     font-family: 'IBM Plex Sans Thai', system-ui, sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0;
     transition: background-color 240ms ease, transform 240ms ease;
   }
-  .btn-accent:hover { background: hsl(var(--foreground)); }
+  .btn-accent:hover { background: hsl(11 76% 50%); }
 
   .btn-ghost {
     display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;

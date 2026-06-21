@@ -24,6 +24,8 @@ const FAQ = ({ items, className = "" }: Props) => {
               onClick={() => setOpen(isOpen ? null : i)}
               className="w-full flex items-baseline justify-between gap-6 text-left py-6 md:py-7 group"
               aria-expanded={isOpen}
+              aria-controls={`faq-panel-${i}`}
+              id={`faq-trigger-${i}`}
             >
               <span className="flex items-baseline gap-5 md:gap-8">
                 <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar shrink-0">
@@ -38,7 +40,7 @@ const FAQ = ({ items, className = "" }: Props) => {
               </span>
             </button>
             {isOpen && (
-              <div className="pb-7 md:pb-8 pl-0 md:pl-[64px] pr-10 max-w-[760px]">
+              <div id={`faq-panel-${i}`} role="region" aria-labelledby={`faq-trigger-${i}`} className="pb-7 md:pb-8 pl-0 md:pl-[64px] pr-10 max-w-[760px]">
                 <p lang="th" className="font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.75] text-muted-foreground">
                   {it.a}
                 </p>

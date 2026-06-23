@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowUpRight, Check } from "lucide-react";
+import { ArrowUpRight, Check, Play } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -48,6 +48,67 @@ const alternatives = [
   { who: "Full-service เจ้าอื่น", note: "ครบบนกระดาษ — แต่มัก outsource ผลิต/ยิง และไม่ค่อยวัดผลแบรนด์" },
   { who: "ORIONS", note: "เข้าใจระดับ in-house · ครบทำเอง คิด–ทำ–ยิง · วัดผลได้ · จ่ายเฉพาะที่ใช้", us: true },
 ];
+
+// Company flagship showreel — featured as the mid-page proof break.
+const SHOWREEL_ID = "308_jYAVkwI";
+
+const ShowreelFeature = () => {
+  const [playing, setPlaying] = useState(false);
+  return (
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+        <div className="inline-flex items-center gap-3 font-mono text-[10px] tracking-[0.22em] uppercase leading-none">
+          <Slash className="text-[15px]" />
+          <span className="text-muted-foreground">Showreel 2026</span>
+        </div>
+        <Reveal delay={0.05}>
+          <h2 lang="th" className="mt-6 h-display-md max-w-[18ch] thai-wrap">
+            ฝีมือ พูดแทนเรา <em className="text-cinnabar">ดีกว่า.</em>
+          </h2>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <div
+            className="mt-8 relative w-full overflow-hidden rounded-none border border-foreground/15 bg-black"
+            style={{ aspectRatio: "16 / 9" }}
+          >
+            {playing ? (
+              <iframe
+                src={`https://www.youtube.com/embed/${SHOWREEL_ID}?autoplay=1&rel=0&modestbranding=1&playsinline=1`}
+                title="ØRIONS — Showreel 2026"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full"
+              />
+            ) : (
+              <button
+                type="button"
+                onClick={() => setPlaying(true)}
+                aria-label="เล่น showreel"
+                className="group absolute inset-0 w-full h-full cursor-pointer"
+              >
+                <img
+                  src={`https://i.ytimg.com/vi/${SHOWREEL_ID}/maxresdefault.jpg`}
+                  onError={(e) => { e.currentTarget.src = `https://i.ytimg.com/vi/${SHOWREEL_ID}/hqdefault.jpg`; }}
+                  alt="ØRIONS — Showreel 2026"
+                  className="absolute inset-0 w-full h-full object-cover group-hover:opacity-90 transition-opacity"
+                />
+                <span className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+                <span className="absolute inset-0 grid place-items-center">
+                  <span className="grid place-items-center w-16 h-16 md:w-20 md:h-20 rounded-none bg-background/55 border border-foreground/25 text-foreground/90 group-hover:text-cinnabar group-hover:border-cinnabar transition-colors">
+                    <Play className="w-6 h-6 md:w-7 md:h-7 ml-0.5" />
+                  </span>
+                </span>
+                <span className="absolute left-4 bottom-4 md:left-6 md:bottom-6 font-mono text-[10px] md:text-[11px] tracking-[0.18em] uppercase text-foreground/85">
+                  ØRIONS · Showreel
+                </span>
+              </button>
+            )}
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+};
 
 const Index = () => {
   const [thumbs] = useState(() => pickRandom(workThumbs, 14));
@@ -179,6 +240,9 @@ const Index = () => {
         </p>
       </div>
     </section>
+
+    {/* 04b — SHOWREEL (proof break after "why us") */}
+    <ShowreelFeature />
 
     {/* — KINETIC BRAND BAND */}
     <MarqueeBand />

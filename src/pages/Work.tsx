@@ -9,6 +9,9 @@ import { portfolio, type GalleryImage, type VideoItem } from "@/data/portfolio";
 
 const SITE_URL = "https://orions.agency";
 
+/** Company flagship showreel — featured at the top of /work. */
+const SHOWREEL_ID = "308_jYAVkwI";
+
 /** Deterministic shuffle — stable for a given seed (reshuffles only when seed changes). */
 const shuffle = <T,>(arr: T[], seed: number): T[] => {
   const a = [...arr];
@@ -120,6 +123,49 @@ const Work = () => {
               </button>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* 01b · FEATURED SHOWREEL — company flagship reel */}
+      <section className="px-6 md:px-10 border-t border-foreground/15">
+        <div className="max-w-[1280px] mx-auto py-12 md:py-16">
+          <SectionLabel label="Showreel 2026" />
+          <Reveal delay={0.05}>
+            <button
+              type="button"
+              onClick={() => setLightbox({ kind: "video", val: SHOWREEL_ID, ar: 16 / 9 })}
+              onMouseEnter={() => setHoverVid(SHOWREEL_ID)}
+              onMouseLeave={() => setHoverVid((h) => (h === SHOWREEL_ID ? null : h))}
+              className="group relative mt-6 block w-full overflow-hidden rounded-none border border-foreground/15 hover:border-cinnabar/70 transition-colors cursor-pointer"
+            >
+              <span className="block relative w-full" style={{ aspectRatio: "16 / 9" }}>
+                <img
+                  src={`https://i.ytimg.com/vi/${SHOWREEL_ID}/maxresdefault.jpg`}
+                  onError={(e) => { e.currentTarget.src = `https://i.ytimg.com/vi/${SHOWREEL_ID}/hqdefault.jpg`; }}
+                  alt="ØRIONS — Showreel 2026"
+                  className="absolute inset-0 w-full h-full object-cover group-hover:opacity-90 transition-opacity"
+                />
+                {hoverVid === SHOWREEL_ID && (
+                  <iframe
+                    src={`https://www.youtube.com/embed/${SHOWREEL_ID}?autoplay=1&mute=1&controls=0&loop=1&playlist=${SHOWREEL_ID}&modestbranding=1&playsinline=1&rel=0`}
+                    title="ØRIONS — Showreel 2026"
+                    tabIndex={-1}
+                    aria-hidden="true"
+                    className="absolute inset-0 w-full h-full pointer-events-none"
+                  />
+                )}
+                <span className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent pointer-events-none" />
+                <span className="absolute inset-0 grid place-items-center pointer-events-none">
+                  <span className={`grid place-items-center w-16 h-16 md:w-20 md:h-20 rounded-none bg-background/55 border border-foreground/25 text-foreground/90 transition-opacity ${hoverVid === SHOWREEL_ID ? "opacity-0" : "group-hover:text-cinnabar group-hover:border-cinnabar"}`}>
+                    <Play className="w-6 h-6 md:w-7 md:h-7 ml-0.5" />
+                  </span>
+                </span>
+                <span className="absolute left-4 bottom-4 md:left-6 md:bottom-6 font-mono text-[10px] md:text-[11px] tracking-[0.18em] uppercase text-foreground/85 pointer-events-none">
+                  ØRIONS · Showreel
+                </span>
+              </span>
+            </button>
+          </Reveal>
         </div>
       </section>
 

@@ -12,6 +12,10 @@ import MarqueeBand from "@/components/MarqueeBand";
 import CountUp from "@/components/CountUp";
 import { workThumbs } from "@/data/portfolio";
 import heroSilk from "@/assets/hero-silk.jpg";
+import founder from "@/assets/team/founder.jpg";
+
+// Direct booking channel — founder section CTA (LINE-first).
+const LINE_URL = "https://line.me/ti/p/~orions";
 
 // Pick N random work thumbnails (fresh each mount).
 const pickRandom = (arr: string[], n: number): string[] => {
@@ -303,6 +307,44 @@ const Index = () => {
             ))}
           </ul>
         </div>
+      </div>
+    </section>
+
+    {/* 06b — TALK TO THE FOUNDER (direct, LINE-first) */}
+    <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+        <Reveal>
+          <div className="card-soft p-7 md:p-12 grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-7 md:gap-12 items-center">
+            <img
+              src={founder}
+              alt="Founder / Creative Director, ØRIONS"
+              className="w-28 h-36 md:w-44 md:h-56 rounded-none object-cover object-top shrink-0"
+            />
+            <div>
+              <div className="inline-flex items-center gap-3 font-mono text-[10px] tracking-[0.22em] uppercase leading-none">
+                <Slash className="text-[15px]" />
+                <span className="text-muted-foreground">คุยกับผู้ก่อตั้ง</span>
+              </div>
+              <h2 lang="th" className="mt-5 h-display-md max-w-[18ch] thai-wrap">
+                คุยกับผม <em className="text-cinnabar">ตรงๆ</em> ก่อนตัดสินใจ.
+              </h2>
+              <p lang="th" className="mt-5 font-thai thai-wrap text-[15px] md:text-[16px] leading-[1.8] text-foreground/85 max-w-[560px]">
+                ไม่ต้องผ่านเซลส์ — เล่าโจทย์มาเลย ผมจะบอกตรงๆ ว่าควรเริ่มตรงไหน หรือยังไม่ต้องเริ่ม. คุยฟรี 45 นาที ไม่มีข้อผูกมัด.
+              </p>
+              <div className="mt-7 flex flex-col sm:flex-row gap-4">
+                <a href={LINE_URL} target="_blank" rel="noreferrer" className="btn-accent justify-between sm:justify-center">
+                  <span>ทักผมที่ LINE @orions</span><ArrowUpRight className="w-4 h-4" />
+                </a>
+                <Link to="/contact" viewTransition className="btn-ghost justify-between sm:justify-center">
+                  <span>เล่าโจทย์ผ่านฟอร์ม</span><ArrowUpRight className="w-4 h-4" />
+                </Link>
+              </div>
+              <p className="mt-6 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
+                — Founder / Creative Director · ØRIONS
+              </p>
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
 

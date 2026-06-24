@@ -19,6 +19,8 @@ const routes = {
   Package: () => import("./pages/Package"),
   Contact: () => import("./pages/Contact"),
   Diagnostic: () => import("./pages/Diagnostic"),
+  Blog: () => import("./pages/Blog"),
+  BlogPost: () => import("./pages/BlogPost"),
   Privacy: () => import("./pages/Privacy"),
   NotFound: () => import("./pages/NotFound"),
 };
@@ -30,6 +32,8 @@ const CaseStudy = lazy(routes.CaseStudy);
 const Package = lazy(routes.Package);
 const Contact = lazy(routes.Contact);
 const Diagnostic = lazy(routes.Diagnostic);
+const Blog = lazy(routes.Blog);
+const BlogPost = lazy(routes.BlogPost);
 const Privacy = lazy(routes.Privacy);
 const NotFound = lazy(routes.NotFound);
 
@@ -69,6 +73,8 @@ const App = () => {
             <Route path="/package" element={<Package />} />
             <Route path="/pricing" element={<Navigate to="/package" replace />} />
             <Route path="/diagnostic" element={<Diagnostic />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/contact" element={<Contact />} />
 
@@ -80,8 +86,8 @@ const App = () => {
             <Route path="/ventures" element={<Navigate to="/work" replace />} />
             <Route path="/health-check" element={<Navigate to="/contact" replace />} />
             <Route path="/consulting" element={<Navigate to="/services" replace />} />
-            <Route path="/journal" element={<Navigate to="/" replace />} />
-            <Route path="/journal/:slug" element={<Navigate to="/" replace />} />
+            <Route path="/journal" element={<Navigate to="/blog" replace />} />
+            <Route path="/journal/:slug" element={<Navigate to="/blog" replace />} />
 
             <Route path="*" element={<NotFound />} />
           </Routes>

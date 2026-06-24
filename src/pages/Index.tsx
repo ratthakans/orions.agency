@@ -332,14 +332,18 @@ const Index = () => {
                 ไม่ต้องผ่านเซลส์ — เล่าโจทย์มาเลย ผมจะบอกตรงๆ ว่าควรเริ่มตรงไหน หรือยังไม่ต้องเริ่ม. คุยฟรี 45 นาที ไม่มีข้อผูกมัด.
               </p>
               <div className="mt-7 flex flex-col sm:flex-row gap-4">
-                <a href={LINE_URL} target="_blank" rel="noreferrer" className="btn-accent justify-between sm:justify-center">
-                  <span>ทักผมที่ LINE @orions</span><ArrowUpRight className="w-4 h-4" />
+                <a href="mailto:ratthakan@orions.agency?subject=คุยฟรี 45 นาที — ØRIONS" className="btn-accent justify-between sm:justify-center">
+                  <span>อีเมลหาผมตรงๆ</span><ArrowUpRight className="w-4 h-4" />
                 </a>
                 <Link to="/contact" viewTransition className="btn-ghost justify-between sm:justify-center">
                   <span>เล่าโจทย์ผ่านฟอร์ม</span><ArrowUpRight className="w-4 h-4" />
                 </Link>
               </div>
-              <p className="mt-6 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
+              <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
+                <a href="tel:+66923905464" className="hover:text-cinnabar transition-colors">092-390-5464</a>
+                <a href={LINE_URL} target="_blank" rel="noreferrer" className="hover:text-cinnabar transition-colors">LINE @orions</a>
+              </div>
+              <p className="mt-5 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
                 — Founder / Creative Director · ØRIONS
               </p>
             </div>

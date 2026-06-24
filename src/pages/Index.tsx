@@ -317,7 +317,7 @@ const Index = () => {
           <div className="card-soft p-7 md:p-12 grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-7 md:gap-12 items-center">
             <img
               src={founder}
-              alt="Founder / Creative Director, ØRIONS"
+              alt="Ratthakan Suwanphakdee — Founder / Creative Director, ØRIONS"
               className="w-28 h-36 md:w-44 md:h-56 rounded-none object-cover object-top shrink-0"
             />
             <div>
@@ -343,9 +343,10 @@ const Index = () => {
                 <a href="tel:+66923905464" className="hover:text-cinnabar transition-colors">092-390-5464</a>
                 <a href={LINE_URL} target="_blank" rel="noreferrer" className="hover:text-cinnabar transition-colors">LINE @orions</a>
               </div>
-              <p className="mt-5 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
-                — Founder / Creative Director · ØRIONS
-              </p>
+              <div className="mt-5">
+                <p lang="th" className="font-thai text-[15px] font-medium text-foreground">รัฐกันต์ สุวรรณภักดี</p>
+                <p className="mt-1 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">Ratthakan Suwanphakdee · Founder / Creative Director</p>
+              </div>
             </div>
           </div>
         </Reveal>

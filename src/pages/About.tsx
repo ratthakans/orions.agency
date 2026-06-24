@@ -102,16 +102,17 @@ const About = () => (
           <div className="mt-10 grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-8 md:gap-14 items-center">
             <img
               src={founder}
-              alt="Founder / Creative Director, ØRIONS"
+              alt="Ratthakan Suwanphakdee — Founder / Creative Director, ØRIONS"
               className="w-40 h-48 md:w-52 md:h-64 rounded-none object-cover object-top shrink-0"
             />
             <div>
               <blockquote lang="th" className="font-serif text-[22px] md:text-[30px] leading-[1.4] tracking-[-0.01em] thai-wrap text-foreground/90 max-w-[40ch]">
                 ผมเริ่ม ØRIONS เพราะเชื่อว่าแบรนด์ที่ดีไม่ได้มาจากการพูดให้ดังที่สุด แต่จากการ <em className="text-cinnabar">พูดให้ถูก.</em> เราจะบอกตรง ๆ เสมอ — ทั้งตอนที่มันใช่ และตอนที่ยังไม่พร้อม.
               </blockquote>
-              <p className="mt-7 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
-                — Founder / Creative Director · ØRIONS
-              </p>
+              <div className="mt-7">
+                <p lang="th" className="font-thai text-[16px] font-medium text-foreground">รัฐกันต์ สุวรรณภักดี</p>
+                <p className="mt-1 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">Ratthakan Suwanphakdee · Founder / Creative Director</p>
+              </div>
             </div>
           </div>
         </Reveal>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowUpRight, Check, Play } from "lucide-react";
+import { ArrowUpRight, Check, Play, Minus, X } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -45,12 +45,15 @@ const lines = [
   { name: "Production", tag: "แค่ทีมถ่าย (มี brief เอง)", th: "ทีมกองถ่าย senior ระดับโฆษณา — ถ่าย ตัด ครบ", pay: "ต่อวัน" },
 ];
 
-// The 4 choices a brand really has.
-const alternatives = [
-  { who: "จ้างทีมเอง (in-house)", note: "เข้าใจคุณดีสุด — แต่แบกเงินเดือนทั้งปี และเก่งได้สไตล์เดียว" },
-  { who: "จ้างสตูดิโอ", note: "ฝีมือดี — แต่งานออกมาเป็นลายเซ็นของเขา ไม่ใช่แบรนด์คุณ" },
-  { who: "Full-service เจ้าอื่น", note: "ครบบนกระดาษ — แต่มัก outsource ผลิต/ยิง และไม่ค่อยวัดผลแบรนด์" },
-  { who: "ORIONS", note: "เข้าใจระดับ in-house · ครบทำเอง คิด–ทำ–ยิง · วัดผลได้ · จ่ายเฉพาะที่ใช้", us: true },
+// Why ORIONS — honest comparison across the 4 real options a brand has.
+// score: 2 = ทำได้ · 1 = บางส่วน · 0 = ไม่ตอบโจทย์
+const compareCols = ["จ้างทีมเอง", "จ้างสตูดิโอ", "Full-service เจ้าอื่น", "ORIONS"];
+const compareRows: { label: string; v: number[] }[] = [
+  { label: "เข้าใจแบรนด์ลึกระดับ in-house", v: [2, 1, 1, 2] },
+  { label: "ครบ คิด–ทำ–ยิง ในทีมเดียว", v: [0, 0, 1, 2] },
+  { label: "งานเป็นแบรนด์คุณ ไม่ใช่ลายเซ็นเขา", v: [2, 0, 1, 2] },
+  { label: "วัดผลแบรนด์จริง ต่อเนื่อง", v: [1, 0, 0, 2] },
+  { label: "ไม่ต้องแบกเงินเดือนทั้งทีม", v: [0, 2, 2, 2] },
 ];
 
 // Company flagship showreel — featured as the mid-page proof break.
@@ -226,18 +229,55 @@ const Index = () => {
           eyebrow="ทำไมต้องเรา"
           title={<>คุณมี 4 ทางเลือก — <em className="text-cinnabar">เราพูดตรงทั้งหมด.</em></>}
         />
-        <div className="mt-12 md:mt-14 space-y-3">
-          {alternatives.map((a, i) => (
-            <Reveal key={a.who} delay={i * 0.06}>
-              <div className={`grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-2 sm:gap-8 p-5 md:p-6 rounded-none border ${a.us ? "card-accent border-cinnabar/40" : "border-foreground/12 bg-foreground/[0.02]"}`}>
-                <div className="flex items-center gap-3">
-                  {a.us && <Slash className="text-[15px]" />}
-                  <span className={`font-display text-[17px] md:text-[19px] font-semibold tracking-[-0.01em] ${a.us ? "text-cinnabar" : ""}`}>{a.who}</span>
-                </div>
-                <p lang="th" className="font-thai thai-wrap text-[13px] md:text-[14px] leading-[1.7] text-foreground/85 self-center">{a.note}</p>
+        <Reveal>
+          <div className="mt-12 md:mt-14 overflow-x-auto -mx-6 px-6 md:mx-0 md:px-0">
+            <div className="min-w-[660px]">
+              {/* header — option names */}
+              <div className="grid grid-cols-[1.6fr_repeat(4,1fr)] items-stretch">
+                <div aria-hidden />
+                {compareCols.map((c, i) => {
+                  const us = i === compareCols.length - 1;
+                  return (
+                    <div key={c} className={`flex items-center justify-center gap-1.5 text-center px-2 py-4 ${us ? "bg-cinnabar/10 border-x border-t border-cinnabar/45" : ""}`}>
+                      {us && <Slash className="text-[13px]" />}
+                      <span lang="th" className={`font-display text-[13px] md:text-[15px] font-semibold leading-tight ${us ? "text-cinnabar" : "text-foreground/90"}`}>{c}</span>
+                    </div>
+                  );
+                })}
               </div>
-            </Reveal>
-          ))}
+              {/* criteria rows */}
+              {compareRows.map((row) => (
+                <div key={row.label} className="grid grid-cols-[1.6fr_repeat(4,1fr)] items-center border-t border-foreground/12">
+                  <div lang="th" className="py-3.5 pr-4 font-thai text-[13px] md:text-[14px] leading-[1.5] text-foreground/85">{row.label}</div>
+                  {row.v.map((val, ci) => {
+                    const us = ci === row.v.length - 1;
+                    return (
+                      <div key={ci} className={`flex items-center justify-center py-3.5 ${us ? "bg-cinnabar/10 border-x border-cinnabar/45" : ""}`}>
+                        {val === 2 ? (
+                          <Check className={us ? "w-[18px] h-[18px] text-cinnabar" : "w-[18px] h-[18px] text-foreground"} strokeWidth={2.5} />
+                        ) : val === 1 ? (
+                          <Minus className="w-[18px] h-[18px] text-muted-foreground/60" strokeWidth={2.5} />
+                        ) : (
+                          <X className="w-4 h-4 text-foreground/25" strokeWidth={2.5} />
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              ))}
+              {/* close the ORIONS column box */}
+              <div className="grid grid-cols-[1.6fr_repeat(4,1fr)]">
+                <div className="col-span-4" />
+                <div className="border-b border-cinnabar/45" />
+              </div>
+            </div>
+          </div>
+        </Reveal>
+        {/* legend */}
+        <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">
+          <span lang="th" className="inline-flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-cinnabar" strokeWidth={2.5} /> ทำได้</span>
+          <span lang="th" className="inline-flex items-center gap-1.5"><Minus className="w-3.5 h-3.5" strokeWidth={2.5} /> บางส่วน</span>
+          <span lang="th" className="inline-flex items-center gap-1.5"><X className="w-3.5 h-3.5 text-foreground/40" strokeWidth={2.5} /> ไม่ตอบโจทย์</span>
         </div>
         <p lang="th" className="mt-8 font-thai text-[14px] md:text-[15px] leading-[1.7] text-foreground/80 max-w-[640px]">
           เรายืดหยุ่นเรื่อง <span className="text-foreground">สไตล์</span> ได้ แต่ไม่เคยลดเรื่อง <span className="text-cinnabar font-medium">มาตรฐานฝีมือ</span> — ลายเซ็นของเราคือ "มาตรฐาน" ไม่ใช่ "ลุค".

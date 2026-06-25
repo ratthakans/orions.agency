@@ -13,9 +13,11 @@ import pleum from "@/assets/pleum.jpg";
 
 const inquirySchema = z.object({
   name:    z.string().trim().min(1, "กรุณากรอกชื่อ").max(100),
-  company: z.string().trim().min(1, "กรุณากรอกชื่อบริษัท").max(150),
   email:   z.string().trim().email("อีเมลไม่ถูกต้อง").max(255),
-  brief:   z.string().trim().min(10, "เล่าเพิ่มอีกนิด (อย่างน้อย 10 ตัวอักษร)").max(2000),
+  phone:   z.string().trim().min(8, "กรุณากรอกเบอร์ติดต่อ").max(20),
+  // optional — low friction, "ทักมาคุยได้เลย"
+  company: z.string().trim().max(150),
+  brief:   z.string().trim().max(2000),
 });
 
 type FieldErrors = Partial<Record<keyof z.infer<typeof inquirySchema>, string>>;
@@ -29,11 +31,6 @@ const packageOptions = [
   "ยังไม่แน่ใจ / ขอคำแนะนำ",
 ];
 
-const addonOptions = [
-  "Google Ads", "LINE Ads", "Landing page", "SEO Article",
-  "Seeding / IO", "UGC / Review", "Hero Brand Film", "CI / Brand Guideline",
-];
-
 const Contact = () => {
   const [searchParams] = useSearchParams();
   const presetRaw = (searchParams.get("pkg") || "").trim();
@@ -45,15 +42,13 @@ const Contact = () => {
   const presetSize = (presetRaw.match(/\b([SML])\b/)?.[1] || "");
   const [form, setForm] = useState({
     name: "",
-    company: "",
     email: "",
+    phone: "",
+    company: "",
     pkg: presetPkg,
     size: presetSize,
-    addons: [] as string[],
     brief: presetRaw ? `สนใจแพ็กเกจ ${presetRaw} — ขอรายละเอียดและใบเสนอราคา` : "",
   });
-  const toggleAddon = (a: string) =>
-    setForm((f) => ({ ...f, addons: f.addons.includes(a) ? f.addons.filter((x) => x !== a) : [...f.addons, a] }));
 
   // Came from a package card → jump straight to the form (just type name + email + send)
   useEffect(() => {
@@ -68,7 +63,7 @@ const Contact = () => {
     e.preventDefault();
     if (hp) { // bot filled the hidden field — pretend success, drop silently
       toast.success("ได้รับข้อมูลแล้ว — ทีม ØRIONS จะติดต่อกลับภายใน 24 ชม.");
-      setForm({ name: "", company: "", email: "", pkg: "", size: "", addons: [], brief: "" });
+      setForm({ name: "", email: "", phone: "", company: "", pkg: "", size: "", brief: "" });
       return;
     }
     const parsed = inquirySchema.safeParse(form);
@@ -94,10 +89,11 @@ const Contact = () => {
       return;
     }
     setSubmitting(true);
-    const { name, company, email, brief } = parsed.data;
+    const { name, company, email, phone, brief } = parsed.data;
     const pkgFull = form.pkg ? `${form.pkg}${form.size ? ` · ${form.size}` : ""}` : "";
-    const meta = [pkgFull && `แพ็กเกจ: ${pkgFull}`, form.addons.length && `add-on: ${form.addons.join(", ")}`].filter(Boolean);
-    const composedBrief = meta.length ? `[${meta.join(" · ")}]\n${brief}` : brief;
+    // phone has no column on contact_inquiries → fold it into the stored brief.
+    const meta = [`โทร: ${phone}`, pkgFull && `แพ็กเกจ: ${pkgFull}`].filter(Boolean);
+    const composedBrief = `[${meta.join(" · ")}]${brief ? `\n${brief}` : ""}`;
 
     let delivered = false;
     // 1) Email notification → studio inbox via Web3Forms
@@ -113,8 +109,10 @@ const Contact = () => {
             replyto: email,
             name,
             email,
+            phone,
             company: company || "—",
-            message: composedBrief,
+            package: pkgFull || "—",
+            message: brief || "(ไม่ได้กรอกรายละเอียด — ขอให้ติดต่อกลับ)",
           }),
         });
         if (res.ok) delivered = true;
@@ -132,7 +130,7 @@ const Contact = () => {
     }
     track("ContactSubmit", { pkg: pkgFull || "none" });
     toast.success("ได้รับข้อมูลแล้ว — ทีม ØRIONS จะติดต่อกลับภายใน 24 ชม.");
-    setForm({ name: "", company: "", email: "", pkg: "", size: "", addons: [], brief: "" });
+    setForm({ name: "", email: "", phone: "", company: "", pkg: "", size: "", brief: "" });
   };
 
   const inputCls = "w-full rounded-none bg-background border border-foreground/15 px-4 py-3 text-[15px] text-foreground placeholder:text-foreground/55 focus:outline-none focus:border-cinnabar focus:ring-1 focus:ring-cinnabar/30 transition-colors font-thai";
@@ -224,20 +222,21 @@ const Contact = () => {
           <div className="mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-start">
             <div className="md:col-span-7 card-soft p-7 md:p-9">
               <p lang="th" className="font-thai thai-wrap text-[14px] leading-[1.7] text-foreground/75 max-w-[44ch]">
-                ใส่รายละเอียดเท่าที่สะดวก. ยิ่งละเอียด ทีมเรายิ่งตอบได้ตรงจุด.
+                แค่ <span className="text-foreground">ชื่อ · เบอร์ · อีเมล</span> ก็ทักได้เลย — เดี๋ยวเราติดต่อกลับไปคุย. รายละเอียดอื่นไว้คุยตอนนัดก็ได้.
               </p>
               <form onSubmit={submit} noValidate className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                 {[
-                  { key: "name",    label: "Name",    type: "text",  ph: "Your name",       ac: "name",         span: "md:col-span-1" },
-                  { key: "company", label: "Company", type: "text",  ph: "Company",         ac: "organization", span: "md:col-span-1" },
-                  { key: "email",   label: "Email",   type: "email", ph: "you@company.com", ac: "email",        span: "md:col-span-2" },
+                  { key: "name",    label: "Name",        type: "text",  ph: "ชื่อของคุณ",       ac: "name",         span: "md:col-span-1", opt: false },
+                  { key: "phone",   label: "เบอร์ติดต่อ", type: "tel",   ph: "08x-xxx-xxxx",     ac: "tel",          span: "md:col-span-1", opt: false },
+                  { key: "email",   label: "Email",       type: "email", ph: "you@company.com",  ac: "email",        span: "md:col-span-1", opt: false },
+                  { key: "company", label: "Company",     type: "text",  ph: "ถ้ามี",            ac: "organization", span: "md:col-span-1", opt: true },
                 ].map((f, i) => (
                   <div key={f.key} className={f.span}>
-                    <label className={labelCls}>— 0{i + 1} / {f.label}</label>
+                    <label className={labelCls}>— 0{i + 1} / {f.label}{f.opt && <span className="text-foreground/60"> (ไม่บังคับ)</span>}</label>
                     <input
                       type={f.type}
                       autoComplete={f.ac}
-                      maxLength={f.key === "email" ? 255 : f.key === "company" ? 150 : 100}
+                      maxLength={f.key === "email" ? 255 : f.key === "company" ? 150 : f.key === "phone" ? 20 : 100}
                       value={form[f.key as keyof typeof form]}
                       onChange={(e) => setForm({ ...form, [f.key]: e.target.value })}
                       placeholder={f.ph}
@@ -252,7 +251,7 @@ const Contact = () => {
                   </div>
                 ))}
                 <div className="md:col-span-2">
-                  <label className={labelCls}>— 04 / แพ็กเกจที่สนใจ <span className="text-foreground/60">(ไม่บังคับ)</span></label>
+                  <label className={labelCls}>— 05 / แพ็กเกจที่สนใจ <span className="text-foreground/60">(ไม่บังคับ)</span></label>
                   <select
                     value={form.pkg}
                     onChange={(e) => setForm({ ...form, pkg: e.target.value })}
@@ -277,21 +276,7 @@ const Contact = () => {
                   </div>
                 </div>
                 <div className="md:col-span-2">
-                  <label className={labelCls}>— 05 / Add-on ที่สนใจ <span className="text-foreground/60">(เลือกได้หลายอย่าง)</span></label>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    {addonOptions.map((a) => {
-                      const on = form.addons.includes(a);
-                      return (
-                        <button key={a} type="button" onClick={() => toggleAddon(a)}
-                          className={`rounded-none border px-3.5 py-1.5 font-thai text-[12px] transition-colors ${on ? "border-cinnabar bg-cinnabar text-background" : "border-foreground/20 text-foreground/70 hover:border-cinnabar hover:text-foreground"}`}>
-                          {a}
-                        </button>
-                      );
-                    })}
-                  </div>
-                </div>
-                <div className="md:col-span-2">
-                  <label className={labelCls}>— 06 / Brief</label>
+                  <label className={labelCls}>— 06 / Brief <span className="text-foreground/60">(ไม่บังคับ — จะคุยรายละเอียดตอนนัดก็ได้)</span></label>
                   <textarea
                     rows={5}
                     maxLength={2000}

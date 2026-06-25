@@ -159,6 +159,29 @@ const Contact = () => {
         </div>
       </section>
 
+      {/* 01b — WHAT HAPPENS NEXT */}
+      <section className="px-6 md:px-10 border-t border-foreground/15">
+        <div className="max-w-[1280px] mx-auto py-16 md:py-20">
+          <SectionLabel label="หลังกดส่ง เกิดอะไรขึ้น" />
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+            {[
+              { n: "01", when: "ภายใน 24 ชม.", t: "เราอ่านโจทย์ แล้วตอบกลับ", d: "บอกตรงๆ ว่าเราช่วยได้ไหม และควรเริ่มที่ยอดหรือแบรนด์ก่อน — ถ้ายังไม่ใช่จังหวะ เราก็จะบอก" },
+              { n: "02", when: "คุยฟรี 45 นาที", t: "วินิจฉัยร่วมกัน", d: "นัดคุยออนไลน์หรือที่ออฟฟิศ ไม่มีข้อผูกมัด — เข้าใจธุรกิจ เป้าหมาย และเงื่อนไขของคุณ" },
+              { n: "03", when: "หลังคุย 2–3 วัน", t: "เสนอแผน + ราคา", d: "สโคปชัด ราคาตีตามโจทย์จริง ไม่มีค่าซ่อน — เริ่มงานเมื่อคุณพร้อม" },
+            ].map((s, i) => (
+              <Reveal key={s.n} delay={i * 0.07}>
+                <div className="card-soft h-full p-7 md:p-8">
+                  <div className="num-display text-cinnabar text-[32px] leading-none">{s.n}</div>
+                  <div lang="th" className="mt-4 font-mono text-[10px] tracking-[0.16em] uppercase text-cinnabar">{s.when}</div>
+                  <h3 lang="th" className="mt-2 font-display text-[18px] md:text-[20px] font-semibold">{s.t}</h3>
+                  <p lang="th" className="mt-3 font-thai thai-wrap text-[13px] leading-[1.7] text-muted-foreground">{s.d}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* 02 — BRIEF */}
       <section id="brief" className="px-6 md:px-10 border-t border-foreground/15 scroll-mt-24">
         <div className="max-w-[1280px] mx-auto py-20 md:py-28">

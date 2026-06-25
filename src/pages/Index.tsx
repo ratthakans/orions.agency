@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowUpRight, Check, Play, Minus, X } from "lucide-react";
+import { ArrowUpRight, Check, Play, Minus, X, Download } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -54,6 +54,19 @@ const compareRows: { label: string; v: number[] }[] = [
   { label: "งานเป็นแบรนด์คุณ ไม่ใช่ลายเซ็นเขา", v: [2, 0, 1, 2] },
   { label: "วัดผลแบรนด์จริง ต่อเนื่อง", v: [1, 0, 0, 2] },
   { label: "ไม่ต้องแบกเงินเดือนทั้งทีม", v: [0, 2, 2, 2] },
+];
+
+// Proof — real, countable deliverables (พูดตรง: นับจาก portfolio จริง).
+const proofStats = [
+  { to: 43, suffix: "+", label: "โปรดักชันวิดีโอ", sub: "reels · MV · long-form" },
+  { to: 15, label: "มิวสิควิดีโอ", sub: "ให้ศิลปินจริง" },
+  { to: 8, label: "แบรนด์เคส", sub: "กลยุทธ์ถึงผลิต" },
+  { to: 10, suffix: "+", label: "ศิลปิน / ค่าย", sub: "ที่ร่วมงาน" },
+];
+// Real artists ØRIONS has produced music videos for.
+const proofArtists = [
+  "PANCAKE", "NUM KALA", "URBOYTJ", "ZOM MARIE", "กวาง จิรพรรณ", "นุ่นนิ่น ชาลิสสา",
+  "นุ๊ก ธนดล", "ป๊ายปาย โอริโอ้", "ปิ๋ม ชุติมา", "วี พนมภูไท", "เบลล์ นิภาดา", "Innertears",
 ];
 
 // Company flagship showreel — featured as the mid-page proof break.
@@ -287,6 +300,57 @@ const Index = () => {
 
     {/* 04b — SHOWREEL (proof break after "why us") */}
     <ShowreelFeature />
+
+    {/* 04c — PROOF BY NUMBERS + artist wall */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+        <div className="inline-flex items-center gap-3 font-mono text-[10px] tracking-[0.22em] uppercase leading-none">
+          <Slash className="text-[15px]" />
+          <span className="text-muted-foreground">Proof</span>
+        </div>
+        <Reveal delay={0.05}>
+          <h2 lang="th" className="mt-6 h-display-md max-w-[20ch] thai-wrap">
+            ตัวเลขที่นับได้จริง <em className="text-cinnabar">ไม่ใช่คำโฆษณา.</em>
+          </h2>
+        </Reveal>
+        <div className="mt-12 md:mt-14 grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10">
+          {proofStats.map((s, i) => (
+            <Reveal key={s.label} delay={i * 0.07}>
+              <div>
+                <CountUp to={s.to} suffix={s.suffix} decimals={0}
+                  className="num-display text-cinnabar text-[clamp(40px,6vw,64px)] leading-none"
+                  suffixClassName="text-[0.5em] ml-0.5" />
+                <div lang="th" className="mt-4 font-display text-[16px] md:text-[18px] font-semibold">{s.label}</div>
+                <div lang="th" className="mt-1 font-mono text-[10px] tracking-[0.1em] uppercase text-muted-foreground">{s.sub}</div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+        <Reveal delay={0.1}>
+          <div className="mt-14 pt-8 border-t border-foreground/12">
+            <div lang="th" className="font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">ศิลปิน / ค่าย ที่เราเคยทำ MV ให้</div>
+            <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-3">
+              {proofArtists.map((a, i) => (
+                <span key={a} className="inline-flex items-center gap-3">
+                  <span lang="th" className="font-display text-[16px] md:text-[19px] font-medium tracking-[-0.01em] text-foreground/85">{a}</span>
+                  {i < proofArtists.length - 1 && <span aria-hidden className="text-cinnabar/60">/</span>}
+                </span>
+              ))}
+            </div>
+          </div>
+        </Reveal>
+        <Reveal delay={0.15}>
+          <div className="mt-12 flex flex-col sm:flex-row gap-4">
+            <Link to="/contact" viewTransition className="btn-accent">
+              <span>คุยฟรี 45 นาที</span><ArrowUpRight className="w-4 h-4" />
+            </Link>
+            <a href="/ORIONS_RateCard_2026.pdf" download className="btn-ghost">
+              <Download className="w-4 h-4" /><span>ดาวน์โหลด Rate Card 2026</span>
+            </a>
+          </div>
+        </Reveal>
+      </div>
+    </section>
 
     {/* — KINETIC BRAND BAND */}
     <MarqueeBand />

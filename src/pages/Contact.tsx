@@ -83,9 +83,13 @@ const Contact = () => {
       return;
     }
     setErrors({});
-    // Fail fast if Supabase isn't configured — don't let the request hang on a
-    // placeholder host. Point the user straight to email instead.
-    if (!import.meta.env.VITE_SUPABASE_URL || !import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY) {
+    // Two delivery channels — succeed if EITHER works:
+    //   • Web3Forms → emails the studio inbox (set VITE_WEB3FORMS_KEY)
+    //   • Supabase  → stores the row (source of truth; set VITE_SUPABASE_*)
+    const env = import.meta.env;
+    const w3key = env.VITE_WEB3FORMS_KEY as string | undefined;
+    const hasSupabase = !!(env.VITE_SUPABASE_URL && env.VITE_SUPABASE_PUBLISHABLE_KEY);
+    if (!w3key && !hasSupabase) {
       toast.error("ระบบฟอร์มขัดข้องชั่วคราว — อีเมลหาเราที่ hello@orions.agency ได้เลย");
       return;
     }
@@ -94,9 +98,35 @@ const Contact = () => {
     const pkgFull = form.pkg ? `${form.pkg}${form.size ? ` · ${form.size}` : ""}` : "";
     const meta = [pkgFull && `แพ็กเกจ: ${pkgFull}`, form.addons.length && `add-on: ${form.addons.join(", ")}`].filter(Boolean);
     const composedBrief = meta.length ? `[${meta.join(" · ")}]\n${brief}` : brief;
-    const { error } = await supabase.from("contact_inquiries").insert({ name, company, email, brief: composedBrief });
+
+    let delivered = false;
+    // 1) Email notification → studio inbox via Web3Forms
+    if (w3key) {
+      try {
+        const res = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({
+            access_key: w3key,
+            subject: `เว็บไซต์ — ลูกค้าใหม่: ${name}${company ? ` · ${company}` : ""}`,
+            from_name: "ØRIONS Website",
+            replyto: email,
+            name,
+            email,
+            company: company || "—",
+            message: composedBrief,
+          }),
+        });
+        if (res.ok) delivered = true;
+      } catch { /* best-effort — fall through to Supabase / error */ }
+    }
+    // 2) Store the inquiry in Supabase
+    if (hasSupabase) {
+      const { error } = await supabase.from("contact_inquiries").insert({ name, company, email, brief: composedBrief });
+      if (!error) delivered = true;
+    }
     setSubmitting(false);
-    if (error) {
+    if (!delivered) {
       toast.error("ส่งไม่สำเร็จ ลองใหม่หรืออีเมลหาเราที่ hello@orions.agency");
       return;
     }

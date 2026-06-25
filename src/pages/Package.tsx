@@ -5,7 +5,7 @@ import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
 import CTABand from "@/components/CTABand";
 import FAQ from "@/components/FAQ";
-import pleum from "@/assets/pleum.jpg";
+import founder from "@/assets/team/founder.jpg";
 
 const RATECARD_PDF = "/ORIONS_RateCard_2026.pdf";
 
@@ -154,8 +154,8 @@ const Package = () => (
             <a href={RATECARD_PDF} download className="btn-ghost">
               <Download className="w-4 h-4" /><span>ดาวน์โหลด Rate Card (PDF)</span>
             </a>
-            <a href="tel:+66655169925" className="btn-ghost">
-              <Phone className="w-4 h-4" /><span>คุยกับฝ่ายขาย 065-516-9925</span>
+            <a href="tel:+66923905464" className="btn-ghost">
+              <Phone className="w-4 h-4" /><span>คุยกับทีม 092-390-5464</span>
             </a>
           </div>
         </Reveal>
@@ -215,26 +215,30 @@ const Package = () => (
       </div>
     </section>
 
-    {/* 05 — TALK TO SALES (ปลื้ม) */}
+    {/* 05 — TALK TO US (direct — no sales middleman) */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <SectionLabel index="06" label="Talk to sales" />
+        <SectionLabel index="06" label="Talk to us" />
         <Reveal delay={0.05}>
           <div className="mt-10 card-soft p-6 md:p-9 grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-6 md:gap-10 items-center">
             <img
-              src={pleum}
-              alt="ปลื้ม — Sales Executive, ØRIONS"
+              src={founder}
+              alt="Ratthakan Suwanphakdee — Founder / Creative Director, ØRIONS"
               className="w-28 h-28 md:w-40 md:h-40 rounded-none object-cover object-top shrink-0"
             />
             <div>
-              <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">— Sales Executive</div>
-              <h3 className="mt-2 h-display-sm">ปลื้ม</h3>
+              <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">— คุยกับเราโดยตรง</div>
+              <h3 className="mt-2 h-display-sm">รัฐกันต์ สุวรรณภักดี</h3>
+              <div lang="th" className="mt-1 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">Founder / Creative Director</div>
               <p lang="th" className="mt-3 font-thai thai-wrap text-[14px] leading-[1.7] text-muted-foreground max-w-[52ch]">
-                อยากได้ใบเสนอราคา หรือไม่แน่ใจว่าสายไหนเหมาะ — ทักได้เลย ยินดีแนะนำตรง ๆ.
+                อยากได้ใบเสนอราคา หรือไม่แน่ใจว่าสายไหนเหมาะ — ทักมาคุยกับเราตรง ๆ ได้เลย ไม่ต้องผ่านเซลส์.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
-                <a href="tel:+66655169925" className="btn-accent">
-                  <Phone className="w-4 h-4" /><span>065-516-9925</span>
+                <a href="https://line.me/ti/p/~orions" target="_blank" rel="noreferrer" className="btn-accent">
+                  <span>ทักที่ LINE @orions</span><ArrowUpRight className="w-4 h-4" />
+                </a>
+                <a href="tel:+66923905464" className="btn-ghost">
+                  <Phone className="w-4 h-4" /><span>092-390-5464</span>
                 </a>
                 <a href={RATECARD_PDF} download className="btn-ghost">
                   <Download className="w-4 h-4" /><span>ดาวน์โหลด Rate Card</span>
@@ -252,7 +256,7 @@ const Package = () => (
       title={<>ไม่แน่ใจว่าควรเริ่มสายไหน? <em className="text-cinnabar">คุยกับเราได้เลย.</em></>}
       subtitle="คุย Discovery Call 45 นาที ฟรี — เล่ายอด งบ และเป้าหมายมา เราช่วยจัดให้พอดี."
       primary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}
-      secondary={{ label: "คุยกับฝ่ายขาย", to: "/contact?pkg=Custom" }}
+      secondary={{ label: "คุยกับทีม", to: "/contact?pkg=Custom" }}
       tone="ink"
     />
   </div>

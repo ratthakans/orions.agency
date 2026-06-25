@@ -9,7 +9,7 @@ import SectionLabel from "@/components/SectionLabel";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { track } from "@/lib/analytics";
-import pleum from "@/assets/pleum.jpg";
+import founder from "@/assets/team/founder.jpg";
 
 const inquirySchema = z.object({
   name:    z.string().trim().min(1, "กรุณากรอกชื่อ").max(100),
@@ -302,14 +302,14 @@ const Contact = () => {
             </div>
 
             <div className="md:col-span-5 flex flex-col gap-6">
-              {/* Contact person — ปลื้ม */}
+              {/* Contact person — founder (direct, no sales middleman) */}
               <div className="card-soft p-7 md:p-8 flex items-center gap-5">
-                <img src={pleum} alt="ปลื้ม — Sales Executive, ØRIONS" className="w-20 h-20 md:w-24 md:h-24 rounded-none object-cover object-top shrink-0" />
+                <img src={founder} alt="Ratthakan Suwanphakdee — Founder / Creative Director, ØRIONS" className="w-20 h-20 md:w-24 md:h-24 rounded-none object-cover object-top shrink-0" />
                 <div>
-                  <div className="font-mono text-[10px] tracking-[0.04em] text-cinnabar">— ผู้ติดต่อ</div>
-                  <h3 className="mt-1.5 font-serif text-[22px] tracking-[-0.01em]">ปลื้ม</h3>
-                  <div lang="th" className="font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">Sales Executive</div>
-                  <a href="tel:+66655169925" className="mt-2 inline-block font-thai text-[14px] text-foreground hover:text-cinnabar transition-colors">065-516-9925</a>
+                  <div className="font-mono text-[10px] tracking-[0.04em] text-cinnabar">— คุยกับเราโดยตรง</div>
+                  <h3 lang="th" className="mt-1.5 font-serif text-[22px] tracking-[-0.01em]">รัฐกันต์ สุวรรณภักดี</h3>
+                  <div lang="th" className="font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">Founder / Creative Director</div>
+                  <a href="tel:+66923905464" className="mt-2 inline-block font-thai text-[14px] text-foreground hover:text-cinnabar transition-colors">092-390-5464</a>
                 </div>
               </div>
 

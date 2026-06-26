@@ -130,6 +130,15 @@ const Package = () => (
       title="แพ็กเกจ & ราคา — Digital · Boutique · Production · ØRIONS"
       description="3 สาย คิดราคาคนละแบบ — Digital รายเดือน · Boutique ต่อแคมเปญ · Production ต่อวัน. จ่ายเฉพาะที่ใช้ ราคาจริงตีตามโจทย์แต่ละลูกค้า."
       path="/package"
+      schema={{
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: faqs.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
+      }}
     />
 
     {/* 01 — HERO */}

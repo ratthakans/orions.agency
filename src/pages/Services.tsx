@@ -134,6 +134,43 @@ const Services = () => (
       title="Services — Digital · Boutique · Production · ØRIONS"
       description="3 สาย เลือกสายเดียวหรือผสม — Digital (ยอด รายเดือน) · Boutique (แบรนด์ ต่อแคมเปญ) · Production (ถ่าย ต่อวัน). สร้างจาก 3 ส่วน คิด–ทำ–ยิง ในระบบเดียว."
       path="/services"
+      schema={[
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://orions.agency/" },
+            { "@type": "ListItem", position: 2, name: "Services", item: "https://orions.agency/services" },
+          ],
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: "Digital — Performance & Social Ads",
+          serviceType: "Performance marketing & social advertising",
+          description: "ยิงแอด ทำคอนเทนต์ วัดผล — ดันยอดด้วย performance, คิดราคารายเดือน.",
+          provider: { "@type": "Organization", name: "ØRIONS", url: "https://orions.agency" },
+          areaServed: { "@type": "Country", name: "Thailand" },
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: "Boutique — Brand Strategy & Identity",
+          serviceType: "Brand strategy, identity & rebrand",
+          description: "สร้าง · refresh · rebrand ครบตั้งแต่คิดถึงวัดผล, คิดราคาต่อแคมเปญ.",
+          provider: { "@type": "Organization", name: "ØRIONS", url: "https://orions.agency" },
+          areaServed: { "@type": "Country", name: "Thailand" },
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: "Production — Photo & Video",
+          serviceType: "Advertising-grade photo & video production",
+          description: "ทีมกองถ่าย senior ระดับโฆษณา — ถ่าย ตัด ครบ, คิดราคาต่อวัน.",
+          provider: { "@type": "Organization", name: "ØRIONS", url: "https://orions.agency" },
+          areaServed: { "@type": "Country", name: "Thailand" },
+        },
+      ]}
     />
 
     {/* 01 — HERO */}

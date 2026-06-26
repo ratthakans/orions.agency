@@ -138,6 +138,17 @@ const Index = () => {
       title="ØRIONS — ยอด หรือ แบรนด์? · Creative Agency, Bangkok"
       description="เอเจนซีที่รวม คิด–ทำ–ยิง ไว้ในระบบเดียว — Digital (ยอด) · Boutique (แบรนด์) · Production (ถ่าย). เราถามก่อนเสนอเสมอ: ยอด หรือ แบรนด์?"
       path="/"
+      schema={{
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: [
+          { "@type": "Question", name: "ØRIONS ทำอะไร?", acceptedAnswer: { "@type": "Answer", text: "ØRIONS เป็นครีเอทีฟเอเจนซีในกรุงเทพฯ ที่รวม คิด–ทำ–ยิง ไว้ในระบบเดียว — Digital (ยอด) · Boutique (แบรนด์) · Production (ถ่าย). เราถามก่อนเสนอเสมอ: ยอด หรือ แบรนด์?" } },
+          { "@type": "Question", name: "เริ่มงานกับ ØRIONS ต้องทำอย่างไร?", acceptedAnswer: { "@type": "Answer", text: "เริ่มจากคุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์มา เราจะบอกตรงๆ ว่าควรเริ่มที่ยอดหรือแบรนด์ก่อน. ติดต่อ hello@orions.agency · 092 390 5464 · LINE @orions" } },
+          { "@type": "Question", name: "ØRIONS คิดราคายังไง?", acceptedAnswer: { "@type": "Answer", text: "ตีตามโจทย์และขอบเขตของแต่ละลูกค้า ไม่มีราคาตายตัวหน้าเว็บ — Digital จ่ายรายเดือน · Boutique ต่อแคมเปญ · Production ต่อวัน. ดูช่วงราคาอ้างอิงใน Rate Card (PDF) ได้." } },
+          { "@type": "Question", name: "ØRIONS เคยทำงานอะไรมาบ้าง?", acceptedAnswer: { "@type": "Answer", text: "40+ โปรดักชันวิดีโอ (reels · MV · long-form), มิวสิควิดีโอให้ศิลปินจริง 15 ตัว (PANCAKE, NUM KALA, URBOYTJ และอื่นๆ) และเคสแบรนด์ 8 เคสตั้งแต่กลยุทธ์ถึงการผลิต." } },
+          { "@type": "Question", name: "ØRIONS ไม่เหมาะกับใคร?", acceptedAnswer: { "@type": "Answer", text: "ถ้าต้องการแค่ยอดให้เร็วที่สุดโดยไม่สนภาพจำระยะยาว หรืออยากได้คอนเทนต์เยอะที่สุดราคาถูกที่สุดโดยไม่มีกลยุทธ์ เราจะบอกตรงๆ ว่าเราอาจไม่ใช่คำตอบ." } },
+        ],
+      }}
     />
 
     {/* 01 — HERO */}

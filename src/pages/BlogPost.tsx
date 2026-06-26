@@ -48,6 +48,7 @@ const BlogPost = () => {
         description={post.excerpt}
         path={`/blog/${post.slug}`}
         image={post.cover}
+        ogType="article"
         schema={schema}
       />
 

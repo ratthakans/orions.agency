@@ -10,6 +10,8 @@ interface SEOProps {
   noindex?: boolean;
   keywords?: string;
   schema?: SchemaValue;
+  /** og:type — "website" (default) or "article" for blog posts. */
+  ogType?: string;
 }
 
 const SITE_URL = "https://orions.agency";
@@ -17,7 +19,7 @@ const DEFAULT_OG_IMAGE = `${SITE_URL}/og.jpg`;
 
 const toAbsoluteUrl = (path: string) => (path.startsWith("http") ? path : `${SITE_URL}${path}`);
 
-const SEO = ({ title, description, path, image = DEFAULT_OG_IMAGE, noindex = false, keywords, schema }: SEOProps) => {
+const SEO = ({ title, description, path, image = DEFAULT_OG_IMAGE, noindex = false, keywords, schema, ogType = "website" }: SEOProps) => {
   const canonical = toAbsoluteUrl(path);
   const ogImage = toAbsoluteUrl(image);
   const schemas = Array.isArray(schema) ? schema : schema ? [schema] : [];
@@ -30,7 +32,7 @@ const SEO = ({ title, description, path, image = DEFAULT_OG_IMAGE, noindex = fal
       <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
       <link rel="canonical" href={canonical} />
 
-      <meta property="og:type" content="website" />
+      <meta property="og:type" content={ogType} />
       <meta property="og:site_name" content="ØRIONS" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />

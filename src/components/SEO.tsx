@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { Head } from "vite-react-ssg";
 
 type SchemaValue = Record<string, unknown> | Array<Record<string, unknown>>;
 
@@ -25,7 +25,7 @@ const SEO = ({ title, description, path, image = DEFAULT_OG_IMAGE, noindex = fal
   const schemas = Array.isArray(schema) ? schema : schema ? [schema] : [];
 
   return (
-    <Helmet prioritizeSeoTags>
+    <Head>
       <title>{title}</title>
       <meta name="description" content={description} />
       {keywords ? <meta name="keywords" content={keywords} /> : null}
@@ -49,7 +49,7 @@ const SEO = ({ title, description, path, image = DEFAULT_OG_IMAGE, noindex = fal
           {JSON.stringify(entry)}
         </script>
       ))}
-    </Helmet>
+    </Head>
   );
 };
 

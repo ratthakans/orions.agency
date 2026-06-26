@@ -1,102 +1,73 @@
-import { lazy, Suspense, useEffect } from "react";
+import { Suspense } from "react";
+import { Outlet, Navigate } from "react-router-dom";
+import type { RouteRecord } from "vite-react-ssg";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-
 import Layout from "./components/Layout";
 import ScrollToTop from "./components/ScrollToTop";
 import ErrorBoundary from "./components/ErrorBoundary";
 import Index from "./pages/Index";
+import { caseStudies } from "./data/caseStudies";
+import { blogPosts } from "./data/blog";
 
-// Below-the-fold routes are split into their own chunks to keep first load small.
-// Each import fn is reused for both lazy() and idle prefetch (warms the module cache
-// so a nav click renders instantly instead of waiting on a network fetch).
-const routes = {
-  About: () => import("./pages/About"),
-  Services: () => import("./pages/Services"),
-  Work: () => import("./pages/Work"),
-  CaseStudy: () => import("./pages/CaseStudy"),
-  Package: () => import("./pages/Package"),
-  Contact: () => import("./pages/Contact"),
-  Diagnostic: () => import("./pages/Diagnostic"),
-  Blog: () => import("./pages/Blog"),
-  BlogPost: () => import("./pages/BlogPost"),
-  Privacy: () => import("./pages/Privacy"),
-  NotFound: () => import("./pages/NotFound"),
-};
+// Pages export a default component; adapt that to react-router's lazy ({ Component }).
+type PageModule = { default: React.ComponentType };
+const page = (load: () => Promise<PageModule>) => async () => ({ Component: (await load()).default });
 
-const About = lazy(routes.About);
-const Services = lazy(routes.Services);
-const Work = lazy(routes.Work);
-const CaseStudy = lazy(routes.CaseStudy);
-const Package = lazy(routes.Package);
-const Contact = lazy(routes.Contact);
-const Diagnostic = lazy(routes.Diagnostic);
-const Blog = lazy(routes.Blog);
-const BlogPost = lazy(routes.BlogPost);
-const Privacy = lazy(routes.Privacy);
-const NotFound = lazy(routes.NotFound);
+const RootLayout = () => (
+  <TooltipProvider>
+    <Sonner />
+    <ScrollToTop />
+    <Layout>
+      <ErrorBoundary>
+        <Suspense fallback={<div className="min-h-[60vh]" aria-hidden />}>
+          <Outlet />
+        </Suspense>
+      </ErrorBoundary>
+    </Layout>
+  </TooltipProvider>
+);
 
-/** Warm all route chunks during idle time after first paint → instant navigation. */
-const usePrefetchRoutes = () => {
-  useEffect(() => {
-    // Warm light below-the-fold routes, but skip the heavy Contact chunk
-    // (Supabase + zod, ~270 KB) — it loads on demand when a visitor heads there.
-    const prefetch = () =>
-      Object.entries(routes).forEach(([name, load]) => { if (name !== "Contact") load(); });
-    const ric = (window as Window & { requestIdleCallback?: (cb: () => void) => number }).requestIdleCallback;
-    const id = ric ? ric(prefetch) : window.setTimeout(prefetch, 1500);
-    return () => {
-      const cic = (window as Window & { cancelIdleCallback?: (h: number) => void }).cancelIdleCallback;
-      if (ric && cic) cic(id);
-      else clearTimeout(id);
-    };
-  }, []);
-};
+export const routes: RouteRecord[] = [
+  {
+    path: "/",
+    element: <RootLayout />,
+    children: [
+      { index: true, element: <Index /> },
+      { path: "about", lazy: page(() => import("./pages/About")) },
+      { path: "services", lazy: page(() => import("./pages/Services")) },
+      { path: "work", lazy: page(() => import("./pages/Work")) },
+      {
+        path: "work/:slug",
+        lazy: page(() => import("./pages/CaseStudy")),
+        getStaticPaths: () => caseStudies.map((c) => `work/${c.slug}`),
+      },
+      { path: "package", lazy: page(() => import("./pages/Package")) },
+      { path: "diagnostic", lazy: page(() => import("./pages/Diagnostic")) },
+      { path: "blog", lazy: page(() => import("./pages/Blog")) },
+      {
+        path: "blog/:slug",
+        lazy: page(() => import("./pages/BlogPost")),
+        getStaticPaths: () => blogPosts.map((p) => `blog/${p.slug}`),
+      },
+      { path: "privacy", lazy: page(() => import("./pages/Privacy")) },
+      { path: "contact", lazy: page(() => import("./pages/Contact")) },
 
-const App = () => {
-  usePrefetchRoutes();
-  return (
-    <TooltipProvider>
-      <Sonner />
-      <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-        <ScrollToTop />
-        <Layout>
-          <ErrorBoundary>
-          <Suspense fallback={<div className="min-h-[60vh]" aria-hidden />}>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/work" element={<Work />} />
-            <Route path="/work/:slug" element={<CaseStudy />} />
-            <Route path="/package" element={<Package />} />
-            <Route path="/pricing" element={<Navigate to="/package" replace />} />
-            <Route path="/diagnostic" element={<Diagnostic />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:slug" element={<BlogPost />} />
-            <Route path="/privacy" element={<Privacy />} />
-            <Route path="/contact" element={<Contact />} />
+      // Legacy / shorthand paths → client-side redirects (render null during SSG).
+      { path: "pricing", element: <Navigate to="/package" replace /> },
+      { path: "manifesto", element: <Navigate to="/about" replace /> },
+      { path: "approach", element: <Navigate to="/about" replace /> },
+      { path: "studio", element: <Navigate to="/work" replace /> },
+      { path: "projects", element: <Navigate to="/work" replace /> },
+      { path: "ventures", element: <Navigate to="/work" replace /> },
+      { path: "health-check", element: <Navigate to="/contact" replace /> },
+      { path: "consulting", element: <Navigate to="/services" replace /> },
+      { path: "journal", element: <Navigate to="/blog" replace /> },
+      { path: "journal/:slug", element: <Navigate to="/blog" replace /> },
 
-            {/* Legacy paths → fold into the new structure */}
-            <Route path="/manifesto" element={<Navigate to="/about" replace />} />
-            <Route path="/approach" element={<Navigate to="/about" replace />} />
-            <Route path="/studio" element={<Navigate to="/work" replace />} />
-            <Route path="/projects" element={<Navigate to="/work" replace />} />
-            <Route path="/ventures" element={<Navigate to="/work" replace />} />
-            <Route path="/health-check" element={<Navigate to="/contact" replace />} />
-            <Route path="/consulting" element={<Navigate to="/services" replace />} />
-            <Route path="/journal" element={<Navigate to="/blog" replace />} />
-            <Route path="/journal/:slug" element={<Navigate to="/blog" replace />} />
-
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          </Suspense>
-          </ErrorBoundary>
-        </Layout>
-      </BrowserRouter>
-    </TooltipProvider>
-  );
-};
-
-export default App;
+      // Prerendered branded 404 (Vercel serves dist/404.html for unmatched URLs)
+      { path: "404", lazy: page(() => import("./pages/NotFound")) },
+      { path: "*", lazy: page(() => import("./pages/NotFound")) },
+    ],
+  },
+];

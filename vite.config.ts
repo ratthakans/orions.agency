@@ -4,7 +4,7 @@ import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
 import path from "path";
 
 // https://vitejs.dev/config/
-export default defineConfig(() => ({
+export default defineConfig(({ isSsrBuild }) => ({
   server: {
     host: "::",
     port: 8080,
@@ -33,10 +33,13 @@ export default defineConfig(() => ({
     rollupOptions: {
       output: {
         // Split rarely-changing vendor libs into their own long-cached chunks
-        manualChunks: {
-          react: ["react", "react-dom", "react-router-dom"],
-          motion: ["framer-motion"],
-        },
+        // (client build only — vite-react-ssg externalizes these in the SSR pass).
+        manualChunks: isSsrBuild
+          ? undefined
+          : {
+              react: ["react", "react-dom", "react-router-dom"],
+              motion: ["framer-motion"],
+            },
       },
     },
   },

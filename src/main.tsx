@@ -1,11 +1,8 @@
-import { createRoot } from "react-dom/client";
-import { HelmetProvider } from "react-helmet-async";
-import App from "./App.tsx";
+import { ViteReactSSG } from "vite-react-ssg";
+import { routes } from "./App";
 import "./fonts";
 import "./index.css";
 
-createRoot(document.getElementById("root")!).render(
-  <HelmetProvider>
-    <App />
-  </HelmetProvider>
-);
+// SSG/CSR entry — vite-react-ssg prerenders each route to static HTML at build
+// (correct per-page <head> via <Head>), then hydrates on the client.
+export const createRoot = ViteReactSSG({ routes });

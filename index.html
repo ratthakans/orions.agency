@@ -12,32 +12,14 @@
     <link rel="preconnect" href="https://www.youtube.com" />
     <link rel="preconnect" href="https://i.ytimg.com" />
     <meta name="theme-color" content="#0E0E0E" />
-    <title>ØRIONS — Stories, refined. · Creative Agency, Bangkok</title>
-    <meta name="description" content="ครีเอทีฟเอเจนซีในกรุงเทพฯ ที่รวม คิด–ทำ–ยิง ไว้ในระบบเดียว — Digital (ยอด) · Boutique (แบรนด์) · Production (ถ่าย). เราถามก่อนเสนอเสมอ: ยอด หรือ แบรนด์?">
     <meta name="author" content="ØRIONS" />
-    <meta name="robots" content="index, follow" />
-    <!-- canonical is set per-route by the <SEO> component (react-helmet). A hardcoded
-         one here would duplicate it on every page → Google ignores duplicated canonicals. -->
+    <!-- title · description · robots · canonical · Open Graph · Twitter are emitted
+         per-route by the <SEO> component (vite-react-ssg <Head>) and prerendered into
+         each page. Static copies here would duplicate (and go stale) on every URL. -->
 
     <!-- Plausible analytics (privacy-friendly, no cookie banner needed) -->
     <script defer data-domain="orions.agency" src="https://plausible.io/js/script.js"></script>
     <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
-
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://orions.agency/" />
-    <meta property="og:title" content="ØRIONS — Stories, refined. · Creative Agency, Bangkok">
-    <meta property="og:description" content="คิด–ทำ–ยิง ในระบบเดียว — Digital (ยอด) · Boutique (แบรนด์) · Production (ถ่าย). เราถามก่อนเสนอ: ยอด หรือ แบรนด์?">
-    <meta property="og:image" content="https://orions.agency/og.jpg">
-    <meta property="og:site_name" content="ØRIONS" />
-    <meta property="og:locale" content="th_TH" />
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="ØRIONS — Stories, refined. · Creative Agency, Bangkok">
-    <meta name="twitter:description" content="คิด–ทำ–ยิง ในระบบเดียว — Digital (ยอด) · Boutique (แบรนด์) · Production (ถ่าย). เราถามก่อนเสนอ: ยอด หรือ แบรนด์?">
-    <meta name="twitter:image" content="https://orions.agency/og.jpg">
 
     <!-- JSON-LD: Organization -->
     <script type="application/ld+json">

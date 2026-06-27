@@ -38,13 +38,6 @@ const pressures = [
     desc: "ค่าโฆษณา Meta (CPM) แพงขึ้นราว 20% ต่อปี — งบเท่าเดิมได้ reach น้อยลง ยิงมั่วคือเผาเงิน" },
 ];
 
-// 3 sales lines — pick one or mix.
-const lines = [
-  { name: "Digital", tag: "ยอด / ลูกค้า เดี๋ยวนี้", th: "ยิงแอด ทำคอนเทนต์ วัดผล — ดันยอดด้วย performance", pay: "รายเดือน" },
-  { name: "Boutique", tag: "แบรนด์ที่คนจำและเลือก", th: "สร้าง · refresh · rebrand ครบตั้งแต่คิดถึงวัดผล", pay: "ต่อแคมเปญ", featured: true },
-  { name: "Production", tag: "แค่ทีมถ่าย (มี brief เอง)", th: "ทีมกองถ่าย senior ระดับโฆษณา — ถ่าย ตัด ครบ", pay: "ต่อวัน" },
-];
-
 // Why ORIONS — honest comparison across the 4 real options a brand has.
 // score: 2 = ทำได้ · 1 = บางส่วน · 0 = ไม่ตอบโจทย์
 const compareCols = ["จ้างทีมเอง", "จ้างสตูดิโอ", "Full-service เจ้าอื่น", "ORIONS"];
@@ -220,24 +213,31 @@ const Index = () => {
           title={<>คุณอยากได้ <em className="text-cinnabar">ยอด</em> หรือ <em className="text-cinnabar">แบรนด์</em>?</>}
           intro="ลูกค้าเกือบทุกคนเข้ามาเพราะอยากได้ยอด — แต่ยอดที่อยู่ยาวต้องมีแบรนด์หนุน. เราบอกตรงๆ ว่าควรเริ่มตรงไหน และจะไม่ขายของที่คุณยังไม่ต้องการ."
         />
-        <div className="mt-12 md:mt-14 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
-          {lines.map((l, i) => (
-            <Reveal key={l.name} delay={i * 0.07}>
-              <div className={`relative h-full flex flex-col p-7 md:p-8 ${l.featured ? "card-accent" : "card-soft"}`}>
-                {l.featured && <span className="ribbon-pill absolute -top-3 left-7">ครบสุด</span>}
-                <span lang="th" className="font-thai text-[11px] tracking-[0.02em] text-cinnabar">{l.tag}</span>
-                <h3 className="mt-2 font-unbounded text-[24px] md:text-[28px] leading-none tracking-[-0.01em]">{l.name}</h3>
-                <p lang="th" className="mt-5 font-thai thai-wrap text-[14px] leading-[1.7] text-foreground/85 flex-1">{l.th}</p>
-                <div className="mt-6 pt-5 border-t border-foreground/15 flex items-center justify-between">
-                  <span lang="th" className="font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">จ่ายแบบ</span>
-                  <span lang="th" className="font-thai text-[13px] text-foreground">{l.pay}</span>
+        {/* TWO DOORS — Online (ยอด) · Boutique (แบรนด์) */}
+        <div className="mt-12 md:mt-14 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          {[
+            { to: "/online", name: "Online", side: "ยอด · เร็ว ไว ไม่แพง",
+              th: "ยิงแอด · โซเชียล · คอนเทนต์ วัดผล — สำหรับแบรนด์ที่มีของพร้อมขายและอยากเห็นยอดเดี๋ยวนี้.",
+              pay: "รายเดือน / แพ็กเกจ · มีเรทการ์ด" },
+            { to: "/boutique", name: "Boutique", side: "แบรนด์ · งานปั้น craft",
+              th: "brand strategy · identity · big idea · ฟิล์มระดับโฆษณา — สำหรับแบรนด์ที่อยากถูกจำ ไม่ใช่แค่ถูกเห็น.",
+              pay: "ต่อแคมเปญ / โปรเจกต์ · ไม่มีเรทการ์ด" },
+          ].map((d, i) => (
+            <Reveal key={d.name} delay={0.05 + i * 0.07}>
+              <Link to={d.to} viewTransition className="group relative flex flex-col h-full p-8 md:p-10 card-soft hover:border-cinnabar/60 transition-colors">
+                <span lang="th" className="font-mono text-[10px] tracking-[0.18em] uppercase text-cinnabar">{d.side}</span>
+                <h3 className="mt-3 font-unbounded text-[28px] md:text-[36px] leading-none tracking-[-0.01em] group-hover:text-cinnabar transition-colors">{d.name}</h3>
+                <p lang="th" className="mt-5 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-foreground/85 flex-1">{d.th}</p>
+                <div className="mt-7 pt-5 border-t border-foreground/15 flex items-center justify-between gap-3">
+                  <span lang="th" className="font-mono text-[10px] tracking-[0.12em] uppercase text-muted-foreground">{d.pay}</span>
+                  <ArrowUpRight className="w-5 h-5 text-cinnabar shrink-0 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </div>
-              </div>
+              </Link>
             </Reveal>
           ))}
         </div>
         <p lang="th" className="mt-8 font-thai text-[13px] leading-[1.7] text-muted-foreground max-w-[640px]">
-          เลือกสายเดียว หรือผสมก็ได้ — ส่วนใหญ่เริ่มที่ <span className="text-foreground/85">ยอด (Digital)</span> ให้เงินหมุนก่อน แล้วต่อ <span className="text-foreground/85">แบรนด์ (Boutique)</span> ให้แข็ง.
+          เลือกฝั่งที่ใช่ — หรือเริ่มที่ <span className="text-foreground/85">ยอด (Online)</span> ให้เงินหมุนก่อน แล้วต่อ <span className="text-foreground/85">แบรนด์ (Boutique)</span> ให้แข็งก็ได้.
         </p>
         <Link to="/diagnostic" className="btn-ghost mt-6">
           <span>ไม่แน่ใจ? ลองวินิจฉัย — ยอด หรือ แบรนด์?</span><ArrowUpRight className="w-4 h-4" />

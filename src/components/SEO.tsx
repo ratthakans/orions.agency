@@ -33,6 +33,7 @@ const SEO = ({ title, description, path, image = DEFAULT_OG_IMAGE, noindex = fal
       <link rel="canonical" href={canonical} />
 
       <meta property="og:type" content={ogType} />
+      <meta property="og:locale" content="th_TH" />
       <meta property="og:site_name" content="ØRIONS" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />

@@ -129,15 +129,15 @@ const Index = () => {
   <div>
     <SEO
       title="ØRIONS — ยอด หรือ แบรนด์? · Creative Agency, Bangkok"
-      description="เอเจนซีที่รวม คิด–ทำ–ยิง ไว้ในระบบเดียว — Digital (ยอด) · Boutique (แบรนด์) · Production (ถ่าย). เราถามก่อนเสนอเสมอ: ยอด หรือ แบรนด์?"
+      description="ครีเอทีฟเอเจนซีในกรุงเทพฯ ที่แยกชัดเป็น 2 ฝั่ง — Online (ยอด · เร็ว ไม่แพง · มีเรทการ์ด) และ Boutique (แบรนด์ · งานคราฟต์ · ต่อโปรเจกต์). เราถามก่อนเสนอเสมอ: ยอด หรือ แบรนด์?"
       path="/"
       schema={{
         "@context": "https://schema.org",
         "@type": "FAQPage",
         mainEntity: [
-          { "@type": "Question", name: "ØRIONS ทำอะไร?", acceptedAnswer: { "@type": "Answer", text: "ØRIONS เป็นครีเอทีฟเอเจนซีในกรุงเทพฯ ที่รวม คิด–ทำ–ยิง ไว้ในระบบเดียว — Digital (ยอด) · Boutique (แบรนด์) · Production (ถ่าย). เราถามก่อนเสนอเสมอ: ยอด หรือ แบรนด์?" } },
+          { "@type": "Question", name: "ØRIONS ทำอะไร?", acceptedAnswer: { "@type": "Answer", text: "ØRIONS เป็นครีเอทีฟเอเจนซีในกรุงเทพฯ ที่แยกชัดเป็น 2 ฝั่ง — ORIONS Online (ยอด · ยิงแอด/โซเชียล/คอนเทนต์ มีเรทการ์ด) และ ORIONS Boutique (แบรนด์ · งานคราฟต์ระดับโฆษณา คิดต่อโปรเจกต์). เราถามก่อนเสนอเสมอ: ยอด หรือ แบรนด์?" } },
           { "@type": "Question", name: "เริ่มงานกับ ØRIONS ต้องทำอย่างไร?", acceptedAnswer: { "@type": "Answer", text: "เริ่มจากคุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์มา เราจะบอกตรงๆ ว่าควรเริ่มที่ยอดหรือแบรนด์ก่อน. ติดต่อ hello@orions.agency · 092 390 5464 · LINE @orions" } },
-          { "@type": "Question", name: "ØRIONS คิดราคายังไง?", acceptedAnswer: { "@type": "Answer", text: "ตีตามโจทย์และขอบเขตของแต่ละลูกค้า ไม่มีราคาตายตัวหน้าเว็บ — Digital จ่ายรายเดือน · Boutique ต่อแคมเปญ · Production ต่อวัน. ดูช่วงราคาอ้างอิงใน Rate Card (PDF) ได้." } },
+          { "@type": "Question", name: "ØRIONS คิดราคายังไง?", acceptedAnswer: { "@type": "Answer", text: "ฝั่ง Online มีเรทการ์ดและแพ็กเกจ คิดรายเดือน เริ่มได้เร็ว — ดาวน์โหลด Rate Card (PDF) ดูช่วงราคาได้. ฝั่ง Boutique คิดต่อแคมเปญ/โปรเจกต์ ไม่มีเรทการ์ด ตีตามโจทย์จริง ขอใบเสนอราคาได้." } },
           { "@type": "Question", name: "ØRIONS เคยทำงานอะไรมาบ้าง?", acceptedAnswer: { "@type": "Answer", text: "40+ โปรดักชันวิดีโอ (reels · MV · long-form), มิวสิควิดีโอให้ศิลปินจริง 15 ตัว (PANCAKE, NUM KALA, URBOYTJ และอื่นๆ) และเคสแบรนด์ 8 เคสตั้งแต่กลยุทธ์ถึงการผลิต." } },
           { "@type": "Question", name: "ØRIONS ไม่เหมาะกับใคร?", acceptedAnswer: { "@type": "Answer", text: "ถ้าต้องการแค่ยอดให้เร็วที่สุดโดยไม่สนภาพจำระยะยาว หรืออยากได้คอนเทนต์เยอะที่สุดราคาถูกที่สุดโดยไม่มีกลยุทธ์ เราจะบอกตรงๆ ว่าเราอาจไม่ใช่คำตอบ." } },
         ],
@@ -173,45 +173,14 @@ const Index = () => {
       </div>
     </section>
 
-    {/* 02 — MARKET PRESSURE — ทำแบบเดิมไม่รอด */}
-    <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <SectionHeading
-          lang="th"
-          eyebrow="2026"
-          title={<>ทำแบบเดิม <em className="text-cinnabar">ไม่รอดแล้ว.</em></>}
-          intro="ปี 2026 เปลี่ยนกติกาไป 3 อย่าง — และทั้ง 3 คือเหตุผลว่าทำไม 'ทำเองแบบเดิม' ถึงไม่พอ"
-        />
-        <div className="mt-12 md:mt-14 grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
-          {pressures.map((p, i) => (
-            <Reveal key={p.title} delay={i * 0.08}>
-              <div className="card-soft h-full p-7 md:p-8">
-                <CountUp to={p.to} prefix={p.prefix} suffix={p.suffix} decimals={p.decimals}
-                  className="num-display text-cinnabar text-[clamp(44px,6vw,68px)] leading-none"
-                  suffixClassName="text-[0.5em] ml-0.5" />
-                <h3 lang="th" className="mt-5 font-display text-[17px] md:text-[19px] font-semibold">{p.title}</h3>
-                <p lang="th" className="mt-2.5 font-thai thai-wrap text-[13px] leading-[1.7] text-muted-foreground">{p.desc}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-        <p className="mt-7 font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground/70 max-w-[640px] leading-[1.7]">
-          ที่มา · short-form video benchmarks 2025 · Ahrefs AI-content study 2025 · Meta CPM benchmarks 2024–25
-        </p>
-        <p lang="th" className="mt-6 font-thai text-[13px] leading-[1.7] text-foreground/80 max-w-[640px]">
-          แต่ก่อนจะเริ่ม เราขอถามคุณแค่ <span className="text-cinnabar font-medium">คำถามเดียว</span> ↓
-        </p>
-      </div>
-    </section>
-
-    {/* 03 — THE ONE QUESTION + 3 CHOICES */}
+    {/* 02 — TWO DIVISIONS — ORIONS is one agency, two ways */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionHeading
           lang="th"
-          eyebrow="ถามก่อนขาย"
-          title={<>คุณอยากได้ <em className="text-cinnabar">ยอด</em> หรือ <em className="text-cinnabar">แบรนด์</em>?</>}
-          intro="ลูกค้าเกือบทุกคนเข้ามาเพราะอยากได้ยอด — แต่ยอดที่อยู่ยาวต้องมีแบรนด์หนุน. เราบอกตรงๆ ว่าควรเริ่มตรงไหน และจะไม่ขายของที่คุณยังไม่ต้องการ."
+          eyebrow="Creative agency · two divisions"
+          title={<>หนึ่งเอเจนซี — <em className="text-cinnabar">สองวิธีทำงาน.</em></>}
+          intro="ORIONS เป็นครีเอทีฟเอเจนซีที่แยกชัดเป็น 2 ฝั่ง เพราะลูกค้าคนละแบบ — เลือกฝั่งของคุณได้เลย หรือใช้ทั้งคู่ก็ได้."
         />
         {/* TWO DOORS — Online (ยอด) · Boutique (แบรนด์) */}
         <div className="mt-12 md:mt-14 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
@@ -237,11 +206,42 @@ const Index = () => {
           ))}
         </div>
         <p lang="th" className="mt-8 font-thai text-[13px] leading-[1.7] text-muted-foreground max-w-[640px]">
-          เลือกฝั่งที่ใช่ — หรือเริ่มที่ <span className="text-foreground/85">ยอด (Online)</span> ให้เงินหมุนก่อน แล้วต่อ <span className="text-foreground/85">แบรนด์ (Boutique)</span> ให้แข็งก็ได้.
+          ไม่แน่ใจว่าฝั่งไหน? <span className="text-foreground/85">ยอด (Online)</span> ให้เงินหมุนก่อน แล้วต่อ <span className="text-foreground/85">แบรนด์ (Boutique)</span> ให้แข็งก็ได้.
         </p>
         <Link to="/diagnostic" className="btn-ghost mt-6">
-          <span>ไม่แน่ใจ? ลองวินิจฉัย — ยอด หรือ แบรนด์?</span><ArrowUpRight className="w-4 h-4" />
+          <span>ลองวินิจฉัย — ยอด หรือ แบรนด์?</span><ArrowUpRight className="w-4 h-4" />
         </Link>
+      </div>
+    </section>
+
+    {/* 03 — MARKET PRESSURE — ทำแบบเดิมไม่รอด */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+        <SectionHeading
+          lang="th"
+          eyebrow="2026"
+          title={<>ทำแบบเดิม <em className="text-cinnabar">ไม่รอดแล้ว.</em></>}
+          intro="ปี 2026 เปลี่ยนกติกาไป 3 อย่าง — และทั้ง 3 คือเหตุผลว่าทำไม 'ทำเองแบบเดิม' ถึงไม่พอ"
+        />
+        <div className="mt-12 md:mt-14 grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+          {pressures.map((p, i) => (
+            <Reveal key={p.title} delay={i * 0.08}>
+              <div className="card-soft h-full p-7 md:p-8">
+                <CountUp to={p.to} prefix={p.prefix} suffix={p.suffix} decimals={p.decimals}
+                  className="num-display text-cinnabar text-[clamp(44px,6vw,68px)] leading-none"
+                  suffixClassName="text-[0.5em] ml-0.5" />
+                <h3 lang="th" className="mt-5 font-display text-[17px] md:text-[19px] font-semibold">{p.title}</h3>
+                <p lang="th" className="mt-2.5 font-thai thai-wrap text-[13px] leading-[1.7] text-muted-foreground">{p.desc}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+        <p className="mt-7 font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground/70 max-w-[640px] leading-[1.7]">
+          ที่มา · short-form video benchmarks 2025 · Ahrefs AI-content study 2025 · Meta CPM benchmarks 2024–25
+        </p>
+        <p lang="th" className="mt-6 font-thai text-[13px] leading-[1.7] text-foreground/80 max-w-[640px]">
+          ทำเองแบบเดิมจึงไม่พอ — ต้องมีทีมที่ <span className="text-cinnabar font-medium">คิด ทำ ยิง ครบ</span> ↓
+        </p>
       </div>
     </section>
 

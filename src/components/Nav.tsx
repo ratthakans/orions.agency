@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
 import Logo from "@/components/Logo";
 
@@ -49,21 +49,24 @@ const Nav = () => {
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
-          {links.map((l) => (
-            <NavLink
-              key={l.to}
-              to={l.to}
-              viewTransition
-              className={({ isActive }) =>
-                `relative font-body text-[13px] font-medium tracking-[0.02em] transition-colors after:absolute after:left-0 after:-bottom-1.5 after:h-px after:bg-cinnabar after:transition-transform after:duration-300 after:w-full ${
-                  isActive
-                    ? "text-foreground after:scale-x-100"
-                    : "text-foreground/55 hover:text-foreground after:scale-x-0 hover:after:scale-x-100"
-                } after:origin-left`
-              }
-            >
-              {l.label}
-            </NavLink>
+          {links.map((l, i) => (
+            <Fragment key={l.to}>
+              <NavLink
+                to={l.to}
+                viewTransition
+                className={({ isActive }) =>
+                  `relative font-body text-[13px] font-medium tracking-[0.02em] transition-colors after:absolute after:left-0 after:-bottom-1.5 after:h-px after:bg-cinnabar after:transition-transform after:duration-300 after:w-full ${
+                    isActive
+                      ? "text-foreground after:scale-x-100"
+                      : "text-foreground/55 hover:text-foreground after:scale-x-0 hover:after:scale-x-100"
+                  } after:origin-left`
+                }
+              >
+                {l.label}
+              </NavLink>
+              {/* divider after the two service divisions (Boutique · Online) */}
+              {i === 1 && <span aria-hidden className="h-3.5 w-px bg-foreground/20" />}
+            </Fragment>
           ))}
           <NavLink
             to="/contact"

@@ -78,6 +78,9 @@
 @layer base {
   * { @apply border-border; }
   html { scroll-behavior: smooth; }
+  /* Guard against rogue horizontal scroll on mobile (full-bleed bands, fixed
+     overlays, marquees). Intentional scroll containers use their own overflow-x-auto. */
+  html, body { overflow-x: hidden; }
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'IBM Plex Sans Thai', system-ui, sans-serif;

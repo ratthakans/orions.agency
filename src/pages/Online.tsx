@@ -15,6 +15,8 @@ const included = [
   { k: "Tracking & ROAS", d: "Pixel · CAPI · รายงานผลทุกเดือน เห็นยอดจริง" },
 ];
 
+const ticker = ["META", "TIKTOK", "GOOGLE ADS", "LINE", "REELS", "SHORTS", "ROAS", "ยิงไว", "วัดผล", "ปรับเร็ว", "เริ่มได้เลย"];
+
 const Online = () => (
   <div>
     <SEO
@@ -32,26 +34,21 @@ const Online = () => (
       }}
     />
 
-    {/* HERO */}
+    {/* HERO — dynamic, bold sans, punchy */}
     <section className="section-ink px-6 md:px-10">
-      <div className="max-w-[1280px] mx-auto pt-28 md:pt-32 pb-20 md:pb-24">
+      <div className="max-w-[1280px] mx-auto pt-28 md:pt-32 pb-14 md:pb-16">
         <SectionLabel label="ORIONS Online" />
         <Reveal delay={0.05}>
-          <h1 lang="th" className="mt-8 h-display-xl max-w-[16ch] thai-wrap">
-            เร็ว ไว <em className="text-cinnabar">ไม่แพง.</em>
+          <h1 lang="th" className="mt-8 font-thai font-bold text-[clamp(48px,10vw,150px)] leading-[0.92] tracking-[-0.03em]">
+            เร็ว ไว <span className="text-cinnabar">ไม่แพง.</span>
           </h1>
         </Reveal>
         <Reveal delay={0.1}>
-          <p lang="th" className="mt-8 max-w-[680px] font-thai thai-wrap text-[16px] md:text-[19px] leading-[1.7] text-foreground/85">
+          <p lang="th" className="mt-8 max-w-[680px] font-thai thai-wrap text-[16px] md:text-[19px] leading-[1.6] text-foreground/85">
             ฝั่ง <strong className="text-foreground">performance</strong> ของ ORIONS — ยิงแอด ทำโซเชียล คอนเทนต์ วัดผล. สำหรับแบรนด์ที่มีของพร้อมขายและอยากเห็นยอดเดี๋ยวนี้. มี <strong className="text-foreground">เรทการ์ดและแพ็กเกจ</strong> ชัดเจน เริ่มได้เร็ว.
           </p>
         </Reveal>
         <Reveal delay={0.15}>
-          <p className="mt-7 font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">
-            <span className="text-cinnabar">—</span> รายเดือน / แพ็กเกจ · มีเรทการ์ด · ไม่บวก % ค่าแอด
-          </p>
-        </Reveal>
-        <Reveal delay={0.2}>
           <div className="mt-10 flex flex-col sm:flex-row gap-4">
             <Link to="/package" viewTransition className="btn-accent">
               <span>ดูแพ็กเกจ & ราคา</span><ArrowUpRight className="w-4 h-4" />
@@ -64,15 +61,30 @@ const Online = () => (
       </div>
     </section>
 
-    {/* WHAT'S INCLUDED */}
+    {/* KINETIC TICKER — platforms & keywords */}
+    <section aria-hidden className="bg-cinnabar text-background border-y border-cinnabar overflow-hidden py-3.5 md:py-4">
+      <div className="marquee">
+        <div className="marquee-track items-center">
+          {[...ticker, ...ticker].map((t, i) => (
+            <span key={i} className="inline-flex items-center gap-6 shrink-0">
+              <span className="font-unbounded uppercase tracking-[-0.01em] whitespace-nowrap text-[clamp(13px,2vw,22px)] leading-none">{t}</span>
+              <span className="text-[clamp(13px,2vw,22px)] opacity-70">/</span>
+            </span>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* WHAT'S INCLUDED — energetic hover cards */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionLabel index="01" label="สิ่งที่คุณได้" />
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
           {included.map((it, i) => (
             <Reveal key={it.k} delay={(i % 2) * 0.06}>
-              <div className="card-soft p-7 md:p-9 h-full">
-                <h3 className="font-display text-[19px] md:text-[22px] font-semibold tracking-[-0.01em]">{it.k}</h3>
+              <div className="card-soft p-7 md:p-9 h-full hover:border-cinnabar hover:bg-cinnabar/[0.06] hover:-translate-y-0.5 transition-all duration-200">
+                <div className="num-display text-cinnabar text-[26px] leading-none">{`0${i + 1}`}</div>
+                <h3 className="mt-4 font-unbounded text-[18px] md:text-[22px] tracking-[-0.01em]">{it.k}</h3>
                 <p lang="th" className="mt-3 font-thai thai-wrap text-[14px] leading-[1.7] text-muted-foreground">{it.d}</p>
               </div>
             </Reveal>
@@ -87,8 +99,8 @@ const Online = () => (
         <div>
           <SectionLabel index="02" label="ราคา" />
           <Reveal delay={0.05}>
-            <h2 lang="th" className="mt-6 h-display-md max-w-[14ch] thai-wrap">
-              ราคาชัด <em className="text-cinnabar">เริ่มได้เลย.</em>
+            <h2 lang="th" className="mt-6 font-thai font-bold text-[clamp(30px,5vw,56px)] leading-[1.0] tracking-[-0.02em] max-w-[12ch]">
+              ราคาชัด <span className="text-cinnabar">เริ่มได้เลย.</span>
             </h2>
           </Reveal>
         </div>

@@ -1,6 +1,6 @@
 // Kinetic brand band — a slow scrolling strip of brand phrases, slash-separated.
 // Decorative (aria-hidden); pauses on hover, halts on reduced-motion (via .marquee-track).
-const PHRASES = ["Stories, Refined", "ยอด หรือ แบรนด์", "คิด · ทำ · ยิง", "Digital", "Boutique", "Production"];
+const PHRASES = ["Stories, Refined", "ยอด หรือ แบรนด์", "Online", "Boutique", "คิด · ทำ · ยิง", "Creative Agency"];
 
 const MarqueeBand = () => (
   <section aria-hidden className="bg-surface border-y border-foreground/15 py-5 md:py-6 overflow-hidden">

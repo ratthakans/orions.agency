@@ -32,48 +32,52 @@ const Boutique = () => (
       }}
     />
 
-    {/* HERO */}
+    {/* HERO — editorial, serif-forward, quiet */}
     <section className="section-ink px-6 md:px-10">
-      <div className="max-w-[1280px] mx-auto pt-28 md:pt-32 pb-20 md:pb-24">
+      <div className="max-w-[1180px] mx-auto pt-28 md:pt-36 pb-20 md:pb-28">
         <SectionLabel label="ORIONS Boutique" />
         <Reveal delay={0.05}>
-          <h1 lang="th" className="mt-8 h-display-xl max-w-[16ch] thai-wrap">
-            งานปั้น ที่คน<em className="text-cinnabar">จำและเลือก.</em>
+          <h1 lang="th" className="mt-10 font-serif font-medium text-[clamp(40px,7vw,104px)] leading-[1.04] tracking-[-0.02em] max-w-[16ch] thai-wrap">
+            งานปั้น ที่คน<em className="text-cinnabar italic">จำและเลือก.</em>
           </h1>
         </Reveal>
-        <Reveal delay={0.1}>
-          <p lang="th" className="mt-8 max-w-[680px] font-thai thai-wrap text-[16px] md:text-[19px] leading-[1.7] text-foreground/85">
-            ฝั่ง <strong className="text-foreground">creative craft</strong> ของ ORIONS — สำหรับแบรนด์ที่อยากถูกจำ ไม่ใช่แค่ถูกเห็น. คิด · ปั้น · ถ่าย ระดับโฆษณา โดยทีม senior ที่คุมมาตรฐานเอง.
+        <Reveal delay={0.12}>
+          <p lang="th" className="mt-10 max-w-[640px] font-serif text-[19px] md:text-[24px] leading-[1.55] text-foreground/80">
+            ฝั่ง <span className="text-foreground italic">creative craft</span> ของ ORIONS — สำหรับแบรนด์ที่อยากถูกจำ ไม่ใช่แค่ถูกเห็น. คิด · ปั้น · ถ่าย ระดับโฆษณา โดยทีมที่คุมมาตรฐานเอง.
           </p>
         </Reveal>
-        <Reveal delay={0.15}>
-          <p className="mt-7 font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">
+        <Reveal delay={0.18}>
+          <p className="mt-9 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
             <span className="text-cinnabar">—</span> ต่อแคมเปญ / โปรเจกต์ · ไม่มีเรทการ์ด · ตีราคาตามโจทย์จริง
           </p>
-        </Reveal>
-        <Reveal delay={0.2}>
-          <div className="mt-10 flex flex-col sm:flex-row gap-4">
-            <Link to="/contact?pkg=Boutique" viewTransition className="btn-accent">
-              <span>คุยโจทย์ / ขอใบเสนอราคา</span><ArrowUpRight className="w-4 h-4" />
-            </Link>
-            <Link to="/work" viewTransition className="btn-ghost">
-              <span>ดูผลงานคราฟต์</span><ArrowUpRight className="w-4 h-4" />
-            </Link>
-          </div>
         </Reveal>
       </div>
     </section>
 
-    {/* WHAT'S INCLUDED */}
+    {/* PULL-QUOTE — editorial statement */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+      <div className="max-w-[1000px] mx-auto py-20 md:py-28">
+        <Reveal>
+          <blockquote lang="th" className="font-serif text-[26px] md:text-[40px] leading-[1.35] tracking-[-0.01em] text-foreground/90 thai-wrap">
+            งานที่ดีที่สุดมักไม่ได้เกิดตอนมีอิสระเต็มที่ — แต่เกิดตอนมี<em className="text-cinnabar italic">กรอบ</em>ที่บีบให้คิดให้คม. เราไม่หนีข้อจำกัด เราถือว่ามันคือบรีฟ.
+          </blockquote>
+        </Reveal>
+      </div>
+    </section>
+
+    {/* WHAT'S INCLUDED — editorial numbered index */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1180px] mx-auto py-20 md:py-28">
         <SectionLabel index="01" label="สิ่งที่คุณได้" />
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+        <div className="mt-12 border-t border-foreground/12">
           {included.map((it, i) => (
-            <Reveal key={it.k} delay={(i % 2) * 0.06}>
-              <div className="card-soft p-7 md:p-9 h-full">
-                <h3 className="font-display text-[19px] md:text-[22px] font-semibold tracking-[-0.01em]">{it.k}</h3>
-                <p lang="th" className="mt-3 font-thai thai-wrap text-[14px] leading-[1.7] text-muted-foreground">{it.d}</p>
+            <Reveal key={it.k} delay={i * 0.05}>
+              <div className="grid grid-cols-1 md:grid-cols-[120px_1fr] gap-3 md:gap-12 py-8 md:py-11 border-b border-foreground/12 items-baseline group">
+                <div className="font-serif text-cinnabar text-[28px] md:text-[44px] leading-none tabular-nums">{`0${i + 1}`}</div>
+                <div className="max-w-[640px]">
+                  <h3 className="font-serif text-[24px] md:text-[34px] leading-[1.12] tracking-[-0.01em] group-hover:text-cinnabar transition-colors">{it.k}</h3>
+                  <p lang="th" className="mt-3 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">{it.d}</p>
+                </div>
               </div>
             </Reveal>
           ))}
@@ -81,23 +85,21 @@ const Boutique = () => (
       </div>
     </section>
 
-    {/* PRICING PHILOSOPHY — no rate card */}
-    <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-28 grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16 items-center">
+    {/* PRICING — editorial note, no rate card */}
+    <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1180px] mx-auto py-20 md:py-28 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-20 items-baseline">
         <div>
           <SectionLabel index="02" label="ราคา" />
-          <Reveal delay={0.05}>
-            <h2 lang="th" className="mt-6 h-display-md max-w-[14ch] thai-wrap">
-              ไม่มีเรทการ์ด <em className="text-cinnabar">เพราะไม่มีงานไหนเหมือนกัน.</em>
-            </h2>
-          </Reveal>
         </div>
-        <Reveal delay={0.1}>
+        <Reveal delay={0.05}>
           <div>
-            <p lang="th" className="font-thai thai-wrap text-[15px] md:text-[16px] leading-[1.8] text-foreground/85">
-              งานคราฟต์คิดราคาเป็น <strong className="text-foreground">แคมเปญ</strong> หรือ <strong className="text-foreground">โปรเจกต์</strong> — ตีตามขอบเขต ความลึก และมาตรฐานที่โจทย์ต้องการ. เราคุยโจทย์ก่อนเสมอ แล้วเสนอสโคป + ราคาที่ตรงงานคุณ ไม่มีราคาตายตัวหน้าเว็บ.
+            <h2 lang="th" className="font-serif text-[28px] md:text-[44px] leading-[1.2] tracking-[-0.015em] max-w-[18ch] thai-wrap">
+              ไม่มีเรทการ์ด เพราะไม่มีงานไหน<em className="text-cinnabar italic">เหมือนกัน.</em>
+            </h2>
+            <p lang="th" className="mt-8 max-w-[620px] font-serif text-[17px] md:text-[20px] leading-[1.6] text-foreground/80">
+              งานคราฟต์คิดราคาเป็น <span className="italic">แคมเปญ</span> หรือ <span className="italic">โปรเจกต์</span> — ตีตามขอบเขต ความลึก และมาตรฐานที่โจทย์ต้องการ. เราคุยโจทย์ก่อนเสมอ แล้วเสนอสโคป + ราคาที่ตรงงานคุณ.
             </p>
-            <p lang="th" className="mt-5 font-thai thai-wrap text-[13px] leading-[1.8] text-muted-foreground">
+            <p lang="th" className="mt-6 font-thai thai-wrap text-[13px] leading-[1.8] text-muted-foreground">
               อยากได้เร็ว ไว ไม่แพง สำหรับ ads / social? นั่นคือฝั่ง <Link to="/online" className="text-cinnabar hover:underline">ORIONS Online</Link> ที่มีเรทการ์ดและแพ็กเกจชัดเจน.
             </p>
           </div>

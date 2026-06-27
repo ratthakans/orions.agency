@@ -4,8 +4,10 @@ import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
 import CTABand from "@/components/CTABand";
+import { workThumbs } from "@/data/portfolio";
 
 const SITE_URL = "https://orions.agency";
+const craft = workThumbs.slice(0, 3);
 
 const included = [
   { k: "Positioning & Brand DNA", d: "จุดยืน แก่นตัวตน และเรื่องที่จริงของแบรนด์ — ต้นน้ำของทุกอย่าง" },
@@ -85,11 +87,52 @@ const Boutique = () => (
       </div>
     </section>
 
+    {/* SELECTED CRAFT — editorial image spread */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1180px] mx-auto py-20 md:py-28">
+        <SectionLabel index="02" label="Selected craft" />
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-8 items-end">
+          <Reveal className="md:col-span-8">
+            <figure>
+              <div className="overflow-hidden border border-foreground/12 bg-muted" style={{ aspectRatio: "16 / 10" }}>
+                <img src={craft[0]} alt="ORIONS craft — art direction" loading="lazy"
+                  className="w-full h-full object-cover grayscale-[0.4] hover:grayscale-0 hover:scale-[1.02] transition-[transform,filter] duration-700" />
+              </div>
+              <figcaption lang="th" className="mt-4 font-serif text-[16px] md:text-[18px] text-foreground/70 italic">Art direction &amp; key visuals — งานที่ตั้งใจทุกเฟรม.</figcaption>
+            </figure>
+          </Reveal>
+          <Reveal className="md:col-span-4" delay={0.08}>
+            <figure>
+              <div className="overflow-hidden border border-foreground/12 bg-muted" style={{ aspectRatio: "4 / 5" }}>
+                <img src={craft[1]} alt="ORIONS craft — brand visual" loading="lazy"
+                  className="w-full h-full object-cover grayscale-[0.4] hover:grayscale-0 hover:scale-[1.02] transition-[transform,filter] duration-700" />
+              </div>
+            </figure>
+          </Reveal>
+        </div>
+        <div className="mt-5 md:mt-8 grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-8">
+          <Reveal className="md:col-span-5" delay={0.05}>
+            <div className="overflow-hidden border border-foreground/12 bg-muted" style={{ aspectRatio: "3 / 2" }}>
+              <img src={craft[2]} alt="ORIONS craft — campaign" loading="lazy"
+                className="w-full h-full object-cover grayscale-[0.4] hover:grayscale-0 hover:scale-[1.02] transition-[transform,filter] duration-700" />
+            </div>
+          </Reveal>
+          <div className="md:col-span-7 flex items-end">
+            <Reveal delay={0.1}>
+              <Link to="/work" viewTransition className="group inline-flex items-center gap-3 font-serif text-[22px] md:text-[28px] tracking-[-0.01em] hover:text-cinnabar transition-colors">
+                ดูผลงานทั้งหมด <ArrowUpRight className="w-7 h-7 md:w-9 md:h-9 text-cinnabar group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              </Link>
+            </Reveal>
+          </div>
+        </div>
+      </div>
+    </section>
+
     {/* PRICING — editorial note, no rate card */}
     <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1180px] mx-auto py-20 md:py-28 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-20 items-baseline">
         <div>
-          <SectionLabel index="02" label="ราคา" />
+          <SectionLabel index="03" label="ราคา" />
         </div>
         <Reveal delay={0.05}>
           <div>

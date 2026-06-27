@@ -4,6 +4,7 @@ import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
 import CTABand from "@/components/CTABand";
+import CountUp from "@/components/CountUp";
 
 const SITE_URL = "https://orions.agency";
 const RATECARD_PDF = "/ORIONS_RateCard_2026.pdf";
@@ -90,6 +91,27 @@ const Online = () => (
             </Reveal>
           ))}
         </div>
+      </div>
+    </section>
+
+    {/* STATS — honest, energetic */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-16 md:py-20 grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-10">
+        {[
+          { to: 4, suffix: "+", label: "แพลตฟอร์มหลัก", sub: "Meta · TikTok · Google · LINE" },
+          { to: 100, suffix: "%", label: "คุณถือบัญชีเอง", sub: "เติมเอง เห็นยอดจริงทุกบาท" },
+          { to: 0, suffix: "%", label: "บวกค่าแอด", sub: "เราไม่กิน % ของงบ ad spend" },
+        ].map((s, i) => (
+          <Reveal key={s.label} delay={i * 0.07}>
+            <div>
+              <CountUp to={s.to} suffix={s.suffix} decimals={0}
+                className="num-display text-cinnabar text-[clamp(48px,7vw,80px)] leading-none"
+                suffixClassName="text-[0.5em] ml-0.5" />
+              <div lang="th" className="mt-4 font-unbounded text-[15px] md:text-[17px] tracking-[-0.01em]">{s.label}</div>
+              <div lang="th" className="mt-1.5 font-mono text-[10px] tracking-[0.1em] uppercase text-muted-foreground">{s.sub}</div>
+            </div>
+          </Reveal>
+        ))}
       </div>
     </section>
 

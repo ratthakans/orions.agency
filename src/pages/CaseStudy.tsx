@@ -6,7 +6,7 @@ import ClosingCTA from "@/components/ClosingCTA";
 import SectionLabel from "@/components/SectionLabel";
 import { getCaseStudy, getAdjacent, caseStudies } from "@/data/caseStudies";
 
-// Honest method (matches the studio's stated process on /services)
+// Honest method (the studio's stated process)
 const approach = [
   { n: "01", t: "ฟังโจทย์ + เงื่อนไข", d: "audit แบรนด์ คู่แข่ง และกรอบที่ต้องอยู่ในนั้น" },
   { n: "02", t: "Refine เรื่องที่จริง", d: "ตกผลึกทิศทาง — คมพอจะลงในกรอบได้" },

@@ -23,10 +23,9 @@ const inquirySchema = z.object({
 type FieldErrors = Partial<Record<keyof z.infer<typeof inquirySchema>, string>>;
 
 const packageOptions = [
-  "Digital · เน้นยอด",
-  "Boutique · เน้นแบรนด์",
-  "Hybrid · ทั้งคู่",
-  "Production · ถ่ายงาน",
+  "Online · เน้นยอด (ads/social)",
+  "Boutique · เน้นแบรนด์ (craft)",
+  "ทั้งคู่ — Online + Boutique",
   "Custom · ออกแบบตามโจทย์",
   "ยังไม่แน่ใจ / ขอคำแนะนำ",
 ];
@@ -232,8 +231,9 @@ const Contact = () => {
                   { key: "company", label: "Company",     type: "text",  ph: "ถ้ามี",            ac: "organization", span: "md:col-span-1", opt: true },
                 ].map((f, i) => (
                   <div key={f.key} className={f.span}>
-                    <label className={labelCls}>— 0{i + 1} / {f.label}{f.opt && <span className="text-foreground/60"> (ไม่บังคับ)</span>}</label>
+                    <label htmlFor={`field-${f.key}`} className={labelCls}>— 0{i + 1} / {f.label}{f.opt && <span className="text-foreground/60"> (ไม่บังคับ)</span>}</label>
                     <input
+                      id={`field-${f.key}`}
                       type={f.type}
                       autoComplete={f.ac}
                       maxLength={f.key === "email" ? 255 : f.key === "company" ? 150 : f.key === "phone" ? 20 : 100}
@@ -251,8 +251,9 @@ const Contact = () => {
                   </div>
                 ))}
                 <div className="md:col-span-2">
-                  <label className={labelCls}>— 05 / แพ็กเกจที่สนใจ <span className="text-foreground/60">(ไม่บังคับ)</span></label>
+                  <label htmlFor="field-pkg" className={labelCls}>— 05 / แพ็กเกจที่สนใจ <span className="text-foreground/60">(ไม่บังคับ)</span></label>
                   <select
+                    id="field-pkg"
                     value={form.pkg}
                     onChange={(e) => setForm({ ...form, pkg: e.target.value })}
                     className={`${inputCls} appearance-none cursor-pointer`}
@@ -262,22 +263,25 @@ const Contact = () => {
                       <option key={o} value={o}>{o}</option>
                     ))}
                   </select>
-                  {/* size — only relevant for the 3 monthly tracks */}
-                  <div className="mt-3 flex items-center gap-3">
-                    <span lang="th" className="font-thai text-[11px] tracking-[0.02em] text-muted-foreground shrink-0">ขนาด</span>
-                    <div className="inline-flex rounded-none border border-foreground/25 overflow-hidden">
-                      {["S", "M", "L"].map((s) => (
-                        <button key={s} type="button" onClick={() => setForm({ ...form, size: form.size === s ? "" : s })}
-                          className={`px-4 py-1.5 font-mono text-[11px] tracking-[0.06em] transition-colors ${form.size === s ? "bg-cinnabar text-background" : "text-foreground/55 hover:text-foreground"} ${s !== "S" ? "border-l border-foreground/25" : ""}`}>
-                          {s}
-                        </button>
-                      ))}
+                  {/* size — Online (monthly rate-card) packages only; Boutique is quoted */}
+                  {form.pkg.includes("Online") && (
+                    <div className="mt-3 flex items-center gap-3">
+                      <span lang="th" className="font-thai text-[11px] tracking-[0.02em] text-muted-foreground shrink-0">ขนาด</span>
+                      <div className="inline-flex rounded-none border border-foreground/25 overflow-hidden">
+                        {["S", "M", "L"].map((s) => (
+                          <button key={s} type="button" onClick={() => setForm({ ...form, size: form.size === s ? "" : s })}
+                            className={`px-4 py-1.5 font-mono text-[11px] tracking-[0.06em] transition-colors ${form.size === s ? "bg-cinnabar text-background" : "text-foreground/55 hover:text-foreground"} ${s !== "S" ? "border-l border-foreground/25" : ""}`}>
+                            {s}
+                          </button>
+                        ))}
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
                 <div className="md:col-span-2">
-                  <label className={labelCls}>— 06 / Brief <span className="text-foreground/60">(ไม่บังคับ — จะคุยรายละเอียดตอนนัดก็ได้)</span></label>
+                  <label htmlFor="field-brief" className={labelCls}>— 06 / Brief <span className="text-foreground/60">(ไม่บังคับ — จะคุยรายละเอียดตอนนัดก็ได้)</span></label>
                   <textarea
+                    id="field-brief"
                     rows={5}
                     maxLength={2000}
                     value={form.brief}

@@ -23,15 +23,25 @@ const Boutique = () => (
       title="ORIONS Boutique — งานปั้นที่คนจำและเลือก · ØRIONS"
       description="ฝั่งงานคราฟต์ของ ORIONS — brand strategy, identity, big idea, brand film และ art direction ระดับโฆษณา. คิดราคาเป็นแคมเปญ/โปรเจกต์ ไม่มีเรทการ์ด ตีตามโจทย์จริง."
       path="/boutique"
-      schema={{
-        "@context": "https://schema.org",
-        "@type": "Service",
-        name: "ORIONS Boutique — Creative craft, brand & identity",
-        serviceType: "Brand strategy, identity, campaign & premium production",
-        description: "Premium creative craft billed per campaign/project (quoted, no rate card).",
-        provider: { "@type": "Organization", name: "ØRIONS", url: SITE_URL },
-        areaServed: { "@type": "Country", name: "Thailand" },
-      }}
+      schema={[
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+            { "@type": "ListItem", position: 2, name: "Boutique", item: `${SITE_URL}/boutique` },
+          ],
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: "ORIONS Boutique — Creative craft, brand & identity",
+          serviceType: "Brand strategy, identity, campaign & premium production",
+          description: "Premium creative craft billed per campaign/project (quoted, no rate card).",
+          provider: { "@type": "Organization", name: "ØRIONS", url: SITE_URL },
+          areaServed: { "@type": "Country", name: "Thailand" },
+        },
+      ]}
     />
 
     {/* HERO — editorial, serif-forward, quiet */}

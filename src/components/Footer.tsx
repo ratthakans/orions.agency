@@ -109,7 +109,7 @@ const Footer = () => {
           <p>© {year} ØRIONS — All rights reserved.</p>
           <div className="flex items-center gap-5">
             <Link to="/privacy" className="hover:opacity-100 hover:text-cinnabar transition-colors">Privacy</Link>
-            <p>Stories, refined. · Est. 2026</p>
+            <p>Stories, refined. · Est. 2025</p>
           </div>
         </div>
       </div>

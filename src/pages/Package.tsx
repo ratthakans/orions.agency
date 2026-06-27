@@ -9,24 +9,25 @@ import founder from "@/assets/team/founder.jpg";
 
 const RATECARD_PDF = "/ORIONS_RateCard_2026.pdf";
 
-// 3 sales lines — pricing MODEL only (real numbers live in the Rate Card PDF /
-// are quoted per client). This is the page's headline; no fixed prices here.
-const lineModels = [
+// Pricing MODEL only (real numbers live in the Rate Card PDF / quoted per client).
+// This page = ORIONS Online's pricing. Boutique (craft) is quote-only — carved out,
+// not a priced tier — and links to /boutique.
+const lineModels: { name: string; tag: string; unit: string; to: string; model: string; note: string; featured?: boolean; quoteOnly?: boolean }[] = [
   {
-    name: "Digital", tag: "ยอด / ลีด เดี๋ยวนี้", unit: "รายเดือน",
+    name: "Online", tag: "ยอด · ads / social", unit: "รายเดือน", to: "/contact?pkg=Online",
     model: "package fee รายเดือน + ad spend จ่ายตรง platform — เราดูแลและปรับแอดให้ ไม่บวก % ค่าแอด",
     note: "ผูกขั้นต่ำเพื่อให้ผลมีเวลาพิสูจน์",
-  },
-  {
-    name: "Boutique", tag: "แบรนด์ที่คนจำและเลือก", unit: "ต่อแคมเปญ",
-    model: "เหมาตามขอบเขต (สร้าง · refresh · rebrand) → ต่อ tracking retainer ได้หลังจบ",
-    note: "ปรับทิศก่อนผลิตจริงจนพอใจ + วัดผล",
     featured: true,
   },
   {
-    name: "Production", tag: "แค่ทีมถ่าย (มี brief เอง)", unit: "ต่อวัน",
+    name: "Production", tag: "ทีมถ่าย (มี brief เอง)", unit: "ต่อวัน", to: "/contact?pkg=Online",
     model: "ราคาวัน = ถ่าย + raw + same-day proxy · edit เป็น add-on · จองหลายวันมีส่วนลด",
     note: "senior crew เท่านั้น",
+  },
+  {
+    name: "Boutique", tag: "แบรนด์ · งานคราฟต์", unit: "ต่อโปรเจกต์", to: "/boutique", quoteOnly: true,
+    model: "ไม่มีเรทการ์ด — งานปั้นแบรนด์คิดต่อแคมเปญ/โปรเจกต์ ตีตามโจทย์จริง. ดูฝั่ง Boutique.",
+    note: "คนละฝั่งกับราคาหน้านี้",
   },
 ];
 
@@ -56,12 +57,12 @@ const production = [
 ];
 
 const faqs = [
-  { q: "เลือกสายไหนดี?",
-    a: "ตอบคำถามเดียว — อยากได้ ยอด (Digital) · แบรนด์ (Boutique) · หรือมี brief แล้วแค่อยากได้ทีมถ่าย (Production). ไม่แน่ใจ คุยฟรี 45 นาที เราช่วยวินิจฉัย." },
+  { q: "เลือกฝั่งไหนดี — Online หรือ Boutique?",
+    a: "ถามคำถามเดียว: อยากได้ ยอด (→ ORIONS Online · ads/social · มีเรทการ์ด) หรือ แบรนด์ (→ ORIONS Boutique · งานคราฟต์ · คิดต่อโปรเจกต์). ไม่แน่ใจ คุยฟรี 45 นาที เราช่วยวินิจฉัย." },
   { q: "ราคาเท่าไหร่?",
-    a: "ตีตามโจทย์และขอบเขตของแต่ละลูกค้า — ไม่มีราคาตายตัวหน้าเว็บ. ดูช่วงราคาอ้างอิงใน Rate Card (PDF) หรือขอใบเสนอราคาที่ตรงงานคุณได้เลย." },
-  { q: "มิกซ์หลายสายได้ไหม คิดราคายังไง?",
-    a: "ได้ — แต่ละสายจ่ายคนละชั้นไม่ทับซ้อน (เช่น มี Production แล้วเติม Digital จ่ายเฉพาะส่วนยิง) คุมโดยทีมเดียว." },
+    a: "ฝั่ง Online มีเรทการ์ด (ดู Rate Card PDF) — package รายเดือน + โปรดักชันต่อวัน + add-on. ฝั่ง Boutique ไม่มีเรทการ์ด ตีตามโจทย์ต่อโปรเจกต์. ขอใบเสนอราคาที่ตรงงานคุณได้เลย." },
+  { q: "ใช้ทั้ง 2 ฝั่งพร้อมกันได้ไหม คิดราคายังไง?",
+    a: "ได้ — แต่ละฝั่งจ่ายคนละชั้นไม่ทับซ้อน (เช่น เริ่ม Online ให้เงินหมุน แล้วต่อ Boutique ปั้นแบรนด์) คุมโดยทีมเดียว." },
   { q: "ค่ายิงแอด (ad spend) จ่ายยังไง บัญชีโฆษณาใครถือ?",
     a: "ลูกค้าถือบัญชีโฆษณาเอง เติมเงินเอง เห็นยอดจริงทุกบาท — ORIONS ดูแลและปรับแอดให้ โดยไม่บวก % ค่าแอด (เอเจนซีทั่วไปคิด 10–20% ของงบ)." },
   { q: "มีค่า setup / แรกเข้าไหม?",
@@ -87,12 +88,12 @@ const LinesModel = () => (
       <SectionLabel index="02" label="The model" />
       <Reveal delay={0.05}>
         <h2 lang="th" className="mt-10 h-display-md max-w-[22ch] thai-wrap">
-          3 สาย คิดราคา <em className="text-cinnabar">คนละแบบ.</em>
+          ราคาฝั่ง Online — <em className="text-cinnabar">มีเรทการ์ด.</em>
         </h2>
       </Reveal>
       <Reveal delay={0.1}>
         <p lang="th" className="mt-6 max-w-[640px] font-thai thai-wrap text-[15px] leading-[1.7] text-muted-foreground">
-          เลือกสายเดียวหรือผสม — แต่ละสายจ่ายคนละชั้นไม่ทับซ้อน. ตัวเลขจริงตีตามโจทย์แต่ละลูกค้า.
+          ฝั่ง Online (ยอด · ads/social) คิดราคาชัด มีเรทการ์ด — รายเดือน + โปรดักชันต่อวัน. ส่วนฝั่ง <span className="text-foreground/80">Boutique</span> (งานปั้นแบรนด์) ไม่มีเรทการ์ด คิดต่อโปรเจกต์ ตีตามโจทย์.
         </p>
       </Reveal>
 
@@ -109,8 +110,8 @@ const LinesModel = () => (
               </div>
               <p lang="th" className="mt-5 font-thai thai-wrap text-[13px] leading-[1.7] text-foreground/85 border-t border-foreground/15 pt-5 flex-1">{l.model}</p>
               <p lang="th" className="mt-4 font-thai text-[11.5px] leading-[1.6] text-muted-foreground">— {l.note}</p>
-              <Link to={`/contact?pkg=${encodeURIComponent(l.name)}`} className={`mt-7 justify-between ${l.featured ? "btn-accent" : "btn-ghost"}`}>
-                <span>ขอใบเสนอราคา · {l.name}</span><ArrowUpRight className="w-4 h-4" />
+              <Link to={l.to} viewTransition className={`mt-7 justify-between ${l.featured ? "btn-accent" : "btn-ghost"}`}>
+                <span>{l.quoteOnly ? "ดูฝั่ง Boutique" : `ขอใบเสนอราคา · ${l.name}`}</span><ArrowUpRight className="w-4 h-4" />
               </Link>
             </div>
           </Reveal>
@@ -127,8 +128,8 @@ const LinesModel = () => (
 const Package = () => (
   <div>
     <SEO
-      title="แพ็กเกจ & ราคา — Digital · Boutique · Production · ØRIONS"
-      description="3 สาย คิดราคาคนละแบบ — Digital รายเดือน · Boutique ต่อแคมเปญ · Production ต่อวัน. จ่ายเฉพาะที่ใช้ ราคาจริงตีตามโจทย์แต่ละลูกค้า."
+      title="แพ็กเกจ & ราคา ฝั่ง Online · ØRIONS"
+      description="ราคาฝั่ง ORIONS Online (ยอด · ads/social) — package รายเดือน + โปรดักชันต่อวัน + add-on มีเรทการ์ด. ไม่บวก % ค่าแอด. ฝั่ง Boutique (แบรนด์) คิดต่อโปรเจกต์ ไม่มีเรทการ์ด."
       path="/package"
       schema={{
         "@context": "https://schema.org",
@@ -152,7 +153,7 @@ const Package = () => (
         </Reveal>
         <Reveal delay={0.1}>
           <p lang="th" className="mt-8 max-w-[680px] font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.7] text-foreground/80">
-            3 สาย คิดราคาคนละแบบ — <strong className="text-foreground">Digital</strong> รายเดือน · <strong className="text-foreground">Boutique</strong> ต่อแคมเปญ · <strong className="text-foreground">Production</strong> ต่อวัน. มิกซ์สายจ่ายคนละชั้นไม่ทับซ้อน <strong className="text-foreground">ราคาจริงตีตามโจทย์แต่ละลูกค้า</strong>.
+            หน้านี้คือราคาฝั่ง <strong className="text-foreground">Online</strong> (ยอด · ads/social) — มีเรทการ์ด: package รายเดือน · โปรดักชันต่อวัน · add-on à la carte. ฝั่ง <strong className="text-foreground">Boutique</strong> (งานปั้นแบรนด์) คิดต่อโปรเจกต์ ไม่มีเรทการ์ด. ราคาจริงตีตามโจทย์.
           </p>
         </Reveal>
         <Reveal delay={0.15}>

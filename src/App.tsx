@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { Outlet, Navigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import type { RouteRecord } from "vite-react-ssg";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -37,7 +37,6 @@ export const routes: RouteRecord[] = [
       { path: "about", lazy: page(() => import("./pages/About")) },
       { path: "boutique", lazy: page(() => import("./pages/Boutique")) },
       { path: "online", lazy: page(() => import("./pages/Online")) },
-      { path: "services", lazy: page(() => import("./pages/Services")) },
       { path: "work", lazy: page(() => import("./pages/Work")) },
       {
         path: "work/:slug",
@@ -55,17 +54,8 @@ export const routes: RouteRecord[] = [
       { path: "privacy", lazy: page(() => import("./pages/Privacy")) },
       { path: "contact", lazy: page(() => import("./pages/Contact")) },
 
-      // Legacy / shorthand paths → client-side redirects (render null during SSG).
-      { path: "pricing", element: <Navigate to="/package" replace /> },
-      { path: "manifesto", element: <Navigate to="/about" replace /> },
-      { path: "approach", element: <Navigate to="/about" replace /> },
-      { path: "studio", element: <Navigate to="/work" replace /> },
-      { path: "projects", element: <Navigate to="/work" replace /> },
-      { path: "ventures", element: <Navigate to="/work" replace /> },
-      { path: "health-check", element: <Navigate to="/contact" replace /> },
-      { path: "consulting", element: <Navigate to="/services" replace /> },
-      { path: "journal", element: <Navigate to="/blog" replace /> },
-      { path: "journal/:slug", element: <Navigate to="/blog" replace /> },
+      // (Legacy/shorthand paths — /pricing, /services, /journal, /consulting, … —
+      //  are handled as server-side 301s in vercel.json, not client routes.)
 
       // Prerendered branded 404 (Vercel serves dist/404.html for unmatched URLs)
       { path: "404", lazy: page(() => import("./pages/NotFound")) },

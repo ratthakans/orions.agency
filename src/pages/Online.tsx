@@ -24,15 +24,25 @@ const Online = () => (
       title="ORIONS Online — เร็ว ไว ไม่แพง · Ads & Social · ØRIONS"
       description="ฝั่ง performance ของ ORIONS — ยิงแอด โซเชียล คอนเทนต์ วัดผล. มีเรทการ์ดและแพ็กเกจชัดเจน คิดราคารายเดือน เริ่มได้เร็ว."
       path="/online"
-      schema={{
-        "@context": "https://schema.org",
-        "@type": "Service",
-        name: "ORIONS Online — Performance, ads & social media",
-        serviceType: "Performance marketing, social media & content",
-        description: "Fast, affordable ads & social — transparent rate card and monthly packages.",
-        provider: { "@type": "Organization", name: "ØRIONS", url: SITE_URL },
-        areaServed: { "@type": "Country", name: "Thailand" },
-      }}
+      schema={[
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+            { "@type": "ListItem", position: 2, name: "Online", item: `${SITE_URL}/online` },
+          ],
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: "ORIONS Online — Performance, ads & social media",
+          serviceType: "Performance marketing, social media & content",
+          description: "Fast, affordable ads & social — transparent rate card and monthly packages.",
+          provider: { "@type": "Organization", name: "ØRIONS", url: SITE_URL },
+          areaServed: { "@type": "Country", name: "Thailand" },
+        },
+      ]}
     />
 
     {/* HERO — dynamic, bold sans, punchy */}
@@ -151,7 +161,7 @@ const Online = () => (
       eyebrow="Start fast"
       title={<>มีของพร้อมขาย <em className="text-cinnabar">อยากเห็นยอด?</em></>}
       subtitle="คุยฟรี 45 นาที — เล่ายอด งบ และเป้าหมายมา เราช่วยจัดแพ็กเกจให้พอดี."
-      primary={{ label: "เริ่มต้นบทสนทนา", to: "/contact?pkg=Digital" }}
+      primary={{ label: "เริ่มต้นบทสนทนา", to: "/contact?pkg=Online" }}
       secondary={{ label: "ดูแพ็กเกจ", to: "/package" }}
       tone="snow"
     />

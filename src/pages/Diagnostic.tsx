@@ -6,7 +6,7 @@ import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
 import CTABand from "@/components/CTABand";
 
-type W = { d?: number; b?: number; p?: number };
+type W = { d?: number; b?: number };
 
 const questions: { id: string; label: string; opts: { t: string; w: W }[] }[] = [
   {
@@ -24,10 +24,10 @@ const questions: { id: string; label: string; opts: { t: string; w: W }[] }[] = 
     ],
   },
   {
-    id: "q3", label: "ตอนนี้คุณมีอะไรอยู่แล้ว?",
+    id: "q3", label: "ตอนนี้คุณอยากได้อะไรมากกว่า?",
     opts: [
-      { t: "มี brief เองแล้ว ขาดแค่ทีมถ่าย-ผลิต", w: { p: 3 } },
-      { t: "อยากให้ช่วยคิดตั้งแต่ต้น", w: { d: 1, b: 1 } },
+      { t: "ของ + แบรนด์พร้อม อยากได้คนช่วยยิงให้ปัง", w: { d: 2 } },
+      { t: "งานคราฟต์ / โปรดักชันระดับโฆษณา", w: { b: 2 } },
     ],
   },
   {
@@ -40,31 +40,28 @@ const questions: { id: string; label: string; opts: { t: string; w: W }[] }[] = 
   },
 ];
 
-const RESULTS: Record<string, { name: string; tag: string; why: string; pkg: string }> = {
-  Digital: { name: "Digital", tag: "ยอด / ลีด เดี๋ยวนี้", pkg: "Digital",
-    why: "คุณมีของพร้อมขายและอยากเห็นยอดเร็ว — เริ่มที่ Digital: ยิงแอด + คอนเทนต์ วัดผลรายเดือน." },
-  Boutique: { name: "Boutique", tag: "แบรนด์ที่คนจำและเลือก", pkg: "Boutique",
-    why: "แบรนด์คุณยังต้องปั้นให้คนจำก่อน — เริ่มที่ Boutique: วางแบรนด์ครบตั้งแต่คิดถึงวัดผล." },
-  Production: { name: "Production", tag: "แค่ทีมถ่าย (มี brief เอง)", pkg: "Production",
-    why: "คุณมี brief เองแล้ว ขาดแค่ทีมผลิต — Production: ทีมกองถ่าย senior จ่ายเป็นวัน." },
-  Hybrid: { name: "Digital → Boutique", tag: "เริ่มยอด แล้วต่อแบรนด์ (ผสม 2 สาย)", pkg: "Hybrid",
-    why: "คุณอยากได้ทั้งคู่ — เริ่มที่ Digital ให้เงินหมุนก่อน แล้วต่อ Boutique ให้แบรนด์แข็ง. ไม่ใช่สายแยก แต่คือการผสม Digital + Boutique." },
+const RESULTS: Record<string, { name: string; tag: string; why: string; pkg: string; to: string }> = {
+  Online: { name: "Online", tag: "ยอด / ลีด เดี๋ยวนี้", pkg: "Online", to: "/online",
+    why: "คุณมีของพร้อมขายและอยากเห็นยอดเร็ว — เริ่มที่ ORIONS Online: ยิงแอด + คอนเทนต์ วัดผลรายเดือน มีเรทการ์ดและแพ็กเกจชัดเจน." },
+  Boutique: { name: "Boutique", tag: "แบรนด์ที่คนจำและเลือก", pkg: "Boutique", to: "/boutique",
+    why: "แบรนด์คุณยังต้องปั้นให้คนจำก่อน — เริ่มที่ ORIONS Boutique: วางแบรนด์ + งานคราฟต์ระดับโฆษณา คิดต่อโปรเจกต์ (ไม่มีเรทการ์ด ตีตามโจทย์)." },
+  Hybrid: { name: "Online → Boutique", tag: "เริ่มยอด แล้วต่อแบรนด์", pkg: "Online + Boutique", to: "/online",
+    why: "คุณอยากได้ทั้งคู่ — เริ่มที่ Online ให้เงินหมุนก่อน แล้วต่อ Boutique ให้แบรนด์แข็ง. ใช้ได้ทั้ง 2 ฝั่งโดยทีมเดียว." },
 };
 
 const Diagnostic = () => {
   const [answers, setAnswers] = useState<Record<string, number>>({});
   const ready = questions.every((q) => answers[q.id] !== undefined);
 
-  const score = { d: 0, b: 0, p: 0 };
+  const score = { d: 0, b: 0 };
   for (const q of questions) {
     const ai = answers[q.id];
     if (ai === undefined) continue;
     const w = q.opts[ai].w;
-    score.d += w.d ?? 0; score.b += w.b ?? 0; score.p += w.p ?? 0;
+    score.d += w.d ?? 0; score.b += w.b ?? 0;
   }
   const rec = !ready ? null
-    : score.p >= 3 && score.p >= score.d && score.p >= score.b ? RESULTS.Production
-    : score.d > score.b ? RESULTS.Digital
+    : score.d > score.b ? RESULTS.Online
     : score.b > score.d ? RESULTS.Boutique
     : RESULTS.Hybrid;
 
@@ -72,7 +69,7 @@ const Diagnostic = () => {
     <div>
       <SEO
         title="ยอด หรือ แบรนด์? — เครื่องช่วยวินิจฉัย · ØRIONS"
-        description="ตอบ 4 ข้อ แล้วเราช่วยบอกว่าคุณควรเริ่มที่สายไหน — Digital (ยอด) · Boutique (แบรนด์) · Production (ถ่าย)."
+        description="ตอบ 4 ข้อ แล้วเราช่วยบอกว่าคุณควรเริ่มฝั่งไหน — ORIONS Online (ยอด · ads/social) หรือ ORIONS Boutique (แบรนด์ · craft)."
         path="/diagnostic"
       />
 
@@ -140,8 +137,7 @@ const Diagnostic = () => {
                   <Link to={`/contact?pkg=${encodeURIComponent(rec.pkg)}`} className="btn-accent">
                     <span>คุยต่อเรื่อง {rec.name}</span><ArrowUpRight className="w-4 h-4" />
                   </Link>
-                  <Link to="/services" className="btn-ghost"><span>ดูบริการ</span><ArrowUpRight className="w-4 h-4" /></Link>
-                  <Link to="/package" className="btn-ghost"><span>ดูแพ็กเกจ</span><ArrowUpRight className="w-4 h-4" /></Link>
+                  <Link to={rec.to} viewTransition className="btn-ghost"><span>ดูฝั่ง {rec.name}</span><ArrowUpRight className="w-4 h-4" /></Link>
                 </div>
                 <p lang="th" className="mt-4 font-thai text-[11px] text-muted-foreground">ไม่แน่ใจ? คุยฟรี 45 นาที เราช่วยมองให้ตรง ๆ.</p>
               </div>

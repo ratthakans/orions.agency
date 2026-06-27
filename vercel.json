@@ -2,6 +2,19 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/pricing", "destination": "/package", "permanent": true },
+    { "source": "/services", "destination": "/", "permanent": true },
+    { "source": "/manifesto", "destination": "/about", "permanent": true },
+    { "source": "/approach", "destination": "/about", "permanent": true },
+    { "source": "/studio", "destination": "/work", "permanent": true },
+    { "source": "/projects", "destination": "/work", "permanent": true },
+    { "source": "/ventures", "destination": "/work", "permanent": true },
+    { "source": "/health-check", "destination": "/contact", "permanent": true },
+    { "source": "/consulting", "destination": "/boutique", "permanent": true },
+    { "source": "/journal", "destination": "/blog", "permanent": true },
+    { "source": "/journal/:slug*", "destination": "/blog", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",

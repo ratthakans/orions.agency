@@ -43,7 +43,7 @@ const pressures = [
 const compareCols = ["จ้างทีมเอง", "จ้างสตูดิโอ", "Full-service เจ้าอื่น", "ORIONS"];
 const compareRows: { label: string; v: number[] }[] = [
   { label: "เข้าใจแบรนด์ลึกระดับ in-house", v: [2, 1, 1, 2] },
-  { label: "ครบ คิด–ทำ–ยิง ในทีมเดียว", v: [0, 0, 1, 2] },
+  { label: "ทำครบ กลยุทธ์ถึงยิงแอด ในทีมเดียว", v: [0, 0, 1, 2] },
   { label: "งานเป็นแบรนด์คุณ ไม่ใช่ลายเซ็นเขา", v: [2, 0, 1, 2] },
   { label: "วัดผลแบรนด์จริง ต่อเนื่อง", v: [1, 0, 0, 2] },
   { label: "ไม่ต้องแบกเงินเดือนทั้งทีม", v: [0, 2, 2, 2] },
@@ -138,7 +138,7 @@ const Index = () => {
           { "@type": "Question", name: "ØRIONS ทำอะไร?", acceptedAnswer: { "@type": "Answer", text: "ØRIONS เป็นครีเอทีฟเอเจนซีในกรุงเทพฯ ที่แยกชัดเป็น 2 ฝั่ง — ORIONS Online (ยอด · ยิงแอด/โซเชียล/คอนเทนต์ มีเรทการ์ด) และ ORIONS Boutique (แบรนด์ · งานคราฟต์ระดับโฆษณา คิดต่อโปรเจกต์). เราถามก่อนเสนอเสมอ: ยอด หรือ แบรนด์?" } },
           { "@type": "Question", name: "เริ่มงานกับ ØRIONS ต้องทำอย่างไร?", acceptedAnswer: { "@type": "Answer", text: "เริ่มจากคุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์มา เราจะบอกตรงๆ ว่าควรเริ่มที่ยอดหรือแบรนด์ก่อน. ติดต่อ hello@orions.agency · 092 390 5464 · LINE @orions" } },
           { "@type": "Question", name: "ØRIONS คิดราคายังไง?", acceptedAnswer: { "@type": "Answer", text: "ฝั่ง Online มีเรทการ์ดและแพ็กเกจ คิดรายเดือน เริ่มได้เร็ว — ดาวน์โหลด Rate Card (PDF) ดูช่วงราคาได้. ฝั่ง Boutique คิดต่อแคมเปญ/โปรเจกต์ ไม่มีเรทการ์ด ตีตามโจทย์จริง ขอใบเสนอราคาได้." } },
-          { "@type": "Question", name: "ØRIONS เคยทำงานอะไรมาบ้าง?", acceptedAnswer: { "@type": "Answer", text: "40+ โปรดักชันวิดีโอ (reels · MV · long-form), มิวสิควิดีโอให้ศิลปินจริง 15 ตัว (PANCAKE, NUM KALA, URBOYTJ และอื่นๆ) และเคสแบรนด์ 8 เคสตั้งแต่กลยุทธ์ถึงการผลิต." } },
+          { "@type": "Question", name: "ØRIONS เคยทำงานอะไรมาบ้าง?", acceptedAnswer: { "@type": "Answer", text: "43+ โปรดักชันวิดีโอ (reels · MV · long-form), มิวสิควิดีโอให้ศิลปินจริง 15 ตัว (PANCAKE, NUM KALA, URBOYTJ และอื่นๆ) และเคสแบรนด์ 8 เคสตั้งแต่กลยุทธ์ถึงการผลิต." } },
           { "@type": "Question", name: "ØRIONS ไม่เหมาะกับใคร?", acceptedAnswer: { "@type": "Answer", text: "ถ้าต้องการแค่ยอดให้เร็วที่สุดโดยไม่สนภาพจำระยะยาว หรืออยากได้คอนเทนต์เยอะที่สุดราคาถูกที่สุดโดยไม่มีกลยุทธ์ เราจะบอกตรงๆ ว่าเราอาจไม่ใช่คำตอบ." } },
         ],
       }}
@@ -386,7 +386,7 @@ const Index = () => {
               งานส่วนใหญ่จบที่ "ส่งมอบ" — มาตรฐานของเราคือจบที่ <span className="text-foreground">ผลลัพธ์</span>. ทุกงานเราตกลง baseline และตัวชี้วัดกันตั้งแต่ต้น (เช่น brand recall · consideration · branded search · แนวโน้ม CPL) แล้ววัดซ้ำที่ <span className="text-cinnabar">45 และ 90 วัน</span> — ไม่เข้าเป้าก็ปรับต่อจนเข้าที่.
             </p>
             <p lang="th" className="mt-5 font-thai text-[13px] leading-[1.7] text-muted-foreground">
-              นี่คือ <span className="text-foreground/90">วิธีทำงาน</span> ของเรา ไม่ใช่ option เสริม — และเป็นสิ่งที่เอเจนซีส่วนใหญ่ไม่ทำ.
+              นี่คือ <span className="text-foreground/90">วิธีทำงาน</span> ของเรา ไม่ใช่ option เสริม — เราถือเป็นมาตรฐาน ไม่ใช่ทางเลือก.
             </p>
           </div>
         </Reveal>

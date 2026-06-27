@@ -42,6 +42,8 @@ const pressures = [
 // score: 2 = ทำได้ · 1 = บางส่วน · 0 = ไม่ตอบโจทย์
 const compareCols = ["จ้างทีมเอง", "จ้างสตูดิโอ", "Full-service เจ้าอื่น", "ORIONS"];
 const compareRows: { label: string; v: number[] }[] = [
+  // honest concession — an embedded in-house person can start instantly; we onboard first
+  { label: "เริ่มได้ทันทีวันแรก (ไม่ต้อง onboard)", v: [2, 1, 1, 1] },
   { label: "เข้าใจแบรนด์ลึกระดับ in-house", v: [2, 1, 1, 2] },
   { label: "ทำครบ กลยุทธ์ถึงยิงแอด ในทีมเดียว", v: [0, 0, 1, 2] },
   { label: "งานเป็นแบรนด์คุณ ไม่ใช่ลายเซ็นเขา", v: [2, 0, 1, 2] },
@@ -255,46 +257,49 @@ const Index = () => {
         />
         <Reveal>
           <div className="mt-12 md:mt-14 overflow-x-auto -mx-6 px-6 md:mx-0 md:px-0">
-            <div className="min-w-[660px]">
-              {/* header — option names */}
-              <div className="grid grid-cols-[1.6fr_repeat(4,1fr)] items-stretch">
-                <div aria-hidden />
-                {compareCols.map((c, i) => {
-                  const us = i === compareCols.length - 1;
-                  return (
-                    <div key={c} className={`flex items-center justify-center gap-1.5 text-center px-2 py-4 ${us ? "bg-cinnabar/10 border-x border-t border-cinnabar/45" : ""}`}>
-                      {us && <Slash className="text-[13px]" />}
-                      <span lang="th" className={`font-display text-[13px] md:text-[15px] font-semibold leading-tight ${us ? "text-cinnabar" : "text-foreground/90"}`}>{c}</span>
-                    </div>
-                  );
-                })}
-              </div>
-              {/* criteria rows */}
-              {compareRows.map((row) => (
-                <div key={row.label} className="grid grid-cols-[1.6fr_repeat(4,1fr)] items-center border-t border-foreground/12">
-                  <div lang="th" className="py-3.5 pr-4 font-thai text-[13px] md:text-[14px] leading-[1.5] text-foreground/85">{row.label}</div>
-                  {row.v.map((val, ci) => {
-                    const us = ci === row.v.length - 1;
+            <table className="min-w-[660px] w-full border-collapse text-center table-fixed [&_tbody_tr:last-child_td:last-child]:border-b [&_tbody_tr:last-child_td:last-child]:border-cinnabar/45">
+              <caption className="sr-only">เปรียบเทียบ ORIONS กับ จ้างทีมเอง · จ้างสตูดิโอ · Full-service เจ้าอื่น</caption>
+              <colgroup>
+                <col className="w-[34%]" />
+                <col /><col /><col /><col />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col"><span className="sr-only">เกณฑ์</span></th>
+                  {compareCols.map((c, i) => {
+                    const us = i === compareCols.length - 1;
                     return (
-                      <div key={ci} className={`flex items-center justify-center py-3.5 ${us ? "bg-cinnabar/10 border-x border-cinnabar/45" : ""}`}>
-                        {val === 2 ? (
-                          <Check className={us ? "w-[18px] h-[18px] text-cinnabar" : "w-[18px] h-[18px] text-foreground"} strokeWidth={2.5} />
-                        ) : val === 1 ? (
-                          <Minus className="w-[18px] h-[18px] text-muted-foreground/60" strokeWidth={2.5} />
-                        ) : (
-                          <X className="w-4 h-4 text-foreground/25" strokeWidth={2.5} />
-                        )}
-                      </div>
+                      <th key={c} scope="col" lang="th"
+                        className={`px-2 py-4 align-bottom font-display text-[13px] md:text-[15px] font-semibold leading-tight ${us ? "bg-cinnabar/10 border-x border-t border-cinnabar/45 text-cinnabar" : "text-foreground/90"}`}>
+                        <span className="inline-flex items-center justify-center gap-1.5">{us && <Slash className="text-[13px]" />}{c}</span>
+                      </th>
                     );
                   })}
-                </div>
-              ))}
-              {/* close the ORIONS column box */}
-              <div className="grid grid-cols-[1.6fr_repeat(4,1fr)]">
-                <div className="col-span-4" />
-                <div className="border-b border-cinnabar/45" />
-              </div>
-            </div>
+                </tr>
+              </thead>
+              <tbody>
+                {compareRows.map((row) => (
+                  <tr key={row.label} className="border-t border-foreground/12">
+                    <th scope="row" lang="th" className="text-left py-3.5 pr-4 font-thai font-normal text-[13px] md:text-[14px] leading-[1.5] text-foreground/85">{row.label}</th>
+                    {row.v.map((val, ci) => {
+                      const us = ci === row.v.length - 1;
+                      const m = val === 2 ? { Icon: Check, txt: "ทำได้", cls: us ? "text-cinnabar" : "text-foreground", size: "w-[18px] h-[18px]" }
+                        : val === 1 ? { Icon: Minus, txt: "บางส่วน", cls: "text-muted-foreground/60", size: "w-[18px] h-[18px]" }
+                        : { Icon: X, txt: "ไม่ตอบโจทย์", cls: "text-foreground/25", size: "w-4 h-4" };
+                      const Icon = m.Icon;
+                      return (
+                        <td key={ci} className={`py-3.5 ${us ? "bg-cinnabar/10 border-x border-cinnabar/45" : ""}`}>
+                          <span className="inline-flex items-center justify-center">
+                            <Icon className={`${m.size} ${m.cls}`} strokeWidth={2.5} aria-hidden />
+                            <span className="sr-only">{m.txt}</span>
+                          </span>
+                        </td>
+                      );
+                    })}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </Reveal>
         {/* legend */}

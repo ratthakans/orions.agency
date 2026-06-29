@@ -11,6 +11,7 @@ import HeroHeadline from "@/components/HeroHeadline";
 import MarqueeBand from "@/components/MarqueeBand";
 import CountUp from "@/components/CountUp";
 import { workThumbs } from "@/data/portfolio";
+import { caseStudies } from "@/data/caseStudies";
 import { blogPosts } from "@/data/blog";
 import TopoField from "@/components/TopoField";
 import Picture from "@/components/Picture";
@@ -29,17 +30,6 @@ const pickRandom = <T,>(arr: T[], n: number): T[] => {
   }
   return a.slice(0, n);
 };
-
-// 3 market pressures of 2026 — animated counters with real, cited figures (พูดตรง).
-// Sources shown in the caption under the cards.
-const pressures = [
-  { to: 3, decimals: 0, suffix: "s", title: "3 วิแรกตัดสินทุกอย่าง",
-    desc: "บนฟีดคนตัดสินใจใน ~3 วินาทีว่าจะดูต่อหรือปัด — คิดไม่คมตั้งแต่วิแรก ก็ถูกเลื่อนผ่าน" },
-  { to: 74, decimals: 0, suffix: "%", title: "AI ท่วมเว็บ",
-    desc: "หน้าเว็บใหม่ราว 74% มีคอนเทนต์จาก AI ปนแล้ว — ทางรอดคือ 'จริงกว่า' ไม่ใช่ 'เยอะกว่า'" },
-  { prefix: "+", to: 20, decimals: 0, suffix: "%", title: "ค่าแอดแพงขึ้น",
-    desc: "ค่าโฆษณา Meta (CPM) แพงขึ้นราว 20% ต่อปี — งบเท่าเดิมได้ reach น้อยลง ยิงมั่วคือเผาเงิน" },
-];
 
 // What a Boutique engagement includes — the craft spine.
 const included = [
@@ -64,11 +54,9 @@ const compareCols = ["จ้างทีมเอง", "จ้างฟรีแ
 const compareRows: { label: string; v: number[] }[] = [
   // honest concession — an embedded in-house person can start instantly; we onboard first
   { label: "เริ่มได้ทันทีวันแรก (ไม่ต้อง onboard)", v: [2, 1, 1, 1] },
-  { label: "เข้าใจแบรนด์ลึกระดับ in-house", v: [2, 1, 1, 2] },
   { label: "ครบ กลยุทธ์ถึงงานคราฟต์ ในทีมเดียว", v: [0, 0, 1, 2] },
   { label: "งานเป็นแบรนด์คุณ ไม่ใช่ลายเซ็นเขา", v: [2, 0, 1, 2] },
   { label: "วัดผลแบรนด์จริง ต่อเนื่อง", v: [1, 0, 0, 2] },
-  { label: "ไม่ต้องแบกเงินเดือนทั้งทีม", v: [0, 2, 2, 2] },
 ];
 
 // Proof — real, countable deliverables (พูดตรง: นับจาก portfolio จริง).
@@ -83,6 +71,9 @@ const proofArtists = [
   "PANCAKE", "NUM KALA", "URBOYTJ", "ZOM MARIE", "กวาง จิรพรรณ", "นุ่นนิ่น ชาลิสสา",
   "นุ๊ก ธนดล", "ป๊ายปาย โอริโอ้", "ปิ๋ม ชุติมา", "วี พนมภูไท", "เบลล์ นิภาดา", "Innertears",
 ];
+
+// Featured cases for the homepage — curated, image-forward (real work, shown early).
+const featuredCases = caseStudies.slice(0, 3);
 
 // Company flagship showreel — featured as the mid-page proof break.
 const SHOWREEL_ID = "308_jYAVkwI";
@@ -180,8 +171,13 @@ const Index = () => {
         <div className="mt-7">
           <HeroHeadline />
         </div>
+        <Reveal delay={0.35}>
+          <p lang="th" className="mt-8 max-w-[42ch] font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.7] text-foreground/75">
+            บูทีคครีเอทีฟเอเจนซี — เราปั้น<span className="text-foreground">แบรนด์ที่คนจำ และเลือก</span> ไม่ใช่แค่ถูกเห็น.
+          </p>
+        </Reveal>
         <Reveal delay={0.5}>
-          <div className="mt-11 flex flex-col sm:flex-row items-center gap-4">
+          <div className="mt-9 flex flex-col sm:flex-row items-center gap-4">
             <Magnetic strength={10} className="inline-block">
               <Link to="/contact" className="btn-accent">
                 <span>คุยฟรี 45 นาที</span><ArrowUpRight className="w-4 h-4" />
@@ -192,6 +188,57 @@ const Index = () => {
             </Link>
           </div>
         </Reveal>
+      </div>
+    </section>
+
+    {/* 01b — POV STRIP — pull the thesis up */}
+    <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-14 md:py-16 grid grid-cols-1 md:grid-cols-[1.4fr_1fr] gap-6 md:gap-12 md:items-center">
+        <Reveal>
+          <p lang="th" className="font-serif text-[24px] md:text-[34px] leading-[1.3] tracking-[-0.01em] text-foreground/90 max-w-[20ch] thai-wrap">
+            ตรรกะทำให้คน<em className="text-cinnabar italic">เชื่อ</em> — อารมณ์ทำให้คน<em className="text-cinnabar italic">ซื้อ.</em>
+          </p>
+        </Reveal>
+        <Reveal delay={0.08}>
+          <div className="md:text-right">
+            <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-cinnabar">Logic Convinces · Emotion Converts</p>
+            <p lang="th" className="mt-3 font-thai thai-wrap text-[13px] leading-[1.7] text-muted-foreground md:ml-auto max-w-[42ch]">
+              เราเลือกยืนฝั่งอารมณ์ — ฝั่งที่ทำให้แบรนด์ถูกจำ ถูกเลือก และตั้งราคาพรีเมียมได้.
+            </p>
+            <Link to="/thinking" className="mt-4 inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.18em] uppercase text-foreground/70 hover:text-cinnabar transition-colors">อ่านแนวคิดของเรา <ArrowUpRight className="w-3.5 h-3.5" /></Link>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+
+    {/* 01c — SELECTED WORK — featured cases, image-forward (craft shown early) */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+        <div className="flex items-end justify-between gap-6 flex-wrap">
+          <SectionHeading lang="th" eyebrow="Selected work"
+            title={<>งานที่เรา<em className="text-cinnabar">ภูมิใจ.</em></>} />
+          <Link to="/work" className="hidden md:inline-flex font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground hover:text-cinnabar transition-colors">ดูผลงานทั้งหมด →</Link>
+        </div>
+        <div className="mt-12 md:mt-14 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          {featuredCases.map((c, i) => (
+            <Reveal key={c.slug} delay={i * 0.07}>
+              <Link to={`/work/${c.slug}`} viewTransition className="group flex flex-col h-full">
+                <div className="relative w-full overflow-hidden border border-foreground/12 aspect-[4/5]">
+                  <Picture data={c.cover} alt={c.title} loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 group-hover:scale-[1.04] transition-[transform,filter] duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/10 to-transparent" />
+                  <span className="absolute left-4 top-4 font-mono text-[9px] tracking-[0.2em] uppercase text-background bg-cinnabar px-2 py-1">{c.niche}</span>
+                </div>
+                <div className="mt-5">
+                  <div className="font-mono text-[10px] tracking-[0.16em] uppercase text-muted-foreground">{c.year}</div>
+                  <h3 lang="th" className="mt-2 font-display text-[20px] md:text-[24px] font-semibold leading-tight tracking-[-0.01em] group-hover:text-cinnabar transition-colors">{c.title}</h3>
+                  <p lang="th" className="mt-2 font-thai thai-wrap text-[14px] leading-[1.7] text-muted-foreground">{c.summary}</p>
+                </div>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
+        <Link to="/work" viewTransition className="btn-ghost mt-10 md:hidden"><span>ดูผลงานทั้งหมด</span><ArrowUpRight className="w-4 h-4" /></Link>
       </div>
     </section>
 
@@ -208,16 +255,13 @@ const Index = () => {
         <p className="mt-6 font-mono text-[11px] tracking-[0.12em] uppercase text-cinnabar">
           Logic convinces · <span className="text-foreground">Emotion converts</span>
         </p>
-        {/* What's included — numbered index */}
-        <div className="mt-12 md:mt-14 border-t border-foreground/12">
+        {/* What's included — compact service cards */}
+        <div className="mt-12 md:mt-14 grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
           {included.map((it, i) => (
-            <Reveal key={it.k} delay={i * 0.05}>
-              <div className="grid grid-cols-1 md:grid-cols-[110px_1fr] gap-2 md:gap-12 py-7 md:py-9 border-b border-foreground/12 items-baseline group">
-                <div className="num-display text-cinnabar text-[26px] md:text-[40px] leading-none tabular-nums">{`0${i + 1}`}</div>
-                <div className="max-w-[660px]">
-                  <h3 className="font-display text-[20px] md:text-[26px] font-semibold leading-tight tracking-[-0.01em] group-hover:text-cinnabar transition-colors">{it.k}</h3>
-                  <p lang="th" className="mt-2.5 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">{it.d}</p>
-                </div>
+            <Reveal key={it.k} delay={(i % 2) * 0.05}>
+              <div className="h-full card-soft p-6 md:p-7 hover:border-cinnabar/50 transition-colors group">
+                <h3 className="font-display text-[17px] md:text-[19px] font-semibold leading-tight tracking-[-0.01em] group-hover:text-cinnabar transition-colors">{it.k}</h3>
+                <p lang="th" className="mt-2 font-thai thai-wrap text-[13px] md:text-[14px] leading-[1.7] text-muted-foreground">{it.d}</p>
               </div>
             </Reveal>
           ))}
@@ -249,37 +293,6 @@ const Index = () => {
             </Reveal>
           ))}
         </div>
-      </div>
-    </section>
-
-    {/* 03 — MARKET PRESSURE — ทำแบบเดิมไม่รอด */}
-    <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <SectionHeading
-          lang="th"
-          eyebrow="2026"
-          title={<>ทำแบบเดิม <em className="text-cinnabar">ไม่รอดแล้ว.</em></>}
-          intro="ปี 2026 เปลี่ยนกติกาไป 3 อย่าง — และทั้ง 3 คือเหตุผลว่าทำไม 'ทำเองแบบเดิม' ถึงไม่พอ"
-        />
-        <div className="mt-12 md:mt-14 grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
-          {pressures.map((p, i) => (
-            <Reveal key={p.title} delay={i * 0.08}>
-              <div className="card-soft h-full p-7 md:p-8">
-                <CountUp to={p.to} prefix={p.prefix} suffix={p.suffix} decimals={p.decimals}
-                  className="num-display text-cinnabar text-[clamp(44px,6vw,68px)] leading-none"
-                  suffixClassName="text-[0.5em] ml-0.5" />
-                <h3 lang="th" className="mt-5 font-display text-[17px] md:text-[19px] font-semibold">{p.title}</h3>
-                <p lang="th" className="mt-2.5 font-thai thai-wrap text-[13px] leading-[1.7] text-muted-foreground">{p.desc}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-        <p className="mt-7 font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground/70 max-w-[640px] leading-[1.7]">
-          ที่มา · short-form video benchmarks 2025 · Ahrefs AI-content study 2025 · Meta CPM benchmarks 2024–25
-        </p>
-        <p lang="th" className="mt-6 font-thai text-[13px] leading-[1.7] text-foreground/80 max-w-[640px]">
-          ทำเองแบบเดิมจึงไม่พอ — ต้องมีทีมที่ <span className="text-cinnabar font-medium">คิดกลยุทธ์ถึงงานคราฟต์ ครบในทีมเดียว</span> ↓
-        </p>
       </div>
     </section>
 

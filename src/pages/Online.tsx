@@ -125,11 +125,67 @@ const Online = () => (
       </div>
     </section>
 
+    {/* PLATFORMS — where we run */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+        <SectionLabel index="02" label="ยิงทุกแพลตฟอร์ม" />
+        <Reveal delay={0.05}>
+          <h2 lang="th" className="mt-6 font-thai font-bold text-[clamp(28px,5vw,52px)] leading-[1.0] tracking-[-0.02em] max-w-[16ch]">
+            ลูกค้าคุณอยู่ที่ไหน <span className="text-cinnabar">เราอยู่ที่นั่น.</span>
+          </h2>
+        </Reveal>
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+          {[
+            { k: "Meta", d: "Facebook · Instagram — full-funnel ads + เพจ + คอนเทนต์ลงฟีด" },
+            { k: "TikTok", d: "Spark Ads + คอนเทนต์สั้นที่หยุดนิ้ว — สนามที่โตเร็วสุด" },
+            { k: "Google", d: "Search · Display · YouTube — จับคนที่กำลังหาของคุณอยู่" },
+            { k: "LINE", d: "LINE Ads + OA — ปิดการขายและดูแลลูกค้าในแชต" },
+          ].map((p, i) => (
+            <Reveal key={p.k} delay={(i % 4) * 0.05}>
+              <div className="card-soft p-7 md:p-8 h-full hover:border-cinnabar hover:bg-cinnabar/[0.06] transition-all duration-200">
+                <h3 className="font-unbounded text-[22px] md:text-[26px] tracking-[-0.01em]">{p.k}</h3>
+                <p lang="th" className="mt-3 font-thai thai-wrap text-[13px] leading-[1.7] text-muted-foreground">{p.d}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* FAST START — how quickly we go live */}
+    <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+        <SectionLabel index="03" label="เริ่มเร็วแค่ไหน" />
+        <Reveal delay={0.05}>
+          <h2 lang="th" className="mt-6 font-thai font-bold text-[clamp(28px,5vw,52px)] leading-[1.0] tracking-[-0.02em] max-w-[16ch]">
+            จากคุย ถึงยิงจริง — <span className="text-cinnabar">ไม่กี่วัน.</span>
+          </h2>
+        </Reveal>
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-5">
+          {[
+            { n: "01", when: "Day 0", t: "คุยโจทย์ + วาง KPI", d: "เข้าใจของ · กลุ่มเป้าหมาย · งบ แล้วตั้งเป้าที่วัดได้ร่วมกัน" },
+            { n: "02", when: "สัปดาห์แรก", t: "ตั้งระบบ + ครีเอทีฟชุดแรก", d: "Pixel · CAPI · โครงแคมเปญ พร้อมครีเอทีฟชุดทดสอบ" },
+            { n: "03", when: "สัปดาห์ 2", t: "ยิงจริง + เริ่มวัดผล", d: "ปล่อยแอด เก็บดาต้า หา winner เร็วที่สุด" },
+            { n: "04", when: "ทุกเดือน", t: "รายงาน + ปรับ", d: "เห็นยอดจริงทุกบาท แล้วรีดให้ media ทำงานหนักขึ้น" },
+          ].map((s, i) => (
+            <Reveal key={s.n} delay={i * 0.07}>
+              <div className="card-soft h-full p-6 md:p-7 hover:border-cinnabar/60 transition-colors">
+                <div className="num-display text-cinnabar text-[28px] leading-none">{s.n}</div>
+                <div lang="th" className="mt-4 font-mono text-[10px] tracking-[0.16em] uppercase text-cinnabar">{s.when}</div>
+                <h3 lang="th" className="mt-2 font-unbounded text-[16px] md:text-[18px] tracking-[-0.01em]">{s.t}</h3>
+                <p lang="th" className="mt-2.5 font-thai thai-wrap text-[13px] leading-[1.6] text-muted-foreground">{s.d}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+
     {/* PRICING — has rate card */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28 grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16 items-center">
         <div>
-          <SectionLabel index="02" label="ราคา" />
+          <SectionLabel index="04" label="ราคา" />
           <Reveal delay={0.05}>
             <h2 lang="th" className="mt-6 font-thai font-bold text-[clamp(30px,5vw,56px)] leading-[1.0] tracking-[-0.02em] max-w-[12ch]">
               ราคาชัด <span className="text-cinnabar">เริ่มได้เลย.</span>

@@ -4,10 +4,15 @@ import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
 import CTABand from "@/components/CTABand";
-import { workThumbs } from "@/data/portfolio";
+import { portfolio } from "@/data/portfolio";
 
 const SITE_URL = "https://orions.agency";
-const craft = workThumbs.slice(0, 3);
+
+// Real ORIONS craft — pull from the photography (brand shoots) + art-direction galleries.
+const photoG = (portfolio.find((c) => c.key === "photo")?.gallery ?? []).map((g) => g.src);
+const artG = (portfolio.find((c) => c.key === "artdir")?.gallery ?? []).map((g) => g.src);
+const heroImg = photoG[0] ?? artG[0];
+const craft = [artG[0], photoG[1], artG[1], photoG[2], artG[2], photoG[3]].filter(Boolean);
 
 const included = [
   { k: "Positioning & Brand DNA", d: "จุดยืน แก่นตัวตน และเรื่องที่จริงของแบรนด์ — ต้นน้ำของทุกอย่าง" },
@@ -44,18 +49,18 @@ const Boutique = () => (
       ]}
     />
 
-    {/* HERO — editorial, serif-forward, quiet */}
+    {/* HERO — editorial, serif-forward, dramatic */}
     <section className="section-ink px-6 md:px-10">
-      <div className="max-w-[1180px] mx-auto pt-28 md:pt-36 pb-20 md:pb-28">
+      <div className="max-w-[1180px] mx-auto pt-28 md:pt-36 pb-12 md:pb-16">
         <SectionLabel label="ORIONS Boutique" />
         <Reveal delay={0.05}>
-          <h1 lang="th" className="mt-10 font-serif font-medium text-[clamp(40px,7vw,104px)] leading-[1.04] tracking-[-0.02em] max-w-[16ch] thai-wrap">
+          <h1 lang="th" className="mt-10 font-serif font-medium text-[clamp(46px,9vw,128px)] leading-[0.98] tracking-[-0.025em] max-w-[14ch] thai-wrap">
             งานปั้น ที่คน<em className="text-cinnabar italic">จำและเลือก.</em>
           </h1>
         </Reveal>
         <Reveal delay={0.12}>
-          <p lang="th" className="mt-10 max-w-[640px] font-serif text-[19px] md:text-[24px] leading-[1.55] text-foreground/80">
-            ฝั่ง <span className="text-foreground italic">creative craft</span> ของ ORIONS — สำหรับแบรนด์ที่อยากถูกจำ ไม่ใช่แค่ถูกเห็น. นี่คือฝั่งของ <span className="text-foreground">อารมณ์</span> ที่ทำให้คนยอมจ่ายแพง (<Link to="/thinking" className="text-cinnabar hover:underline">emotion converts</Link>) — คิด · ปั้น · ถ่าย ระดับโฆษณา โดยทีมที่คุมมาตรฐานเอง.
+          <p lang="th" className="mt-10 max-w-[640px] font-serif text-[19px] md:text-[25px] leading-[1.55] text-foreground/80">
+            ฝั่ง <span className="text-foreground italic">creative craft</span> ของ ORIONS — สำหรับแบรนด์ที่อยากถูกจำ ไม่ใช่แค่ถูกเห็น. นี่คือฝั่งของ <span className="text-foreground">อารมณ์</span> ที่ทำให้คนยอมจ่ายแพง (<Link to="/thinking" className="text-cinnabar hover:underline">emotion converts</Link>).
           </p>
         </Reveal>
         <Reveal delay={0.18}>
@@ -64,15 +69,26 @@ const Boutique = () => (
           </p>
         </Reveal>
       </div>
+      {/* Hero image band — real craft, graded */}
+      <div className="max-w-[1180px] mx-auto pb-16 md:pb-24">
+        <Reveal>
+          <div className="grade-orion overflow-hidden border border-foreground/15 bg-muted" style={{ aspectRatio: "21 / 9" }}>
+            <img src={heroImg} alt="" aria-hidden className="w-full h-full object-cover object-center grayscale-[0.25]" />
+          </div>
+        </Reveal>
+      </div>
     </section>
 
     {/* PULL-QUOTE — editorial statement */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1000px] mx-auto py-20 md:py-28">
         <Reveal>
-          <blockquote lang="th" className="font-serif text-[26px] md:text-[40px] leading-[1.35] tracking-[-0.01em] text-foreground/90 thai-wrap">
+          <blockquote lang="th" className="font-serif text-[28px] md:text-[46px] leading-[1.3] tracking-[-0.015em] text-foreground/90 thai-wrap">
             งานที่ดีที่สุดมักไม่ได้เกิดตอนมีอิสระเต็มที่ — แต่เกิดตอนมี<em className="text-cinnabar italic">กรอบ</em>ที่บีบให้คิดให้คม. เราไม่หนีข้อจำกัด เราถือว่ามันคือบรีฟ.
           </blockquote>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <p className="mt-8 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">— ปรัชญาการทำงานของ ORIONS</p>
         </Reveal>
       </div>
     </section>
@@ -97,44 +113,55 @@ const Boutique = () => (
       </div>
     </section>
 
-    {/* SELECTED CRAFT — editorial image spread */}
-    <section className="px-6 md:px-10 border-t border-foreground/15">
+    {/* SELECTED CRAFT — editorial gallery, real work */}
+    <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1180px] mx-auto py-20 md:py-28">
         <SectionLabel index="02" label="Selected craft" />
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-8 items-end">
-          <Reveal className="md:col-span-8">
+        <Reveal delay={0.05}>
+          <h2 lang="th" className="mt-8 font-serif text-[26px] md:text-[40px] leading-[1.15] tracking-[-0.015em] max-w-[20ch] thai-wrap">
+            งานที่เราภูมิใจ — <em className="text-cinnabar italic">ตั้งใจทุกเฟรม.</em>
+          </h2>
+        </Reveal>
+
+        {/* row 1 — lead + portrait */}
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-7 items-end">
+          <Reveal className="md:col-span-7">
             <figure>
-              <div className="overflow-hidden border border-foreground/12 bg-muted" style={{ aspectRatio: "16 / 10" }}>
+              <div className="overflow-hidden border border-foreground/12 bg-muted" style={{ aspectRatio: "16 / 11" }}>
                 <img src={craft[0]} alt="ORIONS craft — art direction" loading="lazy"
-                  className="w-full h-full object-cover grayscale-[0.4] hover:grayscale-0 hover:scale-[1.02] transition-[transform,filter] duration-700" />
+                  className="w-full h-full object-cover grayscale-[0.35] hover:grayscale-0 hover:scale-[1.02] transition-[transform,filter] duration-700" />
               </div>
-              <figcaption lang="th" className="mt-4 font-serif text-[16px] md:text-[18px] text-foreground/70 italic">Art direction &amp; key visuals — งานที่ตั้งใจทุกเฟรม.</figcaption>
+              <figcaption lang="th" className="mt-4 font-serif text-[16px] md:text-[19px] text-foreground/65 italic">Art direction &amp; key visuals</figcaption>
             </figure>
           </Reveal>
-          <Reveal className="md:col-span-4" delay={0.08}>
+          <Reveal className="md:col-span-5" delay={0.08}>
             <figure>
               <div className="overflow-hidden border border-foreground/12 bg-muted" style={{ aspectRatio: "4 / 5" }}>
-                <img src={craft[1]} alt="ORIONS craft — brand visual" loading="lazy"
-                  className="w-full h-full object-cover grayscale-[0.4] hover:grayscale-0 hover:scale-[1.02] transition-[transform,filter] duration-700" />
+                <img src={craft[1]} alt="ORIONS craft — brand photoshoot" loading="lazy"
+                  className="w-full h-full object-cover grayscale-[0.35] hover:grayscale-0 hover:scale-[1.02] transition-[transform,filter] duration-700" />
               </div>
+              <figcaption lang="th" className="mt-4 font-serif text-[16px] md:text-[19px] text-foreground/65 italic">Brand &amp; identity shoot</figcaption>
             </figure>
           </Reveal>
         </div>
-        <div className="mt-5 md:mt-8 grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-8">
-          <Reveal className="md:col-span-5" delay={0.05}>
-            <div className="overflow-hidden border border-foreground/12 bg-muted" style={{ aspectRatio: "3 / 2" }}>
-              <img src={craft[2]} alt="ORIONS craft — campaign" loading="lazy"
-                className="w-full h-full object-cover grayscale-[0.4] hover:grayscale-0 hover:scale-[1.02] transition-[transform,filter] duration-700" />
-            </div>
-          </Reveal>
-          <div className="md:col-span-7 flex items-end">
-            <Reveal delay={0.1}>
-              <Link to="/work" viewTransition className="group inline-flex items-center gap-3 font-serif text-[22px] md:text-[28px] tracking-[-0.01em] hover:text-cinnabar transition-colors">
-                ดูผลงานทั้งหมด <ArrowUpRight className="w-7 h-7 md:w-9 md:h-9 text-cinnabar group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-              </Link>
+
+        {/* row 2 — three frames */}
+        <div className="mt-5 md:mt-7 grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-7">
+          {craft.slice(2, 5).map((src, i) => (
+            <Reveal key={src} delay={i * 0.06} className={i === 2 ? "col-span-2 md:col-span-1" : ""}>
+              <div className="overflow-hidden border border-foreground/12 bg-muted" style={{ aspectRatio: "4 / 5" }}>
+                <img src={src} alt="ORIONS craft" loading="lazy"
+                  className="w-full h-full object-cover grayscale-[0.35] hover:grayscale-0 hover:scale-[1.02] transition-[transform,filter] duration-700" />
+              </div>
             </Reveal>
-          </div>
+          ))}
         </div>
+
+        <Reveal delay={0.1}>
+          <Link to="/work" viewTransition className="group mt-12 inline-flex items-center gap-3 font-serif text-[24px] md:text-[32px] tracking-[-0.01em] hover:text-cinnabar transition-colors">
+            ดูผลงานทั้งหมด <ArrowUpRight className="w-8 h-8 md:w-10 md:h-10 text-cinnabar group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+          </Link>
+        </Reveal>
       </div>
     </section>
 
@@ -146,10 +173,10 @@ const Boutique = () => (
         </div>
         <Reveal delay={0.05}>
           <div>
-            <h2 lang="th" className="font-serif text-[28px] md:text-[44px] leading-[1.2] tracking-[-0.015em] max-w-[18ch] thai-wrap">
+            <h2 lang="th" className="font-serif text-[28px] md:text-[46px] leading-[1.2] tracking-[-0.02em] max-w-[18ch] thai-wrap">
               ไม่มีเรทการ์ด เพราะไม่มีงานไหน<em className="text-cinnabar italic">เหมือนกัน.</em>
             </h2>
-            <p lang="th" className="mt-8 max-w-[620px] font-serif text-[17px] md:text-[20px] leading-[1.6] text-foreground/80">
+            <p lang="th" className="mt-8 max-w-[620px] font-serif text-[17px] md:text-[21px] leading-[1.6] text-foreground/80">
               งานคราฟต์คิดราคาเป็น <span className="italic">แคมเปญ</span> หรือ <span className="italic">โปรเจกต์</span> — ตีตามขอบเขต ความลึก และมาตรฐานที่โจทย์ต้องการ. เราคุยโจทย์ก่อนเสมอ แล้วเสนอสโคป + ราคาที่ตรงงานคุณ.
             </p>
             <p lang="th" className="mt-6 font-thai thai-wrap text-[13px] leading-[1.8] text-muted-foreground">

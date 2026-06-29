@@ -11,6 +11,7 @@ import HeroHeadline from "@/components/HeroHeadline";
 import MarqueeBand from "@/components/MarqueeBand";
 import CountUp from "@/components/CountUp";
 import { workThumbs } from "@/data/portfolio";
+import { blogPosts } from "@/data/blog";
 import heroSilk from "@/assets/hero-silk.jpg";
 import founder from "@/assets/team/founder.jpg";
 
@@ -180,7 +181,6 @@ const Index = () => {
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionHeading
           lang="th"
-          eyebrow="Creative agency · two divisions"
           title={<>หนึ่งเอเจนซี — <em className="text-cinnabar">สองวิธีทำงาน.</em></>}
           intro="ORIONS เป็นครีเอทีฟเอเจนซีที่แยกชัดเป็น 2 ฝั่ง เพราะลูกค้าคนละแบบ — เลือกฝั่งของคุณได้เลย หรือใช้ทั้งคู่ก็ได้."
         />
@@ -473,6 +473,43 @@ const Index = () => {
             </div>
           </div>
         </Reveal>
+      </div>
+    </section>
+
+    {/* 06c — FROM THE BLOG */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+        <div className="flex items-end justify-between gap-6 flex-wrap">
+          <SectionHeading
+            lang="th"
+            eyebrow="Thinking"
+            title={<>มุมมองล่าสุด <em className="text-cinnabar">จากเรา.</em></>}
+          />
+          <Link to="/blog" className="hidden md:inline-flex font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground hover:text-cinnabar transition-colors">
+            อ่านทั้งหมด →
+          </Link>
+        </div>
+        <div className="mt-12 md:mt-14 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          {blogPosts.slice(0, 3).map((p, i) => (
+            <Reveal key={p.slug} delay={i * 0.06}>
+              <Link to={`/blog/${p.slug}`} viewTransition className="group flex flex-col h-full rounded-none border border-foreground/12 bg-foreground/[0.02] hover:border-cinnabar/60 transition-colors">
+                <div className="relative w-full overflow-hidden aspect-[16/10]">
+                  <img src={p.cover} alt={p.title} loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover grayscale-[0.35] group-hover:grayscale-0 group-hover:scale-[1.04] transition-[transform,filter] duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/10 to-transparent" />
+                  <span className="absolute left-4 top-4 font-mono text-[9px] tracking-[0.2em] uppercase text-background bg-cinnabar px-2 py-1">{p.category}</span>
+                </div>
+                <div className="flex flex-col flex-1 p-6">
+                  <h3 lang="th" className="font-display text-[19px] md:text-[21px] font-semibold leading-snug tracking-[-0.01em] group-hover:text-cinnabar transition-colors">{p.title}</h3>
+                  <p lang="th" className="mt-3 font-thai thai-wrap text-[14px] leading-[1.7] text-muted-foreground flex-1">{p.excerpt}</p>
+                </div>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
+        <Link to="/blog" viewTransition className="btn-ghost mt-10 md:hidden">
+          <span>อ่านบทความทั้งหมด</span><ArrowUpRight className="w-4 h-4" />
+        </Link>
       </div>
     </section>
 

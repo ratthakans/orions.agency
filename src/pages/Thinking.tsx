@@ -4,6 +4,7 @@ import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
 import CTABand from "@/components/CTABand";
+import TopoField from "@/components/TopoField";
 import heroImg from "@/assets/thinking/hero.jpg";
 import assetsImg from "@/assets/thinking/assets.jpg";
 import translateImg from "@/assets/thinking/translate.jpg";
@@ -60,8 +61,10 @@ const Thinking = () => (
     />
 
     {/* HERO — editorial */}
-    <section className="section-ink px-6 md:px-10">
-      <div className="max-w-[1180px] mx-auto pt-28 md:pt-36 pb-16 md:pb-20">
+    <section className="relative overflow-hidden section-ink px-6 md:px-10">
+      <TopoField fx={0.18} fy={0.5} seed={5} intensity={0.5}
+        className="absolute inset-0 w-full h-full pointer-events-none" />
+      <div className="relative z-10 max-w-[1180px] mx-auto pt-28 md:pt-36 pb-16 md:pb-20">
         <SectionLabel label="Our POV · แนวคิด" />
         <Reveal delay={0.05}>
           <h1 lang="th" className="mt-10 font-serif font-medium text-[clamp(38px,6.5vw,96px)] leading-[1.05] tracking-[-0.02em] max-w-[18ch] thai-wrap">
@@ -74,7 +77,7 @@ const Thinking = () => (
           </p>
         </Reveal>
       </div>
-      <div className="max-w-[1180px] mx-auto pb-16 md:pb-20">
+      <div className="relative z-10 max-w-[1180px] mx-auto pb-16 md:pb-20">
         <Reveal>
           <div className="w-full overflow-hidden border border-foreground/15 bg-muted" style={{ aspectRatio: "16 / 7" }}>
             <img src={heroImg} alt="" aria-hidden className="w-full h-full object-cover grayscale-[0.3]" />

@@ -4,6 +4,7 @@ import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
 import CTABand from "@/components/CTABand";
+import TopoField from "@/components/TopoField";
 import { portfolio } from "@/data/portfolio";
 
 const SITE_URL = "https://orions.agency";
@@ -50,8 +51,10 @@ const Boutique = () => (
     />
 
     {/* HERO — editorial, serif-forward, dramatic */}
-    <section className="section-ink px-6 md:px-10">
-      <div className="max-w-[1180px] mx-auto pt-28 md:pt-36 pb-12 md:pb-16">
+    <section className="relative overflow-hidden section-ink px-6 md:px-10">
+      <TopoField fx={0.22} fy={0.38} seed={7} intensity={0.35}
+        className="absolute inset-0 w-full h-full pointer-events-none" />
+      <div className="relative z-10 max-w-[1180px] mx-auto pt-28 md:pt-36 pb-12 md:pb-16">
         <SectionLabel label="ORIONS Boutique" />
         <Reveal delay={0.05}>
           <h1 lang="th" className="mt-10 font-serif font-medium text-[clamp(46px,9vw,128px)] leading-[0.98] tracking-[-0.025em] max-w-[14ch] thai-wrap">
@@ -70,7 +73,7 @@ const Boutique = () => (
         </Reveal>
       </div>
       {/* Hero image band — real craft, graded */}
-      <div className="max-w-[1180px] mx-auto pb-16 md:pb-24">
+      <div className="relative z-10 max-w-[1180px] mx-auto pb-16 md:pb-24">
         <Reveal>
           <div className="grade-orion overflow-hidden border border-foreground/15 bg-muted" style={{ aspectRatio: "21 / 9" }}>
             <img src={heroImg} alt="" aria-hidden className="w-full h-full object-cover object-center grayscale-[0.25]" />

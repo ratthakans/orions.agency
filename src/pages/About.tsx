@@ -5,6 +5,7 @@ import SEO from "@/components/SEO";
 import SectionHeading from "@/components/ui/SectionHeading";
 import SectionLabel from "@/components/SectionLabel";
 import CTABand from "@/components/CTABand";
+import TopoField from "@/components/TopoField";
 import founder from "@/assets/team/founder.jpg";
 
 const principles = [
@@ -29,8 +30,10 @@ const About = () => (
     />
 
     {/* 01 — WHAT WE BELIEVE */}
-    <section className="section-ink px-6 md:px-10 border-b border-foreground/15">
-      <div className="max-w-[1280px] mx-auto pt-28 md:pt-32 pb-20 md:pb-28">
+    <section className="relative overflow-hidden section-ink px-6 md:px-10 border-b border-foreground/15">
+      <TopoField fx={0.85} fy={0.42} seed={6} intensity={0.4}
+        className="absolute inset-0 w-full h-full pointer-events-none" />
+      <div className="relative z-10 max-w-[1280px] mx-auto pt-28 md:pt-32 pb-20 md:pb-28">
         <SectionLabel label="What we believe" />
         <Reveal delay={0.1}>
           <h1 lang="th" className="mt-8 h-display-lg max-w-[20ch] thai-wrap">

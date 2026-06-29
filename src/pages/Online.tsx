@@ -5,6 +5,7 @@ import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
 import CTABand from "@/components/CTABand";
 import CountUp from "@/components/CountUp";
+import TopoField from "@/components/TopoField";
 
 const SITE_URL = "https://orions.agency";
 const RATECARD_PDF = "/ORIONS_RateCard_2026.pdf";
@@ -46,8 +47,10 @@ const Online = () => (
     />
 
     {/* HERO — dynamic, bold sans, punchy */}
-    <section className="section-ink px-6 md:px-10">
-      <div className="max-w-[1280px] mx-auto pt-28 md:pt-32 pb-14 md:pb-16">
+    <section className="relative overflow-hidden section-ink px-6 md:px-10">
+      <TopoField fx={0.8} fy={0.34} seed={4} intensity={0.6}
+        className="absolute inset-0 w-full h-full pointer-events-none" />
+      <div className="relative z-10 max-w-[1280px] mx-auto pt-28 md:pt-32 pb-14 md:pb-16">
         <SectionLabel label="ORIONS Online" />
         <Reveal delay={0.05}>
           <h1 lang="th" className="mt-8 font-thai font-bold text-[clamp(48px,10vw,150px)] leading-[0.92] tracking-[-0.03em]">

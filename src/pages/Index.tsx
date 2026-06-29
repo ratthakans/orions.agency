@@ -12,6 +12,7 @@ import MarqueeBand from "@/components/MarqueeBand";
 import CountUp from "@/components/CountUp";
 import { workThumbs } from "@/data/portfolio";
 import { blogPosts } from "@/data/blog";
+import TopoField from "@/components/TopoField";
 import heroSilk from "@/assets/hero-silk.jpg";
 import founder from "@/assets/team/founder.jpg";
 
@@ -177,8 +178,10 @@ const Index = () => {
     </section>
 
     {/* 02 — TWO DIVISIONS — ORIONS is one agency, two ways */}
-    <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+    <section className="relative overflow-hidden bg-surface px-6 md:px-10 border-t border-foreground/15">
+      <TopoField fx={0.14} fy={0.62} seed={1} intensity={0.45}
+        className="absolute inset-0 w-full h-full pointer-events-none" />
+      <div className="relative z-10 max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionHeading
           lang="th"
           title={<>หนึ่งเอเจนซี — <em className="text-cinnabar">สองวิธีทำงาน.</em></>}

@@ -55,7 +55,7 @@ const Boutique = () => (
         </Reveal>
         <Reveal delay={0.12}>
           <p lang="th" className="mt-10 max-w-[640px] font-serif text-[19px] md:text-[24px] leading-[1.55] text-foreground/80">
-            ฝั่ง <span className="text-foreground italic">creative craft</span> ของ ORIONS — สำหรับแบรนด์ที่อยากถูกจำ ไม่ใช่แค่ถูกเห็น. คิด · ปั้น · ถ่าย ระดับโฆษณา โดยทีมที่คุมมาตรฐานเอง.
+            ฝั่ง <span className="text-foreground italic">creative craft</span> ของ ORIONS — สำหรับแบรนด์ที่อยากถูกจำ ไม่ใช่แค่ถูกเห็น. นี่คือฝั่งของ <span className="text-foreground">อารมณ์</span> ที่ทำให้คนยอมจ่ายแพง (<Link to="/thinking" className="text-cinnabar hover:underline">emotion converts</Link>) — คิด · ปั้น · ถ่าย ระดับโฆษณา โดยทีมที่คุมมาตรฐานเอง.
           </p>
         </Reveal>
         <Reveal delay={0.18}>

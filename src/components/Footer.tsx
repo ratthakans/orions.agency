@@ -5,6 +5,7 @@ const navLinks = [
   { to: "/boutique", label: "Boutique" },
   { to: "/online", label: "Online" },
   { to: "/work", label: "Work" },
+  { to: "/thinking", label: "Thinking" },
   { to: "/blog", label: "Blog" },
   { to: "/about", label: "About" },
   { to: "/package", label: "Package" },

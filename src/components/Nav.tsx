@@ -6,6 +6,7 @@ const links = [
   { label: "Boutique", to: "/boutique" },
   { label: "Online", to: "/online" },
   { label: "Work", to: "/work" },
+  { label: "Thinking", to: "/thinking" },
   { label: "Blog", to: "/blog" },
   { label: "About", to: "/about" },
 ];
@@ -48,7 +49,7 @@ const Nav = () => {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-5 lg:gap-7">
           {links.map((l, i) => (
             <Fragment key={l.to}>
               <NavLink

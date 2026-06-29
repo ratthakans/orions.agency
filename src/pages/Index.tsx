@@ -207,8 +207,11 @@ const Index = () => {
             </Reveal>
           ))}
         </div>
-        <p lang="th" className="mt-8 font-thai text-[13px] leading-[1.7] text-muted-foreground max-w-[640px]">
-          ไม่แน่ใจว่าฝั่งไหน? <span className="text-foreground/85">ยอด (Online)</span> ให้เงินหมุนก่อน แล้วต่อ <span className="text-foreground/85">แบรนด์ (Boutique)</span> ให้แข็งก็ได้.
+        <p className="mt-8 font-mono text-[11px] tracking-[0.12em] uppercase text-cinnabar">
+          Logic convinces <span className="text-muted-foreground">(Online)</span> · Emotion converts <span className="text-muted-foreground">(Boutique)</span>
+        </p>
+        <p lang="th" className="mt-3 font-thai text-[13px] leading-[1.7] text-muted-foreground max-w-[640px]">
+          ไม่แน่ใจว่าฝั่งไหน? <span className="text-foreground/85">ยอด (Online)</span> ให้เงินหมุนก่อน แล้วต่อ <span className="text-foreground/85">แบรนด์ (Boutique)</span> ให้แข็งก็ได้ — หรืออ่าน <Link to="/thinking" className="text-cinnabar hover:underline">แนวคิดของเรา</Link> ก่อน.
         </p>
         <Link to="/diagnostic" className="btn-ghost mt-6">
           <span>ลองวินิจฉัย — ยอด หรือ แบรนด์?</span><ArrowUpRight className="w-4 h-4" />

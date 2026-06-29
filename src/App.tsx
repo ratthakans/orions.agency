@@ -45,6 +45,7 @@ export const routes: RouteRecord[] = [
       },
       { path: "package", lazy: page(() => import("./pages/Package")) },
       { path: "diagnostic", lazy: page(() => import("./pages/Diagnostic")) },
+      { path: "thinking", lazy: page(() => import("./pages/Thinking")) },
       { path: "blog", lazy: page(() => import("./pages/Blog")) },
       {
         path: "blog/:slug",

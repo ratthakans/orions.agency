@@ -62,7 +62,7 @@ const About = () => (
               เราเปิดทุกดีลด้วยคำถามเดียว — <span className="text-cinnabar">"ยอด หรือ แบรนด์?"</span> ก่อนเสนออะไร. ในตลาดที่เต็มไปด้วยเอเจนซีขายฝัน เราขายความซื่อสัตย์ที่กล้าบอกข้อจำกัด.
             </p>
             <p lang="th" className="mt-5 font-thai thai-wrap text-[15px] leading-[1.8] text-foreground/80">
-              และเราไม่เชื่อในงานสวยที่ไม่ขยับธุรกิจ — <span className="text-foreground">ความคิดที่ดีต้องขายของได้</span>. เรายืดหยุ่นที่ <span className="text-foreground">สไตล์</span> แต่ไม่เคยยืดที่ <span className="text-cinnabar">มาตรฐานฝีมือ</span>.
+              และเราไม่เชื่อในงานสวยที่ไม่ขยับธุรกิจ — <span className="text-foreground">ความคิดที่ดีต้องขายของได้</span>. เรายืดหยุ่นที่ <span className="text-foreground">สไตล์</span> แต่ไม่เคยยืดที่ <span className="text-cinnabar">มาตรฐานฝีมือ</span>. ก่อนปล่อยงานทุกชิ้น เราถาม 3 ข้อ — คนจะ <span className="text-foreground">รู้สึก</span> อะไร · จะ <span className="text-foreground">พูดต่อ</span> มั้ย · ถ้าไม่มีโลโก้ยังน่าสนใจมั้ย (<Link to="/thinking" className="text-cinnabar hover:underline">แนวคิดเรา</Link>).
             </p>
             <Link to="/diagnostic" className="btn-ghost mt-8">
               <span>ลองเครื่องวินิจฉัย — ยอด หรือ แบรนด์?</span><ArrowUpRight className="w-4 h-4" />

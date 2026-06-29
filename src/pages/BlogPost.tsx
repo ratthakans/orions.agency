@@ -6,6 +6,7 @@ import ClosingCTA from "@/components/ClosingCTA";
 import SectionLabel from "@/components/SectionLabel";
 import { blogPosts, getBlogPost } from "@/data/blog";
 import { fmtDate } from "./Blog";
+import Picture from "@/components/Picture";
 
 const SITE_URL = "https://orions.agency";
 
@@ -24,7 +25,7 @@ const BlogPost = () => {
       "@type": "Article",
       headline: post.title,
       description: post.excerpt,
-      image: post.cover,
+      image: post.cover.img.src,
       datePublished: post.date,
       articleSection: post.category,
       author: { "@type": "Organization", name: "ØRIONS", url: SITE_URL },
@@ -47,7 +48,7 @@ const BlogPost = () => {
         title={`${post.title} — Blog · ØRIONS`}
         description={post.excerpt}
         path={`/blog/${post.slug}`}
-        image={post.cover}
+        image={post.cover.img.src}
         ogType="article"
         schema={schema}
       />
@@ -84,7 +85,7 @@ const BlogPost = () => {
         <div className="max-w-[1100px] mx-auto pb-12 md:pb-16">
           <Reveal>
             <div className="w-full overflow-hidden rounded-none border border-foreground/15 bg-muted" style={{ aspectRatio: "16 / 9" }}>
-              <img src={post.cover} alt={post.title} className="w-full h-full object-cover" />
+              <Picture data={post.cover} alt={post.title} className="w-full h-full object-cover" />
             </div>
           </Reveal>
         </div>

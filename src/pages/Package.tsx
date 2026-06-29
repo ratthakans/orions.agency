@@ -5,7 +5,8 @@ import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
 import CTABand from "@/components/CTABand";
 import FAQ from "@/components/FAQ";
-import founder from "@/assets/team/founder.jpg";
+import Picture from "@/components/Picture";
+import founder from "@/assets/team/founder.jpg?as=picture";
 
 const RATECARD_PDF = "/ORIONS_RateCard_2026.pdf";
 
@@ -231,8 +232,8 @@ const Package = () => (
         <SectionLabel index="06" label="Talk to us" />
         <Reveal delay={0.05}>
           <div className="mt-10 card-soft p-6 md:p-9 grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-6 md:gap-10 items-center">
-            <img
-              src={founder}
+            <Picture
+              data={founder}
               alt="Ratthakan Suwanphakdee — Founder / Creative Director, ØRIONS"
               className="w-28 h-28 md:w-40 md:h-40 rounded-none object-cover object-top shrink-0"
             />

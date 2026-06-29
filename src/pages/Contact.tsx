@@ -8,7 +8,8 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import SectionLabel from "@/components/SectionLabel";
 import { toast } from "sonner";
 import { track } from "@/lib/analytics";
-import founder from "@/assets/team/founder.jpg";
+import Picture from "@/components/Picture";
+import founder from "@/assets/team/founder.jpg?as=picture";
 
 const inquirySchema = z.object({
   name:    z.string().trim().min(1, "กรุณากรอกชื่อ").max(100),
@@ -310,7 +311,7 @@ const Contact = () => {
             <div className="md:col-span-5 flex flex-col gap-6">
               {/* Contact person — founder (direct, no sales middleman) */}
               <div className="card-soft p-7 md:p-8 flex items-center gap-5">
-                <img src={founder} alt="Ratthakan Suwanphakdee — Founder / Creative Director, ØRIONS" className="w-20 h-20 md:w-24 md:h-24 rounded-none object-cover object-top shrink-0" />
+                <Picture data={founder} alt="Ratthakan Suwanphakdee — Founder / Creative Director, ØRIONS" className="w-20 h-20 md:w-24 md:h-24 rounded-none object-cover object-top shrink-0" />
                 <div>
                   <div className="font-mono text-[10px] tracking-[0.04em] text-cinnabar">— คุยกับเราโดยตรง</div>
                   <h3 lang="th" className="mt-1.5 font-serif text-[22px] tracking-[-0.01em]">รัฐกันต์ สุวรรณภักดี</h3>

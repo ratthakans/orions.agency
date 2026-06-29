@@ -1,12 +1,13 @@
-import cover01 from "@/assets/blog/01.jpg";
-import cover02 from "@/assets/blog/02.jpg";
-import cover03 from "@/assets/blog/03.jpg";
-import cover04 from "@/assets/blog/04.jpg";
-import cover05 from "@/assets/blog/05.jpg";
-import cover06 from "@/assets/blog/06.jpg";
-import cover07 from "@/assets/blog/07.jpg";
-import cover08 from "@/assets/blog/08.jpg";
-import cover09 from "@/assets/blog/09.jpg";
+import cover01 from "@/assets/blog/01.jpg?as=picture";
+import cover02 from "@/assets/blog/02.jpg?as=picture";
+import cover03 from "@/assets/blog/03.jpg?as=picture";
+import cover04 from "@/assets/blog/04.jpg?as=picture";
+import cover05 from "@/assets/blog/05.jpg?as=picture";
+import cover06 from "@/assets/blog/06.jpg?as=picture";
+import cover07 from "@/assets/blog/07.jpg?as=picture";
+import cover08 from "@/assets/blog/08.jpg?as=picture";
+import cover09 from "@/assets/blog/09.jpg?as=picture";
+import type { PictureData } from "@/components/Picture";
 
 export interface BlogPost {
   slug: string;
@@ -17,7 +18,7 @@ export interface BlogPost {
   date: string;
   /** Estimated read time, minutes. */
   readMins: number;
-  cover: string;
+  cover: PictureData;
   /** Body paragraphs (plain text). */
   body: string[];
 }

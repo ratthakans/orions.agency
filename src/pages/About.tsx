@@ -6,7 +6,8 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import SectionLabel from "@/components/SectionLabel";
 import CTABand from "@/components/CTABand";
 import TopoField from "@/components/TopoField";
-import founder from "@/assets/team/founder.jpg";
+import Picture from "@/components/Picture";
+import founder from "@/assets/team/founder.jpg?as=picture";
 
 const principles = [
   { n: "i.",   en: "พูดตรง",                  th: "บอกตรง ๆ ทั้งตอนที่ใช่และตอนที่ยังไม่พร้อม — เราขายความซื่อสัตย์ ไม่ขายฝัน" },
@@ -103,8 +104,8 @@ const About = () => (
         <SectionLabel label="Founder's note" />
         <Reveal delay={0.05}>
           <div className="mt-10 grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-8 md:gap-14 items-center">
-            <img
-              src={founder}
+            <Picture
+              data={founder}
               alt="Ratthakan Suwanphakdee — Founder / Creative Director, ØRIONS"
               className="w-40 h-48 md:w-52 md:h-64 rounded-none object-cover object-top shrink-0"
             />

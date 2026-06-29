@@ -5,9 +5,10 @@ import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
 import CTABand from "@/components/CTABand";
 import TopoField from "@/components/TopoField";
-import heroImg from "@/assets/thinking/hero.jpg";
-import assetsImg from "@/assets/thinking/assets.jpg";
-import translateImg from "@/assets/thinking/translate.jpg";
+import Picture from "@/components/Picture";
+import heroImg from "@/assets/thinking/hero.jpg?as=picture";
+import assetsImg from "@/assets/thinking/assets.jpg?as=picture";
+import translateImg from "@/assets/thinking/translate.jpg?as=picture";
 
 const SITE_URL = "https://orions.agency";
 
@@ -80,7 +81,7 @@ const Thinking = () => (
       <div className="relative z-10 max-w-[1180px] mx-auto pb-16 md:pb-20">
         <Reveal>
           <div className="w-full overflow-hidden border border-foreground/15 bg-muted" style={{ aspectRatio: "16 / 7" }}>
-            <img src={heroImg} alt="" aria-hidden className="w-full h-full object-cover grayscale-[0.3]" />
+            <Picture data={heroImg} alt="" aria-hidden className="w-full h-full object-cover grayscale-[0.3]" />
           </div>
         </Reveal>
       </div>
@@ -161,7 +162,7 @@ const Thinking = () => (
           </div>
           <Reveal delay={0.1}>
             <div className="hidden lg:block sticky top-28 overflow-hidden border border-foreground/15 bg-muted" style={{ aspectRatio: "4 / 5" }}>
-              <img src={assetsImg} alt="" aria-hidden className="w-full h-full object-cover grayscale-[0.3]" />
+              <Picture data={assetsImg} alt="" aria-hidden className="w-full h-full object-cover grayscale-[0.3]" />
             </div>
           </Reveal>
         </div>
@@ -181,7 +182,7 @@ const Thinking = () => (
             </Reveal>
             <Reveal delay={0.1}>
               <div className="mt-8 overflow-hidden border border-foreground/15 bg-muted" style={{ aspectRatio: "16 / 10" }}>
-                <img src={translateImg} alt="" aria-hidden className="w-full h-full object-cover grayscale-[0.3]" />
+                <Picture data={translateImg} alt="" aria-hidden className="w-full h-full object-cover grayscale-[0.3]" />
               </div>
             </Reveal>
           </div>

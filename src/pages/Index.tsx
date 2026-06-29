@@ -13,8 +13,9 @@ import CountUp from "@/components/CountUp";
 import { workThumbs } from "@/data/portfolio";
 import { blogPosts } from "@/data/blog";
 import TopoField from "@/components/TopoField";
-import heroSilk from "@/assets/hero-silk.jpg";
-import founder from "@/assets/team/founder.jpg";
+import Picture from "@/components/Picture";
+import heroSilk from "@/assets/hero-silk.jpg?as=picture";
+import founder from "@/assets/team/founder.jpg?as=picture";
 
 // Direct booking channel — founder section CTA (LINE-first).
 const LINE_URL = "https://line.me/ti/p/~orions";
@@ -150,7 +151,7 @@ const Index = () => {
 
     {/* 01 — HERO */}
     <section className="relative min-h-[100svh] flex flex-col px-6 md:px-10 overflow-hidden">
-      <img src={heroSilk} alt="" aria-hidden className="silk-drift absolute -inset-[6%] z-0 w-[112%] h-[112%] object-cover object-center pointer-events-none select-none" />
+      <Picture data={heroSilk} alt="" aria-hidden className="silk-drift absolute -inset-[6%] z-0 w-[112%] h-[112%] object-cover object-center pointer-events-none select-none" />
       <div aria-hidden className="hero-scrim absolute inset-0 z-0 pointer-events-none" />
       <div className="relative z-10 max-w-[1280px] mx-auto w-full flex-1 flex flex-col justify-center items-center text-center pt-24 md:pt-32 pb-20 md:pb-28">
         <Reveal>
@@ -446,8 +447,8 @@ const Index = () => {
       <div className="max-w-[1280px] mx-auto py-20 md:py-28">
         <Reveal>
           <div className="card-soft p-7 md:p-12 grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-7 md:gap-12 items-center">
-            <img
-              src={founder}
+            <Picture
+              data={founder}
               alt="Ratthakan Suwanphakdee — Founder / Creative Director, ØRIONS"
               className="w-28 h-36 md:w-44 md:h-56 rounded-none object-cover object-top shrink-0"
             />
@@ -502,7 +503,7 @@ const Index = () => {
             <Reveal key={p.slug} delay={i * 0.06}>
               <Link to={`/blog/${p.slug}`} viewTransition className="group flex flex-col h-full rounded-none border border-foreground/12 bg-foreground/[0.02] hover:border-cinnabar/60 transition-colors">
                 <div className="relative w-full overflow-hidden aspect-[16/10]">
-                  <img src={p.cover} alt={p.title} loading="lazy"
+                  <Picture data={p.cover} alt={p.title} loading="lazy"
                     className="absolute inset-0 w-full h-full object-cover grayscale-[0.35] group-hover:grayscale-0 group-hover:scale-[1.04] transition-[transform,filter] duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/10 to-transparent" />
                   <span className="absolute left-4 top-4 font-mono text-[9px] tracking-[0.2em] uppercase text-background bg-cinnabar px-2 py-1">{p.category}</span>

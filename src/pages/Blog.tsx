@@ -5,6 +5,7 @@ import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
 import ClosingCTA from "@/components/ClosingCTA";
 import { blogPosts } from "@/data/blog";
+import Picture from "@/components/Picture";
 
 const SITE_URL = "https://orions.agency";
 
@@ -54,8 +55,8 @@ const Blog = () => (
               className="group flex flex-col h-full rounded-none border border-foreground/12 bg-foreground/[0.02] hover:border-cinnabar/60 transition-colors"
             >
               <div className="relative w-full overflow-hidden aspect-[16/10]">
-                <img
-                  src={p.cover}
+                <Picture
+                  data={p.cover}
                   alt={p.title}
                   loading={i < 3 ? "eager" : "lazy"}
                   className="absolute inset-0 w-full h-full object-cover grayscale-[0.35] group-hover:grayscale-0 group-hover:scale-[1.04] transition-[transform,filter] duration-700"

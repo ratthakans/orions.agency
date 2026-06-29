@@ -17,6 +17,7 @@ import TopoField from "@/components/TopoField";
 import Picture from "@/components/Picture";
 import heroSilk from "@/assets/hero-silk.jpg?as=picture";
 import founder from "@/assets/team/founder.jpg?as=picture";
+import bleedImg from "@/assets/concert-crowd.jpg?as=picture";
 
 // Direct booking channel — founder section CTA (LINE-first).
 const LINE_URL = "https://line.me/ti/p/~orions";
@@ -360,6 +361,25 @@ const Index = () => {
         <p lang="th" className="mt-8 font-thai text-[14px] md:text-[15px] leading-[1.7] text-foreground/80 max-w-[640px]">
           เรายืดหยุ่นเรื่อง <span className="text-foreground">สไตล์</span> ได้ แต่ไม่เคยลดเรื่อง <span className="text-cinnabar font-medium">มาตรฐานฝีมือ</span> — ลายเซ็นของเราคือ "มาตรฐาน" ไม่ใช่ "ลุค".
         </p>
+      </div>
+    </section>
+
+    {/* 04a — FULL-BLEED PHILOSOPHY BREAK — cinematic breather + craft pull-quote */}
+    <section className="relative overflow-hidden border-t border-foreground/15">
+      <Picture data={bleedImg} alt="" aria-hidden
+        className="absolute inset-0 w-full h-full object-cover object-center grayscale-[0.3]" />
+      {/* directional scrim — keep the left (text) legible, let the image breathe right */}
+      <div aria-hidden className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-background/25" />
+      <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-background/40" />
+      <div className="relative z-10 max-w-[1280px] mx-auto px-6 md:px-10 py-28 md:py-44">
+        <Reveal>
+          <blockquote lang="th" className="font-serif text-[28px] md:text-[52px] leading-[1.25] tracking-[-0.015em] text-foreground max-w-[19ch] thai-wrap">
+            งานที่ดีที่สุดมักเกิดตอนมี<em className="text-cinnabar italic">กรอบ</em>ที่บีบให้คิดให้คม. เราไม่หนีข้อจำกัด — เราถือว่ามันคือ<em className="text-cinnabar italic">บรีฟ.</em>
+          </blockquote>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <p className="mt-8 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">— ปรัชญาการทำงานของ ØRIONS</p>
+        </Reveal>
       </div>
     </section>
 

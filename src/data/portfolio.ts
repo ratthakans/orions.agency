@@ -3,8 +3,9 @@
 // that link to their /work/:slug detail pages).
 
 import { caseStudies, type CaseStudy } from "./caseStudies";
+import type { PictureData } from "@/components/Picture";
 
-export type GalleryImage = { src: string; ar: number };
+export type GalleryImage = { src: PictureData; ar: number };
 export type VideoItem = { title: string; id: string; ar?: number };
 
 const W = 21 / 9; // cinematic wide
@@ -52,7 +53,7 @@ export type PortCategory = {
   gallery?: GalleryImage[];
   videos?: VideoItem[];
   /** Album posts — ordered images + optional layout (no shuffle). */
-  albums?: { images: string[]; layout?: "feature" | "row" }[];
+  albums?: { images: PictureData[]; layout?: "feature" | "row" }[];
   /** Fixed-column grid for videos (e.g. 6) instead of justified rows. */
   cols?: number;
   /** Justified row-height base (px) — bigger = fewer, larger tiles per row. */
@@ -60,11 +61,11 @@ export type PortCategory = {
 };
 
 // Social album posts — one folder per album; files renamed 01.jpg.. in order.
-const socialMods = import.meta.glob("../assets/work/social/*/*.jpg", { eager: true, import: "default" });
-const socialBy: Record<string, string[]> = {};
+const socialMods = import.meta.glob("../assets/work/social/*/*.jpg", { eager: true, import: "default", query: "?as=picture" });
+const socialBy: Record<string, PictureData[]> = {};
 for (const k of Object.keys(socialMods).sort()) {
   const folder = k.split("/social/")[1].split("/")[0];
-  (socialBy[folder] ||= []).push(socialMods[k] as string);
+  (socialBy[folder] ||= []).push(socialMods[k] as PictureData);
 }
 const SOCIAL: { slug: string; layout?: "feature" | "row" }[] = [
   { slug: "plot-twist" },
@@ -81,8 +82,8 @@ const socialAlbums = SOCIAL.map((s) => ({ images: socialBy[s.slug], layout: s.la
 
 // Single creative-ad posts (one image each) — flat folder, shown as a masonry
 // wall under the social albums. Drop more *.jpg here to extend.
-const socialAdsMods = import.meta.glob("../assets/work/socialads/*.jpg", { eager: true, import: "default" });
-const socialAds: GalleryImage[] = Object.keys(socialAdsMods).sort().map((k) => ({ src: socialAdsMods[k] as string, ar: 1 }));
+const socialAdsMods = import.meta.glob("../assets/work/socialads/*.jpg", { eager: true, import: "default", query: "?as=picture" });
+const socialAds: GalleryImage[] = Object.keys(socialAdsMods).sort().map((k) => ({ src: socialAdsMods[k] as PictureData, ar: 1 }));
 
 const videoFilm: VideoItem[] = [
   { title: "Analog Craft", id: "ogVp48uPnGw", ar: W },
@@ -106,14 +107,14 @@ const videoFilm: VideoItem[] = [
 
 // Art direction — real key-visual gallery. Files auto-imported from the folder
 // (sorted); add a new file + its aspect ratio (width / height) to extend.
-const artdirMods = import.meta.glob("../assets/work/artdir/*.jpg", { eager: true, import: "default" });
-const artdirSrcs = Object.keys(artdirMods).sort().map((k) => artdirMods[k] as string);
+const artdirMods = import.meta.glob("../assets/work/artdir/*.jpg", { eager: true, import: "default", query: "?as=picture" });
+const artdirSrcs = Object.keys(artdirMods).sort().map((k) => artdirMods[k] as PictureData);
 const artdirAr = [0.675, 0.675, 0.675, 0.675, 0.8, 0.8, 0.675, 0.8, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1.008];
 const artDirection: GalleryImage[] = artdirSrcs.map((src, i) => ({ src, ar: artdirAr[i] ?? 1 }));
 
 // Photography — real brand photoshoot gallery (masonry, natural aspect).
-const photoMods = import.meta.glob("../assets/work/photography/*.jpg", { eager: true, import: "default" });
-const photography: GalleryImage[] = Object.keys(photoMods).sort().map((k) => ({ src: photoMods[k] as string, ar: 1 }));
+const photoMods = import.meta.glob("../assets/work/photography/*.jpg", { eager: true, import: "default", query: "?as=picture" });
+const photography: GalleryImage[] = Object.keys(photoMods).sort().map((k) => ({ src: photoMods[k] as PictureData, ar: 1 }));
 
 export const portfolio: PortCategory[] = [
   { key: "video", chip: "Video & film", n: "01", title: "Video & Film", sub: "Films, commercials & content", videos: videoFilm, cols: 3 },
@@ -128,7 +129,7 @@ export const portfolio: PortCategory[] = [
 
 // Flat pool of work thumbnails for the homepage random showcase — art direction
 // + social only (no video/reels/photography). Shuffle + slice on the consumer side.
-export const workThumbs: string[] = [
+export const workThumbs: PictureData[] = [
   ...artDirection.map((g) => g.src),
   ...socialAds.map((g) => g.src),
   ...socialAlbums.flatMap((a) => a.images),

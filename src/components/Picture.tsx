@@ -28,7 +28,11 @@ const Picture = ({ data, alt, className, ...rest }: Props) => {
   }
   const { img, sources } = data;
   return (
-    <picture>
+    // display:contents → the <picture> box vanishes from layout, so the inner
+    // <img> participates in the parent (grid/flex/columns/absolute) exactly as a
+    // bare <img> would. Keeps <Picture> a true drop-in. Format selection via the
+    // <source> elements is unaffected by display.
+    <picture style={{ display: "contents" }}>
       {Object.entries(sources).map(([fmt, srcSet]) => (
         // imagetools keys sources by bare format ("avif"/"webp"); browsers need
         // a full MIME type to honour the <source>.

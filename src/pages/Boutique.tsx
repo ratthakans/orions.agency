@@ -5,6 +5,7 @@ import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
 import CTABand from "@/components/CTABand";
 import TopoField from "@/components/TopoField";
+import Picture from "@/components/Picture";
 import { portfolio } from "@/data/portfolio";
 
 const SITE_URL = "https://orions.agency";
@@ -83,7 +84,7 @@ const Boutique = () => (
       <div className="relative z-10 max-w-[1180px] mx-auto pb-16 md:pb-24">
         <Reveal>
           <div className="grade-orion overflow-hidden border border-foreground/15 bg-muted" style={{ aspectRatio: "21 / 9" }}>
-            <img src={heroImg} alt="" aria-hidden className="w-full h-full object-cover object-center grayscale-[0.25]" />
+            <Picture data={heroImg} alt="" aria-hidden className="w-full h-full object-cover object-center grayscale-[0.25]" />
           </div>
         </Reveal>
       </div>
@@ -138,7 +139,7 @@ const Boutique = () => (
           <Reveal className="md:col-span-7">
             <figure>
               <div className="overflow-hidden border border-foreground/12 bg-muted" style={{ aspectRatio: "16 / 11" }}>
-                <img src={craft[0]} alt="ORIONS craft — art direction" loading="lazy"
+                <Picture data={craft[0]} alt="ORIONS craft — art direction" loading="lazy"
                   className="w-full h-full object-cover grayscale-[0.35] hover:grayscale-0 hover:scale-[1.02] transition-[transform,filter] duration-700" />
               </div>
               <figcaption lang="th" className="mt-4 font-serif text-[16px] md:text-[19px] text-foreground/65 italic">Art direction &amp; key visuals</figcaption>
@@ -147,7 +148,7 @@ const Boutique = () => (
           <Reveal className="md:col-span-5" delay={0.08}>
             <figure>
               <div className="overflow-hidden border border-foreground/12 bg-muted" style={{ aspectRatio: "4 / 5" }}>
-                <img src={craft[1]} alt="ORIONS craft — brand photoshoot" loading="lazy"
+                <Picture data={craft[1]} alt="ORIONS craft — brand photoshoot" loading="lazy"
                   className="w-full h-full object-cover grayscale-[0.35] hover:grayscale-0 hover:scale-[1.02] transition-[transform,filter] duration-700" />
               </div>
               <figcaption lang="th" className="mt-4 font-serif text-[16px] md:text-[19px] text-foreground/65 italic">Brand &amp; identity shoot</figcaption>
@@ -158,9 +159,9 @@ const Boutique = () => (
         {/* row 2 — three frames */}
         <div className="mt-5 md:mt-7 grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-7">
           {craft.slice(2, 5).map((src, i) => (
-            <Reveal key={src} delay={i * 0.06} className={i === 2 ? "col-span-2 md:col-span-1" : ""}>
+            <Reveal key={src.img.src} delay={i * 0.06} className={i === 2 ? "col-span-2 md:col-span-1" : ""}>
               <div className="overflow-hidden border border-foreground/12 bg-muted" style={{ aspectRatio: "4 / 5" }}>
-                <img src={src} alt="ORIONS craft" loading="lazy"
+                <Picture data={src} alt="ORIONS craft" loading="lazy"
                   className="w-full h-full object-cover grayscale-[0.35] hover:grayscale-0 hover:scale-[1.02] transition-[transform,filter] duration-700" />
               </div>
             </Reveal>

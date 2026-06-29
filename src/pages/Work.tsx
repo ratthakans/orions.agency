@@ -6,6 +6,7 @@ import ClosingCTA from "@/components/ClosingCTA";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
 import { portfolio, type GalleryImage, type VideoItem } from "@/data/portfolio";
+import Picture, { type PictureData } from "@/components/Picture";
 
 const SITE_URL = "https://orions.agency";
 
@@ -25,8 +26,8 @@ const shuffle = <T,>(arr: T[], seed: number): T[] => {
 };
 
 /** Justified tile — flex-grows by the image's real aspect (read on load), uncropped. */
-const JustifiedTile = ({ src, alt, rowH, onClick }: { src: string; alt: string; rowH: number; onClick: () => void }) => {
-  const [ar, setAr] = useState(1.4);
+const JustifiedTile = ({ data, alt, rowH, onClick }: { data: PictureData; alt: string; rowH: number; onClick: () => void }) => {
+  const [ar, setAr] = useState(data.img.w / data.img.h || 1.4);
   return (
     <button
       type="button"
@@ -34,8 +35,8 @@ const JustifiedTile = ({ src, alt, rowH, onClick }: { src: string; alt: string; 
       style={{ flexGrow: ar, flexBasis: `${ar * rowH}px` }}
       className="group relative block overflow-hidden rounded-none border border-foreground/12 hover:border-cinnabar/70 transition-colors cursor-pointer"
     >
-      <img
-        src={src}
+      <Picture
+        data={data}
         alt={alt}
         loading="lazy"
         onLoad={(e) => { const t = e.currentTarget; if (t.naturalHeight) setAr(t.naturalWidth / t.naturalHeight); }}
@@ -241,10 +242,10 @@ const Work = () => {
                         {imgs.map((s, i) => (
                           <JustifiedTile
                             key={i}
-                            src={s}
+                            data={s}
                             alt={`Album ${ai + 1} — ${i + 1}`}
                             rowH={230}
-                            onClick={() => setLightbox({ kind: "album", images: imgs, i })}
+                            onClick={() => setLightbox({ kind: "album", images: imgs.map((p) => p.img.src), i })}
                           />
                         ))}
                         <i aria-hidden className="grow-[10] basis-0" />
@@ -260,13 +261,13 @@ const Work = () => {
                     <div className="columns-2 md:columns-4 gap-2.5 md:gap-3">
                       {shuffle<GalleryImage>(cat.gallery, shuffleKey).map((g, i) => (
                         <button
-                          key={g.src}
+                          key={g.src.img.src}
                           type="button"
-                          onClick={() => setLightbox({ kind: "img", val: g.src })}
+                          onClick={() => setLightbox({ kind: "img", val: g.src.img.src })}
                           className="group relative block w-full mb-2.5 md:mb-3 break-inside-avoid overflow-hidden rounded-none border border-foreground/12 hover:border-cinnabar/70 transition-colors cursor-pointer"
                         >
-                          <img
-                            src={g.src}
+                          <Picture
+                            data={g.src}
                             alt={`${cat.title} — โพสต์ ${i + 1}`}
                             loading="lazy"
                             className="block w-full h-auto group-hover:opacity-90 transition-opacity"
@@ -281,13 +282,13 @@ const Work = () => {
               <div className="mt-6 columns-2 md:columns-3 gap-2.5 md:gap-3">
                 {shuffle<GalleryImage>(cat.gallery, shuffleKey).map((g, i) => (
                   <button
-                    key={g.src}
+                    key={g.src.img.src}
                     type="button"
-                    onClick={() => setLightbox({ kind: "img", val: g.src })}
+                    onClick={() => setLightbox({ kind: "img", val: g.src.img.src })}
                     className="group relative block w-full mb-2.5 md:mb-3 break-inside-avoid overflow-hidden rounded-none border border-foreground/12 hover:border-cinnabar/70 transition-colors cursor-pointer"
                   >
-                    <img
-                      src={g.src}
+                    <Picture
+                      data={g.src}
                       alt={`${cat.title} — ${i + 1}`}
                       loading="lazy"
                       className="block w-full h-auto group-hover:opacity-90 transition-opacity"

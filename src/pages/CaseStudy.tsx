@@ -5,6 +5,7 @@ import SEO from "@/components/SEO";
 import ClosingCTA from "@/components/ClosingCTA";
 import SectionLabel from "@/components/SectionLabel";
 import { getCaseStudy, getAdjacent, caseStudies } from "@/data/caseStudies";
+import Picture from "@/components/Picture";
 
 // Honest method (the studio's stated process)
 const approach = [
@@ -51,7 +52,7 @@ const CaseStudy = () => {
         title={`${cs.title} — Selected Work · ØRIONS`}
         description={cs.summary}
         path={`/work/${cs.slug}`}
-        image={cs.cover}
+        image={cs.cover.img.src}
         schema={schema}
       />
 
@@ -134,8 +135,8 @@ const CaseStudy = () => {
         <div className="max-w-[1280px] mx-auto pb-16 md:pb-20">
           <Reveal>
             <div className="group relative w-full overflow-hidden rounded-none bg-muted" style={{ aspectRatio: "16 / 9" }}>
-              <img
-                src={cs.cover}
+              <Picture
+                data={cs.cover}
                 alt={`${cs.title} — cover`}
                 className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
               />
@@ -220,8 +221,8 @@ const CaseStudy = () => {
                     }`}
                     style={{ aspectRatio: i === 0 ? "16 / 9" : "4 / 5" }}
                   >
-                    <img
-                      src={img}
+                    <Picture
+                      data={img}
                       alt={`${cs.title} — frame ${i + 1}`}
                       loading="lazy"
                       className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"

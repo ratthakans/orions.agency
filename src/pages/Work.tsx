@@ -304,8 +304,8 @@ const Work = () => {
                     to={`/work/${cs.slug}`}
                     className="group relative block overflow-hidden rounded-none border border-foreground/12 bg-foreground/[0.04] aspect-[4/5] hover:border-cinnabar/60 transition-colors"
                   >
-                    <img
-                      src={cs.cover}
+                    <Picture
+                      data={cs.cover}
                       alt={cs.title}
                       loading="lazy"
                       className="absolute inset-0 w-full h-full object-cover grayscale-[0.35] group-hover:grayscale-0 group-hover:scale-[1.04] transition-[transform,filter] duration-700"

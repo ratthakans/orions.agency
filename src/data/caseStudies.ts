@@ -1,15 +1,16 @@
-import workHongmove from "@/assets/hongmove.jpg";
-import workKhaoyai from "@/assets/golf-hero.jpg";
-import workKhaoyaiB from "@/assets/golf-clubhouse.jpg";
-import workKhaoyaiC from "@/assets/golf-lifestyle.jpg";
-import workRtaf from "@/assets/rtaf.jpg";
-import workDemocrat from "@/assets/democrat.jpg";
-import workHeavy from "@/assets/heavy-organizer.jpg";
-import workHeavyB from "@/assets/concert-crowd.jpg";
-import workHeavyC from "@/assets/concert-backstage.jpg";
-import workGcoo from "@/assets/gcoo.jpg";
-import workMyHotel from "@/assets/work-myhotel.jpg";
-import workPalawat from "@/assets/work-palawat.jpg";
+import workHongmove from "@/assets/hongmove.jpg?as=picture";
+import workKhaoyai from "@/assets/golf-hero.jpg?as=picture";
+import workKhaoyaiB from "@/assets/golf-clubhouse.jpg?as=picture";
+import workKhaoyaiC from "@/assets/golf-lifestyle.jpg?as=picture";
+import workRtaf from "@/assets/rtaf.jpg?as=picture";
+import workDemocrat from "@/assets/democrat.jpg?as=picture";
+import workHeavy from "@/assets/heavy-organizer.jpg?as=picture";
+import workHeavyB from "@/assets/concert-crowd.jpg?as=picture";
+import workHeavyC from "@/assets/concert-backstage.jpg?as=picture";
+import workGcoo from "@/assets/gcoo.jpg?as=picture";
+import workMyHotel from "@/assets/work-myhotel.jpg?as=picture";
+import workPalawat from "@/assets/work-palawat.jpg?as=picture";
+import type { PictureData } from "@/components/Picture";
 
 
 export type CaseStudy = {
@@ -27,8 +28,8 @@ export type CaseStudy = {
   /** Lines applied — "Boutique · Digital" */
   scope: string;
   year: string;
-  cover: string;
-  gallery: string[];
+  cover: PictureData;
+  gallery: PictureData[];
   /** One-line essence of the engagement */
   summary: string;
   /** Top-level line bucket */

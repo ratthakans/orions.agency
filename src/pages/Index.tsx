@@ -192,9 +192,11 @@ const Index = () => {
           {[
             { to: "/online", name: "Online", side: "ยอด · เร็ว ไว ไม่แพง",
               th: "ยิงแอด · โซเชียล · คอนเทนต์ วัดผล — สำหรับแบรนด์ที่มีของพร้อมขายและอยากเห็นยอดเดี๋ยวนี้.",
+              pick: "อยากได้ยอด/ลูกค้าเดี๋ยวนี้ และวัดผลเป็นตัวเลขได้",
               pay: "รายเดือน / แพ็กเกจ · มีเรทการ์ด" },
             { to: "/boutique", name: "Boutique", side: "แบรนด์ · งานปั้น craft",
               th: "brand strategy · identity · big idea · ฟิล์มระดับโฆษณา — สำหรับแบรนด์ที่อยากถูกจำ ไม่ใช่แค่ถูกเห็น.",
+              pick: "อยากให้แบรนด์ถูกจำ และขายได้ราคาพรีเมียม",
               pay: "ต่อแคมเปญ / โปรเจกต์ · ไม่มีเรทการ์ด" },
           ].map((d, i) => (
             <Reveal key={d.name} delay={0.05 + i * 0.07}>
@@ -202,7 +204,10 @@ const Index = () => {
                 <span lang="th" className="font-mono text-[10px] tracking-[0.18em] uppercase text-cinnabar">{d.side}</span>
                 <h3 className="mt-3 font-unbounded text-[28px] md:text-[36px] leading-none tracking-[-0.01em] group-hover:text-cinnabar transition-colors">{d.name}</h3>
                 <p lang="th" className="mt-5 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-foreground/85 flex-1">{d.th}</p>
-                <div className="mt-7 pt-5 border-t border-foreground/15 flex items-center justify-between gap-3">
+                <p lang="th" className="mt-5 font-thai thai-wrap text-[13px] md:text-[14px] leading-[1.6] text-foreground/70">
+                  <span className="text-cinnabar font-medium">เลือกฝั่งนี้ถ้า</span> — {d.pick}
+                </p>
+                <div className="mt-6 pt-5 border-t border-foreground/15 flex items-center justify-between gap-3">
                   <span lang="th" className="font-mono text-[10px] tracking-[0.12em] uppercase text-muted-foreground">{d.pay}</span>
                   <ArrowUpRight className="w-5 h-5 text-cinnabar shrink-0 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </div>
@@ -363,8 +368,8 @@ const Index = () => {
         </Reveal>
         <Reveal delay={0.15}>
           <div className="mt-12 flex flex-col sm:flex-row gap-4">
-            <Link to="/contact" viewTransition className="btn-accent">
-              <span>คุยฟรี 45 นาที</span><ArrowUpRight className="w-4 h-4" />
+            <Link to="/work" viewTransition className="btn-accent">
+              <span>ดูผลงานทั้งหมด</span><ArrowUpRight className="w-4 h-4" />
             </Link>
             <a href="/ORIONS_RateCard_2026.pdf" download className="btn-ghost">
               <Download className="w-4 h-4" /><span>ดาวน์โหลด Rate Card 2026</span>

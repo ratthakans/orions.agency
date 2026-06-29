@@ -23,6 +23,13 @@ const included = [
   { k: "The ORIONS Standard", d: "วัดผลแบรนด์ที่ 45 / 90 วัน แล้ว refine ต่อจนเข้าที่" },
 ];
 
+const process = [
+  { k: "ฟังโจทย์ & ตีกรอบ", d: "เข้าใจธุรกิจ เป้าหมาย ข้อจำกัด และงบก่อน — กรอบที่ชัดคือบรีฟที่ดี" },
+  { k: "กลยุทธ์ & Big Idea", d: "หาจุดยืนและแนวคิดใหญ่ที่จริง ร้อยทั้งแคมเปญให้พูดเรื่องเดียวกัน" },
+  { k: "ออกแบบ & ผลิต", d: "identity · ฟิล์ม · art direction ระดับโฆษณา ลงมือโดยทีม senior" },
+  { k: "ส่งมอบ & วัดผล", d: "วัดผลแบรนด์ที่ 45 / 90 วัน ตาม The ORIONS Standard แล้ว refine ต่อจนเข้าที่" },
+];
+
 const Boutique = () => (
   <div>
     <SEO
@@ -168,11 +175,41 @@ const Boutique = () => (
       </div>
     </section>
 
+    {/* HOW WE WORK — process, editorial */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1180px] mx-auto py-20 md:py-28">
+        <SectionLabel index="03" label="ทำงานกับเรายังไง" />
+        <Reveal delay={0.05}>
+          <h2 lang="th" className="mt-8 font-serif text-[26px] md:text-[40px] leading-[1.15] tracking-[-0.015em] max-w-[22ch] thai-wrap">
+            จากโจทย์ ถึงงานที่<em className="text-cinnabar italic">คนจำ</em> — สี่จังหวะ.
+          </h2>
+        </Reveal>
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-0">
+          {process.map((p, i) => (
+            <Reveal key={p.k} delay={(i % 2) * 0.06}>
+              <div className="flex gap-6 py-7 md:py-8 border-b border-foreground/12">
+                <div className="font-serif text-cinnabar text-[26px] md:text-[36px] leading-none tabular-nums shrink-0">{`0${i + 1}`}</div>
+                <div>
+                  <h3 className="font-serif text-[22px] md:text-[28px] leading-[1.15] tracking-[-0.01em]">{p.k}</h3>
+                  <p lang="th" className="mt-2.5 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">{p.d}</p>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+        <Reveal delay={0.1}>
+          <p lang="th" className="mt-9 font-thai thai-wrap text-[13px] leading-[1.8] text-muted-foreground max-w-[660px]">
+            เริ่มด้วยคุยฟรี 45 นาที — เราจะบอกตรง ๆ ว่าโจทย์คุณควรเริ่มที่ฝั่ง <span className="text-foreground/85">แบรนด์ (Boutique)</span> หรือ <Link to="/online" className="text-cinnabar hover:underline">ยอด (Online)</Link> ก่อน.
+          </p>
+        </Reveal>
+      </div>
+    </section>
+
     {/* PRICING — editorial note, no rate card */}
     <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1180px] mx-auto py-20 md:py-28 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-20 items-baseline">
         <div>
-          <SectionLabel index="03" label="ราคา" />
+          <SectionLabel index="04" label="ราคา" />
         </div>
         <Reveal delay={0.05}>
           <div>

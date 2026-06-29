@@ -7,7 +7,6 @@ import SEO from "@/components/SEO";
 import SectionHeading from "@/components/ui/SectionHeading";
 import SectionLabel from "@/components/SectionLabel";
 import { toast } from "sonner";
-import { supabase } from "@/integrations/supabase/client";
 import { track } from "@/lib/analytics";
 import founder from "@/assets/team/founder.jpg";
 
@@ -117,10 +116,13 @@ const Contact = () => {
         if (res.ok) delivered = true;
       } catch { /* best-effort — fall through to Supabase / error */ }
     }
-    // 2) Store the inquiry in Supabase
+    // 2) Store the inquiry in Supabase — SDK is code-split, loaded only on submit
     if (hasSupabase) {
-      const { error } = await supabase.from("contact_inquiries").insert({ name, company, email, brief: composedBrief });
-      if (!error) delivered = true;
+      try {
+        const { supabase } = await import("@/integrations/supabase/client");
+        const { error } = await supabase.from("contact_inquiries").insert({ name, company, email, brief: composedBrief });
+        if (!error) delivered = true;
+      } catch { /* best-effort — Web3Forms may already have delivered */ }
     }
     setSubmitting(false);
     if (!delivered) {

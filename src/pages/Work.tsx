@@ -113,7 +113,7 @@ const Work = () => {
                 type="button"
                 onClick={() => { setActive(c.key); setShuffleKey((k) => k + 1); }}
                 aria-pressed={active === c.key}
-                className={`font-mono text-[11px] tracking-[0.08em] uppercase px-3.5 py-1.5 rounded-none border transition-colors ${
+                className={`font-mono text-[11px] tracking-[0.08em] uppercase px-4 py-2.5 rounded-none border transition-colors ${
                   active === c.key
                     ? "bg-cinnabar border-cinnabar text-background"
                     : "border-foreground/20 text-foreground/75 hover:border-cinnabar hover:text-cinnabar"
@@ -133,6 +133,7 @@ const Work = () => {
           <Reveal delay={0.05}>
             <button
               type="button"
+              aria-label="เล่นโชว์รีล ØRIONS 2026"
               onClick={() => setLightbox({ kind: "video", val: SHOWREEL_ID, ar: 16 / 9 })}
               onMouseEnter={() => setHoverVid(SHOWREEL_ID)}
               onMouseLeave={() => setHoverVid((h) => (h === SHOWREEL_ID ? null : h))}

@@ -98,25 +98,20 @@ const Thinking = () => (
         <Reveal delay={0.1}>
           <p lang="th" className="mt-8 max-w-[680px] font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.8] text-foreground/80">
             <span className="font-mono text-[12px] tracking-[0.1em] uppercase text-cinnabar">Logic Convinces, Emotion Converts.</span><br />
-            อารมณ์คือสิ่งที่กระตุ้นการซื้อจริง และทำให้คนยอมจ่ายแพงกว่าปกติ — ทำไมคนต่อคิวซื้อกล่องสุ่ม หรือใส่นาฬิกาหรูแทนที่จะดูเวลาจากมือถือ. ที่ ORIONS เราจึงแบ่งงานเป็น 2 ฝั่ง:
+            อารมณ์คือสิ่งที่กระตุ้นการซื้อจริง และทำให้คนยอมจ่ายแพงกว่าปกติ — ทำไมคนต่อคิวซื้อกล่องสุ่ม หรือใส่นาฬิกาหรูแทนที่จะดูเวลาจากมือถือ. ตรรกะเปิดประตูด้วยข้อมูลที่ใช่ แต่ <span className="text-foreground">อารมณ์</span> คือสิ่งที่ปิดดีลและสร้างพรีเมียม — และนั่นคือฝั่งที่ ØRIONS เลือกยืน.
           </p>
         </Reveal>
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
-          <Reveal delay={0.05}>
-            <Link to="/online" viewTransition className="group block h-full p-7 md:p-8 card-soft hover:border-cinnabar/60 transition-colors">
-              <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-cinnabar">Logic · convinces</div>
-              <h3 className="mt-2 font-unbounded text-[24px] tracking-[-0.01em] group-hover:text-cinnabar transition-colors">Online</h3>
-              <p lang="th" className="mt-3 font-thai thai-wrap text-[14px] leading-[1.7] text-muted-foreground">ยอด · เหตุผล · ยิงแอด วัดผล — เปิดประตูด้วยข้อมูลที่ใช่</p>
-            </Link>
-          </Reveal>
-          <Reveal delay={0.12}>
-            <Link to="/boutique" viewTransition className="group block h-full p-7 md:p-8 card-soft hover:border-cinnabar/60 transition-colors">
-              <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-cinnabar">Emotion · converts</div>
-              <h3 className="mt-2 font-unbounded text-[24px] tracking-[-0.01em] group-hover:text-cinnabar transition-colors">Boutique</h3>
-              <p lang="th" className="mt-3 font-thai thai-wrap text-[14px] leading-[1.7] text-muted-foreground">แบรนด์ · อารมณ์ · งานคราฟต์ — ปิดดีลและทำให้ยอมจ่ายแพง</p>
-            </Link>
-          </Reveal>
-        </div>
+        <Reveal delay={0.08}>
+          <div className="mt-10 p-7 md:p-9 card-accent max-w-[760px]">
+            <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-cinnabar">Emotion · converts</div>
+            <h3 lang="th" className="mt-3 font-serif text-[24px] md:text-[34px] leading-[1.2] tracking-[-0.015em]">
+              เราเป็นบูทีคที่ปั้น <em className="text-cinnabar italic">อารมณ์ของแบรนด์</em> ให้คนจำและเลือก.
+            </h3>
+            <p lang="th" className="mt-4 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.8] text-muted-foreground">
+              brand strategy · identity · big idea · brand film และ art direction ระดับโฆษณา — งานคราฟต์ที่ทำให้แบรนด์ถูกจำ ไม่ใช่แค่ถูกเห็น.
+            </p>
+          </div>
+        </Reveal>
       </div>
     </section>
 
@@ -227,7 +222,7 @@ const Thinking = () => (
       title={<>อยากให้แบรนด์คุณ <em className="text-cinnabar">ถูกรู้สึก</em> ไม่ใช่แค่ถูกเห็น?</>}
       subtitle="คุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์มา เราช่วยมองว่าอารมณ์ไหนคือสนามของแบรนด์คุณ."
       primary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}
-      secondary={{ label: "ดูฝั่ง Boutique", to: "/boutique" }}
+      secondary={{ label: "ดูผลงาน", to: "/work" }}
       tone="snow"
     />
   </div>

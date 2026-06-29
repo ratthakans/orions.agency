@@ -11,13 +11,13 @@ import founder from "@/assets/team/founder.jpg?as=picture";
 
 const principles = [
   { n: "i.",   en: "พูดตรง",                  th: "บอกตรง ๆ ทั้งตอนที่ใช่และตอนที่ยังไม่พร้อม — เราขายความซื่อสัตย์ ไม่ขายฝัน" },
-  { n: "ii.",  en: "ยอด กับ แบรนด์ จบในที่เดียว",   th: "ทีมเดียวทำได้ทั้ง 2 ฝั่ง — Online ดันยอด · Boutique ปั้นแบรนด์ ไม่ต้องวิ่งหาหลายเจ้า" },
+  { n: "ii.",  en: "ครบ กลยุทธ์ถึงงานคราฟต์",   th: "ทีมเดียวจบ — ตั้งแต่กลยุทธ์ · ไอเดียใหญ่ ถึงฟิล์มและ art direction ระดับโฆษณา ไม่ต้องวิ่งหาหลายเจ้า" },
   { n: "iii.", en: "วัดผลได้จริง",             th: "The ORIONS Standard — วัดผลแบรนด์แล้วปรับต่อจนเข้าที่ ไม่ส่งจบแล้วจบ" },
-  { n: "iv.",  en: "จ่ายเฉพาะที่ใช้",          th: "เสียบเป็น unit ที่คุณขาด — augment ไม่ใช่ replace ไม่ต้องแบกเงินเดือนทั้งทีม" },
+  { n: "iv.",  en: "ฝีมือระดับ senior",        th: "งานคราฟต์ทุกชิ้นลงมือโดยทีม senior — ยืดหยุ่นที่สไตล์ แต่ไม่เคยลดมาตรฐานฝีมือ" },
 ];
 
 const notForYou = [
-  { n: "01", th: "คุณต้องการแค่ยอดให้เร็วที่สุด โดยไม่สนภาพจำระยะยาว — performance shop เพียว ๆ อาจคุ้มกว่า" },
+  { n: "01", th: "คุณต้องการแค่ยิงแอดเอายอดอย่างเดียว โดยไม่สนงานแบรนด์ระยะยาว — performance shop เพียว ๆ อาจคุ้มกว่า" },
   { n: "02", th: "คุณอยากได้คอนเทนต์เยอะที่สุดในราคาถูกที่สุด โดยไม่ต้องมีกลยุทธ์ — เราไม่ใช่ที่นั้น" },
   { n: "03", th: "ของหรือ unit economics ยังไม่พร้อม — เราจะบอก และยังไม่รับงานจนกว่าจะพร้อม" },
 ];
@@ -63,13 +63,13 @@ const About = () => (
         <Reveal delay={0.1}>
           <div>
             <p lang="th" className="font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.8] text-foreground/90">
-              เราเปิดทุกดีลด้วยคำถามเดียว — <span className="text-cinnabar">"ยอด หรือ แบรนด์?"</span> ก่อนเสนออะไร. ในตลาดที่เต็มไปด้วยเอเจนซีขายฝัน เราขายความซื่อสัตย์ที่กล้าบอกข้อจำกัด.
+              เราเปิดทุกดีลด้วยคำถาม — <span className="text-cinnabar">"แบรนด์นี้อยากให้คนรู้สึกอะไร?"</span> ก่อนเสนออะไร. ในตลาดที่เต็มไปด้วยเอเจนซีขายฝัน เราขายความซื่อสัตย์ที่กล้าบอกข้อจำกัด.
             </p>
             <p lang="th" className="mt-5 font-thai thai-wrap text-[15px] leading-[1.8] text-foreground/80">
               และเราไม่เชื่อในงานสวยที่ไม่ขยับธุรกิจ — <span className="text-foreground">ความคิดที่ดีต้องขายของได้</span>. เรายืดหยุ่นที่ <span className="text-foreground">สไตล์</span> แต่ไม่เคยยืดที่ <span className="text-cinnabar">มาตรฐานฝีมือ</span>. ก่อนปล่อยงานทุกชิ้น เราถาม 3 ข้อ — คนจะ <span className="text-foreground">รู้สึก</span> อะไร · จะ <span className="text-foreground">พูดต่อ</span> มั้ย · ถ้าไม่มีโลโก้ยังน่าสนใจมั้ย (<Link to="/thinking" className="text-cinnabar hover:underline">แนวคิดเรา</Link>).
             </p>
-            <Link to="/diagnostic" className="btn-ghost mt-8">
-              <span>ลองเครื่องวินิจฉัย — ยอด หรือ แบรนด์?</span><ArrowUpRight className="w-4 h-4" />
+            <Link to="/thinking" className="btn-ghost mt-8">
+              <span>อ่านแนวคิดของเรา</span><ArrowUpRight className="w-4 h-4" />
             </Link>
           </div>
         </Reveal>

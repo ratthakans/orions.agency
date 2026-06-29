@@ -3,7 +3,11 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/pricing", "destination": "/package", "permanent": true },
+    { "source": "/boutique", "destination": "/", "permanent": true },
+    { "source": "/online", "destination": "/", "permanent": true },
+    { "source": "/package", "destination": "/contact", "permanent": true },
+    { "source": "/diagnostic", "destination": "/contact", "permanent": true },
+    { "source": "/pricing", "destination": "/contact", "permanent": true },
     { "source": "/services", "destination": "/", "permanent": true },
     { "source": "/manifesto", "destination": "/about", "permanent": true },
     { "source": "/approach", "destination": "/about", "permanent": true },
@@ -11,7 +15,7 @@
     { "source": "/projects", "destination": "/work", "permanent": true },
     { "source": "/ventures", "destination": "/work", "permanent": true },
     { "source": "/health-check", "destination": "/contact", "permanent": true },
-    { "source": "/consulting", "destination": "/boutique", "permanent": true },
+    { "source": "/consulting", "destination": "/", "permanent": true },
     { "source": "/journal", "destination": "/blog", "permanent": true },
     { "source": "/journal/:slug*", "destination": "/blog", "permanent": true }
   ],

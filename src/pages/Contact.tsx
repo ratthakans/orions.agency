@@ -23,10 +23,11 @@ const inquirySchema = z.object({
 type FieldErrors = Partial<Record<keyof z.infer<typeof inquirySchema>, string>>;
 
 const packageOptions = [
-  "Online · เน้นยอด (ads/social)",
-  "Boutique · เน้นแบรนด์ (craft)",
-  "ทั้งคู่ — Online + Boutique",
-  "Custom · ออกแบบตามโจทย์",
+  "Brand strategy & positioning",
+  "Identity / CI (โลโก้ · ระบบแบรนด์)",
+  "Big idea / campaign",
+  "Brand film / production",
+  "งานแบรนด์ครบวงจร",
   "ยังไม่แน่ใจ / ขอคำแนะนำ",
 ];
 
@@ -195,7 +196,7 @@ const Contact = () => {
           <SectionLabel label="หลังกดส่ง เกิดอะไรขึ้น" />
           <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
             {[
-              { n: "01", when: "ภายใน 24 ชม.", t: "เราอ่านโจทย์ แล้วตอบกลับ", d: "บอกตรงๆ ว่าเราช่วยได้ไหม และควรเริ่มที่ยอดหรือแบรนด์ก่อน — ถ้ายังไม่ใช่จังหวะ เราก็จะบอก" },
+              { n: "01", when: "ภายใน 24 ชม.", t: "เราอ่านโจทย์ แล้วตอบกลับ", d: "บอกตรงๆ ว่าเราช่วยได้ไหม และควรเริ่มตรงไหนก่อน — ถ้ายังไม่ใช่จังหวะ เราก็จะบอก" },
               { n: "02", when: "คุยฟรี 45 นาที", t: "วินิจฉัยร่วมกัน", d: "นัดคุยออนไลน์หรือที่ออฟฟิศ ไม่มีข้อผูกมัด — เข้าใจธุรกิจ เป้าหมาย และเงื่อนไขของคุณ" },
               { n: "03", when: "หลังคุย 2–3 วัน", t: "เสนอแผน + ราคา", d: "สโคปชัด ราคาตีตามโจทย์จริง ไม่มีค่าซ่อน — เริ่มงานเมื่อคุณพร้อม" },
             ].map((s, i) => (
@@ -266,20 +267,6 @@ const Contact = () => {
                       <option key={o} value={o}>{o}</option>
                     ))}
                   </select>
-                  {/* size — Online (monthly rate-card) packages only; Boutique is quoted */}
-                  {form.pkg.includes("Online") && (
-                    <div className="mt-3 flex items-center gap-3">
-                      <span lang="th" className="font-thai text-[11px] tracking-[0.02em] text-muted-foreground shrink-0">ขนาด</span>
-                      <div className="inline-flex rounded-none border border-foreground/25 overflow-hidden">
-                        {["S", "M", "L"].map((s) => (
-                          <button key={s} type="button" onClick={() => setForm({ ...form, size: form.size === s ? "" : s })}
-                            className={`px-4 py-1.5 font-mono text-[11px] tracking-[0.06em] transition-colors ${form.size === s ? "bg-cinnabar text-background" : "text-foreground/55 hover:text-foreground"} ${s !== "S" ? "border-l border-foreground/25" : ""}`}>
-                            {s}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  )}
                 </div>
                 <div className="md:col-span-2">
                   <label htmlFor="field-brief" className={labelCls}>— 06 / Brief <span className="text-foreground/60">(ไม่บังคับ — จะคุยรายละเอียดตอนนัดก็ได้)</span></label>

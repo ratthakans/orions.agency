@@ -3,8 +3,6 @@ import { NavLink, Link, useLocation } from "react-router-dom";
 import Logo from "@/components/Logo";
 
 const links = [
-  { label: "Boutique", to: "/boutique" },
-  { label: "Online", to: "/online" },
   { label: "Work", to: "/work" },
   { label: "Thinking", to: "/thinking" },
   { label: "Blog", to: "/blog" },
@@ -50,7 +48,7 @@ const Nav = () => {
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-5 lg:gap-7">
-          {links.map((l, i) => (
+          {links.map((l) => (
             <Fragment key={l.to}>
               <NavLink
                 to={l.to}
@@ -65,8 +63,6 @@ const Nav = () => {
               >
                 {l.label}
               </NavLink>
-              {/* divider after the two service divisions (Boutique · Online) */}
-              {i === 1 && <span aria-hidden className="h-3.5 w-px bg-foreground/20" />}
             </Fragment>
           ))}
           <NavLink

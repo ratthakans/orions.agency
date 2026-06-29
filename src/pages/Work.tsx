@@ -328,7 +328,7 @@ const Work = () => {
         description="คุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์และเงื่อนไขมา เราช่วยมองว่าจะ refine มันยังไง."
         ctas={[
           { label: "เริ่มต้นบทสนทนา", to: "/contact" },
-          { label: "ดูแพ็กเกจ", to: "/package", variant: "ghost" },
+          { label: "อ่านแนวคิดของเรา", to: "/thinking", variant: "ghost" },
         ]}
       />
 

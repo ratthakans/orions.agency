@@ -35,16 +35,12 @@ export const routes: RouteRecord[] = [
     children: [
       { index: true, element: <Index /> },
       { path: "about", lazy: page(() => import("./pages/About")) },
-      { path: "boutique", lazy: page(() => import("./pages/Boutique")) },
-      { path: "online", lazy: page(() => import("./pages/Online")) },
       { path: "work", lazy: page(() => import("./pages/Work")) },
       {
         path: "work/:slug",
         lazy: page(() => import("./pages/CaseStudy")),
         getStaticPaths: () => caseStudies.map((c) => `work/${c.slug}`),
       },
-      { path: "package", lazy: page(() => import("./pages/Package")) },
-      { path: "diagnostic", lazy: page(() => import("./pages/Diagnostic")) },
       { path: "thinking", lazy: page(() => import("./pages/Thinking")) },
       { path: "blog", lazy: page(() => import("./pages/Blog")) },
       {

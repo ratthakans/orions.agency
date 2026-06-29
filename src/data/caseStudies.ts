@@ -33,7 +33,7 @@ export type CaseStudy = {
   /** One-line essence of the engagement */
   summary: string;
   /** Top-level line bucket */
-  service: "Online" | "Boutique";
+  service: "Boutique";
   /** Short challenge line (deck "Challenge") */
   challenge: string;
   /** Live site URL — "" if none (card shows no external link) */
@@ -53,7 +53,7 @@ export const caseStudies: CaseStudy[] = [
     title: "พรรคประชาธิปัตย์",
     domain: "democrat.or.th",
     niche: "Politics",
-    scope: "Boutique · Online",
+    scope: "Boutique",
     year: "2023",
     cover: workDemocrat,
     gallery: [workDemocrat], // real cover only — gallery hidden until real frames exist
@@ -74,7 +74,7 @@ export const caseStudies: CaseStudy[] = [
     title: "GCOO",
     domain: "gcoo.io",
     niche: "Mobility",
-    scope: "Boutique · Online",
+    scope: "Boutique",
     year: "2023",
     cover: workGcoo,
     gallery: [workGcoo], // real cover only — gallery hidden until real frames exist
@@ -95,7 +95,7 @@ export const caseStudies: CaseStudy[] = [
     title: "My Hotel",
     domain: "pzentsmart.com",
     niche: "Hospitality / OTA",
-    scope: "Boutique · Online",
+    scope: "Boutique",
     year: "2024",
     cover: workMyHotel,
     gallery: [workMyHotel],
@@ -137,7 +137,7 @@ export const caseStudies: CaseStudy[] = [
     title: "HEAVY ORGANIZER",
     domain: "heavyorganizer.com",
     niche: "Music Festival",
-    scope: "Boutique · Online",
+    scope: "Boutique",
     year: "2024",
     cover: workHeavy,
     gallery: [workHeavy, workHeavyB, workHeavyC],
@@ -179,7 +179,7 @@ export const caseStudies: CaseStudy[] = [
     title: "กองทัพอากาศ",
     domain: "rtaf.mi.th",
     niche: "Government",
-    scope: "Boutique · Online",
+    scope: "Boutique",
     year: "2024",
     cover: workRtaf,
     gallery: [workRtaf], // real cover only — gallery hidden until real frames exist
@@ -200,7 +200,7 @@ export const caseStudies: CaseStudy[] = [
     title: "พรรคพลวัต",
     domain: "",
     niche: "Politics",
-    scope: "Boutique · Online",
+    scope: "Boutique",
     year: "2023",
     cover: workPalawat,
     gallery: [workPalawat],

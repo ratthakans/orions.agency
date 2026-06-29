@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowUpRight, Check, Play, Minus, X, Download } from "lucide-react";
+import { ArrowUpRight, Check, Play, Minus, X } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -21,7 +21,7 @@ import founder from "@/assets/team/founder.jpg?as=picture";
 const LINE_URL = "https://line.me/ti/p/~orions";
 
 // Pick N random work thumbnails (fresh each mount).
-const pickRandom = (arr: string[], n: number): string[] => {
+const pickRandom = <T,>(arr: T[], n: number): T[] => {
   const a = [...arr];
   for (let i = a.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -41,14 +41,31 @@ const pressures = [
     desc: "ค่าโฆษณา Meta (CPM) แพงขึ้นราว 20% ต่อปี — งบเท่าเดิมได้ reach น้อยลง ยิงมั่วคือเผาเงิน" },
 ];
 
+// What a Boutique engagement includes — the craft spine.
+const included = [
+  { k: "Positioning & Brand DNA", d: "จุดยืน แก่นตัวตน และเรื่องที่จริงของแบรนด์ — ต้นน้ำของทุกอย่าง" },
+  { k: "Identity & CI", d: "โลโก้ · สี · ฟอนต์ · คู่มือแบรนด์ — ระบบที่ทำให้คนจำได้" },
+  { k: "Big Idea / Campaign", d: "แนวคิดใหญ่ที่ร้อยทั้งแคมเปญให้พูดเรื่องเดียวกัน" },
+  { k: "Brand Film & Premium Production", d: "ฟิล์ม · ภาพ · art direction ระดับโฆษณา โดยทีม senior" },
+  { k: "The ORIONS Standard", d: "วัดผลแบรนด์ที่ 45 / 90 วัน แล้ว refine ต่อจนเข้าที่" },
+];
+
+// How we work — four beats from brief to brand.
+const process = [
+  { k: "ฟังโจทย์ & ตีกรอบ", d: "เข้าใจธุรกิจ เป้าหมาย ข้อจำกัด และงบก่อน — กรอบที่ชัดคือบรีฟที่ดี" },
+  { k: "กลยุทธ์ & Big Idea", d: "หาจุดยืนและแนวคิดใหญ่ที่จริง ร้อยทั้งแคมเปญให้พูดเรื่องเดียวกัน" },
+  { k: "ออกแบบ & ผลิต", d: "identity · ฟิล์ม · art direction ระดับโฆษณา ลงมือโดยทีม senior" },
+  { k: "ส่งมอบ & วัดผล", d: "วัดผลแบรนด์ที่ 45 / 90 วัน ตาม The ORIONS Standard แล้ว refine ต่อจนเข้าที่" },
+];
+
 // Why ORIONS — honest comparison across the 4 real options a brand has.
 // score: 2 = ทำได้ · 1 = บางส่วน · 0 = ไม่ตอบโจทย์
-const compareCols = ["จ้างทีมเอง", "จ้างสตูดิโอ", "Full-service เจ้าอื่น", "ORIONS"];
+const compareCols = ["จ้างทีมเอง", "จ้างฟรีแลนซ์", "Full-service เจ้าอื่น", "ORIONS"];
 const compareRows: { label: string; v: number[] }[] = [
   // honest concession — an embedded in-house person can start instantly; we onboard first
   { label: "เริ่มได้ทันทีวันแรก (ไม่ต้อง onboard)", v: [2, 1, 1, 1] },
   { label: "เข้าใจแบรนด์ลึกระดับ in-house", v: [2, 1, 1, 2] },
-  { label: "ทำครบ กลยุทธ์ถึงยิงแอด ในทีมเดียว", v: [0, 0, 1, 2] },
+  { label: "ครบ กลยุทธ์ถึงงานคราฟต์ ในทีมเดียว", v: [0, 0, 1, 2] },
   { label: "งานเป็นแบรนด์คุณ ไม่ใช่ลายเซ็นเขา", v: [2, 0, 1, 2] },
   { label: "วัดผลแบรนด์จริง ต่อเนื่อง", v: [1, 0, 0, 2] },
   { label: "ไม่ต้องแบกเงินเดือนทั้งทีม", v: [0, 2, 2, 2] },
@@ -133,18 +150,18 @@ const Index = () => {
   return (
   <div>
     <SEO
-      title="ØRIONS — ยอด หรือ แบรนด์? · Creative Agency, Bangkok"
-      description="ครีเอทีฟเอเจนซีในกรุงเทพฯ ที่แยกชัดเป็น 2 ฝั่ง — Online (ยอด · เร็ว ไม่แพง · มีเรทการ์ด) และ Boutique (แบรนด์ · งานคราฟต์ · ต่อโปรเจกต์). เราถามก่อนเสนอเสมอ: ยอด หรือ แบรนด์?"
+      title="ØRIONS — Boutique Creative Agency, Bangkok"
+      description="บูทีคครีเอทีฟเอเจนซีในกรุงเทพฯ — งานปั้นแบรนด์ที่คนจำและเลือก. brand strategy · identity · big idea · brand film และ art direction ระดับโฆษณา. คิดต่อแคมเปญ/โปรเจกต์ ตีตามโจทย์จริง."
       path="/"
       schema={{
         "@context": "https://schema.org",
         "@type": "FAQPage",
         mainEntity: [
-          { "@type": "Question", name: "ØRIONS ทำอะไร?", acceptedAnswer: { "@type": "Answer", text: "ØRIONS เป็นครีเอทีฟเอเจนซีในกรุงเทพฯ ที่แยกชัดเป็น 2 ฝั่ง — ORIONS Online (ยอด · ยิงแอด/โซเชียล/คอนเทนต์ มีเรทการ์ด) และ ORIONS Boutique (แบรนด์ · งานคราฟต์ระดับโฆษณา คิดต่อโปรเจกต์). เราถามก่อนเสนอเสมอ: ยอด หรือ แบรนด์?" } },
-          { "@type": "Question", name: "เริ่มงานกับ ØRIONS ต้องทำอย่างไร?", acceptedAnswer: { "@type": "Answer", text: "เริ่มจากคุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์มา เราจะบอกตรงๆ ว่าควรเริ่มที่ยอดหรือแบรนด์ก่อน. ติดต่อ hello@orions.agency · 092 390 5464 · LINE @orions" } },
-          { "@type": "Question", name: "ØRIONS คิดราคายังไง?", acceptedAnswer: { "@type": "Answer", text: "ฝั่ง Online มีเรทการ์ดและแพ็กเกจ คิดรายเดือน เริ่มได้เร็ว — ดาวน์โหลด Rate Card (PDF) ดูช่วงราคาได้. ฝั่ง Boutique คิดต่อแคมเปญ/โปรเจกต์ ไม่มีเรทการ์ด ตีตามโจทย์จริง ขอใบเสนอราคาได้." } },
+          { "@type": "Question", name: "ØRIONS ทำอะไร?", acceptedAnswer: { "@type": "Answer", text: "ØRIONS เป็นบูทีคครีเอทีฟเอเจนซีในกรุงเทพฯ ที่เน้นงานปั้นแบรนด์ระดับโฆษณา — brand strategy, identity, big idea, brand film และ art direction. เป้าหมายคือทำให้แบรนด์ถูกจำและถูกเลือก ไม่ใช่แค่ถูกเห็น." } },
+          { "@type": "Question", name: "เริ่มงานกับ ØRIONS ต้องทำอย่างไร?", acceptedAnswer: { "@type": "Answer", text: "เริ่มจากคุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์และเงื่อนไขมา เราจะบอกตรงๆ ว่าจะ refine มันยังไง. ติดต่อ hello@orions.agency · 092 390 5464 · LINE @orions" } },
+          { "@type": "Question", name: "ØRIONS คิดราคายังไง?", acceptedAnswer: { "@type": "Answer", text: "งานคราฟต์คิดเป็นแคมเปญหรือโปรเจกต์ — ไม่มีเรทการ์ด ตีตามขอบเขต ความลึก และมาตรฐานที่โจทย์ต้องการ. เราคุยโจทย์ก่อนเสมอ แล้วเสนอสโคป + ราคาที่ตรงงาน. ขอใบเสนอราคาได้." } },
           { "@type": "Question", name: "ØRIONS เคยทำงานอะไรมาบ้าง?", acceptedAnswer: { "@type": "Answer", text: "43+ โปรดักชันวิดีโอ (reels · MV · long-form), มิวสิควิดีโอให้ศิลปินจริง 15 ตัว (PANCAKE, NUM KALA, URBOYTJ และอื่นๆ) และเคสแบรนด์ 8 เคสตั้งแต่กลยุทธ์ถึงการผลิต." } },
-          { "@type": "Question", name: "ØRIONS ไม่เหมาะกับใคร?", acceptedAnswer: { "@type": "Answer", text: "ถ้าต้องการแค่ยอดให้เร็วที่สุดโดยไม่สนภาพจำระยะยาว หรืออยากได้คอนเทนต์เยอะที่สุดราคาถูกที่สุดโดยไม่มีกลยุทธ์ เราจะบอกตรงๆ ว่าเราอาจไม่ใช่คำตอบ." } },
+          { "@type": "Question", name: "ØRIONS ไม่เหมาะกับใคร?", acceptedAnswer: { "@type": "Answer", text: "ถ้าอยากได้คอนเทนต์เยอะที่สุดในราคาถูกที่สุดโดยไม่ต้องมีกลยุทธ์หรือมาตรฐานงานคราฟต์ เราจะบอกตรงๆ ว่าเราอาจไม่ใช่คำตอบ." } },
         ],
       }}
     />
@@ -158,7 +175,7 @@ const Index = () => {
           <div className="mb-7 flex justify-center"><Slash className="text-[clamp(46px,7vw,84px)]" /></div>
         </Reveal>
         <Reveal>
-          <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">Creative Agency · Bangkok</p>
+          <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">Boutique Creative Agency · Bangkok</p>
         </Reveal>
         <div className="mt-7">
           <HeroHeadline />
@@ -178,53 +195,60 @@ const Index = () => {
       </div>
     </section>
 
-    {/* 02 — TWO DIVISIONS — ORIONS is one agency, two ways */}
+    {/* 02 — WHAT WE DO — boutique craft + what's included */}
     <section className="relative overflow-hidden bg-surface px-6 md:px-10 border-t border-foreground/15">
       <TopoField fx={0.14} fy={0.62} seed={1} intensity={0.45}
         className="absolute inset-0 w-full h-full pointer-events-none" />
       <div className="relative z-10 max-w-[1280px] mx-auto py-20 md:py-28">
         <SectionHeading
           lang="th"
-          title={<>หนึ่งเอเจนซี — <em className="text-cinnabar">สองวิธีทำงาน.</em></>}
-          intro="ORIONS เป็นครีเอทีฟเอเจนซีที่แยกชัดเป็น 2 ฝั่ง เพราะลูกค้าคนละแบบ — เลือกฝั่งของคุณได้เลย หรือใช้ทั้งคู่ก็ได้."
+          title={<>งานปั้น ที่คน <em className="text-cinnabar">จำและเลือก.</em></>}
+          intro="ØRIONS คือบูทีคครีเอทีฟเอเจนซี — งานคราฟต์ระดับโฆษณาสำหรับแบรนด์ที่อยากถูกจำ ไม่ใช่แค่ถูกเห็น. นี่คือฝั่งของอารมณ์ที่ทำให้คนยอมจ่ายแพง."
         />
-        {/* TWO DOORS — Online (ยอด) · Boutique (แบรนด์) */}
-        <div className="mt-12 md:mt-14 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-          {[
-            { to: "/online", name: "Online", side: "ยอด · เร็ว ไว ไม่แพง",
-              th: "ยิงแอด · โซเชียล · คอนเทนต์ วัดผล — สำหรับแบรนด์ที่มีของพร้อมขายและอยากเห็นยอดเดี๋ยวนี้.",
-              pick: "อยากได้ยอด/ลูกค้าเดี๋ยวนี้ และวัดผลเป็นตัวเลขได้",
-              pay: "รายเดือน / แพ็กเกจ · มีเรทการ์ด" },
-            { to: "/boutique", name: "Boutique", side: "แบรนด์ · งานปั้น craft",
-              th: "brand strategy · identity · big idea · ฟิล์มระดับโฆษณา — สำหรับแบรนด์ที่อยากถูกจำ ไม่ใช่แค่ถูกเห็น.",
-              pick: "อยากให้แบรนด์ถูกจำ และขายได้ราคาพรีเมียม",
-              pay: "ต่อแคมเปญ / โปรเจกต์ · ไม่มีเรทการ์ด" },
-          ].map((d, i) => (
-            <Reveal key={d.name} delay={0.05 + i * 0.07}>
-              <Link to={d.to} viewTransition className="group relative flex flex-col h-full p-8 md:p-10 card-soft hover:border-cinnabar/60 transition-colors">
-                <span lang="th" className="font-mono text-[10px] tracking-[0.18em] uppercase text-cinnabar">{d.side}</span>
-                <h3 className="mt-3 font-unbounded text-[28px] md:text-[36px] leading-none tracking-[-0.01em] group-hover:text-cinnabar transition-colors">{d.name}</h3>
-                <p lang="th" className="mt-5 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-foreground/85 flex-1">{d.th}</p>
-                <p lang="th" className="mt-5 font-thai thai-wrap text-[13px] md:text-[14px] leading-[1.6] text-foreground/70">
-                  <span className="text-cinnabar font-medium">เลือกฝั่งนี้ถ้า</span> — {d.pick}
-                </p>
-                <div className="mt-6 pt-5 border-t border-foreground/15 flex items-center justify-between gap-3">
-                  <span lang="th" className="font-mono text-[10px] tracking-[0.12em] uppercase text-muted-foreground">{d.pay}</span>
-                  <ArrowUpRight className="w-5 h-5 text-cinnabar shrink-0 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+        <p className="mt-6 font-mono text-[11px] tracking-[0.12em] uppercase text-cinnabar">
+          Logic convinces · <span className="text-foreground">Emotion converts</span>
+        </p>
+        {/* What's included — numbered index */}
+        <div className="mt-12 md:mt-14 border-t border-foreground/12">
+          {included.map((it, i) => (
+            <Reveal key={it.k} delay={i * 0.05}>
+              <div className="grid grid-cols-1 md:grid-cols-[110px_1fr] gap-2 md:gap-12 py-7 md:py-9 border-b border-foreground/12 items-baseline group">
+                <div className="num-display text-cinnabar text-[26px] md:text-[40px] leading-none tabular-nums">{`0${i + 1}`}</div>
+                <div className="max-w-[660px]">
+                  <h3 className="font-display text-[20px] md:text-[26px] font-semibold leading-tight tracking-[-0.01em] group-hover:text-cinnabar transition-colors">{it.k}</h3>
+                  <p lang="th" className="mt-2.5 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">{it.d}</p>
                 </div>
-              </Link>
+              </div>
             </Reveal>
           ))}
         </div>
-        <p className="mt-8 font-mono text-[11px] tracking-[0.12em] uppercase text-cinnabar">
-          Logic convinces <span className="text-muted-foreground">(Online)</span> · Emotion converts <span className="text-muted-foreground">(Boutique)</span>
+        <p lang="th" className="mt-8 font-thai text-[14px] leading-[1.7] text-foreground/80 max-w-[660px]">
+          งานคราฟต์คิดเป็นแคมเปญ/โปรเจกต์ — ไม่มีเรทการ์ด ตีตามโจทย์จริง. <Link to="/contact" className="text-cinnabar hover:underline">ขอใบเสนอราคา</Link> หรืออ่าน <Link to="/thinking" className="text-cinnabar hover:underline">แนวคิดของเรา</Link> ก่อน.
         </p>
-        <p lang="th" className="mt-3 font-thai text-[13px] leading-[1.7] text-muted-foreground max-w-[640px]">
-          ไม่แน่ใจว่าฝั่งไหน? <span className="text-foreground/85">ยอด (Online)</span> ให้เงินหมุนก่อน แล้วต่อ <span className="text-foreground/85">แบรนด์ (Boutique)</span> ให้แข็งก็ได้ — หรืออ่าน <Link to="/thinking" className="text-cinnabar hover:underline">แนวคิดของเรา</Link> ก่อน.
-        </p>
-        <Link to="/diagnostic" className="btn-ghost mt-6">
-          <span>ลองวินิจฉัย — ยอด หรือ แบรนด์?</span><ArrowUpRight className="w-4 h-4" />
-        </Link>
+      </div>
+    </section>
+
+    {/* 02b — HOW WE WORK — four beats */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+        <SectionHeading
+          lang="th"
+          eyebrow="ทำงานกับเรายังไง"
+          title={<>จากโจทย์ ถึงงานที่<em className="text-cinnabar">คนจำ</em> — สี่จังหวะ.</>}
+        />
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-0">
+          {process.map((p, i) => (
+            <Reveal key={p.k} delay={(i % 2) * 0.06}>
+              <div className="flex gap-6 py-7 md:py-8 border-b border-foreground/12">
+                <div className="num-display text-cinnabar text-[26px] md:text-[34px] leading-none tabular-nums shrink-0">{`0${i + 1}`}</div>
+                <div>
+                  <h3 lang="th" className="font-display text-[18px] md:text-[22px] font-semibold leading-tight tracking-[-0.01em]">{p.k}</h3>
+                  <p lang="th" className="mt-2 font-thai thai-wrap text-[14px] leading-[1.7] text-muted-foreground">{p.d}</p>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
 
@@ -254,7 +278,7 @@ const Index = () => {
           ที่มา · short-form video benchmarks 2025 · Ahrefs AI-content study 2025 · Meta CPM benchmarks 2024–25
         </p>
         <p lang="th" className="mt-6 font-thai text-[13px] leading-[1.7] text-foreground/80 max-w-[640px]">
-          ทำเองแบบเดิมจึงไม่พอ — ต้องมีทีมที่ <span className="text-cinnabar font-medium">คิด ทำ ยิง ครบ</span> ↓
+          ทำเองแบบเดิมจึงไม่พอ — ต้องมีทีมที่ <span className="text-cinnabar font-medium">คิดกลยุทธ์ถึงงานคราฟต์ ครบในทีมเดียว</span> ↓
         </p>
       </div>
     </section>
@@ -372,9 +396,9 @@ const Index = () => {
             <Link to="/work" viewTransition className="btn-accent">
               <span>ดูผลงานทั้งหมด</span><ArrowUpRight className="w-4 h-4" />
             </Link>
-            <a href="/ORIONS_RateCard_2026.pdf" download className="btn-ghost">
-              <Download className="w-4 h-4" /><span>ดาวน์โหลด Rate Card 2026</span>
-            </a>
+            <Link to="/contact" viewTransition className="btn-ghost">
+              <span>ขอใบเสนอราคา</span><ArrowUpRight className="w-4 h-4" />
+            </Link>
           </div>
         </Reveal>
       </div>
@@ -400,7 +424,7 @@ const Index = () => {
         <Reveal delay={0.1}>
           <div>
             <p lang="th" className="font-thai thai-wrap text-[15px] md:text-[16px] leading-[1.8] text-foreground/85">
-              งานส่วนใหญ่จบที่ "ส่งมอบ" — มาตรฐานของเราคือจบที่ <span className="text-foreground">ผลลัพธ์</span>. ทุกงานเราตกลง baseline และตัวชี้วัดกันตั้งแต่ต้น (เช่น brand recall · consideration · branded search · แนวโน้ม CPL) แล้ววัดซ้ำที่ <span className="text-cinnabar">45 และ 90 วัน</span> — ไม่เข้าเป้าก็ปรับต่อจนเข้าที่.
+              งานส่วนใหญ่จบที่ "ส่งมอบ" — มาตรฐานของเราคือจบที่ <span className="text-foreground">ผลลัพธ์</span>. ทุกงานเราตกลง baseline และตัวชี้วัดกันตั้งแต่ต้น (เช่น brand recall · consideration · branded search) แล้ววัดซ้ำที่ <span className="text-cinnabar">45 และ 90 วัน</span> — ไม่เข้าเป้าก็ปรับต่อจนเข้าที่.
             </p>
             <p lang="th" className="mt-5 font-thai text-[13px] leading-[1.7] text-muted-foreground">
               นี่คือ <span className="text-foreground/90">วิธีทำงาน</span> ของเรา ไม่ใช่ option เสริม — เราถือเป็นมาตรฐาน ไม่ใช่ทางเลือก.
@@ -525,10 +549,10 @@ const Index = () => {
     {/* 07 — CTA close */}
     <CTABand
       eyebrow="เริ่มง่ายๆ"
-      title={<>เริ่มที่คำถามเดียว:<br /><em className="text-cinnabar">ยอด หรือ แบรนด์?</em></>}
-      subtitle="คุยฟรี 45 นาที ไม่มีข้อผูกมัด — เราช่วยวินิจฉัยให้ว่าคุณควรเริ่มที่ยอดหรือแบรนด์ก่อน."
+      title={<>มีโจทย์ที่อยาก <em className="text-cinnabar">ปั้นให้คม</em> ไหม?</>}
+      subtitle="คุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์และเงื่อนไขมา เราช่วยมองว่าจะ refine มันยังไง."
       primary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}
-      secondary={{ label: "ดูแพ็กเกจ", to: "/package" }}
+      secondary={{ label: "ดูผลงาน", to: "/work" }}
       tone="ink"
     />
   </div>

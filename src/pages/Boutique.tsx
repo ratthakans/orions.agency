@@ -64,7 +64,7 @@ const Boutique = () => (
       <div className="relative z-10 max-w-[1180px] mx-auto pt-28 md:pt-36 pb-12 md:pb-16">
         <SectionLabel label="ORIONS Boutique" />
         <Reveal delay={0.05}>
-          <h1 lang="th" className="mt-10 font-serif font-medium text-[clamp(46px,9vw,128px)] leading-[0.98] tracking-[-0.025em] max-w-[14ch] thai-wrap">
+          <h1 lang="th" className="editorial-display mt-10 font-serif font-medium text-[clamp(46px,9vw,128px)] max-w-[13ch] thai-wrap">
             งานปั้น ที่คน<em className="text-cinnabar italic">จำและเลือก.</em>
           </h1>
         </Reveal>
@@ -128,7 +128,7 @@ const Boutique = () => (
       <div className="max-w-[1180px] mx-auto py-20 md:py-28">
         <SectionLabel index="02" label="Selected craft" />
         <Reveal delay={0.05}>
-          <h2 lang="th" className="mt-8 font-serif text-[26px] md:text-[40px] leading-[1.15] tracking-[-0.015em] max-w-[20ch] thai-wrap">
+          <h2 lang="th" className="editorial-display mt-8 font-serif text-[26px] md:text-[40px] max-w-[20ch] thai-wrap">
             งานที่เราภูมิใจ — <em className="text-cinnabar italic">ตั้งใจทุกเฟรม.</em>
           </h2>
         </Reveal>
@@ -180,7 +180,7 @@ const Boutique = () => (
       <div className="max-w-[1180px] mx-auto py-20 md:py-28">
         <SectionLabel index="03" label="ทำงานกับเรายังไง" />
         <Reveal delay={0.05}>
-          <h2 lang="th" className="mt-8 font-serif text-[26px] md:text-[40px] leading-[1.15] tracking-[-0.015em] max-w-[22ch] thai-wrap">
+          <h2 lang="th" className="editorial-display mt-8 font-serif text-[26px] md:text-[40px] max-w-[22ch] thai-wrap">
             จากโจทย์ ถึงงานที่<em className="text-cinnabar italic">คนจำ</em> — สี่จังหวะ.
           </h2>
         </Reveal>
@@ -213,7 +213,7 @@ const Boutique = () => (
         </div>
         <Reveal delay={0.05}>
           <div>
-            <h2 lang="th" className="font-serif text-[28px] md:text-[46px] leading-[1.2] tracking-[-0.02em] max-w-[18ch] thai-wrap">
+            <h2 lang="th" className="editorial-display font-serif text-[28px] md:text-[46px] max-w-[18ch] thai-wrap">
               ไม่มีเรทการ์ด เพราะไม่มีงานไหน<em className="text-cinnabar italic">เหมือนกัน.</em>
             </h2>
             <p lang="th" className="mt-8 max-w-[620px] font-serif text-[17px] md:text-[21px] leading-[1.6] text-foreground/80">

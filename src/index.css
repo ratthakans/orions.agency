@@ -572,6 +572,13 @@ h1:lang(th) em, h2:lang(th) em, h3:lang(th) em, h4:lang(th) em, h5:lang(th) em, 
   letter-spacing: 0;
 }
 
+/* Boutique editorial mastheads — Thai can't switch to a serif face (Newsreader
+   has no Thai), so the premium/editorial character is carried by rhythm: a
+   tighter, more confident display leading than the global 1.25, plus optical
+   tracking. Class+pseudo specificity intentionally beats the h*:lang(th) rule. */
+.editorial-display            { line-height: 1.04; letter-spacing: -0.012em; }
+.editorial-display:lang(th)   { line-height: 1.12; letter-spacing: 0; }
+
 ::selection {
   background: hsl(var(--foreground));
   color: hsl(var(--background));

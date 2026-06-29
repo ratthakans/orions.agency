@@ -466,7 +466,7 @@ const Index = () => {
             {[...thumbs, ...thumbs].map((src, i) => (
               <li key={`${src.img.src}-${i}`} className="shrink-0 w-[200px] sm:w-[240px] md:w-[280px]" aria-hidden={i >= thumbs.length}>
                 <Link to="/work" className="group relative block overflow-hidden rounded-none border border-foreground/12 bg-foreground/[0.04] aspect-[4/5] transition-colors duration-500 hover:border-cinnabar/60">
-                  <Picture data={src} alt="ผลงาน ØRIONS" loading="lazy" className="w-full h-full object-cover scale-100 grayscale-[0.4] group-hover:scale-[1.06] group-hover:grayscale-0 transition-[transform,filter] duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)]" />
+                  <Picture data={src} alt="ผลงาน ØRIONS" loading="lazy" className="w-full h-full object-cover scale-100 grayscale-[0.3] group-hover:scale-[1.06] group-hover:grayscale-0 transition-[transform,filter] duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)]" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent opacity-80" />
                   <span className="absolute bottom-3 right-3 inline-flex items-center gap-1 font-mono text-[9px] tracking-[0.2em] uppercase text-background bg-cinnabar px-2 py-1 rounded-none opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
                     ดูงาน <ArrowUpRight className="w-3 h-3" />
@@ -541,7 +541,7 @@ const Index = () => {
               <Link to={`/blog/${p.slug}`} viewTransition className="group flex flex-col h-full rounded-none border border-foreground/12 bg-foreground/[0.02] hover:border-cinnabar/60 transition-colors">
                 <div className="relative w-full overflow-hidden aspect-[16/10]">
                   <Picture data={p.cover} alt={p.title} loading="lazy"
-                    className="absolute inset-0 w-full h-full object-cover grayscale-[0.35] group-hover:grayscale-0 group-hover:scale-[1.04] transition-[transform,filter] duration-700" />
+                    className="absolute inset-0 w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 group-hover:scale-[1.04] transition-[transform,filter] duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/10 to-transparent" />
                   <span className="absolute left-4 top-4 font-mono text-[9px] tracking-[0.2em] uppercase text-background bg-cinnabar px-2 py-1">{p.category}</span>
                 </div>

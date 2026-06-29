@@ -59,7 +59,7 @@ const Blog = () => (
                   data={p.cover}
                   alt={p.title}
                   loading={i < 3 ? "eager" : "lazy"}
-                  className="absolute inset-0 w-full h-full object-cover grayscale-[0.35] group-hover:grayscale-0 group-hover:scale-[1.04] transition-[transform,filter] duration-700"
+                  className="absolute inset-0 w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 group-hover:scale-[1.04] transition-[transform,filter] duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/10 to-transparent" />
                 <span className="absolute left-4 top-4 font-mono text-[9px] tracking-[0.2em] uppercase text-background bg-cinnabar px-2 py-1">

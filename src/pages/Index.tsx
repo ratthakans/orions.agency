@@ -60,7 +60,7 @@ const ShowreelFeature = () => {
   const [playing, setPlaying] = useState(false);
   return (
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+      <div className="max-w-[1280px] mx-auto py-24 md:py-36">
         <div className="inline-flex items-center gap-3 font-mono text-[10px] tracking-[0.22em] uppercase leading-none">
           <Slash className="text-[15px]" />
           <span className="text-muted-foreground">Showreel 2026</span>
@@ -190,7 +190,7 @@ const Index = () => {
 
     {/* 01c — SELECTED WORK — featured cases, image-forward (craft shown early) */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+      <div className="max-w-[1280px] mx-auto py-24 md:py-36">
         <div className="flex items-end justify-between gap-6 flex-wrap">
           <SectionHeading lang="th" eyebrow="Selected work"
             title={<>งานที่เรา<em className="text-cinnabar">ภูมิใจ.</em></>} />
@@ -208,7 +208,7 @@ const Index = () => {
                 </div>
                 <div className="mt-5">
                   <div className="font-mono text-[10px] tracking-[0.16em] uppercase text-muted-foreground">{c.year}</div>
-                  <h3 lang="th" className="mt-2 font-display text-[20px] md:text-[24px] font-semibold leading-tight tracking-[-0.01em] group-hover:text-cinnabar transition-colors">{c.title}</h3>
+                  <h3 lang="th" className="mt-2 font-display text-[20px] md:text-[24px] font-medium leading-tight tracking-[-0.01em] group-hover:text-cinnabar transition-colors">{c.title}</h3>
                   <p lang="th" className="mt-2 font-thai thai-wrap text-[14px] leading-[1.7] text-muted-foreground">{c.summary}</p>
                 </div>
               </Link>
@@ -223,7 +223,7 @@ const Index = () => {
     <section className="relative overflow-hidden bg-surface px-6 md:px-10 border-t border-foreground/15">
       <TopoField fx={0.14} fy={0.62} seed={1} intensity={0.2}
         className="absolute inset-0 w-full h-full pointer-events-none" />
-      <div className="relative z-10 max-w-[1280px] mx-auto py-20 md:py-28">
+      <div className="relative z-10 max-w-[1280px] mx-auto py-24 md:py-36">
         <SectionHeading
           lang="th"
           title={<>งานปั้น ที่คน <em className="text-cinnabar">จำและเลือก.</em></>}
@@ -237,7 +237,7 @@ const Index = () => {
           {included.map((it, i) => (
             <Reveal key={it.k} delay={(i % 2) * 0.05}>
               <div className="h-full card-soft p-6 md:p-7 hover:border-cinnabar/50 transition-colors group">
-                <h3 className="font-display text-[17px] md:text-[19px] font-semibold leading-tight tracking-[-0.01em] group-hover:text-cinnabar transition-colors">{it.k}</h3>
+                <h3 className="font-display text-[17px] md:text-[19px] font-medium leading-tight tracking-[-0.01em] group-hover:text-cinnabar transition-colors">{it.k}</h3>
                 <p lang="th" className="mt-2 font-thai thai-wrap text-[13px] md:text-[14px] leading-[1.7] text-muted-foreground">{it.d}</p>
               </div>
             </Reveal>
@@ -253,7 +253,7 @@ const Index = () => {
                 <div className="flex gap-6 py-6 md:py-7 border-b border-foreground/12">
                   <div className="num-display text-cinnabar text-[24px] md:text-[32px] leading-none tabular-nums shrink-0">{`0${i + 1}`}</div>
                   <div>
-                    <h3 lang="th" className="font-display text-[17px] md:text-[20px] font-semibold leading-tight tracking-[-0.01em]">{p.k}</h3>
+                    <h3 lang="th" className="font-display text-[17px] md:text-[20px] font-medium leading-tight tracking-[-0.01em]">{p.k}</h3>
                     <p lang="th" className="mt-2 font-thai thai-wrap text-[14px] leading-[1.7] text-muted-foreground">{p.d}</p>
                   </div>
                 </div>
@@ -278,7 +278,7 @@ const Index = () => {
       <div className="relative z-10 max-w-[1280px] mx-auto px-6 md:px-10 py-28 md:py-44">
         <Reveal>
           <blockquote lang="th" className="font-serif text-[28px] md:text-[52px] leading-[1.25] tracking-[-0.015em] text-foreground max-w-[19ch] thai-wrap">
-            งานที่ดีที่สุดมักเกิดตอนมี<em className="text-cinnabar italic">กรอบ</em>ที่บีบให้คิดให้คม. เราไม่หนีข้อจำกัด — เราถือว่ามันคือ<em className="text-cinnabar italic">บรีฟ.</em>
+            งานที่ดีที่สุดมักเกิดตอนมี<span className="text-foreground">กรอบ</span>ที่บีบให้คิดให้คม. เราไม่หนีข้อจำกัด — เราถือว่ามันคือ<em className="text-cinnabar">บรีฟ.</em>
           </blockquote>
         </Reveal>
         <Reveal delay={0.1}>
@@ -292,7 +292,7 @@ const Index = () => {
 
     {/* 04c — PROOF BY NUMBERS + artist wall */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+      <div className="max-w-[1280px] mx-auto py-24 md:py-36">
         <div className="inline-flex items-center gap-3 font-mono text-[10px] tracking-[0.22em] uppercase leading-none">
           <Slash className="text-[15px]" />
           <span className="text-muted-foreground">Proof</span>
@@ -309,7 +309,7 @@ const Index = () => {
                 <CountUp to={s.to} suffix={s.suffix} decimals={0}
                   className="num-display text-cinnabar text-[clamp(40px,6vw,64px)] leading-none"
                   suffixClassName="text-[0.5em] ml-0.5" />
-                <div lang="th" className="mt-4 font-display text-[16px] md:text-[18px] font-semibold">{s.label}</div>
+                <div lang="th" className="mt-4 font-display text-[16px] md:text-[18px] font-medium">{s.label}</div>
                 <div lang="th" className="mt-1 font-mono text-[10px] tracking-[0.1em] uppercase text-muted-foreground">{s.sub}</div>
               </div>
             </Reveal>
@@ -343,7 +343,7 @@ const Index = () => {
 
     {/* 05 — THE ORIONS STANDARD — the moat */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-28 grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16 items-center">
+      <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16 items-center">
         <div>
           <div className="inline-flex items-center gap-3 font-mono text-[10px] tracking-[0.22em] uppercase leading-none">
             <Slash className="text-[15px]" />
@@ -370,7 +370,7 @@ const Index = () => {
 
     {/* 06b — TALK TO THE FOUNDER (direct, LINE-first) */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+      <div className="max-w-[1280px] mx-auto py-24 md:py-36">
         <Reveal>
           <div className="card-soft p-7 md:p-12 grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-7 md:gap-12 items-center">
             <Picture
@@ -413,7 +413,7 @@ const Index = () => {
 
     {/* 06c — FROM THE BLOG */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+      <div className="max-w-[1280px] mx-auto py-24 md:py-36">
         <div className="flex items-end justify-between gap-6 flex-wrap">
           <SectionHeading
             lang="th"
@@ -435,7 +435,7 @@ const Index = () => {
                   <span className="absolute left-4 top-4 font-mono text-[9px] tracking-[0.2em] uppercase text-background bg-cinnabar px-2 py-1">{p.category}</span>
                 </div>
                 <div className="flex flex-col flex-1 p-6">
-                  <h3 lang="th" className="font-display text-[19px] md:text-[21px] font-semibold leading-snug tracking-[-0.01em] group-hover:text-cinnabar transition-colors">{p.title}</h3>
+                  <h3 lang="th" className="font-display text-[19px] md:text-[21px] font-medium leading-snug tracking-[-0.01em] group-hover:text-cinnabar transition-colors">{p.title}</h3>
                   <p lang="th" className="mt-3 font-thai thai-wrap text-[14px] leading-[1.7] text-muted-foreground flex-1">{p.excerpt}</p>
                 </div>
               </Link>

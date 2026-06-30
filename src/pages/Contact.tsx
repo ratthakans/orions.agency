@@ -204,7 +204,7 @@ const Contact = () => {
                 <div className="card-soft h-full p-7 md:p-8">
                   <div className="num-display text-cinnabar text-[32px] leading-none">{s.n}</div>
                   <div lang="th" className="mt-4 font-mono text-[10px] tracking-[0.16em] uppercase text-cinnabar">{s.when}</div>
-                  <h3 lang="th" className="mt-2 font-display text-[18px] md:text-[20px] font-semibold">{s.t}</h3>
+                  <h3 lang="th" className="mt-2 font-display text-[18px] md:text-[20px] font-medium">{s.t}</h3>
                   <p lang="th" className="mt-3 font-thai thai-wrap text-[13px] leading-[1.7] text-muted-foreground">{s.d}</p>
                 </div>
               </Reveal>
@@ -215,7 +215,7 @@ const Contact = () => {
 
       {/* 02 — BRIEF */}
       <section id="brief" className="px-6 md:px-10 border-t border-foreground/15 scroll-mt-24">
-        <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+        <div className="max-w-[1280px] mx-auto py-24 md:py-36">
           <SectionHeading
             lang="th"
             eyebrow="02 — Send a brief"

@@ -147,7 +147,7 @@ const CaseStudy = () => {
 
       {/* 03 — THE CONSTRAINT */}
       <section className="px-6 md:px-10 border-t border-foreground/15">
-        <div className="max-w-[1280px] mx-auto py-20 md:py-28 grid grid-cols-1 md:grid-cols-12 gap-10">
+        <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 md:grid-cols-12 gap-10">
           <div className="md:col-span-4">
             <SectionLabel index="01" label="The constraint" />
             <Reveal delay={0.05}>
@@ -168,7 +168,7 @@ const CaseStudy = () => {
 
       {/* 04 — WHAT WE DID */}
       <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
-        <div className="max-w-[1280px] mx-auto py-20 md:py-28 grid grid-cols-1 md:grid-cols-12 gap-10">
+        <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 md:grid-cols-12 gap-10">
           <div className="md:col-span-4">
             <SectionLabel index="02" label="What we did" />
           </div>
@@ -189,14 +189,14 @@ const CaseStudy = () => {
 
       {/* 04b — APPROACH (honest method) */}
       <section className="px-6 md:px-10 border-t border-foreground/15">
-        <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+        <div className="max-w-[1280px] mx-auto py-24 md:py-36">
           <SectionLabel index="03" label="Approach" />
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-5">
             {approach.map((a, i) => (
               <Reveal key={a.n} delay={i * 0.07}>
                 <div className="card-soft h-full p-7 md:p-8">
                   <div className="num-display text-cinnabar text-[34px]">{a.n}</div>
-                  <h3 lang="th" className="mt-4 font-display text-[18px] md:text-[20px] font-semibold">{a.t}</h3>
+                  <h3 lang="th" className="mt-4 font-display text-[18px] md:text-[20px] font-medium">{a.t}</h3>
                   <p lang="th" className="mt-3 font-thai thai-wrap text-[13px] leading-[1.7] text-muted-foreground">{a.d}</p>
                 </div>
               </Reveal>
@@ -210,7 +210,7 @@ const CaseStudy = () => {
       {/* 04 — GALLERY (only if >1 image) */}
       {cs.gallery.length > 1 && (
         <section className="px-6 md:px-10 border-t border-foreground/15">
-          <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+          <div className="max-w-[1280px] mx-auto py-24 md:py-36">
             <SectionLabel index="04" label="Selected Frames" />
             <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               {cs.gallery.map((img, i) => (
@@ -240,7 +240,7 @@ const CaseStudy = () => {
         <section className="px-6 md:px-10 border-t border-foreground/15">
           <Link
             to={`/work/${next.slug}`}
-            className="group block max-w-[1280px] mx-auto py-20 md:py-28"
+            className="group block max-w-[1280px] mx-auto py-24 md:py-36"
           >
             <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
               Next —

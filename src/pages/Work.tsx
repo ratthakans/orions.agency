@@ -313,7 +313,7 @@ const Work = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-90" />
                     <div className="absolute left-0 right-0 bottom-0 p-4 flex flex-col gap-1">
                       <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-cinnabar">{cs.niche} · {cs.year}</span>
-                      <span lang="th" className="font-display text-[17px] md:text-[19px] font-semibold tracking-[-0.01em] leading-tight">{cs.title}</span>
+                      <span lang="th" className="font-display text-[17px] md:text-[19px] font-medium tracking-[-0.01em] leading-tight">{cs.title}</span>
                     </div>
                   </Link>
                 ))}

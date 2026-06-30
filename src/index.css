@@ -102,7 +102,7 @@
   /* Editorial serif display — Latin in Newsreader, Thai falls back to IBM Plex Sans Thai */
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Newsreader', 'IBM Plex Sans Thai', Georgia, serif;
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: -0.02em;
     line-height: 1.05;
     text-wrap: balance;
@@ -130,7 +130,7 @@
 }
 
 @layer utilities {
-  .font-display { font-family: 'Newsreader', 'IBM Plex Sans Thai', Georgia, serif; font-weight: 600; letter-spacing: -0.02em; }
+  .font-display { font-family: 'Newsreader', 'IBM Plex Sans Thai', Georgia, serif; font-weight: 500; letter-spacing: -0.02em; }
   .font-body    { font-family: 'IBM Plex Sans Thai', system-ui, sans-serif; }
   .font-mono    { font-family: 'IBM Plex Mono', ui-monospace, monospace; }
   .font-thai    {
@@ -311,7 +311,7 @@
   .h-display-sm,
   .h-display-xs {
     font-family: 'Newsreader', 'IBM Plex Sans Thai', Georgia, serif;
-    font-weight: 600;
+    font-weight: 500;
     text-wrap: balance;
     font-optical-sizing: auto;
   }

@@ -51,7 +51,7 @@ const About = () => (
 
     {/* BRAND IDEA — ถามก่อนขาย */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-28 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-16">
+      <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-16">
         <div>
           <SectionLabel label="Brand idea" />
           <Reveal delay={0.05}>
@@ -78,7 +78,7 @@ const About = () => (
 
     {/* 02 — WHAT WE WON'T COMPROMISE ON */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+      <div className="max-w-[1280px] mx-auto py-24 md:py-36">
         <SectionHeading
           eyebrow="What we won't compromise"
           lang="th"
@@ -100,7 +100,7 @@ const About = () => (
 
     {/* 03 — FOUNDER'S NOTE */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+      <div className="max-w-[1280px] mx-auto py-24 md:py-36">
         <SectionLabel label="Founder's note" />
         <Reveal delay={0.05}>
           <div className="mt-10 grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-8 md:gap-14 items-center">
@@ -125,7 +125,7 @@ const About = () => (
 
     {/* 04 — WHEN WE'RE NOT THE ANSWER */}
     <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+      <div className="max-w-[1280px] mx-auto py-24 md:py-36">
         <SectionHeading
           eyebrow="When we're not the answer"
           lang="th"

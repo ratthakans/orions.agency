@@ -67,7 +67,7 @@ const Blog = () => (
                 </span>
               </div>
               <div className="flex flex-col flex-1 p-6">
-                <h2 lang="th" className="font-display text-[19px] md:text-[21px] font-semibold leading-snug tracking-[-0.01em] group-hover:text-cinnabar transition-colors">
+                <h2 lang="th" className="font-display text-[19px] md:text-[21px] font-medium leading-snug tracking-[-0.01em] group-hover:text-cinnabar transition-colors">
                   {p.title}
                 </h2>
                 <p lang="th" className="mt-3 font-thai thai-wrap text-[14px] leading-[1.7] text-muted-foreground flex-1">

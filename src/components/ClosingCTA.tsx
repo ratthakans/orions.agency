@@ -30,7 +30,7 @@ const ClosingCTA = ({
   phone,
 }: Props) => (
   <section className="relative px-6 md:px-10 border-t border-foreground/15">
-    <div className="max-w-[1280px] mx-auto py-20 md:py-28 text-center">
+    <div className="max-w-[1280px] mx-auto py-24 md:py-36 text-center">
       <Reveal>
         <div className="flex justify-center">
           <SectionLabel label={eyebrow} reveal={false} />

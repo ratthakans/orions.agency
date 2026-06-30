@@ -89,7 +89,7 @@ const Thinking = () => (
 
     {/* LOGIC vs EMOTION — bridge to the two sides */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1000px] mx-auto py-20 md:py-28">
+      <div className="max-w-[1000px] mx-auto py-24 md:py-36">
         <Reveal>
           <blockquote lang="th" className="font-serif text-[28px] md:text-[44px] leading-[1.3] tracking-[-0.01em] text-foreground/90 thai-wrap">
             ตรรกะทำให้คน <em className="text-cinnabar italic">เชื่อ</em> — แต่อารมณ์ทำให้คน <em className="text-cinnabar italic">ซื้อ.</em>
@@ -117,7 +117,7 @@ const Thinking = () => (
 
     {/* AI does soulless work */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1180px] mx-auto py-20 md:py-28 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-20 items-baseline">
+      <div className="max-w-[1180px] mx-auto py-24 md:py-36 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-20 items-baseline">
         <SectionLabel index="01" label="AI กับหัวใจ" />
         <Reveal delay={0.05}>
           <div>
@@ -134,7 +134,7 @@ const Thinking = () => (
 
     {/* 5 BRAND ASSETS — editorial numbered index */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1180px] mx-auto py-20 md:py-28">
+      <div className="max-w-[1180px] mx-auto py-24 md:py-36">
         <SectionLabel index="02" label="5 สิ่งที่ AI ลอกไม่ได้" />
         <Reveal delay={0.05}>
           <h2 lang="th" className="mt-8 font-serif text-[26px] md:text-[38px] leading-[1.2] tracking-[-0.015em] max-w-[22ch] thai-wrap">
@@ -166,7 +166,7 @@ const Thinking = () => (
 
     {/* EMOTION TRANSLATOR — 4 translates */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1180px] mx-auto py-20 md:py-28">
+      <div className="max-w-[1180px] mx-auto py-24 md:py-36">
         <div className="grid grid-cols-1 lg:grid-cols-[0.7fr_1.3fr] gap-10 lg:gap-16 items-start">
           <div>
             <SectionLabel index="03" label="Emotion Translator" />
@@ -197,7 +197,7 @@ const Thinking = () => (
 
     {/* 3 QUESTIONS — the filter */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1180px] mx-auto py-20 md:py-28">
+      <div className="max-w-[1180px] mx-auto py-24 md:py-36">
         <SectionLabel index="04" label="ก่อนปล่อยงาน เราถาม 3 ข้อ" />
         <Reveal delay={0.05}>
           <p lang="th" className="mt-8 max-w-[640px] font-serif text-[18px] md:text-[22px] leading-[1.5] text-foreground/80">

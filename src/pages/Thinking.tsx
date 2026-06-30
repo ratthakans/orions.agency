@@ -63,7 +63,7 @@ const Thinking = () => (
 
     {/* HERO — editorial */}
     <section className="relative overflow-hidden section-ink px-6 md:px-10">
-      <TopoField fx={0.18} fy={0.5} seed={5} intensity={0.5}
+      <TopoField fx={0.18} fy={0.5} seed={5} intensity={0.22}
         className="absolute inset-0 w-full h-full pointer-events-none" />
       <div className="relative z-10 max-w-[1180px] mx-auto pt-28 md:pt-36 pb-16 md:pb-20">
         <SectionLabel label="Our POV · แนวคิด" />

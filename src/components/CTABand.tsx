@@ -30,7 +30,7 @@ const CTABand = ({ eyebrow, title, subtitle, primary, secondary, tone = "snow", 
       <div className="max-w-[1280px] mx-auto py-20 md:py-24">
         <Reveal>
           <div className="relative overflow-hidden card-accent p-8 md:p-14">
-            <TopoField fx={0.82} fy={0.5} seed={2} intensity={0.4}
+            <TopoField fx={0.82} fy={0.5} seed={2} intensity={0.18}
               className="absolute inset-0 w-full h-full pointer-events-none" />
             <div className="relative z-10 grid grid-cols-1 md:grid-cols-[1.5fr_1fr] gap-10 md:gap-16 items-center">
               <div>

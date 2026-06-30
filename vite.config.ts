@@ -5,7 +5,7 @@ import { imagetools } from "vite-imagetools";
 import path from "path";
 
 // https://vitejs.dev/config/
-export default defineConfig(({ isSsrBuild }) => ({
+export default defineConfig(({ isSsrBuild, command }) => ({
   server: {
     host: "::",
     port: 8080,
@@ -15,13 +15,18 @@ export default defineConfig(({ isSsrBuild }) => ({
   },
   plugins: [
     react(),
-    // Generate AVIF/WebP/JPEG <picture> variants for imports tagged `?as=picture`.
-    // Untagged image imports pass through untouched (still plain URL strings).
+    // `?as=picture` → AVIF/WebP/JPEG <picture> variants. Untagged image imports
+    // pass through untouched. In dev (`serve`) we emit the ORIGINAL format only
+    // (no avif/webp encoding) so the dev server stays fast — sharp would
+    // otherwise re-encode every image on first request (avif is very slow).
+    // The full set is generated only in the production build.
     imagetools({
-      defaultDirectives: (url) =>
-        url.searchParams.get("as") === "picture"
+      defaultDirectives: (url) => {
+        if (url.searchParams.get("as") !== "picture") return new URLSearchParams();
+        return command === "build"
           ? new URLSearchParams({ format: "avif;webp;jpg", as: "picture" })
-          : new URLSearchParams(),
+          : new URLSearchParams({ as: "picture" });
+      },
     }),
     // Recompress remaining bundled images at build time (sharp/mozjpeg). Source
     // files untouched; only the emitted dist assets are optimised.

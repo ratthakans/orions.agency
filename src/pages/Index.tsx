@@ -8,9 +8,7 @@ import CTABand from "@/components/CTABand";
 import Magnetic from "@/components/Magnetic";
 import Slash from "@/components/Slash";
 import HeroHeadline from "@/components/HeroHeadline";
-import MarqueeBand from "@/components/MarqueeBand";
 import CountUp from "@/components/CountUp";
-import { workThumbs } from "@/data/portfolio";
 import { caseStudies } from "@/data/caseStudies";
 import { blogPosts } from "@/data/blog";
 import TopoField from "@/components/TopoField";
@@ -21,16 +19,6 @@ import bleedImg from "@/assets/concert-crowd.jpg?as=picture";
 
 // Direct booking channel — founder section CTA (LINE-first).
 const LINE_URL = "https://line.me/ti/p/~orions";
-
-// Pick N random work thumbnails (fresh each mount).
-const pickRandom = <T,>(arr: T[], n: number): T[] => {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a.slice(0, n);
-};
 
 // What a Boutique engagement includes — the craft spine.
 const included = [
@@ -138,7 +126,6 @@ const ShowreelFeature = () => {
 };
 
 const Index = () => {
-  const [thumbs] = useState(() => pickRandom(workThumbs, 14));
   return (
   <div>
     <SEO
@@ -267,33 +254,28 @@ const Index = () => {
             </Reveal>
           ))}
         </div>
-        <p lang="th" className="mt-8 font-thai text-[14px] leading-[1.7] text-foreground/80 max-w-[660px]">
+
+        {/* How we work — four beats (sub-block, not its own section) */}
+        <div className="mt-16 md:mt-20 pt-12 md:pt-14 border-t border-foreground/15">
+          <div lang="th" className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">ทำงานกับเรายังไง — จากโจทย์ ถึงงานที่คนจำ · สี่จังหวะ</div>
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-0">
+            {process.map((p, i) => (
+              <Reveal key={p.k} delay={(i % 2) * 0.06}>
+                <div className="flex gap-6 py-6 md:py-7 border-b border-foreground/12">
+                  <div className="num-display text-cinnabar text-[24px] md:text-[32px] leading-none tabular-nums shrink-0">{`0${i + 1}`}</div>
+                  <div>
+                    <h3 lang="th" className="font-display text-[17px] md:text-[20px] font-semibold leading-tight tracking-[-0.01em]">{p.k}</h3>
+                    <p lang="th" className="mt-2 font-thai thai-wrap text-[14px] leading-[1.7] text-muted-foreground">{p.d}</p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+
+        <p lang="th" className="mt-12 font-thai text-[14px] leading-[1.7] text-foreground/80 max-w-[660px]">
           งานคราฟต์คิดเป็นแคมเปญ/โปรเจกต์ — ไม่มีเรทการ์ด ตีตามโจทย์จริง. <Link to="/contact" className="text-cinnabar hover:underline">ขอใบเสนอราคา</Link> หรืออ่าน <Link to="/thinking" className="text-cinnabar hover:underline">แนวคิดของเรา</Link> ก่อน.
         </p>
-      </div>
-    </section>
-
-    {/* 02b — HOW WE WORK — four beats */}
-    <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <SectionHeading
-          lang="th"
-          eyebrow="ทำงานกับเรายังไง"
-          title={<>จากโจทย์ ถึงงานที่<em className="text-cinnabar">คนจำ</em> — สี่จังหวะ.</>}
-        />
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-0">
-          {process.map((p, i) => (
-            <Reveal key={p.k} delay={(i % 2) * 0.06}>
-              <div className="flex gap-6 py-7 md:py-8 border-b border-foreground/12">
-                <div className="num-display text-cinnabar text-[26px] md:text-[34px] leading-none tabular-nums shrink-0">{`0${i + 1}`}</div>
-                <div>
-                  <h3 lang="th" className="font-display text-[18px] md:text-[22px] font-semibold leading-tight tracking-[-0.01em]">{p.k}</h3>
-                  <p lang="th" className="mt-2 font-thai thai-wrap text-[14px] leading-[1.7] text-muted-foreground">{p.d}</p>
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
       </div>
     </section>
 
@@ -437,9 +419,6 @@ const Index = () => {
       </div>
     </section>
 
-    {/* — KINETIC BRAND BAND */}
-    <MarqueeBand />
-
     {/* 05 — THE ORIONS STANDARD — the moat */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-20 md:py-28 grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16 items-center">
@@ -464,38 +443,6 @@ const Index = () => {
             </p>
           </div>
         </Reveal>
-      </div>
-    </section>
-
-    {/* 06 — WORK SHOWCASE (random real work, reshuffled each visit) */}
-    <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-20 md:py-28">
-        <div className="flex items-end justify-between gap-6 flex-wrap">
-          <SectionHeading
-            lang="th"
-            eyebrow="Our work"
-            title={<>งานจริง <em className="text-cinnabar">หลากหลายงานฝีมือ.</em></>}
-            intro="สุ่มงานจากหลายหมวดมาให้ดู — ดูทั้งหมดได้ในหน้าผลงาน"
-          />
-          <Link to="/work" className="hidden md:inline-flex font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground hover:text-cinnabar transition-colors">
-            Index of work →
-          </Link>
-        </div>
-        <div className="mt-12 md:mt-16 marquee" style={{ maskImage: "linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent)" }}>
-          <ul className="work-marquee flex shrink-0 gap-4 md:gap-5">
-            {[...thumbs, ...thumbs].map((src, i) => (
-              <li key={`${src.img.src}-${i}`} className="shrink-0 w-[200px] sm:w-[240px] md:w-[280px]" aria-hidden={i >= thumbs.length}>
-                <Link to="/work" className="group relative block overflow-hidden rounded-none border border-foreground/12 bg-foreground/[0.04] aspect-[4/5] transition-colors duration-500 hover:border-cinnabar/60">
-                  <Picture data={src} alt="ผลงาน ØRIONS" loading="lazy" className="w-full h-full object-cover scale-100 grayscale-[0.3] group-hover:scale-[1.06] group-hover:grayscale-0 transition-[transform,filter] duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)]" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent opacity-80" />
-                  <span className="absolute bottom-3 right-3 inline-flex items-center gap-1 font-mono text-[9px] tracking-[0.2em] uppercase text-background bg-cinnabar px-2 py-1 rounded-none opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
-                    ดูงาน <ArrowUpRight className="w-3 h-3" />
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
       </div>
     </section>
 

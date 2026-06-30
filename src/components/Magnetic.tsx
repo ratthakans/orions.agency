@@ -1,5 +1,5 @@
 import { useRef, ReactNode, MouseEvent } from "react";
-import { motion, useMotionValue, useSpring, useReducedMotion } from "framer-motion";
+import { m, useMotionValue, useSpring, useReducedMotion } from "framer-motion";
 
 interface Props {
   children: ReactNode;
@@ -33,7 +33,7 @@ const Magnetic = ({ children, className, strength = 8 }: Props) => {
   };
 
   return (
-    <motion.div
+    <m.div
       ref={ref}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
@@ -41,7 +41,7 @@ const Magnetic = ({ children, className, strength = 8 }: Props) => {
       className={className}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 };
 

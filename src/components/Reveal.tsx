@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 import { ReactNode } from "react";
 
 interface Props {
@@ -10,7 +10,7 @@ interface Props {
 const Reveal = ({ children, className, delay = 0 }: Props) => {
   const reduce = useReducedMotion();
   return (
-    <motion.div
+    <m.div
       initial={reduce ? false : { opacity: 0, y: 8 }}
       whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
@@ -18,7 +18,7 @@ const Reveal = ({ children, className, delay = 0 }: Props) => {
       className={className}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 };
 

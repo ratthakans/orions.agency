@@ -1,5 +1,5 @@
 import { useRef, MouseEvent } from "react";
-import { motion, useMotionValue, useSpring, useReducedMotion } from "framer-motion";
+import { m, useMotionValue, useSpring, useReducedMotion } from "framer-motion";
 import TypingCycle from "@/components/TypingCycle";
 
 /** ØRIONS hero headline — "Stories, refined." with a staggered mask-up reveal
@@ -27,14 +27,14 @@ const HeroHeadline = () => {
 
   const Word = ({ children, delay, className }: { children: string; delay: number; className?: string }) => (
     <span className="relative inline-block overflow-hidden align-bottom" style={{ lineHeight: 1.04 }}>
-      <motion.span
+      <m.span
         initial={reduced ? { y: 0 } : { y: "110%" }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5, delay, ease: [0.22, 1, 0.36, 1] }}
         className={`inline-block ${className ?? ""}`}
       >
         {children}
-      </motion.span>
+      </m.span>
     </span>
   );
 
@@ -46,7 +46,7 @@ const HeroHeadline = () => {
       style={{ perspective: 1100 }}
       className="cursor-default"
     >
-      <motion.h1
+      <m.h1
         style={{ rotateX: srx, rotateY: sry, transformStyle: "preserve-3d" }}
         className="h-display-xl leading-[0.96]"
       >
@@ -61,7 +61,7 @@ const HeroHeadline = () => {
             caretClassName="bg-cinnabar"
           />
         </span>
-      </motion.h1>
+      </m.h1>
     </div>
   );
 };

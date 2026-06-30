@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import { LazyMotion, domAnimation } from "framer-motion";
 import { Outlet } from "react-router-dom";
 import type { RouteRecord } from "vite-react-ssg";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -15,17 +16,19 @@ type PageModule = { default: React.ComponentType };
 const page = (load: () => Promise<PageModule>) => async () => ({ Component: (await load()).default });
 
 const RootLayout = () => (
-  <TooltipProvider>
-    <Sonner />
-    <ScrollToTop />
-    <Layout>
-      <ErrorBoundary>
-        <Suspense fallback={<div className="min-h-[60vh]" aria-hidden />}>
-          <Outlet />
-        </Suspense>
-      </ErrorBoundary>
-    </Layout>
-  </TooltipProvider>
+  <LazyMotion features={domAnimation}>
+    <TooltipProvider>
+      <Sonner />
+      <ScrollToTop />
+      <Layout>
+        <ErrorBoundary>
+          <Suspense fallback={<div className="min-h-[60vh]" aria-hidden />}>
+            <Outlet />
+          </Suspense>
+        </ErrorBoundary>
+      </Layout>
+    </TooltipProvider>
+  </LazyMotion>
 );
 
 export const routes: RouteRecord[] = [

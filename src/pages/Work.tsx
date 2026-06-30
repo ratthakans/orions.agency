@@ -81,7 +81,7 @@ const Work = () => {
     <div>
       <SEO
         title="Work — Selected Work · ØRIONS"
-        description="พอร์ตโฟลิโอ ØRIONS จัดตามประเภทงาน — video, social & creative ads, reels, long-form, music, art direction, photography และ event."
+        description="ผลงาน ØRIONS บูทีคครีเอทีฟเอเจนซี — brand film · art direction · key visuals · photography · music video และงานครีเอทีฟ จัดตามประเภทงานให้ดูง่าย."
         path="/work"
         schema={{
           "@context": "https://schema.org",

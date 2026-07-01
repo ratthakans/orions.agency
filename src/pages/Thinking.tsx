@@ -115,10 +115,41 @@ const Thinking = () => (
       </div>
     </section>
 
+    {/* WHY BRANDING — the sales-ceiling → branding → creativity arc */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1180px] mx-auto py-24 md:py-36 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-20 items-baseline">
+        <SectionLabel index="01" label="ทำไมต้อง branding" />
+        <div>
+          <Reveal delay={0.05}>
+            <h2 lang="th" className="font-serif text-[28px] md:text-[42px] leading-[1.2] tracking-[-0.015em] max-w-[20ch] thai-wrap">
+              ยอดพาไปได้ถึงจุดหนึ่ง — แล้ว<em className="text-cinnabar italic">มันตัน.</em>
+            </h2>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div lang="th" className="mt-8 max-w-[640px] font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.85] text-foreground/80 space-y-5">
+              <p>ตอนเริ่มธุรกิจ ทุกคนต้องเน้นยอดก่อน — เพื่อเลี้ยงทีมและพาธุรกิจเดินต่อ. ไม่มีอะไรผิด. แต่ยอดที่มาจากการลด แลก แจกแถม และยิงแอดแลก attention มัน<span className="text-foreground">มีเพดาน</span>.</p>
+              <p>เพราะยอดแบบนั้นไม่ได้สร้างความผูกพัน. วันที่คู่แข่งตั้งราคาถูกกว่าแม้แต่นิดเดียว ลูกค้าก็เดินจากไปทันที — เพราะไม่มีอะไรยึดเขาไว้กับแบรนด์นอกจาก<span className="text-foreground">ราคา</span>.</p>
+              <p>จุดนั้นแหละที่ <span className="text-cinnabar">branding</span> เริ่มสำคัญ — สร้างความสัมพันธ์ เรื่องราว และทำให้ลูกค้ารู้สึกว่านี่คือ “ของเขา”. และเมื่อธุรกิจถึงจุดตัน <span className="text-foreground">ความคิดสร้างสรรค์และคุณภาพงาน</span> คือทางเดียวที่พาไปต่อได้.</p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.15}>
+            <blockquote lang="th" className="mt-10 font-serif text-[22px] md:text-[32px] leading-[1.35] tracking-[-0.01em] text-foreground max-w-[24ch] thai-wrap">
+              ยุคหลัง social — <em className="text-cinnabar italic">connection ที่จริง มีค่ากว่า followers.</em>
+            </blockquote>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <p lang="th" className="mt-6 max-w-[640px] font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.8] text-muted-foreground">
+              เราถึงเลือกเป็น<span className="text-foreground">บูทีค</span> — ใส่ใจรายละเอียด ทำกับลูกค้าระยะยาว ไม่ทำงานฉาบฉวย. คุณภาพแบบนี้มีราคาขึ้นมาหน่อย แต่มันอยู่กับแบรนด์นานกว่าโปรโมชั่นครั้งเดียว.
+            </p>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+
     {/* AI does soulless work */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1180px] mx-auto py-24 md:py-36 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-20 items-baseline">
-        <SectionLabel index="01" label="AI กับหัวใจ" />
+        <SectionLabel index="02" label="AI กับหัวใจ" />
         <Reveal delay={0.05}>
           <div>
             <h2 lang="th" className="font-serif text-[28px] md:text-[42px] leading-[1.2] tracking-[-0.015em] max-w-[20ch] thai-wrap">
@@ -135,7 +166,7 @@ const Thinking = () => (
     {/* 5 BRAND ASSETS — editorial numbered index */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1180px] mx-auto py-24 md:py-36">
-        <SectionLabel index="02" label="5 สิ่งที่ AI ลอกไม่ได้" />
+        <SectionLabel index="03" label="5 สิ่งที่ AI ลอกไม่ได้" />
         <Reveal delay={0.05}>
           <h2 lang="th" className="mt-8 font-serif text-[26px] md:text-[38px] leading-[1.2] tracking-[-0.015em] max-w-[22ch] thai-wrap">
             สินทรัพย์ทางใจ ที่สร้างรากฐานใน<em className="text-cinnabar italic">ใจผู้บริโภค.</em>
@@ -169,7 +200,7 @@ const Thinking = () => (
       <div className="max-w-[1180px] mx-auto py-24 md:py-36">
         <div className="grid grid-cols-1 lg:grid-cols-[0.7fr_1.3fr] gap-10 lg:gap-16 items-start">
           <div>
-            <SectionLabel index="03" label="Emotion Translator" />
+            <SectionLabel index="04" label="Emotion Translator" />
             <Reveal delay={0.05}>
               <h2 lang="th" className="mt-8 font-serif text-[26px] md:text-[38px] leading-[1.2] tracking-[-0.015em] thai-wrap max-w-[14ch]">
                 เราเป็น <em className="text-cinnabar italic">นักแปลอารมณ์</em> ไม่ใช่โรงงานคอนเทนต์.
@@ -198,7 +229,7 @@ const Thinking = () => (
     {/* 3 QUESTIONS — the filter */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1180px] mx-auto py-24 md:py-36">
-        <SectionLabel index="04" label="ก่อนปล่อยงาน เราถาม 3 ข้อ" />
+        <SectionLabel index="05" label="ก่อนปล่อยงาน เราถาม 3 ข้อ" />
         <Reveal delay={0.05}>
           <p lang="th" className="mt-8 max-w-[640px] font-serif text-[18px] md:text-[22px] leading-[1.5] text-foreground/80">
             พฤติกรรมการซื้อยุคนี้คือ <span className="text-foreground italic">Emotional First, Rational Second</span> — ใช้อารมณ์นำ แล้วค่อยหาเหตุผลมารองรับ. ทุกงานก่อนปล่อย เราถามตัวเองและทีม:

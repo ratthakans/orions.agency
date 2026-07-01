@@ -178,9 +178,9 @@ const Index = () => {
         </Reveal>
         <Reveal delay={0.08}>
           <div className="md:text-right">
-            <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-cinnabar">Logic Convinces · Emotion Converts</p>
+            <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-cinnabar">Connection &gt; followers</p>
             <p lang="th" className="mt-3 font-thai thai-wrap text-[13px] leading-[1.7] text-muted-foreground md:ml-auto max-w-[42ch]">
-              เราเลือกยืนฝั่งอารมณ์ — ฝั่งที่ทำให้แบรนด์ถูกจำ ถูกเลือก และตั้งราคาพรีเมียมได้.
+              connection ที่จริงกับคนที่รักแบรนด์ มีค่ากว่ายอด follower — และอยู่ทนกว่าโปรโมชั่น. นั่นคือสิ่งที่คู่แข่งลอกด้วยราคาไม่ได้.
             </p>
             <Link to="/thinking" className="mt-4 inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.18em] uppercase text-foreground/70 hover:text-cinnabar transition-colors">อ่านแนวคิดของเรา <ArrowUpRight className="w-3.5 h-3.5" /></Link>
           </div>

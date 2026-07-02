@@ -44,10 +44,49 @@ const Blog = () => (
       </div>
     </section>
 
-    {/* GRID */}
+    {/* FEATURED — latest post as a quiet cover story */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-16 md:py-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-        {blogPosts.map((p, i) => (
+      <div className="max-w-[1280px] mx-auto py-16 md:py-20">
+        <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">— อ่านล่าสุด</div>
+        <Reveal delay={0.05}>
+          <Link
+            to={`/blog/${blogPosts[0].slug}`}
+            viewTransition
+            className="group mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center"
+          >
+            <div className="lg:col-span-7 relative w-full overflow-hidden aspect-[16/10] border border-foreground/12">
+              <Picture
+                data={blogPosts[0].cover}
+                alt={blogPosts[0].title}
+                loading="eager"
+                className="absolute inset-0 w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 group-hover:scale-[1.03] transition-[transform,filter] duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-background/5 to-transparent" />
+            </div>
+            <div className="lg:col-span-5">
+              <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-cinnabar">{blogPosts[0].category}</span>
+              <h2 lang="th" className="mt-5 h-display-md thai-wrap group-hover:text-cinnabar transition-colors">
+                {blogPosts[0].title}
+              </h2>
+              <p lang="th" className="mt-5 font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.8] text-muted-foreground max-w-[46ch]">
+                {blogPosts[0].excerpt}
+              </p>
+              <div className="mt-6 flex items-center gap-3 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
+                <span>{fmtDate(blogPosts[0].date)} · {blogPosts[0].readMins} min read</span>
+                <ArrowUpRight className="w-4 h-4 text-cinnabar opacity-0 group-hover:opacity-100 transition-opacity" />
+              </div>
+            </div>
+          </Link>
+        </Reveal>
+      </div>
+    </section>
+
+    {/* GRID — the rest, as an index */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-16 md:py-20">
+        <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">— บทความทั้งหมด</div>
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        {blogPosts.slice(1).map((p, i) => (
           <Reveal key={p.slug} delay={(i % 3) * 0.06}>
             <Link
               to={`/blog/${p.slug}`}
@@ -81,6 +120,7 @@ const Blog = () => (
             </Link>
           </Reveal>
         ))}
+        </div>
       </div>
     </section>
 

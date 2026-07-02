@@ -27,7 +27,7 @@ const CTABand = ({ eyebrow, title, subtitle, primary, secondary, tone = "snow", 
   const bandBg = tone === "ink" ? "bg-surface" : "";
   return (
     <section className={`${bandBg} px-6 md:px-10 border-t border-foreground/15 ${className}`}>
-      <div className="max-w-[1280px] mx-auto py-20 md:py-24">
+      <div className="max-w-[1280px] mx-auto py-24 md:py-36">
         <Reveal>
           <div className="relative overflow-hidden card-accent p-8 md:p-14">
             <TopoField fx={0.82} fy={0.5} seed={2} intensity={0.18}

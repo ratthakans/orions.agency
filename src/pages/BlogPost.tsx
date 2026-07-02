@@ -94,13 +94,39 @@ const BlogPost = () => {
       {/* BODY */}
       <section className="px-6 md:px-10">
         <div className="max-w-[680px] mx-auto pb-20 md:pb-28">
-          {post.body.map((para, i) => (
-            <Reveal key={i} delay={0.03 * i}>
-              <p lang="th" className="font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.8] text-foreground/85 [&:not(:first-child)]:mt-6">
-                {para}
-              </p>
-            </Reveal>
-          ))}
+          {post.body.map((para, i) => {
+            // Pull-quote: a body line prefixed with "> " renders as an
+            // editorial pull-quote (one per article — magazine rhythm).
+            if (para.startsWith(">")) {
+              const q = para.replace(/^>\s*/, "");
+              return (
+                <Reveal key={i}>
+                  <figure className="my-12 md:my-16 text-center">
+                    <div className="mx-auto mb-6 h-px w-10 bg-cinnabar" />
+                    <blockquote lang="th" className="font-thai thai-wrap mx-auto max-w-[24ch] text-[22px] md:text-[30px] leading-[1.45] tracking-[-0.01em] text-foreground">
+                      {q}
+                    </blockquote>
+                  </figure>
+                </Reveal>
+              );
+            }
+            // First paragraph = standfirst / lead (larger, brighter).
+            const isLead = i === 0;
+            return (
+              <Reveal key={i} delay={0.03 * i}>
+                <p
+                  lang="th"
+                  className={
+                    isLead
+                      ? "font-thai thai-wrap text-[19px] md:text-[22px] leading-[1.7] text-foreground/95"
+                      : "font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.8] text-foreground/85 mt-6"
+                  }
+                >
+                  {para}
+                </p>
+              </Reveal>
+            );
+          })}
         </div>
       </section>
 

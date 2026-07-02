@@ -33,6 +33,15 @@ const questions = [
   { n: "03", q: "ถ้าไม่มีโลโก้… งานยังน่าสนใจมั้ย?" },
 ];
 
+// Editorial contents — the spine of the argument, shown up front.
+const contents = [
+  { n: "01", t: "ทำไมต้อง branding" },
+  { n: "02", t: "AI กับหัวใจ" },
+  { n: "03", t: "5 สิ่งที่ AI ลอกไม่ได้" },
+  { n: "04", t: "Emotion Translator" },
+  { n: "05", t: "3 คำถามก่อนปล่อยงาน" },
+];
+
 const Thinking = () => (
   <div>
     <SEO
@@ -87,6 +96,21 @@ const Thinking = () => (
       </div>
     </section>
 
+    {/* CONTENTS — editorial index of the argument */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1180px] mx-auto py-12 md:py-16">
+        <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">— ในบทความนี้</div>
+        <ol className="mt-7 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-0">
+          {contents.map((c) => (
+            <li key={c.n} className="flex items-baseline gap-4 border-t border-foreground/12 py-4">
+              <span className="font-serif text-cinnabar text-[16px] tabular-nums leading-none">{c.n}</span>
+              <span lang="th" className="font-thai text-[15px] md:text-[16px] leading-snug text-foreground/85">{c.t}</span>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
     {/* LOGIC vs EMOTION — bridge to the two sides */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1000px] mx-auto py-24 md:py-36">
@@ -95,23 +119,27 @@ const Thinking = () => (
             ตรรกะทำให้คน <em className="text-cinnabar italic">เชื่อ</em><br />— แต่อารมณ์ทำให้คน <em className="text-cinnabar italic">ซื้อ.</em>
           </blockquote>
         </Reveal>
-        <Reveal delay={0.1}>
-          <p lang="th" className="mt-8 max-w-[680px] font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.8] text-foreground/80">
-            <span className="font-mono text-[12px] tracking-[0.1em] uppercase text-cinnabar">Logic Convinces, Emotion Converts.</span><br />
-            อารมณ์คือสิ่งที่กระตุ้นการซื้อจริง และทำให้คนยอมจ่ายแพงกว่าปกติ — ทำไมคนต่อคิวซื้อกล่องสุ่ม หรือใส่นาฬิกาหรูแทนที่จะดูเวลาจากมือถือ. ตรรกะเปิดประตูด้วยข้อมูลที่ใช่ แต่ <span className="text-foreground">อารมณ์</span> คือสิ่งที่ปิดดีลและสร้างพรีเมียม — และนั่นคือฝั่งที่ ØRIONS เลือกยืน.
-          </p>
-        </Reveal>
-        <Reveal delay={0.08}>
-          <div className="mt-10 p-7 md:p-9 card-accent max-w-[760px]">
-            <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-cinnabar">Emotion · converts</div>
-            <h3 lang="th" className="mt-3 font-serif text-[24px] md:text-[34px] leading-[1.2] tracking-[-0.015em]">
-              เราเป็นบูทีคที่ปั้น <em className="text-cinnabar italic">อารมณ์ของแบรนด์</em> ให้คนจำและเลือก.
-            </h3>
-            <p lang="th" className="mt-4 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.8] text-muted-foreground">
-              brand strategy · identity · big idea · brand film และ art direction ระดับโฆษณา — งานคราฟต์ที่ทำให้แบรนด์ถูกจำ ไม่ใช่แค่ถูกเห็น.
-            </p>
-          </div>
-        </Reveal>
+        {/* the thesis, made visual — two forces side by side */}
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+          <Reveal>
+            <div className="card-soft h-full p-8 md:p-10">
+              <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">Logic</div>
+              <h3 className="mt-4 font-serif text-[30px] md:text-[42px] leading-none tracking-[-0.02em] text-foreground/70">Convinces.</h3>
+              <p lang="th" className="mt-5 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.8] text-muted-foreground">
+                ตรรกะเปิดประตูด้วยข้อมูลที่ใช่ — ทำให้คน<span className="text-foreground/80">เชื่อ</span>. แต่ข้อมูลอย่างเดียวไม่เคยปิดดีล.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <div className="card-accent h-full p-8 md:p-10">
+              <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-cinnabar">Emotion</div>
+              <h3 className="mt-4 font-serif italic text-[30px] md:text-[42px] leading-none tracking-[-0.02em] text-cinnabar">Converts.</h3>
+              <p lang="th" className="mt-5 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.8] text-foreground/85">
+                อารมณ์คือสิ่งที่ปิดดีลและสร้างพรีเมียม — ทำไมคนต่อคิวซื้อกล่องสุ่ม หรือใส่นาฬิกาหรูแทนดูเวลาจากมือถือ. <span className="text-foreground">นั่นคือฝั่งที่ ØRIONS ยืน.</span>
+              </p>
+            </div>
+          </Reveal>
+        </div>
       </div>
     </section>
 

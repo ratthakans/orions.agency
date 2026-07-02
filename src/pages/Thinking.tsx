@@ -92,7 +92,7 @@ const Thinking = () => (
       <div className="max-w-[1000px] mx-auto py-24 md:py-36">
         <Reveal>
           <blockquote lang="th" className="font-serif text-[28px] md:text-[44px] leading-[1.3] tracking-[-0.01em] text-foreground/90 thai-wrap">
-            ตรรกะทำให้คน <em className="text-cinnabar italic">เชื่อ</em> — แต่อารมณ์ทำให้คน <em className="text-cinnabar italic">ซื้อ.</em>
+            ตรรกะทำให้คน <em className="text-cinnabar italic">เชื่อ</em><br />— แต่อารมณ์ทำให้คน <em className="text-cinnabar italic">ซื้อ.</em>
           </blockquote>
         </Reveal>
         <Reveal delay={0.1}>

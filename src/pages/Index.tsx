@@ -5,7 +5,6 @@ import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionHeading from "@/components/ui/SectionHeading";
 import CTABand from "@/components/CTABand";
-import Magnetic from "@/components/Magnetic";
 import Slash from "@/components/Slash";
 import HeroHeadline from "@/components/HeroHeadline";
 import { caseStudies } from "@/data/caseStudies";
@@ -23,11 +22,11 @@ const included = [
   { k: "Identity & CI", d: "โลโก้ · สี · ฟอนต์ · คู่มือแบรนด์ — ระบบที่ทำให้คนจำได้" },
   { k: "Big Idea / Campaign", d: "แนวคิดใหญ่ที่ร้อยทั้งแคมเปญให้พูดเรื่องเดียวกัน" },
   { k: "Brand Film & Premium Production", d: "ฟิล์ม · ภาพ · art direction ระดับโฆษณา โดยทีม senior" },
-  { k: "The ORIONS Standard", d: "วัดผลแบรนด์ที่ 45 / 90 วัน แล้ว refine ต่อจนเข้าที่ — ไม่ส่งจบแล้วจบเลย" },
 ];
 
 // Featured cases for the homepage — curated, image-forward (real work, shown early).
-const featuredCases = caseStudies.slice(0, 3);
+// Six, presented as a slow auto-looping marquee.
+const featuredCases = caseStudies.slice(0, 6);
 
 // Company flagship showreel — featured as the mid-page proof break.
 const SHOWREEL_ID = "308_jYAVkwI";
@@ -106,7 +105,6 @@ const Index = () => {
           { "@type": "Question", name: "ØRIONS ทำอะไร?", acceptedAnswer: { "@type": "Answer", text: "ØRIONS เป็นบูทีคครีเอทีฟเอเจนซีในกรุงเทพฯ ที่เน้นงานปั้นแบรนด์ระดับโฆษณา — brand strategy, identity, big idea, brand film และ art direction. เป้าหมายคือทำให้แบรนด์ถูกจำและถูกเลือก ไม่ใช่แค่ถูกเห็น." } },
           { "@type": "Question", name: "เริ่มงานกับ ØRIONS ต้องทำอย่างไร?", acceptedAnswer: { "@type": "Answer", text: "เริ่มจากคุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์และเงื่อนไขมา เราจะบอกตรงๆ ว่าจะ refine มันยังไง. ติดต่อ hello@orions.agency · 092 390 5464 · LINE @orions" } },
           { "@type": "Question", name: "ØRIONS คิดราคายังไง?", acceptedAnswer: { "@type": "Answer", text: "งานคราฟต์คิดเป็นแคมเปญหรือโปรเจกต์ — ไม่มีเรทการ์ด ตีตามขอบเขต ความลึก และมาตรฐานที่โจทย์ต้องการ. เราคุยโจทย์ก่อนเสมอ แล้วเสนอสโคป + ราคาที่ตรงงาน. ขอใบเสนอราคาได้." } },
-          { "@type": "Question", name: "ØRIONS เคยทำงานอะไรมาบ้าง?", acceptedAnswer: { "@type": "Answer", text: "43+ โปรดักชันวิดีโอ (reels · MV · long-form), มิวสิควิดีโอให้ศิลปินจริง 15 ตัว (PANCAKE, NUM KALA, URBOYTJ และอื่นๆ) และเคสแบรนด์ 8 เคสตั้งแต่กลยุทธ์ถึงการผลิต." } },
           { "@type": "Question", name: "ØRIONS ไม่เหมาะกับใคร?", acceptedAnswer: { "@type": "Answer", text: "ถ้าอยากได้คอนเทนต์เยอะที่สุดในราคาถูกที่สุดโดยไม่ต้องมีกลยุทธ์หรือมาตรฐานงานคราฟต์ เราจะบอกตรงๆ ว่าเราอาจไม่ใช่คำตอบ." } },
         ],
       }}
@@ -126,18 +124,11 @@ const Index = () => {
         <div className="mt-7">
           <HeroHeadline />
         </div>
-        <Reveal delay={0.35}>
-          <p lang="th" className="mt-8 max-w-[42ch] font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.8] text-foreground/75">
-            บูทีคครีเอทีฟเอเจนซี — เราปั้น<span className="text-foreground">แบรนด์ที่คนจำ และเลือก</span> ไม่ใช่แค่ถูกเห็น.
-          </p>
-        </Reveal>
         <Reveal delay={0.5}>
-          <div className="mt-9 flex flex-col sm:flex-row items-center gap-4">
-            <Magnetic strength={10} className="inline-block">
-              <Link to="/contact" className="btn-accent">
-                <span>เริ่มต้นบทสนทนา</span><ArrowUpRight className="w-4 h-4" />
-              </Link>
-            </Magnetic>
+          <div className="mt-10 flex flex-col sm:flex-row items-center gap-4">
+            <Link to="/contact" className="btn-accent">
+              <span>เริ่มต้นบทสนทนา</span><ArrowUpRight className="w-4 h-4" />
+            </Link>
             <Link to="/work" className="btn-ghost">
               <span>ดูผลงาน</span><ArrowUpRight className="w-4 h-4" />
             </Link>
@@ -151,7 +142,7 @@ const Index = () => {
       <div className="max-w-[1280px] mx-auto py-14 md:py-16 grid grid-cols-1 md:grid-cols-[1.4fr_1fr] gap-6 md:gap-12 md:items-center">
         <Reveal>
           <p lang="th" className="font-serif text-[24px] md:text-[34px] leading-[1.3] tracking-[-0.01em] text-foreground/90 max-w-[20ch] thai-wrap">
-            ตรรกะทำให้คน<em className="text-cinnabar italic">เชื่อ</em> — อารมณ์ทำให้คน<em className="text-cinnabar italic">ซื้อ.</em>
+            ตรรกะทำให้คน<em className="text-cinnabar italic">เชื่อ</em><br />— อารมณ์ทำให้คน<em className="text-cinnabar italic">ซื้อ.</em>
           </p>
         </Reveal>
         <Reveal delay={0.08}>
@@ -174,25 +165,37 @@ const Index = () => {
             title={<>งานที่เรา<em className="text-cinnabar">ภูมิใจ.</em></>} />
           <Link to="/work" className="hidden md:inline-flex font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground hover:text-cinnabar transition-colors">ดูผลงานทั้งหมด →</Link>
         </div>
-        <div className="mt-12 md:mt-14 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-          {featuredCases.map((c, i) => (
-            <Reveal key={c.slug} delay={i * 0.07}>
-              <Link to={`/work/${c.slug}`} viewTransition className="group flex flex-col h-full">
-                <div className="relative w-full overflow-hidden border border-foreground/12 aspect-[4/5]">
-                  <Picture data={c.cover} alt={c.title} loading="lazy"
-                    className="absolute inset-0 w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 group-hover:scale-[1.04] transition-[transform,filter] duration-700" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/10 to-transparent" />
-                  <span className="absolute left-4 top-4 font-mono text-[9px] tracking-[0.2em] uppercase text-background bg-cinnabar px-2 py-1">{c.niche}</span>
-                </div>
-                <div className="mt-5">
-                  <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">{c.year}</div>
-                  <h3 lang="th" className="mt-2 font-display text-[20px] md:text-[24px] font-medium leading-tight tracking-[-0.01em] group-hover:text-cinnabar transition-colors">{c.title}</h3>
-                  <p lang="th" className="mt-2 font-thai thai-wrap text-[14px] leading-[1.8] text-muted-foreground">{c.summary}</p>
-                </div>
-              </Link>
-            </Reveal>
-          ))}
-        </div>
+        <Reveal delay={0.05}>
+          <div className="work-marquee mt-12 md:mt-14 relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,#000_5%,#000_95%,transparent)]">
+            <div className="work-marquee-track flex w-max">
+              {[...featuredCases, ...featuredCases].map((c, i) => {
+                const dup = i >= featuredCases.length;
+                return (
+                  <Link
+                    key={`${c.slug}-${i}`}
+                    to={`/work/${c.slug}`}
+                    viewTransition
+                    aria-hidden={dup}
+                    tabIndex={dup ? -1 : undefined}
+                    className="group flex flex-col shrink-0 w-[280px] md:w-[340px] mr-6 md:mr-8"
+                  >
+                    <div className="relative w-full overflow-hidden border border-foreground/12 aspect-[4/5]">
+                      <Picture data={c.cover} alt={dup ? "" : c.title} loading="lazy"
+                        className="absolute inset-0 w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 group-hover:scale-[1.04] transition-[transform,filter] duration-700" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/10 to-transparent" />
+                      <span className="absolute left-4 top-4 font-mono text-[9px] tracking-[0.2em] uppercase text-background bg-cinnabar px-2 py-1">{c.niche}</span>
+                    </div>
+                    <div className="mt-5">
+                      <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">{c.year}</div>
+                      <h3 lang="th" className="mt-2 font-display text-[20px] md:text-[24px] font-medium leading-tight tracking-[-0.01em] group-hover:text-cinnabar transition-colors">{c.title}</h3>
+                      <p lang="th" className="mt-2 font-thai thai-wrap text-[14px] leading-[1.8] text-muted-foreground">{c.summary}</p>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </Reveal>
         <Link to="/work" viewTransition className="btn-ghost mt-10 md:hidden"><span>ดูผลงานทั้งหมด</span><ArrowUpRight className="w-4 h-4" /></Link>
       </div>
     </section>
@@ -224,10 +227,6 @@ const Index = () => {
             </Reveal>
           ))}
         </div>
-
-        <p lang="th" className="mt-12 font-thai text-[14px] leading-[1.8] text-foreground/80 max-w-[660px]">
-          งานคราฟต์คิดเป็นแคมเปญ/โปรเจกต์ — ไม่มีเรทการ์ด ตีตามโจทย์จริง. <Link to="/contact" className="text-cinnabar hover:underline">ขอใบเสนอราคา</Link> หรืออ่าน <Link to="/thinking" className="text-cinnabar hover:underline">แนวคิดของเรา</Link> ก่อน.
-        </p>
       </div>
     </section>
 

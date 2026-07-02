@@ -54,7 +54,7 @@ const HeroHeadline = () => {
         <span className="sr-only">Stories, Refined.</span>
         {/* Animated presentation */}
         <span aria-hidden="true">
-          <span className="block"><Word delay={0.1}>Stories,</Word></span>
+          <span className="block"><Word delay={0.1} className="font-serif">Stories,</Word></span>
           <TypingCycle
             words={["Amplified.", "Remembered.", "Refined."]}
             className="hero-refined font-medium text-cinnabar [letter-spacing:-0.02em]"

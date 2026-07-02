@@ -66,7 +66,7 @@ const About = () => (
               เราเปิดทุกดีลด้วยคำถาม — <span className="text-cinnabar">"แบรนด์นี้อยากให้คนรู้สึกอะไร?"</span> ก่อนเสนออะไร. ในตลาดที่เต็มไปด้วยเอเจนซีขายฝัน เราขายความซื่อสัตย์ที่กล้าบอกข้อจำกัด.
             </p>
             <p lang="th" className="mt-5 font-thai thai-wrap text-[15px] leading-[1.8] text-foreground/80">
-              และเราไม่เชื่อในงานสวยที่ไม่ขยับธุรกิจ — <span className="text-foreground">ความคิดที่ดีต้องขายของได้</span>. เรายืดหยุ่นที่ <span className="text-foreground">สไตล์</span> แต่ไม่เคยยืดที่ <span className="text-cinnabar">มาตรฐานฝีมือ</span>. ก่อนปล่อยงานทุกชิ้น เราถาม 3 ข้อ — คนจะ <span className="text-foreground">รู้สึก</span> อะไร · จะ <span className="text-foreground">พูดต่อ</span> มั้ย · ถ้าไม่มีโลโก้ยังน่าสนใจมั้ย (<Link to="/thinking" className="text-cinnabar hover:underline">แนวคิดเรา</Link>).
+              และเราไม่เชื่อในงานสวยที่ไม่ขยับธุรกิจ — <span className="text-foreground">ความคิดที่ดีต้องขายของได้</span>. เรายืดหยุ่นที่ <span className="text-foreground">สไตล์</span> แต่ไม่เคยยืดที่ <span className="text-cinnabar">มาตรฐานฝีมือ</span>. และก่อนปล่อยงานทุกชิ้น เรามีคำถาม 3 ข้อที่ต้องผ่านก่อนเสมอ (<Link to="/thinking" className="text-cinnabar hover:underline">อ่านแนวคิดเรา</Link>).
             </p>
             <Link to="/thinking" className="btn-ghost mt-8">
               <span>อ่านแนวคิดของเรา</span><ArrowUpRight className="w-4 h-4" />

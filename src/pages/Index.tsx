@@ -13,9 +13,6 @@ import Picture from "@/components/Picture";
 import heroSilk from "@/assets/hero-silk.jpg?as=picture";
 import founder from "@/assets/team/founder.jpg?as=picture";
 
-// Direct booking channel — founder section CTA (LINE-first).
-const LINE_URL = "https://line.me/ti/p/~orions";
-
 // What a Boutique engagement includes — the craft spine.
 const included = [
   { k: "Positioning & Brand DNA", d: "จุดยืน แก่นตัวตน และเรื่องที่จริงของแบรนด์ — ต้นน้ำของทุกอย่าง" },
@@ -213,9 +210,6 @@ const Index = () => {
           title={<>งานปั้นที่คน<em className="text-cinnabar">จำและเลือก.</em></>}
           intro="ØRIONS คือบูทีคครีเอทีฟเอเจนซี — งานคราฟต์ระดับโฆษณาสำหรับแบรนด์ที่อยากถูกจำ ไม่ใช่แค่ถูกเห็น. นี่คือฝั่งของอารมณ์ที่ทำให้คนยอมจ่ายแพง."
         />
-        <p className="mt-6 font-mono text-[11px] tracking-[0.12em] uppercase text-cinnabar">
-          Logic convinces · <span className="text-foreground">Emotion converts</span>
-        </p>
         {/* What's included — compact service cards */}
         <div className="mt-12 md:mt-14 grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
           {included.map((it, i) => (
@@ -230,11 +224,11 @@ const Index = () => {
       </div>
     </section>
 
-    {/* 06 — TALK TO THE FOUNDER + CTA (consolidated closing) */}
+    {/* 06 — FOUNDER (a short personal note — the ask lives in the CTA below) */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-24 md:py-36">
         <Reveal>
-          <div className="card-soft p-7 md:p-12 grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-7 md:gap-12 items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-8 md:gap-14 items-center">
             <Picture
               data={founder}
               alt="Ratthakan Suwanphakdee — Founder / Creative Director, ØRIONS"
@@ -245,25 +239,10 @@ const Index = () => {
                 <Slash className="text-[15px]" />
                 <span className="text-muted-foreground">คุยกับผู้ก่อตั้ง</span>
               </div>
-              <h2 lang="th" className="mt-5 h-display-md max-w-[18ch] thai-wrap">
-                คุยกับผม <em className="text-cinnabar">ตรงๆ</em> ก่อนตัดสินใจ.
-              </h2>
-              <p lang="th" className="mt-5 font-thai thai-wrap text-[15px] md:text-[16px] leading-[1.8] text-foreground/85 max-w-[560px]">
-                ไม่ต้องผ่านเซลส์ — เล่าโจทย์มาเลย ผมจะบอกตรงๆ ว่าควรเริ่มตรงไหน หรือยังไม่ต้องเริ่ม.
-              </p>
-              <div className="mt-7 flex flex-col sm:flex-row gap-4">
-                <a href="mailto:ratthakan@orions.agency?subject=คุยฟรี 45 นาที — ØRIONS" className="btn-accent justify-between sm:justify-center">
-                  <span>อีเมลหาผมตรงๆ</span><ArrowUpRight className="w-4 h-4" />
-                </a>
-                <Link to="/contact" viewTransition className="btn-ghost justify-between sm:justify-center">
-                  <span>เล่าโจทย์ผ่านฟอร์ม</span><ArrowUpRight className="w-4 h-4" />
-                </Link>
-              </div>
-              <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
-                <a href="tel:+66923905464" className="hover:text-cinnabar transition-colors">092-390-5464</a>
-                <a href={LINE_URL} target="_blank" rel="noreferrer" className="hover:text-cinnabar transition-colors">LINE @orions</a>
-              </div>
-              <div className="mt-5">
+              <blockquote lang="th" className="mt-6 font-serif text-[24px] md:text-[36px] leading-[1.35] tracking-[-0.015em] thai-wrap text-foreground max-w-[26ch]">
+                ไม่ต้องผ่านเซลส์ — เล่าโจทย์มาเลย ผมจะบอกตรงๆ ว่าควรเริ่มตรงไหน <em className="text-cinnabar italic">หรือยังไม่ต้องเริ่ม.</em>
+              </blockquote>
+              <div className="mt-7">
                 <p lang="th" className="font-thai text-[15px] font-medium text-foreground">รัฐกันต์ สุวรรณภักดี</p>
                 <p className="mt-1 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">Ratthakan Suwanphakdee · Founder / Creative Director</p>
               </div>

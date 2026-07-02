@@ -39,15 +39,13 @@ const Contact = () => {
     const first = presetRaw.toLowerCase().split(" ")[0];
     return packageOptions.find((o) => o.toLowerCase().startsWith(first)) || "";
   })();
-  const presetSize = (presetRaw.match(/\b([SML])\b/)?.[1] || "");
   const [form, setForm] = useState({
     name: "",
     email: "",
     phone: "",
     company: "",
     pkg: presetPkg,
-    size: presetSize,
-    brief: presetRaw ? `สนใจแพ็กเกจ ${presetRaw} — ขอรายละเอียดและใบเสนอราคา` : "",
+    brief: presetRaw ? `สนใจงาน ${presetRaw} — ขอรายละเอียดและใบเสนอราคา` : "",
   });
 
   // Came from a package card → jump straight to the form (just type name + email + send)
@@ -63,7 +61,7 @@ const Contact = () => {
     e.preventDefault();
     if (hp) { // bot filled the hidden field — pretend success, drop silently
       toast.success("ได้รับข้อมูลแล้ว — ทีม ØRIONS จะติดต่อกลับภายใน 24 ชม.");
-      setForm({ name: "", email: "", phone: "", company: "", pkg: "", size: "", brief: "" });
+      setForm({ name: "", email: "", phone: "", company: "", pkg: "", brief: "" });
       return;
     }
     const parsed = inquirySchema.safeParse(form);
@@ -90,9 +88,9 @@ const Contact = () => {
     }
     setSubmitting(true);
     const { name, company, email, phone, brief } = parsed.data;
-    const pkgFull = form.pkg ? `${form.pkg}${form.size ? ` · ${form.size}` : ""}` : "";
+    const pkgFull = form.pkg || "";
     // phone has no column on contact_inquiries → fold it into the stored brief.
-    const meta = [`โทร: ${phone}`, pkgFull && `แพ็กเกจ: ${pkgFull}`].filter(Boolean);
+    const meta = [`โทร: ${phone}`, pkgFull && `งาน: ${pkgFull}`].filter(Boolean);
     const composedBrief = `[${meta.join(" · ")}]${brief ? `\n${brief}` : ""}`;
 
     let delivered = false;
@@ -133,7 +131,7 @@ const Contact = () => {
     }
     track("ContactSubmit", { pkg: pkgFull || "none" });
     toast.success("ได้รับข้อมูลแล้ว — ทีม ØRIONS จะติดต่อกลับภายใน 24 ชม.");
-    setForm({ name: "", email: "", phone: "", company: "", pkg: "", size: "", brief: "" });
+    setForm({ name: "", email: "", phone: "", company: "", pkg: "", brief: "" });
   };
 
   const inputCls = "w-full rounded-none bg-background border border-foreground/15 px-4 py-3 text-[15px] text-foreground placeholder:text-foreground/55 focus:outline-none focus:border-cinnabar focus:ring-1 focus:ring-cinnabar/30 transition-colors font-thai";

@@ -138,7 +138,6 @@ const Work = () => {
               onClick={() => setLightbox({ kind: "video", val: SHOWREEL_ID, ar: 16 / 9 })}
               onMouseEnter={() => setHoverVid(SHOWREEL_ID)}
               onMouseLeave={() => setHoverVid((h) => (h === SHOWREEL_ID ? null : h))}
-              data-cursor="Play"
               className="group relative mt-6 block w-full overflow-hidden rounded-none border border-foreground/15 hover:border-cinnabar/70 transition-colors cursor-pointer"
             >
               <span className="block relative w-full" style={{ aspectRatio: "16 / 9" }}>
@@ -146,6 +145,8 @@ const Work = () => {
                   src={`https://i.ytimg.com/vi/${SHOWREEL_ID}/maxresdefault.jpg`}
                   onError={(e) => { e.currentTarget.src = `https://i.ytimg.com/vi/${SHOWREEL_ID}/hqdefault.jpg`; }}
                   alt="ØRIONS — Showreel 2026"
+                  width={1280}
+                  height={720}
                   className="absolute inset-0 w-full h-full object-cover group-hover:opacity-90 transition-opacity"
                 />
                 {hoverVid === SHOWREEL_ID && (
@@ -303,7 +304,6 @@ const Work = () => {
                   <Link
                     key={cs.slug}
                     to={`/work/${cs.slug}`}
-                    data-cursor="View"
                     className="group relative block overflow-hidden rounded-none border border-foreground/12 bg-foreground/[0.04] aspect-[4/5] hover:border-cinnabar/60 transition-colors"
                   >
                     <Picture

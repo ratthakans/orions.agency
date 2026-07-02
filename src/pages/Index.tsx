@@ -70,6 +70,8 @@ const ShowreelFeature = () => {
                   src={`https://i.ytimg.com/vi/${SHOWREEL_ID}/maxresdefault.jpg`}
                   onError={(e) => { e.currentTarget.src = `https://i.ytimg.com/vi/${SHOWREEL_ID}/hqdefault.jpg`; }}
                   alt="ØRIONS — Showreel 2026"
+                  width={1280}
+                  height={720}
                   className="absolute inset-0 w-full h-full object-cover group-hover:opacity-90 transition-opacity"
                 />
                 <span className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
@@ -175,7 +177,7 @@ const Index = () => {
         <div className="mt-12 md:mt-14 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {featuredCases.map((c, i) => (
             <Reveal key={c.slug} delay={i * 0.07}>
-              <Link to={`/work/${c.slug}`} viewTransition data-cursor="View" className="group flex flex-col h-full">
+              <Link to={`/work/${c.slug}`} viewTransition className="group flex flex-col h-full">
                 <div className="relative w-full overflow-hidden border border-foreground/12 aspect-[4/5]">
                   <Picture data={c.cover} alt={c.title} loading="lazy"
                     className="absolute inset-0 w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 group-hover:scale-[1.04] transition-[transform,filter] duration-700" />
@@ -205,7 +207,7 @@ const Index = () => {
       <div className="relative z-10 max-w-[1280px] mx-auto py-24 md:py-36">
         <SectionHeading
           lang="th"
-          title={<>งานปั้น ที่คน <em className="text-cinnabar">จำและเลือก.</em></>}
+          title={<>งานปั้นที่คน<em className="text-cinnabar">จำและเลือก.</em></>}
           intro="ØRIONS คือบูทีคครีเอทีฟเอเจนซี — งานคราฟต์ระดับโฆษณาสำหรับแบรนด์ที่อยากถูกจำ ไม่ใช่แค่ถูกเห็น. นี่คือฝั่งของอารมณ์ที่ทำให้คนยอมจ่ายแพง."
         />
         <p className="mt-6 font-mono text-[11px] tracking-[0.12em] uppercase text-cinnabar">

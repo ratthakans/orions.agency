@@ -56,7 +56,7 @@ const Footer = () => {
         <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-10">
           <div>
             <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar mb-5">— Contact</div>
-            <ul className="space-y-2 font-thai text-[13px] leading-[1.7] text-foreground/85">
+            <ul className="space-y-2 font-thai text-[13px] leading-[1.8] text-foreground/85">
               <li><a href="mailto:hello@orions.agency" className="hover:text-cinnabar transition-colors">hello@orions.agency</a></li>
               <li><a href="tel:+66923905464" className="hover:text-cinnabar transition-colors">+66 92 390 5464</a></li>
               <li><a href="https://line.me/ti/p/~orions" target="_blank" rel="noreferrer" className="hover:text-cinnabar transition-colors">LINE @orions</a></li>
@@ -66,7 +66,7 @@ const Footer = () => {
 
           <div>
             <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar mb-5">— Studio</div>
-            <p className="font-thai text-[13px] leading-[1.7] text-foreground/85">
+            <p className="font-thai text-[13px] leading-[1.8] text-foreground/85">
               246/8 Soi Yothinphatthana 3<br />
               Khlong Chan, Bang Kapi<br />
               Bangkok 10240, TH

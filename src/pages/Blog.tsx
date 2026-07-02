@@ -37,7 +37,7 @@ const Blog = () => (
           </h1>
         </Reveal>
         <Reveal delay={0.1}>
-          <p lang="th" className="mt-8 font-thai thai-wrap text-[15px] md:text-[17px] text-muted-foreground max-w-[640px] leading-[1.7]">
+          <p lang="th" className="mt-8 font-thai thai-wrap text-[15px] md:text-[17px] text-muted-foreground max-w-[640px] leading-[1.8]">
             สิ่งที่เราคิด เถียง และเชื่อ เรื่องแบรนด์ คอนเทนต์ และงานฝีมือ — เขียนแบบพูดตรง ไม่ขายฝัน.
           </p>
         </Reveal>
@@ -70,10 +70,10 @@ const Blog = () => (
                 <h2 lang="th" className="font-display text-[19px] md:text-[21px] font-medium leading-snug tracking-[-0.01em] group-hover:text-cinnabar transition-colors">
                   {p.title}
                 </h2>
-                <p lang="th" className="mt-3 font-thai thai-wrap text-[14px] leading-[1.7] text-muted-foreground flex-1">
+                <p lang="th" className="mt-3 font-thai thai-wrap text-[14px] leading-[1.8] text-muted-foreground flex-1">
                   {p.excerpt}
                 </p>
-                <div className="mt-5 flex items-center justify-between font-mono text-[10px] tracking-[0.16em] uppercase text-muted-foreground">
+                <div className="mt-5 flex items-center justify-between font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
                   <span>{fmtDate(p.date)} · {p.readMins} min</span>
                   <ArrowUpRight className="w-4 h-4 text-cinnabar opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>

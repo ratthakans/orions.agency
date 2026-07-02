@@ -42,7 +42,7 @@ const About = () => (
           </h1>
         </Reveal>
         <Reveal delay={0.2}>
-          <p lang="th" className="mt-8 max-w-[720px] font-thai thai-wrap text-[16px] md:text-[19px] leading-[1.7] text-foreground/80">
+          <p lang="th" className="mt-8 max-w-[720px] font-thai thai-wrap text-[16px] md:text-[19px] leading-[1.8] text-foreground/80">
             ถูกเรื่อง · ถูกคน · ถูกเวลา. ทุกแบรนด์มีข้อจำกัดของตัวเอง — งานเราคือหาเรื่องที่จริง แล้ว refine จนคมพอจะลงในกรอบนั้น. <span className="text-cinnabar">เราไม่หนีข้อจำกัด — เราถือว่ามันคือบรีฟ.</span>
           </p>
         </Reveal>
@@ -90,7 +90,7 @@ const About = () => (
               <div className="card-soft p-10 md:p-12 h-full">
                 <div className="font-serif text-cinnabar text-[22px] leading-none">{p.n}</div>
                 <h3 lang="th" className="mt-8 font-thai text-[24px] md:text-[28px] leading-[1.1] tracking-[-0.01em] font-medium">{p.en}</h3>
-                <p lang="th" className="mt-4 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">{p.th}</p>
+                <p lang="th" className="mt-4 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.8] text-muted-foreground">{p.th}</p>
               </div>
             </Reveal>
           ))}
@@ -137,7 +137,7 @@ const About = () => (
             <Reveal key={p.n} delay={i * 0.06}>
               <div className="card-soft grid grid-cols-1 md:grid-cols-[80px_1fr] gap-4 md:gap-12 items-baseline p-8 md:p-10">
                 <div className="font-serif text-cinnabar text-[28px] md:text-[36px] leading-none tabular-nums">{p.n}</div>
-                <p lang="th" className="font-thai thai-wrap text-[16px] md:text-[19px] leading-[1.6] text-foreground/90">{p.th}</p>
+                <p lang="th" className="font-thai thai-wrap text-[16px] md:text-[19px] leading-[1.8] text-foreground/90">{p.th}</p>
               </div>
             </Reveal>
           ))}
@@ -149,7 +149,7 @@ const About = () => (
     <CTABand
       eyebrow="When you're ready"
       title={<>นั่นแหละคือ <em className="text-cinnabar">บรีฟ</em> ที่เราถนัด<span className="text-cinnabar">.</span></>}
-      subtitle="คุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์และเงื่อนไขของแบรนด์มาได้เลย."
+      subtitle="เล่าโจทย์และเงื่อนไขของแบรนด์มาได้เลย — ไม่มีข้อผูกมัด."
       primary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}
       secondary={{ label: "ดูผลงาน", to: "/work" }}
       tone="snow"

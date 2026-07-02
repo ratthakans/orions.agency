@@ -41,7 +41,7 @@ const ClosingCTA = ({
       </Reveal>
       {description && (
         <Reveal delay={0.1}>
-          <p className="mt-6 max-w-[520px] mx-auto text-[15px] leading-[1.7] text-muted-foreground font-thai">
+          <p className="mt-6 max-w-[520px] mx-auto text-[15px] leading-[1.8] text-muted-foreground font-thai">
             {description}
           </p>
         </Reveal>

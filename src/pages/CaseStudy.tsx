@@ -151,7 +151,7 @@ const CaseStudy = () => {
           <div className="md:col-span-4">
             <SectionLabel index="01" label="The constraint" />
             <Reveal delay={0.05}>
-              <p lang="th" className="mt-6 font-thai thai-wrap text-[13px] leading-[1.7] text-muted-foreground max-w-[28ch]">
+              <p lang="th" className="mt-6 font-thai thai-wrap text-[13px] leading-[1.8] text-muted-foreground max-w-[28ch]">
                 {cs.actTitle}
               </p>
             </Reveal>
@@ -179,7 +179,7 @@ const CaseStudy = () => {
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
-              <p lang="th" className="mt-8 font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.7] text-foreground/85 max-w-[640px]">
+              <p lang="th" className="mt-8 font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.8] text-foreground/85 max-w-[640px]">
                 {cs.whatWeDid}
               </p>
             </Reveal>
@@ -197,7 +197,7 @@ const CaseStudy = () => {
                 <div className="card-soft h-full p-7 md:p-8">
                   <div className="num-display text-cinnabar text-[34px]">{a.n}</div>
                   <h3 lang="th" className="mt-4 font-display text-[18px] md:text-[20px] font-medium">{a.t}</h3>
-                  <p lang="th" className="mt-3 font-thai thai-wrap text-[13px] leading-[1.7] text-muted-foreground">{a.d}</p>
+                  <p lang="th" className="mt-3 font-thai thai-wrap text-[13px] leading-[1.8] text-muted-foreground">{a.d}</p>
                 </div>
               </Reveal>
             ))}

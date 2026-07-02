@@ -43,7 +43,7 @@ const Privacy = () => (
           </h1>
         </Reveal>
         <Reveal delay={0.2}>
-          <p lang="th" className="mt-8 max-w-[640px] font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.7] text-foreground/80">
+          <p lang="th" className="mt-8 max-w-[640px] font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.8] text-foreground/80">
             แบรนด์เรายึด "พูดตรง" — เรื่องข้อมูลของคุณก็เหมือนกัน. เราเก็บเฉพาะที่จำเป็น ใช้เท่าที่บอก และลบให้เมื่อคุณขอ.
           </p>
         </Reveal>

@@ -8,14 +8,11 @@ import CTABand from "@/components/CTABand";
 import Magnetic from "@/components/Magnetic";
 import Slash from "@/components/Slash";
 import HeroHeadline from "@/components/HeroHeadline";
-import CountUp from "@/components/CountUp";
 import { caseStudies } from "@/data/caseStudies";
-import { blogPosts } from "@/data/blog";
 import TopoField from "@/components/TopoField";
 import Picture from "@/components/Picture";
 import heroSilk from "@/assets/hero-silk.jpg?as=picture";
 import founder from "@/assets/team/founder.jpg?as=picture";
-import bleedImg from "@/assets/concert-crowd.jpg?as=picture";
 
 // Direct booking channel — founder section CTA (LINE-first).
 const LINE_URL = "https://line.me/ti/p/~orions";
@@ -26,28 +23,7 @@ const included = [
   { k: "Identity & CI", d: "โลโก้ · สี · ฟอนต์ · คู่มือแบรนด์ — ระบบที่ทำให้คนจำได้" },
   { k: "Big Idea / Campaign", d: "แนวคิดใหญ่ที่ร้อยทั้งแคมเปญให้พูดเรื่องเดียวกัน" },
   { k: "Brand Film & Premium Production", d: "ฟิล์ม · ภาพ · art direction ระดับโฆษณา โดยทีม senior" },
-  { k: "The ORIONS Standard", d: "วัดผลแบรนด์ที่ 45 / 90 วัน แล้ว refine ต่อจนเข้าที่" },
-];
-
-// How we work — four beats from brief to brand.
-const process = [
-  { k: "ฟังโจทย์ & ตีกรอบ", d: "เข้าใจธุรกิจ เป้าหมาย ข้อจำกัด และงบก่อน — กรอบที่ชัดคือบรีฟที่ดี" },
-  { k: "กลยุทธ์ & Big Idea", d: "หาจุดยืนและแนวคิดใหญ่ที่จริง ร้อยทั้งแคมเปญให้พูดเรื่องเดียวกัน" },
-  { k: "ออกแบบ & ผลิต", d: "identity · ฟิล์ม · art direction ระดับโฆษณา ลงมือโดยทีม senior" },
-  { k: "ส่งมอบ & วัดผล", d: "วัดผลแบรนด์ที่ 45 / 90 วัน ตาม The ORIONS Standard แล้ว refine ต่อจนเข้าที่" },
-];
-
-// Proof — real, countable deliverables (พูดตรง: นับจาก portfolio จริง).
-const proofStats = [
-  { to: 43, suffix: "+", label: "โปรดักชันวิดีโอ", sub: "reels · MV · long-form" },
-  { to: 15, label: "มิวสิควิดีโอ", sub: "ให้ศิลปินจริง" },
-  { to: 8, label: "แบรนด์เคส", sub: "กลยุทธ์ถึงผลิต" },
-  { to: 10, suffix: "+", label: "ศิลปิน / ค่าย", sub: "ที่ร่วมงาน" },
-];
-// Real artists ØRIONS has produced music videos for.
-const proofArtists = [
-  "PANCAKE", "NUM KALA", "URBOYTJ", "ZOM MARIE", "กวาง จิรพรรณ", "นุ่นนิ่น ชาลิสสา",
-  "นุ๊ก ธนดล", "ป๊ายปาย โอริโอ้", "ปิ๋ม ชุติมา", "วี พนมภูไท", "เบลล์ นิภาดา", "Innertears",
+  { k: "The ORIONS Standard", d: "วัดผลแบรนด์ที่ 45 / 90 วัน แล้ว refine ต่อจนเข้าที่ — ไม่ส่งจบแล้วจบเลย" },
 ];
 
 // Featured cases for the homepage — curated, image-forward (real work, shown early).
@@ -149,7 +125,7 @@ const Index = () => {
           <HeroHeadline />
         </div>
         <Reveal delay={0.35}>
-          <p lang="th" className="mt-8 max-w-[42ch] font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.7] text-foreground/75">
+          <p lang="th" className="mt-8 max-w-[42ch] font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.8] text-foreground/75">
             บูทีคครีเอทีฟเอเจนซี — เราปั้น<span className="text-foreground">แบรนด์ที่คนจำ และเลือก</span> ไม่ใช่แค่ถูกเห็น.
           </p>
         </Reveal>
@@ -157,7 +133,7 @@ const Index = () => {
           <div className="mt-9 flex flex-col sm:flex-row items-center gap-4">
             <Magnetic strength={10} className="inline-block">
               <Link to="/contact" className="btn-accent">
-                <span>คุยฟรี 45 นาที</span><ArrowUpRight className="w-4 h-4" />
+                <span>เริ่มต้นบทสนทนา</span><ArrowUpRight className="w-4 h-4" />
               </Link>
             </Magnetic>
             <Link to="/work" className="btn-ghost">
@@ -168,7 +144,7 @@ const Index = () => {
       </div>
     </section>
 
-    {/* 01b — POV STRIP — pull the thesis up */}
+    {/* 02 — POV STRIP — pull the thesis up */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-14 md:py-16 grid grid-cols-1 md:grid-cols-[1.4fr_1fr] gap-6 md:gap-12 md:items-center">
         <Reveal>
@@ -179,7 +155,7 @@ const Index = () => {
         <Reveal delay={0.08}>
           <div className="md:text-right">
             <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-cinnabar">Connection &gt; followers</p>
-            <p lang="th" className="mt-3 font-thai thai-wrap text-[13px] leading-[1.7] text-muted-foreground md:ml-auto max-w-[42ch]">
+            <p lang="th" className="mt-3 font-thai thai-wrap text-[13px] leading-[1.8] text-muted-foreground md:ml-auto max-w-[42ch]">
               connection ที่จริงกับคนที่รักแบรนด์ มีค่ากว่ายอด follower — และอยู่ทนกว่าโปรโมชั่น. นั่นคือสิ่งที่คู่แข่งลอกด้วยราคาไม่ได้.
             </p>
             <Link to="/thinking" className="mt-4 inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.18em] uppercase text-foreground/70 hover:text-cinnabar transition-colors">อ่านแนวคิดของเรา <ArrowUpRight className="w-3.5 h-3.5" /></Link>
@@ -188,7 +164,7 @@ const Index = () => {
       </div>
     </section>
 
-    {/* 01c — SELECTED WORK — featured cases, image-forward (craft shown early) */}
+    {/* 03 — SELECTED WORK — featured cases, image-forward (craft shown early) */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-24 md:py-36">
         <div className="flex items-end justify-between gap-6 flex-wrap">
@@ -199,7 +175,7 @@ const Index = () => {
         <div className="mt-12 md:mt-14 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {featuredCases.map((c, i) => (
             <Reveal key={c.slug} delay={i * 0.07}>
-              <Link to={`/work/${c.slug}`} viewTransition className="group flex flex-col h-full">
+              <Link to={`/work/${c.slug}`} viewTransition data-cursor="View" className="group flex flex-col h-full">
                 <div className="relative w-full overflow-hidden border border-foreground/12 aspect-[4/5]">
                   <Picture data={c.cover} alt={c.title} loading="lazy"
                     className="absolute inset-0 w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 group-hover:scale-[1.04] transition-[transform,filter] duration-700" />
@@ -207,9 +183,9 @@ const Index = () => {
                   <span className="absolute left-4 top-4 font-mono text-[9px] tracking-[0.2em] uppercase text-background bg-cinnabar px-2 py-1">{c.niche}</span>
                 </div>
                 <div className="mt-5">
-                  <div className="font-mono text-[10px] tracking-[0.16em] uppercase text-muted-foreground">{c.year}</div>
+                  <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">{c.year}</div>
                   <h3 lang="th" className="mt-2 font-display text-[20px] md:text-[24px] font-medium leading-tight tracking-[-0.01em] group-hover:text-cinnabar transition-colors">{c.title}</h3>
-                  <p lang="th" className="mt-2 font-thai thai-wrap text-[14px] leading-[1.7] text-muted-foreground">{c.summary}</p>
+                  <p lang="th" className="mt-2 font-thai thai-wrap text-[14px] leading-[1.8] text-muted-foreground">{c.summary}</p>
                 </div>
               </Link>
             </Reveal>
@@ -219,7 +195,10 @@ const Index = () => {
       </div>
     </section>
 
-    {/* 02 — WHAT WE DO — boutique craft + what's included */}
+    {/* 04 — SHOWREEL (proof break — let the work speak) */}
+    <ShowreelFeature />
+
+    {/* 05 — WHAT WE DO — boutique craft + what's included (consolidated) */}
     <section className="relative overflow-hidden bg-surface px-6 md:px-10 border-t border-foreground/15">
       <TopoField fx={0.14} fy={0.62} seed={1} intensity={0.2}
         className="absolute inset-0 w-full h-full pointer-events-none" />
@@ -238,137 +217,19 @@ const Index = () => {
             <Reveal key={it.k} delay={(i % 2) * 0.05}>
               <div className="h-full card-soft p-6 md:p-7 hover:border-cinnabar/50 transition-colors group">
                 <h3 className="font-display text-[17px] md:text-[19px] font-medium leading-tight tracking-[-0.01em] group-hover:text-cinnabar transition-colors">{it.k}</h3>
-                <p lang="th" className="mt-2 font-thai thai-wrap text-[13px] md:text-[14px] leading-[1.7] text-muted-foreground">{it.d}</p>
+                <p lang="th" className="mt-2 font-thai thai-wrap text-[13px] md:text-[14px] leading-[1.8] text-muted-foreground">{it.d}</p>
               </div>
             </Reveal>
           ))}
         </div>
 
-        {/* How we work — four beats (sub-block, not its own section) */}
-        <div className="mt-16 md:mt-20 pt-12 md:pt-14 border-t border-foreground/15">
-          <div lang="th" className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">ทำงานกับเรายังไง — จากโจทย์ ถึงงานที่คนจำ · สี่จังหวะ</div>
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-0">
-            {process.map((p, i) => (
-              <Reveal key={p.k} delay={(i % 2) * 0.06}>
-                <div className="flex gap-6 py-6 md:py-7 border-b border-foreground/12">
-                  <div className="num-display text-cinnabar text-[24px] md:text-[32px] leading-none tabular-nums shrink-0">{`0${i + 1}`}</div>
-                  <div>
-                    <h3 lang="th" className="font-display text-[17px] md:text-[20px] font-medium leading-tight tracking-[-0.01em]">{p.k}</h3>
-                    <p lang="th" className="mt-2 font-thai thai-wrap text-[14px] leading-[1.7] text-muted-foreground">{p.d}</p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-
-        <p lang="th" className="mt-12 font-thai text-[14px] leading-[1.7] text-foreground/80 max-w-[660px]">
+        <p lang="th" className="mt-12 font-thai text-[14px] leading-[1.8] text-foreground/80 max-w-[660px]">
           งานคราฟต์คิดเป็นแคมเปญ/โปรเจกต์ — ไม่มีเรทการ์ด ตีตามโจทย์จริง. <Link to="/contact" className="text-cinnabar hover:underline">ขอใบเสนอราคา</Link> หรืออ่าน <Link to="/thinking" className="text-cinnabar hover:underline">แนวคิดของเรา</Link> ก่อน.
         </p>
       </div>
     </section>
 
-    {/* 04a — FULL-BLEED PHILOSOPHY BREAK — quiet typographic breather */}
-    <section className="relative overflow-hidden border-t border-foreground/15">
-      <Picture data={bleedImg} alt="" aria-hidden
-        className="absolute inset-0 w-full h-full object-cover object-center grayscale opacity-90" />
-      {/* calm even scrim — the image is a quiet monochrome ground; type leads */}
-      <div aria-hidden className="absolute inset-0 bg-background/82" />
-      <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background" />
-      <div className="relative z-10 max-w-[1280px] mx-auto px-6 md:px-10 py-28 md:py-44">
-        <Reveal>
-          <blockquote lang="th" className="font-serif text-[28px] md:text-[52px] leading-[1.25] tracking-[-0.015em] text-foreground max-w-[19ch] thai-wrap">
-            งานที่ดีที่สุดมักเกิดตอนมี<span className="text-foreground">กรอบ</span>ที่บีบให้คิดให้คม. เราไม่หนีข้อจำกัด — เราถือว่ามันคือ<em className="text-cinnabar">บรีฟ.</em>
-          </blockquote>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <p className="mt-8 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">— ปรัชญาการทำงานของ ØRIONS</p>
-        </Reveal>
-      </div>
-    </section>
-
-    {/* 04b — SHOWREEL (proof break after "why us") */}
-    <ShowreelFeature />
-
-    {/* 04c — PROOF BY NUMBERS + artist wall */}
-    <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-36">
-        <div className="inline-flex items-center gap-3 font-mono text-[10px] tracking-[0.22em] uppercase leading-none">
-          <Slash className="text-[15px]" />
-          <span className="text-muted-foreground">Proof</span>
-        </div>
-        <Reveal delay={0.05}>
-          <h2 lang="th" className="mt-6 h-display-md max-w-[20ch] thai-wrap">
-            ตัวเลขที่นับได้จริง <em className="text-cinnabar">ไม่ใช่คำโฆษณา.</em>
-          </h2>
-        </Reveal>
-        <div className="mt-12 md:mt-14 grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10">
-          {proofStats.map((s, i) => (
-            <Reveal key={s.label} delay={i * 0.07}>
-              <div>
-                <CountUp to={s.to} suffix={s.suffix} decimals={0}
-                  className="num-display text-cinnabar text-[clamp(40px,6vw,64px)] leading-none"
-                  suffixClassName="text-[0.5em] ml-0.5" />
-                <div lang="th" className="mt-4 font-display text-[16px] md:text-[18px] font-medium">{s.label}</div>
-                <div lang="th" className="mt-1 font-mono text-[10px] tracking-[0.1em] uppercase text-muted-foreground">{s.sub}</div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-        <Reveal delay={0.1}>
-          <div className="mt-14 pt-8 border-t border-foreground/12">
-            <div lang="th" className="font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">ศิลปิน / ค่าย ที่เราเคยทำ MV ให้</div>
-            <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-3">
-              {proofArtists.map((a, i) => (
-                <span key={a} className="inline-flex items-center gap-3">
-                  <span lang="th" className="font-display text-[16px] md:text-[19px] font-medium tracking-[-0.01em] text-foreground/85">{a}</span>
-                  {i < proofArtists.length - 1 && <span aria-hidden className="text-cinnabar/60">/</span>}
-                </span>
-              ))}
-            </div>
-          </div>
-        </Reveal>
-        <Reveal delay={0.15}>
-          <div className="mt-12 flex flex-col sm:flex-row gap-4">
-            <Link to="/work" viewTransition className="btn-accent">
-              <span>ดูผลงานทั้งหมด</span><ArrowUpRight className="w-4 h-4" />
-            </Link>
-            <Link to="/contact" viewTransition className="btn-ghost">
-              <span>ขอใบเสนอราคา</span><ArrowUpRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </Reveal>
-      </div>
-    </section>
-
-    {/* 05 — THE ORIONS STANDARD — the moat */}
-    <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16 items-center">
-        <div>
-          <div className="inline-flex items-center gap-3 font-mono text-[10px] tracking-[0.22em] uppercase leading-none">
-            <Slash className="text-[15px]" />
-            <span className="text-muted-foreground">The ORIONS Standard</span>
-          </div>
-          <Reveal delay={0.05}>
-            <h2 lang="th" className="mt-6 h-display-md max-w-[16ch] thai-wrap">
-              เราไม่ส่งของ <em className="text-cinnabar">จบแล้วจบเลย.</em>
-            </h2>
-          </Reveal>
-        </div>
-        <Reveal delay={0.1}>
-          <div>
-            <p lang="th" className="font-thai thai-wrap text-[15px] md:text-[16px] leading-[1.8] text-foreground/85">
-              งานส่วนใหญ่จบที่ "ส่งมอบ" — มาตรฐานของเราคือจบที่ <span className="text-foreground">ผลลัพธ์</span>. ทุกงานเราตกลง baseline และตัวชี้วัดกันตั้งแต่ต้น (เช่น brand recall · consideration · branded search) แล้ววัดซ้ำที่ <span className="text-cinnabar">45 และ 90 วัน</span> — ไม่เข้าเป้าก็ปรับต่อจนเข้าที่.
-            </p>
-            <p lang="th" className="mt-5 font-thai text-[13px] leading-[1.7] text-muted-foreground">
-              นี่คือ <span className="text-foreground/90">วิธีทำงาน</span> ของเรา ไม่ใช่ option เสริม — เราถือเป็นมาตรฐาน ไม่ใช่ทางเลือก.
-            </p>
-          </div>
-        </Reveal>
-      </div>
-    </section>
-
-    {/* 06b — TALK TO THE FOUNDER (direct, LINE-first) */}
+    {/* 06 — TALK TO THE FOUNDER + CTA (consolidated closing) */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-24 md:py-36">
         <Reveal>
@@ -387,7 +248,7 @@ const Index = () => {
                 คุยกับผม <em className="text-cinnabar">ตรงๆ</em> ก่อนตัดสินใจ.
               </h2>
               <p lang="th" className="mt-5 font-thai thai-wrap text-[15px] md:text-[16px] leading-[1.8] text-foreground/85 max-w-[560px]">
-                ไม่ต้องผ่านเซลส์ — เล่าโจทย์มาเลย ผมจะบอกตรงๆ ว่าควรเริ่มตรงไหน หรือยังไม่ต้องเริ่ม. คุยฟรี 45 นาที ไม่มีข้อผูกมัด.
+                ไม่ต้องผ่านเซลส์ — เล่าโจทย์มาเลย ผมจะบอกตรงๆ ว่าควรเริ่มตรงไหน หรือยังไม่ต้องเริ่ม.
               </p>
               <div className="mt-7 flex flex-col sm:flex-row gap-4">
                 <a href="mailto:ratthakan@orions.agency?subject=คุยฟรี 45 นาที — ØRIONS" className="btn-accent justify-between sm:justify-center">
@@ -411,48 +272,11 @@ const Index = () => {
       </div>
     </section>
 
-    {/* 06c — FROM THE BLOG */}
-    <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-36">
-        <div className="flex items-end justify-between gap-6 flex-wrap">
-          <SectionHeading
-            lang="th"
-            eyebrow="Thinking"
-            title={<>มุมมองล่าสุด <em className="text-cinnabar">จากเรา.</em></>}
-          />
-          <Link to="/blog" className="hidden md:inline-flex font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground hover:text-cinnabar transition-colors">
-            อ่านทั้งหมด →
-          </Link>
-        </div>
-        <div className="mt-12 md:mt-14 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-          {blogPosts.slice(0, 3).map((p, i) => (
-            <Reveal key={p.slug} delay={i * 0.06}>
-              <Link to={`/blog/${p.slug}`} viewTransition className="group flex flex-col h-full rounded-none border border-foreground/12 bg-foreground/[0.02] hover:border-cinnabar/60 transition-colors">
-                <div className="relative w-full overflow-hidden aspect-[16/10]">
-                  <Picture data={p.cover} alt={p.title} loading="lazy"
-                    className="absolute inset-0 w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 group-hover:scale-[1.04] transition-[transform,filter] duration-700" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/10 to-transparent" />
-                  <span className="absolute left-4 top-4 font-mono text-[9px] tracking-[0.2em] uppercase text-background bg-cinnabar px-2 py-1">{p.category}</span>
-                </div>
-                <div className="flex flex-col flex-1 p-6">
-                  <h3 lang="th" className="font-display text-[19px] md:text-[21px] font-medium leading-snug tracking-[-0.01em] group-hover:text-cinnabar transition-colors">{p.title}</h3>
-                  <p lang="th" className="mt-3 font-thai thai-wrap text-[14px] leading-[1.7] text-muted-foreground flex-1">{p.excerpt}</p>
-                </div>
-              </Link>
-            </Reveal>
-          ))}
-        </div>
-        <Link to="/blog" viewTransition className="btn-ghost mt-10 md:hidden">
-          <span>อ่านบทความทั้งหมด</span><ArrowUpRight className="w-4 h-4" />
-        </Link>
-      </div>
-    </section>
-
     {/* 07 — CTA close */}
     <CTABand
       eyebrow="เริ่มง่ายๆ"
       title={<>มีโจทย์ที่อยาก <em className="text-cinnabar">ปั้นให้คม</em> ไหม?</>}
-      subtitle="คุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์และเงื่อนไขมา เราช่วยมองว่าจะ refine มันยังไง."
+      subtitle="เล่าโจทย์และเงื่อนไขมา เราช่วยมองว่าจะ refine มันยังไง — ไม่มีข้อผูกมัด."
       primary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}
       secondary={{ label: "ดูผลงาน", to: "/work" }}
       tone="ink"

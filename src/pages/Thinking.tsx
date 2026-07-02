@@ -126,7 +126,7 @@ const Thinking = () => (
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
-            <div lang="th" className="mt-8 max-w-[640px] font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.85] text-foreground/80 space-y-5">
+            <div lang="th" className="mt-8 max-w-[640px] font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.8] text-foreground/80 space-y-5">
               <p>ตอนเริ่มธุรกิจ ทุกคนต้องเน้นยอดก่อน — เพื่อเลี้ยงทีมและพาธุรกิจเดินต่อ. ไม่มีอะไรผิด. แต่ยอดที่มาจากการลด แลก แจกแถม และยิงแอดแลก attention มัน<span className="text-foreground">มีเพดาน</span>.</p>
               <p>เพราะยอดแบบนั้นไม่ได้สร้างความผูกพัน. วันที่คู่แข่งตั้งราคาถูกกว่าแม้แต่นิดเดียว ลูกค้าก็เดินจากไปทันที — เพราะไม่มีอะไรยึดเขาไว้กับแบรนด์นอกจาก<span className="text-foreground">ราคา</span>.</p>
               <p>จุดนั้นแหละที่ <span className="text-cinnabar">branding</span> เริ่มสำคัญ — สร้างความสัมพันธ์ เรื่องราว และทำให้ลูกค้ารู้สึกว่านี่คือ “ของเขา”. และเมื่อธุรกิจถึงจุดตัน <span className="text-foreground">ความคิดสร้างสรรค์และคุณภาพงาน</span> คือทางเดียวที่พาไปต่อได้.</p>
@@ -155,7 +155,7 @@ const Thinking = () => (
             <h2 lang="th" className="font-serif text-[28px] md:text-[42px] leading-[1.2] tracking-[-0.015em] max-w-[20ch] thai-wrap">
               AI ไม่ได้มาแย่งงานคน — มันมาแทน<em className="text-cinnabar italic">งานที่ไร้หัวใจ.</em>
             </h2>
-            <p lang="th" className="mt-8 max-w-[640px] font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.85] text-foreground/80">
+            <p lang="th" className="mt-8 max-w-[640px] font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.8] text-foreground/80">
               AI อ่านออกแค่ตัวหนังสือ แต่ไม่เคยเข้าใจความรู้สึกส่วนลึก — เช่นการประชดประชันแบบคนไทย ที่ระบบมักประมวลผลพลาดเป็นเชิงลบเสมอ. งานที่ "ผลิตเยอะ" AI ทำได้ดีกว่า. แบรนด์จึงต้องยกระดับจาก <span className="text-foreground">Content Factory</span> ไปเป็น <span className="text-cinnabar">Emotion Translator</span>.
             </p>
           </div>
@@ -180,7 +180,7 @@ const Thinking = () => (
                   <div className="font-serif text-cinnabar text-[24px] md:text-[34px] leading-none tabular-nums">{`0${i + 1}`}</div>
                   <div>
                     <h3 className="font-serif text-[22px] md:text-[30px] leading-[1.1] tracking-[-0.01em] group-hover:text-cinnabar transition-colors">{a.k} <span lang="th" className="text-foreground/55 text-[15px] md:text-[18px] italic">— {a.th}</span></h3>
-                    <p lang="th" className="mt-2.5 font-thai thai-wrap text-[14px] leading-[1.7] text-muted-foreground">{a.d}</p>
+                    <p lang="th" className="mt-2.5 font-thai thai-wrap text-[14px] leading-[1.8] text-muted-foreground">{a.d}</p>
                   </div>
                 </div>
               </Reveal>
@@ -217,7 +217,7 @@ const Thinking = () => (
               <Reveal key={t.k} delay={i * 0.06}>
                 <div className="card-soft p-6 md:p-7 h-full">
                   <div className="font-mono text-[12px] tracking-[0.06em] text-cinnabar">{t.k}</div>
-                  <p lang="th" className="mt-3 font-thai thai-wrap text-[14px] leading-[1.7] text-foreground/85">{t.d}</p>
+                  <p lang="th" className="mt-3 font-thai thai-wrap text-[14px] leading-[1.8] text-foreground/85">{t.d}</p>
                 </div>
               </Reveal>
             ))}
@@ -251,7 +251,7 @@ const Thinking = () => (
     <CTABand
       eyebrow="ทำงานกับเรา"
       title={<>อยากให้แบรนด์คุณ <em className="text-cinnabar">ถูกรู้สึก</em> ไม่ใช่แค่ถูกเห็น?</>}
-      subtitle="คุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์มา เราช่วยมองว่าอารมณ์ไหนคือสนามของแบรนด์คุณ."
+      subtitle="เล่าโจทย์มา เราช่วยมองว่าอารมณ์ไหนคือสนามของแบรนด์คุณ — ไม่มีข้อผูกมัด."
       primary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}
       secondary={{ label: "ดูผลงาน", to: "/work" }}
       tone="snow"

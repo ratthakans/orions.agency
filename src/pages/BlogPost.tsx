@@ -96,7 +96,7 @@ const BlogPost = () => {
         <div className="max-w-[680px] mx-auto pb-20 md:pb-28">
           {post.body.map((para, i) => (
             <Reveal key={i} delay={0.03 * i}>
-              <p lang="th" className="font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.85] text-foreground/85 [&:not(:first-child)]:mt-6">
+              <p lang="th" className="font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.8] text-foreground/85 [&:not(:first-child)]:mt-6">
                 {para}
               </p>
             </Reveal>

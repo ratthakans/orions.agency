@@ -135,7 +135,7 @@ const Contact = () => {
   };
 
   const inputCls = "w-full rounded-none bg-background border border-foreground/15 px-4 py-3 text-[15px] text-foreground placeholder:text-foreground/55 focus:outline-none focus:border-cinnabar focus:ring-1 focus:ring-cinnabar/30 transition-colors font-thai";
-  const labelCls = "font-mono text-[10px] tracking-[0.14em] uppercase text-foreground/70";
+  const labelCls = "font-mono text-[10px] tracking-[0.18em] uppercase text-foreground/70";
 
   return (
     <div>
@@ -155,7 +155,7 @@ const Contact = () => {
             </h1>
           </Reveal>
           <Reveal delay={0.1}>
-            <p lang="th" className="mt-8 max-w-[640px] font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.65] text-foreground/85">
+            <p lang="th" className="mt-8 max-w-[640px] font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.8] text-foreground/85">
               คุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์และเงื่อนไขมา เราช่วยมองว่าจะ refine มันยังไง.
             </p>
           </Reveal>
@@ -201,9 +201,9 @@ const Contact = () => {
               <Reveal key={s.n} delay={i * 0.07}>
                 <div className="card-soft h-full p-7 md:p-8">
                   <div className="num-display text-cinnabar text-[32px] leading-none">{s.n}</div>
-                  <div lang="th" className="mt-4 font-mono text-[10px] tracking-[0.16em] uppercase text-cinnabar">{s.when}</div>
+                  <div lang="th" className="mt-4 font-mono text-[10px] tracking-[0.18em] uppercase text-cinnabar">{s.when}</div>
                   <h3 lang="th" className="mt-2 font-display text-[18px] md:text-[20px] font-medium">{s.t}</h3>
-                  <p lang="th" className="mt-3 font-thai thai-wrap text-[13px] leading-[1.7] text-muted-foreground">{s.d}</p>
+                  <p lang="th" className="mt-3 font-thai thai-wrap text-[13px] leading-[1.8] text-muted-foreground">{s.d}</p>
                 </div>
               </Reveal>
             ))}
@@ -222,7 +222,7 @@ const Contact = () => {
 
           <div className="mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-start">
             <div className="md:col-span-7 card-soft p-7 md:p-9">
-              <p lang="th" className="font-thai thai-wrap text-[14px] leading-[1.7] text-foreground/75 max-w-[44ch]">
+              <p lang="th" className="font-thai thai-wrap text-[14px] leading-[1.8] text-foreground/75 max-w-[44ch]">
                 แค่ <span className="text-foreground">ชื่อ · เบอร์ · อีเมล</span> ก็ทักได้เลย — เดี๋ยวเราติดต่อกลับไปคุย. รายละเอียดอื่นไว้คุยตอนนัดก็ได้.
               </p>
               <form onSubmit={submit} noValidate className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
@@ -246,7 +246,7 @@ const Contact = () => {
                       className={inputCls}
                     />
                     {errors[f.key as keyof FieldErrors] && (
-                      <p className="mt-2 font-mono text-[10px] tracking-[0.15em] uppercase text-destructive">
+                      <p className="mt-2 font-mono text-[10px] tracking-[0.18em] uppercase text-destructive">
                         {errors[f.key as keyof FieldErrors]}
                       </p>
                     )}
@@ -278,7 +278,7 @@ const Contact = () => {
                     aria-invalid={!!errors.brief}
                     className={`${inputCls} resize-none`}
                   />
-                  {errors.brief && <p className="mt-2 font-mono text-[10px] tracking-[0.15em] uppercase text-destructive">{errors.brief}</p>}
+                  {errors.brief && <p className="mt-2 font-mono text-[10px] tracking-[0.18em] uppercase text-destructive">{errors.brief}</p>}
                 </div>
                 {/* honeypot — hidden from humans */}
                 <div aria-hidden className="hidden" style={{ position: "absolute", left: "-9999px" }}>
@@ -287,7 +287,7 @@ const Contact = () => {
                 <button type="submit" disabled={submitting} className="btn-accent md:col-span-2 mt-4 justify-center disabled:opacity-50">
                   <span>{submitting ? "Sending…" : "Send inquiry"}</span><ArrowUpRight className="w-4 h-4" />
                 </button>
-                <p lang="th" className="md:col-span-2 font-thai text-[12px] leading-[1.6] text-muted-foreground">
+                <p lang="th" className="md:col-span-2 font-thai text-[12px] leading-[1.8] text-muted-foreground">
                   การส่งฟอร์มถือว่ายอมรับ <Link to="/privacy" className="underline hover:text-cinnabar">นโยบายความเป็นส่วนตัว</Link> · เราใช้ข้อมูลเพื่อติดต่อกลับเท่านั้น ไม่สแปม
                 </p>
               </form>
@@ -300,15 +300,15 @@ const Contact = () => {
                 <div>
                   <div className="font-mono text-[10px] tracking-[0.04em] text-cinnabar">— คุยกับเราโดยตรง</div>
                   <h3 lang="th" className="mt-1.5 font-serif text-[22px] tracking-[-0.01em]">รัฐกันต์ สุวรรณภักดี</h3>
-                  <div lang="th" className="font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">Founder / Creative Director</div>
+                  <div lang="th" className="font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">Founder / Creative Director</div>
                   <a href="tel:+66923905464" className="mt-2 inline-block font-thai text-[14px] text-foreground hover:text-cinnabar transition-colors">092-390-5464</a>
                 </div>
               </div>
 
               {/* Book a call — primary highlight */}
               <div className="card-accent p-7 md:p-8">
-                <div className="font-mono text-[10px] tracking-[0.14em] uppercase text-cinnabar">— นัดคุย 45 นาที</div>
-                <p lang="th" className="mt-4 font-thai thai-wrap text-[14px] leading-[1.7] text-foreground/80">
+                <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-cinnabar">— นัดคุย 45 นาที</div>
+                <p lang="th" className="mt-4 font-thai thai-wrap text-[14px] leading-[1.8] text-foreground/80">
                   อยากคุยก่อนส่งโจทย์? อีเมลมานัดคุยฟรี 45 นาที ไม่มีข้อผูกมัด.
                 </p>
                 <a href="mailto:hello@orions.agency?subject=คุยฟรี 45 นาที — ØRIONS"
@@ -319,8 +319,8 @@ const Contact = () => {
 
               {/* Studio */}
               <div className="card-soft p-7 md:p-8">
-                <div className="font-mono text-[10px] tracking-[0.14em] uppercase text-muted-foreground">— Studio</div>
-                <p lang="th" className="mt-6 font-thai thai-wrap text-[14px] leading-[1.7] text-foreground/80">
+                <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">— Studio</div>
+                <p lang="th" className="mt-6 font-thai thai-wrap text-[14px] leading-[1.8] text-foreground/80">
                   246/8 Soi Yothinphatthana 3<br />
                   Khlong Chan, Bang Kapi<br />
                   Bangkok 10240, Thailand

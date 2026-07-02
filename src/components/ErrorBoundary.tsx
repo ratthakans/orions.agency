@@ -33,7 +33,7 @@ class ErrorBoundary extends Component<Props, State> {
         <h1 lang="th" className="font-serif text-[26px] md:text-[34px] tracking-[-0.01em] max-w-[20ch]">
           ขออภัย หน้านี้โหลดไม่สำเร็จ
         </h1>
-        <p lang="th" className="font-thai text-[14px] leading-[1.7] text-muted-foreground max-w-[42ch]">
+        <p lang="th" className="font-thai text-[14px] leading-[1.8] text-muted-foreground max-w-[42ch]">
           ลองโหลดใหม่อีกครั้ง — ถ้ายังไม่ได้ อีเมลหาเราที่ hello@orions.agency
         </p>
         <button

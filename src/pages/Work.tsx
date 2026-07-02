@@ -103,7 +103,7 @@ const Work = () => {
             </h1>
           </Reveal>
           <Reveal delay={0.1}>
-            <p lang="th" className="mt-8 font-thai thai-wrap text-[15px] md:text-[17px] text-muted-foreground max-w-[640px] leading-[1.7]">
+            <p lang="th" className="mt-8 font-thai thai-wrap text-[15px] md:text-[17px] text-muted-foreground max-w-[640px] leading-[1.8]">
               งานจริงของ ØRIONS จัดเป็นหมวดให้ดูง่าย — เลือกหมวดที่อยากดูได้จากด้านล่าง.
             </p>
           </Reveal>
@@ -138,6 +138,7 @@ const Work = () => {
               onClick={() => setLightbox({ kind: "video", val: SHOWREEL_ID, ar: 16 / 9 })}
               onMouseEnter={() => setHoverVid(SHOWREEL_ID)}
               onMouseLeave={() => setHoverVid((h) => (h === SHOWREEL_ID ? null : h))}
+              data-cursor="Play"
               className="group relative mt-6 block w-full overflow-hidden rounded-none border border-foreground/15 hover:border-cinnabar/70 transition-colors cursor-pointer"
             >
               <span className="block relative w-full" style={{ aspectRatio: "16 / 9" }}>
@@ -235,7 +236,7 @@ const Work = () => {
                   const imgs = album.images;
                   return (
                     <div key={ai}>
-                      <div className="mb-3 inline-flex items-center gap-1.5 font-mono text-[10px] tracking-[0.16em] uppercase text-muted-foreground">
+                      <div className="mb-3 inline-flex items-center gap-1.5 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
                         <Layers className="w-3.5 h-3.5 text-cinnabar" /> {imgs.length} รูป
                       </div>
                       <div className="flex flex-wrap gap-2.5">
@@ -255,7 +256,7 @@ const Work = () => {
                 })}
                 {cat.gallery && (
                   <div>
-                    <div className="mb-3 inline-flex items-center gap-1.5 font-mono text-[10px] tracking-[0.16em] uppercase text-muted-foreground">
+                    <div className="mb-3 inline-flex items-center gap-1.5 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
                       <Layers className="w-3.5 h-3.5 text-cinnabar" /> โพสต์เดี่ยว
                     </div>
                     <div className="columns-2 md:columns-4 gap-2.5 md:gap-3">
@@ -302,6 +303,7 @@ const Work = () => {
                   <Link
                     key={cs.slug}
                     to={`/work/${cs.slug}`}
+                    data-cursor="View"
                     className="group relative block overflow-hidden rounded-none border border-foreground/12 bg-foreground/[0.04] aspect-[4/5] hover:border-cinnabar/60 transition-colors"
                   >
                     <Picture

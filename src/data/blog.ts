@@ -24,9 +24,9 @@ export interface BlogPost {
   body: string[];
 }
 
-// NOTE: mockup editorial content — real ORIONS-voice thought pieces (opinion,
-// not fabricated metrics). Cover images are placeholder stock (swap for real
-// art direction before a hard launch).
+// NOTE: real ORIONS-voice thought pieces (opinion, not fabricated metrics).
+// Covers are generated brand art — cinnabar topographic fields on near-black,
+// matching the site's TopoField motif (no stock photos, no licensing).
 export const blogPosts: BlogPost[] = [
   {
     slug: "sales-ceiling-why-branding",

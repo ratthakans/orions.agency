@@ -25,8 +25,8 @@ export interface BlogPost {
 }
 
 // NOTE: real ORIONS-voice thought pieces (opinion, not fabricated metrics).
-// Covers are generated brand art — cinnabar topographic fields on near-black,
-// matching the site's TopoField motif (no stock photos, no licensing).
+// Covers are dark, on-palette atmospheric photography (Pexels license — free
+// commercial use, no attribution required): smoke, texture, minimal architecture.
 export const blogPosts: BlogPost[] = [
   {
     slug: "sales-ceiling-why-branding",

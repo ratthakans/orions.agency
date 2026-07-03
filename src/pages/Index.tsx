@@ -13,12 +13,11 @@ import Picture from "@/components/Picture";
 import heroSilk from "@/assets/hero-silk.jpg?as=picture";
 import founder from "@/assets/team/founder.jpg?as=picture";
 
-// What a Boutique engagement includes — the craft spine.
+// What we do — three disciplines, one lens (per the 2026 brand direction).
 const included = [
-  { k: "Positioning & Brand DNA", d: "จุดยืน แก่นตัวตน และเรื่องที่จริงของแบรนด์ — ต้นน้ำของทุกอย่าง" },
-  { k: "Identity & CI", d: "โลโก้ · สี · ฟอนต์ · คู่มือแบรนด์ — ระบบที่ทำให้คนจำได้" },
-  { k: "Big Idea / Campaign", d: "แนวคิดใหญ่ที่ร้อยทั้งแคมเปญให้พูดเรื่องเดียวกัน" },
-  { k: "Brand Film & Premium Production", d: "ฟิล์ม · ภาพ · art direction ระดับโฆษณา โดยทีม senior" },
+  { k: "Brand Strategy", d: "วางรากฐานและทิศทางให้ชัด เพื่อให้แบรนด์ไม่ต้องลงไปแข่งตัดราคา" },
+  { k: "Creative Production", d: "งานภาพและเสียงคุณภาพบูทีค — brand film · video · photography · music production — ที่หยุดสายตาคนได้ใน 1.7 วินาที" },
+  { k: "Communication Design", d: "ออกแบบการสื่อสารทุกจุดสัมผัส เปลี่ยนคนแปลกหน้าให้เป็นลูกค้าที่ภักดี" },
 ];
 
 // Featured cases for the homepage — curated, image-forward (real work, shown early).
@@ -93,16 +92,16 @@ const Index = () => {
   <div>
     <SEO
       title="ØRIONS — Boutique Creative Agency, Bangkok"
-      description="บูทีคครีเอทีฟเอเจนซีในกรุงเทพฯ — งานปั้นแบรนด์ที่คนจำและเลือก. brand strategy · identity · big idea · brand film และ art direction ระดับโฆษณา. คิดต่อแคมเปญ/โปรเจกต์ ตีตามโจทย์จริง."
+      description="สตูดิโอครีเอทีฟบูทีคในกรุงเทพฯ — เราทำให้แบรนด์คมพอที่คนจะจำได้เอง. brand strategy · creative production · communication design. เพราะเรื่องที่คมที่สุดชนะ ไม่ใช่เรื่องที่ดังที่สุด."
       path="/"
       schema={{
         "@context": "https://schema.org",
         "@type": "FAQPage",
         mainEntity: [
-          { "@type": "Question", name: "ØRIONS ทำอะไร?", acceptedAnswer: { "@type": "Answer", text: "ØRIONS เป็นบูทีคครีเอทีฟเอเจนซีในกรุงเทพฯ ที่เน้นงานปั้นแบรนด์ระดับโฆษณา — brand strategy, identity, big idea, brand film และ art direction. เป้าหมายคือทำให้แบรนด์ถูกจำและถูกเลือก ไม่ใช่แค่ถูกเห็น." } },
-          { "@type": "Question", name: "เริ่มงานกับ ØRIONS ต้องทำอย่างไร?", acceptedAnswer: { "@type": "Answer", text: "เริ่มจากคุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์และเงื่อนไขมา เราจะบอกตรงๆ ว่าจะ refine มันยังไง. ติดต่อ hello@orions.agency · 092 390 5464 · LINE @orions" } },
-          { "@type": "Question", name: "ØRIONS คิดราคายังไง?", acceptedAnswer: { "@type": "Answer", text: "งานคราฟต์คิดเป็นแคมเปญหรือโปรเจกต์ — ไม่มีเรทการ์ด ตีตามขอบเขต ความลึก และมาตรฐานที่โจทย์ต้องการ. เราคุยโจทย์ก่อนเสมอ แล้วเสนอสโคป + ราคาที่ตรงงาน. ขอใบเสนอราคาได้." } },
-          { "@type": "Question", name: "ØRIONS ไม่เหมาะกับใคร?", acceptedAnswer: { "@type": "Answer", text: "ถ้าอยากได้คอนเทนต์เยอะที่สุดในราคาถูกที่สุดโดยไม่ต้องมีกลยุทธ์หรือมาตรฐานงานคราฟต์ เราจะบอกตรงๆ ว่าเราอาจไม่ใช่คำตอบ." } },
+          { "@type": "Question", name: "ØRIONS ทำอะไร?", acceptedAnswer: { "@type": "Answer", text: "ØRIONS เป็นสตูดิโอครีเอทีฟบูทีคในกรุงเทพฯ สำหรับเจ้าของแบรนด์ที่เหนื่อยกับการเติบโตด้วยเงินยิงแอด — เราทำให้แบรนด์คมพอที่คนจะจำได้เอง ผ่าน brand strategy, creative production (brand film · video · photography · music) และ communication design." } },
+          { "@type": "Question", name: "เริ่มงานกับ ØRIONS ต้องทำอย่างไร?", acceptedAnswer: { "@type": "Answer", text: "เริ่มจากคุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์และเงื่อนไขมา เราจะบอกตรงๆ ว่าจะ refine มันยังไง. ติดต่อ hello@orions.agency · 089 354 2628 (คุณพลอย) · LINE @orions" } },
+          { "@type": "Question", name: "ØRIONS คิดราคายังไง?", acceptedAnswer: { "@type": "Answer", text: "งานคราฟต์คิดเป็นแคมเปญหรือโปรเจกต์ — ไม่มีเรทการ์ด ตีตามขอบเขต ความลึก และมาตรฐานที่โจทย์ต้องการ. เราคุยโจทย์ก่อนเสมอ แล้วเสนอสโคป + ราคาที่ตรงงาน." } },
+          { "@type": "Question", name: "ØRIONS ไม่เหมาะกับใคร?", acceptedAnswer: { "@type": "Answer", text: "เรารับงานจำกัดโดยตั้งใจ — เพราะงานดีไม่เกิดจากทำเยอะ. ถ้าต้องการคอนเทนต์เยอะที่สุดในราคาถูกที่สุดโดยไม่ต้องมีกลยุทธ์ เราจะบอกตรงๆ ว่าเราอาจไม่ใช่คำตอบ." } },
         ],
       }}
     />
@@ -134,21 +133,21 @@ const Index = () => {
       </div>
     </section>
 
-    {/* 02 — POV STRIP — pull the thesis up */}
+    {/* 02 — POV STRIP — the brand line, up front */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-14 md:py-16 grid grid-cols-1 md:grid-cols-[1.4fr_1fr] gap-6 md:gap-12 md:items-center">
         <Reveal>
-          <p lang="th" className="font-serif text-[24px] md:text-[34px] leading-[1.3] tracking-[-0.01em] text-foreground/90 max-w-[20ch] thai-wrap">
-            ตรรกะทำให้คน<em className="text-cinnabar italic">เชื่อ</em><br />— อารมณ์ทำให้คน<em className="text-cinnabar italic">ซื้อ.</em>
+          <p className="font-serif text-[24px] md:text-[34px] leading-[1.3] tracking-[-0.01em] text-foreground/90 max-w-[22ch]">
+            Marketing rents <em className="text-cinnabar italic">attention.</em><br />Creative earns <em className="text-cinnabar italic">belief.</em>
           </p>
         </Reveal>
         <Reveal delay={0.08}>
           <div className="md:text-right">
-            <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-cinnabar">Connection &gt; followers</p>
+            <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-cinnabar">Signal, not noise</p>
             <p lang="th" className="mt-3 font-thai thai-wrap text-[13px] leading-[1.8] text-muted-foreground md:ml-auto max-w-[42ch]">
-              connection ที่จริงกับคนที่รักแบรนด์ มีค่ากว่ายอด follower — และอยู่ทนกว่าโปรโมชั่น. นั่นคือสิ่งที่คู่แข่งลอกด้วยราคาไม่ได้.
+              การตลาดเช่าความสนใจได้ชั่วคราว — แต่ความคิดสร้างสรรค์ทำให้คนเชื่อและอยู่กับคุณ. ในโลกที่ทุกอย่างล้นเกิน เรื่องที่คมที่สุดชนะ ไม่ใช่เรื่องที่ดังที่สุด.
             </p>
-            <Link to="/thinking" className="mt-4 inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.18em] uppercase text-foreground/70 hover:text-cinnabar transition-colors">อ่านแนวคิดของเรา <ArrowUpRight className="w-3.5 h-3.5" /></Link>
+            <Link to="/thinking" className="mt-4 inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.18em] uppercase text-foreground/70 hover:text-cinnabar transition-colors">อ่าน Manifesto <ArrowUpRight className="w-3.5 h-3.5" /></Link>
           </div>
         </Reveal>
       </div>
@@ -207,13 +206,13 @@ const Index = () => {
       <div className="relative z-10 max-w-[1280px] mx-auto py-24 md:py-36">
         <SectionHeading
           lang="th"
-          title={<>งานปั้นที่คน<em className="text-cinnabar">จำและเลือก.</em></>}
-          intro="ØRIONS คือบูทีคครีเอทีฟเอเจนซี — งานคราฟต์ระดับโฆษณาสำหรับแบรนด์ที่อยากถูกจำ ไม่ใช่แค่ถูกเห็น. นี่คือฝั่งของอารมณ์ที่ทำให้คนยอมจ่ายแพง."
+          title={<>คมพอที่คนจะ<em className="text-cinnabar">จำได้เอง.</em></>}
+          intro="สำหรับเจ้าของแบรนด์ที่เหนื่อยกับการเติบโตด้วยเงินยิงแอด — เราคัด สกัด และเจียระไนเรื่องราวของแบรนด์ จนเหลือแต่สิ่งที่คนจำได้จริง. เพราะในโลกที่ทุกอย่างล้นเกิน เรื่องที่คมที่สุดชนะ ไม่ใช่เรื่องที่ดังที่สุด."
         />
-        {/* What's included — compact service cards */}
-        <div className="mt-12 md:mt-14 grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
+        {/* Three disciplines — one lens */}
+        <div className="mt-12 md:mt-14 grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
           {included.map((it, i) => (
-            <Reveal key={it.k} delay={(i % 2) * 0.05}>
+            <Reveal key={it.k} delay={i * 0.05}>
               <div className="h-full card-soft p-6 md:p-7 hover:border-cinnabar/50 transition-colors group">
                 <h3 className="font-display text-[17px] md:text-[19px] font-medium leading-tight tracking-[-0.01em] group-hover:text-cinnabar transition-colors">{it.k}</h3>
                 <p lang="th" className="mt-2 font-thai thai-wrap text-[13px] md:text-[14px] leading-[1.8] text-muted-foreground">{it.d}</p>
@@ -221,6 +220,9 @@ const Index = () => {
             </Reveal>
           ))}
         </div>
+        <p lang="th" className="mt-12 font-thai text-[14px] leading-[1.8] text-foreground/80 max-w-[660px]">
+          เรารับงานจำกัด — เพราะงานดีไม่เกิดจากทำเยอะ. <Link to="/thinking" className="text-cinnabar hover:underline">อ่านว่าทำไม</Link>.
+        </p>
       </div>
     </section>
 
@@ -231,7 +233,7 @@ const Index = () => {
           <div className="grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-8 md:gap-14 items-center">
             <Picture
               data={founder}
-              alt="Ratthakan Suwanphakdee — Founder / Creative Director, ØRIONS"
+              alt="Ratthakan Suwanphakdee — Founder & Creative Director, ØRIONS"
               className="w-28 h-36 md:w-44 md:h-56 rounded-none object-cover object-top shrink-0"
             />
             <div>
@@ -244,7 +246,7 @@ const Index = () => {
               </blockquote>
               <div className="mt-7">
                 <p lang="th" className="font-thai text-[15px] font-medium text-foreground">รัฐกันต์ สุวรรณภักดี</p>
-                <p className="mt-1 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">Ratthakan Suwanphakdee · Founder / Creative Director</p>
+                <p className="mt-1 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">Ratthakan Suwanphakdee · Founder & Creative Director</p>
               </div>
             </div>
           </div>
@@ -254,9 +256,9 @@ const Index = () => {
 
     {/* 07 — CTA close */}
     <CTABand
-      eyebrow="เริ่มง่ายๆ"
-      title={<>มีโจทย์ที่อยาก <em className="text-cinnabar">ปั้นให้คม</em> ไหม?</>}
-      subtitle="เล่าโจทย์และเงื่อนไขมา เราช่วยมองว่าจะ refine มันยังไง — ไม่มีข้อผูกมัด."
+      eyebrow="ØRIONS"
+      title={<>Don't get louder. <em className="text-cinnabar">Get unmistakable.</em></>}
+      subtitle="เราไม่ทำให้คุณดังขึ้น — เราทำให้คุณเป็นตัวคุณที่ไม่มีใครแทนได้. เล่าโจทย์มาได้เลย ไม่มีข้อผูกมัด."
       primary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}
       secondary={{ label: "ดูผลงาน", to: "/work" }}
       tone="ink"

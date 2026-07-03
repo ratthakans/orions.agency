@@ -1,34 +1,45 @@
-# ØRIONS — Boutique Creative Agency, Bangkok
+# ØRIONS — Boutique Creative Studio, Bangkok
 
-> ØRIONS (orions.agency) is a Bangkok-based boutique creative agency. It builds advertising-grade brand craft for brands that want to be remembered and chosen, not just seen. Founder & Creative Director: Ratthakan Suwanphakdee (รัฐกันต์ สุวรรณภักดี).
+> ØRIONS (orions.agency) is a Bangkok-based boutique creative studio for brand owners tired of growing on ad spend alone. It refines brands until they are sharp enough to be remembered on their own — because in an oversaturated world, the sharpest story wins, not the loudest. Tagline: "Stories, Refined." Founder & Creative Director: Ratthakan Suwanphakdee (รัฐกันต์ สุวรรณภักดี).
+
+## Core belief
+Marketing rents attention. Creative earns belief. — การตลาดเช่าความสนใจได้ชั่วคราว แต่ความคิดสร้างสรรค์ทำให้คนเชื่อและอยู่กับคุณ. A brand people are loyal to means customers come back on their own; acquisition cost falls every year while competitors' ad costs rise. Creative is not an expense — it is compounding investment.
 
 ## What ØRIONS does
-Creative craft at advertising grade — one senior team, strategy through production:
-- Brand strategy & positioning — the true story and point of view of the brand
-- Brand identity & CI — logo, colour, type, brand guidelines
-- Big idea / campaign — one idea that ties the whole campaign together
-- Brand film & premium production — film, photography and art direction at advertising grade
-- The ORIONS Standard — brand metrics agreed up front, re-measured at 45 and 90 days, refined until they land
+Three disciplines, one lens:
+- Brand Strategy — a clear foundation and direction, so the brand never has to compete on price cuts
+- Creative Production — boutique-grade image and sound (brand film, video, photography, music production) that stops the scroll within 1.7 seconds
+- Communication Design — designing every touchpoint of communication, turning strangers into loyal customers
 
 Pricing: no rate card. Work is quoted per campaign/project, scoped to the brief's depth and standard. ØRIONS talks through the brief first, then proposes scope + price.
 
-## Point of view (Emotion Economy)
-ØRIONS's thesis: the world is shifting from an Information Economy (whoever has more data wins) to an Emotion Economy (whoever reaches emotion better wins). "Logic Convinces, Emotion Converts" — logic opens the door with the right data, but emotion is what closes the deal and commands a premium, and emotion is the side ØRIONS chose to stand on. The business case: every business must chase sales first to survive, but sales bought with discounts, giveaways and ad spend has a ceiling — those customers aren't bonded to the brand, so the day a competitor prices slightly cheaper they leave. That is when branding matters: relationships, story, personalization. When a business hits that ceiling, creativity and craft quality are the only way forward. In the post-social era, a genuine connection is worth more than followers — which is why ØRIONS is a boutique: detail-obsessed, long-term client relationships, no throwaway work, quality first (so the work costs more, but it outlasts a one-off promotion). AI replaces soulless, high-volume work, not work with feeling; so ØRIONS positions as an "Emotion Translator", not a "Content Factory". The five brand assets AI can't copy: Trust, Fandom, Belonging, Meaning, Human Feeling. Before any work ships ØRIONS asks three questions: What will people FEEL? Will they SHARE it? Without the logo, is it still interesting? Full POV: https://orions.agency/thinking
+## The Manifesto (point of view)
+Every brand is a point of light — the problem is today's sky is so bright no one can see any single star anymore.
+- THE NOISE: the world isn't short of content, it's drowning in it. A brand has ~1.7 seconds before the thumb scrolls past; AI-generated mass work floods feeds ~4.6× faster; ad costs are up ~40% for the same or worse results. The trap cycle: pay more for ads → discount → give things away → survive another month — until a competitor prices slightly lower and the customer walks.
+- THE GREAT FILTER: in astronomy, the wall almost no civilisation crosses; in business, the line between brands people remember and brands people forget. Money gets you to the wall but cannot carry you across — no budget is big enough to buy hearts. The only thing that crosses is a story sharp enough. Brands that cross: customers return on their own, acquisition cost falls yearly, no more discounting.
+- STORIES, REFINED.: scattered light is Noise; light focused through a lens into a single point is Signal. ØRIONS is that lens — it curates, distils and cuts the noise away until only the sharpest message remains.
+- THE PROOF: from corporate brand films to music videos for leading artists, hospitality brands to national-level communication — real craft doesn't depend on the industry, it depends on understanding what makes people stop and look.
+- LIMITED BY DESIGN: ØRIONS deliberately keeps its client roster small — great craft never comes from volume. The one question: "Can the team still give everything to every project?" If not, it stops taking work. (Small-scale production work is still open, to support the business ecosystem.)
+Full manifesto: https://orions.agency/thinking
 
-## Proof (real, countable)
-- 40+ video productions (reels, music videos, long-form)
-- 15 music videos for real artists, including PANCAKE, NUM KALA, URBOYTJ, ZOM MARIE, กวาง จิรพรรณ, นุ่นนิ่น ชาลิสสา, ปิ๋ม ชุติมา, วี พนมภูไท, Innertears
-- 8 brand cases spanning strategy through production
+## The compass (how decisions are made)
+One question governs every decision — "Does it make the brand sharper, or just louder?" If just louder, ØRIONS doesn't do it.
 
-## Principles
-- พูดตรง (speak straight) — honest about fit; will say when it is not the right time, and does not sell dreams
-- Constraints are the brief — the best work happens under limits
-- Craft standard over look — we flex on style, never on craft standard
+## What ØRIONS never does
+No shouting · no hype words · no volume-for-show · no price wars · no overbooking. The enemy is Noise: mass-produced work, interruption, being forgotten, and price wars.
+
+## Voice
+Speaks like an editor, not a salesperson — cool, precise, few words that land. States facts rather than invitations. English for sharp lines, Thai for depth and feeling. Cold surface, warm heart: ruthless about the work, always respectful and warm with people.
+
+## Taglines
+- Stories, Refined. (primary)
+- Don't get louder. Get unmistakable. (campaign)
+- Signal, not noise. (short)
 
 ## Key pages
-- Home (the agency): https://orions.agency/
+- Home (the studio): https://orions.agency/
 - Work / portfolio: https://orions.agency/work
-- Thinking / POV (Emotion Economy): https://orions.agency/thinking
+- Thinking / Manifesto: https://orions.agency/thinking
 - Blog (creative perspectives): https://orions.agency/blog
 - About: https://orions.agency/about
 - Contact: https://orions.agency/contact
@@ -38,7 +49,7 @@ Book a free 45-minute call (no obligation). Tell ØRIONS the brief and its const
 
 ## Contact
 - Email: hello@orions.agency
-- Founder (direct): ratthakan@orions.agency
-- Phone: +66 92 390 5464
+- Phone: +66 89 354 2628 (Khun Ploy — Sales Director)
 - LINE: @orions
 - Studio: 246/8 Soi Yothinphatthana 3, Khlong Chan, Bang Kapi, Bangkok 10240, Thailand
+- Tax ID: 0105568220629

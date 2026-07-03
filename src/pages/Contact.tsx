@@ -23,10 +23,9 @@ const inquirySchema = z.object({
 type FieldErrors = Partial<Record<keyof z.infer<typeof inquirySchema>, string>>;
 
 const packageOptions = [
-  "Brand strategy & positioning",
-  "Identity / CI (โลโก้ · ระบบแบรนด์)",
-  "Big idea / campaign",
-  "Brand film / production",
+  "Brand strategy",
+  "Creative production (brand film · video · photo · music)",
+  "Communication design",
   "งานแบรนด์ครบวงจร",
   "ยังไม่แน่ใจ / ขอคำแนะนำ",
 ];
@@ -141,7 +140,7 @@ const Contact = () => {
     <div>
       <SEO
         title="Contact — เริ่มต้นบทสนทนา · ØRIONS"
-        description="คุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์และเงื่อนไขมา เราช่วยมองว่าจะ refine มันยังไง. hello@orions.agency · 092 390 5464."
+        description="คุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์และเงื่อนไขมา เราช่วยมองว่าจะ refine มันยังไง. hello@orions.agency · 089 354 2628 (คุณพลอย)."
         path="/contact"
       />
 
@@ -181,7 +180,7 @@ const Contact = () => {
           <Reveal delay={0.25}>
             <div className="mt-12 flex flex-wrap gap-x-8 gap-y-2 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
               <a href="mailto:hello@orions.agency" className="hover:text-cinnabar transition-colors">hello@orions.agency</a>
-              <a href="tel:+66923905464" className="hover:text-cinnabar transition-colors">+66 92 390 5464 · ออฟฟิศ</a>
+              <a href="tel:+66893542628" className="hover:text-cinnabar transition-colors">+66 89 354 2628 · คุณพลอย</a>
               <a href="https://line.me/ti/p/~orions" target="_blank" rel="noreferrer" className="hover:text-cinnabar transition-colors">LINE @orions</a>
             </div>
           </Reveal>
@@ -294,14 +293,19 @@ const Contact = () => {
             </div>
 
             <div className="md:col-span-5 flex flex-col gap-6">
-              {/* Contact person — founder (direct, no sales middleman) */}
-              <div className="card-soft p-7 md:p-8 flex items-center gap-5">
-                <Picture data={founder} alt="Ratthakan Suwanphakdee — Founder / Creative Director, ØRIONS" className="w-20 h-20 md:w-24 md:h-24 rounded-none object-cover object-top shrink-0" />
-                <div>
-                  <div className="font-mono text-[10px] tracking-[0.04em] text-cinnabar">— คุยกับเราโดยตรง</div>
-                  <h3 lang="th" className="mt-1.5 font-serif text-[22px] tracking-[-0.01em]">รัฐกันต์ สุวรรณภักดี</h3>
-                  <div lang="th" className="font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">Founder / Creative Director</div>
-                  <a href="tel:+66923905464" className="mt-2 inline-block font-thai text-[14px] text-foreground hover:text-cinnabar transition-colors">092-390-5464</a>
+              {/* Contact people — creative lead + sales line */}
+              <div className="card-soft p-7 md:p-8">
+                <div className="flex items-center gap-5">
+                  <Picture data={founder} alt="Ratthakan Suwanphakdee — Founder & Creative Director, ØRIONS" className="w-20 h-20 md:w-24 md:h-24 rounded-none object-cover object-top shrink-0" />
+                  <div>
+                    <div className="font-mono text-[10px] tracking-[0.04em] text-cinnabar">— คนที่ดูแลงานคุณ</div>
+                    <h3 lang="th" className="mt-1.5 font-serif text-[22px] tracking-[-0.01em]">รัฐกันต์ สุวรรณภักดี</h3>
+                    <div lang="th" className="font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">Founder & Creative Director</div>
+                  </div>
+                </div>
+                <div className="mt-6 pt-5 border-t border-foreground/12">
+                  <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">โทรคุยรายละเอียด — คุณพลอย · Sales Director</div>
+                  <a href="tel:+66893542628" className="mt-1.5 inline-block font-thai text-[15px] text-foreground hover:text-cinnabar transition-colors">089-354-2628</a>
                 </div>
               </div>
 

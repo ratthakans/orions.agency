@@ -58,9 +58,9 @@ const Footer = () => {
             <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar mb-5">— Contact</div>
             <ul className="space-y-2 font-thai text-[13px] leading-[1.8] text-foreground/85">
               <li><a href="mailto:hello@orions.agency" className="hover:text-cinnabar transition-colors">hello@orions.agency</a></li>
-              <li><a href="tel:+66923905464" className="hover:text-cinnabar transition-colors">+66 92 390 5464</a></li>
+              <li><a href="tel:+66893542628" className="hover:text-cinnabar transition-colors">+66 89 354 2628 · คุณพลอย</a></li>
               <li><a href="https://line.me/ti/p/~orions" target="_blank" rel="noreferrer" className="hover:text-cinnabar transition-colors">LINE @orions</a></li>
-              <li><a href="https://wa.me/66923905464" target="_blank" rel="noreferrer" className="hover:text-cinnabar transition-colors">WhatsApp</a></li>
+              <li><a href="https://wa.me/66893542628" target="_blank" rel="noreferrer" className="hover:text-cinnabar transition-colors">WhatsApp</a></li>
             </ul>
           </div>
 

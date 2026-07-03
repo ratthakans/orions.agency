@@ -121,7 +121,7 @@ const Nav = () => {
         </nav>
         <div className="px-6 pt-4 pb-8 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex flex-col gap-1.5">
           <a href="mailto:hello@orions.agency" className="hover:text-cinnabar transition-colors">hello@orions.agency</a>
-          <a href="tel:+66923905464" className="hover:text-cinnabar transition-colors">+66 92 390 5464</a>
+          <a href="tel:+66893542628" className="hover:text-cinnabar transition-colors">+66 89 354 2628</a>
         </div>
       </div>
     </header>

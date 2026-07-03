@@ -60,7 +60,6 @@ const Footer = () => {
               <li><a href="mailto:hello@orions.agency" className="hover:text-cinnabar transition-colors">hello@orions.agency</a></li>
               <li><a href="tel:+66893542628" className="hover:text-cinnabar transition-colors">+66 89 354 2628 · คุณพลอย</a></li>
               <li><a href="https://line.me/ti/p/~orions" target="_blank" rel="noreferrer" className="hover:text-cinnabar transition-colors">LINE @orions</a></li>
-              <li><a href="https://wa.me/66893542628" target="_blank" rel="noreferrer" className="hover:text-cinnabar transition-colors">WhatsApp</a></li>
             </ul>
           </div>
 

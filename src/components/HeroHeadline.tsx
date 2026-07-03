@@ -1,29 +1,10 @@
-import { useRef, MouseEvent } from "react";
-import { m, useMotionValue, useSpring, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 import TypingCycle from "@/components/TypingCycle";
 
-/** ØRIONS hero headline — "Stories, refined." with a staggered mask-up reveal
- *  and a subtle parallax tilt that follows the cursor. */
+/** ØRIONS hero headline — "Stories, Refined." with a staggered mask-up reveal.
+ *  Fully Newsreader (editorial serif); no cursor effects — calm by design. */
 const HeroHeadline = () => {
   const reduced = useReducedMotion();
-  const ref = useRef<HTMLDivElement>(null);
-  const rx = useMotionValue(0);
-  const ry = useMotionValue(0);
-  const srx = useSpring(rx, { stiffness: 120, damping: 16 });
-  const sry = useSpring(ry, { stiffness: 120, damping: 16 });
-
-  const onMove = (e: MouseEvent<HTMLDivElement>) => {
-    if (reduced || !ref.current) return;
-    const r = ref.current.getBoundingClientRect();
-    const px = (e.clientX - (r.left + r.width / 2)) / r.width;
-    const py = (e.clientY - (r.top + r.height / 2)) / r.height;
-    ry.set(px * 7);
-    rx.set(-py * 7);
-  };
-  const onLeave = () => {
-    rx.set(0);
-    ry.set(0);
-  };
 
   const Word = ({ children, delay, className }: { children: string; delay: number; className?: string }) => (
     <span className="relative inline-block overflow-hidden align-bottom" style={{ lineHeight: 1.04 }}>
@@ -39,30 +20,19 @@ const HeroHeadline = () => {
   );
 
   return (
-    <div
-      ref={ref}
-      onMouseMove={onMove}
-      onMouseLeave={onLeave}
-      style={{ perspective: 1100 }}
-      className="cursor-default"
-    >
-      <m.h1
-        style={{ rotateX: srx, rotateY: sry, transformStyle: "preserve-3d" }}
-        className="h-display-xl leading-[0.96]"
-      >
-        {/* Static text for crawlers + screen readers */}
-        <span className="sr-only">Stories, Refined.</span>
-        {/* Animated presentation */}
-        <span aria-hidden="true">
-          <span className="block"><Word delay={0.1} className="font-serif">Stories,</Word></span>
-          <TypingCycle
-            words={["Amplified.", "Remembered.", "Refined."]}
-            className="hero-refined font-medium text-cinnabar [letter-spacing:-0.02em]"
-            caretClassName="bg-cinnabar"
-          />
-        </span>
-      </m.h1>
-    </div>
+    <h1 className="h-display-xl leading-[0.96]">
+      {/* Static text for crawlers + screen readers */}
+      <span className="sr-only">Stories, Refined.</span>
+      {/* Animated presentation */}
+      <span aria-hidden="true">
+        <span className="block"><Word delay={0.1} className="font-serif">Stories,</Word></span>
+        <TypingCycle
+          words={["Amplified.", "Remembered.", "Refined."]}
+          className="hero-refined font-medium text-cinnabar [letter-spacing:-0.02em]"
+          caretClassName="bg-cinnabar"
+        />
+      </span>
+    </h1>
   );
 };
 

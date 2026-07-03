@@ -45,7 +45,7 @@ const Thinking = () => (
   <div>
     <SEO
       title="Manifesto — Stories, Refined. · ØRIONS"
-      description="ทุกแบรนด์คือจุดแสงหนึ่งจุด — ปัญหาคือท้องฟ้าวันนี้สว่างจนไม่มีใครมองเห็นดาวดวงไหน. แสงที่กระจายคือ Noise แสงที่ถูกโฟกัสคือ Signal — ØRIONS คือเลนส์นั้น. เรื่องที่คมที่สุดชนะ ไม่ใช่เรื่องที่ดังที่สุด."
+      description="เอเจนซี่ที่มีสมองของ consult — เราวินิจฉัยก่อนว่าแบรนด์ติดกำแพงตรงไหน แล้วลงมือแก้ด้วยงานคราฟต์จนจบ. คิดแบบ Consult → ทำแบบ Craft → ส่งมอบแบบ Boutique. เรื่องที่คมที่สุดชนะ ไม่ใช่เรื่องที่ดังที่สุด."
       path="/thinking"
       schema={[
         {
@@ -169,8 +169,13 @@ const Thinking = () => (
               เงินพาคุณมาถึงหน้ากำแพงได้ — <em className="text-cinnabar italic">แต่พาข้ามไปไม่ได้.</em>
             </blockquote>
           </Reveal>
-          <Reveal delay={0.2}>
+          <Reveal delay={0.18}>
             <p lang="th" className="mt-8 max-w-[640px] font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.8] text-foreground/80">
+              และนี่คือจุดที่ธุรกิจส่วนใหญ่พลาด — พวกเขาแก้ <span className="text-foreground">อาการ</span> (ยอดตก → ยิงแอดเพิ่ม → ลดราคา) โดยไม่เคยวินิจฉัย <span className="text-cinnabar">โรค</span> (แบรนด์ไม่มีเรื่องที่คมพอให้คนจำ).
+            </p>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <p lang="th" className="mt-6 max-w-[640px] font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.8] text-foreground/80">
               สิ่งเดียวที่ข้ามกำแพงนี้ได้ คือ<span className="text-cinnabar">เรื่องราวที่คมพอ</span>. แบรนด์ที่ข้ามไปแล้ว ชีวิตต่างออกไปโดยสิ้นเชิง:
             </p>
           </Reveal>
@@ -225,19 +230,70 @@ const Thinking = () => (
           </Reveal>
         </div>
 
-        {/* three disciplines */}
-        <div className="mt-14 md:mt-16 border-t border-foreground/12">
-          {services.map((s, i) => (
-            <Reveal key={s.k} delay={i * 0.05}>
-              <div className="grid grid-cols-[44px_1fr] gap-4 md:gap-8 py-7 md:py-9 border-b border-foreground/12 items-baseline group">
-                <div className="font-serif text-cinnabar text-[24px] md:text-[34px] leading-none tabular-nums">{`0${i + 1}`}</div>
-                <div>
-                  <h3 className="font-serif text-[22px] md:text-[30px] leading-[1.1] tracking-[-0.01em] group-hover:text-cinnabar transition-colors">{s.k}</h3>
-                  <p lang="th" className="mt-2.5 font-thai thai-wrap text-[14px] leading-[1.8] text-muted-foreground max-w-[62ch]">{s.d}</p>
+        {/* how we work — like a doctor, not a pharmacy */}
+        <div className="mt-16 md:mt-20">
+          <Reveal>
+            <p lang="th" className="font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.8] text-foreground/80 max-w-[640px]">
+              และนี่คือวิธีทำงานของเรา — <span className="text-foreground">เหมือนหมอ ไม่เหมือนร้านขายยา:</span>
+            </p>
+          </Reveal>
+
+          <div className="mt-10 border-t border-foreground/12">
+            {/* 01 — Diagnosis */}
+            <Reveal>
+              <div className="grid grid-cols-[44px_1fr] gap-4 md:gap-8 py-8 md:py-11 border-b border-foreground/12 items-baseline">
+                <div className="font-serif text-cinnabar text-[24px] md:text-[34px] leading-none tabular-nums">01</div>
+                <div className="max-w-[640px]">
+                  <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-cinnabar">The Diagnosis · เราวินิจฉัยก่อน</div>
+                  <h3 lang="th" className="mt-3 font-serif text-[22px] md:text-[30px] leading-[1.15] tracking-[-0.01em]">The Refinement Session</h3>
+                  <p lang="th" className="mt-3 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.8] text-muted-foreground">
+                    ก่อนลงมือทำอะไรทั้งสิ้น เรานั่งลงกับคุณเพื่อหาว่าแบรนด์ติดกำแพงตรงไหน — ตัวตนไม่ชัด? เรื่องไม่คม? หรือสื่อสารผิดที่? ผลลัพธ์ไม่ใช่สไลด์สวยๆ ที่เอาไปทำต่อไม่ได้ แต่คือ<span className="text-foreground">แผนที่ชัดเจนว่าต้องแก้อะไร ตามลำดับไหน และทำไม</span>.
+                  </p>
                 </div>
               </div>
             </Reveal>
-          ))}
+
+            {/* 02 — Treatment (the three disciplines, prescribed) */}
+            <Reveal delay={0.05}>
+              <div className="grid grid-cols-[44px_1fr] gap-4 md:gap-8 py-8 md:py-11 border-b border-foreground/12 items-baseline">
+                <div className="font-serif text-cinnabar text-[24px] md:text-[34px] leading-none tabular-nums">02</div>
+                <div>
+                  <div className="max-w-[640px]">
+                    <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-cinnabar">The Treatment · แล้วจึงลงมือแก้</div>
+                    <h3 lang="th" className="mt-3 font-serif text-[22px] md:text-[30px] leading-[1.15] tracking-[-0.01em]">ยาถูกจ่ายตามการวินิจฉัย — ไม่ใช่เมนูให้เลือกซื้อ</h3>
+                  </div>
+                  <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4">
+                    {services.map((s) => (
+                      <div key={s.k} className="card-soft p-5 md:p-6 h-full">
+                        <h4 className="font-display text-[15px] md:text-[16px] font-medium tracking-[-0.01em]">{s.k}</h4>
+                        <p lang="th" className="mt-2 font-thai thai-wrap text-[13px] leading-[1.75] text-muted-foreground">{s.d}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+
+            {/* 03 — Delivery */}
+            <Reveal delay={0.1}>
+              <div className="grid grid-cols-[44px_1fr] gap-4 md:gap-8 py-8 md:py-11 border-b border-foreground/12 items-baseline">
+                <div className="font-serif text-cinnabar text-[24px] md:text-[34px] leading-none tabular-nums">03</div>
+                <div className="max-w-[640px]">
+                  <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-cinnabar">The Delivery · ส่งมอบแบบบูทีค</div>
+                  <h3 lang="th" className="mt-3 font-serif text-[22px] md:text-[30px] leading-[1.15] tracking-[-0.01em]">อยู่จนเห็นว่ามันถูกแก้จริง</h3>
+                  <p lang="th" className="mt-3 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.8] text-muted-foreground">
+                    เราไม่ส่งงานแล้วหายไป — เราอยู่จนเห็นว่าสิ่งที่วินิจฉัยไว้ ถูกแก้จริง.
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+
+          <Reveal delay={0.1}>
+            <blockquote className="mt-12 font-serif text-[22px] md:text-[32px] leading-[1.3] tracking-[-0.015em] text-foreground max-w-[24ch]">
+              คิดแบบ <em className="text-cinnabar italic">Consult</em> → ทำแบบ <em className="text-cinnabar italic">Craft</em> → ส่งมอบแบบ <em className="text-cinnabar italic">Boutique.</em>
+            </blockquote>
+          </Reveal>
         </div>
       </div>
     </section>
@@ -249,7 +305,7 @@ const Thinking = () => (
           <SectionLabel index="04" label="The Proof" />
           <Reveal delay={0.05}>
             <h2 lang="th" className="mt-8 font-serif text-[26px] md:text-[38px] leading-[1.2] tracking-[-0.015em] max-w-[22ch] thai-wrap">
-              พิสูจน์มาแล้ว <em className="text-cinnabar italic">ข้ามทุกอุตสาหกรรม.</em>
+              ความคิดพิสูจน์ด้วยคำพูดไม่ได้ — <em className="text-cinnabar italic">ต้องพิสูจน์ด้วยงาน.</em>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
@@ -283,7 +339,7 @@ const Thinking = () => (
           </Reveal>
           <Reveal delay={0.1}>
             <p lang="th" className="mt-8 max-w-[640px] font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.8] text-foreground/80">
-              ไม่ใช่เพราะทำได้แค่นั้น แต่เพราะ<span className="text-foreground">งานคราฟต์ที่ดี ไม่เคยเกิดจากการทำเยอะ</span>. เราถามตัวเองด้วยคำถามเดียว — "ทีมยังทุ่มสุดตัวให้ทุกโปรเจกต์ได้อยู่ไหม?" ถ้าคำตอบคือไม่ เราหยุดรับ.
+              <span className="text-foreground">การวินิจฉัยที่ดี ทำแบบสายพานไม่ได้</span> — และงานคราฟต์ที่ดี ไม่เคยเกิดจากการทำเยอะ. เราถามตัวเองด้วยคำถามเดียว — "ทีมยังทุ่มสุดตัวให้ทุกโปรเจกต์ได้อยู่ไหม?" ถ้าคำตอบคือไม่ เราหยุดรับ.
             </p>
           </Reveal>
           <Reveal delay={0.15}>

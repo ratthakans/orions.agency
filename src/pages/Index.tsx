@@ -92,13 +92,13 @@ const Index = () => {
   <div>
     <SEO
       title="ØRIONS — Boutique Creative Agency, Bangkok"
-      description="สตูดิโอครีเอทีฟบูทีคในกรุงเทพฯ — เราทำให้แบรนด์คมพอที่คนจะจำได้เอง. brand strategy · creative production · communication design. เพราะเรื่องที่คมที่สุดชนะ ไม่ใช่เรื่องที่ดังที่สุด."
+      description="Boutique creative agency ในกรุงเทพฯ ที่มีสมองของ consult — เราวินิจฉัยก่อนว่าแบรนด์ติดตรงไหน แล้วลงมือแก้ด้วยงานคราฟต์จนจบ. brand strategy · creative production · communication design. เรื่องที่คมที่สุดชนะ ไม่ใช่เรื่องที่ดังที่สุด."
       path="/"
       schema={{
         "@context": "https://schema.org",
         "@type": "FAQPage",
         mainEntity: [
-          { "@type": "Question", name: "ØRIONS ทำอะไร?", acceptedAnswer: { "@type": "Answer", text: "ØRIONS เป็นสตูดิโอครีเอทีฟบูทีคในกรุงเทพฯ สำหรับเจ้าของแบรนด์ที่เหนื่อยกับการเติบโตด้วยเงินยิงแอด — เราทำให้แบรนด์คมพอที่คนจะจำได้เอง ผ่าน brand strategy, creative production (brand film · video · photography · music) และ communication design." } },
+          { "@type": "Question", name: "ØRIONS ทำอะไร?", acceptedAnswer: { "@type": "Answer", text: "ØRIONS เป็น boutique creative agency ในกรุงเทพฯ ที่มีสมองของ consult — เราไม่ได้รอบรีฟ แต่วินิจฉัยก่อนว่าแบรนด์ติดตรงไหน แล้วลงมือแก้ด้วยงานคราฟต์จนจบ ผ่าน brand strategy, creative production (brand film · video · photography · music) และ communication design. คิดแบบ Consult → ทำแบบ Craft → ส่งมอบแบบ Boutique." } },
           { "@type": "Question", name: "เริ่มงานกับ ØRIONS ต้องทำอย่างไร?", acceptedAnswer: { "@type": "Answer", text: "เริ่มจากคุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์และเงื่อนไขมา เราจะบอกตรงๆ ว่าจะ refine มันยังไง. ติดต่อ hello@orions.agency · 089 354 2628 (คุณพลอย) · LINE @orions" } },
           { "@type": "Question", name: "ØRIONS คิดราคายังไง?", acceptedAnswer: { "@type": "Answer", text: "งานคราฟต์คิดเป็นแคมเปญหรือโปรเจกต์ — ไม่มีเรทการ์ด ตีตามขอบเขต ความลึก และมาตรฐานที่โจทย์ต้องการ. เราคุยโจทย์ก่อนเสมอ แล้วเสนอสโคป + ราคาที่ตรงงาน." } },
           { "@type": "Question", name: "ØRIONS ไม่เหมาะกับใคร?", acceptedAnswer: { "@type": "Answer", text: "เรารับงานจำกัดโดยตั้งใจ — เพราะงานดีไม่เกิดจากทำเยอะ. ถ้าต้องการคอนเทนต์เยอะที่สุดในราคาถูกที่สุดโดยไม่ต้องมีกลยุทธ์ เราจะบอกตรงๆ ว่าเราอาจไม่ใช่คำตอบ." } },
@@ -206,10 +206,16 @@ const Index = () => {
       <div className="relative z-10 max-w-[1280px] mx-auto py-24 md:py-36">
         <SectionHeading
           lang="th"
-          title={<>คมพอที่คนจะ<em className="text-cinnabar">จำได้เอง.</em></>}
-          intro="สำหรับเจ้าของแบรนด์ที่เหนื่อยกับการเติบโตด้วยเงินยิงแอด — เราคัด สกัด และเจียระไนเรื่องราวของแบรนด์ จนเหลือแต่สิ่งที่คนจำได้จริง. เพราะในโลกที่ทุกอย่างล้นเกิน เรื่องที่คมที่สุดชนะ ไม่ใช่เรื่องที่ดังที่สุด."
+          eyebrow="An agency that thinks like a consultancy"
+          title={<>เอเจนซี่ ที่มีสมองของ <em className="text-cinnabar">consult.</em></>}
+          intro="ที่ปรึกษาคิดเก่งแต่ทำไม่ได้ · เอเจนซี่ทั่วไปทำสวยแต่คิดไม่ลึก. เราอยู่ตรงกลาง — ไม่รอบรีฟจากคุณ แต่วินิจฉัยก่อนว่าแบรนด์ติดตรงไหน แล้วลงมือแก้ด้วยงานคราฟต์จนจบ. เหมือนหมอ ไม่เหมือนร้านขายยา."
         />
-        {/* Three disciplines — one lens */}
+        <Reveal delay={0.05}>
+          <p className="mt-8 font-serif text-[20px] md:text-[28px] leading-[1.3] tracking-[-0.015em] text-foreground max-w-[24ch]">
+            คิดแบบ <em className="text-cinnabar italic">Consult</em> → ทำแบบ <em className="text-cinnabar italic">Craft</em> → ส่งมอบแบบ <em className="text-cinnabar italic">Boutique.</em>
+          </p>
+        </Reveal>
+        {/* Three disciplines — the treatment */}
         <div className="mt-12 md:mt-14 grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
           {included.map((it, i) => (
             <Reveal key={it.k} delay={i * 0.05}>
@@ -221,7 +227,7 @@ const Index = () => {
           ))}
         </div>
         <p lang="th" className="mt-12 font-thai text-[14px] leading-[1.8] text-foreground/80 max-w-[660px]">
-          เรารับงานจำกัด — เพราะงานดีไม่เกิดจากทำเยอะ. <Link to="/thinking" className="text-cinnabar hover:underline">อ่านว่าทำไม</Link>.
+          เรารับงานจำกัด — เพราะการวินิจฉัยที่ดี ทำแบบสายพานไม่ได้. <Link to="/thinking" className="text-cinnabar hover:underline">อ่านวิธีทำงานของเรา</Link>.
         </p>
       </div>
     </section>

@@ -252,14 +252,14 @@ const Contact = () => {
                   </div>
                 ))}
                 <div className="md:col-span-2">
-                  <label htmlFor="field-pkg" className={labelCls}>— 05 / แพ็กเกจที่สนใจ <span className="text-foreground/60">(ไม่บังคับ)</span></label>
+                  <label htmlFor="field-pkg" className={labelCls}>— 05 / สนใจเริ่มตรงไหน <span className="text-foreground/60">(ไม่บังคับ)</span></label>
                   <select
                     id="field-pkg"
                     value={form.pkg}
                     onChange={(e) => setForm({ ...form, pkg: e.target.value })}
                     className={`${inputCls} appearance-none cursor-pointer`}
                   >
-                    <option value="">— เลือกแพ็กเกจ หรือข้ามได้ —</option>
+                    <option value="">— ยังไม่แน่ใจก็ได้ เดี๋ยวเราช่วยวินิจฉัย —</option>
                     {packageOptions.map((o) => (
                       <option key={o} value={o}>{o}</option>
                     ))}

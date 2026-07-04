@@ -28,21 +28,15 @@ const Blog = () => (
     />
 
     {/* HERO */}
-    <section className="section-ink px-6 md:px-10">
-      <div className="max-w-[1280px] mx-auto pt-28 md:pt-32 pb-12 md:pb-16">
-        <SectionLabel label="Blog" />
-        <Reveal delay={0.05}>
-          <h1 className="mt-8 h-display-lg">
-            มุมมองด้าน<br /><em className="text-cinnabar">ครีเอทีฟ.</em>
-          </h1>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <p lang="th" className="mt-8 font-thai thai-wrap text-[15px] md:text-[17px] text-muted-foreground max-w-[640px] leading-[1.8]">
-            สิ่งที่เราคิด เถียง และเชื่อ เรื่องแบรนด์ คอนเทนต์ และงานฝีมือ — เขียนแบบพูดตรง ไม่ขายฝัน.
-          </p>
-        </Reveal>
-      </div>
-    </section>
+    <PageHero
+      eyebrow="Blog"
+      index="01"
+      lang="th"
+      titleClamp="max-w-[14ch]"
+      title={<>มุมมองด้าน<br /><em className="text-cinnabar">ครีเอทีฟ.</em></>}
+      intro="สิ่งที่เราคิด เถียง และเชื่อ เรื่องแบรนด์ คอนเทนต์ และงานฝีมือ — เขียนแบบพูดตรง ไม่ขายฝัน."
+      meta={[`${blogPosts.length} บทความ`, "อัปเดตสม่ำเสมอ", "พูดตรง ไม่ขายฝัน"]}
+    />
 
     {/* FEATURED — latest post as a quiet cover story */}
     <section className="px-6 md:px-10 border-t border-foreground/15">

@@ -59,7 +59,7 @@ export default {
         display: ["Newsreader", "IBM Plex Sans Thai", "Georgia", "serif"],
         body: ["IBM Plex Sans Thai", "system-ui", "sans-serif"],
         serif: ["Newsreader", "IBM Plex Sans Thai", "Georgia", "serif"],
-        mono: ["IBM Plex Mono", "ui-monospace", "monospace"],
+        mono: ["IBM Plex Mono", "IBM Plex Sans Thai", "ui-monospace", "monospace"],
         thai: ["IBM Plex Sans Thai", "system-ui", "sans-serif"],
         brand: ["Unbounded", "system-ui", "sans-serif"],
         unbounded: ["Unbounded", "system-ui", "sans-serif"],

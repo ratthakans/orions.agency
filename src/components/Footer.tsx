@@ -38,23 +38,35 @@ const Footer = () => {
         <span className="hidden md:inline">Stories, refined.</span>
       </div>
       <div className="px-6 md:px-10 pt-16 md:pt-20 pb-6 max-w-[1280px] mx-auto">
-        {/* Headline row */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10 border-b border-foreground/15 pb-12">
-          <div>
-            <a
-              href="mailto:hello@orions.agency"
-              className="font-serif font-medium text-[28px] md:text-[44px] tracking-[-0.015em] hover:text-cinnabar transition-colors"
+        {/* Giant serif directory — COLLINS-style centered nav */}
+        <nav aria-label="Footer" className="py-10 md:py-20 flex flex-col items-center text-center">
+          {navLinks.map((l) => (
+            <Link
+              key={l.to}
+              to={l.to}
+              className="font-serif font-normal text-[clamp(34px,6vw,72px)] leading-[1.28] tracking-[-0.02em] text-foreground/90 hover:text-cinnabar transition-colors duration-300"
             >
-              hello@orions.agency
-            </a>
+              {l.label}
+            </Link>
+          ))}
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-3">
+            <Link to="/contact" className="btn-accent"><span>เริ่มต้นบทสนทนา</span></Link>
+            <a href="mailto:hello@orions.agency" className="btn-ghost"><span>hello@orions.agency</span></a>
           </div>
-          <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-foreground/55 text-right">
+        </nav>
+
+        {/* Utility row */}
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 border-t border-b border-foreground/15 py-8">
+          <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-foreground/55">
             Reply within 24h · Mon–Fri
+          </div>
+          <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-foreground/55 md:text-right">
+            Bangkok · 13.7563° N, 100.5018° E
           </div>
         </div>
 
         {/* 3 columns */}
-        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-10">
+        <div className="mt-12 grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-10">
           <div>
             <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar mb-5">— Contact</div>
             <ul className="space-y-2 font-thai text-[13px] leading-[1.8] text-foreground/85">
@@ -74,17 +86,6 @@ const Footer = () => {
             <p className="mt-3 font-mono text-[10px] tracking-[0.18em] uppercase text-foreground/60">
               Tax ID 0105568220629
             </p>
-          </div>
-
-          <div>
-            <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar mb-5">— Index</div>
-            <ul className="space-y-2 btn-label">
-              {navLinks.map((l) => (
-                <li key={l.to}>
-                  <Link to={l.to} className="text-foreground/85 hover:text-cinnabar transition-colors">{l.label}</Link>
-                </li>
-              ))}
-            </ul>
           </div>
 
           <div>

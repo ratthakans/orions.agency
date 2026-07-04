@@ -8,7 +8,6 @@ import CTABand from "@/components/CTABand";
 import Slash from "@/components/Slash";
 import HeroHeadline from "@/components/HeroHeadline";
 import { caseStudies } from "@/data/caseStudies";
-import TopoField from "@/components/TopoField";
 import Picture from "@/components/Picture";
 import heroSilk from "@/assets/hero-silk.jpg?as=picture";
 import founder from "@/assets/team/founder.jpg?as=picture";
@@ -142,22 +141,24 @@ const Index = () => {
       </div>
     </section>
 
-    {/* 02 — POV STRIP — the brand line, up front */}
-    <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-14 md:py-16 grid grid-cols-1 md:grid-cols-[1.4fr_1fr] gap-6 md:gap-12 md:items-center">
+    {/* 02 — POV — centered serif statement on cream (COLLINS-style breather) */}
+    <section className="section-paper px-6 md:px-10">
+      <div className="max-w-[1280px] mx-auto py-28 md:py-44 flex flex-col items-center text-center">
         <Reveal>
-          <p className="font-serif text-[24px] md:text-[34px] leading-[1.3] tracking-[-0.01em] text-foreground/90 max-w-[22ch]">
-            Marketing rents <em className="text-cinnabar italic">attention.</em><br />Creative earns <em className="text-cinnabar italic">belief.</em>
-          </p>
+          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">Point of view</p>
         </Reveal>
         <Reveal delay={0.08}>
-          <div className="md:text-right">
-            <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-cinnabar">Signal, not noise</p>
-            <p lang="th" className="mt-3 font-thai thai-wrap text-[13px] leading-[1.8] text-muted-foreground md:ml-auto max-w-[42ch]">
-              การตลาดเช่าความสนใจได้ชั่วคราว — แต่ความคิดสร้างสรรค์ทำให้คนเชื่อและอยู่กับคุณ. ในโลกที่ทุกอย่างล้นเกิน เรื่องที่คมที่สุดชนะ ไม่ใช่เรื่องที่ดังที่สุด.
-            </p>
-            <Link to="/thinking" className="link-wipe mt-4 inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.18em] uppercase">อ่าน Manifesto <ArrowUpRight className="w-3.5 h-3.5" /></Link>
-          </div>
+          <p className="h-statement mt-10 max-w-[18ch]">
+            Marketing rents attention.<br />Creative earns <em className="text-cinnabar">belief.</em>
+          </p>
+        </Reveal>
+        <Reveal delay={0.16}>
+          <p lang="th" className="mt-10 font-thai thai-wrap text-[14px] md:text-[16px] leading-[1.9] text-muted-foreground max-w-[52ch]">
+            การตลาดเช่าความสนใจได้ชั่วคราว — แต่ความคิดสร้างสรรค์ทำให้คนเชื่อและอยู่กับคุณ. ในโลกที่ทุกอย่างล้นเกิน เรื่องที่คมที่สุดชนะ ไม่ใช่เรื่องที่ดังที่สุด.
+          </p>
+        </Reveal>
+        <Reveal delay={0.24}>
+          <Link to="/thinking" className="btn-ghost mt-12"><span>อ่าน Manifesto</span><ArrowUpRight className="w-4 h-4" /></Link>
         </Reveal>
       </div>
     </section>
@@ -208,40 +209,48 @@ const Index = () => {
     {/* 04 — SHOWREEL (proof break — let the work speak) */}
     <ShowreelFeature />
 
-    {/* 05 — WHAT WE DO — boutique craft + what's included (consolidated) */}
-    <section className="relative overflow-hidden bg-surface px-6 md:px-10 border-t border-foreground/15">
-      <TopoField fx={0.14} fy={0.62} seed={1} intensity={0.2}
-        className="absolute inset-0 w-full h-full pointer-events-none" />
-      <div className="relative z-10 max-w-[1280px] mx-auto py-24 md:py-36">
-        <SectionHeading
-          lang="th"
-          eyebrow="An agency that thinks like a consultancy"
-          title={<>เอเจนซี่ ที่มีสมองของ <em className="text-cinnabar">consult.</em></>}
-          intro="ที่ปรึกษาคิดเก่งแต่ทำไม่ได้ · เอเจนซี่ทั่วไปทำสวยแต่คิดไม่ลึก. เราอยู่ตรงกลาง — ไม่รอบรีฟจากคุณ แต่วินิจฉัยก่อนว่าแบรนด์ติดตรงไหน แล้วลงมือแก้ด้วยงานคราฟต์จนจบ. เหมือนหมอ ไม่เหมือนร้านขายยา."
-        />
-        <Reveal delay={0.05}>
-          <p className="mt-8 font-serif text-[20px] md:text-[28px] leading-[1.3] tracking-[-0.015em] text-foreground max-w-[24ch]">
-            คิดแบบ <em className="text-cinnabar italic">Consult</em> → ทำแบบ <em className="text-cinnabar italic">Craft</em> → ส่งมอบแบบ <em className="text-cinnabar italic">Boutique.</em>
+    {/* 05 — WHAT WE DO — quiet editorial index rows on cream (COLLINS Programs) */}
+    <section className="section-paper px-6 md:px-10">
+      <div className="max-w-[1280px] mx-auto py-24 md:py-36">
+        <Reveal>
+          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">What we do</p>
+        </Reveal>
+        <Reveal delay={0.06}>
+          <h2 lang="th" className="mt-8 h-display-md max-w-[24ch] thai-wrap">
+            เอเจนซี่ ที่มีสมองของ <em className="text-cinnabar">consult.</em>
+          </h2>
+        </Reveal>
+        <Reveal delay={0.12}>
+          <p lang="th" className="mt-6 font-thai thai-wrap text-[14px] md:text-[16px] leading-[1.9] text-muted-foreground max-w-[620px]">
+            ที่ปรึกษาคิดเก่งแต่ทำไม่ได้ · เอเจนซี่ทั่วไปทำสวยแต่คิดไม่ลึก. เราอยู่ตรงกลาง — วินิจฉัยก่อนว่าแบรนด์ติดตรงไหน แล้วลงมือแก้ด้วยงานคราฟต์จนจบ.
           </p>
         </Reveal>
-        {/* Three disciplines — the treatment */}
-        <div className="mt-12 md:mt-14 grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
+
+        {/* Three disciplines — COLLINS-style list rows: serif name left, one-liner right */}
+        <div className="mt-16 md:mt-20">
           {included.map((it, i) => (
-            <Reveal key={it.k} delay={i * 0.05}>
-              <div className="h-full card-soft p-6 md:p-8 group flex flex-col">
-                <div className="flex items-center justify-between font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
-                  <span className="text-cinnabar tabular-nums">0{i + 1}</span>
-                  <span>/ 0{included.length}</span>
-                </div>
-                <h3 className="mt-8 font-display text-[18px] md:text-[21px] font-medium leading-tight tracking-[-0.01em] group-hover:text-cinnabar transition-colors">{it.k}</h3>
-                <p lang="th" className="mt-3 font-thai thai-wrap text-[13px] md:text-[14px] leading-[1.8] text-muted-foreground">{it.d}</p>
+            <Reveal key={it.k} delay={i * 0.06}>
+              <div className="row-item group">
+                <h3 className="font-serif text-[clamp(26px,3.6vw,44px)] font-normal leading-[1.1] tracking-[-0.02em] group-hover:text-cinnabar transition-colors duration-300">
+                  {it.k}
+                </h3>
+                <p lang="th" className="font-thai thai-wrap text-[13px] md:text-[15px] leading-[1.8] text-muted-foreground">
+                  {it.d}
+                </p>
               </div>
             </Reveal>
           ))}
+          <div className="border-t border-foreground/18" />
         </div>
-        <p lang="th" className="mt-12 font-thai text-[14px] leading-[1.8] text-foreground/80 max-w-[660px]">
-          เรารับงานจำกัด — เพราะการวินิจฉัยที่ดี ทำแบบสายพานไม่ได้. <Link to="/thinking" className="text-cinnabar hover:underline">อ่านวิธีทำงานของเรา</Link>.
-        </p>
+
+        <Reveal delay={0.2}>
+          <div className="mt-12 flex flex-wrap items-center gap-6">
+            <Link to="/contact" className="btn-accent"><span>เริ่มต้นบทสนทนา</span><ArrowUpRight className="w-4 h-4" /></Link>
+            <p lang="th" className="font-thai text-[13px] leading-[1.8] text-muted-foreground">
+              เรารับงานจำกัด — เพราะการวินิจฉัยที่ดี ทำแบบสายพานไม่ได้. <Link to="/thinking" className="text-cinnabar hover:underline">อ่านวิธีทำงานของเรา</Link>
+            </p>
+          </div>
+        </Reveal>
       </div>
     </section>
 

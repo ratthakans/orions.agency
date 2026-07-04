@@ -234,6 +234,56 @@
   .bg-surface   { background-color: hsl(var(--surface)); }
   .bg-surface-2 { background-color: hsl(var(--surface-2)); }
 
+  /* === Paper mode — COLLINS-style warm cream band (light/dark alternation) ===
+     Re-maps the semantic tokens inside the section, so every existing utility
+     (text-foreground, text-muted-foreground, border-foreground/15, card-soft)
+     just works in light mode. Cinnabar stays fixed — it reads on both. */
+  .section-paper {
+    --background: 42 24% 93%;          /* warm cream, COLLINS-adjacent */
+    --foreground: 20 10% 9%;           /* warm near-black ink */
+    --surface: 42 20% 90%;
+    --surface-2: 42 22% 88%;
+    --card: 42 26% 95%;
+    --card-foreground: 20 10% 9%;
+    --muted: 42 14% 84%;
+    --muted-foreground: 24 6% 38%;
+    --border: 30 8% 82%;
+    --border-soft: 30 8% 82%;
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+
+  /* === Statement type — centered serif declaration (COLLINS "Rewrite your worth.") ===
+     Lighter weight than h-display: at statement sizes Newsreader 400 reads global
+     and literary; 500 reads like a landing page. */
+  .h-statement {
+    font-family: 'Newsreader', 'IBM Plex Sans Thai', Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(38px, 6.4vw, 96px);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+    font-optical-sizing: auto;
+  }
+  .h-statement em { font-weight: 450; }
+
+  /* === Row list — quiet editorial index rows (COLLINS Programs list) === */
+  .row-item {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem 3rem;
+    padding: 2rem 0;
+    border-top: 1px solid hsl(var(--foreground) / 0.18);
+    transition: padding-left 340ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  @media (min-width: 768px) {
+    .row-item { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); align-items: baseline; padding: 2.75rem 0; }
+    .row-item:hover { padding-left: 1.25rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .row-item:hover { padding-left: 0; }
+  }
+
   .hairline     { height: 1px; background: hsl(var(--foreground)); }
   .hairline-soft{ height: 1px; background: hsl(var(--border-soft)); }
 
@@ -298,8 +348,8 @@
 
   .btn-accent {
     display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
-    padding: 0.85rem 1.7rem;
-    border-radius: 0;
+    padding: 0.8rem 1.7rem;
+    border-radius: 999px;   /* COLLINS pill */
     background: hsl(var(--accent));
     color: hsl(var(--background));
     border: 1.5px solid hsl(var(--accent));
@@ -316,8 +366,8 @@
 
   .btn-ghost {
     display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
-    padding: 0.85rem 1.7rem;
-    border-radius: 0;
+    padding: 0.8rem 1.7rem;
+    border-radius: 999px;   /* COLLINS pill */
     background: transparent;
     color: hsl(var(--foreground));
     border: 1.5px solid hsl(var(--foreground) / 0.3);

@@ -131,6 +131,15 @@ const Index = () => {
           </div>
         </Reveal>
       </div>
+
+      {/* Hero baseline — editorial meta rail (coordinates · scroll cue · vintage) */}
+      <div className="relative z-10 max-w-[1280px] mx-auto w-full pb-7 hidden md:flex items-center justify-between font-mono text-[10px] tracking-[0.22em] uppercase text-foreground/55">
+        <span>13.7563° N · 100.5018° E</span>
+        <span className="inline-flex items-center gap-2 animate-pulse">
+          <span aria-hidden className="w-1.5 h-1.5 bg-cinnabar" /> Scroll
+        </span>
+        <span>Est. 2025 · Bangkok</span>
+      </div>
     </section>
 
     {/* 02 — POV STRIP — the brand line, up front */}
@@ -219,9 +228,13 @@ const Index = () => {
         <div className="mt-12 md:mt-14 grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
           {included.map((it, i) => (
             <Reveal key={it.k} delay={i * 0.05}>
-              <div className="h-full card-soft p-6 md:p-7 hover:border-cinnabar/50 transition-colors group">
-                <h3 className="font-display text-[17px] md:text-[19px] font-medium leading-tight tracking-[-0.01em] group-hover:text-cinnabar transition-colors">{it.k}</h3>
-                <p lang="th" className="mt-2 font-thai thai-wrap text-[13px] md:text-[14px] leading-[1.8] text-muted-foreground">{it.d}</p>
+              <div className="h-full card-soft p-6 md:p-8 group flex flex-col">
+                <div className="flex items-center justify-between font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
+                  <span className="text-cinnabar tabular-nums">0{i + 1}</span>
+                  <span>/ 0{included.length}</span>
+                </div>
+                <h3 className="mt-8 font-display text-[18px] md:text-[21px] font-medium leading-tight tracking-[-0.01em] group-hover:text-cinnabar transition-colors">{it.k}</h3>
+                <p lang="th" className="mt-3 font-thai thai-wrap text-[13px] md:text-[14px] leading-[1.8] text-muted-foreground">{it.d}</p>
               </div>
             </Reveal>
           ))}

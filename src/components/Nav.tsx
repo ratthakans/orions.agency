@@ -1,5 +1,6 @@
 import { useState, useEffect, Fragment } from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
+import { m, useScroll, useSpring } from "framer-motion";
 import Logo from "@/components/Logo";
 
 const links = [
@@ -13,6 +14,10 @@ const Nav = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { pathname } = useLocation();
+
+  // Reading-progress hairline under the nav — quiet cinnabar, spring-smoothed.
+  const { scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, { stiffness: 140, damping: 30, mass: 0.3 });
 
   // Close the mobile menu on route change.
   useEffect(() => setOpen(false), [pathname]);
@@ -93,6 +98,13 @@ const Nav = () => {
           <span className={`block h-px bg-foreground transition-all duration-300 ${open ? "w-5 -translate-y-[6px] -rotate-45" : "w-5"}`} />
         </button>
       </div>
+
+      {/* Reading progress — thin cinnabar bar riding the bottom edge of the header */}
+      <m.div
+        aria-hidden
+        style={{ scaleX: progress }}
+        className="absolute bottom-0 left-0 right-0 h-px origin-left bg-cinnabar"
+      />
 
       {/* Mobile menu overlay — `inert` when closed so hidden links stay out of
           tab order and the screen-reader tree. */}

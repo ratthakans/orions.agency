@@ -6,6 +6,7 @@ import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionHeading from "@/components/ui/SectionHeading";
 import SectionLabel from "@/components/SectionLabel";
+import PageHero from "@/components/PageHero";
 import { toast } from "sonner";
 import { track } from "@/lib/analytics";
 import Picture from "@/components/Picture";
@@ -145,47 +146,34 @@ const Contact = () => {
       />
 
       {/* 01 — HERO + inline timeline */}
-      <section className="section-ink px-6 md:px-10">
-        <div className="max-w-[1280px] mx-auto pt-28 md:pt-32 pb-20 md:pb-24">
-          <SectionLabel label="Start a conversation" />
-          <Reveal delay={0.05}>
-            <h1 lang="th" className="mt-8 h-display-lg max-w-[16ch] thai-wrap">
-              เล่าโจทย์มา —<br /> เราช่วย <em className="text-cinnabar">refine</em> มัน
-            </h1>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <p lang="th" className="mt-8 max-w-[640px] font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.8] text-foreground/85">
-              คุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์และเงื่อนไขมา เราช่วยมองว่าจะ refine มันยังไง.
-            </p>
-          </Reveal>
+      <PageHero
+        eyebrow="Start a conversation"
+        index="01"
+        lang="th"
+        titleClamp="max-w-[16ch]"
+        title={<>เล่าโจทย์มา —<br /> เราช่วย <em className="text-cinnabar">refine</em> มัน</>}
+        intro="คุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์และเงื่อนไขมา เราช่วยมองว่าจะ refine มันยังไง."
+        meta={["ตอบกลับใน 24 ชม.", "คุยฟรี 45 นาที", "NDA on request"]}
+      >
+        <Reveal delay={0.24}>
+          <div className="mt-12 flex flex-col sm:flex-row gap-4">
+            <a href="#brief" className="btn-accent justify-between sm:w-auto">
+              <span>ส่งโจทย์มา</span><ArrowUpRight className="w-4 h-4" />
+            </a>
+            <a href="mailto:hello@orions.agency?subject=คุยฟรี 45 นาที — ØRIONS" className="btn-ghost justify-between sm:w-auto">
+              <span>อีเมลนัดคุย</span><ArrowUpRight className="w-4 h-4" />
+            </a>
+          </div>
+        </Reveal>
 
-          <Reveal delay={0.15}>
-            <p className="mt-8 font-mono text-[10px] tracking-[0.05em] text-muted-foreground">
-              <span className="text-cinnabar">—</span> ตอบกลับใน 24 ชม. · คุยฟรี 45 นาที · NDA on request
-            </p>
-          </Reveal>
-
-          <Reveal delay={0.2}>
-            <div className="mt-12 flex flex-col sm:flex-row gap-4">
-              <a href="#brief" className="btn-accent justify-between sm:w-auto">
-                <span>ส่งโจทย์มา</span><ArrowUpRight className="w-4 h-4" />
-              </a>
-              <a href="mailto:hello@orions.agency?subject=คุยฟรี 45 นาที — ØRIONS" className="btn-ghost justify-between sm:w-auto">
-                <span>อีเมลนัดคุย</span><ArrowUpRight className="w-4 h-4" />
-              </a>
-            </div>
-          </Reveal>
-
-          {/* Direct lines — minimal (timeline removed; the meta line above already says what happens next) */}
-          <Reveal delay={0.25}>
-            <div className="mt-12 flex flex-wrap gap-x-8 gap-y-2 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
-              <a href="mailto:hello@orions.agency" className="hover:text-cinnabar transition-colors">hello@orions.agency</a>
-              <a href="tel:+66893542628" className="hover:text-cinnabar transition-colors">+66 89 354 2628 · คุณพลอย</a>
-              <a href="https://line.me/ti/p/~orions" target="_blank" rel="noreferrer" className="hover:text-cinnabar transition-colors">LINE @orions</a>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+        <Reveal delay={0.3}>
+          <div className="mt-12 flex flex-wrap gap-x-8 gap-y-2 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
+            <a href="mailto:hello@orions.agency" className="hover:text-cinnabar transition-colors">hello@orions.agency</a>
+            <a href="tel:+66893542628" className="hover:text-cinnabar transition-colors">+66 89 354 2628 · คุณพลอย</a>
+            <a href="https://line.me/ti/p/~orions" target="_blank" rel="noreferrer" className="hover:text-cinnabar transition-colors">LINE @orions</a>
+          </div>
+        </Reveal>
+      </PageHero>
 
       {/* 01b — WHAT HAPPENS NEXT */}
       <section className="px-6 md:px-10 border-t border-foreground/15">

@@ -5,6 +5,7 @@ import SEO from "@/components/SEO";
 import SectionHeading from "@/components/ui/SectionHeading";
 import SectionLabel from "@/components/SectionLabel";
 import CTABand from "@/components/CTABand";
+import PageHero from "@/components/PageHero";
 import TopoField from "@/components/TopoField";
 import Picture from "@/components/Picture";
 import founder from "@/assets/team/founder.jpg?as=picture";
@@ -34,23 +35,16 @@ const About = () => (
     />
 
     {/* 01 — WHAT WE BELIEVE */}
-    <section className="relative overflow-hidden section-ink px-6 md:px-10 border-b border-foreground/15">
-      <TopoField fx={0.85} fy={0.42} seed={6} intensity={0.18}
-        className="absolute inset-0 w-full h-full pointer-events-none" />
-      <div className="relative z-10 max-w-[1280px] mx-auto pt-28 md:pt-32 pb-20 md:pb-28">
-        <SectionLabel label="What we believe" />
-        <Reveal delay={0.1}>
-          <h1 lang="th" className="mt-8 h-display-lg max-w-[20ch] thai-wrap">
-            เรื่องที่คมที่สุด<em className="text-cinnabar">ชนะ</em> — ไม่ใช่เรื่องที่ดังที่สุด.
-          </h1>
-        </Reveal>
-        <Reveal delay={0.2}>
-          <p lang="th" className="mt-8 max-w-[720px] font-thai thai-wrap text-[16px] md:text-[19px] leading-[1.8] text-foreground/80">
-            ศัตรูของเรา — และของลูกค้าเรา — ไม่ใช่คู่แข่งของใคร แต่คือ <span className="text-foreground">Noise</span>: งานแมส เสียงรบกวน การถูกลืม และสงครามราคา. เราไม่ใช่ที่ปรึกษาที่ส่งแค่สไลด์ ไม่ใช่เอเจนซี่ที่รอบรีฟแล้วทำตามสั่ง — <span className="text-cinnabar">เราวินิจฉัยก่อน แล้วลงมือแก้ด้วยงานคราฟต์จนจบ.</span>
-          </p>
-        </Reveal>
-      </div>
-    </section>
+    <PageHero
+      eyebrow="What we believe"
+      index="01"
+      lang="th"
+      titleClamp="max-w-[20ch]"
+      title={<>เรื่องที่คมที่สุด<em className="text-cinnabar">ชนะ</em> — ไม่ใช่เรื่องที่ดังที่สุด.</>}
+      intro={<>ศัตรูของเรา — และของลูกค้าเรา — ไม่ใช่คู่แข่งของใคร แต่คือ <span className="text-foreground">Noise</span>: งานแมส เสียงรบกวน การถูกลืม และสงครามราคา. เราไม่ใช่ที่ปรึกษาที่ส่งแค่สไลด์ ไม่ใช่เอเจนซี่ที่รอบรีฟแล้วทำตามสั่ง — <span className="text-cinnabar">เราวินิจฉัยก่อน แล้วลงมือแก้ด้วยงานคราฟต์จนจบ.</span></>}
+      meta={["Signal over noise", "Est. 2025 · Bangkok"]}
+      backdrop={<TopoField fx={0.85} fy={0.42} seed={6} intensity={0.18} className="absolute inset-0 w-full h-full pointer-events-none" />}
+    />
 
     {/* THE COMPASS — one question governs everything */}
     <section className="px-6 md:px-10 border-t border-foreground/15">

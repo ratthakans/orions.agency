@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
-import SectionLabel from "@/components/SectionLabel";
+import PageHero from "@/components/PageHero";
 import ClosingCTA from "@/components/ClosingCTA";
 import { blogPosts } from "@/data/blog";
 import Picture from "@/components/Picture";

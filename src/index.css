@@ -237,6 +237,61 @@
   .hairline     { height: 1px; background: hsl(var(--foreground)); }
   .hairline-soft{ height: 1px; background: hsl(var(--border-soft)); }
 
+  /* Premium section divider — a hairline that fades in from a cinnabar tick at the left */
+  .rule-fade {
+    height: 1px;
+    background: linear-gradient(90deg, hsl(var(--accent)) 0, hsl(var(--foreground) / 0.18) 6%, hsl(var(--foreground) / 0.06) 55%, transparent 100%);
+  }
+
+  /* Kicker index — oversized ghosted section numeral (editorial page-hero framing) */
+  .kicker-index {
+    font-family: 'Unbounded', system-ui, sans-serif;
+    font-weight: 600;
+    line-height: 0.8;
+    letter-spacing: -0.03em;
+    color: hsl(var(--accent) / 0.16);
+    font-feature-settings: "tnum";
+  }
+
+  /* Meta rail — the mono coordinate/label row under a masthead (location · year · discipline) */
+  .meta-rail {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1.5rem;
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: hsl(var(--muted-foreground));
+  }
+  .meta-rail > * { display: inline-flex; align-items: center; gap: 0.5rem; }
+
+  /* Link with an animated cinnabar underline that wipes in on hover */
+  .link-wipe {
+    position: relative;
+    color: hsl(var(--foreground) / 0.7);
+    transition: color 200ms ease;
+  }
+  .link-wipe::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: -3px;
+    height: 1px; width: 100%;
+    background: hsl(var(--accent));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .link-wipe:hover { color: hsl(var(--accent)); }
+  .link-wipe:hover::after { transform: scaleX(1); }
+
+  /* Image frame — refined hover for editorial imagery (duotone → full colour + slow zoom) */
+  .img-frame { position: relative; overflow: hidden; }
+  .img-frame img { transition: transform 800ms cubic-bezier(0.22, 1, 0.36, 1), filter 600ms ease; }
+  .img-frame:hover img { transform: scale(1.045); }
+
   /* === Unified hover system — quiet, editorial === */
 
   /* === Buttons — pill CTAs (Alpha-style), ORIONS serif label === */
@@ -254,6 +309,10 @@
   }
   .btn-accent:hover { background: hsl(var(--accent-hover)); border-color: hsl(var(--accent-hover)); }
   .btn-accent:active { transform: translateY(1px); }
+
+  /* Arrow micro-interaction — the trailing ArrowUpRight nudges out on hover (premium, quiet) */
+  .btn-accent svg, .btn-ghost svg { transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .btn-accent:hover svg, .btn-ghost:hover svg { transform: translate(2px, -2px); }
 
   .btn-ghost {
     display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
@@ -273,16 +332,31 @@
   /* Badge chip — pill border + cinnabar dot */
   .badge-chip__dot { width: 6px; height: 6px; border-radius: 9999px; background: hsl(var(--accent)); flex-shrink: 0; }
 
-  /* Soft card — rounded, subtle border, hover lifts to cinnabar */
+  /* Soft card — flat editorial panel; hover lifts, warms, and reveals a cinnabar top-rule */
   .card-soft {
+    position: relative;
     border-radius: 0;
     border: 1px solid hsl(var(--foreground) / 0.12);
     background: hsl(var(--card));
-    transition: border-color 200ms ease, background-color 200ms ease;
+    transition: border-color 260ms ease, background-color 260ms ease,
+                transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .card-soft::after {
+    content: '';
+    position: absolute;
+    left: 0; top: -1px;
+    height: 2px; width: 0;
+    background: hsl(var(--accent));
+    transition: width 340ms cubic-bezier(0.22, 1, 0.36, 1);
   }
   .card-soft:hover {
-    border-color: hsl(var(--accent));
+    border-color: hsl(var(--accent) / 0.5);
     background: hsl(var(--accent) / 0.05);
+    transform: translateY(-3px);
+  }
+  .card-soft:hover::after { width: 100%; }
+  @media (prefers-reduced-motion: reduce) {
+    .card-soft:hover { transform: none; }
   }
 
   /* Accent card — cinnabar-tinted highlight (featured / CTA) — flat, no shadow */
@@ -324,8 +398,19 @@ h1:lang(th), h2:lang(th), h3:lang(th), h4:lang(th), h5:lang(th), h6:lang(th),
 .h-display-xl:lang(th), .h-display-lg:lang(th), .h-display-md:lang(th),
 .h-display-sm:lang(th), .h-display-xs:lang(th), .h-display-2xs:lang(th) {
   letter-spacing: 0;
-  line-height: 1.25;
+  line-height: 1.22;
   text-wrap: pretty;
+}
+/* Large Thai mastheads read more refined at a lighter weight — IBM Plex Sans Thai
+   at 500+ turns chunky at display sizes. Drop to 400 and give the marks room. */
+.h-display-xl:lang(th), .h-display-lg:lang(th), h1:lang(th) {
+  font-weight: 400;
+  line-height: 1.16;
+}
+/* Cinnabar accent words inside a big Thai masthead keep a touch more weight so
+   they still "pop" against the lightened base. */
+.h-display-xl:lang(th) em, .h-display-lg:lang(th) em, h1:lang(th) em {
+  font-weight: 500;
 }
 /* Thai accent words in headings — keep upright cinnabar, no negative tracking */
 h1:lang(th) em, h2:lang(th) em, h3:lang(th) em, h4:lang(th) em, h5:lang(th) em, h6:lang(th) em {

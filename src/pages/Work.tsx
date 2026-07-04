@@ -5,6 +5,7 @@ import Reveal from "@/components/Reveal";
 import ClosingCTA from "@/components/ClosingCTA";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
+import PageHero from "@/components/PageHero";
 import { portfolio, type GalleryImage, type VideoItem } from "@/data/portfolio";
 import Picture, { type PictureData } from "@/components/Picture";
 
@@ -94,38 +95,33 @@ const Work = () => {
       />
 
       {/* 01 · HERO + filter */}
-      <section className="section-ink px-6 md:px-10">
-        <div className="max-w-[1280px] mx-auto pt-28 md:pt-32 pb-12 md:pb-16">
-          <SectionLabel label="Selected work" />
-          <Reveal delay={0.05}>
-            <h1 className="mt-8 h-display-lg">
-              Portfolio,<br /><em className="text-cinnabar">by craft.</em>
-            </h1>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <p lang="th" className="mt-8 font-thai thai-wrap text-[15px] md:text-[17px] text-muted-foreground max-w-[640px] leading-[1.8]">
-              งานจริงของ ØRIONS จัดเป็นหมวดให้ดูง่าย — เลือกหมวดที่อยากดูได้จากด้านล่าง.
-            </p>
-          </Reveal>
-          <div className="mt-9 flex flex-wrap gap-2">
-            {[{ key: "all", chip: "ทั้งหมด" }, ...portfolio].map((c) => (
-              <button
-                key={c.key}
-                type="button"
-                onClick={() => { setActive(c.key); setShuffleKey((k) => k + 1); }}
-                aria-pressed={active === c.key}
-                className={`font-mono text-[11px] tracking-[0.08em] uppercase px-4 py-2.5 rounded-none border transition-colors ${
-                  active === c.key
-                    ? "bg-cinnabar border-cinnabar text-background"
-                    : "border-foreground/20 text-foreground/75 hover:border-cinnabar hover:text-cinnabar"
-                }`}
-              >
-                {c.chip}
-              </button>
-            ))}
-          </div>
+      <PageHero
+        eyebrow="Selected work"
+        index="01"
+        title={<>Portfolio,<br /><em className="text-cinnabar">by craft.</em></>}
+        intro="งานจริงของ ØRIONS จัดเป็นหมวดให้ดูง่าย — เลือกหมวดที่อยากดูได้จากด้านล่าง."
+        introLang="th"
+        titleClamp="max-w-[16ch]"
+        meta={[`${portfolio.length} disciplines`, "Bangkok", "2023 — 2026"]}
+      >
+        <div className="mt-12 flex flex-wrap gap-2">
+          {[{ key: "all", chip: "ทั้งหมด" }, ...portfolio].map((c) => (
+            <button
+              key={c.key}
+              type="button"
+              onClick={() => { setActive(c.key); setShuffleKey((k) => k + 1); }}
+              aria-pressed={active === c.key}
+              className={`font-mono text-[11px] tracking-[0.08em] uppercase px-4 py-2.5 rounded-none border transition-colors ${
+                active === c.key
+                  ? "bg-cinnabar border-cinnabar text-background"
+                  : "border-foreground/20 text-foreground/75 hover:border-cinnabar hover:text-cinnabar"
+              }`}
+            >
+              {c.chip}
+            </button>
+          ))}
         </div>
-      </section>
+      </PageHero>
 
       {/* 01b · FEATURED SHOWREEL — company flagship reel */}
       <section className="px-6 md:px-10 border-t border-foreground/15">

@@ -1,13 +1,26 @@
-import cover01 from "@/assets/blog/01.jpg?as=picture";
-import cover02 from "@/assets/blog/02.jpg?as=picture";
-import cover03 from "@/assets/blog/03.jpg?as=picture";
-import cover04 from "@/assets/blog/04.jpg?as=picture";
-import cover05 from "@/assets/blog/05.jpg?as=picture";
-import cover06 from "@/assets/blog/06.jpg?as=picture";
-import cover07 from "@/assets/blog/07.jpg?as=picture";
-import cover08 from "@/assets/blog/08.jpg?as=picture";
-import cover09 from "@/assets/blog/09.jpg?as=picture";
-import cover10 from "@/assets/blog/10.jpg?as=picture";
+// Bespoke concept covers — one per article, dark + cinnabar editorial.
+import coverGreatFilter from "@/assets/blog/the-great-filter.png?as=picture";
+import coverSignal from "@/assets/blog/signal-not-noise.png?as=picture";
+import coverSalesCeiling from "@/assets/blog/sales-ceiling-why-branding.png?as=picture";
+import coverInstincts from "@/assets/blog/five-human-instincts.png?as=picture";
+import coverConstraint from "@/assets/blog/constraint-is-the-brief.png?as=picture";
+import coverSalesOrBrand from "@/assets/blog/sales-or-brand.png?as=picture";
+import coverAi from "@/assets/blog/ai-faster-not-thinking.png?as=picture";
+import coverThreeSeconds from "@/assets/blog/first-three-seconds.png?as=picture";
+import coverBeautiful from "@/assets/blog/beautiful-doesnt-sell.png?as=picture";
+import coverSpeakRight from "@/assets/blog/speak-right-not-loud.png?as=picture";
+
+// Atmospheric texture plates — reused as mid-article "breather" images for flow.
+import plate01 from "@/assets/blog/01.jpg?as=picture";
+import plate02 from "@/assets/blog/02.jpg?as=picture";
+import plate03 from "@/assets/blog/03.jpg?as=picture";
+import plate04 from "@/assets/blog/04.jpg?as=picture";
+import plate05 from "@/assets/blog/05.jpg?as=picture";
+import plate06 from "@/assets/blog/06.jpg?as=picture";
+import plate07 from "@/assets/blog/07.jpg?as=picture";
+import plate08 from "@/assets/blog/08.jpg?as=picture";
+import plate09 from "@/assets/blog/09.jpg?as=picture";
+import plate10 from "@/assets/blog/10.jpg?as=picture";
 import type { PictureData } from "@/components/Picture";
 
 export interface BlogPost {
@@ -20,6 +33,10 @@ export interface BlogPost {
   /** Estimated read time, minutes. */
   readMins: number;
   cover: PictureData;
+  /** Mid-article atmospheric plate — a visual breather that improves reading flow. */
+  inline: PictureData;
+  /** Short mono caption shown under the inline plate. */
+  inlineCaption?: string;
   /** Body paragraphs (plain text). */
   body: string[];
 }
@@ -35,7 +52,9 @@ export const blogPosts: BlogPost[] = [
     excerpt: "เงินพาแบรนด์มาถึงหน้ากำแพงได้ — แต่พาข้ามไปไม่ได้. สิ่งเดียวที่ข้ามกำแพงนี้ได้ คือเรื่องราวที่คมพอ.",
     date: "2026-07-03",
     readMins: 4,
-    cover: cover07,
+    cover: coverGreatFilter,
+    inline: plate07,
+    inlineCaption: "อีกฝั่งของกำแพง — ที่งบซื้อไม่ได้",
     body: [
       "ในทางดาราศาสตร์ The Great Filter คือกำแพงที่เกือบทุกอารยธรรมข้ามไม่พ้น. ในทางธุรกิจ มันคือเส้นบางๆ ที่กั้นระหว่างแบรนด์ที่คนจำได้ กับแบรนด์ที่คนลืม — และทุกแบรนด์ต้องเดินมาถึงเส้นนี้สักวัน.",
       "เงินพาคุณมาได้ไกล. ยิงแอดได้ ลดราคาได้ แจกของแถมได้ — ยอดขึ้นจริง. แต่ถึงจุดหนึ่ง งบการตลาดจะตัน: ค่าแอดแพงขึ้นทุกปี ผลตอบแทนบางลงทุกปี และคู่แข่งก็ทำทุกอย่างเหมือนกันหมด.",
@@ -51,7 +70,9 @@ export const blogPosts: BlogPost[] = [
     excerpt: "แสงที่กระจายคือ Noise แสงที่ถูกโฟกัสคือ Signal — งานของแบรนด์คือการคัดจนเหลือข้อความที่คมที่สุดข้อความเดียว.",
     date: "2026-07-03",
     readMins: 3,
-    cover: cover08,
+    cover: coverSignal,
+    inline: plate08,
+    inlineCaption: "โฟกัสจนเหลือข้อความเดียว",
     body: [
       "โลกไม่ได้ขาดคอนเทนต์ — โลกจมอยู่ในมัน. แบรนด์มีเวลาราว 1.7 วินาทีก่อนนิ้วคนจะเลื่อนผ่าน และงานแมสจาก AI ก็ท่วมฟีดเข้ามาเร็วขึ้นทุกวัน. ในสนามแบบนี้ การ 'ทำเพิ่ม' ไม่ใช่คำตอบ.",
       "ลองมองเป็นเรื่องของแสง. แสงที่กระจายไปทุกทิศคือ Noise — สว่างแต่ไม่มีใครมองเห็น. แสงที่ถูกรวมผ่านเลนส์จนเป็นจุดเดียวคือ Signal — เล็กกว่า แต่ทะลุถึงตา.",
@@ -67,7 +88,9 @@ export const blogPosts: BlogPost[] = [
     excerpt: "เน้นยอดก็ได้ยอด แต่ยอดที่ซื้อด้วยส่วนลดและแอดมีเพดาน. วันที่คู่แข่งถูกกว่านิดเดียว ลูกค้าก็หาย — จุดนั้นแหละที่แบรนด์สำคัญ.",
     date: "2026-06-30",
     readMins: 4,
-    cover: cover10,
+    cover: coverSalesCeiling,
+    inline: plate10,
+    inlineCaption: "เพดานที่ส่วนลดพาข้ามไม่ได้",
     body: [
       "ทุกธุรกิจตอนเริ่มต้นต้องเน้นยอดก่อน — เพราะยอดคือสิ่งที่เลี้ยงทีมและพาธุรกิจให้เดินต่อได้. ไม่มีอะไรผิดเลย. ปัญหาไม่ได้อยู่ที่การเน้นยอด แต่อยู่ที่ 'ยอดแบบไหน' ที่คุณกำลังไล่ตาม.",
       "ยอดที่มาจากการลดราคา แลก แจกแถม และยิงแอดแลก attention มันมีเพดาน. เพราะลูกค้าที่มาเพราะราคา ไม่ได้ผูกพันกับแบรนด์ — เขาผูกพันกับ 'ดีล'. วันที่คู่แข่งตั้งราคาถูกกว่าคุณแม้แต่นิดเดียว เขาก็เดินจากไปทันทีโดยไม่มีอะไรเหนี่ยวรั้ง. คุณเลยต้องอัดโปรฯ หนักขึ้นเรื่อยๆ เพื่อรักษายอดเดิม — เหมือนวิ่งบนสายพานที่เร่งความเร็วขึ้นตลอด.",
@@ -84,7 +107,9 @@ export const blogPosts: BlogPost[] = [
     excerpt: "ในยุคที่ AI สร้างของสมบูรณ์แบบจนน่าเบื่อ ความเป็นมนุษย์ที่ดิบและจริงกลายเป็นจุดที่คนหยุดดู.",
     date: "2026-06-24",
     readMins: 5,
-    cover: cover09,
+    cover: coverInstincts,
+    inline: plate09,
+    inlineCaption: "ความเป็นมนุษย์ที่ AI ลอกไม่ได้",
     body: [
       "อ่านระหว่างบรรทัด — Insight ที่ดีไม่ใช่เรื่องใหม่ แต่คือเรื่องจริงที่ยังไม่มีใครพูดออกมาดังๆ. งานที่โดนใจมักเริ่มจากความจริงเล็กๆ ที่ทุกคนรู้สึกแต่ไม่เคยมีใครพูดแทน.",
       "คนอยากดูเรื่องของตัวเอง — ผู้บริโภคไม่ได้อยากดูโฆษณาขายของตรงๆ แต่อยากเห็นชีวิตหรือปัญหาของตัวเองสะท้อนอยู่ในงาน. ยิ่งงานเป็นกระจกสะท้อนคนดูมากเท่าไหร่ ยิ่งหยุดนิ้วได้นานเท่านั้น.",
@@ -99,9 +124,11 @@ export const blogPosts: BlogPost[] = [
     excerpt: "งานที่ดีที่สุดมักไม่ได้เกิดตอนมีอิสระเต็มที่ — แต่เกิดตอนมีกรอบบีบให้ต้องคิดให้คม.",
     date: "2026-06-20",
     readMins: 4,
-    cover: cover01,
+    cover: coverConstraint,
+    inline: plate01,
+    inlineCaption: "กรอบที่ทำให้งานมีรูปร่าง",
     body: [
-      "ทุกคนชอบคิดว่าความคิดสร้างสรรค์ต้องการอิสระ — งบไม่จำกัด เวลาไม่กดดัน ไม่มีใครมาบอกว่าทำอะไรได้บ้าง. แต่ในความจริง งานที่เราภูมิใจที่สุดมักเกิดในเงื่อนไขที่ตรงข้ามกับนั้น.",
+      "ทุกคนชอบคิดว่าความคิดสร้างสรรค์ต้องการอิสระ — งบไม่จำกัด เวลาไม่กดดัน ไม่มีใครมาบอกว่าทำอะไรได้บ้า���. แต่ในความจริง งานที่เราภูมิใจที่สุดมักเกิดในเงื่อนไขที่ตรงข้ามกับนั้น.",
       "ข้อจำกัดบังคับให้เราเลือก. เมื่อทำได้ทุกอย่าง เรามักทำได้ไม่คม เพราะไม่มีอะไรบีบให้ตัดสินใจ. แต่พอมีกรอบ — แบรนด์ที่พูดผิดไม่ได้ งบที่ยิงพลาดไม่ได้ เวลาที่รอไม่ได้ — เราถูกบังคับให้หาคำตอบที่ 'ใช่ที่สุด' ไม่ใช่คำตอบที่ 'เยอะที่สุด'.",
       "ที่ ORIONS เราจึงไม่หนีข้อจำกัด เราถือว่ามันคือบรีฟ. ลูกค้าที่บอกว่า 'ทำอะไรก็ได้' มักได้งานที่ธรรมดากว่าลูกค้าที่บอกชัดว่าอะไรห้าม. เพราะเส้นที่ห้ามข้าม คือเส้นที่ทำให้งานมีรูปร่าง.",
     ],
@@ -113,9 +140,11 @@ export const blogPosts: BlogPost[] = [
     excerpt: "ยอดกับแบรนด์ใช้ตรรกะคนละชุด — และนี่คือเหตุผลที่ ORIONS เลือกโฟกัสงานแบรนด์ระยะยาว.",
     date: "2026-06-15",
     readMins: 5,
-    cover: cover02,
+    cover: coverSalesOrBrand,
+    inline: plate02,
+    inlineCaption: "สองเส้นทาง — เราเลือกฝั่งแบรนด์",
     body: [
-      "เกือบทุกดีลเริ่มเหมือนกัน: ลูกค้าอยากได้ยอดเดี๋ยวนี้ และอยากให้แบรนด์ดูดีไปพร้อมกัน. ไม่มีอะไรผิด — แต่ถ้าไม่จัดลำดับ สุดท้ายมักได้ทั้งสองอย่างแบบครึ่ง ๆ กลาง ๆ.",
+      "เกือบทุกดีลเริ่มเหมือนกัน: ลูกค้าอยากได้ยอดเดี๋ยวนี้ และอยากให้แบรนด์��ูดีไปพร้อมกัน. ไม่มีอะไรผิด — แต่ถ้าไม่จัดลำดับ สุดท้ายมักได้ทั้งสองอย่างแบบครึ่ง ๆ กลาง ๆ.",
       "ยอดกับแบรนด์ใช้ตรรกะคนละชุด. ยอดวัดเป็นรายเดือน ปรับเร็ว เห็นผลไว. แบรนด์สะสมเป็นปี วัดยากกว่า แต่เป็นสิ่งที่ทำให้ยอดในอนาคตถูกลง. ถ้าเอาเงินก้อนเดียวไปทำทั้งคู่พร้อมกันโดยไม่เลือก ก็เหมือนเหยียบคันเร่งกับเบรกพร้อมกัน.",
       "> เหมือนเหยียบคันเร่งกับเบรกพร้อมกัน.",
       "ที่ ORIONS เราเลือกยืนฝั่งแบรนด์ — เพราะแบรนด์ที่แข็งแรงคือสิ่งที่ทำให้ยอดในอนาคตถูกลง และทำให้คนยอมจ่ายแพงขึ้นโดยไม่ต้องแข่งที่ราคา. เราไม่ได้บอกว่ายอดไม่สำคัญ แต่ของที่เราถนัดและเชื่อ คือการปั้นแบรนด์ให้คนจำ เลือก และรัก.",
@@ -128,7 +157,9 @@ export const blogPosts: BlogPost[] = [
     excerpt: "เครื่องมือปั๊มงานได้เป็นร้อยชิ้นต่อนาที — แต่สิ่งที่ทำให้คนหยุดดูยังเป็นความคิดของมนุษย์.",
     date: "2026-06-08",
     readMins: 4,
-    cover: cover03,
+    cover: coverAi,
+    inline: plate03,
+    inlineCaption: "เร็วเท่ากันหมด — เหลือแค่ความจริง",
     body: [
       "AI เปลี่ยนต้นทุนของการ 'ผลิต' ให้เกือบเป็นศูนย์. วันนี้ใครก็ปั๊มภาพ เขียนแคปชั่น ตัดคลิปได้เป็นร้อยชิ้นในเวลาไม่กี่นาที. ผลที่ตามมาคือฟีดเต็มไปด้วยของที่ 'พอใช้ได้' แต่ไม่มีอะไรน่าจำ.",
       "เมื่อทุกคนเร็วเท่ากัน ความเร็วก็ไม่ใช่ข้อได้เปรียบอีกต่อไป. สิ่งที่ยังหายากคือมุมที่จริง การตัดสินใจว่าจะ 'ไม่ทำ' อะไร และรสนิยมที่รู้ว่าเส้นไหนคือเส้นที่ใช่. นั่นคือส่วนที่ AI ยังทำแทนไม่ได้.",
@@ -142,7 +173,9 @@ export const blogPosts: BlogPost[] = [
     excerpt: "บนฟีดคนตัดสินใจในพริบตาว่าจะดูต่อหรือปัด — และนั่นคือสนามจริงที่งานครีเอทีฟต้องชนะ.",
     date: "2026-05-30",
     readMins: 3,
-    cover: cover04,
+    cover: coverThreeSeconds,
+    inline: plate04,
+    inlineCaption: "วินาทีแรก — จุดที่ทุกอย่างตัดสิน",
     body: [
       "งานครีเอทีฟส่วนใหญ่ตายตั้งแต่วินาทีแรก ไม่ใช่เพราะไม่ดี แต่เพราะไม่มีใครอยู่ดูจนถึงตอนที่มันดี. บนฟีด คนตัดสินใจในราว 3 วินาทีว่าจะหยุดหรือปัดต่อ.",
       "นั่นแปลว่าไอเดียที่ดีที่สุดของคุณต้องอยู่ต้น ไม่ใช่ปลาย. การเล่าแบบ 'ค่อย ๆ ปูจนถึงจุดพีค' เป็นภาษาของหนังโรง ไม่ใช่ภาษาของฟีด. บนฟีด จุดพีคต้องมาก่อน แล้วค่อยให้เหตุผลทีหลัง.",
@@ -156,7 +189,9 @@ export const blogPosts: BlogPost[] = [
     excerpt: "ความสวยไม่ใช่เป้าหมาย — มันคือเครื่องมือ. ถ้าสวยแต่ไม่ขยับธุรกิจ ก็แค่ภาพสวยอีกใบ.",
     date: "2026-05-22",
     readMins: 4,
-    cover: cover05,
+    cover: coverBeautiful,
+    inline: plate05,
+    inlineCaption: "สวยแต่กลวง — ถ้าไม่ขยับธุรกิจ",
     body: [
       "มีงานสวยจำนวนมากที่ได้รางวัล แต่ไม่ได้ขายอะไรเลย. ปัญหาไม่ได้อยู่ที่ความสวย — แต่อยู่ที่การเข้าใจผิดว่าความสวยคือเป้าหมาย ทั้งที่จริงมันเป็นแค่เครื่องมือ.",
       "> ความสวยไม่ใช่เป้าหมาย — มันเป็นแค่เครื่องมือ.",
@@ -171,7 +206,9 @@ export const blogPosts: BlogPost[] = [
     excerpt: "ในตลาดที่ทุกแบรนด์ตะโกน เสียงที่ชนะคือเสียงที่พูดถูกเรื่อง ถูกคน ถูกเวลา.",
     date: "2026-05-14",
     readMins: 5,
-    cover: cover06,
+    cover: coverSpeakRight,
+    inline: plate06,
+    inlineCaption: "พูดให้ถูก ดังกว่าพูดให้ดัง",
     body: [
       "กลยุทธ์ของแบรนด์ส่วนใหญ่คือ 'พูดให้ดังขึ้น' — ซื้อสื่อมากขึ้น โพสต์ถี่ขึ้น ตะโกนแข่งกับคนอื่น. แต่ในตลาดที่ทุกคนตะโกน การตะโกนกลายเป็นเสียงรบกวน ไม่ใช่ข้อความ.",
       "แบรนด์ที่คนจำไม่ใช่แบรนด์ที่ดังที่สุด แต่คือแบรนด์ที่พูดถูก — ถูกเรื่อง ถูกคน ถูกเวลา. พูดเรื่องเดียวที่จริงและสำคัญกับคนกลุ่มที่ใช่ ดังกว่าพูดสิบเรื่องกับทุกคน.",

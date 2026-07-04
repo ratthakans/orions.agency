@@ -94,39 +94,66 @@ const BlogPost = () => {
       {/* BODY */}
       <section className="px-6 md:px-10">
         <div className="max-w-[680px] mx-auto pb-20 md:pb-28">
-          {post.body.map((para, i) => {
-            // Pull-quote: a body line prefixed with "> " renders as an
-            // editorial pull-quote (one per article — magazine rhythm).
-            if (para.startsWith(">")) {
-              const q = para.replace(/^>\s*/, "");
+          {(() => {
+            // Insert a mid-article atmospheric plate to break up the text and
+            // give the read a visual breather (editorial rhythm). Land it just
+            // after the pull-quote when there is one, otherwise near the middle.
+            const quoteIdx = post.body.findIndex((p) => p.startsWith(">"));
+            const inlineAt = quoteIdx >= 0 ? quoteIdx + 1 : Math.ceil(post.body.length / 2);
+
+            const paras = post.body.map((para, i) => {
+              // Pull-quote: a body line prefixed with "> " renders as an
+              // editorial pull-quote (one per article — magazine rhythm).
+              if (para.startsWith(">")) {
+                const q = para.replace(/^>\s*/, "");
+                return (
+                  <Reveal key={i}>
+                    <figure className="my-12 md:my-16 text-center">
+                      <div className="mx-auto mb-6 h-px w-10 bg-cinnabar" />
+                      <blockquote lang="th" className="font-thai thai-wrap mx-auto max-w-[24ch] text-[22px] md:text-[30px] leading-[1.45] tracking-[-0.01em] text-foreground">
+                        {q}
+                      </blockquote>
+                    </figure>
+                  </Reveal>
+                );
+              }
+              // First paragraph = standfirst / lead (larger, brighter).
+              const isLead = i === 0;
               return (
-                <Reveal key={i}>
-                  <figure className="my-12 md:my-16 text-center">
-                    <div className="mx-auto mb-6 h-px w-10 bg-cinnabar" />
-                    <blockquote lang="th" className="font-thai thai-wrap mx-auto max-w-[24ch] text-[22px] md:text-[30px] leading-[1.45] tracking-[-0.01em] text-foreground">
-                      {q}
-                    </blockquote>
-                  </figure>
+                <Reveal key={i} delay={0.03 * i}>
+                  <p
+                    lang="th"
+                    className={
+                      isLead
+                        ? "font-thai thai-wrap text-[19px] md:text-[22px] leading-[1.7] text-foreground/95"
+                        : "font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.8] text-foreground/85 mt-6"
+                    }
+                  >
+                    {para}
+                  </p>
                 </Reveal>
               );
-            }
-            // First paragraph = standfirst / lead (larger, brighter).
-            const isLead = i === 0;
-            return (
-              <Reveal key={i} delay={0.03 * i}>
-                <p
-                  lang="th"
-                  className={
-                    isLead
-                      ? "font-thai thai-wrap text-[19px] md:text-[22px] leading-[1.7] text-foreground/95"
-                      : "font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.8] text-foreground/85 mt-6"
-                  }
-                >
-                  {para}
-                </p>
+            });
+
+            const inlineFigure = (
+              <Reveal key="inline-plate">
+                {/* Breaks out slightly wider than the text column on large screens */}
+                <figure className="my-12 md:my-16 lg:-mx-[70px]">
+                  <div className="img-frame w-full overflow-hidden border border-foreground/12 bg-muted" style={{ aspectRatio: "16 / 9" }}>
+                    <Picture data={post.inline} alt="" aria-hidden="true" loading="lazy" className="w-full h-full object-cover grayscale-[0.35]" />
+                  </div>
+                  {post.inlineCaption && (
+                    <figcaption lang="th" className="mt-4 flex items-center gap-3 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
+                      <span aria-hidden className="h-px w-6 bg-cinnabar" />
+                      {post.inlineCaption}
+                    </figcaption>
+                  )}
+                </figure>
               </Reveal>
             );
-          })}
+
+            return [...paras.slice(0, inlineAt), inlineFigure, ...paras.slice(inlineAt)];
+          })()}
         </div>
       </section>
 

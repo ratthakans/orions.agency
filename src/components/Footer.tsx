@@ -10,8 +10,9 @@ const navLinks = [
 ];
 
 const socials = [
-  { href: "https://www.instagram.com/orions.agency", label: "IG" },
-  { href: "https://www.facebook.com/orions.agency", label: "FB" },
+  { href: "https://www.instagram.com/orions.agency", label: "Instagram" },
+  { href: "https://www.facebook.com/orions.agency", label: "Facebook" },
+  { href: "https://line.me/ti/p/~orions", label: "LINE" },
 ];
 
 const Footer = () => {
@@ -92,17 +93,16 @@ const Footer = () => {
               {socials.map((s) => (
                 <li key={s.label}>
                   <a href={s.href} target="_blank" rel="noreferrer" className="text-foreground/85 hover:text-cinnabar transition-colors">
-                    {s.label === "IG" ? "Instagram" : "Facebook"}
+                    {s.label}
                   </a>
                 </li>
               ))}
-              <li><Link to="/work" className="text-foreground/85 hover:text-cinnabar transition-colors">Work</Link></li>
             </ul>
           </div>
         </div>
 
         {/* Legal */}
-        <div className="mt-10 pt-5 border-t border-foreground/15 flex items-center justify-between gap-4 font-mono text-[10px] tracking-[0.18em] uppercase opacity-50">
+        <div className="mt-10 pt-5 border-t border-foreground/15 flex flex-wrap items-center justify-between gap-4 font-mono text-[10px] tracking-[0.18em] uppercase opacity-50">
           <p>© {year} ØRIONS — All rights reserved.</p>
           <div className="flex items-center gap-5">
             <Link to="/privacy" className="hover:opacity-100 hover:text-cinnabar transition-colors">Privacy</Link>

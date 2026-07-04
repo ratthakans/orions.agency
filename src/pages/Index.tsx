@@ -156,7 +156,7 @@ const Index = () => {
             <p lang="th" className="mt-3 font-thai thai-wrap text-[13px] leading-[1.8] text-muted-foreground md:ml-auto max-w-[42ch]">
               การตลาดเช่าความสนใจได้ชั่วคราว — แต่ความคิดสร้างสรรค์ทำให้คนเชื่อและอยู่กับคุณ. ในโลกที่ทุกอย่างล้นเกิน เรื่องที่คมที่สุดชนะ ไม่ใช่เรื่องที่ดังที่สุด.
             </p>
-            <Link to="/thinking" className="mt-4 inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.18em] uppercase text-foreground/70 hover:text-cinnabar transition-colors">อ่าน Manifesto <ArrowUpRight className="w-3.5 h-3.5" /></Link>
+            <Link to="/thinking" className="link-wipe mt-4 inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.18em] uppercase">อ่าน Manifesto <ArrowUpRight className="w-3.5 h-3.5" /></Link>
           </div>
         </Reveal>
       </div>
@@ -168,7 +168,7 @@ const Index = () => {
         <div className="flex items-end justify-between gap-6 flex-wrap">
           <SectionHeading lang="th" eyebrow="Selected work"
             title={<>งานที่เรา<em className="text-cinnabar">ภูมิใจ.</em></>} />
-          <Link to="/work" className="hidden md:inline-flex font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground hover:text-cinnabar transition-colors">ดูผลงานทั้งหมด →</Link>
+          <Link to="/work" className="link-wipe hidden md:inline-flex font-mono text-[10px] tracking-[0.22em] uppercase">ดูผลงานทั้งหมด →</Link>
         </div>
         <Reveal delay={0.05}>
           <div className="work-marquee mt-12 md:mt-14 relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,#000_5%,#000_95%,transparent)]">

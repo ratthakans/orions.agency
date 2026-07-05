@@ -91,45 +91,21 @@ const About = () => (
       </div>
     </section>
 
-    {/* THE COMPASS — one question governs everything */}
-    <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-16">
-        <div>
-          <SectionLabel label="The compass" />
-          <Reveal delay={0.05}>
-            <h2 lang="th" className="mt-8 h-display-md max-w-[14ch] thai-wrap">
-              เข็มทิศของ<em className="text-cinnabar">ทุกการตัดสินใจ.</em>
-            </h2>
-          </Reveal>
-        </div>
-        <Reveal delay={0.1}>
-          <div>
-            <p lang="th" className="font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.8] text-foreground/90">
-              จะรับงานไหม จะออกแบบยังไง จะพูดแบบไหน — วัดจากคำถามเดียว:
-            </p>
-            <blockquote lang="th" className="mt-7 font-serif text-[24px] md:text-[34px] leading-[1.35] tracking-[-0.015em] thai-wrap text-foreground max-w-[24ch]">
-              "มันทำให้แบรนด์<em className="text-cinnabar italic">คมขึ้น</em> หรือแค่<em className="text-cinnabar italic">ดังขึ้น?</em>"
-            </blockquote>
-            <p lang="th" className="mt-7 font-thai thai-wrap text-[15px] leading-[1.8] text-foreground/80">
-              ถ้าแค่ดังขึ้น — เราไม่ทำ. เรายืดหยุ่นที่ <span className="text-foreground">สไตล์</span> แต่ไม่เคยยืดที่ <span className="text-cinnabar">มาตรฐานฝีมือ</span>. อ่านเหตุผลเต็มได้ใน Manifesto.
-            </p>
-            <Link to="/thinking" className="btn-ghost mt-8">
-              <span>อ่าน Manifesto</span><ArrowUpRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </Reveal>
-      </div>
-    </section>
-
-    {/* 02 — WHAT WE WON'T COMPROMISE ON */}
+    {/* THE COMPASS → THE SIX NEVERS — one rule, then its practice */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-24 md:py-36">
-        <SectionHeading
-          eyebrow="What we never do"
-          lang="th"
-          title={<>หกอย่างที่เรา <em className="text-cinnabar">ไม่ทำ เด็ดขาด.</em></>}
-        />
-        <div className="mt-14 md:mt-16 border-t border-foreground/12">
+        <SectionLabel label="The compass" />
+        <Reveal delay={0.05}>
+          <blockquote lang="th" className="mt-8 font-serif text-[28px] md:text-[46px] leading-[1.25] tracking-[-0.015em] thai-wrap text-foreground max-w-[18ch]">
+            "มันทำให้แบรนด์<em className="text-cinnabar italic">คมขึ้น</em> หรือแค่<em className="text-cinnabar italic">ดังขึ้น?</em>"
+          </blockquote>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <p lang="th" className="mt-8 max-w-[640px] font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.8] text-foreground/80">
+            ทุกการตัดสินใจวัดจากคำถามเดียวนี้ — จะรับงานไหม จะออกแบบยังไง จะพูดแบบไหน. ถ้าแค่ดังขึ้น เราไม่ทำ. ในทางปฏิบัติ มันแปลว่า<span className="text-foreground">หกอย่างที่เราไม่ทำ เด็ดขาด</span>:
+          </p>
+        </Reveal>
+        <div className="mt-12 md:mt-14 border-t border-foreground/12">
           {nevers.map((p, i) => (
             <Reveal key={p.n} delay={i * 0.05}>
               <div className="grid grid-cols-[46px_1fr] md:grid-cols-[92px_1fr] gap-5 md:gap-10 py-8 md:py-11 border-b border-foreground/12 items-baseline group">
@@ -142,6 +118,11 @@ const About = () => (
             </Reveal>
           ))}
         </div>
+        <Reveal delay={0.1}>
+          <Link to="/thinking" className="btn-ghost mt-10">
+            <span>อ่านเหตุผลเต็มใน Manifesto</span><ArrowUpRight className="w-4 h-4" />
+          </Link>
+        </Reveal>
       </div>
     </section>
 

@@ -19,6 +19,16 @@ const nevers = [
   { n: "vi.",  en: "ไม่ลงมือทำ ก่อนวินิจฉัย",     th: "เหมือนหมอที่ไม่จ่ายยาก่อนตรวจ — เราหาต้นตอของปัญหาก่อนเสมอ แล้วจึงลงมือแก้" },
 ];
 
+// The plain facts — who / what / where, at a glance.
+const facts = [
+  { k: "What we are", v: "Boutique Creative Agency — เอเจนซี่ที่มีสมองของ consult" },
+  { k: "What we do", v: "Brand Strategy · Creative Production · Communication Design" },
+  { k: "Where", v: "กรุงเทพฯ ประเทศไทย — ทำงานกับแบรนด์ทั่วไทย (+ remote)" },
+  { k: "Since", v: "2025 — นำโดยผู้ก่อตั้งและทีม senior ที่ลงมือทำเองทุกงาน" },
+  { k: "How we price", v: "คิดต่อแคมเปญ/โปรเจกต์ — ไม่มีเรทการ์ด ตีตามการวินิจฉัย" },
+  { k: "The work", v: "brand film · video · photography · music · งานสื่อสารระดับประเทศ" },
+];
+
 const notForYou = [
   { n: "01", th: "คุณต้องการแค่ยิงแอดเอายอดอย่างเดียว โดยไม่สนงานแบรนด์ระยะยาว — performance shop เพียว ๆ อาจคุ้มกว่า" },
   { n: "02", th: "คุณอยากได้คอนเทนต์เยอะที่สุดในราคาถูกที่สุด โดยไม่ต้องมีกลยุทธ์ — เราไม่ใช่ที่นั้น" },
@@ -28,8 +38,8 @@ const notForYou = [
 const About = () => (
   <div>
     <SEO
-      title="About — สิ่งที่เราเชื่อ · ØRIONS"
-      description="เรื่องที่คมที่สุดชนะ ไม่ใช่เรื่องที่ดังที่สุด. ศัตรูของเราคือ Noise — งานแมส เสียงรบกวน การถูกลืม และสงครามราคา. ทุกการตัดสินใจวัดจากคำถามเดียว: มันทำให้แบรนด์คมขึ้น หรือแค่ดังขึ้น?"
+      title="About — ØRIONS คือใคร · Boutique Creative Agency, Bangkok"
+      description="ØRIONS คือ boutique creative agency ในกรุงเทพฯ ที่มีสมองของ consult — วินิจฉัยก่อน แล้วลงมือแก้ด้วยงานคราฟต์จนจบ. brand strategy · creative production · communication design. นำโดยรัฐกันต์ สุวรรณภักดี และทีม senior. เรื่องที่คมที่สุดชนะ ไม่ใช่เรื่องที่ดังที่สุด."
       path="/about"
     />
 
@@ -48,6 +58,35 @@ const About = () => (
           <p lang="th" className="mt-8 max-w-[720px] font-thai thai-wrap text-[16px] md:text-[19px] leading-[1.8] text-foreground/80">
             ศัตรูของเรา — และของลูกค้าเรา — ไม่ใช่คู่แข่งของใคร แต่คือ <span className="text-foreground">Noise</span>: งานแมส เสียงรบกวน การถูกลืม และสงครามราคา. เราไม่ใช่ที่ปรึกษาที่ส่งแค่สไลด์ ไม่ใช่เอเจนซี่ที่รอบรีฟแล้วทำตามสั่ง — <span className="text-cinnabar">เราวินิจฉัยก่อน แล้วลงมือแก้ด้วยงานคราฟต์จนจบ.</span>
           </p>
+        </Reveal>
+      </div>
+    </section>
+
+    {/* WHO WE ARE — the plain facts: who / what / where */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-16">
+        <div>
+          <SectionLabel label="Who we are" />
+          <Reveal delay={0.05}>
+            <h2 lang="th" className="mt-8 h-display-md max-w-[14ch] thai-wrap">
+              ØRIONS <em className="text-cinnabar">โดยย่อ.</em>
+            </h2>
+          </Reveal>
+        </div>
+        <Reveal delay={0.1}>
+          <div>
+            <p lang="th" className="font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.8] text-foreground/90 max-w-[60ch]">
+              ØRIONS คือ <span className="text-foreground">Boutique Creative Agency</span> ในกรุงเทพฯ ที่ทำงานเหมือนหมอ ไม่เหมือนร้านขายยา — เราวินิจฉัยก่อนว่าแบรนด์ติดตรงไหน แล้วลงมือแก้ด้วยงานคราฟต์จนจบ.
+            </p>
+            <dl className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-7 border-t border-foreground/12 pt-9">
+              {facts.map((f) => (
+                <div key={f.k}>
+                  <dt className="font-mono text-[10px] tracking-[0.18em] uppercase text-cinnabar">— {f.k}</dt>
+                  <dd lang="th" className="mt-2 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.8] text-foreground/85">{f.v}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
         </Reveal>
       </div>
     </section>

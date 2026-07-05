@@ -7,7 +7,6 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import CTABand from "@/components/CTABand";
 import Slash from "@/components/Slash";
 import HeroHeadline from "@/components/HeroHeadline";
-import { caseStudies } from "@/data/caseStudies";
 import TopoField from "@/components/TopoField";
 import Picture from "@/components/Picture";
 import heroSilk from "@/assets/hero-silk.jpg?as=picture";
@@ -20,11 +19,7 @@ const included = [
   { k: "Communication Design", d: "ออกแบบการสื่อสารทุกจุดสัมผัส เปลี่ยนคนแปลกหน้าให้เป็นลูกค้าที่ภักดี" },
 ];
 
-// Featured cases for the homepage — curated, image-forward (real work, shown early).
-// Six, presented as a slow auto-looping marquee.
-const featuredCases = caseStudies.slice(0, 6);
-
-// Company flagship showreel — featured as the mid-page proof break.
+// Company flagship showreel — the single proof moment on the homepage.
 const SHOWREEL_ID = "308_jYAVkwI";
 
 const ShowreelFeature = () => {
@@ -32,15 +27,20 @@ const ShowreelFeature = () => {
   return (
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-24 md:py-36">
-        <div className="inline-flex items-center gap-3 font-mono text-[10px] tracking-[0.22em] uppercase leading-none">
-          <Slash className="text-[15px]" />
-          <span className="text-muted-foreground">Showreel 2026</span>
+        <div className="flex items-end justify-between gap-6 flex-wrap">
+          <div>
+            <div className="inline-flex items-center gap-3 font-mono text-[10px] tracking-[0.22em] uppercase leading-none">
+              <Slash className="text-[15px]" />
+              <span className="text-muted-foreground">Showreel 2026</span>
+            </div>
+            <Reveal delay={0.05}>
+              <h2 lang="th" className="mt-6 h-display-md max-w-[18ch] thai-wrap">
+                ฝีมือ พูดแทนเรา <em className="text-cinnabar">ดีกว่า.</em>
+              </h2>
+            </Reveal>
+          </div>
+          <Link to="/work" className="hidden md:inline-flex font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground hover:text-cinnabar transition-colors">ดูผลงานทั้งหมด →</Link>
         </div>
-        <Reveal delay={0.05}>
-          <h2 lang="th" className="mt-6 h-display-md max-w-[18ch] thai-wrap">
-            ฝีมือ พูดแทนเรา <em className="text-cinnabar">ดีกว่า.</em>
-          </h2>
-        </Reveal>
         <Reveal delay={0.1}>
           <div
             className="mt-8 relative w-full overflow-hidden rounded-none border border-foreground/15 bg-black"
@@ -82,6 +82,7 @@ const ShowreelFeature = () => {
             )}
           </div>
         </Reveal>
+        <Link to="/work" viewTransition className="btn-ghost mt-10 md:hidden"><span>ดูผลงานทั้งหมด</span><ArrowUpRight className="w-4 h-4" /></Link>
       </div>
     </section>
   );
@@ -153,53 +154,7 @@ const Index = () => {
       </div>
     </section>
 
-    {/* 03 — SELECTED WORK — featured cases, image-forward (craft shown early) */}
-    <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-36">
-        <div className="flex items-end justify-between gap-6 flex-wrap">
-          <SectionHeading lang="th" eyebrow="Selected work"
-            title={<>งานที่เรา<em className="text-cinnabar">ภูมิใจ.</em></>} />
-          <Link to="/work" className="hidden md:inline-flex font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground hover:text-cinnabar transition-colors">ดูผลงานทั้งหมด →</Link>
-        </div>
-        <Reveal delay={0.05}>
-          <div className="work-marquee mt-12 md:mt-14 relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,#000_5%,#000_95%,transparent)]">
-            <div className="work-marquee-track flex w-max">
-              {[...featuredCases, ...featuredCases].map((c, i) => {
-                const dup = i >= featuredCases.length;
-                return (
-                  <Link
-                    key={`${c.slug}-${i}`}
-                    to={`/work/${c.slug}`}
-                    viewTransition
-                    aria-hidden={dup}
-                    tabIndex={dup ? -1 : undefined}
-                    className="group flex flex-col shrink-0 w-[280px] md:w-[340px] mr-6 md:mr-8"
-                  >
-                    <div className="relative w-full overflow-hidden border border-foreground/12 aspect-[4/5]">
-                      <Picture data={c.cover} alt={dup ? "" : c.title} loading="lazy"
-                        className="absolute inset-0 w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 group-hover:scale-[1.04] transition-[transform,filter] duration-700" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/10 to-transparent" />
-                      <span className="absolute left-4 top-4 font-mono text-[9px] tracking-[0.2em] uppercase text-background bg-cinnabar px-2 py-1">{c.niche}</span>
-                    </div>
-                    <div className="mt-5">
-                      <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">{c.year}</div>
-                      <h3 lang="th" className="mt-2 font-display text-[20px] md:text-[24px] font-medium leading-tight tracking-[-0.01em] group-hover:text-cinnabar transition-colors">{c.title}</h3>
-                      <p lang="th" className="mt-2 font-thai thai-wrap text-[14px] leading-[1.8] text-muted-foreground">{c.summary}</p>
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
-        </Reveal>
-        <Link to="/work" viewTransition className="btn-ghost mt-10 md:hidden"><span>ดูผลงานทั้งหมด</span><ArrowUpRight className="w-4 h-4" /></Link>
-      </div>
-    </section>
-
-    {/* 04 — SHOWREEL (proof break — let the work speak) */}
-    <ShowreelFeature />
-
-    {/* 05 — WHAT WE DO — boutique craft + what's included (consolidated) */}
+    {/* 03 — WHAT WE DO — the positioning leads (before any proof) */}
     <section className="relative overflow-hidden bg-surface px-6 md:px-10 border-t border-foreground/15">
       <TopoField fx={0.14} fy={0.62} seed={1} intensity={0.2}
         className="absolute inset-0 w-full h-full pointer-events-none" />
@@ -232,7 +187,10 @@ const Index = () => {
       </div>
     </section>
 
-    {/* 06 — FOUNDER (a short personal note — the ask lives in the CTA below) */}
+    {/* 04 — SHOWREEL (the single proof moment — let the work speak) */}
+    <ShowreelFeature />
+
+    {/* 05 — FOUNDER (a short personal note — the ask lives in the CTA below) */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-24 md:py-36">
         <Reveal>

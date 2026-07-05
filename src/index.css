@@ -385,15 +385,6 @@ h1:lang(th) em, h2:lang(th) em, h3:lang(th) em, h4:lang(th) em, h5:lang(th) em, 
   .silk-drift { animation: silkdrift 26s ease-in-out infinite alternate; }
 }
 
-/* Selected-work marquee — track is two identical halves; -50% loops seamlessly
-   because the gap lives in each card's right margin (uniform, no half-gap jump). */
-@keyframes work-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-.work-marquee-track { animation: work-marquee 60s linear infinite; }
-.work-marquee:hover .work-marquee-track { animation-play-state: paused; }
-@media (prefers-reduced-motion: reduce) {
-  .work-marquee-track { animation: none; }
-}
-
 /* Scrim over the silk — vignette that keeps the headline legible while the
    photo stays present full-bleed (lighter than a half-cut fade). */
 .hero-scrim {

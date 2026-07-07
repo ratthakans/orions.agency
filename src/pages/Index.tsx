@@ -7,7 +7,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import CTABand from "@/components/CTABand";
 import Slash from "@/components/Slash";
 import HeroHeadline from "@/components/HeroHeadline";
-import TopoField from "@/components/TopoField";
+import SignalField from "@/components/SignalField";
 import Picture from "@/components/Picture";
 import heroSilk from "@/assets/hero-silk.jpg?as=picture";
 import founder from "@/assets/team/founder.jpg?as=picture";
@@ -156,7 +156,7 @@ const Index = () => {
 
     {/* 03 — WHAT WE DO — the positioning leads (before any proof) */}
     <section className="relative overflow-hidden bg-surface px-6 md:px-10 border-t border-foreground/15">
-      <TopoField fx={0.14} fy={0.62} seed={1} intensity={0.2}
+      <SignalField fx={0.82} fy={0.5} seed={3} intensity={0.75}
         className="absolute inset-0 w-full h-full pointer-events-none" />
       <div className="relative z-10 max-w-[1280px] mx-auto py-24 md:py-36">
         <SectionHeading

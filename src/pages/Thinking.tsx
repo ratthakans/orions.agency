@@ -4,7 +4,7 @@ import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
 import CTABand from "@/components/CTABand";
-import TopoField from "@/components/TopoField";
+import SignalField from "@/components/SignalField";
 import Picture from "@/components/Picture";
 import heroImg from "@/assets/thinking/hero.jpg?as=picture";
 import proofImg from "@/assets/thinking/assets.jpg?as=picture";
@@ -71,7 +71,7 @@ const Thinking = () => (
 
     {/* HERO — every brand is a point of light */}
     <section className="relative overflow-hidden section-ink px-6 md:px-10">
-      <TopoField fx={0.18} fy={0.5} seed={5} intensity={0.22}
+      <SignalField fx={0.76} fy={0.4} seed={5} intensity={0.9}
         className="absolute inset-0 w-full h-full pointer-events-none" />
       <div className="relative z-10 max-w-[1180px] mx-auto pt-28 md:pt-36 pb-16 md:pb-20">
         <SectionLabel label="The Manifesto" />

@@ -5,7 +5,7 @@ import SEO from "@/components/SEO";
 import SectionHeading from "@/components/ui/SectionHeading";
 import SectionLabel from "@/components/SectionLabel";
 import CTABand from "@/components/CTABand";
-import TopoField from "@/components/TopoField";
+import SignalField from "@/components/SignalField";
 import Picture from "@/components/Picture";
 import founder from "@/assets/team/founder.jpg?as=picture";
 
@@ -46,7 +46,7 @@ const About = () => (
 
     {/* 01 — WHAT WE BELIEVE */}
     <section className="relative overflow-hidden section-ink px-6 md:px-10 border-b border-foreground/15">
-      <TopoField fx={0.85} fy={0.42} seed={6} intensity={0.18}
+      <SignalField fx={0.82} fy={0.44} seed={6} intensity={0.85}
         className="absolute inset-0 w-full h-full pointer-events-none" />
       <div className="relative z-10 max-w-[1280px] mx-auto pt-28 md:pt-32 pb-20 md:pb-28">
         <SectionLabel label="What we believe" />

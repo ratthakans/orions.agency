@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SectionLabel from "@/components/SectionLabel";
-import TopoField from "@/components/TopoField";
 
 interface Action {
   label: string;
@@ -29,10 +28,8 @@ const CTABand = ({ eyebrow, title, subtitle, primary, secondary, tone = "snow", 
     <section className={`${bandBg} px-6 md:px-10 border-t border-foreground/15 ${className}`}>
       <div className="max-w-[1280px] mx-auto py-24 md:py-36">
         <Reveal>
-          <div className="relative overflow-hidden card-accent p-8 md:p-14">
-            <TopoField fx={0.82} fy={0.5} seed={2} intensity={0.18}
-              className="absolute inset-0 w-full h-full pointer-events-none" />
-            <div className="relative z-10 grid grid-cols-1 md:grid-cols-[1.5fr_1fr] gap-10 md:gap-16 items-center">
+          <div className="card-accent p-8 md:p-14">
+            <div className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr] gap-10 md:gap-16 items-center">
               <div>
                 {eyebrow && <SectionLabel label={eyebrow} reveal={false} />}
                 <h2 className="mt-5 h-display-md max-w-[22ch]">{title}</h2>

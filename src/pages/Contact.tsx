@@ -26,7 +26,7 @@ const packageOptions = [
   "Brand strategy",
   "Creative production (brand film · video · photo · music)",
   "Communication design",
-  "งานแบรนด์ครบวงจร",
+  "ทั้งแบรนด์ — ตั้งแต่วินิจฉัยถึงส่งมอบ",
   "ยังไม่แน่ใจ / ขอคำแนะนำ",
 ];
 

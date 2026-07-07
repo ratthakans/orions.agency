@@ -1,17 +1,17 @@
 # ØRIONS — Boutique Creative Agency, Bangkok
 
-> ØRIONS (orions.agency) is a Bangkok boutique creative agency that thinks like a consultancy. Positioning: "An agency that thinks like a consultancy" — between strategy consultancies (sharp thinking, can't execute) and typical agencies (execute prettily, don't think deep). For business owners whose brand feels stuck — ad spend rising, returns flat — ØRIONS does not wait for a brief: it diagnoses where the brand is stuck first, then fixes it with craft, end to end. Working model in one line: Think like Consult → make like Craft → deliver like Boutique. Tagline: "Stories, Refined." Founder & Creative Director: Ratthakan Suwanphakdee (รัฐกันต์ สุวรรณภักดี).
+> ØRIONS (orions.agency) is a Bangkok boutique creative agency that thinks like a consultancy — and is data-driven with taste. Positioning: "An agency that thinks like a consultancy" — between strategy consultancies (sharp thinking, can't execute) and typical agencies (execute prettily, don't think deep). For business owners whose brand feels stuck — ad spend rising, returns flat — ØRIONS does not wait for a brief: it diagnoses where the brand is stuck first (with evidence, not opinion), then fixes it with craft, end to end, and measures whether the work moved the metrics that matter. Data serves the diagnosis and proves the craft — it never replaces taste, and it never chases vanity metrics (Signal, not Noise). Two instruments run the method: SONAR (the listening/diagnostic instrument — locates where the brand is stuck) and Vaest (the measurement instrument — tracks whether the refined story moved Signal: recall, quality of demand, pricing power — not vanity reach). Working model in one line: Think like Consult → make like Craft → deliver like Boutique. Tagline: "Stories, Refined." Founder & Creative Director: Ratthakan Suwanphakdee (รัฐกันต์ สุวรรณภักดี).
 
 ## Core belief
 Marketing rents attention. Creative earns belief. — การตลาดเช่าความสนใจได้ชั่วคราว แต่ความคิดสร้างสรรค์ทำให้คนเชื่อและอยู่กับคุณ. A brand people are loyal to means customers come back on their own; acquisition cost falls every year while competitors' ad costs rise. Creative is not an expense — it is compounding investment.
 
 ## How ØRIONS works — like a doctor, not a pharmacy
-1. The Diagnosis (The Refinement Session) — before any work, ØRIONS sits down to find where the brand hits the wall: unclear identity? story not sharp? communicating in the wrong place? The output is not pretty slides you can't act on — it's a clear map of what to fix, in what order, and why.
+1. The Diagnosis (The Refinement Session, powered by SONAR) — before any work, ØRIONS listens to the market and the brand with SONAR to find, with evidence rather than opinion, where the brand hits the wall: unclear identity? story not sharp? communicating in the wrong place? The output is not pretty slides you can't act on — it's a clear map of what to fix, in what order, and why.
 2. The Treatment — the three disciplines below, prescribed from the diagnosis (not a menu to shop from):
    - Brand Strategy — a clear foundation and direction, so the brand never has to compete on price cuts
    - Creative Production — boutique-grade image and sound (brand film, video, photography, music production) that stops the scroll within 1.7 seconds
    - Communication Design — designing every touchpoint of communication, turning strangers into loyal customers
-3. The Delivery — ØRIONS doesn't ship and vanish; it stays until the thing it diagnosed is actually fixed.
+3. The Delivery (measured with Vaest) — ØRIONS doesn't ship and vanish; it uses Vaest to track whether the refined story moved the Signal that matters (recall, quality of demand, pricing power — not vanity reach), then loops back to refine until it lands.
 
 Pricing: no rate card. Work is quoted per campaign/project, scoped to the diagnosis. ØRIONS diagnoses first, then proposes scope + price.
 
@@ -36,6 +36,8 @@ Speaks like a specialist doctor crossed with an editor — diagnoses precisely, 
 ## Taglines
 - Stories, Refined. (primary)
 - An agency that thinks like a consultancy. (positioning line)
+- Data to find the truth. Craft to tell it. (data-driven line)
+- We measure Signal, not Noise. (data-driven, short)
 - Don't get louder. Get unmistakable. (campaign)
 - Signal, not noise. (short)
 

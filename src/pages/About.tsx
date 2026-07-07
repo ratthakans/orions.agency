@@ -23,6 +23,7 @@ const nevers = [
 const facts = [
   { k: "What we are", v: "Boutique Creative Agency — เอเจนซี่ที่มีสมองของ consult" },
   { k: "What we do", v: "Brand Strategy · Creative Production · Communication Design" },
+  { k: "How we know", v: "ขับด้วยหลักฐาน — SONAR (ฟัง/วินิจฉัย) · Vaest (วัดผล Signal)" },
   { k: "Where", v: "กรุงเทพฯ ประเทศไทย — ทำงานกับแบรนด์ทั่วไทย (+ remote)" },
   { k: "Since", v: "2025 — นำโดยผู้ก่อตั้งและทีม senior ที่ลงมือทำเองทุกงาน" },
   { k: "How we price", v: "คิดต่อแคมเปญ/โปรเจกต์ — ไม่มีเรทการ์ด ตีตามการวินิจฉัย" },
@@ -76,7 +77,7 @@ const About = () => (
         <Reveal delay={0.1}>
           <div>
             <p lang="th" className="font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.8] text-foreground/90 max-w-[60ch]">
-              ØRIONS คือ <span className="text-foreground">Boutique Creative Agency</span> ในกรุงเทพฯ ที่ทำงานเหมือนหมอ ไม่เหมือนร้านขายยา — เราวินิจฉัยก่อนว่าแบรนด์ติดตรงไหน แล้วลงมือแก้ด้วยงานคราฟต์จนจบ.
+              ØRIONS คือ <span className="text-foreground">Boutique Creative Agency</span> ในกรุงเทพฯ ที่ทำงานเหมือนหมอ ไม่เหมือนร้านขายยา — เราวินิจฉัย<span className="text-foreground">ด้วยหลักฐาน</span>ก่อนว่าแบรนด์ติดตรงไหน แล้วลงมือแก้ด้วยงานคราฟต์จนจบ.
             </p>
             <dl className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-7 border-t border-foreground/12 pt-9">
               {facts.map((f) => (

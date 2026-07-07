@@ -93,7 +93,7 @@ const Index = () => {
   <div>
     <SEO
       title="ØRIONS — Boutique Creative Agency, Bangkok"
-      description="Boutique creative agency ในกรุงเทพฯ ที่มีสมองของ consult — เราวินิจฉัยก่อนว่าแบรนด์ติดตรงไหน แล้วลงมือแก้ด้วยงานคราฟต์จนจบ. brand strategy · creative production · communication design. เรื่องที่คมที่สุดชนะ ไม่ใช่เรื่องที่ดังที่สุด."
+      description="Boutique creative agency ในกรุงเทพฯ ที่ data-driven แบบมีรสนิยม — วินิจฉัยด้วยหลักฐานผ่าน SONAR แล้วลงมือแก้ด้วยงานคราฟต์ วัดผลด้วย Vaest. brand strategy · creative production · communication design. เรื่องที่คมที่สุดชนะ ไม่ใช่เรื่องที่ดังที่สุด."
       path="/"
       schema={{
         "@context": "https://schema.org",
@@ -163,11 +163,16 @@ const Index = () => {
           lang="th"
           eyebrow="An agency that thinks like a consultancy"
           title={<>เอเจนซี่ ที่มีสมองของ <em className="text-cinnabar">consult.</em></>}
-          intro="ที่ปรึกษาคิดเก่งแต่ทำไม่ได้ · เอเจนซี่ทั่วไปทำสวยแต่คิดไม่ลึก. เราอยู่ตรงกลาง — ไม่รอบรีฟจากคุณ แต่วินิจฉัยก่อนว่าแบรนด์ติดตรงไหน แล้วลงมือแก้ด้วยงานคราฟต์จนจบ. เหมือนหมอ ไม่เหมือนร้านขายยา."
+          intro="ที่ปรึกษาคิดเก่งแต่ทำไม่ได้ · เอเจนซี่ทั่วไปทำสวยแต่คิดไม่ลึก. เราอยู่ตรงกลาง — วินิจฉัยด้วยหลักฐาน ไม่ใช่ความเห็น แล้วลงมือแก้ด้วยงานคราฟต์จนจบ วัดผลว่าขยับ Signal จริงไหม. เหมือนหมอ ไม่เหมือนร้านขายยา."
         />
         <Reveal delay={0.05}>
           <p className="mt-8 font-serif text-[20px] md:text-[28px] leading-[1.3] tracking-[-0.015em] text-foreground max-w-[24ch]">
             คิดแบบ <em className="text-cinnabar italic">Consult</em> → ทำแบบ <em className="text-cinnabar italic">Craft</em> → ส่งมอบแบบ <em className="text-cinnabar italic">Boutique.</em>
+          </p>
+        </Reveal>
+        <Reveal delay={0.08}>
+          <p lang="th" className="mt-5 font-mono text-[10px] md:text-[11px] tracking-[0.14em] uppercase text-muted-foreground">
+            ขับด้วยหลักฐาน — <span className="text-cinnabar">SONAR</span> ฟังหา Signal · <span className="text-cinnabar">Vaest</span> วัดว่ามันขยับจริง
           </p>
         </Reveal>
         {/* Three disciplines — the treatment */}

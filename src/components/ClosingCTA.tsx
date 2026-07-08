@@ -30,33 +30,33 @@ const ClosingCTA = ({
   phone,
 }: Props) => (
   <section className="relative px-6 md:px-10 border-t border-foreground/15">
-    <div className="max-w-[1280px] mx-auto py-24 md:py-36 text-center">
+    <div className="max-w-[1280px] mx-auto py-28 md:py-48 text-center">
       <Reveal>
         <div className="flex justify-center">
           <SectionLabel label={eyebrow} reveal={false} />
         </div>
       </Reveal>
       <Reveal delay={0.05}>
-        <h2 className="mt-5 h-display-md text-balance max-w-[20ch] mx-auto">{title}</h2>
+        <h2 className="mt-7 h-display-lg text-balance max-w-[18ch] mx-auto">{title}</h2>
       </Reveal>
       {description && (
         <Reveal delay={0.1}>
-          <p className="mt-6 max-w-[520px] mx-auto text-[15px] leading-[1.8] text-muted-foreground font-thai">
+          <p className="mt-7 max-w-[520px] mx-auto text-[15px] md:text-[16px] leading-[1.8] text-muted-foreground font-thai">
             {description}
           </p>
         </Reveal>
       )}
       <Reveal delay={0.2}>
-        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-7 sm:gap-12">
           {ctas.map((c) => (
             <Link
               key={c.label}
               to={c.to}
               viewTransition
-              className={c.variant === "ghost" ? "btn-ghost" : "btn-accent"}
+              className={`cta-link cta-link-lg ${c.variant === "ghost" ? "cta-link-muted" : ""}`}
             >
               <span>{c.label}</span>
-              <ArrowUpRight className="w-4 h-4" />
+              <ArrowUpRight className="w-[18px] h-[18px]" />
             </Link>
           ))}
         </div>

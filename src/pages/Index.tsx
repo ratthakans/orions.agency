@@ -82,7 +82,7 @@ const ShowreelFeature = () => {
             )}
           </div>
         </Reveal>
-        <Link to="/work" viewTransition className="btn-ghost mt-10 md:hidden"><span>ดูผลงานทั้งหมด</span><ArrowUpRight className="w-4 h-4" /></Link>
+        <Link to="/work" viewTransition className="cta-link cta-link-muted mt-10 md:hidden"><span>ดูผลงานทั้งหมด</span><ArrowUpRight className="w-4 h-4" /></Link>
       </div>
     </section>
   );
@@ -122,12 +122,12 @@ const Index = () => {
           <HeroHeadline />
         </div>
         <Reveal delay={0.5}>
-          <div className="mt-10 flex flex-col sm:flex-row items-center gap-4">
-            <Link to="/contact" className="btn-accent">
-              <span>เริ่มต้นบทสนทนา</span><ArrowUpRight className="w-4 h-4" />
+          <div className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-7 sm:gap-12">
+            <Link to="/contact" className="cta-link cta-link-lg">
+              <span>เริ่มต้นบทสนทนา</span><ArrowUpRight className="w-[18px] h-[18px]" />
             </Link>
-            <Link to="/work" className="btn-ghost">
-              <span>ดูผลงาน</span><ArrowUpRight className="w-4 h-4" />
+            <Link to="/work" className="cta-link cta-link-lg cta-link-muted">
+              <span>ดูผลงาน</span><ArrowUpRight className="w-[18px] h-[18px]" />
             </Link>
           </div>
         </Reveal>

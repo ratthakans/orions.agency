@@ -166,12 +166,12 @@ const Contact = () => {
           </Reveal>
 
           <Reveal delay={0.2}>
-            <div className="mt-12 flex flex-col sm:flex-row gap-4">
-              <a href="#brief" className="btn-accent justify-between sm:w-auto">
-                <span>ส่งโจทย์มา</span><ArrowUpRight className="w-4 h-4" />
+            <div className="mt-12 flex flex-col sm:flex-row gap-7 sm:gap-12">
+              <a href="#brief" className="cta-link cta-link-lg">
+                <span>ส่งโจทย์มา</span><ArrowUpRight className="w-[18px] h-[18px]" />
               </a>
-              <a href="mailto:hello@orions.agency?subject=คุยฟรี 45 นาที — ØRIONS" className="btn-ghost justify-between sm:w-auto">
-                <span>อีเมลนัดคุย</span><ArrowUpRight className="w-4 h-4" />
+              <a href="mailto:hello@orions.agency?subject=คุยฟรี 45 นาที — ØRIONS" className="cta-link cta-link-lg cta-link-muted">
+                <span>อีเมลนัดคุย</span><ArrowUpRight className="w-[18px] h-[18px]" />
               </a>
             </div>
           </Reveal>
@@ -293,7 +293,7 @@ const Contact = () => {
                   อยากคุยก่อนส่งโจทย์? อีเมลมานัดคุยฟรี 45 นาที ไม่มีข้อผูกมัด — เราช่วยวินิจฉัยว่าแบรนด์ติดตรงไหน แล้วเสนอสโคป + ราคาที่ตีตามโจทย์จริง ไม่มีค่าซ่อน.
                 </p>
                 <a href="mailto:hello@orions.agency?subject=คุยฟรี 45 นาที — ØRIONS"
-                  className="btn-accent mt-6 justify-between w-full">
+                  className="cta-link mt-6">
                   <span>อีเมลนัดคุย</span><ArrowUpRight className="w-4 h-4" />
                 </a>
               </div>

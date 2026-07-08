@@ -319,7 +319,7 @@ const Thinking = () => (
             </p>
           </Reveal>
           <Reveal delay={0.15}>
-            <Link to="/work" viewTransition className="btn-ghost mt-10">
+            <Link to="/work" viewTransition className="cta-link cta-link-muted mt-10">
               <span>ดูผลงาน</span><ArrowUpRight className="w-4 h-4" />
             </Link>
           </Reveal>

@@ -120,7 +120,7 @@ const About = () => (
           ))}
         </div>
         <Reveal delay={0.1}>
-          <Link to="/thinking" className="btn-ghost mt-10">
+          <Link to="/thinking" className="cta-link cta-link-muted mt-10">
             <span>อ่านเหตุผลเต็มใน Manifesto</span><ArrowUpRight className="w-4 h-4" />
           </Link>
         </Reveal>

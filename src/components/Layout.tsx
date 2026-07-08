@@ -1,7 +1,6 @@
 import { ReactNode } from "react";
 import Nav from "./Nav";
 import Footer from "./Footer";
-import CornerMarks from "./CornerMarks";
 import StickyMobileCTA from "./StickyMobileCTA";
 
 const Layout = ({ children }: { children: ReactNode }) => {
@@ -14,7 +13,6 @@ const Layout = ({ children }: { children: ReactNode }) => {
         Skip to content
       </a>
       <Nav />
-      <CornerMarks />
       <main
         id="main"
         className="flex-1 relative z-10 bg-background pb-14 md:pb-0"

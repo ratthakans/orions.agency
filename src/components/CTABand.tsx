@@ -21,37 +21,39 @@ interface Props {
   className?: string;
 }
 
-/** Alpha-style closing CTA — a rounded cinnabar-tinted panel. */
+/** Closing CTA — an open, cinematic statement (no boxed panel, text-link CTAs). */
 const CTABand = ({ eyebrow, title, subtitle, primary, secondary, tone = "snow", className = "" }: Props) => {
   const bandBg = tone === "ink" ? "bg-surface" : "";
   return (
     <section className={`${bandBg} px-6 md:px-10 border-t border-foreground/15 ${className}`}>
-      <div className="max-w-[1280px] mx-auto py-24 md:py-36">
-        <Reveal>
-          <div className="card-accent p-8 md:p-14">
-            <div className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr] gap-10 md:gap-16 items-center">
-              <div>
-                {eyebrow && <SectionLabel label={eyebrow} reveal={false} />}
-                <h2 className="mt-5 h-display-md max-w-[22ch]">{title}</h2>
-                {subtitle && (
-                  <p className="mt-5 max-w-[640px] font-serif text-[16px] md:text-[20px] leading-[1.5] text-muted-foreground">
-                    {subtitle}
-                  </p>
-                )}
-              </div>
-              <div className="flex flex-col sm:flex-row md:flex-col gap-4 md:justify-self-end md:w-full">
-                <Link to={primary.to} viewTransition className="btn-accent justify-between">
-                  <span>{primary.label}</span>
-                  <ArrowUpRight className="w-4 h-4" />
-                </Link>
-                {secondary && (
-                  <Link to={secondary.to} viewTransition className="btn-ghost justify-between">
-                    <span>{secondary.label}</span>
-                    <ArrowUpRight className="w-4 h-4" />
-                  </Link>
-                )}
-              </div>
-            </div>
+      <div className="max-w-[1280px] mx-auto py-28 md:py-48">
+        {eyebrow && (
+          <Reveal>
+            <SectionLabel label={eyebrow} reveal={false} />
+          </Reveal>
+        )}
+        <Reveal delay={0.05}>
+          <h2 className="mt-8 h-display-lg max-w-[15ch]">{title}</h2>
+        </Reveal>
+        {subtitle && (
+          <Reveal delay={0.1}>
+            <p className="mt-7 max-w-[560px] font-serif text-[17px] md:text-[21px] leading-[1.5] text-muted-foreground">
+              {subtitle}
+            </p>
+          </Reveal>
+        )}
+        <Reveal delay={0.2}>
+          <div className="mt-12 md:mt-14 flex flex-col sm:flex-row gap-7 sm:gap-12">
+            <Link to={primary.to} viewTransition className="cta-link cta-link-lg">
+              <span>{primary.label}</span>
+              <ArrowUpRight className="w-[18px] h-[18px]" />
+            </Link>
+            {secondary && (
+              <Link to={secondary.to} viewTransition className="cta-link cta-link-lg cta-link-muted">
+                <span>{secondary.label}</span>
+                <ArrowUpRight className="w-[18px] h-[18px]" />
+              </Link>
+            )}
           </div>
         </Reveal>
       </div>

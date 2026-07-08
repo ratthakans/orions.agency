@@ -23,7 +23,7 @@ const nevers = [
 const facts = [
   { k: "What we are", v: "Boutique Creative Agency — เอเจนซี่ที่มีสมองของ consult" },
   { k: "What we do", v: "Brand Strategy · Creative Production · Communication Design" },
-  { k: "How we know", v: "ขับด้วยหลักฐาน — SONAR (ฟัง/วินิจฉัย) · Vaest (วัดผล Signal)" },
+  { k: "The engine", v: "VÆST — AI creative director ที่มีรสนิยม เบื้องหลังทุกผลผลิตของ ORIONS" },
   { k: "Where", v: "กรุงเทพฯ ประเทศไทย — ทำงานกับแบรนด์ทั่วไทย (+ remote)" },
   { k: "Since", v: "2025 — นำโดยผู้ก่อตั้งและทีม senior ที่ลงมือทำเองทุกงาน" },
   { k: "How we price", v: "คิดต่อแคมเปญ/โปรเจกต์ — ไม่มีเรทการ์ด ตีตามการวินิจฉัย" },

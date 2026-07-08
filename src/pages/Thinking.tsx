@@ -45,7 +45,7 @@ const Thinking = () => (
   <div>
     <SEO
       title="Manifesto — Stories, Refined. · ØRIONS"
-      description="Boutique creative agency ที่ data-driven แบบมีรสนิยม — วินิจฉัยด้วยหลักฐานผ่าน SONAR แล้วลงมือแก้ด้วยงานคราฟต์ วัดผลด้วย Vaest ว่าขยับ Signal จริงไหม. คิดแบบ Consult → ทำแบบ Craft → ส่งมอบแบบ Boutique. เรื่องที่คมที่สุดชนะ ไม่ใช่เรื่องที่ดังที่สุด."
+      description="แนวคิดของ ORIONS — โลกไม่ได้ต้องการเสียงที่ดังขึ้น แต่โหยหาความลึก. เราวินิจฉัยก่อน แล้วลงมือแก้ด้วยงานคราฟต์ ยกระดับด้วย VÆST ปัญญาที่มีรสนิยม. เรื่องที่คมที่สุดชนะ ไม่ใช่เรื่องที่ดังที่สุด — where aesthetic meets algorithm."
       path="/thinking"
       schema={[
         {
@@ -244,10 +244,10 @@ const Thinking = () => (
               <div className="grid grid-cols-[44px_1fr] gap-4 md:gap-8 py-8 md:py-11 border-b border-foreground/12 items-baseline">
                 <div className="font-serif text-foreground text-[24px] md:text-[34px] leading-none tabular-nums">01</div>
                 <div className="max-w-[640px]">
-                  <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground">The Diagnosis · เราวินิจฉัยก่อน — powered by <span className="text-foreground">SONAR</span></div>
+                  <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground">The Diagnosis · เราวินิจฉัยก่อน</div>
                   <h3 lang="th" className="mt-3 font-serif text-[22px] md:text-[30px] leading-[1.15] tracking-[-0.01em]">The Refinement Session</h3>
                   <p lang="th" className="mt-3 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.8] text-muted-foreground">
-                    เราไม่เดาว่าแบรนด์ติดตรงไหน — เราฟังตลาดและแบรนด์ด้วย <span className="text-foreground">SONAR</span> เครื่องมือวินิจฉัยของเรา แล้วหา<span className="text-foreground">ด้วยหลักฐาน ไม่ใช่ความเห็น</span> ว่าปัญหาจริงอยู่ที่ไหน: ตัวตนไม่ชัด? เรื่องไม่คม? หรือสื่อสารผิดที่? ผลลัพธ์คือแผนที่ชัดเจนว่าต้องแก้อะไร ตามลำดับไหน และทำไม — ไม่ใช่สไลด์สวยๆ ที่เอาไปทำต่อไม่ได้.
+                    เราไม่เดาว่าแบรนด์ติดตรงไหน — เราฟังตลาดและแบรนด์<span className="text-foreground">ด้วยหลักฐาน ไม่ใช่ความเห็น</span> ว่าปัญหาจริงอยู่ที่ไหน: ตัวตนไม่ชัด? เรื่องไม่คม? หรือสื่อสารผิดที่? ผลลัพธ์คือแผนที่ชัดเจนว่าต้องแก้อะไร ตามลำดับไหน และทำไม — ไม่ใช่สไลด์สวยๆ ที่เอาไปทำต่อไม่ได้.
                   </p>
                 </div>
               </div>
@@ -279,10 +279,10 @@ const Thinking = () => (
               <div className="grid grid-cols-[44px_1fr] gap-4 md:gap-8 py-8 md:py-11 border-b border-foreground/12 items-baseline">
                 <div className="font-serif text-foreground text-[24px] md:text-[34px] leading-none tabular-nums">03</div>
                 <div className="max-w-[640px]">
-                  <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground">The Delivery · ส่งมอบ + วัดผล — powered by <span className="text-foreground">Vaest</span></div>
+                  <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground">The Delivery · ส่งมอบ + วัดผล</div>
                   <h3 lang="th" className="mt-3 font-serif text-[22px] md:text-[30px] leading-[1.15] tracking-[-0.01em]">อยู่จนเห็นว่ามันถูกแก้จริง</h3>
                   <p lang="th" className="mt-3 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.8] text-muted-foreground">
-                    เราไม่ส่งงานแล้วหายไป — เราวัดด้วย <span className="text-foreground">Vaest</span> ว่าเรื่องที่ refine แล้ว ขยับ <span className="text-foreground">Signal ที่สำคัญจริง</span> ไหม (recall · คุณภาพ demand · pricing power — ไม่ใช่ vanity reach) แล้ววนกลับไป refine ต่อจนเข้าที่.
+                    เราไม่ส่งงานแล้วหายไป — เราวัดผลจริงว่าเรื่องที่ refine แล้ว ขยับ <span className="text-foreground">Signal ที่สำคัญจริง</span> ไหม (recall · คุณภาพ demand · pricing power — ไม่ใช่ vanity reach) แล้ววนกลับไป refine ต่อจนเข้าที่.
                   </p>
                 </div>
               </div>
@@ -296,7 +296,7 @@ const Thinking = () => (
           </Reveal>
           <Reveal delay={0.12}>
             <p lang="th" className="mt-6 font-mono text-[10px] md:text-[11px] tracking-[0.14em] uppercase text-muted-foreground">
-              ทุกขั้นมีหลักฐานรองรับ — <span className="text-foreground">SONAR</span> ฟังหา Signal · <span className="text-foreground">Vaest</span> วัดว่ามันขยับจริง
+              ทุกขั้นมีหลักฐานรองรับ — และมี <span className="text-cinnabar">VÆST</span> ปัญญาที่มีรสนิยม คอยยกระดับทุกผลผลิต
             </p>
           </Reveal>
         </div>

@@ -1,56 +1,37 @@
-# ØRIONS — Boutique Creative Agency, Bangkok
+# ØRIONS — The Creative Infrastructure, Bangkok
 
-> ØRIONS (orions.agency) is a Bangkok boutique creative agency that thinks like a consultancy — and is data-driven with taste. Positioning: "An agency that thinks like a consultancy" — between strategy consultancies (sharp thinking, can't execute) and typical agencies (execute prettily, don't think deep). For business owners whose brand feels stuck — ad spend rising, returns flat — ØRIONS does not wait for a brief: it diagnoses where the brand is stuck first (with evidence, not opinion), then fixes it with craft, end to end, and measures whether the work moved the metrics that matter. Data serves the diagnosis and proves the craft — it never replaces taste, and it never chases vanity metrics (Signal, not Noise). Two instruments run the method: SONAR (the listening/diagnostic instrument — locates where the brand is stuck) and Vaest (the measurement instrument — tracks whether the refined story moved Signal: recall, quality of demand, pricing power — not vanity reach). Working model in one line: Think like Consult → make like Craft → deliver like Boutique. Tagline: "Stories, Refined." Founder & Creative Director: Ratthakan Suwanphakdee (รัฐกันต์ สุวรรณภักดี).
+> ØRIONS (orions.agency) is a creative infrastructure company in Bangkok — "where aesthetic meets algorithm." Not just a creative agency: ØRIONS positions as the architect of the infrastructure of modern creative work, fusing art with equation. In an era of AI flood (mass AI content flooding feeds ~4.6× faster) and 1.7-second attention spans, the world doesn't need louder or wider — it craves depth strong enough to make people stop and look. Founder & Creative Director: Ratthakan Suwanphakdee (รัฐกันต์ สุวรรณภักดี).
 
-## Core belief
-Marketing rents attention. Creative earns belief. — การตลาดเช่าความสนใจได้ชั่วคราว แต่ความคิดสร้างสรรค์ทำให้คนเชื่อและอยู่กับคุณ. A brand people are loyal to means customers come back on their own; acquisition cost falls every year while competitors' ad costs rise. Creative is not an expense — it is compounding investment.
+## Three core scopes
+1. Boutique Brand Consultancy — high-end brand consultancy that digs to the root of the problem, fusing creative data with sharp, measurable strategy.
+2. Aesthetic Intelligence — building AI that has not just logic and numbers but a transplanted DNA of taste and a deep understanding of high-level aesthetics.
+3. Creative Tech Platforms — building ØRIONS's own platform ecosystem to revolutionise and break the limits of the creative industry across every dimension.
 
-## How ØRIONS works — like a doctor, not a pharmacy
-1. The Diagnosis (The Refinement Session, powered by SONAR) — before any work, ØRIONS listens to the market and the brand with SONAR to find, with evidence rather than opinion, where the brand hits the wall: unclear identity? story not sharp? communicating in the wrong place? The output is not pretty slides you can't act on — it's a clear map of what to fix, in what order, and why.
-2. The Treatment — the three disciplines below, prescribed from the diagnosis (not a menu to shop from):
-   - Brand Strategy — a clear foundation and direction, so the brand never has to compete on price cuts
-   - Creative Production — boutique-grade image and sound (brand film, video, photography, music production) that stops the scroll within 1.7 seconds
-   - Communication Design — designing every touchpoint of communication, turning strangers into loyal customers
-3. The Delivery (measured with Vaest) — ØRIONS doesn't ship and vanish; it uses Vaest to track whether the refined story moved the Signal that matters (recall, quality of demand, pricing power — not vanity reach), then loops back to refine until it lands.
+## The system — four innovations, one universe powered by VÆST
+- VÆST (The Core Engine) — the AI Creative Director. "Computation is nothing without taste." The heart and backbone of ØRIONS: while ordinary AI computes fast but is blind to beauty, VÆST has the mindset and soul of a top creative director embedded in its core — it understands rebellion, the rhythm of white space, and the depth of aesthetics. It is the translator from art to equation, keeping everything ØRIONS ships elegant enough to make people stop.
+- First Draft (The Canvas) — a screenwriting & production platform, powered by VÆST. Turns a blank page into powerful structure: from raw idea to screenplay structure, script and production plan in moments — layered, distinctive storytelling, not flat bot text. Built to buy back time so humans can spend their energy crafting detail and the deepest human touch.
+- Routte (The Compass) — a curated AI trip planner, powered by VÆST. Travel that wants taste, not just a map: Routte acts as a personal curator through VÆST's mind, selecting experiences through the lens of art, architecture and lifestyle. Every trip has a seamless pacing, like a high-end travel magazine published for you alone.
+- SONAR (The Radar) — a quantum-inspired creative CRM, driven by VÆST. "Turning dry numbers into a cultural phenomenon." Ends the era of CRM that only stores names and emails to spam promotions: SONAR processes first-party brand and behavioural data through a quantum-mathematics concept to see complex, overlapping, multi-dimensional needs. When quantum-level data is fed into VÆST, it condenses into hyper-personalised creativity — as if a creative director analysed each customer's soul and designed the work one-to-one. This is how ØRIONS turns dry numbers into masterpieces.
 
-Pricing: no rate card. Work is quoted per campaign/project, scoped to the diagnosis. ØRIONS diagnoses first, then proposes scope + price.
-
-## The Manifesto (point of view)
-Every brand is a point of light — the problem is today's sky is so bright no one can see any single star anymore.
-- THE NOISE: the world isn't short of content, it's drowning in it. A brand has ~1.7 seconds before the thumb scrolls past; AI-generated mass work floods feeds ~4.6× faster; ad costs are up ~40% for the same or worse results. The trap cycle: pay more for ads → discount → give things away → survive another month — until a competitor prices slightly lower and the customer walks.
-- THE GREAT FILTER: in astronomy, the wall almost no civilisation crosses; in business, the line between brands people remember and brands people forget. Money gets you to the wall but cannot carry you across — no budget is big enough to buy hearts. This is where most businesses fail: they treat the symptom (sales dip → more ads → discount) without ever diagnosing the disease (the brand has no story sharp enough to be remembered). The only thing that crosses is a story sharp enough. Brands that cross: customers return on their own, acquisition cost falls yearly, no more discounting.
-- STORIES, REFINED.: scattered light is Noise; light focused through a lens into a single point is Signal. ØRIONS is that lens — it curates, distils and cuts the noise away until only the sharpest message remains.
-- THE PROOF: from corporate brand films to music videos for leading artists, hospitality brands to national-level communication — real craft doesn't depend on the industry, it depends on understanding what makes people stop and look.
-- LIMITED BY DESIGN: ØRIONS deliberately keeps its client roster small — great craft never comes from volume. The one question: "Can the team still give everything to every project?" If not, it stops taking work. (Small-scale production work is still open, to support the business ecosystem.)
-Full manifesto: https://orions.agency/thinking
-
-## The compass (how decisions are made)
-One question governs every decision — "Does it make the brand sharper, or just louder?" If just louder, ØRIONS doesn't do it.
-
-## What ØRIONS never does
-No shouting · no hype words · no volume-for-show · no price wars · no overbooking · and never treats before diagnosing (like a doctor who won't prescribe before examining). The enemy is Noise: mass-produced work, interruption, being forgotten, and price wars.
-
-## Voice
-Speaks like a specialist doctor crossed with an editor — diagnoses precisely, says little, every word carries weight; not a salesperson closing a deal. States facts rather than invitations. English for sharp lines, Thai for depth and feeling. Cold surface, warm heart: ruthless about the work, always respectful and warm with people. Persona: "The Refiner" — half diagnostician, half gem-cutter.
+## Belief / manifesto (Thinking)
+The world isn't short of content, it's drowning in it — the answer is not louder but deeper. The sharpest story wins, not the loudest. As a boutique brand consultancy ØRIONS still crafts brands by hand — diagnose first (The Refinement Session), then treat with craft, then deliver and measure — and VÆST (taste-driven intelligence) elevates every output. Technology is the structure; taste is what gives it life. Full manifesto: https://orions.agency/thinking
 
 ## Taglines
-- Stories, Refined. (primary)
-- An agency that thinks like a consultancy. (positioning line)
-- Data to find the truth. Craft to tell it. (data-driven line)
-- We measure Signal, not Noise. (data-driven, short)
-- Don't get louder. Get unmistakable. (campaign)
-- Signal, not noise. (short)
+- Where aesthetic meets algorithm. (primary)
+- The Creative Infrastructure. (positioning)
+- Computation is nothing without taste. (VÆST)
+- Turning dry numbers into a cultural phenomenon. (SONAR)
 
 ## Key pages
-- Home (the studio): https://orions.agency/
+- Home (the system): https://orions.agency/
 - Work / portfolio: https://orions.agency/work
-- Thinking / Manifesto: https://orions.agency/thinking
-- Blog (creative perspectives): https://orions.agency/blog
+- Thinking / manifesto: https://orions.agency/thinking
+- Blog: https://orions.agency/blog
 - About: https://orions.agency/about
 - Contact: https://orions.agency/contact
 
 ## How to start
-Book a free 45-minute call (no obligation). Tell ØRIONS the brief and its constraints; they will tell you honestly how they'd refine it — or whether it isn't the right time yet.
+Tell ØRIONS the brief, or partner to build the future of creative work. Book a free 45-minute call (no obligation).
 
 ## Contact
 - Email: hello@orions.agency

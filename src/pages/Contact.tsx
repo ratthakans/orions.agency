@@ -150,7 +150,7 @@ const Contact = () => {
           <SectionLabel label="Start a conversation" />
           <Reveal delay={0.05}>
             <h1 lang="th" className="mt-8 h-display-lg max-w-[16ch] thai-wrap">
-              เล่าโจทย์มา —<br /> เราช่วย <em className="text-cinnabar">refine</em> มัน
+              เล่าโจทย์มา —<br /> เราช่วย <em className="text-foreground">refine</em> มัน
             </h1>
           </Reveal>
           <Reveal delay={0.1}>
@@ -161,7 +161,7 @@ const Contact = () => {
 
           <Reveal delay={0.15}>
             <p className="mt-8 font-mono text-[10px] tracking-[0.05em] text-muted-foreground">
-              <span className="text-cinnabar">—</span> ตอบกลับใน 24 ชม. · คุยฟรี 45 นาที · NDA on request
+              <span className="text-foreground">—</span> ตอบกลับใน 24 ชม. · คุยฟรี 45 นาที · NDA on request
             </p>
           </Reveal>
 
@@ -193,7 +193,7 @@ const Contact = () => {
           <SectionHeading
             lang="th"
             eyebrow="02 — Send a brief"
-            title={<>เล่าเรื่อง<em className="text-cinnabar">แบรนด์</em>ให้เราฟัง.</>}
+            title={<>เล่าเรื่อง<em className="text-foreground">แบรนด์</em>ให้เราฟัง.</>}
           />
 
           <div className="mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-start">
@@ -275,7 +275,7 @@ const Contact = () => {
                 <div className="flex items-center gap-5">
                   <Picture data={founder} alt="Ratthakan Suwanphakdee — Founder & Creative Director, ØRIONS" className="w-20 h-20 md:w-24 md:h-24 rounded-none object-cover object-top shrink-0" />
                   <div>
-                    <div className="font-mono text-[10px] tracking-[0.04em] text-cinnabar">— คนที่ดูแลงานคุณ</div>
+                    <div className="font-mono text-[10px] tracking-[0.04em] text-foreground">— คนที่ดูแลงานคุณ</div>
                     <h3 lang="th" className="mt-1.5 font-serif text-[22px] tracking-[-0.01em]">รัฐกันต์ สุวรรณภักดี</h3>
                     <div lang="th" className="font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">Founder & Creative Director</div>
                   </div>
@@ -288,7 +288,7 @@ const Contact = () => {
 
               {/* Book a call — primary highlight */}
               <div className="card-accent p-7 md:p-8">
-                <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-cinnabar">— นัดคุยวินิจฉัย 45 นาที</div>
+                <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-foreground">— นัดคุยวินิจฉัย 45 นาที</div>
                 <p lang="th" className="mt-4 font-thai thai-wrap text-[14px] leading-[1.8] text-foreground/80">
                   อยากคุยก่อนส่งโจทย์? อีเมลมานัดคุยฟรี 45 นาที ไม่มีข้อผูกมัด — เราช่วยวินิจฉัยว่าแบรนด์ติดตรงไหน แล้วเสนอสโคป + ราคาที่ตีตามโจทย์จริง ไม่มีค่าซ่อน.
                 </p>

@@ -52,12 +52,12 @@ const About = () => (
         <SectionLabel label="What we believe" />
         <Reveal delay={0.1}>
           <h1 lang="th" className="mt-8 h-display-lg max-w-[20ch] thai-wrap">
-            เรื่องที่คมที่สุด<em className="text-cinnabar">ชนะ</em> — ไม่ใช่เรื่องที่ดังที่สุด.
+            เรื่องที่คมที่สุด<em className="text-foreground">ชนะ</em> — ไม่ใช่เรื่องที่ดังที่สุด.
           </h1>
         </Reveal>
         <Reveal delay={0.2}>
           <p lang="th" className="mt-8 max-w-[720px] font-thai thai-wrap text-[16px] md:text-[19px] leading-[1.8] text-foreground/80">
-            ศัตรูของเรา — และของลูกค้าเรา — ไม่ใช่คู่แข่งของใคร แต่คือ <span className="text-foreground">Noise</span>: งานแมส เสียงรบกวน การถูกลืม และสงครามราคา. เราไม่ใช่ที่ปรึกษาที่ส่งแค่สไลด์ ไม่ใช่เอเจนซี่ที่รอบรีฟแล้วทำตามสั่ง — <span className="text-cinnabar">เราวินิจฉัยก่อน แล้วลงมือแก้ด้วยงานคราฟต์จนจบ.</span>
+            ศัตรูของเรา — และของลูกค้าเรา — ไม่ใช่คู่แข่งของใคร แต่คือ <span className="text-foreground">Noise</span>: งานแมส เสียงรบกวน การถูกลืม และสงครามราคา. เราไม่ใช่ที่ปรึกษาที่ส่งแค่สไลด์ ไม่ใช่เอเจนซี่ที่รอบรีฟแล้วทำตามสั่ง — <span className="text-foreground">เราวินิจฉัยก่อน แล้วลงมือแก้ด้วยงานคราฟต์จนจบ.</span>
           </p>
         </Reveal>
       </div>
@@ -70,7 +70,7 @@ const About = () => (
           <SectionLabel label="Who we are" />
           <Reveal delay={0.05}>
             <h2 lang="th" className="mt-8 h-display-md max-w-[14ch] thai-wrap">
-              ØRIONS <em className="text-cinnabar">โดยย่อ.</em>
+              ØRIONS <em className="text-foreground">โดยย่อ.</em>
             </h2>
           </Reveal>
         </div>
@@ -82,7 +82,7 @@ const About = () => (
             <dl className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-7 border-t border-foreground/12 pt-9">
               {facts.map((f) => (
                 <div key={f.k}>
-                  <dt className="font-mono text-[10px] tracking-[0.18em] uppercase text-cinnabar">— {f.k}</dt>
+                  <dt className="font-mono text-[10px] tracking-[0.18em] uppercase text-foreground">— {f.k}</dt>
                   <dd lang="th" className="mt-2 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.8] text-foreground/85">{f.v}</dd>
                 </div>
               ))}
@@ -98,7 +98,7 @@ const About = () => (
         <SectionLabel label="The compass" />
         <Reveal delay={0.05}>
           <blockquote lang="th" className="mt-8 font-serif text-[28px] md:text-[46px] leading-[1.25] tracking-[-0.015em] thai-wrap text-foreground max-w-[18ch]">
-            "มันทำให้แบรนด์<em className="text-cinnabar italic">คมขึ้น</em> หรือแค่<em className="text-cinnabar italic">ดังขึ้น?</em>"
+            "มันทำให้แบรนด์<em className="text-foreground italic">คมขึ้น</em> หรือแค่<em className="text-foreground italic">ดังขึ้น?</em>"
           </blockquote>
         </Reveal>
         <Reveal delay={0.1}>
@@ -110,7 +110,7 @@ const About = () => (
           {nevers.map((p, i) => (
             <Reveal key={p.n} delay={i * 0.05}>
               <div className="grid grid-cols-[46px_1fr] md:grid-cols-[92px_1fr] gap-5 md:gap-10 py-8 md:py-11 border-b border-foreground/12 items-baseline group">
-                <div className="font-serif italic text-cinnabar text-[26px] md:text-[40px] leading-none">{p.n}</div>
+                <div className="font-serif italic text-foreground text-[26px] md:text-[40px] leading-none">{p.n}</div>
                 <div>
                   <h3 lang="th" className="font-thai text-[25px] md:text-[34px] leading-[1.1] tracking-[-0.01em] font-medium group-hover:text-cinnabar transition-colors">{p.en}</h3>
                   <p lang="th" className="mt-3.5 font-thai thai-wrap text-[14px] md:text-[16px] leading-[1.8] text-muted-foreground max-w-[62ch]">{p.th}</p>
@@ -139,9 +139,9 @@ const About = () => (
               className="w-44 h-56 md:w-60 md:h-[19rem] rounded-none object-cover object-top shrink-0"
             />
             <div>
-              <div aria-hidden className="font-serif italic text-cinnabar text-[56px] md:text-[80px] leading-[0.4] select-none">“</div>
+              <div aria-hidden className="font-serif italic text-foreground text-[56px] md:text-[80px] leading-[0.4] select-none">“</div>
               <blockquote lang="th" className="mt-5 font-serif text-[24px] md:text-[38px] leading-[1.35] tracking-[-0.015em] thai-wrap text-foreground max-w-[42ch]">
-                ผมเริ่ม ØRIONS เพราะเชื่อว่าแบรนด์ที่ดีไม่ต้องดังที่สุด — แค่ <em className="text-cinnabar">คมพอที่คนจะจำได้เอง.</em> เราจะบอกตรง ๆ เสมอ — ทั้งตอนที่มันใช่ และตอนที่ยังไม่พร้อม.
+                ผมเริ่ม ØRIONS เพราะเชื่อว่าแบรนด์ที่ดีไม่ต้องดังที่สุด — แค่ <em className="text-foreground">คมพอที่คนจะจำได้เอง.</em> เราจะบอกตรง ๆ เสมอ — ทั้งตอนที่มันใช่ และตอนที่ยังไม่พร้อม.
               </blockquote>
               <div className="mt-8">
                 <p lang="th" className="font-thai text-[16px] font-medium text-foreground">รัฐกันต์ สุวรรณภักดี</p>
@@ -159,14 +159,14 @@ const About = () => (
         <SectionHeading
           eyebrow="When we're not the answer"
           lang="th"
-          title={<>ความซื่อสัตย์สำคัญกว่า <em className="text-cinnabar">การรับทุกงาน.</em></>}
+          title={<>ความซื่อสัตย์สำคัญกว่า <em className="text-foreground">การรับทุกงาน.</em></>}
           intro="เราจะบอกตรง ๆ ถ้า:"
         />
         <div className="mt-12 grid grid-cols-1 gap-4 md:gap-5">
           {notForYou.map((p, i) => (
             <Reveal key={p.n} delay={i * 0.06}>
               <div className="card-soft grid grid-cols-1 md:grid-cols-[80px_1fr] gap-4 md:gap-12 items-baseline p-8 md:p-10">
-                <div className="font-serif text-cinnabar text-[28px] md:text-[36px] leading-none tabular-nums">{p.n}</div>
+                <div className="font-serif text-foreground text-[28px] md:text-[36px] leading-none tabular-nums">{p.n}</div>
                 <p lang="th" className="font-thai thai-wrap text-[16px] md:text-[19px] leading-[1.8] text-foreground/90">{p.th}</p>
               </div>
             </Reveal>
@@ -178,7 +178,7 @@ const About = () => (
     {/* 05 — CTA */}
     <CTABand
       eyebrow="When you're ready"
-      title={<>นั่นแหละคือ <em className="text-cinnabar">บรีฟ</em> ที่เราถนัด<span className="text-cinnabar">.</span></>}
+      title={<>นั่นแหละคือ <em className="text-foreground">บรีฟ</em> ที่เราถนัด<span className="text-foreground">.</span></>}
       subtitle="เล่าโจทย์และเงื่อนไขของแบรนด์มาได้เลย — ไม่มีข้อผูกมัด."
       primary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}
       secondary={{ label: "ดูผลงาน", to: "/work" }}

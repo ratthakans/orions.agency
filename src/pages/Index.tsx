@@ -35,7 +35,7 @@ const ShowreelFeature = () => {
             </div>
             <Reveal delay={0.05}>
               <h2 lang="th" className="mt-6 h-display-md max-w-[18ch] thai-wrap">
-                ฝีมือ พูดแทนเรา <em className="text-cinnabar">ดีกว่า.</em>
+                ฝีมือ พูดแทนเรา <em className="text-foreground">ดีกว่า.</em>
               </h2>
             </Reveal>
           </div>
@@ -109,7 +109,7 @@ const Index = () => {
 
     {/* 01 — HERO */}
     <section className="relative min-h-[100svh] flex flex-col px-6 md:px-10 overflow-hidden">
-      <Picture data={heroSilk} alt="" aria-hidden className="silk-drift absolute -inset-[6%] z-0 w-[112%] h-[112%] object-cover object-center pointer-events-none select-none" />
+      <Picture data={heroSilk} alt="" aria-hidden className="silk-drift absolute -inset-[6%] z-0 w-[112%] h-[112%] object-cover object-center pointer-events-none select-none grayscale brightness-[.72]" />
       <div aria-hidden className="hero-scrim absolute inset-0 z-0 pointer-events-none" />
       <div className="relative z-10 max-w-[1280px] mx-auto w-full flex-1 flex flex-col justify-center items-center text-center pt-24 md:pt-32 pb-20 md:pb-28">
         <Reveal>
@@ -139,12 +139,12 @@ const Index = () => {
       <div className="max-w-[1280px] mx-auto py-14 md:py-16 grid grid-cols-1 md:grid-cols-[1.4fr_1fr] gap-6 md:gap-12 md:items-center">
         <Reveal>
           <p className="font-serif text-[24px] md:text-[34px] leading-[1.3] tracking-[-0.01em] text-foreground/90 max-w-[22ch]">
-            Marketing rents <em className="text-cinnabar italic">attention.</em><br />Creative earns <em className="text-cinnabar italic">belief.</em>
+            Marketing rents <em className="text-foreground italic">attention.</em><br />Creative earns <em className="text-foreground italic">belief.</em>
           </p>
         </Reveal>
         <Reveal delay={0.08}>
           <div className="md:text-right">
-            <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-cinnabar">Signal, not noise</p>
+            <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-foreground">Signal, not noise</p>
             <p lang="th" className="mt-3 font-thai thai-wrap text-[13px] leading-[1.8] text-muted-foreground md:ml-auto max-w-[42ch]">
               การตลาดเช่าความสนใจได้ชั่วคราว — แต่ความคิดสร้างสรรค์ทำให้คนเชื่อและอยู่กับคุณ. ในโลกที่ทุกอย่างล้นเกิน เรื่องที่คมที่สุดชนะ ไม่ใช่เรื่องที่ดังที่สุด.
             </p>
@@ -162,17 +162,17 @@ const Index = () => {
         <SectionHeading
           lang="th"
           eyebrow="An agency that thinks like a consultancy"
-          title={<>เอเจนซี่ ที่มีสมองของ <em className="text-cinnabar">consult.</em></>}
+          title={<>เอเจนซี่ ที่มีสมองของ <em className="text-foreground">consult.</em></>}
           intro="ที่ปรึกษาคิดเก่งแต่ทำไม่ได้ · เอเจนซี่ทั่วไปทำสวยแต่คิดไม่ลึก. เราอยู่ตรงกลาง — วินิจฉัยด้วยหลักฐาน ไม่ใช่ความเห็น แล้วลงมือแก้ด้วยงานคราฟต์จนจบ วัดผลว่าขยับ Signal จริงไหม. เหมือนหมอ ไม่เหมือนร้านขายยา."
         />
         <Reveal delay={0.05}>
           <p className="mt-8 font-serif text-[20px] md:text-[28px] leading-[1.3] tracking-[-0.015em] text-foreground max-w-[24ch]">
-            คิดแบบ <em className="text-cinnabar italic">Consult</em> → ทำแบบ <em className="text-cinnabar italic">Craft</em> → ส่งมอบแบบ <em className="text-cinnabar italic">Boutique.</em>
+            คิดแบบ <em className="text-foreground italic">Consult</em> → ทำแบบ <em className="text-foreground italic">Craft</em> → ส่งมอบแบบ <em className="text-foreground italic">Boutique.</em>
           </p>
         </Reveal>
         <Reveal delay={0.08}>
           <p lang="th" className="mt-5 font-mono text-[10px] md:text-[11px] tracking-[0.14em] uppercase text-muted-foreground">
-            ขับด้วยหลักฐาน — <span className="text-cinnabar">SONAR</span> ฟังหา Signal · <span className="text-cinnabar">Vaest</span> วัดว่ามันขยับจริง
+            ขับด้วยหลักฐาน — <span className="text-foreground">SONAR</span> ฟังหา Signal · <span className="text-foreground">Vaest</span> วัดว่ามันขยับจริง
           </p>
         </Reveal>
         {/* Three disciplines — the treatment */}
@@ -187,7 +187,7 @@ const Index = () => {
           ))}
         </div>
         <p lang="th" className="mt-12 font-thai text-[14px] leading-[1.8] text-foreground/80 max-w-[660px]">
-          เรารับงานจำกัด — เพราะการวินิจฉัยที่ดี ทำแบบสายพานไม่ได้. <Link to="/thinking" className="text-cinnabar hover:underline">อ่านวิธีทำงานของเรา</Link>.
+          เรารับงานจำกัด — เพราะการวินิจฉัยที่ดี ทำแบบสายพานไม่ได้. <Link to="/thinking" className="text-foreground hover:underline">อ่านวิธีทำงานของเรา</Link>.
         </p>
       </div>
     </section>
@@ -211,7 +211,7 @@ const Index = () => {
                 <span className="text-muted-foreground">คุยกับผู้ก่อตั้ง</span>
               </div>
               <blockquote lang="th" className="mt-6 font-serif text-[24px] md:text-[36px] leading-[1.35] tracking-[-0.015em] thai-wrap text-foreground max-w-[26ch]">
-                ไม่ต้องผ่านเซลส์ — เล่าโจทย์มาเลย ผมจะบอกตรงๆ ว่าควรเริ่มตรงไหน <em className="text-cinnabar italic">หรือยังไม่ต้องเริ่ม.</em>
+                ไม่ต้องผ่านเซลส์ — เล่าโจทย์มาเลย ผมจะบอกตรงๆ ว่าควรเริ่มตรงไหน <em className="text-foreground italic">หรือยังไม่ต้องเริ่ม.</em>
               </blockquote>
               <div className="mt-7">
                 <p lang="th" className="font-thai text-[15px] font-medium text-foreground">รัฐกันต์ สุวรรณภักดี</p>
@@ -226,7 +226,7 @@ const Index = () => {
     {/* 07 — CTA close */}
     <CTABand
       eyebrow="ØRIONS"
-      title={<>Don't get louder. <em className="text-cinnabar">Get unmistakable.</em></>}
+      title={<>Don't get louder. <em className="text-foreground">Get unmistakable.</em></>}
       subtitle="เราไม่ทำให้คุณดังขึ้น — เราทำให้คุณเป็นตัวคุณที่ไม่มีใครแทนได้. เล่าโจทย์มาได้เลย ไม่มีข้อผูกมัด."
       primary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}
       secondary={{ label: "ดูผลงาน", to: "/work" }}

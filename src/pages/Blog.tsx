@@ -33,7 +33,7 @@ const Blog = () => (
         <SectionLabel label="Blog" />
         <Reveal delay={0.05}>
           <h1 className="mt-8 h-display-lg">
-            มุมมองด้าน<br /><em className="text-cinnabar">ครีเอทีฟ.</em>
+            มุมมองด้าน<br /><em className="text-foreground">ครีเอทีฟ.</em>
           </h1>
         </Reveal>
         <Reveal delay={0.1}>
@@ -64,7 +64,7 @@ const Blog = () => (
               <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-background/5 to-transparent" />
             </div>
             <div className="lg:col-span-5">
-              <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-cinnabar">{blogPosts[0].category}</span>
+              <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground">{blogPosts[0].category}</span>
               <h2 lang="th" className="mt-5 h-display-md thai-wrap group-hover:text-cinnabar transition-colors">
                 {blogPosts[0].title}
               </h2>
@@ -73,7 +73,7 @@ const Blog = () => (
               </p>
               <div className="mt-6 flex items-center gap-3 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
                 <span>{fmtDate(blogPosts[0].date)} · {blogPosts[0].readMins} min read</span>
-                <ArrowUpRight className="w-4 h-4 text-cinnabar opacity-0 group-hover:opacity-100 transition-opacity" />
+                <ArrowUpRight className="w-4 h-4 text-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
             </div>
           </Link>
@@ -101,7 +101,7 @@ const Blog = () => (
                   className="absolute inset-0 w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 group-hover:scale-[1.04] transition-[transform,filter] duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/10 to-transparent" />
-                <span className="absolute left-4 top-4 font-mono text-[9px] tracking-[0.2em] uppercase text-background bg-cinnabar px-2 py-1">
+                <span className="absolute left-4 top-4 font-mono text-[9px] tracking-[0.2em] uppercase text-foreground bg-background/55 border border-foreground/20 backdrop-blur-sm px-2 py-1">
                   {p.category}
                 </span>
               </div>
@@ -114,7 +114,7 @@ const Blog = () => (
                 </p>
                 <div className="mt-5 flex items-center justify-between font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
                   <span>{fmtDate(p.date)} · {p.readMins} min</span>
-                  <ArrowUpRight className="w-4 h-4 text-cinnabar opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <ArrowUpRight className="w-4 h-4 text-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
               </div>
             </Link>
@@ -125,7 +125,7 @@ const Blog = () => (
     </section>
 
     <ClosingCTA
-      title={<>อยากคุยเรื่อง <em className="text-cinnabar">แบรนด์ของคุณ</em> บ้างไหม?</>}
+      title={<>อยากคุยเรื่อง <em className="text-foreground">แบรนด์ของคุณ</em> บ้างไหม?</>}
       description="คุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์มาได้เลย."
       ctas={[
         { label: "เริ่มต้นบทสนทนา", to: "/contact" },

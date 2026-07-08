@@ -54,7 +54,7 @@ const Nav = () => {
                 to={l.to}
                 viewTransition
                 className={({ isActive }) =>
-                  `relative font-body text-[13px] font-medium tracking-[0.02em] transition-colors after:absolute after:left-0 after:-bottom-1.5 after:h-px after:bg-cinnabar after:transition-transform after:duration-300 after:w-full ${
+                  `relative font-body text-[13px] font-medium tracking-[0.02em] transition-colors after:absolute after:left-0 after:-bottom-1.5 after:h-px after:bg-foreground after:transition-transform after:duration-300 after:w-full ${
                     isActive
                       ? "text-foreground after:scale-x-100"
                       : "text-foreground/55 hover:text-foreground after:scale-x-0 hover:after:scale-x-100"
@@ -71,8 +71,8 @@ const Nav = () => {
             className={({ isActive }) =>
               `ml-2 inline-flex items-center gap-2 rounded-none px-4 py-2 font-mono text-[11px] tracking-[0.12em] uppercase border transition-colors ${
                 isActive
-                  ? "bg-cinnabar text-background border-cinnabar"
-                  : "border-cinnabar text-cinnabar hover:bg-cinnabar hover:text-background"
+                  ? "bg-foreground text-background border-foreground"
+                  : "border-foreground/30 text-foreground hover:bg-foreground hover:text-background"
               }`
             }
           >
@@ -111,10 +111,10 @@ const Nav = () => {
               to={l.to}
               viewTransition
               className={({ isActive }) =>
-                `group flex items-baseline gap-4 py-3 border-b border-foreground/10 ${isActive ? "text-cinnabar" : "text-foreground"}`
+                `group flex items-baseline gap-4 py-3 border-b border-foreground/10 ${isActive ? "text-foreground" : "text-foreground"}`
               }
             >
-              <span className="font-mono text-[11px] tracking-[0.22em] text-cinnabar tabular-nums">0{i + 1}</span>
+              <span className="font-mono text-[11px] tracking-[0.22em] text-foreground tabular-nums">0{i + 1}</span>
               <span className="h-display-md">{l.label}</span>
             </NavLink>
           ))}

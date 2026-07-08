@@ -7,6 +7,9 @@
 const W = 1200;
 const H = 800;
 const CINNABAR = "#EB5939";
+// Noise + rings are monochrome (near-white, very low opacity); only the focused
+// Signal point is cinnabar — the single earned moment of colour.
+const NOISE = "#FDFDF9";
 
 // mulberry32 — small, stable seeded PRNG (server and client agree)
 function rng(seed: number) {
@@ -90,21 +93,22 @@ const SignalField = ({ fx = 0.72, fy = 0.42, seed = 0, className = "", intensity
         </filter>
       </defs>
 
-      {/* Noise → convergence lines pulling toward the focus */}
+      {/* Noise → convergence lines pulling toward the focus (monochrome) */}
       {lines.map((l, i) => (
         <line key={`l${i}`} x1={l.x1} y1={l.y1} x2={l.x2} y2={l.y2}
-          stroke={CINNABAR} strokeWidth={0.7} opacity={l.o} />
+          stroke={NOISE} strokeWidth={0.7} opacity={l.o * 0.7} />
       ))}
 
-      {/* Noise — scattered dots, fainter the farther from Signal */}
+      {/* Noise — scattered dots, fainter the farther from Signal (monochrome) */}
       {dots.map((d, i) => (
-        <circle key={`d${i}`} cx={d.x} cy={d.y} r={d.r} fill={CINNABAR} opacity={d.o} />
+        <circle key={`d${i}`} cx={d.x} cy={d.y} r={d.r} fill={NOISE} opacity={d.o * 0.7} />
       ))}
 
-      {/* the lens / sonar rings */}
+      {/* the lens / sonar rings (monochrome; the last one warms toward cinnabar) */}
       {rings.map((r, i) => (
         <circle key={`r${i}`} cx={cx} cy={cy} r={r.rad} fill="none"
-          stroke={CINNABAR} strokeWidth={i === 0 ? 1.1 : 0.7} opacity={r.o} />
+          stroke={i === 0 ? CINNABAR : NOISE} strokeWidth={i === 0 ? 1 : 0.7}
+          opacity={i === 0 ? r.o * 0.9 : r.o * 0.6} />
       ))}
 
       {/* Signal — the focused point (soft glow + sharp core) */}

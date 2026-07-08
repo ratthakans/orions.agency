@@ -76,7 +76,7 @@ const CaseStudy = () => {
           <Reveal delay={0.1}>
             <h1 lang="th" className="mt-8 h-display-lg max-w-[18ch] thai-wrap">
               {cs.title}
-              <em className="text-cinnabar">.</em>
+              <em className="text-foreground">.</em>
             </h1>
           </Reveal>
 
@@ -175,7 +175,7 @@ const CaseStudy = () => {
           <div className="md:col-span-8">
             <Reveal delay={0.05}>
               <h2 lang="th" className="h-display-sm max-w-[20ch] thai-wrap">
-                refine มันจนคมพอจะ <em className="text-cinnabar">ลงในกรอบนั้นได้.</em>
+                refine มันจนคมพอจะ <em className="text-foreground">ลงในกรอบนั้นได้.</em>
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
@@ -195,7 +195,7 @@ const CaseStudy = () => {
             {approach.map((a, i) => (
               <Reveal key={a.n} delay={i * 0.07}>
                 <div className="card-soft h-full p-7 md:p-8">
-                  <div className="num-display text-cinnabar text-[34px]">{a.n}</div>
+                  <div className="num-display text-foreground text-[34px]">{a.n}</div>
                   <h3 lang="th" className="mt-4 font-display text-[18px] md:text-[20px] font-medium">{a.t}</h3>
                   <p lang="th" className="mt-3 font-thai thai-wrap text-[13px] leading-[1.8] text-muted-foreground">{a.d}</p>
                 </div>
@@ -249,7 +249,7 @@ const CaseStudy = () => {
               <h3 lang="th" className="h-display-md group-hover:text-cinnabar transition-all duration-500">
                 {next.title}
               </h3>
-              <ArrowUpRight className="w-10 h-10 md:w-14 md:h-14 text-cinnabar shrink-0 transition-transform duration-500" />
+              <ArrowUpRight className="w-10 h-10 md:w-14 md:h-14 text-foreground shrink-0 transition-transform duration-500" />
             </div>
             <div className="mt-4 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
               {next.niche} · {next.scope}
@@ -259,7 +259,7 @@ const CaseStudy = () => {
       )}
 
       <ClosingCTA
-        title={<>มีโจทย์ที่ <em className="text-cinnabar">มีกรอบ</em> แบบนี้ไหม?</>}
+        title={<>มีโจทย์ที่ <em className="text-foreground">มีกรอบ</em> แบบนี้ไหม?</>}
         description="คุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์และเงื่อนไขมาได้เลย."
         ctas={[
           { label: "เริ่มต้นบทสนทนา", to: "/contact" },

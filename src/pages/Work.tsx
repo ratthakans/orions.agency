@@ -99,7 +99,7 @@ const Work = () => {
           <SectionLabel label="Selected work" />
           <Reveal delay={0.05}>
             <h1 className="mt-8 h-display-lg">
-              Portfolio,<br /><em className="text-cinnabar">by craft.</em>
+              Portfolio,<br /><em className="text-foreground">by craft.</em>
             </h1>
           </Reveal>
           <Reveal delay={0.1}>
@@ -116,8 +116,8 @@ const Work = () => {
                 aria-pressed={active === c.key}
                 className={`font-mono text-[11px] tracking-[0.08em] uppercase px-4 py-2.5 rounded-none border transition-colors ${
                   active === c.key
-                    ? "bg-cinnabar border-cinnabar text-background"
-                    : "border-foreground/20 text-foreground/75 hover:border-cinnabar hover:text-cinnabar"
+                    ? "bg-foreground border-foreground text-background"
+                    : "border-foreground/20 text-foreground/75 hover:border-foreground/60 hover:text-foreground"
                 }`}
               >
                 {c.chip}
@@ -178,7 +178,7 @@ const Work = () => {
         <section key={cat.key} className="px-6 md:px-10 border-t border-foreground/15">
           <div className="max-w-[1280px] mx-auto py-16 md:py-20">
             <div className="flex items-end gap-4 border-b border-foreground/15 pb-3.5">
-              <span className="font-serif font-medium text-[52px] md:text-[60px] leading-[0.78] tracking-[-0.03em] text-cinnabar/25">
+              <span className="font-serif font-medium text-[52px] md:text-[60px] leading-[0.78] tracking-[-0.03em] text-foreground/25">
                 {cat.n}
               </span>
               <div className="flex-1">
@@ -238,7 +238,7 @@ const Work = () => {
                   return (
                     <div key={ai}>
                       <div className="mb-3 inline-flex items-center gap-1.5 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
-                        <Layers className="w-3.5 h-3.5 text-cinnabar" /> {imgs.length} รูป
+                        <Layers className="w-3.5 h-3.5 text-foreground" /> {imgs.length} รูป
                       </div>
                       <div className="flex flex-wrap gap-2.5">
                         {imgs.map((s, i) => (
@@ -258,7 +258,7 @@ const Work = () => {
                 {cat.gallery && (
                   <div>
                     <div className="mb-3 inline-flex items-center gap-1.5 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
-                      <Layers className="w-3.5 h-3.5 text-cinnabar" /> โพสต์เดี่ยว
+                      <Layers className="w-3.5 h-3.5 text-foreground" /> โพสต์เดี่ยว
                     </div>
                     <div className="columns-2 md:columns-4 gap-2.5 md:gap-3">
                       {shuffle<GalleryImage>(cat.gallery, shuffleKey).map((g, i) => (
@@ -314,7 +314,7 @@ const Work = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-90" />
                     <div className="absolute left-0 right-0 bottom-0 p-4 flex flex-col gap-1">
-                      <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-cinnabar">{cs.niche} · {cs.year}</span>
+                      <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-foreground">{cs.niche} · {cs.year}</span>
                       <span lang="th" className="font-display text-[17px] md:text-[19px] font-medium tracking-[-0.01em] leading-tight">{cs.title}</span>
                     </div>
                   </Link>
@@ -326,7 +326,7 @@ const Work = () => {
       ))}
 
       <ClosingCTA
-        title={<>โจทย์ของคุณมี <em className="text-cinnabar">เงื่อนไข</em> แบบไหน?</>}
+        title={<>โจทย์ของคุณมี <em className="text-foreground">เงื่อนไข</em> แบบไหน?</>}
         description="คุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์และเงื่อนไขมา เราช่วยมองว่าจะ refine มันยังไง."
         ctas={[
           { label: "เริ่มต้นบทสนทนา", to: "/contact" },

@@ -136,14 +136,14 @@ const BlogPost = () => {
           <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">อ่านต่อ —</div>
           <div className="mt-5 flex items-center justify-between gap-8">
             <h3 lang="th" className="h-display-md group-hover:text-cinnabar transition-colors">{next.title}</h3>
-            <ArrowUpRight className="w-10 h-10 md:w-14 md:h-14 text-cinnabar shrink-0" />
+            <ArrowUpRight className="w-10 h-10 md:w-14 md:h-14 text-foreground shrink-0" />
           </div>
           <div className="mt-3 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">{next.category}</div>
         </Link>
       </section>
 
       <ClosingCTA
-        title={<>มีโจทย์ที่อยาก <em className="text-cinnabar">เล่าให้เราฟัง</em> ไหม?</>}
+        title={<>มีโจทย์ที่อยาก <em className="text-foreground">เล่าให้เราฟัง</em> ไหม?</>}
         description="คุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์และเงื่อนไขมาได้เลย."
         ctas={[
           { label: "เริ่มต้นบทสนทนา", to: "/contact" },

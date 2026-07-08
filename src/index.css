@@ -108,13 +108,15 @@
     text-wrap: balance;
     font-optical-sizing: auto;
   }
-  /* Accent words in a heading → Newsreader, cinnabar (upright; italics killed for Thai readability) */
+  /* Accent words in a heading → Newsreader serif form, but SAME colour as the
+     headline (monochrome, premium). Cinnabar is reserved for rare moments, not
+     sprinkled through every heading. */
   h1 em, h2 em, h3 em, h4 em, h5 em, h6 em {
     font-family: 'Newsreader', 'IBM Plex Sans Thai', Georgia, serif;
     font-style: normal;
     font-weight: 500;
     letter-spacing: -0.015em;
-    color: hsl(var(--accent));
+    color: inherit;
   }
   /* Kill italics globally — IBM Plex Sans Thai obliques read poorly; Alpha uses upright type */
   em, i, .italic { font-style: normal !important; }
@@ -241,18 +243,19 @@
 
   /* === Buttons — pill CTAs (Alpha-style), ORIONS serif label === */
 
+  /* Primary CTA — snow on ink (premium, monochrome). Cinnabar is reserved. */
   .btn-accent {
     display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
     padding: 0.85rem 1.7rem;
     border-radius: 0;
-    background: hsl(var(--accent));
+    background: hsl(var(--foreground));
     color: hsl(var(--background));
-    border: 1.5px solid hsl(var(--accent));
+    border: 1.5px solid hsl(var(--foreground));
     box-shadow: none;
     font-family: 'IBM Plex Sans Thai', system-ui, sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 0;
     transition: background-color 150ms ease, border-color 150ms ease, transform 60ms ease;
   }
-  .btn-accent:hover { background: hsl(var(--accent-hover)); border-color: hsl(var(--accent-hover)); }
+  .btn-accent:hover { background: hsl(var(--foreground) / 0.86); border-color: hsl(var(--foreground) / 0.86); }
   .btn-accent:active { transform: translateY(1px); }
 
   .btn-ghost {
@@ -266,7 +269,7 @@
     font-family: 'IBM Plex Sans Thai', system-ui, sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 0;
     transition: color 150ms ease, border-color 150ms ease, background-color 150ms ease, transform 60ms ease;
   }
-  .btn-ghost:hover { color: hsl(var(--accent)); border-color: hsl(var(--accent)); }
+  .btn-ghost:hover { color: hsl(var(--foreground)); border-color: hsl(var(--foreground) / 0.7); }
   .btn-ghost:active { transform: translateY(1px); }
 
   /* === Alpha-style primitives, light-adapted === */
@@ -281,16 +284,17 @@
     transition: border-color 200ms ease, background-color 200ms ease;
   }
   .card-soft:hover {
-    border-color: hsl(var(--accent));
-    background: hsl(var(--accent) / 0.05);
+    border-color: hsl(var(--foreground) / 0.3);
+    background: hsl(var(--foreground) / 0.03);
   }
 
-  /* Accent card — cinnabar-tinted highlight (featured / CTA) — flat, no shadow */
+  /* Accent card — a quietly elevated neutral panel (featured / CTA); the tint is
+     near-white, not cinnabar, so featured blocks read premium, not orange. */
   .card-accent {
     border-radius: 0;
-    border: 1px solid hsl(var(--accent) / 0.4);
+    border: 1px solid hsl(var(--foreground) / 0.16);
     background:
-      linear-gradient(180deg, hsl(var(--accent) / 0.06), hsl(var(--card)) 60%);
+      linear-gradient(180deg, hsl(var(--foreground) / 0.05), hsl(var(--card)) 60%);
   }
 
   /* Featured ribbon pill — sits on a card edge */
@@ -375,9 +379,9 @@ h1:lang(th) em, h2:lang(th) em, h3:lang(th) em, h4:lang(th) em, h5:lang(th) em, 
 /* Hero "silk" — Fluid Dynamics surface (CSS stand-in for the brand photo;
    swap for an <img> once the real file is dropped). Slow living drift. */
 @keyframes silkdrift {
-  0%   { transform: scale(1.06) translate3d(0, 0, 0);          background-position: 0% 0%;     filter: saturate(1); }
-  50%  { transform: scale(1.12) translate3d(-1.5%, -1%, 0);    background-position: 60% 40%;   filter: saturate(1.08); }
-  100% { transform: scale(1.06) translate3d(1.5%, 1%, 0);      background-position: 100% 100%; filter: saturate(1); }
+  0%   { transform: scale(1.06) translate3d(0, 0, 0);          background-position: 0% 0%; }
+  50%  { transform: scale(1.12) translate3d(-1.5%, -1%, 0);    background-position: 60% 40%; }
+  100% { transform: scale(1.06) translate3d(1.5%, 1%, 0);      background-position: 100% 100%; }
 }
 /* Living drift for the hero photo (same motion as the CSS silk) */
 .silk-drift { will-change: transform; }

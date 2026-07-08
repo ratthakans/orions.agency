@@ -29,7 +29,7 @@ class ErrorBoundary extends Component<Props, State> {
     if (!this.state.hasError) return this.props.children;
     return (
       <div className="min-h-[70vh] flex flex-col items-center justify-center gap-6 px-6 text-center">
-        <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-cinnabar">— มีบางอย่างผิดพลาด</p>
+        <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-foreground">— มีบางอย่างผิดพลาด</p>
         <h1 lang="th" className="font-serif text-[26px] md:text-[34px] tracking-[-0.01em] max-w-[20ch]">
           ขออภัย หน้านี้โหลดไม่สำเร็จ
         </h1>

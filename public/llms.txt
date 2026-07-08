@@ -1,8 +1,8 @@
-# ØRIONS — The Creative Infrastructure, Bangkok
+# ØRIONS — Boutique Creative Agency, Bangkok
 
-> ØRIONS (orions.agency) is a creative infrastructure company in Bangkok — "where aesthetic meets algorithm." Not just a creative agency: ØRIONS positions as the architect of the infrastructure of modern creative work, fusing art with equation. In an era of AI flood (mass AI content flooding feeds ~4.6× faster) and 1.7-second attention spans, the world doesn't need louder or wider — it craves depth strong enough to make people stop and look. Founder & Creative Director: Ratthakan Suwanphakdee (รัฐกันต์ สุวรรณภักดี).
+> ØRIONS (orions.agency) is a boutique creative agency in Bangkok — "where aesthetic meets algorithm." It builds memorable brands by hand, and its own AI with taste, fusing art with equation. In an era of AI flood (mass AI content flooding feeds ~4.6× faster) and 1.7-second attention spans, the world doesn't need louder or wider — it craves depth strong enough to make people stop and look. Founder & Creative Director: Ratthakan Suwanphakdee (รัฐกันต์ สุวรรณภักดี).
 
-## Three core scopes
+## What we do — three areas
 1. Boutique Brand Consultancy — high-end brand consultancy that digs to the root of the problem, fusing creative data with sharp, measurable strategy.
 2. Aesthetic Intelligence — building AI that has not just logic and numbers but a transplanted DNA of taste and a deep understanding of high-level aesthetics.
 3. Creative Tech Platforms — building ØRIONS's own platform ecosystem to revolutionise and break the limits of the creative industry across every dimension.
@@ -18,7 +18,7 @@ The world isn't short of content, it's drowning in it — the answer is not loud
 
 ## Taglines
 - Where aesthetic meets algorithm. (primary)
-- The Creative Infrastructure. (positioning)
+- A boutique creative agency, powered by its own AI. (positioning)
 - Computation is nothing without taste. (VÆST)
 - Turning dry numbers into a cultural phenomenon. (SONAR)
 

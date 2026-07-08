@@ -29,10 +29,10 @@ const HeroTitle = () => {
   );
   return (
     <h1 className="h-display-xl leading-[0.92]">
-      <span className="sr-only">The Creative Infrastructure — where aesthetic meets algorithm.</span>
+      <span className="sr-only">Where aesthetic meets algorithm — a boutique creative agency.</span>
       <span aria-hidden="true">
-        <Line delay={0.1}>The Creative</Line>
-        <Line delay={0.22}>Infrastructure<span className="text-cinnabar">.</span></Line>
+        <Line delay={0.1}>Where aesthetic</Line>
+        <Line delay={0.22}>meets algorithm<span className="text-cinnabar">.</span></Line>
       </span>
     </h1>
   );
@@ -41,8 +41,8 @@ const HeroTitle = () => {
 const Index = () => (
   <div>
     <SEO
-      title="ØRIONS — The Creative Infrastructure"
-      description="Where aesthetic meets algorithm. ØRIONS ไม่ใช่แค่ creative agency — เราคือสถาปนิกผู้สร้างโครงสร้างพื้นฐานของงานครีเอทีฟยุคใหม่: brand consultancy, aesthetic intelligence และ creative tech platforms. ขับเคลื่อนด้วย VÆST — AI creative director ที่มีรสนิยม."
+      title="ØRIONS — Boutique Creative Agency · Where Aesthetic Meets Algorithm"
+      description="บูทีคครีเอทีฟเอเจนซีในกรุงเทพฯ ที่ผสานศิลปะเข้ากับสมการ — ปั้นแบรนด์ที่คนจำด้วยมือมนุษย์ และ AI ที่มีรสนิยมของเราเอง. brand consultancy · aesthetic intelligence · creative tech platforms. ขับเคลื่อนด้วย VÆST — AI creative director ที่มีรสนิยม."
       path="/"
       schema={{
         "@context": "https://schema.org",
@@ -51,26 +51,26 @@ const Index = () => (
         url: SITE_URL,
         slogan: "Where aesthetic meets algorithm.",
         description:
-          "ØRIONS is a creative infrastructure company in Bangkok — boutique brand consultancy, aesthetic intelligence, and creative tech platforms, powered by VÆST, an AI creative director built with taste. Products: VÆST, First Draft, Routte, SONAR.",
+          "ØRIONS is a boutique creative agency in Bangkok where aesthetic meets algorithm — it builds memorable brands by hand and its own AI with taste. Practice: brand consultancy, aesthetic intelligence, and creative tech platforms, powered by VÆST (an AI creative director). Products: VÆST, First Draft, Routte, SONAR.",
       }}
     />
 
     {/* 01 — HERO */}
     <section className="relative min-h-[100svh] flex flex-col px-6 md:px-10 overflow-hidden">
-      <Picture data={heroSilk} alt="" aria-hidden className="silk-drift absolute -inset-[6%] z-0 w-[112%] h-[112%] object-cover object-center pointer-events-none select-none grayscale brightness-[.72]" />
+      <Picture data={heroSilk} alt="" aria-hidden className="silk-drift absolute -inset-[6%] z-0 w-[112%] h-[112%] object-cover object-center pointer-events-none select-none" />
       <div aria-hidden className="hero-scrim absolute inset-0 z-0 pointer-events-none" />
       <div className="relative z-10 max-w-[1400px] mx-auto w-full flex-1 flex flex-col justify-center pt-24 md:pt-32 pb-20 md:pb-28">
         <Reveal>
-          <div className="flex items-center gap-3 font-mono text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-foreground/60">
-            <Slash className="text-[15px]" /> ØRIONS · Creative Infrastructure · Bangkok
+          <div className="flex items-center gap-3 font-mono text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-foreground/70">
+            <Slash className="text-[15px]" /> ØRIONS · Boutique Creative Agency · Bangkok
           </div>
         </Reveal>
         <div className="mt-8">
           <HeroTitle />
         </div>
         <Reveal delay={0.5}>
-          <p className="mt-9 font-serif text-[22px] md:text-[34px] leading-[1.25] tracking-[-0.015em] text-foreground/85 max-w-[24ch]">
-            Where <em>aesthetic</em> meets <em>algorithm.</em>
+          <p lang="th" className="mt-9 font-thai thai-wrap text-[17px] md:text-[21px] leading-[1.7] text-foreground/85 max-w-[42ch]">
+            บูทีคครีเอทีฟเอเจนซีในกรุงเทพฯ — ปั้นแบรนด์ที่คนจำด้วยมือมนุษย์ และ AI ที่มีรสนิยมของเราเอง.
           </p>
         </Reveal>
         <Reveal delay={0.62}>
@@ -110,7 +110,7 @@ const Index = () => (
         </div>
         <Reveal delay={0.15}>
           <p lang="th" className="mt-16 md:mt-24 max-w-[760px] font-thai thai-wrap text-[17px] md:text-[21px] leading-[1.75] text-foreground/80">
-            ORIONS ไม่ใช่แค่ creative agency ทั่วไป — เราคือ <span className="text-foreground">สถาปนิก</span> ผู้สร้างโครงสร้างพื้นฐานของงานครีเอทีฟยุคใหม่. เราขับเคลื่อนอาณาจักรนี้ด้วยการผสานศิลปะเข้ากับสมการ — <span className="text-foreground">where aesthetic meets algorithm.</span>
+            ORIONS คือ <span className="text-foreground">บูทีคครีเอทีฟเอเจนซี</span> ที่ผสานศิลปะเข้ากับสมการ — เราไม่ได้แค่ปั้นแบรนด์ให้สวย แต่สร้างเครื่องมือ AI ของเราเองเพื่อยกระดับงานครีเอทีฟให้ลึกและคมกว่าเดิม. <span className="text-foreground">Where aesthetic meets algorithm.</span>
           </p>
         </Reveal>
       </div>
@@ -120,7 +120,7 @@ const Index = () => (
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1400px] mx-auto py-32 md:py-52">
         <Reveal>
-          <div className="font-mono text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-muted-foreground">— Three core scopes</div>
+          <div className="font-mono text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-muted-foreground">— What we do</div>
         </Reveal>
         <div className="mt-14 md:mt-20 border-t border-foreground/12">
           {scopes.map((s, i) => (

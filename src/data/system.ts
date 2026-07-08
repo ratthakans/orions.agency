@@ -1,6 +1,6 @@
-// ORIONS — The Creative Infrastructure. Canonical copy (user-authored, 2026-07-04).
-// Positioning: not just a creative agency — the infrastructure of modern creative
-// work, where Aesthetic meets Algorithm.
+// ORIONS — a boutique creative agency, "where aesthetic meets algorithm".
+// Canonical product/scope copy (user-authored, 2026-07-04). The agency builds
+// memorable brands by hand AND its own AI (VÆST) + products.
 
 export const scopes = [
   {

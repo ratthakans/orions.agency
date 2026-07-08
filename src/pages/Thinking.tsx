@@ -221,8 +221,8 @@ const Thinking = () => (
           </Reveal>
           <Reveal delay={0.08}>
             <div className="card-accent h-full p-8 md:p-10">
-              <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground">แสงที่ถูกรวมผ่านเลนส์</div>
-              <h3 className="mt-4 font-serif italic text-[30px] md:text-[42px] leading-none tracking-[-0.02em] text-foreground">Signal.</h3>
+              <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/60">แสงที่ถูกรวมผ่านเลนส์</div>
+              <h3 className="mt-4 font-serif italic text-[30px] md:text-[42px] leading-none tracking-[-0.02em] text-cinnabar">Signal.</h3>
               <p lang="th" className="mt-5 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.8] text-foreground/85">
                 เราทำตรงข้าม — คัด สกัด ตัดเสียงรบกวนออก จนเหลือแต่ข้อความที่คมที่สุดของคุณ. <span className="text-foreground">ØRIONS คือเลนส์นั้น.</span>
               </p>

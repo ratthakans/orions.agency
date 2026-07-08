@@ -6,7 +6,6 @@ import SectionLabel from "@/components/SectionLabel";
 import CTABand from "@/components/CTABand";
 import SignalField from "@/components/SignalField";
 import Picture from "@/components/Picture";
-import heroImg from "@/assets/thinking/hero.jpg?as=picture";
 import proofImg from "@/assets/thinking/assets.jpg?as=picture";
 
 const SITE_URL = "https://orions.agency";
@@ -44,7 +43,7 @@ const crossed = [
 const Thinking = () => (
   <div>
     <SEO
-      title="Manifesto — Stories, Refined. · ØRIONS"
+      title="Manifesto — Every brand is a point of light · ØRIONS"
       description="แนวคิดของ ORIONS — โลกไม่ได้ต้องการเสียงที่ดังขึ้น แต่โหยหาความลึก. เราวินิจฉัยก่อน แล้วลงมือแก้ด้วยงานคราฟต์ ยกระดับด้วย VÆST ปัญญาที่มีรสนิยม. เรื่องที่คมที่สุดชนะ ไม่ใช่เรื่องที่ดังที่สุด — where aesthetic meets algorithm."
       path="/thinking"
       schema={[
@@ -59,8 +58,8 @@ const Thinking = () => (
         {
           "@context": "https://schema.org",
           "@type": "Article",
-          headline: "The ØRIONS Manifesto — Stories, Refined.",
-          description: "Marketing rents attention. Creative earns belief. ทำไมเรื่องที่คมที่สุดชนะ ไม่ใช่เรื่องที่ดังที่สุด — The Noise, The Great Filter และเหตุผลที่เรารับงานจำกัด.",
+          headline: "The ØRIONS Manifesto — Every brand is a point of light.",
+          description: "โลกไม่ได้ต้องการเสียงที่ดังขึ้น แต่โหยหาความลึก. ทำไมเรื่องที่คมที่สุดชนะ ไม่ใช่เรื่องที่ดังที่สุด — The Noise, The Great Filter และเหตุผลที่เรารับงานจำกัด. Where aesthetic meets algorithm.",
           image: `${SITE_URL}/og.jpg`,
           author: { "@type": "Organization", name: "ØRIONS", url: SITE_URL },
           publisher: { "@type": "Organization", name: "ØRIONS", url: SITE_URL },
@@ -70,40 +69,35 @@ const Thinking = () => (
     />
 
     {/* HERO — every brand is a point of light */}
-    <section className="relative overflow-hidden section-ink px-6 md:px-10">
-      <SignalField fx={0.76} fy={0.4} seed={5} intensity={0.9}
+    <section className="relative overflow-hidden section-ink px-6 md:px-10 min-h-[90svh] flex flex-col justify-center">
+      <SignalField fx={0.78} fy={0.42} seed={5} intensity={0.9}
         className="absolute inset-0 w-full h-full pointer-events-none" />
-      <div className="relative z-10 max-w-[1180px] mx-auto pt-28 md:pt-36 pb-16 md:pb-20">
-        <SectionLabel label="The Manifesto" />
+      <div className="relative z-10 max-w-[1400px] mx-auto w-full pt-32 md:pt-40 pb-20 md:pb-28">
+        <Reveal>
+          <SectionLabel label="The Manifesto" />
+        </Reveal>
         <Reveal delay={0.05}>
-          <h1 className="mt-10 font-serif font-medium text-[clamp(38px,6.5vw,96px)] leading-[1.05] tracking-[-0.02em] max-w-[16ch]">
-            Every brand is a <em className="text-foreground italic">point of light.</em>
+          <h1 className="mt-10 font-serif font-medium text-[clamp(44px,8vw,120px)] leading-[0.98] tracking-[-0.025em] max-w-[15ch]">
+            Every brand is a <em className="text-cinnabar italic">point of light.</em>
           </h1>
         </Reveal>
         <Reveal delay={0.12}>
-          <p lang="th" className="mt-10 max-w-[680px] font-serif text-[18px] md:text-[23px] leading-[1.55] text-foreground/80 thai-wrap">
+          <p lang="th" className="mt-10 max-w-[720px] font-serif text-[20px] md:text-[27px] leading-[1.5] text-foreground/80 thai-wrap">
             ทุกแบรนด์คือจุดแสงหนึ่งจุด. ปัญหาคือ — ท้องฟ้าวันนี้สว่างจนไม่มีใครมองเห็นดาวดวงไหนอีกแล้ว.
           </p>
-        </Reveal>
-      </div>
-      <div className="relative z-10 max-w-[1180px] mx-auto pb-16 md:pb-20">
-        <Reveal>
-          <div className="w-full overflow-hidden border border-foreground/15 bg-muted" style={{ aspectRatio: "16 / 7" }}>
-            <Picture data={heroImg} alt="" aria-hidden className="w-full h-full object-cover grayscale-[0.3]" />
-          </div>
         </Reveal>
       </div>
     </section>
 
     {/* CONTENTS — editorial index of the argument */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1180px] mx-auto py-12 md:py-16">
-        <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">— The argument</div>
-        <ol className="mt-7 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-0">
+      <div className="max-w-[1400px] mx-auto py-16 md:py-24">
+        <div className="font-mono text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-muted-foreground">— The argument</div>
+        <ol className="mt-10 border-t border-foreground/12">
           {contents.map((c) => (
-            <li key={c.n} className="flex items-baseline gap-4 border-t border-foreground/12 py-4">
-              <span className="font-serif text-foreground text-[16px] tabular-nums leading-none">{c.n}</span>
-              <span className="font-display text-[15px] md:text-[16px] font-medium leading-snug text-foreground/85">{c.t}</span>
+            <li key={c.n} className="grid grid-cols-[52px_1fr] md:grid-cols-[110px_1fr] gap-4 md:gap-10 items-baseline border-b border-foreground/12 py-6 md:py-8">
+              <span className="font-serif text-cinnabar text-[18px] md:text-[26px] tabular-nums leading-none">{c.n}</span>
+              <span className="font-serif text-[24px] md:text-[40px] leading-none tracking-[-0.015em] text-foreground/85">{c.t}</span>
             </li>
           ))}
         </ol>
@@ -112,12 +106,12 @@ const Thinking = () => (
 
     {/* 01 — THE NOISE */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1180px] mx-auto py-24 md:py-36 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-20 items-baseline">
+      <div className="max-w-[1400px] mx-auto py-28 md:py-52 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-20 items-baseline">
         <SectionLabel index="01" label="The Noise" />
         <div>
           <Reveal delay={0.05}>
-            <h2 lang="th" className="font-serif text-[28px] md:text-[42px] leading-[1.2] tracking-[-0.015em] max-w-[20ch] thai-wrap">
-              ยุคที่ทุกคนตะโกน จนไม่มีใคร<em className="text-foreground italic">ได้ยินใคร.</em>
+            <h2 lang="th" className="font-serif text-[34px] md:text-[60px] leading-[1.2] tracking-[-0.015em] max-w-[20ch] thai-wrap">
+              ยุคที่ทุกคนตะโกน จนไม่มีใคร<em className="text-cinnabar italic">ได้ยินใคร.</em>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
@@ -128,8 +122,8 @@ const Thinking = () => (
           <div className="mt-10 border-t border-foreground/12 max-w-[640px]">
             {noise.map((s, i) => (
               <Reveal key={s.k} delay={i * 0.06}>
-                <div className="grid grid-cols-[130px_1fr] md:grid-cols-[170px_1fr] gap-4 md:gap-8 py-5 md:py-6 border-b border-foreground/12 items-baseline">
-                  <div lang="th" className="font-serif text-foreground text-[22px] md:text-[30px] leading-none tracking-[-0.01em]">{s.k}</div>
+                <div className="grid grid-cols-[130px_1fr] md:grid-cols-[190px_1fr] gap-4 md:gap-8 py-6 md:py-7 border-b border-foreground/12 items-baseline">
+                  <div lang="th" className="font-serif text-cinnabar text-[26px] md:text-[40px] leading-none tracking-[-0.01em]">{s.k}</div>
                   <p lang="th" className="font-thai thai-wrap text-[13px] md:text-[14px] leading-[1.8] text-muted-foreground">{s.d}</p>
                 </div>
               </Reveal>
@@ -141,8 +135,8 @@ const Thinking = () => (
             </p>
           </Reveal>
           <Reveal delay={0.2}>
-            <blockquote lang="th" className="mt-10 font-serif text-[22px] md:text-[32px] leading-[1.35] tracking-[-0.01em] text-foreground max-w-[24ch] thai-wrap">
-              นี่ไม่ใช่การเติบโต — นี่คือการพยายามหายใจ <em className="text-foreground italic">ใต้น้ำที่กำลังเดือด.</em>
+            <blockquote lang="th" className="mt-10 font-serif text-[26px] md:text-[46px] leading-[1.35] tracking-[-0.01em] text-foreground max-w-[24ch] thai-wrap">
+              นี่ไม่ใช่การเติบโต — นี่คือการพยายามหายใจ <em className="text-cinnabar italic">ใต้น้ำที่กำลังเดือด.</em>
             </blockquote>
           </Reveal>
         </div>
@@ -151,22 +145,22 @@ const Thinking = () => (
 
     {/* 02 — THE GREAT FILTER */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1180px] mx-auto py-24 md:py-36 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-20 items-baseline">
+      <div className="max-w-[1400px] mx-auto py-28 md:py-52 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-20 items-baseline">
         <SectionLabel index="02" label="The Great Filter" />
         <div>
           <Reveal delay={0.05}>
-            <h2 lang="th" className="font-serif text-[28px] md:text-[42px] leading-[1.2] tracking-[-0.015em] max-w-[22ch] thai-wrap">
-              เส้นแบ่งระหว่างแบรนด์ที่คนจำได้ กับแบรนด์ที่<em className="text-foreground italic">คนลืม.</em>
+            <h2 lang="th" className="font-serif text-[34px] md:text-[60px] leading-[1.2] tracking-[-0.015em] max-w-[22ch] thai-wrap">
+              เส้นแบ่งระหว่างแบรนด์ที่คนจำได้ กับแบรนด์ที่<em className="text-cinnabar italic">คนลืม.</em>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
             <p lang="th" className="mt-8 max-w-[640px] font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.8] text-foreground/80">
-              ในทางดาราศาสตร์ <span className="text-foreground italic">The Great Filter</span> คือกำแพงที่เกือบทุกอารยธรรมข้ามไม่พ้น. ในทางธุรกิจ มันคือเส้นบางๆ ที่ทุกแบรนด์ต้องเจอ — เพราะถึงจุดหนึ่ง งบการตลาดจะตัน และไม่มีงบไหนแพงพอที่จะ<span className="text-foreground">ซื้อใจ</span>คน.
+              ในทางดาราศาสตร์ <span className="text-cinnabar italic">The Great Filter</span> คือกำแพงที่เกือบทุกอารยธรรมข้ามไม่พ้น. ในทางธุรกิจ มันคือเส้นบางๆ ที่ทุกแบรนด์ต้องเจอ — เพราะถึงจุดหนึ่ง งบการตลาดจะตัน และไม่มีงบไหนแพงพอที่จะ<span className="text-foreground">ซื้อใจ</span>คน.
             </p>
           </Reveal>
           <Reveal delay={0.15}>
-            <blockquote lang="th" className="mt-10 font-serif text-[22px] md:text-[32px] leading-[1.35] tracking-[-0.01em] text-foreground max-w-[24ch] thai-wrap">
-              เงินพาคุณมาถึงหน้ากำแพงได้ — <em className="text-foreground italic">แต่พาข้ามไปไม่ได้.</em>
+            <blockquote lang="th" className="mt-10 font-serif text-[26px] md:text-[46px] leading-[1.35] tracking-[-0.01em] text-foreground max-w-[24ch] thai-wrap">
+              เงินพาคุณมาถึงหน้ากำแพงได้ — <em className="text-cinnabar italic">แต่พาข้ามไปไม่ได้.</em>
             </blockquote>
           </Reveal>
           <Reveal delay={0.18}>
@@ -200,11 +194,11 @@ const Thinking = () => (
 
     {/* 03 — STORIES, REFINED. (noise → signal, the lens) */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1180px] mx-auto py-24 md:py-36">
+      <div className="max-w-[1400px] mx-auto py-28 md:py-52">
         <SectionLabel index="03" label="Stories, Refined." />
         <Reveal delay={0.05}>
-          <h2 lang="th" className="mt-8 font-serif text-[28px] md:text-[42px] leading-[1.2] tracking-[-0.015em] max-w-[22ch] thai-wrap">
-            เราไม่ได้เพิ่มแสงให้คุณ — เรา<em className="text-foreground italic">โฟกัสมัน.</em>
+          <h2 lang="th" className="mt-8 font-serif text-[34px] md:text-[60px] leading-[1.2] tracking-[-0.015em] max-w-[22ch] thai-wrap">
+            เราไม่ได้เพิ่มแสงให้คุณ — เรา<em className="text-cinnabar italic">โฟกัสมัน.</em>
           </h2>
         </Reveal>
 
@@ -290,8 +284,8 @@ const Thinking = () => (
           </div>
 
           <Reveal delay={0.1}>
-            <blockquote className="mt-12 font-serif text-[22px] md:text-[32px] leading-[1.3] tracking-[-0.015em] text-foreground max-w-[24ch]">
-              คิดแบบ <em className="text-foreground italic">Consult</em> → ทำแบบ <em className="text-foreground italic">Craft</em> → ส่งมอบแบบ <em className="text-foreground italic">Boutique.</em>
+            <blockquote className="mt-12 font-serif text-[26px] md:text-[46px] leading-[1.3] tracking-[-0.015em] text-foreground max-w-[24ch]">
+              คิดแบบ <em className="text-cinnabar italic">Consult</em> → ทำแบบ <em className="text-cinnabar italic">Craft</em> → ส่งมอบแบบ <em className="text-cinnabar italic">Boutique.</em>
             </blockquote>
           </Reveal>
           <Reveal delay={0.12}>
@@ -305,12 +299,12 @@ const Thinking = () => (
 
     {/* 04 — THE PROOF */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1180px] mx-auto py-24 md:py-36 grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-10 lg:gap-16 items-start">
+      <div className="max-w-[1400px] mx-auto py-28 md:py-52 grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-10 lg:gap-16 items-start">
         <div>
           <SectionLabel index="04" label="The Proof" />
           <Reveal delay={0.05}>
-            <h2 lang="th" className="mt-8 font-serif text-[26px] md:text-[38px] leading-[1.2] tracking-[-0.015em] max-w-[22ch] thai-wrap">
-              ความคิดพิสูจน์ด้วยคำพูดไม่ได้ — <em className="text-foreground italic">ต้องพิสูจน์ด้วยงาน.</em>
+            <h2 lang="th" className="mt-8 font-serif text-[32px] md:text-[52px] leading-[1.2] tracking-[-0.015em] max-w-[22ch] thai-wrap">
+              ความคิดพิสูจน์ด้วยคำพูดไม่ได้ — <em className="text-cinnabar italic">ต้องพิสูจน์ด้วยงาน.</em>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
@@ -334,12 +328,12 @@ const Thinking = () => (
 
     {/* 05 — LIMITED BY DESIGN */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1180px] mx-auto py-24 md:py-36 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-20 items-baseline">
+      <div className="max-w-[1400px] mx-auto py-28 md:py-52 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-20 items-baseline">
         <SectionLabel index="05" label="Limited by Design" />
         <div>
           <Reveal delay={0.05}>
-            <h2 lang="th" className="font-serif text-[28px] md:text-[42px] leading-[1.2] tracking-[-0.015em] max-w-[20ch] thai-wrap">
-              เรารับงานจำกัด — <em className="text-foreground italic">โดยตั้งใจ.</em>
+            <h2 lang="th" className="font-serif text-[34px] md:text-[60px] leading-[1.2] tracking-[-0.015em] max-w-[20ch] thai-wrap">
+              เรารับงานจำกัด — <em className="text-cinnabar italic">โดยตั้งใจ.</em>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>

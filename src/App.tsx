@@ -44,6 +44,7 @@ export const routes: RouteRecord[] = [
         lazy: page(() => import("./pages/CaseStudy")),
         getStaticPaths: () => caseStudies.map((c) => `work/${c.slug}`),
       },
+      { path: "system", lazy: page(() => import("./pages/System")) },
       { path: "thinking", lazy: page(() => import("./pages/Thinking")) },
       { path: "blog", lazy: page(() => import("./pages/Blog")) },
       {

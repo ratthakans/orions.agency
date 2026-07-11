@@ -75,9 +75,9 @@ const Index = () => (
         </Reveal>
         <Reveal delay={0.62}>
           <div className="mt-12 flex flex-col sm:flex-row items-start gap-7 sm:gap-12">
-            <a href="#system" className="cta-link cta-link-lg">
+            <Link to="/system" className="cta-link cta-link-lg">
               <span>สำรวจระบบ</span><ArrowUpRight className="w-[18px] h-[18px]" />
-            </a>
+            </Link>
             <Link to="/contact" className="cta-link cta-link-lg cta-link-muted">
               <span>ร่วมงานกับเรา</span><ArrowUpRight className="w-[18px] h-[18px]" />
             </Link>

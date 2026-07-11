@@ -7,7 +7,7 @@ import CTABand from "@/components/CTABand";
 import Slash from "@/components/Slash";
 import SignalField from "@/components/SignalField";
 import Picture from "@/components/Picture";
-import heroCosmos from "@/assets/hero-cosmos.jpg?as=picture";
+import heroSilk from "@/assets/hero-silk.jpg?as=picture";
 import { scopes, innovations } from "@/data/system";
 
 const SITE_URL = "https://orions.agency";
@@ -57,7 +57,7 @@ const Index = () => (
 
     {/* 01 — HERO */}
     <section className="relative min-h-[100svh] flex flex-col px-6 md:px-10 overflow-hidden">
-      <Picture data={heroCosmos} alt="" aria-hidden className="silk-drift absolute -inset-[6%] z-0 w-[112%] h-[112%] object-cover object-center pointer-events-none select-none" />
+      <Picture data={heroSilk} alt="" aria-hidden className="silk-drift absolute -inset-[6%] z-0 w-[112%] h-[112%] object-cover object-center pointer-events-none select-none" />
       <div aria-hidden className="hero-scrim absolute inset-0 z-0 pointer-events-none" />
       <div className="relative z-10 max-w-[1400px] mx-auto w-full flex-1 flex flex-col justify-center pt-24 md:pt-32 pb-20 md:pb-28">
         <Reveal>

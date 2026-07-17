@@ -112,7 +112,7 @@ const About = () => (
               <div className="grid grid-cols-[46px_1fr] md:grid-cols-[92px_1fr] gap-5 md:gap-10 py-8 md:py-11 border-b border-foreground/12 items-baseline group">
                 <div className="font-serif italic text-foreground text-[26px] md:text-[40px] leading-none">{p.n}</div>
                 <div>
-                  <h3 lang="th" className="font-thai text-[25px] md:text-[34px] leading-[1.1] tracking-[-0.01em] font-medium group-hover:text-cinnabar transition-colors">{p.en}</h3>
+                  <h3 lang="th" className="font-thai text-[25px] md:text-[34px] leading-[1.1] tracking-[-0.01em] font-medium group-hover:text-foreground transition-colors">{p.en}</h3>
                   <p lang="th" className="mt-3.5 font-thai thai-wrap text-[14px] md:text-[16px] leading-[1.8] text-muted-foreground max-w-[62ch]">{p.th}</p>
                 </div>
               </div>

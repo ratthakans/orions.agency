@@ -1,17 +1,18 @@
 # ØRIONS — Boutique Creative Agency, Bangkok
 
-> ØRIONS (orions.agency) is a boutique creative agency in Bangkok — "where aesthetic meets algorithm." It builds memorable brands by hand, and its own AI with taste, fusing art with equation. In an era of AI flood (mass AI content flooding feeds ~4.6× faster) and 1.7-second attention spans, the world doesn't need louder or wider — it craves depth strong enough to make people stop and look. Founder & Creative Director: Ratthakan Suwanphakdee (รัฐกันต์ สุวรรณภักดี).
+> ØRIONS (orions.agency) is a boutique creative agency in Bangkok — "where aesthetic meets algorithm." It builds memorable brands by hand, and its own AI with taste, fusing art with equation. In an era of AI noise and shrinking attention, the world doesn't need louder or wider — it craves depth strong enough to make people stop and look. Founder & Creative Director: Ratthakan Suwanphakdee (รัฐกันต์ สุวรรณภักดี).
 
 ## What we do — three areas
 1. Boutique Brand Consultancy — high-end brand consultancy that digs to the root of the problem, fusing creative data with sharp, measurable strategy.
 2. Aesthetic Intelligence — building AI that has not just logic and numbers but a transplanted DNA of taste and a deep understanding of high-level aesthetics.
 3. Creative Tech Platforms — building ØRIONS's own platform ecosystem to revolutionise and break the limits of the creative industry across every dimension.
 
-## The system — four innovations, one universe powered by VÆST
-- VÆST (The Core Engine) — the AI Creative Director. "Computation is nothing without taste." The heart and backbone of ØRIONS: while ordinary AI computes fast but is blind to beauty, VÆST has the mindset and soul of a top creative director embedded in its core — it understands rebellion, the rhythm of white space, and the depth of aesthetics. It is the translator from art to equation, keeping everything ØRIONS ships elegant enough to make people stop.
-- First Draft (The Canvas) — a screenwriting & production platform, powered by VÆST. Turns a blank page into powerful structure: from raw idea to screenplay structure, script and production plan in moments — layered, distinctive storytelling, not flat bot text. Built to buy back time so humans can spend their energy crafting detail and the deepest human touch.
-- Routte (The Compass) — a curated AI trip planner, powered by VÆST. Travel that wants taste, not just a map: Routte acts as a personal curator through VÆST's mind, selecting experiences through the lens of art, architecture and lifestyle. Every trip has a seamless pacing, like a high-end travel magazine published for you alone.
-- SONAR (The Radar) — a quantum-inspired creative CRM, driven by VÆST. "Turning dry numbers into a cultural phenomenon." Ends the era of CRM that only stores names and emails to spam promotions: SONAR processes first-party brand and behavioural data through a quantum-mathematics concept to see complex, overlapping, multi-dimensional needs. When quantum-level data is fed into VÆST, it condenses into hyper-personalised creativity — as if a creative director analysed each customer's soul and designed the work one-to-one. This is how ØRIONS turns dry numbers into masterpieces.
+## The system — four instruments, one universe powered by VÆST
+From the thinking room to the road: think (VÆST) → write (First Draft) → run the studio (COLLAPS) → travel (Routte).
+- VÆST (The Core Engine) — the AI Creative Director. "Computation is nothing without taste." Drop briefs, files, spreadsheets and moodboards in and hit Crystallize: one sharp document, editable sentence by sentence, that passes a final taste check before it ships. Client-loop comments and per-project taste memory turn a studio's taste into infrastructure. Live at https://vaest.orions.agency
+- First Draft (The Canvas) — a Thai-first screenwriting & production platform, powered by VÆST. The script is the single source of truth of a Living Production Graph: edit one scene and breakdown, stripboard, callsheets and budget propagate across every department. 20+ VÆST AI roles that truly read Thai scripts. Live at https://firstdraftpro.co
+- COLLAPS (The Engine Room) — the Creative Operating System for studios. "Run your studio. Not your software." Leads/CRM, Sales AI (offer, price and timing drafted from rate cards, team capacity and real margin), project delivery, team chat and Thai finance documents (bilingual quotations/invoices/receipts, VAT/WHT) in one revenue loop. Private beta.
+- Routte (The Compass) — a curated AI trip planner for Thailand, powered by VÆST. "Every day is a story." Turns mood and hours into a day told as six chapters with one hero moment; a Passport tracks cities, badges and real baht saved via scan-to-save/scan-to-pay at partner venues (partner platform at https://partner.routte.to). Live at https://routte.to
 
 ## Belief / manifesto (Thinking)
 The world isn't short of content, it's drowning in it — the answer is not louder but deeper. The sharpest story wins, not the loudest. As a boutique brand consultancy ØRIONS still crafts brands by hand — diagnose first (The Refinement Session), then treat with craft, then deliver and measure — and VÆST (taste-driven intelligence) elevates every output. Technology is the structure; taste is what gives it life. Full manifesto: https://orions.agency/thinking
@@ -20,7 +21,9 @@ The world isn't short of content, it's drowning in it — the answer is not loud
 - Where aesthetic meets algorithm. (primary)
 - A boutique creative agency, powered by its own AI. (positioning)
 - Computation is nothing without taste. (VÆST)
-- Turning dry numbers into a cultural phenomenon. (SONAR)
+- Before the final, you need a first draft. (First Draft)
+- Run your studio. Not your software. (COLLAPS)
+- Every day is a story. (Routte)
 
 ## Key pages
 - Home (the system): https://orions.agency/

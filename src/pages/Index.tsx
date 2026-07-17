@@ -9,8 +9,14 @@ import SignalField from "@/components/SignalField";
 import Picture from "@/components/Picture";
 import heroSilk from "@/assets/hero-silk.jpg?as=picture";
 import { scopes, innovations } from "@/data/system";
+import { caseStudies } from "@/data/caseStudies";
 
 const SITE_URL = "https://orions.agency";
+const FEATURED_CASE_SLUGS = ["hongmove", "heavy-organizer", "khaoyai-country-club"];
+const featuredCases = FEATURED_CASE_SLUGS.flatMap((slug) => {
+  const found = caseStudies.find((item) => item.slug === slug);
+  return found ? [found] : [];
+});
 
 /* Hero headline — a quiet mask-up reveal (no typing; calmer, more cinematic). */
 const HeroTitle = () => {
@@ -51,7 +57,7 @@ const Index = () => (
         url: SITE_URL,
         slogan: "Where aesthetic meets algorithm.",
         description:
-          "ØRIONS is a boutique creative agency in Bangkok where aesthetic meets algorithm — it builds memorable brands by hand and its own AI with taste. Practice: brand consultancy, aesthetic intelligence, and creative tech platforms, powered by VÆST (an AI creative director). Products: VÆST, First Draft, Routte, SONAR.",
+          "ØRIONS is a boutique creative agency in Bangkok where aesthetic meets algorithm — it builds memorable brands by hand and its own AI with taste. Practice: brand consultancy, aesthetic intelligence, and creative tech platforms, powered by VÆST (an AI creative director). Products: VÆST, First Draft, COLLAPS, Routte.",
       }}
     />
 
@@ -75,11 +81,11 @@ const Index = () => (
         </Reveal>
         <Reveal delay={0.62}>
           <div className="mt-12 flex flex-col sm:flex-row items-start gap-7 sm:gap-12">
-            <Link to="/system" className="cta-link cta-link-lg">
-              <span>สำรวจระบบ</span><ArrowUpRight className="w-[18px] h-[18px]" />
+            <Link to="/work" className="cta-link cta-link-lg">
+              <span>ดูผลงานที่คัดไว้</span><ArrowUpRight className="w-[18px] h-[18px]" />
             </Link>
             <Link to="/contact" className="cta-link cta-link-lg cta-link-muted">
-              <span>ร่วมงานกับเรา</span><ArrowUpRight className="w-[18px] h-[18px]" />
+              <span>เล่าโจทย์ให้เรา</span><ArrowUpRight className="w-[18px] h-[18px]" />
             </Link>
           </div>
         </Reveal>
@@ -92,18 +98,18 @@ const Index = () => (
         <div className="grid grid-cols-1 lg:grid-cols-[1.3fr_0.7fr] gap-14 lg:gap-24 items-end">
           <Reveal>
             <h2 lang="th" className="font-serif text-[34px] md:text-[64px] leading-[1.08] tracking-[-0.02em] max-w-[16ch] thai-wrap">
-              โลกไม่ได้ต้องการเสียงที่ดังหรือกว้างขึ้น — แต่โหยหา<em className="text-cinnabar italic">ความลึก.</em>
+              โลกไม่ได้ต้องการเสียงที่ดังหรือกว้างขึ้น — แต่โหยหา<em className="text-foreground italic">ความลึก.</em>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
             <div className="border-t border-foreground/15 divide-y divide-foreground/12">
               <div className="py-6">
-                <div className="font-serif text-cinnabar text-[40px] md:text-[54px] leading-none tracking-[-0.02em]">4.6×</div>
-                <div lang="th" className="mt-3 font-thai text-[13px] leading-[1.7] text-muted-foreground">AI Flood — งานแมสจาก AI ท่วมฟีดเข้ามาเร็วขึ้นเท่านี้</div>
+                <div className="font-serif text-foreground text-[40px] md:text-[54px] leading-none tracking-[-0.02em]">Signal</div>
+                <div lang="th" className="mt-3 font-thai text-[13px] leading-[1.7] text-muted-foreground">คัดสิ่งที่สำคัญให้เหลือข้อความที่คนเข้าใจและจำได้</div>
               </div>
               <div className="py-6">
-                <div className="font-serif text-cinnabar text-[40px] md:text-[54px] leading-none tracking-[-0.02em]">1.7s</div>
-                <div lang="th" className="mt-3 font-thai text-[13px] leading-[1.7] text-muted-foreground">The ADHD Era — สมาธิที่แบรนด์มี ก่อนนิ้วคนจะเลื่อนผ่าน</div>
+                <div className="font-serif text-foreground text-[40px] md:text-[54px] leading-none tracking-[-0.02em]">Depth</div>
+                <div lang="th" className="mt-3 font-thai text-[13px] leading-[1.7] text-muted-foreground">สร้างความหมายที่ลึกพอให้คนหยุดมองและอยากรู้ต่อ</div>
               </div>
             </div>
           </Reveal>
@@ -126,7 +132,7 @@ const Index = () => (
           {scopes.map((s, i) => (
             <Reveal key={s.n} delay={i * 0.05}>
               <div className="grid grid-cols-1 md:grid-cols-[80px_1fr] lg:grid-cols-[120px_0.9fr_1.1fr] gap-4 md:gap-10 py-12 md:py-16 border-b border-foreground/12 items-baseline">
-                <div className="font-serif text-cinnabar text-[22px] md:text-[30px] leading-none tabular-nums">{s.n}</div>
+                <div className="font-serif text-foreground text-[22px] md:text-[30px] leading-none tabular-nums">{s.n}</div>
                 <h3 className="font-serif text-[30px] md:text-[46px] leading-[1.02] tracking-[-0.02em]">{s.k}</h3>
                 <p lang="th" className="font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.75] text-muted-foreground max-w-[52ch]">{s.d}</p>
               </div>
@@ -136,17 +142,60 @@ const Index = () => (
       </div>
     </section>
 
-    {/* 04 — THE FOUR INNOVATIONS (the system) */}
+    {/* 04 — SELECTED PROOF */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1400px] mx-auto py-32 md:py-44">
+        <Reveal>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+            <div>
+              <div className="font-mono text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-muted-foreground">— Selected proof</div>
+              <h2 lang="th" className="mt-8 h-display-lg max-w-[15ch] thai-wrap">
+                งานที่เริ่มจาก<em className="text-foreground">เงื่อนไขจริง.</em>
+              </h2>
+            </div>
+            <Link to="/work" className="cta-link">
+              <span>ดูผลงานทั้งหมด</span><ArrowUpRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </Reveal>
+
+        <div className="mt-14 md:mt-20 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
+          {featuredCases.map((item, i) => (
+            <Reveal key={item.slug} delay={i * 0.06}>
+              <Link
+                to={`/work/${item.slug}`}
+                className="group relative block overflow-hidden border border-foreground/12 aspect-[4/5] bg-surface-2"
+              >
+                <Picture
+                  data={item.cover}
+                  alt={item.title}
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover grayscale-[0.25] group-hover:grayscale-0 group-hover:scale-[1.03] transition-[transform,filter] duration-700"
+                />
+                <span className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+                <span className="absolute inset-x-0 bottom-0 p-6 md:p-7">
+                  <span className="block font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/75">{item.niche} · {item.year}</span>
+                  <span lang="th" className="mt-3 block font-serif text-[26px] md:text-[30px] leading-[1.05] text-foreground">{item.title}</span>
+                  <span lang="th" className="mt-3 block font-thai text-[13px] md:text-[14px] leading-[1.65] text-foreground/75">{item.summary}</span>
+                </span>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* 05 — THE FOUR INNOVATIONS (the system) */}
     <section id="system" className="relative overflow-hidden px-6 md:px-10 border-t border-foreground/15 scroll-mt-16">
       <SignalField fx={0.8} fy={0.28} seed={7} intensity={0.6}
         className="absolute inset-0 w-full h-full pointer-events-none" />
       <div className="relative z-10 max-w-[1400px] mx-auto pt-32 md:pt-52 pb-10 md:pb-16">
         <Reveal>
-          <div className="font-mono text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-muted-foreground">— The system · four innovations</div>
+          <div className="font-mono text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-muted-foreground">— The system · four instruments</div>
         </Reveal>
         <Reveal delay={0.05}>
           <h2 className="mt-8 h-display-lg max-w-[16ch]">
-            หนึ่งจักรวาล ขับเคลื่อนด้วย <em className="text-cinnabar">VÆST.</em>
+            หนึ่งจักรวาล ขับเคลื่อนด้วย <em className="text-foreground">VÆST.</em>
           </h2>
         </Reveal>
       </div>
@@ -157,7 +206,7 @@ const Index = () => (
             <article className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-8 lg:gap-20 py-20 md:py-28 border-b border-foreground/15">
               <div>
                 <div className="flex items-center gap-4 font-mono text-[10px] tracking-[0.24em] uppercase text-muted-foreground">
-                  <span className="text-cinnabar tabular-nums">{it.n}</span>
+                  <span className="text-foreground tabular-nums">{it.n}</span>
                   <span>{it.role}</span>
                 </div>
                 <h3 className="mt-6 font-display font-medium text-[clamp(52px,9vw,128px)] leading-[0.9] tracking-[-0.03em]">{it.name}</h3>
@@ -183,13 +232,13 @@ const Index = () => (
       <div className="relative z-10 h-20 md:h-28" />
     </section>
 
-    {/* 05 — WHO / SCOPE-1 bridge to the agency work */}
+    {/* 06 — WHO / SCOPE-1 bridge to the agency work */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1400px] mx-auto py-32 md:py-52 grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-14 lg:gap-24 items-center">
         <div>
           <Reveal>
             <h2 lang="th" className="font-serif text-[30px] md:text-[52px] leading-[1.1] tracking-[-0.02em] max-w-[18ch] thai-wrap">
-              เบื้องหลังทุกแพลตฟอร์ม คือ<em className="text-cinnabar italic">งานคราฟต์</em>ของมนุษย์.
+              เบื้องหลังทุกแพลตฟอร์ม คือ<em className="text-foreground italic">งานคราฟต์</em>ของมนุษย์.
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
@@ -205,16 +254,16 @@ const Index = () => (
         </div>
         <Reveal delay={0.1}>
           <blockquote lang="th" className="font-serif text-[24px] md:text-[34px] leading-[1.35] tracking-[-0.015em] text-foreground/90 max-w-[22ch]">
-            Computation is nothing without <em className="text-cinnabar italic">taste.</em>
+            Computation is nothing without <em className="text-foreground italic">taste.</em>
           </blockquote>
         </Reveal>
       </div>
     </section>
 
-    {/* 06 — CLOSING */}
+    {/* 07 — CLOSING */}
     <CTABand
       eyebrow="Build with us"
-      title={<>Where aesthetic <em className="text-cinnabar">meets algorithm.</em></>}
+      title={<>Where aesthetic <em className="text-foreground">meets algorithm.</em></>}
       subtitle="มีโจทย์ที่อยากปั้น หรืออยากสร้างอนาคตของงานครีเอทีฟไปด้วยกัน — เริ่มบทสนทนาได้เลย."
       primary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}
       secondary={{ label: "อ่านแนวคิดของเรา", to: "/thinking" }}

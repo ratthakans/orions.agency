@@ -135,7 +135,7 @@ const BlogPost = () => {
         <Link to={`/blog/${next.slug}`} viewTransition className="group block max-w-[1280px] mx-auto py-16 md:py-20">
           <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">อ่านต่อ —</div>
           <div className="mt-5 flex items-center justify-between gap-8">
-            <h3 lang="th" className="h-display-md group-hover:text-cinnabar transition-colors">{next.title}</h3>
+            <h3 lang="th" className="h-display-md group-hover:text-foreground transition-colors">{next.title}</h3>
             <ArrowUpRight className="w-10 h-10 md:w-14 md:h-14 text-foreground shrink-0" />
           </div>
           <div className="mt-3 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">{next.category}</div>

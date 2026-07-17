@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { ArrowUpRight, MessageCircle } from "lucide-react";
-import { z } from "zod";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -10,17 +9,10 @@ import { toast } from "sonner";
 import { track } from "@/lib/analytics";
 import Picture from "@/components/Picture";
 import founder from "@/assets/team/founder.jpg?as=picture";
+import { inquirySchema, type Inquiry } from "@/lib/contact";
 
-const inquirySchema = z.object({
-  name:    z.string().trim().min(1, "กรุณากรอกชื่อ").max(100),
-  email:   z.string().trim().email("อีเมลไม่ถูกต้อง").max(255),
-  phone:   z.string().trim().min(8, "กรุณากรอกเบอร์ติดต่อ").max(20),
-  // optional — low friction, "ทักมาคุยได้เลย"
-  company: z.string().trim().max(150),
-  brief:   z.string().trim().max(2000),
-});
-
-type FieldErrors = Partial<Record<keyof z.infer<typeof inquirySchema>, string>>;
+type FieldErrors = Partial<Record<keyof Inquiry, string>>;
+type SubmitStatus = { kind: "success" | "error"; message: string } | null;
 
 const packageOptions = [
   "Brand strategy",
@@ -54,12 +46,21 @@ const Contact = () => {
   }, []);
   const [errors, setErrors] = useState<FieldErrors>({});
   const [submitting, setSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<SubmitStatus>(null);
   const [hp, setHp] = useState(""); // honeypot — humans never fill this
+
+  const updateField = (key: keyof typeof form, value: string) => {
+    setForm((current) => ({ ...current, [key]: value }));
+    if (key !== "pkg") setErrors((current) => ({ ...current, [key]: undefined }));
+    setSubmitStatus(null);
+  };
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (hp) { // bot filled the hidden field — pretend success, drop silently
-      toast.success("ได้รับข้อมูลแล้ว — ทีม ØRIONS จะติดต่อกลับภายใน 24 ชม.");
+      const message = "ได้รับข้อมูลแล้ว — ทีม ØRIONS จะติดต่อกลับภายใน 24 ชม.";
+      toast.success(message);
+      setSubmitStatus({ kind: "success", message });
       setForm({ name: "", email: "", phone: "", company: "", pkg: "", brief: "" });
       return;
     }
@@ -71,10 +72,15 @@ const Contact = () => {
         if (key && !fieldErrors[key]) fieldErrors[key] = issue.message;
       }
       setErrors(fieldErrors);
-      toast.error("กรุณาตรวจสอบข้อมูลในฟอร์ม");
+      const message = "กรุณาตรวจสอบช่องที่จำเป็นก่อนส่งข้อมูล";
+      toast.error(message);
+      setSubmitStatus({ kind: "error", message });
+      const firstInvalid = Object.keys(fieldErrors)[0];
+      if (firstInvalid) requestAnimationFrame(() => document.getElementById(`field-${firstInvalid}`)?.focus());
       return;
     }
     setErrors({});
+    setSubmitStatus(null);
     // Two delivery channels — succeed if EITHER works:
     //   • Web3Forms → emails the studio inbox (set VITE_WEB3FORMS_KEY)
     //   • Supabase  → stores the row (source of truth; set VITE_SUPABASE_*)
@@ -82,7 +88,9 @@ const Contact = () => {
     const w3key = env.VITE_WEB3FORMS_KEY as string | undefined;
     const hasSupabase = !!(env.VITE_SUPABASE_URL && env.VITE_SUPABASE_PUBLISHABLE_KEY);
     if (!w3key && !hasSupabase) {
-      toast.error("ระบบฟอร์มขัดข้องชั่วคราว — อีเมลหาเราที่ hello@orions.agency ได้เลย");
+      const message = "ระบบฟอร์มขัดข้องชั่วคราว — อีเมลหาเราที่ hello@orions.agency ได้เลย";
+      toast.error(message);
+      setSubmitStatus({ kind: "error", message });
       return;
     }
     setSubmitting(true);
@@ -125,11 +133,15 @@ const Contact = () => {
     }
     setSubmitting(false);
     if (!delivered) {
-      toast.error("ส่งไม่สำเร็จ ลองใหม่หรืออีเมลหาเราที่ hello@orions.agency");
+      const message = "ส่งไม่สำเร็จ ลองใหม่หรืออีเมลหาเราที่ hello@orions.agency";
+      toast.error(message);
+      setSubmitStatus({ kind: "error", message });
       return;
     }
     track("ContactSubmit", { pkg: pkgFull || "none" });
-    toast.success("ได้รับข้อมูลแล้ว — ทีม ØRIONS จะติดต่อกลับภายใน 24 ชม.");
+    const message = "ได้รับข้อมูลแล้ว — ทีม ØRIONS จะติดต่อกลับภายใน 24 ชม.";
+    toast.success(message);
+    setSubmitStatus({ kind: "success", message });
     setForm({ name: "", email: "", phone: "", company: "", pkg: "", brief: "" });
   };
 
@@ -179,9 +191,9 @@ const Contact = () => {
           {/* Direct lines — minimal (timeline removed; the meta line above already says what happens next) */}
           <Reveal delay={0.25}>
             <div className="mt-12 flex flex-wrap gap-x-8 gap-y-2 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
-              <a href="mailto:hello@orions.agency" className="hover:text-cinnabar transition-colors">hello@orions.agency</a>
-              <a href="tel:+66893542628" className="hover:text-cinnabar transition-colors">+66 89 354 2628 · คุณพลอย</a>
-              <a href="https://line.me/ti/p/~orions" target="_blank" rel="noreferrer" className="hover:text-cinnabar transition-colors">LINE @orions</a>
+              <a href="mailto:hello@orions.agency" className="hover:text-foreground transition-colors">hello@orions.agency</a>
+              <a href="tel:+66893542628" className="hover:text-foreground transition-colors">+66 89 354 2628 · คุณพลอย</a>
+              <a href="https://line.me/ti/p/~orions" target="_blank" rel="noreferrer" className="hover:text-foreground transition-colors">LINE @orions</a>
             </div>
           </Reveal>
         </div>
@@ -201,7 +213,7 @@ const Contact = () => {
               <p lang="th" className="font-thai thai-wrap text-[14px] leading-[1.8] text-foreground/75 max-w-[44ch]">
                 แค่ <span className="text-foreground">ชื่อ · เบอร์ · อีเมล</span> ก็ทักได้เลย — เดี๋ยวเราติดต่อกลับไปคุย. รายละเอียดอื่นไว้คุยตอนนัดก็ได้.
               </p>
-              <form onSubmit={submit} noValidate className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+              <form onSubmit={submit} noValidate aria-busy={submitting} className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                 {[
                   { key: "name",    label: "Name",        type: "text",  ph: "ชื่อของคุณ",       ac: "name",         span: "md:col-span-1", opt: false },
                   { key: "phone",   label: "เบอร์ติดต่อ", type: "tel",   ph: "08x-xxx-xxxx",     ac: "tel",          span: "md:col-span-1", opt: false },
@@ -209,20 +221,26 @@ const Contact = () => {
                   { key: "company", label: "Company",     type: "text",  ph: "ถ้ามี",            ac: "organization", span: "md:col-span-1", opt: true },
                 ].map((f, i) => (
                   <div key={f.key} className={f.span}>
-                    <label htmlFor={`field-${f.key}`} className={labelCls}>— 0{i + 1} / {f.label}{f.opt && <span className="text-foreground/60"> (ไม่บังคับ)</span>}</label>
+                    <label htmlFor={`field-${f.key}`} className={labelCls}>
+                      — 0{i + 1} / {f.label}
+                      <span className="text-foreground/60"> {f.opt ? "(ไม่บังคับ)" : "(จำเป็น)"}</span>
+                    </label>
                     <input
                       id={`field-${f.key}`}
                       type={f.type}
                       autoComplete={f.ac}
                       maxLength={f.key === "email" ? 255 : f.key === "company" ? 150 : f.key === "phone" ? 20 : 100}
                       value={form[f.key as keyof typeof form]}
-                      onChange={(e) => setForm({ ...form, [f.key]: e.target.value })}
+                      onChange={(e) => updateField(f.key as keyof typeof form, e.target.value)}
                       placeholder={f.ph}
+                      required={!f.opt}
+                      aria-required={!f.opt}
                       aria-invalid={!!errors[f.key as keyof FieldErrors]}
+                      aria-describedby={errors[f.key as keyof FieldErrors] ? `field-${f.key}-error` : undefined}
                       className={inputCls}
                     />
                     {errors[f.key as keyof FieldErrors] && (
-                      <p className="mt-2 font-mono text-[10px] tracking-[0.18em] uppercase text-destructive">
+                      <p id={`field-${f.key}-error`} role="alert" className="mt-2 font-mono text-[10px] tracking-[0.18em] uppercase text-destructive">
                         {errors[f.key as keyof FieldErrors]}
                       </p>
                     )}
@@ -233,7 +251,7 @@ const Contact = () => {
                   <select
                     id="field-pkg"
                     value={form.pkg}
-                    onChange={(e) => setForm({ ...form, pkg: e.target.value })}
+                    onChange={(e) => updateField("pkg", e.target.value)}
                     className={`${inputCls} appearance-none cursor-pointer`}
                   >
                     <option value="">— ยังไม่แน่ใจก็ได้ เดี๋ยวเราช่วยวินิจฉัย —</option>
@@ -249,22 +267,35 @@ const Contact = () => {
                     rows={5}
                     maxLength={2000}
                     value={form.brief}
-                    onChange={(e) => setForm({ ...form, brief: e.target.value })}
+                    onChange={(e) => updateField("brief", e.target.value)}
                     placeholder="บอกเราว่าธุรกิจคุณติดอะไรอยู่ — timeline, budget range, ปัญหาที่อยากแก้"
                     aria-invalid={!!errors.brief}
+                    aria-describedby={errors.brief ? "field-brief-error" : undefined}
                     className={`${inputCls} resize-none`}
                   />
-                  {errors.brief && <p className="mt-2 font-mono text-[10px] tracking-[0.18em] uppercase text-destructive">{errors.brief}</p>}
+                  {errors.brief && <p id="field-brief-error" role="alert" className="mt-2 font-mono text-[10px] tracking-[0.18em] uppercase text-destructive">{errors.brief}</p>}
                 </div>
                 {/* honeypot — hidden from humans */}
                 <div aria-hidden className="hidden" style={{ position: "absolute", left: "-9999px" }}>
                   <label>Website<input type="text" tabIndex={-1} autoComplete="off" value={hp} onChange={(e) => setHp(e.target.value)} /></label>
                 </div>
+                {submitStatus && (
+                  <div
+                    role={submitStatus.kind === "error" ? "alert" : "status"}
+                    className={`md:col-span-2 border px-4 py-3 font-thai text-[13px] leading-[1.7] ${
+                      submitStatus.kind === "success"
+                        ? "border-foreground/25 bg-foreground/[0.04] text-foreground"
+                        : "border-destructive/50 bg-destructive/10 text-foreground"
+                    }`}
+                  >
+                    {submitStatus.message}
+                  </div>
+                )}
                 <button type="submit" disabled={submitting} className="btn-accent md:col-span-2 mt-4 justify-center disabled:opacity-50">
-                  <span>{submitting ? "Sending…" : "Send inquiry"}</span><ArrowUpRight className="w-4 h-4" />
+                  <span>{submitting ? "กำลังส่ง…" : "ส่งรายละเอียด"}</span><ArrowUpRight className="w-4 h-4" />
                 </button>
                 <p lang="th" className="md:col-span-2 font-thai text-[12px] leading-[1.8] text-muted-foreground">
-                  การส่งฟอร์มถือว่ายอมรับ <Link to="/privacy" className="underline hover:text-cinnabar">นโยบายความเป็นส่วนตัว</Link> · เราใช้ข้อมูลเพื่อติดต่อกลับเท่านั้น ไม่สแปม
+                  การส่งฟอร์มถือว่ายอมรับ <Link to="/privacy" className="underline hover:text-foreground">นโยบายความเป็นส่วนตัว</Link> · เราใช้ข้อมูลเพื่อติดต่อกลับเท่านั้น ไม่สแปม
                 </p>
               </form>
             </div>
@@ -282,7 +313,7 @@ const Contact = () => {
                 </div>
                 <div className="mt-6 pt-5 border-t border-foreground/12">
                   <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">โทรคุยรายละเอียด — คุณพลอย · Sales Director</div>
-                  <a href="tel:+66893542628" className="mt-1.5 inline-block font-thai text-[15px] text-foreground hover:text-cinnabar transition-colors">089-354-2628</a>
+                  <a href="tel:+66893542628" className="mt-1.5 inline-block font-thai text-[15px] text-foreground hover:text-foreground transition-colors">089-354-2628</a>
                 </div>
               </div>
 
@@ -307,7 +338,7 @@ const Contact = () => {
                   Bangkok 10240, Thailand
                 </p>
                 <a href="https://maps.app.goo.gl/zbgmhou54j55eKfg9" target="_blank" rel="noreferrer"
-                  className="mt-3 inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.22em] uppercase text-foreground hover:text-cinnabar transition-colors">
+                  className="mt-3 inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.22em] uppercase text-foreground hover:text-foreground transition-colors">
                   Open in Maps <ArrowUpRight className="w-3 h-3" />
                 </a>
                 <p className="mt-8 font-mono text-[10px] tracking-[0.12em] uppercase text-muted-foreground">
@@ -321,7 +352,7 @@ const Contact = () => {
 
       {/* Sticky mobile LINE pill */}
       <a href="https://line.me/ti/p/~orions" target="_blank" rel="noreferrer"
-        className="md:hidden fixed bottom-5 right-5 z-40 inline-flex items-center gap-2 bg-cinnabar text-background px-4 py-3 font-mono text-[10px] tracking-[0.22em] uppercase shadow-lg"
+        className="md:hidden fixed bottom-5 right-5 z-40 inline-flex items-center gap-2 bg-foreground text-background px-4 py-3 font-mono text-[10px] tracking-[0.22em] uppercase shadow-lg"
         aria-label="Chat on LINE">
         <MessageCircle className="w-4 h-4" /> Chat
       </a>

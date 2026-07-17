@@ -1,29 +1,18 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { X, Play, ChevronLeft, ChevronRight, Layers } from "lucide-react";
+import { X, Play, ChevronLeft, ChevronRight, Layers, ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import ClosingCTA from "@/components/ClosingCTA";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
 import { portfolio, type GalleryImage, type VideoItem } from "@/data/portfolio";
+import type { SiteItem } from "@/data/portfolio";
 import Picture, { type PictureData } from "@/components/Picture";
 
 const SITE_URL = "https://orions.agency";
 
 /** Company flagship showreel — featured at the top of /work. */
 const SHOWREEL_ID = "308_jYAVkwI";
-
-/** Deterministic shuffle — stable for a given seed (reshuffles only when seed changes). */
-const shuffle = <T,>(arr: T[], seed: number): T[] => {
-  const a = [...arr];
-  let s = seed + 1;
-  const rnd = () => { s = (s * 1103515245 + 12345) & 0x7fffffff; return s / 0x7fffffff; };
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(rnd() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
-};
 
 /** Justified tile — flex-grows by the image's real aspect (read on load), uncropped. */
 const JustifiedTile = ({ data, alt, rowH, onClick }: { data: PictureData; alt: string; rowH: number; onClick: () => void }) => {
@@ -33,7 +22,7 @@ const JustifiedTile = ({ data, alt, rowH, onClick }: { data: PictureData; alt: s
       type="button"
       onClick={onClick}
       style={{ flexGrow: ar, flexBasis: `${ar * rowH}px` }}
-      className="group relative block overflow-hidden rounded-none border border-foreground/12 hover:border-cinnabar/70 transition-colors cursor-pointer"
+      className="group relative block overflow-hidden rounded-none border border-foreground/12 hover:border-foreground/40 transition-colors cursor-pointer"
     >
       <Picture
         data={data}
@@ -47,19 +36,23 @@ const JustifiedTile = ({ data, alt, rowH, onClick }: { data: PictureData; alt: s
 };
 
 const Work = () => {
-  const [active, setActive] = useState<string>("all");
-  const [shuffleKey, setShuffleKey] = useState(() => Math.floor(Math.random() * 1_000_000));
+  // Curated case studies are the default sales surface; "ทั้งหมด" still lets
+  // visitors browse every craft board. Order is deterministic (SSG-safe).
+  const [active, setActive] = useState<string>("cases");
   const [hoverVid, setHoverVid] = useState<string | null>(null);
   const [lightbox, setLightbox] = useState<
     | { kind: "img" | "video"; val: string; ar?: number }
     | { kind: "album"; images: string[]; i: number }
     | null
   >(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const lastFocusRef = useRef<HTMLElement | null>(null);
   const albumStep = (d: number) =>
     setLightbox((lb) =>
       lb && lb.kind === "album" ? { ...lb, i: (lb.i + d + lb.images.length) % lb.images.length } : lb
     );
   const visible = portfolio.filter((c) => active === "all" || c.key === active);
+  const lightboxOpen = lightbox !== null;
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -76,6 +69,17 @@ const Work = () => {
     document.body.style.overflow = lightbox ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [lightbox]);
+
+  // Move focus into the modal and restore it to the triggering tile on close.
+  useEffect(() => {
+    if (lightboxOpen) {
+      lastFocusRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+      requestAnimationFrame(() => closeButtonRef.current?.focus());
+      return;
+    }
+    lastFocusRef.current?.focus();
+    lastFocusRef.current = null;
+  }, [lightboxOpen]);
 
   return (
     <div>
@@ -107,12 +111,12 @@ const Work = () => {
               งานจริงของ ØRIONS จัดเป็นหมวดให้ดูง่าย — เลือกหมวดที่อยากดูได้จากด้านล่าง.
             </p>
           </Reveal>
-          <div className="mt-9 flex flex-wrap gap-2">
-            {[{ key: "all", chip: "ทั้งหมด" }, ...portfolio].map((c) => (
+          <div className="mt-9 flex flex-wrap gap-2" aria-label="เลือกประเภทผลงาน">
+            {[...portfolio, { key: "all", chip: "ทั้งหมด" }].map((c) => (
               <button
                 key={c.key}
                 type="button"
-                onClick={() => { setActive(c.key); setShuffleKey((k) => k + 1); }}
+                onClick={() => setActive(c.key)}
                 aria-pressed={active === c.key}
                 className={`font-mono text-[11px] tracking-[0.08em] uppercase px-4 py-2.5 rounded-none border transition-colors ${
                   active === c.key
@@ -138,7 +142,7 @@ const Work = () => {
               onClick={() => setLightbox({ kind: "video", val: SHOWREEL_ID, ar: 16 / 9 })}
               onMouseEnter={() => setHoverVid(SHOWREEL_ID)}
               onMouseLeave={() => setHoverVid((h) => (h === SHOWREEL_ID ? null : h))}
-              className="group relative mt-6 block w-full overflow-hidden rounded-none border border-foreground/15 hover:border-cinnabar/70 transition-colors cursor-pointer"
+              className="group relative mt-6 block w-full overflow-hidden rounded-none border border-foreground/15 hover:border-foreground/40 transition-colors cursor-pointer"
             >
               <span className="block relative w-full" style={{ aspectRatio: "16 / 9" }}>
                 <img
@@ -160,7 +164,7 @@ const Work = () => {
                 )}
                 <span className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent pointer-events-none" />
                 <span className="absolute inset-0 grid place-items-center pointer-events-none">
-                  <span className={`grid place-items-center w-16 h-16 md:w-20 md:h-20 rounded-none bg-background/55 border border-foreground/25 text-foreground/90 transition-opacity ${hoverVid === SHOWREEL_ID ? "opacity-0" : "group-hover:text-cinnabar group-hover:border-cinnabar"}`}>
+                  <span className={`grid place-items-center w-16 h-16 md:w-20 md:h-20 rounded-none bg-background/55 border border-foreground/25 text-foreground/90 transition-opacity ${hoverVid === SHOWREEL_ID ? "opacity-0" : "group-hover:text-foreground group-hover:border-foreground/50"}`}>
                     <Play className="w-6 h-6 md:w-7 md:h-7 ml-0.5" />
                   </span>
                 </span>
@@ -191,7 +195,7 @@ const Work = () => {
 
             {cat.videos ? (
               <div className={cat.cols ? `mt-6 grid ${({ 3: "grid-cols-2 sm:grid-cols-3", 4: "grid-cols-2 sm:grid-cols-4", 5: "grid-cols-2 sm:grid-cols-5", 6: "grid-cols-3 sm:grid-cols-6" } as Record<number, string>)[cat.cols] || "grid-cols-2 sm:grid-cols-4"} gap-2.5 md:gap-3` : "mt-6 flex flex-wrap gap-2.5 md:gap-3"}>
-                {shuffle<VideoItem>(cat.videos, shuffleKey).map((v) => {
+                {cat.videos.map((v: VideoItem) => {
                   const ar = v.ar ?? 16 / 9;
                   const gridAr = (cat.videos?.[0]?.ar ?? 2) < 1 ? "9 / 16" : "16 / 9";
                   return (
@@ -202,7 +206,7 @@ const Work = () => {
                       onMouseEnter={() => setHoverVid(v.id)}
                       onMouseLeave={() => setHoverVid((h) => (h === v.id ? null : h))}
                       style={cat.cols ? undefined : { flexGrow: ar, flexBasis: `${ar * (cat.base ?? (ar < 1 ? 300 : 150))}px` }}
-                      className="group relative overflow-hidden rounded-none border border-foreground/12 hover:border-cinnabar/70 transition-colors cursor-pointer"
+                      className="group relative overflow-hidden rounded-none border border-foreground/12 hover:border-foreground/40 transition-colors cursor-pointer"
                     >
                       <span className="block relative w-full" style={{ aspectRatio: cat.cols ? gridAr : String(ar) }}>
                         <img
@@ -221,7 +225,7 @@ const Work = () => {
                           />
                         )}
                         <span className="absolute inset-0 grid place-items-center pointer-events-none">
-                          <span className={`grid place-items-center w-11 h-11 rounded-none bg-background/55 border border-foreground/25 text-foreground/90 transition-opacity ${hoverVid === v.id ? "opacity-0" : "group-hover:text-cinnabar group-hover:border-cinnabar"}`}>
+                          <span className={`grid place-items-center w-11 h-11 rounded-none bg-background/55 border border-foreground/25 text-foreground/90 transition-opacity ${hoverVid === v.id ? "opacity-0" : "group-hover:text-foreground group-hover:border-foreground/50"}`}>
                             <Play className="w-4 h-4 ml-0.5" />
                           </span>
                         </span>
@@ -233,7 +237,7 @@ const Work = () => {
               </div>
             ) : cat.albums ? (
               <div className="mt-8 space-y-10 md:space-y-12">
-                {shuffle(cat.albums, shuffleKey).map((album, ai) => {
+                {cat.albums.map((album, ai) => {
                   const imgs = album.images;
                   return (
                     <div key={ai}>
@@ -261,12 +265,12 @@ const Work = () => {
                       <Layers className="w-3.5 h-3.5 text-foreground" /> โพสต์เดี่ยว
                     </div>
                     <div className="columns-2 md:columns-4 gap-2.5 md:gap-3">
-                      {shuffle<GalleryImage>(cat.gallery, shuffleKey).map((g, i) => (
+                      {cat.gallery.map((g: GalleryImage, i) => (
                         <button
                           key={g.src.img.src}
                           type="button"
                           onClick={() => setLightbox({ kind: "img", val: g.src.img.src })}
-                          className="group relative block w-full mb-2.5 md:mb-3 break-inside-avoid overflow-hidden rounded-none border border-foreground/12 hover:border-cinnabar/70 transition-colors cursor-pointer"
+                          className="group relative block w-full mb-2.5 md:mb-3 break-inside-avoid overflow-hidden rounded-none border border-foreground/12 hover:border-foreground/40 transition-colors cursor-pointer"
                         >
                           <Picture
                             data={g.src}
@@ -287,7 +291,7 @@ const Work = () => {
                     key={g.src.img.src}
                     type="button"
                     onClick={() => setLightbox({ kind: "img", val: g.src.img.src })}
-                    className="group relative block w-full mb-2.5 md:mb-3 break-inside-avoid overflow-hidden rounded-none border border-foreground/12 hover:border-cinnabar/70 transition-colors cursor-pointer"
+                    className="group relative block w-full mb-2.5 md:mb-3 break-inside-avoid overflow-hidden rounded-none border border-foreground/12 hover:border-foreground/40 transition-colors cursor-pointer"
                   >
                     <Picture
                       data={g.src}
@@ -298,13 +302,53 @@ const Work = () => {
                   </button>
                 ))}
               </div>
+            ) : cat.sites ? (
+              <div className="mt-8">
+                <p lang="th" className="font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.8] text-muted-foreground max-w-[560px]">
+                  เว็บไซต์และแอปพลิเคชันที่เราออกแบบและส่งมอบจริง — กดเพื่อเปิดของจริง.
+                </p>
+                <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+                  {cat.sites.map((s, i) => (
+                    <a
+                      key={s.url}
+                      href={s.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={`group relative flex flex-col justify-between gap-8 rounded-none border border-foreground/12 bg-foreground/[0.02] p-7 md:p-9 min-h-[196px] transition-colors hover:border-foreground/35 hover:bg-foreground/[0.04] ${
+                        i === 0 ? "md:col-span-2" : ""
+                      }`}
+                    >
+                      <div className="flex items-start justify-between gap-4">
+                        <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
+                          {cat.n}.{String(i + 1).padStart(2, "0")}
+                        </span>
+                        <span className="meta-chip">{s.kind}</span>
+                      </div>
+                      <div>
+                        <div className="flex items-end justify-between gap-6">
+                          <h3 lang={s.th ? "th" : undefined} className={i === 0 ? "h-display-md" : "h-display-sm"}>
+                            {s.name}
+                          </h3>
+                          <ArrowUpRight className="w-6 h-6 md:w-7 md:h-7 shrink-0 text-foreground/45 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-foreground" />
+                        </div>
+                        <p lang="th" className="mt-3 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.75] text-muted-foreground max-w-[52ch]">
+                          {s.note}
+                        </p>
+                        <div className="mt-5 font-mono text-[11px] tracking-[0.14em] uppercase text-foreground/60">
+                          {s.domain} <span className="text-muted-foreground">· {s.niche}</span>
+                        </div>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
             ) : cat.cases ? (
               <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
                 {cat.cases.map((cs) => (
                   <Link
                     key={cs.slug}
                     to={`/work/${cs.slug}`}
-                    className="group relative block overflow-hidden rounded-none border border-foreground/12 bg-foreground/[0.04] aspect-[4/5] hover:border-cinnabar/60 transition-colors"
+                    className="group relative block overflow-hidden rounded-none border border-foreground/12 bg-foreground/[0.04] aspect-[4/5] hover:border-foreground/35 transition-colors"
                   >
                     <Picture
                       data={cs.cover}
@@ -340,12 +384,14 @@ const Work = () => {
           onClick={() => setLightbox(null)}
           role="dialog"
           aria-modal="true"
+          aria-label="ตัวแสดงผลงาน"
         >
           <button
+            ref={closeButtonRef}
             type="button"
             aria-label="ปิด"
             onClick={() => setLightbox(null)}
-            className="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 grid place-items-center rounded-none border border-foreground/30 text-foreground/80 hover:border-cinnabar hover:text-cinnabar transition-colors"
+            className="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 grid place-items-center rounded-none border border-foreground/30 text-foreground/80 hover:border-foreground/60 hover:text-foreground transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -355,7 +401,7 @@ const Work = () => {
                 type="button"
                 aria-label="ก่อนหน้า"
                 onClick={(e) => { e.stopPropagation(); albumStep(-1); }}
-                className="absolute left-3 md:left-6 w-11 h-11 grid place-items-center rounded-none border border-foreground/30 text-foreground/80 hover:border-cinnabar hover:text-cinnabar transition-colors bg-background/40"
+                className="absolute left-3 md:left-6 w-11 h-11 grid place-items-center rounded-none border border-foreground/30 text-foreground/80 hover:border-foreground/60 hover:text-foreground transition-colors bg-background/40"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
@@ -369,7 +415,7 @@ const Work = () => {
                 type="button"
                 aria-label="ถัดไป"
                 onClick={(e) => { e.stopPropagation(); albumStep(1); }}
-                className="absolute right-3 md:right-6 w-11 h-11 grid place-items-center rounded-none border border-foreground/30 text-foreground/80 hover:border-cinnabar hover:text-cinnabar transition-colors bg-background/40"
+                className="absolute right-3 md:right-6 w-11 h-11 grid place-items-center rounded-none border border-foreground/30 text-foreground/80 hover:border-foreground/60 hover:text-foreground transition-colors bg-background/40"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>

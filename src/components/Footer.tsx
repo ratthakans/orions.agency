@@ -43,7 +43,7 @@ const Footer = () => {
           <div>
             <a
               href="mailto:hello@orions.agency"
-              className="font-serif font-medium text-[28px] md:text-[44px] tracking-[-0.015em] hover:text-cinnabar transition-colors"
+              className="font-serif font-medium text-[28px] md:text-[44px] tracking-[-0.015em] hover:text-foreground transition-colors"
             >
               hello@orions.agency
             </a>
@@ -58,9 +58,9 @@ const Footer = () => {
           <div>
             <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-foreground mb-5">— Contact</div>
             <ul className="space-y-2 font-thai text-[13px] leading-[1.8] text-foreground/85">
-              <li><a href="mailto:hello@orions.agency" className="hover:text-cinnabar transition-colors">hello@orions.agency</a></li>
-              <li><a href="tel:+66893542628" className="hover:text-cinnabar transition-colors">+66 89 354 2628 · คุณพลอย</a></li>
-              <li><a href="https://line.me/ti/p/~orions" target="_blank" rel="noreferrer" className="hover:text-cinnabar transition-colors">LINE @orions</a></li>
+              <li><a href="mailto:hello@orions.agency" className="hover:text-foreground transition-colors">hello@orions.agency</a></li>
+              <li><a href="tel:+66893542628" className="hover:text-foreground transition-colors">+66 89 354 2628 · คุณพลอย</a></li>
+              <li><a href="https://line.me/ti/p/~orions" target="_blank" rel="noreferrer" className="hover:text-foreground transition-colors">LINE @orions</a></li>
             </ul>
           </div>
 
@@ -81,7 +81,7 @@ const Footer = () => {
             <ul className="space-y-2 btn-label">
               {navLinks.map((l) => (
                 <li key={l.to}>
-                  <Link to={l.to} className="text-foreground/85 hover:text-cinnabar transition-colors">{l.label}</Link>
+                  <Link to={l.to} className="text-foreground/85 hover:text-foreground transition-colors">{l.label}</Link>
                 </li>
               ))}
             </ul>
@@ -92,12 +92,12 @@ const Footer = () => {
             <ul className="space-y-2 btn-label">
               {socials.map((s) => (
                 <li key={s.label}>
-                  <a href={s.href} target="_blank" rel="noreferrer" className="text-foreground/85 hover:text-cinnabar transition-colors">
+                  <a href={s.href} target="_blank" rel="noreferrer" className="text-foreground/85 hover:text-foreground transition-colors">
                     {s.label === "IG" ? "Instagram" : "Facebook"}
                   </a>
                 </li>
               ))}
-              <li><Link to="/work" className="text-foreground/85 hover:text-cinnabar transition-colors">Work</Link></li>
+              <li><Link to="/work" className="text-foreground/85 hover:text-foreground transition-colors">Work</Link></li>
             </ul>
           </div>
         </div>
@@ -106,7 +106,7 @@ const Footer = () => {
         <div className="mt-10 pt-5 border-t border-foreground/15 flex items-center justify-between gap-4 font-mono text-[10px] tracking-[0.18em] uppercase opacity-50">
           <p>© {year} ØRIONS — All rights reserved.</p>
           <div className="flex items-center gap-5">
-            <Link to="/privacy" className="hover:opacity-100 hover:text-cinnabar transition-colors">Privacy</Link>
+            <Link to="/privacy" className="hover:opacity-100 hover:text-foreground transition-colors">Privacy</Link>
             <p>Stories, refined. · Est. 2025</p>
           </div>
         </div>

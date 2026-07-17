@@ -2,7 +2,7 @@ import Reveal from "@/components/Reveal";
 import Slash from "@/components/Slash";
 
 interface Props {
-  /** Section number — "01", "02" … rendered in cinnabar before the label. */
+  /** Section number — "01", "02" … rendered in foreground before the label. */
   index?: string;
   label: string;
   /** Wrap in Reveal animation. Default true. */

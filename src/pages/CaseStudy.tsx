@@ -121,7 +121,7 @@ const CaseStudy = () => {
                 href={cs.url || `https://${cs.domain}`}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-8 inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.22em] uppercase text-foreground hover:text-cinnabar transition-colors"
+                className="mt-8 inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.22em] uppercase text-foreground hover:text-foreground transition-colors"
               >
                 {cs.domain} <ArrowUpRight className="w-3 h-3" />
               </a>
@@ -246,7 +246,7 @@ const CaseStudy = () => {
               Next —
             </div>
             <div className="mt-6 flex items-center justify-between gap-8">
-              <h3 lang="th" className="h-display-md group-hover:text-cinnabar transition-all duration-500">
+              <h3 lang="th" className="h-display-md group-hover:text-foreground transition-all duration-500">
                 {next.title}
               </h3>
               <ArrowUpRight className="w-10 h-10 md:w-14 md:h-14 text-foreground shrink-0 transition-transform duration-500" />

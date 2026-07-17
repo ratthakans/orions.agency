@@ -9,23 +9,24 @@ import Picture, { type PictureData } from "@/components/Picture";
 import { innovations } from "@/data/system";
 import shotVaest from "@/assets/system/vaest.png?as=picture";
 import shotFirstdraft from "@/assets/system/firstdraft.png?as=picture";
+import shotCollaps from "@/assets/system/collaps.png?as=picture";
 import shotRoutte from "@/assets/system/routte.png?as=picture";
-import shotSonar from "@/assets/system/sonar.png?as=picture";
 
 const SITE_URL = "https://orions.agency";
+const absoluteProductUrl = (href: string) => href.startsWith("/") ? `${SITE_URL}${href}` : href;
 
 const shots: Record<string, PictureData> = {
   "VÆST": shotVaest,
   "First Draft": shotFirstdraft,
+  "COLLAPS": shotCollaps,
   "Routte": shotRoutte,
-  "SONAR": shotSonar,
 };
 
 const System = () => (
   <div>
     <SEO
-      title="The System — VÆST · First Draft · Routte · SONAR · ØRIONS"
-      description="สี่นวัตกรรมของ ØRIONS ขับเคลื่อนด้วย VÆST — AI creative director ที่มีรสนิยม. VÆST (aesthetic intelligence), First Draft (แพลตฟอร์มเขียนบท+โปรดักชัน), Routte (AI trip planner), SONAR (quantum creative CRM). Where aesthetic meets algorithm."
+      title="The System — VÆST · First Draft · COLLAPS · Routte · ØRIONS"
+      description="สี่เครื่องมือของ ØRIONS ขับเคลื่อนด้วย VÆST — AI creative director ที่มีรสนิยม. VÆST (aesthetic intelligence), First Draft (เขียนบท+โปรดักชัน), COLLAPS (creative operating system), Routte (AI trip planner). Where aesthetic meets algorithm."
       path="/system"
       schema={{
         "@context": "https://schema.org",
@@ -36,7 +37,7 @@ const System = () => (
           position: i + 1,
           name: it.name,
           description: it.kind,
-          url: it.href,
+          url: absoluteProductUrl(it.href),
         })),
       }}
     />
@@ -47,7 +48,7 @@ const System = () => (
         className="absolute inset-0 w-full h-full pointer-events-none" />
       <div className="relative z-10 max-w-[1400px] mx-auto w-full pt-32 md:pt-40 pb-20 md:pb-24">
         <Reveal>
-          <SectionLabel label="The System · Four Innovations" />
+          <SectionLabel label="The System · Four Instruments" />
         </Reveal>
         <Reveal delay={0.05}>
           <h1 className="mt-10 font-serif font-medium text-[clamp(44px,8vw,120px)] leading-[0.98] tracking-[-0.025em] max-w-[16ch]">
@@ -56,8 +57,32 @@ const System = () => (
         </Reveal>
         <Reveal delay={0.12}>
           <p lang="th" className="mt-10 max-w-[720px] font-serif text-[20px] md:text-[26px] leading-[1.5] text-foreground/80 thai-wrap">
-            สี่แพลตฟอร์มที่เราสร้างเอง — ทุกตัวมีสมองเดียวกันคือ VÆST, ปัญญาที่มีรสนิยม. นี่คือฝั่ง <em>algorithm</em> ของ where aesthetic meets algorithm.
+            สี่เครื่องมือที่เราสร้างเอง — จากห้องคิดถึงหน้างานจริง: คิด · เขียน · บริหารสตูดิโอ · ออกเดินทาง. ทุกตัวมีสมองเดียวกันคือ VÆST, ปัญญาที่มีรสนิยม. นี่คือฝั่ง <em>algorithm</em> ของ where aesthetic meets algorithm.
           </p>
+        </Reveal>
+
+        {/* Index of the four instruments — the story arc, jumpable */}
+        <Reveal delay={0.18}>
+          <nav aria-label="รายการเครื่องมือ" className="mt-14 md:mt-16 border-t border-foreground/15">
+            <ul className="grid grid-cols-1 md:grid-cols-2">
+              {innovations.map((it) => (
+                <li key={it.n} className="border-b border-foreground/12 md:[&:nth-last-child(2)]:border-b md:odd:pr-10">
+                  <a
+                    href={`#${it.name.toLowerCase().replace(/[^a-z]/g, "")}`}
+                    className="group flex items-baseline gap-5 py-4 md:py-5"
+                  >
+                    <span className="font-mono text-[10px] tracking-[0.2em] tabular-nums text-muted-foreground">{it.n}</span>
+                    <span className="font-display text-[19px] md:text-[22px] font-medium tracking-[-0.01em] text-foreground/85 group-hover:text-foreground transition-colors">
+                      {it.name}
+                    </span>
+                    <span className="ml-auto font-mono text-[9px] md:text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
+                      {it.role}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </Reveal>
       </div>
     </section>
@@ -112,9 +137,15 @@ const System = () => (
                 </p>
               </Reveal>
               <Reveal delay={0.1}>
-                <a href={it.href} target="_blank" rel="noreferrer" className="cta-link mt-10" style={{ color: it.accent }}>
-                  <span>{it.hrefLabel}</span><ArrowUpRight className="w-4 h-4" />
-                </a>
+                {it.href.startsWith("/") ? (
+                  <Link to={it.href} className="cta-link mt-10" style={{ color: it.accent }}>
+                    <span>{it.hrefLabel}</span><ArrowUpRight className="w-4 h-4" />
+                  </Link>
+                ) : (
+                  <a href={it.href} target="_blank" rel="noreferrer" className="cta-link mt-10" style={{ color: it.accent }}>
+                    <span>{it.hrefLabel}</span><ArrowUpRight className="w-4 h-4" />
+                  </a>
+                )}
               </Reveal>
             </div>
 
@@ -168,8 +199,8 @@ const System = () => (
 
     <CTABand
       eyebrow="Work with us"
-      title={<>อยากใช้ หรือสร้าง<em className="text-cinnabar">ไปด้วยกัน</em>?</>}
-      subtitle="สนใจนำ VÆST · First Draft · Routte · SONAR ไปใช้ หรืออยากร่วมสร้างอนาคตของงานครีเอทีฟ — คุยกับทีม ORIONS ได้เลย."
+      title={<>อยากใช้ หรือสร้าง<em className="text-foreground">ไปด้วยกัน</em>?</>}
+      subtitle="สนใจนำ VÆST · First Draft · COLLAPS · Routte ไปใช้ หรืออยากร่วมสร้างอนาคตของงานครีเอทีฟ — คุยกับทีม ORIONS ได้เลย."
       primary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}
       secondary={{ label: "อ่านแนวคิดของเรา", to: "/thinking" }}
       tone="ink"

@@ -65,7 +65,7 @@ const Blog = () => (
             </div>
             <div className="lg:col-span-5">
               <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground">{blogPosts[0].category}</span>
-              <h2 lang="th" className="mt-5 h-display-md thai-wrap group-hover:text-cinnabar transition-colors">
+              <h2 lang="th" className="mt-5 h-display-md thai-wrap group-hover:text-foreground transition-colors">
                 {blogPosts[0].title}
               </h2>
               <p lang="th" className="mt-5 font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.8] text-muted-foreground max-w-[46ch]">
@@ -91,7 +91,7 @@ const Blog = () => (
             <Link
               to={`/blog/${p.slug}`}
               viewTransition
-              className="group flex flex-col h-full rounded-none border border-foreground/12 bg-foreground/[0.02] hover:border-cinnabar/60 transition-colors"
+              className="group flex flex-col h-full rounded-none border border-foreground/12 bg-foreground/[0.02] hover:border-foreground/40 transition-colors"
             >
               <div className="relative w-full overflow-hidden aspect-[16/10]">
                 <Picture
@@ -106,7 +106,7 @@ const Blog = () => (
                 </span>
               </div>
               <div className="flex flex-col flex-1 p-6">
-                <h2 lang="th" className="font-display text-[19px] md:text-[21px] font-medium leading-snug tracking-[-0.01em] group-hover:text-cinnabar transition-colors">
+                <h2 lang="th" className="font-display text-[19px] md:text-[21px] font-medium leading-snug tracking-[-0.01em] group-hover:text-foreground transition-colors">
                   {p.title}
                 </h2>
                 <p lang="th" className="mt-3 font-thai thai-wrap text-[14px] leading-[1.8] text-muted-foreground flex-1">

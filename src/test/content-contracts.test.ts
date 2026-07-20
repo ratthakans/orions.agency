@@ -3,6 +3,7 @@ import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 import { blogPosts } from "@/data/blog";
 import { caseStudies } from "@/data/caseStudies";
+import { innovations } from "@/data/system";
 
 const fromRoot = (path: string) => readFileSync(resolve(process.cwd(), path), "utf8");
 const sitemap = fromRoot("public/sitemap.xml");
@@ -15,6 +16,7 @@ describe("search index contract", () => {
     });
     blogPosts.forEach((post) => expect(sitemapUrls).toContain(`https://orions.agency/blog/${post.slug}`));
     caseStudies.forEach((item) => expect(sitemapUrls).toContain(`https://orions.agency/work/${item.slug}`));
+    innovations.forEach((it) => expect(sitemapUrls).toContain(`https://orions.agency/system/${it.slug}`));
   });
 
   it("does not advertise retired article URLs", () => {
@@ -28,6 +30,7 @@ describe("public credibility contract", () => {
     "src/pages/Index.tsx",
     "src/pages/Thinking.tsx",
     "src/pages/System.tsx",
+    "src/pages/SystemDetail.tsx",
     "src/data/system.ts",
     "src/data/blog.ts",
     "src/data/portfolio.ts",
@@ -39,6 +42,13 @@ describe("public credibility contract", () => {
     expect(publicCopy).not.toMatch(/4\.6(?:×|\s*เท่า)/i);
     expect(publicCopy).not.toMatch(/1\.7(?:s|\s*วินาที)/i);
     expect(publicCopy).not.toMatch(/Gemini/i);
+  });
+
+  // COLLAPS and GODGEARS were cut from the live product lineup (COLLAPS folded
+  // back out, GODGEARS never shipped) — keep them out of public copy so they
+  // don't silently reappear in a future edit.
+  it("does not advertise retired products", () => {
+    expect(publicCopy).not.toMatch(/COLLAPS|GODGEARS|SONAR SQUAD/);
   });
 
   // Our own products must live on real domains. Client work in the portfolio

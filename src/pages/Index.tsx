@@ -57,7 +57,7 @@ const Index = () => (
         url: SITE_URL,
         slogan: "Where aesthetic meets algorithm.",
         description:
-          "ØRIONS is a boutique creative agency in Bangkok where aesthetic meets algorithm — it builds memorable brands by hand and its own AI with taste. Practice: brand consultancy, aesthetic intelligence, and creative tech platforms, powered by VÆST (an AI creative director). Products: VÆST, First Draft, COLLAPS, Routte.",
+          "ØRIONS is a boutique creative agency in Bangkok where aesthetic meets algorithm — it builds memorable brands by hand and its own AI with taste. Practice: brand consultancy, aesthetic intelligence, and creative tech platforms, powered by VÆST (an AI creative director). Products: VÆST, First Draft, Routte.",
       }}
     />
 
@@ -191,7 +191,7 @@ const Index = () => (
         className="absolute inset-0 w-full h-full pointer-events-none" />
       <div className="relative z-10 max-w-[1400px] mx-auto pt-32 md:pt-52 pb-10 md:pb-16">
         <Reveal>
-          <div className="font-mono text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-muted-foreground">— The system · four instruments</div>
+          <div className="font-mono text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-muted-foreground">— The system · three instruments</div>
         </Reveal>
         <Reveal delay={0.05}>
           <h2 className="mt-8 h-display-lg max-w-[16ch]">
@@ -209,7 +209,9 @@ const Index = () => (
                   <span className="text-foreground tabular-nums">{it.n}</span>
                   <span>{it.role}</span>
                 </div>
-                <h3 className="mt-6 font-display font-medium text-[clamp(52px,9vw,128px)] leading-[0.9] tracking-[-0.03em]">{it.name}</h3>
+                <Link to={`/system/${it.slug}`} viewTransition className="group/name block">
+                  <h3 className="mt-6 font-display font-medium text-[clamp(52px,9vw,128px)] leading-[0.9] tracking-[-0.03em] transition-colors duration-300 group-hover/name:opacity-80">{it.name}</h3>
+                </Link>
                 <div lang="th" className="mt-6 font-serif text-[19px] md:text-[24px] leading-[1.3] tracking-[-0.01em] text-foreground/85">{it.kind}</div>
                 {it.powered && (
                   <div className="mt-5 font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">{it.powered}</div>
@@ -224,6 +226,9 @@ const Index = () => (
                 <p lang="th" className={`font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.85] text-muted-foreground max-w-[58ch] ${it.quote ? "mt-8" : ""}`}>
                   {it.body}
                 </p>
+                <Link to={`/system/${it.slug}`} viewTransition className="cta-link mt-8">
+                  <span>ดูรายละเอียด {it.name}</span><ArrowUpRight className="w-4 h-4" />
+                </Link>
               </div>
             </article>
           </Reveal>

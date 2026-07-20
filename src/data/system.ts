@@ -1,10 +1,15 @@
 // ORIONS — a boutique creative agency, "where aesthetic meets algorithm".
 // Canonical product/scope copy (user-authored 2026-07-04; product facts synced
-// from the actual product repos + live sites 2026-07-16) for the /system page.
+// from the actual product repos + live sites 2026-07-16) for /system + /system/:slug.
 // The agency builds memorable brands by hand AND its own AI (VÆST) + products.
 //
-// Story arc of the four instruments — from the thinking room to the road:
-//   คิด (VÆST) → เขียน (First Draft) → บริหารสตูดิโอ (COLLAPS) → ออกเดินทาง (Routte)
+// Story arc of the three instruments — from the thinking room to the road:
+//   คิด (VÆST) → เขียน (First Draft) → ออกเดินทาง (Routte)
+
+import type { PictureData } from "@/components/Picture";
+import shotVaest from "@/assets/system/vaest.png?as=picture";
+import shotFirstdraft from "@/assets/system/firstdraft.png?as=picture";
+import shotRoutte from "@/assets/system/routte.png?as=picture";
 
 export const scopes = [
   {
@@ -26,6 +31,8 @@ export const scopes = [
 
 export interface Innovation {
   n: string;
+  /** URL slug for the /system/:slug detail page */
+  slug: string;
   name: string;
   role: string;
   kind: string;
@@ -34,6 +41,8 @@ export interface Innovation {
   body: string;
   /** section accent (each product's own brand colour) */
   accent: string;
+  /** real product screenshot */
+  shot: PictureData;
   /** live product URL — or an internal /contact route while in private beta */
   href: string;
   hrefLabel: string;
@@ -46,6 +55,7 @@ export interface Innovation {
 export const innovations: Innovation[] = [
   {
     n: "01",
+    slug: "vaest",
     name: "VÆST",
     role: "The Core Engine",
     kind: "The AI Creative Director",
@@ -53,6 +63,7 @@ export const innovations: Innovation[] = [
     quote: "Computation is nothing without taste.",
     body: "VÆST คือหัวใจและกระดูกสันหลังของจักรวาล ORIONS. ขณะที่ AI ทั่วไปประมวลผลได้เร็วแต่มืดบอดต่อความงาม เราฝังวิธีคิดและวิญญาณของ creative director ระดับท็อปเข้าไปในแกนกลางประมวลผล — โยน brief ไฟล์ สเปรดชีต มูดบอร์ดที่ขัดแย้งกันเองลงไป แล้วกด Crystallize: ได้เอกสารเดียวที่คม อ่านรู้เรื่อง แก้ได้ถึงระดับประโยค และผ่านด่านตรวจรสนิยมครั้งสุดท้ายก่อนส่งเสมอ. เปิดใช้จริงแล้วที่ vaest.orions.agency.",
     accent: "#ff5a1f",
+    shot: shotVaest,
     href: "https://vaest.orions.agency",
     hrefLabel: "vaest.orions.agency",
     ci: {
@@ -74,6 +85,7 @@ export const innovations: Innovation[] = [
   },
   {
     n: "02",
+    slug: "first-draft",
     name: "First Draft",
     role: "The Canvas",
     kind: "Screenwriting & Production Platform",
@@ -81,6 +93,7 @@ export const innovations: Innovation[] = [
     quote: "Before the final, you need a first draft.",
     body: "แพลตฟอร์มเขียนบท + โปรดักชันครบวงจรบนเบราว์เซอร์ สำหรับทีมหนังไทย/เอเชีย (UI ไทยทั้งหมด). หัวใจคือ Living Production Graph — บทคือ single source of truth: แก้บทฉากเดียว แล้ว breakdown · stripboard · callsheet · budget ของทุกแผนกขยับตามทันที. เสริมด้วย VÆST AI 20+ บทบาทที่อ่านบทไทยแตกจริง ให้โน้ตระดับทีมงานจริง.",
     accent: "#ffa14b",
+    shot: shotFirstdraft,
     href: "https://firstdraftpro.co",
     hrefLabel: "firstdraftpro.co",
     ci: {
@@ -102,34 +115,7 @@ export const innovations: Innovation[] = [
   },
   {
     n: "03",
-    name: "COLLAPS",
-    role: "The Engine Room",
-    kind: "The Creative Operating System",
-    powered: "",
-    quote: "Run your studio. Not your software.",
-    body: "ระบบปฏิบัติการของสตูดิโอครีเอทีฟ — ยุบ CRM · โน้ต · project management · แชททีม · บัญชี ที่เคยกระจายอยู่เจ็ดที่ ให้เหลือ loop เดียว: ลีดเข้ามาเป็นลูกค้า, Sales AI ร่างข้อเสนอ/ราคา/กำหนดเวลาจาก rate card + กำลังทีม + margin จริง, อนุมัติใบเสนอราคาแล้วงานไหลเป็นโปรเจกต์พร้อมงบ โดย margin มองเห็นตลอดทาง. รู้ว่าควรขายอะไร ทีมส่งมอบไหวไหม และเหลือกำไรเท่าไร — ก่อนใบเสนอราคาจะออกจากมือ.",
-    accent: "#7c6cff",
-    href: "/contact?pkg=COLLAPS",
-    hrefLabel: "Private beta — ขอทดลองใช้",
-    ci: {
-      palette: ["#f6f4f2", "#14131a", "#7c6cff", "#ff8d7c"],
-      type: "Inter · Newsreader · IBM Plex Mono",
-      note: "paper/ink + aurora gradient (blue→violet→coral) · warm editorial SaaS",
-    },
-    features: [
-      { k: "CRM & Leads", d: "Account 360 + pipeline — ลีดจากเว็บ/LINE/อีเมล ยุบเป็นประวัติลูกค้า บทสนทนา และดีลเดียว" },
-      { k: "Sales AI", d: "แนะนำแพ็กเกจ ราคา และเวลา จากประวัติลูกค้า rate card กำลังทีม และ margin จริง — ได้ draft ให้รีวิวก่อนเสมอ" },
-      { k: "Projects & Team", d: "ใบเสนอราคาที่ถูกรับ กลายเป็น phase งาน งบ และเธรดทีม — โดยไม่ต้องกรอก scope ซ้ำ" },
-      { k: "Thai Finance", d: "ใบเสนอราคา/ใบแจ้งหนี้/ใบเสร็จ ไทย-อังกฤษ · VAT · หัก ณ ที่จ่าย · partial payments · ส่งต่อบัญชี (FlowAccount sync)" },
-    ],
-    painpoints: [
-      "ข้อมูลสตูดิโออยู่เจ็ดที่ — CRM โน้ต PM ไดรฟ์ แชท บัญชี และ AI ไม่เคยคุยกัน",
-      "context หายระหว่างเครื่องมือ — scope และประวัติต้องกรอกใหม่ทุกรอบ",
-      "คนที่เปิดสตูดิโอเพื่อสร้างงาน กลายเป็นคนไล่ตามอัปเดต — COLLAPS คืนเวลานั้นให้",
-    ],
-  },
-  {
-    n: "04",
+    slug: "routte",
     name: "Routte",
     role: "The Compass",
     kind: "The Curated AI Trip Planner",
@@ -137,6 +123,7 @@ export const innovations: Innovation[] = [
     quote: "Every day is a story.",
     body: "AI trip planner สำหรับเมืองไทย (mobile-first) ที่เปลี่ยนอารมณ์และเวลาที่คุณมี ให้เป็น 'วันหนึ่งที่เล่าเป็นเรื่อง' — six chapters, not fifteen pins: มีจังหวะ ไต่ตามแสง และมี hero moment เดียวของวัน. พก Passport สะสมตราเมืองและแต้มความประหยัด สแกน QR ที่ร้านพาร์ตเนอร์เพื่อรับส่วนลดและจ่ายเงินได้เลย — ฝั่งร้านค้ามี partner platform ของตัวเองที่ partner.routte.to. คัดสรรผ่านเลนส์ศิลปะ สถาปัตยกรรม และวิถีชีวิต ราวกับนิตยสารท่องเที่ยวไฮเอนด์ที่ทำเพื่อคุณคนเดียว.",
     accent: "#F97316",
+    shot: shotRoutte,
     href: "https://routte.to",
     hrefLabel: "routte.to",
     ci: {
@@ -157,3 +144,12 @@ export const innovations: Innovation[] = [
     ],
   },
 ];
+
+export const getInnovation = (slug: string) =>
+  innovations.find((it) => it.slug === slug);
+
+export const getAdjacentInnovation = (slug: string) => {
+  const i = innovations.findIndex((it) => it.slug === slug);
+  if (i === -1) return { next: null };
+  return { next: innovations[(i + 1) % innovations.length] };
+};

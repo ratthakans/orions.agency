@@ -7,12 +7,11 @@
 2. Aesthetic Intelligence — building AI that has not just logic and numbers but a transplanted DNA of taste and a deep understanding of high-level aesthetics.
 3. Creative Tech Platforms — building ØRIONS's own platform ecosystem to revolutionise and break the limits of the creative industry across every dimension.
 
-## The system — four instruments, one universe powered by VÆST
-From the thinking room to the road: think (VÆST) → write (First Draft) → run the studio (COLLAPS) → travel (Routte).
-- VÆST (The Core Engine) — the AI Creative Director. "Computation is nothing without taste." Drop briefs, files, spreadsheets and moodboards in and hit Crystallize: one sharp document, editable sentence by sentence, that passes a final taste check before it ships. Client-loop comments and per-project taste memory turn a studio's taste into infrastructure. Live at https://vaest.orions.agency
-- First Draft (The Canvas) — a Thai-first screenwriting & production platform, powered by VÆST. The script is the single source of truth of a Living Production Graph: edit one scene and breakdown, stripboard, callsheets and budget propagate across every department. 20+ VÆST AI roles that truly read Thai scripts. Live at https://firstdraftpro.co
-- COLLAPS (The Engine Room) — the Creative Operating System for studios. "Run your studio. Not your software." Leads/CRM, Sales AI (offer, price and timing drafted from rate cards, team capacity and real margin), project delivery, team chat and Thai finance documents (bilingual quotations/invoices/receipts, VAT/WHT) in one revenue loop. Private beta.
-- Routte (The Compass) — a curated AI trip planner for Thailand, powered by VÆST. "Every day is a story." Turns mood and hours into a day told as six chapters with one hero moment; a Passport tracks cities, badges and real baht saved via scan-to-save/scan-to-pay at partner venues (partner platform at https://partner.routte.to). Live at https://routte.to
+## The system — three instruments, one universe powered by VÆST
+From the thinking room to the road: think (VÆST) → write (First Draft) → travel (Routte). Each has its own page at orions.agency/system/<slug>.
+- VÆST (The Core Engine) — the AI Creative Director. "Computation is nothing without taste." Drop briefs, files, spreadsheets and moodboards in and hit Crystallize: one sharp document, editable sentence by sentence, that passes a final taste check before it ships. Client-loop comments and per-project taste memory turn a studio's taste into infrastructure. Live at https://vaest.orions.agency — detail page: https://orions.agency/system/vaest
+- First Draft (The Canvas) — a Thai-first screenwriting & production platform, powered by VÆST. The script is the single source of truth of a Living Production Graph: edit one scene and breakdown, stripboard, callsheets and budget propagate across every department. 20+ VÆST AI roles that truly read Thai scripts. Live at https://firstdraftpro.co — detail page: https://orions.agency/system/first-draft
+- Routte (The Compass) — a curated AI trip planner for Thailand, powered by VÆST. "Every day is a story." Turns mood and hours into a day told as six chapters with one hero moment; a Passport tracks cities, badges and real baht saved via scan-to-save/scan-to-pay at partner venues (partner platform at https://partner.routte.to). Live at https://routte.to — detail page: https://orions.agency/system/routte
 
 ## Belief / manifesto (Thinking)
 The world isn't short of content, it's drowning in it — the answer is not louder but deeper. The sharpest story wins, not the loudest. As a boutique brand consultancy ØRIONS still crafts brands by hand — diagnose first (The Refinement Session), then treat with craft, then deliver and measure — and VÆST (taste-driven intelligence) elevates every output. Technology is the structure; taste is what gives it life. Full manifesto: https://orions.agency/thinking
@@ -22,7 +21,6 @@ The world isn't short of content, it's drowning in it — the answer is not loud
 - A boutique creative agency, powered by its own AI. (positioning)
 - Computation is nothing without taste. (VÆST)
 - Before the final, you need a first draft. (First Draft)
-- Run your studio. Not your software. (COLLAPS)
 - Every day is a story. (Routte)
 
 ## Key pages

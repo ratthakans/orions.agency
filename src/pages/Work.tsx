@@ -194,8 +194,12 @@ const Work = () => {
             </div>
 
             {cat.videos ? (
-              <div className={cat.cols ? `mt-6 grid ${({ 3: "grid-cols-2 sm:grid-cols-3", 4: "grid-cols-2 sm:grid-cols-4", 5: "grid-cols-2 sm:grid-cols-5", 6: "grid-cols-3 sm:grid-cols-6" } as Record<number, string>)[cat.cols] || "grid-cols-2 sm:grid-cols-4"} gap-2.5 md:gap-3` : "mt-6 flex flex-wrap gap-2.5 md:gap-3"}>
-                {cat.videos.map((v: VideoItem) => {
+              <>
+              {/* Contact sheet — the film wall gets a perforated edge and a
+                  numbered frame per tile, the way a real sheet is read. */}
+              <div aria-hidden className="sprocket-edge mt-8" />
+              <div className={cat.cols ? `mt-3 grid ${({ 3: "grid-cols-2 sm:grid-cols-3", 4: "grid-cols-2 sm:grid-cols-4", 5: "grid-cols-2 sm:grid-cols-5", 6: "grid-cols-3 sm:grid-cols-6" } as Record<number, string>)[cat.cols] || "grid-cols-2 sm:grid-cols-4"} gap-2.5 md:gap-3` : "mt-3 flex flex-wrap gap-2.5 md:gap-3"}>
+                {cat.videos.map((v: VideoItem, vi) => {
                   const ar = v.ar ?? 16 / 9;
                   const gridAr = (cat.videos?.[0]?.ar ?? 2) < 1 ? "9 / 16" : "16 / 9";
                   return (
@@ -229,12 +233,17 @@ const Work = () => {
                             <Play className="w-4 h-4 ml-0.5" />
                           </span>
                         </span>
+                        <span aria-hidden className="frame-index absolute left-0 bottom-0 pointer-events-none">
+                          {String(vi + 1).padStart(3, "0")}
+                        </span>
                       </span>
                     </button>
                   );
                 })}
                 {!cat.cols && <i aria-hidden className="grow-[10] basis-0" />}
               </div>
+              <div aria-hidden className="sprocket-edge mt-3" />
+              </>
             ) : cat.albums ? (
               <div className="mt-8 space-y-10 md:space-y-12">
                 {cat.albums.map((album, ai) => {

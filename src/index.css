@@ -185,6 +185,35 @@
     .halftone { transition: none; }
   }
 
+  /* Sprocket edge — the perforation strip that frames a contact sheet. Sits
+     above and below the film board only; on any other board it would be
+     costume rather than reference. Deliberately faint: this is meant to be
+     noticed on the second look, not the first. */
+  .sprocket-edge {
+    height: 9px;
+    background-image: repeating-linear-gradient(
+      to right,
+      transparent 0 9px,
+      hsl(var(--foreground) / 0.16) 9px 16px
+    );
+    background-position: center;
+  }
+
+  /* Frame index — the number printed on a contact sheet beside each frame.
+     Every frame carries one; at this size the repetition reads as texture and
+     provenance, which is the whole point of a contact sheet. */
+  .frame-index {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    line-height: 1;
+    color: hsl(var(--foreground) / 0.55);
+    background: hsl(var(--background) / 0.55);
+    padding: 3px 5px;
+    transition: color 300ms ease;
+  }
+  .group:hover .frame-index { color: hsl(var(--foreground) / 0.9); }
+
   /* Duotone grade — unifies imagery toward the ORIONS orange/black (rebrand photography direction). */
   /* No font-weight here — let weight utilities (font-medium/bold) compose with it. */
   .font-serif   { font-family: 'Newsreader', 'IBM Plex Sans Thai', Georgia, serif; letter-spacing: -0.02em; text-transform: none; }

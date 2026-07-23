@@ -86,21 +86,12 @@ const CaseStudy = () => {
             </p>
           </Reveal>
 
-          <Reveal delay={0.2}>
-            <div className="mt-8 flex flex-wrap gap-2">
-              {cs.scope.split("·").map((s) => (
-                <span key={s} className="meta-chip">{s.trim()}</span>
-              ))}
-            </div>
-          </Reveal>
-
           {/* Meta strip */}
-          <Reveal delay={0.24}>
-            <dl className="card-soft mt-16 grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-6 p-8">
+          <Reveal delay={0.2}>
+            <dl className="card-soft mt-16 grid grid-cols-2 md:grid-cols-3 gap-y-8 gap-x-6 p-8">
               {[
                 { k: "Brand", v: cs.title, th: true },
                 { k: "Category", v: cs.niche },
-                { k: "Scope", v: cs.scope },
                 { k: "Year", v: cs.year },
               ].map((m) => (
                 <div key={m.k}>
@@ -268,7 +259,7 @@ const CaseStudy = () => {
               <ArrowUpRight className="w-10 h-10 md:w-14 md:h-14 text-foreground shrink-0 transition-transform duration-500" />
             </div>
             <div className="mt-4 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
-              {next.niche} · {next.scope}
+              {next.niche} · {next.year}
             </div>
           </Link>
         </section>

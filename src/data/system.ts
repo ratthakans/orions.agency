@@ -1,4 +1,4 @@
-// ORIONS — an independent creative agency, "where aesthetic meets algorithm".
+// ORIONS — a creative agency, "where aesthetic meets algorithm".
 // Canonical product/scope copy (user-authored 2026-07-04; product facts synced
 // from the actual product repos + live sites 2026-07-16) for /system + /system/:slug.
 // The agency builds memorable brands by hand AND its own AI (VÆST) + products.

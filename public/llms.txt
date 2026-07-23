@@ -1,6 +1,6 @@
-# ØRIONS — Independent Creative Agency, Bangkok
+# ØRIONS — Creative Agency, Bangkok
 
-> ØRIONS (orions.agency) is an independent creative agency in Bangkok — "where aesthetic meets algorithm." It builds memorable brands by hand, and its own AI with taste, fusing art with equation. In an era of AI noise and shrinking attention, the world doesn't need louder or wider — it craves depth strong enough to make people stop and look. Founder & Creative Director: Ratthakan Suwanphakdee (รัฐกันต์ สุวรรณภักดี).
+> ØRIONS (orions.agency) is a creative agency in Bangkok — "where aesthetic meets algorithm." It builds memorable brands by hand, and its own AI with taste, fusing art with equation. In an era of AI noise and shrinking attention, the world doesn't need louder or wider — it craves depth strong enough to make people stop and look. Founder & Creative Director: Ratthakan Suwanphakdee (รัฐกันต์ สุวรรณภักดี).
 
 ## What we do — three areas
 1. Brand Consultancy — high-end brand consultancy that digs to the root of the problem, fusing creative data with sharp, measurable strategy.
@@ -18,7 +18,7 @@ The world isn't short of content, it's drowning in it — the answer is not loud
 
 ## Taglines
 - Where aesthetic meets algorithm. (primary)
-- An independent creative agency, powered by its own AI. (positioning)
+- A creative agency, powered by its own AI. (positioning)
 - Computation is nothing without taste. (VÆST)
 - Before the final, you need a first draft. (First Draft)
 - Every day is a story. (Routte)

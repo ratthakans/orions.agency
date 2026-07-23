@@ -35,7 +35,7 @@ const HeroTitle = () => {
   );
   return (
     <h1 className="h-display-xl leading-[0.92]">
-      <span className="sr-only">Where aesthetic meets algorithm — an independent creative agency.</span>
+      <span className="sr-only">Where aesthetic meets algorithm — a creative agency.</span>
       <span aria-hidden="true">
         <Line delay={0.1}>Where aesthetic</Line>
         <Line delay={0.22}>meets algorithm<span className="text-cinnabar">.</span></Line>
@@ -47,8 +47,8 @@ const HeroTitle = () => {
 const Index = () => (
   <div>
     <SEO
-      title="ØRIONS — Independent Creative Agency · Where Aesthetic Meets Algorithm"
-      description="ครีเอทีฟเอเจนซีอิสระในกรุงเทพฯ ที่ผสานศิลปะเข้ากับสมการ — ปั้นแบรนด์ที่คนจำด้วยมือมนุษย์ และ AI ที่มีรสนิยมของเราเอง. brand consultancy · aesthetic intelligence · creative tech platforms. ขับเคลื่อนด้วย VÆST — AI creative director ที่มีรสนิยม."
+      title="ØRIONS — Creative Agency · Where Aesthetic Meets Algorithm"
+      description="ครีเอทีฟเอเจนซีในกรุงเทพฯ ที่ผสานศิลปะเข้ากับสมการ — ปั้นแบรนด์ที่คนจำด้วยมือมนุษย์ และ AI ที่มีรสนิยมของเราเอง. brand consultancy · aesthetic intelligence · creative tech platforms. ขับเคลื่อนด้วย VÆST — AI creative director ที่มีรสนิยม."
       path="/"
       schema={{
         "@context": "https://schema.org",
@@ -57,7 +57,7 @@ const Index = () => (
         url: SITE_URL,
         slogan: "Where aesthetic meets algorithm.",
         description:
-          "ØRIONS is an independent creative agency in Bangkok where aesthetic meets algorithm — it builds memorable brands by hand and its own AI with taste. Practice: brand consultancy, aesthetic intelligence, and creative tech platforms, powered by VÆST (an AI creative director). Products: VÆST, First Draft, Routte.",
+          "ØRIONS is a creative agency in Bangkok where aesthetic meets algorithm — it builds memorable brands by hand and its own AI with taste. Practice: brand consultancy, aesthetic intelligence, and creative tech platforms, powered by VÆST (an AI creative director). Products: VÆST, First Draft, Routte.",
       }}
     />
 
@@ -68,7 +68,7 @@ const Index = () => (
       <div className="relative z-10 max-w-[1400px] mx-auto w-full flex-1 flex flex-col justify-center pt-24 md:pt-32 pb-20 md:pb-28">
         <Reveal>
           <div className="flex items-center gap-3 font-mono text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-foreground/70">
-            <Slash className="text-[15px]" /> ØRIONS · Independent Creative Agency · Bangkok
+            <Slash className="text-[15px]" /> ØRIONS · Creative Agency · Bangkok
           </div>
         </Reveal>
         <div className="mt-8">
@@ -76,7 +76,7 @@ const Index = () => (
         </div>
         <Reveal delay={0.5}>
           <p lang="th" className="mt-9 font-thai thai-wrap text-[17px] md:text-[21px] leading-[1.7] text-foreground/85 max-w-[42ch]">
-            ครีเอทีฟเอเจนซีอิสระในกรุงเทพฯ — ปั้นแบรนด์ที่คนจำด้วยมือมนุษย์ และ AI ที่มีรสนิยมของเราเอง.
+            ครีเอทีฟเอเจนซีในกรุงเทพฯ — ปั้นแบรนด์ที่คนจำด้วยมือมนุษย์ และ AI ที่มีรสนิยมของเราเอง.
           </p>
         </Reveal>
         <Reveal delay={0.62}>
@@ -116,7 +116,7 @@ const Index = () => (
         </div>
         <Reveal delay={0.15}>
           <p lang="th" className="mt-16 md:mt-24 max-w-[760px] font-thai thai-wrap text-[17px] md:text-[21px] leading-[1.75] text-foreground/80">
-            ORIONS คือ <span className="text-foreground">ครีเอทีฟเอเจนซีอิสระ</span> ที่ผสานศิลปะเข้ากับสมการ — เราไม่ได้แค่ปั้นแบรนด์ให้สวย แต่สร้างเครื่องมือ AI ของเราเองเพื่อยกระดับงานครีเอทีฟให้ลึกและคมกว่าเดิม. <span className="text-foreground">Where aesthetic meets algorithm.</span>
+            ORIONS คือ <span className="text-foreground">ครีเอทีฟเอเจนซี</span> ที่ผสานศิลปะเข้ากับสมการ — เราไม่ได้แค่ปั้นแบรนด์ให้สวย แต่สร้างเครื่องมือ AI ของเราเองเพื่อยกระดับงานครีเอทีฟให้ลึกและคมกว่าเดิม. <span className="text-foreground">Where aesthetic meets algorithm.</span>
           </p>
         </Reveal>
       </div>
@@ -126,7 +126,7 @@ const Index = () => (
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1400px] mx-auto py-32 md:py-52">
         <Reveal>
-          <div className="font-mono text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-muted-foreground">— What we do</div>
+          <div className="font-mono text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-muted-foreground">— The Practice</div>
         </Reveal>
         <div className="mt-14 md:mt-20 border-t border-foreground/12">
           {scopes.map((s, i) => (

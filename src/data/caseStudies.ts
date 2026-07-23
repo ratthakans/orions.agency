@@ -25,15 +25,11 @@ export type CaseStudy = {
   domain: string;
   /** Category label */
   niche: string;
-  /** Lines applied — "Independent · Digital" */
-  scope: string;
   year: string;
   cover: PictureData;
   gallery: PictureData[];
   /** One-line essence of the engagement */
   summary: string;
-  /** Top-level line bucket */
-  service: "Independent";
   /** Short challenge line (deck "Challenge") */
   challenge: string;
   /** Live site URL — "" if none (card shows no external link) */
@@ -55,12 +51,10 @@ export const caseStudies: CaseStudy[] = [
     title: "พรรคประชาธิปัตย์",
     domain: "democrat.or.th",
     niche: "Politics",
-    scope: "Independent",
     year: "2023",
     cover: workDemocrat,
     gallery: [workDemocrat], // real cover only — gallery hidden until real frames exist
     summary: "ทำการเมืองสร้างสรรค์ผ่านกิจกรรม ไม่ใช่การหาเสียง",
-    service: "Independent",
     challenge: "แรงต้านทางการเมือง / ข้อจำกัดของกฎหมายเลือกตั้ง",
     url: "https://democrat.or.th",
     constraint:
@@ -78,12 +72,10 @@ export const caseStudies: CaseStudy[] = [
     title: "GCOO",
     domain: "gcoo.io",
     niche: "Mobility",
-    scope: "Independent",
     year: "2023",
     cover: workGcoo,
     gallery: [workGcoo], // real cover only — gallery hidden until real frames exist
     summary: "เปิดตลาดไทยด้วย localization + payment gateway",
-    service: "Independent",
     challenge: "ข้อกฎหมาย / การดีลสถานที่เพื่อนำรถไปวาง",
     url: "https://gcoo.io",
     constraint:
@@ -101,12 +93,10 @@ export const caseStudies: CaseStudy[] = [
     title: "My Hotel",
     domain: "pzentsmart.com",
     niche: "Hospitality / OTA",
-    scope: "Independent",
     year: "2024",
     cover: workMyHotel,
     gallery: [workMyHotel],
     summary: "วางตัวเป็น first smart hotel OTA ของไทย",
-    service: "Independent",
     challenge: "การดีลกับผู้ให้บริการให้เกิดความเชื่อถือ",
     url: "https://pzentsmart.com",
     constraint:
@@ -124,12 +114,10 @@ export const caseStudies: CaseStudy[] = [
     title: "HONG MOVE",
     domain: "hongmove.co.th",
     niche: "Airport Mobility",
-    scope: "Independent",
     year: "2025",
     cover: workHongmove,
     gallery: [workHongmove], // real cover only — gallery hidden until real frames exist
     summary: "เปิดตัว taxi VIP EV ใน AOT พร้อมวางระบบความเป็นไปได้",
-    service: "Independent",
     challenge: "รองรับหลายภาษา — มาเลย์ · จีน · อาหรับ · ฮินดี",
     url: "https://hongmove.co.th",
     constraint:
@@ -147,12 +135,10 @@ export const caseStudies: CaseStudy[] = [
     title: "HEAVY ORGANIZER",
     domain: "heavyorganizer.com",
     niche: "Music Festival",
-    scope: "Independent",
     year: "2024",
     cover: workHeavy,
     gallery: [workHeavy, workHeavyB, workHeavyC],
     summary: "เทศกาลดนตรีสีเขียว carbon ต่ำ ที่ต้องการความร่วมมือจากผู้ร่วมงาน",
-    service: "Independent",
     challenge: "สร้างความตระหนักและความร่วมมือจากผู้ร่วมงาน",
     url: "https://heavyorganizer.com",
     constraint:
@@ -170,12 +156,10 @@ export const caseStudies: CaseStudy[] = [
     title: "เขาใหญ่ คันทรี่คลับ",
     domain: "brc-kycgolf.com",
     niche: "Leisure Golf",
-    scope: "Independent",
     year: "2024",
     cover: workKhaoyai,
     gallery: [workKhaoyai, workKhaoyaiB, workKhaoyaiC],
     summary: "ปรับมุมมองสู่ leisure golf โดยไม่เสียภาพลักษณ์เดิม",
-    service: "Independent",
     challenge: "การเมืองภายในสนาม / การบริหารแบบแยกส่วน",
     url: "https://brc-kycgolf.com",
     constraint:
@@ -193,12 +177,10 @@ export const caseStudies: CaseStudy[] = [
     title: "กองทัพอากาศ",
     domain: "rtaf.mi.th",
     niche: "Government",
-    scope: "Independent",
     year: "2024",
     cover: workRtaf,
     gallery: [workRtaf], // real cover only — gallery hidden until real frames exist
     summary: "สื่อสารข้อมูลที่ถูกต้องและน่าสนใจในภาวะตึงเครียด",
-    service: "Independent",
     challenge: "fake news / ต้องรักษาความลับทางราชการ",
     url: "https://rtaf.mi.th",
     constraint:
@@ -216,12 +198,10 @@ export const caseStudies: CaseStudy[] = [
     title: "พรรคพลวัต",
     domain: "",
     niche: "Politics",
-    scope: "Independent",
     year: "2023",
     cover: workPalawat,
     gallery: [workPalawat],
     summary: "พรรคใหม่ที่นำเสนอมุมมองทางการเมืองภายใต้เวลาจำกัด",
-    service: "Independent",
     challenge: "ไม่มีฐานเสียงเดิม / ข้อจำกัดของกฎหมายเลือกตั้ง",
     url: "",
     constraint:

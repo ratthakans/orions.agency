@@ -61,6 +61,7 @@ const Blog = () => (
                 loading="eager"
                 className="absolute inset-0 w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 group-hover:scale-[1.03] transition-[transform,filter] duration-700"
               />
+              <span aria-hidden className="halftone absolute inset-0" />
               <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-background/5 to-transparent" />
             </div>
             <div className="lg:col-span-5">
@@ -100,6 +101,7 @@ const Blog = () => (
                   loading={i < 3 ? "eager" : "lazy"}
                   className="absolute inset-0 w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 group-hover:scale-[1.04] transition-[transform,filter] duration-700"
                 />
+                <span aria-hidden className="halftone absolute inset-0" />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/10 to-transparent" />
                 <span className="absolute left-4 top-4 font-mono text-[9px] tracking-[0.2em] uppercase text-foreground bg-background/55 border border-foreground/20 backdrop-blur-sm px-2 py-1">
                   {p.category}

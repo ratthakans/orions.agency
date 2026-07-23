@@ -356,6 +356,7 @@ const Work = () => {
                       loading="lazy"
                       className="absolute inset-0 w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 group-hover:scale-[1.04] transition-[transform,filter] duration-700"
                     />
+                    <span aria-hidden className="halftone absolute inset-0" />
                     <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-90" />
                     <div className="absolute left-0 right-0 bottom-0 p-4 flex flex-col gap-1">
                       <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-foreground">{cs.niche} · {cs.year}</span>

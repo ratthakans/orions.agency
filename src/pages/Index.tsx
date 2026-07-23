@@ -172,6 +172,7 @@ const Index = () => (
                   loading="lazy"
                   className="absolute inset-0 w-full h-full object-cover grayscale-[0.25] group-hover:grayscale-0 group-hover:scale-[1.03] transition-[transform,filter] duration-700"
                 />
+                <span aria-hidden className="halftone absolute inset-0" />
                 <span className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
                 <span className="absolute inset-x-0 bottom-0 p-6 md:p-7">
                   <span className="block font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/75">{item.niche} · {item.year}</span>

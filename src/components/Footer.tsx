@@ -66,12 +66,13 @@ const Footer = () => {
           <div>
             <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-foreground mb-5">— Studio</div>
             <p className="font-thai text-[13px] leading-[1.8] text-foreground/85">
-              246/8 Soi Yothinphatthana 3<br />
-              Khlong Chan, Bang Kapi<br />
+              ORIONS Creative Co., Ltd.<br />
+              41/175 Soi Nawamin 111 Yaek 3<br />
+              Nawamin, Bueng Kum<br />
               Bangkok 10240, TH
             </p>
             <p className="mt-3 font-mono text-[10px] tracking-[0.18em] uppercase text-foreground/60">
-              Tax ID 0105568220629
+              Tax ID 0105568063442
             </p>
           </div>
 

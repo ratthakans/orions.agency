@@ -56,9 +56,9 @@ export default {
       },
       fontFamily: {
         // Real, self-hosted system — no Inter (was a phantom fallback).
-        display: ["Newsreader", "Trirong", "IBM Plex Sans Thai", "Georgia", "serif"],
+        display: ["Newsreader", "IBM Plex Sans Thai", "Georgia", "serif"],
         body: ["IBM Plex Sans Thai", "system-ui", "sans-serif"],
-        serif: ["Newsreader", "Trirong", "IBM Plex Sans Thai", "Georgia", "serif"],
+        serif: ["Newsreader", "IBM Plex Sans Thai", "Georgia", "serif"],
         mono: ["IBM Plex Mono", "ui-monospace", "monospace"],
         thai: ["IBM Plex Sans Thai", "system-ui", "sans-serif"],
         brand: ["Unbounded", "system-ui", "sans-serif"],

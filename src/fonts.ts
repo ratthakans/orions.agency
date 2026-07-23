@@ -18,11 +18,3 @@ import "@fontsource/ibm-plex-sans-thai/thai-400.css";
 import "@fontsource/ibm-plex-sans-thai/thai-500.css";
 import "@fontsource/ibm-plex-sans-thai/thai-600.css";
 import "@fontsource/ibm-plex-sans-thai/thai-700.css";
-
-// Trirong — the Thai display serif. Newsreader carries no Thai glyphs, so
-// before this every Thai headline silently fell back to the body sans and the
-// brand's editorial serif voice existed only in English. Thai subset only:
-// Latin headlines stay on Newsreader (Trirong sits after it in the stack).
-import "@fontsource/trirong/thai-400.css";
-import "@fontsource/trirong/thai-500.css";
-import "@fontsource/trirong/thai-600.css";

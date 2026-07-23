@@ -333,11 +333,14 @@ const Contact = () => {
               <div className="card-soft p-7 md:p-8">
                 <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">— Studio</div>
                 <p lang="th" className="mt-6 font-thai thai-wrap text-[14px] leading-[1.8] text-foreground/80">
-                  246/8 Soi Yothinphatthana 3<br />
-                  Khlong Chan, Bang Kapi<br />
+                  ORIONS Creative Co., Ltd.<br />
+                  41/175 Soi Nawamin 111 Yaek 3<br />
+                  Nawamin, Bueng Kum<br />
                   Bangkok 10240, Thailand
                 </p>
-                <a href="https://maps.app.goo.gl/zbgmhou54j55eKfg9" target="_blank" rel="noreferrer"
+                {/* Address-query link, not a short link: it resolves from the address
+                    itself, so it can't silently point at a stale pin after a move. */}
+                <a href="https://www.google.com/maps/search/?api=1&query=41%2F175%20Soi%20Nawamin%20111%20Yaek%203%2C%20Nawamin%2C%20Bueng%20Kum%2C%20Bangkok%2010240" target="_blank" rel="noreferrer"
                   className="mt-3 inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.22em] uppercase text-foreground hover:text-foreground transition-colors">
                   Open in Maps <ArrowUpRight className="w-3 h-3" />
                 </a>

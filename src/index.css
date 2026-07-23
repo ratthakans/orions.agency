@@ -1,5 +1,7 @@
-/* Fonts are self-hosted: Newsreader / IBM Plex Mono / IBM Plex Sans Thai via
-   Fontsource (see src/fonts.ts); Unbounded inline below. No third-party fonts. */
+/* Fonts are self-hosted: Newsreader / Trirong / IBM Plex Mono / IBM Plex Sans
+   Thai via Fontsource (see src/fonts.ts); Unbounded inline below. No
+   third-party fonts. Display serif = Newsreader (Latin) + Trirong (Thai);
+   body = IBM Plex Sans Thai; meta = IBM Plex Mono; numerals = Unbounded. */
 
 /* Unbounded — SELF-HOSTED so the logo/numerals never depend on Google Fonts being reachable
    (font blockers / privacy extensions / slow CDN). Variable font: one file covers 600–700. */
@@ -99,9 +101,11 @@
     line-break: auto;
     overflow-wrap: break-word;
   }
-  /* Editorial serif display — Latin in Newsreader, Thai falls back to IBM Plex Sans Thai */
+  /* Editorial serif display — Latin in Newsreader, Thai in Trirong (both serif).
+     Thai headings additionally need the explicit override near the end of this
+     file, because the `:lang(th)` body-sans rule outranks this one. */
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Newsreader', 'IBM Plex Sans Thai', Georgia, serif;
+    font-family: 'Newsreader', 'Trirong', 'IBM Plex Sans Thai', Georgia, serif;
     font-weight: 500;
     letter-spacing: -0.02em;
     line-height: 1.05;
@@ -112,7 +116,7 @@
      headline (monochrome, premium). Cinnabar is reserved for rare moments, not
      sprinkled through every heading. */
   h1 em, h2 em, h3 em, h4 em, h5 em, h6 em {
-    font-family: 'Newsreader', 'IBM Plex Sans Thai', Georgia, serif;
+    font-family: 'Newsreader', 'Trirong', 'IBM Plex Sans Thai', Georgia, serif;
     font-style: normal;
     font-weight: 500;
     letter-spacing: -0.015em;
@@ -132,7 +136,7 @@
 }
 
 @layer utilities {
-  .font-display { font-family: 'Newsreader', 'IBM Plex Sans Thai', Georgia, serif; font-weight: 500; letter-spacing: -0.02em; }
+  .font-display { font-family: 'Newsreader', 'Trirong', 'IBM Plex Sans Thai', Georgia, serif; font-weight: 500; letter-spacing: -0.02em; }
   .font-body    { font-family: 'IBM Plex Sans Thai', system-ui, sans-serif; }
   .font-mono    { font-family: 'IBM Plex Mono', ui-monospace, monospace; }
   .font-thai    {
@@ -161,7 +165,7 @@
 
   /* Duotone grade — unifies imagery toward the ORIONS orange/black (rebrand photography direction). */
   /* No font-weight here — let weight utilities (font-medium/bold) compose with it. */
-  .font-serif   { font-family: 'Newsreader', 'IBM Plex Sans Thai', Georgia, serif; letter-spacing: -0.02em; text-transform: none; }
+  .font-serif   { font-family: 'Newsreader', 'Trirong', 'IBM Plex Sans Thai', Georgia, serif; letter-spacing: -0.02em; text-transform: none; }
   /* Cinnabar italic accents in headlines */
   .bg-orion     { background-color: hsl(var(--accent)); }
   /* text-cinnabar / bg-cinnabar / border-cinnabar / ring-cinnabar now come from
@@ -217,7 +221,7 @@
   .h-display-md,
   .h-display-sm,
   .h-display-xs {
-    font-family: 'Newsreader', 'IBM Plex Sans Thai', Georgia, serif;
+    font-family: 'Newsreader', 'Trirong', 'IBM Plex Sans Thai', Georgia, serif;
     font-weight: 500;
     text-wrap: balance;
     font-optical-sizing: auto;
@@ -365,13 +369,26 @@
 
 /* === Thai heading tuning (unlayered → beats .h-display utilities) ===
    Relax Latin's negative tracking, give stacked Thai marks vertical room,
-   and use `pretty` to avoid single-word orphans on the last line. */
+   and use `pretty` to avoid single-word orphans on the last line.
+
+   font-family is restated here on purpose: the base `:lang(th)` rule (sans, for
+   body copy) outranks the plain `h1..h6` serif rule on specificity, so without
+   this every Thai headline silently rendered in the body sans — the brand's
+   editorial serif voice existed only in English. Newsreader first (Latin) then
+   Trirong (Thai) keeps a mixed Thai/Latin headline serif on BOTH scripts. */
 h1:lang(th), h2:lang(th), h3:lang(th), h4:lang(th), h5:lang(th), h6:lang(th),
 .h-display-xl:lang(th), .h-display-lg:lang(th), .h-display-md:lang(th),
 .h-display-sm:lang(th), .h-display-xs:lang(th), .h-display-2xs:lang(th) {
+  font-family: 'Newsreader', 'Trirong', 'IBM Plex Sans Thai', Georgia, serif;
   letter-spacing: 0;
   line-height: 1.25;
   text-wrap: pretty;
+}
+/* Thai display type inside a serif container (font-display/font-serif) — same
+   reason: the `:lang(th)` sans rule would otherwise win on nested Thai spans. */
+.font-display:lang(th), .font-serif:lang(th),
+.font-display [lang="th"], .font-serif [lang="th"] {
+  font-family: 'Newsreader', 'Trirong', 'IBM Plex Sans Thai', Georgia, serif;
 }
 /* Thai accent words in headings — keep upright cinnabar, no negative tracking */
 h1:lang(th) em, h2:lang(th) em, h3:lang(th) em, h4:lang(th) em, h5:lang(th) em, h6:lang(th) em {

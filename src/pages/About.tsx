@@ -108,7 +108,7 @@ const About = () => (
         </Reveal>
         <div className="mt-12 md:mt-14 border-t border-foreground/12">
           {nevers.map((p, i) => (
-            <Reveal key={p.n} delay={i * 0.05}>
+            <Reveal key={p.n} delay={i * 0.05} emphasis="quiet">
               <div className="grid grid-cols-[46px_1fr] md:grid-cols-[92px_1fr] gap-5 md:gap-10 py-8 md:py-11 border-b border-foreground/12 items-baseline group">
                 <div className="font-serif italic text-foreground text-[26px] md:text-[40px] leading-none">{p.n}</div>
                 <div>
@@ -164,7 +164,7 @@ const About = () => (
         />
         <div className="mt-12 grid grid-cols-1 gap-4 md:gap-5">
           {notForYou.map((p, i) => (
-            <Reveal key={p.n} delay={i * 0.06}>
+            <Reveal key={p.n} delay={i * 0.06} emphasis="quiet">
               <div className="card-soft grid grid-cols-1 md:grid-cols-[80px_1fr] gap-4 md:gap-12 items-baseline p-8 md:p-10">
                 <div className="font-serif text-foreground text-[28px] md:text-[36px] leading-none tabular-nums">{p.n}</div>
                 <p lang="th" className="font-thai thai-wrap text-[16px] md:text-[19px] leading-[1.8] text-foreground/90">{p.th}</p>

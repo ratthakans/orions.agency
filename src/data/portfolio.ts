@@ -195,18 +195,25 @@ const digitalSites: SiteItem[] = [
   },
 ];
 
-// Curated case studies lead (the sales surface); digital experience follows;
-// then the craft boards. Order is deterministic — no client-side shuffle (SSG-safe).
+// Five boards, not nine. A long craft taxonomy (video · reels · long-form ·
+// music · art direction · photography …) reads like a production house menu;
+// an agency that sells judgement shows fewer, deeper surfaces. Outcomes lead
+// (cases, live products), then the craft that produced them.
+//
+// Film & Motion merges every moving-image format into one justified wall —
+// ordered landscape-first (film → long-form → music) so the 9:16 reels group
+// into their own rows at the end instead of scattering. A single `base` keeps
+// widths strictly proportional to aspect, so every row lands the same height.
+//
+// Order is deterministic — no client-side shuffle (SSG-safe).
+const filmAndMotion: VideoItem[] = [...videoFilm, ...longformVids, ...musicVids, ...reels];
+
 export const portfolio: PortCategory[] = [
   { key: "cases", chip: "Selected work", n: "01", title: "Selected work", sub: "Client brand cases", cases: caseStudies },
   { key: "digital", chip: "Digital experience", n: "02", title: "Digital experience", sub: "Live sites & applications", sites: digitalSites },
-  { key: "video", chip: "Video & film", n: "03", title: "Video & Film", sub: "Films, commercials & content", videos: videoFilm, cols: 3 },
+  { key: "film", chip: "Film & motion", n: "03", title: "Film & Motion", sub: "Brand film · long-form · music video · reels", videos: filmAndMotion, base: 240 },
   { key: "social", chip: "Social", n: "04", title: "Social posts & creative ads", sub: "Album posts & creative ads", albums: socialAlbums, gallery: socialAds },
-  { key: "reels", chip: "Reels", n: "05", title: "Reels & short video", sub: "Short-form video", videos: reels, cols: 4 },
-  { key: "longform", chip: "Long-form", n: "06", title: "Entertainment & long-form", sub: "Series & documentary", videos: longformVids, cols: 3 },
-  { key: "music", chip: "Music", n: "07", title: "Music producing & video", sub: "Music videos & production", videos: musicVids, base: 200 },
-  { key: "artdir", chip: "Art direction", n: "08", title: "Art direction", sub: "Key visuals & poster design", gallery: artDirection },
-  { key: "photo", chip: "Photography", n: "09", title: "Branding & photoshoot", sub: "Brand identity & shoots", gallery: photography },
+  { key: "stills", chip: "Art direction & photography", n: "05", title: "Art direction & Photography", sub: "Key visuals · brand identity · shoots", gallery: [...artDirection, ...photography] },
 ];
 
 // Flat pool of work thumbnails for the homepage random showcase — art direction

@@ -73,7 +73,7 @@ const CaseStudy = () => {
             <SectionLabel index={`Act ${cs.act}`} label={`Case ${cs.n} / ${total}`} />
           </div>
 
-          <Reveal delay={0.1}>
+          <Reveal delay={0.1} emphasis="lead">
             <h1 lang="th" className="mt-8 h-display-lg max-w-[18ch] thai-wrap">
               {cs.title}
               <em className="text-foreground">.</em>
@@ -200,7 +200,7 @@ const CaseStudy = () => {
           <SectionLabel index="04" label="Approach" />
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-5">
             {approach.map((a, i) => (
-              <Reveal key={a.n} delay={i * 0.07}>
+              <Reveal key={a.n} delay={i * 0.07} emphasis="quiet">
                 <div className="card-soft h-full p-7 md:p-8">
                   <div className="num-display text-foreground text-[34px]">{a.n}</div>
                   <h3 lang="th" className="mt-4 font-display text-[18px] md:text-[20px] font-medium">{a.t}</h3>

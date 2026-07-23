@@ -96,7 +96,7 @@ const Index = () => (
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1400px] mx-auto py-32 md:py-52">
         <div className="grid grid-cols-1 lg:grid-cols-[1.3fr_0.7fr] gap-14 lg:gap-24 items-end">
-          <Reveal>
+          <Reveal emphasis="lead">
             <h2 lang="th" className="font-serif text-[34px] md:text-[64px] leading-[1.08] tracking-[-0.02em] max-w-[16ch] thai-wrap">
               โลกไม่ได้ต้องการเสียงที่ดังหรือกว้างขึ้น — แต่โหยหา<em className="text-foreground italic">ความลึก.</em>
             </h2>
@@ -130,7 +130,7 @@ const Index = () => (
         </Reveal>
         <div className="mt-14 md:mt-20 border-t border-foreground/12">
           {scopes.map((s, i) => (
-            <Reveal key={s.n} delay={i * 0.05}>
+            <Reveal key={s.n} delay={i * 0.05} emphasis="quiet">
               <div className="grid grid-cols-1 md:grid-cols-[80px_1fr] lg:grid-cols-[120px_0.9fr_1.1fr] gap-4 md:gap-10 py-12 md:py-16 border-b border-foreground/12 items-baseline">
                 <div className="font-serif text-foreground text-[22px] md:text-[30px] leading-none tabular-nums">{s.n}</div>
                 <h3 className="font-serif text-[30px] md:text-[46px] leading-[1.02] tracking-[-0.02em]">{s.k}</h3>
@@ -161,7 +161,7 @@ const Index = () => (
 
         <div className="mt-14 md:mt-20 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
           {featuredCases.map((item, i) => (
-            <Reveal key={item.slug} delay={i * 0.06}>
+            <Reveal key={item.slug} delay={i * 0.06} emphasis="quiet">
               <Link
                 to={`/work/${item.slug}`}
                 className="group relative block overflow-hidden border border-foreground/12 aspect-[4/5] bg-surface-2"
@@ -193,7 +193,7 @@ const Index = () => (
         <Reveal>
           <div className="font-mono text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-muted-foreground">— The system · three instruments</div>
         </Reveal>
-        <Reveal delay={0.05}>
+        <Reveal delay={0.05} emphasis="lead">
           <h2 className="mt-8 h-display-lg max-w-[16ch]">
             หนึ่งจักรวาล ขับเคลื่อนด้วย <em className="text-foreground">VÆST.</em>
           </h2>
@@ -223,8 +223,8 @@ const Index = () => (
                     “{it.quote}”
                   </p>
                 )}
-                <p lang="th" className={`font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.85] text-muted-foreground max-w-[58ch] ${it.quote ? "mt-8" : ""}`}>
-                  {it.body}
+                <p lang="th" className={`font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.85] text-muted-foreground max-w-[52ch] ${it.quote ? "mt-8" : ""}`}>
+                  {it.lede}
                 </p>
                 <Link to={`/system/${it.slug}`} viewTransition className="cta-link mt-8">
                   <span>ดูรายละเอียด {it.name}</span><ArrowUpRight className="w-4 h-4" />
@@ -241,7 +241,7 @@ const Index = () => (
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1400px] mx-auto py-32 md:py-52 grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-14 lg:gap-24 items-center">
         <div>
-          <Reveal>
+          <Reveal emphasis="lead">
             <h2 lang="th" className="font-serif text-[30px] md:text-[52px] leading-[1.1] tracking-[-0.02em] max-w-[18ch] thai-wrap">
               เบื้องหลังทุกแพลตฟอร์ม คือ<em className="text-foreground italic">งานคราฟต์</em>ของมนุษย์.
             </h2>

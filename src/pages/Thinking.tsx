@@ -76,7 +76,7 @@ const Thinking = () => (
         <Reveal>
           <SectionLabel label="The Manifesto" />
         </Reveal>
-        <Reveal delay={0.05}>
+        <Reveal delay={0.05} emphasis="lead">
           <h1 className="mt-10 font-serif font-medium text-[clamp(44px,8vw,120px)] leading-[0.98] tracking-[-0.025em] max-w-[15ch]">
             Every brand is a <em className="text-cinnabar italic">point of light.</em>
           </h1>
@@ -121,7 +121,7 @@ const Thinking = () => (
           </Reveal>
           <div className="mt-10 border-t border-foreground/12 max-w-[640px]">
             {noise.map((s, i) => (
-              <Reveal key={s.k} delay={i * 0.06}>
+              <Reveal key={s.k} delay={i * 0.06} emphasis="quiet">
                 <div className="grid grid-cols-[130px_1fr] md:grid-cols-[190px_1fr] gap-4 md:gap-8 py-6 md:py-7 border-b border-foreground/12 items-baseline">
                   <div lang="th" className="font-serif text-foreground text-[26px] md:text-[40px] leading-none tracking-[-0.01em]">{s.k}</div>
                   <p lang="th" className="font-thai thai-wrap text-[13px] md:text-[14px] leading-[1.8] text-muted-foreground">{s.d}</p>
@@ -175,7 +175,7 @@ const Thinking = () => (
           </Reveal>
           <div className="mt-7 max-w-[640px] border-t border-foreground/12">
             {crossed.map((c, i) => (
-              <Reveal key={c} delay={i * 0.05}>
+              <Reveal key={c} delay={i * 0.05} emphasis="quiet">
                 <div className="flex items-baseline gap-5 py-4 border-b border-foreground/12">
                   <span className="font-serif italic text-foreground text-[15px] leading-none">◦</span>
                   <p lang="th" className="font-thai thai-wrap text-[15px] md:text-[16px] leading-[1.8] text-foreground/85">{c}</p>

@@ -38,7 +38,7 @@ const System = () => (
         <Reveal>
           <SectionLabel label="The System · Three Instruments" />
         </Reveal>
-        <Reveal delay={0.05}>
+        <Reveal delay={0.05} emphasis="lead">
           <h1 className="mt-10 font-serif font-medium text-[clamp(44px,8vw,120px)] leading-[0.98] tracking-[-0.025em] max-w-[16ch]">
             One universe, powered by <em className="text-cinnabar italic">VÆST.</em>
           </h1>
@@ -56,7 +56,7 @@ const System = () => (
       <div className="max-w-[1400px] mx-auto py-16 md:py-24">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
           {innovations.map((it, i) => (
-            <Reveal key={it.slug} delay={i * 0.07}>
+            <Reveal key={it.slug} delay={i * 0.07} emphasis="quiet">
               <Link
                 to={`/system/${it.slug}`}
                 viewTransition

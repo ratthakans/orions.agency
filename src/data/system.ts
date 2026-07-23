@@ -38,6 +38,12 @@ export interface Innovation {
   kind: string;
   powered: string;
   quote?: string;
+  /**
+   * One-sentence version for the homepage. The full `body` belongs on the
+   * product's own page — a home page carrying three full paragraphs asks the
+   * reader to finish an essay before they've chosen to care.
+   */
+  lede: string;
   body: string;
   /** section accent (each product's own brand colour) */
   accent: string;
@@ -61,6 +67,7 @@ export const innovations: Innovation[] = [
     kind: "The AI Creative Director",
     powered: "",
     quote: "Computation is nothing without taste.",
+    lede: "โยน brief ไฟล์ สเปรดชีต มูดบอร์ดที่ขัดแย้งกันเองลงไป แล้วกด Crystallize — ได้เอกสารเดียวที่คม แก้ได้ถึงระดับประโยค และผ่านด่านตรวจรสนิยมก่อนส่งเสมอ.",
     body: "VÆST คือหัวใจและกระดูกสันหลังของจักรวาล ORIONS. ขณะที่ AI ทั่วไปประมวลผลได้เร็วแต่มืดบอดต่อความงาม เราฝังวิธีคิดและวิญญาณของ creative director ระดับท็อปเข้าไปในแกนกลางประมวลผล — โยน brief ไฟล์ สเปรดชีต มูดบอร์ดที่ขัดแย้งกันเองลงไป แล้วกด Crystallize: ได้เอกสารเดียวที่คม อ่านรู้เรื่อง แก้ได้ถึงระดับประโยค และผ่านด่านตรวจรสนิยมครั้งสุดท้ายก่อนส่งเสมอ. เปิดใช้จริงแล้วที่ vaest.orions.agency.",
     accent: "#ff5a1f",
     shot: shotVaest,
@@ -91,6 +98,7 @@ export const innovations: Innovation[] = [
     kind: "Screenwriting & Production Platform",
     powered: "Powered by VÆST",
     quote: "Before the final, you need a first draft.",
+    lede: "บทคือ single source of truth — แก้บทฉากเดียว แล้ว breakdown · stripboard · callsheet · budget ของทุกแผนกขยับตามทันที.",
     body: "แพลตฟอร์มเขียนบท + โปรดักชันครบวงจรบนเบราว์เซอร์ สำหรับทีมหนังไทย/เอเชีย (UI ไทยทั้งหมด). หัวใจคือ Living Production Graph — บทคือ single source of truth: แก้บทฉากเดียว แล้ว breakdown · stripboard · callsheet · budget ของทุกแผนกขยับตามทันที. เสริมด้วย VÆST AI 20+ บทบาทที่อ่านบทไทยแตกจริง ให้โน้ตระดับทีมงานจริง.",
     accent: "#ffa14b",
     shot: shotFirstdraft,
@@ -121,6 +129,7 @@ export const innovations: Innovation[] = [
     kind: "The Curated AI Trip Planner",
     powered: "Powered by VÆST",
     quote: "Every day is a story.",
+    lede: "เปลี่ยนอารมณ์และเวลาที่คุณมี ให้เป็นวันหนึ่งที่เล่าเป็นเรื่อง — six chapters, not fifteen pins.",
     body: "AI trip planner สำหรับเมืองไทย (mobile-first) ที่เปลี่ยนอารมณ์และเวลาที่คุณมี ให้เป็น 'วันหนึ่งที่เล่าเป็นเรื่อง' — six chapters, not fifteen pins: มีจังหวะ ไต่ตามแสง และมี hero moment เดียวของวัน. พก Passport สะสมตราเมืองและแต้มความประหยัด สแกน QR ที่ร้านพาร์ตเนอร์เพื่อรับส่วนลดและจ่ายเงินได้เลย — ฝั่งร้านค้ามี partner platform ของตัวเองที่ partner.routte.to. คัดสรรผ่านเลนส์ศิลปะ สถาปัตยกรรม และวิถีชีวิต ราวกับนิตยสารท่องเที่ยวไฮเอนด์ที่ทำเพื่อคุณคนเดียว.",
     accent: "#F97316",
     shot: shotRoutte,

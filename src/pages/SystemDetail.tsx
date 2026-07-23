@@ -68,7 +68,7 @@ const SystemDetail = () => {
             <SectionLabel index={`Instrument ${it.n}`} label={`${it.n} / ${total}`} />
           </div>
 
-          <Reveal delay={0.1}>
+          <Reveal delay={0.1} emphasis="lead">
             <h1
               className="mt-8 font-display font-medium text-[clamp(52px,10vw,132px)] leading-[0.88] tracking-[-0.035em]"
               style={{ color: it.accent }}
@@ -155,7 +155,7 @@ const SystemDetail = () => {
           <SectionLabel index="02" label="Features" />
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-5">
             {it.features.map((f, i) => (
-              <Reveal key={f.k} delay={i * 0.05}>
+              <Reveal key={f.k} delay={i * 0.05} emphasis="quiet">
                 <div className="card-soft h-full p-7 md:p-8">
                   <h3 className="font-display text-[18px] md:text-[20px] font-medium tracking-[-0.01em]">{f.k}</h3>
                   <p lang="th" className="mt-3 font-thai thai-wrap text-[13px] md:text-[14px] leading-[1.8] text-muted-foreground">{f.d}</p>

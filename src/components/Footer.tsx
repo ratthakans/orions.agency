@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const navLinks = [
+  { to: "/practice", label: "Practice" },
   { to: "/work", label: "Work" },
   { to: "/system", label: "System" },
   { to: "/thinking", label: "Thinking" },

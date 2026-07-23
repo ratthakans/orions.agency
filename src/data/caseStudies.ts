@@ -30,6 +30,15 @@ export type CaseStudy = {
   gallery: PictureData[];
   /** One-line essence of the engagement */
   summary: string;
+  /**
+   * §33 patient file. The format is fixed; the weight is not — each case
+   * leads with whichever field is the hero. These two turn /work from a
+   * portfolio into a record of diagnoses:
+   *   symptom — what the client walked in asking for
+   *   verdict — what the real problem turned out to be
+   */
+  symptom: string;
+  verdict: string;
   /** Short challenge line (deck "Challenge") */
   challenge: string;
   /** Live site URL — "" if none (card shows no external link) */
@@ -55,6 +64,10 @@ export const caseStudies: CaseStudy[] = [
     cover: workDemocrat,
     gallery: [workDemocrat], // real cover only — gallery hidden until real frames exist
     summary: "ทำการเมืองสร้างสรรค์ผ่านกิจกรรม ไม่ใช่การหาเสียง",
+    symptom:
+      "อยากได้แคมเปญสื่อสารที่ทำให้คนรุ่นใหม่กลับมาสนใจพรรคอีกครั้ง",
+    verdict:
+      "ปัญหาไม่ใช่ว่าพูดไม่ดังพอ แต่คือทุกประโยคต้องผ่านกรอบกฎหมายเลือกตั้งก่อน — ต้องหาวิธีพูดที่คมพอจะอยู่ในกรอบนั้นได้ ไม่ใช่พูดให้มากขึ้น",
     challenge: "แรงต้านทางการเมือง / ข้อจำกัดของกฎหมายเลือกตั้ง",
     url: "https://democrat.or.th",
     constraint:
@@ -76,6 +89,10 @@ export const caseStudies: CaseStudy[] = [
     cover: workGcoo,
     gallery: [workGcoo], // real cover only — gallery hidden until real frames exist
     summary: "เปิดตลาดไทยด้วย localization + payment gateway",
+    symptom:
+      "อยากเอาแบรนด์จากตลาดแม่มาเปิดในไทย ใช้แคมเปญเดิมที่เคยได้ผลมาแล้ว",
+    verdict:
+      "ปัญหาไม่ใช่การแปลภาษา แต่คือความเชื่อใจ — คนไทยยังไม่เคยใช้ของแบบนี้ และของที่ 'ย้ายมาทั้งดุ้น' จะถูกอ่านว่าไม่ใช่ของที่นี่",
     challenge: "ข้อกฎหมาย / การดีลสถานที่เพื่อนำรถไปวาง",
     url: "https://gcoo.io",
     constraint:
@@ -97,6 +114,10 @@ export const caseStudies: CaseStudy[] = [
     cover: workMyHotel,
     gallery: [workMyHotel],
     summary: "วางตัวเป็น first smart hotel OTA ของไทย",
+    symptom:
+      "อยากได้เว็บและคอนเทนต์เปิดตัวแพลตฟอร์มจองโรงแรมใหม่",
+    verdict:
+      "ปัญหาไม่ใช่ช่องทางขาย แต่คือยังไม่มีใครเชื่อถือพอจะเอาห้องมาให้ขาย — ต้องสร้างความน่าเชื่อถือกับผู้ให้บริการก่อนจะมีของให้ขายจริง",
     challenge: "การดีลกับผู้ให้บริการให้เกิดความเชื่อถือ",
     url: "https://pzentsmart.com",
     constraint:
@@ -118,6 +139,10 @@ export const caseStudies: CaseStudy[] = [
     cover: workHongmove,
     gallery: [workHongmove], // real cover only — gallery hidden until real frames exist
     summary: "เปิดตัว taxi VIP EV ใน AOT พร้อมวางระบบความเป็นไปได้",
+    symptom:
+      "อยากได้สื่อประชาสัมพันธ์เปิดตัวบริการแท็กซี่ VIP EV ในสนามบิน",
+    verdict:
+      "ปัญหาไม่ใช่ปริมาณสื่อ แต่คือผู้โดยสารหลายภาษาต้องเข้าใจได้ในไม่กี่วินาที — สารต้องสั้นและข้ามกำแพงภาษาได้ ไม่ใช่สวยแต่ต้องแปล",
     challenge: "รองรับหลายภาษา — มาเลย์ · จีน · อาหรับ · ฮินดี",
     url: "https://hongmove.co.th",
     constraint:
@@ -139,6 +164,10 @@ export const caseStudies: CaseStudy[] = [
     cover: workHeavy,
     gallery: [workHeavy, workHeavyB, workHeavyC],
     summary: "เทศกาลดนตรีสีเขียว carbon ต่ำ ที่ต้องการความร่วมมือจากผู้ร่วมงาน",
+    symptom:
+      "อยากให้คนมางานรู้ว่าเทศกาลนี้เป็นงานสีเขียว carbon ต่ำ",
+    verdict:
+      "ปัญหาไม่ใช่การให้ข้อมูล แต่คือความยั่งยืนที่ถูกเล่าแบบสั่งสอนจะบดบังความสนุก — ต้องทำให้คนรู้สึกเป็นเจ้าของ ไม่ใช่ถูกบอกให้ทำ",
     challenge: "สร้างความตระหนักและความร่วมมือจากผู้ร่วมงาน",
     url: "https://heavyorganizer.com",
     constraint:
@@ -160,6 +189,10 @@ export const caseStudies: CaseStudy[] = [
     cover: workKhaoyai,
     gallery: [workKhaoyai, workKhaoyaiB, workKhaoyaiC],
     summary: "ปรับมุมมองสู่ leisure golf โดยไม่เสียภาพลักษณ์เดิม",
+    symptom:
+      "อยากรีแบรนด์สนามให้ดูใหม่ เข้าถึงลูกค้ากลุ่มไลฟ์สไตล์มากขึ้น",
+    verdict:
+      "ปัญหาไม่ใช่ภาพลักษณ์ แต่คือการบริหารแบบแยกส่วนและการเมืองภายใน — ทุกฝ่ายต้องยอมรับ positioning เดียวกันก่อน ถึงจะสื่อสารออกไปได้",
     challenge: "การเมืองภายในสนาม / การบริหารแบบแยกส่วน",
     url: "https://brc-kycgolf.com",
     constraint:
@@ -181,6 +214,10 @@ export const caseStudies: CaseStudy[] = [
     cover: workRtaf,
     gallery: [workRtaf], // real cover only — gallery hidden until real frames exist
     summary: "สื่อสารข้อมูลที่ถูกต้องและน่าสนใจในภาวะตึงเครียด",
+    symptom:
+      "อยากได้คอนเทนต์ที่ตอบโต้ข่าวปลอมได้เร็วและหนักแน่น",
+    verdict:
+      "ปัญหาไม่ใช่ความเร็วในการตอบ แต่คือยิ่งตอบแรงยิ่งขยายข่าวปลอม — ต้องวางระบบให้พูดได้ทันในกรอบที่เปิดเผยได้ โดยไม่ไปเพิ่มน้ำหนักให้เรื่องที่ไม่จริง",
     challenge: "fake news / ต้องรักษาความลับทางราชการ",
     url: "https://rtaf.mi.th",
     constraint:
@@ -202,6 +239,10 @@ export const caseStudies: CaseStudy[] = [
     cover: workPalawat,
     gallery: [workPalawat],
     summary: "พรรคใหม่ที่นำเสนอมุมมองทางการเมืองภายใต้เวลาจำกัด",
+    symptom:
+      "อยากเปิดตัวพรรคใหม่ให้คนรู้จักเร็วที่สุดในเวลาที่มีจำกัด",
+    verdict:
+      "ปัญหาไม่ใช่การเป็นที่รู้จัก แต่คือถูกจำในฐานะอะไร — พรรคใหม่ที่เรียกความสนใจด้วยการชี้นิ้วใส่คนอื่น จะถูกจำว่าเป็นพรรคที่ด่า ไม่ใช่พรรคที่มีจุดยืน",
     challenge: "ไม่มีฐานเสียงเดิม / ข้อจำกัดของกฎหมายเลือกตั้ง",
     url: "",
     constraint:

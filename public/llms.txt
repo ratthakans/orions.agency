@@ -2,10 +2,16 @@
 
 > ØRIONS (orions.agency) is a creative agency in Bangkok — "where aesthetic meets algorithm." It builds memorable brands by hand, and its own AI with taste, fusing art with equation. In an era of AI noise and shrinking attention, the world doesn't need louder or wider — it craves depth strong enough to make people stop and look. Founder & Creative Director: Ratthakan Suwanphakdee (รัฐกันต์ สุวรรณภักดี).
 
-## What we do — three areas
-1. Brand Consultancy — high-end brand consultancy that digs to the root of the problem, fusing creative data with sharp, measurable strategy.
-2. Aesthetic Intelligence — building AI that has not just logic and numbers but a transplanted DNA of taste and a deep understanding of high-level aesthetics.
-3. Creative Tech Platforms — building ØRIONS's own platform ecosystem to revolutionise and break the limits of the creative industry across every dimension.
+## The Practice — four depths (https://orions.agency/practice)
+ØRIONS does not sell a menu of disciplines; it sells a sequence with one door.
+You cannot choose the tip of an iceberg — the tip is the result of the mass
+beneath it. So the mass is arranged first, and ØRIONS does not carve anyone's
+tip if they will not let it touch the mass.
+- 00m · WATERLINE — what the market sees: identity, film, campaign, high-stakes communication. Taken only for cases that have passed Sounding. Every piece is checked against Mass before it ships; work that contradicts the strategy does not go out, even if the client wants it to.
+- −40m · SOUNDING — the single door. Three weeks, fixed price, paid once, no obligation to continue. Week 1 measure, week 2 dissect, week 3 decide. Delivers The Sounding Report (max 20 pages): depth map, the verdict, one direction (no A/B/C), a kill list — answering one question: repaint, or roll.
+- −400m · MASS — 8–12 weeks, only after Sounding. Positioning Architecture, Narrative System, Language Doctrine, Decision Rules, and The Kill List.
+- −900m · ROLL — 12–18 months, a few clients a year, in the boardroom. Screening authority over everything the organisation says publicly, quarterly Sounding, a monthly kill list, and a direct line to senior.
+Every engagement starts at −40m. There is no shortcut.
 
 ## The system — three instruments, one universe powered by VÆST
 From the thinking room to the road: think (VÆST) → write (First Draft) → travel (Routte). Each has its own page at orions.agency/system/<slug>.
@@ -14,7 +20,7 @@ From the thinking room to the road: think (VÆST) → write (First Draft) → tr
 - Routte (The Compass) — a curated AI trip planner for Thailand, powered by VÆST. "Every day is a story." Turns mood and hours into a day told as six chapters with one hero moment; a Passport tracks cities, badges and real baht saved via scan-to-save/scan-to-pay at partner venues (partner platform at https://partner.routte.to). Live at https://routte.to — detail page: https://orions.agency/system/routte
 
 ## Belief / manifesto (Thinking)
-The world isn't short of content, it's drowning in it — the answer is not louder but deeper. The sharpest story wins, not the loudest. As a brand consultancy, ØRIONS still crafts brands by hand — diagnose first (The Refinement Session), then treat with craft, then deliver and measure — and VÆST (taste-driven intelligence) elevates every output. Technology is the structure; taste is what gives it life. Full manifesto: https://orions.agency/thinking
+The world isn't short of content, it's drowning in it — the answer is not louder but deeper. The sharpest story wins, not the loudest. An iceberg is not built, it is broken off: a sharp brand is one that has been carved away from, not one that has been added to. The tip cannot be chosen — it is the result of the mass below, and a real rebrand is a roll, not a repaint. That belief is expressed as the four depths above, and VÆST (taste-driven intelligence) elevates every output. Technology is the structure; taste is what gives it life. Full manifesto: https://orions.agency/thinking
 
 ## Taglines
 - Where aesthetic meets algorithm. (primary)
@@ -24,8 +30,9 @@ The world isn't short of content, it's drowning in it — the answer is not loud
 - Every day is a story. (Routte)
 
 ## Key pages
-- Home (the system): https://orions.agency/
-- Work / portfolio: https://orions.agency/work
+- Home: https://orions.agency/
+- The Practice (how we take work): https://orions.agency/practice
+- Work — a record of diagnoses, not a portfolio: https://orions.agency/work
 - Thinking / manifesto: https://orions.agency/thinking
 - Blog: https://orions.agency/blog
 - About: https://orions.agency/about

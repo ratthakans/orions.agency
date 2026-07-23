@@ -11,7 +11,7 @@ const sitemapUrls = new Set(Array.from(sitemap.matchAll(/<loc>([^<]+)<\/loc>/g),
 
 describe("search index contract", () => {
   it("lists every public route, article and case study", () => {
-    ["/", "/about", "/work", "/system", "/thinking", "/blog", "/contact", "/privacy"].forEach((path) => {
+    ["/", "/about", "/practice", "/work", "/system", "/thinking", "/blog", "/contact", "/privacy"].forEach((path) => {
       expect(sitemapUrls).toContain(`https://orions.agency${path}`);
     });
     blogPosts.forEach((post) => expect(sitemapUrls).toContain(`https://orions.agency/blog/${post.slug}`));
@@ -62,6 +62,21 @@ describe("public credibility contract", () => {
   it("does not use the retired word 'boutique' (or its Thai transliteration)", () => {
     expect(publicCopy).not.toMatch(/boutique/i);
     expect(publicCopy).not.toMatch(/บูทีค/);
+  });
+
+  // The site used to answer "what do you sell" four different ways (Home,
+  // About, Thinking and Contact each carried their own trio, and none matched).
+  // The four depths in src/data/practice.ts are now the single answer — keep
+  // the old discipline trio from reappearing as a parallel offer list.
+  it("keeps one answer to 'what do you sell'", () => {
+    const offerSurfaces = [
+      "src/pages/Index.tsx",
+      "src/pages/About.tsx",
+      "src/pages/Thinking.tsx",
+      "src/pages/Contact.tsx",
+    ].map(fromRoot).join("\n");
+    expect(offerSurfaces).not.toMatch(/Communication Design/i);
+    expect(offerSurfaces).not.toMatch(/Aesthetic Intelligence/i);
   });
 
   // Our own products must live on real domains. Client work in the portfolio

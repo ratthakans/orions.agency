@@ -14,11 +14,13 @@ import { inquirySchema, type Inquiry } from "@/lib/contact";
 type FieldErrors = Partial<Record<keyof Inquiry, string>>;
 type SubmitStatus = { kind: "success" | "error"; message: string } | null;
 
+/* The four depths, not a service menu — the form should ask the same question
+   the practice does. Sounding is the default because it is the only door. */
 const packageOptions = [
-  "Brand strategy",
-  "Creative production (brand film · video · photo · music)",
-  "Communication design",
-  "ทั้งแบรนด์ — ตั้งแต่วินิจฉัยถึงส่งมอบ",
+  "Sounding — หยั่งความลึก 3 สัปดาห์ (เริ่มที่นี่)",
+  "Mass — จัดมวล ต่อจาก Sounding",
+  "Waterline — งานที่ออกไปข้างนอก",
+  "Roll — พลิกทั้งองค์กร 12–18 เดือน",
   "ยังไม่แน่ใจ / ขอคำแนะนำ",
 ];
 

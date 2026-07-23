@@ -8,7 +8,8 @@ import Slash from "@/components/Slash";
 import SignalField from "@/components/SignalField";
 import Picture from "@/components/Picture";
 import heroSilk from "@/assets/hero-silk.jpg?as=picture";
-import { scopes, innovations } from "@/data/system";
+import { innovations } from "@/data/system";
+import { depthMap } from "@/data/practice";
 import { caseStudies } from "@/data/caseStudies";
 
 const SITE_URL = "https://orions.agency";
@@ -48,7 +49,7 @@ const Index = () => (
   <div>
     <SEO
       title="ØRIONS — Creative Agency · Where Aesthetic Meets Algorithm"
-      description="ครีเอทีฟเอเจนซีในกรุงเทพฯ ที่ผสานศิลปะเข้ากับสมการ — ปั้นแบรนด์ที่คนจำด้วยมือมนุษย์ และ AI ที่มีรสนิยมของเราเอง. brand consultancy · aesthetic intelligence · creative tech platforms. ขับเคลื่อนด้วย VÆST — AI creative director ที่มีรสนิยม."
+      description="ครีเอทีฟเอเจนซีในกรุงเทพฯ ที่ผสานศิลปะเข้ากับสมการ — ปั้นแบรนด์ที่คนจำด้วยมือมนุษย์ และ AI ที่มีรสนิยมของเราเอง. เราจัดมวลก่อน แล้วจึงแกะยอด — ทำงานเป็นสี่ชั้นความลึก ทุกงานเริ่มที่ Sounding. ขับเคลื่อนด้วย VÆST — AI creative director ที่มีรสนิยม."
       path="/"
       schema={{
         "@context": "https://schema.org",
@@ -57,7 +58,7 @@ const Index = () => (
         url: SITE_URL,
         slogan: "Where aesthetic meets algorithm.",
         description:
-          "ØRIONS is a creative agency in Bangkok where aesthetic meets algorithm — it builds memorable brands by hand and its own AI with taste. Practice: brand consultancy, aesthetic intelligence, and creative tech platforms, powered by VÆST (an AI creative director). Products: VÆST, First Draft, Routte.",
+          "ØRIONS is a creative agency in Bangkok where aesthetic meets algorithm — it builds memorable brands by hand and its own AI with taste. The practice runs in four depths with a single door: Sounding, Mass, Waterline, Roll — every engagement starts at Sounding. Powered by VÆST (an AI creative director). Products: VÆST, First Draft, Routte.",
       }}
     />
 
@@ -122,23 +123,35 @@ const Index = () => (
       </div>
     </section>
 
-    {/* 03 — THREE CORE SCOPES */}
+    {/* 03 — THE PRACTICE (depth map only; the four depths live on /practice) */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1400px] mx-auto py-32 md:py-52">
         <Reveal>
           <div className="font-mono text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-muted-foreground">— The Practice</div>
         </Reveal>
-        <div className="mt-14 md:mt-20 border-t border-foreground/12">
-          {scopes.map((s, i) => (
-            <Reveal key={s.n} delay={i * 0.05} emphasis="quiet">
-              <div className="grid grid-cols-1 md:grid-cols-[80px_1fr] lg:grid-cols-[120px_0.9fr_1.1fr] gap-4 md:gap-10 py-12 md:py-16 border-b border-foreground/12 items-baseline">
-                <div className="font-serif text-foreground text-[22px] md:text-[30px] leading-none tabular-nums">{s.n}</div>
-                <h3 className="font-serif text-[30px] md:text-[46px] leading-[1.02] tracking-[-0.02em]">{s.k}</h3>
-                <p lang="th" className="font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.75] text-muted-foreground max-w-[52ch]">{s.d}</p>
+        <Reveal delay={0.05} emphasis="lead">
+          <h2 lang="th" className="mt-8 h-display-lg max-w-[16ch] thai-wrap">
+            เราจัดมวลก่อน <em className="text-foreground">แล้วจึงแกะยอด.</em>
+          </h2>
+        </Reveal>
+        <div className="mt-14 md:mt-20 border-t border-foreground/20">
+          {depthMap.map((d) => (
+            <Reveal key={d.m} emphasis="quiet">
+              <div className="grid grid-cols-[76px_1fr] lg:grid-cols-[130px_0.8fr_1.2fr] items-baseline gap-x-5 gap-y-1 py-6 md:py-8 border-b border-foreground/12">
+                <span className="font-mono text-[12px] md:text-[13px] tracking-[0.14em] text-muted-foreground tabular-nums">{d.m}</span>
+                <span className="font-serif text-[26px] md:text-[38px] leading-[1.02] tracking-[-0.02em]">{d.name}</span>
+                <span lang="th" className="col-span-2 lg:col-span-1 font-thai thai-wrap text-[14px] md:text-[16px] leading-[1.75] text-muted-foreground">
+                  {d.d}
+                </span>
               </div>
             </Reveal>
           ))}
         </div>
+        <Reveal delay={0.1}>
+          <Link to="/practice" viewTransition className="cta-link mt-12">
+            <span>ทุกงานเริ่มที่ −40m — ดูวิธีที่เรารับงาน</span><ArrowUpRight className="w-4 h-4" />
+          </Link>
+        </Reveal>
       </div>
     </section>
 

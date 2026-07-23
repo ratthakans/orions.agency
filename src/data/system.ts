@@ -11,23 +11,11 @@ import shotVaest from "@/assets/system/vaest.png?as=picture";
 import shotFirstdraft from "@/assets/system/firstdraft.png?as=picture";
 import shotRoutte from "@/assets/system/routte.png?as=picture";
 
-export const scopes = [
-  {
-    n: "01",
-    k: "Brand Consultancy",
-    d: "ที่ปรึกษาแบรนด์ระดับ high-end ที่เจาะลึกถึงแก่นของปัญหา — ผสาน creative data เข้ากับกลยุทธ์ที่เฉียบคมและวัดผลได้จริง.",
-  },
-  {
-    n: "02",
-    k: "Aesthetic Intelligence",
-    d: "สมองกล AI ที่ไม่ได้มีแค่ตรรกะและตัวเลข แต่ถูกปลูกถ่าย DNA ให้มีรสนิยม และเข้าใจสุนทรียศาสตร์ทางศิลปะขั้นสูง.",
-  },
-  {
-    n: "03",
-    k: "Creative Tech Platforms",
-    d: "ระบบนิเวศแพลตฟอร์มของเราเอง สร้างขึ้นเพื่อปฏิวัติและทลายขีดจำกัดของอุตสาหกรรมสร้างสรรค์ในทุกมิติ.",
-  },
-];
+// `scopes` (Brand Consultancy · Aesthetic Intelligence · Creative Tech
+// Platforms) was removed: it was one of four competing answers to "what do you
+// sell". The single answer now lives in src/data/practice.ts — four depths,
+// with an order and a gate. Products are what the studio builds, not a service
+// line, so they stay here and are described once, on /system.
 
 export interface Innovation {
   n: string;

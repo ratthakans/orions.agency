@@ -26,13 +26,6 @@ const noise = [
   { k: "Too costly", d: "เมื่อสารไม่ชัด แบรนด์ต้องซื้อการมองเห็นซ้ำเพื่อให้คนจำได้" },
 ];
 
-// What ØRIONS does — three disciplines, one lens.
-const services = [
-  { k: "Brand Strategy", d: "วางรากฐานและทิศทางให้ชัด เพื่อให้แบรนด์ไม่ต้องลงไปแข่งตัดราคา" },
-  { k: "Creative Production", d: "งานภาพและเสียงคุณภาพพรีเมียม — brand film · video · photography · music production — ที่คมพอให้คนหยุดมอง" },
-  { k: "Communication Design", d: "ออกแบบการสื่อสารทุกจุดสัมผัส เปลี่ยนคนแปลกหน้าให้เป็นลูกค้าที่ภักดี" },
-];
-
 // Life on the other side of the filter.
 const crossed = [
   "ลูกค้ากลับมาเอง",
@@ -225,73 +218,24 @@ const Thinking = () => (
         </div>
 
         {/* how we work — like a doctor, not a pharmacy */}
+        {/* The method itself lives on /practice — one model, one place. This page
+            states the belief; it does not re-list the offer. */}
         <div className="mt-16 md:mt-20">
-          <Reveal>
-            <p lang="th" className="font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.8] text-foreground/80 max-w-[640px]">
-              และนี่คือวิธีทำงานของเรา — <span className="text-foreground">เหมือนหมอ ไม่เหมือนร้านขายยา:</span>
-            </p>
-          </Reveal>
-
-          <div className="mt-10 border-t border-foreground/12">
-            {/* 01 — Diagnosis */}
-            <Reveal>
-              <div className="grid grid-cols-[44px_1fr] gap-4 md:gap-8 py-8 md:py-11 border-b border-foreground/12 items-baseline">
-                <div className="font-serif text-foreground text-[24px] md:text-[34px] leading-none tabular-nums">01</div>
-                <div className="max-w-[640px]">
-                  <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground">The Diagnosis · เราวินิจฉัยก่อน</div>
-                  <h3 lang="th" className="mt-3 font-serif text-[22px] md:text-[30px] leading-[1.15] tracking-[-0.01em]">The Refinement Session</h3>
-                  <p lang="th" className="mt-3 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.8] text-muted-foreground">
-                    เราไม่เดาว่าแบรนด์ติดตรงไหน — เราฟังตลาดและแบรนด์<span className="text-foreground">ด้วยหลักฐาน ไม่ใช่ความเห็น</span> ว่าปัญหาจริงอยู่ที่ไหน: ตัวตนไม่ชัด? เรื่องไม่คม? หรือสื่อสารผิดที่? ผลลัพธ์คือแผนที่ชัดเจนว่าต้องแก้อะไร ตามลำดับไหน และทำไม — ไม่ใช่สไลด์สวยๆ ที่เอาไปทำต่อไม่ได้.
-                  </p>
-                </div>
-              </div>
-            </Reveal>
-
-            {/* 02 — Treatment (the three disciplines, prescribed) */}
-            <Reveal delay={0.05}>
-              <div className="grid grid-cols-[44px_1fr] gap-4 md:gap-8 py-8 md:py-11 border-b border-foreground/12 items-baseline">
-                <div className="font-serif text-foreground text-[24px] md:text-[34px] leading-none tabular-nums">02</div>
-                <div>
-                  <div className="max-w-[640px]">
-                    <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground">The Treatment · แล้วจึงลงมือแก้</div>
-                    <h3 lang="th" className="mt-3 font-serif text-[22px] md:text-[30px] leading-[1.15] tracking-[-0.01em]">ยาถูกจ่ายตามการวินิจฉัย — ไม่ใช่เมนูให้เลือกซื้อ</h3>
-                  </div>
-                  <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4">
-                    {services.map((s) => (
-                      <div key={s.k} className="card-soft p-5 md:p-6 h-full">
-                        <h4 className="font-display text-[15px] md:text-[16px] font-medium tracking-[-0.01em]">{s.k}</h4>
-                        <p lang="th" className="mt-2 font-thai thai-wrap text-[13px] leading-[1.75] text-muted-foreground">{s.d}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </Reveal>
-
-            {/* 03 — Delivery */}
-            <Reveal delay={0.1}>
-              <div className="grid grid-cols-[44px_1fr] gap-4 md:gap-8 py-8 md:py-11 border-b border-foreground/12 items-baseline">
-                <div className="font-serif text-foreground text-[24px] md:text-[34px] leading-none tabular-nums">03</div>
-                <div className="max-w-[640px]">
-                  <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground">The Delivery · ส่งมอบ + วัดผล</div>
-                  <h3 lang="th" className="mt-3 font-serif text-[22px] md:text-[30px] leading-[1.15] tracking-[-0.01em]">อยู่จนเห็นว่ามันถูกแก้จริง</h3>
-                  <p lang="th" className="mt-3 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.8] text-muted-foreground">
-                    เราไม่ส่งงานแล้วหายไป — เราวัดผลจริงว่าเรื่องที่ refine แล้ว ขยับ <span className="text-foreground">Signal ที่สำคัญจริง</span> ไหม (recall · คุณภาพ demand · pricing power — ไม่ใช่ vanity reach) แล้ววนกลับไป refine ต่อจนเข้าที่.
-                  </p>
-                </div>
-              </div>
-            </Reveal>
-          </div>
-
-          <Reveal delay={0.1}>
-            <blockquote className="mt-12 font-serif text-[26px] md:text-[46px] leading-[1.3] tracking-[-0.015em] text-foreground max-w-[24ch]">
-              คิดแบบ <em className="text-foreground italic">Consult</em> → ทำแบบ <em className="text-foreground italic">Craft</em> → ส่งมอบแบบ <em className="text-foreground italic">Refined.</em>
+          <Reveal emphasis="lead">
+            <blockquote lang="th" className="font-serif text-[26px] md:text-[46px] leading-[1.3] tracking-[-0.015em] text-foreground max-w-[22ch]">
+              เราไม่แกะยอดให้ใคร <em className="text-foreground italic">ที่ไม่ให้เราแตะมวล.</em>
             </blockquote>
           </Reveal>
-          <Reveal delay={0.12}>
-            <p lang="th" className="mt-6 font-mono text-[10px] md:text-[11px] tracking-[0.14em] uppercase text-muted-foreground">
-              ทุกขั้นมีหลักฐานรองรับ — และมี <span className="text-foreground">VÆST</span> ปัญญาที่มีรสนิยม คอยยกระดับทุกผลผลิต
+          <Reveal delay={0.08}>
+            <p lang="th" className="mt-8 font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.8] text-foreground/80 max-w-[640px]">
+              ความเชื่อนี้ถูกแปลเป็นวิธีรับงานที่มีลำดับและมีประตูเดียว — สี่ชั้นความลึก
+              ตั้งแต่การหยั่งว่าปัญหาจริงอยู่ตรงไหน ไปจนถึงการพลิกทั้งองค์กร.
             </p>
+          </Reveal>
+          <Reveal delay={0.12}>
+            <Link to="/practice" viewTransition className="cta-link mt-10">
+              <span>ดูสี่ชั้นความลึก</span><ArrowUpRight className="w-4 h-4" />
+            </Link>
           </Reveal>
         </div>
       </div>

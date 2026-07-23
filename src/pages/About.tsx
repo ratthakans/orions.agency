@@ -22,7 +22,7 @@ const nevers = [
 // The plain facts — who / what / where, at a glance.
 const facts = [
   { k: "What we are", v: "Creative Agency — เอเจนซี่ที่มีสมองของ consult" },
-  { k: "Agency services", v: "Brand Strategy · Creative Production · Communication Design" },
+  { k: "How we work", v: "สี่ชั้นความลึก — ทุกงานเริ่มที่ Sounding ไม่มีทางลัด" },
   { k: "The engine", v: "VÆST — AI creative director ที่มีรสนิยม เบื้องหลังทุกผลผลิตของ ORIONS" },
   { k: "Where", v: "กรุงเทพฯ ประเทศไทย — ทำงานกับแบรนด์ทั่วไทย (+ remote)" },
   { k: "Since", v: "2025 — นำโดยผู้ก่อตั้งและทีม senior ที่ลงมือทำเองทุกงาน" },
@@ -40,7 +40,7 @@ const About = () => (
   <div>
     <SEO
       title="About — ØRIONS คือใคร · Creative Agency, Bangkok"
-      description="ØRIONS คือ creative agency ในกรุงเทพฯ ที่มีสมองของ consult — วินิจฉัยก่อน แล้วลงมือแก้ด้วยงานคราฟต์จนจบ. brand strategy · creative production · communication design. นำโดยรัฐกันต์ สุวรรณภักดี และทีม senior. เรื่องที่คมที่สุดชนะ ไม่ใช่เรื่องที่ดังที่สุด."
+      description="ØRIONS คือ creative agency ในกรุงเทพฯ ที่มีสมองของ consult — วินิจฉัยก่อน แล้วลงมือแก้ด้วยงานคราฟต์จนจบ. ทำงานเป็นสี่ชั้นความลึก ทุกงานเริ่มที่ Sounding. นำโดยรัฐกันต์ สุวรรณภักดี และทีม senior. เรื่องที่คมที่สุดชนะ ไม่ใช่เรื่องที่ดังที่สุด."
       path="/about"
     />
 

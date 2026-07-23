@@ -7,13 +7,6 @@ import SectionLabel from "@/components/SectionLabel";
 import { getCaseStudy, getAdjacent, caseStudies } from "@/data/caseStudies";
 import Picture from "@/components/Picture";
 
-// Honest method (the studio's stated process)
-const approach = [
-  { n: "01", t: "ฟังโจทย์ + เงื่อนไข", d: "audit แบรนด์ คู่แข่ง และกรอบที่ต้องอยู่ในนั้น" },
-  { n: "02", t: "Refine เรื่องที่จริง", d: "ตกผลึกทิศทาง — คมพอจะลงในกรอบได้" },
-  { n: "03", t: "ผลิต + วัดผล", d: "craft ภายใต้ทิศทางเดียว แล้ววัด ปรับ ทำต่อเนื่อง" },
-];
-
 const CaseStudy = () => {
   const { slug = "" } = useParams();
   const cs = getCaseStudy(slug);
@@ -136,11 +129,32 @@ const CaseStudy = () => {
         </div>
       </section>
 
-      {/* 03 — THE CONSTRAINT */}
+      {/* 03 — อาการ (what they walked in asking for) */}
       <section className="px-6 md:px-10 border-t border-foreground/15">
         <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 md:grid-cols-12 gap-10">
           <div className="md:col-span-4">
-            <SectionLabel index="01" label="The constraint" />
+            <SectionLabel index="01" label="อาการ" />
+            <Reveal delay={0.05}>
+              <p lang="th" className="mt-6 font-thai thai-wrap text-[13px] leading-[1.8] text-muted-foreground max-w-[28ch]">
+                สิ่งที่ลูกค้าเดินเข้ามาขอ
+              </p>
+            </Reveal>
+          </div>
+          <div className="md:col-span-8">
+            <Reveal delay={0.05}>
+              <p lang="th" className="font-serif text-[22px] md:text-[30px] leading-[1.4] tracking-[-0.01em] text-foreground/75 max-w-[640px]">
+                “{cs.symptom}”
+              </p>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* 04 — คำวินิจฉัย (the real problem) — the hero field of the record */}
+      <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
+        <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 md:grid-cols-12 gap-10">
+          <div className="md:col-span-4">
+            <SectionLabel index="02" label="คำวินิจฉัย" />
             <Reveal delay={0.05}>
               <p lang="th" className="mt-6 font-thai thai-wrap text-[13px] leading-[1.8] text-muted-foreground max-w-[28ch]">
                 {cs.actTitle}
@@ -148,8 +162,24 @@ const CaseStudy = () => {
             </Reveal>
           </div>
           <div className="md:col-span-8">
+            <Reveal delay={0.05} emphasis="lead">
+              <p lang="th" className="editorial-quote max-w-[680px] text-[20px] md:text-[28px]">
+                {cs.verdict}
+              </p>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* 05 — เงื่อนไข (the constraint that shaped the answer) */}
+      <section className="px-6 md:px-10 border-t border-foreground/15">
+        <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 md:grid-cols-12 gap-10">
+          <div className="md:col-span-4">
+            <SectionLabel index="03" label="เงื่อนไข" />
+          </div>
+          <div className="md:col-span-8">
             <Reveal delay={0.05}>
-              <p lang="th" className="editorial-quote max-w-[680px] text-[20px] md:text-[26px]">
+              <p lang="th" className="font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.85] text-foreground/85 max-w-[640px]">
                 {cs.constraint}
               </p>
             </Reveal>
@@ -157,20 +187,15 @@ const CaseStudy = () => {
         </div>
       </section>
 
-      {/* 04 — WHAT WE DID */}
+      {/* 06 — สิ่งที่ทำ */}
       <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
         <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 md:grid-cols-12 gap-10">
           <div className="md:col-span-4">
-            <SectionLabel index="02" label="What we did" />
+            <SectionLabel index="04" label="สิ่งที่ทำ" />
           </div>
           <div className="md:col-span-8">
             <Reveal delay={0.05}>
-              <h2 lang="th" className="h-display-sm max-w-[20ch] thai-wrap">
-                refine มันจนคมพอจะ <em className="text-foreground">ลงในกรอบนั้นได้.</em>
-              </h2>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <p lang="th" className="mt-8 font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.8] text-foreground/85 max-w-[640px]">
+              <p lang="th" className="font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.85] text-foreground/85 max-w-[640px]">
                 {cs.whatWeDid}
               </p>
             </Reveal>
@@ -178,11 +203,11 @@ const CaseStudy = () => {
         </div>
       </section>
 
-      {/* 04b — WHAT WE KILLED (the thing the client wanted that we refused) */}
+      {/* 07 — สิ่งที่ตัดทิ้ง — the field no one else in the market ships */}
       <section className="px-6 md:px-10 border-t border-foreground/15">
         <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 md:grid-cols-12 gap-10">
           <div className="md:col-span-4">
-            <SectionLabel index="03" label="สิ่งที่ตัดทิ้ง" />
+            <SectionLabel index="05" label="สิ่งที่ตัดทิ้ง" />
           </div>
           <div className="md:col-span-8">
             <Reveal delay={0.05}>
@@ -194,31 +219,13 @@ const CaseStudy = () => {
         </div>
       </section>
 
-      {/* 04c — APPROACH (honest method) */}
-      <section className="px-6 md:px-10 border-t border-foreground/15">
-        <div className="max-w-[1280px] mx-auto py-24 md:py-36">
-          <SectionLabel index="04" label="Approach" />
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-5">
-            {approach.map((a, i) => (
-              <Reveal key={a.n} delay={i * 0.07} emphasis="quiet">
-                <div className="card-soft h-full p-7 md:p-8">
-                  <div className="num-display text-foreground text-[34px]">{a.n}</div>
-                  <h3 lang="th" className="mt-4 font-display text-[18px] md:text-[20px] font-medium">{a.t}</h3>
-                  <p lang="th" className="mt-3 font-thai thai-wrap text-[13px] leading-[1.8] text-muted-foreground">{a.d}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* BEFORE / AFTER — hidden until each case has real before/after frames (no placeholder imagery in production). */}
 
       {/* 04 — GALLERY (only if >1 image) */}
       {cs.gallery.length > 1 && (
         <section className="px-6 md:px-10 border-t border-foreground/15">
           <div className="max-w-[1280px] mx-auto py-24 md:py-36">
-            <SectionLabel index="05" label="Selected Frames" />
+            <SectionLabel index="06" label="Selected Frames" />
             <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               {cs.gallery.map((img, i) => (
                 <Reveal key={i} delay={0.04 * i}>

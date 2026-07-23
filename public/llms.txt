@@ -1,9 +1,9 @@
-# ØRIONS — Boutique Creative Agency, Bangkok
+# ØRIONS — Independent Creative Agency, Bangkok
 
-> ØRIONS (orions.agency) is a boutique creative agency in Bangkok — "where aesthetic meets algorithm." It builds memorable brands by hand, and its own AI with taste, fusing art with equation. In an era of AI noise and shrinking attention, the world doesn't need louder or wider — it craves depth strong enough to make people stop and look. Founder & Creative Director: Ratthakan Suwanphakdee (รัฐกันต์ สุวรรณภักดี).
+> ØRIONS (orions.agency) is an independent creative agency in Bangkok — "where aesthetic meets algorithm." It builds memorable brands by hand, and its own AI with taste, fusing art with equation. In an era of AI noise and shrinking attention, the world doesn't need louder or wider — it craves depth strong enough to make people stop and look. Founder & Creative Director: Ratthakan Suwanphakdee (รัฐกันต์ สุวรรณภักดี).
 
 ## What we do — three areas
-1. Boutique Brand Consultancy — high-end brand consultancy that digs to the root of the problem, fusing creative data with sharp, measurable strategy.
+1. Brand Consultancy — high-end brand consultancy that digs to the root of the problem, fusing creative data with sharp, measurable strategy.
 2. Aesthetic Intelligence — building AI that has not just logic and numbers but a transplanted DNA of taste and a deep understanding of high-level aesthetics.
 3. Creative Tech Platforms — building ØRIONS's own platform ecosystem to revolutionise and break the limits of the creative industry across every dimension.
 
@@ -14,11 +14,11 @@ From the thinking room to the road: think (VÆST) → write (First Draft) → tr
 - Routte (The Compass) — a curated AI trip planner for Thailand, powered by VÆST. "Every day is a story." Turns mood and hours into a day told as six chapters with one hero moment; a Passport tracks cities, badges and real baht saved via scan-to-save/scan-to-pay at partner venues (partner platform at https://partner.routte.to). Live at https://routte.to — detail page: https://orions.agency/system/routte
 
 ## Belief / manifesto (Thinking)
-The world isn't short of content, it's drowning in it — the answer is not louder but deeper. The sharpest story wins, not the loudest. As a boutique brand consultancy ØRIONS still crafts brands by hand — diagnose first (The Refinement Session), then treat with craft, then deliver and measure — and VÆST (taste-driven intelligence) elevates every output. Technology is the structure; taste is what gives it life. Full manifesto: https://orions.agency/thinking
+The world isn't short of content, it's drowning in it — the answer is not louder but deeper. The sharpest story wins, not the loudest. As a brand consultancy, ØRIONS still crafts brands by hand — diagnose first (The Refinement Session), then treat with craft, then deliver and measure — and VÆST (taste-driven intelligence) elevates every output. Technology is the structure; taste is what gives it life. Full manifesto: https://orions.agency/thinking
 
 ## Taglines
 - Where aesthetic meets algorithm. (primary)
-- A boutique creative agency, powered by its own AI. (positioning)
+- An independent creative agency, powered by its own AI. (positioning)
 - Computation is nothing without taste. (VÆST)
 - Before the final, you need a first draft. (First Draft)
 - Every day is a story. (Routte)

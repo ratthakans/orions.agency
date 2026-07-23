@@ -25,7 +25,7 @@ export type CaseStudy = {
   domain: string;
   /** Category label */
   niche: string;
-  /** Lines applied — "Boutique · Digital" */
+  /** Lines applied — "Independent · Digital" */
   scope: string;
   year: string;
   cover: PictureData;
@@ -33,7 +33,7 @@ export type CaseStudy = {
   /** One-line essence of the engagement */
   summary: string;
   /** Top-level line bucket */
-  service: "Boutique";
+  service: "Independent";
   /** Short challenge line (deck "Challenge") */
   challenge: string;
   /** Live site URL — "" if none (card shows no external link) */
@@ -42,6 +42,8 @@ export type CaseStudy = {
   constraint: string;
   /** What we did (เราทำ) */
   whatWeDid: string;
+  /** What we refused to do — the thing the client wanted that we cut (สิ่งที่ตัดทิ้ง) */
+  whatWeKilled: string;
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -53,18 +55,20 @@ export const caseStudies: CaseStudy[] = [
     title: "พรรคประชาธิปัตย์",
     domain: "democrat.or.th",
     niche: "Politics",
-    scope: "Boutique",
+    scope: "Independent",
     year: "2023",
     cover: workDemocrat,
     gallery: [workDemocrat], // real cover only — gallery hidden until real frames exist
     summary: "ทำการเมืองสร้างสรรค์ผ่านกิจกรรม ไม่ใช่การหาเสียง",
-    service: "Boutique",
+    service: "Independent",
     challenge: "แรงต้านทางการเมือง / ข้อจำกัดของกฎหมายเลือกตั้ง",
     url: "https://democrat.or.th",
     constraint:
       "ทำการเมืองสร้างสรรค์ผ่านกิจกรรม ไม่ใช่การหาเสียง — ใต้กฎหมายเลือกตั้งและแรงต้านทางการเมือง ทุกประโยคมีกรอบ และทุกคำต้องผ่านการพิจารณาว่าเข้าข่ายหรือไม่",
     whatWeDid:
       "คอนเซปต์กิจกรรม + คอนเทนต์ที่สื่อสารจุดยืนโดยไม่เข้าข่ายหาเสียง — refine สารให้คมพอจะลงในกรอบที่กฎหมายอนุญาต โดยไม่สูญเสียพลังของเรื่อง",
+    whatWeKilled:
+      "สโลแกนที่เข้าใกล้การหาเสียงตรงๆ ตามที่ทีมงานอยากได้ — ตัดทิ้งตั้งแต่ brief แรก เพราะเข้าข่ายผิดกฎหมายเลือกตั้ง แม้จะจำง่ายกว่า",
   },
   {
     slug: "gcoo",
@@ -74,18 +78,20 @@ export const caseStudies: CaseStudy[] = [
     title: "GCOO",
     domain: "gcoo.io",
     niche: "Mobility",
-    scope: "Boutique",
+    scope: "Independent",
     year: "2023",
     cover: workGcoo,
     gallery: [workGcoo], // real cover only — gallery hidden until real frames exist
     summary: "เปิดตลาดไทยด้วย localization + payment gateway",
-    service: "Boutique",
+    service: "Independent",
     challenge: "ข้อกฎหมาย / การดีลสถานที่เพื่อนำรถไปวาง",
     url: "https://gcoo.io",
     constraint:
       "เปิดตลาดไทยด้วย localization + payment gateway — ใต้ข้อกฎหมายและการดีลพื้นที่วางรถจริง ในตลาดที่ผู้ใช้ยังไม่เคยเชื่อใจของแบบนี้มาก่อน",
     whatWeDid:
       "localize แบรนด์ + คอนเทนต์เปิดตลาด + งานสื่อสารหาพาร์ตเนอร์พื้นที่ — refine เรื่องของแบรนด์ต่างชาติให้คนไทยรู้สึกว่าเป็นของที่นี่",
+    whatWeKilled:
+      "แคมเปญเปิดตัวแบบเดียวกับที่บริษัทแม่เคยใช้ในตลาดอื่น — ตัดทิ้งเพราะคนไทยไม่เชื่อของที่ 'หน้าตาเหมือนย้ายมาทั้งดุ้น' โดยไม่ปรับให้เป็นของที่นี่จริง",
   },
   {
     slug: "my-hotel",
@@ -95,18 +101,20 @@ export const caseStudies: CaseStudy[] = [
     title: "My Hotel",
     domain: "pzentsmart.com",
     niche: "Hospitality / OTA",
-    scope: "Boutique",
+    scope: "Independent",
     year: "2024",
     cover: workMyHotel,
     gallery: [workMyHotel],
     summary: "วางตัวเป็น first smart hotel OTA ของไทย",
-    service: "Boutique",
+    service: "Independent",
     challenge: "การดีลกับผู้ให้บริการให้เกิดความเชื่อถือ",
     url: "https://pzentsmart.com",
     constraint:
       "วางตัวเป็น first smart hotel OTA ของไทย — ของใหม่ที่ต้องสร้างความเชื่อถือกับผู้ให้บริการก่อนจะมีดีลและมีของให้ขายจริง",
     whatWeDid:
       "วางแบรนด์ + คอนเทนต์เปิดตัว + งานสื่อสารหาพาร์ตเนอร์โรงแรม — สร้างความน่าเชื่อถือให้แพลตฟอร์มใหม่ตั้งแต่วันแรก",
+    whatWeKilled:
+      "การชูฟีเจอร์เทคโนโลยีเป็นจุดขายหลัก — ตัดทิ้งเพราะโรงแรมไม่ได้อยากรู้ว่าระบบฉลาดแค่ไหน อยากรู้ว่าเชื่อใจได้ไหมมากกว่า",
   },
   {
     slug: "hongmove",
@@ -116,18 +124,20 @@ export const caseStudies: CaseStudy[] = [
     title: "HONG MOVE",
     domain: "hongmove.co.th",
     niche: "Airport Mobility",
-    scope: "Boutique",
+    scope: "Independent",
     year: "2025",
     cover: workHongmove,
     gallery: [workHongmove], // real cover only — gallery hidden until real frames exist
     summary: "เปิดตัว taxi VIP EV ใน AOT พร้อมวางระบบความเป็นไปได้",
-    service: "Boutique",
+    service: "Independent",
     challenge: "รองรับหลายภาษา — มาเลย์ · จีน · อาหรับ · ฮินดี",
     url: "https://hongmove.co.th",
     constraint:
       "เปิดตัว taxi VIP EV ใน AOT พร้อมวางระบบความเป็นไปได้ — ผู้ใช้หลากภาษาในบริบทสนามบินที่ทุกคนต้องเข้าใจได้ทันทีในไม่กี่วินาที",
     whatWeDid:
       "งานสื่อสารและคอนเทนต์ 4 ภาษา (มาเลย์ · จีน · อาหรับ · ฮินดี) สำหรับบริบทสนามบิน — refine สารให้สั้น คม และข้ามกำแพงภาษาได้",
+    whatWeKilled:
+      "มาสคอตและมุกตลกในสื่อประชาสัมพันธ์ ที่ทีมงานเสนอให้ดูเป็นกันเอง — ตัดทิ้งเพราะบริบทสนามบินต้องการความน่าเชื่อถือมากกว่าความน่ารัก",
   },
   {
     slug: "heavy-organizer",
@@ -137,18 +147,20 @@ export const caseStudies: CaseStudy[] = [
     title: "HEAVY ORGANIZER",
     domain: "heavyorganizer.com",
     niche: "Music Festival",
-    scope: "Boutique",
+    scope: "Independent",
     year: "2024",
     cover: workHeavy,
     gallery: [workHeavy, workHeavyB, workHeavyC],
     summary: "เทศกาลดนตรีสีเขียว carbon ต่ำ ที่ต้องการความร่วมมือจากผู้ร่วมงาน",
-    service: "Boutique",
+    service: "Independent",
     challenge: "สร้างความตระหนักและความร่วมมือจากผู้ร่วมงาน",
     url: "https://heavyorganizer.com",
     constraint:
       "เทศกาลดนตรีสีเขียว carbon ต่ำ — ต้องสร้างความตระหนักและความร่วมมือจากผู้ร่วมงาน โดยไม่ทำให้ความยั่งยืนกลายเป็นเรื่องน่าเบื่อที่บดบังความสนุก",
     whatWeDid:
       "เล่าเรื่องความยั่งยืนให้เป็นส่วนหนึ่งของความสนุก + แคมเปญกระตุ้นการมีส่วนร่วม — ทำให้คนอยากร่วมมือเพราะรู้สึกเป็นเจ้าของ ไม่ใช่เพราะถูกบอกให้ทำ",
+    whatWeKilled:
+      "ป้ายรณรงค์สิ่งแวดล้อมโทนสั่งสอนที่ทีมอีเวนต์อยากติดทั่วงาน — ตัดทิ้งเพราะมันทำให้คนรู้สึกถูกสอน ไม่ใช่ถูกชวนมาร่วมสนุก",
   },
   {
     slug: "khaoyai-country-club",
@@ -158,18 +170,20 @@ export const caseStudies: CaseStudy[] = [
     title: "เขาใหญ่ คันทรี่คลับ",
     domain: "brc-kycgolf.com",
     niche: "Leisure Golf",
-    scope: "Boutique",
+    scope: "Independent",
     year: "2024",
     cover: workKhaoyai,
     gallery: [workKhaoyai, workKhaoyaiB, workKhaoyaiC],
     summary: "ปรับมุมมองสู่ leisure golf โดยไม่เสียภาพลักษณ์เดิม",
-    service: "Boutique",
+    service: "Independent",
     challenge: "การเมืองภายในสนาม / การบริหารแบบแยกส่วน",
     url: "https://brc-kycgolf.com",
     constraint:
       "ปรับมุมมองสู่ leisure golf โดยไม่เสียภาพลักษณ์เดิม — ท่ามกลางการเมืองในสนามและการบริหารแบบแยกส่วน ที่ทุกฝ่ายต้องยอมรับร่วมกันก่อนจะสื่อสารออกไปได้",
     whatWeDid:
       "หา positioning ใหม่ที่ทุกฝ่ายยอมรับร่วมกัน ก่อนสื่อสารออกไป — ขยับภาพจำเดิมทีละขั้น โดยไม่ทำให้คนที่รักของเดิมหาย",
+    whatWeKilled:
+      "แคมเปญที่เอียงไปทางกลุ่มสมาชิกฝ่ายเดียวตามที่บอร์ดบางส่วนต้องการ — ตัดทิ้งเพราะจะยิ่งตอกลิ่มการเมืองภายในที่มีอยู่แล้วให้ลึกขึ้น",
   },
   {
     slug: "royal-thai-air-force",
@@ -179,18 +193,20 @@ export const caseStudies: CaseStudy[] = [
     title: "กองทัพอากาศ",
     domain: "rtaf.mi.th",
     niche: "Government",
-    scope: "Boutique",
+    scope: "Independent",
     year: "2024",
     cover: workRtaf,
     gallery: [workRtaf], // real cover only — gallery hidden until real frames exist
     summary: "สื่อสารข้อมูลที่ถูกต้องและน่าสนใจในภาวะตึงเครียด",
-    service: "Boutique",
+    service: "Independent",
     challenge: "fake news / ต้องรักษาความลับทางราชการ",
     url: "https://rtaf.mi.th",
     constraint:
       "สื่อสารข้อมูลที่ถูกต้องและน่าสนใจในภาวะตึงเครียด — ท่ามกลางข่าวปลอมและความลับทางราชการ ที่ทั้งต้องเปิดเผยได้และต้องเร็วพอจะทันกระแส",
     whatWeDid:
       "คอนเทนต์ข้อมูลที่ตรวจสอบได้ + แนวทางตอบข่าวผิดแบบเรียลไทม์ในกรอบที่เปิดเผยได้ — วางระบบให้พูดได้ทันโดยไม่หลุดเส้นความมั่นคง",
+    whatWeKilled:
+      "การตอบโต้ข่าวปลอมแบบดุเดือดที่ทีมสื่อสารภายในอยากใช้ — ตัดทิ้งเพราะยิ่งตอบแรง ยิ่งทำให้เรื่องที่ไม่จริงดูน่าสนใจและน่าเชื่อขึ้น",
   },
   {
     slug: "palawat-party",
@@ -200,18 +216,20 @@ export const caseStudies: CaseStudy[] = [
     title: "พรรคพลวัต",
     domain: "",
     niche: "Politics",
-    scope: "Boutique",
+    scope: "Independent",
     year: "2023",
     cover: workPalawat,
     gallery: [workPalawat],
     summary: "พรรคใหม่ที่นำเสนอมุมมองทางการเมืองภายใต้เวลาจำกัด",
-    service: "Boutique",
+    service: "Independent",
     challenge: "ไม่มีฐานเสียงเดิม / ข้อจำกัดของกฎหมายเลือกตั้ง",
     url: "",
     constraint:
       "พรรคใหม่ที่ต้องนำเสนอมุมมองทางการเมืองภายใต้เวลาจำกัด — ไม่มีฐานเสียงเดิม และทุกการสื่อสารอยู่ใต้ข้อจำกัดของกฎหมายเลือกตั้ง",
     whatWeDid:
       "วางจุดยืนและสารหลักให้ชัดในเวลาสั้น + คอนเทนต์แนะนำพรรค — refine เรื่องให้คนจำได้เร็วโดยไม่ข้ามกรอบกฎหมาย",
+    whatWeKilled:
+      "การเปรียบเทียบตัวเองกับพรรคใหญ่โดยตรงเพื่อเรียกความสนใจ — ตัดทิ้งเพราะพรรคใหม่ที่ชนะด้วยการชี้นิ้วใส่คนอื่น มักถูกจำในฐานะพรรคที่ด่า ไม่ใช่พรรคที่มีจุดยืน",
   },
 ];
 

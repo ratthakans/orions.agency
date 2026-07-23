@@ -285,7 +285,7 @@ const Thinking = () => (
 
           <Reveal delay={0.1}>
             <blockquote className="mt-12 font-serif text-[26px] md:text-[46px] leading-[1.3] tracking-[-0.015em] text-foreground max-w-[24ch]">
-              คิดแบบ <em className="text-foreground italic">Consult</em> → ทำแบบ <em className="text-foreground italic">Craft</em> → ส่งมอบแบบ <em className="text-foreground italic">Boutique.</em>
+              คิดแบบ <em className="text-foreground italic">Consult</em> → ทำแบบ <em className="text-foreground italic">Craft</em> → ส่งมอบแบบ <em className="text-foreground italic">Refined.</em>
             </blockquote>
           </Reveal>
           <Reveal delay={0.12}>

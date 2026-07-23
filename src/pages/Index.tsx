@@ -35,7 +35,7 @@ const HeroTitle = () => {
   );
   return (
     <h1 className="h-display-xl leading-[0.92]">
-      <span className="sr-only">Where aesthetic meets algorithm — a boutique creative agency.</span>
+      <span className="sr-only">Where aesthetic meets algorithm — an independent creative agency.</span>
       <span aria-hidden="true">
         <Line delay={0.1}>Where aesthetic</Line>
         <Line delay={0.22}>meets algorithm<span className="text-cinnabar">.</span></Line>
@@ -47,8 +47,8 @@ const HeroTitle = () => {
 const Index = () => (
   <div>
     <SEO
-      title="ØRIONS — Boutique Creative Agency · Where Aesthetic Meets Algorithm"
-      description="บูทีคครีเอทีฟเอเจนซีในกรุงเทพฯ ที่ผสานศิลปะเข้ากับสมการ — ปั้นแบรนด์ที่คนจำด้วยมือมนุษย์ และ AI ที่มีรสนิยมของเราเอง. brand consultancy · aesthetic intelligence · creative tech platforms. ขับเคลื่อนด้วย VÆST — AI creative director ที่มีรสนิยม."
+      title="ØRIONS — Independent Creative Agency · Where Aesthetic Meets Algorithm"
+      description="ครีเอทีฟเอเจนซีอิสระในกรุงเทพฯ ที่ผสานศิลปะเข้ากับสมการ — ปั้นแบรนด์ที่คนจำด้วยมือมนุษย์ และ AI ที่มีรสนิยมของเราเอง. brand consultancy · aesthetic intelligence · creative tech platforms. ขับเคลื่อนด้วย VÆST — AI creative director ที่มีรสนิยม."
       path="/"
       schema={{
         "@context": "https://schema.org",
@@ -57,7 +57,7 @@ const Index = () => (
         url: SITE_URL,
         slogan: "Where aesthetic meets algorithm.",
         description:
-          "ØRIONS is a boutique creative agency in Bangkok where aesthetic meets algorithm — it builds memorable brands by hand and its own AI with taste. Practice: brand consultancy, aesthetic intelligence, and creative tech platforms, powered by VÆST (an AI creative director). Products: VÆST, First Draft, Routte.",
+          "ØRIONS is an independent creative agency in Bangkok where aesthetic meets algorithm — it builds memorable brands by hand and its own AI with taste. Practice: brand consultancy, aesthetic intelligence, and creative tech platforms, powered by VÆST (an AI creative director). Products: VÆST, First Draft, Routte.",
       }}
     />
 
@@ -68,7 +68,7 @@ const Index = () => (
       <div className="relative z-10 max-w-[1400px] mx-auto w-full flex-1 flex flex-col justify-center pt-24 md:pt-32 pb-20 md:pb-28">
         <Reveal>
           <div className="flex items-center gap-3 font-mono text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-foreground/70">
-            <Slash className="text-[15px]" /> ØRIONS · Boutique Creative Agency · Bangkok
+            <Slash className="text-[15px]" /> ØRIONS · Independent Creative Agency · Bangkok
           </div>
         </Reveal>
         <div className="mt-8">
@@ -248,7 +248,7 @@ const Index = () => (
           </Reveal>
           <Reveal delay={0.1}>
             <p lang="th" className="mt-8 max-w-[620px] font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.8] text-foreground/80">
-              เทคโนโลยีคือโครงสร้าง แต่รสนิยมคือสิ่งที่ทำให้มันมีชีวิต. ในฐานะ boutique brand consultancy เรายังลงมือคราฟต์แบรนด์ให้คนจำและเลือก — ด้วยมือของทีม senior ที่ VÆST เกิดมาจากวิธีคิดของพวกเขา.
+              เทคโนโลยีคือโครงสร้าง แต่รสนิยมคือสิ่งที่ทำให้มันมีชีวิต. ในฐานะ brand consultancy เรายังลงมือคราฟต์แบรนด์ให้คนจำและเลือก — ด้วยมือของทีม senior ที่ VÆST เกิดมาจากวิธีคิดของพวกเขา.
             </p>
           </Reveal>
           <Reveal delay={0.15}>

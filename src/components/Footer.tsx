@@ -35,7 +35,6 @@ const Footer = () => {
           <span className="inline-block w-1.5 h-1.5 bg-cinnabar" aria-hidden />
           Studio open · BKK {bkkTime} ICT
         </span>
-        <span className="hidden md:inline">Stories, refined.</span>
       </div>
       <div className="px-6 md:px-10 pt-16 md:pt-20 pb-6 max-w-[1280px] mx-auto">
         {/* Headline row */}

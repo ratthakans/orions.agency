@@ -1,4 +1,4 @@
-// ORIONS — a boutique creative agency, "where aesthetic meets algorithm".
+// ORIONS — an independent creative agency, "where aesthetic meets algorithm".
 // Canonical product/scope copy (user-authored 2026-07-04; product facts synced
 // from the actual product repos + live sites 2026-07-16) for /system + /system/:slug.
 // The agency builds memorable brands by hand AND its own AI (VÆST) + products.
@@ -14,7 +14,7 @@ import shotRoutte from "@/assets/system/routte.png?as=picture";
 export const scopes = [
   {
     n: "01",
-    k: "Boutique Brand Consultancy",
+    k: "Brand Consultancy",
     d: "ที่ปรึกษาแบรนด์ระดับ high-end ที่เจาะลึกถึงแก่นของปัญหา — ผสาน creative data เข้ากับกลยุทธ์ที่เฉียบคมและวัดผลได้จริง.",
   },
   {

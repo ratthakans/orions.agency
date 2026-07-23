@@ -187,10 +187,26 @@ const CaseStudy = () => {
         </div>
       </section>
 
-      {/* 04b — APPROACH (honest method) */}
+      {/* 04b — WHAT WE KILLED (the thing the client wanted that we refused) */}
+      <section className="px-6 md:px-10 border-t border-foreground/15">
+        <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 md:grid-cols-12 gap-10">
+          <div className="md:col-span-4">
+            <SectionLabel index="03" label="สิ่งที่ตัดทิ้ง" />
+          </div>
+          <div className="md:col-span-8">
+            <Reveal delay={0.05}>
+              <p lang="th" className="editorial-quote max-w-[680px] text-[20px] md:text-[26px]">
+                {cs.whatWeKilled}
+              </p>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* 04c — APPROACH (honest method) */}
       <section className="px-6 md:px-10 border-t border-foreground/15">
         <div className="max-w-[1280px] mx-auto py-24 md:py-36">
-          <SectionLabel index="03" label="Approach" />
+          <SectionLabel index="04" label="Approach" />
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-5">
             {approach.map((a, i) => (
               <Reveal key={a.n} delay={i * 0.07}>
@@ -211,7 +227,7 @@ const CaseStudy = () => {
       {cs.gallery.length > 1 && (
         <section className="px-6 md:px-10 border-t border-foreground/15">
           <div className="max-w-[1280px] mx-auto py-24 md:py-36">
-            <SectionLabel index="04" label="Selected Frames" />
+            <SectionLabel index="05" label="Selected Frames" />
             <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               {cs.gallery.map((img, i) => (
                 <Reveal key={i} delay={0.04 * i}>

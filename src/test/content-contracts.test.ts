@@ -31,9 +31,11 @@ describe("public credibility contract", () => {
     "src/pages/Thinking.tsx",
     "src/pages/System.tsx",
     "src/pages/SystemDetail.tsx",
+    "src/pages/About.tsx",
     "src/data/system.ts",
     "src/data/blog.ts",
     "src/data/portfolio.ts",
+    "src/data/caseStudies.ts",
     "public/llms.txt",
     "index.html",
   ].map(fromRoot).join("\n");
@@ -49,6 +51,13 @@ describe("public credibility contract", () => {
   // don't silently reappear in a future edit.
   it("does not advertise retired products", () => {
     expect(publicCopy).not.toMatch(/COLLAPS|GODGEARS|SONAR SQUAD/);
+  });
+
+  // "Boutique" was retired from public language (MASTER BLUEPRINT V5 §32) — it
+  // places ORIONS in the mid-tier of the Bangkok market map that ends in price
+  // comparison. Use "independent" or no modifier instead.
+  it("does not use the retired word 'boutique'", () => {
+    expect(publicCopy).not.toMatch(/boutique/i);
   });
 
   // Our own products must live on real domains. Client work in the portfolio

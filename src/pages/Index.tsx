@@ -76,7 +76,7 @@ const Index = () => (
         </div>
         <Reveal delay={0.5}>
           <p lang="th" className="mt-9 font-thai thai-wrap text-[17px] md:text-[21px] leading-[1.7] text-foreground/85 max-w-[42ch]">
-            บูทีคครีเอทีฟเอเจนซีในกรุงเทพฯ — ปั้นแบรนด์ที่คนจำด้วยมือมนุษย์ และ AI ที่มีรสนิยมของเราเอง.
+            ครีเอทีฟเอเจนซีอิสระในกรุงเทพฯ — ปั้นแบรนด์ที่คนจำด้วยมือมนุษย์ และ AI ที่มีรสนิยมของเราเอง.
           </p>
         </Reveal>
         <Reveal delay={0.62}>
@@ -116,7 +116,7 @@ const Index = () => (
         </div>
         <Reveal delay={0.15}>
           <p lang="th" className="mt-16 md:mt-24 max-w-[760px] font-thai thai-wrap text-[17px] md:text-[21px] leading-[1.75] text-foreground/80">
-            ORIONS คือ <span className="text-foreground">บูทีคครีเอทีฟเอเจนซี</span> ที่ผสานศิลปะเข้ากับสมการ — เราไม่ได้แค่ปั้นแบรนด์ให้สวย แต่สร้างเครื่องมือ AI ของเราเองเพื่อยกระดับงานครีเอทีฟให้ลึกและคมกว่าเดิม. <span className="text-foreground">Where aesthetic meets algorithm.</span>
+            ORIONS คือ <span className="text-foreground">ครีเอทีฟเอเจนซีอิสระ</span> ที่ผสานศิลปะเข้ากับสมการ — เราไม่ได้แค่ปั้นแบรนด์ให้สวย แต่สร้างเครื่องมือ AI ของเราเองเพื่อยกระดับงานครีเอทีฟให้ลึกและคมกว่าเดิม. <span className="text-foreground">Where aesthetic meets algorithm.</span>
           </p>
         </Reveal>
       </div>

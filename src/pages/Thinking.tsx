@@ -29,7 +29,7 @@ const noise = [
 // What ØRIONS does — three disciplines, one lens.
 const services = [
   { k: "Brand Strategy", d: "วางรากฐานและทิศทางให้ชัด เพื่อให้แบรนด์ไม่ต้องลงไปแข่งตัดราคา" },
-  { k: "Creative Production", d: "งานภาพและเสียงคุณภาพบูทีค — brand film · video · photography · music production — ที่คมพอให้คนหยุดมอง" },
+  { k: "Creative Production", d: "งานภาพและเสียงคุณภาพพรีเมียม — brand film · video · photography · music production — ที่คมพอให้คนหยุดมอง" },
   { k: "Communication Design", d: "ออกแบบการสื่อสารทุกจุดสัมผัส เปลี่ยนคนแปลกหน้าให้เป็นลูกค้าที่ภักดี" },
 ];
 

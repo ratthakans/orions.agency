@@ -128,6 +128,12 @@
     }
     </script>
 
+    <!-- Fail-safe: scroll-reveal blocks start at opacity:0 and are revealed by JS.
+         With JS disabled, force them visible so no content is ever lost. -->
+    <noscript>
+      <style>.reveal-root{opacity:1!important;transform:none!important}</style>
+    </noscript>
+
   </head>
 
   <body>

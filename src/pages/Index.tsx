@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
-import { m, useReducedMotion } from "framer-motion";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import CTABand from "@/components/CTABand";
@@ -19,19 +18,11 @@ const featuredCases = FEATURED_CASE_SLUGS.flatMap((slug) => {
   return found ? [found] : [];
 });
 
-/* Hero headline — a quiet mask-up reveal (no typing; calmer, more cinematic). */
+/* Hero headline — a quiet mask-up reveal (CSS; see .mask-line in index.css). */
 const HeroTitle = () => {
-  const reduced = useReducedMotion();
   const Line = ({ children, delay }: { children: React.ReactNode; delay: number }) => (
-    <span className="block overflow-hidden">
-      <m.span
-        initial={reduced ? { y: 0 } : { y: "108%" }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
-        className="block"
-      >
-        {children}
-      </m.span>
+    <span className="mask-line">
+      <span style={{ animationDelay: `${delay}s` }}>{children}</span>
     </span>
   );
   return (

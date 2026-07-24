@@ -482,6 +482,25 @@ h1:lang(th) em, h2:lang(th) em, h3:lang(th) em, h4:lang(th) em, h5:lang(th) em, 
   ::view-transition-new(root) { animation: none !important; }
 }
 
+/* Hero mask-up — each headline line rises from behind its clip on load. Was a
+   framer-motion mount animation; moved to CSS. Fail-safe by design: the RESTING
+   state is visible (transform: none), and the animation only plays *from* the
+   masked position — with no fill-mode it reverts to the resting (visible) state
+   when it ends. So an animation that never runs (backgrounded tab, hydration
+   race, animations disabled) can't leave the headline stuck behind its clip. */
+.mask-line { display: block; overflow: hidden; }
+.mask-line > span {
+  display: block;
+  animation: mask-up 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@keyframes mask-up {
+  from { transform: translateY(108%); }
+  to   { transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mask-line > span { animation: none; }
+}
+
 /* Hero "silk" — Fluid Dynamics surface (CSS stand-in for the brand photo;
    swap for an <img> once the real file is dropped). Slow living drift. */
 @keyframes silkdrift {

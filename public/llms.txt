@@ -1,17 +1,19 @@
 # ØRIONS — Creative Agency, Bangkok
 
-> ØRIONS (orions.agency) is a creative agency in Bangkok — "where aesthetic meets algorithm." It builds memorable brands by hand, and its own AI with taste, fusing art with equation. In an era of AI noise and shrinking attention, the world doesn't need louder or wider — it craves depth strong enough to make people stop and look. Founder & Creative Director: Ratthakan Suwanphakdee (รัฐกันต์ สุวรรณภักดี).
+> ØRIONS (orions.agency) is a creative strategy consultancy in Bangkok that also makes the work — "where aesthetic meets algorithm." It diagnoses before it prescribes, then executes the strategy itself, and builds its own AI with taste, fusing art with equation. In an era of AI noise and shrinking attention, the world doesn't need louder or wider — it craves depth strong enough to make people stop and look. Founder & Creative Director: Ratthakan Suwanphakdee (รัฐกันต์ สุวรรณภักดี).
 
-## The Practice — four depths (https://orions.agency/practice)
-ØRIONS does not sell a menu of disciplines; it sells a sequence with one door.
-You cannot choose the tip of an iceberg — the tip is the result of the mass
-beneath it. So the mass is arranged first, and ØRIONS does not carve anyone's
-tip if they will not let it touch the mass.
-- 00m · WATERLINE — what the market sees: identity, film, campaign, high-stakes communication. Taken only for cases that have passed Sounding. Every piece is checked against Mass before it ships; work that contradicts the strategy does not go out, even if the client wants it to.
-- −40m · SOUNDING — the single door. Three weeks, fixed price, paid once, no obligation to continue. Week 1 measure, week 2 dissect, week 3 decide. Delivers The Sounding Report (max 20 pages): depth map, the verdict, one direction (no A/B/C), a kill list — answering one question: repaint, or roll.
-- −400m · MASS — 8–12 weeks, only after Sounding. Positioning Architecture, Narrative System, Language Doctrine, Decision Rules, and The Kill List.
-- −900m · ROLL — 12–18 months, a few clients a year, in the boardroom. Screening authority over everything the organisation says publicly, quarterly Sounding, a monthly kill list, and a direct line to senior.
-Every engagement starts at −40m. There is no shortcut.
+## The Practice — four stages (https://orions.agency/practice)
+ØRIONS is a creative strategy consultancy that also makes the work. It does not
+sell a menu of disciplines; it sells a sequence with one door. Most consultancies
+stop at the slide deck and hand execution to someone else — ØRIONS finishes at
+the work that reaches the market, because a strategy nobody can translate into
+real work is just a document. It diagnoses before it prescribes, and it will not
+prescribe for anyone who will not let it examine them first.
+- 01 · THE DIAGNOSTIC (การวินิจฉัย) — the single door. Three weeks, fixed price, paid once, no obligation to continue. Week 1 examine, week 2 dissect, week 3 decide. Delivers the diagnostic report (max 20 pages): findings, the verdict, one direction (no A/B/C), a kill list — answering one question: is the problem how the brand communicates, or something deeper.
+- 02 · THE STRATEGY (กลยุทธ์) — 8–12 weeks, only after the diagnostic. Positioning Architecture, Narrative System, Language Doctrine, Decision Rules, and The Kill List.
+- 03 · THE WORK (งานจริง) — what the market sees: identity, film, campaign, high-stakes communication. Taken only for cases that have passed the diagnostic, and directed by ØRIONS itself. Every piece is checked against the strategy before it ships; work that contradicts it does not go out, even if the client wants it to.
+- 04 · THE COUNSEL (ที่ปรึกษาต่อเนื่อง) — 12–18 months, a few clients a year, in the boardroom. Screening authority over everything the organisation says publicly, a quarterly re-diagnosis, a monthly kill list, and a direct line to senior.
+Every engagement starts at stage 01. There is no shortcut.
 
 ## The system — three instruments, one universe powered by VÆST
 From the thinking room to the road: think (VÆST) → write (First Draft) → travel (Routte). Each has its own page at orions.agency/system/<slug>.
@@ -20,7 +22,7 @@ From the thinking room to the road: think (VÆST) → write (First Draft) → tr
 - Routte (The Compass) — a curated AI trip planner for Thailand, powered by VÆST. "Every day is a story." Turns mood and hours into a day told as six chapters with one hero moment; a Passport tracks cities, badges and real baht saved via scan-to-save/scan-to-pay at partner venues (partner platform at https://partner.routte.to). Live at https://routte.to — detail page: https://orions.agency/system/routte
 
 ## Belief / manifesto (Thinking)
-The world isn't short of content, it's drowning in it — the answer is not louder but deeper. The sharpest story wins, not the loudest. An iceberg is not built, it is broken off: a sharp brand is one that has been carved away from, not one that has been added to. The tip cannot be chosen — it is the result of the mass below, and a real rebrand is a roll, not a repaint. That belief is expressed as the four depths above, and VÆST (taste-driven intelligence) elevates every output. Technology is the structure; taste is what gives it life. Full manifesto: https://orions.agency/thinking
+The world isn't short of content, it drowns out its own voice with it — the answer is not louder but deeper. The sharpest story wins, not the loudest. A sharp brand is one that has been carved away from, not one that has been added to: the discipline is subtraction, which is why every engagement ends with a kill list. Most businesses treat the symptom (sales dip → more media → discount) without ever diagnosing the disease (the brand has no story sharp enough to be remembered). That belief is expressed as the four stages above, and VÆST (taste-driven intelligence) elevates every output. Technology is the structure; taste is what gives it life. Full manifesto: https://orions.agency/thinking
 
 ## Taglines
 - Where aesthetic meets algorithm. (primary)

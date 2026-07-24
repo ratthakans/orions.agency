@@ -8,16 +8,12 @@ import SignalField from "@/components/SignalField";
 import Picture from "@/components/Picture";
 import heroSilk from "@/assets/hero-silk.jpg?as=picture";
 import { innovations } from "@/data/system";
-import { depthMap } from "@/data/practice";
+import { stages } from "@/data/practice";
 import { caseStudies } from "@/data/caseStudies";
 
 const SITE_URL = "https://orions.agency";
 const FEATURED_CASE_SLUGS = ["hongmove", "heavy-organizer", "khaoyai-country-club"];
 
-// Depth map cadence — type gets heavier and rows sit further apart the deeper
-// you go, so the scale reads as a descent rather than a four-item list.
-const DEPTH_SIZE = ["text-[24px] md:text-[32px]", "text-[28px] md:text-[40px]", "text-[32px] md:text-[48px]", "text-[36px] md:text-[56px]"];
-const DEPTH_PAD = ["py-5 md:py-6", "py-6 md:py-8", "py-7 md:py-10", "py-8 md:py-12"];
 const featuredCases = FEATURED_CASE_SLUGS.flatMap((slug) => {
   const found = caseStudies.find((item) => item.slug === slug);
   return found ? [found] : [];
@@ -45,7 +41,7 @@ const Index = () => (
   <div>
     <SEO
       title="ØRIONS — Creative Agency · Where Aesthetic Meets Algorithm"
-      description="ครีเอทีฟเอเจนซีในกรุงเทพฯ ที่ผสานศิลปะเข้ากับสมการ — ปั้นแบรนด์ที่คนจำด้วยมือมนุษย์ และ AI ที่มีรสนิยมของเราเอง. เราจัดมวลก่อน แล้วจึงแกะยอด — ทำงานเป็นสี่ชั้นความลึก ทุกงานเริ่มที่ Sounding. ขับเคลื่อนด้วย VÆST — AI creative director ที่มีรสนิยม."
+      description="ที่ปรึกษากลยุทธ์ครีเอทีฟในกรุงเทพฯ ที่ลงมือทำงานเอง — วินิจฉัยก่อนเสมอ แล้วจึงสร้าง. ทำงานสี่ขั้น: การวินิจฉัย (ประตูเดียว) · กลยุทธ์ · งานจริง · ที่ปรึกษาต่อเนื่อง. ที่ปรึกษาส่วนใหญ่จบที่สไลด์ เราจบที่งานที่ออกสู่ตลาด — ขับเคลื่อนด้วย VÆST, AI creative director ที่มีรสนิยม."
       path="/"
       schema={{
         "@context": "https://schema.org",
@@ -54,7 +50,7 @@ const Index = () => (
         url: SITE_URL,
         slogan: "Where aesthetic meets algorithm.",
         description:
-          "ØRIONS is a creative agency in Bangkok where aesthetic meets algorithm — it builds memorable brands by hand and its own AI with taste. The practice runs in four depths with a single door: Sounding, Mass, Waterline, Roll — every engagement starts at Sounding. Powered by VÆST (an AI creative director). Products: VÆST, First Draft, Routte.",
+          "ØRIONS is a creative strategy consultancy in Bangkok that also makes the work — where aesthetic meets algorithm. The practice runs in four stages with a single door: The Diagnostic, The Strategy, The Work, The Counsel — every engagement starts with the diagnostic, and the strategy we write we execute ourselves. Powered by VÆST (an AI creative director). Products: VÆST, First Draft, Routte.",
       }}
     />
 
@@ -73,7 +69,7 @@ const Index = () => (
         </div>
         <Reveal delay={0.5}>
           <p lang="th" className="mt-9 font-thai thai-wrap text-[17px] md:text-[21px] leading-[1.7] text-foreground/85 max-w-[42ch]">
-            ยอดคือผลลัพธ์ของมวล — เราจัดมวลก่อน แล้วจึงแกะยอด. ทุกงานเริ่มที่การหยั่งความลึก.
+            ที่ปรึกษากลยุทธ์ที่ลงมือทำงานเอง — เราวินิจฉัยก่อนเสมอ แล้วจึงสร้าง.
           </p>
         </Reveal>
         <Reveal delay={0.62}>
@@ -126,25 +122,32 @@ const Index = () => (
           <div className="font-mono text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-muted-foreground">— The Practice</div>
         </Reveal>
         <Reveal delay={0.05} emphasis="lead">
-          <h2 lang="th" className="mt-8 h-display-lg max-w-[16ch] thai-wrap">
-            เราจัดมวลก่อน <em className="text-foreground">แล้วจึงแกะยอด.</em>
+          <h2 lang="th" className="mt-8 h-display-lg max-w-[18ch] thai-wrap">
+            ที่ปรึกษาส่วนใหญ่จบที่สไลด์. <em className="text-foreground">เราจบที่งานที่ออกสู่ตลาด.</em>
           </h2>
         </Reveal>
-        {/* The descent is expressed by the type itself — each level sits heavier
-            and further apart than the one above it. Never illustrate the iceberg. */}
+        <Reveal delay={0.1}>
+          <p lang="th" className="mt-8 max-w-[680px] font-thai thai-wrap text-[16px] md:text-[19px] leading-[1.8] text-foreground/80">
+            กลยุทธ์ที่ไม่มีใครแปลเป็นงานจริงได้ ก็เป็นแค่เอกสาร — <span className="text-foreground">กลยุทธ์ที่เราเขียน เราลงมือทำเอง</span> และนั่นคือเหตุผลที่งานไม่หลุดทิศ.
+          </p>
+        </Reveal>
+        {/* The ladder — plain names in engagement order. No invented vocabulary:
+            a model a client has to translate is friction at the top of the funnel. */}
         <div className="mt-14 md:mt-20 border-t border-foreground/20">
-          {depthMap.map((d, i) => (
-            <Reveal key={d.m} emphasis="quiet">
-              <div className={`grid grid-cols-[84px_1fr] lg:grid-cols-[150px_0.8fr_1.2fr] items-baseline gap-x-5 gap-y-2 border-b border-foreground/12 ${DEPTH_PAD[i]}`}>
-                <span className={`font-mono text-[12px] md:text-[13px] tracking-[0.14em] tabular-nums ${d.gate ? "text-cinnabar" : "text-muted-foreground"}`}>
-                  {d.m}
+          {stages.map((s) => (
+            <Reveal key={s.slug} emphasis="quiet">
+              <div className="grid grid-cols-[60px_1fr] lg:grid-cols-[90px_0.8fr_1.2fr] items-baseline gap-x-5 gap-y-2 py-6 md:py-8 border-b border-foreground/12">
+                <span className={`font-mono text-[12px] md:text-[13px] tracking-[0.14em] tabular-nums ${s.gate ? "text-cinnabar" : "text-muted-foreground"}`}>
+                  {s.n}
                 </span>
-                <span className={`font-serif leading-[1.0] tracking-[-0.025em] ${DEPTH_SIZE[i]}`}>{d.name}</span>
-                <span lang="th" className="col-span-2 lg:col-span-1 font-thai thai-wrap text-[14px] md:text-[16px] leading-[1.75] text-muted-foreground">
-                  {d.d}
-                  {d.gate && (
-                    <span className="ml-3 font-mono text-[10px] tracking-[0.2em] uppercase text-cinnabar">ประตูเดียว</span>
+                <span lang="th" className="font-serif text-[26px] md:text-[38px] leading-[1.05] tracking-[-0.025em] thai-wrap">
+                  {s.name}
+                  {s.gate && (
+                    <span className="ml-3 align-middle font-mono text-[10px] tracking-[0.2em] uppercase text-cinnabar">ประตูเดียว</span>
                   )}
+                </span>
+                <span lang="th" className="col-span-2 lg:col-span-1 font-thai thai-wrap text-[14px] md:text-[16px] leading-[1.75] text-muted-foreground">
+                  {s.kind}
                 </span>
               </div>
             </Reveal>
@@ -152,12 +155,12 @@ const Index = () => (
         </div>
         <Reveal delay={0.08}>
           <blockquote lang="th" className="mt-14 md:mt-16 font-serif text-[26px] md:text-[44px] leading-[1.3] tracking-[-0.015em] text-foreground max-w-[24ch] thai-wrap">
-            เราไม่แกะยอดให้ใคร <em className="text-foreground italic">ที่ไม่ให้เราแตะมวล.</em>
+            เราไม่จ่ายยาให้ใคร <em className="text-foreground italic">ที่ไม่ให้เราตรวจ.</em>
           </blockquote>
         </Reveal>
         <Reveal delay={0.12}>
           <Link to="/practice" viewTransition className="cta-link mt-10">
-            <span>ทุกงานเริ่มที่ −40m — ดูวิธีที่เรารับงาน</span><ArrowUpRight className="w-4 h-4" />
+            <span>ทุกงานเริ่มที่ขั้น 01 — ดูวิธีที่เรารับงาน</span><ArrowUpRight className="w-4 h-4" />
           </Link>
         </Reveal>
       </div>
@@ -264,7 +267,7 @@ const Index = () => (
           </Reveal>
           <Reveal delay={0.1}>
             <p lang="th" className="mt-8 max-w-[620px] font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.8] text-foreground/80">
-              เทคโนโลยีคือโครงสร้าง แต่รสนิยมคือสิ่งที่ทำให้มันมีชีวิต. ในฐานะ brand consultancy เรายังลงมือคราฟต์แบรนด์ให้คนจำและเลือก — ด้วยมือของทีม senior ที่ VÆST เกิดมาจากวิธีคิดของพวกเขา.
+              เทคโนโลยีคือโครงสร้าง แต่รสนิยมคือสิ่งที่ทำให้มันมีชีวิต. เราเป็นที่ปรึกษาที่ลงมือคราฟต์เอง — ด้วยมือของทีม senior ที่ VÆST เกิดมาจากวิธีคิดของพวกเขา.
             </p>
           </Reveal>
           <Reveal delay={0.15}>

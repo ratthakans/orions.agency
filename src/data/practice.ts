@@ -2,19 +2,29 @@
 //
 // This replaces four competing service lists that used to live on Home, About,
 // Thinking and Contact (three different trios, none of them matching). A list
-// of disciplines describes a supplier; four depths describe a consultancy — it
-// has an order, a gate, and a decision at each level.
+// of disciplines describes a supplier; an ordered ladder with a gate describes
+// a consultancy.
 //
-// Depth numbers (−40m …) are the section index across this zone; the waterline
-// device belongs to the Agency zone only. Per the blueprint: never illustrate
-// the iceberg. If it needs the drawing, the idea isn't sharp enough yet.
+// Naming rule, learned the hard way: the first version of this model was built
+// on a nautical/glacial metaphor, with four invented stage names and a scale of
+// negative depth markers. It read as muddled — a borrowed diagram, fighting the
+// brand's own name (ØRIONS is a constellation: sky, not sea), and it forced a
+// client to learn a private vocabulary before they could tell what we sell.
+// A model that has to be translated is friction at the top of the funnel.
+//   → Poetry belongs in the belief. The offer must be plain.
+// The working metaphor is now diagnosis — which the case pages already speak
+// (every case opens อาการ → คำวินิจฉัย), so the practice and the record finally
+// use one language. See the regression guard in content-contracts.test.ts.
 
-export type Depth = {
-  /** Depth marker used in place of 01/02/03 */
-  m: string;
+export type Stage = {
+  /** Ladder index — 01…04 */
+  n: string;
   slug: string;
+  /** Plain Thai name — no glossary required */
   name: string;
-  /** One line — what this level actually is */
+  /** English counterpart, used as a quiet secondary label */
+  nameEn: string;
+  /** One line — what this step actually is */
   kind: string;
   /** Duration / commercial shape */
   terms: string;
@@ -22,55 +32,41 @@ export type Depth = {
   body: string;
   /** What the client receives */
   deliverable?: { k: string; d: string }[];
-  /** The line that closes the level */
+  /** The line that closes the step */
   note?: string;
   /** Marks the single entry point */
   gate?: boolean;
 };
 
-export type DepthMapRow = {
-  m: string;
-  name: string;
-  d: string;
-  /** The single entry point — marked so every surface can show the door. */
-  gate?: boolean;
-};
-
-/** The depth map — surface to floor. Order here is the mental model. */
-export const depthMap: DepthMapRow[] = [
-  { m: "00m", name: "Waterline", d: "สิ่งที่ตลาดเห็น" },
-  { m: "−40m", name: "Sounding", d: "หยั่งความลึก", gate: true },
-  { m: "−400m", name: "Mass", d: "จัดมวล" },
-  { m: "−900m", name: "Roll", d: "พลิก" },
-];
-
-/** Detail blocks — ordered the way an engagement actually runs, not by depth. */
-export const depths: Depth[] = [
+/** The ladder — in the order an engagement actually runs. */
+export const stages: Stage[] = [
   {
-    m: "−40m",
-    slug: "sounding",
-    name: "Sounding",
-    kind: "หยั่งความลึก — ทุกงานเริ่มที่นี่ ไม่มีทางลัด",
-    terms: "สามสัปดาห์ · ราคาคงที่ · จ่ายครั้งเดียว · ไม่ผูกมัดว่าต้องทำต่อ",
+    n: "01",
+    slug: "diagnostic",
+    name: "การวินิจฉัย",
+    nameEn: "The Diagnostic",
+    kind: "หาว่าปัญหาอยู่ตรงไหน — ทุกงานเริ่มที่นี่ ไม่มีทางลัด",
+    terms: "3 สัปดาห์ · ราคาคงที่ · จ่ายครั้งเดียว · ไม่ผูกมัดว่าต้องทำต่อ",
     gate: true,
     body:
-      "สามสัปดาห์เพื่อตอบคำถามเดียว: แบรนด์นี้ต้องทาสียอด หรือต้องพลิกทั้งก้อน. เราไม่รับงานที่ยังไม่ผ่านขั้นนี้ เพราะการลงมือก่อนรู้ว่าปัญหาอยู่ตรงไหน คือการขายชั่วโมงทำงาน ไม่ใช่การขายคำตัดสิน.",
+      "สามสัปดาห์เพื่อตอบคำถามเดียว: ปัญหาของแบรนด์นี้อยู่ที่วิธีสื่อสาร หรืออยู่ลึกกว่านั้น. เราไม่รับงานที่ยังไม่ผ่านขั้นนี้ เพราะการลงมือก่อนรู้ว่าปัญหาอยู่ตรงไหน คือการขายชั่วโมงทำงาน ไม่ใช่การขายคำตัดสิน.",
     deliverable: [
-      { k: "สัปดาห์ 1 · วัด", d: "สัมภาษณ์ผู้ก่อตั้งและทีม · อ่านทุกสิ่งที่แบรนด์เคยพูดต่อสาธารณะ · สแกนหมวดทั้งตลาด" },
-      { k: "สัปดาห์ 2 · ผ่า", d: "แยกสิ่งที่แบรนด์พูด ออกจากสิ่งที่คนได้ยิน — หาจุดที่มวลกับยอดไม่ตรงกัน" },
+      { k: "สัปดาห์ 1 · ตรวจ", d: "สัมภาษณ์ผู้ก่อตั้งและทีม · อ่านทุกสิ่งที่แบรนด์เคยพูดต่อสาธารณะ · สแกนหมวดทั้งตลาด" },
+      { k: "สัปดาห์ 2 · ผ่า", d: "แยกสิ่งที่แบรนด์พูด ออกจากสิ่งที่คนได้ยิน — หาจุดที่สองอย่างนี้ไม่ตรงกัน" },
       { k: "สัปดาห์ 3 · ตัดสิน", d: "ส่งมอบในห้องประชุม ไม่ส่งอีเมล" },
-      { k: "The Sounding Report", d: "ไม่เกิน 20 หน้า — แผนที่ความลึก · คำวินิจฉัย · ทิศทางเดียว (ไม่มี A/B/C) · รายการตัดทิ้ง" },
+      { k: "รายงานการวินิจฉัย", d: "ไม่เกิน 20 หน้า — สิ่งที่ตรวจพบ · คำวินิจฉัย · ทิศทางเดียว (ไม่มี A/B/C) · รายการตัดทิ้ง" },
     ],
     note: "ลูกค้าเอารายงานไปทำเองก็ได้ เอาไปให้ใครก็ได้ — นั่นคือความมั่นใจที่เราขาย.",
   },
   {
-    m: "−400m",
-    slug: "mass",
-    name: "Mass",
-    kind: "จัดมวล — งานที่กำหนดว่าแบรนด์จะพูดอะไรไปอีกหลายปี",
-    terms: "8–12 สัปดาห์ · ต่อจาก Sounding เท่านั้น",
+    n: "02",
+    slug: "strategy",
+    name: "กลยุทธ์",
+    nameEn: "The Strategy",
+    kind: "งานที่กำหนดว่าแบรนด์จะพูดอะไรไปอีกหลายปี",
+    terms: "8–12 สัปดาห์ · ต่อจากการวินิจฉัยเท่านั้น",
     body:
-      "มวลใต้น้ำคือสิ่งที่ตัดสินว่ายอดจะออกมาหน้าตาแบบไหน. ขั้นนี้ไม่ใช่ของแถมท้ายใบเสนอราคา — มันคือสินค้าหลัก และเป็นเหตุผลเดียวที่งานผลิตหลังจากนี้จะไม่หลุดทิศ.",
+      "กลยุทธ์คือสิ่งที่ตัดสินว่างานที่ออกไปข้างนอกจะหน้าตาแบบไหน. ขั้นนี้ไม่ใช่ของแถมท้ายใบเสนอราคา — มันคือสินค้าหลัก และเป็นเหตุผลเดียวที่งานผลิตหลังจากนี้จะไม่หลุดทิศ.",
     deliverable: [
       { k: "Positioning Architecture", d: "ที่ยืนที่แบรนด์ถือได้จริง และคู่แข่งลอกไม่ได้ในวันเดียว" },
       { k: "Narrative System", d: "เรื่องหลักหนึ่งเรื่อง และวิธีที่มันแตกไปในทุกจุดสัมผัส" },
@@ -81,32 +77,34 @@ export const depths: Depth[] = [
     note: "ส่งมอบเป็นเอกสารหลักหนึ่งเล่ม + เวิร์กช็อปกับผู้บริหาร ไม่ใช่สไลด์ที่ส่งแล้วหาย.",
   },
   {
-    m: "00m",
-    slug: "waterline",
-    name: "Waterline",
+    n: "03",
+    slug: "work",
+    name: "งานจริง",
+    nameEn: "The Work",
     kind: "สิ่งที่ตลาดเห็น — งานที่ออกไปข้างนอกจริง",
-    terms: "รับเฉพาะเคสที่ผ่าน Sounding · โดยปกติเรากำกับ ลงมือเองเมื่อเคสคุ้มพอ",
+    terms: "รับเฉพาะเคสที่ผ่านการวินิจฉัย · เรากำกับเอง และลงมือเองเมื่อเคสคุ้มพอ",
     body:
-      "ยอดของภูเขาน้ำแข็งไม่ได้ถูกเลือก มันเป็นผลลัพธ์ของมวลข้างล่าง. เราจึงไม่แกะยอดให้ใครที่ไม่ให้เราแตะมวล — เพราะงานสวยบนกลยุทธ์ผิด คือการจ่ายเงินเพื่อให้จำผิดเร็วขึ้น.",
+      "ที่ปรึกษาส่วนใหญ่จบที่สไลด์ แล้วส่งต่อให้คนอื่นไปทำ. เราจบที่งานที่ออกสู่ตลาด — เพราะกลยุทธ์ที่ไม่มีใครแปลเป็นงานจริงได้ ก็เป็นแค่เอกสาร และงานสวยบนกลยุทธ์ผิด คือการจ่ายเงินเพื่อให้คนจำผิดเร็วขึ้น.",
     deliverable: [
       { k: "Identity", d: "ชื่อ · ระบบภาพ · เสียงและคลังภาษา · guideline ที่ทีมลูกค้าใช้เองได้" },
       { k: "Film", d: "brand film · campaign film — เขียนบท กำกับ โปรดักชัน (เส้นส่งออกของเรา)" },
       { k: "Campaign", d: "key message · content system · media direction" },
       { k: "High-stakes", d: "การสื่อสารในภาวะที่ทุกคำถูกจับตา — รับน้อยที่สุด เลือกมากที่สุด" },
     ],
-    note: "สิทธิ์ยับยั้ง — ทุกชิ้นตรวจเทียบ Mass ก่อนออก งานที่ขัดกลยุทธ์ไม่ได้ออก แม้ลูกค้าอยากออก.",
+    note: "สิทธิ์ยับยั้ง — ทุกชิ้นตรวจเทียบกลยุทธ์ก่อนออก งานที่ขัดกลยุทธ์ไม่ได้ออก แม้ลูกค้าอยากออก.",
   },
   {
-    m: "−900m",
-    slug: "roll",
-    name: "Roll",
-    kind: "พลิก — เมื่อมวลเปลี่ยน ภูเขาน้ำแข็งพลิกทั้งก้อน",
+    n: "04",
+    slug: "counsel",
+    name: "ที่ปรึกษาต่อเนื่อง",
+    nameEn: "The Counsel",
+    kind: "อยู่ในห้องบอร์ดระยะยาว ไม่ใช่จบเป็นโปรเจกต์",
     terms: "12–18 เดือน · รับปีละไม่กี่ราย · อยู่ในห้องบอร์ด ไม่ใช่ห้องการตลาด",
     body:
-      "รีแบรนด์จริงคือการพลิก ไม่ใช่การทาสียอดใหม่. ลูกค้าส่วนใหญ่ที่ขอ 'รีแบรนด์' กำลังขอให้ทาสี — งานแรกของเราคือบอกว่าเขาต้องการอะไรกันแน่ และบางรายยังไม่พร้อมพลิก เราปฏิเสธเคสนั้น.",
+      "การเปลี่ยนแบรนด์จริงไม่ได้จบในโปรเจกต์เดียว. ลูกค้าส่วนใหญ่ที่ขอ 'รีแบรนด์' กำลังขอให้เปลี่ยนแค่เปลือก — งานแรกของเราคือบอกว่าเขาต้องการอะไรกันแน่ และบางรายยังไม่พร้อมเปลี่ยนจริง เราปฏิเสธเคสนั้น.",
     deliverable: [
       { k: "อำนาจคัดกรอง", d: "ทุกสิ่งที่องค์กรจะพูดต่อสาธารณะผ่านตาเราก่อน และเรามีสิทธิ์บอกว่าไม่" },
-      { k: "Quarterly Sounding", d: "หยั่งซ้ำทุกไตรมาส — ทิศทางถูกทบทวนด้วยหลักฐาน ไม่ใช่ด้วยความเคยชิน" },
+      { k: "วินิจฉัยซ้ำรายไตรมาส", d: "ทิศทางถูกทบทวนด้วยหลักฐาน ไม่ใช่ด้วยความเคยชิน" },
       { k: "Kill List รายเดือน", d: "ส่งก่อนรายการสิ่งที่ควรทำเพิ่มเสมอ" },
       { k: "Direct line", d: "ถึง senior โดยตรง ไม่ผ่าน account executive เพราะเราไม่มี" },
     ],

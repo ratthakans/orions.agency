@@ -79,11 +79,11 @@ describe("public credibility contract", () => {
     expect(offerSurfaces).not.toMatch(/Aesthetic Intelligence/i);
   });
 
-  // The practice has one door: every engagement starts at Sounding (−40m).
+  // The practice has one door: every engagement starts at the diagnostic.
   // A "we also take small production jobs" caveat used to sit at the end of
   // Thinking's "Limited by design" section, which told a reader the gate was
   // negotiable and undercut the section it lived in. Keep it from returning.
-  it("does not offer a way around the Sounding gate", () => {
+  it("does not offer a way around the diagnostic gate", () => {
     const gateSurfaces = [
       "src/pages/Index.tsx",
       "src/pages/Thinking.tsx",
@@ -93,6 +93,31 @@ describe("public credibility contract", () => {
     ].map(fromRoot).join("\n");
     expect(gateSurfaces).not.toMatch(/สเกลย่อย/);
     expect(gateSurfaces).not.toMatch(/ยังเปิดรับงาน/);
+  });
+
+  // The practice was once modelled on an iceberg (Waterline / Sounding / Mass /
+  // Roll at −40m…−900m). It was retired because it read as muddled: a borrowed
+  // diagram, fighting the brand's own name (ØRIONS is a constellation — sky,
+  // not sea), and it made a client learn four invented words plus a depth scale
+  // before they could tell what we sell. The ladder is plain now; keep it that
+  // way — this guard is the reason the model can't drift back into jargon.
+  it("does not reintroduce the retired iceberg model", () => {
+    const practiceSurfaces = [
+      "src/data/practice.ts",
+      "src/pages/Practice.tsx",
+      "src/pages/Index.tsx",
+      "src/pages/Contact.tsx",
+      "src/pages/About.tsx",
+      "src/pages/Thinking.tsx",
+      "public/llms.txt",
+    ].map(fromRoot).join("\n");
+    // Depth-scale markers like −40m / −900m
+    expect(practiceSurfaces).not.toMatch(/−\s?\d{2,3}m\b/);
+    expect(practiceSurfaces).not.toMatch(/ภูเขาน้ำแข็ง/);
+    expect(practiceSurfaces).not.toMatch(/แกะยอด|จัดมวล|หยั่งความลึก/);
+    // The invented stage names, as standalone words
+    expect(practiceSurfaces).not.toMatch(/\bWaterline\b/i);
+    expect(practiceSurfaces).not.toMatch(/\bSounding\b/i);
   });
 
   // Cases describe what was done, not what it earned — so the site must not

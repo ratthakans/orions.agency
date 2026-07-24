@@ -14,13 +14,13 @@ import { inquirySchema, type Inquiry } from "@/lib/contact";
 type FieldErrors = Partial<Record<keyof Inquiry, string>>;
 type SubmitStatus = { kind: "success" | "error"; message: string } | null;
 
-/* The four depths, not a service menu — the form should ask the same question
-   the practice does. Sounding is the default because it is the only door. */
+/* The four stages, not a service menu — the form should ask the same question
+   the practice does. The diagnostic leads because it is the only door. */
 const packageOptions = [
-  "Sounding — หยั่งความลึก 3 สัปดาห์ (เริ่มที่นี่)",
-  "Mass — จัดมวล ต่อจาก Sounding",
-  "Waterline — งานที่ออกไปข้างนอก",
-  "Roll — พลิกทั้งองค์กร 12–18 เดือน",
+  "01 การวินิจฉัย — 3 สัปดาห์ (เริ่มที่นี่)",
+  "02 กลยุทธ์ — ต่อจากการวินิจฉัย",
+  "03 งานจริง — งานที่ออกสู่ตลาด",
+  "04 ที่ปรึกษาต่อเนื่อง — 12–18 เดือน",
   "ยังไม่แน่ใจ / ขอคำแนะนำ",
 ];
 

@@ -223,18 +223,18 @@ const Thinking = () => (
         <div className="mt-16 md:mt-20">
           <Reveal emphasis="lead">
             <blockquote lang="th" className="font-serif text-[26px] md:text-[46px] leading-[1.3] tracking-[-0.015em] text-foreground max-w-[22ch]">
-              เราไม่แกะยอดให้ใคร <em className="text-foreground italic">ที่ไม่ให้เราแตะมวล.</em>
+              เราไม่จ่ายยาให้ใคร <em className="text-foreground italic">ที่ไม่ให้เราตรวจ.</em>
             </blockquote>
           </Reveal>
           <Reveal delay={0.08}>
             <p lang="th" className="mt-8 font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.8] text-foreground/80 max-w-[640px]">
-              ความเชื่อนี้ถูกแปลเป็นวิธีรับงานที่มีลำดับและมีประตูเดียว — สี่ชั้นความลึก
-              ตั้งแต่การหยั่งว่าปัญหาจริงอยู่ตรงไหน ไปจนถึงการพลิกทั้งองค์กร.
+              ความเชื่อนี้ถูกแปลเป็นวิธีรับงานที่มีลำดับและมีประตูเดียว — สี่ขั้น
+              ตั้งแต่การวินิจฉัยว่าปัญหาจริงอยู่ตรงไหน ไปจนถึงงานที่ออกสู่ตลาดซึ่งเราลงมือทำเอง.
             </p>
           </Reveal>
           <Reveal delay={0.12}>
             <Link to="/practice" viewTransition className="cta-link mt-10">
-              <span>ดูสี่ชั้นความลึก</span><ArrowUpRight className="w-4 h-4" />
+              <span>ดูวิธีที่เรารับงาน</span><ArrowUpRight className="w-4 h-4" />
             </Link>
           </Reveal>
         </div>

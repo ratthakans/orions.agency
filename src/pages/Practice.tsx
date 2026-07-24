@@ -50,10 +50,13 @@ const Practice = () => (
                 key={d.m}
                 className={`grid grid-cols-[68px_1fr] md:grid-cols-[110px_190px_1fr] items-baseline gap-x-4 gap-y-1 py-4 border-b border-foreground/12 ${i === 0 ? "" : "opacity-95"}`}
               >
-                <span className="font-mono text-[11px] md:text-[12px] tracking-[0.14em] text-muted-foreground tabular-nums">{d.m}</span>
+                <span className={`font-mono text-[11px] md:text-[12px] tracking-[0.14em] tabular-nums ${d.gate ? "text-cinnabar" : "text-muted-foreground"}`}>{d.m}</span>
                 <span className="font-display text-[19px] md:text-[22px] font-medium tracking-[-0.01em]">{d.name}</span>
                 <span lang="th" className="col-span-2 md:col-span-1 font-thai text-[13px] md:text-[14px] leading-[1.7] text-muted-foreground">
                   {d.d}
+                  {d.gate && (
+                    <span className="ml-3 font-mono text-[10px] tracking-[0.2em] uppercase text-cinnabar">ประตูเดียว</span>
+                  )}
                 </span>
               </div>
             ))}

@@ -13,6 +13,11 @@ import { caseStudies } from "@/data/caseStudies";
 
 const SITE_URL = "https://orions.agency";
 const FEATURED_CASE_SLUGS = ["hongmove", "heavy-organizer", "khaoyai-country-club"];
+
+// Depth map cadence — type gets heavier and rows sit further apart the deeper
+// you go, so the scale reads as a descent rather than a four-item list.
+const DEPTH_SIZE = ["text-[24px] md:text-[32px]", "text-[28px] md:text-[40px]", "text-[32px] md:text-[48px]", "text-[36px] md:text-[56px]"];
+const DEPTH_PAD = ["py-5 md:py-6", "py-6 md:py-8", "py-7 md:py-10", "py-8 md:py-12"];
 const featuredCases = FEATURED_CASE_SLUGS.flatMap((slug) => {
   const found = caseStudies.find((item) => item.slug === slug);
   return found ? [found] : [];
@@ -68,7 +73,7 @@ const Index = () => (
         </div>
         <Reveal delay={0.5}>
           <p lang="th" className="mt-9 font-thai thai-wrap text-[17px] md:text-[21px] leading-[1.7] text-foreground/85 max-w-[42ch]">
-            ครีเอทีฟเอเจนซีในกรุงเทพฯ — ปั้นแบรนด์ที่คนจำด้วยมือมนุษย์ และ AI ที่มีรสนิยมของเราเอง.
+            ยอดคือผลลัพธ์ของมวล — เราจัดมวลก่อน แล้วจึงแกะยอด. ทุกงานเริ่มที่การหยั่งความลึก.
           </p>
         </Reveal>
         <Reveal delay={0.62}>
@@ -125,34 +130,46 @@ const Index = () => (
             เราจัดมวลก่อน <em className="text-foreground">แล้วจึงแกะยอด.</em>
           </h2>
         </Reveal>
+        {/* The descent is expressed by the type itself — each level sits heavier
+            and further apart than the one above it. Never illustrate the iceberg. */}
         <div className="mt-14 md:mt-20 border-t border-foreground/20">
-          {depthMap.map((d) => (
+          {depthMap.map((d, i) => (
             <Reveal key={d.m} emphasis="quiet">
-              <div className="grid grid-cols-[76px_1fr] lg:grid-cols-[130px_0.8fr_1.2fr] items-baseline gap-x-5 gap-y-1 py-6 md:py-8 border-b border-foreground/12">
-                <span className="font-mono text-[12px] md:text-[13px] tracking-[0.14em] text-muted-foreground tabular-nums">{d.m}</span>
-                <span className="font-serif text-[26px] md:text-[38px] leading-[1.02] tracking-[-0.02em]">{d.name}</span>
+              <div className={`grid grid-cols-[84px_1fr] lg:grid-cols-[150px_0.8fr_1.2fr] items-baseline gap-x-5 gap-y-2 border-b border-foreground/12 ${DEPTH_PAD[i]}`}>
+                <span className={`font-mono text-[12px] md:text-[13px] tracking-[0.14em] tabular-nums ${d.gate ? "text-cinnabar" : "text-muted-foreground"}`}>
+                  {d.m}
+                </span>
+                <span className={`font-serif leading-[1.0] tracking-[-0.025em] ${DEPTH_SIZE[i]}`}>{d.name}</span>
                 <span lang="th" className="col-span-2 lg:col-span-1 font-thai thai-wrap text-[14px] md:text-[16px] leading-[1.75] text-muted-foreground">
                   {d.d}
+                  {d.gate && (
+                    <span className="ml-3 font-mono text-[10px] tracking-[0.2em] uppercase text-cinnabar">ประตูเดียว</span>
+                  )}
                 </span>
               </div>
             </Reveal>
           ))}
         </div>
-        <Reveal delay={0.1}>
-          <Link to="/practice" viewTransition className="cta-link mt-12">
+        <Reveal delay={0.08}>
+          <blockquote lang="th" className="mt-14 md:mt-16 font-serif text-[26px] md:text-[44px] leading-[1.3] tracking-[-0.015em] text-foreground max-w-[24ch] thai-wrap">
+            เราไม่แกะยอดให้ใคร <em className="text-foreground italic">ที่ไม่ให้เราแตะมวล.</em>
+          </blockquote>
+        </Reveal>
+        <Reveal delay={0.12}>
+          <Link to="/practice" viewTransition className="cta-link mt-10">
             <span>ทุกงานเริ่มที่ −40m — ดูวิธีที่เรารับงาน</span><ArrowUpRight className="w-4 h-4" />
           </Link>
         </Reveal>
       </div>
     </section>
 
-    {/* 04 — SELECTED PROOF */}
+    {/* 04 — THE RECORD (cases lead with the verdict, not the scope line) */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1400px] mx-auto py-32 md:py-44">
         <Reveal>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
             <div>
-              <div className="font-mono text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-muted-foreground">— Selected proof</div>
+              <div className="font-mono text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-muted-foreground">— บันทึกคำวินิจฉัย</div>
               <h2 lang="th" className="mt-8 h-display-lg max-w-[15ch] thai-wrap">
                 งานที่เริ่มจาก<em className="text-foreground">เงื่อนไขจริง.</em>
               </h2>
@@ -181,7 +198,7 @@ const Index = () => (
                 <span className="absolute inset-x-0 bottom-0 p-6 md:p-7">
                   <span className="block font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/75">{item.niche} · {item.year}</span>
                   <span lang="th" className="mt-3 block font-serif text-[26px] md:text-[30px] leading-[1.05] text-foreground">{item.title}</span>
-                  <span lang="th" className="mt-3 block font-thai text-[13px] md:text-[14px] leading-[1.65] text-foreground/75">{item.summary}</span>
+                  <span lang="th" className="mt-3 block font-thai text-[13px] md:text-[14px] leading-[1.65] text-foreground/75">{item.verdictShort}</span>
                 </span>
               </Link>
             </Reveal>
@@ -208,30 +225,24 @@ const Index = () => (
       <div className="relative z-10 max-w-[1400px] mx-auto border-t border-foreground/15">
         {innovations.map((it, i) => (
           <Reveal key={it.n} delay={0.04}>
-            <article className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-8 lg:gap-20 py-20 md:py-28 border-b border-foreground/15">
+            {/* Kept deliberately tighter than The Practice — these are the
+                instruments, not the offer. Depth is the homepage's centre. */}
+            <article className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-6 lg:gap-20 py-12 md:py-16 border-b border-foreground/15">
               <div>
                 <div className="flex items-center gap-4 font-mono text-[10px] tracking-[0.24em] uppercase text-muted-foreground">
                   <span className="text-foreground tabular-nums">{it.n}</span>
                   <span>{it.role}</span>
                 </div>
                 <Link to={`/system/${it.slug}`} viewTransition className="group/name block">
-                  <h3 className="mt-6 font-display font-medium text-[clamp(52px,9vw,128px)] leading-[0.9] tracking-[-0.03em] transition-colors duration-300 group-hover/name:opacity-80">{it.name}</h3>
+                  <h3 className="mt-4 font-display font-medium text-[clamp(34px,5vw,64px)] leading-[0.92] tracking-[-0.03em] transition-colors duration-300 group-hover/name:opacity-80">{it.name}</h3>
                 </Link>
-                <div lang="th" className="mt-6 font-serif text-[19px] md:text-[24px] leading-[1.3] tracking-[-0.01em] text-foreground/85">{it.kind}</div>
-                {it.powered && (
-                  <div className="mt-5 font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">{it.powered}</div>
-                )}
+                <div lang="th" className="mt-4 font-serif text-[16px] md:text-[19px] leading-[1.35] tracking-[-0.01em] text-foreground/85">{it.kind}</div>
               </div>
-              <div className="lg:pt-16">
-                {it.quote && (
-                  <p className="font-serif text-[24px] md:text-[34px] leading-[1.3] tracking-[-0.015em] text-foreground max-w-[20ch]">
-                    “{it.quote}”
-                  </p>
-                )}
-                <p lang="th" className={`font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.85] text-muted-foreground max-w-[52ch] ${it.quote ? "mt-8" : ""}`}>
+              <div className="lg:pt-8">
+                <p lang="th" className="font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.8] text-muted-foreground max-w-[52ch]">
                   {it.lede}
                 </p>
-                <Link to={`/system/${it.slug}`} viewTransition className="cta-link mt-8">
+                <Link to={`/system/${it.slug}`} viewTransition className="cta-link mt-6">
                   <span>ดูรายละเอียด {it.name}</span><ArrowUpRight className="w-4 h-4" />
                 </Link>
               </div>

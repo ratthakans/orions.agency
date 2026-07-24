@@ -28,10 +28,18 @@ export type Depth = {
   gate?: boolean;
 };
 
+export type DepthMapRow = {
+  m: string;
+  name: string;
+  d: string;
+  /** The single entry point — marked so every surface can show the door. */
+  gate?: boolean;
+};
+
 /** The depth map — surface to floor. Order here is the mental model. */
-export const depthMap = [
+export const depthMap: DepthMapRow[] = [
   { m: "00m", name: "Waterline", d: "สิ่งที่ตลาดเห็น" },
-  { m: "−40m", name: "Sounding", d: "หยั่งความลึก · ประตูเดียว" },
+  { m: "−40m", name: "Sounding", d: "หยั่งความลึก", gate: true },
   { m: "−400m", name: "Mass", d: "จัดมวล" },
   { m: "−900m", name: "Roll", d: "พลิก" },
 ];

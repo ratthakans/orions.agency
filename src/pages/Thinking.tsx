@@ -15,7 +15,7 @@ const contents = [
   { n: "01", t: "The Noise" },
   { n: "02", t: "The Great Filter" },
   { n: "03", t: "Stories, Refined." },
-  { n: "04", t: "The Proof" },
+  { n: "04", t: "The Record" },
   { n: "05", t: "Limited by Design" },
 ];
 
@@ -109,7 +109,7 @@ const Thinking = () => (
           </Reveal>
           <Reveal delay={0.1}>
             <p lang="th" className="mt-8 max-w-[640px] font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.8] text-foreground/80">
-              โลกไม่ได้ขาดคอนเทนต์ — โลก<span className="text-foreground">จมอยู่ในมัน</span>.
+              โลกไม่ได้ขาดคอนเทนต์ — โลก<span className="text-foreground">กลบเสียงตัวเองด้วยมัน</span>.
             </p>
           </Reveal>
           <div className="mt-10 border-t border-foreground/12 max-w-[640px]">
@@ -124,12 +124,12 @@ const Thinking = () => (
           </div>
           <Reveal delay={0.15}>
             <p lang="th" className="mt-10 max-w-[640px] font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.8] text-foreground/80">
-              ผลคือวงจรที่ทุกคนติดกับ — ยิงแอดแพงขึ้น → ลดราคา → แจกของแถม → รอดไปอีกเดือน. แล้วพอคู่แข่งถูกกว่าคุณแค่ 100 บาท ลูกค้าก็เดินจากไป.
+              ผลคือวงจรที่องค์กรจำนวนมากติดอยู่ — เพิ่มงบสื่อ → เร่งโปรโมชัน → ทวงยอดคืนเป็นรายไตรมาส. ทุกครั้งที่ทำ ต้นทุนของการถูกจำก็แพงขึ้นกว่าเดิม และไม่มีไตรมาสไหนที่หยุดจ่ายได้.
             </p>
           </Reveal>
           <Reveal delay={0.2}>
             <blockquote lang="th" className="mt-10 font-serif text-[26px] md:text-[46px] leading-[1.35] tracking-[-0.01em] text-foreground max-w-[24ch] thai-wrap">
-              นี่ไม่ใช่การเติบโต — นี่คือการพยายามหายใจ <em className="text-foreground italic">ใต้น้ำที่กำลังเดือด.</em>
+              นี่ไม่ใช่การเติบโต — นี่คือการ<em className="text-foreground italic">ซื้อเสียงของตัวเองคืนทุกไตรมาส.</em>
             </blockquote>
           </Reveal>
         </div>
@@ -245,20 +245,20 @@ const Thinking = () => (
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1400px] mx-auto py-28 md:py-52 grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-10 lg:gap-16 items-start">
         <div>
-          <SectionLabel index="04" label="The Proof" />
+          <SectionLabel index="04" label="The Record" />
           <Reveal delay={0.05}>
             <h2 lang="th" className="mt-8 font-serif text-[32px] md:text-[52px] leading-[1.2] tracking-[-0.015em] max-w-[22ch] thai-wrap">
-              ความคิดพิสูจน์ด้วยคำพูดไม่ได้ — <em className="text-foreground italic">ต้องพิสูจน์ด้วยงาน.</em>
+              คำวินิจฉัยที่ดี ดูจากสิ่งที่<em className="text-foreground italic">กล้าตัดทิ้ง.</em>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
             <p lang="th" className="mt-8 max-w-[640px] font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.8] text-foreground/80">
-              จาก brand film ระดับองค์กร ถึงมิวสิควิดีโอศิลปินแถวหน้า. จากแบรนด์ hospitality ถึงงานสื่อสารระดับประเทศ. งานทั้งหมดพิสูจน์เรื่องเดียวกัน — <span className="text-foreground">craft ที่แท้จริงไม่ขึ้นกับอุตสาหกรรม มันขึ้นกับความเข้าใจว่าอะไรทำให้คนหยุดดู.</span>
+              ทุกเคสในบันทึกของเราเปิดด้วยอาการที่ลูกค้าเดินเข้ามาบอก และปิดด้วยรายการสิ่งที่เราขอตัดทิ้ง — รวมถึงสิ่งที่ลูกค้าอยากได้ แต่เราปฏิเสธ. <span className="text-foreground">ส่วนหลังนั่นแหละ ที่บอกวิธีคิดของเราได้ตรงที่สุด.</span>
             </p>
           </Reveal>
           <Reveal delay={0.15}>
             <Link to="/work" viewTransition className="cta-link cta-link-muted mt-10">
-              <span>ดูผลงาน</span><ArrowUpRight className="w-4 h-4" />
+              <span>ดูบันทึกคำวินิจฉัย</span><ArrowUpRight className="w-4 h-4" />
             </Link>
           </Reveal>
         </div>
@@ -288,11 +288,6 @@ const Thinking = () => (
           <Reveal delay={0.15}>
             <p lang="th" className="mt-6 max-w-[640px] font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.8] text-foreground/80">
               ทุกโปรเจกต์ที่เราตอบตกลง จึงได้เวลา ได้ความใส่ใจ และได้ทีมที่มองงานของคุณเป็นงานของตัวเอง.
-            </p>
-          </Reveal>
-          <Reveal delay={0.2}>
-            <p lang="th" className="mt-8 max-w-[640px] font-thai text-[13px] leading-[1.8] text-muted-foreground">
-              — เรายังเปิดรับงาน production สเกลย่อย เพื่อสนับสนุนระบบนิเวศธุรกิจเสมอ.
             </p>
           </Reveal>
         </div>

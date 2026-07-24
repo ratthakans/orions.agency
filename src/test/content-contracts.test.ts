@@ -79,6 +79,38 @@ describe("public credibility contract", () => {
     expect(offerSurfaces).not.toMatch(/Aesthetic Intelligence/i);
   });
 
+  // The practice has one door: every engagement starts at Sounding (−40m).
+  // A "we also take small production jobs" caveat used to sit at the end of
+  // Thinking's "Limited by design" section, which told a reader the gate was
+  // negotiable and undercut the section it lived in. Keep it from returning.
+  it("does not offer a way around the Sounding gate", () => {
+    const gateSurfaces = [
+      "src/pages/Index.tsx",
+      "src/pages/Thinking.tsx",
+      "src/pages/About.tsx",
+      "src/pages/Practice.tsx",
+      "src/data/practice.ts",
+    ].map(fromRoot).join("\n");
+    expect(gateSurfaces).not.toMatch(/สเกลย่อย/);
+    expect(gateSurfaces).not.toMatch(/ยังเปิดรับงาน/);
+  });
+
+  // Cases describe what was done, not what it earned — so the site must not
+  // claim "proof". Restore this language only alongside real outcome data.
+  it("does not claim proof it cannot show", () => {
+    expect(publicCopy).not.toMatch(/selected proof/i);
+    expect(publicCopy).not.toMatch(/พิสูจน์ด้วยงาน/);
+  });
+
+  // Depth is the site's master metaphor and it means value ("the 90% no one
+  // sees"). Water as suffocation inverts it — the same image meaning opposite
+  // things in two places is what made the copy read as incoherent.
+  it("does not use depth/water as a symbol of suffocation", () => {
+    const narrative = ["src/pages/Index.tsx", "src/pages/Thinking.tsx"].map(fromRoot).join("\n");
+    expect(narrative).not.toMatch(/ใต้น้ำที่กำลังเดือด/);
+    expect(narrative).not.toMatch(/จมอยู่ในมัน/);
+  });
+
   // Our own products must live on real domains. Client work in the portfolio
   // may still sit on a vercel.app host until the client wires their domain —
   // that reflects reality and is allowed.

@@ -91,7 +91,7 @@ const Index = () => (
         <div className="grid grid-cols-1 lg:grid-cols-[1.3fr_0.7fr] gap-14 lg:gap-24 items-end">
           <Reveal emphasis="lead">
             <h2 lang="th" className="font-serif text-[34px] md:text-[64px] leading-[1.08] tracking-[-0.02em] max-w-[16ch] thai-wrap">
-              โลกไม่ได้ต้องการเสียงที่ดังหรือกว้างขึ้น — แต่โหยหา<em className="text-foreground italic">ความลึก.</em>
+              โลกไม่ได้ต้องการเสียงที่ดังหรือกว้างขึ้น — แต่โหยหา<em className="text-foreground">ความลึก.</em>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
@@ -115,7 +115,7 @@ const Index = () => (
       </div>
     </section>
 
-    {/* 03 — THE PRACTICE (depth map only; the four depths live on /practice) */}
+    {/* 03 — THE PRACTICE (ladder summary only; each stage lives on /practice) */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1400px] mx-auto py-32 md:py-52">
         <Reveal>
@@ -155,7 +155,7 @@ const Index = () => (
         </div>
         <Reveal delay={0.08}>
           <blockquote lang="th" className="mt-14 md:mt-16 font-serif text-[26px] md:text-[44px] leading-[1.3] tracking-[-0.015em] text-foreground max-w-[24ch] thai-wrap">
-            เราไม่จ่ายยาให้ใคร <em className="text-foreground italic">ที่ไม่ให้เราตรวจ.</em>
+            เราไม่จ่ายยาให้ใคร <em className="text-foreground">ที่ไม่ให้เราตรวจ.</em>
           </blockquote>
         </Reveal>
         <Reveal delay={0.12}>
@@ -262,7 +262,7 @@ const Index = () => (
         <div>
           <Reveal emphasis="lead">
             <h2 lang="th" className="font-serif text-[30px] md:text-[52px] leading-[1.1] tracking-[-0.02em] max-w-[18ch] thai-wrap">
-              เบื้องหลังทุกแพลตฟอร์ม คือ<em className="text-foreground italic">งานคราฟต์</em>ของมนุษย์.
+              เบื้องหลังทุกแพลตฟอร์ม คือ<em className="text-foreground">งานคราฟต์</em>ของมนุษย์.
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
@@ -278,7 +278,7 @@ const Index = () => (
         </div>
         <Reveal delay={0.1}>
           <blockquote lang="th" className="font-serif text-[24px] md:text-[34px] leading-[1.35] tracking-[-0.015em] text-foreground/90 max-w-[22ch]">
-            Computation is nothing without <em className="text-foreground italic">taste.</em>
+            Computation is nothing without <em className="text-foreground">taste.</em>
           </blockquote>
         </Reveal>
       </div>

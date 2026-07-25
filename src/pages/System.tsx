@@ -40,7 +40,7 @@ const System = () => (
         </Reveal>
         <Reveal delay={0.05} emphasis="lead">
           <h1 className="mt-10 font-serif font-medium text-[clamp(44px,8vw,120px)] leading-[0.98] tracking-[-0.025em] max-w-[16ch]">
-            One universe, powered by <em className="text-cinnabar italic">VÆST.</em>
+            One universe, powered by <em className="text-cinnabar">VÆST.</em>
           </h1>
         </Reveal>
         <Reveal delay={0.12}>

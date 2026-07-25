@@ -98,7 +98,7 @@ const About = () => (
         <SectionLabel label="The compass" />
         <Reveal delay={0.05}>
           <blockquote lang="th" className="mt-8 font-serif text-[28px] md:text-[46px] leading-[1.25] tracking-[-0.015em] thai-wrap text-foreground max-w-[18ch]">
-            "มันทำให้แบรนด์<em className="text-foreground italic">คมขึ้น</em> หรือแค่<em className="text-foreground italic">ดังขึ้น?</em>"
+            "มันทำให้แบรนด์<em className="text-foreground">คมขึ้น</em> หรือแค่<em className="text-foreground">ดังขึ้น?</em>"
           </blockquote>
         </Reveal>
         <Reveal delay={0.1}>
@@ -110,7 +110,7 @@ const About = () => (
           {nevers.map((p, i) => (
             <Reveal key={p.n} delay={i * 0.05} emphasis="quiet">
               <div className="grid grid-cols-[46px_1fr] md:grid-cols-[92px_1fr] gap-5 md:gap-10 py-8 md:py-11 border-b border-foreground/12 items-baseline group">
-                <div className="font-serif italic text-foreground text-[26px] md:text-[40px] leading-none">{p.n}</div>
+                <div className="font-serif text-foreground text-[26px] md:text-[40px] leading-none">{p.n}</div>
                 <div>
                   <h3 lang="th" className="font-thai text-[25px] md:text-[34px] leading-[1.1] tracking-[-0.01em] font-medium group-hover:text-foreground transition-colors">{p.en}</h3>
                   <p lang="th" className="mt-3.5 font-thai thai-wrap text-[14px] md:text-[16px] leading-[1.8] text-muted-foreground max-w-[62ch]">{p.th}</p>
@@ -139,7 +139,7 @@ const About = () => (
               className="w-44 h-56 md:w-60 md:h-[19rem] rounded-none object-cover object-top shrink-0"
             />
             <div>
-              <div aria-hidden className="font-serif italic text-foreground text-[56px] md:text-[80px] leading-[0.4] select-none">“</div>
+              <div aria-hidden className="font-serif text-foreground text-[56px] md:text-[80px] leading-[0.4] select-none">“</div>
               <blockquote lang="th" className="mt-5 font-serif text-[24px] md:text-[38px] leading-[1.35] tracking-[-0.015em] thai-wrap text-foreground max-w-[42ch]">
                 ผมเริ่ม ØRIONS เพราะเชื่อว่าแบรนด์ที่ดีไม่ต้องดังที่สุด — แค่ <em className="text-foreground">คมพอที่คนจะจำได้เอง.</em> เราจะบอกตรง ๆ เสมอ — ทั้งตอนที่มันใช่ และตอนที่ยังไม่พร้อม.
               </blockquote>

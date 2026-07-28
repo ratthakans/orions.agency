@@ -6,7 +6,7 @@ import StickyMobileCTA from "./StickyMobileCTA";
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="grain min-h-screen bg-background text-foreground flex flex-col">
+    <div className="grain cine-vignette min-h-screen bg-background text-foreground flex flex-col">
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[80] focus:bg-foreground focus:text-background focus:px-4 focus:py-2 focus:font-mono focus:text-[11px] focus:tracking-[0.18em] focus:uppercase"

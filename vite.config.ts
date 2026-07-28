@@ -9,6 +9,8 @@ export default defineConfig(({ isSsrBuild, command }) => ({
   server: {
     host: "::",
     port: 8080,
+    // Allow preview/sandbox proxy hosts (e.g. *.vercel.run) to reach the dev server.
+    allowedHosts: true,
     hmr: {
       overlay: false,
     },

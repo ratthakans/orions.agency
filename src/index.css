@@ -529,10 +529,38 @@ h1:lang(th) em, h2:lang(th) em, h3:lang(th) em, h4:lang(th) em, h5:lang(th) em, 
   .work-marquee-track { animation: none; }
 }
 
-/* Scrim over the silk — vignette that keeps the headline legible while the
-   photo stays present full-bleed (lighter than a half-cut fade). */
+/* Scrim over the silk — cinematic vignette + film letterbox bands. Keeps the
+   headline legible while the photo stays full-bleed, and frames the hero like
+   a widescreen film still (heavier top/bottom, gentle center). */
 .hero-scrim {
   background:
+    /* corner darkening — cinematic vignette */
+    radial-gradient(ellipse 120% 90% at 50% 48%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.5) 100%),
     radial-gradient(ellipse 110% 85% at 50% 46%, rgba(0,0,0,0.46) 0%, rgba(0,0,0,0.24) 58%, rgba(0,0,0,0.06) 100%),
-    linear-gradient(180deg, rgba(10,10,10,0.42) 0%, rgba(10,10,10,0.06) 42%, rgba(10,10,10,0.40) 100%);
+    /* letterbox weight top + bottom */
+    linear-gradient(180deg, rgba(8,8,8,0.66) 0%, rgba(8,8,8,0.10) 26%, rgba(8,8,8,0.06) 68%, rgba(8,8,8,0.6) 100%);
+}
+
+/* Global cinematic vignette — a fixed, very subtle edge-darkening over the whole
+   viewport for filmic depth. Cheap (static, cached), sits under the grain. */
+.cine-vignette::after {
+  content: '';
+  position: fixed; inset: 0;
+  pointer-events: none;
+  z-index: 65;
+  background: radial-gradient(ellipse 100% 100% at 50% 50%, transparent 62%, rgba(0,0,0,0.28) 100%);
+}
+
+/* === Mask reveal — the COLLINS "curtain up" text reveal. Content sits behind
+   an overflow-hidden window and rises into view. Pair with framer-motion or the
+   in-view class toggle below. === */
+.mask-reveal { overflow: hidden; display: block; }
+.mask-reveal > * {
+  transform: translateY(105%);
+  transition: transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+.mask-reveal.is-in > * { transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  .mask-reveal > * { transform: none; }
 }

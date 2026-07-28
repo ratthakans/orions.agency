@@ -9,6 +9,7 @@ import Slash from "@/components/Slash";
 import HeroHeadline from "@/components/HeroHeadline";
 import { caseStudies } from "@/data/caseStudies";
 import Picture from "@/components/Picture";
+import MaskReveal from "@/components/MaskReveal";
 import heroSilk from "@/assets/hero-silk.jpg?as=picture";
 import founder from "@/assets/team/founder.jpg?as=picture";
 
@@ -147,11 +148,11 @@ const Index = () => {
         <Reveal>
           <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">Point of view</p>
         </Reveal>
-        <Reveal delay={0.08}>
-          <p className="h-statement mt-10 max-w-[18ch]">
-            Marketing rents attention.<br />Creative earns <em className="text-cinnabar">belief.</em>
-          </p>
-        </Reveal>
+        <div className="h-statement mt-10 max-w-[18ch]">
+          <MaskReveal>Marketing rents</MaskReveal>
+          <MaskReveal delay={0.08}>attention.</MaskReveal>
+          <MaskReveal delay={0.16}><span>Creative earns <em className="text-cinnabar">belief.</em></span></MaskReveal>
+        </div>
         <Reveal delay={0.16}>
           <p lang="th" className="mt-10 font-thai thai-wrap text-[14px] md:text-[16px] leading-[1.9] text-muted-foreground max-w-[52ch]">
             การตลาดเช่าความสนใจได้ชั่วคราว — แต่ความคิดสร้างสรรค์ทำให้คนเชื่อและอยู่กับคุณ. ในโลกที่ทุกอย่างล้นเกิน เรื่องที่คมที่สุดชนะ ไม่ใช่เรื่องที่ดังที่สุด.

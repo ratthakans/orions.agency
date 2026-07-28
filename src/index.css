@@ -145,9 +145,12 @@
      overlay to 0px. This version composes cleanly with `absolute inset-0`. */
   .halftone {
     pointer-events: none;
-    background-image: radial-gradient(circle at center, rgba(6, 6, 6, 0.62) 0.8px, transparent 1.15px);
+    /* Held below the threshold where the grid competes with the photograph's
+       own detail. At 0.62/0.7 the screen beat against busy frames (vehicles,
+       façades) and read as compression noise rather than as ink. */
+    background-image: radial-gradient(circle at center, rgba(6, 6, 6, 0.55) 0.8px, transparent 1.15px);
     background-size: 3px 3px;
-    opacity: 0.7;
+    opacity: 0.45;
     transition: opacity 700ms ease;
   }
   .group:hover .halftone { opacity: 0; }
@@ -356,8 +359,14 @@ h1:lang(th), h2:lang(th), h3:lang(th), h4:lang(th), h5:lang(th), h6:lang(th),
   line-height: 1.25;
   text-wrap: pretty;
 }
-/* Thai accent words in headings — keep upright cinnabar, no negative tracking */
+/* Accent words in headings — restate the serif form here, unlayered.
+   The document is <html lang="th">, so the `:lang(th)` body-font rule in
+   @layer base matches EVERY element (0,1,0) and outranked `h1 em` (0,0,2) —
+   which silently dropped Newsreader from every Latin accent word in every
+   heading site-wide. Thai needs no exception: Newsreader carries no Thai
+   glyphs, so Thai accent words fall through to IBM Plex Sans Thai anyway. */
 h1:lang(th) em, h2:lang(th) em, h3:lang(th) em, h4:lang(th) em, h5:lang(th) em, h6:lang(th) em {
+  font-family: 'Newsreader', 'IBM Plex Sans Thai', Georgia, serif;
   letter-spacing: 0;
 }
 

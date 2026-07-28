@@ -131,50 +131,59 @@ const Work = () => {
         </div>
       </section>
 
-      {/* 01b · FEATURED SHOWREEL — company flagship reel */}
-      <section className="px-6 md:px-10 border-t border-foreground/15">
-        <div className="max-w-[1280px] mx-auto py-12 md:py-16">
-          <SectionLabel label="Showreel 2026" />
-          <Reveal delay={0.05}>
-            <button
-              type="button"
-              aria-label="เล่นโชว์รีล ØRIONS 2026"
-              onClick={() => setLightbox({ kind: "video", val: SHOWREEL_ID, ar: 16 / 9 })}
-              onMouseEnter={() => setHoverVid(SHOWREEL_ID)}
-              onMouseLeave={() => setHoverVid((h) => (h === SHOWREEL_ID ? null : h))}
-              className="group relative mt-6 block w-full overflow-hidden rounded-none border border-foreground/15 hover:border-foreground/40 transition-colors cursor-pointer"
-            >
-              <span className="block relative w-full" style={{ aspectRatio: "16 / 9" }}>
-                <img
-                  src={`https://i.ytimg.com/vi/${SHOWREEL_ID}/maxresdefault.jpg`}
-                  onError={(e) => { e.currentTarget.src = `https://i.ytimg.com/vi/${SHOWREEL_ID}/hqdefault.jpg`; }}
-                  alt="ØRIONS — Showreel 2026"
-                  width={1280}
-                  height={720}
-                  className="absolute inset-0 w-full h-full object-cover group-hover:opacity-90 transition-opacity"
+      {/* 01b · FEATURED SHOWREEL — company flagship reel.
+          Full-bleed and matted to scope. The YouTube poster is a 1280×720 frame
+          with the 2.39:1 master hard-matted inside it (measured: 89px / 90px of
+          black top and bottom). Framing the well at the master's own ratio and
+          letting object-cover crop clips exactly those bars — no content lost —
+          and the hover player, sized 16:9 and centred in the same well, mattes
+          identically. A reel is the one asset that should own the full width;
+          a border around it makes it a card. */}
+      <section className="border-t border-foreground/15 py-12 md:py-16">
+        <div className="px-6 md:px-10">
+          <div className="max-w-[1400px] mx-auto">
+            <SectionLabel label="Showreel 2026" />
+          </div>
+        </div>
+        <Reveal delay={0.05}>
+          <button
+            type="button"
+            aria-label="เล่นโชว์รีล ØRIONS 2026"
+            onClick={() => setLightbox({ kind: "video", val: SHOWREEL_ID, ar: 16 / 9 })}
+            onMouseEnter={() => setHoverVid(SHOWREEL_ID)}
+            onMouseLeave={() => setHoverVid((h) => (h === SHOWREEL_ID ? null : h))}
+            className="group relative mt-8 md:mt-10 block w-full overflow-hidden cursor-pointer"
+          >
+            <span className="block relative w-full overflow-hidden" style={{ aspectRatio: "1280 / 541" }}>
+              <img
+                src={`https://i.ytimg.com/vi/${SHOWREEL_ID}/maxresdefault.jpg`}
+                onError={(e) => { e.currentTarget.src = `https://i.ytimg.com/vi/${SHOWREEL_ID}/hqdefault.jpg`; }}
+                alt="ØRIONS — Showreel 2026"
+                width={1280}
+                height={720}
+                className="absolute inset-0 w-full h-full object-cover grayscale-[0.25] group-hover:grayscale-0 transition-[filter] duration-700"
+              />
+              {hoverVid === SHOWREEL_ID && (
+                <iframe
+                  src={`https://www.youtube.com/embed/${SHOWREEL_ID}?autoplay=1&mute=1&controls=0&loop=1&playlist=${SHOWREEL_ID}&modestbranding=1&playsinline=1&rel=0`}
+                  title="ØRIONS — Showreel 2026"
+                  tabIndex={-1}
+                  aria-hidden="true"
+                  className="absolute left-0 top-1/2 -translate-y-1/2 w-full aspect-video pointer-events-none"
                 />
-                {hoverVid === SHOWREEL_ID && (
-                  <iframe
-                    src={`https://www.youtube.com/embed/${SHOWREEL_ID}?autoplay=1&mute=1&controls=0&loop=1&playlist=${SHOWREEL_ID}&modestbranding=1&playsinline=1&rel=0`}
-                    title="ØRIONS — Showreel 2026"
-                    tabIndex={-1}
-                    aria-hidden="true"
-                    className="absolute inset-0 w-full h-full pointer-events-none"
-                  />
-                )}
-                <span className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent pointer-events-none" />
-                <span className="absolute inset-0 grid place-items-center pointer-events-none">
-                  <span className={`grid place-items-center w-16 h-16 md:w-20 md:h-20 rounded-none bg-background/55 border border-foreground/25 text-foreground/90 transition-opacity ${hoverVid === SHOWREEL_ID ? "opacity-0" : "group-hover:text-foreground group-hover:border-foreground/50"}`}>
-                    <Play className="w-6 h-6 md:w-7 md:h-7 ml-0.5" />
-                  </span>
-                </span>
-                <span className="absolute left-4 bottom-4 md:left-6 md:bottom-6 font-mono text-[10px] md:text-[11px] tracking-[0.18em] uppercase text-foreground/85 pointer-events-none">
-                  ØRIONS · Showreel
+              )}
+              <span className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent pointer-events-none" />
+              <span className="absolute inset-0 grid place-items-center pointer-events-none">
+                <span className={`grid place-items-center w-16 h-16 md:w-20 md:h-20 rounded-none bg-background/45 border border-foreground/25 text-foreground/90 transition-opacity ${hoverVid === SHOWREEL_ID ? "opacity-0" : "group-hover:text-foreground group-hover:border-foreground/50"}`}>
+                  <Play className="w-6 h-6 md:w-7 md:h-7 ml-0.5" />
                 </span>
               </span>
-            </button>
-          </Reveal>
-        </div>
+              <span className="absolute left-6 bottom-4 md:left-10 md:bottom-6 font-mono text-[10px] md:text-[11px] tracking-[0.18em] uppercase text-foreground/85 pointer-events-none">
+                ØRIONS · Showreel
+              </span>
+            </span>
+          </button>
+        </Reveal>
       </section>
 
       {/* 02 · CATEGORY BOARDS */}
@@ -295,7 +304,13 @@ const Work = () => {
               </div>
             ) : cat.gallery ? (
               <div className="mt-6 columns-2 md:columns-3 gap-2.5 md:gap-3">
-                {shuffle<GalleryImage>(cat.gallery, shuffleKey).map((g, i) => (
+                {/* Deterministic order, matching the data file's own contract
+                    ("Order is deterministic — no client-side shuffle (SSG-safe)").
+                    The shuffle helper was removed when the randomised-order
+                    hydration mismatch was fixed, but this call site survived it — selecting
+                    this board threw `shuffle is not defined` and dropped the whole
+                    page into the error boundary. */}
+                {(cat.gallery as GalleryImage[]).map((g, i) => (
                   <button
                     key={g.src.img.src}
                     type="button"

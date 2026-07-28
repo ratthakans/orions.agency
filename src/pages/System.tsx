@@ -40,7 +40,7 @@ const System = () => (
         </Reveal>
         <Reveal delay={0.05} emphasis="lead">
           <h1 className="mt-10 font-serif font-medium text-[clamp(44px,8vw,120px)] leading-[0.98] tracking-[-0.025em] max-w-[16ch]">
-            One universe, powered by <em className="text-cinnabar">VÆST.</em>
+            One universe, powered by <em>VÆST.</em>
           </h1>
         </Reveal>
         <Reveal delay={0.12}>
@@ -73,12 +73,16 @@ const System = () => (
                 </div>
                 <div className="flex-1 flex flex-col p-6 md:p-7">
                   <div className="flex items-center justify-between gap-3 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
-                    <span className="tabular-nums" style={{ color: it.accent }}>{it.n}</span>
+                    <span className="tabular-nums">{it.n}</span>
                     <span>{it.role}</span>
                   </div>
-                  <h2 className="mt-4 font-display text-[30px] md:text-[34px] font-medium tracking-[-0.02em] leading-[0.95]" style={{ color: it.accent }}>
+                  {/* The index stays monochrome — three near-identical oranges side by
+                      side read as "everything is orange", not as three brands. Each
+                      product wears its colour on its own page; here it's a 1px mark. */}
+                  <h2 className="mt-4 font-display text-[30px] md:text-[34px] font-medium tracking-[-0.02em] leading-[0.95] text-foreground">
                     {it.name}
                   </h2>
+                  <span aria-hidden className="mt-3 block h-px w-6" style={{ background: it.accent }} />
                   <p lang="th" className="mt-3 font-serif text-[15px] md:text-[16px] leading-[1.4] text-foreground/80 max-w-[26ch]">
                     {it.kind}
                   </p>

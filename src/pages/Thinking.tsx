@@ -71,7 +71,7 @@ const Thinking = () => (
         </Reveal>
         <Reveal delay={0.05} emphasis="lead">
           <h1 className="mt-10 font-serif font-medium text-[clamp(44px,8vw,120px)] leading-[0.98] tracking-[-0.025em] max-w-[15ch]">
-            Every brand is a <em className="text-cinnabar">point of light.</em>
+            Every brand is a <em>point of light.</em>
           </h1>
         </Reveal>
         <Reveal delay={0.12}>

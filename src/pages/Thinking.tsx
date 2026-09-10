@@ -66,9 +66,7 @@ const Thinking = () => (
       <SignalField fx={0.78} fy={0.42} seed={5} intensity={0.9}
         className="absolute inset-0 w-full h-full pointer-events-none" />
       <div className="relative z-10 max-w-[1400px] mx-auto w-full pt-32 md:pt-40 pb-20 md:pb-28">
-        <Reveal>
-          <SectionLabel label="The Manifesto" />
-        </Reveal>
+        <SectionLabel label="The Manifesto" />
         <Reveal delay={0.05} emphasis="lead">
           <h1 className="mt-10 font-serif font-medium text-[clamp(44px,8vw,120px)] leading-[0.98] tracking-[-0.025em] max-w-[15ch]">
             Every brand is a <em>point of light.</em>

@@ -32,7 +32,7 @@ const ClosingCTA = ({
   <section className="relative px-6 md:px-10 border-t border-foreground/15">
     <div className="max-w-[1280px] mx-auto py-28 md:py-48 text-center">
       <div className="flex justify-center">
-        <SectionLabel label={eyebrow} reveal={false} />
+        <SectionLabel label={eyebrow} />
       </div>
       <h2 className="mt-7 h-display-lg text-balance max-w-[18ch] mx-auto">{title}</h2>
       {description && (

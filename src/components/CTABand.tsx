@@ -27,7 +27,7 @@ const CTABand = ({ eyebrow, title, subtitle, primary, secondary, tone = "snow", 
     <section className={`${bandBg} px-6 md:px-10 border-t border-foreground/15 ${className}`}>
       <div className="max-w-[1280px] mx-auto py-28 md:py-48">
         {eyebrow && (
-          <SectionLabel label={eyebrow} reveal={false} />
+          <SectionLabel label={eyebrow} />
         )}
         <h2 className="mt-8 h-display-lg max-w-[15ch]">{title}</h2>
         {subtitle && (

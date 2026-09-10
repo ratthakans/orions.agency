@@ -81,60 +81,44 @@ const Practice = () => (
       >
         <div className="max-w-[1280px] mx-auto py-24 md:py-36">
           <div className="max-w-[52ch]">
-            <Reveal>
-              <div className="flex items-baseline gap-4">
-                <span className={`font-mono text-[12px] tracking-[0.14em] tabular-nums ${d.gate ? "text-cinnabar" : "text-muted-foreground"}`}>{d.n}</span>
-                {d.gate && (
-                  <span className="meta-chip">ประตูเดียว</span>
-                )}
-              </div>
-            </Reveal>
-            <Reveal delay={0.05} emphasis="lead">
-              <h2 lang="th" className="mt-4 font-display font-medium text-[clamp(34px,5.4vw,60px)] leading-[1.02] tracking-[-0.03em] thai-wrap">
-                {d.name}
-              </h2>
-            </Reveal>
-            <Reveal delay={0.08}>
-              <div className="mt-2 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">{d.nameEn}</div>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <p lang="th" className="mt-5 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.75] text-muted-foreground max-w-[34ch]">
-                {d.kind}
-              </p>
-            </Reveal>
-            <Reveal delay={0.14}>
-              <p lang="th" className="mt-6 font-mono text-[10px] tracking-[0.14em] uppercase text-foreground/70 leading-[1.9]">
-                {d.terms}
-              </p>
-            </Reveal>
+            <div className="flex items-baseline gap-4">
+              <span className={`font-mono text-[12px] tracking-[0.14em] tabular-nums ${d.gate ? "text-cinnabar" : "text-muted-foreground"}`}>{d.n}</span>
+              {d.gate && (
+                <span className="meta-chip">ประตูเดียว</span>
+              )}
+            </div>
+            <h2 lang="th" className="mt-4 font-display font-medium text-[clamp(34px,5.4vw,60px)] leading-[1.02] tracking-[-0.03em] thai-wrap">
+              {d.name}
+            </h2>
+            <div className="mt-2 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">{d.nameEn}</div>
+            <p lang="th" className="mt-5 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.75] text-muted-foreground max-w-[34ch]">
+              {d.kind}
+            </p>
+            <p lang="th" className="mt-6 font-mono text-[10px] tracking-[0.14em] uppercase text-foreground/70 leading-[1.9]">
+              {d.terms}
+            </p>
           </div>
 
           <div className="mt-10 md:mt-14">
-            <Reveal delay={0.05}>
-              <p lang="th" className="editorial-quote max-w-[680px] text-[19px] md:text-[24px]">
-                {d.body}
-              </p>
-            </Reveal>
+            <p lang="th" className="editorial-quote max-w-[680px] text-[19px] md:text-[24px]">
+              {d.body}
+            </p>
 
             {d.deliverable && (
               <div className="mt-12 border-t border-foreground/12">
                 {d.deliverable.map((x, xi) => (
-                  <Reveal key={x.k} delay={xi * 0.05} emphasis="quiet">
-                    <div className="py-5 md:py-6 border-b border-foreground/12 grid grid-cols-1 md:grid-cols-[240px_1fr] gap-2 md:gap-8">
-                      <h3 lang="th" className="font-display text-[16px] md:text-[18px] font-medium tracking-[-0.01em]">{x.k}</h3>
-                      <p lang="th" className="font-thai thai-wrap text-[13px] md:text-[14px] leading-[1.8] text-muted-foreground max-w-[54ch]">{x.d}</p>
-                    </div>
-                  </Reveal>
+                  <div key={x.k} className="py-5 md:py-6 border-b border-foreground/12 grid grid-cols-1 md:grid-cols-[240px_1fr] gap-2 md:gap-8">
+                    <h3 lang="th" className="font-display text-[16px] md:text-[18px] font-medium tracking-[-0.01em]">{x.k}</h3>
+                    <p lang="th" className="font-thai thai-wrap text-[13px] md:text-[14px] leading-[1.8] text-muted-foreground max-w-[54ch]">{x.d}</p>
+                  </div>
                 ))}
               </div>
             )}
 
             {d.note && (
-              <Reveal delay={0.1}>
-                <p lang="th" className="mt-8 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.8] text-foreground/85 max-w-[62ch]">
-                  {d.note}
-                </p>
-              </Reveal>
+              <p lang="th" className="mt-8 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.8] text-foreground/85 max-w-[62ch]">
+                {d.note}
+              </p>
             )}
           </div>
         </div>
@@ -148,19 +132,15 @@ const Practice = () => (
           <SectionLabel label="ตรรกะราคา" />
         </div>
         <div className="mt-10 md:mt-14">
-          <Reveal emphasis="lead">
-            <h2 lang="th" className="h-display-sm max-w-[24ch] thai-wrap">
-              คุณไม่ได้จ่ายให้ชิ้นงาน — <em className="text-foreground">คุณจ่ายให้คำตัดสินที่อยู่ข้างหลังมัน.</em>
-            </h2>
-          </Reveal>
+          <h2 lang="th" className="h-display-sm max-w-[24ch] thai-wrap">
+            คุณไม่ได้จ่ายให้ชิ้นงาน — <em className="text-foreground">คุณจ่ายให้คำตัดสินที่อยู่ข้างหลังมัน.</em>
+          </h2>
           <ul className="mt-10 space-y-5">
             {pricingLogic.map((p) => (
-              <Reveal key={p} emphasis="quiet">
-                <li className="flex gap-4">
-                  <span aria-hidden className="mt-2.5 h-px w-6 shrink-0 bg-foreground/40" />
-                  <span lang="th" className="font-thai thai-wrap text-[15px] md:text-[16px] leading-[1.8] text-foreground/85 max-w-[56ch]">{p}</span>
-                </li>
-              </Reveal>
+              <li key={p} className="flex gap-4">
+                <span aria-hidden className="mt-2.5 h-px w-6 shrink-0 bg-foreground/40" />
+                <span lang="th" className="font-thai thai-wrap text-[15px] md:text-[16px] leading-[1.8] text-foreground/85 max-w-[56ch]">{p}</span>
+              </li>
             ))}
           </ul>
         </div>

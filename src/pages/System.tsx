@@ -52,43 +52,41 @@ const System = () => (
       <div className="max-w-[1400px] mx-auto py-16 md:py-24">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
           {innovations.map((it, i) => (
-            <Reveal key={it.slug} delay={i * 0.07} emphasis="quiet">
-              <Link
-                to={`/system/${it.slug}`}
-                viewTransition
-                className="group relative flex flex-col h-full overflow-hidden border border-foreground/12 bg-surface-2 hover:border-foreground/35 transition-colors duration-500"
-              >
-                <div className="relative overflow-hidden bg-muted" style={{ aspectRatio: "4 / 3" }}>
-                  <Picture
-                    data={it.shot}
-                    alt={`${it.name} — screenshot`}
-                    loading="lazy"
-                    className="absolute inset-0 w-full h-full object-cover object-top grayscale-[0.4] group-hover:grayscale-0 group-hover:scale-[1.04] transition-[transform,filter] duration-700"
-                  />
-                  <span className="absolute inset-0 bg-gradient-to-t from-background via-background/5 to-transparent opacity-80 group-hover:opacity-50 transition-opacity duration-500" />
+            <Link
+              to={`/system/${it.slug}`}
+              viewTransition
+              className="group relative flex flex-col h-full overflow-hidden border border-foreground/12 bg-surface-2 hover:border-foreground/35 transition-colors duration-500"
+            >
+              <div key={it.slug} className="relative overflow-hidden bg-muted" style={{ aspectRatio: "4 / 3" }}>
+                <Picture
+                  data={it.shot}
+                  alt={`${it.name} — screenshot`}
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover object-top grayscale-[0.4] group-hover:grayscale-0 group-hover:scale-[1.04] transition-[transform,filter] duration-700"
+                />
+                <span className="absolute inset-0 bg-gradient-to-t from-background via-background/5 to-transparent opacity-80 group-hover:opacity-50 transition-opacity duration-500" />
+              </div>
+              <div className="flex-1 flex flex-col p-6 md:p-7">
+                <div className="flex items-center justify-between gap-3 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
+                  <span className="tabular-nums">{it.n}</span>
+                  <span>{it.role}</span>
                 </div>
-                <div className="flex-1 flex flex-col p-6 md:p-7">
-                  <div className="flex items-center justify-between gap-3 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
-                    <span className="tabular-nums">{it.n}</span>
-                    <span>{it.role}</span>
-                  </div>
-                  {/* The index stays monochrome — three near-identical oranges side by
-                      side read as "everything is orange", not as three brands. Each
-                      product wears its colour on its own page; here it's a 1px mark. */}
-                  <h2 className="mt-4 font-display text-[30px] md:text-[34px] font-medium tracking-[-0.02em] leading-[0.95] text-foreground">
-                    {it.name}
-                  </h2>
-                  <span aria-hidden className="mt-3 block h-px w-6" style={{ background: it.accent }} />
-                  <p lang="th" className="mt-3 font-serif text-[15px] md:text-[16px] leading-[1.4] text-foreground/80 max-w-[26ch]">
-                    {it.kind}
-                  </p>
-                  <span className="mt-auto pt-6 inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.18em] uppercase text-foreground/60 group-hover:text-foreground transition-colors">
-                    ดูรายละเอียด
-                    <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </span>
-                </div>
-              </Link>
-            </Reveal>
+                {/* The index stays monochrome — three near-identical oranges side by
+                    side read as "everything is orange", not as three brands. Each
+                    product wears its colour on its own page; here it's a 1px mark. */}
+                <h2 className="mt-4 font-display text-[30px] md:text-[34px] font-medium tracking-[-0.02em] leading-[0.95] text-foreground">
+                  {it.name}
+                </h2>
+                <span aria-hidden className="mt-3 block h-px w-6" style={{ background: it.accent }} />
+                <p lang="th" className="mt-3 font-serif text-[15px] md:text-[16px] leading-[1.4] text-foreground/80 max-w-[26ch]">
+                  {it.kind}
+                </p>
+                <span className="mt-auto pt-6 inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.18em] uppercase text-foreground/60 group-hover:text-foreground transition-colors">
+                  ดูรายละเอียด
+                  <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </span>
+              </div>
+            </Link>
           ))}
         </div>
       </div>

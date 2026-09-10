@@ -117,15 +117,13 @@ const CaseStudy = () => {
       {/* 02 — COVER */}
       <section className="px-6 md:px-10">
         <div className="max-w-[1280px] mx-auto pb-16 md:pb-20">
-          <Reveal>
-            <div className="group relative w-full overflow-hidden rounded-none bg-muted" style={{ aspectRatio: "16 / 9" }}>
-              <Picture
-                data={cs.cover}
-                alt={`${cs.title} — cover`}
-                className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
-              />
-            </div>
-          </Reveal>
+          <div className="group relative w-full overflow-hidden rounded-none bg-muted" style={{ aspectRatio: "16 / 9" }}>
+            <Picture
+              data={cs.cover}
+              alt={`${cs.title} — cover`}
+              className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
+            />
+          </div>
         </div>
       </section>
 
@@ -134,18 +132,14 @@ const CaseStudy = () => {
         <div className="max-w-[980px] mx-auto py-24 md:py-36">
           <div className="max-w-[52ch]">
             <SectionLabel index="01" label="อาการ" />
-            <Reveal delay={0.05}>
-              <p lang="th" className="mt-6 font-thai thai-wrap text-[13px] leading-[1.8] text-muted-foreground max-w-[28ch]">
-                สิ่งที่ลูกค้าเดินเข้ามาขอ
-              </p>
-            </Reveal>
+            <p lang="th" className="mt-6 font-thai thai-wrap text-[13px] leading-[1.8] text-muted-foreground max-w-[28ch]">
+              สิ่งที่ลูกค้าเดินเข้ามาขอ
+            </p>
           </div>
           <div className="mt-10 md:mt-14">
-            <Reveal delay={0.05}>
-              <p lang="th" className="font-serif text-[22px] md:text-[30px] leading-[1.4] tracking-[-0.01em] text-foreground/75 max-w-[640px]">
-                “{cs.symptom}”
-              </p>
-            </Reveal>
+            <p lang="th" className="font-serif text-[22px] md:text-[30px] leading-[1.4] tracking-[-0.01em] text-foreground/75 max-w-[640px]">
+              “{cs.symptom}”
+            </p>
           </div>
         </div>
       </section>
@@ -155,18 +149,14 @@ const CaseStudy = () => {
         <div className="max-w-[980px] mx-auto py-24 md:py-36">
           <div className="max-w-[52ch]">
             <SectionLabel index="02" label="คำวินิจฉัย" />
-            <Reveal delay={0.05}>
-              <p lang="th" className="mt-6 font-thai thai-wrap text-[13px] leading-[1.8] text-muted-foreground max-w-[28ch]">
-                {cs.actTitle}
-              </p>
-            </Reveal>
+            <p lang="th" className="mt-6 font-thai thai-wrap text-[13px] leading-[1.8] text-muted-foreground max-w-[28ch]">
+              {cs.actTitle}
+            </p>
           </div>
           <div className="mt-10 md:mt-14">
-            <Reveal delay={0.05} emphasis="lead">
-              <p lang="th" className="editorial-quote max-w-[680px] text-[20px] md:text-[28px]">
-                {cs.verdict}
-              </p>
-            </Reveal>
+            <p lang="th" className="editorial-quote max-w-[680px] text-[20px] md:text-[28px]">
+              {cs.verdict}
+            </p>
           </div>
         </div>
       </section>
@@ -178,11 +168,9 @@ const CaseStudy = () => {
             <SectionLabel index="03" label="เงื่อนไข" />
           </div>
           <div className="mt-10 md:mt-14">
-            <Reveal delay={0.05}>
-              <p lang="th" className="font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.85] text-foreground/85 max-w-[640px]">
-                {cs.constraint}
-              </p>
-            </Reveal>
+            <p lang="th" className="font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.85] text-foreground/85 max-w-[640px]">
+              {cs.constraint}
+            </p>
           </div>
         </div>
       </section>
@@ -194,11 +182,9 @@ const CaseStudy = () => {
             <SectionLabel index="04" label="สิ่งที่ทำ" />
           </div>
           <div className="mt-10 md:mt-14">
-            <Reveal delay={0.05}>
-              <p lang="th" className="font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.85] text-foreground/85 max-w-[640px]">
-                {cs.whatWeDid}
-              </p>
-            </Reveal>
+            <p lang="th" className="font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.85] text-foreground/85 max-w-[640px]">
+              {cs.whatWeDid}
+            </p>
           </div>
         </div>
       </section>
@@ -210,11 +196,9 @@ const CaseStudy = () => {
             <SectionLabel index="05" label="สิ่งที่ตัดทิ้ง" />
           </div>
           <div className="mt-10 md:mt-14">
-            <Reveal delay={0.05}>
-              <p lang="th" className="editorial-quote max-w-[680px] text-[20px] md:text-[26px]">
-                {cs.whatWeKilled}
-              </p>
-            </Reveal>
+            <p lang="th" className="editorial-quote max-w-[680px] text-[20px] md:text-[26px]">
+              {cs.whatWeKilled}
+            </p>
           </div>
         </div>
       </section>
@@ -228,21 +212,19 @@ const CaseStudy = () => {
             <SectionLabel index="06" label="Selected Frames" />
             <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               {cs.gallery.map((img, i) => (
-                <Reveal key={i} delay={0.04 * i}>
-                  <div
-                    className={`group relative w-full overflow-hidden rounded-none bg-muted ${
-                      i === 0 ? "md:col-span-2" : ""
-                    }`}
-                    style={{ aspectRatio: i === 0 ? "16 / 9" : "4 / 5" }}
-                  >
-                    <Picture
-                      data={img}
-                      alt={`${cs.title} — frame ${i + 1}`}
-                      loading="lazy"
-                      className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
-                    />
-                  </div>
-                </Reveal>
+                <div
+                  className={`group relative w-full overflow-hidden rounded-none bg-muted ${
+                    i === 0 ? "md:col-span-2" : ""
+                  }`}
+                  style={{ aspectRatio: i === 0 ? "16 / 9" : "4 / 5" }}
+                >
+                  <Picture
+                    data={img}
+                    alt={`${cs.title} — frame ${i + 1}`}
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
+                  />
+                </div>
               ))}
             </div>
           </div>

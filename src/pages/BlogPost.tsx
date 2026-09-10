@@ -83,11 +83,9 @@ const BlogPost = () => {
       {/* COVER */}
       <section className="px-6 md:px-10">
         <div className="max-w-[1100px] mx-auto pb-12 md:pb-16">
-          <Reveal>
-            <div className="w-full overflow-hidden rounded-none border border-foreground/15 bg-muted" style={{ aspectRatio: "16 / 9" }}>
-              <Picture data={post.cover} alt={post.title} className="w-full h-full object-cover" />
-            </div>
-          </Reveal>
+          <div className="w-full overflow-hidden rounded-none border border-foreground/15 bg-muted" style={{ aspectRatio: "16 / 9" }}>
+            <Picture data={post.cover} alt={post.title} className="w-full h-full object-cover" />
+          </div>
         </div>
       </section>
 
@@ -100,31 +98,27 @@ const BlogPost = () => {
             if (para.startsWith(">")) {
               const q = para.replace(/^>\s*/, "");
               return (
-                <Reveal key={i}>
-                  <figure className="my-12 md:my-16 text-center">
-                    <div className="mx-auto mb-6 h-px w-10 bg-cinnabar" />
-                    <blockquote lang="th" className="font-thai thai-wrap mx-auto max-w-[24ch] text-[22px] md:text-[30px] leading-[1.45] tracking-[-0.01em] text-foreground">
-                      {q}
-                    </blockquote>
-                  </figure>
-                </Reveal>
+                <figure key={i} className="my-12 md:my-16 text-center">
+                  <div className="mx-auto mb-6 h-px w-10 bg-cinnabar" />
+                  <blockquote lang="th" className="font-thai thai-wrap mx-auto max-w-[24ch] text-[22px] md:text-[30px] leading-[1.45] tracking-[-0.01em] text-foreground">
+                    {q}
+                  </blockquote>
+                </figure>
               );
             }
             // First paragraph = standfirst / lead (larger, brighter).
             const isLead = i === 0;
             return (
-              <Reveal key={i} delay={0.03 * i}>
-                <p
-                  lang="th"
-                  className={
-                    isLead
-                      ? "font-thai thai-wrap text-[19px] md:text-[22px] leading-[1.7] text-foreground/95"
-                      : "font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.8] text-foreground/85 mt-6"
-                  }
-                >
-                  {para}
-                </p>
-              </Reveal>
+              <p
+                lang="th"
+                className={
+                  isLead
+                    ? "font-thai thai-wrap text-[19px] md:text-[22px] leading-[1.7] text-foreground/95"
+                    : "font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.8] text-foreground/85 mt-6"
+                }
+              >
+                {para}
+              </p>
             );
           })}
         </div>

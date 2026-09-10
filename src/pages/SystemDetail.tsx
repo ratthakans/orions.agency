@@ -121,15 +121,13 @@ const SystemDetail = () => {
       {/* 02 — COVER */}
       <section className="px-6 md:px-10">
         <div className="max-w-[1280px] mx-auto pb-16 md:pb-20">
-          <Reveal>
-            <div className="group relative w-full overflow-hidden rounded-none bg-muted" style={{ aspectRatio: "16 / 9" }}>
-              <Picture
-                data={it.shot}
-                alt={`${it.name} — screenshot`}
-                className="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-700"
-              />
-            </div>
-          </Reveal>
+          <div className="group relative w-full overflow-hidden rounded-none bg-muted" style={{ aspectRatio: "16 / 9" }}>
+            <Picture
+              data={it.shot}
+              alt={`${it.name} — screenshot`}
+              className="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-700"
+            />
+          </div>
         </div>
       </section>
 
@@ -137,11 +135,9 @@ const SystemDetail = () => {
       <section className="px-6 md:px-10 border-t border-foreground/15">
         <div className="max-w-[980px] mx-auto py-24 md:py-36">
           <div>
-            <Reveal delay={0.05}>
-              <p lang="th" className="font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.85] text-foreground/85 max-w-[640px]">
-                {it.body}
-              </p>
-            </Reveal>
+            <p lang="th" className="font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.85] text-foreground/85 max-w-[640px]">
+              {it.body}
+            </p>
           </div>
         </div>
       </section>
@@ -151,12 +147,10 @@ const SystemDetail = () => {
         <div className="max-w-[980px] mx-auto py-24 md:py-36">
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-5">
             {it.features.map((f, i) => (
-              <Reveal key={f.k} delay={i * 0.05} emphasis="quiet">
-                <div className="card-soft h-full p-7 md:p-8">
-                  <h3 className="font-display text-[18px] md:text-[20px] font-medium tracking-[-0.01em]">{f.k}</h3>
-                  <p lang="th" className="mt-3 font-thai thai-wrap text-[13px] md:text-[14px] leading-[1.8] text-muted-foreground">{f.d}</p>
-                </div>
-              </Reveal>
+              <div key={f.k} className="card-soft h-full p-7 md:p-8">
+                <h3 className="font-display text-[18px] md:text-[20px] font-medium tracking-[-0.01em]">{f.k}</h3>
+                <p lang="th" className="mt-3 font-thai thai-wrap text-[13px] md:text-[14px] leading-[1.8] text-muted-foreground">{f.d}</p>
+              </div>
             ))}
           </div>
         </div>
@@ -168,12 +162,10 @@ const SystemDetail = () => {
           <div>
             <ul className="space-y-5">
               {it.painpoints.map((p) => (
-                <Reveal key={p}>
-                  <li className="flex gap-4">
-                    <span aria-hidden className="mt-2.5 h-px w-6 shrink-0" style={{ background: it.accent }} />
-                    <span lang="th" className="font-thai thai-wrap text-[16px] md:text-[17px] leading-[1.8] text-foreground/85 max-w-[56ch]">{p}</span>
-                  </li>
-                </Reveal>
+                <li key={p} className="flex gap-4">
+                  <span aria-hidden className="mt-2.5 h-px w-6 shrink-0" style={{ background: it.accent }} />
+                  <span lang="th" className="font-thai thai-wrap text-[16px] md:text-[17px] leading-[1.8] text-foreground/85 max-w-[56ch]">{p}</span>
+                </li>
               ))}
             </ul>
           </div>
@@ -183,19 +175,17 @@ const SystemDetail = () => {
       {/* 06 — CI AT A GLANCE */}
       <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
         <div className="max-w-[980px] mx-auto py-24 md:py-36">
-          <Reveal delay={0.05}>
-            <div className="mt-10 flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
-              <div className="flex gap-1.5">
-                {it.ci.palette.map((c) => (
-                  <span key={c} className="w-10 h-10 md:w-12 md:h-12 border border-foreground/15" style={{ background: c }} title={c} />
-                ))}
-              </div>
-              <div>
-                <div className="font-mono text-[11px] md:text-[12px] tracking-[0.14em] uppercase text-foreground/80">{it.ci.type}</div>
-                <div lang="th" className="mt-2 font-thai text-[14px] leading-[1.75] text-muted-foreground max-w-[52ch]">{it.ci.note}</div>
-              </div>
+          <div className="mt-10 flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
+            <div className="flex gap-1.5">
+              {it.ci.palette.map((c) => (
+                <span key={c} className="w-10 h-10 md:w-12 md:h-12 border border-foreground/15" style={{ background: c }} title={c} />
+              ))}
             </div>
-          </Reveal>
+            <div>
+              <div className="font-mono text-[11px] md:text-[12px] tracking-[0.14em] uppercase text-foreground/80">{it.ci.type}</div>
+              <div lang="th" className="mt-2 font-thai text-[14px] leading-[1.75] text-muted-foreground max-w-[52ch]">{it.ci.note}</div>
+            </div>
+          </div>
         </div>
       </section>
 

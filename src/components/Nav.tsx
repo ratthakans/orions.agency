@@ -1,10 +1,4 @@
-/* Hallmark · nav archetype: N6 Newspaper masthead (was N1a — wordmark-left,
-   inline links, button-right, which is the most-recognised AI nav shape).
-   Editorial genre routes to N6, and this site already calls its own sections
-   chapters and its own record an argument, so a masthead is the shape it was
-   describing. It compresses on scroll: a 132px masthead is right at rest, when
-   the page is being judged, and wrong once you are reading. */
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
 import Logo from "@/components/Logo";
 
@@ -15,7 +9,6 @@ const links = [
   { label: "Thinking", to: "/thinking" },
   { label: "Blog", to: "/blog" },
   { label: "About", to: "/about" },
-  { label: "Contact", to: "/contact" },
 ];
 
 const Nav = () => {
@@ -26,7 +19,7 @@ const Nav = () => {
   // Close the mobile menu on route change.
   useEffect(() => setOpen(false), [pathname]);
 
-  // Compress the masthead once the reader has started reading.
+  // Collapse the wordmark to just Ø once scrolled (Anthropic-style).
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
@@ -37,39 +30,57 @@ const Nav = () => {
   // Lock body scroll while the menu is open.
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [open]);
 
-  const compact = scrolled && !open;
-
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background">
-      {/* Edition line — the thin rule a newspaper carries above its mast. */}
-      <div
-        className={`hidden md:block overflow-hidden transition-[max-height,opacity] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-          compact ? "max-h-0 opacity-0" : "max-h-[26px] opacity-100"
-        }`}
-      >
-        <div className="px-6 md:px-10 h-[26px] flex items-center justify-between font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground border-b border-foreground/10">
-          <span>Bangkok · Est. 2025</span>
-          <span>Creative Agency</span>
-          <span>Where aesthetic meets algorithm</span>
-        </div>
-      </div>
-
-      {/* Mast — wordmark centred on desktop, left on mobile where the burger owns the right. */}
-      <div
-        className={`px-6 md:px-10 flex items-center justify-between md:justify-center transition-[height] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-          compact ? "h-[52px]" : "h-[64px] md:h-[60px]"
-        }`}
-      >
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-foreground/10">
+      <div className="px-6 md:px-10 h-[64px] flex items-center justify-between text-foreground">
         <Link to="/" viewTransition aria-label="ØRIONS" className="text-foreground relative z-[60] inline-flex items-center">
-          <Logo
-            className={`w-auto block transition-[height] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-              compact ? "h-[15px] md:h-[16px]" : "h-[15px] md:h-[24px]"
+          <span
+            className={`inline-block overflow-hidden align-middle transition-[max-width] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+              scrolled && !open ? "max-w-[18px] md:max-w-[22px]" : "max-w-[160px]"
             }`}
-          />
+          >
+            <Logo className="h-[15px] md:h-[18px] w-auto block" />
+          </span>
         </Link>
+
+        {/* Desktop nav */}
+        <nav className="hidden md:flex items-center gap-5 lg:gap-7">
+          {links.map((l) => (
+            <Fragment key={l.to}>
+              <NavLink
+                to={l.to}
+                viewTransition
+                className={({ isActive }) =>
+                  `relative font-body text-[13px] font-medium tracking-[0.02em] transition-colors after:absolute after:left-0 after:-bottom-1.5 after:h-px after:bg-foreground after:transition-transform after:duration-300 after:w-full ${
+                    isActive
+                      ? "text-foreground after:scale-x-100"
+                      : "text-foreground/55 hover:text-foreground after:scale-x-0 hover:after:scale-x-100"
+                  } after:origin-left`
+                }
+              >
+                {l.label}
+              </NavLink>
+            </Fragment>
+          ))}
+          <NavLink
+            to="/contact"
+            viewTransition
+            className={({ isActive }) =>
+              `ml-2 inline-flex items-center gap-2 rounded-none px-4 py-2 font-mono text-[11px] tracking-[0.12em] uppercase border transition-colors ${
+                isActive
+                  ? "bg-foreground text-background border-foreground"
+                  : "border-foreground/30 text-foreground hover:bg-foreground hover:text-background"
+              }`
+            }
+          >
+            Contact ↗
+          </NavLink>
+        </nav>
 
         {/* Mobile toggle */}
         <button
@@ -85,28 +96,6 @@ const Nav = () => {
         </button>
       </div>
 
-      {/* Link row beneath the mast, then the double rule that closes a masthead. */}
-      <nav className="hidden md:flex items-center justify-center gap-6 lg:gap-9 px-6 md:px-10 pb-2 border-b border-foreground/25">
-        {links.map((l) => (
-          <NavLink
-            key={l.to}
-            to={l.to}
-            viewTransition
-            className={({ isActive }) =>
-              `relative font-mono text-[11px] tracking-[0.16em] uppercase transition-colors after:absolute after:left-0 after:-bottom-1 after:h-px after:w-full after:bg-foreground after:transition-transform after:duration-300 after:origin-left ${
-                isActive
-                  ? "text-foreground after:scale-x-100"
-                  : "text-foreground/55 hover:text-foreground after:scale-x-0 hover:after:scale-x-100"
-              }`
-            }
-          >
-            {l.label}
-          </NavLink>
-        ))}
-      </nav>
-      <div className="hidden md:block border-b border-foreground/10 mt-[3px]" />
-      <div className="md:hidden border-b border-foreground/10" />
-
       {/* Mobile menu overlay — `inert` when closed so hidden links stay out of
           tab order and the screen-reader tree. */}
       <div
@@ -118,12 +107,14 @@ const Nav = () => {
       >
         <div className="h-[64px] shrink-0" />
         <nav className="flex-1 px-6 flex flex-col justify-center gap-2">
-          {links.map((l, i) => (
+          {[...links, { label: "Contact", to: "/contact" }].map((l, i) => (
             <NavLink
               key={l.to}
               to={l.to}
               viewTransition
-              className="group flex items-baseline gap-4 py-3 border-b border-foreground/10 text-foreground"
+              className={({ isActive }) =>
+                `group flex items-baseline gap-4 py-3 border-b border-foreground/10 ${isActive ? "text-foreground" : "text-foreground"}`
+              }
             >
               <span className="font-mono text-[11px] tracking-[0.22em] text-foreground tabular-nums">0{i + 1}</span>
               <span className="h-display-md">{l.label}</span>

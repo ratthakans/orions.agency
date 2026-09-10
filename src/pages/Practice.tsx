@@ -28,7 +28,7 @@ const Practice = () => (
 
     {/* HERO */}
     <section className="section-ink px-6 md:px-10 border-b border-foreground/15">
-      <div className="max-w-[1280px] mx-auto pt-32 md:pt-44 pb-16 md:pb-20">
+      <div className="max-w-[1280px] mx-auto pt-28 md:pt-32 pb-16 md:pb-20">
         <SectionLabel label="The Practice" />
         <Reveal delay={0.05} emphasis="lead">
           <h1 lang="th" className="mt-8 h-display-lg max-w-[16ch] thai-wrap">

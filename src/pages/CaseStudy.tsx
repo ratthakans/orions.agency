@@ -131,8 +131,8 @@ const CaseStudy = () => {
 
       {/* 03 — อาการ (what they walked in asking for) */}
       <section className="px-6 md:px-10 border-t border-foreground/15">
-        <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 md:grid-cols-12 gap-10">
-          <div className="md:col-span-4">
+        <div className="max-w-[980px] mx-auto py-24 md:py-36">
+          <div className="max-w-[52ch]">
             <SectionLabel index="01" label="อาการ" />
             <Reveal delay={0.05}>
               <p lang="th" className="mt-6 font-thai thai-wrap text-[13px] leading-[1.8] text-muted-foreground max-w-[28ch]">
@@ -140,7 +140,7 @@ const CaseStudy = () => {
               </p>
             </Reveal>
           </div>
-          <div className="md:col-span-8">
+          <div className="mt-10 md:mt-14">
             <Reveal delay={0.05}>
               <p lang="th" className="font-serif text-[22px] md:text-[30px] leading-[1.4] tracking-[-0.01em] text-foreground/75 max-w-[640px]">
                 “{cs.symptom}”
@@ -152,8 +152,8 @@ const CaseStudy = () => {
 
       {/* 04 — คำวินิจฉัย (the real problem) — the hero field of the record */}
       <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
-        <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 md:grid-cols-12 gap-10">
-          <div className="md:col-span-4">
+        <div className="max-w-[980px] mx-auto py-24 md:py-36">
+          <div className="max-w-[52ch]">
             <SectionLabel index="02" label="คำวินิจฉัย" />
             <Reveal delay={0.05}>
               <p lang="th" className="mt-6 font-thai thai-wrap text-[13px] leading-[1.8] text-muted-foreground max-w-[28ch]">
@@ -161,7 +161,7 @@ const CaseStudy = () => {
               </p>
             </Reveal>
           </div>
-          <div className="md:col-span-8">
+          <div className="mt-10 md:mt-14">
             <Reveal delay={0.05} emphasis="lead">
               <p lang="th" className="editorial-quote max-w-[680px] text-[20px] md:text-[28px]">
                 {cs.verdict}
@@ -173,11 +173,11 @@ const CaseStudy = () => {
 
       {/* 05 — เงื่อนไข (the constraint that shaped the answer) */}
       <section className="px-6 md:px-10 border-t border-foreground/15">
-        <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 md:grid-cols-12 gap-10">
-          <div className="md:col-span-4">
+        <div className="max-w-[980px] mx-auto py-24 md:py-36">
+          <div className="max-w-[52ch]">
             <SectionLabel index="03" label="เงื่อนไข" />
           </div>
-          <div className="md:col-span-8">
+          <div className="mt-10 md:mt-14">
             <Reveal delay={0.05}>
               <p lang="th" className="font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.85] text-foreground/85 max-w-[640px]">
                 {cs.constraint}
@@ -189,11 +189,11 @@ const CaseStudy = () => {
 
       {/* 06 — สิ่งที่ทำ */}
       <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
-        <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 md:grid-cols-12 gap-10">
-          <div className="md:col-span-4">
+        <div className="max-w-[980px] mx-auto py-24 md:py-36">
+          <div className="max-w-[52ch]">
             <SectionLabel index="04" label="สิ่งที่ทำ" />
           </div>
-          <div className="md:col-span-8">
+          <div className="mt-10 md:mt-14">
             <Reveal delay={0.05}>
               <p lang="th" className="font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.85] text-foreground/85 max-w-[640px]">
                 {cs.whatWeDid}
@@ -205,11 +205,11 @@ const CaseStudy = () => {
 
       {/* 07 — สิ่งที่ตัดทิ้ง — the field no one else in the market ships */}
       <section className="px-6 md:px-10 border-t border-foreground/15">
-        <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 md:grid-cols-12 gap-10">
-          <div className="md:col-span-4">
+        <div className="max-w-[980px] mx-auto py-24 md:py-36">
+          <div className="max-w-[52ch]">
             <SectionLabel index="05" label="สิ่งที่ตัดทิ้ง" />
           </div>
-          <div className="md:col-span-8">
+          <div className="mt-10 md:mt-14">
             <Reveal delay={0.05}>
               <p lang="th" className="editorial-quote max-w-[680px] text-[20px] md:text-[26px]">
                 {cs.whatWeKilled}
@@ -224,7 +224,7 @@ const CaseStudy = () => {
       {/* 04 — GALLERY (only if >1 image) */}
       {cs.gallery.length > 1 && (
         <section className="px-6 md:px-10 border-t border-foreground/15">
-          <div className="max-w-[1280px] mx-auto py-24 md:py-36">
+          <div className="max-w-[980px] mx-auto py-24 md:py-36">
             <SectionLabel index="06" label="Selected Frames" />
             <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               {cs.gallery.map((img, i) => (
@@ -254,7 +254,7 @@ const CaseStudy = () => {
         <section className="px-6 md:px-10 border-t border-foreground/15">
           <Link
             to={`/work/${next.slug}`}
-            className="group block max-w-[1280px] mx-auto py-24 md:py-36"
+            className="group block max-w-[980px] mx-auto py-24 md:py-36"
           >
             <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
               Next —

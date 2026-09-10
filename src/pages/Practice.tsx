@@ -79,8 +79,8 @@ const Practice = () => (
         id={d.slug}
         className={`px-6 md:px-10 border-t border-foreground/15 scroll-mt-16 ${i % 2 === 1 ? "bg-surface" : ""}`}
       >
-        <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12">
-          <div className="md:col-span-4">
+        <div className="max-w-[1280px] mx-auto py-24 md:py-36">
+          <div className="max-w-[52ch]">
             <Reveal>
               <div className="flex items-baseline gap-4">
                 <span className={`font-mono text-[12px] tracking-[0.14em] tabular-nums ${d.gate ? "text-cinnabar" : "text-muted-foreground"}`}>{d.n}</span>
@@ -109,7 +109,7 @@ const Practice = () => (
             </Reveal>
           </div>
 
-          <div className="md:col-span-8">
+          <div className="mt-10 md:mt-14">
             <Reveal delay={0.05}>
               <p lang="th" className="editorial-quote max-w-[680px] text-[19px] md:text-[24px]">
                 {d.body}
@@ -143,11 +143,11 @@ const Practice = () => (
 
     {/* PRICING LOGIC */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 md:grid-cols-12 gap-10">
-        <div className="md:col-span-4">
+      <div className="max-w-[1280px] mx-auto py-24 md:py-36">
+        <div className="max-w-[52ch]">
           <SectionLabel label="ตรรกะราคา" />
         </div>
-        <div className="md:col-span-8">
+        <div className="mt-10 md:mt-14">
           <Reveal emphasis="lead">
             <h2 lang="th" className="h-display-sm max-w-[24ch] thai-wrap">
               คุณไม่ได้จ่ายให้ชิ้นงาน — <em className="text-foreground">คุณจ่ายให้คำตัดสินที่อยู่ข้างหลังมัน.</em>

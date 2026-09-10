@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
-import SectionLabel from "@/components/SectionLabel";
 import CTABand from "@/components/CTABand";
 import SignalField from "@/components/SignalField";
 import Picture from "@/components/Picture";
@@ -35,11 +34,8 @@ const System = () => (
       <SignalField fx={0.8} fy={0.34} seed={9} intensity={0.75}
         className="absolute inset-0 w-full h-full pointer-events-none" />
       <div className="relative z-10 max-w-[1400px] mx-auto w-full pt-32 md:pt-40 pb-20 md:pb-24">
-        <Reveal>
-          <SectionLabel label="The System · Three Instruments" />
-        </Reveal>
         <Reveal delay={0.05} emphasis="lead">
-          <h1 className="mt-10 font-serif font-medium text-[clamp(44px,8vw,120px)] leading-[0.98] tracking-[-0.025em] max-w-[16ch]">
+          <h1 className="font-serif font-medium text-[clamp(44px,8vw,120px)] leading-[0.98] tracking-[-0.025em] max-w-[16ch]">
             One universe, powered by <em>VÆST.</em>
           </h1>
         </Reveal>
@@ -99,7 +95,6 @@ const System = () => (
     </section>
 
     <CTABand
-      eyebrow="Work with us"
       title={<>อยากใช้ หรือสร้าง<em className="text-foreground">ไปด้วยกัน</em>?</>}
       subtitle="สนใจนำ VÆST · First Draft · Routte ไปใช้ หรืออยากร่วมสร้างอนาคตของงานครีเอทีฟ — คุยกับทีม ORIONS ได้เลย."
       primary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}

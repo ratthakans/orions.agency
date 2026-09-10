@@ -135,11 +135,8 @@ const SystemDetail = () => {
 
       {/* 03 — WHAT IT IS */}
       <section className="px-6 md:px-10 border-t border-foreground/15">
-        <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 md:grid-cols-12 gap-10">
-          <div className="md:col-span-4">
-            <SectionLabel index="01" label="What it is" />
-          </div>
-          <div className="md:col-span-8">
+        <div className="max-w-[980px] mx-auto py-24 md:py-36">
+          <div>
             <Reveal delay={0.05}>
               <p lang="th" className="font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.85] text-foreground/85 max-w-[640px]">
                 {it.body}
@@ -151,8 +148,7 @@ const SystemDetail = () => {
 
       {/* 04 — FEATURES */}
       <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
-        <div className="max-w-[1280px] mx-auto py-24 md:py-36">
-          <SectionLabel index="02" label="Features" />
+        <div className="max-w-[980px] mx-auto py-24 md:py-36">
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-5">
             {it.features.map((f, i) => (
               <Reveal key={f.k} delay={i * 0.05} emphasis="quiet">
@@ -168,11 +164,8 @@ const SystemDetail = () => {
 
       {/* 05 — PAINPOINTS */}
       <section className="px-6 md:px-10 border-t border-foreground/15">
-        <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 md:grid-cols-12 gap-10">
-          <div className="md:col-span-4">
-            <SectionLabel index="03" label="ปัญหาที่แก้" />
-          </div>
-          <div className="md:col-span-8">
+        <div className="max-w-[980px] mx-auto py-24 md:py-36">
+          <div>
             <ul className="space-y-5">
               {it.painpoints.map((p) => (
                 <Reveal key={p}>
@@ -189,8 +182,7 @@ const SystemDetail = () => {
 
       {/* 06 — CI AT A GLANCE */}
       <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
-        <div className="max-w-[1280px] mx-auto py-24 md:py-36">
-          <SectionLabel index="04" label="CI at a glance" />
+        <div className="max-w-[980px] mx-auto py-24 md:py-36">
           <Reveal delay={0.05}>
             <div className="mt-10 flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
               <div className="flex gap-1.5">
@@ -213,7 +205,7 @@ const SystemDetail = () => {
           <Link
             to={`/system/${next.slug}`}
             viewTransition
-            className="group block max-w-[1280px] mx-auto py-24 md:py-36"
+            className="group block max-w-[980px] mx-auto py-24 md:py-36"
           >
             <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
               Next —

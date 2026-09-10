@@ -99,9 +99,9 @@ const Thinking = () => (
 
     {/* 01 — THE NOISE */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1400px] mx-auto py-28 md:py-52 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-20 items-baseline">
+      <div className="max-w-[980px] mx-auto py-28 md:py-52">
         <SectionLabel index="01" label="The Noise" />
-        <div>
+        <div className="mt-8 md:mt-10">
           <Reveal delay={0.05}>
             <h2 lang="th" className="font-serif text-[34px] md:text-[60px] leading-[1.2] tracking-[-0.015em] max-w-[20ch] thai-wrap">
               ยุคที่ทุกคนตะโกน จนไม่มีใคร<em className="text-foreground">ได้ยินใคร.</em>
@@ -138,9 +138,9 @@ const Thinking = () => (
 
     {/* 02 — THE GREAT FILTER */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1400px] mx-auto py-28 md:py-52 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-20 items-baseline">
+      <div className="max-w-[980px] mx-auto py-28 md:py-52">
         <SectionLabel index="02" label="The Great Filter" />
-        <div>
+        <div className="mt-8 md:mt-10">
           <Reveal delay={0.05}>
             <h2 lang="th" className="font-serif text-[34px] md:text-[60px] leading-[1.2] tracking-[-0.015em] max-w-[22ch] thai-wrap">
               เส้นแบ่งระหว่างแบรนด์ที่คนจำได้ กับแบรนด์ที่<em className="text-foreground">คนลืม.</em>
@@ -187,7 +187,7 @@ const Thinking = () => (
 
     {/* 03 — STORIES, REFINED. (noise → signal, the lens) */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1400px] mx-auto py-28 md:py-52">
+      <div className="max-w-[980px] mx-auto py-28 md:py-52">
         <SectionLabel index="03" label="Stories, Refined." />
         <Reveal delay={0.05}>
           <h2 lang="th" className="mt-8 font-serif text-[34px] md:text-[60px] leading-[1.2] tracking-[-0.015em] max-w-[22ch] thai-wrap">
@@ -272,9 +272,9 @@ const Thinking = () => (
 
     {/* 05 — LIMITED BY DESIGN */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1400px] mx-auto py-28 md:py-52 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-20 items-baseline">
+      <div className="max-w-[980px] mx-auto py-28 md:py-52">
         <SectionLabel index="05" label="Limited by Design" />
-        <div>
+        <div className="mt-8 md:mt-10">
           <Reveal delay={0.05}>
             <h2 lang="th" className="font-serif text-[34px] md:text-[60px] leading-[1.2] tracking-[-0.015em] max-w-[20ch] thai-wrap">
               เรารับงานจำกัด — <em className="text-foreground">โดยตั้งใจ.</em>

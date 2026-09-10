@@ -159,7 +159,7 @@ const Contact = () => {
 
       {/* 01 — HERO + inline timeline */}
       <section className="section-ink px-6 md:px-10">
-        <div className="max-w-[1280px] mx-auto pt-28 md:pt-32 pb-20 md:pb-24">
+        <div className="max-w-[1280px] mx-auto pt-32 md:pt-44 pb-20 md:pb-24">
           <Reveal delay={0.05}>
             <h1 lang="th" className="h-display-lg max-w-[16ch] thai-wrap">
               เล่าโจทย์มา —<br /> เราช่วย <em className="text-foreground">refine</em> มัน

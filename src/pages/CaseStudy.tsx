@@ -51,7 +51,7 @@ const CaseStudy = () => {
 
       {/* 01 — HERO */}
       <section className="px-6 md:px-10">
-        <div className="max-w-[1280px] mx-auto pt-28 md:pt-32 pb-12 md:pb-16">
+        <div className="max-w-[1280px] mx-auto pt-32 md:pt-44 pb-12 md:pb-16">
           <Reveal>
             <Link
               to="/work"

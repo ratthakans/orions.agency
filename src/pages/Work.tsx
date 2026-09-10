@@ -99,7 +99,7 @@ const Work = () => {
 
       {/* 01 · HERO + filter */}
       <section className="section-ink px-6 md:px-10">
-        <div className="max-w-[1280px] mx-auto pt-28 md:pt-32 pb-12 md:pb-16">
+        <div className="max-w-[1280px] mx-auto pt-32 md:pt-44 pb-12 md:pb-16">
           <SectionLabel label="Selected work" />
           <Reveal delay={0.05} emphasis="lead">
             <h1 className="mt-8 h-display-lg">

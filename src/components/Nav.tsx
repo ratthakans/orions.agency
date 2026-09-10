@@ -90,9 +90,9 @@ const Nav = () => {
           aria-expanded={open}
           className="md:hidden relative z-[60] flex flex-col items-end gap-[5px] py-2"
         >
-          <span className={`block h-px bg-foreground transition-all duration-300 ${open ? "w-5 translate-y-[6px] rotate-45" : "w-5"}`} />
-          <span className={`block h-px bg-foreground transition-all duration-300 ${open ? "opacity-0" : "w-4"}`} />
-          <span className={`block h-px bg-foreground transition-all duration-300 ${open ? "w-5 -translate-y-[6px] -rotate-45" : "w-5"}`} />
+          <span className={`block h-px bg-foreground transition-[width,transform,opacity] duration-300 ${open ? "w-5 translate-y-[6px] rotate-45" : "w-5"}`} />
+          <span className={`block h-px bg-foreground transition-[width,transform,opacity] duration-300 ${open ? "opacity-0" : "w-4"}`} />
+          <span className={`block h-px bg-foreground transition-[width,transform,opacity] duration-300 ${open ? "w-5 -translate-y-[6px] -rotate-45" : "w-5"}`} />
         </button>
       </div>
 

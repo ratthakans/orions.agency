@@ -119,6 +119,7 @@ const CaseStudy = () => {
         <div className="max-w-[1280px] mx-auto pb-16 md:pb-20">
           <div className="group relative w-full overflow-hidden rounded-none bg-muted" style={{ aspectRatio: "16 / 9" }}>
             <Picture
+              fetchPriority="high"
               data={cs.cover}
               alt={`${cs.title} — cover`}
               className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
@@ -242,7 +243,7 @@ const CaseStudy = () => {
               Next —
             </div>
             <div className="mt-6 flex items-center justify-between gap-8">
-              <h3 lang="th" className="h-display-md group-hover:text-foreground transition-all duration-500">
+              <h3 lang="th" className="h-display-md group-hover:text-foreground transition-colors duration-500">
                 {next.title}
               </h3>
               <ArrowUpRight className="w-10 h-10 md:w-14 md:h-14 text-foreground shrink-0 transition-transform duration-500" />

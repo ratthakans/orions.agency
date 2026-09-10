@@ -123,6 +123,7 @@ const SystemDetail = () => {
         <div className="max-w-[1280px] mx-auto pb-16 md:pb-20">
           <div className="group relative w-full overflow-hidden rounded-none bg-muted" style={{ aspectRatio: "16 / 9" }}>
             <Picture
+              fetchPriority="high"
               data={it.shot}
               alt={`${it.name} — screenshot`}
               className="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-700"

@@ -4,6 +4,7 @@ import { ArrowUpRight, MessageCircle } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionHeading from "@/components/ui/SectionHeading";
+import SectionLabel from "@/components/SectionLabel";
 import { toast } from "sonner";
 import { track } from "@/lib/analytics";
 import Picture from "@/components/Picture";
@@ -160,8 +161,9 @@ const Contact = () => {
       {/* 01 — HERO + inline timeline */}
       <section className="section-ink px-6 md:px-10">
         <div className="max-w-[1280px] mx-auto pt-28 md:pt-32 pb-20 md:pb-24">
+          <SectionLabel label="Start a conversation" />
           <Reveal delay={0.05}>
-            <h1 lang="th" className="h-display-lg max-w-[16ch] thai-wrap">
+            <h1 lang="th" className="mt-8 h-display-lg max-w-[16ch] thai-wrap">
               เล่าโจทย์มา —<br /> เราช่วย <em className="text-foreground">refine</em> มัน
             </h1>
           </Reveal>
@@ -204,6 +206,7 @@ const Contact = () => {
         <div className="max-w-[1280px] mx-auto py-24 md:py-36">
           <SectionHeading
             lang="th"
+            eyebrow="02 — Send a brief"
             title={<>เล่าเรื่อง<em className="text-foreground">แบรนด์</em>ให้เราฟัง.</>}
           />
 

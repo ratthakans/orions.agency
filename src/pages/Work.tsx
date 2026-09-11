@@ -145,43 +145,45 @@ const Work = () => {
             <SectionLabel label="Showreel 2026" />
           </div>
         </div>
-        <button
-          type="button"
-          aria-label="เล่นโชว์รีล ØRIONS 2026"
-          onClick={() => setLightbox({ kind: "video", val: SHOWREEL_ID, ar: 16 / 9 })}
-          onMouseEnter={() => setHoverVid(SHOWREEL_ID)}
-          onMouseLeave={() => setHoverVid((h) => (h === SHOWREEL_ID ? null : h))}
-          className="group relative mt-8 md:mt-10 block w-full overflow-hidden cursor-pointer"
-        >
-          <span className="block relative w-full overflow-hidden" style={{ aspectRatio: "1280 / 541" }}>
-            <img
-              src={`https://i.ytimg.com/vi/${SHOWREEL_ID}/maxresdefault.jpg`}
-              onError={(e) => { e.currentTarget.src = `https://i.ytimg.com/vi/${SHOWREEL_ID}/hqdefault.jpg`; }}
-              alt="ØRIONS — Showreel 2026"
-              width={1280}
-              height={720}
-              className="absolute inset-0 w-full h-full object-cover grayscale-[0.25] group-hover:grayscale-0 transition-[filter] duration-700"
-            />
-            {hoverVid === SHOWREEL_ID && (
-              <iframe
-                src={`https://www.youtube.com/embed/${SHOWREEL_ID}?autoplay=1&mute=1&controls=0&loop=1&playlist=${SHOWREEL_ID}&modestbranding=1&playsinline=1&rel=0`}
-                title="ØRIONS — Showreel 2026"
-                tabIndex={-1}
-                aria-hidden="true"
-                className="absolute left-0 top-1/2 -translate-y-1/2 w-full aspect-video pointer-events-none"
+        <Reveal delay={0.05}>
+          <button
+            type="button"
+            aria-label="เล่นโชว์รีล ØRIONS 2026"
+            onClick={() => setLightbox({ kind: "video", val: SHOWREEL_ID, ar: 16 / 9 })}
+            onMouseEnter={() => setHoverVid(SHOWREEL_ID)}
+            onMouseLeave={() => setHoverVid((h) => (h === SHOWREEL_ID ? null : h))}
+            className="group relative mt-8 md:mt-10 block w-full overflow-hidden cursor-pointer"
+          >
+            <span className="block relative w-full overflow-hidden" style={{ aspectRatio: "1280 / 541" }}>
+              <img
+                src={`https://i.ytimg.com/vi/${SHOWREEL_ID}/maxresdefault.jpg`}
+                onError={(e) => { e.currentTarget.src = `https://i.ytimg.com/vi/${SHOWREEL_ID}/hqdefault.jpg`; }}
+                alt="ØRIONS — Showreel 2026"
+                width={1280}
+                height={720}
+                className="absolute inset-0 w-full h-full object-cover grayscale-[0.25] group-hover:grayscale-0 transition-[filter] duration-700"
               />
-            )}
-            <span className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent pointer-events-none" />
-            <span className="absolute inset-0 grid place-items-center pointer-events-none">
-              <span className={`grid place-items-center w-16 h-16 md:w-20 md:h-20 rounded-none bg-background/45 border border-foreground/25 text-foreground/90 transition-opacity ${hoverVid === SHOWREEL_ID ? "opacity-0" : "group-hover:text-foreground group-hover:border-foreground/50"}`}>
-                <Play className="w-6 h-6 md:w-7 md:h-7 ml-0.5" />
+              {hoverVid === SHOWREEL_ID && (
+                <iframe
+                  src={`https://www.youtube.com/embed/${SHOWREEL_ID}?autoplay=1&mute=1&controls=0&loop=1&playlist=${SHOWREEL_ID}&modestbranding=1&playsinline=1&rel=0`}
+                  title="ØRIONS — Showreel 2026"
+                  tabIndex={-1}
+                  aria-hidden="true"
+                  className="absolute left-0 top-1/2 -translate-y-1/2 w-full aspect-video pointer-events-none"
+                />
+              )}
+              <span className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent pointer-events-none" />
+              <span className="absolute inset-0 grid place-items-center pointer-events-none">
+                <span className={`grid place-items-center w-16 h-16 md:w-20 md:h-20 rounded-none bg-background/45 border border-foreground/25 text-foreground/90 transition-opacity ${hoverVid === SHOWREEL_ID ? "opacity-0" : "group-hover:text-foreground group-hover:border-foreground/50"}`}>
+                  <Play className="w-6 h-6 md:w-7 md:h-7 ml-0.5" />
+                </span>
+              </span>
+              <span className="absolute left-6 bottom-4 md:left-10 md:bottom-6 font-mono text-[10px] md:text-[11px] tracking-[0.18em] uppercase text-foreground/85 pointer-events-none">
+                ØRIONS · Showreel
               </span>
             </span>
-            <span className="absolute left-6 bottom-4 md:left-10 md:bottom-6 font-mono text-[10px] md:text-[11px] tracking-[0.18em] uppercase text-foreground/85 pointer-events-none">
-              ØRIONS · Showreel
-            </span>
-          </span>
-        </button>
+          </button>
+        </Reveal>
       </section>
 
       {/* 02 · CATEGORY BOARDS */}

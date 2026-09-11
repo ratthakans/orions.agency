@@ -54,19 +54,23 @@ const Privacy = () => (
       <div className="max-w-[1280px] mx-auto py-24 md:py-36">
         <div className="border-t border-foreground/20">
           {sections.map((s, i) => (
-            <div key={s.n} className="grid grid-cols-1 md:grid-cols-[120px_1fr] gap-4 md:gap-12 items-baseline py-10 md:py-12 border-b border-foreground/20">
-              <div className="font-serif text-foreground text-[28px] md:text-[40px] leading-none tabular-nums">{s.n}</div>
-              <div>
-                <h2 lang="th" className="h-display-sm">{s.h}</h2>
-                <p lang="th" className="mt-4 font-thai thai-wrap text-[15px] md:text-[16px] leading-[1.8] text-foreground/85 max-w-[64ch]">{s.body}</p>
+            <Reveal key={s.n} delay={i * 0.05} emphasis="quiet">
+              <div className="grid grid-cols-1 md:grid-cols-[120px_1fr] gap-4 md:gap-12 items-baseline py-10 md:py-12 border-b border-foreground/20">
+                <div className="font-serif text-foreground text-[28px] md:text-[40px] leading-none tabular-nums">{s.n}</div>
+                <div>
+                  <h2 lang="th" className="h-display-sm">{s.h}</h2>
+                  <p lang="th" className="mt-4 font-thai thai-wrap text-[15px] md:text-[16px] leading-[1.8] text-foreground/85 max-w-[64ch]">{s.body}</p>
+                </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
 
-        <p lang="th" className="mt-12 font-thai text-[11px] tracking-[0.02em] text-muted-foreground">
-          ติดต่อเรื่องข้อมูล: <a href="mailto:hello@orions.agency" className="text-foreground hover:text-foreground transition-colors">hello@orions.agency</a> · ปรับปรุงล่าสุด 2026
-        </p>
+        <Reveal delay={0.1}>
+          <p lang="th" className="mt-12 font-thai text-[11px] tracking-[0.02em] text-muted-foreground">
+            ติดต่อเรื่องข้อมูล: <a href="mailto:hello@orions.agency" className="text-foreground hover:text-foreground transition-colors">hello@orions.agency</a> · ปรับปรุงล่าสุด 2026
+          </p>
+        </Reveal>
       </div>
     </section>
   </div>

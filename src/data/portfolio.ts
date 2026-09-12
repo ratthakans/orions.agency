@@ -150,7 +150,7 @@ const digitalSites: SiteItem[] = [
     url: "https://www.siamelite.consulting",
     kind: "Website",
     niche: "Consulting",
-    note: "ที่ปรึกษาวีซ่าและอสังหาฯ ครบวงจรสำหรับชาวต่างชาติในเชียงใหม่.",
+    note: "ที่ปรึกษาวีซ่าและอสังหาฯ สำหรับชาวต่างชาติในเชียงใหม่.",
   },
   {
     name: "LUMA Academy",

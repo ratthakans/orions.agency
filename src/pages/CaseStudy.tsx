@@ -129,11 +129,13 @@ const CaseStudy = () => {
         </div>
       </section>
 
-      {/* 03 — อาการ (what they walked in asking for) */}
+      {/* 01 — DISCOVER: what the brand walked in with. The record follows the
+          process (Discover → Connect → Shape → Refine → Express), so a case
+          reads as a story told in the order it was found, not a deliverable list. */}
       <section className="px-6 md:px-10 border-t border-foreground/15">
         <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 md:grid-cols-12 gap-10">
           <div className="md:col-span-4">
-            <SectionLabel index="01" label="อาการ" />
+            <SectionLabel index="01" label="Discover" />
             <Reveal delay={0.05}>
               <p lang="th" className="mt-6 font-thai thai-wrap text-[13px] leading-[1.8] text-muted-foreground max-w-[28ch]">
                 สิ่งที่ลูกค้าเดินเข้ามาขอ
@@ -150,11 +152,11 @@ const CaseStudy = () => {
         </div>
       </section>
 
-      {/* 04 — คำวินิจฉัย (the real problem) — the hero field of the record */}
+      {/* 02 — CONNECT: the real story underneath the brief — the hero field */}
       <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
         <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 md:grid-cols-12 gap-10">
           <div className="md:col-span-4">
-            <SectionLabel index="02" label="คำวินิจฉัย" />
+            <SectionLabel index="02" label="Connect" />
             <Reveal delay={0.05}>
               <p lang="th" className="mt-6 font-thai thai-wrap text-[13px] leading-[1.8] text-muted-foreground max-w-[28ch]">
                 {cs.actTitle}
@@ -171,11 +173,11 @@ const CaseStudy = () => {
         </div>
       </section>
 
-      {/* 05 — เงื่อนไข (the constraint that shaped the answer) */}
+      {/* 03 — SHAPE: the constraint the story had to be shaped inside */}
       <section className="px-6 md:px-10 border-t border-foreground/15">
         <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 md:grid-cols-12 gap-10">
           <div className="md:col-span-4">
-            <SectionLabel index="03" label="เงื่อนไข" />
+            <SectionLabel index="03" label="Shape" />
           </div>
           <div className="md:col-span-8">
             <Reveal delay={0.05}>
@@ -187,32 +189,32 @@ const CaseStudy = () => {
         </div>
       </section>
 
-      {/* 06 — สิ่งที่ทำ */}
+      {/* 04 — REFINE: what we removed — the field no one else in the market ships */}
       <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
         <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 md:grid-cols-12 gap-10">
           <div className="md:col-span-4">
-            <SectionLabel index="04" label="สิ่งที่ทำ" />
+            <SectionLabel index="04" label="Refine" />
           </div>
           <div className="md:col-span-8">
             <Reveal delay={0.05}>
-              <p lang="th" className="font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.85] text-foreground/85 max-w-[640px]">
-                {cs.whatWeDid}
+              <p lang="th" className="editorial-quote max-w-[680px] text-[20px] md:text-[26px]">
+                {cs.whatWeKilled}
               </p>
             </Reveal>
           </div>
         </div>
       </section>
 
-      {/* 07 — สิ่งที่ตัดทิ้ง — the field no one else in the market ships */}
+      {/* 05 — EXPRESS: what we made */}
       <section className="px-6 md:px-10 border-t border-foreground/15">
         <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 md:grid-cols-12 gap-10">
           <div className="md:col-span-4">
-            <SectionLabel index="05" label="สิ่งที่ตัดทิ้ง" />
+            <SectionLabel index="05" label="Express" />
           </div>
           <div className="md:col-span-8">
             <Reveal delay={0.05}>
-              <p lang="th" className="editorial-quote max-w-[680px] text-[20px] md:text-[26px]">
-                {cs.whatWeKilled}
+              <p lang="th" className="font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.85] text-foreground/85 max-w-[640px]">
+                {cs.whatWeDid}
               </p>
             </Reveal>
           </div>
@@ -273,10 +275,10 @@ const CaseStudy = () => {
       )}
 
       <ClosingCTA
-        title={<>มีโจทย์ที่ <em className="text-foreground">มีกรอบ</em> แบบนี้ไหม?</>}
-        description="คุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์และเงื่อนไขมาได้เลย."
+        title={<>Have a story <em className="text-foreground">worth refining?</em></>}
+        description="Talk to ORIONS."
         ctas={[
-          { label: "เริ่มต้นบทสนทนา", to: "/contact" },
+          { label: "Talk to ORIONS", to: "/contact" },
           { label: "ดูผลงานทั้งหมด", to: "/work", variant: "ghost" },
         ]}
       />

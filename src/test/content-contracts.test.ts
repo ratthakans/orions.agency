@@ -39,6 +39,9 @@ describe("public credibility contract", () => {
     "src/data/blog.ts",
     "src/data/portfolio.ts",
     "src/data/caseStudies.ts",
+    "src/data/capabilities.ts",
+    "src/pages/Practice.tsx",
+    "src/pages/Contact.tsx",
     "public/llms.txt",
     "index.html",
   ].map(fromRoot).join("\n");
@@ -60,20 +63,26 @@ describe("public credibility contract", () => {
     expect(publicCopy).not.toMatch(/COLLAPS|GODGEARS|SONAR SQUAD/);
   });
 
-  // "Boutique" was retired from public language (MASTER BLUEPRINT V5 §32) — it
-  // places ORIONS in the mid-tier of the Bangkok market map that ends in price
-  // comparison. Use "independent" or no modifier instead. Check both the
-  // English word and its Thai transliteration (บูทีค) — a prior pass caught
-  // only the English form and missed four live occurrences of the Thai one.
-  it("does not use the retired word 'boutique' (or its Thai transliteration)", () => {
-    expect(publicCopy).not.toMatch(/boutique/i);
-    expect(publicCopy).not.toMatch(/บูทีค/);
+  // The brand book reinstated "boutique" ("Boutique by design", "Boutique
+  // Creative Company"), which retired the old guard against it. Its Verbal
+  // Identity section names the clichés ØRIONS must never use instead — keep
+  // them out of every public surface.
+  it("does not use the advertising clichés the verbal identity bans", () => {
+    expect(publicCopy).not.toMatch(/Revolutionary|Game-changing|One-stop solution/i);
+    expect(publicCopy).not.toMatch(/ครบวงจร|ยกระดับธุรกิจของคุณ|ปลดล็อกศักยภาพ|เหนือระดับ|ตอบโจทย์ทุกความต้องการ/);
   });
 
-  // The site used to answer "what do you sell" four different ways (Home,
-  // About, Thinking and Contact each carried their own trio, and none matched).
-  // The four depths in src/data/practice.ts are now the single answer — keep
-  // the old discipline trio from reappearing as a parallel offer list.
+  // The primary line is "Stories, refined." and the offer is Story → Direction →
+  // Expression. The earlier tagline and the diagnosis model (a single "door",
+  // a fixed-price diagnostic) were retired with it; keep both from drifting back.
+  it("does not reintroduce the retired tagline or diagnosis model", () => {
+    expect(publicCopy).not.toMatch(/aesthetic meets algorithm/i);
+    expect(publicCopy).not.toMatch(/ประตูเดียว|The Diagnostic/);
+  });
+
+  // The site used to answer "what do you sell" several different ways. The
+  // three disciplines in src/data/capabilities.ts are now the single answer —
+  // keep older parallel offer lists from reappearing beside them.
   it("keeps one answer to 'what do you sell'", () => {
     const offerSurfaces = [
       "src/pages/Index.tsx",
@@ -85,22 +94,6 @@ describe("public credibility contract", () => {
     expect(offerSurfaces).not.toMatch(/Aesthetic Intelligence/i);
   });
 
-  // The practice has one door: every engagement starts at the diagnostic.
-  // A "we also take small production jobs" caveat used to sit at the end of
-  // Thinking's "Limited by design" section, which told a reader the gate was
-  // negotiable and undercut the section it lived in. Keep it from returning.
-  it("does not offer a way around the diagnostic gate", () => {
-    const gateSurfaces = [
-      "src/pages/Index.tsx",
-      "src/pages/Thinking.tsx",
-      "src/pages/About.tsx",
-      "src/pages/Practice.tsx",
-      "src/data/practice.ts",
-    ].map(fromRoot).join("\n");
-    expect(gateSurfaces).not.toMatch(/สเกลย่อย/);
-    expect(gateSurfaces).not.toMatch(/ยังเปิดรับงาน/);
-  });
-
   // The practice was once modelled on an iceberg (Waterline / Sounding / Mass /
   // Roll at −40m…−900m). It was retired because it read as muddled: a borrowed
   // diagram, fighting the brand's own name (ØRIONS is a constellation — sky,
@@ -109,7 +102,7 @@ describe("public credibility contract", () => {
   // way — this guard is the reason the model can't drift back into jargon.
   it("does not reintroduce the retired iceberg model", () => {
     const practiceSurfaces = [
-      "src/data/practice.ts",
+      "src/data/capabilities.ts",
       "src/pages/Practice.tsx",
       "src/pages/Index.tsx",
       "src/pages/Contact.tsx",
@@ -133,9 +126,9 @@ describe("public credibility contract", () => {
     expect(publicCopy).not.toMatch(/พิสูจน์ด้วยงาน/);
   });
 
-  // Depth is the site's master metaphor and it means value ("the 90% no one
-  // sees"). Water as suffocation inverts it — the same image meaning opposite
-  // things in two places is what made the copy read as incoherent.
+  // Water-as-suffocation imagery once sat beside copy that used depth as value,
+  // and the same image meaning opposite things made the narrative incoherent.
+  // The constellation is the principle now; keep the old imagery out.
   it("does not use depth/water as a symbol of suffocation", () => {
     const narrative = ["src/pages/Index.tsx", "src/pages/Thinking.tsx"].map(fromRoot).join("\n");
     expect(narrative).not.toMatch(/ใต้น้ำที่กำลังเดือด/);

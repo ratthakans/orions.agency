@@ -14,13 +14,14 @@ import { inquirySchema, type Inquiry } from "@/lib/contact";
 type FieldErrors = Partial<Record<keyof Inquiry, string>>;
 type SubmitStatus = { kind: "success" | "error"; message: string } | null;
 
-/* The four stages, not a service menu — the form should ask the same question
-   the practice does. The diagnostic leads because it is the only door. */
+/* The three disciplines, not a service menu — the form asks the same question
+   the practice does (src/data/capabilities.ts): where does this brand need to
+   start? Story, Direction, Expression — or the whole journey. */
 const packageOptions = [
-  "01 การวินิจฉัย — 3 สัปดาห์ (เริ่มที่นี่)",
-  "02 กลยุทธ์ — ต่อจากการวินิจฉัย",
-  "03 งานจริง — งานที่ออกสู่ตลาด",
-  "04 ที่ปรึกษาต่อเนื่อง — 12–18 เดือน",
+  "Story — Find what matters.",
+  "Direction — Shape how the story should feel.",
+  "Expression — Bring the story into the world.",
+  "ทั้ง Journey — Story → Direction → Expression",
   "ยังไม่แน่ใจ / ขอคำแนะนำ",
 ];
 
@@ -153,7 +154,7 @@ const Contact = () => {
   return (
     <div>
       <SEO
-        title="Contact — เริ่มต้นบทสนทนา · ØRIONS"
+        title="Contact — Have a story worth refining? · ØRIONS"
         description="คุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์และเงื่อนไขมา เราช่วยมองว่าจะ refine มันยังไง. hello@orions.agency · 089 354 2628 (คุณพลอย)."
         path="/contact"
       />
@@ -161,10 +162,10 @@ const Contact = () => {
       {/* 01 — HERO + inline timeline */}
       <section className="section-ink px-6 md:px-10">
         <div className="max-w-[1280px] mx-auto pt-28 md:pt-32 pb-20 md:pb-24">
-          <SectionLabel label="Start a conversation" />
+          <SectionLabel label="Talk to ORIONS" />
           <Reveal delay={0.05}>
-            <h1 lang="th" className="mt-8 h-display-lg max-w-[16ch] thai-wrap">
-              เล่าโจทย์มา —<br /> เราช่วย <em className="text-foreground">refine</em> มัน
+            <h1 className="mt-8 h-display-lg max-w-[14ch]">
+              Have a story <em className="text-foreground">worth refining?</em>
             </h1>
           </Reveal>
           <Reveal delay={0.1}>
@@ -256,7 +257,7 @@ const Contact = () => {
                     onChange={(e) => updateField("pkg", e.target.value)}
                     className={`${inputCls} appearance-none cursor-pointer`}
                   >
-                    <option value="">— ยังไม่แน่ใจก็ได้ เดี๋ยวเราช่วยวินิจฉัย —</option>
+                    <option value="">— ยังไม่แน่ใจก็ได้ เดี๋ยวเราช่วยดูว่าควรเริ่มตรงไหน —</option>
                     {packageOptions.map((o) => (
                       <option key={o} value={o}>{o}</option>
                     ))}
@@ -321,9 +322,9 @@ const Contact = () => {
 
               {/* Book a call — primary highlight */}
               <div className="card-accent p-7 md:p-8">
-                <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-foreground">— นัดคุยวินิจฉัย 45 นาที</div>
+                <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-foreground">— นัดคุย 45 นาที</div>
                 <p lang="th" className="mt-4 font-thai thai-wrap text-[14px] leading-[1.8] text-foreground/80">
-                  อยากคุยก่อนส่งโจทย์? อีเมลมานัดคุยฟรี 45 นาที ไม่มีข้อผูกมัด — เราช่วยวินิจฉัยว่าแบรนด์ติดตรงไหน แล้วเสนอสโคป + ราคาที่ตีตามโจทย์จริง ไม่มีค่าซ่อน.
+                  อยากคุยก่อนส่งโจทย์? อีเมลมานัดคุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าเรื่องของแบรนด์มา แล้วเราเสนอสโคป + ราคาที่ตีตามโจทย์จริง ไม่มีค่าซ่อน.
                 </p>
                 <a href="mailto:hello@orions.agency?subject=คุยฟรี 45 นาที — ØRIONS"
                   className="cta-link mt-6">

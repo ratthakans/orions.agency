@@ -214,9 +214,12 @@ baseline that brightens. No boxes.
 colour-on-hover reveal, no halftone. A `scale-[1.03]` push on hover is fine; any
 filter is not.
 
-ØRIONS has no photographic imagery of its own. The homepage hero is
-`<SignalField>` — a black field with one white star — so the first colour anyone
-sees on the site is a client's.
+ØRIONS has no photographic imagery of its own, and no space graphics either:
+per the brand book, **the constellation is a principle, not an aesthetic** — no
+galaxies, nebulae, stars or space gradients. Express it through structure
+instead (Point → Connection → Form → Meaning): the homepage Process row is five
+points on one hairline. Heroes are type on the black ground, so the first colour
+anyone sees on the site is a client's.
 
 Use the `<Picture>` component (`?as=picture` imports) so AVIF/WebP are emitted at
 build. `loading="lazy"` below the fold only.

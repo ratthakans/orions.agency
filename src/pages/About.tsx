@@ -23,7 +23,6 @@ const nevers = [
 const facts = [
   { k: "What we are", v: "Creative Agency — เอเจนซี่ที่มีสมองของ consult" },
   { k: "How we work", v: "สี่ขั้น — ทุกงานเริ่มที่การวินิจฉัย ไม่มีทางลัด" },
-  { k: "The engine", v: "VÆST — AI creative director ที่มีรสนิยม เบื้องหลังทุกผลผลิตของ ORIONS" },
   { k: "Where", v: "กรุงเทพฯ ประเทศไทย — ทำงานกับแบรนด์ทั่วไทย (+ remote)" },
   { k: "Since", v: "2025 — นำโดยผู้ก่อตั้งและทีม senior ที่ลงมือทำเองทุกงาน" },
   { k: "How we price", v: "คิดต่อแคมเปญ/โปรเจกต์ — ไม่มีเรทการ์ด ตีตามการวินิจฉัย" },

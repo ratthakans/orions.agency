@@ -6,8 +6,6 @@ import CTABand from "@/components/CTABand";
 import Slash from "@/components/Slash";
 import SignalField from "@/components/SignalField";
 import Picture from "@/components/Picture";
-import heroSilk from "@/assets/hero-silk.jpg?as=picture";
-import { innovations } from "@/data/system";
 import { stages } from "@/data/practice";
 import { caseStudies } from "@/data/caseStudies";
 
@@ -31,7 +29,7 @@ const HeroTitle = () => {
       <span className="sr-only">Where aesthetic meets algorithm — a creative agency.</span>
       <span aria-hidden="true">
         <Line delay={0.1}>Where aesthetic</Line>
-        <Line delay={0.22}>meets algorithm<span className="text-cinnabar">.</span></Line>
+        <Line delay={0.22}>meets algorithm<span className="text-foreground">.</span></Line>
       </span>
     </h1>
   );
@@ -41,7 +39,7 @@ const Index = () => (
   <div>
     <SEO
       title="ØRIONS — Creative Agency · Where Aesthetic Meets Algorithm"
-      description="ที่ปรึกษากลยุทธ์ครีเอทีฟในกรุงเทพฯ ที่ลงมือทำงานเอง — วินิจฉัยก่อนเสมอ แล้วจึงสร้าง. ทำงานสี่ขั้น: การวินิจฉัย (ประตูเดียว) · กลยุทธ์ · งานจริง · ที่ปรึกษาต่อเนื่อง. ที่ปรึกษาส่วนใหญ่จบที่สไลด์ เราจบที่งานที่ออกสู่ตลาด — ขับเคลื่อนด้วย VÆST, AI creative director ที่มีรสนิยม."
+      description="ที่ปรึกษากลยุทธ์ครีเอทีฟในกรุงเทพฯ ที่ลงมือทำงานเอง — วินิจฉัยก่อนเสมอ แล้วจึงสร้าง. ทำงานสี่ขั้น: การวินิจฉัย (ประตูเดียว) · กลยุทธ์ · งานจริง · ที่ปรึกษาต่อเนื่อง. ที่ปรึกษาส่วนใหญ่จบที่สไลด์ เราจบที่งานที่ออกสู่ตลาด."
       path="/"
       schema={{
         "@context": "https://schema.org",
@@ -50,14 +48,16 @@ const Index = () => (
         url: SITE_URL,
         slogan: "Where aesthetic meets algorithm.",
         description:
-          "ØRIONS is a creative strategy consultancy in Bangkok that also makes the work — where aesthetic meets algorithm. The practice runs in four stages with a single door: The Diagnostic, The Strategy, The Work, The Counsel — every engagement starts with the diagnostic, and the strategy we write we execute ourselves. Powered by VÆST (an AI creative director). Products: VÆST, First Draft, Routte.",
+          "ØRIONS is a creative strategy consultancy in Bangkok that also makes the work — where aesthetic meets algorithm. The practice runs in four stages with a single door: The Diagnostic, The Strategy, The Work, The Counsel — every engagement starts with the diagnostic, and the strategy we write we execute ourselves.",
       }}
     />
 
     {/* 01 — HERO */}
     <section className="relative min-h-[100svh] flex flex-col px-6 md:px-10 overflow-hidden">
-      <Picture data={heroSilk} alt="" aria-hidden className="silk-drift absolute -inset-[6%] z-0 w-[112%] h-[112%] object-cover object-center pointer-events-none select-none" />
-      <div aria-hidden className="hero-scrim absolute inset-0 z-0 pointer-events-none" />
+      {/* The sky ØRIONS sits in — black, with one star. No photograph of our
+          own: the first colour anyone sees on this site should be a client's. */}
+      <SignalField fx={0.8} fy={0.4} seed={3} intensity={0.9}
+        className="absolute inset-0 z-0 w-full h-full pointer-events-none" />
       <div className="relative z-10 max-w-[1400px] mx-auto w-full flex-1 flex flex-col justify-center pt-24 md:pt-32 pb-20 md:pb-28">
         <Reveal>
           <div className="flex items-center gap-3 font-mono text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-foreground/70">
@@ -137,13 +137,13 @@ const Index = () => (
           {stages.map((s) => (
             <Reveal key={s.slug} emphasis="quiet">
               <div className="grid grid-cols-[60px_1fr] lg:grid-cols-[90px_0.8fr_1.2fr] items-baseline gap-x-5 gap-y-2 py-6 md:py-8 border-b border-foreground/12">
-                <span className={`font-mono text-[12px] md:text-[13px] tracking-[0.14em] tabular-nums ${s.gate ? "text-cinnabar" : "text-muted-foreground"}`}>
+                <span className={`font-mono text-[12px] md:text-[13px] tracking-[0.14em] tabular-nums ${s.gate ? "text-foreground" : "text-muted-foreground"}`}>
                   {s.n}
                 </span>
                 <span lang="th" className="font-serif text-[26px] md:text-[38px] leading-[1.05] tracking-[-0.025em] thai-wrap">
                   {s.name}
                   {s.gate && (
-                    <span className="ml-3 align-middle font-mono text-[10px] tracking-[0.2em] uppercase text-cinnabar">ประตูเดียว</span>
+                    <span className="ml-3 align-middle font-mono text-[10px] tracking-[0.2em] uppercase text-foreground">ประตูเดียว</span>
                   )}
                 </span>
                 <span lang="th" className="col-span-2 lg:col-span-1 font-thai thai-wrap text-[14px] md:text-[16px] leading-[1.75] text-muted-foreground">
@@ -194,9 +194,8 @@ const Index = () => (
                   data={item.cover}
                   alt={item.title}
                   loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover grayscale-[0.25] group-hover:grayscale-0 group-hover:scale-[1.03] transition-[transform,filter] duration-700"
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-[transform,filter] duration-700"
                 />
-                <span aria-hidden className="halftone absolute inset-0" />
                 <span className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
                 <span className="absolute inset-x-0 bottom-0 p-6 md:p-7">
                   <span className="block font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/75">{item.niche} · {item.year}</span>
@@ -210,52 +209,6 @@ const Index = () => (
       </div>
     </section>
 
-    {/* 05 — THE FOUR INNOVATIONS (the system) */}
-    <section id="system" className="relative overflow-hidden px-6 md:px-10 border-t border-foreground/15 scroll-mt-16">
-      <SignalField fx={0.8} fy={0.28} seed={7} intensity={0.6}
-        className="absolute inset-0 w-full h-full pointer-events-none" />
-      <div className="relative z-10 max-w-[1400px] mx-auto pt-32 md:pt-52 pb-10 md:pb-16">
-        <Reveal>
-          <div className="font-mono text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-muted-foreground">— The system · three instruments</div>
-        </Reveal>
-        <Reveal delay={0.05} emphasis="lead">
-          <h2 className="mt-8 h-display-lg max-w-[16ch]">
-            หนึ่งจักรวาล ขับเคลื่อนด้วย <em className="text-foreground">VÆST.</em>
-          </h2>
-        </Reveal>
-      </div>
-
-      <div className="relative z-10 max-w-[1400px] mx-auto border-t border-foreground/15">
-        {innovations.map((it, i) => (
-          <Reveal key={it.n} delay={0.04}>
-            {/* Kept deliberately tighter than The Practice — these are the
-                instruments, not the offer. Depth is the homepage's centre. */}
-            <article className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-6 lg:gap-20 py-12 md:py-16 border-b border-foreground/15">
-              <div>
-                <div className="flex items-center gap-4 font-mono text-[10px] tracking-[0.24em] uppercase text-muted-foreground">
-                  <span className="text-foreground tabular-nums">{it.n}</span>
-                  <span>{it.role}</span>
-                </div>
-                <Link to={`/system/${it.slug}`} viewTransition className="group/name block">
-                  <h3 className="mt-4 font-display font-medium text-[clamp(34px,5vw,64px)] leading-[0.92] tracking-[-0.03em] transition-colors duration-300 group-hover/name:opacity-80">{it.name}</h3>
-                </Link>
-                <div lang="th" className="mt-4 font-serif text-[16px] md:text-[19px] leading-[1.35] tracking-[-0.01em] text-foreground/85">{it.kind}</div>
-              </div>
-              <div className="lg:pt-8">
-                <p lang="th" className="font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.8] text-muted-foreground max-w-[52ch]">
-                  {it.lede}
-                </p>
-                <Link to={`/system/${it.slug}`} viewTransition className="cta-link mt-6">
-                  <span>ดูรายละเอียด {it.name}</span><ArrowUpRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </article>
-          </Reveal>
-        ))}
-      </div>
-      <div className="relative z-10 h-20 md:h-28" />
-    </section>
-
     {/* 06 — WHO / SCOPE-1 bridge to the agency work */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1400px] mx-auto py-32 md:py-52 grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-14 lg:gap-24 items-center">
@@ -267,7 +220,7 @@ const Index = () => (
           </Reveal>
           <Reveal delay={0.1}>
             <p lang="th" className="mt-8 max-w-[620px] font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.8] text-foreground/80">
-              เทคโนโลยีคือโครงสร้าง แต่รสนิยมคือสิ่งที่ทำให้มันมีชีวิต. เราเป็นที่ปรึกษาที่ลงมือคราฟต์เอง — ด้วยมือของทีม senior ที่ VÆST เกิดมาจากวิธีคิดของพวกเขา.
+              เทคโนโลยีคือโครงสร้าง แต่รสนิยมคือสิ่งที่ทำให้มันมีชีวิต. เราเป็นที่ปรึกษาที่ลงมือคราฟต์เอง — ด้วยมือของทีม senior ทุกงาน.
             </p>
           </Reveal>
           <Reveal delay={0.15}>

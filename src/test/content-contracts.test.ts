@@ -3,7 +3,6 @@ import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 import { blogPosts } from "@/data/blog";
 import { caseStudies } from "@/data/caseStudies";
-import { innovations } from "@/data/system";
 
 const fromRoot = (path: string) => readFileSync(resolve(process.cwd(), path), "utf8");
 const sitemap = fromRoot("public/sitemap.xml");
@@ -11,12 +10,18 @@ const sitemapUrls = new Set(Array.from(sitemap.matchAll(/<loc>([^<]+)<\/loc>/g),
 
 describe("search index contract", () => {
   it("lists every public route, article and case study", () => {
-    ["/", "/about", "/practice", "/work", "/system", "/thinking", "/blog", "/contact", "/privacy"].forEach((path) => {
+    ["/", "/about", "/practice", "/work", "/thinking", "/blog", "/contact", "/privacy"].forEach((path) => {
       expect(sitemapUrls).toContain(`https://orions.agency${path}`);
     });
     blogPosts.forEach((post) => expect(sitemapUrls).toContain(`https://orions.agency/blog/${post.slug}`));
     caseStudies.forEach((item) => expect(sitemapUrls).toContain(`https://orions.agency/work/${item.slug}`));
-    innovations.forEach((it) => expect(sitemapUrls).toContain(`https://orions.agency/system/${it.slug}`));
+  });
+
+  // The site presents ØRIONS as a creative agency and shows client work only.
+  // The product line (VÆST · First Draft · Routte) was retired from it in the
+  // monochrome rebrand; this keeps it from drifting back through the sitemap.
+  it("does not advertise the retired product pages", () => {
+    sitemapUrls.forEach((url) => expect(url).not.toMatch(/orions\.agency\/system/));
   });
 
   it("does not advertise retired article URLs", () => {
@@ -29,17 +34,18 @@ describe("public credibility contract", () => {
   const publicCopy = [
     "src/pages/Index.tsx",
     "src/pages/Thinking.tsx",
-    "src/pages/System.tsx",
-    "src/pages/SystemDetail.tsx",
     "src/pages/About.tsx",
     "src/pages/Work.tsx",
-    "src/data/system.ts",
     "src/data/blog.ts",
     "src/data/portfolio.ts",
     "src/data/caseStudies.ts",
     "public/llms.txt",
     "index.html",
   ].map(fromRoot).join("\n");
+
+  it("does not present the retired products as part of the offer", () => {
+    expect(publicCopy).not.toMatch(/First Draft|Routte|VÆST/);
+  });
 
   it("does not publish unsupported headline statistics or provider branding", () => {
     expect(publicCopy).not.toMatch(/4\.6(?:×|\s*เท่า)/i);
@@ -140,7 +146,7 @@ describe("public credibility contract", () => {
   // may still sit on a vercel.app host until the client wires their domain —
   // that reflects reality and is allowed.
   it("does not present our own products on temporary deployment domains", () => {
-    const productCopy = ["src/data/system.ts", "public/llms.txt", "index.html"].map(fromRoot).join("\n");
+    const productCopy = ["public/llms.txt", "index.html"].map(fromRoot).join("\n");
     expect(productCopy).not.toMatch(/vercel\.app/i);
   });
 });

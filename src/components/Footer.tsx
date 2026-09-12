@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 const navLinks = [
   { to: "/practice", label: "Practice" },
   { to: "/work", label: "Work" },
-  { to: "/system", label: "System" },
   { to: "/thinking", label: "Thinking" },
   { to: "/blog", label: "Blog" },
   { to: "/about", label: "About" },
@@ -33,7 +32,7 @@ const Footer = () => {
       {/* Status strip — quiet ribbon */}
       <div className="px-6 md:px-10 h-8 flex items-center justify-between font-mono text-[10px] tracking-[0.18em] uppercase text-foreground/55 border-b border-foreground/10">
         <span className="inline-flex items-center gap-2">
-          <span className="inline-block w-1.5 h-1.5 bg-cinnabar" aria-hidden />
+          <span className="inline-block w-1.5 h-1.5 bg-foreground" aria-hidden />
           Studio open · BKK {bkkTime} ICT
         </span>
       </div>

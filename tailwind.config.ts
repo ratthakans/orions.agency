@@ -44,7 +44,6 @@ export default {
           foreground: "hsl(var(--accent-foreground))",
         },
         // Brand accent alias — full utility set (text/bg/border/ring + opacity)
-        cinnabar: "hsl(var(--accent) / <alpha-value>)",
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
@@ -55,12 +54,14 @@ export default {
         },
       },
       fontFamily: {
-        // Real, self-hosted system — no Inter (was a phantom fallback).
-        display: ["Newsreader", "IBM Plex Sans Thai", "Georgia", "serif"],
-        body: ["IBM Plex Sans Thai", "system-ui", "sans-serif"],
-        serif: ["Newsreader", "IBM Plex Sans Thai", "Georgia", "serif"],
-        mono: ["IBM Plex Mono", "ui-monospace", "monospace"],
-        thai: ["IBM Plex Sans Thai", "system-ui", "sans-serif"],
+        // Two families. `serif` and `mono` are kept as names so the 120+ existing
+        // call sites keep working, but neither is what it says any more:
+        //   serif → Unbounded (display)   mono → Unbounded (labels, numerals)
+        display: ["Unbounded", "Noto Sans Thai", "system-ui", "sans-serif"],
+        serif: ["Unbounded", "Noto Sans Thai", "system-ui", "sans-serif"],
+        mono: ["Unbounded", "Noto Sans Thai", "system-ui", "sans-serif"],
+        body: ["Noto Sans Thai", "system-ui", "sans-serif"],
+        thai: ["Noto Sans Thai", "system-ui", "sans-serif"],
       },
       borderRadius: {
         none: "0",

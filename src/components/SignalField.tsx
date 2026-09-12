@@ -6,10 +6,11 @@
 
 const W = 1200;
 const H = 800;
-const CINNABAR = "#EB5939";
+const STAR = "#F4F4F2";
 // Noise + rings are monochrome (near-white, very low opacity); only the focused
-// Signal point is cinnabar — the single earned moment of colour.
-const NOISE = "#FDFDF9";
+// Signal point is a star — the brightest white on the sky, not a hue. ØRIONS
+// has no colour of its own; colour on this site belongs to client work.
+const NOISE = "#F4F4F2";
 
 // mulberry32 — small, stable seeded PRNG (server and client agree)
 function rng(seed: number) {
@@ -104,16 +105,16 @@ const SignalField = ({ fx = 0.72, fy = 0.42, seed = 0, className = "", intensity
         <circle key={`d${i}`} cx={d.x} cy={d.y} r={d.r} fill={NOISE} opacity={d.o * 0.7} />
       ))}
 
-      {/* the lens / sonar rings (monochrome; the last one warms toward cinnabar) */}
+      {/* the lens / sonar rings (monochrome; the innermost ring is the star's own light) */}
       {rings.map((r, i) => (
         <circle key={`r${i}`} cx={cx} cy={cy} r={r.rad} fill="none"
-          stroke={i === 0 ? CINNABAR : NOISE} strokeWidth={i === 0 ? 1 : 0.7}
+          stroke={i === 0 ? STAR : NOISE} strokeWidth={i === 0 ? 1 : 0.7}
           opacity={i === 0 ? r.o * 0.9 : r.o * 0.6} />
       ))}
 
       {/* Signal — the focused point (soft glow + sharp core) */}
-      <circle cx={cx} cy={cy} r={13} fill={CINNABAR} opacity={0.5} filter={`url(#fg-${uid})`} />
-      <circle cx={cx} cy={cy} r={3.6} fill={CINNABAR} opacity={0.95} />
+      <circle cx={cx} cy={cy} r={13} fill={STAR} opacity={0.5} filter={`url(#fg-${uid})`} />
+      <circle cx={cx} cy={cy} r={3.6} fill={STAR} opacity={0.95} />
     </svg>
   );
 };

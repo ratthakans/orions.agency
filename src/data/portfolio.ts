@@ -19,7 +19,7 @@ export type SiteItem = {
   kind: string;
   /** Category label (mono, uppercase). */
   niche: string;
-  /** One-line essence — VÆST-tight, editorial. */
+  /** One-line essence — tight, editorial. */
   note: string;
 };
 
@@ -136,14 +136,6 @@ const photography: GalleryImage[] = Object.keys(photoMods).sort().map((k) => ({ 
 // Digital experience — shipped, live sites & applications. Text-forward cards
 // that link out to the real thing (no placeholder screenshots).
 const digitalSites: SiteItem[] = [
-  {
-    name: "Routte",
-    domain: "routte.to",
-    url: "https://routte.to",
-    kind: "Application",
-    niche: "Product",
-    note: "AI trip planner — เปลี่ยนอารมณ์และเวลาที่มี ให้เป็นวันหนึ่งที่เล่าเป็นเรื่อง.",
-  },
   {
     name: "HONG MOVE",
     domain: "hongmove.co.th",

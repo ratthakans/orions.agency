@@ -12,41 +12,53 @@
 
 @layer base {
   :root {
-    /* ØRIONS — Dark (Alpha Growth): Black Russian bg / Snow ink / Cinnabar accent */
-    --background: 0 0% 5.5%;            /* #0E0E0E Black Russian */
-    --foreground: 60 33% 98%;          /* #FDFDF9 Snow */
+    /* Type — two families, tokenised. Change a face here, not at 40 call sites.
+       Unbounded carries no Thai, so every stack that leads with it names
+       Noto Sans Thai second; Thai glyphs fall through to it by design. */
+    --font-display: 'Unbounded', 'Noto Sans Thai', system-ui, sans-serif;
+    --font-body: 'Noto Sans Thai', system-ui, sans-serif;
+    --font-label: 'Unbounded', 'Noto Sans Thai', system-ui, sans-serif;
 
-    --surface: 0 0% 7.8%;              /* #141414 soft band */
-    --surface-foreground: 60 33% 98%;
-    --surface-2: 0 0% 9.4%;            /* #181818 card */
+    /* ØRIONS — monochrome. A night sky and the ink on it; no hue of our own.
+       Colour on this site belongs to the client work and appears nowhere else. */
+    --background: 240 9% 4.3%;          /* #0A0A0C — night sky, a hair of blue, not #000 */
+    --foreground: 60 8% 95.3%;          /* #F4F4F2 — the ink on it */
 
-    --card: 0 0% 9.4%;                 /* #181818 */
-    --card-foreground: 60 33% 98%;
+    --surface: 240 11% 7.1%;            /* #101014 — banded sky */
+    --surface-foreground: 60 8% 95.3%;
+    --surface-2: 240 11% 9.2%;          /* #15151A */
 
-    --popover: 0 0% 7.8%;
-    --popover-foreground: 60 33% 98%;
+    --card: 240 11% 9.2%;
+    --card-foreground: 60 8% 95.3%;
 
-    --primary: 60 33% 98%;
-    --primary-foreground: 0 0% 5.5%;
+    --popover: 240 11% 7.1%;
+    --popover-foreground: 60 8% 95.3%;
 
-    --secondary: 0 0% 15.3%;
-    --secondary-foreground: 60 33% 98%;
+    --primary: 60 8% 95.3%;
+    --primary-foreground: 240 9% 4.3%;
 
-    --muted: 0 0% 15.3%;
-    --muted-foreground: 60 5% 65%;     /* brightened for readability on dark */
+    --secondary: 240 6% 15%;
+    --secondary-foreground: 60 8% 95.3%;
 
-    /* Cinnabar — accent #EB5939 */
-    --accent: 11 81% 57%;
-    --accent-hover: 11 76% 50%;
-    --accent-foreground: 0 0% 5.5%;
+    --muted: 240 6% 15%;
+    --muted-foreground: 240 4% 64%;
 
-    --destructive: 0 72% 48%;
-    --destructive-foreground: 60 33% 98%;
+    /* No accent hue. The token survives so nothing that reads it breaks, but it
+       resolves to the ink — the slash, the focus ring and every former cinnabar
+       moment are now white on black. */
+    --accent: 60 8% 95.3%;
+    --accent-hover: 60 8% 80%;
+    --accent-foreground: 240 9% 4.3%;
 
-    --border: 0 0% 15.3%;              /* #272727 line */
-    --border-soft: 0 0% 15.3%;
-    --input: 0 0% 15.3%;
-    --ring: 11 81% 57%;
+    /* The one exception, kept on purpose: form validation. It is a functional
+       state that tells someone their input failed, not a brand colour. */
+    --destructive: 0 72% 58%;
+    --destructive-foreground: 60 8% 95.3%;
+
+    --border: 240 6% 15%;
+    --border-soft: 240 6% 13%;
+    --input: 240 6% 15%;
+    --ring: 60 8% 95.3%;
 
   }
 }
@@ -59,7 +71,7 @@
   html, body { overflow-x: hidden; }
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'IBM Plex Sans Thai', system-ui, sans-serif;
+    font-family: var(--font-body);
     font-size: 17px;
     line-height: 1.58;
     font-weight: 400;
@@ -70,14 +82,14 @@
   }
   /* Thai text uses IBM Plex Sans Thai for both Thai AND inline Latin (cohesive — no serif/sans clash) */
   :lang(th), [lang="th"] {
-    font-family: 'IBM Plex Sans Thai', system-ui, sans-serif;
+    font-family: var(--font-body);
     word-break: normal;
     line-break: auto;
     overflow-wrap: break-word;
   }
   /* Editorial serif display — Latin in Newsreader, Thai falls back to IBM Plex Sans Thai */
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Newsreader', 'IBM Plex Sans Thai', Georgia, serif;
+    font-family: var(--font-display);
     font-weight: 500;
     letter-spacing: -0.02em;
     line-height: 1.05;
@@ -88,7 +100,7 @@
      headline (monochrome, premium). Cinnabar is reserved for rare moments, not
      sprinkled through every heading. */
   h1 em, h2 em, h3 em, h4 em, h5 em, h6 em {
-    font-family: 'Newsreader', 'IBM Plex Sans Thai', Georgia, serif;
+    font-family: var(--font-display);
     font-style: normal;
     font-weight: 500;
     letter-spacing: -0.015em;
@@ -108,11 +120,11 @@
 }
 
 @layer utilities {
-  .font-display { font-family: 'Newsreader', 'IBM Plex Sans Thai', Georgia, serif; font-weight: 500; letter-spacing: -0.02em; }
-  .font-body    { font-family: 'IBM Plex Sans Thai', system-ui, sans-serif; }
-  .font-mono    { font-family: 'IBM Plex Mono', ui-monospace, monospace; }
+  .font-display { font-family: var(--font-display); font-weight: 500; letter-spacing: -0.02em; }
+  .font-body    { font-family: var(--font-body); }
+  .font-mono    { font-family: var(--font-label); }
   .font-thai    {
-    font-family: 'IBM Plex Sans Thai', system-ui, sans-serif;
+    font-family: var(--font-body);
     text-transform: none;
     font-weight: 400;
     letter-spacing: 0;
@@ -176,7 +188,7 @@
      Every frame carries one; at this size the repetition reads as texture and
      provenance, which is the whole point of a contact sheet. */
   .frame-index {
-    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-family: var(--font-label);
     font-size: 9px;
     letter-spacing: 0.16em;
     line-height: 1;
@@ -188,7 +200,7 @@
   .group:hover .frame-index { color: hsl(var(--foreground) / 0.9); }
 
   /* No font-weight here — let weight utilities (font-medium/bold) compose with it. */
-  .font-serif   { font-family: 'Newsreader', 'IBM Plex Sans Thai', Georgia, serif; letter-spacing: -0.02em; text-transform: none; }
+  .font-serif   { font-family: var(--font-display); letter-spacing: -0.02em; text-transform: none; }
   .bg-orion     { background-color: hsl(var(--accent)); }
   /* text-cinnabar / bg-cinnabar / border-cinnabar / ring-cinnabar now come from
      the Tailwind `cinnabar` color (config) — full opacity-modifier support. */
@@ -202,7 +214,7 @@
   /* Mono meta chip — dates, metrics, constraints */
   .meta-chip {
     display: inline-flex; align-items: center;
-    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-family: var(--font-label);
     font-size: 10px; font-weight: 500;
     letter-spacing: 0.18em; text-transform: uppercase;
     padding: 4px 8px;
@@ -214,7 +226,7 @@
 
   /* Editorial blockquote — Newsreader serif narrative body */
   .editorial-quote {
-    font-family: 'IBM Plex Sans Thai', system-ui, sans-serif;
+    font-family: var(--font-body);
     font-weight: 400;
     font-size: clamp(17px, 1.4vw, 21px);
     line-height: 1.6;
@@ -228,7 +240,7 @@
 
   /* CTA / button label — Newsreader, normal case */
   .btn-label {
-    font-family: 'IBM Plex Sans Thai', system-ui, sans-serif;
+    font-family: var(--font-body);
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
@@ -244,17 +256,22 @@
   .h-display-sm,
   .h-display-xs,
   .h-display-2xs {
-    font-family: 'Newsreader', 'IBM Plex Sans Thai', Georgia, serif;
+    font-family: var(--font-display);
     font-weight: 500;
     text-wrap: balance;
     font-optical-sizing: auto;
   }
-  .h-display-xl  { font-size: clamp(46px, 8.5vw, 128px); line-height: 1.0;  letter-spacing: -0.025em; }
-  .h-display-lg  { font-size: clamp(34px, 5.6vw, 84px);  line-height: 1.04; letter-spacing: -0.022em; }
-  .h-display-md  { font-size: clamp(28px, 4vw, 52px);   line-height: 1.1;  letter-spacing: -0.018em; }
-  .h-display-sm  { font-size: clamp(21px, 2.4vw, 32px); line-height: 1.2;  letter-spacing: -0.012em; }
-  .h-display-xs  { font-size: clamp(17px, 1.5vw, 21px); line-height: 1.4;  letter-spacing: -0.008em; }
-  .h-display-2xs { font-size: clamp(15px, 1.2vw, 18px); line-height: 1.3;  letter-spacing: -0.005em; }
+  /* Scale re-cut for Unbounded, which sets about a third wider than the serif
+     it replaced: ~18% smaller at the top, easing to near-unchanged at the
+     bottom where width stops being the constraint. Tighter tracking pulls a
+     wide geometric face together at display size. Thai headings share these
+     sizes and fall through to Noto Sans Thai glyph-by-glyph. */
+  .h-display-xl  { font-size: clamp(38px, 7vw, 104px);   line-height: 0.98; letter-spacing: -0.04em; }
+  .h-display-lg  { font-size: clamp(30px, 4.7vw, 70px);  line-height: 1.02; letter-spacing: -0.035em; }
+  .h-display-md  { font-size: clamp(25px, 3.4vw, 44px);  line-height: 1.08; letter-spacing: -0.03em; }
+  .h-display-sm  { font-size: clamp(20px, 2.1vw, 28px);  line-height: 1.18; letter-spacing: -0.02em; }
+  .h-display-xs  { font-size: clamp(16px, 1.4vw, 19px);  line-height: 1.35; letter-spacing: -0.01em; }
+  .h-display-2xs { font-size: clamp(14px, 1.15vw, 17px); line-height: 1.3;  letter-spacing: -0.005em; }
 
   .bg-surface   { background-color: hsl(var(--surface)); }
   .bg-surface-2 { background-color: hsl(var(--surface-2)); }
@@ -271,7 +288,7 @@
     color: hsl(var(--background));
     border: 1.5px solid hsl(var(--foreground));
     box-shadow: none;
-    font-family: 'IBM Plex Sans Thai', system-ui, sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 0;
+    font-family: var(--font-body); font-size: 15px; font-weight: 600; letter-spacing: 0;
     transition: background-color 150ms ease, border-color 150ms ease, transform 60ms ease;
   }
   .btn-accent:hover { background: hsl(var(--foreground) / 0.86); border-color: hsl(var(--foreground) / 0.86); }
@@ -285,7 +302,7 @@
     align-items: center;
     gap: 0.55rem;
     padding-bottom: 8px;
-    font-family: 'IBM Plex Sans Thai', system-ui, sans-serif;
+    font-family: var(--font-body);
     font-size: 16px;
     font-weight: 500;
     letter-spacing: 0.01em;
@@ -343,8 +360,8 @@
   /* === Section "ink" mode — now a subtle elevated dark band (base is already dark) === */
   .section-ink {
     background-color: hsl(var(--surface-2));
-    --surface: 0 0% 11%;
-    --card: 0 0% 12.5%;
+    --surface: 240 11% 11%;
+    --card: 240 11% 12.5%;
   }
 
 }
@@ -352,22 +369,40 @@
 /* === Thai heading tuning (unlayered → beats .h-display utilities) ===
    Relax Latin's negative tracking, give stacked Thai marks vertical room,
    and use `pretty` to avoid single-word orphans on the last line. */
-h1:lang(th), h2:lang(th), h3:lang(th), h4:lang(th), h5:lang(th), h6:lang(th),
-.h-display-xl:lang(th), .h-display-lg:lang(th), .h-display-md:lang(th),
-.h-display-sm:lang(th), .h-display-xs:lang(th), .h-display-2xs:lang(th) {
+/* Display face on every heading, whatever its language — unless the heading
+   names its own font class (e.g. the About refusals are font-thai by intent). */
+h1:not([class*="font-"]), h2:not([class*="font-"]), h3:not([class*="font-"]),
+h4:not([class*="font-"]), h5:not([class*="font-"]), h6:not([class*="font-"]) {
+  font-family: var(--font-display);
+}
+
+/* Thai-only metrics — keyed on the ATTRIBUTE, not :lang(). With <html lang="th">,
+   :lang(th) matches every heading on the site, so these relaxed metrics used to
+   land on English headlines too and silently overrode the display scale (a
+   104px Unbounded headline was setting at line-height 1.25 and zero tracking).
+   Thai headings carry lang="th" on the element, per DESIGN_SYSTEM.md, and the
+   prop-driven components stamp it automatically via lib/lang.ts. */
+h1[lang="th"], h2[lang="th"], h3[lang="th"], h4[lang="th"], h5[lang="th"], h6[lang="th"],
+.h-display-xl[lang="th"], .h-display-lg[lang="th"], .h-display-md[lang="th"],
+.h-display-sm[lang="th"], .h-display-xs[lang="th"], .h-display-2xs[lang="th"] {
   letter-spacing: 0;
   line-height: 1.25;
   text-wrap: pretty;
 }
-/* Accent words in headings — restate the serif form here, unlayered.
-   The document is <html lang="th">, so the `:lang(th)` body-font rule in
-   @layer base matches EVERY element (0,1,0) and outranked `h1 em` (0,0,2) —
-   which silently dropped Newsreader from every Latin accent word in every
-   heading site-wide. Thai needs no exception: Newsreader carries no Thai
-   glyphs, so Thai accent words fall through to IBM Plex Sans Thai anyway. */
-h1:lang(th) em, h2:lang(th) em, h3:lang(th) em, h4:lang(th) em, h5:lang(th) em, h6:lang(th) em {
-  font-family: 'Newsreader', 'IBM Plex Sans Thai', Georgia, serif;
-  letter-spacing: 0;
+/* Display face survives lang="th" — unlayered, so it outranks @layer base.
+   The document is <html lang="th">, which makes the `:lang(th)` body-font rule
+   match EVERY element. Any bare element inside a heading — the hero's per-line
+   <span>s, an accent <em> — is matched by it directly and wins over the font it
+   would otherwise inherit, so Unbounded never rendered on a single Latin
+   headline. Descendants now inherit the display face; one that names its own
+   font class (font-thai, font-mono …) keeps it. Thai glyphs need no exception:
+   Unbounded has no Thai subset, so the stack falls through to Noto Sans Thai
+   one glyph at a time. */
+h1:lang(th) :not([class*="font-"]), h2:lang(th) :not([class*="font-"]),
+h3:lang(th) :not([class*="font-"]), h4:lang(th) :not([class*="font-"]),
+h5:lang(th) :not([class*="font-"]), h6:lang(th) :not([class*="font-"]),
+.font-display:lang(th) :not([class*="font-"]), .font-serif:lang(th) :not([class*="font-"]) {
+  font-family: inherit;
 }
 
 /* Refined editorial mastheads — Thai can't switch to a serif face (Newsreader

@@ -15,21 +15,13 @@ prescribe for anyone who will not let it examine them first.
 - 04 · THE COUNSEL (ที่ปรึกษาต่อเนื่อง) — 12–18 months, a few clients a year, in the boardroom. Screening authority over everything the organisation says publicly, a quarterly re-diagnosis, a monthly kill list, and a direct line to senior.
 Every engagement starts at stage 01. There is no shortcut.
 
-## The system — three instruments, one universe powered by VÆST
-From the thinking room to the road: think (VÆST) → write (First Draft) → travel (Routte). Each has its own page at orions.agency/system/<slug>.
-- VÆST (The Core Engine) — the AI Creative Director. "Computation is nothing without taste." Drop briefs, files, spreadsheets and moodboards in and hit Crystallize: one sharp document, editable sentence by sentence, that passes a final taste check before it ships. Client-loop comments and per-project taste memory turn a studio's taste into infrastructure. Live at https://vaest.orions.agency — detail page: https://orions.agency/system/vaest
-- First Draft (The Canvas) — a Thai-first screenwriting & production platform, powered by VÆST. The script is the single source of truth of a Living Production Graph: edit one scene and breakdown, stripboard, callsheets and budget propagate across every department. 20+ VÆST AI roles that truly read Thai scripts. Live at https://firstdraftpro.co — detail page: https://orions.agency/system/first-draft
-- Routte (The Compass) — a curated AI trip planner for Thailand, powered by VÆST. "Every day is a story." Turns mood and hours into a day told as six chapters with one hero moment; a Passport tracks cities, badges and real baht saved via scan-to-save/scan-to-pay at partner venues (partner platform at https://partner.routte.to). Live at https://routte.to — detail page: https://orions.agency/system/routte
 
 ## Belief / manifesto (Thinking)
-The world isn't short of content, it drowns out its own voice with it — the answer is not louder but deeper. The sharpest story wins, not the loudest. A sharp brand is one that has been carved away from, not one that has been added to: the discipline is subtraction, which is why every engagement ends with a kill list. Most businesses treat the symptom (sales dip → more media → discount) without ever diagnosing the disease (the brand has no story sharp enough to be remembered). That belief is expressed as the four stages above, and VÆST (taste-driven intelligence) elevates every output. Technology is the structure; taste is what gives it life. Full manifesto: https://orions.agency/thinking
+The world isn't short of content, it drowns out its own voice with it — the answer is not louder but deeper. The sharpest story wins, not the loudest. A sharp brand is one that has been carved away from, not one that has been added to: the discipline is subtraction, which is why every engagement ends with a kill list. Most businesses treat the symptom (sales dip → more media → discount) without ever diagnosing the disease (the brand has no story sharp enough to be remembered). That belief is expressed as the four stages above. Technology is the structure; taste is what gives it life. Full manifesto: https://orions.agency/thinking
 
 ## Taglines
 - Where aesthetic meets algorithm. (primary)
 - A creative agency, powered by its own AI. (positioning)
-- Computation is nothing without taste. (VÆST)
-- Before the final, you need a first draft. (First Draft)
-- Every day is a story. (Routte)
 
 ## Key pages
 - Home: https://orions.agency/

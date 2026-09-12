@@ -7,108 +7,104 @@ one actually in the code (`src/index.css`, `tailwind.config.ts`, `src/fonts.ts`)
 
 ## 0. The governing idea
 
-**Sharp, flat, and quiet.** Structure is made of 1px rules, not boxes. Nothing
-is rounded, nothing casts a shadow, and colour is withheld until it means
-something. The page should read like a printed editorial spread that happens to
-be on a screen — confident enough to be plain.
+**ØRIONS is the night sky. The colour is the client's.**
+
+The site is a monochrome canvas — a black ground and the white ink on it — and
+the only colour that ever appears is inside client work. We have no accent of our
+own. Swiss in structure (grid, left-aligned, hairlines, type doing the hierarchy),
+a little Scandinavian in restraint.
 
 Three rules that decide most arguments:
 
-1. **Subtraction over addition.** If an element can be removed and the page
-   still reads, remove it.
-2. **Colour is a statement, not decoration.** Cinnabar appears ~12 times across
-   the entire site. If you are reaching for it, ask what it is marking.
-3. **Type carries hierarchy.** Not weight, not colour, not borders — size and
-   space.
+1. **No hue in the chrome.** Ground, text, rules, buttons, focus ring, the slash —
+   all black or white. If you are reaching for a colour, it belongs in an image.
+2. **Never desaturate the work.** No grayscale, no halftone, no tint over client
+   imagery. The concept fails the moment we mute the one thing allowed to be loud.
+3. **Type carries hierarchy.** Not weight, not colour, not borders — size and space.
 
 ---
 
 ## 1. Colour
 
-Dark theme only. There is no light mode and no `dark:` variants.
+Dark only. Two values, each used at reduced opacity where a step is needed.
 
 | Token | HSL | Hex | Role |
 |---|---|---|---|
-| `--background` | `0 0% 5.5%` | `#0E0E0E` | Page base (Black Russian) |
-| `--foreground` | `60 33% 98%` | `#FDFDF9` | Ink (Snow) |
-| `--surface` | `0 0% 7.8%` | `#141414` | Alternating section band |
-| `--surface-2` | `0 0% 9.4%` | `#181818` | Cards, elevated band |
-| `--card` | `0 0% 9.4%` | `#181818` | Card fill |
-| `--muted-foreground` | `60 5% 65%` | — | Secondary text |
-| `--border` | `0 0% 15.3%` | `#272727` | All rules and dividers |
-| **`--accent`** | **`11 81% 57%`** | **`#EB5939`** | **Cinnabar — the only accent** |
-| `--accent-hover` | `11 76% 50%` | — | Accent hover |
-| `--destructive` | `0 72% 48%` | — | Errors only |
+| `--background` | `240 9% 4.3%` | `#0A0A0C` | Night sky — a hair of blue, deliberately not `#000` |
+| `--foreground` | `60 8% 95.3%` | `#F4F4F2` | The ink |
+| `--surface` | `240 11% 7.1%` | `#101014` | Banded sky |
+| `--surface-2` / `--card` | `240 11% 9.2%` | `#15151A` | Elevated band |
+| `--muted-foreground` | `240 4% 64%` | — | Secondary text |
+| `--border` | `240 6% 15%` | — | Every rule and divider |
+| `--accent` / `--ring` | = foreground | — | Kept as tokens so nothing breaks; they resolve to white |
+| `--destructive` | `0 72% 58%` | — | **The one exception** — form validation only |
 
 ### Using colour
 
 - Tailwind: `bg-background`, `text-foreground`, `border-border`, `bg-surface`,
-  `bg-surface-2`, `text-muted-foreground`, and **`text-cinnabar` /
-  `bg-cinnabar` / `border-cinnabar`** (full opacity-modifier support:
-  `text-cinnabar/60`).
-- Most borders in page code are written as `border-foreground/12` … `/20`
-  rather than `border-border` — both land in the same neighbourhood; prefer
-  `border-foreground/12` for hairlines inside a section and `/20` for a section's
-  top rule.
-- Text de-emphasis ladder: `text-foreground` → `text-foreground/85` →
-  `text-foreground/80` → `text-muted-foreground`.
-
-### Where cinnabar IS allowed
-
-Keyboard focus ring · the brand slash `/` · the single gate marker in the
-practice ladder · the `Signal` moment in Noise/Signal · the hero full-stop ·
-the `editorial-quote` left rule. That is the list.
-
-### Where cinnabar is NOT allowed
-
-**`<em>` inside a heading.** It is deliberately styled `color: inherit` — accent
-words change *form*, not colour. A heading full of orange words is the failure
-mode this system was built to avoid.
+  `text-muted-foreground`, and opacity steps such as `text-foreground/55`.
+- **There is no `cinnabar` utility any more.** It was removed from
+  `tailwind.config.ts` so it cannot creep back in.
+- `--destructive` exists because a failed form field is a functional state, not a
+  brand moment. It never appears outside form validation.
 
 ---
 
 ## 2. Typography
 
-Three self-hosted faces via Fontsource. No third-party font requests, ever.
+Two families via Fontsource. No third-party font requests.
 
 | Face | Use |
 |---|---|
-| **Newsreader** | Latin display — headings, serif numerals, pull quotes |
-| **IBM Plex Sans Thai** | Body, **all Thai**, and Latin *inside* Thai text |
-| **IBM Plex Mono** | Labels, meta, depth/stage markers, eyebrows |
+| **Unbounded** | Latin display, labels, numerals — wide, geometric, set tight |
+| **Noto Sans Thai** | All Thai, and all running body text |
 
-> Thai text uses IBM Plex Sans Thai for its inline Latin too — mixing a Latin
-> serif into a Thai line produces a visible clash. This is enforced by
-> `:lang(th)` in `@layer base`.
+Tokens live at the top of `src/index.css` — change a face there, not at call sites:
+
+```css
+--font-display: 'Unbounded', 'Noto Sans Thai', system-ui, sans-serif;
+--font-body:    'Noto Sans Thai', system-ui, sans-serif;
+--font-label:   'Unbounded', 'Noto Sans Thai', system-ui, sans-serif;
+```
+
+> **Unbounded has no Thai subset** (latin · latin-ext · cyrillic · vietnamese).
+> Every stack that leads with it names Noto Sans Thai second, so a Thai heading
+> falls through glyph by glyph. A mixed Thai/English heading is Unbounded for the
+> Latin and Noto Sans Thai for the Thai, in one line. That is intended.
+
+The Tailwind names `font-serif` and `font-mono` still exist so the existing call
+sites keep working, but **neither means what it says**: both resolve to Unbounded.
 
 ### Display scale — single source of truth
 
-All fluid via `clamp()`. Never hand-roll a heading size when one of these fits.
+Re-cut for Unbounded, which sets about a third wider than the serif it replaced.
 
 | Class | Size | Line height | Tracking |
 |---|---|---|---|
-| `.h-display-xl` | `clamp(46px, 8.5vw, 128px)` | 1.0 | −0.025em |
-| `.h-display-lg` | `clamp(34px, 5.6vw, 84px)` | 1.04 | −0.022em |
-| `.h-display-md` | `clamp(28px, 4vw, 52px)` | 1.1 | −0.018em |
-| `.h-display-sm` | `clamp(21px, 2.4vw, 32px)` | 1.2 | −0.012em |
-| `.h-display-xs` | `clamp(17px, 1.5vw, 21px)` | 1.4 | −0.008em |
-| `.h-display-2xs` | `clamp(15px, 1.2vw, 18px)` | 1.3 | −0.005em |
+| `.h-display-xl` | `clamp(38px, 7vw, 104px)` | 0.98 | −0.04em |
+| `.h-display-lg` | `clamp(30px, 4.7vw, 70px)` | 1.02 | −0.035em |
+| `.h-display-md` | `clamp(25px, 3.4vw, 44px)` | 1.08 | −0.03em |
+| `.h-display-sm` | `clamp(20px, 2.1vw, 28px)` | 1.18 | −0.02em |
+| `.h-display-xs` | `clamp(16px, 1.4vw, 19px)` | 1.35 | −0.01em |
+| `.h-display-2xs` | `clamp(14px, 1.15vw, 17px)` | 1.3 | −0.005em |
 
-Body: `17px / 1.58`, weight 400. Headings default to weight **500** — never 700.
+Headings are weight **500**.
 
-### Thai typography (important)
+### Thai typography — and the `lang` trap
 
-Thai gets its own tuning, declared **outside** `@layer` so it beats the utilities:
+The document is `<html lang="th">`, so **`:lang(th)` matches every element on the
+site**, English headings included. Two consequences, both handled in the unlayered
+block near the bottom of `index.css`:
 
-```css
-letter-spacing: 0;    /* Latin's negative tracking collides Thai marks */
-line-height: 1.25;    /* stacked vowels/tones need vertical room */
-text-wrap: pretty;
-```
+- Thai-only metrics (`letter-spacing: 0`, `line-height: 1.25`) are keyed on the
+  **attribute** `[lang="th"]`, never on `:lang(th)` — otherwise a 104px English
+  headline sets at 1.25 leading with no tracking.
+- Bare elements inside a heading inherit the display face instead of being caught
+  by the body-font rule (which is why Unbounded once failed to render at all).
 
-**Always put `lang="th"` on Thai elements** — the tuning, the wrapping and the
-font stack all key off it. Add `thai-wrap` on Thai blocks that need explicit
-break control. `font-thai` sets the Thai body treatment (1.7 line height).
+**So: put `lang="th"` on every Thai heading, on the element itself.**
+`CTABand`, `ClosingCTA` and `SectionHeading` detect this from their `title` prop
+automatically via `src/lib/lang.ts`.
 
 ### Italics do not exist
 
@@ -116,9 +112,7 @@ break control. `font-thai` sets the Thai body treatment (1.7 line height).
 em, i, .italic { font-style: normal !important; }
 ```
 
-IBM Plex Sans Thai's obliques read poorly, so the system is upright throughout.
-**Do not write `className="italic"` — it does nothing.** Use `<em>` for a
-semantic accent word; it renders as Newsreader upright at the heading's colour.
+Use `<em>` for a semantic accent word; it renders upright in the heading's face.
 
 ---
 
@@ -187,7 +181,7 @@ baseline that brightens. No boxes.
 - `.cta-link-lg` — hero scale (18px)
 - `.cta-link-muted` — secondary; starts at 55% opacity, warms to full on hover
 - `.btn-accent` — the one real button (snow on ink). Used for form submit.
-  **Note it is snow-on-ink, not cinnabar** — the accent stays reserved.
+  White on black — there is no accent to reach for.
 
 ### Surfaces
 
@@ -200,36 +194,38 @@ baseline that brightens. No boxes.
 - `.meta-chip` — mono 10px, uppercase, `0.18em` tracking, 1px border
 - `.index-badge` — mono 10px, `0.22em` tracking, uppercase
 - `.editorial-quote` — Thai body at `clamp(17px, 1.4vw, 21px)` with a
-  **cinnabar left rule**
-- `.brand-slash` — the skewed cinnabar `/` (component: `<Slash />`)
+  **white left rule**
+- `.brand-slash` — the skewed white `/` (component: `<Slash />`)
 - `.hairline` / `.hairline-soft` — 1px rules
 
-### Analog texture layer
+### Texture
 
-Applied faintly and on purpose — analog at full strength becomes retro pastiche.
-
-- `.grain` — two-plate film grain (fine speckle over coarse clumps) at 0.075
-- `.halftone` — 3px print dot-screen over imagery, dissolves on `.group:hover`
-  alongside the grayscale→colour transition
-- `.sprocket-edge` + `.frame-index` — contact-sheet treatment, **scoped to the
-  Film & Motion board only**
+- `.grain` — faint film grain on the page ground. Monochrome, so it is allowed.
+- `.sprocket-edge` + `.frame-index` — contact-sheet treatment, Film & Motion board
+  only. Also monochrome.
+- **`.halftone` is retired.** A print screen over client work is our ink on their
+  colour, which the concept forbids.
 
 ---
 
 ## 7. Imagery
 
-Default treatment is `grayscale-[0.25]` at rest → full colour on hover, paired
-with a `scale-[1.03]` push and the halftone dissolve, all at 700ms. Cards are
-`aspect-[4/5]` with a bottom gradient scrim carrying the caption.
+**Client work is shown at full colour, always** — no grayscale at rest, no
+colour-on-hover reveal, no halftone. A `scale-[1.03]` push on hover is fine; any
+filter is not.
 
-Use the `<Picture>` component (`?as=picture` imports) so AVIF/WebP are emitted
-at build. Always `loading="lazy"` below the fold.
+ØRIONS has no photographic imagery of its own. The homepage hero is
+`<SignalField>` — a black field with one white star — so the first colour anyone
+sees on the site is a client's.
+
+Use the `<Picture>` component (`?as=picture` imports) so AVIF/WebP are emitted at
+build. `loading="lazy"` below the fold only.
 
 ---
 
 ## 8. Accessibility
 
-- Focus ring is a **2px cinnabar outline at 3px offset** — never remove it.
+- Focus ring is a **2px white outline at 3px offset** — never remove it.
 - Decorative layers (grain, scrim, halftone, SignalField) carry `aria-hidden`.
 - The hero headline ships a `sr-only` plain-text copy because the visible
   version is split into animated line spans.
@@ -243,10 +239,10 @@ at build. Always `loading="lazy"` below the fold.
 |---|---|
 | `border-foreground/12` hairlines | Cards with borders on all sides + fill + shadow |
 | One `h-display-*` class | Hand-rolled `text-[47px]` |
-| `<em>` for accent words | `text-cinnabar` inside every heading |
+| `<em>` for accent words | A coloured word inside a heading |
 | `lang="th"` on Thai | Thai without it (tracking and wrapping break) |
 | `emphasis="quiet"` on grids | Full-strength reveal on twelve tiles |
-| Cinnabar for one marked thing | Cinnabar as a brand wash |
+| Full-colour client work | Grayscale, halftone or tint over client work |
 | Weight 500 headings | Weight 700 anything |
 | `<Reveal>` | `framer-motion` |
 

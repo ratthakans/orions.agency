@@ -147,7 +147,7 @@ const Contact = () => {
     setForm({ name: "", email: "", phone: "", company: "", pkg: "", brief: "" });
   };
 
-  const inputCls = "w-full rounded-none bg-background border border-foreground/15 px-4 py-3 text-[15px] text-foreground placeholder:text-foreground/55 focus:outline-none focus:border-cinnabar focus:ring-1 focus:ring-cinnabar/30 transition-colors font-thai";
+  const inputCls = "w-full rounded-none bg-background border border-foreground/15 px-4 py-3 text-[15px] text-foreground placeholder:text-foreground/55 focus:outline-none focus:border-foreground focus:ring-1 focus:ring-foreground/30 transition-colors font-thai";
   const labelCls = "font-mono text-[10px] tracking-[0.18em] uppercase text-foreground/70";
 
   return (

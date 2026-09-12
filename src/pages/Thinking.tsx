@@ -37,7 +37,7 @@ const Thinking = () => (
   <div>
     <SEO
       title="Manifesto — Every brand is a point of light · ØRIONS"
-      description="แนวคิดของ ORIONS — โลกไม่ได้ต้องการเสียงที่ดังขึ้น แต่โหยหาความลึก. เราวินิจฉัยก่อน แล้วลงมือแก้ด้วยงานคราฟต์ ยกระดับด้วย VÆST ปัญญาที่มีรสนิยม. เรื่องที่คมที่สุดชนะ ไม่ใช่เรื่องที่ดังที่สุด — where aesthetic meets algorithm."
+      description="แนวคิดของ ORIONS — โลกไม่ได้ต้องการเสียงที่ดังขึ้น แต่โหยหาความลึก. เราวินิจฉัยก่อน แล้วลงมือแก้ด้วยงานคราฟต์ เรื่องที่คมที่สุดชนะ ไม่ใช่เรื่องที่ดังที่สุด — where aesthetic meets algorithm."
       path="/thinking"
       schema={[
         {
@@ -209,7 +209,7 @@ const Thinking = () => (
           <Reveal delay={0.08}>
             <div className="card-accent h-full p-8 md:p-10">
               <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/60">แสงที่ถูกรวมผ่านเลนส์</div>
-              <h3 className="mt-4 font-serif text-[30px] md:text-[42px] leading-none tracking-[-0.02em] text-cinnabar">Signal.</h3>
+              <h3 className="mt-4 font-serif text-[30px] md:text-[42px] leading-none tracking-[-0.02em] text-foreground">Signal.</h3>
               <p lang="th" className="mt-5 font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.8] text-foreground/85">
                 เราทำตรงข้าม — คัด สกัด ตัดเสียงรบกวนออก จนเหลือแต่ข้อความที่คมที่สุดของคุณ. <span className="text-foreground">ØRIONS คือเลนส์นั้น.</span>
               </p>
@@ -264,7 +264,7 @@ const Thinking = () => (
         </div>
         <Reveal delay={0.1}>
           <div className="hidden lg:block overflow-hidden border border-foreground/15 bg-muted" style={{ aspectRatio: "4 / 5" }}>
-            <Picture data={proofImg} alt="" aria-hidden className="w-full h-full object-cover grayscale-[0.3]" />
+            <Picture data={proofImg} alt="" aria-hidden className="w-full h-full object-cover" />
           </div>
         </Reveal>
       </div>

@@ -50,11 +50,11 @@ const Practice = () => (
                 key={s.slug}
                 className="grid grid-cols-[52px_1fr] md:grid-cols-[80px_240px_1fr] items-baseline gap-x-4 gap-y-1 py-4 border-b border-foreground/12"
               >
-                <span className={`font-mono text-[11px] md:text-[12px] tracking-[0.14em] tabular-nums ${s.gate ? "text-cinnabar" : "text-muted-foreground"}`}>{s.n}</span>
+                <span className={`font-mono text-[11px] md:text-[12px] tracking-[0.14em] tabular-nums ${s.gate ? "text-foreground" : "text-muted-foreground"}`}>{s.n}</span>
                 <span lang="th" className="font-display text-[19px] md:text-[22px] font-medium tracking-[-0.01em]">
                   {s.name}
                   {s.gate && (
-                    <span className="ml-3 font-mono text-[10px] tracking-[0.2em] uppercase text-cinnabar">ประตูเดียว</span>
+                    <span className="ml-3 font-mono text-[10px] tracking-[0.2em] uppercase text-foreground">ประตูเดียว</span>
                   )}
                 </span>
                 <span lang="th" className="col-span-2 md:col-span-1 font-thai text-[13px] md:text-[14px] leading-[1.7] text-muted-foreground">
@@ -83,7 +83,7 @@ const Practice = () => (
           <div className="md:col-span-4">
             <Reveal>
               <div className="flex items-baseline gap-4">
-                <span className={`font-mono text-[12px] tracking-[0.14em] tabular-nums ${d.gate ? "text-cinnabar" : "text-muted-foreground"}`}>{d.n}</span>
+                <span className={`font-mono text-[12px] tracking-[0.14em] tabular-nums ${d.gate ? "text-foreground" : "text-muted-foreground"}`}>{d.n}</span>
                 {d.gate && (
                   <span className="meta-chip">ประตูเดียว</span>
                 )}

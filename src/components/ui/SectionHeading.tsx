@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import Reveal from "@/components/Reveal";
 import Slash from "@/components/Slash";
+import { langOf } from "@/lib/lang";
 
 interface Props {
   eyebrow?: string;
@@ -24,7 +25,7 @@ const SectionHeading = ({ eyebrow, title, intro, center = false, lang, className
         <span className="text-muted-foreground">{eyebrow}</span>
       </div>
     )}
-    <h2 lang={lang} className={`mt-5 h-display-md ${lang === "th" ? "thai-wrap" : ""}`}>
+    <h2 lang={lang ?? langOf(title)} className={`mt-5 h-display-md ${(lang ?? langOf(title)) === "th" ? "thai-wrap" : ""}`}>
       {title}
     </h2>
     {intro && (

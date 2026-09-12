@@ -5,7 +5,6 @@ import Logo from "@/components/Logo";
 const links = [
   { label: "Practice", to: "/practice" },
   { label: "Work", to: "/work" },
-  { label: "System", to: "/system" },
   { label: "Thinking", to: "/thinking" },
   { label: "Blog", to: "/blog" },
   { label: "About", to: "/about" },

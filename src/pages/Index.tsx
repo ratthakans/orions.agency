@@ -4,8 +4,11 @@ import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import CTABand from "@/components/CTABand";
 import Slash from "@/components/Slash";
+import SignalField from "@/components/SignalField";
 import Picture from "@/components/Picture";
-import { disciplines, process } from "@/data/capabilities";
+import heroSilk from "@/assets/hero-silk.jpg?as=picture";
+import { innovations } from "@/data/system";
+import { stages } from "@/data/practice";
 import { caseStudies } from "@/data/caseStudies";
 
 const SITE_URL = "https://orions.agency";
@@ -25,10 +28,10 @@ const HeroTitle = () => {
   );
   return (
     <h1 className="h-display-xl leading-[0.92]">
-      <span className="sr-only">Stories, refined.</span>
+      <span className="sr-only">Where aesthetic meets algorithm — a creative agency.</span>
       <span aria-hidden="true">
-        <Line delay={0.1}>Stories,</Line>
-        <Line delay={0.22}>refined.</Line>
+        <Line delay={0.1}>Where aesthetic</Line>
+        <Line delay={0.22}>meets algorithm<span className="text-cinnabar">.</span></Line>
       </span>
     </h1>
   );
@@ -37,95 +40,141 @@ const HeroTitle = () => {
 const Index = () => (
   <div>
     <SEO
-      title="ØRIONS — Stories, refined."
-      description="ORIONS คือ Boutique Creative Company ที่ช่วยแบรนด์ค้นหาเรื่องที่มีคุณค่าอยู่ภายใน ขัดเกลาให้ชัด และถ่ายทอดออกมาเป็น Creative ที่คนสามารถเข้าใจ รู้สึก และจดจำได้"
+      title="ØRIONS — Creative Agency · Where Aesthetic Meets Algorithm"
+      description="ที่ปรึกษากลยุทธ์ครีเอทีฟในกรุงเทพฯ ที่ลงมือทำงานเอง — วินิจฉัยก่อนเสมอ แล้วจึงสร้าง. ทำงานสี่ขั้น: การวินิจฉัย (ประตูเดียว) · กลยุทธ์ · งานจริง · ที่ปรึกษาต่อเนื่อง. ที่ปรึกษาส่วนใหญ่จบที่สไลด์ เราจบที่งานที่ออกสู่ตลาด — ขับเคลื่อนด้วย VÆST, AI creative director ที่มีรสนิยม."
       path="/"
       schema={{
         "@context": "https://schema.org",
         "@type": "Organization",
         name: "ØRIONS",
         url: SITE_URL,
-        slogan: "Stories, refined.",
+        slogan: "Where aesthetic meets algorithm.",
         description:
-          "ORIONS is a boutique creative company that helps brands uncover, refine and express the stories that make them worth remembering.",
+          "ØRIONS is a creative strategy consultancy in Bangkok that also makes the work — where aesthetic meets algorithm. The practice runs in four stages with a single door: The Diagnostic, The Strategy, The Work, The Counsel — every engagement starts with the diagnostic, and the strategy we write we execute ourselves. Powered by VÆST (an AI creative director). Products: VÆST, First Draft, Routte.",
       }}
     />
 
-    {/* 01 — HERO. No image and no star graphic: the constellation is a
-        principle, not an aesthetic (brand book, Visual Idea). */}
+    {/* 01 — HERO */}
     <section className="relative min-h-[100svh] flex flex-col px-6 md:px-10 overflow-hidden">
+      <Picture data={heroSilk} alt="" aria-hidden className="silk-drift absolute -inset-[6%] z-0 w-[112%] h-[112%] object-cover object-center pointer-events-none select-none" />
+      <div aria-hidden className="hero-scrim absolute inset-0 z-0 pointer-events-none" />
       <div className="relative z-10 max-w-[1400px] mx-auto w-full flex-1 flex flex-col justify-center pt-24 md:pt-32 pb-20 md:pb-28">
         <Reveal>
-          <div className="flex items-center gap-3 font-mono text-[10px] md:text-[11px] tracking-[0.2em] uppercase text-foreground/70">
-            <Slash className="text-[15px]" /> ØRIONS
+          <div className="flex items-center gap-3 font-mono text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-foreground/70">
+            <Slash className="text-[15px]" /> ØRIONS · Creative Agency · Bangkok
           </div>
         </Reveal>
         <div className="mt-8">
           <HeroTitle />
         </div>
         <Reveal delay={0.5}>
-          <p lang="th" className="mt-10 font-thai thai-wrap text-[17px] md:text-[21px] leading-[1.75] text-foreground/85 max-w-[40ch]">
-            เราช่วยแบรนด์ค้นหาเรื่องที่มีความหมาย<br className="hidden md:block" />
-            ขัดเกลาให้ชัด<br className="hidden md:block" />
-            และถ่ายทอดออกมาในรูปแบบที่เหมาะสมที่สุด
-          </p>
-        </Reveal>
-        <Reveal delay={0.56}>
-          <p className="mt-6 font-mono text-[11px] md:text-[12px] tracking-[0.14em] uppercase text-muted-foreground">
-            A story-led creative company.
+          <p lang="th" className="mt-9 font-thai thai-wrap text-[17px] md:text-[21px] leading-[1.7] text-foreground/85 max-w-[42ch]">
+            ที่ปรึกษากลยุทธ์ที่ลงมือทำงานเอง — เราวินิจฉัยก่อนเสมอ แล้วจึงสร้าง.
           </p>
         </Reveal>
         <Reveal delay={0.62}>
           <div className="mt-12 flex flex-col sm:flex-row items-start gap-7 sm:gap-12">
             <Link to="/work" className="cta-link cta-link-lg">
-              <span>ดูผลงาน</span><ArrowUpRight className="w-[18px] h-[18px]" />
+              <span>ดูผลงานที่คัดไว้</span><ArrowUpRight className="w-[18px] h-[18px]" />
             </Link>
             <Link to="/contact" className="cta-link cta-link-lg cta-link-muted">
-              <span>Talk to ORIONS</span><ArrowUpRight className="w-[18px] h-[18px]" />
+              <span>เล่าโจทย์ให้เรา</span><ArrowUpRight className="w-[18px] h-[18px]" />
             </Link>
           </div>
         </Reveal>
       </div>
     </section>
 
-    {/* 02 — THE IDEA */}
+    {/* 02 — THE CONTEXT */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1400px] mx-auto py-32 md:py-52">
-        <Reveal>
-          <div className="font-mono text-[10px] md:text-[11px] tracking-[0.2em] uppercase text-muted-foreground">— The Idea</div>
-        </Reveal>
-        <div className="mt-8 grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-14 lg:gap-24 items-end">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.3fr_0.7fr] gap-14 lg:gap-24 items-end">
           <Reveal emphasis="lead">
-            <h2 className="h-display-lg max-w-[14ch]">
-              Every brand has a story.
+            <h2 lang="th" className="font-serif text-[34px] md:text-[64px] leading-[1.08] tracking-[-0.02em] max-w-[16ch] thai-wrap">
+              โลกไม่ได้ต้องการเสียงที่ดังหรือกว้างขึ้น — แต่โหยหา<em className="text-foreground">ความลึก.</em>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
-            <div lang="th" className="font-thai thai-wrap text-[16px] md:text-[19px] leading-[1.85] text-foreground/80 space-y-5">
-              <p>บางครั้งเรื่องนั้นชัดอยู่แล้ว</p>
-              <p>บางครั้งมันถูกซ่อนอยู่ใต้ Product, Campaign, Content และการเติบโตตลอดหลายปี</p>
-              <p className="text-foreground">เราเข้าไปค้นหาเรื่องนั้น เชื่อมสิ่งที่สำคัญเข้าด้วยกัน และทำให้มันชัดพอที่จะถูกมองเห็น</p>
+            <div className="border-t border-foreground/15 divide-y divide-foreground/12">
+              <div className="py-6">
+                <div className="font-serif text-foreground text-[40px] md:text-[54px] leading-none tracking-[-0.02em]">Signal</div>
+                <div lang="th" className="mt-3 font-thai text-[13px] leading-[1.7] text-muted-foreground">คัดสิ่งที่สำคัญให้เหลือข้อความที่คนเข้าใจและจำได้</div>
+              </div>
+              <div className="py-6">
+                <div className="font-serif text-foreground text-[40px] md:text-[54px] leading-none tracking-[-0.02em]">Depth</div>
+                <div lang="th" className="mt-3 font-thai text-[13px] leading-[1.7] text-muted-foreground">สร้างความหมายที่ลึกพอให้คนหยุดมองและอยากรู้ต่อ</div>
+              </div>
             </div>
           </Reveal>
         </div>
         <Reveal delay={0.15}>
-          <blockquote className="mt-20 md:mt-28 pt-10 border-t border-foreground/15 font-serif text-[26px] md:text-[44px] leading-[1.15] tracking-[-0.03em] text-foreground max-w-[22ch]">
-            We don&rsquo;t create the stars.<br />
-            <em className="text-foreground">We reveal the constellation.</em>
-          </blockquote>
+          <p lang="th" className="mt-16 md:mt-24 max-w-[760px] font-thai thai-wrap text-[17px] md:text-[21px] leading-[1.75] text-foreground/80">
+            ORIONS คือ <span className="text-foreground">ครีเอทีฟเอเจนซี</span> ที่ผสานศิลปะเข้ากับสมการ — เราไม่ได้แค่ปั้นแบรนด์ให้สวย แต่สร้างเครื่องมือ AI ของเราเองเพื่อยกระดับงานครีเอทีฟให้ลึกและคมกว่าเดิม. <span className="text-foreground">Where aesthetic meets algorithm.</span>
+          </p>
         </Reveal>
       </div>
     </section>
 
-    {/* 03 — SELECTED WORK. Cards lead with the story line, not the deliverable. */}
+    {/* 03 — THE PRACTICE (ladder summary only; each stage lives on /practice) */}
+    <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1400px] mx-auto py-32 md:py-52">
+        <Reveal>
+          <div className="font-mono text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-muted-foreground">— The Practice</div>
+        </Reveal>
+        <Reveal delay={0.05} emphasis="lead">
+          <h2 lang="th" className="mt-8 h-display-lg max-w-[18ch] thai-wrap">
+            ที่ปรึกษาส่วนใหญ่จบที่สไลด์. <em className="text-foreground">เราจบที่งานที่ออกสู่ตลาด.</em>
+          </h2>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <p lang="th" className="mt-8 max-w-[680px] font-thai thai-wrap text-[16px] md:text-[19px] leading-[1.8] text-foreground/80">
+            กลยุทธ์ที่ไม่มีใครแปลเป็นงานจริงได้ ก็เป็นแค่เอกสาร — <span className="text-foreground">กลยุทธ์ที่เราเขียน เราลงมือทำเอง</span> และนั่นคือเหตุผลที่งานไม่หลุดทิศ.
+          </p>
+        </Reveal>
+        {/* The ladder — plain names in engagement order. No invented vocabulary:
+            a model a client has to translate is friction at the top of the funnel. */}
+        <div className="mt-14 md:mt-20 border-t border-foreground/20">
+          {stages.map((s) => (
+            <Reveal key={s.slug} emphasis="quiet">
+              <div className="grid grid-cols-[60px_1fr] lg:grid-cols-[90px_0.8fr_1.2fr] items-baseline gap-x-5 gap-y-2 py-6 md:py-8 border-b border-foreground/12">
+                <span className={`font-mono text-[12px] md:text-[13px] tracking-[0.14em] tabular-nums ${s.gate ? "text-cinnabar" : "text-muted-foreground"}`}>
+                  {s.n}
+                </span>
+                <span lang="th" className="font-serif text-[26px] md:text-[38px] leading-[1.05] tracking-[-0.025em] thai-wrap">
+                  {s.name}
+                  {s.gate && (
+                    <span className="ml-3 align-middle font-mono text-[10px] tracking-[0.2em] uppercase text-cinnabar">ประตูเดียว</span>
+                  )}
+                </span>
+                <span lang="th" className="col-span-2 lg:col-span-1 font-thai thai-wrap text-[14px] md:text-[16px] leading-[1.75] text-muted-foreground">
+                  {s.kind}
+                </span>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+        <Reveal delay={0.08}>
+          <blockquote lang="th" className="mt-14 md:mt-16 font-serif text-[26px] md:text-[44px] leading-[1.3] tracking-[-0.015em] text-foreground max-w-[24ch] thai-wrap">
+            เราไม่จ่ายยาให้ใคร <em className="text-foreground">ที่ไม่ให้เราตรวจ.</em>
+          </blockquote>
+        </Reveal>
+        <Reveal delay={0.12}>
+          <Link to="/practice" viewTransition className="cta-link mt-10">
+            <span>ทุกงานเริ่มที่ขั้น 01 — ดูวิธีที่เรารับงาน</span><ArrowUpRight className="w-4 h-4" />
+          </Link>
+        </Reveal>
+      </div>
+    </section>
+
+    {/* 04 — THE RECORD (cases lead with the verdict, not the scope line) */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1400px] mx-auto py-32 md:py-44">
         <Reveal>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
             <div>
-              <div className="font-mono text-[10px] md:text-[11px] tracking-[0.2em] uppercase text-muted-foreground">— Selected Work</div>
-              <h2 className="mt-8 h-display-lg max-w-[16ch]">
-                Different formats. <em className="text-foreground">One story.</em>
+              <div className="font-mono text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-muted-foreground">— บันทึกคำวินิจฉัย</div>
+              <h2 lang="th" className="mt-8 h-display-lg max-w-[15ch] thai-wrap">
+                งานที่เริ่มจาก<em className="text-foreground">เงื่อนไขจริง.</em>
               </h2>
             </div>
             <Link to="/work" className="cta-link">
@@ -145,12 +194,14 @@ const Index = () => (
                   data={item.cover}
                   alt={item.title}
                   loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
+                  className="absolute inset-0 w-full h-full object-cover grayscale-[0.25] group-hover:grayscale-0 group-hover:scale-[1.03] transition-[transform,filter] duration-700"
                 />
+                <span aria-hidden className="halftone absolute inset-0" />
                 <span className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
                 <span className="absolute inset-x-0 bottom-0 p-6 md:p-7">
-                  <span lang="th" className="block font-thai text-[15px] md:text-[17px] leading-[1.55] text-foreground">{item.verdictShort}</span>
-                  <span className="mt-4 block font-mono text-[10px] tracking-[0.16em] uppercase text-foreground/70">{item.title} · {item.niche} · {item.year}</span>
+                  <span className="block font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/75">{item.niche} · {item.year}</span>
+                  <span lang="th" className="mt-3 block font-serif text-[26px] md:text-[30px] leading-[1.05] text-foreground">{item.title}</span>
+                  <span lang="th" className="mt-3 block font-thai text-[13px] md:text-[14px] leading-[1.65] text-foreground/75">{item.verdictShort}</span>
                 </span>
               </Link>
             </Reveal>
@@ -159,107 +210,87 @@ const Index = () => (
       </div>
     </section>
 
-    {/* 04 — CAPABILITIES */}
-    <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1400px] mx-auto py-32 md:py-44">
+    {/* 05 — THE FOUR INNOVATIONS (the system) */}
+    <section id="system" className="relative overflow-hidden px-6 md:px-10 border-t border-foreground/15 scroll-mt-16">
+      <SignalField fx={0.8} fy={0.28} seed={7} intensity={0.6}
+        className="absolute inset-0 w-full h-full pointer-events-none" />
+      <div className="relative z-10 max-w-[1400px] mx-auto pt-32 md:pt-52 pb-10 md:pb-16">
         <Reveal>
-          <div className="font-mono text-[10px] md:text-[11px] tracking-[0.2em] uppercase text-muted-foreground">— Capabilities</div>
+          <div className="font-mono text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-muted-foreground">— The system · three instruments</div>
         </Reveal>
         <Reveal delay={0.05} emphasis="lead">
-          <h2 className="mt-8 h-display-lg max-w-[18ch]">
-            One story. <em className="text-foreground">Many expressions.</em>
+          <h2 className="mt-8 h-display-lg max-w-[16ch]">
+            หนึ่งจักรวาล ขับเคลื่อนด้วย <em className="text-foreground">VÆST.</em>
           </h2>
-        </Reveal>
-        <div className="mt-14 md:mt-20 border-t border-foreground/20">
-          {disciplines.map((d) => (
-            <Reveal key={d.slug} emphasis="quiet">
-              <div className="grid grid-cols-[60px_1fr] lg:grid-cols-[90px_0.7fr_1fr_1.1fr] items-baseline gap-x-5 gap-y-2 py-7 md:py-9 border-b border-foreground/12">
-                <span className="font-mono text-[12px] md:text-[13px] tracking-[0.14em] tabular-nums text-muted-foreground">{d.n}</span>
-                <span className="font-serif text-[28px] md:text-[40px] leading-[1.02] tracking-[-0.03em]">{d.name}</span>
-                <span className="col-span-2 lg:col-span-1 font-serif text-[16px] md:text-[19px] leading-[1.35] tracking-[-0.01em] text-foreground/90">{d.line}</span>
-                <span lang="th" className="col-span-2 lg:col-span-1 font-thai thai-wrap text-[14px] md:text-[16px] leading-[1.75] text-muted-foreground">{d.th}</span>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-        <Reveal delay={0.1}>
-          <Link to="/practice" viewTransition className="cta-link mt-10">
-            <span>Story → Direction → Expression</span><ArrowUpRight className="w-4 h-4" />
-          </Link>
         </Reveal>
       </div>
-    </section>
 
-    {/* 05 — PROCESS. The constellation as structure: five points on one line,
-        read left to right — Point → Connection → Form → Meaning. */}
-    <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1400px] mx-auto py-32 md:py-44">
-        <Reveal>
-          <div className="font-mono text-[10px] md:text-[11px] tracking-[0.2em] uppercase text-muted-foreground">— Process</div>
-        </Reveal>
-        <Reveal delay={0.05} emphasis="lead">
-          <h2 className="mt-8 h-display-lg max-w-[20ch]">
-            From scattered points to <em className="text-foreground">a story worth remembering.</em>
-          </h2>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <ol className="relative mt-16 md:mt-24 grid grid-cols-1 md:grid-cols-5 gap-y-10 md:gap-x-6">
-            <span aria-hidden className="hidden md:block absolute left-0 right-0 top-[5px] h-px bg-foreground/25" />
-            {process.map((step) => (
-              <li key={step.n} className="relative">
-                <span aria-hidden className="hidden md:block w-[11px] h-[11px] rounded-full bg-foreground" />
-                <div className="md:mt-8 flex md:block items-baseline gap-5">
-                  <span className="font-mono text-[11px] tracking-[0.14em] tabular-nums text-muted-foreground">{step.n}</span>
-                  <div>
-                    <div className="md:mt-3 font-serif text-[24px] md:text-[28px] leading-none tracking-[-0.03em]">{step.name}</div>
-                    <div className="mt-2 font-serif text-[14px] md:text-[15px] leading-[1.4] text-muted-foreground">{step.line}</div>
-                  </div>
+      <div className="relative z-10 max-w-[1400px] mx-auto border-t border-foreground/15">
+        {innovations.map((it, i) => (
+          <Reveal key={it.n} delay={0.04}>
+            {/* Kept deliberately tighter than The Practice — these are the
+                instruments, not the offer. Depth is the homepage's centre. */}
+            <article className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-6 lg:gap-20 py-12 md:py-16 border-b border-foreground/15">
+              <div>
+                <div className="flex items-center gap-4 font-mono text-[10px] tracking-[0.24em] uppercase text-muted-foreground">
+                  <span className="text-foreground tabular-nums">{it.n}</span>
+                  <span>{it.role}</span>
                 </div>
-              </li>
-            ))}
-          </ol>
-        </Reveal>
+                <Link to={`/system/${it.slug}`} viewTransition className="group/name block">
+                  <h3 className="mt-4 font-display font-medium text-[clamp(34px,5vw,64px)] leading-[0.92] tracking-[-0.03em] transition-colors duration-300 group-hover/name:opacity-80">{it.name}</h3>
+                </Link>
+                <div lang="th" className="mt-4 font-serif text-[16px] md:text-[19px] leading-[1.35] tracking-[-0.01em] text-foreground/85">{it.kind}</div>
+              </div>
+              <div className="lg:pt-8">
+                <p lang="th" className="font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.8] text-muted-foreground max-w-[52ch]">
+                  {it.lede}
+                </p>
+                <Link to={`/system/${it.slug}`} viewTransition className="cta-link mt-6">
+                  <span>ดูรายละเอียด {it.name}</span><ArrowUpRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </article>
+          </Reveal>
+        ))}
       </div>
+      <div className="relative z-10 h-20 md:h-28" />
     </section>
 
-    {/* 06 — ABOUT */}
+    {/* 06 — WHO / SCOPE-1 bridge to the agency work */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1400px] mx-auto py-32 md:py-44 grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-14 lg:gap-24 items-end">
+      <div className="max-w-[1400px] mx-auto py-32 md:py-52 grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-14 lg:gap-24 items-center">
         <div>
-          <Reveal>
-            <div className="font-mono text-[10px] md:text-[11px] tracking-[0.2em] uppercase text-muted-foreground">— About</div>
+          <Reveal emphasis="lead">
+            <h2 lang="th" className="font-serif text-[30px] md:text-[52px] leading-[1.1] tracking-[-0.02em] max-w-[18ch] thai-wrap">
+              เบื้องหลังทุกแพลตฟอร์ม คือ<em className="text-foreground">งานคราฟต์</em>ของมนุษย์.
+            </h2>
           </Reveal>
-          <Reveal delay={0.05} emphasis="lead">
-            <h2 className="mt-8 h-display-lg max-w-[12ch]">Boutique by design.</h2>
-          </Reveal>
-        </div>
-        <div>
           <Reveal delay={0.1}>
-            <div lang="th" className="font-thai thai-wrap text-[16px] md:text-[19px] leading-[1.85] text-foreground/80 space-y-5">
-              <p>เราเลือกทำงานกับ Project จำนวนจำกัด เพื่อรักษาสิ่งที่เราให้คุณค่ามากที่สุด</p>
-              <p className="text-foreground">ความเข้าใจ · ความคิด · รายละเอียด · และ Craft</p>
-            </div>
-          </Reveal>
-          <Reveal delay={0.15}>
-            <p className="mt-8 font-serif text-[20px] md:text-[26px] leading-[1.25] tracking-[-0.02em] text-foreground">
-              Great creative work requires attention.
+            <p lang="th" className="mt-8 max-w-[620px] font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.8] text-foreground/80">
+              เทคโนโลยีคือโครงสร้าง แต่รสนิยมคือสิ่งที่ทำให้มันมีชีวิต. เราเป็นที่ปรึกษาที่ลงมือคราฟต์เอง — ด้วยมือของทีม senior ที่ VÆST เกิดมาจากวิธีคิดของพวกเขา.
             </p>
           </Reveal>
-          <Reveal delay={0.2}>
-            <Link to="/about" viewTransition className="cta-link mt-10">
-              <span>เกี่ยวกับ ORIONS</span><ArrowUpRight className="w-4 h-4" />
+          <Reveal delay={0.15}>
+            <Link to="/work" className="cta-link mt-10">
+              <span>ดูผลงาน</span><ArrowUpRight className="w-4 h-4" />
             </Link>
           </Reveal>
         </div>
+        <Reveal delay={0.1}>
+          <blockquote lang="th" className="font-serif text-[24px] md:text-[34px] leading-[1.35] tracking-[-0.015em] text-foreground/90 max-w-[22ch]">
+            Computation is nothing without <em className="text-foreground">taste.</em>
+          </blockquote>
+        </Reveal>
       </div>
     </section>
 
-    {/* 07 — CONTACT */}
+    {/* 07 — CLOSING */}
     <CTABand
-      eyebrow="Contact"
-      title={<>Have a story <em className="text-foreground">worth refining?</em></>}
-      primary={{ label: "Talk to ORIONS", to: "/contact" }}
-      secondary={{ label: "ดูผลงาน", to: "/work" }}
+      eyebrow="Build with us"
+      title={<>Where aesthetic <em className="text-foreground">meets algorithm.</em></>}
+      subtitle="มีโจทย์ที่อยากปั้น หรืออยากสร้างอนาคตของงานครีเอทีฟไปด้วยกัน — เริ่มบทสนทนาได้เลย."
+      primary={{ label: "เริ่มต้นบทสนทนา", to: "/contact" }}
+      secondary={{ label: "อ่านแนวคิดของเรา", to: "/thinking" }}
       tone="ink"
     />
   </div>

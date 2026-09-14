@@ -102,7 +102,7 @@ const BlogPost = () => {
               return (
                 <Reveal key={i}>
                   <figure className="my-12 md:my-16 text-center">
-                    <div className="mx-auto mb-6 h-px w-10 bg-foreground/40" />
+                    <div className="mx-auto mb-6 h-px w-10 bg-cinnabar" />
                     <blockquote lang="th" className="font-thai thai-wrap mx-auto max-w-[24ch] text-[22px] md:text-[30px] leading-[1.45] tracking-[-0.01em] text-foreground">
                       {q}
                     </blockquote>

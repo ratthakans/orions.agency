@@ -32,7 +32,7 @@ const Blog = () => (
       <div className="max-w-[1280px] mx-auto pt-28 md:pt-32 pb-12 md:pb-16">
         <SectionLabel label="Blog" />
         <Reveal delay={0.05}>
-          <h1 lang="th" className="mt-8 h-display-lg">
+          <h1 className="mt-8 h-display-lg">
             มุมมองด้าน<br /><em className="text-foreground">ครีเอทีฟ.</em>
           </h1>
         </Reveal>
@@ -59,8 +59,9 @@ const Blog = () => (
                 data={blogPosts[0].cover}
                 alt={blogPosts[0].title}
                 loading="eager"
-                className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-[transform,filter] duration-700"
+                className="absolute inset-0 w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 group-hover:scale-[1.03] transition-[transform,filter] duration-700"
               />
+              <span aria-hidden className="halftone absolute inset-0" />
               <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-background/5 to-transparent" />
             </div>
             <div className="lg:col-span-5">
@@ -98,8 +99,9 @@ const Blog = () => (
                   data={p.cover}
                   alt={p.title}
                   loading={i < 3 ? "eager" : "lazy"}
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.04] transition-[transform,filter] duration-700"
+                  className="absolute inset-0 w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 group-hover:scale-[1.04] transition-[transform,filter] duration-700"
                 />
+                <span aria-hidden className="halftone absolute inset-0" />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/10 to-transparent" />
                 <span className="absolute left-4 top-4 font-mono text-[9px] tracking-[0.2em] uppercase text-foreground bg-background/55 border border-foreground/20 backdrop-blur-sm px-2 py-1">
                   {p.category}

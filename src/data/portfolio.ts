@@ -19,7 +19,7 @@ export type SiteItem = {
   kind: string;
   /** Category label (mono, uppercase). */
   niche: string;
-  /** One-line essence — tight, editorial. */
+  /** One-line essence — VÆST-tight, editorial. */
   note: string;
 };
 
@@ -137,6 +137,14 @@ const photography: GalleryImage[] = Object.keys(photoMods).sort().map((k) => ({ 
 // that link out to the real thing (no placeholder screenshots).
 const digitalSites: SiteItem[] = [
   {
+    name: "Routte",
+    domain: "routte.to",
+    url: "https://routte.to",
+    kind: "Application",
+    niche: "Product",
+    note: "AI trip planner — เปลี่ยนอารมณ์และเวลาที่มี ให้เป็นวันหนึ่งที่เล่าเป็นเรื่อง.",
+  },
+  {
     name: "HONG MOVE",
     domain: "hongmove.co.th",
     url: "https://www.hongmove.co.th",
@@ -150,7 +158,7 @@ const digitalSites: SiteItem[] = [
     url: "https://www.siamelite.consulting",
     kind: "Website",
     niche: "Consulting",
-    note: "ที่ปรึกษาวีซ่าและอสังหาฯ สำหรับชาวต่างชาติในเชียงใหม่.",
+    note: "ที่ปรึกษาวีซ่าและอสังหาฯ ครบวงจรสำหรับชาวต่างชาติในเชียงใหม่.",
   },
   {
     name: "LUMA Academy",

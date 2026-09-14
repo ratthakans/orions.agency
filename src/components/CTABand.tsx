@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SectionLabel from "@/components/SectionLabel";
-import { langOf } from "@/lib/lang";
 
 interface Action {
   label: string;
@@ -34,7 +33,7 @@ const CTABand = ({ eyebrow, title, subtitle, primary, secondary, tone = "snow", 
           </Reveal>
         )}
         <Reveal delay={0.05}>
-          <h2 lang={langOf(title)} className="mt-8 h-display-lg max-w-[15ch]">{title}</h2>
+          <h2 className="mt-8 h-display-lg max-w-[15ch]">{title}</h2>
         </Reveal>
         {subtitle && (
           <Reveal delay={0.1}>

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import Reveal from "./Reveal";
 import SectionLabel from "./SectionLabel";
-import { langOf } from "@/lib/lang";
 
 interface CTAItem {
   label: string;
@@ -38,7 +37,7 @@ const ClosingCTA = ({
         </div>
       </Reveal>
       <Reveal delay={0.05}>
-        <h2 lang={langOf(title)} className="mt-7 h-display-lg text-balance max-w-[18ch] mx-auto">{title}</h2>
+        <h2 className="mt-7 h-display-lg text-balance max-w-[18ch] mx-auto">{title}</h2>
       </Reveal>
       {description && (
         <Reveal delay={0.1}>

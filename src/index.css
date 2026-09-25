@@ -1,10 +1,5 @@
-/* Fonts are self-hosted via Fontsource (see src/fonts.ts): Newsreader for Latin
-   display, IBM Plex Sans Thai for body + all Thai, IBM Plex Mono for meta.
-   No third-party font requests.
-
-   Unbounded was removed: the wordmark is vector outlines (see Logo.tsx), so it
-   never needed the webfont, and the only utility that called it was unused —
-   it was 165KB of woff2 shipped for nothing. */
+/* Self-hosted Unbounded headings, selective Newsreader emphasis, Plex Thai body,
+   and Plex Mono navigation. No third-party font requests. */
 
 @tailwind base;
 @tailwind components;
@@ -12,7 +7,7 @@
 
 @layer base {
   :root {
-    /* ØRIONS — Dark (Alpha Growth): Black Russian bg / Snow ink / Cinnabar accent */
+    /* ORIONS — monochrome ink / snow */
     --background: 0 0% 5.5%;            /* #0E0E0E Black Russian */
     --foreground: 60 33% 98%;          /* #FDFDF9 Snow */
 
@@ -35,9 +30,8 @@
     --muted: 0 0% 15.3%;
     --muted-foreground: 60 5% 65%;     /* brightened for readability on dark */
 
-    /* Cinnabar — accent #EB5939 */
-    --accent: 11 81% 57%;
-    --accent-hover: 11 76% 50%;
+    --accent: 60 33% 98%;
+    --accent-hover: 60 5% 80%;
     --accent-foreground: 0 0% 5.5%;
 
     --destructive: 0 72% 48%;
@@ -46,7 +40,7 @@
     --border: 0 0% 15.3%;              /* #272727 line */
     --border-soft: 0 0% 15.3%;
     --input: 0 0% 15.3%;
-    --ring: 11 81% 57%;
+    --ring: 60 33% 98%;
 
   }
 }
@@ -56,7 +50,7 @@
   html { scroll-behavior: smooth; }
   /* Guard against rogue horizontal scroll on mobile (full-bleed bands, fixed
      overlays, marquees). Intentional scroll containers use their own overflow-x-auto. */
-  html, body { overflow-x: hidden; }
+  html, body { overflow-x: clip; }
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'IBM Plex Sans Thai', system-ui, sans-serif;
@@ -75,29 +69,27 @@
     line-break: auto;
     overflow-wrap: break-word;
   }
-  /* Editorial serif display — Latin in Newsreader, Thai falls back to IBM Plex Sans Thai */
+  /* Structural headings use an uppercase geometric face; Thai falls back to Plex. */
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Newsreader', 'IBM Plex Sans Thai', Georgia, serif;
+    font-family: 'Unbounded', 'IBM Plex Sans Thai', system-ui, sans-serif;
     font-weight: 500;
-    letter-spacing: -0.02em;
-    line-height: 1.05;
+    letter-spacing: -0.045em;
+    line-height: 1.13;
+    text-transform: uppercase;
     text-wrap: balance;
-    font-optical-sizing: auto;
+    overflow-wrap: anywhere;
+    min-width: 0;
   }
-  /* Accent words in a heading → Newsreader serif form, but SAME colour as the
-     headline (monochrome, premium). Cinnabar is reserved for rare moments, not
-     sprinkled through every heading. */
+  /* Emphasis within a heading stays in the display system. */
   h1 em, h2 em, h3 em, h4 em, h5 em, h6 em {
-    font-family: 'Newsreader', 'IBM Plex Sans Thai', Georgia, serif;
+    font-family: inherit;
     font-style: normal;
-    font-weight: 500;
-    letter-spacing: -0.015em;
     color: inherit;
   }
   /* Kill italics globally — IBM Plex Sans Thai obliques read poorly; Alpha uses upright type */
   em, i, .italic { font-style: normal !important; }
 
-  /* Keyboard focus — visible cinnabar ring (none existed before) */
+  /* Keyboard focus in snow. */
   :focus-visible {
     outline: 2px solid hsl(var(--accent));
     outline-offset: 3px;
@@ -108,7 +100,7 @@
 }
 
 @layer utilities {
-  .font-display { font-family: 'Newsreader', 'IBM Plex Sans Thai', Georgia, serif; font-weight: 500; letter-spacing: -0.02em; }
+  .font-display { font-family: 'Unbounded', 'IBM Plex Sans Thai', system-ui, sans-serif; font-weight: 500; letter-spacing: -0.045em; text-transform: uppercase; overflow-wrap: anywhere; }
   .font-body    { font-family: 'IBM Plex Sans Thai', system-ui, sans-serif; }
   .font-mono    { font-family: 'IBM Plex Mono', ui-monospace, monospace; }
   .font-thai    {
@@ -126,7 +118,7 @@
   .thai-wrap    { word-break: normal; line-break: auto; overflow-wrap: break-word; text-wrap: pretty; }
   .text-balance { text-wrap: balance; }
 
-  /* Brand signature — the angled orange "/" slash (rebrand 2026). Sizes from font-size. */
+  /* Quiet monochrome brand slash. */
   .brand-slash  { display: inline-block; width: 0.17em; height: 0.95em; background: hsl(var(--accent)); transform: skewX(-15deg); border-radius: 0; flex-shrink: 0; }
 
   /* Halftone — a print dot-screen laid over an image, dissolving on hover, so
@@ -190,8 +182,6 @@
   /* No font-weight here — let weight utilities (font-medium/bold) compose with it. */
   .font-serif   { font-family: 'Newsreader', 'IBM Plex Sans Thai', Georgia, serif; letter-spacing: -0.02em; text-transform: none; }
   .bg-orion     { background-color: hsl(var(--accent)); }
-  /* text-cinnabar / bg-cinnabar / border-cinnabar / ring-cinnabar now come from
-     the Tailwind `cinnabar` color (config) — full opacity-modifier support. */
 
   .index-badge {
     @apply font-mono text-[10px] tracking-[0.22em] uppercase;
@@ -212,7 +202,7 @@
   }
   .meta-chip + .meta-chip { margin-left: 6px; }
 
-  /* Editorial blockquote — Newsreader serif narrative body */
+  /* Editorial blockquote */
   .editorial-quote {
     font-family: 'IBM Plex Sans Thai', system-ui, sans-serif;
     font-weight: 400;
@@ -226,7 +216,7 @@
   }
   .editorial-quote p + p { margin-top: 1em; }
 
-  /* CTA / button label — Newsreader, normal case */
+  /* CTA / button label */
   .btn-label {
     font-family: 'IBM Plex Sans Thai', system-ui, sans-serif;
     font-style: normal;
@@ -244,17 +234,19 @@
   .h-display-sm,
   .h-display-xs,
   .h-display-2xs {
-    font-family: 'Newsreader', 'IBM Plex Sans Thai', Georgia, serif;
+    font-family: 'Unbounded', 'IBM Plex Sans Thai', system-ui, sans-serif;
     font-weight: 500;
+    text-transform: uppercase;
     text-wrap: balance;
-    font-optical-sizing: auto;
+    overflow-wrap: anywhere;
+    min-width: 0;
   }
-  .h-display-xl  { font-size: clamp(46px, 8.5vw, 128px); line-height: 1.0;  letter-spacing: -0.025em; }
-  .h-display-lg  { font-size: clamp(34px, 5.6vw, 84px);  line-height: 1.04; letter-spacing: -0.022em; }
-  .h-display-md  { font-size: clamp(28px, 4vw, 52px);   line-height: 1.1;  letter-spacing: -0.018em; }
-  .h-display-sm  { font-size: clamp(21px, 2.4vw, 32px); line-height: 1.2;  letter-spacing: -0.012em; }
-  .h-display-xs  { font-size: clamp(17px, 1.5vw, 21px); line-height: 1.4;  letter-spacing: -0.008em; }
-  .h-display-2xs { font-size: clamp(15px, 1.2vw, 18px); line-height: 1.3;  letter-spacing: -0.005em; }
+  .h-display-xl  { font-size: clamp(42px, 7.7vw, 112px); line-height: 1.08; letter-spacing: -0.07em; }
+  .h-display-lg  { font-size: clamp(32px, 5vw, 68px); line-height: 1.14; letter-spacing: -0.055em; }
+  .h-display-md  { font-size: clamp(25px, 3.3vw, 43px); line-height: 1.2; letter-spacing: -0.05em; }
+  .h-display-sm  { font-size: clamp(20px, 2vw, 28px); line-height: 1.25; letter-spacing: -0.04em; }
+  .h-display-xs  { font-size: clamp(16px, 1.3vw, 19px); line-height: 1.4; letter-spacing: -0.025em; }
+  .h-display-2xs { font-size: clamp(14px, 1vw, 16px); line-height: 1.3; letter-spacing: -0.02em; }
 
   .bg-surface   { background-color: hsl(var(--surface)); }
   .bg-surface-2 { background-color: hsl(var(--surface-2)); }
@@ -262,7 +254,7 @@
   .hairline     { height: 1px; background: hsl(var(--foreground)); }
   .hairline-soft{ height: 1px; background: hsl(var(--border-soft)); }
 
-  /* Primary CTA — snow on ink (premium, monochrome). Cinnabar is reserved. */
+  /* Primary CTA — snow on ink. */
   .btn-accent {
     display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
     padding: 0.85rem 1.7rem;
@@ -331,8 +323,7 @@
     background: hsl(var(--foreground) / 0.03);
   }
 
-  /* Accent card — a quietly elevated neutral panel (featured / CTA); the tint is
-     near-white, not cinnabar, so featured blocks read premium, not orange. */
+  /* Quietly elevated neutral panel for featured material. */
   .card-accent {
     border-radius: 0;
     border: 1px solid hsl(var(--foreground) / 0.16);
@@ -346,6 +337,15 @@
     --surface: 0 0% 11%;
     --card: 0 0% 12.5%;
   }
+  .section-paper {
+    --background: 60 33% 98%;
+    --foreground: 0 0% 5.5%;
+    --muted-foreground: 0 0% 32%;
+    --accent: 0 0% 5.5%;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+  .hero-title { max-width: 12ch; font-size: clamp(34px, 10.6vw, 112px); }
 
 }
 
@@ -359,14 +359,15 @@ h1:lang(th), h2:lang(th), h3:lang(th), h4:lang(th), h5:lang(th), h6:lang(th),
   line-height: 1.25;
   text-wrap: pretty;
 }
-/* Accent words in headings — restate the serif form here, unlayered.
-   The document is <html lang="th">, so the `:lang(th)` body-font rule in
-   @layer base matches EVERY element (0,1,0) and outranked `h1 em` (0,0,2) —
-   which silently dropped Newsreader from every Latin accent word in every
-   heading site-wide. Thai needs no exception: Newsreader carries no Thai
-   glyphs, so Thai accent words fall through to IBM Plex Sans Thai anyway. */
+/* :lang(th) also matches the document's Latin text; restore the display face
+   where no explicit Thai font is requested. */
+h1:not([lang="th"]), h2:not([lang="th"]), h3:not([lang="th"]),
+h4:not([lang="th"]), h5:not([lang="th"]), h6:not([lang="th"]) {
+  font-family: 'Unbounded', 'IBM Plex Sans Thai', system-ui, sans-serif;
+}
+/* The document inherits lang=th; keep Latin headline fragments in Unbounded. */
 h1:lang(th) em, h2:lang(th) em, h3:lang(th) em, h4:lang(th) em, h5:lang(th) em, h6:lang(th) em {
-  font-family: 'Newsreader', 'IBM Plex Sans Thai', Georgia, serif;
+  font-family: 'Unbounded', 'IBM Plex Sans Thai', system-ui, sans-serif;
   letter-spacing: 0;
 }
 
@@ -384,26 +385,74 @@ h1:lang(th) em, h2:lang(th) em, h3:lang(th) em, h4:lang(th) em, h5:lang(th) em, 
 ::-webkit-scrollbar-thumb { background: hsl(var(--foreground) / 0.18); border-radius: 6px; }
 ::-webkit-scrollbar-thumb:hover { background: hsl(var(--accent)); }
 
-/* Fine paper grain — static, barely-there texture. No mix-blend-mode: a full-
-   screen blended fixed layer forces the whole viewport to re-composite every
-   frame on scroll/animation; a plain low-opacity overlay is cached and cheap. */
-/* Two grain plates, not one. Real film grain has a fine emulsion speckle AND a
-   coarser clump; a single uniform noise tile reads as "digital dither" and, at
-   the old 0.035, was effectively invisible. The fine plate sits at a small tile
-   so it never resolves into a visible repeat; the coarse plate is scaled up and
-   sparser, which is what actually sells the texture at a glance.
-   Still no mix-blend-mode: a full-screen blended fixed layer would force the
-   whole viewport to re-composite on every scroll frame. */
+/* Small static grain tile: visible in image shadows, quiet over reading text.
+   A cached raster avoids a viewport-sized SVG turbulence filter on every paint. */
 .grain::before {
   content: '';
   position: fixed; inset: 0;
   pointer-events: none;
   z-index: 70;
-  opacity: 0.075;
-  background-image:
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.32' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23c)' opacity='0.55'/%3E%3C/svg%3E");
-  background-size: 180px 180px, 460px 460px;
+  opacity: 0.24;
+  background: url('./assets/film-grain.png') repeat;
+  background-size: 256px 256px;
+}
+
+/* A film still on the opening frame, with exposure held low for legible copy. */
+.cinematic-hero-media { position: absolute; inset: 0; overflow: hidden; }
+.cinematic-hero-media img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover; object-position: center 45%;
+  filter: grayscale(0.25) saturate(0.7) brightness(0.72);
+  transform: scale(1.04);
+}
+.cinematic-hero-media::before,
+.cinematic-hero-media::after,
+.film-frame::after { content: ''; position: absolute; inset: 0; pointer-events: none; }
+.cinematic-hero-media::before {
+  z-index: 1;
+  background: linear-gradient(90deg, hsl(var(--background) / .88), hsl(var(--background) / .55) 55%, hsl(var(--background) / .45)),
+              linear-gradient(180deg, hsl(var(--background) / .56), transparent 38%, hsl(var(--background) / .93));
+}
+.cinematic-hero-media::after,
+.film-frame::after {
+  z-index: 2;
+  background: url('./assets/film-grain.png') repeat;
+  background-size: 256px 256px;
+  opacity: 0.44;
+}
+/* The showreel loop. It lands on top of the poster (its own first frame),
+   under the scrim and the grain, so the opening frame never flashes or jumps. */
+.hero-reel {
+  position: absolute; inset: 0; z-index: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center 45%;
+  filter: grayscale(0.3) saturate(0.75) contrast(1.04) brightness(0.8);
+  transform: scale(1.04);
+  opacity: 0; transition: opacity 900ms ease;
+}
+.hero-reel.is-ready { opacity: 1; }
+/* Once footage is moving it carries its own texture, and the still's grain
+   tile starts reading as compression noise — so the hero's own grain layer
+   steps back and leaves the page-wide .grain to do the work. */
+.cinematic-hero-media.has-reel::after { opacity: 0.16; }
+
+.film-frame { position: relative; overflow: hidden; }
+@media (prefers-reduced-motion: no-preference) {
+  .cinematic-hero-media img { animation: film-drift 22s ease-in-out infinite alternate; }
+}
+@keyframes film-drift {
+  from { transform: scale(1.04) translate3d(0, 0, 0); }
+  to { transform: scale(1.1) translate3d(-1%, .5%, 0); }
+}
+@media (max-width: 767px) {
+  /* Phones get the still only. A 16:9 frame cropped to portrait keeps just a
+     narrow middle band, so the window slides left to leave the subject clear
+     of the headline, and the grain eases off over a static image. */
+  .cinematic-hero-media img { object-position: 44% center; }
+  .cinematic-hero-media::after { opacity: 0.3; }
+  .cinematic-hero-media::before {
+    background: linear-gradient(180deg, hsl(var(--background) / .72), hsl(var(--background) / .6) 38%, hsl(var(--background) / .95));
+  }
 }
 
 /* View Transitions — smooth cross-fade between routes (Nav + CTAs opt in) */

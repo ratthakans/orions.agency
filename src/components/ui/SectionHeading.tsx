@@ -14,7 +14,7 @@ interface Props {
 
 /**
  * Section heading — one eyebrow language site-wide (matches SectionLabel):
- *   [— hairline] MONO LABEL → serif display title (em → cinnabar) → muted intro.
+ *   [— hairline] MONO LABEL → uppercase display title → muted intro.
  */
 const SectionHeading = ({ eyebrow, title, intro, center = false, lang, className = "" }: Props) => (
   <Reveal className={`${center ? "mx-auto text-center" : ""} max-w-2xl ${className}`}>

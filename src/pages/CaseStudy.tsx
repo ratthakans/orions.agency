@@ -67,15 +67,15 @@ const CaseStudy = () => {
           </div>
 
           <Reveal delay={0.1} emphasis="lead">
-            <h1 lang="th" className="mt-8 h-display-lg max-w-[18ch] thai-wrap">
+            <h1 className="mt-8 h-display-lg max-w-[18ch]">
               {cs.title}
               <em className="text-foreground">.</em>
             </h1>
           </Reveal>
 
           <Reveal delay={0.16}>
-            <p lang="th" className="mt-6 font-serif text-[18px] md:text-[24px] text-muted-foreground max-w-[640px] leading-[1.45]">
-              {cs.summary}
+            <p lang="th" className="mt-6 font-body text-[18px] md:text-[24px] text-muted-foreground max-w-[640px] leading-[1.45]">
+              {cs.verdictShort}
             </p>
           </Reveal>
 
@@ -83,7 +83,7 @@ const CaseStudy = () => {
           <Reveal delay={0.2}>
             <dl className="card-soft mt-16 grid grid-cols-2 md:grid-cols-3 gap-y-8 gap-x-6 p-8">
               {[
-                { k: "Brand", v: cs.title, th: true },
+                { k: "Brand", v: cs.title },
                 { k: "Category", v: cs.niche },
                 { k: "Year", v: cs.year },
               ].map((m) => (
@@ -91,7 +91,7 @@ const CaseStudy = () => {
                   <dt className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
                     {m.k}
                   </dt>
-                  <dd lang={m.th ? "th" : undefined} className="mt-3 h-display-sm">
+                  <dd className="mt-3 h-display-sm">
                     {m.v}
                   </dd>
                 </div>
@@ -118,43 +118,44 @@ const CaseStudy = () => {
       <section className="px-6 md:px-10">
         <div className="max-w-[1280px] mx-auto pb-16 md:pb-20">
           <Reveal>
-            <div className="group relative w-full overflow-hidden rounded-none bg-muted" style={{ aspectRatio: "16 / 9" }}>
+            <div className="group film-frame w-full bg-muted" style={{ aspectRatio: "16 / 9" }}>
               <Picture
                 data={cs.cover}
                 alt={`${cs.title} — cover`}
                 className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
               />
+              <span className="absolute left-4 bottom-4 md:left-6 md:bottom-6 z-[3] font-mono text-[10px] tracking-[0.18em] uppercase text-white bg-black/60 px-2 py-1">Frame {cs.n} / {total}</span>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* 03 — อาการ (what they walked in asking for) */}
+      {/* Context: the brief and the conditions around it. */}
       <section className="px-6 md:px-10 border-t border-foreground/15">
         <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 md:grid-cols-12 gap-10">
           <div className="md:col-span-4">
-            <SectionLabel index="01" label="อาการ" />
+            <SectionLabel index="01" label="The Context" />
             <Reveal delay={0.05}>
               <p lang="th" className="mt-6 font-thai thai-wrap text-[13px] leading-[1.8] text-muted-foreground max-w-[28ch]">
-                สิ่งที่ลูกค้าเดินเข้ามาขอ
+                จุดเริ่มต้นของโจทย์
               </p>
             </Reveal>
           </div>
           <div className="md:col-span-8">
             <Reveal delay={0.05}>
-              <p lang="th" className="font-serif text-[22px] md:text-[30px] leading-[1.4] tracking-[-0.01em] text-foreground/75 max-w-[640px]">
-                “{cs.symptom}”
+              <p lang="th" className="font-body text-[22px] md:text-[30px] leading-[1.4] tracking-[-0.01em] text-foreground/75 max-w-[640px]">
+                {cs.symptom}
               </p>
             </Reveal>
           </div>
         </div>
       </section>
 
-      {/* 04 — คำวินิจฉัย (the real problem) — the hero field of the record */}
+      {/* What we found: the insight behind the work. */}
       <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
         <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 md:grid-cols-12 gap-10">
           <div className="md:col-span-4">
-            <SectionLabel index="02" label="คำวินิจฉัย" />
+            <SectionLabel index="02" label="What We Found" />
             <Reveal delay={0.05}>
               <p lang="th" className="mt-6 font-thai thai-wrap text-[13px] leading-[1.8] text-muted-foreground max-w-[28ch]">
                 {cs.actTitle}
@@ -175,7 +176,7 @@ const CaseStudy = () => {
       <section className="px-6 md:px-10 border-t border-foreground/15">
         <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 md:grid-cols-12 gap-10">
           <div className="md:col-span-4">
-            <SectionLabel index="03" label="เงื่อนไข" />
+            <SectionLabel index="03" label="The Conditions" />
           </div>
           <div className="md:col-span-8">
             <Reveal delay={0.05}>
@@ -191,7 +192,7 @@ const CaseStudy = () => {
       <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
         <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 md:grid-cols-12 gap-10">
           <div className="md:col-span-4">
-            <SectionLabel index="04" label="สิ่งที่ทำ" />
+            <SectionLabel index="04" label="The Expression" />
           </div>
           <div className="md:col-span-8">
             <Reveal delay={0.05}>
@@ -203,11 +204,11 @@ const CaseStudy = () => {
         </div>
       </section>
 
-      {/* 07 — สิ่งที่ตัดทิ้ง — the field no one else in the market ships */}
+      {/* Refinement: what was deliberately left out. */}
       <section className="px-6 md:px-10 border-t border-foreground/15">
         <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 md:grid-cols-12 gap-10">
           <div className="md:col-span-4">
-            <SectionLabel index="05" label="สิ่งที่ตัดทิ้ง" />
+            <SectionLabel index="05" label="The Refinement" />
           </div>
           <div className="md:col-span-8">
             <Reveal delay={0.05}>
@@ -260,7 +261,7 @@ const CaseStudy = () => {
               Next —
             </div>
             <div className="mt-6 flex items-center justify-between gap-8">
-              <h3 lang="th" className="h-display-md group-hover:text-foreground transition-all duration-500">
+              <h3 className="h-display-md group-hover:text-foreground transition-all duration-500">
                 {next.title}
               </h3>
               <ArrowUpRight className="w-10 h-10 md:w-14 md:h-14 text-foreground shrink-0 transition-transform duration-500" />
@@ -274,7 +275,7 @@ const CaseStudy = () => {
 
       <ClosingCTA
         title={<>มีโจทย์ที่ <em className="text-foreground">มีกรอบ</em> แบบนี้ไหม?</>}
-        description="คุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์และเงื่อนไขมาได้เลย."
+        description="มีเรื่องของแบรนด์ที่อยากทำให้ชัดขึ้น? เล่าโจทย์ให้เราฟัง"
         ctas={[
           { label: "เริ่มต้นบทสนทนา", to: "/contact" },
           { label: "ดูผลงานทั้งหมด", to: "/work", variant: "ghost" },

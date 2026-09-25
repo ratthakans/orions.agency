@@ -33,11 +33,11 @@ serve(async (req) => {
 
     const html = `
       <div style="font-family:Georgia,serif;max-width:560px;margin:auto;color:#0E0E0E">
-        <p style="font-family:monospace;letter-spacing:.2em;text-transform:uppercase;font-size:11px;color:#EB5939">ØRIONS — Brand Audit</p>
+        <p style="font-family:monospace;letter-spacing:.2em;text-transform:uppercase;font-size:11px;color:#0E0E0E">ØRIONS — Brand Audit</p>
         <h1 style="font-size:28px;margin:8px 0">สวัสดี ${name ?? ""} — คะแนนแบรนด์ของคุณคือ ${score}/100 (${tier})</h1>
         ${gaps ? `<p>จุดที่ควรเริ่มก่อน:</p><ul>${gaps}</ul>` : ""}
         <p>อยากให้เราช่วยมองว่าจะ refine ตรงไหนก่อน? นัดคุยผล 45 นาที ฟรี ไม่มีข้อผูกมัด —
-          <a href="https://orions.agency/diagnostic" style="color:#EB5939">orions.agency</a></p>
+          <a href="https://orions.agency/diagnostic" style="color:#0E0E0E">orions.agency</a></p>
         <p style="font-family:monospace;font-size:11px;color:#888">Stories, refined. · Bangkok</p>
       </div>`;
 

@@ -10,27 +10,19 @@ import { track } from "@/lib/analytics";
 import Picture from "@/components/Picture";
 import founder from "@/assets/team/founder.jpg?as=picture";
 import { inquirySchema, type Inquiry } from "@/lib/contact";
+import { engagements } from "@/data/practice";
 
 type FieldErrors = Partial<Record<keyof Inquiry, string>>;
 type SubmitStatus = { kind: "success" | "error"; message: string } | null;
 
-/* The four stages, not a service menu — the form should ask the same question
-   the practice does. The diagnostic leads because it is the only door. */
-const packageOptions = [
-  "01 การวินิจฉัย — 3 สัปดาห์ (เริ่มที่นี่)",
-  "02 กลยุทธ์ — ต่อจากการวินิจฉัย",
-  "03 งานจริง — งานที่ออกสู่ตลาด",
-  "04 ที่ปรึกษาต่อเนื่อง — 12–18 เดือน",
-  "ยังไม่แน่ใจ / ขอคำแนะนำ",
-];
+const packageOptions = engagements.map((item) => item.name);
 
 const Contact = () => {
   const [searchParams] = useSearchParams();
   const presetRaw = (searchParams.get("pkg") || "").trim();
   const presetPkg = (() => {
     if (!presetRaw) return "";
-    const first = presetRaw.toLowerCase().split(" ")[0];
-    return packageOptions.find((o) => o.toLowerCase().startsWith(first)) || "";
+    return packageOptions.find((option) => option.toLowerCase() === presetRaw.toLowerCase()) || "";
   })();
   const [form, setForm] = useState({
     name: "",
@@ -38,7 +30,7 @@ const Contact = () => {
     phone: "",
     company: "",
     pkg: presetPkg,
-    brief: presetRaw ? `สนใจงาน ${presetRaw} — ขอรายละเอียดและใบเสนอราคา` : "",
+    brief: presetPkg ? "" : presetRaw ? `สนใจเรื่อง ${presetRaw}` : "",
   });
 
   // Came from a package card → jump straight to the form (just type name + email + send)
@@ -60,7 +52,7 @@ const Contact = () => {
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (hp) { // bot filled the hidden field — pretend success, drop silently
-      const message = "ได้รับข้อมูลแล้ว — ทีม ØRIONS จะติดต่อกลับภายใน 24 ชม.";
+      const message = "ได้รับข้อมูลแล้ว — ทีม ORIONS จะติดต่อกลับ";
       toast.success(message);
       setSubmitStatus({ kind: "success", message });
       setForm({ name: "", email: "", phone: "", company: "", pkg: "", brief: "" });
@@ -141,20 +133,20 @@ const Contact = () => {
       return;
     }
     track("ContactSubmit", { pkg: pkgFull || "none" });
-    const message = "ได้รับข้อมูลแล้ว — ทีม ØRIONS จะติดต่อกลับภายใน 24 ชม.";
+    const message = "ได้รับข้อมูลแล้ว — ทีม ORIONS จะติดต่อกลับ";
     toast.success(message);
     setSubmitStatus({ kind: "success", message });
     setForm({ name: "", email: "", phone: "", company: "", pkg: "", brief: "" });
   };
 
-  const inputCls = "w-full rounded-none bg-background border border-foreground/15 px-4 py-3 text-[15px] text-foreground placeholder:text-foreground/55 focus:outline-none focus:border-cinnabar focus:ring-1 focus:ring-cinnabar/30 transition-colors font-thai";
+  const inputCls = "w-full rounded-none bg-background border border-foreground/15 px-4 py-3 text-[15px] text-foreground placeholder:text-foreground/55 focus:outline-none focus:border-signal focus:ring-1 focus:ring-signal/30 transition-colors font-thai";
   const labelCls = "font-mono text-[10px] tracking-[0.18em] uppercase text-foreground/70";
 
   return (
     <div>
       <SEO
         title="Contact — เริ่มต้นบทสนทนา · ØRIONS"
-        description="คุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์และเงื่อนไขมา เราช่วยมองว่าจะ refine มันยังไง. hello@orions.agency · 089 354 2628 (คุณพลอย)."
+        description="มีเรื่องของแบรนด์ที่อยากทำให้ชัดขึ้น? เล่าโจทย์ให้ ORIONS ฟัง เริ่มต้นบทสนทนาที่ hello@orions.agency"
         path="/contact"
       />
 
@@ -164,18 +156,18 @@ const Contact = () => {
           <SectionLabel label="Start a conversation" />
           <Reveal delay={0.05}>
             <h1 lang="th" className="mt-8 h-display-lg max-w-[16ch] thai-wrap">
-              เล่าโจทย์มา —<br /> เราช่วย <em className="text-foreground">refine</em> มัน
+              Have a story<br />worth refining?
             </h1>
           </Reveal>
           <Reveal delay={0.1}>
             <p lang="th" className="mt-8 max-w-[640px] font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.8] text-foreground/85">
-              คุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์และเงื่อนไขมา เราช่วยมองว่าจะ refine มันยังไง.
+              บอกเราว่าแบรนด์กำลังอยู่ตรงไหน และอยากให้ผู้คนเข้าใจหรือจดจำอะไร เราจะช่วยมองว่าควรเริ่มจากเรื่องไหน
             </p>
           </Reveal>
 
           <Reveal delay={0.15}>
             <p className="mt-8 font-mono text-[10px] tracking-[0.05em] text-muted-foreground">
-              <span className="text-foreground">—</span> ตอบกลับใน 24 ชม. · คุยฟรี 45 นาที · NDA on request
+              <span className="text-foreground">—</span> เริ่มจากการสนทนา
             </p>
           </Reveal>
 
@@ -184,7 +176,7 @@ const Contact = () => {
               <a href="#brief" className="cta-link cta-link-lg">
                 <span>ส่งโจทย์มา</span><ArrowUpRight className="w-[18px] h-[18px]" />
               </a>
-              <a href="mailto:hello@orions.agency?subject=คุยฟรี 45 นาที — ØRIONS" className="cta-link cta-link-lg cta-link-muted">
+              <a href="mailto:hello@orions.agency?subject=Start a conversation — ORIONS" className="cta-link cta-link-lg cta-link-muted">
                 <span>อีเมลนัดคุย</span><ArrowUpRight className="w-[18px] h-[18px]" />
               </a>
             </div>
@@ -256,7 +248,7 @@ const Contact = () => {
                     onChange={(e) => updateField("pkg", e.target.value)}
                     className={`${inputCls} appearance-none cursor-pointer`}
                   >
-                    <option value="">— ยังไม่แน่ใจก็ได้ เดี๋ยวเราช่วยวินิจฉัย —</option>
+                    <option value="">— ยังไม่แน่ใจ เล่าโจทย์ให้เราฟังได้ —</option>
                     {packageOptions.map((o) => (
                       <option key={o} value={o}>{o}</option>
                     ))}
@@ -270,7 +262,7 @@ const Contact = () => {
                     maxLength={2000}
                     value={form.brief}
                     onChange={(e) => updateField("brief", e.target.value)}
-                    placeholder="บอกเราว่าธุรกิจคุณติดอะไรอยู่ — timeline, budget range, ปัญหาที่อยากแก้"
+                    placeholder="แบรนด์ของคุณกำลังเปลี่ยนอะไร และอยากให้ผู้คนเข้าใจหรือจดจำอะไร"
                     aria-invalid={!!errors.brief}
                     aria-describedby={errors.brief ? "field-brief-error" : undefined}
                     className={`${inputCls} resize-none`}
@@ -309,7 +301,7 @@ const Contact = () => {
                   <Picture data={founder} alt="Ratthakan Suwanphakdee — Founder & Creative Director, ØRIONS" className="w-20 h-20 md:w-24 md:h-24 rounded-none object-cover object-top shrink-0" />
                   <div>
                     <div className="font-mono text-[10px] tracking-[0.04em] text-foreground">— คนที่ดูแลงานคุณ</div>
-                    <h3 lang="th" className="mt-1.5 font-serif text-[22px] tracking-[-0.01em]">รัฐกันต์ สุวรรณภักดี</h3>
+                    <h3 lang="th" className="mt-1.5 font-display text-[22px] tracking-[-0.01em]">รัฐกันต์ สุวรรณภักดี</h3>
                     <div lang="th" className="font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">Founder & Creative Director</div>
                   </div>
                 </div>
@@ -321,11 +313,11 @@ const Contact = () => {
 
               {/* Book a call — primary highlight */}
               <div className="card-accent p-7 md:p-8">
-                <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-foreground">— นัดคุยวินิจฉัย 45 นาที</div>
+                <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-foreground">— Start a conversation</div>
                 <p lang="th" className="mt-4 font-thai thai-wrap text-[14px] leading-[1.8] text-foreground/80">
-                  อยากคุยก่อนส่งโจทย์? อีเมลมานัดคุยฟรี 45 นาที ไม่มีข้อผูกมัด — เราช่วยวินิจฉัยว่าแบรนด์ติดตรงไหน แล้วเสนอสโคป + ราคาที่ตีตามโจทย์จริง ไม่มีค่าซ่อน.
+                  ยังไม่แน่ใจว่าต้องเริ่มจากงานแบบไหน? ส่งเรื่องของแบรนด์มาได้ เราจะทำความเข้าใจโจทย์ก่อน แล้วเสนอแนวทางและขอบเขตที่เหมาะสม
                 </p>
-                <a href="mailto:hello@orions.agency?subject=คุยฟรี 45 นาที — ØRIONS"
+                <a href="mailto:hello@orions.agency?subject=Start a conversation — ORIONS"
                   className="cta-link mt-6">
                   <span>อีเมลนัดคุย</span><ArrowUpRight className="w-4 h-4" />
                 </a>
@@ -341,7 +333,7 @@ const Contact = () => {
                   Bangkok 10240, Thailand
                 </p>
                 <p className="mt-8 font-mono text-[10px] tracking-[0.12em] uppercase text-muted-foreground">
-                  Reply within 24 hours · Mon–Fri · 09:00–18:00 ICT
+                  Bangkok, Thailand · Mon–Fri
                 </p>
               </div>
             </div>

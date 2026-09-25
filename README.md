@@ -1,9 +1,9 @@
 # ØRIONS — orions.agency
 
-Marketing site for **ØRIONS**, a creative agency in Bangkok.
+Marketing site for **ORIONS**, a story-led creative company in Bangkok.
 *Stories, refined.*
 
-Brand Strategy · Creative Production · Social Media Marketing — in one team.
+Story · Direction · Expression.
 
 ## Stack
 
@@ -11,7 +11,7 @@ Brand Strategy · Creative Production · Social Media Marketing — in one team.
 - [Tailwind CSS](https://tailwindcss.com/) (custom editorial design system in `src/index.css`)
 - [React Router](https://reactrouter.com/) for routing
 - [Framer Motion](https://www.framer.com/motion/) for reveal animations
-- [react-helmet-async](https://github.com/staylor/react-helmet-async) for per-page SEO
+- [vite-react-ssg](https://github.com/Daydreamer-riri/vite-react-ssg) for prerendered routes and per-page SEO
 - [Supabase](https://supabase.com/) for the contact form
 - shadcn/ui primitives (Radix)
 
@@ -44,9 +44,9 @@ VITE_SUPABASE_PROJECT_ID="..."
 
 ```
 src/
-  pages/        Route components (Index, About, Services, Work, CaseStudy, Contact, NotFound)
+  pages/        Route components (Index, About, Practice, Work, CaseStudy, Contact, NotFound)
   components/   Reusable UI + design-system pieces (Nav, Footer, Reveal, SEO, CTABand, …)
-  data/         caseStudies.ts — the Selected Work content
+  data/         practice.ts — capabilities, method and engagements; caseStudies.ts — Selected Work
   assets/       Imported images
   index.css     Design tokens + utility classes (single source of truth)
 ```

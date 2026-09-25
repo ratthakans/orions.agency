@@ -4,10 +4,12 @@ import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
 import ClosingCTA from "@/components/ClosingCTA";
-import { blogPosts } from "@/data/blog";
+import { currentNotes } from "@/data/blog";
 import Picture from "@/components/Picture";
 
 const SITE_URL = "https://orions.agency";
+const featuredPost = currentNotes.find((post) => post.slug === "constraint-is-the-brief") ?? currentNotes[0];
+const visiblePosts = currentNotes.filter((post) => post.slug !== featuredPost.slug);
 
 export const fmtDate = (iso: string) =>
   new Date(iso).toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" });
@@ -15,8 +17,8 @@ export const fmtDate = (iso: string) =>
 const Blog = () => (
   <div>
     <SEO
-      title="Blog — มุมมองด้านครีเอทีฟ · ØRIONS"
-      description="บทความและมุมมองด้านครีเอทีฟจาก ØRIONS — กลยุทธ์แบรนด์ การเล่าเรื่อง คอนเทนต์ และงานฝีมือในยุค AI."
+      title="ORIONS Notes — Brand, Culture & Craft"
+      description="บันทึกและมุมมองของ ORIONS เรื่องแบรนด์ ความคิดสร้างสรรค์ วัฒนธรรม และรายละเอียดเบื้องหลังงาน"
       path="/blog"
       schema={{
         "@context": "https://schema.org",
@@ -30,15 +32,15 @@ const Blog = () => (
     {/* HERO */}
     <section className="section-ink px-6 md:px-10">
       <div className="max-w-[1280px] mx-auto pt-28 md:pt-32 pb-12 md:pb-16">
-        <SectionLabel label="Blog" />
+        <SectionLabel label="ORIONS Notes" />
         <Reveal delay={0.05}>
           <h1 className="mt-8 h-display-lg">
-            มุมมองด้าน<br /><em className="text-foreground">ครีเอทีฟ.</em>
+            Things worth<br /><em className="text-foreground">noticing.</em>
           </h1>
         </Reveal>
         <Reveal delay={0.1}>
           <p lang="th" className="mt-8 font-thai thai-wrap text-[15px] md:text-[17px] text-muted-foreground max-w-[640px] leading-[1.8]">
-            สิ่งที่เราคิด เถียง และเชื่อ เรื่องแบรนด์ คอนเทนต์ และงานฝีมือ — เขียนแบบพูดตรง ไม่ขายฝัน.
+            มุมมองต่อแบรนด์ ความคิดสร้างสรรค์ วัฒนธรรม และรายละเอียดที่ทำให้งานมีความหมาย
           </p>
         </Reveal>
       </div>
@@ -50,14 +52,14 @@ const Blog = () => (
         <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">— อ่านล่าสุด</div>
         <Reveal delay={0.05}>
           <Link
-            to={`/blog/${blogPosts[0].slug}`}
+            to={`/blog/${featuredPost.slug}`}
             viewTransition
             className="group mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center"
           >
             <div className="lg:col-span-7 relative w-full overflow-hidden aspect-[16/10] border border-foreground/12">
               <Picture
-                data={blogPosts[0].cover}
-                alt={blogPosts[0].title}
+                data={featuredPost.cover}
+                alt={featuredPost.title}
                 loading="eager"
                 className="absolute inset-0 w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 group-hover:scale-[1.03] transition-[transform,filter] duration-700"
               />
@@ -65,15 +67,15 @@ const Blog = () => (
               <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-background/5 to-transparent" />
             </div>
             <div className="lg:col-span-5">
-              <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground">{blogPosts[0].category}</span>
+              <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground">{featuredPost.category}</span>
               <h2 lang="th" className="mt-5 h-display-md thai-wrap group-hover:text-foreground transition-colors">
-                {blogPosts[0].title}
+                {featuredPost.title}
               </h2>
               <p lang="th" className="mt-5 font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.8] text-muted-foreground max-w-[46ch]">
-                {blogPosts[0].excerpt}
+                {featuredPost.excerpt}
               </p>
               <div className="mt-6 flex items-center gap-3 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
-                <span>{fmtDate(blogPosts[0].date)} · {blogPosts[0].readMins} min read</span>
+                <span>{fmtDate(featuredPost.date)} · {featuredPost.readMins} min read</span>
                 <ArrowUpRight className="w-4 h-4 text-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
             </div>
@@ -87,7 +89,7 @@ const Blog = () => (
       <div className="max-w-[1280px] mx-auto py-16 md:py-20">
         <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">— บทความทั้งหมด</div>
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-        {blogPosts.slice(1).map((p, i) => (
+        {visiblePosts.map((p, i) => (
           <Reveal key={p.slug} delay={(i % 3) * 0.06}>
             <Link
               to={`/blog/${p.slug}`}
@@ -128,7 +130,7 @@ const Blog = () => (
 
     <ClosingCTA
       title={<>อยากคุยเรื่อง <em className="text-foreground">แบรนด์ของคุณ</em> บ้างไหม?</>}
-      description="คุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์มาได้เลย."
+      description="มีเรื่องของแบรนด์ที่อยากทำให้ชัดขึ้น? เล่าโจทย์ให้เราฟัง"
       ctas={[
         { label: "เริ่มต้นบทสนทนา", to: "/contact" },
         { label: "ดูผลงาน", to: "/work", variant: "ghost" },

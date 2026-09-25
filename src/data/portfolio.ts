@@ -10,8 +10,7 @@ export type VideoItem = { title: string; id: string; ar?: number };
 /** A shipped, live digital product/site — links out to the real thing. */
 export type SiteItem = {
   name: string;
-  /** Latin display name uses Newsreader serif; Thai names set `th: true`. */
-  th?: boolean;
+  /** Client names are displayed in English. */
   /** Public host, shown as a mono meta line (no protocol). */
   domain: string;
   url: string;
@@ -177,8 +176,7 @@ const digitalSites: SiteItem[] = [
     note: "โปรแกรมสุขภาพองค์กร — ดูแลพนักงานอย่างเป็นการลงทุนระยะยาว.",
   },
   {
-    name: "เขาใหญ่ คันทรี่คลับ",
-    th: true,
+    name: "Khao Yai Country Club",
     domain: "brc-kycgolf.com",
     url: "https://brc-kycgolf.com",
     kind: "Website",

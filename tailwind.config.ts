@@ -43,8 +43,8 @@ export default {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
-        // Brand accent alias — full utility set (text/bg/border/ring + opacity)
-        cinnabar: "hsl(var(--accent) / <alpha-value>)",
+        // Monochrome signal, with opacity modifiers for rules and focus states.
+        signal: "hsl(var(--accent) / <alpha-value>)",
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
@@ -56,7 +56,7 @@ export default {
       },
       fontFamily: {
         // Real, self-hosted system — no Inter (was a phantom fallback).
-        display: ["Newsreader", "IBM Plex Sans Thai", "Georgia", "serif"],
+        display: ["Unbounded", "IBM Plex Sans Thai", "system-ui", "sans-serif"],
         body: ["IBM Plex Sans Thai", "system-ui", "sans-serif"],
         serif: ["Newsreader", "IBM Plex Sans Thai", "Georgia", "serif"],
         mono: ["IBM Plex Mono", "ui-monospace", "monospace"],

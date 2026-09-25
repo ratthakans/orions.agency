@@ -85,7 +85,7 @@ const Work = () => {
     <div>
       <SEO
         title="Work — Selected Work · ØRIONS"
-        description="ผลงาน ØRIONS ครีเอทีฟเอเจนซี — brand film · art direction · key visuals · photography · music video และงานครีเอทีฟ จัดตามประเภทงานให้ดูง่าย."
+        description="Selected work by ORIONS — เรื่องของแบรนด์ที่ถูกค้นหา ขัดเกลา และถ่ายทอดผ่านแคมเปญ ภาพยนตร์ งานออกแบบ และประสบการณ์ดิจิทัล"
         path="/work"
         schema={{
           "@context": "https://schema.org",
@@ -103,12 +103,12 @@ const Work = () => {
           <SectionLabel label="Selected work" />
           <Reveal delay={0.05} emphasis="lead">
             <h1 className="mt-8 h-display-lg">
-              Portfolio,<br /><em className="text-foreground">by craft.</em>
+              Stories made<br /><em className="text-foreground">visible.</em>
             </h1>
           </Reveal>
           <Reveal delay={0.1}>
             <p lang="th" className="mt-8 font-thai thai-wrap text-[15px] md:text-[17px] text-muted-foreground max-w-[640px] leading-[1.8]">
-              งานจริงของ ØRIONS จัดเป็นหมวดให้ดูง่าย — เลือกหมวดที่อยากดูได้จากด้านล่าง.
+              เริ่มจากเรื่องและสิ่งที่เราเห็นในแต่ละโจทย์ แล้วดูว่ามันมีชีวิตผ่านงานรูปแบบใด
             </p>
           </Reveal>
           <div className="mt-9 flex flex-wrap gap-2" aria-label="เลือกประเภทผลงาน">
@@ -131,71 +131,16 @@ const Work = () => {
         </div>
       </section>
 
-      {/* 01b · FEATURED SHOWREEL — company flagship reel.
-          Full-bleed and matted to scope. The YouTube poster is a 1280×720 frame
-          with the 2.39:1 master hard-matted inside it (measured: 89px / 90px of
-          black top and bottom). Framing the well at the master's own ratio and
-          letting object-cover crop clips exactly those bars — no content lost —
-          and the hover player, sized 16:9 and centred in the same well, mattes
-          identically. A reel is the one asset that should own the full width;
-          a border around it makes it a card. */}
-      <section className="border-t border-foreground/15 py-12 md:py-16">
-        <div className="px-6 md:px-10">
-          <div className="max-w-[1400px] mx-auto">
-            <SectionLabel label="Showreel 2026" />
-          </div>
-        </div>
-        <Reveal delay={0.05}>
-          <button
-            type="button"
-            aria-label="เล่นโชว์รีล ØRIONS 2026"
-            onClick={() => setLightbox({ kind: "video", val: SHOWREEL_ID, ar: 16 / 9 })}
-            onMouseEnter={() => setHoverVid(SHOWREEL_ID)}
-            onMouseLeave={() => setHoverVid((h) => (h === SHOWREEL_ID ? null : h))}
-            className="group relative mt-8 md:mt-10 block w-full overflow-hidden cursor-pointer"
-          >
-            <span className="block relative w-full overflow-hidden" style={{ aspectRatio: "1280 / 541" }}>
-              <img
-                src={`https://i.ytimg.com/vi/${SHOWREEL_ID}/maxresdefault.jpg`}
-                onError={(e) => { e.currentTarget.src = `https://i.ytimg.com/vi/${SHOWREEL_ID}/hqdefault.jpg`; }}
-                alt="ØRIONS — Showreel 2026"
-                width={1280}
-                height={720}
-                className="absolute inset-0 w-full h-full object-cover grayscale-[0.25] group-hover:grayscale-0 transition-[filter] duration-700"
-              />
-              {hoverVid === SHOWREEL_ID && (
-                <iframe
-                  src={`https://www.youtube.com/embed/${SHOWREEL_ID}?autoplay=1&mute=1&controls=0&loop=1&playlist=${SHOWREEL_ID}&modestbranding=1&playsinline=1&rel=0`}
-                  title="ØRIONS — Showreel 2026"
-                  tabIndex={-1}
-                  aria-hidden="true"
-                  className="absolute left-0 top-1/2 -translate-y-1/2 w-full aspect-video pointer-events-none"
-                />
-              )}
-              <span className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent pointer-events-none" />
-              <span className="absolute inset-0 grid place-items-center pointer-events-none">
-                <span className={`grid place-items-center w-16 h-16 md:w-20 md:h-20 rounded-none bg-background/45 border border-foreground/25 text-foreground/90 transition-opacity ${hoverVid === SHOWREEL_ID ? "opacity-0" : "group-hover:text-foreground group-hover:border-foreground/50"}`}>
-                  <Play className="w-6 h-6 md:w-7 md:h-7 ml-0.5" />
-                </span>
-              </span>
-              <span className="absolute left-6 bottom-4 md:left-10 md:bottom-6 font-mono text-[10px] md:text-[11px] tracking-[0.18em] uppercase text-foreground/85 pointer-events-none">
-                ØRIONS · Showreel
-              </span>
-            </span>
-          </button>
-        </Reveal>
-      </section>
-
       {/* 02 · CATEGORY BOARDS */}
       {visible.map((cat) => (
         <section key={cat.key} className="px-6 md:px-10 border-t border-foreground/15">
           <div className="max-w-[1280px] mx-auto py-16 md:py-20">
             <div className="flex items-end gap-4 border-b border-foreground/15 pb-3.5">
-              <span className="font-serif font-medium text-[52px] md:text-[60px] leading-[0.78] tracking-[-0.03em] text-foreground/25">
+              <span className="font-body font-medium text-[52px] md:text-[60px] leading-[0.78] tracking-[-0.03em] text-foreground/25">
                 {cat.n}
               </span>
               <div className="flex-1">
-                <h2 lang="th" className="font-serif text-[22px] md:text-[25px] font-medium tracking-[-0.01em] leading-[1.05]">
+                <h2 className="font-display text-[22px] md:text-[25px] font-medium tracking-[-0.01em] leading-[1.05]">
                   {cat.title}
                 </h2>
                 <div className="mt-1.5 font-mono text-[11px] tracking-[0.1em] uppercase text-muted-foreground">{cat.sub}</div>
@@ -350,7 +295,7 @@ const Work = () => {
                       </div>
                       <div>
                         <div className="flex items-end justify-between gap-6">
-                          <h3 lang={s.th ? "th" : undefined} className={i === 0 ? "h-display-md" : "h-display-sm"}>
+                          <h3 className={i === 0 ? "h-display-md" : "h-display-sm"}>
                             {s.name}
                           </h3>
                           <ArrowUpRight className="w-6 h-6 md:w-7 md:h-7 shrink-0 text-foreground/45 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-foreground" />
@@ -372,7 +317,7 @@ const Work = () => {
                   <Link
                     key={cs.slug}
                     to={`/work/${cs.slug}`}
-                    className="group relative block overflow-hidden rounded-none border border-foreground/12 bg-foreground/[0.04] aspect-[4/5] hover:border-foreground/35 transition-colors"
+                    className="group film-frame block rounded-none border border-foreground/12 bg-foreground/[0.04] aspect-[4/5] hover:border-foreground/35 transition-colors"
                   >
                     <Picture
                       data={cs.cover}
@@ -382,9 +327,10 @@ const Work = () => {
                     />
                     <span aria-hidden className="halftone absolute inset-0" />
                     <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-90" />
-                    <div className="absolute left-0 right-0 bottom-0 p-4 flex flex-col gap-1">
+                    <div className="absolute left-0 right-0 bottom-0 z-[3] p-4 flex flex-col gap-1">
                       <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-foreground">{cs.niche} · {cs.year}</span>
-                      <span lang="th" className="font-display text-[17px] md:text-[19px] font-medium tracking-[-0.01em] leading-tight">{cs.title}</span>
+                      <span className="font-display text-[17px] md:text-[19px] font-medium tracking-[-0.01em] leading-tight">{cs.title}</span>
+                      <span lang="th" className="font-thai text-[12px] leading-[1.55] text-foreground/80">{cs.verdictShort}</span>
                     </div>
                   </Link>
                 ))}
@@ -394,9 +340,65 @@ const Work = () => {
         </section>
       ))}
 
+      {/* 03 · STUDIO SHOWREEL — company flagship reel.
+          Full-bleed and matted to scope. The YouTube poster is a 1280×720 frame
+          with the 2.39:1 master hard-matted inside it (measured: 89px / 90px of
+          black top and bottom). Framing the well at the master's own ratio and
+          letting object-cover crop clips exactly those bars — no content lost —
+          and the hover player, sized 16:9 and centred in the same well, mattes
+          identically. A reel is the one asset that should own the full width;
+          a border around it makes it a card. */}
+      <section className="border-t border-foreground/15 py-12 md:py-16">
+        <div className="px-6 md:px-10">
+          <div className="max-w-[1400px] mx-auto">
+            <SectionLabel label="Showreel 2026" />
+          </div>
+        </div>
+        <Reveal delay={0.05}>
+          <button
+            type="button"
+            aria-label="เล่นโชว์รีล ØRIONS 2026"
+            onClick={() => setLightbox({ kind: "video", val: SHOWREEL_ID, ar: 16 / 9 })}
+            onMouseEnter={() => setHoverVid(SHOWREEL_ID)}
+            onMouseLeave={() => setHoverVid((h) => (h === SHOWREEL_ID ? null : h))}
+            className="group relative mt-8 md:mt-10 block w-full overflow-hidden cursor-pointer"
+          >
+            <span className="block relative w-full overflow-hidden" style={{ aspectRatio: "1280 / 541" }}>
+              <img
+                src={`https://i.ytimg.com/vi/${SHOWREEL_ID}/maxresdefault.jpg`}
+                onError={(e) => { e.currentTarget.src = `https://i.ytimg.com/vi/${SHOWREEL_ID}/hqdefault.jpg`; }}
+                alt="ØRIONS — Showreel 2026"
+                width={1280}
+                height={720}
+                className="absolute inset-0 w-full h-full object-cover grayscale-[0.25] group-hover:grayscale-0 transition-[filter] duration-700"
+              />
+              {hoverVid === SHOWREEL_ID && (
+                <iframe
+                  src={`https://www.youtube.com/embed/${SHOWREEL_ID}?autoplay=1&mute=1&controls=0&loop=1&playlist=${SHOWREEL_ID}&modestbranding=1&playsinline=1&rel=0`}
+                  title="ØRIONS — Showreel 2026"
+                  tabIndex={-1}
+                  aria-hidden="true"
+                  className="absolute left-0 top-1/2 -translate-y-1/2 w-full aspect-video pointer-events-none"
+                />
+              )}
+              <span className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent pointer-events-none" />
+              <span className="absolute inset-0 grid place-items-center pointer-events-none">
+                <span className={`grid place-items-center w-16 h-16 md:w-20 md:h-20 rounded-none bg-background/45 border border-foreground/25 text-foreground/90 transition-opacity ${hoverVid === SHOWREEL_ID ? "opacity-0" : "group-hover:text-foreground group-hover:border-foreground/50"}`}>
+                  <Play className="w-6 h-6 md:w-7 md:h-7 ml-0.5" />
+                </span>
+              </span>
+              <span className="absolute left-6 bottom-4 md:left-10 md:bottom-6 font-mono text-[10px] md:text-[11px] tracking-[0.18em] uppercase text-foreground/85 pointer-events-none">
+                ØRIONS · Showreel
+              </span>
+            </span>
+          </button>
+        </Reveal>
+      </section>
+
+
       <ClosingCTA
-        title={<>โจทย์ของคุณมี <em className="text-foreground">เงื่อนไข</em> แบบไหน?</>}
-        description="คุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์และเงื่อนไขมา เราช่วยมองว่าจะ refine มันยังไง."
+        title={<>Have a story worth refining?</>}
+        description="เล่าเรื่องของแบรนด์ให้เราฟัง แล้วเราจะช่วยมองว่าสิ่งไหนควรถูกทำให้ชัด"
         ctas={[
           { label: "เริ่มต้นบทสนทนา", to: "/contact" },
           { label: "อ่านแนวคิดของเรา", to: "/thinking", variant: "ghost" },

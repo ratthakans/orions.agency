@@ -37,7 +37,7 @@ const CTABand = ({ eyebrow, title, subtitle, primary, secondary, tone = "snow", 
         </Reveal>
         {subtitle && (
           <Reveal delay={0.1}>
-            <p className="mt-7 max-w-[560px] font-serif text-[17px] md:text-[21px] leading-[1.5] text-muted-foreground">
+            <p className="mt-7 max-w-[560px] font-body text-[17px] md:text-[21px] leading-[1.5] text-muted-foreground">
               {subtitle}
             </p>
           </Reveal>

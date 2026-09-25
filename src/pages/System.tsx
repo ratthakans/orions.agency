@@ -13,8 +13,8 @@ const SITE_URL = "https://orions.agency";
 const System = () => (
   <div>
     <SEO
-      title="The System — VÆST · First Draft · Routte · ØRIONS"
-      description="สามเครื่องมือของ ØRIONS ขับเคลื่อนด้วย VÆST — AI creative director ที่มีรสนิยม. VÆST (aesthetic intelligence), First Draft (เขียนบท+โปรดักชัน), Routte (AI trip planner). Where aesthetic meets algorithm."
+      title="ORIONS Products — VÆST · First Draft · Routte"
+      description="ผลิตภัณฑ์ที่ ORIONS พัฒนา: VÆST, First Draft และ Routte เป็นงานอีกด้านหนึ่งของบริษัท นอกเหนือจากบริการสร้างสรรค์สำหรับแบรนด์"
       path="/system"
       schema={{
         "@context": "https://schema.org",
@@ -39,13 +39,13 @@ const System = () => (
           <SectionLabel label="The System · Three Instruments" />
         </Reveal>
         <Reveal delay={0.05} emphasis="lead">
-          <h1 className="mt-10 font-serif font-medium text-[clamp(44px,8vw,120px)] leading-[0.98] tracking-[-0.025em] max-w-[16ch]">
+          <h1 className="mt-10 font-display font-medium text-[clamp(44px,8vw,120px)] leading-[0.98] tracking-[-0.025em] max-w-[16ch]">
             One universe, powered by <em>VÆST.</em>
           </h1>
         </Reveal>
         <Reveal delay={0.12}>
-          <p lang="th" className="mt-10 max-w-[720px] font-serif text-[20px] md:text-[26px] leading-[1.5] text-foreground/80 thai-wrap">
-            สามเครื่องมือที่เราสร้างเอง — จากห้องคิดถึงหน้างานจริง: คิด · เขียน · ออกเดินทาง. ทุกตัวมีสมองเดียวกันคือ VÆST, ปัญญาที่มีรสนิยม. นี่คือฝั่ง <em>algorithm</em> ของ where aesthetic meets algorithm.
+          <p lang="th" className="mt-10 max-w-[720px] font-body text-[20px] md:text-[26px] leading-[1.5] text-foreground/80 thai-wrap">
+            พื้นที่สำหรับผลิตภัณฑ์ที่ ORIONS พัฒนาเอง ตั้งแต่เครื่องมือสำหรับงานสร้างสรรค์ไปจนถึงประสบการณ์การเดินทาง
           </p>
         </Reveal>
       </div>
@@ -83,7 +83,7 @@ const System = () => (
                     {it.name}
                   </h2>
                   <span aria-hidden className="mt-3 block h-px w-6" style={{ background: it.accent }} />
-                  <p lang="th" className="mt-3 font-serif text-[15px] md:text-[16px] leading-[1.4] text-foreground/80 max-w-[26ch]">
+                  <p lang="th" className="mt-3 font-body text-[15px] md:text-[16px] leading-[1.4] text-foreground/80 max-w-[26ch]">
                     {it.kind}
                   </p>
                   <span className="mt-auto pt-6 inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.18em] uppercase text-foreground/60 group-hover:text-foreground transition-colors">

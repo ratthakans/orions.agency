@@ -4,7 +4,7 @@ import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import ClosingCTA from "@/components/ClosingCTA";
 import SectionLabel from "@/components/SectionLabel";
-import { blogPosts, getBlogPost } from "@/data/blog";
+import { currentNotes, getBlogPost } from "@/data/blog";
 import { fmtDate } from "./Blog";
 import Picture from "@/components/Picture";
 
@@ -15,8 +15,8 @@ const BlogPost = () => {
   const post = getBlogPost(slug);
   if (!post) return <Navigate to="/blog" replace />;
 
-  const idx = blogPosts.findIndex((p) => p.slug === slug);
-  const next = blogPosts[(idx + 1) % blogPosts.length];
+  const idx = currentNotes.findIndex((p) => p.slug === slug);
+  const next = currentNotes[(idx + 1) % currentNotes.length];
   const url = `${SITE_URL}/blog/${post.slug}`;
 
   const schema = [
@@ -50,6 +50,7 @@ const BlogPost = () => {
         path={`/blog/${post.slug}`}
         image={post.cover.img.src}
         ogType="article"
+        noindex={idx === -1}
         schema={schema}
       />
 
@@ -102,7 +103,7 @@ const BlogPost = () => {
               return (
                 <Reveal key={i}>
                   <figure className="my-12 md:my-16 text-center">
-                    <div className="mx-auto mb-6 h-px w-10 bg-cinnabar" />
+                    <div className="mx-auto mb-6 h-px w-10 bg-signal" />
                     <blockquote lang="th" className="font-thai thai-wrap mx-auto max-w-[24ch] text-[22px] md:text-[30px] leading-[1.45] tracking-[-0.01em] text-foreground">
                       {q}
                     </blockquote>
@@ -131,7 +132,7 @@ const BlogPost = () => {
       </section>
 
       {/* NEXT */}
-      <section className="px-6 md:px-10 border-t border-foreground/15">
+      {idx !== -1 && <section className="px-6 md:px-10 border-t border-foreground/15">
         <Link to={`/blog/${next.slug}`} viewTransition className="group block max-w-[1280px] mx-auto py-16 md:py-20">
           <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">อ่านต่อ —</div>
           <div className="mt-5 flex items-center justify-between gap-8">
@@ -140,11 +141,11 @@ const BlogPost = () => {
           </div>
           <div className="mt-3 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">{next.category}</div>
         </Link>
-      </section>
+      </section>}
 
       <ClosingCTA
         title={<>มีโจทย์ที่อยาก <em className="text-foreground">เล่าให้เราฟัง</em> ไหม?</>}
-        description="คุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์และเงื่อนไขมาได้เลย."
+        description="มีเรื่องของแบรนด์ที่อยากทำให้ชัดขึ้น? เล่าโจทย์ให้เราฟัง"
         ctas={[
           { label: "เริ่มต้นบทสนทนา", to: "/contact" },
           { label: "อ่านบทความอื่น", to: "/blog", variant: "ghost" },

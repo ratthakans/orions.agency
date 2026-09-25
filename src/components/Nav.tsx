@@ -3,11 +3,9 @@ import { NavLink, Link, useLocation } from "react-router-dom";
 import Logo from "@/components/Logo";
 
 const links = [
-  { label: "Practice", to: "/practice" },
   { label: "Work", to: "/work" },
-  { label: "System", to: "/system" },
-  { label: "Thinking", to: "/thinking" },
-  { label: "Blog", to: "/blog" },
+  { label: "What We Do", to: "/practice" },
+  { label: "Point of View", to: "/thinking" },
   { label: "About", to: "/about" },
 ];
 
@@ -49,7 +47,7 @@ const Nav = () => {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-5 lg:gap-7">
+        <nav className="hidden lg:flex items-center gap-7">
           {links.map((l) => (
             <Fragment key={l.to}>
               <NavLink
@@ -88,7 +86,7 @@ const Nav = () => {
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
-          className="md:hidden relative z-[60] flex flex-col items-end gap-[5px] py-2"
+          className="lg:hidden relative z-[60] flex flex-col items-end gap-[5px] py-2"
         >
           <span className={`block h-px bg-foreground transition-all duration-300 ${open ? "w-5 translate-y-[6px] rotate-45" : "w-5"}`} />
           <span className={`block h-px bg-foreground transition-all duration-300 ${open ? "opacity-0" : "w-4"}`} />
@@ -101,7 +99,7 @@ const Nav = () => {
       <div
         {...((!open ? { inert: "" } : {}) as Record<string, unknown>)}
         aria-hidden={!open}
-        className={`md:hidden fixed inset-0 top-0 z-50 bg-background flex flex-col transition-[opacity,transform] duration-300 ${
+        className={`lg:hidden fixed inset-0 top-0 z-50 bg-background flex flex-col transition-[opacity,transform] duration-300 ${
           open ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"
         }`}
       >

@@ -182,3 +182,13 @@ export const blogPosts: BlogPost[] = [
 ];
 
 export const getBlogPost = (slug: string) => blogPosts.find((p) => p.slug === slug);
+
+/** Notes that represent the current ORIONS point of view. Older URLs stay reachable. */
+const currentNoteSlugs = new Set([
+  "constraint-is-the-brief",
+  "five-human-instincts",
+  "ai-faster-not-thinking",
+  "beautiful-doesnt-sell",
+  "speak-right-not-loud",
+]);
+export const currentNotes = blogPosts.filter((post) => currentNoteSlugs.has(post.slug));

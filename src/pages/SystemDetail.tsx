@@ -44,7 +44,7 @@ const SystemDetail = () => {
   return (
     <div>
       <SEO
-        title={`${it.name} — The System · ØRIONS`}
+        title={`${it.name} — ORIONS Products`}
         description={it.kind}
         path={`/system/${it.slug}`}
         image={it.shot.img.src}
@@ -78,7 +78,7 @@ const SystemDetail = () => {
           </Reveal>
 
           <Reveal delay={0.16}>
-            <p lang="th" className="mt-6 font-serif text-[18px] md:text-[24px] text-muted-foreground max-w-[640px] leading-[1.45]">
+            <p lang="th" className="mt-6 font-body text-[18px] md:text-[24px] text-muted-foreground max-w-[640px] leading-[1.45]">
               {it.kind}
             </p>
           </Reveal>
@@ -236,7 +236,7 @@ const SystemDetail = () => {
 
       <ClosingCTA
         title={<>อยากใช้ หรือสร้าง<em className="text-foreground">ไปด้วยกัน</em>?</>}
-        description="คุยฟรี 45 นาที ไม่มีข้อผูกมัด — เล่าโจทย์มาได้เลย."
+        description="มีเรื่องที่อยากคุยกับ ORIONS? เริ่มต้นบทสนทนาได้เลย"
         ctas={[
           { label: "เริ่มต้นบทสนทนา", to: "/contact" },
           { label: "ดูเครื่องมือทั้งหมด", to: "/system", variant: "ghost" },

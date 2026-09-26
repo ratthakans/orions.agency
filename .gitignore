@@ -30,3 +30,6 @@ dist-ssr
 *.sw?
 .vercel
 .env*
+
+# tsc -b incremental state
+*.tsbuildinfo

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { X, Play, ChevronLeft, ChevronRight, Layers, ArrowUpRight } from "lucide-react";
 import { getMovement, movements, type MovementSlug } from "@/data/practice";
 import Reveal from "@/components/Reveal";
-import ClosingCTA from "@/components/ClosingCTA";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
 import { portfolio, type GalleryImage, type VideoItem } from "@/data/portfolio";
@@ -415,15 +414,6 @@ const Work = () => {
         </Reveal>
       </section>
 
-
-      <ClosingCTA
-        title={<>Have a story worth refining?</>}
-        description="เล่าเรื่องของแบรนด์ให้เราฟัง แล้วเราจะช่วยมองว่าสิ่งไหนควรถูกทำให้ชัด"
-        ctas={[
-          { label: "เริ่มต้นบทสนทนา", to: "/contact" },
-          { label: "อ่านแนวคิดของเรา", to: "/thinking", variant: "ghost" },
-        ]}
-      />
 
       {lightbox && (
         <div

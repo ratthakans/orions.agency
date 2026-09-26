@@ -29,23 +29,8 @@
       "permanent": true
     },
     {
-      "source": "/services",
-      "destination": "/",
-      "permanent": true
-    },
-    {
       "source": "/manifesto",
-      "destination": "/thinking",
-      "permanent": true
-    },
-    {
-      "source": "/blog/emotion-economy",
-      "destination": "/thinking",
-      "permanent": true
-    },
-    {
-      "source": "/blog/emotion-translator-not-content-factory",
-      "destination": "/thinking",
+      "destination": "/about",
       "permanent": true
     },
     {
@@ -80,12 +65,12 @@
     },
     {
       "source": "/journal",
-      "destination": "/blog",
+      "destination": "/",
       "permanent": true
     },
     {
       "source": "/journal/:slug*",
-      "destination": "/blog",
+      "destination": "/",
       "permanent": true
     },
     {
@@ -96,6 +81,26 @@
     {
       "source": "/system/:slug*",
       "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/practice",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/thinking",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/blog",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/:slug*",
+      "destination": "/",
       "permanent": true
     }
   ],

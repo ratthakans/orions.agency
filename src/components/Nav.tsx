@@ -4,8 +4,7 @@ import Logo from "@/components/Logo";
 
 const links = [
   { label: "Work", to: "/work" },
-  { label: "What We Do", to: "/practice" },
-  { label: "Point of View", to: "/thinking" },
+  { label: "Services", to: "/services" },
   { label: "About", to: "/about" },
 ];
 

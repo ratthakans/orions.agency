@@ -53,45 +53,6 @@ const Index = () => (
       </div>
     </section>
 
-    {/* The one answer to "what do you sell". A visitor picks the question they
-        already walked in holding, rather than reading our process first. */}
-    <section className="section-paper px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1400px] mx-auto py-28 md:py-44">
-        <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-24">
-          <SectionLabel label="Three movements" />
-          <div>
-            <Reveal emphasis="lead"><h2 className="h-display-lg max-w-[16ch]">{movementBridge.line}</h2></Reveal>
-            <Reveal delay={0.1}>
-              <p lang="th" className="mt-8 max-w-[650px] font-thai thai-wrap text-[16px] md:text-[19px] leading-[1.8] text-foreground/80">
-                แบรนด์ไม่ได้ต้องการทำมากขึ้นเสมอไป บางครั้งต้องหาเส้นทางใหม่ บางครั้งต้องถูกมองในมุมใหม่ และบางครั้งต้องทำให้ทุกสิ่งกลับมาเป็นเรื่องเดียวกัน
-              </p>
-            </Reveal>
-          </div>
-        </div>
-
-        <div className="mt-16 md:mt-24 border-t border-foreground/15">
-          {movements.map((m, i) => (
-            <Reveal key={m.slug} emphasis="quiet">
-              <Link to={`/practice#${m.slug}`} className="group grid grid-cols-1 md:grid-cols-[70px_1fr_1fr] gap-4 md:gap-10 py-10 md:py-12 border-b border-foreground/15">
-                <span className="font-mono text-[11px] text-muted-foreground">0{i + 1}</span>
-                <div>
-                  <h3 className="h-display-md">{m.name}</h3>
-                  <p className="mt-3 font-body text-[19px] md:text-[21px]">{m.line}</p>
-                </div>
-                <div className="md:pt-2">
-                  <p lang="th" className="font-thai text-[16px] md:text-[17px] leading-[1.75]">เมื่อคำถามคือ “{m.question}”</p>
-                  <p className="mt-5 font-mono text-[11px] tracking-[0.14em] uppercase text-muted-foreground">{m.closer}</p>
-                  <span className="cta-link mt-6 group-hover:opacity-100"><span>อ่าน {m.name}</span><ArrowUpRight className="w-4 h-4" /></span>
-                </div>
-              </Link>
-            </Reveal>
-          ))}
-        </div>
-
-        <Link to="/practice" className="cta-link mt-12"><span>Explore what we do</span><ArrowUpRight className="w-4 h-4" /></Link>
-      </div>
-    </section>
-
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1400px] mx-auto py-24 md:py-36">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
@@ -135,31 +96,43 @@ const Index = () => (
       </div>
     </section>
 
-    <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1400px] mx-auto py-24 md:py-36 grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-24">
-        <SectionLabel label="Creative partnership" />
-        <div>
-          <Reveal emphasis="lead">
-            <h2 className="h-display-md max-w-[20ch]">An external creative team, built around your brand.</h2>
-          </Reveal>
-          <p lang="th" className="mt-8 max-w-[650px] font-thai text-[16px] md:text-[18px] leading-[1.8] text-foreground/80">
-            สำหรับแบรนด์ที่ต้องการความคิดและทิศทางสร้างสรรค์อย่างต่อเนื่อง โดยมีทีมที่เข้าใจเรื่องของแบรนด์และดูแลความสอดคล้องของงานในทุกจุดสัมผัส
-          </p>
-          <Link to="/practice#creative-partnership" className="cta-link mt-9">
-            <span>Explore the partnership</span>
+    {/* Services, after the work: the record first, then the three moves it
+        was made with. One line per movement — the detail lives on /services. */}
+    <section className="section-paper px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1400px] mx-auto py-24 md:py-36">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+          <div>
+            <SectionLabel label="Services" />
+            <Reveal emphasis="lead">
+              <h2 className="mt-8 h-display-lg max-w-[16ch]">{movementBridge.line}</h2>
+            </Reveal>
+          </div>
+          <Link to="/services" className="cta-link">
+            <span>All services</span>
             <ArrowUpRight className="w-4 h-4" />
           </Link>
+        </div>
+        <div className="mt-14 border-t border-foreground/15">
+          {movements.map((m, i) => (
+            <Link
+              key={m.slug}
+              to={`/services#${m.slug}`}
+              className="group grid grid-cols-1 md:grid-cols-[70px_1fr_1fr_24px] items-baseline gap-3 md:gap-10 py-8 md:py-10 border-b border-foreground/15"
+            >
+              <span className="font-mono text-[11px] text-muted-foreground">0{i + 1}</span>
+              <h3 className="h-display-md">{m.name}</h3>
+              <p lang="th" className="font-thai text-[15px] md:text-[17px] leading-[1.7] text-foreground/80">{m.question}</p>
+              <ArrowUpRight className="hidden md:block w-5 h-5 text-foreground/40 group-hover:text-foreground transition-colors" />
+            </Link>
+          ))}
         </div>
       </div>
     </section>
 
-    {/* The page used to close on "Boutique by design" — an argument from being
-        small. It closes on the person instead: on a founder-led practice that
-        is the actual claim, and it is the one thing a visitor cannot get from
-        the work itself. The full version is /about; this is the face. */}
+    {/* About, as a face: on a founder-led practice the person is the claim. */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1400px] mx-auto py-24 md:py-36 grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-24">
-        <SectionLabel label="About ORIONS" />
+        <SectionLabel label="About" />
         <div className="grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-8 md:gap-14 items-start">
           <Picture
             data={founderPortrait}
@@ -176,16 +149,10 @@ const Index = () => (
             </p>
             <p lang="th" className="mt-7 font-thai text-[15px]">รัฐกันต์ สุวรรณภักดี</p>
             <p className="mt-1 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">Founder &amp; Creative Director</p>
-            <div className="mt-9 flex flex-wrap gap-x-10 gap-y-5">
-              <Link to="/about" className="cta-link">
-                <span>Meet ORIONS</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </Link>
-              <Link to="/thinking" className="cta-link cta-link-muted">
-                <span>Read our point of view</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </Link>
-            </div>
+            <Link to="/about" className="cta-link mt-9">
+              <span>About ORIONS</span>
+              <ArrowUpRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </div>

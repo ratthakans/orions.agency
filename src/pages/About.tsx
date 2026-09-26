@@ -3,11 +3,9 @@ import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
-import CTABand from "@/components/CTABand";
 import Picture from "@/components/Picture";
 import founder from "@/assets/team/founder-portrait.jpg?as=picture";
 import { caseStudies } from "@/data/caseStudies";
-import { movements } from "@/data/practice";
 
 /** Read from the record rather than asserted, so the page cannot drift into a
  *  claim the work does not back. */
@@ -59,22 +57,8 @@ const About = () => (
       </div>
     </section>
 
-    <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-24">
-        <SectionLabel label="What that means" />
-        <div>
-          <Reveal emphasis="lead">
-            <h2 className="h-display-md max-w-[20ch]">We don't invent stories. We reveal them.</h2>
-          </Reveal>
-          <p lang="th" className="mt-8 font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.85] text-foreground/80">
-            แบรนด์ประกอบด้วยเรื่องราว ผู้คน ความเชื่อ ประสบการณ์ และการตัดสินใจมากมาย เราช่วยมองว่าอะไรคือสิ่งสำคัญ เชื่อมสิ่งเหล่านั้นเข้าด้วยกัน และถ่ายทอดให้คนเข้าใจว่ามันหมายถึงอะไร
-          </p>
-        </div>
-      </div>
-    </section>
-
-    {/* Substance from the record, not from adjectives: the fields worked in and
-        the three moves, both read out of the data files. */}
+    {/* Substance from the record, not from adjectives: the fields actually
+        worked in, read out of the case studies. */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-24 md:py-36">
         <SectionLabel label="Across the record" />
@@ -88,42 +72,18 @@ const About = () => (
             </li>
           ))}
         </ul>
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 border-t border-foreground/15">
-          {movements.map((m, i) => (
-            <Link
-              key={m.slug}
-              to={`/practice#${m.slug}`}
-              className="group py-8 md:pr-8 border-b md:border-r border-foreground/15 last:border-r-0"
-            >
-              <span className="font-mono text-[11px] text-muted-foreground">0{i + 1}</span>
-              <h3 className="mt-4 font-display text-[26px] group-hover:opacity-80 transition-opacity">{m.name}</h3>
-              <p lang="th" className="mt-3 font-thai text-[14px] leading-[1.7] text-muted-foreground">
-                {caseStudies.filter((c) => c.movement === m.slug).length} เคสในบันทึก · {m.record}
-              </p>
-            </Link>
-          ))}
-        </div>
         <div className="mt-12 flex flex-wrap gap-x-10 gap-y-5">
           <Link to="/work" className="cta-link">
             <span>See the work</span>
             <ArrowUpRight className="w-4 h-4" />
           </Link>
-          <Link to="/thinking" className="cta-link cta-link-muted">
-            <span>Read our point of view</span>
+          <Link to="/contact" className="cta-link cta-link-muted">
+            <span>Talk to ORIONS</span>
             <ArrowUpRight className="w-4 h-4" />
           </Link>
         </div>
       </div>
     </section>
-
-    <CTABand
-      eyebrow="About ORIONS"
-      title={<>Great creative work requires attention.</>}
-      subtitle="มีเรื่องของแบรนด์ที่อยากทำให้ชัดขึ้น? เริ่มต้นบทสนทนากับเรา"
-      primary={{ label: "Talk to ORIONS", to: "/contact" }}
-      secondary={{ label: "Explore our work", to: "/work" }}
-      tone="snow"
-    />
   </div>
 );
 

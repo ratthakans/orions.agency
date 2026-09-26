@@ -3,7 +3,6 @@ import { ArrowUpRight, ArrowLeft } from "lucide-react";
 import { getMovement } from "@/data/practice";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
-import ClosingCTA from "@/components/ClosingCTA";
 import SectionLabel from "@/components/SectionLabel";
 import { getCaseStudy, getAdjacent, caseStudies } from "@/data/caseStudies";
 import Picture from "@/components/Picture";
@@ -161,7 +160,7 @@ const CaseStudy = () => {
               <p lang="th" className="mt-6 font-thai thai-wrap text-[13px] leading-[1.8] text-muted-foreground max-w-[28ch]">
                 {getMovement(cs.movement)?.record}
               </p>
-              <Link to={`/practice#${cs.movement}`} className="cta-link mt-5">
+              <Link to={`/services#${cs.movement}`} className="cta-link mt-5">
                 <span>{getMovement(cs.movement)?.name}</span>
                 <ArrowUpRight className="w-4 h-4" />
               </Link>
@@ -277,15 +276,6 @@ const CaseStudy = () => {
           </Link>
         </section>
       )}
-
-      <ClosingCTA
-        title={<>มีโจทย์ที่ <em className="text-foreground">มีกรอบ</em> แบบนี้ไหม?</>}
-        description="มีเรื่องของแบรนด์ที่อยากทำให้ชัดขึ้น? เล่าโจทย์ให้เราฟัง"
-        ctas={[
-          { label: "เริ่มต้นบทสนทนา", to: "/contact" },
-          { label: "ดูผลงานทั้งหมด", to: "/work", variant: "ghost" },
-        ]}
-      />
     </div>
   );
 };

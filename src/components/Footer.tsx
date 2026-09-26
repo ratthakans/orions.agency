@@ -3,11 +3,9 @@ import { useEffect, useState } from "react";
 
 const navLinks = [
   { to: "/work", label: "Work" },
-  { to: "/practice", label: "What We Do" },
-  { to: "/thinking", label: "Point of View" },
+  { to: "/services", label: "Services" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
-  { to: "/blog", label: "Notes" },
 ];
 
 const socials = [

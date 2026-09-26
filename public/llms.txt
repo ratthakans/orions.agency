@@ -54,10 +54,8 @@ The right scope depends on the client's question and context.
 ## Selected pages
 - Home: https://orions.agency/
 - Selected work: https://orions.agency/work
-- What We Do: https://orions.agency/practice
-- Point of View: https://orions.agency/thinking
+- Services: https://orions.agency/services
 - About: https://orions.agency/about
-- ORIONS Notes: https://orions.agency/blog
 - Contact: https://orions.agency/contact
 
 ## Contact

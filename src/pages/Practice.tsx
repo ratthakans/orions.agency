@@ -54,7 +54,7 @@ const Practice = () => (
         <SectionLabel label="Why three" />
         <div>
           <Reveal emphasis="lead">
-            <h2 className="font-serif text-[30px] md:text-[42px] leading-[1.1]">{movementBridge.line}</h2>
+            <h2 className="font-serif text-[30px] md:text-[42px] leading-[1.1]">{movementBridge.reason}</h2>
           </Reveal>
           <p lang="th" className="mt-7 max-w-[620px] font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.8] text-foreground/80">
             {movementBridge.body}
@@ -127,7 +127,8 @@ const Practice = () => (
                 {proof.length > 0 && (
                   <div className="mt-12 pt-7 border-t border-foreground/15">
                     <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">In the record</span>
-                    <div className="mt-5 flex flex-wrap gap-x-6 gap-y-3">
+                    <p lang="th" className="mt-4 font-thai text-[15px] md:text-[16px] leading-[1.75] text-foreground/80">{m.record}</p>
+                    <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3">
                       {proof.map((c) => (
                         <Link key={c.slug} to={`/work/${c.slug}`} className="cta-link">
                           <span>{c.title}</span>
@@ -146,7 +147,7 @@ const Practice = () => (
       );
     })}
 
-    <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
+    <section id="brand-foundation" className="section-ink px-6 md:px-10 border-t border-foreground/15 scroll-mt-20">
       <div className="max-w-[1280px] mx-auto py-24 md:py-36">
         <SectionLabel label="Before the movements" />
         <div className="mt-10 grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-24">
@@ -187,7 +188,7 @@ const Practice = () => (
             </div>
           ))}
         </div>
-        <div className="mt-14 pt-8 border-t border-foreground/15 grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-8 lg:gap-24">
+        <div id="film-visual-story" className="mt-14 pt-8 border-t border-foreground/15 grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-8 lg:gap-24 scroll-mt-24">
           <h3 className="font-display text-[26px] md:text-[31px] leading-[1.1]">{filmCraft.name}</h3>
           <div>
             <p className="font-body text-[18px] md:text-[20px]">{filmCraft.line}</p>

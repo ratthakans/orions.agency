@@ -64,7 +64,7 @@ const CaseStudy = () => {
           </Reveal>
 
           <div className="mt-10">
-            <SectionLabel index={`Act ${cs.act}`} label={`Case ${cs.n} / ${total}`} />
+            <SectionLabel index={getMovement(cs.movement)?.name ?? ""} label={`Case ${cs.n} / ${total}`} />
           </div>
 
           <Reveal delay={0.1} emphasis="lead">
@@ -85,7 +85,6 @@ const CaseStudy = () => {
             <dl className="card-soft mt-16 grid grid-cols-2 md:grid-cols-3 gap-y-8 gap-x-6 p-8">
               {[
                 { k: "Brand", v: cs.title },
-                { k: "Movement", v: getMovement(cs.movement)?.name ?? cs.movement },
                 { k: "Category", v: cs.niche },
                 { k: "Year", v: cs.year },
               ].map((m) => (
@@ -160,8 +159,12 @@ const CaseStudy = () => {
             <SectionLabel index="02" label="What We Found" />
             <Reveal delay={0.05}>
               <p lang="th" className="mt-6 font-thai thai-wrap text-[13px] leading-[1.8] text-muted-foreground max-w-[28ch]">
-                {cs.actTitle}
+                {getMovement(cs.movement)?.record}
               </p>
+              <Link to={`/practice#${cs.movement}`} className="cta-link mt-5">
+                <span>{getMovement(cs.movement)?.name}</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </Link>
             </Reveal>
           </div>
           <div className="md:col-span-8">

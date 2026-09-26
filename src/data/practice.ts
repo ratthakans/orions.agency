@@ -24,6 +24,10 @@ export type Movement = {
   note: string;
   /** The closing line, stated in English */
   closer: string;
+  /** What the cases in this movement had in common. This used to be repeated
+   *  verbatim on each case study as `actTitle`; it belongs to the grouping,
+   *  not to eight separate rows. */
+  record: string;
 };
 
 export const movements: Movement[] = [
@@ -37,6 +41,7 @@ export const movements: Movement[] = [
     list: ["Product", "Service", "Experience", "Collaboration", "Activation", "Category", "Business Opportunity"],
     note: "ไม่ใช่ innovation เพื่อให้ดูใหม่ แต่คือการสร้าง next S-curve ที่ยังมีเหตุผลว่าทำไมต้องเป็นแบรนด์นี้",
     closer: "From brand equity to new value.",
+    record: "เมื่อต้องเปิดตลาดที่ยังไม่มีใครเชื่อ",
   },
   {
     slug: "reframe",
@@ -48,6 +53,7 @@ export const movements: Movement[] = [
     list: ["Unseen Audience", "Emerging Behavior", "Alternative Use Case", "New Occasion", "Cultural Context", "Demand Territory", "Communication Angle"],
     note: "เป้าหมายไม่ใช่แค่การหา target ใหม่ แต่คือการหาเหตุผลใหม่ที่ทำให้คนสนใจ",
     closer: "Same product. Different relevance.",
+    record: "เมื่อต้องเปลี่ยนภาพจำ โดยไม่ทิ้งของเดิม",
   },
   {
     slug: "embed",
@@ -59,6 +65,7 @@ export const movements: Movement[] = [
     list: ["Narrative", "Tone", "Visual Language", "Behavior", "Content", "Product Expression", "Digital Experience", "Service", "Customer Journey"],
     note: "ทุก touchpoint ไม่ต้องเหมือนกัน แต่ต้องมองโลกจากจุดเดียวกัน",
     closer: "One identity. Many expressions.",
+    record: "เมื่อการพูดคือโจทย์ที่ยากที่สุด",
   },
 ];
 
@@ -68,7 +75,11 @@ export const getMovement = (slug: string) => movements.find((m) => m.slug === sl
  *  the site reads as two decks stapled together: a story company on the
  *  homepage, a growth framework one section later. */
 export const movementBridge = {
+  /** The homepage owns this line — it is where a visitor first meets the idea. */
   line: "One story. Three directions.",
+  /** /practice answers a different question: why three and not a service list.
+   *  Repeating the homepage's line there would put one statement on two pages. */
+  reason: "Three ways forward, without becoming someone else.",
   body: "เรื่องของแบรนด์เดินได้สามทิศ — ไปข้างหน้า มองจากมุมใหม่ และลงลึกเข้าไปข้างใน สามวิธีในการพาแบรนด์ไปข้างหน้าโดยไม่ทำให้มันสูญเสียสิ่งที่ทำให้มันเป็นตัวเอง",
 };
 

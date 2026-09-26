@@ -4,7 +4,7 @@ import { describe, expect, it } from "vitest";
 import { blogPosts, currentNotes } from "@/data/blog";
 import { caseStudies } from "@/data/caseStudies";
 import { portfolio } from "@/data/portfolio";
-import { craft, engagements, foundation, movements } from "@/data/practice";
+import { craft, engagements, foundation, movementBridge, movements } from "@/data/practice";
 
 const fromRoot = (path: string) => readFileSync(resolve(process.cwd(), path), "utf8");
 const sitemapUrls = new Set(Array.from(fromRoot("public/sitemap.xml").matchAll(/<loc>([^<]+)<\/loc>/g), (match) => match[1]));
@@ -55,6 +55,15 @@ describe("brand architecture", () => {
     expect(engagements.map((item) => item.slug)).not.toContain(foundation.slug);
   });
 
+  /** Acts and movements were two names for one grouping. The acts are gone;
+   *  this fails if they come back and start competing again. */
+  it("labels a case by its movement only, never by an act", () => {
+    const data = fromRoot("src/data/caseStudies.ts");
+    expect(data).not.toMatch(/^\s+act(Title)?:/m);
+    expect(fromRoot("src/pages/CaseStudy.tsx")).not.toMatch(/cs\.act/);
+    movements.forEach((m) => expect(m.record.length).toBeGreaterThan(0));
+  });
+
   /** The model has to describe work we actually did, or it is a claim. If a
    *  movement ever empties out, either the model or the record is wrong. */
   it("backs every movement with at least one case study", () => {
@@ -63,6 +72,24 @@ describe("brand architecture", () => {
     });
     const slugs = new Set(movements.map((item) => item.slug));
     caseStudies.forEach((cs) => expect(slugs).toContain(cs.movement));
+  });
+
+  /** The site keeps re-growing duplicate section heads — the same statement
+   *  landing on the homepage and on /practice. Each public heading belongs to
+   *  exactly one page. */
+  it("does not repeat a section heading across pages", () => {
+    const pages = ["src/pages/Index.tsx", "src/pages/Practice.tsx", "src/pages/Thinking.tsx", "src/pages/About.tsx"];
+    const seen = new Map<string, string>();
+    pages.forEach((page) => {
+      const heads = Array.from(fromRoot(page).matchAll(/<h2[^>]*>([^<{]+)<\/h2>/g), (m) => m[1].trim());
+      heads.forEach((head) => {
+        const owner = seen.get(head);
+        expect(owner, `"${head}" appears on both ${owner} and ${page}`).toBeUndefined();
+        seen.set(head, page);
+      });
+    });
+    // The bridge line and its /practice counterpart must stay distinct too.
+    expect(movementBridge.line).not.toBe(movementBridge.reason);
   });
 
   it("uses the same primary positioning across the main public surfaces", () => {

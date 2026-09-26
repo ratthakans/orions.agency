@@ -7,7 +7,7 @@ import SectionLabel from "@/components/SectionLabel";
 import Picture from "@/components/Picture";
 import HeroReel from "@/components/HeroReel";
 import heroPoster from "@/assets/hero-reel-poster.jpg?as=picture";
-import { getMovement, movements, movementBridge, movementSummary } from "@/data/practice";
+import { getMovement, movements, movementBridge } from "@/data/practice";
 import { caseStudies } from "@/data/caseStudies";
 
 const featuredSlugs = ["heavy-organizer", "hongmove", "khaoyai-country-club"];
@@ -72,14 +72,6 @@ const Index = () => (
           ))}
         </div>
 
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
-          {movementSummary.map((item) => (
-            <p key={item.name} className="font-display text-[20px] md:text-[24px] leading-[1.2]">
-              {item.name} <span className="text-foreground/55">{item.line}</span>
-            </p>
-          ))}
-        </div>
-
         <Link to="/practice" className="cta-link mt-12"><span>Explore what we do</span><ArrowUpRight className="w-4 h-4" /></Link>
       </div>
     </section>
@@ -101,14 +93,47 @@ const Index = () => (
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1400px] mx-auto py-24 md:py-36 grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-24">
         <SectionLabel label="Creative partnership" />
-        <div><Reveal emphasis="lead"><h2 className="h-display-md max-w-[20ch]">An external creative team, built around your brand.</h2></Reveal><p lang="th" className="mt-8 max-w-[650px] font-thai text-[16px] md:text-[18px] leading-[1.8] text-foreground/80">สำหรับแบรนด์ที่ต้องการความคิดและทิศทางสร้างสรรค์อย่างต่อเนื่อง โดยมีทีมที่เข้าใจเรื่องของแบรนด์และดูแลความสอดคล้องของงานในทุกจุดสัมผัส</p><Link to="/practice#creative-partnership" className="cta-link mt-9"><span>Explore the partnership</span><ArrowUpRight className="w-4 h-4" /></Link></div>
+        <div>
+          <Reveal emphasis="lead">
+            <h2 className="h-display-md max-w-[20ch]">An external creative team, built around your brand.</h2>
+          </Reveal>
+          <p lang="th" className="mt-8 max-w-[650px] font-thai text-[16px] md:text-[18px] leading-[1.8] text-foreground/80">
+            สำหรับแบรนด์ที่ต้องการความคิดและทิศทางสร้างสรรค์อย่างต่อเนื่อง โดยมีทีมที่เข้าใจเรื่องของแบรนด์และดูแลความสอดคล้องของงานในทุกจุดสัมผัส
+          </p>
+          <Link to="/practice#creative-partnership" className="cta-link mt-9">
+            <span>Explore the partnership</span>
+            <ArrowUpRight className="w-4 h-4" />
+          </Link>
+        </div>
       </div>
     </section>
 
+    {/* Two 50/50 teaser cards under no head was the weakest section on the
+        page. One idea now — who we are — with the point of view as a single
+        link beneath it. The ORIONS view itself belongs to /practice, where it
+        closes the argument the movements open; repeating it here would put the
+        same statement on two pages again. */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1400px] mx-auto py-24 md:py-36 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
-        <div><SectionLabel label="Point of view" /><h2 className="mt-7 h-display-md">Less noise.<br />More meaning.</h2><p lang="th" className="mt-6 max-w-[48ch] font-thai text-[15px] leading-[1.8] text-muted-foreground">ความคิดเกี่ยวกับแบรนด์ ความคิดสร้างสรรค์ วัฒนธรรม และรายละเอียดที่ควรค่าแก่การสังเกต</p><Link to="/thinking" className="cta-link mt-8"><span>Read our point of view</span><ArrowUpRight className="w-4 h-4" /></Link></div>
-        <div><SectionLabel label="About ORIONS" /><h2 className="mt-7 h-display-md">Boutique by design.</h2><p lang="th" className="mt-6 max-w-[48ch] font-thai text-[15px] leading-[1.8] text-muted-foreground">เราเลือกทำงานกับโปรเจกต์จำนวนจำกัด เพื่อให้ทุกเรื่องได้รับเวลา ความเข้าใจ และความใส่ใจที่งานสร้างสรรค์ที่ดีต้องการ</p><Link to="/about" className="cta-link mt-8"><span>Meet ORIONS</span><ArrowUpRight className="w-4 h-4" /></Link></div>
+      <div className="max-w-[1400px] mx-auto py-24 md:py-36 grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-24">
+        <SectionLabel label="About ORIONS" />
+        <div>
+          <Reveal emphasis="lead">
+            <h2 className="h-display-lg max-w-[16ch]">Boutique by design.</h2>
+          </Reveal>
+          <p lang="th" className="mt-8 max-w-[640px] font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.8] text-foreground/80">
+            เราเลือกทำงานกับโปรเจกต์จำนวนจำกัด เพื่อให้ทุกเรื่องได้รับเวลา ความเข้าใจ และความใส่ใจที่งานสร้างสรรค์ที่ดีต้องการ
+          </p>
+          <div className="mt-10 pt-7 border-t border-foreground/15 flex flex-wrap gap-x-10 gap-y-5">
+            <Link to="/about" className="cta-link">
+              <span>Meet ORIONS</span>
+              <ArrowUpRight className="w-4 h-4" />
+            </Link>
+            <Link to="/thinking" className="cta-link cta-link-muted">
+              <span>Read our point of view</span>
+              <ArrowUpRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
       </div>
     </section>
 

@@ -33,9 +33,32 @@ const Thinking = () => (
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-24">
         <SectionLabel label="In practice" />
-        <div><Reveal emphasis="lead"><h2 className="h-display-md max-w-[20ch]">One story. Three directions.</h2></Reveal><p lang="th" className="mt-8 font-thai text-[16px] md:text-[18px] leading-[1.8] text-foreground/80">เมื่อเรื่องชัดแล้ว คำถามต่อไปคือมันควรเดินไปทางไหน — ไปข้างหน้าเพื่อสร้างพื้นที่ใหม่ มองจากมุมใหม่เพื่อให้มีความหมายกับคนอีกกลุ่ม หรือลงลึกเข้าไปข้างในเพื่อให้ทุกจุดสัมผัสยังเป็นแบรนด์เดียวกัน</p>
-          <div className="mt-10 border-t border-foreground/15">{movements.map((m) => <Link key={m.slug} to={`/practice#${m.slug}`} className="group flex items-baseline gap-5 md:gap-8 py-5 border-b border-foreground/15"><span className="font-display text-[21px] md:text-[25px] shrink-0">{m.name}</span><span lang="th" className="font-thai text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground group-hover:text-foreground/85 transition-colors">{m.question}</span></Link>)}</div>
-          <Link to="/practice" className="cta-link mt-9"><span>Explore what we do</span><ArrowUpRight className="w-4 h-4" /></Link></div>
+        <div>
+          <Reveal emphasis="lead">
+            <h2 className="h-display-md max-w-[20ch]">Where a story goes next.</h2>
+          </Reveal>
+          <p lang="th" className="mt-8 font-thai text-[16px] md:text-[18px] leading-[1.8] text-foreground/80">
+            เมื่อเรื่องชัดแล้ว คำถามต่อไปคือมันควรเดินไปทางไหน — ไปข้างหน้าเพื่อสร้างพื้นที่ใหม่ มองจากมุมใหม่เพื่อให้มีความหมายกับคนอีกกลุ่ม หรือลงลึกเข้าไปข้างในเพื่อให้ทุกจุดสัมผัสยังเป็นแบรนด์เดียวกัน
+          </p>
+          <div className="mt-10 border-t border-foreground/15">
+            {movements.map((m) => (
+              <Link
+                key={m.slug}
+                to={`/practice#${m.slug}`}
+                className="group flex items-baseline gap-5 md:gap-8 py-5 border-b border-foreground/15"
+              >
+                <span className="font-display text-[21px] md:text-[25px] shrink-0">{m.name}</span>
+                <span lang="th" className="font-thai text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground group-hover:text-foreground/85 transition-colors">
+                  {m.question}
+                </span>
+              </Link>
+            ))}
+          </div>
+          <Link to="/practice" className="cta-link mt-9">
+            <span>Explore what we do</span>
+            <ArrowUpRight className="w-4 h-4" />
+          </Link>
+        </div>
       </div>
     </section>
     <section className="px-6 md:px-10 border-t border-foreground/15">

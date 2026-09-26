@@ -17,15 +17,11 @@ import type { MovementSlug } from "@/data/practice";
 export type CaseStudy = {
   slug: string;
   n: string;
-  /** Act number — 01, 02, 03 */
-  act: string;
-  /** Which of the three movements this engagement was. The acts were already
-   *  grouped this way before the movements were named: 01 is coherence under
-   *  pressure, 02 is opening a space that did not exist, 03 is changing how
-   *  something is seen without replacing it. */
+  /** Which of the three movements this engagement was. The old acts were
+   *  already grouped exactly this way before the movements were named, so the
+   *  movement replaced them rather than sitting beside them — one grouping,
+   *  one label. Its Thai framing lives once on the movement, not on each row. */
   movement: MovementSlug;
-  /** Act narrative title */
-  actTitle: string;
   title: string;
   /** Public domain / handle shown as a meta line */
   domain: string;
@@ -67,9 +63,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "democrat-party",
     n: "01",
-    act: "01",
     movement: "embed",
-    actTitle: "เมื่อการพูดคือโจทย์ที่ยากที่สุด",
     title: "Democrat Party",
     domain: "democrat.or.th",
     niche: "Politics",
@@ -94,9 +88,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "gcoo",
     n: "02",
-    act: "02",
     movement: "expand",
-    actTitle: "เมื่อต้องเปิดตลาดที่ยังไม่มีใครเชื่อ",
     title: "GCOO",
     domain: "gcoo.io",
     niche: "Mobility",
@@ -121,9 +113,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "my-hotel",
     n: "03",
-    act: "02",
     movement: "expand",
-    actTitle: "เมื่อต้องเปิดตลาดที่ยังไม่มีใครเชื่อ",
     title: "My Hotel",
     domain: "pzentsmart.com",
     niche: "Hospitality / OTA",
@@ -148,9 +138,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "hongmove",
     n: "04",
-    act: "02",
     movement: "expand",
-    actTitle: "เมื่อต้องเปิดตลาดที่ยังไม่มีใครเชื่อ",
     title: "HONG MOVE",
     domain: "hongmove.co.th",
     niche: "Airport Mobility",
@@ -175,9 +163,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "heavy-organizer",
     n: "05",
-    act: "03",
     movement: "reframe",
-    actTitle: "เมื่อต้องเปลี่ยนภาพจำ โดยไม่ทิ้งของเดิม",
     title: "HEAVY ORGANIZER",
     domain: "heavyorganizer.com",
     niche: "Music Festival",
@@ -202,9 +188,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "khaoyai-country-club",
     n: "06",
-    act: "03",
     movement: "reframe",
-    actTitle: "เมื่อต้องเปลี่ยนภาพจำ โดยไม่ทิ้งของเดิม",
     title: "Khao Yai Country Club",
     domain: "brc-kycgolf.com",
     niche: "Leisure Golf",
@@ -229,9 +213,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "royal-thai-air-force",
     n: "07",
-    act: "01",
     movement: "embed",
-    actTitle: "เมื่อการพูดคือโจทย์ที่ยากที่สุด",
     title: "Royal Thai Air Force",
     domain: "rtaf.mi.th",
     niche: "Government",
@@ -256,9 +238,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "palawat-party",
     n: "08",
-    act: "01",
     movement: "embed",
-    actTitle: "เมื่อการพูดคือโจทย์ที่ยากที่สุด",
     title: "Movement Party",
     domain: "",
     niche: "Politics",

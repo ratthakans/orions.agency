@@ -10,16 +10,26 @@ import { track } from "@/lib/analytics";
 import Picture from "@/components/Picture";
 import founder from "@/assets/team/founder.jpg?as=picture";
 import { inquirySchema, type Inquiry } from "@/lib/contact";
-import { engagements, filmCraft, foundation } from "@/data/practice";
+import { filmCraft, foundation, getEngagementsFor, movements } from "@/data/practice";
 
 type FieldErrors = Partial<Record<keyof Inquiry, string>>;
 type SubmitStatus = { kind: "success" | "error"; message: string } | null;
 
-/** Foundation first: it is the step before the movements, so it reads as the
- *  entry point rather than an afterthought at the end of the list. Film stays
- *  on the list even though it is a craft rather than a movement — people do
- *  walk in asking for a film, and the form is about where they want to start. */
-const packageOptions = [...[foundation, ...engagements].map((item) => item.name), filmCraft.name];
+/** The list is grouped the way the site is: the step before the movements,
+ *  then each movement's ways in, then craft. Foundation leads because it is
+ *  the entry point, and Film stays on the list even though it is craft rather
+ *  than a movement — people do walk in asking for a film, and this field asks
+ *  where they want to start, not which model they belong to. */
+const packageGroups: { label: string; options: string[] }[] = [
+  { label: "ก่อนเริ่ม movement", options: [foundation.name] },
+  ...movements.map((m) => ({
+    label: `${m.name} — ${m.question}`,
+    options: getEngagementsFor(m.slug).map((item) => item.name),
+  })).filter((group) => group.options.length > 0),
+  { label: "งานภาพ", options: [filmCraft.name] },
+];
+
+export const packageOptions = packageGroups.flatMap((group) => group.options);
 
 const Contact = () => {
   const [searchParams] = useSearchParams();
@@ -253,8 +263,12 @@ const Contact = () => {
                     className={`${inputCls} appearance-none cursor-pointer`}
                   >
                     <option value="">— ยังไม่แน่ใจ เล่าโจทย์ให้เราฟังได้ —</option>
-                    {packageOptions.map((o) => (
-                      <option key={o} value={o}>{o}</option>
+                    {packageGroups.map((group) => (
+                      <optgroup key={group.label} label={group.label}>
+                        {group.options.map((o) => (
+                          <option key={o} value={o}>{o}</option>
+                        ))}
+                      </optgroup>
                     ))}
                   </select>
                 </div>

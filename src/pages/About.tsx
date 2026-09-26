@@ -42,7 +42,18 @@ const About = () => (
           <Picture data={founder} alt="Ratthakan Suwanphakdee — Founder & Creative Director, ORIONS" className="w-44 h-56 md:w-60 md:h-[19rem] object-cover object-top" />
           <div><Reveal emphasis="lead"><p lang="th" className="font-body text-[25px] md:text-[38px] leading-[1.4] max-w-[40ch]">งานของเราเริ่มจากการสังเกตอย่างจริงจัง แล้วค่อยขัดเกลาจนเรื่องที่สำคัญชัดขึ้น</p></Reveal><p lang="th" className="mt-8 font-thai text-[16px]">รัฐกันต์ สุวรรณภักดี</p><p className="mt-1 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">Founder & Creative Director</p></div>
         </div>
-        <Link to="/thinking" className="cta-link mt-12"><span>Read our point of view</span><ArrowUpRight className="w-4 h-4" /></Link>
+        {/* About had no path to the offer at all — a visitor who read this far
+            could reach the point of view but not what we actually do. */}
+        <div className="mt-12 flex flex-wrap gap-x-10 gap-y-5">
+          <Link to="/practice" className="cta-link">
+            <span>See the three movements</span>
+            <ArrowUpRight className="w-4 h-4" />
+          </Link>
+          <Link to="/thinking" className="cta-link cta-link-muted">
+            <span>Read our point of view</span>
+            <ArrowUpRight className="w-4 h-4" />
+          </Link>
+        </div>
       </div>
     </section>
     <CTABand eyebrow="About ORIONS" title={<>Great creative work requires attention.</>} subtitle="มีเรื่องของแบรนด์ที่อยากทำให้ชัดขึ้น? เริ่มต้นบทสนทนากับเรา" primary={{ label: "Talk to ORIONS", to: "/contact" }} secondary={{ label: "Explore our work", to: "/work" }} tone="snow" />

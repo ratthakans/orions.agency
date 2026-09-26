@@ -31,8 +31,23 @@ const Index = () => (
         <div className="flex items-start justify-between gap-8"><Reveal><SectionLabel label="ORIONS · Story-led creative company" /></Reveal><span className="hidden md:block font-mono text-[10px] tracking-[0.22em] uppercase text-foreground/75">Showreel 2026 · ØRIONS</span></div>
         <Reveal delay={0.08} emphasis="lead"><h1 className="mt-14 md:mt-20 h-display-xl hero-title"><span className="block whitespace-nowrap">Stories,</span><span className="block whitespace-nowrap">refined.</span></h1></Reveal>
         <div className="mt-16 md:mt-24 pt-7 border-t border-foreground/30 grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-10 lg:gap-20">
-          <Reveal delay={0.18}><p lang="th" className="max-w-[590px] font-thai thai-wrap text-[17px] md:text-[20px] leading-[1.75] text-foreground/85">เราช่วยแบรนด์ค้นหาเรื่องที่มีความหมาย เชื่อมสิ่งสำคัญเข้าด้วยกัน และขัดเกลาให้ชัดพอที่จะถูกมองเห็น เข้าใจ และจดจำ</p></Reveal>
-          <Reveal delay={0.25}><div className="flex flex-wrap lg:justify-end items-start gap-x-10 gap-y-6"><Link to="/work" className="cta-link cta-link-lg"><span>Explore our work</span><ArrowUpRight className="w-[18px] h-[18px]" /></Link><Link to="/contact" className="cta-link cta-link-lg cta-link-muted"><span>Talk to ORIONS</span><ArrowUpRight className="w-[18px] h-[18px]" /></Link></div></Reveal>
+          <Reveal delay={0.18}>
+            <p lang="th" className="max-w-[590px] font-thai thai-wrap text-[17px] md:text-[20px] leading-[1.75] text-foreground/85">
+              เราช่วยแบรนด์ค้นหาเรื่องที่มีความหมาย เชื่อมสิ่งสำคัญเข้าด้วยกัน และขัดเกลาให้ชัดพอที่จะถูกมองเห็น เข้าใจ และจดจำ
+            </p>
+          </Reveal>
+          <Reveal delay={0.25}>
+            <div className="flex flex-wrap lg:justify-end items-start gap-x-10 gap-y-6">
+              <Link to="/work" className="cta-link cta-link-lg">
+                <span>Explore our work</span>
+                <ArrowUpRight className="w-[18px] h-[18px]" />
+              </Link>
+              <Link to="/contact" className="cta-link cta-link-lg cta-link-muted">
+                <span>Talk to ORIONS</span>
+                <ArrowUpRight className="w-[18px] h-[18px]" />
+              </Link>
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>
@@ -78,14 +93,43 @@ const Index = () => (
 
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1400px] mx-auto py-24 md:py-36">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8"><div><SectionLabel label="Selected work" /><Reveal emphasis="lead"><h2 className="mt-8 h-display-lg">Stories made visible.</h2></Reveal></div><Link to="/work" className="cta-link"><span>View all work</span><ArrowUpRight className="w-4 h-4" /></Link></div>
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+          <div>
+            <SectionLabel label="Selected work" />
+            <Reveal emphasis="lead">
+              <h2 className="mt-8 h-display-lg">Stories made visible.</h2>
+            </Reveal>
+          </div>
+          <Link to="/work" className="cta-link">
+            <span>View all work</span>
+            <ArrowUpRight className="w-4 h-4" />
+          </Link>
+        </div>
         <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-x-5 lg:gap-x-8 gap-y-12">
-          {featuredCases.map((item, i) => <Reveal key={item.slug} emphasis="quiet" className={i === 0 ? "md:col-span-2 lg:col-span-8" : i === 1 ? "lg:col-span-4" : "md:col-span-2 lg:col-span-12"}><Link to={`/work/${item.slug}`} className="group block">
-            <div className={`film-frame bg-surface-2 ${i === 0 ? "aspect-[16/10]" : i === 1 ? "aspect-[4/5]" : "aspect-[21/9]"}`}><Picture data={item.cover} alt={item.title} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" /><span className="absolute left-4 top-4 z-[3] font-mono text-[10px] tracking-[0.18em] uppercase text-white bg-black/50 px-2 py-1">{getMovement(item.movement)?.name ?? item.movement}</span></div>
-            <div className="mt-5 font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground">{item.niche} · {item.year}</div>
-            <h3 className="mt-2 font-display text-[23px] md:text-[27px]">{item.title}</h3>
-            <p lang="th" className="mt-3 font-thai thai-wrap text-[14px] leading-[1.75] text-foreground/80">{item.verdictShort}</p>
-          </Link></Reveal>)}
+          {featuredCases.map((item, i) => (
+            <Reveal
+              key={item.slug}
+              emphasis="quiet"
+              className={i === 0 ? "md:col-span-2 lg:col-span-8" : i === 1 ? "lg:col-span-4" : "md:col-span-2 lg:col-span-12"}
+            >
+              <Link to={`/work/${item.slug}`} className="group block">
+                <div className={`film-frame bg-surface-2 ${i === 0 ? "aspect-[16/10]" : i === 1 ? "aspect-[4/5]" : "aspect-[21/9]"}`}>
+                  <Picture
+                    data={item.cover}
+                    alt={item.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  />
+                  <span className="absolute left-4 top-4 z-[3] font-mono text-[10px] tracking-[0.18em] uppercase text-white bg-black/50 px-2 py-1">
+                    {getMovement(item.movement)?.name ?? item.movement}
+                  </span>
+                </div>
+                <div className="mt-5 font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground">{item.niche} · {item.year}</div>
+                <h3 className="mt-2 font-display text-[23px] md:text-[27px]">{item.title}</h3>
+                <p lang="th" className="mt-3 font-thai thai-wrap text-[14px] leading-[1.75] text-foreground/80">{item.verdictShort}</p>
+              </Link>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>

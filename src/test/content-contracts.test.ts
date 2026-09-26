@@ -24,6 +24,19 @@ describe("public routes", () => {
     expect(fromRoot("public/llms.txt")).not.toContain("/system");
     expect(fromRoot("src/App.tsx")).not.toContain("System");
   });
+
+  /** Those four URLs were in the sitemap, so they are indexed. Deleting the
+   *  pages without redirecting them would turn live search results into 404s. */
+  it("redirects every retired route instead of dropping it", () => {
+    const redirects = JSON.parse(fromRoot("vercel.json")).redirects as { source: string; destination: string; permanent: boolean }[];
+    const sources = new Set(redirects.map((r) => r.source));
+    ["/system", "/system/:slug*"].forEach((source) => expect(sources).toContain(source));
+    redirects.forEach((r) => {
+      expect(r.permanent, `${r.source} should be a permanent redirect`).toBe(true);
+      // A redirect pointing at another retired route would just chain to a 404.
+      expect(sources.has(r.destination.split("#")[0])).toBe(false);
+    });
+  });
 });
 
 describe("brand architecture", () => {
@@ -119,5 +132,38 @@ describe("work page", () => {
     expect(portfolio[0].key).toBe("cases");
     const work = fromRoot("src/pages/Work.tsx");
     expect(work).not.toMatch(/Math\.random|shuffle\(/);
+  });
+});
+
+/** Deleting /system removed four routes that pages and the sitemap still
+ *  pointed at. Nothing caught it but a manual crawl of `dist`, which only
+ *  exists after a build — so the same check runs here against the source. */
+describe("internal links", () => {
+  const staticRoutes = new Set(
+    ["/", ...Array.from(fromRoot("src/App.tsx").matchAll(/path: "([^":]+)"/g), (m) => `/${m[1]}`)]
+      .map((route) => route.replace(/\/$/, "") || "/"),
+  );
+  const redirects = (JSON.parse(fromRoot("vercel.json")).redirects as { source: string }[]).map((r) => r.source);
+  const dynamicPrefixes = ["/work/", "/blog/"];
+
+  const resolves = (path: string) =>
+    staticRoutes.has(path) ||
+    dynamicPrefixes.some((prefix) => path.startsWith(prefix)) ||
+    redirects.some((source) => source === path || (source.endsWith("/:slug*") && path.startsWith(source.slice(0, -7) + "/")));
+
+  it("points every literal in-app link at a route that exists", () => {
+    const files = ["Index", "Practice", "Work", "CaseStudy", "About", "Thinking", "Blog", "BlogPost", "Contact", "Privacy", "NotFound"]
+      .map((name) => `src/pages/${name}.tsx`)
+      .concat(["src/components/Nav.tsx", "src/components/Footer.tsx", "src/components/StickyMobileCTA.tsx"]);
+
+    const bad: string[] = [];
+    files.forEach((file) => {
+      const source = fromRoot(file);
+      Array.from(source.matchAll(/(?:to|href)="(\/[^"${}]*)"/g), (m) => m[1]).forEach((href) => {
+        const path = href.split(/[#?]/)[0].replace(/\/$/, "") || "/";
+        if (!resolves(path)) bad.push(`${file} → ${href}`);
+      });
+    });
+    expect(bad, `dead in-app links:\n${bad.join("\n")}`).toEqual([]);
   });
 });

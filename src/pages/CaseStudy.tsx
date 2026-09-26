@@ -1,5 +1,6 @@
 import { Link, useParams, Navigate } from "react-router-dom";
 import { ArrowUpRight, ArrowLeft } from "lucide-react";
+import { getMovement } from "@/data/practice";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import ClosingCTA from "@/components/ClosingCTA";
@@ -84,6 +85,7 @@ const CaseStudy = () => {
             <dl className="card-soft mt-16 grid grid-cols-2 md:grid-cols-3 gap-y-8 gap-x-6 p-8">
               {[
                 { k: "Brand", v: cs.title },
+                { k: "Movement", v: getMovement(cs.movement)?.name ?? cs.movement },
                 { k: "Category", v: cs.niche },
                 { k: "Year", v: cs.year },
               ].map((m) => (

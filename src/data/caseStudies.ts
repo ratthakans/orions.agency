@@ -11,6 +11,7 @@ import workGcoo from "@/assets/gcoo.jpg?as=picture";
 import workMyHotel from "@/assets/work-myhotel.jpg?as=picture";
 import workPalawat from "@/assets/work-palawat.jpg?as=picture";
 import type { PictureData } from "@/components/Picture";
+import type { MovementSlug } from "@/data/practice";
 
 
 export type CaseStudy = {
@@ -18,6 +19,11 @@ export type CaseStudy = {
   n: string;
   /** Act number — 01, 02, 03 */
   act: string;
+  /** Which of the three movements this engagement was. The acts were already
+   *  grouped this way before the movements were named: 01 is coherence under
+   *  pressure, 02 is opening a space that did not exist, 03 is changing how
+   *  something is seen without replacing it. */
+  movement: MovementSlug;
   /** Act narrative title */
   actTitle: string;
   title: string;
@@ -62,6 +68,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "democrat-party",
     n: "01",
     act: "01",
+    movement: "embed",
     actTitle: "เมื่อการพูดคือโจทย์ที่ยากที่สุด",
     title: "Democrat Party",
     domain: "democrat.or.th",
@@ -88,6 +95,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "gcoo",
     n: "02",
     act: "02",
+    movement: "expand",
     actTitle: "เมื่อต้องเปิดตลาดที่ยังไม่มีใครเชื่อ",
     title: "GCOO",
     domain: "gcoo.io",
@@ -114,6 +122,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "my-hotel",
     n: "03",
     act: "02",
+    movement: "expand",
     actTitle: "เมื่อต้องเปิดตลาดที่ยังไม่มีใครเชื่อ",
     title: "My Hotel",
     domain: "pzentsmart.com",
@@ -140,6 +149,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "hongmove",
     n: "04",
     act: "02",
+    movement: "expand",
     actTitle: "เมื่อต้องเปิดตลาดที่ยังไม่มีใครเชื่อ",
     title: "HONG MOVE",
     domain: "hongmove.co.th",
@@ -166,6 +176,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "heavy-organizer",
     n: "05",
     act: "03",
+    movement: "reframe",
     actTitle: "เมื่อต้องเปลี่ยนภาพจำ โดยไม่ทิ้งของเดิม",
     title: "HEAVY ORGANIZER",
     domain: "heavyorganizer.com",
@@ -192,6 +203,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "khaoyai-country-club",
     n: "06",
     act: "03",
+    movement: "reframe",
     actTitle: "เมื่อต้องเปลี่ยนภาพจำ โดยไม่ทิ้งของเดิม",
     title: "Khao Yai Country Club",
     domain: "brc-kycgolf.com",
@@ -218,6 +230,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "royal-thai-air-force",
     n: "07",
     act: "01",
+    movement: "embed",
     actTitle: "เมื่อการพูดคือโจทย์ที่ยากที่สุด",
     title: "Royal Thai Air Force",
     domain: "rtaf.mi.th",
@@ -244,6 +257,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "palawat-party",
     n: "08",
     act: "01",
+    movement: "embed",
     actTitle: "เมื่อการพูดคือโจทย์ที่ยากที่สุด",
     title: "Movement Party",
     domain: "",

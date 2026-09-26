@@ -9,7 +9,6 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import Index from "./pages/Index";
 import { caseStudies } from "./data/caseStudies";
 import { blogPosts } from "./data/blog";
-import { innovations } from "./data/system";
 
 // Pages export a default component; adapt that to react-router's lazy ({ Component }).
 type PageModule = { default: React.ComponentType };
@@ -42,12 +41,6 @@ export const routes: RouteRecord[] = [
         path: "work/:slug",
         lazy: page(() => import("./pages/CaseStudy")),
         getStaticPaths: () => caseStudies.map((c) => `work/${c.slug}`),
-      },
-      { path: "system", lazy: page(() => import("./pages/System")) },
-      {
-        path: "system/:slug",
-        lazy: page(() => import("./pages/SystemDetail")),
-        getStaticPaths: () => innovations.map((it) => `system/${it.slug}`),
       },
       { path: "thinking", lazy: page(() => import("./pages/Thinking")) },
       { path: "blog", lazy: page(() => import("./pages/Blog")) },

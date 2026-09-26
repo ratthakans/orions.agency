@@ -10,12 +10,16 @@ import { track } from "@/lib/analytics";
 import Picture from "@/components/Picture";
 import founder from "@/assets/team/founder.jpg?as=picture";
 import { inquirySchema, type Inquiry } from "@/lib/contact";
-import { engagements } from "@/data/practice";
+import { engagements, filmCraft, foundation } from "@/data/practice";
 
 type FieldErrors = Partial<Record<keyof Inquiry, string>>;
 type SubmitStatus = { kind: "success" | "error"; message: string } | null;
 
-const packageOptions = engagements.map((item) => item.name);
+/** Foundation first: it is the step before the movements, so it reads as the
+ *  entry point rather than an afterthought at the end of the list. Film stays
+ *  on the list even though it is a craft rather than a movement — people do
+ *  walk in asking for a film, and the form is about where they want to start. */
+const packageOptions = [...[foundation, ...engagements].map((item) => item.name), filmCraft.name];
 
 const Contact = () => {
   const [searchParams] = useSearchParams();

@@ -9,19 +9,47 @@ ORIONS is a story-led creative company based in Bangkok. It helps brands uncover
 - Work: Different formats. One story.
 
 ## What ORIONS does
+ORIONS works through three movements. Each answers a different client question,
+and each starts from what the brand already has.
+
+Expand — Build what comes next. When the question is "where do we grow next?".
+Existing brand equity, capability and cultural relevance are carried into a new
+space: product, service, experience, collaboration, activation, category or
+business opportunity. From brand equity to new value.
+
+Reframe — Change the way it is seen. When the question is "who else could this
+matter to?". The context around an existing product changes so it means
+something to another audience, in another moment, for another reason, without
+replacing the product itself: unseen audience, emerging behaviour, alternative
+use case, new occasion, cultural context, demand territory, communication
+angle. Same product. Different relevance.
+
+Embed — Make the brand live everywhere. When the question is "how do we keep it
+all feeling like us?". A creative foundation puts the brand's identity into
+every expression — narrative, tone, visual language, behaviour, content,
+product expression, digital experience, service, customer journey. Touchpoints
+need not look alike, but they share the same point of view. One identity. Many
+expressions.
+
+Expand opens possibility. Reframe creates relevance. Embed builds coherence.
+
+## How any movement is made
 Story — brand strategy, positioning, research, narrative and messaging.
 Direction — creative direction, identity, art direction and campaign direction.
 Expression — film, photography, content, digital experience and production.
+Film & Visual Story is a craft, not a movement: the screen is a way to carry
+meaning, never the starting point.
 
 ## Ways to work together
-- Brand Foundation: find the story before building the brand.
-- Brand Refine: keep the brand and make its story clearer.
-- Campaign Platform: one idea across many expressions.
-- Creative Launch: turn an opening or release into a meaningful moment.
-- Film & Visual Story: develop a story for the screen.
-- Creative Partnership: ongoing senior creative thinking and direction for a brand.
+- Brand Foundation: find the story before building the brand. This sits before
+  the three movements — each of them starts from something that already exists,
+  and a brand built from nothing has none of it yet.
+- Creative Launch (Expand): turn an opening or release into a meaningful moment.
+- Campaign Platform (Reframe): one idea across many expressions.
+- Brand Refine (Reframe): keep the brand and make its story clearer.
+- Creative Partnership (Embed): ongoing senior creative thinking and direction.
 
-The working method is Discover → Connect → Shape → Refine → Express. The right scope depends on the client's question and context.
+The right scope depends on the client's question and context.
 
 ## Selected pages
 - Home: https://orions.agency/
@@ -31,9 +59,6 @@ The working method is Discover → Connect → Shape → Refine → Express. The
 - About: https://orions.agency/about
 - ORIONS Notes: https://orions.agency/blog
 - Contact: https://orions.agency/contact
-
-## ORIONS products
-ORIONS has also developed VÆST, First Draft and Routte. They are separate products and are not the primary offer of the creative company. Their existing pages remain available at https://orions.agency/system.
 
 ## Contact
 Email: hello@orions.agency

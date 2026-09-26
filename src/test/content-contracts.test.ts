@@ -88,17 +88,37 @@ describe("blueprint", () => {
     expect(fromRoot("src/data/caseStudies.ts")).not.toMatch(/^\s+(act|actTitle|movement):/m);
   });
 
-  /** Each public heading belongs to exactly one page. */
-  it("does not repeat a section heading across pages", () => {
+  /** Each public heading belongs to exactly one page. Reads h1/h2 with inline
+   *  markup (<br />, <em>) flattened, and the closing-band titles too — the
+   *  first version of this check skipped both, and two headings slipped past it. */
+  it("does not repeat a heading or closing line across pages", () => {
+    const flatten = (html: string) => html.replace(/<br\s*\/?>/g, " ").replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
+    const headings = (source: string) => [
+      ...Array.from(source.matchAll(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/g), (m) => m[1]),
+      ...Array.from(source.matchAll(/title=\{<>([\s\S]*?)<\/>\}/g), (m) => m[1]),
+    ]
+      .filter((raw) => !/\{[^}]*\}/.test(raw)) // data-driven headings are unique by construction
+      .map(flatten)
+      .filter(Boolean);
     const seen = new Map<string, string>();
-    ["Index", "Practice", "About", "Work", "Archive"].forEach((name) => {
+    ["Index", "Practice", "About", "Work", "Archive", "Contact", "CaseStudy"].forEach((name) => {
       const page = `src/pages/${name}.tsx`;
-      Array.from(fromRoot(page).matchAll(/<h[12][^>]*>([^<{]+)<\/h[12]>/g), (m) => m[1].trim()).forEach((head) => {
-        const owner = seen.get(head);
+      new Set(headings(fromRoot(page))).forEach((head) => {
+        const owner = seen.get(head.toLowerCase());
         expect(owner, `"${head}" appears on both ${owner} and ${page}`).toBeUndefined();
-        seen.set(head, page);
+        seen.set(head.toLowerCase(), page);
       });
     });
+  });
+
+  /** Ø belongs to the drawn logo. Every piece of text — titles, schema, alt and
+   *  aria labels a screen reader speaks — writes the name ORIONS. */
+  it("spells the name ORIONS everywhere but the logo", () => {
+    const files = ["Index", "Practice", "About", "Work", "CaseStudy", "Contact", "Archive", "ArchivePost", "Privacy", "NotFound"]
+      .map((n) => `src/pages/${n}.tsx`)
+      .concat(["src/components/Nav.tsx", "src/components/Footer.tsx", "src/components/SEO.tsx", "index.html", "public/llms.txt"]);
+    files.forEach((f) => expect(fromRoot(f), f).not.toContain("ØRIONS"));
+    expect(fromRoot("src/components/Logo.tsx")).not.toMatch(/aria-label="ØRIONS"/);
   });
 
   it("uses the master idea on the main public surfaces", () => {

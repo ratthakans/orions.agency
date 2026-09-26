@@ -14,7 +14,7 @@ const NotFound = () => {
   return (
     <main className="bg-background min-h-screen flex items-center justify-center px-6">
       <SEO
-        title="Page Not Found | ØRIONS"
+        title="Page Not Found | ORIONS"
         description="The page you are looking for does not exist."
         path={location.pathname}
         noindex

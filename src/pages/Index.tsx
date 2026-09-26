@@ -35,12 +35,12 @@ const Index = () => (
       <div className="max-w-[1400px] mx-auto w-full pt-36 pb-16 md:pb-20 relative z-10">
         <div className="flex items-start justify-between gap-8">
           <Reveal><SectionLabel label={`ORIONS · ${brand.descriptor}`} /></Reveal>
-          <span className="hidden md:block font-mono text-[10px] tracking-[0.22em] uppercase text-foreground/75">Showreel 2026 · ØRIONS</span>
+          <span className="hidden md:block font-mono text-[10px] tracking-[0.22em] uppercase text-foreground/75">Showreel 2026 · ORIONS</span>
         </div>
         <Reveal delay={0.08} emphasis="lead">
           <h1 className="mt-14 md:mt-20 h-display-xl hero-title">
             <span className="block whitespace-nowrap">Stories,</span>
-            <span className="block whitespace-nowrap">refined.</span>
+            <span className="block whitespace-nowrap">Refined.</span>
           </h1>
         </Reveal>
         <div className="mt-16 md:mt-24 pt-7 border-t border-foreground/30 grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-10 lg:gap-20">

@@ -104,7 +104,7 @@ const Practice = () => (
 
     <CTABand
       eyebrow="Start a conversation"
-      title={<>Have a story worth refining?</>}
+      title={<>Tell us what you're working on.</>}
       subtitle="เล่าโจทย์ของแบรนด์ให้เราฟัง แล้วเราจะช่วยมองว่าควรเริ่มตรงไหน"
       primary={{ label: "Talk to ORIONS", to: "/contact" }}
       secondary={{ label: "See the work", to: "/work" }}

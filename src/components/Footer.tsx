@@ -47,7 +47,7 @@ const Footer = () => {
             </a>
           </div>
           <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-foreground/55 text-right">
-            Stories, refined.
+            Stories, Refined.
           </div>
         </div>
 
@@ -102,10 +102,10 @@ const Footer = () => {
 
         {/* Legal */}
         <div className="mt-10 pt-5 border-t border-foreground/15 flex items-center justify-between gap-4 font-mono text-[10px] tracking-[0.18em] uppercase opacity-50">
-          <p>© {year} ØRIONS — All rights reserved.</p>
+          <p>© {year} ORIONS — All rights reserved.</p>
           <div className="flex items-center gap-5">
             <Link to="/privacy" className="hover:opacity-100 hover:text-foreground transition-colors">Privacy</Link>
-            <p>Stories, refined.</p>
+            <p>Stories, Refined.</p>
           </div>
         </div>
       </div>

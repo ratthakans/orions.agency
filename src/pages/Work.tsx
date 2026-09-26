@@ -87,7 +87,7 @@ const Work = () => {
   return (
     <div>
       <SEO
-        title="Work — Selected Work · ØRIONS"
+        title="Work — Selected Work · ORIONS"
         description="Selected work by ORIONS — เรื่องของแบรนด์ที่ถูกค้นหา ขัดเกลา และถ่ายทอดผ่านแคมเปญ ภาพยนตร์ งานออกแบบ และประสบการณ์ดิจิทัล"
         path="/work"
         schema={{
@@ -103,11 +103,9 @@ const Work = () => {
       {/* 01 · HERO + filter */}
       <section className="section-ink px-6 md:px-10">
         <div className="max-w-[1280px] mx-auto pt-28 md:pt-32 pb-12 md:pb-16">
-          <SectionLabel label="Selected work" />
+          <SectionLabel label="Work" />
           <Reveal delay={0.05} emphasis="lead">
-            <h1 className="mt-8 h-display-lg">
-              Stories made<br /><em className="text-foreground">visible.</em>
-            </h1>
+            <h1 className="mt-8 h-display-lg">Selected work.</h1>
           </Reveal>
           <Reveal delay={0.1}>
             <p lang="th" className="mt-8 font-thai thai-wrap text-[15px] md:text-[17px] text-muted-foreground max-w-[640px] leading-[1.8]">
@@ -376,7 +374,7 @@ const Work = () => {
         <Reveal delay={0.05}>
           <button
             type="button"
-            aria-label="เล่นโชว์รีล ØRIONS 2026"
+            aria-label="เล่นโชว์รีล ORIONS 2026"
             onClick={() => setLightbox({ kind: "video", val: SHOWREEL_ID, ar: 16 / 9 })}
             onMouseEnter={() => setHoverVid(SHOWREEL_ID)}
             onMouseLeave={() => setHoverVid((h) => (h === SHOWREEL_ID ? null : h))}
@@ -386,7 +384,7 @@ const Work = () => {
               <img
                 src={`https://i.ytimg.com/vi/${SHOWREEL_ID}/maxresdefault.jpg`}
                 onError={(e) => { e.currentTarget.src = `https://i.ytimg.com/vi/${SHOWREEL_ID}/hqdefault.jpg`; }}
-                alt="ØRIONS — Showreel 2026"
+                alt="ORIONS — Showreel 2026"
                 width={1280}
                 height={720}
                 className="absolute inset-0 w-full h-full object-cover grayscale-[0.25] group-hover:grayscale-0 transition-[filter] duration-700"
@@ -394,7 +392,7 @@ const Work = () => {
               {hoverVid === SHOWREEL_ID && (
                 <iframe
                   src={`https://www.youtube.com/embed/${SHOWREEL_ID}?autoplay=1&mute=1&controls=0&loop=1&playlist=${SHOWREEL_ID}&modestbranding=1&playsinline=1&rel=0`}
-                  title="ØRIONS — Showreel 2026"
+                  title="ORIONS — Showreel 2026"
                   tabIndex={-1}
                   aria-hidden="true"
                   className="absolute left-0 top-1/2 -translate-y-1/2 w-full aspect-video pointer-events-none"
@@ -407,7 +405,7 @@ const Work = () => {
                 </span>
               </span>
               <span className="absolute left-6 bottom-4 md:left-10 md:bottom-6 font-mono text-[10px] md:text-[11px] tracking-[0.18em] uppercase text-foreground/85 pointer-events-none">
-                ØRIONS · Showreel
+                ORIONS · Showreel
               </span>
             </span>
           </button>

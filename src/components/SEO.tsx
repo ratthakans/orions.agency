@@ -35,7 +35,7 @@ const SEO = ({ title, description, path, image = DEFAULT_OG_IMAGE, noindex = fal
       <meta property="og:type" content={ogType} />
       <meta property="og:locale" content="th_TH" />
       <meta property="og:locale:alternate" content="en_US" />
-      <meta property="og:site_name" content="ØRIONS" />
+      <meta property="og:site_name" content="ORIONS" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonical} />

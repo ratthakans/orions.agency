@@ -27,7 +27,7 @@ const CaseStudy = () => {
       about: cs.niche,
       dateCreated: cs.year,
       url,
-      creator: { "@type": "Organization", name: "ØRIONS", url: "https://orions.agency" },
+      creator: { "@type": "Organization", name: "ORIONS", url: "https://orions.agency" },
     },
     {
       "@context": "https://schema.org",
@@ -42,7 +42,7 @@ const CaseStudy = () => {
   return (
     <div>
       <SEO
-        title={`${cs.title} — Selected Work · ØRIONS`}
+        title={`${cs.title} — Selected Work · ORIONS`}
         description={cs.summary}
         path={`/work/${cs.slug}`}
         image={cs.cover.img.src}
@@ -196,7 +196,7 @@ const CaseStudy = () => {
       <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
         <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 md:grid-cols-12 gap-10">
           <div className="md:col-span-4">
-            <SectionLabel index="04" label="The Expression" />
+            <SectionLabel index="04" label="What We Shaped" />
           </div>
           <div className="md:col-span-8">
             <Reveal delay={0.05}>

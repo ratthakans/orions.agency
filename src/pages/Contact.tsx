@@ -111,7 +111,7 @@ const Contact = () => {
           body: JSON.stringify({
             access_key: w3key,
             subject: `เว็บไซต์ — ลูกค้าใหม่: ${name}${company ? ` · ${company}` : ""}`,
-            from_name: "ØRIONS Website",
+            from_name: "ORIONS Website",
             replyto: email,
             name,
             email,
@@ -152,7 +152,7 @@ const Contact = () => {
   return (
     <div>
       <SEO
-        title="Contact — เริ่มต้นบทสนทนา · ØRIONS"
+        title="Contact — เริ่มต้นบทสนทนา · ORIONS"
         description="มีเรื่องของแบรนด์ที่อยากทำให้ชัดขึ้น? เล่าโจทย์ให้ ORIONS ฟัง เริ่มต้นบทสนทนาที่ hello@orions.agency"
         path="/contact"
       />
@@ -309,7 +309,7 @@ const Contact = () => {
               {/* Contact people — creative lead + sales line */}
               <div className="card-soft p-7 md:p-8">
                 <div className="flex items-center gap-5">
-                  <Picture data={founder} alt="Ratthakan Suwanphakdee — Founder & Creative Director, ØRIONS" className="w-20 h-20 md:w-24 md:h-24 rounded-none object-cover object-top shrink-0 grayscale-[0.3] saturate-[0.85]" />
+                  <Picture data={founder} alt="Ratthakan Suwanphakdee — Founder & Creative Director, ORIONS" className="w-20 h-20 md:w-24 md:h-24 rounded-none object-cover object-top shrink-0 grayscale-[0.3] saturate-[0.85]" />
                   <div>
                     <div className="font-mono text-[10px] tracking-[0.04em] text-foreground">— คนที่ดูแลงานคุณ</div>
                     <h3 lang="th" className="mt-1.5 font-display text-[22px] tracking-[-0.01em]">รัฐกันต์ สุวรรณภักดี</h3>

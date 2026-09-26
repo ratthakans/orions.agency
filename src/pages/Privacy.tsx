@@ -28,7 +28,7 @@ const sections = [
 const Privacy = () => (
   <div>
     <SEO
-      title="นโยบายความเป็นส่วนตัว — ØRIONS"
+      title="นโยบายความเป็นส่วนตัว — ORIONS"
       description="เราเก็บเฉพาะข้อมูลที่จำเป็น ใช้เพื่อติดต่อกลับเท่านั้น ไม่ขายต่อ — และคุณขอลบได้ทุกเมื่อตาม PDPA."
       path="/privacy"
       noindex

@@ -27,8 +27,8 @@ const ArchivePost = () => {
       description: piece.dek,
       articleSection: piece.theme,
       inLanguage: "th",
-      author: { "@type": "Organization", name: "ØRIONS", url: SITE_URL },
-      publisher: { "@type": "Organization", name: "ØRIONS", url: SITE_URL },
+      author: { "@type": "Organization", name: "ORIONS", url: SITE_URL },
+      publisher: { "@type": "Organization", name: "ORIONS", url: SITE_URL },
       mainEntityOfPage: url,
     },
     {

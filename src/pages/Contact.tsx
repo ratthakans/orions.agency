@@ -8,7 +8,7 @@ import SectionLabel from "@/components/SectionLabel";
 import { toast } from "sonner";
 import { track } from "@/lib/analytics";
 import Picture from "@/components/Picture";
-import founder from "@/assets/team/founder.jpg?as=picture";
+import founder from "@/assets/team/founder-portrait.jpg?as=picture";
 import { inquirySchema, type Inquiry } from "@/lib/contact";
 import { filmCraft, foundation, getEngagementsFor, movements } from "@/data/practice";
 
@@ -316,7 +316,7 @@ const Contact = () => {
               {/* Contact people — creative lead + sales line */}
               <div className="card-soft p-7 md:p-8">
                 <div className="flex items-center gap-5">
-                  <Picture data={founder} alt="Ratthakan Suwanphakdee — Founder & Creative Director, ØRIONS" className="w-20 h-20 md:w-24 md:h-24 rounded-none object-cover object-top shrink-0" />
+                  <Picture data={founder} alt="Ratthakan Suwanphakdee — Founder & Creative Director, ØRIONS" className="w-20 h-20 md:w-24 md:h-24 rounded-none object-cover object-top shrink-0 grayscale-[0.3] saturate-[0.85]" />
                   <div>
                     <div className="font-mono text-[10px] tracking-[0.04em] text-foreground">— คนที่ดูแลงานคุณ</div>
                     <h3 lang="th" className="mt-1.5 font-display text-[22px] tracking-[-0.01em]">รัฐกันต์ สุวรรณภักดี</h3>

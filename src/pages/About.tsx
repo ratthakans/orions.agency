@@ -5,7 +5,7 @@ import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
 import CTABand from "@/components/CTABand";
 import Picture from "@/components/Picture";
-import founder from "@/assets/team/founder.jpg?as=picture";
+import founder from "@/assets/team/founder-portrait.jpg?as=picture";
 import { caseStudies } from "@/data/caseStudies";
 import { movements } from "@/data/practice";
 

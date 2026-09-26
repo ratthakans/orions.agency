@@ -7,7 +7,7 @@ import SectionLabel from "@/components/SectionLabel";
 import Picture from "@/components/Picture";
 import HeroReel from "@/components/HeroReel";
 import heroPoster from "@/assets/hero-reel-poster.jpg?as=picture";
-import founderPortrait from "@/assets/team/founder.jpg?as=picture";
+import founderPortrait from "@/assets/team/founder-portrait.jpg?as=picture";
 import { getMovement, movements, movementBridge } from "@/data/practice";
 import { caseStudies } from "@/data/caseStudies";
 

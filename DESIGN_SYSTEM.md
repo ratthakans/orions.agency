@@ -4,7 +4,7 @@ The site expresses **Stories, refined.** through typography, sequence and precis
 
 ## Palette
 
-The interface is monochrome. The primary canvas is ink `#0E0E0E`, with snow `#FDFDF9` for type, lines, and focus. Subtle surfaces `#141414` and `#181818` separate dense sections. The home services strip reverses ink and snow for a single editorial interruption. Photographic work retains its own colors; UI chrome has no chromatic accent.
+The interface is monochrome. The primary canvas is ink `#0E0E0E`, with snow `#FDFDF9` for type, lines, and focus. Subtle surfaces `#141414` and `#181818` separate dense sections. The home brand-idea section reverses ink and snow for a single editorial interruption. Photographic work retains its own colors; UI chrome has no chromatic accent.
 
 Use CSS variables for every surface and line. `--accent`, `--ring`, and the Tailwind `signal` utility now all refer to a monochrome value. Red is reserved for error feedback. Avoid colored punctuation, gradients, accent pills and decorative glows.
 
@@ -13,7 +13,7 @@ Use CSS variables for every surface and line. `--accent`, `--ring`, and the Tail
 | Role | Face | Rule |
 |---|---|---|
 | English headings | Unbounded 500/600 | Uppercase, tight tracking, fluid `.h-display-*` scale |
-| Selected editorial statement | Newsreader 400/500 | Rare emphasis in running content; currently the verdict quote on case pages |
+| Selected editorial statement | Newsreader 400/500 | Rare emphasis in running content; the verdict quote on case pages, the approach pivots on `/services`, and pull lines in the Archive |
 | Body and Thai | IBM Plex Sans Thai | Comfortable measure and generous leading; Thai is never forced uppercase |
 | Labels and metadata | IBM Plex Mono | Small uppercase labels, indexes and navigation details |
 
@@ -22,7 +22,7 @@ Unbounded is intentionally wider than the previous serif display. Headlines must
 ## Composition
 
 - The home masthead opens on the studio showreel, an oversized two-line statement and a ruled lower row for explanation and actions. An exposure scrim keeps the copy legible. The still is the prerendered LCP element and the loop mounts over it only after hydration, on a wide screen with motion allowed and data saver off — phones and reduced-motion visitors never request the file. Once footage moves it carries its own texture, so the frame's own grain layer steps back.
-- On `/services` each movement runs its name, line and question down a sticky left column beside its body, ways in and work.
+- On `/services` the three services sit side by side as equals; the two approaches follow on their own surface, so they never read as a fourth and fifth service.
 - The next section inverts to a snow canvas. Most other pages remain on ink with thin rules instead of boxes or shadows.
 - Selected work follows an 8/4 image rhythm followed by one panoramic frame. Use asymmetrical editorial grids, visible indexes and generous margins. Work imagery carries color, while surrounding interface remains restrained.
 - Shared `SectionLabel`, `.cta-link`, `.h-display-*`, `.section-ink` and `.section-paper` keep routes consistent. Preserve content hierarchy and route ownership.
@@ -39,10 +39,14 @@ Interactions use underlines, opacity and small movements, with reduced-motion al
 
 ## Structure
 
-The site is four things — **concept, work, services, about** — plus contact and privacy. Nav is Work · Services · About; there is no blog and no separate point-of-view page. The homepage runs in that order: the showreel and "Stories, refined." (concept), selected work, one line per movement (services), the founder (about). Only the homepage and `/services` end on a closing CTA band; every other page ends at the footer.
+The site follows the ORIONS blueprint: **Stories, Refined.** · three services · two signature approaches. Pages are concept, work, services and about, plus the Archive, contact and privacy; nav is Work · Services · About · Archive.
 
-The site gives exactly one answer to *what do you sell*: three movements — Expand, Reframe, Embed — each named by the client's own question. Brand Foundation and Film & Visual Story sit outside the three and are offered in one line each. `src/data/practice.ts` holds only what the pages render; the founder's full movements text lives in `public/llms.txt`. `src/test/content-contracts.test.ts` fails if a page, a nav item, a second model, a duplicate heading or an extra CTA band comes back, or if any in-app link lands on a redirect.
+Each blueprint layer appears on exactly one page. Home: the master idea and belief (hero), the brand idea (Story · Behavior · Aesthetic · Experience), selected work, one line per service, the founder, and the promise as its closing band. `/services`: the three services with their six items each, the two signature approaches set apart from them (they combine services — they are never listed as services), and the method Observe → Reframe → Shape → Embed. `/about`: the founder, the point of view, the four principles, the record. Brand voice and the architecture diagram stay internal and never ship.
+
+The Archive is typographic: twelve numbered pieces, three per blueprint layer, no cover images and no dates. An essay names a client only with facts already in `src/data/caseStudies.ts` — checked by hand, since no test can see a client name it does not already know.
+
+Only the homepage and `/services` end on a closing CTA band. `src/data/practice.ts` and `src/data/archive.ts` hold everything the pages say. `src/test/content-contracts.test.ts` fails if a page, nav item, previous model, duplicate heading, extra CTA band or banned word comes back, or if an in-app link lands on a redirect.
 
 ## Usage check
 
-Before publishing, run `npm run typecheck` (plain `tsc --noEmit` checks nothing here — the root config is `"files": []` plus project references) and inspect home, work, services, about and contact at phone and desktop widths; verify there is no chromatic UI accent, Unbounded headings are legible, the isolated Newsreader statement reads as a deliberate exception, and focus remains visible.
+Before publishing, run `npm run typecheck` (plain `tsc --noEmit` checks nothing here — the root config is `"files": []` plus project references) and inspect home, work, services, about, archive and contact at phone and desktop widths; verify there is no chromatic UI accent, Unbounded headings are legible, the isolated Newsreader statement reads as a deliberate exception, and focus remains visible.

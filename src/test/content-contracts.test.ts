@@ -3,43 +3,44 @@ import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 import { caseStudies } from "@/data/caseStudies";
 import { portfolio } from "@/data/portfolio";
-import { engagements, foundation, movements } from "@/data/practice";
+import { approaches, method, principles, services } from "@/data/practice";
+import { archive, archiveThemes } from "@/data/archive";
 
 const fromRoot = (path: string) => readFileSync(resolve(process.cwd(), path), "utf8");
 const sitemapUrls = new Set(Array.from(fromRoot("public/sitemap.xml").matchAll(/<loc>([^<]+)<\/loc>/g), (match) => match[1]));
 const redirects = JSON.parse(fromRoot("vercel.json")).redirects as { source: string; destination: string; permanent: boolean }[];
 
-/** The site is four things — concept, work, services, about — plus contact and
- *  the legal page. Anything else that reappears is the clutter coming back. */
-const PUBLIC_PAGES = ["/", "/work", "/services", "/about", "/contact", "/privacy"];
+/** Concept, work, services, about — plus the Archive, contact and privacy. */
+const PUBLIC_PAGES = ["/", "/work", "/services", "/about", "/archive", "/contact", "/privacy"];
 
 describe("site shape", () => {
-  it("publishes exactly the four sections plus contact and privacy", () => {
-    PUBLIC_PAGES.forEach((path) => expect(sitemapUrls).toContain(`https://orions.agency${path === "/" ? "/" : path}`));
+  it("publishes exactly the public pages, every case and every archive piece", () => {
+    PUBLIC_PAGES.forEach((path) => expect(sitemapUrls).toContain(`https://orions.agency${path}`));
     caseStudies.forEach((item) => expect(sitemapUrls).toContain(`https://orions.agency/work/${item.slug}`));
-    const pages = Array.from(sitemapUrls).filter((url) => !url.includes("/work/"));
+    archive.forEach((piece) => expect(sitemapUrls).toContain(`https://orions.agency/archive/${piece.slug}`));
+    const pages = Array.from(sitemapUrls).filter((url) => !/\/(work|archive)\/./.test(url));
     expect(pages).toHaveLength(PUBLIC_PAGES.length);
   });
 
-  it("navigates to Work, Services and About only", () => {
+  it("navigates to Work, Services, About and Archive only", () => {
     // Only the declared link arrays — the mobile menu appends Contact at render time.
     const labels = (file: string) => {
       const block = fromRoot(file).match(/const (?:links|navLinks) = \[([\s\S]*?)\];/)?.[1] ?? "";
       return Array.from(block.matchAll(/label: "([^"]+)"/g), (m) => m[1]);
     };
-    expect(labels("src/components/Nav.tsx")).toEqual(["Work", "Services", "About"]);
-    expect(labels("src/components/Footer.tsx")).toEqual(["Work", "Services", "About", "Contact"]);
+    expect(labels("src/components/Nav.tsx")).toEqual(["Work", "Services", "About", "Archive"]);
+    expect(labels("src/components/Footer.tsx")).toEqual(["Work", "Services", "About", "Archive", "Contact"]);
   });
 
-  /** Every retired or renamed URL was in the sitemap at some point, so it is
-   *  indexed. Dropping it without a redirect turns search results into 404s. */
-  it("redirects every retired route instead of dropping it", () => {
-    const sources = new Set(redirects.map((r) => r.source));
-    ["/system", "/system/:slug*", "/practice", "/thinking", "/blog", "/blog/:slug*"].forEach((source) => expect(sources).toContain(source));
+  /** Every retired or renamed URL was indexed once. Dropping it without a
+   *  redirect turns search results into 404s; chaining redirects slows them. */
+  it("redirects every retired route, straight to a live page", () => {
+    const bySource = new Map(redirects.map((r) => [r.source, r.destination]));
+    ["/system", "/system/:slug*", "/practice", "/thinking"].forEach((source) => expect(bySource.has(source)).toBe(true));
+    ["/blog", "/blog/:slug*", "/journal", "/journal/:slug*"].forEach((source) => expect(bySource.get(source)).toBe("/archive"));
     redirects.forEach((r) => {
       expect(r.permanent, `${r.source} should be a permanent redirect`).toBe(true);
-      // A redirect pointing at another redirect only chains toward a 404.
-      expect(sources.has(r.destination.split("#")[0]), `${r.source} → ${r.destination} chains`).toBe(false);
+      expect(bySource.has(r.destination.split("#")[0]), `${r.source} → ${r.destination} chains`).toBe(false);
     });
   });
 
@@ -51,47 +52,47 @@ describe("site shape", () => {
   });
 });
 
-describe("brand architecture", () => {
-  /** The site may only ever give one answer to "what do you sell". */
-  it("has exactly three movements, in order", () => {
-    expect(movements.map((item) => item.slug)).toEqual(["expand", "reframe", "embed"]);
-    expect(movements.map((item) => item.name)).toEqual(["Expand", "Reframe", "Embed"]);
-    movements.forEach((item) => expect(item.question.length).toBeGreaterThan(0));
+describe("blueprint", () => {
+  it("has three services of six items each, in the blueprint's order", () => {
+    expect(services.map((s) => s.name)).toEqual(["Brand & Strategy", "Creative & Communication", "Brand Experience"]);
+    services.forEach((s) => expect(s.items).toHaveLength(6));
   });
 
-  it("does not grow a second model back", () => {
-    const surfaces = ["src/pages/Index.tsx", "src/pages/Practice.tsx", "src/pages/About.tsx", "src/data/practice.ts"].map(fromRoot).join("\n");
-    expect(surfaces).not.toContain("The ORIONS method");
+  /** "สองตัวนี้ไม่ใช่ service เพิ่ม" — they must never be listed as services. */
+  it("has two signature approaches, kept apart from the services", () => {
+    expect(approaches.map((a) => a.name)).toEqual(["Creative Unlock", "Stories Embed"]);
+    expect(approaches.map((a) => a.equals)).toEqual(["Possibility", "Coherence"]);
+    const serviceNames = new Set(services.map((s) => s.name));
+    approaches.forEach((a) => expect(serviceNames.has(a.name)).toBe(false));
+  });
+
+  it("works Observe → Reframe → Shape → Embed, on four principles", () => {
+    expect(method.steps.map((s) => s.name)).toEqual(["Observe", "Reframe", "Shape", "Embed"]);
+    expect(principles).toHaveLength(4);
+  });
+
+  /** The site has changed models three times; none of the old ones may leak back. */
+  it("does not grow a previous model back", () => {
+    const surfaces = ["Index", "Practice", "About", "Work", "CaseStudy", "Contact", "Archive", "ArchivePost"]
+      .map((name) => fromRoot(`src/pages/${name}.tsx`))
+      .concat([fromRoot("src/data/practice.ts"), fromRoot("index.html"), fromRoot("public/llms.txt")])
+      .join("\n");
+    expect(surfaces).not.toMatch(/Three movements|getMovement|Story · Direction · Expression|The ORIONS method|Boutique by design|Where aesthetic meets algorithm/);
     expect(surfaces).not.toMatch(/Discover.{0,40}Connect.{0,40}Shape/s);
-    expect(surfaces).not.toMatch(/Our principles|Three beliefs/);
   });
 
-  it("routes every engagement into a movement, and keeps Brand Foundation outside", () => {
-    const slugs = new Set(movements.map((item) => item.slug));
-    engagements.forEach((item) => expect(slugs).toContain(item.movement));
-    expect(new Set(engagements.map((item) => item.slug)).size).toBe(engagements.length);
-    expect(foundation.movement).toBeNull();
-    expect(engagements.map((item) => item.slug)).not.toContain(foundation.slug);
-  });
-
-  /** Acts and movements were two names for one grouping. */
-  it("labels a case by its movement only, never by an act", () => {
-    expect(fromRoot("src/data/caseStudies.ts")).not.toMatch(/^\s+act(Title)?:/m);
-    expect(fromRoot("src/pages/CaseStudy.tsx")).not.toMatch(/cs\.act/);
-    movements.forEach((m) => expect(m.record.length).toBeGreaterThan(0));
-  });
-
-  /** The model has to describe work we actually did, or it is a claim. */
-  it("backs every movement with at least one case study", () => {
-    movements.forEach((m) => expect(caseStudies.filter((cs) => cs.movement === m.slug).length).toBeGreaterThan(0));
-    const slugs = new Set(movements.map((item) => item.slug));
-    caseStudies.forEach((cs) => expect(slugs).toContain(cs.movement));
+  it("tags every case with an approach, and backs every approach with a case", () => {
+    const slugs = new Set(approaches.map((a) => a.slug));
+    caseStudies.forEach((cs) => expect(slugs).toContain(cs.approach));
+    approaches.forEach((a) => expect(caseStudies.some((cs) => cs.approach === a.slug)).toBe(true));
+    expect(fromRoot("src/data/caseStudies.ts")).not.toMatch(/^\s+(act|actTitle|movement):/m);
   });
 
   /** Each public heading belongs to exactly one page. */
   it("does not repeat a section heading across pages", () => {
     const seen = new Map<string, string>();
-    ["src/pages/Index.tsx", "src/pages/Practice.tsx", "src/pages/About.tsx", "src/pages/Work.tsx"].forEach((page) => {
+    ["Index", "Practice", "About", "Work", "Archive"].forEach((name) => {
+      const page = `src/pages/${name}.tsx`;
       Array.from(fromRoot(page).matchAll(/<h[12][^>]*>([^<{]+)<\/h[12]>/g), (m) => m[1].trim()).forEach((head) => {
         const owner = seen.get(head);
         expect(owner, `"${head}" appears on both ${owner} and ${page}`).toBeUndefined();
@@ -100,20 +101,36 @@ describe("brand architecture", () => {
     });
   });
 
-  it("uses the same primary positioning across the main public surfaces", () => {
+  it("uses the master idea on the main public surfaces", () => {
     expect(fromRoot("src/pages/Index.tsx")).toContain("Stories,");
-    expect(fromRoot("index.html")).toContain("Stories, refined.");
-    expect(fromRoot("public/llms.txt")).toContain("Stories, refined.");
-    const primary = ["src/pages/Index.tsx", "src/pages/Practice.tsx", "src/pages/About.tsx", "src/pages/Contact.tsx", "index.html", "public/llms.txt"].map(fromRoot).join("\n");
-    expect(primary).not.toMatch(/Where aesthetic meets algorithm|Boutique by design|every engagement starts at stage 01|ทุกงานเริ่มที่การวินิจฉัย/);
+    expect(fromRoot("index.html")).toContain("Stories, Refined.");
+    expect(fromRoot("public/llms.txt")).toContain("Stories, Refined.");
+    expect(fromRoot("src/data/practice.ts")).toContain("Independent Creative Studio");
   });
 
   /** One big closing CTA per page, and only where it earns it. */
   it("keeps the closing CTA band to the homepage and services", () => {
     ["src/pages/Index.tsx", "src/pages/Practice.tsx"].forEach((p) => expect(fromRoot(p)).toContain("<CTABand"));
-    ["src/pages/About.tsx", "src/pages/Work.tsx", "src/pages/CaseStudy.tsx"].forEach((p) =>
-      expect(fromRoot(p)).not.toMatch(/<CTABand|<ClosingCTA/),
+    ["About", "Work", "CaseStudy", "Archive", "ArchivePost"].forEach((name) =>
+      expect(fromRoot(`src/pages/${name}.tsx`)).not.toMatch(/<CTABand|<ClosingCTA/),
     );
+  });
+});
+
+describe("archive", () => {
+  it("holds twelve pieces, three per theme, with unique slugs", () => {
+    expect(archive).toHaveLength(12);
+    archiveThemes.forEach((theme) => expect(archive.filter((p) => p.theme === theme)).toHaveLength(3));
+    expect(new Set(archive.map((p) => p.slug)).size).toBe(12);
+    expect(archive.map((p) => p.n)).toEqual(Array.from({ length: 12 }, (_, i) => String(i + 1).padStart(2, "0")));
+    archive.forEach((p) => expect(p.body.length, p.slug).toBeGreaterThanOrEqual(5));
+  });
+
+  /** From the brand book. Guards the essays and every page they sit beside. */
+  it("never uses the banned words", () => {
+    const banned = ["Revolutionary", "Game-changing", "One-stop solution", "ครบวงจร", "ยกระดับธุรกิจของคุณ", "ปลดล็อกศักยภาพ", "เหนือระดับ", "ตอบโจทย์ทุกความต้องการ"];
+    const text = [fromRoot("src/data/archive.ts"), fromRoot("src/data/practice.ts"), fromRoot("public/llms.txt")].join("\n").toLowerCase();
+    banned.forEach((word) => expect(text, word).not.toContain(word.toLowerCase()));
   });
 });
 
@@ -124,8 +141,8 @@ describe("work page", () => {
     expect(work).toContain("cs.verdictShort");
   });
 
-  it("lets a visitor filter the record by movement", () => {
-    expect(fromRoot("src/pages/Work.tsx")).toContain("cs.movement === move");
+  it("lets a visitor filter the record by approach", () => {
+    expect(fromRoot("src/pages/Work.tsx")).toContain("cs.approach === approach");
   });
 
   /** A randomised-order gallery once caused a hydration mismatch, and the
@@ -138,19 +155,18 @@ describe("work page", () => {
 });
 
 /** Runs against source, so it needs no build. An in-app link must land on a
- *  real route — not on a redirect, which is an extra hop the site itself
- *  should never make — and template literals are checked by their static
- *  prefix, since `/services#${slug}` breaks just as hard as "/services" would. */
+ *  real route — not on a redirect — and template literals are checked by their
+ *  static prefix. */
 describe("internal links", () => {
   const staticRoutes = new Set(
     ["/", ...Array.from(fromRoot("src/App.tsx").matchAll(/path: "([^":]+)"/g), (m) => `/${m[1]}`)]
       .map((route) => route.replace(/\/$/, "") || "/"),
   );
-  const dynamicPrefixes = ["/work/"];
+  const dynamicPrefixes = ["/work/", "/archive/"];
   const resolves = (path: string) => staticRoutes.has(path) || dynamicPrefixes.some((prefix) => path.startsWith(prefix));
 
   it("points every in-app link at a route that exists", () => {
-    const files = ["Index", "Practice", "Work", "CaseStudy", "About", "Contact", "Privacy", "NotFound"]
+    const files = ["Index", "Practice", "Work", "CaseStudy", "About", "Contact", "Privacy", "NotFound", "Archive", "ArchivePost"]
       .map((name) => `src/pages/${name}.tsx`)
       .concat(["src/components/Nav.tsx", "src/components/Footer.tsx", "src/components/StickyMobileCTA.tsx"]);
 
@@ -164,7 +180,7 @@ describe("internal links", () => {
       ];
       hrefs.forEach((href) => {
         const path = href.split(/[#?]/)[0].replace(/\/$/, "") || "/";
-        if (path.startsWith("/work/") && path === "/work/") return; // `/work/${slug}` prefix
+        if (dynamicPrefixes.includes(`${path}/`) && href.endsWith("/")) return; // `/work/${slug}` prefix
         if (!resolves(path)) bad.push(`${file} → ${href}`);
       });
     });

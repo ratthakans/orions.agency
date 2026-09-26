@@ -6,6 +6,7 @@ const links = [
   { label: "Work", to: "/work" },
   { label: "Services", to: "/services" },
   { label: "About", to: "/about" },
+  { label: "Archive", to: "/archive" },
 ];
 
 const Nav = () => {

@@ -8,6 +8,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import ErrorBoundary from "./components/ErrorBoundary";
 import Index from "./pages/Index";
 import { caseStudies } from "./data/caseStudies";
+import { archive } from "./data/archive";
 
 // Pages export a default component; adapt that to react-router's lazy ({ Component }).
 type PageModule = { default: React.ComponentType };
@@ -41,10 +42,16 @@ export const routes: RouteRecord[] = [
         lazy: page(() => import("./pages/CaseStudy")),
         getStaticPaths: () => caseStudies.map((c) => `work/${c.slug}`),
       },
+      { path: "archive", lazy: page(() => import("./pages/Archive")) },
+      {
+        path: "archive/:slug",
+        lazy: page(() => import("./pages/ArchivePost")),
+        getStaticPaths: () => archive.map((p) => `archive/${p.slug}`),
+      },
       { path: "privacy", lazy: page(() => import("./pages/Privacy")) },
       { path: "contact", lazy: page(() => import("./pages/Contact")) },
 
-      // (Legacy/shorthand paths — /pricing, /practice, /thinking, /blog, /journal, … —
+      // (Legacy/shorthand paths — /pricing, /practice, /thinking, /blog → /archive, … —
       //  are handled as server-side 301s in vercel.json, not client routes.)
 
       // Prerendered branded 404 (Vercel serves dist/404.html for unmatched URLs)

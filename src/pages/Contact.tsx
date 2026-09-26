@@ -10,23 +10,16 @@ import { track } from "@/lib/analytics";
 import Picture from "@/components/Picture";
 import founder from "@/assets/team/founder-portrait.jpg?as=picture";
 import { inquirySchema, type Inquiry } from "@/lib/contact";
-import { filmCraft, foundation, getEngagementsFor, movements } from "@/data/practice";
+import { approaches, services } from "@/data/practice";
 
 type FieldErrors = Partial<Record<keyof Inquiry, string>>;
 type SubmitStatus = { kind: "success" | "error"; message: string } | null;
 
-/** The list is grouped the way the site is: the step before the movements,
- *  then each movement's ways in, then craft. Foundation leads because it is
- *  the entry point, and Film stays on the list even though it is craft rather
- *  than a movement — people do walk in asking for a film, and this field asks
- *  where they want to start, not which model they belong to. */
+/** Grouped the way the site is: the three services, then the two signature
+ *  approaches for a problem that needs more than one of them. */
 const packageGroups: { label: string; options: string[] }[] = [
-  { label: "ก่อนเริ่ม movement", options: [foundation.name] },
-  ...movements.map((m) => ({
-    label: `${m.name} — ${m.question}`,
-    options: getEngagementsFor(m.slug).map((item) => item.name),
-  })).filter((group) => group.options.length > 0),
-  { label: "งานภาพ", options: [filmCraft.name] },
+  { label: "Services", options: services.map((item) => item.name) },
+  { label: "Signature approaches", options: approaches.map((item) => item.name) },
 ];
 
 export const packageOptions = packageGroups.flatMap((group) => group.options);

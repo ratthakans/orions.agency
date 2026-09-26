@@ -65,12 +65,12 @@
     },
     {
       "source": "/journal",
-      "destination": "/",
+      "destination": "/archive",
       "permanent": true
     },
     {
       "source": "/journal/:slug*",
-      "destination": "/",
+      "destination": "/archive",
       "permanent": true
     },
     {
@@ -95,12 +95,12 @@
     },
     {
       "source": "/blog",
-      "destination": "/",
+      "destination": "/archive",
       "permanent": true
     },
     {
       "source": "/blog/:slug*",
-      "destination": "/",
+      "destination": "/archive",
       "permanent": true
     }
   ],

@@ -8,7 +8,7 @@ import Picture from "@/components/Picture";
 import HeroReel from "@/components/HeroReel";
 import heroPoster from "@/assets/hero-reel-poster.jpg?as=picture";
 import founderPortrait from "@/assets/team/founder-portrait.jpg?as=picture";
-import { getMovement, movements, movementBridge } from "@/data/practice";
+import { approaches, brand, brandIdea, getApproach, services } from "@/data/practice";
 import { caseStudies } from "@/data/caseStudies";
 
 const featuredSlugs = ["heavy-organizer", "hongmove", "khaoyai-country-club"];
@@ -17,25 +17,35 @@ const featuredCases = featuredSlugs.flatMap((slug) => {
   return item ? [item] : [];
 });
 
+/** Home runs in the founder's order — concept, work, services, about — and
+ *  closes on the promise. Each blueprint layer appears on exactly one page;
+ *  what shows here is the one-line form, with the detail a click away. */
 const Index = () => (
   <div>
     <SEO
-      title="ORIONS — Stories, refined. · Expand, Reframe, Embed"
-      description="ORIONS ทำงานผ่านสาม movement — EXPAND สร้างพื้นที่เติบโตใหม่ REFRAME เปลี่ยนมุมที่แบรนด์ถูกมอง EMBED ทำให้ตัวตนอยู่ในทุกจุดสัมผัส"
+      title="ORIONS — Stories, Refined. · Independent Creative Studio"
+      description="ORIONS คือ independent creative studio — ค้นหาว่าอะไรคือสิ่งที่สำคัญจริงของแบรนด์ ทำให้มันคมขึ้น และทำให้เรื่องนั้นมีชีวิตอยู่ในทุกสิ่งที่แบรนด์ทำ"
       path="/"
-      schema={{ "@context": "https://schema.org", "@type": "Organization", name: "ORIONS", url: "https://orions.agency", slogan: "Stories, refined.", description: "ORIONS is a story-led creative company working through three movements — Expand, Reframe and Embed — to carry a brand forward without losing what makes it itself." }}
+      schema={{ "@context": "https://schema.org", "@type": "Organization", name: "ORIONS", url: "https://orions.agency", slogan: "Stories, Refined.", description: "ORIONS is an independent creative studio. We don't reinvent brands. We refine what makes them worth caring about." }}
     />
 
+    {/* Concept, part one: the master idea and the belief under it. */}
     <section className="section-ink min-h-[90svh] px-6 md:px-10 flex items-center relative isolate overflow-hidden">
       <HeroReel still={heroPoster} />
       <div className="max-w-[1400px] mx-auto w-full pt-36 pb-16 md:pb-20 relative z-10">
-        <div className="flex items-start justify-between gap-8"><Reveal><SectionLabel label="ORIONS · Story-led creative company" /></Reveal><span className="hidden md:block font-mono text-[10px] tracking-[0.22em] uppercase text-foreground/75">Showreel 2026 · ØRIONS</span></div>
-        <Reveal delay={0.08} emphasis="lead"><h1 className="mt-14 md:mt-20 h-display-xl hero-title"><span className="block whitespace-nowrap">Stories,</span><span className="block whitespace-nowrap">refined.</span></h1></Reveal>
+        <div className="flex items-start justify-between gap-8">
+          <Reveal><SectionLabel label={`ORIONS · ${brand.descriptor}`} /></Reveal>
+          <span className="hidden md:block font-mono text-[10px] tracking-[0.22em] uppercase text-foreground/75">Showreel 2026 · ØRIONS</span>
+        </div>
+        <Reveal delay={0.08} emphasis="lead">
+          <h1 className="mt-14 md:mt-20 h-display-xl hero-title">
+            <span className="block whitespace-nowrap">Stories,</span>
+            <span className="block whitespace-nowrap">refined.</span>
+          </h1>
+        </Reveal>
         <div className="mt-16 md:mt-24 pt-7 border-t border-foreground/30 grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-10 lg:gap-20">
           <Reveal delay={0.18}>
-            <p lang="th" className="max-w-[590px] font-thai thai-wrap text-[17px] md:text-[20px] leading-[1.75] text-foreground/85">
-              เราช่วยแบรนด์ค้นหาเรื่องที่มีความหมาย เชื่อมสิ่งสำคัญเข้าด้วยกัน และขัดเกลาให้ชัดพอที่จะถูกมองเห็น เข้าใจ และจดจำ
-            </p>
+            <p className="max-w-[560px] font-body text-[19px] md:text-[23px] leading-[1.45] text-foreground/90">{brand.belief.en}</p>
           </Reveal>
           <Reveal delay={0.25}>
             <div className="flex flex-wrap lg:justify-end items-start gap-x-10 gap-y-6">
@@ -50,6 +60,32 @@ const Index = () => (
             </div>
           </Reveal>
         </div>
+      </div>
+    </section>
+
+    {/* Concept, part two: where a story actually lives. */}
+    <section className="section-paper px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1400px] mx-auto py-24 md:py-36">
+        <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-24">
+          <SectionLabel label="Brand idea" />
+          <div>
+            <Reveal emphasis="lead">
+              <h2 className="h-display-md max-w-[22ch]">{brandIdea.line}</h2>
+            </Reveal>
+            <p lang="th" className="mt-8 max-w-[620px] font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.8] text-foreground/80">
+              {brand.belief.th}
+            </p>
+          </div>
+        </div>
+        <div className="mt-16 md:mt-20 grid grid-cols-2 md:grid-cols-4 border-t border-foreground/15">
+          {brandIdea.parts.map((part) => (
+            <div key={part.name} className="py-8 pr-6 border-b md:border-b-0 md:border-r border-foreground/15 last:border-r-0 md:pl-6 first:md:pl-0">
+              <h3 className="font-display text-[24px] md:text-[30px]">{part.name}</h3>
+              <p className="mt-2 font-body text-[15px] md:text-[17px] text-muted-foreground">{part.line}</p>
+            </div>
+          ))}
+        </div>
+        <p className="mt-12 font-serif text-[24px] md:text-[32px] leading-[1.15]">{brandIdea.close}</p>
       </div>
     </section>
 
@@ -83,7 +119,7 @@ const Index = () => (
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                   />
                   <span className="absolute left-4 top-4 z-[3] font-mono text-[10px] tracking-[0.18em] uppercase text-white bg-black/50 px-2 py-1">
-                    {getMovement(item.movement)?.name ?? item.movement}
+                    {getApproach(item.approach)?.name ?? item.approach}
                   </span>
                 </div>
                 <div className="mt-5 font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground">{item.niche} · {item.year}</div>
@@ -96,40 +132,44 @@ const Index = () => (
       </div>
     </section>
 
-    {/* Services, after the work: the record first, then the three moves it
-        was made with. One line per movement — the detail lives on /services. */}
-    <section className="section-paper px-6 md:px-10 border-t border-foreground/15">
+    {/* Services in one line each; the approaches as a single quiet row under
+        them, so they read as how services combine, not as two more services. */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1400px] mx-auto py-24 md:py-36">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
-          <div>
-            <SectionLabel label="Services" />
-            <Reveal emphasis="lead">
-              <h2 className="mt-8 h-display-lg max-w-[16ch]">{movementBridge.line}</h2>
-            </Reveal>
-          </div>
+        <div className="flex items-end justify-between gap-8">
+          <SectionLabel label="Services" />
           <Link to="/services" className="cta-link">
             <span>All services</span>
             <ArrowUpRight className="w-4 h-4" />
           </Link>
         </div>
-        <div className="mt-14 border-t border-foreground/15">
-          {movements.map((m, i) => (
+        <div className="mt-12 border-t border-foreground/15">
+          {services.map((s) => (
             <Link
-              key={m.slug}
-              to={`/services#${m.slug}`}
+              key={s.slug}
+              to={`/services#${s.slug}`}
               className="group grid grid-cols-1 md:grid-cols-[70px_1fr_1fr_24px] items-baseline gap-3 md:gap-10 py-8 md:py-10 border-b border-foreground/15"
             >
-              <span className="font-mono text-[11px] text-muted-foreground">0{i + 1}</span>
-              <h3 className="h-display-md">{m.name}</h3>
-              <p lang="th" className="font-thai text-[15px] md:text-[17px] leading-[1.7] text-foreground/80">{m.question}</p>
+              <span className="font-mono text-[11px] text-muted-foreground">{s.n}</span>
+              <h3 className="h-display-md">{s.name}</h3>
+              <p className="font-body text-[17px] md:text-[20px] text-foreground/80">{s.line}</p>
               <ArrowUpRight className="hidden md:block w-5 h-5 text-foreground/40 group-hover:text-foreground transition-colors" />
+            </Link>
+          ))}
+        </div>
+        <div className="mt-10 flex flex-wrap items-baseline gap-x-10 gap-y-4">
+          <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">Signature approaches</span>
+          {approaches.map((a) => (
+            <Link key={a.slug} to={`/services#${a.slug}`} className="cta-link">
+              <span>{a.name} — {a.equals}</span>
+              <ArrowUpRight className="w-4 h-4" />
             </Link>
           ))}
         </div>
       </div>
     </section>
 
-    {/* About, as a face: on a founder-led practice the person is the claim. */}
+    {/* About, as a face: on a founder-led studio the person is the claim. */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1400px] mx-auto py-24 md:py-36 grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-24">
         <SectionLabel label="About" />
@@ -158,7 +198,14 @@ const Index = () => (
       </div>
     </section>
 
-    <CTABand eyebrow="Start a conversation" title={<>Not louder. Not busier. More intentional.</>} subtitle="เล่าเรื่องของแบรนด์ให้เราฟัง เราจะช่วยมองว่าสิ่งไหนควรถูกทำให้ชัด" primary={{ label: "Talk to ORIONS", to: "/contact" }} secondary={{ label: "Explore our work", to: "/work" }} tone="ink" />
+    <CTABand
+      eyebrow="The promise"
+      title={<>{brand.promise.first} {brand.promise.then}</>}
+      subtitle="เล่าเรื่องของแบรนด์ให้เราฟัง เราจะช่วยมองว่าสิ่งไหนควรถูกทำให้ชัด"
+      primary={{ label: "Talk to ORIONS", to: "/contact" }}
+      secondary={{ label: "Explore our work", to: "/work" }}
+      tone="ink"
+    />
   </div>
 );
 

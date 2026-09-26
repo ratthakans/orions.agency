@@ -1,6 +1,6 @@
 import { Link, useParams, Navigate } from "react-router-dom";
 import { ArrowUpRight, ArrowLeft } from "lucide-react";
-import { getMovement } from "@/data/practice";
+import { getApproach } from "@/data/practice";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
@@ -63,7 +63,7 @@ const CaseStudy = () => {
           </Reveal>
 
           <div className="mt-10">
-            <SectionLabel index={getMovement(cs.movement)?.name ?? ""} label={`Case ${cs.n} / ${total}`} />
+            <SectionLabel index={getApproach(cs.approach)?.name ?? ""} label={`Case ${cs.n} / ${total}`} />
           </div>
 
           <Reveal delay={0.1} emphasis="lead">
@@ -158,10 +158,10 @@ const CaseStudy = () => {
             <SectionLabel index="02" label="What We Found" />
             <Reveal delay={0.05}>
               <p lang="th" className="mt-6 font-thai thai-wrap text-[13px] leading-[1.8] text-muted-foreground max-w-[28ch]">
-                {getMovement(cs.movement)?.record}
+                {getApproach(cs.approach)?.line}
               </p>
-              <Link to={`/services#${cs.movement}`} className="cta-link mt-5">
-                <span>{getMovement(cs.movement)?.name}</span>
+              <Link to={`/services#${cs.approach}`} className="cta-link mt-5">
+                <span>{getApproach(cs.approach)?.name}</span>
                 <ArrowUpRight className="w-4 h-4" />
               </Link>
             </Reveal>

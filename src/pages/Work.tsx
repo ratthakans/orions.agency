@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { X, Play, ChevronLeft, ChevronRight, Layers, ArrowUpRight } from "lucide-react";
-import { getMovement, movements, type MovementSlug } from "@/data/practice";
+import { approaches, getApproach, type ApproachSlug } from "@/data/practice";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
@@ -39,9 +39,9 @@ const Work = () => {
   // Curated case studies are the default sales surface; "ทั้งหมด" still lets
   // visitors browse every craft board. Order is deterministic (SSG-safe).
   const [active, setActive] = useState<string>("cases");
-  /** Filters the Selected work board by movement. The board is the only place
-   *  the three movements are tested against the record rather than asserted. */
-  const [move, setMove] = useState<MovementSlug | "all">("all");
+  /** Filters the Selected work board by signature approach — the one place
+   *  the approaches are tested against the record rather than asserted. */
+  const [approach, setApproach] = useState<ApproachSlug | "all">("all");
   const [hoverVid, setHoverVid] = useState<string | null>(null);
   const [lightbox, setLightbox] = useState<
     | { kind: "img" | "video"; val: string; ar?: number }
@@ -317,21 +317,21 @@ const Work = () => {
             ) : cat.cases ? (
               <>
               <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 pb-5 border-b border-foreground/15">
-                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">Movement</span>
-                {([{ slug: "all", name: "All" }, ...movements] as { slug: string; name: string }[]).map((m) => (
+                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">Approach</span>
+                {([{ slug: "all", name: "All" }, ...approaches] as { slug: string; name: string }[]).map((m) => (
                   <button
                     key={m.slug}
                     type="button"
-                    onClick={() => setMove(m.slug as MovementSlug | "all")}
-                    aria-pressed={move === m.slug}
-                    className={`font-mono text-[11px] tracking-[0.16em] uppercase transition-colors ${move === m.slug ? "text-foreground" : "text-muted-foreground hover:text-foreground/80"}`}
+                    onClick={() => setApproach(m.slug as ApproachSlug | "all")}
+                    aria-pressed={approach === m.slug}
+                    className={`font-mono text-[11px] tracking-[0.16em] uppercase transition-colors ${approach === m.slug ? "text-foreground" : "text-muted-foreground hover:text-foreground/80"}`}
                   >
                     {m.name}
                   </button>
                 ))}
               </div>
               <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
-                {cat.cases.filter((cs) => move === "all" || cs.movement === move).map((cs) => (
+                {cat.cases.filter((cs) => approach === "all" || cs.approach === approach).map((cs) => (
                   <Link
                     key={cs.slug}
                     to={`/work/${cs.slug}`}
@@ -346,7 +346,7 @@ const Work = () => {
                     <span aria-hidden className="halftone absolute inset-0" />
                     <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-90" />
                     <div className="absolute left-0 right-0 bottom-0 z-[3] p-4 flex flex-col gap-1">
-                      <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-foreground">{getMovement(cs.movement)?.name ?? cs.movement} · {cs.niche} · {cs.year}</span>
+                      <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-foreground">{getApproach(cs.approach)?.name ?? cs.approach} · {cs.niche} · {cs.year}</span>
                       <span className="font-display text-[17px] md:text-[19px] font-medium tracking-[-0.01em] leading-tight">{cs.title}</span>
                       <span lang="th" className="font-thai text-[12px] leading-[1.55] text-foreground/80">{cs.verdictShort}</span>
                     </div>

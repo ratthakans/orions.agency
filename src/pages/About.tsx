@@ -6,6 +6,7 @@ import SectionLabel from "@/components/SectionLabel";
 import Picture from "@/components/Picture";
 import founder from "@/assets/team/founder-portrait.jpg?as=picture";
 import { caseStudies } from "@/data/caseStudies";
+import { brand, pointOfView, principles } from "@/data/practice";
 
 /** Read from the record rather than asserted, so the page cannot drift into a
  *  claim the work does not back. */
@@ -15,13 +16,13 @@ const About = () => (
   <div>
     <SEO
       title="About ORIONS — One creative director. Every story."
-      description="ORIONS คือ story-led creative company ในกรุงเทพฯ นำโดยรัฐกันต์ สุวรรณภักดี — งานทุกชิ้นผ่านสายตาเดียวกันตั้งแต่โจทย์จนถึงงานที่ส่งมอบ"
+      description="ORIONS คือ independent creative studio ในกรุงเทพฯ นำโดยรัฐกันต์ สุวรรณภักดี — งานทุกชิ้นผ่านสายตาเดียวกันตั้งแต่โจทย์จนถึงงานที่ส่งมอบ"
       path="/about"
     />
 
     <section className="section-ink px-6 md:px-10">
       <div className="max-w-[1280px] mx-auto pt-28 md:pt-36 pb-24 md:pb-36">
-        <SectionLabel label="About ORIONS" />
+        <SectionLabel label={`About · ${brand.descriptor}`} />
         <Reveal emphasis="lead">
           <h1 className="mt-9 h-display-lg max-w-[15ch]">One creative director. Every story.</h1>
         </Reveal>
@@ -53,6 +54,28 @@ const About = () => (
             <p lang="th" className="mt-8 font-thai text-[16px]">รัฐกันต์ สุวรรณภักดี</p>
             <p className="mt-1 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">Founder &amp; Creative Director</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Point of view and principles — the one place on the site they appear. */}
+    <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-24">
+        <SectionLabel label="Point of view" />
+        <div>
+          <p lang="th" className="max-w-[620px] font-thai thai-wrap text-[17px] md:text-[20px] leading-[1.8] text-foreground/85">{pointOfView.th}</p>
+          <p className="mt-12 font-display text-[22px] md:text-[28px] text-foreground/40 line-through decoration-1">{pointOfView.not}</p>
+          <Reveal emphasis="lead">
+            <h2 className="mt-3 h-display-md">{pointOfView.but}</h2>
+          </Reveal>
+          <ul className="mt-14 border-t border-foreground/15">
+            {principles.map((line, i) => (
+              <li key={line} className="flex items-baseline gap-6 py-5 border-b border-foreground/15">
+                <span className="font-mono text-[11px] text-muted-foreground">0{i + 1}</span>
+                <span className="font-body text-[18px] md:text-[21px]">{line}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

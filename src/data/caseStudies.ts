@@ -11,17 +11,16 @@ import workGcoo from "@/assets/gcoo.jpg?as=picture";
 import workMyHotel from "@/assets/work-myhotel.jpg?as=picture";
 import workPalawat from "@/assets/work-palawat.jpg?as=picture";
 import type { PictureData } from "@/components/Picture";
-import type { MovementSlug } from "@/data/practice";
+import type { ApproachSlug } from "@/data/practice";
 
 
 export type CaseStudy = {
   slug: string;
   n: string;
-  /** Which of the three movements this engagement was. The old acts were
-   *  already grouped exactly this way before the movements were named, so the
-   *  movement replaced them rather than sitting beside them — one grouping,
-   *  one label. Its Thai framing lives once on the movement, not on each row. */
-  movement: MovementSlug;
+  /** Which signature approach the engagement was — Creative Unlock (a new way
+   *  forward: market, audience, category) or Stories Embed (one story across
+   *  every touchpoint). Drives the /work filter and the case-page eyebrow. */
+  approach: ApproachSlug;
   title: string;
   /** Public domain / handle shown as a meta line */
   domain: string;
@@ -63,7 +62,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "democrat-party",
     n: "01",
-    movement: "embed",
+    approach: "stories-embed",
     title: "Democrat Party",
     domain: "democrat.or.th",
     niche: "Politics",
@@ -88,7 +87,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "gcoo",
     n: "02",
-    movement: "expand",
+    approach: "creative-unlock",
     title: "GCOO",
     domain: "gcoo.io",
     niche: "Mobility",
@@ -113,7 +112,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "my-hotel",
     n: "03",
-    movement: "expand",
+    approach: "creative-unlock",
     title: "My Hotel",
     domain: "pzentsmart.com",
     niche: "Hospitality / OTA",
@@ -138,7 +137,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "hongmove",
     n: "04",
-    movement: "expand",
+    approach: "creative-unlock",
     title: "HONG MOVE",
     domain: "hongmove.co.th",
     niche: "Airport Mobility",
@@ -163,7 +162,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "heavy-organizer",
     n: "05",
-    movement: "reframe",
+    approach: "stories-embed",
     title: "HEAVY ORGANIZER",
     domain: "heavyorganizer.com",
     niche: "Music Festival",
@@ -188,7 +187,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "khaoyai-country-club",
     n: "06",
-    movement: "reframe",
+    approach: "creative-unlock",
     title: "Khao Yai Country Club",
     domain: "brc-kycgolf.com",
     niche: "Leisure Golf",
@@ -213,7 +212,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "royal-thai-air-force",
     n: "07",
-    movement: "embed",
+    approach: "stories-embed",
     title: "Royal Thai Air Force",
     domain: "rtaf.mi.th",
     niche: "Government",
@@ -238,7 +237,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "palawat-party",
     n: "08",
-    movement: "embed",
+    approach: "stories-embed",
     title: "Movement Party",
     domain: "",
     niche: "Politics",

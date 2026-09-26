@@ -1,61 +1,74 @@
-# ORIONS — Stories, refined.
+# ORIONS — Stories, Refined.
 
-ORIONS is a story-led creative company based in Bangkok. It helps brands uncover, connect, refine and express the stories that make them worth remembering.
+ORIONS is an independent creative studio based in Bangkok.
 
-## Positioning
-- Primary line: Stories, refined.
-- Belief: We don't invent stories. We reveal them.
-- Approach: Meaning before medium.
-- Work: Different formats. One story.
+We don't reinvent brands. We refine what makes them worth caring about.
+Every brand already has its own story. ORIONS does not arrive to invent a new
+one each time, but to find what truly matters, make it sharper, and make that
+story live in everything the brand does.
 
-## What ORIONS does
-ORIONS works through three movements. Each answers a different client question,
-and each starts from what the brand already has.
+## Brand idea
+A story is not what a brand says. It is what people come to understand.
+A brand's story does not live only in a tagline or a campaign. It lives in:
+- Story — what it means
+- Behavior — how it acts
+- Aesthetic — what form it takes
+- Experience — how it is remembered
+A good story should not only be told. It should be experienced.
 
-Expand — Build what comes next. When the question is "where do we grow next?".
-Existing brand equity, capability and cultural relevance are carried into a new
-space: product, service, experience, collaboration, activation, category or
-business opportunity. From brand equity to new value.
+## Point of view
+The world does not lack content. It lacks what is clear enough, meaningful
+enough, different enough and distinctive enough to be remembered.
+Not More = Better, but Better = More Intentional.
 
-Reframe — Change the way it is seen. When the question is "who else could this
-matter to?". The context around an existing product changes so it means
-something to another audience, in another moment, for another reason, without
-replacing the product itself: unseen audience, emerging behaviour, alternative
-use case, new occasion, cultural context, demand territory, communication
-angle. Same product. Different relevance.
+## Services
+01 — Brand & Strategy. Find what matters.
+Brand Strategy · Positioning · Brand Narrative · Audience & Demand · Messaging · Opportunity Mapping
 
-Embed — Make the brand live everywhere. When the question is "how do we keep it
-all feeling like us?". A creative foundation puts the brand's identity into
-every expression — narrative, tone, visual language, behaviour, content,
-product expression, digital experience, service, customer journey. Touchpoints
-need not look alike, but they share the same point of view. One identity. Many
-expressions.
+02 — Creative & Communication. Give it a point of view.
+Creative Direction · Campaign Concept · Art Direction · Content System · Copywriting · Film & Production
 
-Expand opens possibility. Reframe creates relevance. Embed builds coherence.
+03 — Brand Experience. Make it live in the real world.
+Brand Identity · Digital Experience · UX/UI · Customer Journey · Service Experience · Spatial & Physical Experience
 
-## How any movement is made
-Story — brand strategy, positioning, research, narrative and messaging.
-Direction — creative direction, identity, art direction and campaign direction.
-Expression — film, photography, content, digital experience and production.
-Film & Visual Story is a craft, not a movement: the screen is a way to carry
-meaning, never the starting point.
+## Signature approaches
+Not additional services — the way ORIONS combines several services to solve a
+larger problem.
 
-## Ways to work together
-- Brand Foundation: find the story before building the brand. This sits before
-  the three movements — each of them starts from something that already exists,
-  and a brand built from nothing has none of it yet.
-- Creative Launch (Expand): turn an opening or release into a meaningful moment.
-- Campaign Platform (Reframe): one idea across many expressions.
-- Brand Refine (Reframe): keep the brand and make its story clearer.
-- Creative Partnership (Embed): ongoing senior creative thinking and direction.
+Creative Unlock — Find another way forward. For brands looking for new growth,
+a new audience, new demand, a new product, a new activation or a new S-curve.
+ORIONS assembles the right capabilities from Brand & Strategy, Creative and
+Experience into a solution for the brief. What haven't we seen yet?
+Creative Unlock = Possibility.
 
-The right scope depends on the client's question and context.
+Stories Embed — Make the story live everywhere. For brands that already have a
+direction, but whose product, channels, communication and experience do not yet
+feel like one story. ORIONS crafts strategy, narrative, identity, creative,
+digital, behavior and experience so every touchpoint carries the same DNA.
+One story. Many expressions. Stories Embed = Coherence.
 
-## Selected pages
+## How we work
+Observe — See what others overlook.
+Reframe — Find another way forward.
+Shape — Turn meaning into form.
+Embed — Make it live everywhere.
+Refinement is not polish. It is precision.
+
+## Principles
+- More isn't the answer. Better is.
+- Nothing exists without intention.
+- Identity should be embedded, not applied.
+- One story. Many expressions.
+
+## Promise
+First, we find what matters. Then, we make it matter everywhere.
+
+## Pages
 - Home: https://orions.agency/
-- Selected work: https://orions.agency/work
+- Work: https://orions.agency/work
 - Services: https://orions.agency/services
 - About: https://orions.agency/about
+- Archive: https://orions.agency/archive
 - Contact: https://orions.agency/contact
 
 ## Contact

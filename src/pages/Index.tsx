@@ -7,6 +7,7 @@ import SectionLabel from "@/components/SectionLabel";
 import Picture from "@/components/Picture";
 import HeroReel from "@/components/HeroReel";
 import heroPoster from "@/assets/hero-reel-poster.jpg?as=picture";
+import founderPortrait from "@/assets/team/founder.jpg?as=picture";
 import { getMovement, movements, movementBridge } from "@/data/practice";
 import { caseStudies } from "@/data/caseStudies";
 
@@ -152,30 +153,39 @@ const Index = () => (
       </div>
     </section>
 
-    {/* Two 50/50 teaser cards under no head was the weakest section on the
-        page. One idea now — who we are — with the point of view as a single
-        link beneath it. The ORIONS view itself belongs to /practice, where it
-        closes the argument the movements open; repeating it here would put the
-        same statement on two pages again. */}
+    {/* The page used to close on "Boutique by design" — an argument from being
+        small. It closes on the person instead: on a founder-led practice that
+        is the actual claim, and it is the one thing a visitor cannot get from
+        the work itself. The full version is /about; this is the face. */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1400px] mx-auto py-24 md:py-36 grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-24">
         <SectionLabel label="About ORIONS" />
-        <div>
-          <Reveal emphasis="lead">
-            <h2 className="h-display-lg max-w-[16ch]">Boutique by design.</h2>
-          </Reveal>
-          <p lang="th" className="mt-8 max-w-[640px] font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.8] text-foreground/80">
-            เราเลือกทำงานกับโปรเจกต์จำนวนจำกัด เพื่อให้ทุกเรื่องได้รับเวลา ความเข้าใจ และความใส่ใจที่งานสร้างสรรค์ที่ดีต้องการ
-          </p>
-          <div className="mt-10 pt-7 border-t border-foreground/15 flex flex-wrap gap-x-10 gap-y-5">
-            <Link to="/about" className="cta-link">
-              <span>Meet ORIONS</span>
-              <ArrowUpRight className="w-4 h-4" />
-            </Link>
-            <Link to="/thinking" className="cta-link cta-link-muted">
-              <span>Read our point of view</span>
-              <ArrowUpRight className="w-4 h-4" />
-            </Link>
+        <div className="grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-8 md:gap-14 items-start">
+          <Picture
+            data={founderPortrait}
+            alt="Ratthakan Suwanphakdee — Founder & Creative Director, ORIONS"
+            loading="lazy"
+            className="w-36 h-44 md:w-48 md:h-60 object-cover object-top grayscale-[0.3] saturate-[0.85]"
+          />
+          <div>
+            <Reveal emphasis="lead">
+              <h2 className="h-display-md max-w-[16ch]">The person behind the work.</h2>
+            </Reveal>
+            <p lang="th" className="mt-7 max-w-[560px] font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.8] text-foreground/80">
+              งานสร้างสรรค์ที่ดีไม่ได้เกิดจากจำนวนคน แต่เกิดจากคนที่เห็นภาพทั้งหมดพร้อมกัน
+            </p>
+            <p lang="th" className="mt-7 font-thai text-[15px]">รัฐกันต์ สุวรรณภักดี</p>
+            <p className="mt-1 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">Founder &amp; Creative Director</p>
+            <div className="mt-9 flex flex-wrap gap-x-10 gap-y-5">
+              <Link to="/about" className="cta-link">
+                <span>Meet ORIONS</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </Link>
+              <Link to="/thinking" className="cta-link cta-link-muted">
+                <span>Read our point of view</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </Link>
+            </div>
           </div>
         </div>
       </div>

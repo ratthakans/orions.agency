@@ -28,11 +28,7 @@ export const brandIdea = {
   close: "It should be experienced.",
 };
 
-export const pointOfView = {
-  th: "โลกไม่ได้ขาด content สิ่งที่ขาดคือสิ่งที่ชัดพอ มีความหมายพอ แตกต่างพอ และมีตัวตนพอที่จะถูกจดจำ",
-  not: "More = Better",
-  but: "Better = More Intentional.",
-};
+export const pointOfView = "Better = More Intentional.";
 
 export const principles = [
   "More isn't the answer. Better is.",
@@ -76,9 +72,7 @@ export type Approach = {
   name: string;
   line: string;
   /** Who it is for, in the founder's words */
-  forWhom: string;
-  seeking: string[];
-  body: string;
+  for: string;
   /** The line the approach turns on */
   pivot: string;
   /** Creative Unlock = Possibility · Stories Embed = Coherence */
@@ -92,9 +86,7 @@ export const approaches: Approach[] = [
     slug: "creative-unlock",
     name: "Creative Unlock",
     line: "Find another way forward.",
-    forWhom: "สำหรับแบรนด์ที่กำลังหา",
-    seeking: ["growth ใหม่", "audience ใหม่", "demand ใหม่", "product ใหม่", "activation ใหม่", "new S-curve"],
-    body: "ORIONS จะหยิบ capability ที่เหมาะสมจาก Brand & Strategy, Creative และ Experience มาประกอบเป็น solution ตามโจทย์",
+    for: "สำหรับแบรนด์ที่กำลังหา growth ใหม่ audience ใหม่ demand ใหม่ product ใหม่ activation ใหม่ หรือ new S-curve",
     pivot: "What haven't we seen yet?",
     equals: "Possibility",
   },
@@ -102,9 +94,7 @@ export const approaches: Approach[] = [
     slug: "stories-embed",
     name: "Stories Embed",
     line: "Make the story live everywhere.",
-    forWhom: "สำหรับแบรนด์ที่มี direction แล้ว แต่ product, channel, communication และ experience ยังไม่รู้สึกเป็นเรื่องเดียวกัน",
-    seeking: ["strategy", "narrative", "identity", "creative", "digital", "behavior", "experience"],
-    body: "ORIONS จะนำทุกส่วนมาคราฟต์ให้ทุก touchpoint มี DNA เดียวกัน",
+    for: "สำหรับแบรนด์ที่มี direction แล้ว แต่ product, channel, communication และ experience ยังไม่รู้สึกเป็นเรื่องเดียวกัน",
     pivot: "One story. Many expressions.",
     equals: "Coherence",
   },

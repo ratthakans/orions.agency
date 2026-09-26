@@ -3,11 +3,9 @@ import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
-import { archive, archiveThemes } from "@/data/archive";
+import { archive } from "@/data/archive";
 
-/** A typographic index, not a feed: no cover images (the design system bans
- *  stock imagery), no dates (the pieces are numbered), grouped by the layer of
- *  the blueprint each one belongs to. */
+/** One numbered list — no cover images, no dates, no categories. */
 const Archive = () => (
   <div>
     <SEO
@@ -25,31 +23,24 @@ const Archive = () => (
       </div>
     </section>
 
-    {archiveThemes.map((theme) => (
-      <section key={theme} className="px-6 md:px-10 border-t border-foreground/15">
-        <div className="max-w-[1280px] mx-auto py-14 md:py-20 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-8 lg:gap-24">
-          <SectionLabel label={theme} />
-          <div className="border-t border-foreground/15">
-            {archive
-              .filter((piece) => piece.theme === theme)
-              .map((piece) => (
-                <Link
-                  key={piece.slug}
-                  to={`/archive/${piece.slug}`}
-                  className="group grid grid-cols-[44px_1fr_20px] items-baseline gap-4 py-6 border-b border-foreground/15"
-                >
-                  <span className="font-mono text-[11px] text-muted-foreground">{piece.n}</span>
-                  <span>
-                    <span className="block font-display text-[21px] md:text-[25px] leading-[1.15] group-hover:opacity-80 transition-opacity">{piece.title}</span>
-                    <span lang="th" className="mt-2 block font-thai text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">{piece.dek}</span>
-                  </span>
-                  <ArrowUpRight className="w-4 h-4 text-foreground/40 group-hover:text-foreground transition-colors" />
-                </Link>
-              ))}
-          </div>
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-14 md:py-20">
+        <div className="border-t border-foreground/15">
+          {archive.map((piece) => (
+            <Link
+              key={piece.slug}
+              to={`/archive/${piece.slug}`}
+              className="group grid grid-cols-[44px_1fr_20px] md:grid-cols-[80px_1fr_1fr_24px] items-baseline gap-4 md:gap-10 py-7 border-b border-foreground/15"
+            >
+              <span className="font-mono text-[11px] text-muted-foreground">{piece.n}</span>
+              <span className="font-display text-[21px] md:text-[25px] leading-[1.15] group-hover:opacity-80 transition-opacity">{piece.title}</span>
+              <span lang="th" className="col-start-2 md:col-start-auto font-thai text-[14px] md:text-[15px] leading-[1.7] text-muted-foreground">{piece.dek}</span>
+              <ArrowUpRight className="hidden md:block w-4 h-4 text-foreground/40 group-hover:text-foreground transition-colors" />
+            </Link>
+          ))}
         </div>
-      </section>
-    ))}
+      </div>
+    </section>
   </div>
 );
 

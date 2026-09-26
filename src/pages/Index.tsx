@@ -8,7 +8,7 @@ import Picture from "@/components/Picture";
 import HeroReel from "@/components/HeroReel";
 import heroPoster from "@/assets/hero-reel-poster.jpg?as=picture";
 import founderPortrait from "@/assets/team/founder-portrait.jpg?as=picture";
-import { approaches, brand, brandIdea, getApproach, services } from "@/data/practice";
+import { brand, brandIdea, getApproach, services } from "@/data/practice";
 import { caseStudies } from "@/data/caseStudies";
 
 const featuredSlugs = ["heavy-organizer", "hongmove", "khaoyai-country-club"];
@@ -132,8 +132,7 @@ const Index = () => (
       </div>
     </section>
 
-    {/* Services in one line each; the approaches as a single quiet row under
-        them, so they read as how services combine, not as two more services. */}
+    {/* Services in one line each. The approaches live on /services only. */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1400px] mx-auto py-24 md:py-36">
         <div className="flex items-end justify-between gap-8">
@@ -154,15 +153,6 @@ const Index = () => (
               <h3 className="h-display-md">{s.name}</h3>
               <p className="font-body text-[17px] md:text-[20px] text-foreground/80">{s.line}</p>
               <ArrowUpRight className="hidden md:block w-5 h-5 text-foreground/40 group-hover:text-foreground transition-colors" />
-            </Link>
-          ))}
-        </div>
-        <div className="mt-10 flex flex-wrap items-baseline gap-x-10 gap-y-4">
-          <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">Signature approaches</span>
-          {approaches.map((a) => (
-            <Link key={a.slug} to={`/services#${a.slug}`} className="cta-link">
-              <span>{a.name} — {a.equals}</span>
-              <ArrowUpRight className="w-4 h-4" />
             </Link>
           ))}
         </div>

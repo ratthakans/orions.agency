@@ -58,22 +58,17 @@ const About = () => (
       </div>
     </section>
 
-    {/* Point of view and principles — the one place on the site they appear. */}
+    {/* Point of view, as one line, with the principles that follow from it. */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-24">
         <SectionLabel label="Point of view" />
         <div>
-          <p lang="th" className="max-w-[620px] font-thai thai-wrap text-[17px] md:text-[20px] leading-[1.8] text-foreground/85">{pointOfView.th}</p>
-          <p className="mt-12 font-display text-[22px] md:text-[28px] text-foreground/40 line-through decoration-1">{pointOfView.not}</p>
           <Reveal emphasis="lead">
-            <h2 className="mt-3 h-display-md">{pointOfView.but}</h2>
+            <h2 className="h-display-md">{pointOfView}</h2>
           </Reveal>
-          <ul className="mt-14 border-t border-foreground/15">
-            {principles.map((line, i) => (
-              <li key={line} className="flex items-baseline gap-6 py-5 border-b border-foreground/15">
-                <span className="font-mono text-[11px] text-muted-foreground">0{i + 1}</span>
-                <span className="font-body text-[18px] md:text-[21px]">{line}</span>
-              </li>
+          <ul className="mt-12 border-t border-foreground/15">
+            {principles.map((line) => (
+              <li key={line} className="py-5 border-b border-foreground/15 font-body text-[18px] md:text-[21px]">{line}</li>
             ))}
           </ul>
         </div>

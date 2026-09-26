@@ -51,7 +51,7 @@ const ArchivePost = () => {
             <ArrowLeft className="w-3.5 h-3.5" /> Archive
           </Link>
           <div className="mt-12">
-            <SectionLabel index={`No. ${piece.n} / ${total}`} label={piece.theme} />
+            <SectionLabel label={`No. ${piece.n} / ${total}`} />
           </div>
           <Reveal emphasis="lead">
             <h1 className="mt-8 h-display-md">{piece.title}</h1>

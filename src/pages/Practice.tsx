@@ -61,13 +61,7 @@ const Practice = () => (
               <article key={a.slug} id={a.slug} className="pt-8 border-t border-foreground/25 scroll-mt-24">
                 <h2 className="h-display-md">{a.name}</h2>
                 <p className="mt-3 font-body text-[19px] md:text-[22px]">{a.line}</p>
-                <p lang="th" className="mt-8 font-thai text-[15px] md:text-[16px] leading-[1.8] text-foreground/80">{a.forWhom}</p>
-                {/* Mixed Thai and English, so body type — mono uppercase would push the
-                    Thai into a fallback face. */}
-                <p lang="th" className="mt-3 font-thai text-[15px] leading-[1.8] text-muted-foreground">
-                  {a.seeking.join(" · ")}
-                </p>
-                <p lang="th" className="mt-6 font-thai text-[15px] md:text-[16px] leading-[1.8] text-foreground/80">{a.body}</p>
+                <p lang="th" className="mt-8 max-w-[520px] font-thai text-[15px] md:text-[16px] leading-[1.8] text-foreground/80">{a.for}</p>
                 <p className="mt-8 font-serif text-[24px] md:text-[30px] leading-[1.15]">{a.pivot}</p>
                 <p className="mt-3 font-mono text-[11px] tracking-[0.18em] uppercase text-muted-foreground">
                   {a.name} = {a.equals}

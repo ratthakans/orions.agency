@@ -130,114 +130,60 @@ const CaseStudy = () => {
         </div>
       </section>
 
-      {/* Context: the brief and the conditions around it. */}
+      {/* The case in one section: five rows, one per stage, every word from the
+          case file. It used to be five full-screen sections of one paragraph
+          each, alternating ink and paper — long to scroll for what it said. */}
       <section className="px-6 md:px-10 border-t border-foreground/15">
-        <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 md:grid-cols-12 gap-10">
-          <div className="md:col-span-4">
-            <SectionLabel index="01" label="The Context" />
-            <Reveal delay={0.05}>
-              <p lang="th" className="mt-6 font-thai thai-wrap text-[13px] leading-[1.8] text-muted-foreground max-w-[28ch]">
-                จุดเริ่มต้นของโจทย์
-              </p>
-            </Reveal>
-          </div>
-          <div className="md:col-span-8">
-            <Reveal delay={0.05}>
-              <p lang="th" className="font-body text-[22px] md:text-[30px] leading-[1.4] tracking-[-0.01em] text-foreground/75 max-w-[640px]">
-                {cs.symptom}
-              </p>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* What we found: the insight behind the work. */}
-      <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
-        <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 md:grid-cols-12 gap-10">
-          <div className="md:col-span-4">
-            <SectionLabel index="02" label="What We Found" />
-            <Reveal delay={0.05}>
-              <p lang="th" className="mt-6 font-thai thai-wrap text-[13px] leading-[1.8] text-muted-foreground max-w-[28ch]">
-                {getApproach(cs.approach)?.line}
-              </p>
-              <Link to={`/services#${cs.approach}`} className="cta-link mt-5">
-                <span>{getApproach(cs.approach)?.name}</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </Link>
-            </Reveal>
-          </div>
-          <div className="md:col-span-8">
-            <Reveal delay={0.05} emphasis="lead">
-              <p lang="th" className="editorial-quote max-w-[680px] text-[20px] md:text-[28px]">
-                {cs.verdict}
-              </p>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* 05 — เงื่อนไข (the constraint that shaped the answer) */}
-      <section className="px-6 md:px-10 border-t border-foreground/15">
-        <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 md:grid-cols-12 gap-10">
-          <div className="md:col-span-4">
-            <SectionLabel index="03" label="The Conditions" />
-          </div>
-          <div className="md:col-span-8">
-            <Reveal delay={0.05}>
-              <p lang="th" className="font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.85] text-foreground/85 max-w-[640px]">
-                {cs.constraint}
-              </p>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* 06 — สิ่งที่ทำ */}
-      <section className="section-ink px-6 md:px-10 border-t border-foreground/15">
-        <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 md:grid-cols-12 gap-10">
-          <div className="md:col-span-4">
-            <SectionLabel index="04" label="What We Shaped" />
-          </div>
-          <div className="md:col-span-8">
-            <Reveal delay={0.05}>
-              <p lang="th" className="font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.85] text-foreground/85 max-w-[640px]">
-                {cs.whatWeDid}
-              </p>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* Refinement: what was deliberately left out. */}
-      <section className="px-6 md:px-10 border-t border-foreground/15">
-        <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 md:grid-cols-12 gap-10">
-          <div className="md:col-span-4">
-            <SectionLabel index="05" label="The Refinement" />
-          </div>
-          <div className="md:col-span-8">
-            <Reveal delay={0.05}>
-              <p lang="th" className="editorial-quote max-w-[680px] text-[20px] md:text-[26px]">
-                {cs.whatWeKilled}
-              </p>
-            </Reveal>
-          </div>
+        <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+          {[
+            { n: "01", label: "The Context", text: cs.symptom, quote: false },
+            { n: "02", label: "What We Found", text: cs.verdict, quote: true },
+            { n: "03", label: "The Conditions", text: cs.constraint, quote: false },
+            { n: "04", label: "What We Shaped", text: cs.whatWeDid, quote: false },
+            { n: "05", label: "The Refinement", text: cs.whatWeKilled, quote: false },
+          ].map((row) => (
+            <div key={row.n} className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-10 py-10 md:py-12 border-t border-foreground/15 first:border-t-0 first:pt-0">
+              <div className="md:col-span-4">
+                <SectionLabel index={row.n} label={row.label} />
+                {row.quote && (
+                  <Link to={`/services#${cs.approach}`} className="cta-link mt-5">
+                    <span>{getApproach(cs.approach)?.name}</span>
+                    <ArrowUpRight className="w-4 h-4" />
+                  </Link>
+                )}
+              </div>
+              <div className="md:col-span-8">
+                <p
+                  lang="th"
+                  className={
+                    row.quote
+                      ? "editorial-quote max-w-[680px] text-[20px] md:text-[28px]"
+                      : "font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.85] text-foreground/85 max-w-[640px]"
+                  }
+                >
+                  {row.text}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* BEFORE / AFTER — hidden until each case has real before/after frames (no placeholder imagery in production). */}
 
-      {/* 04 — GALLERY (only if >1 image) */}
+      {/* Gallery (only if >1 image) */}
       {cs.gallery.length > 1 && (
         <section className="px-6 md:px-10 border-t border-foreground/15">
           <div className="max-w-[1280px] mx-auto py-24 md:py-36">
-            <SectionLabel index="06" label="Selected Frames" />
+            <SectionLabel label="Selected Frames" />
             <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               {cs.gallery.map((img, i) => (
-                <Reveal key={i} delay={0.04 * i}>
+                // The span belongs on the grid item — Reveal — not the frame inside
+                // it; on the inner div it did nothing, and the lead frame sat in
+                // one column beside a taller one, leaving the last frame alone.
+                <Reveal key={i} delay={0.04 * i} className={i === 0 ? "md:col-span-2" : ""}>
                   <div
-                    className={`group relative w-full overflow-hidden rounded-none bg-muted ${
-                      i === 0 ? "md:col-span-2" : ""
-                    }`}
+                    className="group relative w-full overflow-hidden rounded-none bg-muted"
                     style={{ aspectRatio: i === 0 ? "16 / 9" : "4 / 5" }}
                   >
                     <Picture

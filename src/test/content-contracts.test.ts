@@ -149,19 +149,18 @@ describe("archive", () => {
     archive.forEach((p) => expect(p.body.length, p.slug).toBeGreaterThanOrEqual(5));
   });
 
-  /** Every image is the studio's own work — a file the case studies already
-   *  import, or one from the /work photography and art-direction boards —
-   *  never stock, and every image carries a credit naming its project. */
-  it("illustrates every piece with credited images from the studio's own work", () => {
-    const own = new Set(Array.from(fromRoot("src/data/caseStudies.ts").matchAll(/from "(@\/assets\/[^"?]+)/g), (m) => m[1]));
-    const boards = /^@\/assets\/work\/(photography|artdir)\/[^/]+\.jpg$/;
+  /** Archive photographs come from Pexels, are saved in the repo (not
+   *  hotlinked), and each is credited to its photographer with a link to the
+   *  photo's Pexels page. */
+  it("illustrates every piece with a credited Pexels photograph", () => {
     const used = Array.from(fromRoot("src/data/archive.ts").matchAll(/from "(@\/assets\/[^"?]+)/g), (m) => m[1]);
-    expect(used.length).toBeGreaterThan(0);
-    used.forEach((path) => expect(own.has(path) || boards.test(path), `${path} is not from the work`).toBe(true));
+    expect(used).toHaveLength(archive.length);
+    used.forEach((path) => expect(path, path).toMatch(/^@\/assets\/archive\/\d{2}\.jpg$/));
     archive.forEach((p) => {
-      expect(p.image, p.slug).toBeTruthy();
-      expect(p.credit.length, p.slug).toBeGreaterThan(0);
+      expect(p.credit, p.slug).toMatch(/^Photo by .+ on Pexels$/);
+      expect(p.source, p.slug).toMatch(/^https:\/\/www\.pexels\.com\/photo\/\d+\/$/);
     });
+    expect(new Set(archive.map((p) => p.source)).size).toBe(archive.length);
   });
 
   /** From the brand book. Guards the essays and every page they sit beside. */

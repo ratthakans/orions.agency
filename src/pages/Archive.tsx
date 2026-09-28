@@ -5,7 +5,7 @@ import SectionLabel from "@/components/SectionLabel";
 import Picture from "@/components/Picture";
 import { archive } from "@/data/archive";
 
-/** Twelve numbered pieces, each with a thumbnail from the studio's own work.
+/** Twelve numbered pieces, each with a Pexels photograph as its thumbnail.
  *  No dates, no categories. */
 const Archive = () => (
   <div>
@@ -31,7 +31,7 @@ const Archive = () => (
             <div className="film-frame aspect-[4/3] bg-surface-2">
               <Picture
                 data={piece.image}
-                alt={piece.credit}
+                alt=""
                 loading="lazy"
                 style={{ objectPosition: piece.focus }}
                 className="w-full h-full object-cover grayscale-[0.3] saturate-[0.85] transition-[transform,filter] duration-700 group-hover:scale-[1.03] group-hover:grayscale-0"

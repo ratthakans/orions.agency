@@ -60,21 +60,22 @@ const ArchivePost = () => {
           </Reveal>
           <p lang="th" className="mt-6 font-thai thai-wrap text-[18px] md:text-[21px] leading-[1.7] text-foreground/75">{piece.dek}</p>
 
-          {/* Never wider than the source can hold: three frames (My Hotel,
-              Movement Party, RTAF) are only ~450–550px wide and go soft when
-              stretched to the full reading measure, so they sit narrower. */}
-          <figure className={`mt-12 ${piece.image.img.w < 900 ? "max-w-[520px]" : ""}`}>
+          <figure className="mt-12">
             <div className="film-frame aspect-[3/2] bg-surface-2">
               <Picture
                 data={piece.image}
-                alt={piece.credit}
+                alt=""
                 loading="eager"
                 fetchPriority="high"
                 style={{ objectPosition: piece.focus }}
                 className="w-full h-full object-cover grayscale-[0.3] saturate-[0.85]"
               />
             </div>
-            <figcaption lang="th" className="mt-3 font-thai text-[13px] leading-[1.6] text-muted-foreground">{piece.credit}</figcaption>
+            <figcaption className="mt-3 font-body text-[13px] leading-[1.6] text-muted-foreground">
+              <a href={piece.source} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-foreground/25 hover:text-foreground transition-colors">
+                {piece.credit}
+              </a>
+            </figcaption>
           </figure>
 
           <div className="mt-14 pt-10 border-t border-foreground/15 flex flex-col gap-7">

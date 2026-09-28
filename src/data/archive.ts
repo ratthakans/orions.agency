@@ -1,4 +1,5 @@
-/** The Archive — twelve short pieces, three per layer of the blueprint.
+/** The Archive — twelve short pieces, three per layer of the blueprint, each
+ *  with an image from the studio's own work that matches what it says.
  *
  *  Voice: observational, precise, human, unexpected. No buzzwords. Any client
  *  named here is quoted only from what src/data/caseStudies.ts already records;
@@ -10,6 +11,20 @@
  *  Body format: one string per paragraph. A paragraph that starts with "> "
  *  renders as a pull line. */
 
+import type { PictureData } from "@/components/Picture";
+import democrat from "@/assets/democrat.jpg?as=picture";
+import tearInTheBrain from "@/assets/work/artdir/artdir-11.jpg?as=picture";
+import hongmove from "@/assets/hongmove.jpg?as=picture";
+import couple from "@/assets/work/photography/13.jpg?as=picture";
+import festivalCrowd from "@/assets/concert-crowd.jpg?as=picture";
+import anatta from "@/assets/work/artdir/artdir-03.jpg?as=picture";
+import myHotel from "@/assets/work-myhotel.jpg?as=picture";
+import khaoYai from "@/assets/golf-lifestyle.jpg?as=picture";
+import movementParty from "@/assets/work-palawat.jpg?as=picture";
+import gcoo from "@/assets/gcoo.jpg?as=picture";
+import airForce from "@/assets/work/photography/16.jpg?as=picture";
+import boom from "@/assets/work/photography/03.jpg?as=picture";
+
 export type ArchiveTheme = "Point of View" | "Brand Idea" | "Method" | "Signature Approaches";
 
 export type ArchivePiece = {
@@ -18,6 +33,13 @@ export type ArchivePiece = {
   theme: ArchiveTheme;
   title: string;
   dek: string;
+  /** From ORIONS' own work only — the case files or the /work boards — never
+   *  stock. The credit names the project so no image implies a client it
+   *  does not come from. */
+  image: PictureData;
+  credit: string;
+  /** object-position for the 3:2 and 4:3 crops */
+  focus: string;
   body: string[];
 };
 
@@ -28,6 +50,9 @@ export const archive: ArchivePiece[] = [
     theme: "Point of View",
     title: "More isn't the answer.",
     dek: "ทำไมแบรนด์ที่พูดเยอะที่สุด มักถูกจำได้น้อยที่สุด",
+    image: democrat,
+    credit: "Democrat Party — กิจกรรมที่สื่อสารจุดยืนในกรอบที่กฎหมายอนุญาต",
+    focus: "center",
     body: [
       "ลองนึกถึงแบรนด์ที่คุณจำได้จริง ๆ สักสามแบรนด์ แล้วถามตัวเองว่าจำได้เพราะอะไร แทบไม่มีใครตอบว่า เพราะเขาโพสต์ทุกวัน",
       "ความถี่เคยเป็นข้อได้เปรียบ ในวันที่พื้นที่ยังมีน้อยและการพูดยังมีต้นทุนสูง แต่วันนี้ทุกแบรนด์ผลิต content ได้แทบไม่จำกัด เมื่อทุกคนพูดได้เท่ากัน การพูดมากขึ้นจึงไม่ได้ทำให้ถูกได้ยินมากขึ้น มันแค่ทำให้เสียงของเรากลืนไปกับเสียงรอบข้างเร็วขึ้น",
@@ -45,6 +70,9 @@ export const archive: ArchivePiece[] = [
     theme: "Point of View",
     title: "The cost of one more post",
     dek: "content ที่ไม่มีเหตุผลรองรับ ค่อย ๆ กัดกร่อนตัวตนของแบรนด์อย่างเงียบ ๆ",
+    image: tearInTheBrain,
+    credit: "ปกเพลง — งาน art direction โดย ORIONS",
+    focus: "center 40%",
     body: [
       "ไม่มีโพสต์ไหนทำลายแบรนด์ได้ในครั้งเดียว นั่นคือเหตุผลที่มันอันตราย",
       "ชิ้นงานที่ทำเพราะถึงรอบต้องลง มีต้นทุนที่ไม่เคยปรากฏในใบเสนอราคา และต้นทุนนั้นจ่ายเป็นงวด ๆ จนไม่มีใครสังเกต",
@@ -62,6 +90,9 @@ export const archive: ArchivePiece[] = [
     theme: "Point of View",
     title: "Refinement is not polish.",
     dek: "ทำให้สวย กับทำให้คม ต่างกันตรงไหน",
+    image: hongmove,
+    credit: "HONG MOVE — แท็กซี่ VIP EV ในสนามบิน",
+    focus: "center 60%",
     body: [
       "เวลาคนได้ยินคำว่า refine มักนึกถึงขั้นตอนสุดท้ายก่อนส่งงาน ปรับสีอีกนิด เกลาคำอีกหน่อย ขยับระยะให้ลงตัว",
       "นั่นคือ polish และ polish มีค่า แต่มันทำงานกับผิวของงาน ส่วน refine ทำงานกับแก่นของมัน",
@@ -78,6 +109,9 @@ export const archive: ArchivePiece[] = [
     theme: "Brand Idea",
     title: "A story is what people come to understand",
     dek: "เรื่องของแบรนด์ไม่ได้อยู่ใน tagline",
+    image: couple,
+    credit: "งานถ่ายภาพโดย ORIONS",
+    focus: "center 8%",
     body: [
       "แบรนด์ส่วนใหญ่คิดว่าเรื่องของตัวเองคือสิ่งที่เขียนไว้ใน brand book ย่อหน้าที่ถูกแก้มาสิบรอบ tagline ที่ผ่านการโหวต",
       "แต่เรื่องที่คนจำได้ไม่ใช่สิ่งที่แบรนด์พูด มันคือสิ่งที่คนสรุปได้เอง หลังจากเจอแบรนด์หลายครั้งในหลายที่",
@@ -94,6 +128,9 @@ export const archive: ArchivePiece[] = [
     theme: "Brand Idea",
     title: "Behavior is the brand",
     dek: "สิ่งที่แบรนด์ทำ ดังกว่าสิ่งที่แบรนด์พูด",
+    image: festivalCrowd,
+    credit: "HEAVY ORGANIZER — ผู้ชมในเทศกาลดนตรี",
+    focus: "center",
     body: [
       "โฆษณาบอกว่าใส่ใจลูกค้า แต่สายด่วนให้รอยี่สิบนาที คนจะเชื่ออย่างไหน",
       "Behavior คือส่วนของแบรนด์ที่แทบไม่มีใครออกแบบอย่างตั้งใจ นโยบายคืนสินค้า น้ำเสียงในการตอบ comment ความเร็วในการแก้ปัญหา สิ่งเหล่านี้มักถูกตัดสินโดยฝ่ายปฏิบัติการ ไม่ใช่ทีมแบรนด์ แต่คนดูไม่ได้แยกว่าใครเป็นคนตัดสิน เขาเห็นแค่ว่าแบรนด์นี้ทำตัวแบบนี้",
@@ -109,6 +146,9 @@ export const archive: ArchivePiece[] = [
     theme: "Brand Idea",
     title: "Aesthetic is a decision, not a style",
     dek: "รสนิยมคือการเลือก ไม่ใช่การตกแต่ง",
+    image: anatta,
+    credit: "อนาคต (Netflix) — key visual, art direction",
+    focus: "center 45%",
     body: [
       "หลายโปรเจกต์เริ่มจากภาพ reference ชุดหนึ่ง พร้อมประโยคว่า อยากได้แบบนี้",
       "สิ่งที่อยู่ในภาพเหล่านั้นคือ style ผลลัพธ์ที่มองเห็นได้ ส่วน aesthetic คือเหตุผลที่อยู่ข้างหลังมัน ทำไมสีนี้ ทำไมพื้นที่ว่างเท่านี้ ทำไมตัวอักษรหนักแค่นี้",
@@ -124,6 +164,9 @@ export const archive: ArchivePiece[] = [
     theme: "Method",
     title: "See what others overlook",
     dek: "งานเริ่มก่อน brief จะมาถึง",
+    image: myHotel,
+    credit: "My Hotel — แพลตฟอร์มจองโรงแรม",
+    focus: "85% center",
     body: [
       "Brief ส่วนใหญ่มาพร้อมคำตอบอยู่แล้ว อยากได้แคมเปญ อยากได้เว็บใหม่ อยากได้วิดีโอเปิดตัว",
       "Observe คือขั้นแรกของวิธีทำงานของเรา และเป็นขั้นที่เราถามว่าโจทย์จริงคืออะไร ก่อนจะรีบตอบโจทย์ที่ถูกส่งมา",
@@ -140,6 +183,9 @@ export const archive: ArchivePiece[] = [
     theme: "Method",
     title: "Same product, a different reason to care",
     dek: "บางครั้งไม่ต้องเปลี่ยนสินค้า แค่เปลี่ยนกรอบที่ใช้มองมัน",
+    image: khaoYai,
+    credit: "Khao Yai Country Club — leisure golf",
+    focus: "center 60%",
     body: [
       "เมื่อยอดขายไม่ขยับ ปฏิกิริยาแรกมักเป็นการแก้ตัวสินค้า เปลี่ยนแพ็กเกจ เพิ่มฟีเจอร์ ลดราคา",
       "บางครั้งตัวสินค้าไม่ได้มีปัญหา ปัญหาคือเรายังมองมันผ่านกรอบเดิม และกรอบเดิมนั้นมีความหมายกับคนกลุ่มเดิมเท่านั้น",
@@ -155,6 +201,9 @@ export const archive: ArchivePiece[] = [
     theme: "Method",
     title: "Turning meaning into form",
     dek: "จากความหมาย ไปเป็นภาพ คำ และประสบการณ์",
+    image: movementParty,
+    credit: "Movement Party — การเปิดตัวพรรค",
+    focus: "center 35%",
     body: [
       "ทุกโปรเจกต์มีช่วงหนึ่งที่ทุกคนเห็นด้วยกับไอเดีย แต่ยังไม่มีใครเห็นมันจริง ๆ",
       "Shape คือการแปลความหมายที่ยังเป็นนามธรรม ให้กลายเป็นสิ่งที่จับต้องได้ คำไหน สีอะไร จังหวะแบบไหน ภาพควรเงียบหรือควรดัง",
@@ -170,6 +219,9 @@ export const archive: ArchivePiece[] = [
     theme: "Signature Approaches",
     title: "What haven't we seen yet?",
     dek: "Creative Unlock — การหา S-curve ใหม่ เริ่มจากสิ่งที่แบรนด์มีอยู่แล้ว",
+    image: gcoo,
+    credit: "GCOO — การเปิดตลาดไทย",
+    focus: "center 45%",
     body: [
       "เมื่อ growth เริ่มชะลอ คำตอบแรกมักคือทำเพิ่ม เพิ่มงบ เพิ่มช่องทาง เพิ่มแคมเปญ",
       "Creative Unlock เริ่มจากคำถามอีกแบบ อะไรที่เรายังไม่เคยเห็น ทั้งที่มันอยู่ในมือแบรนด์มาตลอด",
@@ -185,6 +237,9 @@ export const archive: ArchivePiece[] = [
     theme: "Signature Approaches",
     title: "Identity should be embedded, not applied",
     dek: "Stories Embed — ตัวตนที่แท้จริงไม่ได้อยู่ใน logo",
+    image: airForce,
+    credit: "Royal Thai Air Force",
+    focus: "center",
     body: [
       "มีแบรนด์จำนวนมากที่ผ่าน brand guideline ครบทุกข้อ logo ถูกที่ สีถูกค่า ฟอนต์ถูกน้ำหนัก แต่พอเอาทุกจุดสัมผัสมาวางเรียงกัน กลับไม่รู้สึกว่าเป็นแบรนด์เดียวกัน",
       "นั่นคือตัวตนแบบ applied แปะไว้ด้านนอก ถูกต้องทุกจุด แต่ไม่ได้อยู่ข้างใน",
@@ -200,6 +255,9 @@ export const archive: ArchivePiece[] = [
     theme: "Signature Approaches",
     title: "One story. Many expressions.",
     dek: "ความสม่ำเสมอ ไม่ได้แปลว่าทุกอย่างต้องเหมือนกัน",
+    image: boom,
+    credit: "BOOM Collagen+ — หนึ่งแคมเปญ หลายชิ้นงาน",
+    focus: "center 55%",
     body: [
       "Brand consistency มักถูกเข้าใจว่าเป็นการทำให้ทุกอย่างหน้าตาเหมือนกัน template เดียวกัน โทนเดียวกัน ประโยคปิดเดียวกัน",
       "แต่คนคนหนึ่งพูดกับเพื่อนไม่เหมือนพูดในที่ประชุม เขียนข้อความถึงแม่ไม่เหมือนเขียนอีเมลงาน แล้วเราก็ยังรู้ว่าเป็นคนเดิม สิ่งที่คงที่ไม่ใช่รูปแบบ มันคือมุมมอง",

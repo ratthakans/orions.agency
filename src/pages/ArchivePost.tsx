@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
+import Picture from "@/components/Picture";
 import { archive, getAdjacentPieces, getPiece } from "@/data/archive";
 
 const SITE_URL = "https://orions.agency";
@@ -25,6 +26,7 @@ const ArchivePost = () => {
       "@type": "Article",
       headline: piece.title,
       description: piece.dek,
+      image: `${SITE_URL}${piece.image.img.src}`,
       articleSection: piece.theme,
       inLanguage: "th",
       author: { "@type": "Organization", name: "ORIONS", url: SITE_URL },
@@ -43,7 +45,7 @@ const ArchivePost = () => {
 
   return (
     <div>
-      <SEO title={`${piece.title} — Archive · ORIONS`} description={piece.dek} path={`/archive/${piece.slug}`} ogType="article" schema={schema} />
+      <SEO title={`${piece.title} — Archive · ORIONS`} description={piece.dek} path={`/archive/${piece.slug}`} image={piece.image.img.src} ogType="article" schema={schema} />
 
       <article className="px-6 md:px-10">
         <div className="max-w-[760px] mx-auto pt-28 md:pt-36 pb-20 md:pb-28">
@@ -57,6 +59,23 @@ const ArchivePost = () => {
             <h1 className="mt-8 h-display-md">{piece.title}</h1>
           </Reveal>
           <p lang="th" className="mt-6 font-thai thai-wrap text-[18px] md:text-[21px] leading-[1.7] text-foreground/75">{piece.dek}</p>
+
+          {/* Never wider than the source can hold: three frames (My Hotel,
+              Movement Party, RTAF) are only ~450–550px wide and go soft when
+              stretched to the full reading measure, so they sit narrower. */}
+          <figure className={`mt-12 ${piece.image.img.w < 900 ? "max-w-[520px]" : ""}`}>
+            <div className="film-frame aspect-[3/2] bg-surface-2">
+              <Picture
+                data={piece.image}
+                alt={piece.credit}
+                loading="eager"
+                fetchPriority="high"
+                style={{ objectPosition: piece.focus }}
+                className="w-full h-full object-cover grayscale-[0.3] saturate-[0.85]"
+              />
+            </div>
+            <figcaption lang="th" className="mt-3 font-thai text-[13px] leading-[1.6] text-muted-foreground">{piece.credit}</figcaption>
+          </figure>
 
           <div className="mt-14 pt-10 border-t border-foreground/15 flex flex-col gap-7">
             {piece.body.map((para, i) =>

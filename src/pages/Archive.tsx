@@ -37,7 +37,7 @@ const Archive = () => (
                 className="w-full h-full object-cover grayscale-[0.3] saturate-[0.85] transition-[transform,filter] duration-700 group-hover:scale-[1.03] group-hover:grayscale-0"
               />
             </div>
-            <span className="mt-5 block font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">No. {piece.n}</span>
+            <span className="mt-5 block font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground">No. {piece.n}</span>
             <span className="mt-2 block font-display text-[21px] md:text-[23px] leading-[1.15] group-hover:opacity-80 transition-opacity">{piece.title}</span>
             <span lang="th" className="mt-3 block font-thai text-[14px] leading-[1.7] text-muted-foreground">{piece.dek}</span>
           </Link>

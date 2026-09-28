@@ -12,8 +12,8 @@ Use CSS variables for every surface and line. `--accent`, `--ring`, and the Tail
 
 | Role | Face | Rule |
 |---|---|---|
-| English headings | Unbounded 500/600 | Uppercase, tight tracking, fluid `.h-display-*` scale |
-| Selected editorial statement | Newsreader 400/500 | Rare emphasis in running content; the verdict quote on case pages, the approach pivots on `/services`, and pull lines in the Archive |
+| English headings | Unbounded 500/600 | Uppercase, tight tracking, fluid `.h-display-*` scale. A `<span>` inside a heading inherits the heading's face (the document is `lang=th`, which would otherwise hand it IBM Plex Sans Thai) |
+| Master line and editorial statements | Newsreader 400/500 | "Stories, Refined." in the hero and on the share image, set as written (not uppercase); also case-page verdicts, approach pivots on `/services` and Archive pull lines |
 | Body and Thai | IBM Plex Sans Thai | Comfortable measure and generous leading; Thai is never forced uppercase |
 | Labels and metadata | IBM Plex Mono | Small uppercase labels, indexes and navigation details |
 

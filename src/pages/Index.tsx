@@ -8,7 +8,7 @@ import Picture from "@/components/Picture";
 import HeroReel from "@/components/HeroReel";
 import heroPoster from "@/assets/hero-reel-poster.jpg?as=picture";
 import founderPortrait from "@/assets/team/founder-portrait.jpg?as=picture";
-import { brand, brandIdea, getApproach, services } from "@/data/practice";
+import { approaches, brand, brandIdea, getApproach, services } from "@/data/practice";
 import { caseStudies } from "@/data/caseStudies";
 
 const featuredSlugs = ["heavy-organizer", "hongmove", "khaoyai-country-club"];
@@ -35,17 +35,21 @@ const Index = () => (
       <div className="max-w-[1400px] mx-auto w-full pt-36 pb-16 md:pb-20 relative z-10">
         <div className="flex items-start justify-between gap-8">
           <Reveal><SectionLabel label={`ORIONS · ${brand.descriptor}`} /></Reveal>
-          <span className="hidden md:block font-mono text-[10px] tracking-[0.22em] uppercase text-foreground/75">Showreel 2026 · ORIONS</span>
+          <span className="hidden md:block font-mono text-[11px] tracking-[0.22em] uppercase text-foreground/75">Showreel 2026 · ORIONS</span>
         </div>
         <Reveal delay={0.08} emphasis="lead">
-          <h1 className="mt-14 md:mt-20 h-display-xl hero-title">
+          <h1 className="mt-12 md:mt-16 hero-title">
             <span className="block whitespace-nowrap">Stories,</span>
             <span className="block whitespace-nowrap">Refined.</span>
           </h1>
         </Reveal>
-        <div className="mt-16 md:mt-24 pt-7 border-t border-foreground/30 grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-10 lg:gap-20">
+        <div className="mt-12 md:mt-16 pt-7 border-t border-foreground/30 grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-10 lg:gap-20">
           <Reveal delay={0.18}>
             <p className="max-w-[560px] font-body text-[19px] md:text-[23px] leading-[1.45] text-foreground/90">{brand.belief.en}</p>
+            {/* The Thai reader's first sentence is in Thai, not a section later. */}
+            <p lang="th" className="mt-4 max-w-[560px] font-thai thai-wrap text-[15px] md:text-[17px] leading-[1.75] text-foreground/75">
+              {brand.belief.th}
+            </p>
           </Reveal>
           <Reveal delay={0.25}>
             <div className="flex flex-wrap lg:justify-end items-start gap-x-10 gap-y-6">
@@ -63,34 +67,31 @@ const Index = () => (
       </div>
     </section>
 
-    {/* Concept, part two: where a story actually lives. */}
+    {/* Concept, part two: one idea — where a story actually lives. The heading
+        takes the left column instead of leaving it to a label. */}
     <section className="section-paper px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1400px] mx-auto py-24 md:py-36">
-        <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-24">
+      <div className="max-w-[1400px] mx-auto py-16 md:py-24 grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-24">
+        <div>
           <SectionLabel label="Brand idea" />
-          <div>
-            <Reveal emphasis="lead">
-              <h2 className="h-display-md max-w-[22ch]">{brandIdea.line}</h2>
-            </Reveal>
-            <p lang="th" className="mt-8 max-w-[620px] font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.8] text-foreground/80">
-              {brand.belief.th}
-            </p>
-          </div>
+          <Reveal emphasis="lead">
+            <h2 className="mt-8 h-display-md max-w-[20ch]">{brandIdea.line}</h2>
+          </Reveal>
+          <p className="mt-6 font-serif text-[22px] md:text-[28px] leading-[1.15]">{brandIdea.close}</p>
         </div>
-        <div className="mt-16 md:mt-20 grid grid-cols-2 md:grid-cols-4 border-t border-foreground/15">
-          {brandIdea.parts.map((part) => (
-            <div key={part.name} className="py-8 pr-6 border-b md:border-b-0 md:border-r border-foreground/15 last:border-r-0 md:pl-6 first:md:pl-0">
-              <h3 className="font-display text-[24px] md:text-[30px]">{part.name}</h3>
-              <p className="mt-2 font-body text-[15px] md:text-[17px] text-muted-foreground">{part.line}</p>
+        <div className="grid grid-cols-2 border-t border-foreground/15 lg:self-end">
+          {brandIdea.parts.map((part, i) => (
+            <div key={part.name} className={`py-7 border-b border-foreground/15 ${i % 2 === 0 ? "pr-4 border-r" : "pl-4 md:pl-6"}`}>
+              {/* Sized so the longest word, EXPERIENCE, fits half a phone. */}
+              <h3 className="font-display text-[14px] min-[360px]:text-[17px] sm:text-[22px] md:text-[28px] leading-[1.1]">{part.name}</h3>
+              <p className="mt-2 font-body text-[14px] md:text-[17px] text-muted-foreground">{part.line}</p>
             </div>
           ))}
         </div>
-        <p className="mt-12 font-serif text-[24px] md:text-[32px] leading-[1.15]">{brandIdea.close}</p>
       </div>
     </section>
 
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1400px] mx-auto py-24 md:py-36">
+      <div className="max-w-[1400px] mx-auto py-16 md:py-24">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
           <div>
             <SectionLabel label="Selected work" />
@@ -118,11 +119,11 @@ const Index = () => (
                     loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                   />
-                  <span className="absolute left-4 top-4 z-[3] font-mono text-[10px] tracking-[0.18em] uppercase text-white bg-black/50 px-2 py-1">
+                  <span className="absolute left-4 top-4 z-[3] font-mono text-[11px] tracking-[0.18em] uppercase text-white bg-black/50 px-2 py-1">
                     {getApproach(item.approach)?.name ?? item.approach}
                   </span>
                 </div>
-                <div className="mt-5 font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground">{item.niche} · {item.year}</div>
+                <div className="mt-5 font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground">{item.niche} · {item.year}</div>
                 <h3 className="mt-2 font-display text-[23px] md:text-[27px]">{item.title}</h3>
                 <p lang="th" className="mt-3 font-thai thai-wrap text-[14px] leading-[1.75] text-foreground/80">{item.verdictShort}</p>
               </Link>
@@ -132,9 +133,9 @@ const Index = () => (
       </div>
     </section>
 
-    {/* Services in one line each. The approaches live on /services only. */}
+    {/* Services in one line each; the detail lives on /services. */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1400px] mx-auto py-24 md:py-36">
+      <div className="max-w-[1400px] mx-auto py-16 md:py-24">
         <div className="flex items-end justify-between gap-8">
           <SectionLabel label="Services" />
           <Link to="/services" className="cta-link">
@@ -156,30 +157,44 @@ const Index = () => (
             </Link>
           ))}
         </div>
+        {/* The approaches are what sets ORIONS apart, so they get one quiet line
+            here — set apart from the services, never listed as a fourth. */}
+        <div className="mt-8 flex flex-wrap items-baseline gap-x-8 gap-y-3">
+          <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground">Signature approaches</span>
+          {approaches.map((a) => (
+            <Link key={a.slug} to="/services" hash={a.slug} className="cta-link">
+              <span>{a.name} — {a.equals}</span>
+              <ArrowUpRight className="w-4 h-4" />
+            </Link>
+          ))}
+        </div>
       </div>
     </section>
 
-    {/* About, as a face: on a founder-led studio the person is the claim. */}
+    {/* About, as a face: on a founder-led studio the person is the claim. The
+        heading holds the left column; the portrait and the line sit right. */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1400px] mx-auto py-24 md:py-36 grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-24">
-        <SectionLabel label="About" />
-        <div className="grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-8 md:gap-14 items-start">
+      <div className="max-w-[1400px] mx-auto py-16 md:py-24 grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-24">
+        <div>
+          <SectionLabel label="About" />
+          <Reveal emphasis="lead">
+            <h2 className="mt-8 h-display-md max-w-[16ch]">The person behind the work.</h2>
+          </Reveal>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-8 md:gap-12 items-start">
           <Picture
             data={founderPortrait}
             alt="Ratthakan Suwanphakdee — Founder & Creative Director, ORIONS"
             loading="lazy"
-            className="w-36 h-44 md:w-48 md:h-60 object-cover object-top grayscale-[0.3] saturate-[0.85]"
+            className="w-36 h-44 md:w-44 md:h-56 object-cover object-top grayscale-[0.3] saturate-[0.85]"
           />
           <div>
-            <Reveal emphasis="lead">
-              <h2 className="h-display-md max-w-[16ch]">The person behind the work.</h2>
-            </Reveal>
-            <p lang="th" className="mt-7 max-w-[560px] font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.8] text-foreground/80">
+            <p lang="th" className="max-w-[520px] font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.8] text-foreground/80">
               งานสร้างสรรค์ที่ดีไม่ได้เกิดจากจำนวนคน แต่เกิดจากคนที่เห็นภาพทั้งหมดพร้อมกัน
             </p>
-            <p lang="th" className="mt-7 font-thai text-[15px]">รัฐกันต์ สุวรรณภักดี</p>
-            <p className="mt-1 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">Founder &amp; Creative Director</p>
-            <Link to="/about" className="cta-link mt-9">
+            <p lang="th" className="mt-6 font-thai text-[15px]">รัฐกันต์ สุวรรณภักดี</p>
+            <p className="mt-1 font-mono text-[11px] tracking-[0.18em] uppercase text-muted-foreground">Founder &amp; Creative Director</p>
+            <Link to="/about" className="cta-link mt-8">
               <span>About ORIONS</span>
               <ArrowUpRight className="w-4 h-4" />
             </Link>

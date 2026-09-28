@@ -137,6 +137,15 @@ describe("blueprint", () => {
     expect(fromRoot("src/data/practice.ts")).toContain("Independent Creative Studio");
   });
 
+  /** The master line is Newsreader, and heading spans never fall to the Thai
+   *  body face. Both regressed once: the hero drew in IBM Plex Sans Thai. */
+  it("sets the master line in Newsreader and keeps heading spans in the heading face", () => {
+    const css = fromRoot("src/index.css");
+    expect(css).toMatch(/h1\.hero-title\s*\{[^}]*font-family:\s*'Newsreader'/);
+    expect(css).toMatch(/:is\(h1, h2, h3, h4, h5, h6\):lang\(th\) span:not\(\[class\*="font-"\]\)\s*\{\s*font-family: inherit;/);
+    expect(fromRoot("src/pages/Index.tsx")).toMatch(/<h1 className="[^"]*hero-title[^"]*">/);
+  });
+
   /** One big closing CTA per page, and only where it earns it. */
   it("keeps the closing CTA band to the homepage and services", () => {
     ["src/pages/Index.tsx", "src/pages/Services.tsx"].forEach((p) => expect(fromRoot(p)).toContain("<CTABand"));

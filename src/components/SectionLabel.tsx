@@ -14,7 +14,7 @@ interface Props {
  *  Pattern: [/ brand slash] NN · LABEL  (mono · 10/0.22em uppercase) */
 const SectionLabel = ({ index, label, reveal = true, className = "" }: Props) => {
   const node = (
-    <div className={`inline-flex items-center gap-3 font-mono text-[10px] tracking-[0.22em] uppercase leading-none ${className}`}>
+    <div className={`inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.22em] uppercase leading-none ${className}`}>
       <Slash className="text-[15px]" />
       {index ? <span className="text-foreground tabular-nums">{index}</span> : null}
       <span className="text-muted-foreground">{label}</span>

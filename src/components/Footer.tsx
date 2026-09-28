@@ -29,32 +29,19 @@ const Footer = () => {
   return (
     <footer className="bg-surface text-foreground border-t border-foreground/10 overflow-hidden">
       {/* Status strip — quiet ribbon */}
-      <div className="px-6 md:px-10 h-8 flex items-center justify-between font-mono text-[10px] tracking-[0.18em] uppercase text-foreground/55 border-b border-foreground/10">
+      <div className="px-6 md:px-10 h-8 flex items-center justify-between font-mono text-[11px] tracking-[0.18em] uppercase text-foreground/55 border-b border-foreground/10">
         <span className="inline-flex items-center gap-2">
           <span className="inline-block w-1.5 h-1.5 bg-signal" aria-hidden />
           Bangkok · {bkkTime} ICT
         </span>
       </div>
-      <div className="px-6 md:px-10 pt-16 md:pt-20 pb-6 max-w-[1280px] mx-auto">
-        {/* Headline row */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10 border-b border-foreground/15 pb-12">
-          <div>
-            <a
-              href="mailto:hello@orions.agency"
-              className="font-body font-medium text-[28px] md:text-[44px] tracking-[-0.015em] hover:text-foreground transition-colors"
-            >
-              hello@orions.agency
-            </a>
-          </div>
-          <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-foreground/55 text-right">
-            Stories, Refined.
-          </div>
-        </div>
-
+      <div className="px-6 md:px-10 pt-12 md:pt-14 pb-6 max-w-[1280px] mx-auto">
+        {/* No headline row: every page that needs one already ends on a call to
+            action, and the address is in the Contact column below. */}
         {/* 3 columns */}
-        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-10">
           <div>
-            <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-foreground mb-5">— Contact</div>
+            <div className="font-mono text-[11px] tracking-[0.22em] uppercase text-foreground mb-5">— Contact</div>
             <ul className="space-y-2 font-thai text-[13px] leading-[1.8] text-foreground/85">
               <li><a href="mailto:hello@orions.agency" className="hover:text-foreground transition-colors">hello@orions.agency</a></li>
               <li><a href="tel:+66893542628" className="hover:text-foreground transition-colors">+66 89 354 2628 · คุณพลอย</a></li>
@@ -63,20 +50,20 @@ const Footer = () => {
           </div>
 
           <div>
-            <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-foreground mb-5">— Studio</div>
+            <div className="font-mono text-[11px] tracking-[0.22em] uppercase text-foreground mb-5">— Studio</div>
             <p className="font-thai text-[13px] leading-[1.8] text-foreground/85">
               ORIONS Creative Co., Ltd.<br />
               41/175 Soi Nawamin 111 Yaek 3<br />
               Nawamin, Bueng Kum<br />
               Bangkok 10240, TH
             </p>
-            <p className="mt-3 font-mono text-[10px] tracking-[0.18em] uppercase text-foreground/60">
+            <p className="mt-3 font-mono text-[11px] tracking-[0.18em] uppercase text-foreground/60">
               Tax ID 0105568063442
             </p>
           </div>
 
           <div>
-            <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-foreground mb-5">— Index</div>
+            <div className="font-mono text-[11px] tracking-[0.22em] uppercase text-foreground mb-5">— Index</div>
             <ul className="space-y-2 btn-label">
               {navLinks.map((l) => (
                 <li key={l.to}>
@@ -87,7 +74,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-foreground mb-5">— Elsewhere</div>
+            <div className="font-mono text-[11px] tracking-[0.22em] uppercase text-foreground mb-5">— Elsewhere</div>
             <ul className="space-y-2 btn-label">
               {socials.map((s) => (
                 <li key={s.label}>
@@ -101,7 +88,7 @@ const Footer = () => {
         </div>
 
         {/* Legal */}
-        <div className="mt-10 pt-5 border-t border-foreground/15 flex items-center justify-between gap-4 font-mono text-[10px] tracking-[0.18em] uppercase opacity-50">
+        <div className="mt-10 pt-5 border-t border-foreground/15 flex items-center justify-between gap-4 font-mono text-[11px] tracking-[0.18em] uppercase opacity-50">
           <p>© {year} ORIONS — All rights reserved.</p>
           <div className="flex items-center gap-5">
             <Link to="/privacy" className="hover:opacity-100 hover:text-foreground transition-colors">Privacy</Link>

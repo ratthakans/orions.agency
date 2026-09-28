@@ -15,6 +15,7 @@ const CaseStudy = () => {
 
   const { next } = getAdjacent(slug);
   const total = String(caseStudies.length).padStart(2, "0");
+  const frames = cs.gallery.filter((img) => img !== cs.cover);
   const url = `https://orions.agency/work/${cs.slug}`;
 
   const schema = [
@@ -55,7 +56,7 @@ const CaseStudy = () => {
           <Reveal>
             <Link
               to="/work"
-              className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground hover:text-foreground transition-colors"
+              className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.22em] uppercase text-muted-foreground hover:text-foreground transition-colors"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
               Back to Work
@@ -81,14 +82,13 @@ const CaseStudy = () => {
 
           {/* Meta strip */}
           <Reveal delay={0.2}>
-            <dl className="card-soft mt-16 grid grid-cols-2 md:grid-cols-3 gap-y-8 gap-x-6 p-8">
+            <dl className="card-soft mt-12 grid grid-cols-2 gap-y-8 gap-x-6 p-8 max-w-[640px]">
               {[
-                { k: "Brand", v: cs.title },
                 { k: "Category", v: cs.niche },
                 { k: "Year", v: cs.year },
               ].map((m) => (
                 <div key={m.k}>
-                  <dt className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
+                  <dt className="font-mono text-[11px] tracking-[0.22em] uppercase text-muted-foreground">
                     {m.k}
                   </dt>
                   <dd className="mt-3 h-display-sm">
@@ -105,7 +105,7 @@ const CaseStudy = () => {
                 href={cs.url || `https://${cs.domain}`}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-8 inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.22em] uppercase text-foreground hover:text-foreground transition-colors"
+                className="mt-8 inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.22em] uppercase text-foreground hover:text-foreground transition-colors"
               >
                 {cs.domain} <ArrowUpRight className="w-3 h-3" />
               </a>
@@ -124,7 +124,7 @@ const CaseStudy = () => {
                 alt={`${cs.title} — cover`}
                 className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
               />
-              <span className="absolute left-4 bottom-4 md:left-6 md:bottom-6 z-[3] font-mono text-[10px] tracking-[0.18em] uppercase text-white bg-black/60 px-2 py-1">Frame {cs.n} / {total}</span>
+              <span className="absolute left-4 bottom-4 md:left-6 md:bottom-6 z-[3] font-mono text-[11px] tracking-[0.18em] uppercase text-white bg-black/60 px-2 py-1">Frame {cs.n} / {total}</span>
             </div>
           </Reveal>
         </div>
@@ -134,7 +134,7 @@ const CaseStudy = () => {
           case file. It used to be five full-screen sections of one paragraph
           each, alternating ink and paper — long to scroll for what it said. */}
       <section className="px-6 md:px-10 border-t border-foreground/15">
-        <div className="max-w-[1280px] mx-auto py-20 md:py-28">
+        <div className="max-w-[1280px] mx-auto py-14 md:py-20">
           {[
             { n: "01", label: "The Context", text: cs.symptom, quote: false },
             { n: "02", label: "What We Found", text: cs.verdict, quote: true },
@@ -171,30 +171,31 @@ const CaseStudy = () => {
 
       {/* BEFORE / AFTER — hidden until each case has real before/after frames (no placeholder imagery in production). */}
 
-      {/* Gallery (only if >1 image) */}
-      {cs.gallery.length > 1 && (
+      {/* Further frames — the cover is already the page's lead image, so it is
+          never repeated here. Two frames sit side by side; an odd one leads. */}
+      {frames.length > 0 && (
         <section className="px-6 md:px-10 border-t border-foreground/15">
-          <div className="max-w-[1280px] mx-auto py-24 md:py-36">
+          <div className="max-w-[1280px] mx-auto py-16 md:py-24">
             <SectionLabel label="Selected Frames" />
             <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-              {cs.gallery.map((img, i) => (
-                // The span belongs on the grid item — Reveal — not the frame inside
-                // it; on the inner div it did nothing, and the lead frame sat in
-                // one column beside a taller one, leaving the last frame alone.
-                <Reveal key={i} delay={0.04 * i} className={i === 0 ? "md:col-span-2" : ""}>
-                  <div
-                    className="group relative w-full overflow-hidden rounded-none bg-muted"
-                    style={{ aspectRatio: i === 0 ? "16 / 9" : "4 / 5" }}
-                  >
-                    <Picture
-                      data={img}
-                      alt={`${cs.title} — frame ${i + 1}`}
-                      loading="lazy"
-                      className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
-                    />
-                  </div>
-                </Reveal>
-              ))}
+              {frames.map((img, i) => {
+                const lead = frames.length % 2 === 1 && i === 0;
+                return (
+                  <Reveal key={i} delay={0.04 * i} className={lead ? "md:col-span-2" : ""}>
+                    <div
+                      className="group relative w-full overflow-hidden rounded-none bg-muted"
+                      style={{ aspectRatio: lead ? "16 / 9" : "4 / 3" }}
+                    >
+                      <Picture
+                        data={img}
+                        alt={`${cs.title} — frame ${i + 2}`}
+                        loading="lazy"
+                        className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
+                      />
+                    </div>
+                  </Reveal>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -205,9 +206,9 @@ const CaseStudy = () => {
         <section className="px-6 md:px-10 border-t border-foreground/15">
           <Link
             to="/work/$slug" params={{ slug: next.slug }}
-            className="group block max-w-[1280px] mx-auto py-24 md:py-36"
+            className="group block max-w-[1280px] mx-auto py-16 md:py-24"
           >
-            <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
+            <div className="font-mono text-[11px] tracking-[0.22em] uppercase text-muted-foreground">
               Next —
             </div>
             <div className="mt-6 flex items-center justify-between gap-8">
@@ -216,7 +217,7 @@ const CaseStudy = () => {
               </h3>
               <ArrowUpRight className="w-10 h-10 md:w-14 md:h-14 text-foreground shrink-0 transition-transform duration-500" />
             </div>
-            <div className="mt-4 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
+            <div className="mt-4 font-mono text-[11px] tracking-[0.18em] uppercase text-muted-foreground">
               {next.niche} · {next.year}
             </div>
           </Link>

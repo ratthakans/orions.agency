@@ -130,7 +130,7 @@ const Contact = () => {
   };
 
   const inputCls = "w-full rounded-none bg-background border border-foreground/15 px-4 py-3 text-[15px] text-foreground placeholder:text-foreground/55 focus:outline-none focus:border-signal focus:ring-1 focus:ring-signal/30 transition-colors font-thai";
-  const labelCls = "font-mono text-[10px] tracking-[0.18em] uppercase text-foreground/70";
+  const labelCls = "font-mono text-[11px] tracking-[0.18em] uppercase text-foreground/70";
 
   return (
     <div>
@@ -156,7 +156,7 @@ const Contact = () => {
           </Reveal>
 
           <Reveal delay={0.15}>
-            <p className="mt-8 font-mono text-[10px] tracking-[0.05em] text-muted-foreground">
+            <p className="mt-8 font-mono text-[11px] tracking-[0.05em] text-muted-foreground">
               <span className="text-foreground">—</span> เริ่มจากการสนทนา
             </p>
           </Reveal>
@@ -174,7 +174,7 @@ const Contact = () => {
 
           {/* Direct lines — minimal (timeline removed; the meta line above already says what happens next) */}
           <Reveal delay={0.25}>
-            <div className="mt-12 flex flex-wrap gap-x-8 gap-y-2 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
+            <div className="mt-12 flex flex-wrap gap-x-8 gap-y-2 font-mono text-[11px] tracking-[0.22em] uppercase text-muted-foreground">
               <a href="mailto:hello@orions.agency" className="hover:text-foreground transition-colors">hello@orions.agency</a>
               <a href="tel:+66893542628" className="hover:text-foreground transition-colors">+66 89 354 2628 · คุณพลอย</a>
               <a href="https://line.me/ti/p/~orions" target="_blank" rel="noreferrer" className="hover:text-foreground transition-colors">LINE @orions</a>
@@ -185,7 +185,7 @@ const Contact = () => {
 
       {/* 02 — BRIEF */}
       <section id="brief" className="px-6 md:px-10 border-t border-foreground/15 scroll-mt-24">
-        <div className="max-w-[1280px] mx-auto py-24 md:py-36">
+        <div className="max-w-[1280px] mx-auto py-16 md:py-24">
           <SectionHeading
             lang="th"
             eyebrow="02 — Send a brief"
@@ -224,7 +224,7 @@ const Contact = () => {
                       className={inputCls}
                     />
                     {errors[f.key as keyof FieldErrors] && (
-                      <p id={`field-${f.key}-error`} role="alert" className="mt-2 font-mono text-[10px] tracking-[0.18em] uppercase text-destructive">
+                      <p id={`field-${f.key}-error`} role="alert" className="mt-2 font-mono text-[11px] tracking-[0.18em] uppercase text-destructive">
                         {errors[f.key as keyof FieldErrors]}
                       </p>
                     )}
@@ -261,7 +261,7 @@ const Contact = () => {
                     aria-describedby={errors.brief ? "field-brief-error" : undefined}
                     className={`${inputCls} resize-none`}
                   />
-                  {errors.brief && <p id="field-brief-error" role="alert" className="mt-2 font-mono text-[10px] tracking-[0.18em] uppercase text-destructive">{errors.brief}</p>}
+                  {errors.brief && <p id="field-brief-error" role="alert" className="mt-2 font-mono text-[11px] tracking-[0.18em] uppercase text-destructive">{errors.brief}</p>}
                 </div>
                 {/* honeypot — hidden from humans */}
                 <div aria-hidden className="hidden" style={{ position: "absolute", left: "-9999px" }}>
@@ -294,20 +294,20 @@ const Contact = () => {
                 <div className="flex items-center gap-5">
                   <Picture data={founder} alt="Ratthakan Suwanphakdee — Founder & Creative Director, ORIONS" className="w-20 h-20 md:w-24 md:h-24 rounded-none object-cover object-top shrink-0 grayscale-[0.3] saturate-[0.85]" />
                   <div>
-                    <div className="font-mono text-[10px] tracking-[0.04em] text-foreground">— คนที่ดูแลงานคุณ</div>
+                    <div className="font-mono text-[11px] tracking-[0.04em] text-foreground">— คนที่ดูแลงานคุณ</div>
                     <h3 lang="th" className="mt-1.5 font-display text-[22px] tracking-[-0.01em]">รัฐกันต์ สุวรรณภักดี</h3>
-                    <div lang="th" className="font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">Founder & Creative Director</div>
+                    <div lang="th" className="font-mono text-[11px] tracking-[0.18em] uppercase text-muted-foreground">Founder & Creative Director</div>
                   </div>
                 </div>
                 <div className="mt-6 pt-5 border-t border-foreground/12">
-                  <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">โทรคุยรายละเอียด — คุณพลอย · Sales Director</div>
+                  <div className="font-mono text-[11px] tracking-[0.18em] uppercase text-muted-foreground">โทรคุยรายละเอียด — คุณพลอย · Sales Director</div>
                   <a href="tel:+66893542628" className="mt-1.5 inline-block font-thai text-[15px] text-foreground hover:text-foreground transition-colors">089-354-2628</a>
                 </div>
               </div>
 
               {/* Book a call — primary highlight */}
               <div className="card-accent p-7 md:p-8">
-                <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-foreground">— Start a conversation</div>
+                <div className="font-mono text-[11px] tracking-[0.18em] uppercase text-foreground">— Start a conversation</div>
                 <p lang="th" className="mt-4 font-thai thai-wrap text-[14px] leading-[1.8] text-foreground/80">
                   ยังไม่แน่ใจว่าต้องเริ่มจากงานแบบไหน? ส่งเรื่องของแบรนด์มาได้ เราจะทำความเข้าใจโจทย์ก่อน แล้วเสนอแนวทางและขอบเขตที่เหมาะสม
                 </p>
@@ -319,14 +319,14 @@ const Contact = () => {
 
               {/* Studio */}
               <div className="card-soft p-7 md:p-8">
-                <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">— Studio</div>
+                <div className="font-mono text-[11px] tracking-[0.18em] uppercase text-muted-foreground">— Studio</div>
                 <p lang="th" className="mt-6 font-thai thai-wrap text-[14px] leading-[1.8] text-foreground/80">
                   ORIONS Creative Co., Ltd.<br />
                   41/175 Soi Nawamin 111 Yaek 3<br />
                   Nawamin, Bueng Kum<br />
                   Bangkok 10240, Thailand
                 </p>
-                <p className="mt-8 font-mono text-[10px] tracking-[0.12em] uppercase text-muted-foreground">
+                <p className="mt-8 font-mono text-[11px] tracking-[0.12em] uppercase text-muted-foreground">
                   Bangkok, Thailand · Mon–Fri
                 </p>
               </div>
@@ -337,7 +337,7 @@ const Contact = () => {
 
       {/* Sticky mobile LINE pill */}
       <a href="https://line.me/ti/p/~orions" target="_blank" rel="noreferrer"
-        className="md:hidden fixed bottom-5 right-5 z-40 inline-flex items-center gap-2 bg-foreground text-background px-4 py-3 font-mono text-[10px] tracking-[0.22em] uppercase shadow-lg"
+        className="md:hidden fixed bottom-5 right-5 z-40 inline-flex items-center gap-2 bg-foreground text-background px-4 py-3 font-mono text-[11px] tracking-[0.22em] uppercase shadow-lg"
         aria-label="Chat on LINE">
         <MessageCircle className="w-4 h-4" /> Chat
       </a>

@@ -205,7 +205,7 @@ const Work = () => {
                   const imgs = album.images;
                   return (
                     <div key={ai}>
-                      <div className="mb-3 inline-flex items-center gap-1.5 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
+                      <div className="mb-3 inline-flex items-center gap-1.5 font-mono text-[11px] tracking-[0.18em] uppercase text-muted-foreground">
                         <Layers className="w-3.5 h-3.5 text-foreground" /> {imgs.length} รูป
                       </div>
                       <div className="flex flex-wrap gap-2.5">
@@ -225,7 +225,7 @@ const Work = () => {
                 })}
                 {cat.gallery && (
                   <div>
-                    <div className="mb-3 inline-flex items-center gap-1.5 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
+                    <div className="mb-3 inline-flex items-center gap-1.5 font-mono text-[11px] tracking-[0.18em] uppercase text-muted-foreground">
                       <Layers className="w-3.5 h-3.5 text-foreground" /> โพสต์เดี่ยว
                     </div>
                     <div className="columns-2 md:columns-4 gap-2.5 md:gap-3">
@@ -289,7 +289,7 @@ const Work = () => {
                       }`}
                     >
                       <div className="flex items-start justify-between gap-4">
-                        <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
+                        <span className="font-mono text-[11px] tracking-[0.22em] uppercase text-muted-foreground">
                           {cat.n}.{String(i + 1).padStart(2, "0")}
                         </span>
                         <span className="meta-chip">{s.kind}</span>
@@ -315,7 +315,7 @@ const Work = () => {
             ) : cat.cases ? (
               <>
               <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 pb-5 border-b border-foreground/15">
-                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">Approach</span>
+                <span className="font-mono text-[11px] tracking-[0.22em] uppercase text-muted-foreground">Approach</span>
                 {([{ slug: "all", name: "All" }, ...approaches] as { slug: string; name: string }[]).map((m) => (
                   <button
                     key={m.slug}
@@ -344,7 +344,7 @@ const Work = () => {
                     <span aria-hidden className="halftone absolute inset-0" />
                     <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-90" />
                     <div className="absolute left-0 right-0 bottom-0 z-[3] p-4 flex flex-col gap-1">
-                      <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-foreground">{getApproach(cs.approach)?.name ?? cs.approach} · {cs.niche} · {cs.year}</span>
+                      <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground">{getApproach(cs.approach)?.name ?? cs.approach} · {cs.niche} · {cs.year}</span>
                       <span className="font-display text-[17px] md:text-[19px] font-medium tracking-[-0.01em] leading-tight">{cs.title}</span>
                       <span lang="th" className="font-thai text-[12px] leading-[1.55] text-foreground/80">{cs.verdictShort}</span>
                     </div>
@@ -404,7 +404,7 @@ const Work = () => {
                   <Play className="w-6 h-6 md:w-7 md:h-7 ml-0.5" />
                 </span>
               </span>
-              <span className="absolute left-6 bottom-4 md:left-10 md:bottom-6 font-mono text-[10px] md:text-[11px] tracking-[0.18em] uppercase text-foreground/85 pointer-events-none">
+              <span className="absolute left-6 bottom-4 md:left-10 md:bottom-6 font-mono text-[11px] md:text-[11px] tracking-[0.18em] uppercase text-foreground/85 pointer-events-none">
                 ORIONS · Showreel
               </span>
             </span>

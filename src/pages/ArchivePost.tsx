@@ -48,7 +48,7 @@ const ArchivePost = () => {
       <SEO title={`${piece.title} — Archive · ORIONS`} description={piece.dek} path={`/archive/${piece.slug}`} image={piece.image.img.src} ogType="article" schema={schema} />
 
       <article className="px-6 md:px-10">
-        <div className="max-w-[760px] mx-auto pt-28 md:pt-36 pb-20 md:pb-28">
+        <div className="max-w-[760px] mx-auto pt-28 md:pt-36 pb-14 md:pb-20">
           <Link to="/archive" className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground hover:text-foreground transition-colors">
             <ArrowLeft className="w-3.5 h-3.5" /> Archive
           </Link>
@@ -95,7 +95,7 @@ const ArchivePost = () => {
           {[prev, next].map((item, i) =>
             item ? (
               <Link key={item.slug} to="/archive/$slug" params={{ slug: item.slug }} className={`group block ${i === 1 ? "md:text-right" : ""}`}>
-                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">{i === 0 ? "Previous" : "Next"} · No. {item.n}</span>
+                <span className="font-mono text-[11px] tracking-[0.22em] uppercase text-muted-foreground">{i === 0 ? "Previous" : "Next"} · No. {item.n}</span>
                 <span className="mt-3 flex items-baseline gap-3 font-display text-[21px] md:text-[25px] leading-[1.15] md:justify-[inherit]">
                   <span className="group-hover:opacity-80 transition-opacity">{item.title}</span>
                   <ArrowUpRight className="w-4 h-4 shrink-0 text-foreground/40 group-hover:text-foreground transition-colors" />

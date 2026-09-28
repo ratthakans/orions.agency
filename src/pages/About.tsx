@@ -21,7 +21,7 @@ const About = () => (
     />
 
     <section className="section-ink px-6 md:px-10">
-      <div className="max-w-[1280px] mx-auto pt-28 md:pt-36 pb-24 md:pb-36">
+      <div className="max-w-[1280px] mx-auto pt-28 md:pt-36 pb-16 md:pb-24">
         <SectionLabel label={`About · ${brand.descriptor}`} />
         <Reveal emphasis="lead">
           <h1 className="mt-9 h-display-lg max-w-[15ch]">One creative director. Every story.</h1>
@@ -37,7 +37,7 @@ const About = () => (
     {/* The founder led the old page's fourth section. On a founder-led practice
         that is the argument, so it runs second — right under the claim. */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-36">
+      <div className="max-w-[1280px] mx-auto py-16 md:py-24">
         <SectionLabel label="From the founder" />
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-8 md:gap-16 items-start">
           <Picture
@@ -52,7 +52,7 @@ const About = () => (
               </p>
             </Reveal>
             <p lang="th" className="mt-8 font-thai text-[16px]">รัฐกันต์ สุวรรณภักดี</p>
-            <p className="mt-1 font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground">Founder &amp; Creative Director</p>
+            <p className="mt-1 font-mono text-[11px] tracking-[0.18em] uppercase text-muted-foreground">Founder &amp; Creative Director</p>
           </div>
         </div>
       </div>
@@ -60,7 +60,7 @@ const About = () => (
 
     {/* Point of view, as one line, with the principles that follow from it. */}
     <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-36 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-24">
+      <div className="max-w-[1280px] mx-auto py-16 md:py-24 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-24">
         <SectionLabel label="Point of view" />
         <div>
           <Reveal emphasis="lead">
@@ -78,7 +78,7 @@ const About = () => (
     {/* Substance from the record, not from adjectives: the fields actually
         worked in, read out of the case studies. */}
     <section className="px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1280px] mx-auto py-24 md:py-36">
+      <div className="max-w-[1280px] mx-auto py-16 md:py-24">
         <SectionLabel label="Across the record" />
         <Reveal emphasis="lead">
           <h2 className="mt-8 h-display-md max-w-[22ch]">Different fields. The same way of looking.</h2>

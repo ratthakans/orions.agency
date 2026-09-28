@@ -19,7 +19,7 @@ interface Props {
 const SectionHeading = ({ eyebrow, title, intro, center = false, lang, className = "" }: Props) => (
   <Reveal className={`${center ? "mx-auto text-center" : ""} max-w-2xl ${className}`}>
     {eyebrow && (
-      <div className={`inline-flex items-center gap-3 font-mono text-[10px] tracking-[0.22em] uppercase leading-none ${center ? "justify-center" : ""}`}>
+      <div className={`inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.22em] uppercase leading-none ${center ? "justify-center" : ""}`}>
         <Slash className="text-[15px]" />
         <span className="text-muted-foreground">{eyebrow}</span>
       </div>

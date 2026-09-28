@@ -359,7 +359,6 @@
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
   }
-  .hero-title { max-width: 12ch; font-size: clamp(34px, 10.6vw, 112px); }
 
 }
 
@@ -383,6 +382,26 @@ h4:not([lang="th"]), h5:not([lang="th"]), h6:not([lang="th"]) {
 h1:lang(th) em, h2:lang(th) em, h3:lang(th) em, h4:lang(th) em, h5:lang(th) em, h6:lang(th) em {
   font-family: 'Unbounded', 'IBM Plex Sans Thai', system-ui, sans-serif;
   letter-spacing: 0;
+}
+/* A <span> inside a heading (line breaks, emphasis) takes the heading's face.
+   Without this, :lang(th) above handed it the Thai body font — which is how the
+   hero line ended up in IBM Plex Sans Thai. Spans that ask for a font keep it. */
+:is(h1, h2, h3, h4, h5, h6):lang(th) span:not([class*="font-"]) {
+  font-family: inherit;
+}
+
+/* The master idea is set in Newsreader, as written — "Stories, Refined." —
+   not in the uppercase display face every other heading uses. It is the one
+   line on the site that should read like a signature rather than a label.
+   h1.hero-title outranks both h1:not([lang]) and h1:lang(th) above. */
+h1.hero-title {
+  font-family: 'Newsreader', Georgia, serif;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: -0.025em;
+  line-height: 0.95;
+  font-size: clamp(56px, 12vw, 168px);
+  max-width: none;
 }
 
 /* Refined editorial mastheads — Thai can't switch to a serif face (Newsreader

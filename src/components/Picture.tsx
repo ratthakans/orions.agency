@@ -22,12 +22,9 @@ interface Props extends Omit<ImgHTMLAttributes<HTMLImageElement>, "src"> {
  * <img> for legacy string URLs, so call sites can migrate incrementally.
  * className / loading / style etc. land on the inner <img>.
  */
-const Picture = ({ data, alt, className, fetchPriority, ...rest }: Props) => {
-  // React 18 only passes the lowercase DOM attribute through; the camelCase
-  // prop is React 19's, and 18 drops it with a console warning on every render.
-  const priority = fetchPriority ? { fetchpriority: fetchPriority } : {};
+const Picture = ({ data, alt, className, ...rest }: Props) => {
   if (!isPicture(data)) {
-    return <img src={data} alt={alt} className={className} {...priority} {...rest} />;
+    return <img src={data} alt={alt} className={className} {...rest} />;
   }
   const { img, sources } = data;
   return (
@@ -41,7 +38,7 @@ const Picture = ({ data, alt, className, fetchPriority, ...rest }: Props) => {
         // a full MIME type to honour the <source>.
         <source key={fmt} srcSet={srcSet} type={fmt.includes("/") ? fmt : `image/${fmt}`} />
       ))}
-      <img src={img.src} width={img.w} height={img.h} alt={alt} className={className} {...priority} {...rest} />
+      <img src={img.src} width={img.w} height={img.h} alt={alt} className={className} {...rest} />
     </picture>
   );
 };

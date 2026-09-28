@@ -1,5 +1,5 @@
 import { useState, useEffect, Fragment } from "react";
-import { NavLink, Link, useLocation } from "react-router-dom";
+import { Link, useLocation } from "@tanstack/react-router";
 import Logo from "@/components/Logo";
 
 const links = [
@@ -7,12 +7,14 @@ const links = [
   { label: "Services", to: "/services" },
   { label: "About", to: "/about" },
   { label: "Archive", to: "/archive" },
-];
+] as const;
 
 const Nav = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { pathname } = useLocation();
+  // react-router's NavLink rule: a section is active on its page and below it.
+  const isActive = (to: string) => pathname === to || pathname.startsWith(`${to}/`);
 
   // Close the mobile menu on route change.
   useEffect(() => setOpen(false), [pathname]);
@@ -50,34 +52,34 @@ const Nav = () => {
         <nav className="hidden lg:flex items-center gap-7">
           {links.map((l) => (
             <Fragment key={l.to}>
-              <NavLink
+              <Link
                 to={l.to}
                 viewTransition
-                className={({ isActive }) =>
+                className={
                   `relative font-body text-[13px] font-medium tracking-[0.02em] transition-colors after:absolute after:left-0 after:-bottom-1.5 after:h-px after:bg-foreground after:transition-transform after:duration-300 after:w-full ${
-                    isActive
+                    isActive(l.to)
                       ? "text-foreground after:scale-x-100"
                       : "text-foreground/55 hover:text-foreground after:scale-x-0 hover:after:scale-x-100"
                   } after:origin-left`
                 }
               >
                 {l.label}
-              </NavLink>
+              </Link>
             </Fragment>
           ))}
-          <NavLink
+          <Link
             to="/contact"
             viewTransition
-            className={({ isActive }) =>
+            className={
               `ml-2 inline-flex items-center gap-2 rounded-none px-4 py-2 font-mono text-[11px] tracking-[0.12em] uppercase border transition-colors ${
-                isActive
+                isActive("/contact")
                   ? "bg-foreground text-background border-foreground"
                   : "border-foreground/30 text-foreground hover:bg-foreground hover:text-background"
               }`
             }
           >
             Contact ↗
-          </NavLink>
+          </Link>
         </nav>
 
         {/* Mobile toggle */}
@@ -97,7 +99,7 @@ const Nav = () => {
       {/* Mobile menu overlay — `inert` when closed so hidden links stay out of
           tab order and the screen-reader tree. */}
       <div
-        {...((!open ? { inert: "" } : {}) as Record<string, unknown>)}
+        inert={!open}
         aria-hidden={!open}
         className={`lg:hidden fixed inset-0 top-0 z-50 bg-background flex flex-col transition-[opacity,transform] duration-300 ${
           open ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"
@@ -105,18 +107,18 @@ const Nav = () => {
       >
         <div className="h-[64px] shrink-0" />
         <nav className="flex-1 px-6 flex flex-col justify-center gap-2">
-          {[...links, { label: "Contact", to: "/contact" }].map((l, i) => (
-            <NavLink
+          {[...links, { label: "Contact", to: "/contact" } as const].map((l, i) => (
+            <Link
               key={l.to}
               to={l.to}
               viewTransition
-              className={({ isActive }) =>
-                `group flex items-baseline gap-4 py-3 border-b border-foreground/10 ${isActive ? "text-foreground" : "text-foreground"}`
+              className={
+                `group flex items-baseline gap-4 py-3 border-b border-foreground/10 ${isActive(l.to) ? "text-foreground" : "text-foreground"}`
               }
             >
               <span className="font-mono text-[11px] tracking-[0.22em] text-foreground tabular-nums">0{i + 1}</span>
               <span className="h-display-md">{l.label}</span>
-            </NavLink>
+            </Link>
           ))}
         </nav>
         <div className="px-6 pt-4 pb-8 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground flex flex-col gap-1.5">

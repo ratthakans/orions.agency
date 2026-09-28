@@ -1,18 +1,16 @@
-# ØRIONS — orions.agency
+# ORIONS — orions.agency
 
-Marketing site for **ORIONS**, a story-led creative company in Bangkok.
-*Stories, refined.*
-
-Story · Direction · Expression.
+Marketing site for **ORIONS**, an independent creative studio in Bangkok.
+*Stories, Refined.* — three services, two signature approaches (`src/data/practice.ts`).
 
 ## Stack
 
-- [Vite](https://vitejs.dev/) + [React 18](https://react.dev/) + TypeScript
-- [Tailwind CSS](https://tailwindcss.com/) (custom editorial design system in `src/index.css`)
-- [React Router](https://reactrouter.com/) for routing
-- [Framer Motion](https://www.framer.com/motion/) for reveal animations
-- [vite-react-ssg](https://github.com/Daydreamer-riri/vite-react-ssg) for prerendered routes and per-page SEO
-- [Supabase](https://supabase.com/) for the contact form
+- [TanStack Start](https://tanstack.com/start) + [TanStack Router](https://tanstack.com/router) (file-based, type-checked routes in `src/routes/`)
+- [React 19](https://react.dev/) + TypeScript, on [Vite 7](https://vitejs.dev/)
+- Every page is **prerendered to static HTML** at build time (`vite.config.ts` lists the pages) and served from Vercel's CDN — no server runs in production
+- Per-page head tags come from `<SEO>`; React 19 hoists them into `<head>`
+- [Tailwind CSS](https://tailwindcss.com/) (editorial design system in `src/index.css`; see `DESIGN_SYSTEM.md`)
+- Contact form: Web3Forms (email) and, if configured, Supabase (stored copy)
 - shadcn/ui primitives (Radix)
 
 ## Develop
@@ -25,28 +23,30 @@ npm run dev      # http://localhost:8080
 ## Build
 
 ```sh
-npm run build    # outputs to dist/
+npm run build    # prerenders every page into dist/client/
 npm run preview  # preview the production build
-npm test         # run unit tests (vitest)
+npm test         # content contracts (vitest)
+npm run typecheck  # tsc -b — plain `tsc --noEmit` checks nothing here
 ```
 
 ## Environment
 
-The contact form uses Supabase. Provide these in a `.env` file:
+Read at build time and inlined into the client bundle:
 
 ```
-VITE_SUPABASE_URL="..."
+VITE_WEB3FORMS_KEY="..."          # contact form → studio inbox
+VITE_SUPABASE_URL="..."           # optional stored copy of each enquiry
 VITE_SUPABASE_PUBLISHABLE_KEY="..."
-VITE_SUPABASE_PROJECT_ID="..."
 ```
 
 ## Structure
 
 ```
 src/
-  pages/        Route components (Index, About, Practice, Work, CaseStudy, Contact, NotFound)
-  components/   Reusable UI + design-system pieces (Nav, Footer, Reveal, SEO, CTABand, …)
-  data/         practice.ts — capabilities, method and engagements; caseStudies.ts — Selected Work
-  assets/       Imported images
-  index.css     Design tokens + utility classes (single source of truth)
+  routes/       File-based routes; each one points at a page component
+  pages/        Page components (Index, Work, CaseStudy, Practice = /services, About, Archive, …)
+  components/   Shared UI (Nav, Footer, SEO, CTABand, HeroReel, Picture, …)
+  data/         practice.ts — the blueprint; caseStudies.ts — the work; archive.ts — the Archive
+  lib/          site-schema.ts — site-wide structured data
+  index.css     Fonts, design tokens and utilities
 ```

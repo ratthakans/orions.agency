@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation } from "@tanstack/react-router";
 import { ArrowUpRight, MessageCircle } from "lucide-react";
 
 /** Sticky bottom action bar — mobile only. Hidden on /contact. */

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
@@ -110,7 +110,7 @@ const Index = () => (
               emphasis="quiet"
               className={i === 0 ? "md:col-span-2 lg:col-span-8" : i === 1 ? "lg:col-span-4" : "md:col-span-2 lg:col-span-12"}
             >
-              <Link to={`/work/${item.slug}`} className="group block">
+              <Link to="/work/$slug" params={{ slug: item.slug }} className="group block">
                 <div className={`film-frame bg-surface-2 ${i === 0 ? "aspect-[16/10]" : i === 1 ? "aspect-[4/5]" : "aspect-[21/9]"}`}>
                   <Picture
                     data={item.cover}
@@ -146,7 +146,7 @@ const Index = () => (
           {services.map((s) => (
             <Link
               key={s.slug}
-              to={`/services#${s.slug}`}
+              to="/services" hash={s.slug}
               className="group grid grid-cols-1 md:grid-cols-[70px_1fr_1fr_24px] items-baseline gap-3 md:gap-10 py-8 md:py-10 border-b border-foreground/15"
             >
               <span className="font-mono text-[11px] text-muted-foreground">{s.n}</span>

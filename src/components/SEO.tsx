@@ -1,5 +1,8 @@
-import { Head } from "vite-react-ssg";
-
+/** Per-page head tags. React 19 hoists <title>, <meta> and <link> rendered
+ *  anywhere in the tree into the document <head> — on the server during
+ *  prerender and on the client when the route changes — so no head manager is
+ *  needed. JSON-LD is not hoisted and renders in place, which search engines
+ *  read just the same. */
 type SchemaValue = Record<string, unknown> | Array<Record<string, unknown>>;
 
 interface SEOProps {
@@ -25,7 +28,7 @@ const SEO = ({ title, description, path, image = DEFAULT_OG_IMAGE, noindex = fal
   const schemas = Array.isArray(schema) ? schema : schema ? [schema] : [];
 
   return (
-    <Head>
+    <>
       <title>{title}</title>
       <meta name="description" content={description} />
       {keywords ? <meta name="keywords" content={keywords} /> : null}
@@ -50,11 +53,15 @@ const SEO = ({ title, description, path, image = DEFAULT_OG_IMAGE, noindex = fal
       <meta name="twitter:image" content={ogImage} />
 
       {schemas.map((entry, index) => (
-        <script key={`${canonical}-schema-${index}`} type="application/ld+json">
-          {JSON.stringify(entry)}
-        </script>
+        <script
+          key={`${canonical}-schema-${index}`}
+          type="application/ld+json"
+          // Raw JSON, not text children: text would be HTML-escaped on the
+          // server, and a "<" inside the data would break out of the tag.
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(entry).replace(/</g, "\\u003c") }}
+        />
       ))}
-    </Head>
+    </>
   );
 };
 

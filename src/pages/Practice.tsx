@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
@@ -39,7 +39,7 @@ const Practice = () => (
                 <li key={item} className="font-mono text-[11px] tracking-[0.14em] uppercase text-muted-foreground">{item}</li>
               ))}
             </ul>
-            <Link to={`/contact?pkg=${encodeURIComponent(s.name)}`} className="cta-link mt-9">
+            <Link to="/contact" search={{ pkg: s.name }} className="cta-link mt-9">
               <span>Talk about {s.name}</span>
               <ArrowUpRight className="w-4 h-4" />
             </Link>
@@ -70,7 +70,7 @@ const Practice = () => (
                   <div className="mt-9 flex flex-wrap items-baseline gap-x-6 gap-y-3">
                     <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">Work</span>
                     {proof.map((c) => (
-                      <Link key={c.slug} to={`/work/${c.slug}`} className="cta-link">
+                      <Link key={c.slug} to="/work/$slug" params={{ slug: c.slug }} className="cta-link">
                         <span>{c.title}</span>
                         <ArrowUpRight className="w-4 h-4" />
                       </Link>

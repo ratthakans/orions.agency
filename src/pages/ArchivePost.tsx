@@ -1,4 +1,4 @@
-import { Link, useParams, Navigate } from "react-router-dom";
+import { Link, useParams, Navigate } from "@tanstack/react-router";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
@@ -11,7 +11,7 @@ const SITE_URL = "https://orions.agency";
  *  It ends on the next piece rather than a sales band — the Archive is read,
  *  not converted. */
 const ArchivePost = () => {
-  const { slug = "" } = useParams();
+  const { slug = "" } = useParams({ strict: false });
   const piece = getPiece(slug);
   if (!piece) return <Navigate to="/archive" replace />;
 
@@ -74,7 +74,7 @@ const ArchivePost = () => {
         <div className="max-w-[1280px] mx-auto py-14 md:py-20 grid grid-cols-1 md:grid-cols-2 gap-10">
           {[prev, next].map((item, i) =>
             item ? (
-              <Link key={item.slug} to={`/archive/${item.slug}`} className={`group block ${i === 1 ? "md:text-right" : ""}`}>
+              <Link key={item.slug} to="/archive/$slug" params={{ slug: item.slug }} className={`group block ${i === 1 ? "md:text-right" : ""}`}>
                 <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">{i === 0 ? "Previous" : "Next"} · No. {item.n}</span>
                 <span className="mt-3 flex items-baseline gap-3 font-display text-[21px] md:text-[25px] leading-[1.15] md:justify-[inherit]">
                   <span className="group-hover:opacity-80 transition-opacity">{item.title}</span>

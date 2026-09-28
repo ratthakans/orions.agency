@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { readdirSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 import { caseStudies } from "@/data/caseStudies";
@@ -8,6 +8,9 @@ import { archive, archiveThemes } from "@/data/archive";
 
 const fromRoot = (path: string) => readFileSync(resolve(process.cwd(), path), "utf8");
 const sitemapUrls = new Set(Array.from(fromRoot("public/sitemap.xml").matchAll(/<loc>([^<]+)<\/loc>/g), (match) => match[1]));
+/** The document shell — what index.html held before the move to TanStack Start. */
+const DOCUMENT = ["src/routes/__root.tsx", "src/lib/site-schema.ts"];
+const documentSource = () => DOCUMENT.map(fromRoot).join("\n");
 const redirects = JSON.parse(fromRoot("vercel.json")).redirects as { source: string; destination: string; permanent: boolean }[];
 
 /** Concept, work, services, about — plus the Archive, contact and privacy. */
@@ -25,7 +28,7 @@ describe("site shape", () => {
   it("navigates to Work, Services, About and Archive only", () => {
     // Only the declared link arrays — the mobile menu appends Contact at render time.
     const labels = (file: string) => {
-      const block = fromRoot(file).match(/const (?:links|navLinks) = \[([\s\S]*?)\];/)?.[1] ?? "";
+      const block = fromRoot(file).match(/const (?:links|navLinks) = \[([\s\S]*?)\](?: as const)?;/)?.[1] ?? "";
       return Array.from(block.matchAll(/label: "([^"]+)"/g), (m) => m[1]);
     };
     expect(labels("src/components/Nav.tsx")).toEqual(["Work", "Services", "About", "Archive"]);
@@ -48,7 +51,7 @@ describe("site shape", () => {
     const retired = /orions\.agency\/(?:system|thinking|blog|practice)\b/;
     Array.from(sitemapUrls).forEach((url) => expect(url).not.toMatch(retired));
     expect(fromRoot("public/llms.txt")).not.toMatch(retired);
-    expect(fromRoot("index.html")).not.toMatch(retired);
+    expect(documentSource()).not.toMatch(retired);
   });
 });
 
@@ -75,7 +78,7 @@ describe("blueprint", () => {
   it("does not grow a previous model back", () => {
     const surfaces = ["Index", "Practice", "About", "Work", "CaseStudy", "Contact", "Archive", "ArchivePost"]
       .map((name) => fromRoot(`src/pages/${name}.tsx`))
-      .concat([fromRoot("src/data/practice.ts"), fromRoot("index.html"), fromRoot("public/llms.txt")])
+      .concat([fromRoot("src/data/practice.ts"), documentSource(), fromRoot("public/llms.txt")])
       .join("\n");
     expect(surfaces).not.toMatch(/Three movements|getMovement|Story · Direction · Expression|The ORIONS method|Boutique by design|Where aesthetic meets algorithm/);
     expect(surfaces).not.toMatch(/Discover.{0,40}Connect.{0,40}Shape/s);
@@ -116,14 +119,14 @@ describe("blueprint", () => {
   it("spells the name ORIONS everywhere but the logo", () => {
     const files = ["Index", "Practice", "About", "Work", "CaseStudy", "Contact", "Archive", "ArchivePost", "Privacy", "NotFound"]
       .map((n) => `src/pages/${n}.tsx`)
-      .concat(["src/components/Nav.tsx", "src/components/Footer.tsx", "src/components/SEO.tsx", "index.html", "public/llms.txt"]);
+      .concat(["src/components/Nav.tsx", "src/components/Footer.tsx", "src/components/SEO.tsx", ...DOCUMENT, "public/llms.txt"]);
     files.forEach((f) => expect(fromRoot(f), f).not.toContain("ØRIONS"));
     expect(fromRoot("src/components/Logo.tsx")).not.toMatch(/aria-label="ØRIONS"/);
   });
 
   it("uses the master idea on the main public surfaces", () => {
     expect(fromRoot("src/pages/Index.tsx")).toContain("Stories,");
-    expect(fromRoot("index.html")).toContain("Stories, Refined.");
+    expect(documentSource()).toContain("Stories, Refined.");
     expect(fromRoot("public/llms.txt")).toContain("Stories, Refined.");
     expect(fromRoot("src/data/practice.ts")).toContain("Independent Creative Studio");
   });
@@ -178,12 +181,19 @@ describe("work page", () => {
  *  real route — not on a redirect — and template literals are checked by their
  *  static prefix. */
 describe("internal links", () => {
-  const staticRoutes = new Set(
-    ["/", ...Array.from(fromRoot("src/App.tsx").matchAll(/path: "([^":]+)"/g), (m) => `/${m[1]}`)]
-      .map((route) => route.replace(/\/$/, "") || "/"),
-  );
-  const dynamicPrefixes = ["/work/", "/archive/"];
-  const resolves = (path: string) => staticRoutes.has(path) || dynamicPrefixes.some((prefix) => path.startsWith(prefix));
+  /** File-based routes: work.$slug.tsx → /work/$slug, work.index.tsx → /work. */
+  const routePaths = readdirSync(resolve(process.cwd(), "src/routes"))
+    .filter((f) => f.endsWith(".tsx") && !f.startsWith("__"))
+    .map((f) => "/" + f.replace(/\.tsx$/, "").replace(/(^|\.)index$/, "").split(".").join("/"))
+    .map((path) => path.replace(/\/$/, "") || "/");
+  const resolves = (path: string) => routePaths.includes(path);
+
+  /** A route that is never prerendered does not exist on the static host. */
+  it("prerenders every route", () => {
+    const config = fromRoot("vite.config.ts");
+    routePaths.filter((p) => !p.includes("$")).forEach((p) => expect(config, p).toContain(`"${p}"`));
+    routePaths.filter((p) => p.includes("$")).forEach((p) => expect(config, p).toContain("`" + p.split("$")[0]));
+  });
 
   it("points every in-app link at a route that exists", () => {
     const files = ["Index", "Practice", "Work", "CaseStudy", "About", "Contact", "Privacy", "NotFound", "Archive", "ArchivePost"]
@@ -200,7 +210,6 @@ describe("internal links", () => {
       ];
       hrefs.forEach((href) => {
         const path = href.split(/[#?]/)[0].replace(/\/$/, "") || "/";
-        if (dynamicPrefixes.includes(`${path}/`) && href.endsWith("/")) return; // `/work/${slug}` prefix
         if (!resolves(path)) bad.push(`${file} → ${href}`);
       });
     });

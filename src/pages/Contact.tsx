@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useSearch } from "@tanstack/react-router";
 import { ArrowUpRight, MessageCircle } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
@@ -25,8 +25,8 @@ const packageGroups: { label: string; options: string[] }[] = [
 export const packageOptions = packageGroups.flatMap((group) => group.options);
 
 const Contact = () => {
-  const [searchParams] = useSearchParams();
-  const presetRaw = (searchParams.get("pkg") || "").trim();
+  const { pkg } = useSearch({ from: "/contact" });
+  const presetRaw = (pkg || "").trim();
   const presetPkg = (() => {
     if (!presetRaw) return "";
     return packageOptions.find((option) => option.toLowerCase() === presetRaw.toLowerCase()) || "";

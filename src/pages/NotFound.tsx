@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation } from "@tanstack/react-router";
 import { useEffect } from "react";
 import SEO from "@/components/SEO";
 import { track } from "@/lib/analytics";

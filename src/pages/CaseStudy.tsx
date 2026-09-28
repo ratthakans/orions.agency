@@ -1,4 +1,4 @@
-import { Link, useParams, Navigate } from "react-router-dom";
+import { Link, useParams, Navigate } from "@tanstack/react-router";
 import { ArrowUpRight, ArrowLeft } from "lucide-react";
 import { getApproach } from "@/data/practice";
 import Reveal from "@/components/Reveal";
@@ -8,7 +8,7 @@ import { getCaseStudy, getAdjacent, caseStudies } from "@/data/caseStudies";
 import Picture from "@/components/Picture";
 
 const CaseStudy = () => {
-  const { slug = "" } = useParams();
+  const { slug = "" } = useParams({ strict: false });
   const cs = getCaseStudy(slug);
 
   if (!cs) return <Navigate to="/work" replace />;
@@ -146,7 +146,7 @@ const CaseStudy = () => {
               <div className="md:col-span-4">
                 <SectionLabel index={row.n} label={row.label} />
                 {row.quote && (
-                  <Link to={`/services#${cs.approach}`} className="cta-link mt-5">
+                  <Link to="/services" hash={cs.approach} className="cta-link mt-5">
                     <span>{getApproach(cs.approach)?.name}</span>
                     <ArrowUpRight className="w-4 h-4" />
                   </Link>
@@ -204,7 +204,7 @@ const CaseStudy = () => {
       {next && (
         <section className="px-6 md:px-10 border-t border-foreground/15">
           <Link
-            to={`/work/${next.slug}`}
+            to="/work/$slug" params={{ slug: next.slug }}
             className="group block max-w-[1280px] mx-auto py-24 md:py-36"
           >
             <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">

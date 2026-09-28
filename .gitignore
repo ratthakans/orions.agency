@@ -33,3 +33,7 @@ dist-ssr
 
 # tsc -b incremental state
 *.tsbuildinfo
+
+# TanStack Start build/cache
+.tanstack
+.output

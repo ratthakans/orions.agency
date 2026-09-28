@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
@@ -29,7 +29,7 @@ const Archive = () => (
           {archive.map((piece) => (
             <Link
               key={piece.slug}
-              to={`/archive/${piece.slug}`}
+              to="/archive/$slug" params={{ slug: piece.slug }}
               className="group grid grid-cols-[44px_1fr_20px] md:grid-cols-[80px_1fr_1fr_24px] items-baseline gap-4 md:gap-10 py-7 border-b border-foreground/15"
             >
               <span className="font-mono text-[11px] text-muted-foreground">{piece.n}</span>

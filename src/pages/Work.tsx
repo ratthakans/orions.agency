@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "@tanstack/react-router";
 import { X, Play, ChevronLeft, ChevronRight, Layers, ArrowUpRight } from "lucide-react";
 import { approaches, getApproach, type ApproachSlug } from "@/data/practice";
 import Reveal from "@/components/Reveal";
@@ -332,7 +332,7 @@ const Work = () => {
                 {cat.cases.filter((cs) => approach === "all" || cs.approach === approach).map((cs) => (
                   <Link
                     key={cs.slug}
-                    to={`/work/${cs.slug}`}
+                    to="/work/$slug" params={{ slug: cs.slug }}
                     className="group film-frame block rounded-none border border-foreground/12 bg-foreground/[0.04] aspect-[4/5] hover:border-foreground/35 transition-colors"
                   >
                     <Picture

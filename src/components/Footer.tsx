@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
 const navLinks = [
@@ -7,7 +7,7 @@ const navLinks = [
   { to: "/about", label: "About" },
   { to: "/archive", label: "Archive" },
   { to: "/contact", label: "Contact" },
-];
+] as const;
 
 const socials = [
   { href: "https://www.instagram.com/orions.agency", label: "IG" },

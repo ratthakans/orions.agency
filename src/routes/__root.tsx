@@ -2,7 +2,6 @@
 import type { ReactNode } from "react";
 import { HeadContent, Outlet, Scripts, createRootRoute } from "@tanstack/react-router";
 import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
 import Layout from "@/components/Layout";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import NotFound from "@/pages/NotFound";
@@ -37,14 +36,12 @@ export const Route = createRootRoute({
 function RootComponent() {
   return (
     <RootDocument>
-      <TooltipProvider>
-        <Sonner />
-        <Layout>
-          <ErrorBoundary>
-            <Outlet />
-          </ErrorBoundary>
-        </Layout>
-      </TooltipProvider>
+      <Sonner />
+      <Layout>
+        <ErrorBoundary>
+          <Outlet />
+        </ErrorBoundary>
+      </Layout>
     </RootDocument>
   );
 }

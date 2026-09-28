@@ -10,7 +10,7 @@ interface State {
 
 /**
  * App-level safety net. Catches render/lazy-chunk failures (e.g. a stale chunk
- * after a deploy, or a misconfigured Supabase client) and shows a recoverable
+ * after a deploy) and shows a recoverable
  * fallback instead of a blank white screen.
  */
 class ErrorBoundary extends Component<Props, State> {

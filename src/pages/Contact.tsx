@@ -82,13 +82,10 @@ const Contact = () => {
     }
     setErrors({});
     setSubmitStatus(null);
-    // Two delivery channels — succeed if EITHER works:
-    //   • Web3Forms → emails the studio inbox (set VITE_WEB3FORMS_KEY)
-    //   • Supabase  → stores the row (source of truth; set VITE_SUPABASE_*)
-    const env = import.meta.env;
-    const w3key = env.VITE_WEB3FORMS_KEY as string | undefined;
-    const hasSupabase = !!(env.VITE_SUPABASE_URL && env.VITE_SUPABASE_PUBLISHABLE_KEY);
-    if (!w3key && !hasSupabase) {
+    // Delivered by Web3Forms to the studio inbox (VITE_WEB3FORMS_KEY, set in
+    // Vercel and inlined at build time).
+    const w3key = import.meta.env.VITE_WEB3FORMS_KEY as string | undefined;
+    if (!w3key) {
       const message = "ระบบฟอร์มขัดข้องชั่วคราว — อีเมลหาเราที่ hello@orions.agency ได้เลย";
       toast.error(message);
       setSubmitStatus({ kind: "error", message });
@@ -97,41 +94,27 @@ const Contact = () => {
     setSubmitting(true);
     const { name, company, email, phone, brief } = parsed.data;
     const pkgFull = form.pkg || "";
-    // phone has no column on contact_inquiries → fold it into the stored brief.
-    const meta = [`โทร: ${phone}`, pkgFull && `งาน: ${pkgFull}`].filter(Boolean);
-    const composedBrief = `[${meta.join(" · ")}]${brief ? `\n${brief}` : ""}`;
 
     let delivered = false;
-    // 1) Email notification → studio inbox via Web3Forms
-    if (w3key) {
-      try {
-        const res = await fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          headers: { "Content-Type": "application/json", Accept: "application/json" },
-          body: JSON.stringify({
-            access_key: w3key,
-            subject: `เว็บไซต์ — ลูกค้าใหม่: ${name}${company ? ` · ${company}` : ""}`,
-            from_name: "ORIONS Website",
-            replyto: email,
-            name,
-            email,
-            phone,
-            company: company || "—",
-            package: pkgFull || "—",
-            message: brief || "(ไม่ได้กรอกรายละเอียด — ขอให้ติดต่อกลับ)",
-          }),
-        });
-        if (res.ok) delivered = true;
-      } catch { /* best-effort — fall through to Supabase / error */ }
-    }
-    // 2) Store the inquiry in Supabase — SDK is code-split, loaded only on submit
-    if (hasSupabase) {
-      try {
-        const { supabase } = await import("@/integrations/supabase/client");
-        const { error } = await supabase.from("contact_inquiries").insert({ name, company, email, brief: composedBrief });
-        if (!error) delivered = true;
-      } catch { /* best-effort — Web3Forms may already have delivered */ }
-    }
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: w3key,
+          subject: `เว็บไซต์ — ลูกค้าใหม่: ${name}${company ? ` · ${company}` : ""}`,
+          from_name: "ORIONS Website",
+          replyto: email,
+          name,
+          email,
+          phone,
+          company: company || "—",
+          package: pkgFull || "—",
+          message: brief || "(ไม่ได้กรอกรายละเอียด — ขอให้ติดต่อกลับ)",
+        }),
+      });
+      if (res.ok) delivered = true;
+    } catch { /* network failure — reported below */ }
     setSubmitting(false);
     if (!delivered) {
       const message = "ส่งไม่สำเร็จ ลองใหม่หรืออีเมลหาเราที่ hello@orions.agency";

@@ -5,6 +5,7 @@ import { caseStudies } from "@/data/caseStudies";
 import { portfolio } from "@/data/portfolio";
 import { approaches, method, principles, services } from "@/data/practice";
 import { archive, archiveThemes } from "@/data/archive";
+import { siteSchema } from "@/lib/site-schema";
 
 const fromRoot = (path: string) => readFileSync(resolve(process.cwd(), path), "utf8");
 const sitemapUrls = new Set(Array.from(fromRoot("public/sitemap.xml").matchAll(/<loc>([^<]+)<\/loc>/g), (match) => match[1]));
@@ -76,7 +77,7 @@ describe("blueprint", () => {
 
   /** The site has changed models three times; none of the old ones may leak back. */
   it("does not grow a previous model back", () => {
-    const surfaces = ["Index", "Practice", "About", "Work", "CaseStudy", "Contact", "Archive", "ArchivePost"]
+    const surfaces = ["Index", "Services", "About", "Work", "CaseStudy", "Contact", "Archive", "ArchivePost"]
       .map((name) => fromRoot(`src/pages/${name}.tsx`))
       .concat([fromRoot("src/data/practice.ts"), documentSource(), fromRoot("public/llms.txt")])
       .join("\n");
@@ -104,7 +105,7 @@ describe("blueprint", () => {
       .map(flatten)
       .filter(Boolean);
     const seen = new Map<string, string>();
-    ["Index", "Practice", "About", "Work", "Archive", "Contact", "CaseStudy"].forEach((name) => {
+    ["Index", "Services", "About", "Work", "Archive", "Contact", "CaseStudy"].forEach((name) => {
       const page = `src/pages/${name}.tsx`;
       new Set(headings(fromRoot(page))).forEach((head) => {
         const owner = seen.get(head.toLowerCase());
@@ -117,7 +118,7 @@ describe("blueprint", () => {
   /** Ø belongs to the drawn logo. Every piece of text — titles, schema, alt and
    *  aria labels a screen reader speaks — writes the name ORIONS. */
   it("spells the name ORIONS everywhere but the logo", () => {
-    const files = ["Index", "Practice", "About", "Work", "CaseStudy", "Contact", "Archive", "ArchivePost", "Privacy", "NotFound"]
+    const files = ["Index", "Services", "About", "Work", "CaseStudy", "Contact", "Archive", "ArchivePost", "Privacy", "NotFound"]
       .map((n) => `src/pages/${n}.tsx`)
       .concat(["src/components/Nav.tsx", "src/components/Footer.tsx", "src/components/SEO.tsx", ...DOCUMENT, "public/llms.txt"]);
     files.forEach((f) => expect(fromRoot(f), f).not.toContain("ØRIONS"));
@@ -126,14 +127,19 @@ describe("blueprint", () => {
 
   it("uses the master idea on the main public surfaces", () => {
     expect(fromRoot("src/pages/Index.tsx")).toContain("Stories,");
-    expect(documentSource()).toContain("Stories, Refined.");
+    // The schema computes these from practice.ts, so check the values it renders.
+    const [org, service, site] = siteSchema;
+    expect(org.slogan).toBe("Stories, Refined.");
+    expect(site.alternateName).toBe("Stories, Refined.");
+    const offers = (service.hasOfferCatalog as { itemListElement: { itemOffered: { name: string } }[] }).itemListElement;
+    expect(offers.map((o) => o.itemOffered.name)).toEqual([...services, ...approaches].map((x) => x.name));
     expect(fromRoot("public/llms.txt")).toContain("Stories, Refined.");
     expect(fromRoot("src/data/practice.ts")).toContain("Independent Creative Studio");
   });
 
   /** One big closing CTA per page, and only where it earns it. */
   it("keeps the closing CTA band to the homepage and services", () => {
-    ["src/pages/Index.tsx", "src/pages/Practice.tsx"].forEach((p) => expect(fromRoot(p)).toContain("<CTABand"));
+    ["src/pages/Index.tsx", "src/pages/Services.tsx"].forEach((p) => expect(fromRoot(p)).toContain("<CTABand"));
     ["About", "Work", "CaseStudy", "Archive", "ArchivePost"].forEach((name) =>
       expect(fromRoot(`src/pages/${name}.tsx`)).not.toMatch(/<CTABand|<ClosingCTA/),
     );
@@ -210,7 +216,7 @@ describe("internal links", () => {
   });
 
   it("points every in-app link at a route that exists", () => {
-    const files = ["Index", "Practice", "Work", "CaseStudy", "About", "Contact", "Privacy", "NotFound", "Archive", "ArchivePost"]
+    const files = ["Index", "Services", "Work", "CaseStudy", "About", "Contact", "Privacy", "NotFound", "Archive", "ArchivePost"]
       .map((name) => `src/pages/${name}.tsx`)
       .concat(["src/components/Nav.tsx", "src/components/Footer.tsx", "src/components/StickyMobileCTA.tsx"]);
 

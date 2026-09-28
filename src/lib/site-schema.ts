@@ -1,8 +1,15 @@
-/** Site-wide structured data, rendered once in the document head by the root
- *  route. (It lived in index.html before the move to TanStack Start, which has
- *  no index.html — the root route renders the whole document.) Per-page schema
- *  still comes from each page's <SEO schema>. */
-export const siteSchema: Record<string, unknown>[] = [
+import { approaches, brand, services } from "@/data/practice";
+
+/** Site-wide structured data, rendered once in <head> by the root route.
+ *
+ *  Two kinds of content, kept apart on purpose. The business facts below —
+ *  legal name, address, contact points, tax ID — are the studio's and change
+ *  rarely. Everything about the offer (slogan, description, what we know, the
+ *  services and approaches we sell) is computed from src/data/practice.ts, so
+ *  renaming a service updates the pages and the structured data together. */
+const SITE = "https://orions.agency";
+
+const [organization, professionalService, website] = [
   {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -10,8 +17,6 @@ export const siteSchema: Record<string, unknown>[] = [
     "legalName": "ORIONS Creative Co., Ltd.",
     "url": "https://orions.agency",
     "logo": "https://orions.agency/favicon.jpg",
-    "slogan": "Stories, Refined.",
-    "description": "ORIONS is an independent creative studio. We don't reinvent brands. We refine what makes them worth caring about.",
     "founder": {
       "@type": "Person",
       "name": "Ratthakan Suwanphakdee",
@@ -41,19 +46,6 @@ export const siteSchema: Record<string, unknown>[] = [
       "@type": "Country",
       "name": "Thailand"
     },
-    "knowsAbout": [
-      "Brand & Strategy",
-      "Creative & Communication",
-      "Brand Experience",
-      "Brand strategy",
-      "Brand narrative",
-      "Creative direction",
-      "Brand identity",
-      "Campaign platform",
-      "Film",
-      "Photography",
-      "Digital experience"
-    ],
     "sameAs": [
       "https://www.instagram.com/orions.agency",
       "https://www.facebook.com/orions.agency",
@@ -63,9 +55,6 @@ export const siteSchema: Record<string, unknown>[] = [
   {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "name": "ORIONS — Independent Creative Studio",
-    "description": "ORIONS is an independent creative studio. We don't reinvent brands. We refine what makes them worth caring about.",
-    "slogan": "Stories, Refined.",
     "image": "https://orions.agency/og-brand.jpg",
     "url": "https://orions.agency",
     "telephone": "+66-89-354-2628",
@@ -82,60 +71,12 @@ export const siteSchema: Record<string, unknown>[] = [
     "knowsLanguage": [
       "Thai",
       "English"
-    ],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Services and signature approaches",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Brand & Strategy",
-            "url": "https://orions.agency/services#brand-strategy"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Creative & Communication",
-            "url": "https://orions.agency/services#creative-communication"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Brand Experience",
-            "url": "https://orions.agency/services#brand-experience"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Creative Unlock",
-            "url": "https://orions.agency/services#creative-unlock"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Stories Embed",
-            "url": "https://orions.agency/services#stories-embed"
-          }
-        }
-      ]
-    }
+    ]
   },
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "ORIONS",
-    "alternateName": "Stories, Refined.",
-    "description": "ORIONS is an independent creative studio. We don't reinvent brands. We refine what makes them worth caring about.",
     "url": "https://orions.agency",
     "inLanguage": "th-TH",
     "publisher": {
@@ -144,4 +85,30 @@ export const siteSchema: Record<string, unknown>[] = [
       "url": "https://orions.agency"
     }
   }
+] as Record<string, unknown>[];
+
+const description = `ORIONS is an ${brand.descriptor.toLowerCase()}. ${brand.belief.en}`;
+
+export const siteSchema: Record<string, unknown>[] = [
+  {
+    ...organization,
+    slogan: brand.master,
+    description,
+    knowsAbout: [...services.map((s) => s.name), ...services.flatMap((s) => s.items)],
+  },
+  {
+    ...professionalService,
+    name: `ORIONS — ${brand.descriptor}`,
+    description,
+    slogan: brand.master,
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Services and signature approaches",
+      itemListElement: [...services, ...approaches].map((item) => ({
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: item.name, url: `${SITE}/services#${item.slug}` },
+      })),
+    },
+  },
+  { ...website, alternateName: brand.master, description },
 ];

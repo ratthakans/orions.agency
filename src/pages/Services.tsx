@@ -10,7 +10,7 @@ import { caseStudies } from "@/data/caseStudies";
 /** Services: three services, then the two signature approaches that combine
  *  them, then the method. Approaches are deliberately set apart from services —
  *  the blueprint is explicit that they are not two more things to buy. */
-const Practice = () => (
+const Services = () => (
   <div>
     <SEO
       title="Services — Brand & Strategy, Creative & Communication, Brand Experience · ORIONS"
@@ -113,4 +113,4 @@ const Practice = () => (
   </div>
 );
 
-export default Practice;
+export default Services;

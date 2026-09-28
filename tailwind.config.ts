@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss";
-import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
   darkMode: ["class"],
@@ -83,46 +82,6 @@ export default {
         "2xl": "none",
         inner: "none",
       },
-      keyframes: {
-        "fade-up": {
-          from: { opacity: "0", transform: "translateY(24px)" },
-          to: { opacity: "1", transform: "translateY(0)" },
-        },
-        "fade-in": {
-          from: { opacity: "0" },
-          to: { opacity: "1" },
-        },
-        "scroll-bounce": {
-          "0%, 100%": { transform: "translateY(0)", opacity: "0.4" },
-          "50%": { transform: "translateY(8px)", opacity: "1" },
-        },
-        "shimmer": {
-          "0%": { backgroundPosition: "-200% 0" },
-          "100%": { backgroundPosition: "200% 0" },
-        },
-        "aurora-1": {
-          "0%, 100%": { transform: "translate(0,0) scale(1)" },
-          "50%":      { transform: "translate(8%, 6%) scale(1.15)" },
-        },
-        "aurora-2": {
-          "0%, 100%": { transform: "translate(0,0) scale(1.1)" },
-          "50%":      { transform: "translate(-10%, -8%) scale(0.95)" },
-        },
-        "aurora-3": {
-          "0%, 100%": { transform: "translate(0,0) scale(0.9)" },
-          "50%":      { transform: "translate(-6%, 10%) scale(1.2)" },
-        },
-      },
-      animation: {
-        "fade-up": "fade-up 0.7s ease-out forwards",
-        "fade-in": "fade-in 0.5s ease-out forwards",
-        "scroll-bounce": "scroll-bounce 2s ease-in-out infinite",
-        "shimmer": "shimmer 8s linear infinite",
-        "aurora-1": "aurora-1 18s ease-in-out infinite",
-        "aurora-2": "aurora-2 22s ease-in-out infinite",
-        "aurora-3": "aurora-3 26s ease-in-out infinite",
-      },
     },
   },
-  plugins: [tailwindcssAnimate],
 } satisfies Config;

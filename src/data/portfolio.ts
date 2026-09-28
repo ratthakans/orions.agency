@@ -213,11 +213,3 @@ export const portfolio: PortCategory[] = [
   { key: "social", chip: "Social", n: "04", title: "Social posts & creative ads", sub: "Album posts & creative ads", albums: socialAlbums, gallery: socialAds },
   { key: "stills", chip: "Art direction & photography", n: "05", title: "Art direction & Photography", sub: "Key visuals · brand identity · shoots", gallery: [...artDirection, ...photography] },
 ];
-
-// Flat pool of work thumbnails for the homepage random showcase — art direction
-// + social only (no video/reels/photography). Shuffle + slice on the consumer side.
-export const workThumbs: PictureData[] = [
-  ...artDirection.map((g) => g.src),
-  ...socialAds.map((g) => g.src),
-  ...socialAlbums.flatMap((a) => a.images),
-];

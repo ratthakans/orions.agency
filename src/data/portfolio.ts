@@ -39,7 +39,7 @@ const reels: VideoItem[] = [
   "8JUMCj1i5xM", "w3bTBNLl8y0", "8FO-2vQqtPA",
 ].map((id) => ({ title: "Reel", id, ar: R }));
 
-// ZOLZA films — self-hosted (public/work/reels, 1080×1920 H.264), so they play
+// ZOLZA films — self-hosted (public/work/film, 1920×1080 H.264), so they play
 // without YouTube chrome. Add a clip: drop <slug>.mp4 + <slug>.jpg and list it.
 const zolzaFilms: VideoItem[] = [
   { slug: "beach", title: "ZOLZA — Beach" },
@@ -50,9 +50,8 @@ const zolzaFilms: VideoItem[] = [
 ].map(({ slug, title }): VideoItem => ({
   title,
   id: `zolza-${slug}`,
-  ar: R,
-  src: `/work/reels/zolza-${slug}.mp4`,
-  poster: `/work/reels/zolza-${slug}.jpg`,
+  src: `/work/film/zolza-${slug}.mp4`,
+  poster: `/work/film/zolza-${slug}.jpg`,
 }));
 
 const musicVids: VideoItem[] = [
@@ -238,13 +237,19 @@ const digitalSites: SiteItem[] = [
 // formats stay merged unless a client would look for them on their own:
 // outcomes lead (cases, live products), then the craft that produced them.
 //
-// Film & Motion is brand film and long-form in one justified wall, landscape
-// first so the vertical ZOLZA films group into their own rows at the end; a
+// Film & Motion is brand film and long-form in one justified wall, with the
+// ZOLZA films spread through the brand films rather than stacked together; a
 // single `base` keeps widths strictly proportional to aspect, so every row
 // lands the same height. Music videos and vertical reels each get a board.
 //
 // Order is deterministic — no client-side shuffle (SSG-safe).
-const filmAndMotion: VideoItem[] = [...videoFilm, ...longformVids, ...zolzaFilms];
+/** One `extra` after every `every` items of `base`, until `extra` runs out. */
+const spread = (base: VideoItem[], extra: VideoItem[], every: number) =>
+  base.flatMap((v, i) => {
+    const next = extra[Math.floor(i / every)];
+    return (i + 1) % every === 0 && next ? [v, next] : [v];
+  });
+const filmAndMotion: VideoItem[] = [...spread(videoFilm, zolzaFilms, 3), ...longformVids];
 
 export const portfolio: PortCategory[] = [
   { key: "cases", chip: "Selected work", n: "01", title: "Selected work", sub: "Client brand cases", cases: caseStudies },

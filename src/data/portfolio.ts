@@ -39,15 +39,15 @@ const reels: VideoItem[] = [
   "8JUMCj1i5xM", "w3bTBNLl8y0", "8FO-2vQqtPA",
 ].map((id) => ({ title: "Reel", id, ar: R }));
 
-// ZOLZA reels — self-hosted (public/work/reels, 1080×1920 H.264), so they play
+// ZOLZA films — self-hosted (public/work/reels, 1080×1920 H.264), so they play
 // without YouTube chrome. Add a clip: drop <slug>.mp4 + <slug>.jpg and list it.
-const zolzaReels: VideoItem[] = [
+const zolzaFilms: VideoItem[] = [
   { slug: "beach", title: "ZOLZA — Beach" },
   { slug: "party", title: "ZOLZA — Party" },
   { slug: "bbq", title: "ZOLZA — BBQ" },
   { slug: "pineapple", title: "ZOLZA — Pineapple" },
   { slug: "football", title: "ZOLZA — Football night" },
-].map(({ slug, title }) => ({
+].map(({ slug, title }): VideoItem => ({
   title,
   id: `zolza-${slug}`,
   ar: R,
@@ -149,7 +149,8 @@ const videoFilm: VideoItem[] = [
 // (sorted); add a new file + its aspect ratio (width / height) to extend.
 const artdirMods = import.meta.glob("../assets/work/artdir/*.jpg", { eager: true, import: "default", query: "?as=picture" });
 const artdirSrcs = Object.keys(artdirMods).sort().map((k) => artdirMods[k] as PictureData);
-const artdirAr = [0.675, 0.675, 0.675, 0.675, 0.8, 0.8, 0.675, 0.8, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1.008];
+// artdir-00a/00b are the ACE! posters (1024×1536), sorted ahead of the rest.
+const artdirAr = [0.667, 0.667, 0.675, 0.675, 0.675, 0.675, 0.8, 0.8, 0.675, 0.8, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1.008];
 const artDirection: GalleryImage[] = artdirSrcs.map((src, i) => ({ src, ar: artdirAr[i] ?? 1 }));
 
 // Photography — real brand photoshoot gallery (masonry, natural aspect).
@@ -174,6 +175,14 @@ const digitalSites: SiteItem[] = [
     kind: "Website · App",
     niche: "Airport Mobility",
     note: "แท็กซี่ VIP EV จากสนามบินสู่ปลายทาง — จาก mobility สู่ mixed-use.",
+  },
+  {
+    name: "ACE!",
+    domain: "acenetwork.now",
+    url: "https://www.acenetwork.now",
+    kind: "Website",
+    niche: "Film Community",
+    note: "คนหลังกล้องมีเรื่องให้เล่า — ข่าววงการ คอร์ส ACE! Trains และ meetup ของคนทำหนัง.",
   },
   {
     name: "ZOLZA",
@@ -225,25 +234,24 @@ const digitalSites: SiteItem[] = [
   },
 ];
 
-// Six boards, not nine. A long craft taxonomy (video · reels · long-form ·
-// music · art direction · photography …) reads like a production house menu;
-// an agency that sells judgement shows fewer, deeper surfaces. Outcomes lead
-// (cases, live products), then the craft that produced them.
+// Seven boards. A long craft taxonomy reads like a production house menu, so
+// formats stay merged unless a client would look for them on their own:
+// outcomes lead (cases, live products), then the craft that produced them.
 //
-// Film & Motion is every landscape format in one justified wall (film →
-// long-form → music); a single `base` keeps widths strictly proportional to
-// aspect, so every row lands the same height. Vertical reels get their own
-// board on a fixed 9:16 grid, newest client work first.
+// Film & Motion is brand film and long-form in one justified wall, landscape
+// first so the vertical ZOLZA films group into their own rows at the end; a
+// single `base` keeps widths strictly proportional to aspect, so every row
+// lands the same height. Music videos and vertical reels each get a board.
 //
 // Order is deterministic — no client-side shuffle (SSG-safe).
-const filmAndMotion: VideoItem[] = [...videoFilm, ...longformVids, ...musicVids];
-const allReels: VideoItem[] = [...zolzaReels, ...reels];
+const filmAndMotion: VideoItem[] = [...videoFilm, ...longformVids, ...zolzaFilms];
 
 export const portfolio: PortCategory[] = [
   { key: "cases", chip: "Selected work", n: "01", title: "Selected work", sub: "Client brand cases", cases: caseStudies },
   { key: "digital", chip: "Digital experience", n: "02", title: "Digital experience", sub: "Live sites & applications", sites: digitalSites },
-  { key: "film", chip: "Film & motion", n: "03", title: "Film & Motion", sub: "Brand film · long-form · music video", videos: filmAndMotion, base: 240 },
-  { key: "reels", chip: "Reels", n: "04", title: "Reels", sub: "Short-form · vertical", videos: allReels, cols: 6 },
-  { key: "social", chip: "Social", n: "05", title: "Social posts & creative ads", sub: "Album posts & creative ads", albums: socialAlbums, gallery: socialAds },
-  { key: "stills", chip: "Art direction & photography", n: "06", title: "Art direction & Photography", sub: "Key visuals · brand identity · shoots", gallery: [...artDirection, ...photography] },
+  { key: "film", chip: "Film & motion", n: "03", title: "Film & Motion", sub: "Brand film · long-form", videos: filmAndMotion, base: 240 },
+  { key: "music", chip: "Music video", n: "04", title: "Music video", sub: "Artists · covers · live", videos: musicVids, base: 240 },
+  { key: "reels", chip: "Reels", n: "05", title: "Reels", sub: "Short-form · vertical", videos: reels, cols: 6 },
+  { key: "social", chip: "Social", n: "06", title: "Social posts & creative ads", sub: "Album posts & creative ads", albums: socialAlbums, gallery: socialAds },
+  { key: "stills", chip: "Art direction & photography", n: "07", title: "Art direction & Photography", sub: "Key visuals · brand identity · shoots", gallery: [...artDirection, ...photography] },
 ];

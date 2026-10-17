@@ -44,7 +44,7 @@ const Work = () => {
   const [approach, setApproach] = useState<ApproachSlug | "all">("all");
   const [hoverVid, setHoverVid] = useState<string | null>(null);
   const [lightbox, setLightbox] = useState<
-    | { kind: "img" | "video"; val: string; ar?: number }
+    | { kind: "img" | "video"; val: string; ar?: number; file?: boolean }
     | { kind: "album"; images: string[]; i: number }
     | null
   >(null);
@@ -161,7 +161,7 @@ const Work = () => {
                     <button
                       key={v.id}
                       type="button"
-                      onClick={() => setLightbox({ kind: "video", val: v.id, ar })}
+                      onClick={() => setLightbox({ kind: "video", val: v.src ?? v.id, ar, file: !!v.src })}
                       onMouseEnter={() => setHoverVid(v.id)}
                       onMouseLeave={() => setHoverVid((h) => (h === v.id ? null : h))}
                       style={cat.cols ? undefined : { flexGrow: ar, flexBasis: `${ar * (cat.base ?? (ar < 1 ? 300 : 150))}px` }}
@@ -169,12 +169,23 @@ const Work = () => {
                     >
                       <span className="block relative w-full" style={{ aspectRatio: cat.cols ? gridAr : String(ar) }}>
                         <img
-                          src={`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`}
+                          src={v.poster ?? `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`}
                           alt={v.title}
                           loading="lazy"
                           className="absolute inset-0 w-full h-full object-cover group-hover:opacity-90 transition-opacity"
                         />
-                        {hoverVid === v.id && (
+                        {hoverVid === v.id && v.src ? (
+                          <video
+                            src={v.src}
+                            autoPlay
+                            muted
+                            loop
+                            playsInline
+                            tabIndex={-1}
+                            aria-hidden="true"
+                            className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+                          />
+                        ) : hoverVid === v.id && (
                           <iframe
                             src={`https://www.youtube.com/embed/${v.id}?autoplay=1&mute=1&controls=0&loop=1&playlist=${v.id}&modestbranding=1&playsinline=1&rel=0`}
                             title={v.title}
@@ -466,6 +477,9 @@ const Work = () => {
                 (lightbox.ar ?? 16 / 9) < 1 ? "h-[86vh] max-w-[92vw]" : "w-full max-w-[1100px]"
               }`}
             >
+              {lightbox.file ? (
+                <video src={lightbox.val} autoPlay controls playsInline className="w-full h-full bg-black" />
+              ) : (
               <iframe
                 src={`https://www.youtube.com/embed/${lightbox.val}?autoplay=1&rel=0`}
                 title="Video"
@@ -473,6 +487,7 @@ const Work = () => {
                 allowFullScreen
                 className="w-full h-full"
               />
+              )}
             </div>
           ) : (
             <img

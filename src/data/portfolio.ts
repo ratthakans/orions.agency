@@ -152,6 +152,14 @@ const digitalSites: SiteItem[] = [
     note: "แท็กซี่ VIP EV จากสนามบินสู่ปลายทาง — จาก mobility สู่ mixed-use.",
   },
   {
+    name: "ZOLZA",
+    domain: "zolzadrink.com",
+    url: "https://www.zolzadrink.com",
+    kind: "Website",
+    niche: "Beverage",
+    note: "Sparkling cider vinegar — เปรี้ยว ซ่า ดื่มง่าย ในแบบที่ SET ชีวิตให้ FRESH.",
+  },
+  {
     name: "Siam Elite Consulting",
     domain: "siamelite.consulting",
     url: "https://www.siamelite.consulting",

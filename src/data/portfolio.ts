@@ -64,7 +64,7 @@ const zolzaFilms: VideoItem[] = [
 }));
 
 const musicVids: VideoItem[] = [
-  { title: "สาวน้อยกลับบ้าน — กวาง จิรพรรณ", id: "mbbkROvJAJw" },
+  { title: "สาวน้อยกลับบ้าน — กวาง จิรพรรณ (Cover)", id: "sCjPTr0CfXc" },
   { title: "พังในพริบตา — PANCAKE", id: "YQb_ueBfplM" },
   { title: "กลับไปก่อนได้ไหม — NUM KALA Feat. URBOYTJ", id: "p4JICbYbDow" },
   { title: "ทางที่ดีคือทางแบบไหน — PANCAKE", id: "ysrayxcXoF8" },

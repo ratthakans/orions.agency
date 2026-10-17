@@ -1,5 +1,4 @@
-// The people who lead the work. Read by /about and by client pitch pages, so a
-// credit is written once and cannot drift between the two.
+// The people who lead the work. Read by /about.
 
 import founderPortrait from "@/assets/team/founder-portrait.jpg?as=picture";
 import directorPortrait from "@/assets/team/director-niti.jpg?as=picture";

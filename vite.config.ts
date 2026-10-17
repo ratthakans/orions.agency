@@ -23,8 +23,6 @@ const pages = [
   "/contact",
   "/privacy",
   "/404",
-  // Client pitch pages: unlinked and noindex, so they must be listed here.
-  "/for/luciaka",
   ...slugsIn("./src/data/caseStudies.ts").map((slug) => `/work/${slug}`),
   ...slugsIn("./src/data/archive.ts").map((slug) => `/archive/${slug}`),
 ].map((path) => ({ path }));

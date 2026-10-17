@@ -4,8 +4,7 @@ import Picture from "@/components/Picture";
 import Reveal from "@/components/Reveal";
 import type { Person } from "@/data/team";
 
-/** Portrait, name, bio and selected credits for one person. Shared by /about
- *  and client pitch pages so a profile reads the same everywhere. */
+/** Portrait, name, bio and selected credits for one person. Used on /about. */
 const PersonProfile = ({ person, lead }: { person: Person; lead?: string }) => (
   <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-8 md:gap-16 items-start">
     <Picture

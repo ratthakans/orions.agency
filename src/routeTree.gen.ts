@@ -17,7 +17,6 @@ import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ArchiveIndexRouteImport } from './routes/archive.index'
 import { Route as ArchiveSlugRouteImport } from './routes/archive.$slug'
-import { Route as ForLuciakaRouteImport } from './routes/for.luciaka'
 import { Route as WorkIndexRouteImport } from './routes/work.index'
 import { Route as WorkSlugRouteImport } from './routes/work.$slug'
 
@@ -61,11 +60,6 @@ const ArchiveSlugRoute = ArchiveSlugRouteImport.update({
   path: '/archive/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ForLuciakaRoute = ForLuciakaRouteImport.update({
-  id: '/for/luciaka',
-  path: '/for/luciaka',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const WorkIndexRoute = WorkIndexRouteImport.update({
   id: '/work/',
   path: '/work/',
@@ -85,7 +79,6 @@ export interface FileRoutesByFullPath {
   '/privacy': typeof PrivacyRoute
   '/services': typeof ServicesRoute
   '/archive/$slug': typeof ArchiveSlugRoute
-  '/for/luciaka': typeof ForLuciakaRoute
   '/work/$slug': typeof WorkSlugRoute
   '/archive/': typeof ArchiveIndexRoute
   '/work/': typeof WorkIndexRoute
@@ -98,7 +91,6 @@ export interface FileRoutesByTo {
   '/privacy': typeof PrivacyRoute
   '/services': typeof ServicesRoute
   '/archive/$slug': typeof ArchiveSlugRoute
-  '/for/luciaka': typeof ForLuciakaRoute
   '/work/$slug': typeof WorkSlugRoute
   '/archive': typeof ArchiveIndexRoute
   '/work': typeof WorkIndexRoute
@@ -112,7 +104,6 @@ export interface FileRoutesById {
   '/privacy': typeof PrivacyRoute
   '/services': typeof ServicesRoute
   '/archive/$slug': typeof ArchiveSlugRoute
-  '/for/luciaka': typeof ForLuciakaRoute
   '/work/$slug': typeof WorkSlugRoute
   '/archive/': typeof ArchiveIndexRoute
   '/work/': typeof WorkIndexRoute
@@ -127,7 +118,6 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/services'
     | '/archive/$slug'
-    | '/for/luciaka'
     | '/work/$slug'
     | '/archive/'
     | '/work/'
@@ -140,7 +130,6 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/services'
     | '/archive/$slug'
-    | '/for/luciaka'
     | '/work/$slug'
     | '/archive'
     | '/work'
@@ -153,7 +142,6 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/services'
     | '/archive/$slug'
-    | '/for/luciaka'
     | '/work/$slug'
     | '/archive/'
     | '/work/'
@@ -167,7 +155,6 @@ export interface RootRouteChildren {
   PrivacyRoute: typeof PrivacyRoute
   ServicesRoute: typeof ServicesRoute
   ArchiveSlugRoute: typeof ArchiveSlugRoute
-  ForLuciakaRoute: typeof ForLuciakaRoute
   WorkSlugRoute: typeof WorkSlugRoute
   ArchiveIndexRoute: typeof ArchiveIndexRoute
   WorkIndexRoute: typeof WorkIndexRoute
@@ -231,13 +218,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ArchiveSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/for/luciaka': {
-      id: '/for/luciaka'
-      path: '/for/luciaka'
-      fullPath: '/for/luciaka'
-      preLoaderRoute: typeof ForLuciakaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/work/': {
       id: '/work/'
       path: '/work'
@@ -263,7 +243,6 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyRoute: PrivacyRoute,
   ServicesRoute: ServicesRoute,
   ArchiveSlugRoute: ArchiveSlugRoute,
-  ForLuciakaRoute: ForLuciakaRoute,
   WorkSlugRoute: WorkSlugRoute,
   ArchiveIndexRoute: ArchiveIndexRoute,
   WorkIndexRoute: WorkIndexRoute,

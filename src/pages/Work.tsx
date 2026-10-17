@@ -283,6 +283,38 @@ const Work = () => {
                   </button>
                 ))}
               </div>
+            ) : cat.events ? (
+              <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 md:gap-x-5 gap-y-8">
+                {cat.events.map((ev, i) => (
+                  <figure key={ev.title} className={i === 0 ? "sm:col-span-2" : undefined}>
+                    <button
+                      type="button"
+                      onClick={() => setLightbox({ kind: "img", val: ev.image.img.src })}
+                      className="group block w-full aspect-[3/2] overflow-hidden rounded-none border border-foreground/12 hover:border-foreground/40 transition-colors cursor-pointer"
+                    >
+                      <Picture
+                        data={ev.image}
+                        alt={ev.title}
+                        loading="lazy"
+                        className="w-full h-full object-cover group-hover:opacity-90 transition-opacity"
+                      />
+                    </button>
+                    <figcaption className="mt-3 flex items-start justify-between gap-4">
+                      <div>
+                        <p className="font-mono text-[10px] tracking-[0.16em] uppercase text-muted-foreground">
+                          {cat.n}.{String(i + 1).padStart(2, "0")} · {ev.kind}
+                        </p>
+                        <p className="mt-1 font-body text-[17px] md:text-[18px] leading-snug">{ev.title}</p>
+                      </div>
+                      {ev.url ? (
+                        <a href={ev.url} target="_blank" rel="noreferrer" aria-label={`${ev.title} — เปิดเว็บไซต์`} className="mt-1 shrink-0 text-foreground/45 hover:text-foreground transition-colors">
+                          <ArrowUpRight className="w-5 h-5" />
+                        </a>
+                      ) : null}
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
             ) : cat.sites ? (
               <div className="mt-8">
                 <p lang="th" className="font-thai thai-wrap text-[14px] md:text-[15px] leading-[1.8] text-muted-foreground max-w-[560px]">

@@ -30,6 +30,15 @@ export type SiteItem = {
   note: string;
 };
 
+/** An event the studio produced — photographed, not linked unless public. */
+export type EventItem = {
+  title: string;
+  /** Format, shown as a mono chip ("Product launch", "Summit & expo"). */
+  kind: string;
+  image: PictureData;
+  url?: string;
+};
+
 const W = 21 / 9; // cinematic wide
 const R = 9 / 16; // vertical reel
 
@@ -89,6 +98,8 @@ export type PortCategory = {
   cases?: CaseStudy[];
   /** Live sites & apps — link out to the shipped product. */
   sites?: SiteItem[];
+  /** Events produced — photo cards, opened in the lightbox. */
+  events?: EventItem[];
   gallery?: GalleryImage[];
   videos?: VideoItem[];
   /** Album posts — ordered images + optional layout (no shuffle). */
@@ -156,6 +167,21 @@ const artDirection: GalleryImage[] = artdirSrcs.map((src, i) => ({ src, ar: artd
 const photoMods = import.meta.glob("../assets/work/photography/*.jpg", { eager: true, import: "default", query: "?as=picture" });
 const photography: GalleryImage[] = Object.keys(photoMods).sort().map((k) => ({ src: photoMods[k] as PictureData, ar: 1 }));
 
+// Events — one photograph per event, in the order a client would read them:
+// the largest stages first.
+const eventMods = import.meta.glob("../assets/work/event/*.jpg", { eager: true, import: "default", query: "?as=picture" });
+const eventImage = (slug: string) => eventMods[`../assets/work/event/${slug}.jpg`] as PictureData;
+const events: EventItem[] = [
+  { title: "SETA Asia", kind: "Summit & expo", image: eventImage("seta-asia"), url: "https://setaasia.com" },
+  { title: "Enchanted Fest", kind: "Large-scale concert", image: eventImage("enchanted-fest") },
+  { title: "White Walker by Johnnie Walker", kind: "Product launch", image: eventImage("white-walker") },
+  { title: "ELLE MEN × Federbräu", kind: "Brand activation", image: eventImage("elle-men-federbrau") },
+  { title: "IKEA Staff Outing", kind: "Large-scale event", image: eventImage("ikea-staff-outing") },
+  { title: "Eden Color 8th Celebration", kind: "Anniversary gala", image: eventImage("eden-color-8th") },
+  { title: "Homerun Homeroom", kind: "Concert · motion graphics & LED", image: eventImage("homerun-homeroom") },
+  { title: "Tatler House Dialogues × IRA Residences", kind: "Exclusive talk", image: eventImage("tatler-ira") },
+];
+
 // Digital experience — shipped, live sites & applications. Text-forward cards
 // that link out to the real thing (no placeholder screenshots).
 const digitalSites: SiteItem[] = [
@@ -174,6 +200,14 @@ const digitalSites: SiteItem[] = [
     kind: "Website · App",
     niche: "Airport Mobility",
     note: "แท็กซี่ VIP EV จากสนามบินสู่ปลายทาง — จาก mobility สู่ mixed-use.",
+  },
+  {
+    name: "SETA Asia",
+    domain: "setaasia.com",
+    url: "https://setaasia.com",
+    kind: "Website",
+    niche: "Energy Summit",
+    note: "เวทีพลังงานยั่งยืนของไทยและเอเชีย — ผู้กำหนดนโยบาย อุตสาหกรรม และนวัตกรรมในที่เดียว.",
   },
   {
     name: "ACE!",
@@ -233,7 +267,7 @@ const digitalSites: SiteItem[] = [
   },
 ];
 
-// Seven boards. A long craft taxonomy reads like a production house menu, so
+// Eight boards. A long craft taxonomy reads like a production house menu, so
 // formats stay merged unless a client would look for them on their own:
 // outcomes lead (cases, live products), then the craft that produced them.
 //
@@ -254,9 +288,10 @@ const filmAndMotion: VideoItem[] = [...spread(videoFilm, zolzaFilms, 3), ...long
 export const portfolio: PortCategory[] = [
   { key: "cases", chip: "Selected work", n: "01", title: "Selected work", sub: "Client brand cases", cases: caseStudies },
   { key: "digital", chip: "Digital experience", n: "02", title: "Digital experience", sub: "Live sites & applications", sites: digitalSites },
-  { key: "film", chip: "Film & motion", n: "03", title: "Film & Motion", sub: "Brand film · long-form", videos: filmAndMotion, base: 240 },
-  { key: "music", chip: "Music video", n: "04", title: "Music video", sub: "Artists · covers · live", videos: musicVids, base: 240 },
-  { key: "reels", chip: "Reels", n: "05", title: "Reels", sub: "Short-form · vertical", videos: reels, cols: 6 },
-  { key: "social", chip: "Social", n: "06", title: "Social posts & creative ads", sub: "Album posts & creative ads", albums: socialAlbums, gallery: socialAds },
-  { key: "stills", chip: "Art direction & photography", n: "07", title: "Art direction & Photography", sub: "Key visuals · brand identity · shoots", gallery: [...artDirection, ...photography] },
+  { key: "event", chip: "Event", n: "03", title: "Event", sub: "Summits · launches · concerts · galas", events },
+  { key: "film", chip: "Film & motion", n: "04", title: "Film & Motion", sub: "Brand film · long-form", videos: filmAndMotion, base: 240 },
+  { key: "music", chip: "Music video", n: "05", title: "Music video", sub: "Artists · covers · live", videos: musicVids, base: 240 },
+  { key: "reels", chip: "Reels", n: "06", title: "Reels", sub: "Short-form · vertical", videos: reels, cols: 6 },
+  { key: "social", chip: "Social", n: "07", title: "Social posts & creative ads", sub: "Album posts & creative ads", albums: socialAlbums, gallery: socialAds },
+  { key: "stills", chip: "Art direction & photography", n: "08", title: "Art direction & Photography", sub: "Key visuals · brand identity · shoots", gallery: [...artDirection, ...photography] },
 ];

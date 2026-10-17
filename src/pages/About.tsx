@@ -3,8 +3,8 @@ import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
-import Picture from "@/components/Picture";
-import founder from "@/assets/team/founder-portrait.jpg?as=picture";
+import PersonProfile from "@/components/PersonProfile";
+import { director, founder } from "@/data/team";
 import { caseStudies } from "@/data/caseStudies";
 import { brand, pointOfView, principles } from "@/data/practice";
 
@@ -39,21 +39,18 @@ const About = () => (
     <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1280px] mx-auto py-16 md:py-24">
         <SectionLabel label="From the founder" />
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-8 md:gap-16 items-start">
-          <Picture
-            data={founder}
-            alt="Ratthakan Suwanphakdee — Founder & Creative Director, ORIONS"
-            className="w-44 h-56 md:w-60 md:h-[19rem] object-cover object-top grayscale-[0.3] saturate-[0.85]"
-          />
-          <div>
-            <Reveal emphasis="lead">
-              <p lang="th" className="font-body text-[25px] md:text-[38px] leading-[1.4] max-w-[40ch]">
-                งานของเราเริ่มจากการสังเกตอย่างจริงจัง แล้วค่อยขัดเกลาจนเรื่องที่สำคัญชัดขึ้น
-              </p>
-            </Reveal>
-            <p lang="th" className="mt-8 font-thai text-[16px]">รัฐกันต์ สุวรรณภักดี</p>
-            <p className="mt-1 font-mono text-[11px] tracking-[0.18em] uppercase text-muted-foreground">Founder &amp; Creative Director</p>
-          </div>
+        <div className="mt-10">
+          <PersonProfile person={founder} lead="งานของเราเริ่มจากการสังเกตอย่างจริงจัง แล้วค่อยขัดเกลาจนเรื่องที่สำคัญชัดขึ้น" />
+        </div>
+      </div>
+    </section>
+
+    {/* The director the founder brings in when the story is carried by film. */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-16 md:py-24">
+        <SectionLabel label="Director" />
+        <div className="mt-10">
+          <PersonProfile person={director} />
         </div>
       </div>
     </section>

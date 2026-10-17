@@ -184,7 +184,7 @@ const Index = () => (
         <div className="grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-8 md:gap-12 items-start">
           <Picture
             data={founderPortrait}
-            alt="Ratthakan Suwanphakdee — Founder & Creative Director, ORIONS"
+            alt="Ratthakans Suwanphakdee — Founder & Creative Director, ORIONS"
             loading="lazy"
             className="w-36 h-44 md:w-44 md:h-56 object-cover object-top grayscale-[0.3] saturate-[0.85]"
           />

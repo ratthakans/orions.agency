@@ -19,7 +19,7 @@ const [organization, professionalService, website] = [
     "logo": "https://orions.agency/favicon.jpg",
     "founder": {
       "@type": "Person",
-      "name": "Ratthakan Suwanphakdee",
+      "name": "Ratthakans Suwanphakdee",
       "jobTitle": "Founder & Creative Director"
     },
     "address": {

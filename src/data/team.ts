@@ -83,6 +83,7 @@ export const director: Person = {
 
 export const creative: Person = {
   name: "Rommy",
-  role: "Creative",
+  role: "Creative · Content Strategy",
   portrait: creativePortrait,
+  bio: "แตกโจทย์ของแบรนด์ออกเป็นกลยุทธ์คอนเทนต์ที่ทำ performance ได้จริง — ใช้ data อ่านพฤติกรรมกลุ่มเป้าหมาย แล้ววางว่าจะพูดกับใคร พูดอะไร และผลิตออกมาในรูปแบบไหน ให้ทุกชิ้นแม่นตั้งแต่ก่อนเริ่มถ่าย ไม่ใช่มาแก้หลังปล่อย",
 };

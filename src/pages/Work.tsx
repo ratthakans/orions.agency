@@ -327,10 +327,21 @@ const Work = () => {
                       href={s.url}
                       target="_blank"
                       rel="noreferrer"
-                      className={`group relative flex flex-col justify-between gap-8 rounded-none border border-foreground/12 bg-foreground/[0.02] p-7 md:p-9 min-h-[196px] transition-colors hover:border-foreground/35 hover:bg-foreground/[0.04] ${
+                      className={`group relative flex flex-col rounded-none border border-foreground/12 bg-foreground/[0.02] transition-colors hover:border-foreground/35 hover:bg-foreground/[0.04] ${
                         i === 0 ? "md:col-span-2" : ""
                       }`}
                     >
+                      {s.shot ? (
+                        <div className={`overflow-hidden border-b border-foreground/12 ${i === 0 ? "aspect-[16/10] md:aspect-[16/7]" : "aspect-[16/10]"}`}>
+                          <Picture
+                            data={s.shot}
+                            alt={`${s.name} — ${s.domain}`}
+                            loading="lazy"
+                            className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
+                          />
+                        </div>
+                      ) : null}
+                      <div className="flex flex-1 flex-col justify-between gap-8 p-7 md:p-9 min-h-[196px]">
                       <div className="flex items-start justify-between gap-4">
                         <span className="font-mono text-[11px] tracking-[0.22em] uppercase text-muted-foreground">
                           {cat.n}.{String(i + 1).padStart(2, "0")}
@@ -350,6 +361,7 @@ const Work = () => {
                         <div className="mt-5 font-mono text-[11px] tracking-[0.14em] uppercase text-foreground/60">
                           {s.domain} <span className="text-muted-foreground">· {s.niche}</span>
                         </div>
+                      </div>
                       </div>
                     </a>
                   ))}

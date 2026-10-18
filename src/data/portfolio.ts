@@ -28,6 +28,10 @@ export type SiteItem = {
   niche: string;
   /** One-line essence — VÆST-tight, editorial. */
   note: string;
+  /** Screenshot of the live home page (1440×900 viewport), when it loads. */
+  shot?: PictureData;
+  /** Set while the live site is broken: the card is left off the board. */
+  offline?: boolean;
 };
 
 /** An event the studio produced — photographed, not linked unless public. */
@@ -182,12 +186,16 @@ const events: EventItem[] = [
   { title: "Tatler House Dialogues × IRA Residences", kind: "Exclusive talk", image: eventImage("tatler-ira") },
 ];
 
-// Digital experience — shipped, live sites & applications. Text-forward cards
-// that link out to the real thing (no placeholder screenshots).
+// Digital experience — shipped, live sites & applications, each card led by a
+// screenshot of the live home page (src/assets/work/sites/<slug>.jpg, captured
+// at 1440×900) and linking out to the real thing.
+const siteMods = import.meta.glob("../assets/work/sites/*.jpg", { eager: true, import: "default", query: "?as=picture" });
+const siteShot = (slug: string) => siteMods[`../assets/work/sites/${slug}.jpg`] as PictureData | undefined;
 const digitalSites: SiteItem[] = [
   {
     name: "Routte",
     domain: "routte.to",
+    shot: siteShot("routte"),
     url: "https://routte.to",
     kind: "Application",
     niche: "Product",
@@ -195,8 +203,9 @@ const digitalSites: SiteItem[] = [
   },
   {
     name: "HONG MOVE",
-    domain: "hongmove.co.th",
-    url: "https://www.hongmove.co.th",
+    domain: "hongmove.com",
+    shot: siteShot("hongmove"),
+    url: "https://hongmove.com",
     kind: "Website · App",
     niche: "Airport Mobility",
     note: "แท็กซี่ VIP EV จากสนามบินสู่ปลายทาง — จาก mobility สู่ mixed-use.",
@@ -204,6 +213,7 @@ const digitalSites: SiteItem[] = [
   {
     name: "SETA Asia",
     domain: "setaasia.com",
+    shot: siteShot("seta-asia"),
     url: "https://setaasia.com",
     kind: "Website",
     niche: "Energy Summit",
@@ -212,6 +222,7 @@ const digitalSites: SiteItem[] = [
   {
     name: "ACE!",
     domain: "acenetwork.now",
+    shot: siteShot("ace"),
     url: "https://www.acenetwork.now",
     kind: "Website",
     niche: "Film Community",
@@ -220,6 +231,7 @@ const digitalSites: SiteItem[] = [
   {
     name: "ZOLZA",
     domain: "zolzadrink.com",
+    shot: siteShot("zolza"),
     url: "https://www.zolzadrink.com",
     kind: "Website",
     niche: "Beverage",
@@ -228,6 +240,8 @@ const digitalSites: SiteItem[] = [
   {
     name: "Siam Elite Consulting",
     domain: "siamelite.consulting",
+    offline: true,
+    shot: siteShot("siam-elite"),
     url: "https://www.siamelite.consulting",
     kind: "Website",
     niche: "Consulting",
@@ -236,6 +250,8 @@ const digitalSites: SiteItem[] = [
   {
     name: "LUMA Academy",
     domain: "luma-academy-kappa.vercel.app",
+    offline: true,
+    shot: siteShot("luma-academy"),
     url: "https://luma-academy-kappa.vercel.app",
     kind: "Website",
     niche: "EdTech",
@@ -244,6 +260,7 @@ const digitalSites: SiteItem[] = [
   {
     name: "B-Healthy",
     domain: "b-healthy-ten.vercel.app",
+    shot: siteShot("b-healthy"),
     url: "https://b-healthy-ten.vercel.app",
     kind: "Website",
     niche: "Corporate Wellness",
@@ -252,6 +269,7 @@ const digitalSites: SiteItem[] = [
   {
     name: "Khao Yai Country Club",
     domain: "brc-kycgolf.com",
+    shot: siteShot("khaoyai-country-club"),
     url: "https://brc-kycgolf.com",
     kind: "Website",
     niche: "Leisure Golf",
@@ -260,6 +278,7 @@ const digitalSites: SiteItem[] = [
   {
     name: "EFFICIENCY",
     domain: "efficiency.co.th",
+    shot: siteShot("efficiency"),
     url: "https://www.efficiency.co.th",
     kind: "Website",
     niche: "Engineering",
@@ -287,7 +306,7 @@ const filmAndMotion: VideoItem[] = [...spread(videoFilm, zolzaFilms, 3), ...long
 
 export const portfolio: PortCategory[] = [
   { key: "cases", chip: "Selected work", n: "01", title: "Selected work", sub: "Client brand cases", cases: caseStudies },
-  { key: "digital", chip: "Digital experience", n: "02", title: "Digital experience", sub: "Live sites & applications", sites: digitalSites },
+  { key: "digital", chip: "Digital experience", n: "02", title: "Digital experience", sub: "Live sites & applications", sites: digitalSites.filter((site) => !site.offline) },
   { key: "event", chip: "Event", n: "03", title: "Event", sub: "Summits · launches · concerts · galas", events },
   { key: "film", chip: "Film & motion", n: "04", title: "Film & Motion", sub: "Brand film · long-form", videos: filmAndMotion, base: 240 },
   { key: "music", chip: "Music video", n: "05", title: "Music video", sub: "Artists · covers · live", videos: musicVids, base: 240 },

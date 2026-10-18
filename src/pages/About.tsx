@@ -4,7 +4,7 @@ import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
 import PersonProfile from "@/components/PersonProfile";
-import { director, founder } from "@/data/team";
+import { creative, director, founder } from "@/data/team";
 import { caseStudies } from "@/data/caseStudies";
 import { brand, pointOfView, principles } from "@/data/practice";
 
@@ -51,6 +51,15 @@ const About = () => (
         <SectionLabel label="Director" />
         <div className="mt-10">
           <PersonProfile person={director} />
+        </div>
+      </div>
+    </section>
+
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-16 md:py-24">
+        <SectionLabel label="Creative" />
+        <div className="mt-10">
+          <PersonProfile person={creative} />
         </div>
       </div>
     </section>

@@ -20,10 +20,11 @@ const PersonProfile = ({ person, lead }: { person: Person; lead?: string }) => (
         </Reveal>
       ) : null}
       <p className="font-body text-[24px] md:text-[30px] leading-tight">{person.name}</p>
-      <p lang="th" className="mt-1 font-thai text-[15px] text-foreground/75">{person.nameTh}</p>
+      {person.nameTh ? <p lang="th" className="mt-1 font-thai text-[15px] text-foreground/75">{person.nameTh}</p> : null}
       <p className="mt-2 font-mono text-[11px] tracking-[0.18em] uppercase text-muted-foreground">{person.role}</p>
-      <p lang="th" className="mt-6 max-w-[62ch] font-thai thai-wrap text-[16px] md:text-[17px] leading-[1.8] text-foreground/85">{person.bio}</p>
+      {person.bio ? <p lang="th" className="mt-6 max-w-[62ch] font-thai thai-wrap text-[16px] md:text-[17px] leading-[1.8] text-foreground/85">{person.bio}</p> : null}
 
+      {person.credits?.length ? (
       <ul className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6">
         {person.credits.map((credit) => (
           <li key={credit.title}>
@@ -41,6 +42,7 @@ const PersonProfile = ({ person, lead }: { person: Person; lead?: string }) => (
           </li>
         ))}
       </ul>
+      ) : null}
 
       {person.more ? (
         person.more.url.startsWith("/") ? (

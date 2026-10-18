@@ -2,6 +2,7 @@
 
 import founderPortrait from "@/assets/team/founder-portrait.jpg?as=picture";
 import directorPortrait from "@/assets/team/director-niti.jpg?as=picture";
+import creativePortrait from "@/assets/team/creative-rommy.jpg?as=picture";
 import audiQ8 from "@/assets/credits/audi-q8.jpg?as=picture";
 import zolza from "@/assets/credits/zolza.jpg?as=picture";
 import koetKaeChepTo from "@/assets/credits/koet-kae-chep-to.jpg?as=picture";
@@ -20,18 +21,18 @@ export type Credit = {
 
 export type Person = {
   name: string;
-  nameTh: string;
+  nameTh?: string;
   role: string;
   portrait: PictureData;
   /** A short bio in Thai — what they bring, not a list of adjectives. */
-  bio: string;
-  credits: Credit[];
+  bio?: string;
+  credits?: Credit[];
   /** Where to see more of their work. */
   more?: { label: string; url: string };
 };
 
 export const founder: Person = {
-  name: "Ratthakans Suwanphakdee",
+  name: "Ratthakans",
   nameTh: "รัฐกันต์ สุวรรณภักดี",
   role: "Founder & Creative Director",
   portrait: founderPortrait,
@@ -78,4 +79,10 @@ export const director: Person = {
     },
   ],
   more: { label: "krafx.com", url: "https://krafx.com" },
+};
+
+export const creative: Person = {
+  name: "Rommy",
+  role: "Creative",
+  portrait: creativePortrait,
 };

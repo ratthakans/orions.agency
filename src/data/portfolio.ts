@@ -30,8 +30,6 @@ export type SiteItem = {
   note: string;
   /** Screenshot of the live home page (1440×900 viewport), when it loads. */
   shot?: PictureData;
-  /** Set while the live site is broken: the card is left off the board. */
-  offline?: boolean;
 };
 
 /** An event the studio produced — photographed, not linked unless public. */
@@ -238,26 +236,6 @@ const digitalSites: SiteItem[] = [
     note: "Sparkling cider vinegar — เปรี้ยว ซ่า ดื่มง่าย ในแบบที่ SET ชีวิตให้ FRESH.",
   },
   {
-    name: "Siam Elite Consulting",
-    domain: "siamelite.consulting",
-    offline: true,
-    shot: siteShot("siam-elite"),
-    url: "https://www.siamelite.consulting",
-    kind: "Website",
-    niche: "Consulting",
-    note: "ที่ปรึกษาวีซ่าและอสังหาฯ ครบวงจรสำหรับชาวต่างชาติในเชียงใหม่.",
-  },
-  {
-    name: "LUMA Academy",
-    domain: "luma-academy-kappa.vercel.app",
-    offline: true,
-    shot: siteShot("luma-academy"),
-    url: "https://luma-academy-kappa.vercel.app",
-    kind: "Website",
-    niche: "EdTech",
-    note: "สถาบันเรียนเทรด Forex — หลักสูตรไล่ระดับ จากศูนย์สู่มืออาชีพ.",
-  },
-  {
     name: "B-Healthy",
     domain: "b-healthy-ten.vercel.app",
     shot: siteShot("b-healthy"),
@@ -306,7 +284,7 @@ const filmAndMotion: VideoItem[] = [...spread(videoFilm, zolzaFilms, 3), ...long
 
 export const portfolio: PortCategory[] = [
   { key: "cases", chip: "Selected work", n: "01", title: "Selected work", sub: "Client brand cases", cases: caseStudies },
-  { key: "digital", chip: "Digital experience", n: "02", title: "Digital experience", sub: "Live sites & applications", sites: digitalSites.filter((site) => !site.offline) },
+  { key: "digital", chip: "Digital experience", n: "02", title: "Digital experience", sub: "Live sites & applications", sites: digitalSites },
   { key: "event", chip: "Event", n: "03", title: "Event", sub: "Summits · launches · concerts · galas", events },
   { key: "film", chip: "Film & motion", n: "04", title: "Film & Motion", sub: "Brand film · long-form", videos: filmAndMotion, base: 240 },
   { key: "music", chip: "Music video", n: "05", title: "Music video", sub: "Artists · covers · live", videos: musicVids, base: 240 },

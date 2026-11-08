@@ -15,7 +15,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
       <Nav />
       <main
         id="main"
-        className="flex-1 relative z-10 bg-background pb-14 md:pb-0"
+        className="flex-1 relative z-10 bg-background"
       >
         {children}
       </main>

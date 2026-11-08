@@ -38,7 +38,7 @@ const Nav = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-foreground/10">
       <div className="px-6 md:px-10 h-[64px] flex items-center justify-between text-foreground">
-        <Link to="/" viewTransition aria-label="ORIONS" className="text-foreground relative z-[60] inline-flex items-center">
+        <Link to="/" viewTransition aria-label="ORIONS" className="text-foreground relative z-[60] inline-flex min-h-11 items-center">
           <span
             className={`inline-block overflow-hidden align-middle transition-[max-width] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
               scrolled && !open ? "max-w-[18px] md:max-w-[22px]" : "max-w-[160px]"
@@ -88,7 +88,7 @@ const Nav = () => {
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
-          className="lg:hidden relative z-[60] flex flex-col items-end gap-[5px] py-2"
+          className="lg:hidden relative z-[60] flex min-h-11 min-w-11 flex-col items-end justify-center gap-[5px]"
         >
           <span className={`block h-px bg-foreground transition-all duration-300 ${open ? "w-5 translate-y-[6px] rotate-45" : "w-5"}`} />
           <span className={`block h-px bg-foreground transition-all duration-300 ${open ? "opacity-0" : "w-4"}`} />
@@ -121,9 +121,9 @@ const Nav = () => {
             </Link>
           ))}
         </nav>
-        <div className="px-6 pt-4 pb-8 font-mono text-[11px] tracking-[0.22em] uppercase text-muted-foreground flex flex-col gap-1.5">
-          <a href="mailto:hello@orions.agency" className="hover:text-foreground transition-colors">hello@orions.agency</a>
-          <a href="tel:+66893542628" className="hover:text-foreground transition-colors">+66 89 354 2628</a>
+        <div className="px-6 pt-4 pb-8 font-mono text-[11px] tracking-[0.22em] uppercase text-muted-foreground flex flex-col items-start">
+          <a href="mailto:hello@orions.agency" className="inline-flex min-h-11 items-center lg:min-h-0 hover:text-foreground transition-colors">hello@orions.agency</a>
+          <a href="tel:+66893542628" className="inline-flex min-h-11 items-center lg:min-h-0 hover:text-foreground transition-colors">+66 89 354 2628</a>
         </div>
       </div>
     </header>

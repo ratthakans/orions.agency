@@ -37,9 +37,9 @@ export const principles = [
   "One story. Many expressions.",
 ];
 
-export type ServiceSlug = "brand-strategy" | "creative-communication" | "brand-experience";
+type ServiceSlug = "brand-strategy" | "creative-communication" | "brand-experience";
 
-export type Service = { slug: ServiceSlug; n: string; name: string; line: string; items: string[] };
+type Service = { slug: ServiceSlug; n: string; name: string; line: string; items: string[] };
 
 export const services: Service[] = [
   {
@@ -67,7 +67,7 @@ export const services: Service[] = [
 
 export type ApproachSlug = "creative-unlock" | "stories-embed";
 
-export type Approach = {
+type Approach = {
   slug: ApproachSlug;
   name: string;
   line: string;

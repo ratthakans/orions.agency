@@ -7,7 +7,7 @@ import { approaches, brand, services } from "@/data/practice";
  *  rarely. Everything about the offer (slogan, description, what we know, the
  *  services and approaches we sell) is computed from src/data/practice.ts, so
  *  renaming a service updates the pages and the structured data together. */
-const SITE = "https://orions.agency";
+import { SITE_URL } from "@/lib/site";
 
 const [organization, professionalService, website] = [
   {
@@ -15,8 +15,8 @@ const [organization, professionalService, website] = [
     "@type": "Organization",
     "name": "ORIONS",
     "legalName": "ORIONS Creative Co., Ltd.",
-    "url": "https://orions.agency",
-    "logo": "https://orions.agency/favicon.jpg",
+    "url": SITE_URL,
+    "logo": `${SITE_URL}/favicon.jpg`,
     "founder": {
       "@type": "Person",
       "name": "Ratthakans Suwanphakdee",
@@ -55,8 +55,8 @@ const [organization, professionalService, website] = [
   {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "image": "https://orions.agency/og-brand.jpg",
-    "url": "https://orions.agency",
+    "image": `${SITE_URL}/og-brand.jpg`,
+    "url": SITE_URL,
     "telephone": "+66-89-354-2628",
     "email": "hello@orions.agency",
     "address": {
@@ -77,12 +77,12 @@ const [organization, professionalService, website] = [
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "ORIONS",
-    "url": "https://orions.agency",
+    "url": SITE_URL,
     "inLanguage": "th-TH",
     "publisher": {
       "@type": "Organization",
       "name": "ORIONS",
-      "url": "https://orions.agency"
+      "url": SITE_URL
     }
   }
 ] as Record<string, unknown>[];
@@ -106,7 +106,7 @@ export const siteSchema: Record<string, unknown>[] = [
       name: "Services and signature approaches",
       itemListElement: [...services, ...approaches].map((item) => ({
         "@type": "Offer",
-        itemOffered: { "@type": "Service", name: item.name, url: `${SITE}/services#${item.slug}` },
+        itemOffered: { "@type": "Service", name: item.name, url: `${SITE_URL}/services#${item.slug}` },
       })),
     },
   },

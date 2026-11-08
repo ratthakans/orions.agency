@@ -33,7 +33,7 @@ export type SiteItem = {
 };
 
 /** An event the studio produced — photographed, not linked unless public. */
-export type EventItem = {
+type EventItem = {
   title: string;
   /** Format, shown as a mono chip ("Product launch", "Summit & expo"). */
   kind: string;
@@ -90,7 +90,7 @@ const longformVids: VideoItem[] = [
   "M6FrUJoYpDI",
 ].map((id) => ({ title: "Long-form", id }));
 
-export type PortCategory = {
+type PortCategory = {
   key: string;
   chip: string;
   n: string;

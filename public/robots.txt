@@ -46,4 +46,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://orions.agency/sitemap.xml
+Sitemap: https://www.orions.agency/sitemap.xml

@@ -1,3 +1,4 @@
+import { SITE_URL } from "@/lib/site";
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
@@ -26,7 +27,7 @@ const Index = () => (
       title="ORIONS — Stories, Refined. · Independent Creative Studio"
       description="ORIONS คือ independent creative studio — ค้นหาว่าอะไรคือสิ่งที่สำคัญจริงของแบรนด์ ทำให้มันคมขึ้น และทำให้เรื่องนั้นมีชีวิตอยู่ในทุกสิ่งที่แบรนด์ทำ"
       path="/"
-      schema={{ "@context": "https://schema.org", "@type": "Organization", name: "ORIONS", url: "https://orions.agency", slogan: "Stories, Refined.", description: "ORIONS is an independent creative studio. We don't reinvent brands. We refine what makes them worth caring about." }}
+      schema={{ "@context": "https://schema.org", "@type": "Organization", name: "ORIONS", url: SITE_URL, slogan: "Stories, Refined.", description: "ORIONS is an independent creative studio. We don't reinvent brands. We refine what makes them worth caring about." }}
     />
 
     {/* Concept, part one: the master idea and the belief under it. */}

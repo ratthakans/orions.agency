@@ -19,9 +19,9 @@ const PUBLIC_PAGES = ["/", "/work", "/services", "/about", "/archive", "/contact
 
 describe("site shape", () => {
   it("publishes exactly the public pages, every case and every archive piece", () => {
-    PUBLIC_PAGES.forEach((path) => expect(sitemapUrls).toContain(`https://orions.agency${path}`));
-    caseStudies.forEach((item) => expect(sitemapUrls).toContain(`https://orions.agency/work/${item.slug}`));
-    archive.forEach((piece) => expect(sitemapUrls).toContain(`https://orions.agency/archive/${piece.slug}`));
+    PUBLIC_PAGES.forEach((path) => expect(sitemapUrls).toContain(`https://www.orions.agency${path}`));
+    caseStudies.forEach((item) => expect(sitemapUrls).toContain(`https://www.orions.agency/work/${item.slug}`));
+    archive.forEach((piece) => expect(sitemapUrls).toContain(`https://www.orions.agency/archive/${piece.slug}`));
     const pages = Array.from(sitemapUrls).filter((url) => !/\/(work|archive)\/./.test(url));
     expect(pages).toHaveLength(PUBLIC_PAGES.length);
   });

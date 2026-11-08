@@ -5,8 +5,7 @@ import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
 import Picture from "@/components/Picture";
 import { archive, getAdjacentPieces, getPiece } from "@/data/archive";
-
-const SITE_URL = "https://orions.agency";
+import { SITE_URL } from "@/lib/site";
 
 /** One piece. Text only, one measure, a pull line where the essay turns.
  *  It ends on the next piece rather than a sales band — the Archive is read,

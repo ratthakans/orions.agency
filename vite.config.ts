@@ -9,7 +9,7 @@ import { readFileSync } from "node:fs";
 /** Slugs read from the data files as text: importing them here would pull in
  *  their `?as=picture` image imports before any plugin exists to resolve them. */
 const slugsIn = (file: string) =>
-  Array.from(readFileSync(new URL(file, import.meta.url), "utf8").matchAll(/^    slug: "([a-z0-9-]+)",$/gm), (m) => m[1]);
+  Array.from(readFileSync(new URL(file, import.meta.url), "utf8").matchAll(/^ {4}slug: "([a-z0-9-]+)",$/gm), (m) => m[1]);
 
 /** Every public URL, listed rather than only crawled: a page nothing links to
  *  (404, privacy) would otherwise be skipped silently. crawlLinks still runs,

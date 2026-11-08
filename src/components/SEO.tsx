@@ -17,7 +17,7 @@ interface SEOProps {
   ogType?: string;
 }
 
-const SITE_URL = "https://orions.agency";
+import { SITE_URL } from "@/lib/site";
 const DEFAULT_OG_IMAGE = `${SITE_URL}/og-brand.jpg`;
 
 const toAbsoluteUrl = (path: string) => (path.startsWith("http") ? path : `${SITE_URL}${path}`);

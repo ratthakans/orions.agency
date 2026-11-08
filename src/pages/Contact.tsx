@@ -22,7 +22,7 @@ const packageGroups: { label: string; options: string[] }[] = [
   { label: "Signature approaches", options: approaches.map((item) => item.name) },
 ];
 
-export const packageOptions = packageGroups.flatMap((group) => group.options);
+const packageOptions = packageGroups.flatMap((group) => group.options);
 
 const Contact = () => {
   const { pkg } = useSearch({ from: "/contact" });
@@ -175,9 +175,9 @@ const Contact = () => {
           {/* Direct lines — minimal (timeline removed; the meta line above already says what happens next) */}
           <Reveal delay={0.25}>
             <div className="mt-12 flex flex-wrap gap-x-8 gap-y-2 font-mono text-[11px] tracking-[0.22em] uppercase text-muted-foreground">
-              <a href="mailto:hello@orions.agency" className="hover:text-foreground transition-colors">hello@orions.agency</a>
-              <a href="tel:+66893542628" className="hover:text-foreground transition-colors">+66 89 354 2628 · คุณพลอย</a>
-              <a href="https://line.me/ti/p/~orions" target="_blank" rel="noreferrer" className="hover:text-foreground transition-colors">LINE @orions</a>
+              <a href="mailto:hello@orions.agency" className="inline-flex min-h-11 items-center lg:min-h-0 hover:text-foreground transition-colors">hello@orions.agency</a>
+              <a href="tel:+66893542628" className="inline-flex min-h-11 items-center lg:min-h-0 hover:text-foreground transition-colors">+66 89 354 2628 · คุณพลอย</a>
+              <a href="https://line.me/ti/p/~orions" target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center lg:min-h-0 hover:text-foreground transition-colors">LINE @orions</a>
             </div>
           </Reveal>
         </div>
@@ -301,7 +301,7 @@ const Contact = () => {
                 </div>
                 <div className="mt-6 pt-5 border-t border-foreground/12">
                   <div className="font-mono text-[11px] tracking-[0.18em] uppercase text-muted-foreground">โทรคุยรายละเอียด — คุณพลอย · Sales Director</div>
-                  <a href="tel:+66893542628" className="mt-1.5 inline-block font-thai text-[15px] text-foreground hover:text-foreground transition-colors">089-354-2628</a>
+                  <a href="tel:+66893542628" className="mt-1.5 inline-flex min-h-11 items-center font-thai text-[15px] text-foreground hover:text-foreground transition-colors">089-354-2628</a>
                 </div>
               </div>
 
@@ -337,7 +337,7 @@ const Contact = () => {
 
       {/* Sticky mobile LINE pill */}
       <a href="https://line.me/ti/p/~orions" target="_blank" rel="noreferrer"
-        className="md:hidden fixed bottom-5 right-5 z-40 inline-flex items-center gap-2 bg-foreground text-background px-4 py-3 font-mono text-[11px] tracking-[0.22em] uppercase shadow-lg"
+        className="md:hidden fixed bottom-5 right-5 z-40 inline-flex min-h-11 items-center gap-2 bg-foreground text-background px-4 py-3 font-mono text-[11px] tracking-[0.22em] uppercase shadow-lg"
         aria-label="Chat on LINE">
         <MessageCircle className="w-4 h-4" /> Chat
       </a>

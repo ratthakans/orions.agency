@@ -6,7 +6,7 @@ export type PictureData = {
   sources: Record<string, string>;
 };
 
-export type ImgSrc = string | PictureData;
+type ImgSrc = string | PictureData;
 
 const isPicture = (s: ImgSrc): s is PictureData =>
   typeof s === "object" && s !== null && "img" in s;

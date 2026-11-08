@@ -25,9 +25,9 @@ import photo10 from "@/assets/archive/10.jpg?as=picture";
 import photo11 from "@/assets/archive/11.jpg?as=picture";
 import photo12 from "@/assets/archive/12.jpg?as=picture";
 
-export type ArchiveTheme = "Point of View" | "Brand Idea" | "Method" | "Signature Approaches";
+type ArchiveTheme = "Point of View" | "Brand Idea" | "Method" | "Signature Approaches";
 
-export type ArchivePiece = {
+type ArchivePiece = {
   slug: string;
   n: string;
   theme: ArchiveTheme;

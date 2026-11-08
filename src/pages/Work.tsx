@@ -8,8 +8,7 @@ import SectionLabel from "@/components/SectionLabel";
 import { portfolio, type GalleryImage, type VideoItem } from "@/data/portfolio";
 import type { SiteItem } from "@/data/portfolio";
 import Picture, { type PictureData } from "@/components/Picture";
-
-const SITE_URL = "https://orions.agency";
+import { SITE_URL } from "@/lib/site";
 
 /** Company flagship showreel — featured at the top of /work. */
 const SHOWREEL_ID = "308_jYAVkwI";
@@ -119,7 +118,7 @@ const Work = () => {
                 type="button"
                 onClick={() => setActive(c.key)}
                 aria-pressed={active === c.key}
-                className={`font-mono text-[11px] tracking-[0.08em] uppercase px-4 py-2.5 rounded-none border transition-colors ${
+                className={`min-h-11 lg:min-h-0 font-mono text-[11px] tracking-[0.08em] uppercase px-4 py-2.5 rounded-none border transition-colors ${
                   active === c.key
                     ? "bg-foreground border-foreground text-background"
                     : "border-foreground/20 text-foreground/75 hover:border-foreground/60 hover:text-foreground"
@@ -261,12 +260,6 @@ const Work = () => {
               </div>
             ) : cat.gallery ? (
               <div className="mt-6 columns-2 md:columns-3 gap-2.5 md:gap-3">
-                {/* Deterministic order, matching the data file's own contract
-                    ("Order is deterministic — no client-side shuffle (SSG-safe)").
-                    The shuffle helper was removed when the randomised-order
-                    hydration mismatch was fixed, but this call site survived it — selecting
-                    this board threw `shuffle is not defined` and dropped the whole
-                    page into the error boundary. */}
                 {(cat.gallery as GalleryImage[]).map((g, i) => (
                   <button
                     key={g.src.img.src}
@@ -377,7 +370,7 @@ const Work = () => {
                     type="button"
                     onClick={() => setApproach(m.slug as ApproachSlug | "all")}
                     aria-pressed={approach === m.slug}
-                    className={`font-mono text-[11px] tracking-[0.16em] uppercase transition-colors ${approach === m.slug ? "text-foreground" : "text-muted-foreground hover:text-foreground/80"}`}
+                    className={`min-h-11 lg:min-h-0 font-mono text-[11px] tracking-[0.16em] uppercase transition-colors ${approach === m.slug ? "text-foreground" : "text-muted-foreground hover:text-foreground/80"}`}
                   >
                     {m.name}
                   </button>

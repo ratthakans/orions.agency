@@ -1,3 +1,4 @@
+import { SITE_URL } from "@/lib/site";
 import { Link, useParams, Navigate } from "@tanstack/react-router";
 import { ArrowUpRight, ArrowLeft } from "lucide-react";
 import { getApproach } from "@/data/practice";
@@ -16,7 +17,7 @@ const CaseStudy = () => {
   const { next } = getAdjacent(slug);
   const total = String(caseStudies.length).padStart(2, "0");
   const frames = cs.gallery.filter((img) => img !== cs.cover);
-  const url = `https://orions.agency/work/${cs.slug}`;
+  const url = `${SITE_URL}/work/${cs.slug}`;
 
   const schema = [
     {
@@ -28,13 +29,13 @@ const CaseStudy = () => {
       about: cs.niche,
       dateCreated: cs.year,
       url,
-      creator: { "@type": "Organization", name: "ORIONS", url: "https://orions.agency" },
+      creator: { "@type": "Organization", name: "ORIONS", url: SITE_URL },
     },
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Work", item: "https://orions.agency/work" },
+        { "@type": "ListItem", position: 1, name: "Work", item: `${SITE_URL}/work` },
         { "@type": "ListItem", position: 2, name: cs.title, item: url },
       ],
     },

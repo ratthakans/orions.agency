@@ -45,10 +45,20 @@ const W = 21 / 9; // cinematic wide
 const R = 9 / 16; // vertical reel
 
 const reels: VideoItem[] = [
-  "ou6CDAPuWMg", "z1fjfOqakRo", "gZCsL34i2yA", "_bK18EokLEA", "sez1rX09od0",
-  "ohfWT1EsA9A", "EZ4Ledfaw38", "6QDdextE3CM", "4NxMIpbhVs8", "-NcOTtaLboI",
-  "8JUMCj1i5xM", "w3bTBNLl8y0", "8FO-2vQqtPA",
-].map((id) => ({ title: "Reel", id, ar: R }));
+  // Self-hosted: drop <slug>.mp4 + <slug>.jpg in public/work/reels and list it.
+  {
+    title: "MST Golf — Fitting Centre",
+    id: "mst-golf-fitting",
+    src: "/work/reels/mst-golf-fitting.mp4",
+    poster: "/work/reels/mst-golf-fitting.jpg",
+    ar: R,
+  },
+  ...[
+    "ou6CDAPuWMg", "z1fjfOqakRo", "gZCsL34i2yA", "_bK18EokLEA", "sez1rX09od0",
+    "ohfWT1EsA9A", "EZ4Ledfaw38", "6QDdextE3CM", "4NxMIpbhVs8", "-NcOTtaLboI",
+    "8JUMCj1i5xM", "w3bTBNLl8y0", "8FO-2vQqtPA",
+  ].map((id) => ({ title: "Reel", id, ar: R })),
+];
 
 // ZOLZA films — self-hosted (public/work/film, 1920×1080 H.264), so they play
 // without YouTube chrome. Add a clip: drop <slug>.mp4 + <slug>.jpg and list it.

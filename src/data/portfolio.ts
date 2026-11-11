@@ -47,6 +47,13 @@ const R = 9 / 16; // vertical reel
 const reels: VideoItem[] = [
   // Self-hosted: drop <slug>.mp4 + <slug>.jpg in public/work/reels and list it.
   {
+    title: "Ganesha Royal",
+    id: "ganesha-royal",
+    src: "/work/reels/ganesha-royal.mp4",
+    poster: "/work/reels/ganesha-royal.jpg",
+    ar: R,
+  },
+  {
     title: "MST Golf — Fitting Centre",
     id: "mst-golf-fitting",
     src: "/work/reels/mst-golf-fitting.mp4",

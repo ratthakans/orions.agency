@@ -87,7 +87,7 @@ const [organization, professionalService, website] = [
   }
 ] as Record<string, unknown>[];
 
-const description = `ORIONS is an ${brand.descriptor.toLowerCase()}. ${brand.belief.en}`;
+const description = `ORIONS is a ${brand.descriptor.toLowerCase()}. ${brand.belief.en}`;
 
 export const siteSchema: Record<string, unknown>[] = [
   {

@@ -6,7 +6,7 @@
  *  founder's words are used as written; nothing here is paraphrased. */
 
 export const brand = {
-  descriptor: "Independent Creative Studio",
+  descriptor: "Boutique Creative Studio",
   master: "Stories, Refined.",
   belief: {
     th: "ทุกแบรนด์มีเรื่องราวของตัวเองอยู่แล้ว ORIONS ไม่ได้เข้ามาเพื่อสร้างเรื่องใหม่ทุกครั้ง แต่เพื่อค้นหาว่าอะไรคือสิ่งที่สำคัญจริง ทำให้มันคมขึ้น และทำให้เรื่องนั้นมีชีวิตอยู่ในทุกสิ่งที่แบรนด์ทำ",

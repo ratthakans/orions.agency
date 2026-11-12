@@ -4,7 +4,7 @@ import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import SectionLabel from "@/components/SectionLabel";
 import CTABand from "@/components/CTABand";
-import { approaches, method, services } from "@/data/practice";
+import { approaches, brandIdea, method, services } from "@/data/practice";
 import { caseStudies } from "@/data/caseStudies";
 
 /** Services: three services, then the two signature approaches that combine
@@ -24,6 +24,28 @@ const Services = () => (
         <Reveal emphasis="lead">
           <h1 className="mt-9 h-display-lg max-w-[18ch]">Three services. Two signature approaches.</h1>
         </Reveal>
+      </div>
+    </section>
+
+    {/* The idea the services serve — where a story actually lives. */}
+    <section className="section-paper px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1280px] mx-auto py-16 md:py-24 grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-24">
+        <div>
+          <SectionLabel label="Brand idea" />
+          <Reveal emphasis="lead">
+            <h2 className="mt-8 h-display-md max-w-[20ch]">{brandIdea.line}</h2>
+          </Reveal>
+          <p className="mt-6 font-serif text-[22px] md:text-[28px] leading-[1.15]">{brandIdea.close}</p>
+        </div>
+        <div className="grid grid-cols-2 border-t border-foreground/15 lg:self-end">
+          {brandIdea.parts.map((part, i) => (
+            <div key={part.name} className={`py-7 border-b border-foreground/15 ${i % 2 === 0 ? "pr-4 border-r" : "pl-4 md:pl-6"}`}>
+              {/* Sized so the longest word, EXPERIENCE, fits half a phone. */}
+              <h3 className="font-display text-[14px] min-[360px]:text-[17px] sm:text-[22px] md:text-[28px] leading-[1.1]">{part.name}</h3>
+              <p className="mt-2 font-body text-[14px] md:text-[17px] text-muted-foreground">{part.line}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
 

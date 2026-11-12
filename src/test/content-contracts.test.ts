@@ -134,7 +134,7 @@ describe("blueprint", () => {
     const offers = (service.hasOfferCatalog as { itemListElement: { itemOffered: { name: string } }[] }).itemListElement;
     expect(offers.map((o) => o.itemOffered.name)).toEqual([...services, ...approaches].map((x) => x.name));
     expect(fromRoot("public/llms.txt")).toContain("Stories, Refined.");
-    expect(fromRoot("src/data/practice.ts")).toContain("Independent Creative Studio");
+    expect(fromRoot("src/data/practice.ts")).toContain("Boutique Creative Studio");
   });
 
   /** The master line is Newsreader, and heading spans never fall to the Thai

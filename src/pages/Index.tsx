@@ -9,7 +9,14 @@ import Picture from "@/components/Picture";
 import HeroReel from "@/components/HeroReel";
 import heroPoster from "@/assets/hero-reel-poster.jpg?as=picture";
 import founderPortrait from "@/assets/team/founder-portrait.jpg?as=picture";
-import { approaches, brand, brandIdea, getApproach, services } from "@/data/practice";
+import audiQ8 from "@/assets/credits/audi-q8.jpg?as=picture";
+import zolza from "@/assets/credits/zolza.jpg?as=picture";
+import keyArtA from "@/assets/work/artdir/artdir-06.jpg?as=picture";
+import keyArtB from "@/assets/work/artdir/artdir-17.jpg?as=picture";
+import keyArtC from "@/assets/work/artdir/artdir-10.jpg?as=picture";
+import campaignPhoto from "@/assets/work/photography/04.jpg?as=picture";
+import type { PictureData } from "@/components/Picture";
+import { approaches, brand, getApproach, services } from "@/data/practice";
 import { caseStudies } from "@/data/caseStudies";
 
 const featuredSlugs = ["heavy-organizer", "hongmove", "khaoyai-country-club"];
@@ -18,16 +25,31 @@ const featuredCases = featuredSlugs.flatMap((slug) => {
   return item ? [item] : [];
 });
 
+type Plate = { title: string; kind: string; image: PictureData };
+const plateRows: Plate[][] = [
+  [
+    { title: "Key art", kind: "Art direction", image: keyArtA },
+    { title: "Campaign", kind: "Photography", image: campaignPhoto },
+    { title: "Audi Q8 TFSI e", kind: "Brand film", image: audiQ8 },
+  ],
+  [
+    { title: "ZOLZA", kind: "Brand world", image: zolza },
+    { title: "Key art", kind: "Art direction", image: keyArtB },
+    { title: "Key art", kind: "Art direction", image: keyArtC },
+  ],
+];
+const plates = plateRows.flat();
+
 /** Home runs in the founder's order — concept, work, services, about — and
  *  closes on the promise. Each blueprint layer appears on exactly one page;
  *  what shows here is the one-line form, with the detail a click away. */
 const Index = () => (
   <div>
     <SEO
-      title="ORIONS — Stories, Refined. · Independent Creative Studio"
+      title="ORIONS — Stories, Refined. · Boutique Creative Studio"
       description="ORIONS คือ independent creative studio — ค้นหาว่าอะไรคือสิ่งที่สำคัญจริงของแบรนด์ ทำให้มันคมขึ้น และทำให้เรื่องนั้นมีชีวิตอยู่ในทุกสิ่งที่แบรนด์ทำ"
       path="/"
-      schema={{ "@context": "https://schema.org", "@type": "Organization", name: "ORIONS", url: SITE_URL, slogan: "Stories, Refined.", description: "ORIONS is an independent creative studio. We don't reinvent brands. We refine what makes them worth caring about." }}
+      schema={{ "@context": "https://schema.org", "@type": "Organization", name: "ORIONS", url: SITE_URL, slogan: "Stories, Refined.", description: "ORIONS is a boutique creative studio. We don't reinvent brands. We refine what makes them worth caring about." }}
     />
 
     {/* Concept, part one: the master idea and the belief under it. */}
@@ -36,7 +58,7 @@ const Index = () => (
       <div className="max-w-[1400px] mx-auto w-full pt-36 pb-16 md:pb-20 relative z-10">
         <div className="flex items-start justify-between gap-8">
           <Reveal><SectionLabel label={`ORIONS · ${brand.descriptor}`} /></Reveal>
-          <span className="hidden md:block font-mono text-[11px] tracking-[0.22em] uppercase text-foreground/75">Showreel 2026 · ORIONS</span>
+          <span className="hidden md:block font-mono text-[11px] tracking-[0.22em] uppercase text-foreground/75">Founder-led · Bangkok</span>
         </div>
         <Reveal delay={0.08} emphasis="lead">
           <h1 className="mt-12 md:mt-16 hero-title">
@@ -68,30 +90,85 @@ const Index = () => (
       </div>
     </section>
 
-    {/* Concept, part two: one idea — where a story actually lives. The heading
-        takes the left column instead of leaving it to a label. */}
-    <section className="section-paper px-6 md:px-10 border-t border-foreground/15">
+    {/* The work leads: six frames picked for craft, before a word of method.
+        One row height per row, each frame at its own ratio — a contact sheet. */}
+    <section className="px-6 md:px-10 border-t border-foreground/15">
+      <div className="max-w-[1400px] mx-auto py-14 md:py-20">
+        <div className="flex items-end justify-between gap-8">
+          <SectionLabel label="Selected frames" />
+          <Link to="/work" className="cta-link">
+            <span>View all work</span>
+            <ArrowUpRight className="w-4 h-4" />
+          </Link>
+        </div>
+        <div aria-hidden className="sprocket-edge mt-10" />
+        {plateRows.map((row, r) => (
+          <div key={r} className="mt-2.5 md:mt-3 grid grid-cols-2 gap-2.5 md:flex md:gap-3">
+            {row.map((plate) => {
+              const ar = plate.image.img.w / plate.image.img.h;
+              const n = plates.indexOf(plate) + 1;
+              return (
+                <Link
+                  key={plate.title + n}
+                  to="/work"
+                  style={{ "--ar": ar } as React.CSSProperties}
+                  className={`group relative block overflow-hidden border border-foreground/12 hover:border-foreground/40 transition-colors md:[flex:var(--ar)_1_0%] md:aspect-[var(--ar)] ${
+                    ar > 1.3 ? "col-span-2 aspect-video" : "aspect-[4/5]"
+                  }`}
+                >
+                  <Picture
+                    data={plate.image}
+                    alt={`${plate.title} — ${plate.kind}`}
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  />
+                  <span className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/70 to-transparent pointer-events-none" />
+                  <span aria-hidden className="frame-index absolute left-0 bottom-0 pointer-events-none">{String(n).padStart(3, "0")}</span>
+                  <span className="absolute right-3 bottom-2.5 text-right font-mono text-[10px] tracking-[0.16em] uppercase text-white/90 pointer-events-none">
+                    {plate.title} · {plate.kind}
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
+        ))}
+        <div aria-hidden className="sprocket-edge mt-2.5 md:mt-3" />
+      </div>
+    </section>
+
+    {/* About, as a face: on a founder-led studio the person is the claim. The
+        heading holds the left column; the portrait and the line sit right. */}
+    <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1400px] mx-auto py-16 md:py-24 grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-24">
         <div>
-          <SectionLabel label="Brand idea" />
+          <SectionLabel label="About" />
           <Reveal emphasis="lead">
-            <h2 className="mt-8 h-display-md max-w-[20ch]">{brandIdea.line}</h2>
+            <h2 className="mt-8 h-display-md max-w-[16ch]">Small by choice. One eye on every frame.</h2>
           </Reveal>
-          <p className="mt-6 font-serif text-[22px] md:text-[28px] leading-[1.15]">{brandIdea.close}</p>
         </div>
-        <div className="grid grid-cols-2 border-t border-foreground/15 lg:self-end">
-          {brandIdea.parts.map((part, i) => (
-            <div key={part.name} className={`py-7 border-b border-foreground/15 ${i % 2 === 0 ? "pr-4 border-r" : "pl-4 md:pl-6"}`}>
-              {/* Sized so the longest word, EXPERIENCE, fits half a phone. */}
-              <h3 className="font-display text-[14px] min-[360px]:text-[17px] sm:text-[22px] md:text-[28px] leading-[1.1]">{part.name}</h3>
-              <p className="mt-2 font-body text-[14px] md:text-[17px] text-muted-foreground">{part.line}</p>
-            </div>
-          ))}
+        <div className="grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-8 md:gap-12 items-start">
+          <Picture
+            data={founderPortrait}
+            alt="Ratthakans — Founder & Creative Director, ORIONS"
+            loading="lazy"
+            className="w-36 h-44 md:w-44 md:h-56 object-cover object-top grayscale-[0.3] saturate-[0.85]"
+          />
+          <div>
+            <p lang="th" className="max-w-[520px] font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.8] text-foreground/80">
+              งานสร้างสรรค์ที่ดีไม่ได้เกิดจากจำนวนคน แต่เกิดจากคนที่เห็นภาพทั้งหมดพร้อมกัน
+            </p>
+            <p lang="th" className="mt-6 font-thai text-[15px]">รัฐกันต์ สุวรรณภักดี</p>
+            <p className="mt-1 font-mono text-[11px] tracking-[0.18em] uppercase text-muted-foreground">Founder &amp; Creative Director</p>
+            <Link to="/about" className="cta-link mt-8">
+              <span>About ORIONS</span>
+              <ArrowUpRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </div>
     </section>
 
-    <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
+    <section className="px-6 md:px-10 border-t border-foreground/15">
       <div className="max-w-[1400px] mx-auto py-16 md:py-24">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
           <div>
@@ -168,38 +245,6 @@ const Index = () => (
               <ArrowUpRight className="w-4 h-4" />
             </Link>
           ))}
-        </div>
-      </div>
-    </section>
-
-    {/* About, as a face: on a founder-led studio the person is the claim. The
-        heading holds the left column; the portrait and the line sit right. */}
-    <section className="bg-surface px-6 md:px-10 border-t border-foreground/15">
-      <div className="max-w-[1400px] mx-auto py-16 md:py-24 grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-24">
-        <div>
-          <SectionLabel label="About" />
-          <Reveal emphasis="lead">
-            <h2 className="mt-8 h-display-md max-w-[16ch]">The person behind the work.</h2>
-          </Reveal>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-8 md:gap-12 items-start">
-          <Picture
-            data={founderPortrait}
-            alt="Ratthakans — Founder & Creative Director, ORIONS"
-            loading="lazy"
-            className="w-36 h-44 md:w-44 md:h-56 object-cover object-top grayscale-[0.3] saturate-[0.85]"
-          />
-          <div>
-            <p lang="th" className="max-w-[520px] font-thai thai-wrap text-[16px] md:text-[18px] leading-[1.8] text-foreground/80">
-              งานสร้างสรรค์ที่ดีไม่ได้เกิดจากจำนวนคน แต่เกิดจากคนที่เห็นภาพทั้งหมดพร้อมกัน
-            </p>
-            <p lang="th" className="mt-6 font-thai text-[15px]">รัฐกันต์ สุวรรณภักดี</p>
-            <p className="mt-1 font-mono text-[11px] tracking-[0.18em] uppercase text-muted-foreground">Founder &amp; Creative Director</p>
-            <Link to="/about" className="cta-link mt-8">
-              <span>About ORIONS</span>
-              <ArrowUpRight className="w-4 h-4" />
-            </Link>
-          </div>
         </div>
       </div>
     </section>

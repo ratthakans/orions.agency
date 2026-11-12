@@ -1,6 +1,6 @@
 # ORIONS — orions.agency
 
-Marketing site for **ORIONS**, an independent creative studio in Bangkok.
+Marketing site for **ORIONS**, a boutique creative studio in Bangkok.
 *Stories, Refined.* — three services, two signature approaches (`src/data/practice.ts`).
 
 ## Stack

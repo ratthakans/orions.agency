@@ -10,6 +10,10 @@ import type { SiteItem } from "@/data/portfolio";
 import Picture, { type PictureData } from "@/components/Picture";
 import { SITE_URL } from "@/lib/site";
 
+/** Cases kept on the record but off the lead board: the board shows the five
+ *  that carry the studio's taste, and these follow as a plain list. */
+const MORE_CASES = new Set(["democrat-party", "royal-thai-air-force", "palawat-party"]);
+
 /** Company flagship showreel — featured at the top of /work. */
 const SHOWREEL_ID = "308_jYAVkwI";
 
@@ -377,7 +381,7 @@ const Work = () => {
                 ))}
               </div>
               <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
-                {cat.cases.filter((cs) => approach === "all" || cs.approach === approach).map((cs) => (
+                {cat.cases.filter((cs) => !MORE_CASES.has(cs.slug) && (approach === "all" || cs.approach === approach)).map((cs) => (
                   <Link
                     key={cs.slug}
                     to="/work/$slug" params={{ slug: cs.slug }}
@@ -399,6 +403,29 @@ const Work = () => {
                   </Link>
                 ))}
               </div>
+              {(() => {
+                const more = cat.cases.filter((cs) => MORE_CASES.has(cs.slug) && (approach === "all" || cs.approach === approach));
+                if (!more.length) return null;
+                return (
+                  <div className="mt-12">
+                    <div className="font-mono text-[11px] tracking-[0.22em] uppercase text-muted-foreground">More cases</div>
+                    <ul className="mt-4 border-t border-foreground/15">
+                      {more.map((cs) => (
+                        <li key={cs.slug}>
+                          <Link
+                            to="/work/$slug" params={{ slug: cs.slug }}
+                            className="group grid grid-cols-[1fr_auto] md:grid-cols-[1fr_1.4fr_auto] items-baseline gap-x-8 gap-y-1 py-4 border-b border-foreground/15"
+                          >
+                            <span className="font-display text-[16px] md:text-[18px] leading-tight text-foreground/85 group-hover:text-foreground transition-colors">{cs.title}</span>
+                            <span lang="th" className="hidden md:block font-thai text-[13px] leading-[1.6] text-muted-foreground">{cs.verdictShort}</span>
+                            <span className="font-mono text-[10px] tracking-[0.16em] uppercase text-muted-foreground">{cs.niche} · {cs.year}</span>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                );
+              })()}
               </>
             ) : null}
           </div>

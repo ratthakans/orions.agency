@@ -47,7 +47,7 @@ const Index = () => (
   <div>
     <SEO
       title="ORIONS — Stories, Refined. · Boutique Creative Studio"
-      description="ORIONS คือ independent creative studio — ค้นหาว่าอะไรคือสิ่งที่สำคัญจริงของแบรนด์ ทำให้มันคมขึ้น และทำให้เรื่องนั้นมีชีวิตอยู่ในทุกสิ่งที่แบรนด์ทำ"
+      description="ORIONS คือ boutique creative studio — ค้นหาว่าอะไรคือสิ่งที่สำคัญจริงของแบรนด์ ทำให้มันคมขึ้น และทำให้เรื่องนั้นมีชีวิตอยู่ในทุกสิ่งที่แบรนด์ทำ"
       path="/"
       schema={{ "@context": "https://schema.org", "@type": "Organization", name: "ORIONS", url: SITE_URL, slogan: "Stories, Refined.", description: "ORIONS is a boutique creative studio. We don't reinvent brands. We refine what makes them worth caring about." }}
     />
@@ -112,20 +112,25 @@ const Index = () => (
                   key={plate.title + n}
                   to="/work"
                   style={{ "--ar": ar } as React.CSSProperties}
-                  className={`group relative block overflow-hidden border border-foreground/12 hover:border-foreground/40 transition-colors md:[flex:var(--ar)_1_0%] md:aspect-[var(--ar)] ${
-                    ar > 1.3 ? "col-span-2 aspect-video" : "aspect-[4/5]"
-                  }`}
+                  className={`group block md:[flex:var(--ar)_1_0%] ${ar > 1.3 ? "col-span-2" : ""}`}
                 >
-                  <Picture
-                    data={plate.image}
-                    alt={`${plate.title} — ${plate.kind}`}
-                    loading="lazy"
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                  />
-                  <span className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/70 to-transparent pointer-events-none" />
-                  <span aria-hidden className="frame-index absolute left-0 bottom-0 pointer-events-none">{String(n).padStart(3, "0")}</span>
-                  <span className="absolute right-3 bottom-2.5 text-right font-mono text-[10px] tracking-[0.16em] uppercase text-white/90 pointer-events-none">
-                    {plate.title} · {plate.kind}
+                  <span
+                    className={`relative block overflow-hidden border border-foreground/12 group-hover:border-foreground/40 transition-colors md:aspect-[var(--ar)] ${
+                      ar > 1.3 ? "aspect-video" : "aspect-[4/5]"
+                    }`}
+                  >
+                    <Picture
+                      data={plate.image}
+                      alt={`${plate.title} — ${plate.kind}`}
+                      loading="lazy"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    />
+                  </span>
+                  {/* Caption sits under the frame, the way a contact sheet is
+                      marked — never over the picture. */}
+                  <span className="mt-2 mb-2 flex items-baseline justify-between gap-3 font-mono text-[10px] tracking-[0.16em] uppercase">
+                    <span aria-hidden className="text-foreground/45 tabular-nums">{String(n).padStart(3, "0")}</span>
+                    <span className="text-right text-muted-foreground group-hover:text-foreground transition-colors">{plate.title} · {plate.kind}</span>
                   </span>
                 </Link>
               );

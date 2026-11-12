@@ -16,7 +16,7 @@ const About = () => (
   <div>
     <SEO
       title="About ORIONS — One creative director. Every story."
-      description="ORIONS คือ independent creative studio ในกรุงเทพฯ นำโดยรัฐกันต์ สุวรรณภักดี — งานทุกชิ้นผ่านสายตาเดียวกันตั้งแต่โจทย์จนถึงงานที่ส่งมอบ"
+      description="ORIONS คือ boutique creative studio ในกรุงเทพฯ นำโดยรัฐกันต์ สุวรรณภักดี — งานทุกชิ้นผ่านสายตาเดียวกันตั้งแต่โจทย์จนถึงงานที่ส่งมอบ"
       path="/about"
     />
 
